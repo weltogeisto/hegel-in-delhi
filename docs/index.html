@@ -1,0 +1,940 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hegel in Delhi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --shell:#5b4a92; --shell-ink:#f6f3ff; --shell-muted:#d6cff4;
+  --bezel:#2c2d3d; --box:#fcfcf8; --ink:#1d2340; --muted:#545a7c;
+  --accent:#e2457f; --accent-strong:#bf2a60; --rule:#c7c9df;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --shell:#2a2247; --shell-ink:#ece8ff; --shell-muted:#b3a9dc;
+    --bezel:#14141d; --box:#e8e6f1; --rule:#b9bbd2; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --shell:#2a2247; --shell-ink:#ece8ff; --shell-muted:#b3a9dc;
+  --bezel:#14141d; --box:#e8e6f1; --rule:#b9bbd2; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0;height:100%;background:var(--shell);color:var(--shell-ink);
+  font-family:"Pixelify Sans","Courier New",Courier,monospace;
+  font-size:17px;line-height:1.45;
+}
+.app{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;padding:14px;max-width:1520px;margin:0 auto}
+.top h1{font-size:32px;line-height:1.1;font-weight:600;margin:2px 0 6px;letter-spacing:.5px}
+.top p{margin:0;color:var(--shell-muted);max-width:62ch;font-size:16px}
+.top .day{color:var(--shell-ink);margin-top:6px}
+.console{display:flex;flex-direction:column;gap:12px;min-width:0}
+.bezel{
+  position:relative;background:var(--bezel);
+  border-radius:12px 12px 44px 12px;padding:14px 14px 14px 26px;
+  height:min(60svh,560px);height:min(60vh,560px);
+}
+@supports (height:1svh){ .bezel{height:min(60svh,560px)} }
+.led{position:absolute;left:9px;top:46%;width:7px;height:7px;border-radius:50%;background:#ff5d6c;box-shadow:0 0 6px #ff5d6c}
+canvas{display:block;width:100%;height:100%;border-radius:4px;background:#8ccf63;touch-action:none;cursor:grab}
+canvas:active{cursor:grabbing}
+.mapbtns{position:absolute;right:24px;top:22px;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+button{
+  font:inherit;font-size:15px;line-height:1.2;color:var(--ink);background:var(--box);
+  border:2px solid var(--ink);border-radius:6px;padding:6px 10px;
+  box-shadow:0 3px 0 var(--ink);cursor:pointer;
+}
+button:active{transform:translateY(2px);box-shadow:0 1px 0 var(--ink)}
+button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
+:focus-visible{outline:3px solid #ffd84d;outline-offset:2px}
+.timebar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.timebar input[type=range]{flex:1;min-width:140px;accent-color:var(--accent)}
+.timebar output{min-width:5.5em;font-size:18px}
+.note{font-size:14px;color:var(--shell-muted);margin:0}
+.side{display:flex;flex-direction:column;gap:14px;min-width:0}
+.box{
+  background:var(--box);color:var(--ink);border:3px solid var(--ink);border-radius:8px;
+  box-shadow:inset 0 0 0 3px var(--box),inset 0 0 0 5px var(--ink);
+  padding:16px 18px;
+}
+.now .place{font-weight:600;font-size:20px;margin:0 0 2px}
+.now .status{margin:0 0 10px}
+.now blockquote{margin:0;padding:10px 0 0;border-top:2px dotted var(--rule);min-height:4.4em}
+.now blockquote .t{color:var(--muted);margin-right:.4em}
+.caret{display:inline-block;width:.55em;height:1em;background:var(--ink);vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.menu{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:2px 6px;padding:10px 12px}
+.menu button{white-space:nowrap;background:none;border:0;box-shadow:none;border-radius:4px;padding:6px 4px 6px 20px;text-align:left;position:relative;font-size:16px;color:var(--ink)}
+.menu button:active{transform:none}
+.menu button[aria-selected="true"]::before{content:"▶";position:absolute;left:3px;top:6px;color:var(--accent-strong);font-size:13px}
+.panel h2{font-size:19px;margin:0 0 8px;font-weight:600}
+.entry{display:grid;grid-template-columns:3.3em minmax(0,1fr);gap:10px;padding:9px 0;border-top:2px dotted var(--rule)}
+.entry:first-of-type{border-top:0}
+.entry .t{color:var(--muted)}
+.entry .k{display:block;color:var(--muted);font-size:14px}
+.entry p{margin:0}
+.entry b{font-weight:600}
+.empty{color:var(--muted);margin:0}
+.sum{margin:10px 0 0;padding-top:10px;border-top:2px solid var(--ink)}
+.place-card{padding:10px 0;border-top:2px dotted var(--rule)}
+.place-card:first-of-type{border-top:0}
+.place-card h3{font-size:17px;margin:0 0 2px;font-weight:600}
+.place-card p{margin:0 0 6px}
+.place-card.hl h3::before{content:"▶ ";color:var(--accent-strong)}
+.place-card button{font-size:14px;padding:4px 8px}
+.about{font-size:15px;color:var(--shell-muted);max-width:60ch}
+.about p{margin:0 0 8px}
+@media (min-width:960px){
+  html,body{overflow:hidden}
+  .app{height:100%;grid-template-columns:minmax(0,1fr) 430px;gap:22px;padding:18px 22px}
+  .console{min-height:0}
+  .bezel{flex:1;height:auto;min-height:0}
+  .side{overflow-y:auto;min-height:0;padding:0 6px 18px 0}
+}
+@media (max-width:520px){
+  .top h1{font-size:27px}
+  .top p{font-size:15px}
+  .menu{padding:8px}
+  .menu button{font-size:15px;padding-left:17px}
+  .timebar input[type=range]{order:4;flex-basis:100%}
+  .mapbtns{right:20px;top:20px}
+  .mapbtns button{font-size:13px;padding:5px 7px}
+}
+@media (prefers-reduced-motion: reduce){ .caret{animation:none} }
+</style>
+</head>
+<body>
+<div class="app">
+  <section class="console" aria-label="Map of Hegel's quarter of Delhi">
+    <header class="top">
+      <h1>Hegel in Delhi</h1>
+      <p>G. W. F. Hegel, fifty, wakes up in a Lutyens bungalow that the Directorate of Estates allotted to him by mistake.</p>
+      <p class="day">Day 1. Friday, 2 October 2026. Gandhi Jayanti.</p>
+    </header>
+    <div class="bezel">
+      <span class="led" aria-hidden="true"></span>
+      <canvas id="map" tabindex="0" aria-label="Pixel map of two square kilometres of Lutyens' Delhi. Hegel's position is described in the panel."></canvas>
+      <div class="mapbtns">
+        <button id="btnFind" type="button">Find Hegel</button>
+        <button id="btnTown" type="button" aria-pressed="false">Town map</button>
+        <button id="btnZoom" type="button">Zoom</button>
+      </div>
+    </div>
+    <div class="timebar">
+      <button id="btnLive" type="button" aria-pressed="true">Live</button>
+      <button id="btnPlay" type="button" aria-pressed="false">Play the day</button>
+      <input id="scrub" type="range" min="0" max="1439" step="1" value="0" aria-label="Time of day in Delhi">
+      <output id="clock" for="scrub">--:--</output>
+    </div>
+    <p class="note">Delhi time. Day 1 replays until the live simulation takes over.</p>
+  </section>
+
+  <aside class="side">
+    <div class="box now" aria-live="polite">
+      <p class="place" id="nowPlace">&nbsp;</p>
+      <p class="status" id="nowStatus">&nbsp;</p>
+      <blockquote id="nowThought"></blockquote>
+    </div>
+    <nav class="box menu" role="tablist" aria-label="What Hegel did today">
+      <button role="tab" type="button" data-tab="today" aria-selected="true">Today</button>
+      <button role="tab" type="button" data-tab="thoughts" aria-selected="false">Thoughts</button>
+      <button role="tab" type="button" data-tab="bag" aria-selected="false">Bag</button>
+      <button role="tab" type="button" data-tab="wardrobe" aria-selected="false">Wardrobe</button>
+      <button role="tab" type="button" data-tab="people" aria-selected="false">People</button>
+      <button role="tab" type="button" data-tab="work" aria-selected="false">Work</button>
+      <button role="tab" type="button" data-tab="file" aria-selected="false">The file</button>
+      <button role="tab" type="button" data-tab="places" aria-selected="false">Places</button>
+    </nav>
+    <div class="box panel" id="panel" role="tabpanel"></div>
+    <div class="about">
+      <p>Day 1 is written by hand. From day 2 a small model lives his days on this map, and a large one writes them up each night while he sleeps.</p>
+      <p>The rule: the living are invented, the dead are on his shelf, the news is real. Everyone he meets is fictional; real people reach him only through books and newspapers.</p>
+      <p>The street plan is sketched from Lutyens' Delhi. Positions are approximate until the OpenStreetMap import.</p>
+    </div>
+  </aside>
+</div>
+
+<script>
+(() => {
+'use strict';
+
+/* ───────── constants & helpers ───────── */
+const N = 128, T = 16;
+const G = {GRASS:0,ROAD:1,FOOT:2,PATH:3,WATER:4,LAWN:5,WALL:6,GATE:7,TREE:8,FLOWER:9,RGRASS:10,PGRASS:11,HEDGE:12,SAND:13,BLD:14,COURT:15,REDWALL:16};
+const WALK = new Uint8Array(32); [G.ROAD,G.FOOT,G.PATH,G.SAND,G.GATE].forEach(t => WALK[t] = 1);
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function rng(seed){ let s = seed|0; return () => { s = s + 0x6D2B79F5 | 0; let t = Math.imul(s ^ s >>> 15, 1 | s); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const R = rng(1820);
+const grid = new Uint8Array(N*N), rid = new Int16Array(N*N).fill(-1), edge = new Float32Array(N*N).fill(99);
+const res = new Uint8Array(N*N), under = new Uint8Array(N*N), okind = new Uint8Array(N*N);
+const I = (x,y) => y*N + x, inb = (x,y) => x >= 0 && y >= 0 && x < N && y < N;
+const get = (x,y) => inb(x,y) ? grid[I(x,y)] : 255;
+function set(x,y,t){ if (inb(x,y)) grid[I(x,y)] = t; }
+function setOver(x,y,t){ if (!inb(x,y)) return; const k = I(x,y), g = grid[k];
+  under[k] = g === G.LAWN ? 1 : g === G.PGRASS ? 2 : g === G.RGRASS ? 3 : (g === G.BLD || g === G.TREE || g === G.FLOWER) ? under[k] : 0; grid[k] = t; }
+function reserve(x0,y0,x1,y1){ for (let y=y0;y<=y1;y++) for (let x=x0;x<=x1;x++) if (inb(x,y)) res[I(x,y)] = 1; }
+const hm = s => { const [h,m] = s.split(':').map(Number); return h*60 + m; };
+const fmt = m => { m = Math.max(0, Math.min(1439.99, m)); const h = Math.floor(m/60), mm = Math.floor(m%60); return String(h).padStart(2,'0') + ':' + String(mm).padStart(2,'0'); };
+function distSeg(px,py,ax,ay,bx,by){ const dx=bx-ax, dy=by-ay, l=dx*dx+dy*dy; let t = l ? ((px-ax)*dx + (py-ay)*dy)/l : 0; t = Math.max(0, Math.min(1, t)); return Math.hypot(px-(ax+t*dx), py-(ay+t*dy)); }
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ───────── street plan (sketched from Lutyens' Delhi) ───────── */
+const NODES = {A:[40,8], B:[24,42], C:[64,42], D:[92,58], E:[44,82], F:[110,28], G:[30,120], H:[118,120], J:[108,80], K:[118,80]};
+const ROUNDABOUTS = ['A','B','C','D','E'];
+const ROADS = [
+  ['Maulana Azad Road', [40,-3], 'A', 3],
+  ['Akbar Road', 'A', 'B', 3],
+  ['Tees January Marg', 'A', 'C', 3],
+  ['Tughlak Road', 'B', 'C', 3],
+  ['Tughlak Road', 'C', 'D', 3],
+  ['the road to Chanakyapuri', [-3,42], 'B', 3],
+  ['Safdarjung Road', 'B', 'E', 3],
+  ['Safdarjung Road', 'E', 'G', 3],
+  ['Prithviraj Road', 'E', 'D', 3],
+  ['Dr APJ Abdul Kalam Road', 'D', 'F', 3],
+  ['Subramania Bharti Marg', 'F', [131,28], 3],
+  ['Amrita Shergill Marg', 'D', 'J', 2.4],
+  ['Amrita Shergill Marg', 'J', 'K', 2.4],
+  ['Max Mueller Marg', 'K', 'H', 2.4],
+  ['Lodhi Road', 'G', 'H', 3],
+  ['Lodhi Road', 'H', [131,120], 3],
+  ['Aurobindo Marg', 'G', [30,131], 3],
+];
+const pt = p => typeof p === 'string' ? NODES[p] : p;
+ROADS.forEach(([name,a,b,w], i) => {
+  const A = pt(a), B = pt(b), hw = w/2;
+  const x0 = Math.max(0, Math.floor(Math.min(A[0],B[0]) - hw - 4)), x1 = Math.min(N-1, Math.ceil(Math.max(A[0],B[0]) + hw + 4));
+  const y0 = Math.max(0, Math.floor(Math.min(A[1],B[1]) - hw - 4)), y1 = Math.min(N-1, Math.ceil(Math.max(A[1],B[1]) + hw + 4));
+  for (let y=y0;y<=y1;y++) for (let x=x0;x<=x1;x++){
+    const k = I(x,y), e = distSeg(x+.5,y+.5,A[0]+.5,A[1]+.5,B[0]+.5,B[1]+.5) - hw;
+    if (e < edge[k]) edge[k] = e;
+    if (e <= 0){ grid[k] = G.ROAD; rid[k] = i; }
+  }
+});
+const objects = [];
+for (const key of ROUNDABOUTS){
+  const [cx,cy] = NODES[key], Rr = 5.3;
+  for (let y=cy-8;y<=cy+8;y++) for (let x=cx-8;x<=cx+8;x++){
+    if (!inb(x,y)) continue; const k = I(x,y), d = Math.hypot(x-cx, y-cy);
+    if (d <= Rr){ if (d >= Rr-2.4){ grid[k] = G.ROAD; rid[k] = -2; } else { grid[k] = G.RGRASS; rid[k] = -1; } }
+    edge[k] = Math.min(edge[k], d - Rr);
+  }
+  objects.push({kind:'fountain', x:cx, y:cy, w:1, h:1});
+}
+for (let k=0;k<N*N;k++) if (edge[k] < 2.2) res[k] = 1;
+
+/* ───────── builders ───────── */
+function compound(x0,y0,x1,y1,o={}){
+  const wall = o.wall || G.WALL;
+  for (let y=y0;y<=y1;y++) for (let x=x0;x<=x1;x++){
+    const border = x===x0 || x===x1 || y===y0 || y===y1;
+    set(x,y, border ? wall : (o.inner || G.LAWN));
+  }
+  if (o.gate) set(o.gate[0], o.gate[1], G.GATE);
+  reserve(x0-1,y0-1,x1+1,y1+1);
+}
+function toRoad(x,y,dx,dy,strict){
+  let cx = x+dx, cy = y+dy, n = 0; const trail = [];
+  while (inb(cx,cy) && grid[I(cx,cy)] !== G.ROAD && n < 12){
+    const g = grid[I(cx,cy)];
+    if (strict && g !== G.GRASS && g !== G.FOOT) return false;
+    trail.push([cx,cy]); cx += dx; cy += dy; n++;
+  }
+  if (inb(cx,cy) && grid[I(cx,cy)] === G.ROAD){ trail.forEach(([a,b]) => set(a,b,G.FOOT)); return true; }
+  return false;
+}
+const KINDS = ['', 'bungalow','tomb','safdarjung','club','shops','memorial','pavilion','iic','home'];
+function building(kind,x,y,w,h,extra={}){
+  for (let yy=y;yy<y+h;yy++) for (let xx=x;xx<x+w;xx++){ setOver(xx,yy,G.BLD); if (inb(xx,yy)) okind[I(xx,yy)] = KINDS.indexOf(kind); }
+  reserve(x,y,x+w-1,y+h-1);
+  const o = Object.assign({kind,x,y,w,h}, extra); objects.push(o); return o;
+}
+const tree = (x,y) => { if (inb(x,y)) setOver(x,y,G.TREE); };
+const bush = (x,y) => { if (inb(x,y)) setOver(x,y,G.FLOWER); };
+function pathLine(pts, t=G.PATH){ for (let i=0;i<pts.length-1;i++){ let [x,y] = pts[i]; const [x2,y2] = pts[i+1];
+  while (x !== x2 || y !== y2){ set(x,y,t); if (x !== x2) x += Math.sign(x2-x); else y += Math.sign(y2-y); } set(x2,y2,t); } }
+
+/* Hegel's bungalow — fictional, like the allotment */
+compound(66,52,76,61,{gate:[75,52]}); toRoad(75,52,0,-1);
+pathLine([[75,53],[75,59],[71,59]], G.SAND);
+const HOME = building('home',68,54,6,5);
+tree(67,54); tree(67,59); tree(74,54); bush(68,60); bush(73,60);
+
+/* Lodhi Gardens */
+for (let y=86;y<=117;y++) for (let x=72;x<=114;x++) set(x,y, (x===72||x===114||y===86||y===117) ? G.HEDGE : G.PGRASS);
+reserve(71,85,115,118);
+set(112,86,G.GATE); set(93,117,G.GATE); toRoad(112,86,0,-1); toRoad(93,117,0,1);
+pathLine([[75,89],[111,89],[111,114],[75,114],[75,89]]);
+pathLine([[93,89],[93,114]]); pathLine([[75,100],[111,100]]);
+pathLine([[112,87],[112,89],[111,89]]); pathLine([[93,115],[93,116]]);
+for (let y=103;y<=111;y++) for (let x=95;x<=107;x++){ if (((x-101)/5.4)**2 + ((y-107)/3.4)**2 <= 1 && grid[I(x,y)] === G.PGRASS) set(x,y,G.WATER); }
+building('tomb',78,104,7,7,{name:"Mohammed Shah's tomb", oct:true});
+building('tomb',85,92,6,6,{name:'Bara Gumbad'});
+building('tomb',96,92,6,6,{name:'Sheesh Gumbad', blue:true});
+building('tomb',104,91,6,7,{name:"Sikandar Lodi's tomb", oct:true});
+
+/* Safdarjung's Tomb */
+compound(42,100,60,117,{wall:G.REDWALL, gate:[51,117]}); toRoad(51,117,0,1);
+pathLine([[51,112],[51,116]]);
+for (let x=43;x<=46;x++) set(x,107,G.WATER); for (let x=56;x<=59;x++) set(x,107,G.WATER); set(51,101,G.WATER); set(51,102,G.WATER);
+building('safdarjung',47,103,9,9);
+[[44,102],[58,102],[44,114],[58,114],[45,110],[57,110]].forEach(p => tree(...p));
+[[44,104],[58,104],[47,115],[55,115]].forEach(p => bush(...p));
+
+/* Gandhi Smriti */
+compound(56,12,70,26,{gate:[56,20]}); toRoad(56,20,-1,0);
+pathLine([[57,20],[61,20],[61,21]]); pathLine([[61,19],[62,19],[62,20],[63,20],[63,21],[64,21]]);
+building('memorial',59,14,8,5);
+building('pavilion',63,22,3,3);
+[[57,13],[69,13],[57,25],[69,25],[68,18],[67,23]].forEach(p => tree(...p)); bush(58,24); bush(66,21);
+
+/* Khan Market */
+reserve(110,29,127,49);
+for (let y=30;y<=43;y++) for (let x=117;x<=121;x++) set(x,y,G.SAND);
+building('shops',111,30,6,18,{face:'east'});
+building('shops',122,30,6,18,{face:'west'});
+building('shops',117,44,5,5,{face:'north'});
+
+/* Delhi Gymkhana Club */
+compound(1,46,18,66,{gate:[14,46]}); toRoad(14,46,0,-1);
+pathLine([[14,47],[14,57],[8,57]], G.SAND); set(8,56,G.SAND);
+building('club',3,49,10,7);
+for (let y=59;y<=64;y++){ for (let x=3;x<=8;x++) set(x,y,G.COURT); for (let x=10;x<=15;x++) set(x,y,G.COURT); }
+[[2,47],[17,47],[2,57],[17,60],[17,65],[2,65],[9,65]].forEach(p => tree(...p));
+
+/* India International Centre */
+compound(121,94,127,116,{gate:[121,106]}); toRoad(121,106,-1,0);
+pathLine([[122,106],[124,106]], G.SAND);
+building('iic',122,96,5,5); building('iic',122,108,5,6);
+tree(122,102); tree(126,103); tree(122,115); bush(126,115);
+
+/* exit signs */
+const SIGNS = [
+  {x:43,y:1, label:'Nirman Bhawan', sub:'Directorate of Estates'},
+  {x:2,y:38, label:'Chanakyapuri'},
+  {x:33,y:125, label:'Hauz Khas'},
+];
+SIGNS.forEach(s => { setOver(s.x,s.y,G.BLD); reserve(s.x,s.y,s.x,s.y); objects.push({kind:'sign', x:s.x, y:s.y, w:1, h:1}); });
+
+/* procedural bungalow compounds */
+function freeRect(x0,y0,x1,y1){ if (x0 < 0 || y0 < 0 || x1 >= N || y1 >= N) return false;
+  for (let y=y0;y<=y1;y++) for (let x=x0;x<=x1;x++){ const k = I(x,y); if (grid[k] !== G.GRASS || res[k]) return false; } return true; }
+for (let y=1; y<N-8; y+=2){
+  for (let x=1; x<N-8; x+=2){
+    const w = 8 + Math.floor(R()*3), h = 8 + Math.floor(R()*2);
+    if (!freeRect(x,y,x+w-1,y+h-1)) continue;
+    const sides = [
+      {d:edge[I(x+(w>>1), Math.max(0,y-1))], gate:[x+(w>>1), y], dir:[0,-1]},
+      {d:edge[I(x+(w>>1), Math.min(N-1,y+h))], gate:[x+(w>>1), y+h-1], dir:[0,1]},
+      {d:edge[I(Math.max(0,x-1), y+(h>>1))], gate:[x, y+(h>>1)], dir:[-1,0]},
+      {d:edge[I(Math.min(N-1,x+w), y+(h>>1))], gate:[x+w-1, y+(h>>1)], dir:[1,0]},
+    ].sort((a,b) => a.d - b.d);
+    if (sides[0].d > 5) continue;
+    compound(x,y,x+w-1,y+h-1,{gate:sides[0].gate});
+    toRoad(sides[0].gate[0], sides[0].gate[1], sides[0].dir[0], sides[0].dir[1], true);
+    const bw = Math.max(4, w-4), bh = Math.max(3, h-5);
+    const bx = x + 2 + Math.floor(R()*(w-3-bw)), by = y + 2;
+    building('bungalow', bx, by, bw, bh, {v: Math.floor(R()*3)});
+    const inner = [[x+1,y+1],[x+w-2,y+1],[x+1,y+h-2],[x+w-2,y+h-2]];
+    inner.forEach(([a,b]) => { if (grid[I(a,b)] === G.LAWN && R() < .75) (R() < .8 ? tree : bush)(a,b); });
+    x += w;
+  }
+}
+
+/* avenue trees, then scattered trees and bougainvillea */
+for (let y=0;y<N;y++) for (let x=0;x<N;x++){
+  const k = I(x,y); if (grid[k] !== G.GRASS) continue;
+  if (edge[k] > .5 && edge[k] <= 1.7){ if ((x+y) % 2 === 0) tree(x,y); continue; }
+  const r = R(); if (r < .085) tree(x,y); else if (r < .1) bush(x,y);
+}
+for (let y=87;y<=116;y++) for (let x=73;x<=113;x++){ if (grid[I(x,y)] === G.PGRASS && R() < .15) tree(x,y); }
+
+/* ───────── places ───────── */
+const PLACES = {
+  home:      {name:'Bungalow No. 1820, Tughlak Road', short:'home', rect:[66,52,76,61], spot:[71,59],
+              text:'His home since this morning. Type-VII, a verandah, three neem trees and a caretaker. Fictional, like the allotment.'},
+  lodhi:     {name:'Lodhi Gardens', rect:[72,86,114,117], spot:[111,89],
+              text:'Tombs of the Sayyid and Lodi dynasties, 15th and 16th century, in a park laid out in 1936.'},
+  safdarjung:{name:"Safdarjung's Tomb", rect:[42,100,60,117], spot:[51,113],
+              text:'Garden tomb of a Mughal prime minister, completed in 1754.'},
+  khan:      {name:'Khan Market', rect:[111,30,127,48], spot:[119,40],
+              text:'A horseshoe of two-storey shophouses, built in 1951. Books, tailors, groceries.'},
+  gandhi:    {name:'Gandhi Smriti', rect:[56,12,70,26], spot:[61,21],
+              text:'Birla House, where Gandhi spent the last 144 days of his life. Now a memorial.'},
+  gym:       {name:'Delhi Gymkhana Club', label:'Gymkhana', rect:[1,46,18,66], spot:[8,56],
+              text:'Founded in 1913. Bridge in the card room, for members and their guests.'},
+  iic:       {name:'India International Centre', label:'IIC', rect:[121,94,127,116], spot:[123,106],
+              text:'Library and lecture hall on Max Mueller Marg, which is named after the German Indologist.'},
+  estates:   {name:'Directorate of Estates, Nirman Bhawan', label:'To the Directorate of Estates', rect:[42,0,44,2], spot:[40,1],
+              text:'Off the map to the north. It holds the file. Closed until Monday.'},
+};
+
+/* ───────── the day (day 1 is written by hand) ───────── */
+const DAY = [
+  {from:'00:00', to:'05:58', mode:'inside', at:'home', asleep:true, now:'Before dawn. A bungalow on Tughlak Road, a letter on the side table, and someone about to wake for the first time in 195 years.'},
+  {from:'05:58', to:'06:50', mode:'stand', at:'home', now:'On the verandah with tea and four newspapers.'},
+  {from:'06:50', to:'07:12', mode:'walk', a:'home', b:'lodhi'},
+  {from:'07:12', to:'08:15', mode:'stroll', at:'lodhi', loop:[[111,89],[111,114],[75,114],[75,89],[93,89],[93,100],[111,100],[111,114],[75,114],[75,89],[111,89]], now:'Walking the loop in Lodhi Gardens, among the tombs.'},
+  {from:'08:15', to:'08:37', mode:'walk', a:'lodhi', b:'home'},
+  {from:'08:37', to:'11:00', mode:'inside', at:'home', now:'At home. Breakfast, then the Constitution of India, then his own notebook.'},
+  {from:'11:00', to:'11:18', mode:'walk', a:'home', b:'gandhi'},
+  {from:'11:18', to:'12:05', mode:'stand', at:'gandhi', now:"At Gandhi Smriti, on the Mahatma's birthday."},
+  {from:'12:05', to:'12:38', mode:'walk', a:'gandhi', b:'khan'},
+  {from:'12:38', to:'14:05', mode:'stroll', at:'khan', loop:[[119,40],[118,32],[120,43],[117,36],[121,33],[119,40]], now:'Khan Market: a stationer, a tailor, a bookshop, a grocer, and one refusal.'},
+  {from:'14:05', to:'14:30', mode:'walk', a:'khan', b:'home'},
+  {from:'14:30', to:'16:30', mode:'inside', at:'home', now:'At home. Lunch, an hour of rest, then Ambedkar.'},
+  {from:'16:30', to:'16:55', mode:'walk', a:'home', b:'gym'},
+  {from:'16:55', to:'19:05', mode:'inside', at:'gym', now:"At the Gymkhana as Mr. Malhotra's guest, learning bridge."},
+  {from:'19:05', to:'19:30', mode:'walk', a:'gym', b:'home'},
+  {from:'19:30', to:'22:15', mode:'inside', at:'home', lamp:true, now:'At his desk. A first page for Berlin.'},
+  {from:'22:15', to:'24:00', mode:'inside', at:'home', asleep:true, owl:true, now:'Asleep. The owl is writing up the day.'},
+].map(s => Object.assign(s, {s:hm(s.from), e:hm(s.to)}));
+
+const ENTRIES = [
+  {t:'05:58', k:'file', text:"Allotment letter, Directorate of Estates: one Type-VII bungalow, Tughlak Road, “in favour of Shri G. Hegel”. Found on the side table. Not delivered by post."},
+  {t:'05:58', k:'wear', item:'Black frock coat, Berlin tailoring', status:'Worn on waking.'},
+  {t:'05:58', k:'wear', item:'White neck-cloth', status:'Worn on waking.'},
+  {t:'06:05', k:'diary', text:'Woke under a ceiling fan with a letter beside me. The state found me before I found myself. In Berlin I would have called this the cunning of reason. Here it is apparently called a typing error.'},
+  {t:'06:15', k:'diary', text:"Four newspapers on the verandah, two in a script I cannot read yet. I once called the morning paper the realist's morning prayer. Here the prayer is said in several languages, and I know the words to half of it."},
+  {t:'06:20', k:'people', name:'Ramesh', role:'caretaker of the bungalow for the Central Public Works Department', text:'Brought tea without being asked, and the news that the bungalow was meant for someone else.'},
+  {t:'06:25', k:'file', text:'Ramesh explains: the allotment was meant for Shri G. Hegde, Joint Secretary, transferring from Bengaluru. Somewhere between two desks, Hegde became Hegel. Status: under examination.'},
+  {t:'06:30', k:'file', text:'In the desk drawer, an envelope marked “Imprest, for incidental expenses”: ₹15,000. Every rupee will be accounted for. Let the state see how a philosopher spends.', imprest:15000},
+  {t:'06:40', k:'diary', text:"My Berlin thesis, for the record: India is history's first morning, a spirit that dreams and never wakes into a state. I am drinking its tea in its capital, in a house its civil service gave me. I will keep the thesis on the desk, where I can watch it."},
+  {t:'07:20', k:'diary', text:'Walked through the tombs of two dynasties before breakfast, the Sayyids and the Lodis. People who only dream do not build their dead such houses. The thesis is shaken. Not yet fallen.'},
+  {t:'07:45', k:'people', name:'Mr. R. K. Malhotra', role:'retired from the Indian Administrative Service', text:'Walks the Lodhi loop at a pace the Prussian infantry would respect. I said I think about the state. He said he ran parts of it for thirty-four years and the state never noticed either of us. Invited me to bridge at the Gymkhana at five.'},
+  {t:'08:40', k:'wear', item:'Black frock coat, Berlin tailoring', status:'Retired. 31 °C at twenty to nine.'},
+  {t:'08:40', k:'wear', item:'Shirtsleeves and waistcoat', status:'Worn from 08:40.'},
+  {t:'09:30', k:'diary', text:'The shelf holds the Constitution of India. Article 17: untouchability is abolished and its practice in any form forbidden. In my lectures, caste was the Indian order itself, fixed by birth like nature. Here a state abolishes it in one sentence. Either the sentence is idle or my lectures are. It will take more than a week to find out which.'},
+  {t:'10:15', k:'work', title:'Phenomenology, Delhi supplement', text:'§1, sense-certainty. I wrote down: “Now it is 33 degrees.” By noon the truth had gone stale. Some things are the same in every city.'},
+  {t:'10:45', k:'file', text:'Today is Gandhi Jayanti, a national holiday. The Directorate of Estates is closed until Monday. The error in my favour stands for three days.'},
+  {t:'11:25', k:'diary', text:'Gandhi Smriti, the house where Gandhi spent his last days. Stone footsteps cross the lawn to the place where he fell. I put freedom into the state and its institutions; he began it in one person walking, spinning and refusing. We both wanted freedom made actual. His road was shorter, and he paid more for it.'},
+  {t:'12:45', k:'diary', text:'Khan Market: civil society in a horseshoe, two storeys high. Half the shutters are down for the holiday; the other half sell what the first half would have. The system of needs does not close.'},
+  {t:'12:55', k:'bag', item:'Fountain pen and a bound notebook', price:640, note:'The quill is retired.'},
+  {t:'13:10', k:'bag', item:'White cotton kurta, ready-made', price:1250},
+  {t:'13:10', k:'wear', item:'White cotton kurta', status:'Worn out of the shop.'},
+  {t:'13:10', k:'wear', item:'Shirtsleeves and waistcoat', status:'Folded into a paper bag.'},
+  {t:'13:25', k:'wear', item:'Bandhgala, charcoal', status:'Measured. Ready Thursday.'},
+  {t:'13:25', k:'bag', item:'Advance on the bandhgala', price:2000},
+  {t:'13:25', k:'people', name:'Masterji', role:'tailor, Khan Market', text:"Forty years of Lutyens' collars in his head and a tape measure round his neck. He looked at my neck-cloth for a long time and said nothing, eloquently."},
+  {t:'13:40', k:'people', name:'Nidhi Rao', role:'doctoral student in philosophy, JNU', text:'Found in the bookshop holding my Philosophy of History, full of pencil. She asked whether I had come to correct the chapter on India. I said I had come to live here, and the correction would follow from that.'},
+  {t:'13:45', k:'bag', item:'Ambedkar, Annihilation of Caste, paperback', price:199, note:"Nidhi's recommendation."},
+  {t:'13:45', k:'bag', item:'Hindi primer', price:180},
+  {t:'13:55', k:'bag', item:'Assam tea, 250 g', price:220},
+  {t:'13:55', k:'bag', item:'Glucose biscuits', price:10, note:'The Prussian army should have had these.'},
+  {t:'13:58', k:'diary', text:'Asked the grocer for a bottle of wine. Dry day: no alcohol is sold on Gandhi Jayanti. I accept this as a matter of respect and record it as a sacrifice.'},
+  {t:'15:20', k:'diary', text:'Ambedkar, 1936: caste is not a division of labour but a division of labourers. I described caste as nature’s determination. He describes it as a human arrangement, and what humans arrange, humans can undo. His is the more Hegelian position. I find this irritating, which is usually how I know something is true.'},
+  {t:'16:05', k:'file', text:'Message via Ramesh: Shri Hegde is in a guest house in Chanakyapuri and hopes the matter can be resolved amicably. So do I. I also note that possession is the first moment of property.'},
+  {t:'17:20', k:'diary', text:'Bridge at the Gymkhana. It is whist that has acquired a constitution: bidding, contracts, and a dummy obliged to keep silent. Lost two rubbers. Understood the auction.'},
+  {t:'18:10', k:'diary', text:'The sun went down over the club lawn at six. The light here does not dawdle.'},
+  {t:'20:10', k:'work', title:'Depesche aus Delhi, Nr. 0', text:'First page drafted, for the readers in Berlin. The owl finishes it tonight.'},
+  {t:'20:30', k:'work', title:'Hindi', text:'Two words learned: namaste and chai.'},
+  {t:'21:30', k:'work', title:'Revision log', text:'Day one. “India has no history”: shaken, by the tombs, Article 17 and a tailor. “The state is the actuality of the ethical idea”: unshaken, though it lent me a bungalow by mistake.'},
+  {t:'22:15', k:'diary', text:'Lamp out. The owl takes over.'},
+].map((e,i) => Object.assign(e, {m:hm(e.t), i}));
+
+const outfitAt = m => m < hm('08:40') ? 'frock' : m < hm('13:10') ? 'shirt' : 'kurta';
+
+/* ───────── pathfinding ───────── */
+function astar(s,g){
+  const sk = I(s[0],s[1]), gk = I(g[0],g[1]);
+  if (sk === gk) return [s];
+  const gs = new Float32Array(N*N).fill(Infinity), from = new Int32Array(N*N).fill(-1), closed = new Uint8Array(N*N);
+  const heap = []; const push = (k,f) => { heap.push([f,k]); let i = heap.length-1; while (i > 0){ const p = (i-1)>>1; if (heap[p][0] <= heap[i][0]) break; [heap[p],heap[i]] = [heap[i],heap[p]]; i = p; } };
+  const pop = () => { const top = heap[0], last = heap.pop(); if (heap.length){ heap[0] = last; let i = 0; for(;;){ const l = 2*i+1, r = l+1; let m = i; if (l < heap.length && heap[l][0] < heap[m][0]) m = l; if (r < heap.length && heap[r][0] < heap[m][0]) m = r; if (m === i) break; [heap[m],heap[i]] = [heap[i],heap[m]]; i = m; } } return top; };
+  gs[sk] = 0; push(sk, 0);
+  const ok = k => WALK[grid[k]] || k === gk || k === sk;
+  while (heap.length){
+    const [, k] = pop(); if (closed[k]) continue; closed[k] = 1;
+    if (k === gk) break;
+    const x = k % N, y = (k / N) | 0;
+    for (const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){
+      const nx = x+dx, ny = y+dy; if (!inb(nx,ny)) continue; const nk = I(nx,ny);
+      if (closed[nk] || !ok(nk)) continue;
+      const step = grid[nk] === G.ROAD ? 1 : 1.15;
+      const ng = gs[k] + step; if (ng < gs[nk]){ gs[nk] = ng; from[nk] = k; push(nk, ng + Math.abs(nx-g[0]) + Math.abs(ny-g[1])); }
+    }
+  }
+  if (from[gk] === -1) return null;
+  const path = []; for (let k = gk; k !== -1; k = from[k]){ path.push([k % N, (k / N) | 0]); if (k === sk) break; }
+  return path.reverse();
+}
+function routeVia(points){ let out = []; for (let i=0;i<points.length-1;i++){ const p = astar(points[i], points[i+1]) || [points[i], points[i+1]]; out = out.concat(i ? p.slice(1) : p); } return out; }
+const MISSING = [];
+DAY.forEach(s => {
+  if (s.mode === 'walk'){ s.route = astar(PLACES[s.a].spot, PLACES[s.b].spot); if (!s.route){ MISSING.push(s.a+'→'+s.b); s.route = [PLACES[s.a].spot, PLACES[s.b].spot]; } s.dest = PLACES[s.b].name; s.origin = PLACES[s.a].name; }
+  if (s.mode === 'stroll') s.route = routeVia(s.loop);
+});
+
+/* ───────── offscreen map ───────── */
+const off = document.createElement('canvas'); off.width = N*T; off.height = N*T;
+const o = off.getContext('2d');
+const r = (x,y,w,h,c) => { o.fillStyle = c; o.fillRect(x,y,w,h); };
+function ground(X,Y,type,rr){
+  if (type === 1){ for (let i=0;i<4;i++) r(X,Y+i*4,T,4, i%2 ? '#97d36d' : '#a2db77'); return; }
+  const base = type === 2 ? '#82c55c' : type === 3 ? '#99d86f' : '#8ccf63', dark = type === 2 ? '#69ab4a' : '#76b954';
+  r(X,Y,T,T,base);
+  for (let i=0;i<3;i++){ const a = 1 + (rr()*13|0), b = 2 + (rr()*12|0); r(X+a,Y+b,2,1,dark); r(X+a,Y+b-1,1,1,dark); }
+  if (rr() < .3) r(X+(rr()*14|0), Y+(rr()*14|0), 1, 1, '#b6e98c');
+}
+function drawTree(X,Y,rr){
+  const v = rr()*3|0, pal = [['#3f8f43','#25592f','#6bbd5a'],['#2f7a3e','#1c4b2b','#56a95b'],['#4b9b46','#2a6633','#7fcc64']][v];
+  r(X+3,Y+12,11,3,'rgba(25,55,30,.35)'); r(X+7,Y+10,2,4,'#6b4a33');
+  r(X+4,Y+0,8,1,pal[1]); r(X+2,Y+1,12,1,pal[1]); r(X+1,Y+2,14,8,pal[1]); r(X+2,Y+10,12,1,pal[1]); r(X+4,Y+11,8,1,pal[1]);
+  r(X+4,Y+1,8,1,pal[0]); r(X+2,Y+2,12,8,pal[0]); r(X+4,Y+10,8,1,pal[0]);
+  r(X+4,Y+2,4,2,pal[2]); r(X+3,Y+4,2,2,pal[2]); r(X+9,Y+3,2,1,pal[2]); r(X+10,Y+7,3,2,pal[1]); r(X+5,Y+8,2,1,pal[1]);
+}
+function drawBush(X,Y,rr){
+  r(X+2,Y+12,12,3,'rgba(25,55,30,.3)'); r(X+3,Y+4,10,1,'#3a8540'); r(X+2,Y+5,12,8,'#3a8540'); r(X+3,Y+13,10,1,'#2c6a34');
+  for (let i=0;i<7;i++){ const a = 3 + (rr()*9|0), b = 5 + (rr()*6|0); r(X+a,Y+b,2,2, i%3 ? '#e2457f' : '#f47fae'); }
+}
+function drawTile(x,y){
+  const k = I(x,y), t = grid[k], X = x*T, Y = y*T, rr = rng(k*7919 + 13);
+  const nb = (dx,dy) => get(x+dx,y+dy);
+  switch (t){
+    case G.GRASS: ground(X,Y,0,rr); break;
+    case G.LAWN: ground(X,Y,1,rr); break;
+    case G.PGRASS: ground(X,Y,2,rr); break;
+    case G.RGRASS: ground(X,Y,3,rr); if (rr() < .4){ r(X+3,Y+5,2,2,'#e2457f'); r(X+10,Y+9,2,2,'#f2b134'); } break;
+    case G.ROAD: {
+      r(X,Y,T,T,'#8f94a4'); for (let i=0;i<5;i++) r(X+(rr()*15|0), Y+(rr()*15|0), 1, 1, '#80869a');
+      const soft = g => g === G.ROAD || g === G.FOOT || g === G.GATE || g === G.SAND || g === 255;
+      if (!soft(nb(0,-1))) r(X,Y,T,2,'#d2d5de'); if (!soft(nb(0,1))) r(X,Y+14,T,2,'#d2d5de');
+      if (!soft(nb(-1,0))) r(X,Y,2,T,'#d2d5de'); if (!soft(nb(1,0))) r(X+14,Y,2,T,'#d2d5de');
+      break; }
+    case G.FOOT: r(X,Y,T,T,'#e0d09b'); for (let i=0;i<4;i++) r(X+(rr()*15|0), Y+(rr()*15|0), 1, 1, '#c9b67e'); break;
+    case G.PATH: r(X,Y,T,T,'#e9ddb0'); for (let i=0;i<4;i++) r(X+(rr()*14|0), Y+(rr()*14|0), 2, 1, '#d4c48f'); break;
+    case G.SAND: r(X,Y,T,T,'#e8dcc2'); r(X,Y+7,T,1,'#d5c7a5'); r(X,Y+15,T,1,'#d5c7a5'); r(X+5,Y,1,7,'#d5c7a5'); r(X+12,Y+8,1,7,'#d5c7a5'); break;
+    case G.WATER: {
+      r(X,Y,T,T,'#4b93da'); const ph = (x+y) % 2; r(X+2+ph*6,Y+4,5,1,'#a2d2f8'); r(X+8-ph*5,Y+11,4,1,'#a2d2f8');
+      if (nb(0,-1) !== G.WATER) r(X,Y,T,2,'#3570b0'); if (nb(-1,0) !== G.WATER) r(X,Y,2,T,'#3570b0');
+      break; }
+    case G.WALL: case G.REDWALL: {
+      ground(X,Y,0,rr); const red = t === G.REDWALL;
+      const cap = red ? '#963f2c' : '#c2644a', face = red ? '#c76d4d' : '#f1f1ec';
+      const isW = g => g === G.WALL || g === G.REDWALL || g === G.GATE;
+      const horiz = isW(nb(-1,0)) || isW(nb(1,0));
+      const vert = isW(nb(0,-1)) || isW(nb(0,1));
+      if (horiz){ r(X,Y+3,T,3,cap); r(X,Y+6,T,7,face); r(X,Y+13,T,3,'#5e8f47');
+        if (red){ r(X+3,Y+8,1,4,'#a95438'); r(X+11,Y+8,1,4,'#a95438'); } else r(X,Y+12,T,1,'#d7d8d2'); }
+      if (vert){ r(X+5,Y,6,T,face); r(X+5,Y,2,T,cap); r(X+11,Y,2,T,'#5e8f47'); if (horiz){ r(X+5,Y+3,6,3,cap); } }
+      if (!horiz && !vert){ r(X+4,Y+3,8,10,face); r(X+4,Y+3,8,3,cap); }
+      break; }
+    case G.GATE: r(X,Y,T,T,'#e0d09b'); r(X,Y+2,3,12,'#c2644a'); r(X+13,Y+2,3,12,'#c2644a'); r(X,Y,3,2,'#f1f1ec'); r(X+13,Y,3,2,'#f1f1ec'); break;
+    case G.TREE: ground(X,Y,under[k],rr); drawTree(X,Y,rr); break;
+    case G.FLOWER: ground(X,Y,under[k],rr); drawBush(X,Y,rr); break;
+    case G.HEDGE: r(X,Y,T,T,'#3c7f3e'); r(X,Y,T,2,'#58a24f'); for (let i=0;i<6;i++) r(X+(rr()*15|0), Y+2+(rr()*13|0), 1, 1, '#2d6533'); break;
+    case G.BLD: ground(X,Y,under[k],rr); break;
+    case G.COURT: {
+      r(X,Y,T,T,'#c97a4f');
+      if (nb(0,-1) !== G.COURT) r(X,Y,T,1,'#fff'); if (nb(0,1) !== G.COURT) r(X,Y+15,T,1,'#fff');
+      if (nb(-1,0) !== G.COURT) r(X,Y,1,T,'#fff'); if (nb(1,0) !== G.COURT) r(X+15,Y,1,T,'#fff');
+      if (y === 61) r(X,Y+15,T,1,'#f4efe6');
+      break; }
+  }
+}
+function dome(cx,base,w,col,shade,hi){
+  const h = Math.round(w*.55);
+  for (let j=0;j<h;j++){ const tt = j/h, half = Math.max(1, Math.round(Math.sqrt(1-(1-tt)*(1-tt)) * w/2)); r(cx-half, base-h+j, half*2, 1, col); r(cx+half-Math.max(1,half>>2), base-h+j, Math.max(1,half>>2), 1, shade); }
+  r(cx-Math.round(w*.2), base-h+3, 3, Math.max(2,h>>2), hi); r(cx-1, base-h-4, 2, 4, '#d8b45a');
+}
+function drawObject(ob){
+  const X = ob.x*T, Y = ob.y*T, W = ob.w*T, H = ob.h*T;
+  switch (ob.kind){
+    case 'bungalow': case 'home': case 'memorial': {
+      const fh = 22, home = ob.kind === 'home', mem = ob.kind === 'memorial';
+      r(X+5,Y+6,W,H-4,'rgba(20,45,25,.25)');
+      r(X,Y,W,H-fh,'#c7cbd3'); r(X+2,Y+2,W-4,H-fh-4, mem ? '#fbfbf8' : '#eceef1');
+      for (let yy=Y+7; yy<Y+H-fh-4; yy+=6) r(X+3,yy,W-6,1, mem ? '#ececE6' : '#dfe2e7');
+      if (!mem){ r(X+W-15,Y+5,9,7,'#8f97a6'); r(X+W-15,Y+5,9,2,'#aab1be'); r(X+7,Y+4,5,6,'#c2644a'); }
+      r(X-1,Y+H-fh-1,W+2,3,'#d6cfbf');
+      r(X,Y+H-fh+2,W,fh-2, mem ? '#ffffff' : (ob.v === 1 ? '#f1e9d6' : '#f4f0e6'));
+      r(X+4,Y+H-fh+5,W-8,12,'#4b576a');
+      for (let xx=X+4; xx<X+W-6; xx+=10) r(xx,Y+H-fh+5,3,12,'#ffffff');
+      r(X+W-7,Y+H-fh+5,3,12,'#ffffff');
+      r(X,Y+H-5,W,5, mem ? '#d9d4c6' : '#b85d45'); r(X+W/2-6,Y+H-5,12,5,'#ddd3c1');
+      if (home){ r(X+W/2+8,Y+H-14,5,5,'#a8743f'); r(X+W/2+8,Y+H-16,5,2,'#8a5a2c'); r(X+6,Y+H-4,10,3,'#d8b45a'); }
+      break; }
+    case 'tomb': {
+      const stone = ob.blue ? '#ab9c8b' : '#b4a38e', dark = '#7a6a5a';
+      r(X+5,Y+Math.round(H*.45),W,Math.round(H*.55)+4,'rgba(20,45,25,.28)');
+      r(X,Y+H-9,W,9,'#9d8c78'); r(X,Y+H-9,W,2,'#b9a993');
+      const bh = Math.round(H*.42), by = Y+H-9-bh;
+      r(X+3,by,W-6,bh,stone);
+      const n = 3, cw = (W-6)/n;
+      for (let i=0;i<n;i++){ const ax = Math.round(X+3+cw*i+(cw-10)/2); r(ax,by+7,10,bh-9,dark); r(ax+2,by+5,6,2,dark); }
+      r(X+1,by-3,W-2,3,'#8b7a68');
+      if (ob.blue){ r(X+3,by,W-6,2,'#3f8fbf'); r(X+3,by+bh-3,W-6,1,'#3f8fbf'); }
+      const dw = Math.round(W*.6); r(X+(W-dw)/2+2, by-9, dw-4, 6, '#a3947f');
+      dome(X+W/2, by-9, dw, ob.oct ? '#a69884' : '#9b8d7b', '#857868', '#c4b6a3');
+      if (ob.oct){ [X+3, X+W-11].forEach(cx => { r(cx,by-8,8,5,'#a69884'); r(cx+1,by-11,6,3,'#b4a690'); r(cx+3,by-13,2,2,'#d8b45a'); }); }
+      break; }
+    case 'safdarjung': {
+      r(X+2,Y+Math.round(H*.4),W+8,Math.round(H*.6)+4,'rgba(20,45,25,.3)');
+      r(X-6,Y+H-16,W+12,16,'#b65a3f'); r(X-6,Y+H-16,W+12,2,'#d27a5c');
+      for (let i=0;i<7;i++) r(X-2+i*((W+4)/7), Y+H-12, 8, 9, '#6e2f22');
+      const bh = Math.round(H*.4), by = Y+H-16-bh;
+      r(X+10,by,W-20,bh,'#c9714f'); r(X+10,by,W-20,2,'#f0eadf'); r(X+10,by+bh-2,W-20,2,'#f0eadf');
+      r(X+W/2-12,by+5,24,bh-7,'#f0eadf'); r(X+W/2-9,by+8,18,bh-10,'#4a332d');
+      r(X+16,by+8,10,bh-12,'#f0eadf'); r(X+18,by+10,6,bh-15,'#4a332d');
+      r(X+W-26,by+8,10,bh-12,'#f0eadf'); r(X+W-24,by+10,6,bh-15,'#4a332d');
+      [X+4, X+W-12].forEach(mx => { r(mx,by-14,8,bh+14,'#c9714f'); r(mx,by-14,8,2,'#f0eadf'); r(mx-1,by-20,10,6,'#f3efe6'); r(mx+2,by-23,4,3,'#f3efe6'); });
+      r(X+W/2-22, by-10, 44, 10, '#efe9dc');
+      dome(X+W/2, by-10, 48, '#f6f2ea', '#d8d1c3', '#ffffff');
+      break; }
+    case 'club': {
+      r(X+5,Y+6,W,H-4,'rgba(20,45,25,.25)');
+      const fh = 30; r(X,Y,W,H-fh,'#a94e37');
+      for (let yy=Y+3; yy<Y+H-fh; yy+=4) r(X,yy,W,1,'#c2654a');
+      r(X+W/2-12,Y,24,H-fh,'#b85840'); r(X-2,Y+H-fh-2,W+4,3,'#efe8d8');
+      r(X,Y+H-fh+1,W,fh-1,'#fbf8f0');
+      for (let xx=X+6; xx<X+W-10; xx+=14){ r(xx,Y+H-fh+8,9,15,'#55617a'); r(xx+2,Y+H-fh+6,5,2,'#55617a'); }
+      r(X,Y+H-5,W,5,'#d8cfbd'); r(X+W/2-14,Y+H-fh-14,28,12,'#efe8d8'); r(X+W/2-10,Y+H-fh-12,20,8,'#c2654a');
+      break; }
+    case 'shops': {
+      r(X+4,Y+5,W,H,'rgba(20,45,25,.22)');
+      r(X,Y,W,H,'#cdbfa2');
+      const vertical = ob.face === 'east' || ob.face === 'west', unit = 20, len = vertical ? H : W;
+      const roofs = ['#ece2cf','#e3d6bd','#efe7d7','#ddd0b4'];
+      for (let u=0, i=0; u < len; u += unit, i++){
+        const ux = vertical ? X+1 : X+u+1, uy = vertical ? Y+u+1 : Y+1, uw = vertical ? W-2 : Math.min(unit, W-u)-2, uh = vertical ? Math.min(unit, H-u)-2 : H-2;
+        r(ux,uy,uw,uh, roofs[(i + ob.x) % 4]);
+        const q = (i*7 + ob.x*3) % 5;
+        if (q === 0) { r(ux+4,uy+4,7,6,'#8f97a6'); r(ux+4,uy+4,7,2,'#aab1be'); }
+        if (q === 2) { r(ux+uw-10,uy+uh-9,6,5,'#b6bcc7'); r(ux+uw-9,uy+uh-8,4,1,'#7c8392'); }
+        if (q === 3) { r(ux+3,uy+uh-6,uw-6,2,'#c9bb9f'); }
+      }
+      const cols = ['#e2457f','#f2b134','#3fa7c9','#6dbf63','#9a62c9'];
+      if (ob.face === 'east' || ob.face === 'west'){
+        const ax = ob.face === 'east' ? X+W-9 : X+1;
+        for (let yy=Y+2, i=0; yy<Y+H-2; yy+=12, i++){ r(ax,yy,8,10,cols[(i+ob.x)%5]); r(ax+(ob.face==='east'?0:7),yy,1,10,'#ffffff'); r(ax+3,yy+3,2,4,'#1d2340'); }
+      } else {
+        const ay = ob.face === 'north' ? Y+1 : Y+H-9; for (let xx=X+2, i=0; xx<X+W-2; xx+=12, i++){ r(xx,ay,10,8,cols[i%5]); r(xx,ay+7,10,1,'#fff'); r(xx+4,ay+2,2,3,'#1d2340'); }
+      }
+      break; }
+    case 'pavilion': {
+      r(X+4,Y+6,W,H-4,'rgba(20,45,25,.25)');
+      r(X+4,Y+H-10,W-8,10,'#c2644a'); r(X+6,Y+12,W-12,H-22,'#f6f3ea'); r(X+2,Y+6,W-4,8,'#ffffff'); r(X+2,Y+13,W-4,2,'#d9d4c6');
+      r(X+W/2-3,Y+H-14,6,6,'#7a6a5a');
+      break; }
+    case 'iic': {
+      r(X+4,Y+6,W,H-4,'rgba(20,45,25,.25)');
+      r(X,Y,W,H-16,'#d4cdbf'); r(X+2,Y+2,W-4,H-20,'#ddd7cb');
+      r(X,Y+H-16,W,16,'#a3988a');
+      for (let yy=Y+H-14; yy<Y+H-3; yy+=3) for (let xx=X+2; xx<X+W-2; xx+=3) r(xx,yy,1,1,'#d4cdbf');
+      break; }
+    case 'fountain': {
+      const cx = X+8, cy = Y+8;
+      r(cx-9,cy-5,18,10,'#d9d3c4'); r(cx-7,cy-7,14,14,'#d9d3c4');
+      r(cx-7,cy-4,14,8,'#4b93da'); r(cx-5,cy-6,10,12,'#4b93da');
+      r(cx-1,cy-9,2,6,'#ffffff'); r(cx-3,cy-7,1,2,'#ffffff'); r(cx+2,cy-7,1,2,'#ffffff');
+      break; }
+    case 'sign': {
+      r(X+7,Y+8,2,8,'#6b4a33'); r(X+1,Y+1,14,8,'#6b4a33'); r(X+2,Y+2,12,6,'#f1e6c6');
+      r(X+5,Y+4,6,2,'#1d2340'); r(X+9,Y+3,1,4,'#1d2340');
+      break; }
+  }
+}
+for (let y=0;y<N;y++) for (let x=0;x<N;x++) drawTile(x,y);
+objects.slice().sort((a,b) => (a.y+a.h) - (b.y+b.h)).forEach(drawObject);
+/* Gandhi Smriti footsteps */
+[[61,19],[62,19],[62,20],[63,20],[63,21],[64,21]].forEach(([x,y],i) => { r(x*T+4+(i%2)*5, y*T+5, 2, 3, '#fffdf4'); r(x*T+7+(i%2)*5, y*T+9, 2, 3, '#fffdf4'); });
+
+/* town map: one pixel per tile */
+const townCv = document.createElement('canvas'); townCv.width = N; townCv.height = N;
+(() => { const tc = townCv.getContext('2d'); const col = {
+  [G.GRASS]:'#7cc25a',[G.PGRASS]:'#6ab24c',[G.RGRASS]:'#86cc62',[G.LAWN]:'#94d46c',[G.ROAD]:'#f1ede2',[G.FOOT]:'#e6dcc0',[G.PATH]:'#e1d29a',
+  [G.SAND]:'#efe6d2',[G.WATER]:'#4b93da',[G.WALL]:'#c2644a',[G.REDWALL]:'#9c4430',[G.GATE]:'#c2644a',[G.TREE]:'#2f7a3e',[G.FLOWER]:'#e2457f',[G.HEDGE]:'#2f6b36',[G.COURT]:'#c97a4f' };
+  const bcol = {bungalow:'#f2f0ea', home:'#ffd84d', tomb:'#a8998a', safdarjung:'#c9714f', club:'#c4654a', shops:'#f2b134', memorial:'#ffffff', pavilion:'#ffffff', iic:'#b9b0a0'};
+  for (let y=0;y<N;y++) for (let x=0;x<N;x++){ const k = I(x,y); tc.fillStyle = grid[k] === G.BLD ? (bcol[KINDS[okind[k]]] || '#5b4a92') : col[grid[k]]; tc.fillRect(x,y,1,1); } })();
+
+/* ───────── sprites ───────── */
+const BODY = {
+  down:["................",".....kkkkkk.....","....kssssssk....","...khsssssshk...","...khseSSeshk...","...khsssssshk...","....kssSSssk....",".....kwwwwk.....","....kccwwcck....","...kcccwwccck...","...kCccccccCk...","...kCccccccCk...","....kcccccck...."],
+  up:  ["................",".....kkkkkk.....","....kssssssk....","...khhsssshhk...","...khhhhhhhhk...","...khhhhhhhhk...","....khhhhhhk....",".....kcccck.....","....kcccccck....","...kcccccccck...","...kCccccccCk...","...kCccccccCk...","....kcccccck...."],
+  left:["................",".....kkkkk......","....ksssssk.....","...kssssshhk....","...ksesssshk....","..kSsssssshk....","...ksSsssshk....","....kwwwcck.....","....kwccccck....","...kccccccck....","...kcsccccck....","....kCcccCk.....","....kcccccck...."],
+};
+const LEGS = {
+  front:{stand:["....kppkkppk....","....kpk..kpk....","...kbbk..kbbk..."], s1:["....kppkkpk.....","....kpk.kbbk....","...kbbk........."], s2:[".....kpkkppk....","....kbbk.kpk....",".........kbbk..."]},
+  side: {stand:["....kppppk......","....kpkkpk......","....kbbkbbk....."], s1:["....kppppk......","...kpk..kpk.....","..kbbk..kbbk...."]},
+};
+const OUTFITS = {
+  frock:{c:'#2b3052',C:'#1a1e36',w:'#ffffff',p:'#2b2f45'},
+  shirt:{c:'#f3f1ea',C:'#5b6283',w:'#ffffff',p:'#3a3f5a'},
+  kurta:{c:'#fcfcf6',C:'#d8d5ca',w:'#ffffff',p:'#3a3f5a'},
+};
+const BASEPAL = {k:'#1d2340',s:'#f2c9a5',S:'#d9a07b',h:'#d6d6de',e:'#1d2340',b:'#4a3326'};
+const spriteCache = {};
+function sprite(outfit,dir,frame){
+  const key = outfit+dir+frame; if (spriteCache[key]) return spriteCache[key];
+  const side = dir === 'left' || dir === 'right';
+  const body = BODY[side ? 'left' : dir], legs = LEGS[side ? 'side' : 'front'][side && frame === 's2' ? 's1' : frame] || LEGS[side ? 'side' : 'front'].stand;
+  const rows = body.concat(legs), pal = Object.assign({}, BASEPAL, OUTFITS[outfit]);
+  const c = document.createElement('canvas'); c.width = 16; c.height = 16; const cx = c.getContext('2d');
+  rows.forEach((row,y) => { row = row.padEnd(16,'.').slice(0,16); for (let x=0;x<16;x++){ const ch = row[x]; if (ch === '.') continue; cx.fillStyle = pal[ch] || '#ff00ff'; cx.fillRect(dir === 'right' ? 15-x : x, y, 1, 1); } });
+  return (spriteCache[key] = c);
+}
+const OWL = [".k......k.",".kk....kk.",".kbkkkkbk.","kbyybbyybk","kbyebbeybk","kbbbOObbbk",".kbwbbwbk.",".kbbwwbbk.","..kbbbbk..","..kO..Ok.."];
+function owlSprite(blink){ const c = document.createElement('canvas'); c.width = 10; c.height = 10; const cx = c.getContext('2d');
+  const pal = {k:'#1d2340',b:'#8a6a4a',w:'#d8c3a0',y:'#f2c14e',e:'#1d2340',O:'#e08a2c'};
+  OWL.forEach((row,y) => { for (let x=0;x<10;x++){ let ch = row[x]; if (ch === '.') continue; if (blink && (y === 3 || y === 4) && (ch === 'y' || ch === 'e')) ch = 'b'; cx.fillStyle = pal[ch]; cx.fillRect(x,y,1,1); } }); return c; }
+const OWLS = [owlSprite(false), owlSprite(true)];
+
+/* ───────── state at a given minute ───────── */
+function segAt(m){ return DAY.find(s => m >= s.s && m < s.e) || DAY[DAY.length-1]; }
+function posOnRoute(route,f){
+  const L = route.length - 1; if (L <= 0) return {x:route[0][0], y:route[0][1], dir:'down'};
+  const s = Math.min(L - 1e-6, Math.max(0, f * L)), i = Math.floor(s), fr = s - i;
+  const a = route[i], b = route[i+1], dx = b[0]-a[0], dy = b[1]-a[1];
+  const dir = dx > 0 ? 'right' : dx < 0 ? 'left' : dy > 0 ? 'down' : 'up';
+  return {x:a[0]+dx*fr, y:a[1]+dy*fr, dir, tile:fr < .5 ? a : b};
+}
+function stateAt(m){
+  const seg = segAt(m), st = {seg, outfit:outfitAt(m), moving:false, visible:true, dir:'down'};
+  if (seg.mode === 'walk' || seg.mode === 'stroll'){
+    const f = (m - seg.s) / (seg.e - seg.s), p = posOnRoute(seg.route, f);
+    Object.assign(st, p, {moving:true});
+  } else {
+    const sp = PLACES[seg.at].spot; st.x = sp[0]; st.y = sp[1];
+    if (seg.mode === 'inside') st.visible = false;
+  }
+  return st;
+}
+function statusText(st, m){
+  const seg = st.seg;
+  if (seg.mode === 'walk'){
+    const t = st.tile || [Math.round(st.x), Math.round(st.y)], id = rid[I(t[0],t[1])];
+    const f = (m - seg.s) / (seg.e - seg.s);
+    if (id >= 0) return `On ${ROADS[id][0]}, walking to ${seg.dest}.`;
+    if (id === -2) return `Going round a roundabout, on his way to ${seg.dest}.`;
+    return f < .5 ? `Setting out from ${seg.origin === PLACES.home.name ? 'home' : seg.origin} for ${seg.dest}.` : `Arriving at ${seg.dest}.`;
+  }
+  return seg.now;
+}
+function placeLabel(st){
+  const seg = st.seg;
+  if (seg.mode === 'walk') return 'Out walking';
+  return PLACES[seg.at].name;
+}
+
+/* ───────── light ───────── */
+const KEYS = [[0,[16,22,70,.5]],[345,[16,22,70,.5]],[395,[255,170,110,.14]],[440,[255,255,255,0]],[1015,[255,255,255,0]],[1080,[255,140,60,.2]],[1115,[90,50,120,.36]],[1160,[16,22,70,.5]],[1440,[16,22,70,.5]]];
+function lightAt(m){ for (let i=0;i<KEYS.length-1;i++){ const [a,ca] = KEYS[i], [b,cb] = KEYS[i+1]; if (m >= a && m <= b){ const f = (m-a)/(b-a || 1); return ca.map((v,j) => v + (cb[j]-v)*f); } } return KEYS[0][1]; }
+
+/* ───────── view ───────── */
+const canvas = document.getElementById('map'), ctx = canvas.getContext('2d');
+const ZOOMS = [1, 1.5, 2, 3];
+let dpr = 1, zoom = window.innerWidth < 700 ? 1.5 : 2, town = false, follow = true;
+const cam = {x:PLACES.home.spot[0]*T, y:PLACES.home.spot[1]*T};
+let live = true, playing = false, simMin = 0, lastPerf = performance.now();
+function delhiMinutes(){ const d = new Date(Date.now() + 330*60000); return d.getUTCHours()*60 + d.getUTCMinutes() + d.getUTCSeconds()/60; }
+function resize(){ dpr = window.devicePixelRatio || 1; const b = canvas.getBoundingClientRect(); canvas.width = Math.max(1, Math.round(b.width*dpr)); canvas.height = Math.max(1, Math.round(b.height*dpr)); }
+new ResizeObserver(resize).observe(canvas); resize();
+const pxScale = () => Math.max(1, Math.round(zoom * dpr));
+function view(){
+  const p = pxScale(), vw = canvas.width / p, vh = canvas.height / p, M = N*T;
+  let sx = vw >= M ? (M - vw)/2 : Math.min(M - vw, Math.max(0, cam.x - vw/2));
+  let sy = vh >= M ? (M - vh)/2 : Math.min(M - vh, Math.max(0, cam.y - vh/2));
+  sx = Math.round(sx*p)/p; sy = Math.round(sy*p)/p; return {p, sx, sy, vw, vh};
+}
+function trailPoints(m){
+  const pts = [];
+  for (const s of DAY){ if (s.s > m || !s.route) continue; if (s.mode !== 'walk' && s.mode !== 'stroll') continue;
+    const f = Math.min(1, (m - s.s)/(s.e - s.s)), n = Math.floor(f*(s.route.length-1));
+    for (let i=0;i<=n;i++) pts.push(s.route[i]); }
+  return pts;
+}
+function render(m, now){
+  const W = canvas.width, H = canvas.height; ctx.imageSmoothingEnabled = false;
+  ctx.fillStyle = '#5c8f45'; ctx.fillRect(0,0,W,H);
+  const st = stateAt(m), light = lightAt(m), seg = st.seg;
+  if (town){
+    const s = Math.max(1, Math.floor(Math.min(W,H)/N)), ox = Math.round((W - N*s)/2), oy = Math.round((H - N*s)/2);
+    ctx.drawImage(townCv, ox, oy, N*s, N*s);
+    ctx.fillStyle = 'rgba(226,69,127,.9)';
+    trailPoints(m).forEach(([x,y],i) => { if (i % 2 === 0) ctx.fillRect(ox + x*s + s*.25, oy + y*s + s*.25, Math.max(2,s*.5), Math.max(2,s*.5)); });
+    ctx.font = `${Math.round(12*dpr)}px "Pixelify Sans", "Courier New", monospace`; ctx.textBaseline = 'middle';
+    Object.values(PLACES).forEach(pl => {
+      const [x0,y0,x1,y1] = pl.rect; const label = pl.short === 'home' ? 'Hegel' : (pl.label || pl.name);
+      let cx = ox + (x0+x1+1)/2*s, cy = oy + (y0+y1+1)/2*s; const tw = ctx.measureText(label).width + 10*dpr, th = 18*dpr;
+      cx = Math.min(W - tw/2 - 4, Math.max(tw/2 + 4, cx)); cy = Math.min(H - th, Math.max(th, cy + (pl.short === 'home' ? -14*dpr : 0)));
+      ctx.fillStyle = 'rgba(29,35,64,.82)'; ctx.fillRect(cx - tw/2, cy - th/2, tw, th);
+      ctx.fillStyle = pl.short === 'home' ? '#ffd84d' : '#fcfcf8'; ctx.textAlign = 'center'; ctx.fillText(label, cx, cy + dpr);
+    });
+    const blink = reduceMotion || Math.floor(now/400) % 2 === 0;
+    const hx = ox + (st.x+.5)*s, hy = oy + (st.y+.5)*s;
+    ctx.fillStyle = '#1d2340'; ctx.fillRect(hx - 5*dpr, hy - 5*dpr, 10*dpr, 10*dpr);
+    ctx.fillStyle = blink ? '#ffd84d' : '#e2457f'; ctx.fillRect(hx - 3*dpr, hy - 3*dpr, 6*dpr, 6*dpr);
+    ctx.fillStyle = `rgba(${light[0]|0},${light[1]|0},${light[2]|0},${light[3]*.6})`; ctx.fillRect(ox, oy, N*s, N*s);
+    return st;
+  }
+  if (follow){
+    const tx = (st.x+.5)*T, ty = (st.y+.5)*T;
+    if (reduceMotion){ cam.x = tx; cam.y = ty; } else { cam.x += (tx - cam.x)*.12; cam.y += (ty - cam.y)*.12; }
+  }
+  const {p, sx, sy, vw, vh} = view(), M = N*T;
+  const srcW = Math.min(vw, M), srcH = Math.min(vh, M), dx0 = vw > M ? -sx*p : 0, dy0 = vh > M ? -sy*p : 0;
+  ctx.drawImage(off, Math.max(0,sx), Math.max(0,sy), srcW, srcH, dx0, dy0, srcW*p, srcH*p);
+  const X = v => (v - sx)*p, Y = v => (v - sy)*p;
+  ctx.fillStyle = 'rgba(226,69,127,.7)';
+  trailPoints(m).forEach(([x,y],i) => { if (i % 2 === 0) ctx.fillRect(X(x*T+7), Y(y*T+7), 2*p, 2*p); });
+  const hx = (st.x+.5)*T, hy = (st.y+.5)*T;
+  if (st.visible){
+    const phase = st.moving && !reduceMotion ? Math.floor(now/170) % 4 : -1;
+    const side = st.dir === 'left' || st.dir === 'right';
+    const frame = phase < 0 ? 'stand' : side ? (phase % 2 ? 's1' : 'stand') : ['s1','stand','s2','stand'][phase];
+    const bob = phase % 2 === 1 ? -1 : 0;
+    ctx.fillStyle = 'rgba(20,30,20,.3)'; ctx.fillRect(X(hx-5), Y(hy+3), 10*p, 2*p);
+    ctx.drawImage(sprite(st.outfit, st.dir, frame), X(hx-8), Y(hy-12+bob), 16*p, 16*p);
+  }
+  const recent = ENTRIES.some(e => e.m <= m && m - e.m < 4);
+  if (recent && !seg.asleep){
+    const bx = st.visible ? hx : hx, by = st.visible ? hy - 24 : hy - 30;
+    ctx.fillStyle = '#1d2340'; ctx.fillRect(X(bx-5), Y(by-1), 10*p, 12*p);
+    ctx.fillStyle = '#fcfcf8'; ctx.fillRect(X(bx-4), Y(by), 8*p, 10*p);
+    ctx.fillStyle = st.visible ? '#e2457f' : '#1d2340';
+    if (st.visible){ ctx.fillRect(X(bx-1), Y(by+1), 2*p, 5*p); ctx.fillRect(X(bx-1), Y(by+7), 2*p, 2*p); }
+    else { ctx.fillRect(X(bx-3), Y(by+6), 2*p, 2*p); ctx.fillRect(X(bx), Y(by+6), 2*p, 2*p); ctx.fillRect(X(bx+3) - p, Y(by+6), 2*p, 2*p); }
+  }
+  ctx.fillStyle = `rgba(${light[0]|0},${light[1]|0},${light[2]|0},${light[3]})`; ctx.fillRect(0,0,W,H);
+  if (light[3] > .25){
+    const hb = HOME, hx0 = hb.x*T, hy0 = hb.y*T, hh = hb.h*T, hw = hb.w*T;
+    const awake = seg.at === 'home' && !seg.asleep;
+    if (awake){ ctx.fillStyle = 'rgba(255,214,107,.85)'; for (let xx = hx0+7; xx < hx0+hw-6; xx += 10) ctx.fillRect(X(xx), Y(hy0+hh-17), 7*p, 12*p); }
+  }
+  if (seg.owl){ const ob = OWLS[!reduceMotion && Math.floor(now/2600) % 6 === 0 ? 1 : 0]; ctx.drawImage(ob, X(HOME.x*T + HOME.w*T - 16), Y(HOME.y*T - 4), 10*p, 10*p); }
+  return st;
+}
+
+/* ───────── panel ───────── */
+const $ = id => document.getElementById(id);
+const panel = $('panel'), nowPlace = $('nowPlace'), nowStatus = $('nowStatus'), nowThought = $('nowThought');
+let tab = 'today', hlPlace = null, lastKey = '', typer = null, shownThought = '';
+const KLABEL = {diary:'Thought', bag:'Bought', wear:'Wardrobe', people:'Met', work:'Work', file:'The file'};
+const rupees = n => '₹' + n.toLocaleString('en-IN');
+function line(e){
+  switch (e.k){
+    case 'bag': return `<b>${esc(e.item)}</b>, ${rupees(e.price)}.${e.note ? ' ' + esc(e.note) : ''}`;
+    case 'wear': return `<b>${esc(e.item)}</b>. ${esc(e.status)}`;
+    case 'people': return `<b>${esc(e.name)}</b>, ${esc(e.role)}. ${esc(e.text)}`;
+    case 'work': return `<b>${esc(e.title)}</b>. ${esc(e.text)}`;
+    default: return esc(e.text);
+  }
+}
+function renderPanel(m){
+  const seen = ENTRIES.filter(e => e.m <= m);
+  let html = '';
+  const empty = msg => `<p class="empty">${msg}</p>`;
+  if (tab === 'today' || tab === 'thoughts'){
+    const list = (tab === 'today' ? seen : seen.filter(e => e.k === 'diary')).slice().reverse();
+    html = `<h2>${tab === 'today' ? 'Today, newest first' : 'Thoughts'}</h2>` + (list.length ? list.map(e => `<div class="entry"><span class="t">${e.t}</span><div>${tab === 'today' ? `<span class="k">${KLABEL[e.k]}</span>` : ''}<p>${line(e)}</p></div></div>`).join('') : empty('He has not woken yet. He wakes at 05:58 Delhi time.'));
+  } else if (tab === 'bag'){
+    const bag = seen.filter(e => e.k === 'bag'), spent = bag.reduce((a,e) => a + e.price, 0), imp = seen.find(e => e.imprest);
+    html = '<h2>Bag</h2>' + (bag.length ? bag.map(e => `<div class="entry"><span class="t">${e.t}</span><p>${line(e)}</p></div>`).join('') : empty('Nothing bought yet today.'))
+      + (imp ? `<p class="sum">Spent ${rupees(spent)} of the ${rupees(imp.imprest)} imprest. ${rupees(imp.imprest - spent)} left.</p>` : '');
+  } else if (tab === 'wardrobe'){
+    const items = new Map(); seen.filter(e => e.k === 'wear').forEach(e => items.set(e.item, e));
+    html = '<h2>Wardrobe</h2>' + (items.size ? [...items.values()].map(e => `<div class="entry"><span class="t">${e.t}</span><p>${line(e)}</p></div>`).join('') : empty('Nothing yet. He is still asleep.'));
+  } else if (tab === 'people'){
+    const ppl = seen.filter(e => e.k === 'people');
+    html = '<h2>People</h2>' + (ppl.length ? ppl.map(e => `<div class="entry"><span class="t">${e.t}</span><p>${line(e)}</p></div>`).join('') : empty('No one yet. Ramesh brings tea at 06:20.'))
+      + '<p class="sum">Everyone he meets is fictional.</p>';
+  } else if (tab === 'work'){
+    const w = seen.filter(e => e.k === 'work');
+    html = '<h2>Work</h2>' + (w.length ? w.map(e => `<div class="entry"><span class="t">${e.t}</span><p>${line(e)}</p></div>`).join('') : empty('Nothing on the desk yet. He starts writing after breakfast.'));
+  } else if (tab === 'file'){
+    const f = seen.filter(e => e.k === 'file');
+    html = '<h2>The file</h2>' + (f.length ? f.map(e => `<div class="entry"><span class="t">${e.t}</span><p>${line(e)}</p></div>`).join('') : empty('The file opens when he wakes.'));
+  } else if (tab === 'places'){
+    html = '<h2>Places</h2>' + Object.entries(PLACES).map(([id,pl]) => `<div class="place-card${hlPlace === id ? ' hl' : ''}" id="pl-${id}"><h3>${esc(pl.name)}</h3><p>${esc(pl.text)}</p>${id === 'estates' ? '' : `<button type="button" data-show="${id}">Show on map</button>`}</div>`).join('');
+  }
+  panel.innerHTML = html;
+}
+function typeThought(text){
+  if (typer) cancelAnimationFrame(typer);
+  if (reduceMotion){ nowThought.innerHTML = text; return; }
+  const plain = text.replace(/<[^>]+>/g,''); const prefixMatch = text.match(/^<span class="t">[^<]*<\/span>/); const prefix = prefixMatch ? prefixMatch[0] : '';
+  const body = prefix ? plain.replace(prefixMatch[0].replace(/<[^>]+>/g,''), '') : plain;
+  let i = 0, start = performance.now();
+  const step = (t) => { i = Math.min(body.length, Math.floor((t - start)/18)); nowThought.innerHTML = prefix + esc(body.slice(0,i)) + (i < body.length ? '<span class="caret"></span>' : ''); if (i < body.length) typer = requestAnimationFrame(step); };
+  typer = requestAnimationFrame(step);
+}
+function updateDom(st, m){
+  const minute = Math.floor(m);
+  $('clock').textContent = fmt(m);
+  if (!scrubbing) $('scrub').value = minute;
+  const key = minute + '|' + tab + '|' + hlPlace;
+  if (key === lastKey) return; lastKey = key;
+  nowPlace.textContent = placeLabel(st);
+  nowStatus.textContent = statusText(st, m);
+  const th = ENTRIES.filter(e => e.k === 'diary' && e.m <= m).pop();
+  const thHtml = th ? `<span class="t">${th.t}</span>${esc(th.text)}` : '<span class="t">—</span>Nothing thought yet today.';
+  if (thHtml !== shownThought){ shownThought = thHtml; typeThought(thHtml); }
+  renderPanel(m);
+}
+
+/* ───────── controls ───────── */
+let scrubbing = false;
+const btnLive = $('btnLive'), btnPlay = $('btnPlay'), scrub = $('scrub'), btnTown = $('btnTown');
+function setLive(v){ live = v; btnLive.setAttribute('aria-pressed', String(v)); if (v){ setPlay(false); follow = true; } }
+function setPlay(v){ playing = v; btnPlay.setAttribute('aria-pressed', String(v)); btnPlay.textContent = v ? 'Pause' : 'Play the day'; if (v){ live = false; btnLive.setAttribute('aria-pressed','false'); if (simMin >= 1439) simMin = 0; } }
+btnLive.addEventListener('click', () => setLive(true));
+btnPlay.addEventListener('click', () => setPlay(!playing));
+scrub.addEventListener('input', () => { scrubbing = true; setLive(false); setPlay(false); simMin = +scrub.value; lastKey = ''; });
+scrub.addEventListener('change', () => { scrubbing = false; });
+$('btnFind').addEventListener('click', () => { follow = true; if (town){ town = false; btnTown.setAttribute('aria-pressed','false'); } });
+btnTown.addEventListener('click', () => { town = !town; btnTown.setAttribute('aria-pressed', String(town)); });
+$('btnZoom').addEventListener('click', () => { zoom = ZOOMS[(ZOOMS.indexOf(zoom) + 1) % ZOOMS.length]; if (town){ town = false; btnTown.setAttribute('aria-pressed','false'); } });
+document.querySelectorAll('.menu [role=tab]').forEach(b => b.addEventListener('click', () => selectTab(b.dataset.tab)));
+function selectTab(t){ tab = t; document.querySelectorAll('.menu [role=tab]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === t))); lastKey = ''; }
+panel.addEventListener('click', e => { const b = e.target.closest('[data-show]'); if (!b) return; const pl = PLACES[b.dataset.show];
+  follow = false; town = false; btnTown.setAttribute('aria-pressed','false'); const [x0,y0,x1,y1] = pl.rect; cam.x = (x0+x1+1)/2*T; cam.y = (y0+y1+1)/2*T;
+  hlPlace = b.dataset.show; lastKey = ''; canvas.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block:'center'}); });
+let drag = null;
+canvas.addEventListener('pointerdown', e => { canvas.setPointerCapture(e.pointerId); drag = {x:e.clientX, y:e.clientY, cx:cam.x, cy:cam.y, moved:0}; });
+canvas.addEventListener('pointermove', e => { if (!drag) return; const dx = e.clientX - drag.x, dy = e.clientY - drag.y; drag.moved = Math.max(drag.moved, Math.abs(dx) + Math.abs(dy));
+  if (drag.moved > 6 && !town){ follow = false; const p = pxScale(); cam.x = drag.cx - dx*dpr/p; cam.y = drag.cy - dy*dpr/p; } });
+canvas.addEventListener('pointerup', e => { if (drag && drag.moved <= 6) tap(e); drag = null; });
+canvas.addEventListener('pointercancel', () => { drag = null; });
+canvas.addEventListener('keydown', e => { const step = 4*T, k = e.key;
+  const mv = {ArrowLeft:[-1,0], ArrowRight:[1,0], ArrowUp:[0,-1], ArrowDown:[0,1]}[k];
+  if (mv){ e.preventDefault(); follow = false; cam.x += mv[0]*step; cam.y += mv[1]*step; } else if (k === 'f'){ follow = true; } });
+function tap(e){
+  const b = canvas.getBoundingClientRect(), px = (e.clientX - b.left)*dpr, py = (e.clientY - b.top)*dpr;
+  let tx, ty;
+  if (town){ const s = Math.max(1, Math.floor(Math.min(canvas.width, canvas.height)/N)), ox = Math.round((canvas.width - N*s)/2), oy = Math.round((canvas.height - N*s)/2);
+    tx = Math.floor((px - ox)/s); ty = Math.floor((py - oy)/s); if (!inb(tx,ty)) return;
+    town = false; btnTown.setAttribute('aria-pressed','false'); follow = false; cam.x = (tx+.5)*T; cam.y = (ty+.5)*T;
+  } else { const v = view(); tx = Math.floor((v.sx + px/v.p)/T); ty = Math.floor((v.sy + py/v.p)/T); }
+  const m = currentMinute(), st = stateAt(m);
+  if (!town && st.visible && Math.abs(tx - st.x) <= 1 && Math.abs(ty - st.y) <= 1){ selectTab('today'); $('nowPlace').scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block:'nearest'}); return; }
+  const hit = Object.entries(PLACES).find(([,pl]) => tx >= pl.rect[0] && tx <= pl.rect[2] && ty >= pl.rect[1] && ty <= pl.rect[3]);
+  if (hit){ hlPlace = hit[0]; selectTab('places'); requestAnimationFrame(() => { const el = $('pl-' + hit[0]); if (el) el.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block:'nearest'}); }); }
+}
+function currentMinute(){ return live ? delhiMinutes() : simMin; }
+
+/* ───────── loop ───────── */
+function frame(now){
+  const dt = Math.min(250, now - lastPerf); lastPerf = now;
+  if (playing){ simMin += dt/1000 * 5; if (simMin >= 1439.99){ simMin = 1439.99; setPlay(false); } }
+  const m = currentMinute();
+  const st = render(m, now);
+  updateDom(st, m);
+  requestAnimationFrame(frame);
+}
+window.__hegel = {MISSING, routes: DAY.filter(s => s.route).map(s => ({from:s.from, len:s.route.length})), setMinute: v => { setLive(false); simMin = v; lastKey=''; }, setTown: v => { town = v; }, setZoom: v => { zoom = v; }};
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+{
+  "note": "Test data for the bake-off. Headlines and people here are invented for testing and are not published.",
+  "situations": [
+    {"id": "s01", "title": "Saturday dawn", "day": "Saturday 3 October", "time": "06:05", "place": "home",
+     "weather": "26 °C, clear", "aqi": 140, "imprest_left": 10501, "outfit": "white cotton kurta", "present": [],
+     "open_now": ["home", "lodhi"],
+     "event": "You wake. Ramesh has left the papers on the verandah. Test headlines: the monsoon is withdrawing from north-west India; a parliamentary committee is examining how central taxes are shared with the states."},
+
+    {"id": "s02", "title": "Hegde's letter", "day": "Saturday 3 October", "time": "09:40", "place": "home",
+     "weather": "30 °C, hazy", "aqi": 150, "imprest_left": 10501, "outfit": "white cotton kurta", "present": ["Ramesh, the caretaker"],
+     "open_now": ["home", "lodhi", "khan", "safdarjung"],
+     "event": "Ramesh hands you a handwritten note from Shri G. Hegde. He would like to call on you on Monday at ten, to resolve the matter of the bungalow like gentlemen."},
+
+    {"id": "s03", "title": "The book you can't afford", "day": "Saturday 3 October", "time": "11:20", "place": "khan",
+     "weather": "32 °C, hazy", "aqi": 155, "imprest_left": 600, "outfit": "white cotton kurta", "present": ["the bookseller"],
+     "open_now": ["home", "lodhi", "khan", "safdarjung"],
+     "event": "In the bookshop you find a two-volume history of the Delhi Sultanate. It costs ₹1,450. The bookseller offers to hold it for you until next week."},
+
+    {"id": "s04", "title": "Rain in Lodhi", "day": "Saturday 3 October", "time": "15:10", "place": "lodhi",
+     "weather": "a sudden heavy shower, 27 °C", "aqi": 90, "imprest_left": 600, "outfit": "white cotton kurta", "present": ["Mrs. Kapoor, a retired schoolteacher sheltering beside you"],
+     "open_now": ["home", "lodhi", "khan", "safdarjung"],
+     "event": "Heavy rain begins. You are two kilometres from home. The only shelter is the arcade of a tomb. Mrs. Kapoor remarks that the monsoon always leaves late, like an old guest."},
+
+    {"id": "s05", "title": "Monday, the file", "day": "Monday 5 October", "time": "08:40", "place": "home",
+     "weather": "29 °C, clear", "aqi": 160, "imprest_left": 3200, "outfit": "white cotton kurta", "present": [],
+     "open_now": ["home", "lodhi", "khan"],
+     "event": "The Directorate of Estates opens later this morning. Shri Hegde is due at ten. You can wait for him, or go to the Directorate first once it opens."},
+
+    {"id": "s06", "title": "Under submission", "day": "Monday 5 October", "time": "11:30", "place": "estates",
+     "weather": "32 °C", "aqi": 165, "imprest_left": 3200, "outfit": "white cotton kurta", "present": ["Mr. Saxena, a section officer"],
+     "open_now": ["home", "lodhi", "khan", "estates", "iic"],
+     "event": "Mr. Saxena finds the file. It has gone up for orders. 'Come after fifteen days,' he says. 'Meanwhile, your occupation is irregular.'"},
+
+    {"id": "s07", "title": "Air", "day": "Wednesday 7 October", "time": "14:00", "place": "home",
+     "weather": "33 °C, a brown haze", "aqi": 290, "imprest_left": 2400, "outfit": "white cotton kurta", "present": [],
+     "open_now": ["home", "lodhi", "khan", "iic"],
+     "event": "The air is poor today. Masterji sends word that your bandhgala is ready for its fitting at Khan Market."},
+
+    {"id": "s08", "title": "An invitation", "day": "Thursday 8 October", "time": "18:30", "place": "gym",
+     "weather": "28 °C", "aqi": 210, "imprest_left": 2400, "outfit": "charcoal bandhgala", "present": ["Mr. R. K. Malhotra, retired IAS"],
+     "open_now": ["home", "khan", "gym", "iic"],
+     "event": "Mr. Malhotra says there is a talk on cooperative federalism at the India International Centre at half past seven. You are not a member, but he can sign you in."},
+
+    {"id": "s09", "title": "Without history", "day": "Friday 9 October", "time": "07:10", "place": "lodhi",
+     "weather": "24 °C, clear", "aqi": 180, "imprest_left": 2300, "outfit": "white cotton kurta", "present": ["Nidhi Rao, doctoral student in philosophy"],
+     "open_now": ["home", "lodhi"],
+     "event": "Nidhi falls into step beside you. 'You wrote that we were a people without history. My grandmother's village has land records going back four hundred years. What now?'"},
+
+    {"id": "s10", "title": "Small change", "day": "Friday 9 October", "time": "12:40", "place": "khan",
+     "weather": "32 °C", "aqi": 190, "imprest_left": 2300, "outfit": "white cotton kurta", "present": ["a chai seller"],
+     "open_now": ["home", "lodhi", "khan", "safdarjung", "iic"],
+     "event": "You want a cup of chai. It costs ₹20. You only have a ₹500 note, and the chai seller has no change."},
+
+    {"id": "s11", "title": "Power cut", "day": "Friday 9 October", "time": "19:40", "place": "home",
+     "weather": "31 °C, still", "aqi": 230, "imprest_left": 2280, "outfit": "white cotton kurta", "present": ["Ramesh"],
+     "open_now": ["home"],
+     "event": "The power goes. The fan stops. Ramesh lights two candles and says it may last two hours. Your draft of the week's Depesche is half finished."},
+
+    {"id": "s12", "title": "Midnight", "day": "Saturday 10 October", "time": "23:30", "place": "home",
+     "weather": "25 °C", "aqi": 240, "imprest_left": 2100, "outfit": "night shirt", "present": [],
+     "open_now": ["home"],
+     "event": "You cannot sleep. A mosquito, and Article 17 of the Constitution, keep you awake."},
+
+    {"id": "s13", "title": "Hindi lessons", "day": "Sunday 11 October", "time": "10:00", "place": "home",
+     "weather": "29 °C", "aqi": 200, "imprest_left": 3200, "outfit": "white cotton kurta", "present": ["Nidhi Rao"],
+     "open_now": ["home", "lodhi", "khan", "safdarjung"],
+     "event": "Nidhi offers to teach you Hindi, three lessons a week at ₹400 each. You have no income beyond the imprest."},
+
+    {"id": "s14", "title": "Two prices", "day": "Sunday 11 October", "time": "15:30", "place": "safdarjung",
+     "weather": "31 °C", "aqi": 210, "imprest_left": 3200, "outfit": "white cotton kurta", "present": ["the ticket clerk"],
+     "open_now": ["home", "lodhi", "khan", "safdarjung"],
+     "event": "At the ticket counter of Safdarjung's Tomb, a sign shows a much higher price for foreign visitors. The clerk asks your nationality."},
+
+    {"id": "s15", "title": "Members only", "day": "Monday 12 October", "time": "11:00", "place": "iic",
+     "weather": "30 °C", "aqi": 220, "imprest_left": 3000, "outfit": "charcoal bandhgala", "present": ["the guard at the library"],
+     "open_now": ["home", "lodhi", "khan", "iic", "estates"],
+     "event": "The guard explains that the library is for members and their guests only."},
+
+    {"id": "s16", "title": "The papers", "day": "Tuesday 13 October", "time": "06:30", "place": "home",
+     "weather": "24 °C", "aqi": 230, "imprest_left": 2900, "outfit": "white cotton kurta", "present": [],
+     "open_now": ["home", "lodhi"],
+     "event": "Test headline: several state governments object to a new formula for sharing central taxes. You have an hour before breakfast."},
+
+    {"id": "s17", "title": "At the gate", "day": "Tuesday 13 October", "time": "17:30", "place": "home",
+     "weather": "30 °C", "aqi": 250, "imprest_left": 2900, "outfit": "white cotton kurta", "present": ["Shri G. Hegde, with two suitcases", "Ramesh"],
+     "open_now": ["home", "lodhi", "khan", "gym", "iic"],
+     "event": "Shri Hegde stands at the gate, tired after ten days in a guest house. He asks, politely, whether he might at least use the second bedroom until the file is decided."},
+
+    {"id": "s18", "title": "Empty purse", "day": "Wednesday 14 October", "time": "13:10", "place": "khan",
+     "weather": "31 °C", "aqi": 260, "imprest_left": 40, "outfit": "white cotton kurta", "present": [],
+     "open_now": ["home", "lodhi", "khan", "iic"],
+     "event": "You are hungry. Ramesh has his day off, so there is no lunch at home. ₹40 is all that is left of the imprest."},
+
+    {"id": "s19", "title": "Stomach", "day": "Thursday 15 October", "time": "08:00", "place": "home",
+     "weather": "26 °C", "aqi": 270, "imprest_left": 40, "outfit": "night shirt", "present": ["Ramesh"],
+     "open_now": ["home", "lodhi"],
+     "event": "You feel unwell after yesterday's street food. Ramesh offers to fetch the doctor from the clinic round the corner."},
+
+    {"id": "s20", "title": "A favour", "day": "Thursday 15 October", "time": "20:00", "place": "home",
+     "weather": "27 °C", "aqi": 280, "imprest_left": 40, "outfit": "white cotton kurta", "present": ["Ramesh"],
+     "open_now": ["home"],
+     "event": "Ramesh asks whether you would write a letter recommending his nephew for a clerical post in a ministry. 'A word from this bungalow carries weight,' he says."}
+  ]
+}
