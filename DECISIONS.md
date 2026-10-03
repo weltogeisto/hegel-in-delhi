@@ -23,8 +23,10 @@ Hegel, knowledge cut off in November 1831, rediscovering the world in 2026 Delhi
 10. **The people he meets answer him,** voiced by the model from their cards.
 11. **The mind:** Bonsai first, untrained, with his shelf. If Qwen, trained or not, is considerably better on the Hegel test, Qwen it is.
 12. **Judges for the Hegel test:** Welt and Claude.
-13. **Money:** a proposal follows from the research; pending Welt's yes.
+13. **Money is a simulated economy.** Cash in a purse; the imprest is state money refilled only against vouchers at the Directorate, with personal spending queried and owed; income only from what he does (tutoring, talks, selling things, loans), offered through people and circumstance; recurring costs (groceries, electricity, Ramesh's wage for cooking, the dhobi, festival tips). All prices are simulated; nothing is bought for real.
+14. **His conduct is loosened.** No rule against the violent, the romantic or the illegal in what he does; the world answers with consequences.
+15. **The map is precise.** Real streets, parks, walls and buildings from OpenStreetMap (ODbL, attributed on the page), in the same pixel style. Hegel's bungalow stays fictional on a real Tughlak Road plot; no real residence or occupant is named.
 
 ## Still open
 
-- His own conduct: the soul still says nothing violent, romantic or illegal. Keep, loosen or drop?
+- Nothing at the moment.
