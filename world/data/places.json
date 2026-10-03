@@ -1,5 +1,5 @@
 {
-  "note": "Delhi time. Hours per weekday group; 'sun' means sunrise or sunset that day. Walking times in minutes, measured on the page's map at day 1's pace (4.25 tiles a minute); the Directorate adds 15 minutes off the map. Prices in rupees, October 2026.",
+  "note": "Delhi time. Hours per weekday group; 'sun' means sunrise or sunset that day. Walking times in minutes: the shortest path between entrances on the OpenStreetMap grid at 75 m a minute, written by tools/osm_map.py; the Directorate, off the map to the north, adds the rest of the way in a straight line × 1.3. Prices in rupees, October 2026.",
   "places": {
     "home": {
       "name": "Bungalow No. 1820, Tughlak Road", "short": "home", "at": "at home",
@@ -79,12 +79,12 @@
     }
   },
   "walk": {
-    "home-lodhi": 22, "home-safdarjung": 41, "home-khan": 25, "home-gandhi": 18, "home-gym": 25, "home-iic": 28, "home-estates": 38,
-    "lodhi-safdarjung": 23, "lodhi-khan": 26, "lodhi-gandhi": 34, "lodhi-gym": 40, "lodhi-iic": 11, "lodhi-estates": 53,
-    "safdarjung-khan": 50, "safdarjung-gandhi": 46, "safdarjung-gym": 37, "safdarjung-iic": 22, "safdarjung-estates": 57,
-    "khan-gandhi": 33, "khan-gym": 42, "khan-iic": 33, "khan-estates": 55,
-    "gandhi-gym": 25, "gandhi-iic": 40, "gandhi-estates": 25,
-    "gym-iic": 47, "gym-estates": 36,
-    "iic-estates": 59
+    "home-lodhi": 20, "home-safdarjung": 12, "home-khan": 27, "home-gandhi": 11, "home-gym": 11, "home-iic": 22, "home-estates": 26,
+    "lodhi-safdarjung": 12, "lodhi-khan": 17, "lodhi-gandhi": 22, "lodhi-gym": 29, "lodhi-iic": 8, "lodhi-estates": 42,
+    "safdarjung-khan": 28, "safdarjung-gandhi": 23, "safdarjung-gym": 18, "safdarjung-iic": 20, "safdarjung-estates": 38,
+    "khan-gandhi": 20, "khan-gym": 36, "khan-iic": 10, "khan-estates": 40,
+    "gandhi-gym": 19, "gandhi-iic": 19, "gandhi-estates": 20,
+    "gym-iic": 33, "gym-estates": 29,
+    "iic-estates": 39
   }
 }
