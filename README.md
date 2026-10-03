@@ -13,19 +13,33 @@ Live page: https://weltogeisto.github.io/hegel-in-delhi/
 
 No database, no subscription. The running cost is electricity.
 
+## A step, from the inside
+
+Every minute the Pi asks one question: does the published day reach fifteen minutes past now? Most minutes it does, and the Pi goes back to sleep without touching the network.
+
+When it doesn't, the world builds the next situation: the time, the weather and the air, who is present, what is open and until when, what things cost, what is on his mind, and what happens. Something always happens, even if it is only the afternoon going on. The papers arrive at dawn, Ramesh lays out lunch, Khan Market closes, Shri Hegde rings the bell at ten. The Pi wakes the PC and the mind answers in JSON. The world checks the answer against the rules: closed is closed, walking takes the time it takes, the imprest cannot go below zero, and no alcohol is sold on a dry day. If the answer breaks a rule, the world says which one and the mind decides again. The step becomes segments for the map and entries for the panels, written into `docs/days/<date>.json` and pushed. The page polls once a minute and reveals each step when its time comes.
+
+The day file is the state. Each one opens with what Hegel carries in from yesterday and closes with what he carries into tomorrow. At half past one the owl writes up yesterday, and on Saturdays it writes the Depesche.
+
 ## The rules
 
-The living are invented, the dead are on his shelf, the news is real. Everyone he meets is fictional; real people reach him only through books and newspapers. His 1820s views on India are his thesis under revision, never the page's voice.
+The living are invented, the dead are on his shelf, the news is real. Everyone he meets is fictional; real people reach him only through books and newspapers. His 1820s views on India are his thesis under revision, never the page's voice. The morning papers carry the state, the economy and the courts; the world leaves out crime, violence and disaster.
 
 ## Layout
 
 | Path | What |
 |---|---|
-| `docs/` | The public page (day 1 is the hand-written prologue) |
-| `mind/` | The day mind's prompt, test situations and the bake-off |
+| `docs/` | The public page |
+| `docs/days/` | One file per day, written by the world; day 1 is the hand-written prologue |
+| `world/` | The world engine: places, hours, prices, the cast, the Hegde file, the rules, the feeds, the owl |
+| `world/data/` | The world's facts as JSON, editable without touching code |
+| `mind/` | The day mind's prompt, the owl's prompt, test situations and the bake-off |
 | `pc/` | Windows scripts for the PC, and `CODEX.md` |
-| `scripts/` | Pi scripts: wake the PC, test wake and sleep |
+| `scripts/` | Pi scripts: wake the PC, test wake and sleep, the world's timer |
+| `tests/` | `python3 -m unittest discover -s tests` |
 | `HERMES.md` | The runbook Hermes follows |
+
+`python3 -m world simulate --date 2026-10-03` rehearses a whole day offline with a stand-in mind whose thoughts are marked `(rehearsal)`. Add `--mind http://PC:8081` to rehearse with the real one. Nothing is pushed.
 
 ## Plan
 
@@ -33,7 +47,7 @@ The living are invented, the dead are on his shelf, the news is real. Everyone h
 2. The mind on the PC ⟶ Codex, `pc/CODEX.md` 1–6; Hermes, task 2
 3. Bake-off: Bonsai vs Qwen ⟶ Hermes, task 3; Welt decides
 4. Wake and sleep ⟶ Codex 7–8, Welt (BIOS, router); Hermes, task 4
-5. World engine on the Pi ⟶ Claude writes, Hermes installs
-6. Live page reading the day files ⟶ Claude
-7. Shadow week on a private branch, then the public switch
-8. The owl at night, and real streets from OpenStreetMap
+5. World engine on the Pi ⟶ written; Hermes installs and rehearses, task 5
+6. Live page reading the day files ⟶ written; day 1 replays until the first live day
+7. Shadow week on the `shadow` branch, watched at `?branch=shadow` ⟶ Hermes, task 6; then the public switch, task 7
+8. The owl at night ⟶ written, on the day mind's model until the PC can switch to the larger one at night; real streets from OpenStreetMap still to come

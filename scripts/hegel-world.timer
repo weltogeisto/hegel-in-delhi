@@ -1,0 +1,10 @@
+# Every minute. Most ticks find nothing due and end at once; a running tick is never doubled.
+[Unit]
+Description=Hegel in Delhi: tick the world every minute
+
+[Timer]
+OnCalendar=*-*-* *:*:00
+AccuracySec=5s
+
+[Install]
+WantedBy=timers.target
