@@ -35,12 +35,14 @@ The living are invented, the dead are on his shelf, the news is real: everyone h
 |---|---|
 | `docs/` | The public page |
 | `docs/days/` | One file per day, written by the world; day 1 is the hand-written prologue |
+| `docs/map/` | The map as data, derived from OpenStreetMap (ODbL) |
 | `world/` | The world engine: places, hours, prices, the cast, the Hegde file, the rules, the feeds, the owl |
 | `world/data/` | The world's facts as JSON and word lists, editable without touching code |
 | `mind/` | The day mind's prompt, the owl's, the voices', test situations and the bake-off |
 | `pc/` | Windows scripts for the PC, and `CODEX.md` |
 | `scripts/` | Pi scripts: wake the PC, test wake and sleep, the world's timer |
 | `tests/` | `python3 -m unittest discover -s tests` |
+| `tools/` | `osm_map.py` rebuilds the map and the walking times from OpenStreetMap; run it only when the map should change |
 | `HERMES.md` | The runbook Hermes follows |
 
 `python3 -m world simulate --date 2026-10-03` rehearses a whole day offline with a stand-in mind whose thoughts are marked `(rehearsal)`. Add `--mind http://PC:8081` to rehearse with the real one. Nothing is pushed.
@@ -54,4 +56,4 @@ The living are invented, the dead are on his shelf, the news is real: everyone h
 5. World engine on the Pi ⟶ written; Hermes installs and rehearses, task 5
 6. Live page reading the day files ⟶ written; day 1 replays until the first live day
 7. Shadow week on the `shadow` branch, watched at `?branch=shadow` ⟶ Hermes, task 6; then the public switch, task 7
-8. The owl at night ⟶ written, on the day mind's model until the PC can switch to the larger one at night; real streets from OpenStreetMap still to come
+8. The owl at night ⟶ written, on the day mind's model until the PC can switch to the larger one at night; real streets from OpenStreetMap done
