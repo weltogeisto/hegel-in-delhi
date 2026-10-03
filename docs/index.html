@@ -94,6 +94,14 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
 .place-card button{font-size:14px;padding:4px 8px}
 .about{font-size:15px;color:var(--shell-muted);max-width:60ch}
 .about p{margin:0 0 8px}
+.daynav{display:flex;align-items:center;gap:8px;margin-top:6px}
+.top .daynav .day{margin:0}
+.daynav button{font-size:13px;padding:2px 8px;box-shadow:0 2px 0 var(--ink)}
+.daynav button[hidden]{display:none}
+.now .wx{margin:-4px 0 10px;color:var(--muted);font-size:15px}
+.owl h3{font-size:17px;margin:14px 0 6px;font-weight:600}
+.owl p{margin:0 0 10px}
+.panel a{color:var(--accent-strong)}
 @media (min-width:960px){
   html,body{overflow:hidden}
   .app{height:100%;grid-template-columns:minmax(0,1fr) 430px;gap:22px;padding:18px 22px}
@@ -119,7 +127,11 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
     <header class="top">
       <h1>Hegel in Delhi</h1>
       <p>G. W. F. Hegel, fifty, wakes up in a Lutyens bungalow that the Directorate of Estates allotted to him by mistake.</p>
-      <p class="day">Day 1. Friday, 2 October 2026. Gandhi Jayanti.</p>
+      <div class="daynav">
+        <button id="btnPrev" type="button" hidden>&#9664;</button>
+        <p class="day" id="dayLine">&nbsp;</p>
+        <button id="btnNext" type="button" hidden>&#9654;</button>
+      </div>
     </header>
     <div class="bezel">
       <span class="led" aria-hidden="true"></span>
@@ -136,13 +148,14 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
       <input id="scrub" type="range" min="0" max="1439" step="1" value="0" aria-label="Time of day in Delhi">
       <output id="clock" for="scrub">--:--</output>
     </div>
-    <p class="note">Delhi time. Day 1 replays until the live simulation takes over.</p>
+    <p class="note" id="note">Delhi time.</p>
   </section>
 
   <aside class="side">
     <div class="box now" aria-live="polite">
       <p class="place" id="nowPlace">&nbsp;</p>
       <p class="status" id="nowStatus">&nbsp;</p>
+      <p class="wx" id="nowWx" hidden></p>
       <blockquote id="nowThought"></blockquote>
     </div>
     <nav class="box menu" role="tablist" aria-label="What Hegel did today">
@@ -157,7 +170,7 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
     </nav>
     <div class="box panel" id="panel" role="tabpanel"></div>
     <div class="about">
-      <p>Day 1 is written by hand. From day 2 a small model lives his days on this map, and a large one writes them up each night while he sleeps.</p>
+      <p>Day 1 is written by hand. After it, a small model lives his days on this map, and a large one writes them up each night while he sleeps.</p>
       <p>The rule: the living are invented, the dead are on his shelf, the news is real. Everyone he meets is fictional; real people reach him only through books and newspapers.</p>
       <p>The street plan is sketched from Lutyens' Delhi. Positions are approximate until the OpenStreetMap import.</p>
     </div>
@@ -363,12 +376,14 @@ for (let y=87;y<=116;y++) for (let x=73;x<=113;x++){ if (grid[I(x,y)] === G.PGRA
 /* ───────── places ───────── */
 const PLACES = {
   home:      {name:'Bungalow No. 1820, Tughlak Road', short:'home', rect:[66,52,76,61], spot:[71,59],
-              text:'His home since this morning. Type-VII, a verandah, three neem trees and a caretaker. Fictional, like the allotment.'},
+              text:'His home since 2 October. Type-VII, a verandah, three neem trees and a caretaker. Fictional, like the allotment.'},
   lodhi:     {name:'Lodhi Gardens', rect:[72,86,114,117], spot:[111,89],
+              loop:[[111,89],[111,114],[75,114],[75,89],[93,89],[93,100],[111,100],[111,114],[75,114],[75,89],[111,89]],
               text:'Tombs of the Sayyid and Lodi dynasties, 15th and 16th century, in a park laid out in 1936.'},
   safdarjung:{name:"Safdarjung's Tomb", rect:[42,100,60,117], spot:[51,113],
               text:'Garden tomb of a Mughal prime minister, completed in 1754.'},
   khan:      {name:'Khan Market', rect:[111,30,127,48], spot:[119,40],
+              loop:[[119,40],[118,32],[120,43],[117,36],[121,33],[119,40]],
               text:'A horseshoe of two-storey shophouses, built in 1951. Books, tailors, groceries.'},
   gandhi:    {name:'Gandhi Smriti', rect:[56,12,70,26], spot:[61,21],
               text:'Birla House, where Gandhi spent the last 144 days of his life. Now a memorial.'},
@@ -377,73 +392,13 @@ const PLACES = {
   iic:       {name:'India International Centre', label:'IIC', rect:[121,94,127,116], spot:[123,106],
               text:'Library and lecture hall on Max Mueller Marg, which is named after the German Indologist.'},
   estates:   {name:'Directorate of Estates, Nirman Bhawan', label:'To the Directorate of Estates', rect:[42,0,44,2], spot:[40,1],
-              text:'Off the map to the north. It holds the file. Closed until Monday.'},
+              text:'Off the map to the north. It holds the file.'},
 };
+const placeOf = id => PLACES[id] || PLACES.home;
 
-/* ───────── the day (day 1 is written by hand) ───────── */
-const DAY = [
-  {from:'00:00', to:'05:58', mode:'inside', at:'home', asleep:true, now:'Before dawn. A bungalow on Tughlak Road, a letter on the side table, and someone about to wake for the first time in 195 years.'},
-  {from:'05:58', to:'06:50', mode:'stand', at:'home', now:'On the verandah with tea and four newspapers.'},
-  {from:'06:50', to:'07:12', mode:'walk', a:'home', b:'lodhi'},
-  {from:'07:12', to:'08:15', mode:'stroll', at:'lodhi', loop:[[111,89],[111,114],[75,114],[75,89],[93,89],[93,100],[111,100],[111,114],[75,114],[75,89],[111,89]], now:'Walking the loop in Lodhi Gardens, among the tombs.'},
-  {from:'08:15', to:'08:37', mode:'walk', a:'lodhi', b:'home'},
-  {from:'08:37', to:'11:00', mode:'inside', at:'home', now:'At home. Breakfast, then the Constitution of India, then his own notebook.'},
-  {from:'11:00', to:'11:18', mode:'walk', a:'home', b:'gandhi'},
-  {from:'11:18', to:'12:05', mode:'stand', at:'gandhi', now:"At Gandhi Smriti, on the Mahatma's birthday."},
-  {from:'12:05', to:'12:38', mode:'walk', a:'gandhi', b:'khan'},
-  {from:'12:38', to:'14:05', mode:'stroll', at:'khan', loop:[[119,40],[118,32],[120,43],[117,36],[121,33],[119,40]], now:'Khan Market: a stationer, a tailor, a bookshop, a grocer, and one refusal.'},
-  {from:'14:05', to:'14:30', mode:'walk', a:'khan', b:'home'},
-  {from:'14:30', to:'16:30', mode:'inside', at:'home', now:'At home. Lunch, an hour of rest, then Ambedkar.'},
-  {from:'16:30', to:'16:55', mode:'walk', a:'home', b:'gym'},
-  {from:'16:55', to:'19:05', mode:'inside', at:'gym', now:"At the Gymkhana as Mr. Malhotra's guest, learning bridge."},
-  {from:'19:05', to:'19:30', mode:'walk', a:'gym', b:'home'},
-  {from:'19:30', to:'22:15', mode:'inside', at:'home', lamp:true, now:'At his desk. A first page for Berlin.'},
-  {from:'22:15', to:'24:00', mode:'inside', at:'home', asleep:true, owl:true, now:'Asleep. The owl is writing up the day.'},
-].map(s => Object.assign(s, {s:hm(s.from), e:hm(s.to)}));
-
-const ENTRIES = [
-  {t:'05:58', k:'file', text:"Allotment letter, Directorate of Estates: one Type-VII bungalow, Tughlak Road, “in favour of Shri G. Hegel”. Found on the side table. Not delivered by post."},
-  {t:'05:58', k:'wear', item:'Black frock coat, Berlin tailoring', status:'Worn on waking.'},
-  {t:'05:58', k:'wear', item:'White neck-cloth', status:'Worn on waking.'},
-  {t:'06:05', k:'diary', text:'Woke under a ceiling fan with a letter beside me. The state found me before I found myself. In Berlin I would have called this the cunning of reason. Here it is apparently called a typing error.'},
-  {t:'06:15', k:'diary', text:"Four newspapers on the verandah, two in a script I cannot read yet. I once called the morning paper the realist's morning prayer. Here the prayer is said in several languages, and I know the words to half of it."},
-  {t:'06:20', k:'people', name:'Ramesh', role:'caretaker of the bungalow for the Central Public Works Department', text:'Brought tea without being asked, and the news that the bungalow was meant for someone else.'},
-  {t:'06:25', k:'file', text:'Ramesh explains: the allotment was meant for Shri G. Hegde, Joint Secretary, transferring from Bengaluru. Somewhere between two desks, Hegde became Hegel. Status: under examination.'},
-  {t:'06:30', k:'file', text:'In the desk drawer, an envelope marked “Imprest, for incidental expenses”: ₹15,000. Every rupee will be accounted for. Let the state see how a philosopher spends.', imprest:15000},
-  {t:'06:40', k:'diary', text:"My Berlin thesis, for the record: India is history's first morning, a spirit that dreams and never wakes into a state. I am drinking its tea in its capital, in a house its civil service gave me. I will keep the thesis on the desk, where I can watch it."},
-  {t:'07:20', k:'diary', text:'Walked through the tombs of two dynasties before breakfast, the Sayyids and the Lodis. People who only dream do not build their dead such houses. The thesis is shaken. Not yet fallen.'},
-  {t:'07:45', k:'people', name:'Mr. R. K. Malhotra', role:'retired from the Indian Administrative Service', text:'Walks the Lodhi loop at a pace the Prussian infantry would respect. I said I think about the state. He said he ran parts of it for thirty-four years and the state never noticed either of us. Invited me to bridge at the Gymkhana at five.'},
-  {t:'08:40', k:'wear', item:'Black frock coat, Berlin tailoring', status:'Retired. 31 °C at twenty to nine.'},
-  {t:'08:40', k:'wear', item:'Shirtsleeves and waistcoat', status:'Worn from 08:40.'},
-  {t:'09:30', k:'diary', text:'The shelf holds the Constitution of India. Article 17: untouchability is abolished and its practice in any form forbidden. In my lectures, caste was the Indian order itself, fixed by birth like nature. Here a state abolishes it in one sentence. Either the sentence is idle or my lectures are. It will take more than a week to find out which.'},
-  {t:'10:15', k:'work', title:'Phenomenology, Delhi supplement', text:'§1, sense-certainty. I wrote down: “Now it is 33 degrees.” By noon the truth had gone stale. Some things are the same in every city.'},
-  {t:'10:45', k:'file', text:'Today is Gandhi Jayanti, a national holiday. The Directorate of Estates is closed until Monday. The error in my favour stands for three days.'},
-  {t:'11:25', k:'diary', text:'Gandhi Smriti, the house where Gandhi spent his last days. Stone footsteps cross the lawn to the place where he fell. I put freedom into the state and its institutions; he began it in one person walking, spinning and refusing. We both wanted freedom made actual. His road was shorter, and he paid more for it.'},
-  {t:'12:45', k:'diary', text:'Khan Market: civil society in a horseshoe, two storeys high. Half the shutters are down for the holiday; the other half sell what the first half would have. The system of needs does not close.'},
-  {t:'12:55', k:'bag', item:'Fountain pen and a bound notebook', price:640, note:'The quill is retired.'},
-  {t:'13:10', k:'bag', item:'White cotton kurta, ready-made', price:1250},
-  {t:'13:10', k:'wear', item:'White cotton kurta', status:'Worn out of the shop.'},
-  {t:'13:10', k:'wear', item:'Shirtsleeves and waistcoat', status:'Folded into a paper bag.'},
-  {t:'13:25', k:'wear', item:'Bandhgala, charcoal', status:'Measured. Ready Thursday.'},
-  {t:'13:25', k:'bag', item:'Advance on the bandhgala', price:2000},
-  {t:'13:25', k:'people', name:'Masterji', role:'tailor, Khan Market', text:"Forty years of Lutyens' collars in his head and a tape measure round his neck. He looked at my neck-cloth for a long time and said nothing, eloquently."},
-  {t:'13:40', k:'people', name:'Nidhi Rao', role:'doctoral student in philosophy, JNU', text:'Found in the bookshop holding my Philosophy of History, full of pencil. She asked whether I had come to correct the chapter on India. I said I had come to live here, and the correction would follow from that.'},
-  {t:'13:45', k:'bag', item:'Ambedkar, Annihilation of Caste, paperback', price:199, note:"Nidhi's recommendation."},
-  {t:'13:45', k:'bag', item:'Hindi primer', price:180},
-  {t:'13:55', k:'bag', item:'Assam tea, 250 g', price:220},
-  {t:'13:55', k:'bag', item:'Glucose biscuits', price:10, note:'The Prussian army should have had these.'},
-  {t:'13:58', k:'diary', text:'Asked the grocer for a bottle of wine. Dry day: no alcohol is sold on Gandhi Jayanti. I accept this as a matter of respect and record it as a sacrifice.'},
-  {t:'15:20', k:'diary', text:'Ambedkar, 1936: caste is not a division of labour but a division of labourers. I described caste as nature’s determination. He describes it as a human arrangement, and what humans arrange, humans can undo. His is the more Hegelian position. I find this irritating, which is usually how I know something is true.'},
-  {t:'16:05', k:'file', text:'Message via Ramesh: Shri Hegde is in a guest house in Chanakyapuri and hopes the matter can be resolved amicably. So do I. I also note that possession is the first moment of property.'},
-  {t:'17:20', k:'diary', text:'Bridge at the Gymkhana. It is whist that has acquired a constitution: bidding, contracts, and a dummy obliged to keep silent. Lost two rubbers. Understood the auction.'},
-  {t:'18:10', k:'diary', text:'The sun went down over the club lawn at six. The light here does not dawdle.'},
-  {t:'20:10', k:'work', title:'Depesche aus Delhi, Nr. 0', text:'First page drafted, for the readers in Berlin. The owl finishes it tonight.'},
-  {t:'20:30', k:'work', title:'Hindi', text:'Two words learned: namaste and chai.'},
-  {t:'21:30', k:'work', title:'Revision log', text:'Day one. “India has no history”: shaken, by the tombs, Article 17 and a tailor. “The state is the actuality of the ethical idea”: unshaken, though it lent me a bungalow by mistake.'},
-  {t:'22:15', k:'diary', text:'Lamp out. The owl takes over.'},
-].map((e,i) => Object.assign(e, {m:hm(e.t), i}));
-
-const outfitAt = m => m < hm('08:40') ? 'frock' : m < hm('13:10') ? 'shirt' : 'kurta';
+/* ───────── the day: read from days/<date>.json, written by the world engine ───────── */
+let D = null, DAY = [], ENTRIES = [], WAKE = null, INDEX = [];
+let dayMode = 'replay';   // live: today's file · replay: no file for today yet, the latest day replays · archive: an earlier day
 
 /* ───────── pathfinding ───────── */
 function astar(s,g){
@@ -470,11 +425,13 @@ function astar(s,g){
   return path.reverse();
 }
 function routeVia(points){ let out = []; for (let i=0;i<points.length-1;i++){ const p = astar(points[i], points[i+1]) || [points[i], points[i+1]]; out = out.concat(i ? p.slice(1) : p); } return out; }
-const MISSING = [];
-DAY.forEach(s => {
-  if (s.mode === 'walk'){ s.route = astar(PLACES[s.a].spot, PLACES[s.b].spot); if (!s.route){ MISSING.push(s.a+'→'+s.b); s.route = [PLACES[s.a].spot, PLACES[s.b].spot]; } s.dest = PLACES[s.b].name; s.origin = PLACES[s.a].name; }
-  if (s.mode === 'stroll') s.route = routeVia(s.loop);
-});
+const MISSING = [], ROUTES = new Map(), LOOPS = {};
+function route(a,b){
+  const key = a + '>' + b;
+  if (!ROUTES.has(key)){ const r = astar(placeOf(a).spot, placeOf(b).spot); if (!r) MISSING.push(a+'→'+b); ROUTES.set(key, r || [placeOf(a).spot, placeOf(b).spot]); }
+  return ROUTES.get(key);
+}
+const loopRoute = id => LOOPS[id] || (LOOPS[id] = routeVia(PLACES[id].loop));
 
 /* ───────── offscreen map ───────── */
 const off = document.createElement('canvas'); off.width = N*T; off.height = N*T;
@@ -672,6 +629,8 @@ const OUTFITS = {
   frock:{c:'#2b3052',C:'#1a1e36',w:'#ffffff',p:'#2b2f45'},
   shirt:{c:'#f3f1ea',C:'#5b6283',w:'#ffffff',p:'#3a3f5a'},
   kurta:{c:'#fcfcf6',C:'#d8d5ca',w:'#ffffff',p:'#3a3f5a'},
+  bandhgala:{c:'#4a4e5e',C:'#30333f',w:'#4a4e5e',p:'#2b2f45'},
+  nightshirt:{c:'#f6f4ee',C:'#dcd8cc',w:'#f6f4ee',p:'#f6f4ee'},
 };
 const BASEPAL = {k:'#1d2340',s:'#f2c9a5',S:'#d9a07b',h:'#d6d6de',e:'#1d2340',b:'#4a3326'};
 const spriteCache = {};
@@ -690,8 +649,102 @@ function owlSprite(blink){ const c = document.createElement('canvas'); c.width =
   OWL.forEach((row,y) => { for (let x=0;x<10;x++){ let ch = row[x]; if (ch === '.') continue; if (blink && (y === 3 || y === 4) && (ch === 'y' || ch === 'e')) ch = 'b'; cx.fillStyle = pal[ch]; cx.fillRect(x,y,1,1); } }); return c; }
 const OWLS = [owlSprite(false), owlSprite(true)];
 
+/* ───────── loading a day ───────── */
+const qs = new URLSearchParams(location.search);
+const BRANCH = /^[\w.-]{1,60}$/.test(qs.get('branch') || '') ? qs.get('branch') : '';
+const BASE = BRANCH ? `https://raw.githubusercontent.com/weltogeisto/hegel-in-delhi/${BRANCH}/docs/days/` : 'days/';
+const delhiNow = () => new Date(Date.now() + 330*60000);
+const delhiDate = () => delhiNow().toISOString().slice(0,10);
+function delhiMinutes(){ const d = delhiNow(); return d.getUTCHours()*60 + d.getUTCMinutes() + d.getUTCSeconds()/60; }
+async function getJSON(name){
+  const res = await fetch(BASE + name + '?v=' + Math.floor(Date.now()/60000), {cache:'no-store'});
+  if (!res.ok) throw new Error(name + ' ' + res.status);
+  return res.json();
+}
+const NIGHT = [16,22,70,.5], DAWN = [255,170,110,.14], NOON = [255,255,255,0], GOLD = [255,140,60,.2], DUSK = [90,50,120,.36];
+function lightKeys(sunTimes){
+  const rise = sunTimes ? hm(sunTimes.rise) : 374, set = sunTimes ? hm(sunTimes.set) : 1087;
+  return [[0,NIGHT],[rise-29,NIGHT],[rise+21,DAWN],[rise+66,NOON],[set-72,NOON],[set-7,GOLD],[set+28,DUSK],[set+73,NIGHT],[1440,NIGHT]];
+}
+let KEYS = lightKeys(null), daySig = '';
+function prepare(day){
+  D = day; daySig = JSON.stringify(day);
+  DAY = (day.segments || []).map(s => Object.assign({}, s, {s:hm(s.from), e:hm(s.to)})).sort((a,b) => a.s - b.s);
+  ENTRIES = (day.entries || []).map((e,i) => Object.assign({}, e, {m:hm(e.t), i})).sort((a,b) => a.m - b.m || a.i - b.i);
+  DAY.forEach(s => {
+    if (s.mode === 'walk'){ s.route = route(s.a, s.b); s.dest = placeOf(s.b).name; s.origin = placeOf(s.a).name; }
+    if (s.mode === 'stroll'){
+      if (!placeOf(s.at).loop){ s.mode = 'stand'; return; }
+      const full = loopRoute(s.at), cap = Math.max(2, Math.round((s.e - s.s)*6));
+      if (full.length <= cap) s.route = full;
+      else { const half = full.slice(0, cap >> 1); s.route = half.concat(half.slice(0, -1).reverse()); }
+    }
+  });
+  KEYS = lightKeys(day.sun);
+  const awake = DAY.find(s => !s.asleep); WAKE = awake ? awake.from : null;
+  lastKey = ''; shownThought = '';
+}
+function wantedDate(){ const h = decodeURIComponent(location.hash.slice(1)); return /^\d{4}-\d{2}-\d{2}$/.test(h) ? h : null; }
+async function refreshIndex(){
+  const ix = await getJSON('index.json'), today = delhiDate();
+  INDEX = (ix.days || []).filter(d => d.date <= today).sort((a,b) => a.date < b.date ? -1 : a.date > b.date ? 1 : 0);
+}
+async function openWanted(){
+  const today = delhiDate(), want = wantedDate(), has = d => INDEX.some(x => x.date === d);
+  let date, mode;
+  if (want && want !== today && has(want)){ date = want; mode = 'archive'; }
+  else if (has(today)){ date = today; mode = 'live'; }
+  else if (INDEX.length){ date = INDEX[INDEX.length-1].date; mode = 'replay'; }
+  else throw new Error('no days yet');
+  const day = await getJSON(date + '.json');
+  dayMode = mode; prepare(day); header();
+  if (mode === 'archive'){ setLive(false); setPlay(false); simMin = Math.min(1439, delhiMinutes()); follow = true; }
+  else setLive(true);
+}
+function header(){
+  const i = INDEX.findIndex(x => x.date === D.date), prev = INDEX[i-1], next = INDEX[i+1];
+  $('dayLine').textContent = `Day ${D.n}. ${D.title}.` + (D.holiday ? ` ${D.holiday}.` : '');
+  btnPrev.hidden = !prev; btnNext.hidden = !next;
+  btnPrev.dataset.date = prev ? prev.date : ''; btnNext.dataset.date = next ? next.date : '';
+  if (prev) btnPrev.setAttribute('aria-label', `Day ${prev.n}`); if (next) btnNext.setAttribute('aria-label', `Day ${next.n}`);
+  $('note').textContent = dayMode === 'live' ? 'Delhi time. Live: each step appears when its time comes.'
+    : dayMode === 'replay' ? `Delhi time. Day ${D.n} replays until the live simulation takes over.`
+    : `Delhi time. Day ${D.n}, from the archive.`;
+}
+function goDate(date){
+  if (!date || date === delhiDate()){ history.pushState(null, '', location.pathname + location.search); openWanted().catch(fail); }
+  else location.hash = date;
+}
+function fail(e){
+  if (D) return;
+  panel.innerHTML = '<p class="empty">The day could not be opened. The page tries again every minute.</p>';
+  console.warn(e);
+}
+async function poll(){
+  if (document.hidden) return;
+  try {
+    const today = delhiDate();
+    if (!D){ await refreshIndex(); await openWanted(); return; }
+    if (dayMode === 'live' && D.date === today){
+      const day = await getJSON(today + '.json');
+      if (JSON.stringify(day) !== daySig) prepare(day);
+      return;
+    }
+    if (dayMode === 'archive') return;
+    await refreshIndex();
+    if (INDEX.some(x => x.date === today)) await openWanted();   // the live day has arrived, or a new one has begun
+    else header();
+  } catch (e) { fail(e); }
+}
+
 /* ───────── state at a given minute ───────── */
-function segAt(m){ return DAY.find(s => m >= s.s && m < s.e) || DAY[DAY.length-1]; }
+const IDLE = {mode:'inside', at:'home', s:0, e:1440, now:'At home.'};
+function segAt(m){ return DAY.find(s => m >= s.s && m < s.e) || DAY[DAY.length-1] || IDLE; }
+function outfitAt(m){
+  let o = (D && D.opening && D.opening.wearing) || 'kurta';
+  for (const e of ENTRIES){ if (e.m > m) break; if (e.k === 'wear' && e.sprite) o = e.sprite; }
+  return OUTFITS[o] ? o : 'kurta';
+}
 function posOnRoute(route,f){
   const L = route.length - 1; if (L <= 0) return {x:route[0][0], y:route[0][1], dir:'down'};
   const s = Math.min(L - 1e-6, Math.max(0, f * L)), i = Math.floor(s), fr = s - i;
@@ -701,17 +754,19 @@ function posOnRoute(route,f){
 }
 function stateAt(m){
   const seg = segAt(m), st = {seg, outfit:outfitAt(m), moving:false, visible:true, dir:'down'};
+  st.behind = dayMode === 'live' && m >= seg.e && seg.e < 1440;   // the world has not published the next step yet
   if (seg.mode === 'walk' || seg.mode === 'stroll'){
-    const f = (m - seg.s) / (seg.e - seg.s), p = posOnRoute(seg.route, f);
-    Object.assign(st, p, {moving:true});
+    const f = Math.min(1, (m - seg.s) / (seg.e - seg.s)), p = posOnRoute(seg.route, f);
+    Object.assign(st, p, {moving:!st.behind});
   } else {
-    const sp = PLACES[seg.at].spot; st.x = sp[0]; st.y = sp[1];
+    const sp = placeOf(seg.at).spot; st.x = sp[0]; st.y = sp[1];
     if (seg.mode === 'inside') st.visible = false;
   }
   return st;
 }
 function statusText(st, m){
   const seg = st.seg;
+  if (st.behind) return 'Deciding what to do next.';
   if (seg.mode === 'walk'){
     const t = st.tile || [Math.round(st.x), Math.round(st.y)], id = rid[I(t[0],t[1])];
     const f = (m - seg.s) / (seg.e - seg.s);
@@ -719,17 +774,33 @@ function statusText(st, m){
     if (id === -2) return `Going round a roundabout, on his way to ${seg.dest}.`;
     return f < .5 ? `Setting out from ${seg.origin === PLACES.home.name ? 'home' : seg.origin} for ${seg.dest}.` : `Arriving at ${seg.dest}.`;
   }
-  return seg.now;
+  return seg.now || placeOf(seg.at).name + '.';
 }
 function placeLabel(st){
   const seg = st.seg;
-  if (seg.mode === 'walk') return 'Out walking';
-  return PLACES[seg.at].name;
+  if (seg.mode === 'walk') return st.behind ? placeOf(seg.b).name : 'Out walking';
+  return placeOf(seg.at).name;
+}
+function weatherAt(m){
+  const hs = D && D.weather && D.weather.hours;
+  return hs && hs.length ? hs[Math.min(hs.length - 1, Math.floor(m/60))] : null;
 }
 
 /* ───────── light ───────── */
-const KEYS = [[0,[16,22,70,.5]],[345,[16,22,70,.5]],[395,[255,170,110,.14]],[440,[255,255,255,0]],[1015,[255,255,255,0]],[1080,[255,140,60,.2]],[1115,[90,50,120,.36]],[1160,[16,22,70,.5]],[1440,[16,22,70,.5]]];
 function lightAt(m){ for (let i=0;i<KEYS.length-1;i++){ const [a,ca] = KEYS[i], [b,cb] = KEYS[i+1]; if (m >= a && m <= b){ const f = (m-a)/(b-a || 1); return ca.map((v,j) => v + (cb[j]-v)*f); } } return KEYS[0][1]; }
+function weatherFx(m, now, x0, y0, w, h){
+  const wx = weatherAt(m); if (!wx) return;
+  if (wx.aqi >= 200){ ctx.fillStyle = `rgba(150,118,80,${Math.min(.28, (wx.aqi - 150)/700).toFixed(3)})`; ctx.fillRect(x0, y0, w, h); }
+  if (wx.rain >= 0.3){
+    const n = Math.min(260, 40 + wx.rain*40) | 0, t = reduceMotion ? 0 : now/1000, u = Math.max(1, Math.round(dpr));
+    ctx.fillStyle = 'rgba(205,225,255,.6)';
+    for (let i=0;i<n;i++){
+      const bx = (i*7919 % 1000)/1000*w, by = (i*104729 % 1000)/1000*h;
+      const y = (by + t*h*.9) % h, x = ((bx - t*w*.12) % w + w) % w;
+      ctx.fillRect(x0 + x, y0 + y, u, 6*u);
+    }
+  }
+}
 
 /* ───────── view ───────── */
 const canvas = document.getElementById('map'), ctx = canvas.getContext('2d');
@@ -737,7 +808,6 @@ const ZOOMS = [1, 1.5, 2, 3];
 let dpr = 1, zoom = window.innerWidth < 700 ? 1.5 : 2, town = false, follow = true;
 const cam = {x:PLACES.home.spot[0]*T, y:PLACES.home.spot[1]*T};
 let live = true, playing = false, simMin = 0, lastPerf = performance.now();
-function delhiMinutes(){ const d = new Date(Date.now() + 330*60000); return d.getUTCHours()*60 + d.getUTCMinutes() + d.getUTCSeconds()/60; }
 function resize(){ dpr = window.devicePixelRatio || 1; const b = canvas.getBoundingClientRect(); canvas.width = Math.max(1, Math.round(b.width*dpr)); canvas.height = Math.max(1, Math.round(b.height*dpr)); }
 new ResizeObserver(resize).observe(canvas); resize();
 const pxScale = () => Math.max(1, Math.round(zoom * dpr));
@@ -776,6 +846,7 @@ function render(m, now){
     ctx.fillStyle = '#1d2340'; ctx.fillRect(hx - 5*dpr, hy - 5*dpr, 10*dpr, 10*dpr);
     ctx.fillStyle = blink ? '#ffd84d' : '#e2457f'; ctx.fillRect(hx - 3*dpr, hy - 3*dpr, 6*dpr, 6*dpr);
     ctx.fillStyle = `rgba(${light[0]|0},${light[1]|0},${light[2]|0},${light[3]*.6})`; ctx.fillRect(ox, oy, N*s, N*s);
+    weatherFx(m, now, ox, oy, N*s, N*s);
     return st;
   }
   if (follow){
@@ -799,7 +870,7 @@ function render(m, now){
   }
   const recent = ENTRIES.some(e => e.m <= m && m - e.m < 4);
   if (recent && !seg.asleep){
-    const bx = st.visible ? hx : hx, by = st.visible ? hy - 24 : hy - 30;
+    const bx = hx, by = st.visible ? hy - 24 : hy - 30;
     ctx.fillStyle = '#1d2340'; ctx.fillRect(X(bx-5), Y(by-1), 10*p, 12*p);
     ctx.fillStyle = '#fcfcf8'; ctx.fillRect(X(bx-4), Y(by), 8*p, 10*p);
     ctx.fillStyle = st.visible ? '#e2457f' : '#1d2340';
@@ -813,50 +884,75 @@ function render(m, now){
     if (awake){ ctx.fillStyle = 'rgba(255,214,107,.85)'; for (let xx = hx0+7; xx < hx0+hw-6; xx += 10) ctx.fillRect(X(xx), Y(hy0+hh-17), 7*p, 12*p); }
   }
   if (seg.owl){ const ob = OWLS[!reduceMotion && Math.floor(now/2600) % 6 === 0 ? 1 : 0]; ctx.drawImage(ob, X(HOME.x*T + HOME.w*T - 16), Y(HOME.y*T - 4), 10*p, 10*p); }
+  weatherFx(m, now, 0, 0, W, H);
   return st;
 }
 
 /* ───────── panel ───────── */
 const $ = id => document.getElementById(id);
-const panel = $('panel'), nowPlace = $('nowPlace'), nowStatus = $('nowStatus'), nowThought = $('nowThought');
+const panel = $('panel'), nowPlace = $('nowPlace'), nowStatus = $('nowStatus'), nowThought = $('nowThought'), nowWx = $('nowWx');
+const btnPrev = $('btnPrev'), btnNext = $('btnNext');
 let tab = 'today', hlPlace = null, lastKey = '', typer = null, shownThought = '';
-const KLABEL = {diary:'Thought', bag:'Bought', wear:'Wardrobe', people:'Met', work:'Work', file:'The file'};
+const KLABEL = {diary:'Thought', said:'Said', world:'Happened', bag:'Bought', wear:'Wardrobe', people:'Met', work:'Work', file:'The file'};
 const rupees = n => '₹' + n.toLocaleString('en-IN');
+const paras = t => String(t).split(/\n\s*\n/).map(p => `<p>${esc(p.trim()).replace(/\n/g, '<br>')}</p>`).join('');
 function line(e){
   switch (e.k){
     case 'bag': return `<b>${esc(e.item)}</b>, ${rupees(e.price)}.${e.note ? ' ' + esc(e.note) : ''}`;
     case 'wear': return `<b>${esc(e.item)}</b>. ${esc(e.status)}`;
     case 'people': return `<b>${esc(e.name)}</b>, ${esc(e.role)}. ${esc(e.text)}`;
     case 'work': return `<b>${esc(e.title)}</b>. ${esc(e.text)}`;
+    case 'said': return (e.to ? `<b>To ${esc(e.to)}</b>: ` : '') + `“${esc(e.text)}”`;
     default: return esc(e.text);
   }
 }
+function owlHtml(m){
+  const o = D.owl, owlSeg = DAY.slice().reverse().find(s => s.owl);   // tonight's sleep, not the morning's
+  if (!o || !(dayMode === 'archive' || (owlSeg && m >= owlSeg.s))) return '';
+  let h = `<div class="owl"><p class="sum">Written overnight by the owl${o.written ? ', finished at ' + esc(o.written) : ''}.</p>`;
+  if (o.diary) h += `<h3>Diary</h3>${paras(o.diary)}`;
+  if (o.revision_log) h += `<h3>Revision log</h3>${paras(o.revision_log)}`;
+  if (o.depesche) h += `<h3>${esc(o.depesche.title)}</h3>${paras(o.depesche.text)}`;
+  return h + '</div>';
+}
 function renderPanel(m){
-  const seen = ENTRIES.filter(e => e.m <= m);
+  if (!D){ panel.innerHTML = '<p class="empty">Opening the day…</p>'; return; }
+  const seen = ENTRIES.filter(e => e.m <= m), E = D.empty || {};
   let html = '';
   const empty = msg => `<p class="empty">${msg}</p>`;
+  const entry = (e, label) => `<div class="entry"><span class="t">${e.t || '—'}</span><div>${label ? `<span class="k">${KLABEL[e.k] || ''}</span>` : ''}<p>${line(e)}</p></div></div>`;
   if (tab === 'today' || tab === 'thoughts'){
     const list = (tab === 'today' ? seen : seen.filter(e => e.k === 'diary')).slice().reverse();
-    html = `<h2>${tab === 'today' ? 'Today, newest first' : 'Thoughts'}</h2>` + (list.length ? list.map(e => `<div class="entry"><span class="t">${e.t}</span><div>${tab === 'today' ? `<span class="k">${KLABEL[e.k]}</span>` : ''}<p>${line(e)}</p></div></div>`).join('') : empty('He has not woken yet. He wakes at 05:58 Delhi time.'));
+    const up = DAY.some(s => !s.asleep && s.s <= m);
+    const none = up ? 'Nothing yet today.' : 'He has not woken yet.' + (dayMode !== 'live' && WAKE ? ` He wakes at ${WAKE} Delhi time.` : '');
+    html = `<h2>${tab === 'today' ? 'Today, newest first' : 'Thoughts'}</h2>` + (list.length ? list.map(e => entry(e, tab === 'today')).join('') : empty(none));
   } else if (tab === 'bag'){
-    const bag = seen.filter(e => e.k === 'bag'), spent = bag.reduce((a,e) => a + e.price, 0), imp = seen.find(e => e.imprest);
-    html = '<h2>Bag</h2>' + (bag.length ? bag.map(e => `<div class="entry"><span class="t">${e.t}</span><p>${line(e)}</p></div>`).join('') : empty('Nothing bought yet today.'))
-      + (imp ? `<p class="sum">Spent ${rupees(spent)} of the ${rupees(imp.imprest)} imprest. ${rupees(imp.imprest - spent)} left.</p>` : '');
+    const bag = seen.filter(e => e.k === 'bag'), spent = bag.reduce((a,e) => a + e.price, 0);
+    const open = (D.opening && D.opening.imprest) || 0, credit = seen.filter(e => e.imprest).reduce((a,e) => a + e.imprest, 0);
+    const sum = !open && credit ? `Spent ${rupees(spent)} of the ${rupees(credit)} imprest. ${rupees(credit - spent)} left.`
+      : open || credit ? (spent ? `Spent ${rupees(spent)} today. ` : '') + `${rupees(open + credit - spent)} of the imprest left.` : '';
+    html = '<h2>Bag</h2>' + (bag.length ? bag.map(e => entry(e)).join('') : empty(E.bag || 'Nothing bought yet today.')) + (sum ? `<p class="sum">${sum}</p>` : '');
   } else if (tab === 'wardrobe'){
-    const items = new Map(); seen.filter(e => e.k === 'wear').forEach(e => items.set(e.item, e));
-    html = '<h2>Wardrobe</h2>' + (items.size ? [...items.values()].map(e => `<div class="entry"><span class="t">${e.t}</span><p>${line(e)}</p></div>`).join('') : empty('Nothing yet. He is still asleep.'));
+    const items = new Map();
+    ((D.opening && D.opening.wardrobe) || []).forEach(w => items.set(w.item, {t:'', k:'wear', item:w.item, status:w.status}));
+    seen.filter(e => e.k === 'wear').forEach(e => items.set(e.item, e));
+    html = '<h2>Wardrobe</h2>' + (items.size ? [...items.values()].map(e => entry(e)).join('') : empty(E.wardrobe || 'Nothing yet. He is still asleep.'));
   } else if (tab === 'people'){
     const ppl = seen.filter(e => e.k === 'people');
-    html = '<h2>People</h2>' + (ppl.length ? ppl.map(e => `<div class="entry"><span class="t">${e.t}</span><p>${line(e)}</p></div>`).join('') : empty('No one yet. Ramesh brings tea at 06:20.'))
+    html = '<h2>People</h2>' + (ppl.length ? ppl.map(e => entry(e)).join('') : empty(E.people || 'No one yet today.'))
       + '<p class="sum">Everyone he meets is fictional.</p>';
   } else if (tab === 'work'){
-    const w = seen.filter(e => e.k === 'work');
-    html = '<h2>Work</h2>' + (w.length ? w.map(e => `<div class="entry"><span class="t">${e.t}</span><p>${line(e)}</p></div>`).join('') : empty('Nothing on the desk yet. He starts writing after breakfast.'));
+    const w = seen.filter(e => e.k === 'work'), owl = owlHtml(m);
+    const i = INDEX.findIndex(x => x.date === D.date), prev = INDEX[i-1];
+    const last = dayMode === 'live' && prev && prev.owl ? `<p class="sum"><a href="#${prev.date}">Last night the owl wrote up day ${prev.n}.</a></p>` : '';
+    html = '<h2>Work</h2>' + (w.length ? w.map(e => entry(e)).join('') : owl ? '' : empty(E.work || 'Nothing on the desk yet today.')) + owl + last;
   } else if (tab === 'file'){
     const f = seen.filter(e => e.k === 'file');
-    html = '<h2>The file</h2>' + (f.length ? f.map(e => `<div class="entry"><span class="t">${e.t}</span><p>${line(e)}</p></div>`).join('') : empty('The file opens when he wakes.'));
+    html = '<h2>The file</h2>' + (f.length ? f.map(e => entry(e)).join('') : empty(E.file || 'Nothing new in the file today.'));
   } else if (tab === 'places'){
-    html = '<h2>Places</h2>' + Object.entries(PLACES).map(([id,pl]) => `<div class="place-card${hlPlace === id ? ' hl' : ''}" id="pl-${id}"><h3>${esc(pl.name)}</h3><p>${esc(pl.text)}</p>${id === 'estates' ? '' : `<button type="button" data-show="${id}">Show on map</button>`}</div>`).join('');
+    const info = D.places || {};
+    html = '<h2>Places</h2>' + Object.entries(PLACES).map(([id,pl]) => { const x = info[id] || {}, extra = x.note || (x.hours ? `Open today ${x.hours}.` : '');
+      return `<div class="place-card${hlPlace === id ? ' hl' : ''}" id="pl-${id}"><h3>${esc(pl.name)}</h3><p>${esc(pl.text)}${extra ? ' ' + esc(extra) : ''}</p>${id === 'estates' ? '' : `<button type="button" data-show="${id}">Show on map</button>`}</div>`; }).join('');
   }
   panel.innerHTML = html;
 }
@@ -872,26 +968,35 @@ function typeThought(text){
 function updateDom(st, m){
   const minute = Math.floor(m);
   $('clock').textContent = fmt(m);
-  if (!scrubbing) $('scrub').value = minute;
-  const key = minute + '|' + tab + '|' + hlPlace;
+  if (!scrubbing) scrub.value = minute;
+  const key = minute + '|' + tab + '|' + hlPlace + '|' + dayMode;
   if (key === lastKey) return; lastKey = key;
+  renderPanel(m);
+  if (!D) return;
   nowPlace.textContent = placeLabel(st);
   nowStatus.textContent = statusText(st, m);
+  const wx = weatherAt(m);
+  nowWx.hidden = !wx; if (wx) nowWx.textContent = `${Math.round(wx.temp)} °C, ${wx.sky}` + (wx.aqi ? ` · AQI ${wx.aqi}` : '');
   const th = ENTRIES.filter(e => e.k === 'diary' && e.m <= m).pop();
   const thHtml = th ? `<span class="t">${th.t}</span>${esc(th.text)}` : '<span class="t">—</span>Nothing thought yet today.';
   if (thHtml !== shownThought){ shownThought = thHtml; typeThought(thHtml); }
-  renderPanel(m);
 }
 
 /* ───────── controls ───────── */
 let scrubbing = false;
 const btnLive = $('btnLive'), btnPlay = $('btnPlay'), scrub = $('scrub'), btnTown = $('btnTown');
+function maxMinute(){ return dayMode === 'live' ? Math.min(1439.99, delhiMinutes()) : 1439.99; }
 function setLive(v){ live = v; btnLive.setAttribute('aria-pressed', String(v)); if (v){ setPlay(false); follow = true; } }
-function setPlay(v){ playing = v; btnPlay.setAttribute('aria-pressed', String(v)); btnPlay.textContent = v ? 'Pause' : 'Play the day'; if (v){ live = false; btnLive.setAttribute('aria-pressed','false'); if (simMin >= 1439) simMin = 0; } }
-btnLive.addEventListener('click', () => setLive(true));
+function setPlay(v){ playing = v; btnPlay.setAttribute('aria-pressed', String(v)); btnPlay.textContent = v ? 'Pause' : 'Play the day'; if (v){ live = false; btnLive.setAttribute('aria-pressed','false'); if (simMin >= maxMinute() - 1) simMin = 0; } }
+btnLive.addEventListener('click', () => { if (dayMode === 'archive') goDate(null); else setLive(true); });
 btnPlay.addEventListener('click', () => setPlay(!playing));
-scrub.addEventListener('input', () => { scrubbing = true; setLive(false); setPlay(false); simMin = +scrub.value; lastKey = ''; });
-scrub.addEventListener('change', () => { scrubbing = false; });
+btnPrev.addEventListener('click', () => goDate(btnPrev.dataset.date));
+btnNext.addEventListener('click', () => goDate(btnNext.dataset.date));
+window.addEventListener('hashchange', () => openWanted().catch(fail));
+document.addEventListener('visibilitychange', () => { if (!document.hidden) poll(); });
+setInterval(poll, 60000);
+scrub.addEventListener('input', () => { scrubbing = true; setLive(false); setPlay(false); simMin = Math.min(+scrub.value, maxMinute()); lastKey = ''; });
+scrub.addEventListener('change', () => { scrubbing = false; lastKey = ''; });   // the knob snaps back if dragged past now
 $('btnFind').addEventListener('click', () => { follow = true; if (town){ town = false; btnTown.setAttribute('aria-pressed','false'); } });
 btnTown.addEventListener('click', () => { town = !town; btnTown.setAttribute('aria-pressed', String(town)); });
 $('btnZoom').addEventListener('click', () => { zoom = ZOOMS[(ZOOMS.indexOf(zoom) + 1) % ZOOMS.length]; if (town){ town = false; btnTown.setAttribute('aria-pressed','false'); } });
@@ -921,18 +1026,21 @@ function tap(e){
   const hit = Object.entries(PLACES).find(([,pl]) => tx >= pl.rect[0] && tx <= pl.rect[2] && ty >= pl.rect[1] && ty <= pl.rect[3]);
   if (hit){ hlPlace = hit[0]; selectTab('places'); requestAnimationFrame(() => { const el = $('pl-' + hit[0]); if (el) el.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block:'nearest'}); }); }
 }
-function currentMinute(){ return live ? delhiMinutes() : simMin; }
+function currentMinute(){ return live ? delhiMinutes() : Math.min(simMin, maxMinute()); }
 
 /* ───────── loop ───────── */
 function frame(now){
   const dt = Math.min(250, now - lastPerf); lastPerf = now;
-  if (playing){ simMin += dt/1000 * 5; if (simMin >= 1439.99){ simMin = 1439.99; setPlay(false); } }
+  if (playing){ simMin += dt/1000 * 5; if (simMin >= maxMinute()){ simMin = maxMinute(); if (dayMode === 'live') setLive(true); else setPlay(false); } }
   const m = currentMinute();
   const st = render(m, now);
   updateDom(st, m);
   requestAnimationFrame(frame);
 }
-window.__hegel = {MISSING, routes: DAY.filter(s => s.route).map(s => ({from:s.from, len:s.route.length})), setMinute: v => { setLive(false); simMin = v; lastKey=''; }, setTown: v => { town = v; }, setZoom: v => { zoom = v; }};
+window.__hegel = {MISSING, get routes(){ return DAY.filter(s => s.route).map(s => ({from:s.from, len:s.route.length})); },
+  routeLen: (a,b) => route(a,b).length, mode: () => dayMode, day: () => D,
+  setMinute: v => { setLive(false); simMin = v; lastKey = ''; }, setTown: v => { town = v; }, setZoom: v => { zoom = v; }};
+refreshIndex().then(openWanted).catch(fail);
 requestAnimationFrame(frame);
 })();
 </script>
