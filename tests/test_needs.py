@@ -242,14 +242,15 @@ class NeedsTest(unittest.TestCase):
 
     def test_walking_counts_75_metres_a_minute_and_heat_makes_it_harder(self):
         cool = {"temp": 24, "sky": "clear", "rain": 0, "aqi": 50}
-        for temp, strain in ((24, 1650), (33, 2475)):
+        walked = self.w.walk("home", "lodhi") * 75           # the walk table's minutes, at 75 metres a minute
+        for temp, strain in ((24, walked), (33, walked * 3 // 2)):
             st = state()
             self.w._wx[SAT] = {"source": "test", "hours": [dict(cool, temp=temp)] * 24}
-            play(self.w, st, self.at(SAT, 9), action="walk", place="lodhi", minutes=30)      # 22 minutes on foot
-            self.assertEqual(st["today"]["walked"], 1650)
+            play(self.w, st, self.at(SAT, 9), action="walk", place="lodhi", minutes=30)
+            self.assertEqual(st["today"]["walked"], walked)
             self.assertEqual(st["today"]["strain"], strain)
             line, _ = self.w.needs(self.at(SAT, 10), st)
-            self.assertRegex(line, r"walked 1\.[67] km today")
+            self.assertIn(f"walked {walked / 1000:.1f} km today", line)
         self.w._wx[SAT]["hours"][9]["temp"] = 24
         st = state()
         st["today"] = {"woke": "06:00", "strain": 9000, "walked": 9000}
