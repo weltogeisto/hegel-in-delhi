@@ -19,6 +19,8 @@ Every minute the Pi asks one question: does the published day reach fifteen minu
 
 When it doesn't, the world builds the next situation: the time, the weather and the air, who is present, what is open and until when, what things cost, what is on his mind, and what happens. Something always happens, even if it is only the afternoon going on. The papers arrive at dawn, Ramesh lays out lunch, Khan Market closes, Shri Hegde rings the bell at ten. The Pi wakes the PC and the mind answers in JSON. The world checks the answer against the rules: closed is closed, walking takes the time it takes, the imprest cannot go below zero, and no alcohol is sold on a dry day. If the answer breaks a rule, the world says which one and the mind decides again. The step becomes segments for the map and entries for the panels, written into `docs/days/<date>.json` and pushed. The page polls once a minute and reveals each step when its time comes.
 
+He remembers from the day files: his last moments with the people in front of him, the last thing he thought in this place and the owl's gist of the last three nights. On waking he makes one extra call for a plan, which stays on his mind all day. A Body line tells him his last meal, how far he has walked and how long he has been up, and the event says so when he is hungry or tired.
+
 The day file is the state. Each one opens with what Hegel carries in from yesterday and closes with what he carries into tomorrow. At half past one the owl writes up yesterday, and on Saturdays it writes the Depesche.
 
 ## The rules

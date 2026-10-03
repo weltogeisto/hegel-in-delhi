@@ -18,10 +18,45 @@ NOW = {"read": "Reading {at}.", "write": "Writing {at}.", "buy": "Shopping {at}.
 STROLL = {"lodhi": "Walking the paths of Lodhi Gardens.", "khan": "Going from shop to shop in Khan Market."}
 LUNCH = ["dal, rice, bhindi and curd", "rajma, rice and a cucumber raita", "kadhi, rice and aloo gobhi", "chhole, rotis and onions in lemon"]
 DINNER = ["rotis, dal makhani and a bowl of curd", "khichdi with ghee and papad", "rotis, palak paneer and dal", "vegetable pulao and raita"]
+BREAKFAST = ["aloo parathas, curd and pickle", "poha with peanuts and a pot of tea", "idli with sambar and coconut chutney",
+             "toast, butter and a plate of cut papaya"]
+MEAL_WINDOWS = {"breakfast": (420, 570), "lunch": (780, 870), "dinner": (1170, 1230)}   # laid out at home while Ramesh is there
+HUNGRY_H, VERY_HUNGRY_H, TIRED_H, TIRED_M = 5, 8, 16, 10_000        # hours since a meal, hours awake, metres walked
+WALK_M, HOT_C = 75, 33                  # metres a minute; from this temperature walking counts one and a half times
+NUMBERS = "zero one two three four five six seven eight nine ten eleven twelve".split()
+PLAN_TIME = re.compile(r"(\d{1,2}):(\d{2})$")
 
 
 def load(name):
     return json.loads((DATA / name).read_text(encoding="utf-8"))
+
+
+def wordlist(name, plural=""):
+    """data/<name>: one word or phrase a line, # for comments. A regex for them as whole words, any case."""
+    lines = (DATA / name).read_text(encoding="utf-8").splitlines()
+    terms = [x.strip() for x in lines if x.strip() and not x.strip().startswith("#")]
+    return re.compile(r"\b(" + "|".join(re.escape(t) for t in terms) + r")" + plural + r"\b", re.I) if terms else None
+
+
+def meal_at(m):
+    """The meal whose window minute m of the day falls in."""
+    return next((k for k, (a, b) in MEAL_WINDOWS.items() if a <= m < b), None)
+
+
+def repeats(a, b):
+    """Does thought a closely repeat thought b? The same first six words, or half its word-trigrams in common."""
+    wa, wb = (re.findall(r"\w+", x.lower()) for x in (a, b))
+    if len(wa) >= 6 and wa[:6] == wb[:6]:
+        return True
+    ga, gb = ({tuple(w[i:i + 3]) for i in range(max(1, len(w) - 2))} for w in (wa, wb))
+    return len(ga & gb) / len(ga | gb) >= 0.5
+
+
+def hours_ago(minutes):
+    h = max(1, round(minutes / 60))
+    if minutes < 30:
+        return "just now"
+    return "an hour ago" if h == 1 else f"{NUMBERS[h] if h < len(NUMBERS) else h} hours ago"
 
 
 def days_match(spec, d):
@@ -58,9 +93,8 @@ class World:
         self.cast = load("cast.json")["cast"]
         self.beats = load("plot.json")["beats"]
         self.holidays = load("holidays.json")["holidays"]
-        lines = (DATA / "never.txt").read_text(encoding="utf-8").splitlines()
-        words = [x.strip() for x in lines if x.strip() and not x.strip().startswith("#")]
-        self.never = re.compile(r"\b(" + "|".join(re.escape(w) for w in words) + r")\b", re.I) if words else None
+        self.never = wordlist("never.txt")
+        self.after = wordlist("after_1831.txt", "s?")
         self.feeds = feeds
         self._wx = {}
 
@@ -188,6 +222,92 @@ class World:
         g = self.garment(state, state["wearing"])
         return g["item"].split(",")[0].lower() if g else state["wearing"]
 
+    # ── the body ────────────────────────────────────────────────────
+    def served(self, t, state):
+        """The meal Ramesh has laid out at home at time t, if any."""
+        name = meal_at(minute_of(t))
+        return name if name and "ramesh" in self.present_ids("home", t, state) else None
+
+    def feed(self, state, t, food):
+        """A meal starts the clock again; a snack pushes hunger back two hours."""
+        if food == "meal":
+            state["last_meal"], state["snacks"] = t.isoformat(timespec="minutes"), 0
+        else:
+            state["snacks"] = state.get("snacks", 0) + 1
+
+    def walked(self, state, t, minutes):
+        """Metres on foot today, and the same weighted by the heat."""
+        today, metres = state.setdefault("today", {}), minutes * WALK_M
+        today["walked"] = today.get("walked", 0) + metres
+        today["strain"] = today.get("strain", 0) + int(metres * (1.5 if self.wx_at(t)["temp"] >= HOT_C else 1))
+
+    def needs(self, t, state):
+        """The Body line, and what the body says once an episode: hungry, very hungry, tired."""
+        today = state.setdefault("today", {})
+        meal = datetime.fromisoformat(state["last_meal"]) if state.get("last_meal") else at_dt(t.date() - timedelta(days=1), 1200)
+        woke = at_dt(t.date(), hm(today["woke"])) if today.get("woke") else None
+        fed = min(t, meal + timedelta(hours=2 * state.get("snacks", 0)))
+        hungry = (t - max(fed, woke or fed)).total_seconds() / 3600       # sleep does not make him hungry
+        level = 2 if hungry > VERY_HUNGRY_H else 1 if hungry > HUNGRY_H else 0
+        felt = []
+        if level > today.get("hunger", 0):
+            felt.append("You are very hungry." if level == 2 else "You are hungry.")
+        if level:
+            today["hunger"] = level          # after food it drops back, so the next episode speaks again
+        else:
+            today.pop("hunger", None)
+        awake = (t - woke).total_seconds() / 3600 if woke else 0
+        if "tired" not in today and (today.get("strain", 0) >= TIRED_M or awake >= TIRED_H):
+            today["tired"] = True
+            felt.append("You are tired.")
+        snacks = state.get("snacks", 0)
+        since = f" and {'a snack' if snacks == 1 else 'snacks'} since" if snacks else ""
+        when = {0: "", 1: "yesterday "}.get((t.date() - meal.date()).days)
+        last = "last meal more than a day ago" if when is None else \
+            f"last meal {when}{fmt(minute_of(meal))}, {hours_ago((t - meal).total_seconds() / 60)}{since}"
+        line = f"Body: {last}; walked {today.get('walked', 0) / 1000:.1f} km today"
+        return line + (f"; awake since {today['woke']}." if woke else "."), felt
+
+    # ── the plan ────────────────────────────────────────────────────
+    def unmet(self, text, known):
+        """Names from after 1831 in text that the record (known) has not met."""
+        out = []
+        for m in (self.after.finditer(text) if self.after and text else ()):
+            term = m.group(1)
+            if term.lower() not in [x.lower() for x in out] and not re.search(r"\b" + re.escape(term) + r"s?\b", known, re.I):
+                out.append(term)
+        return out
+
+    def problems(self, text, known):
+        """What the page will not publish in text: listed words, and names from after 1831 the record has not met."""
+        out = [f"the word '{m.group(0)}'" for m in (self.never.finditer(text) if self.never and text else ())]
+        return out + [f"'{x}', which you have not met in Delhi" for x in self.unmet(text, known)]
+
+    def plan_items(self, out, ctx):
+        """The usable intentions of a morning plan: a time, under 120 characters, nothing the page will not publish
+        and nothing from after 1831 that he has not met. Invalid ones are dropped."""
+        items, raw = [], out.get("plan") if isinstance(out, dict) else None
+        for x in raw if isinstance(raw, list) else []:
+            when, what = (x.get("time"), x.get("intention")) if isinstance(x, dict) else (None, None)
+            at = PLAN_TIME.match(when.strip()) if isinstance(when, str) else None
+            what = " ".join(what.split()) if isinstance(what, str) else ""
+            if not at or int(at[1]) > 23 or int(at[2]) > 59 or not what or len(what) > 120:
+                continue
+            if (self.never and self.never.search(what)) or self.unmet(what, ctx.get("known_text", "")):
+                continue
+            items.append({"time": f"{int(at[1]):02d}:{at[2]}", "intention": what})
+        return items[:6]
+
+    def plan_line(self, day):
+        items = (day.get("plan") or {}).get("items")
+        return "Your plan for today: " + "; ".join(f"{i['time']} {i['intention'].rstrip('.')}" for i in items) + "." if items else None
+
+    def show_plan(self, sit, day):
+        """Put the day's plan on his mind, just above the Body line."""
+        line = self.plan_line(day)
+        if line:
+            sit["on_mind"].insert(len(sit["on_mind"]) - 1, line)
+
     # ── the Hegde file ──────────────────────────────────────────────
     def _appointment(self, state, beat_id):
         return next((a for a in state["appointments"] if a["beat"] == beat_id), None)
@@ -304,6 +424,7 @@ class World:
                 present.append(c)
 
         if state.get("asleep"):
+            today["woke"] = fmt(m)
             line = f"You wake. {wx['sky'].capitalize()}, {wx['temp']} °C."
             hol = self.holiday(d)
             if hol:
@@ -334,14 +455,18 @@ class World:
                 events.append((f"{self.places[pid]['name']} closes at {fmt(close)}.", None))
 
         if pid == "home" and not state.get("asleep"):
-            if 780 <= m < 870 and "lunch" not in today:
+            meal = meal_at(m)
+            if meal == "breakfast" and "breakfast" not in today and "ramesh" in present:
+                today["breakfast"] = True
+                events.append((f"Ramesh has laid out breakfast: {random.Random(f'breakfast|{d}').choice(BREAKFAST)}.", None))
+            if meal == "lunch" and "lunch" not in today:
                 today["lunch"] = True
                 if "ramesh" in present:
                     menu = random.Random(f"lunch|{d}").choice(LUNCH)
                     events.append((f"Ramesh has laid out lunch: {menu}.", None))
                 else:
                     events.append(("Ramesh has his day off. There is no lunch at home today.", None))
-            if 1170 <= m < 1230 and "dinner" not in today and "ramesh" in present:
+            if meal == "dinner" and "dinner" not in today and "ramesh" in present:
                 today["dinner"] = True
                 menu = random.Random(f"dinner|{d}").choice(DINNER)
                 events.append((f"Ramesh serves dinner before he goes home: {menu}.", None))
@@ -374,6 +499,8 @@ class World:
             events.append((" ".join(bits), None))
         today.setdefault("seen", {})[pid] = sorted(seen | set(present))
 
+        body, felt = self.needs(t, state)
+        events += [(x, None) for x in felt]
         if not events:
             part = "morning" if m < 720 else "afternoon" if m < 1020 else "evening" if m < 1260 else "night"
             events.append((f"Nothing in particular happens. The {part} goes on.", None))
@@ -395,8 +522,7 @@ class World:
             on_mind.append("Your bandhgala is ready at Masterji's. The balance is ₹3,500.")
         if state.get("theses"):
             on_mind.append("Your theses: " + "; ".join(f"{x['text']} ({x['status']})" for x in state["theses"]) + ".")
-        if state.get("yesterday"):
-            on_mind.append("Yesterday, as the owl wrote it up: " + state["yesterday"])
+        on_mind.append(body)
         earlier = []
         for s in (day.get("steps") or [])[-6:]:
             dec = s.get("decision") or {}
@@ -415,6 +541,7 @@ class World:
             "for_sale": for_sale, "on_mind": on_mind, "earlier": earlier,
             "event": " ".join(p for p, _ in events),
         }
+        self.show_plan(sit, day)
         ctx = {"t": t, "present": present, "beat": beat, "public": [e for _, e in events if e]}
         return sit, ctx
 
@@ -464,7 +591,8 @@ class World:
                     continue
                 if price != match["price"]:
                     warnings.append(f"price of '{item}' set to ₹{match['price']}")
-                buys.append({"item": match["item"], "price": match["price"], "garment": match.get("garment"), "wear": match.get("wear")})
+                buys.append({"item": match["item"], "price": match["price"], "garment": match.get("garment"), "wear": match.get("wear"),
+                             "food": match.get("food")})
             elif pl.get("books") and any(k in low for k in pl["books"]["match"]):
                 lo, hi = pl["books"]["range"]
                 if not lo <= price <= hi:
@@ -488,6 +616,14 @@ class World:
         for k in ("thought", "says", "revision"):
             if ans.get(k) and self.never and self.never.search(ans[k]):
                 errors.append(f"the page cannot publish the word '{self.never.search(ans[k]).group(0)}'; say it otherwise")
+        # what he cannot know from 1831, and what he has just thought
+        met = []
+        for k in ("thought", "says", "revision"):
+            met += [x for x in self.unmet(ans.get(k), ctx.get("known_text", "")) if x not in met]
+        errors += [f"you have not met '{x}' in Delhi; in 1831 you could not know it" for x in met[:3]]
+        again = next((t for t, text in reversed(ctx.get("recent", [])) if repeats(ans["thought"], text)), None)
+        if again:
+            errors.append(f"this repeats what you thought at {again}; think something new")
         if ans["says"] and not ctx["present"]:
             warnings.append("talks although nobody is present")
         plan = {"moves": moves, "dest": dest, "arrival": arrival, "buys": buys}
@@ -528,6 +664,8 @@ class World:
                 card = self.cast[c].get("card")
                 if card:
                     entry(t0, {"k": "people", "name": self.cast[c]["name"], "role": self.cast[c]["role"], "text": card})
+        if ctx.get("plan"):
+            entry(t0, {"k": "plan", "items": ctx["plan"]})
         if ans.get("thought"):
             entry(t0, {"k": "diary", "text": ans["thought"].strip()})
         if ans.get("says"):
@@ -542,6 +680,7 @@ class World:
         if plan["moves"]:
             dress(t0, dest)
             segs.append({"from": t0, "to": arrival, "mode": "walk", "a": cur, "b": dest})
+            self.walked(state, t0, self.walk(cur, dest))
             state["place"] = dest
             t = arrival
         arrived = dest if plan["moves"] and action == "walk" else None
@@ -592,9 +731,13 @@ class World:
         else:
             end = arrival
 
+        if action == "eat" and dest == "home" and self.served(t, state):
+            self.feed(state, t, "meal")
         for b in plan["buys"]:
             entry(t, {"k": "bag", "item": b["item"], "price": b["price"]})
             state["imprest"] -= b["price"]
+            if b.get("food"):
+                self.feed(state, t, b["food"])
             pl = self.places[dest]
             if pl.get("entry") and any(k in b["item"].lower() for k in pl["entry"]["match"]):
                 state.setdefault("today", {}).setdefault("tickets", []).append(dest)

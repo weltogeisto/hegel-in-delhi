@@ -13,6 +13,7 @@ from datetime import datetime, timedelta
 
 from . import contract, owl
 from .clock import day_number, fmt, hm, long_date, minute_of, sun
+from .memory import Memory, record_text
 from .mind import MindAway
 from .world import at_dt
 
@@ -71,6 +72,7 @@ class Engine:
         self.cfg, self.world, self.mind, self.git = cfg, world, mind, git
         self.owl_mind = owl_mind or mind
         self.days = Days(cfg.docs)
+        self.memory = Memory(self.days, world)
         self.soul = (cfg.repo / "mind/soul.md").read_text(encoding="utf-8")
 
     # ── days ────────────────────────────────────────────────────────
@@ -116,6 +118,7 @@ class Engine:
             day["segments"].append({"from": fmt(minute_of(start)), "to": fmt(minute_of(now)), "mode": "inside",
                                     "at": st["place"] if st["place"] == "home" else "home", "now": "At home."})
             st["place"], st["until"] = "home", now.isoformat(timespec="minutes")
+            st.setdefault("today", {})["woke"] = fmt(minute_of(now))        # his clock for hunger starts when he picks up
             day["steps"].append({"t": fmt(minute_of(start)), "end": fmt(minute_of(now)), "resumed": True})
         log.warning("resumed at %s after a gap", now.isoformat(timespec="minutes"))
         return day
@@ -125,11 +128,18 @@ class Engine:
         st = day["state"]
         prev = next((s for s in reversed(day["steps"]) if "decision" in s), None)
         sit, ctx = self.world.situation(t, st, day, prev)
+        remember = self.memory.recall(sit, ctx, day)
+        if remember:
+            sit["remember"] = remember
+        ctx["recent"], ctx["known_text"] = self.memory.recent_thoughts(day), self.memory.known_text(day, sit)
         m = minute_of(t)
         t_start = time.time()
         refused, warnings, raw, result, attempts, source = [], [], "", None, 0, self.mind.source
         if 30 <= m < 240 and not st.get("asleep"):
             source = "bedtime"          # the world sends him to bed after half past midnight
+        elif st.get("asleep") and not self.make_plan(day, t, sit, ctx) and not getattr(self.mind, "ready", True):
+            refused.append(["the PC did not wake for the morning plan"])
+            source = "away"             # no second wake in the same step; an awake PC that fumbled the plan still decides
         else:
             messages = [{"role": "system", "content": self.soul}, {"role": "user", "content": contract.render(sit)}]
             try:
@@ -172,6 +182,22 @@ class Engine:
         day["steps"].append(step)
         log.info("%s %s %s → %s until %s (%s)", day["date"], step["t"], ans["action"], ans["place"], step["end"], source)
         return step
+
+    def make_plan(self, day, t, sit, ctx):
+        """On waking: one extra call for the day's intentions. With no usable answer he simply has no plan.
+        False only when the mind is away."""
+        messages = [{"role": "system", "content": self.soul}, {"role": "user", "content": contract.render(sit, contract.PLAN_ASK)}]
+        try:
+            items = self.world.plan_items(contract.extract_json(self.mind.chat(messages, contract.PLAN_SCHEMA, max_tokens=500)), ctx)
+        except MindAway as e:
+            log.warning("mind away for the plan at %s: %s", sit["time"], e)
+            return False
+        if not items:
+            log.warning("no usable plan at %s", sit["time"])
+            return True
+        day["plan"], ctx["plan"] = {"written": fmt(minute_of(t)), "items": items}, items
+        self.world.show_plan(sit, day)
+        return True
 
     def quiet(self, st, t, sit):
         """No usable answer: he carries on, without a thought on the page."""
@@ -246,13 +272,13 @@ class Engine:
         st = latest["state"]
         weekday = datetime.fromisoformat(day["date"]).strftime("%A")
         n = st.get("depesche_n", 0) + 1 if weekday == self.cfg.depesche_day else None
-        written = owl.write(self.cfg, day, st, self.owl_mind, depesche_n=n)
+        known = self.memory.known_before(day["date"]) + "\n" + record_text(day)
+        written = owl.write(self.cfg, day, st, self.owl_mind, depesche_n=n, problems=lambda text: self.world.problems(text, known))
         written["written"] = fmt(minute_of(now))
         day["owl"] = written
         self.days.save(day)
         if n:
             st["depesche_n"] = n
-        st["yesterday"] = owl.gist(written.get("diary"))
         if latest["date"] != day["date"]:
             self.days.save(latest)
         log.info("the owl wrote up day %s", day["n"])

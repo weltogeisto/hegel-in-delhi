@@ -25,9 +25,21 @@ SCHEMA = {
     },
     "required": ["thought", "action", "place", "minutes", "says", "buys", "revision"],
 }
+ASK = "Decide your next step. Answer with the JSON object only."
+PLAN_ASK = ("Before you decide, plan today: three to six intentions, each with a time (HH:MM) and one short sentence "
+            "(under 120 characters) on what you mean to do. "
+            'Answer with the JSON object only: {"plan": [{"time": "09:00", "intention": "..."}]}')
+PLAN_SCHEMA = {
+    "type": "object",
+    "properties": {"plan": {"type": "array", "minItems": 3, "maxItems": 6, "items": {
+        "type": "object",
+        "properties": {"time": {"type": "string"}, "intention": {"type": "string", "maxLength": 120}},
+        "required": ["time", "intention"]}}},
+    "required": ["plan"],
+}
 
 
-def render(s):
+def render(s, ask=ASK):
     """The user message for one situation. Optional sections appear only when the world supplies them,
     so bake-off situations render exactly as they always have."""
     present = ", ".join(s["present"]) if s["present"] else "nobody"
@@ -44,9 +56,11 @@ def render(s):
         text += f"For sale here: {'; '.join(s['for_sale'])}.\n"
     if s.get("on_mind"):
         text += "\nOn your mind:\n" + "".join(f"- {x}\n" for x in s["on_mind"])
+    if s.get("remember"):
+        text += "\nYou remember:\n" + "".join(f"- {x}\n" for x in s["remember"])
     if s.get("earlier"):
         text += "\nEarlier today:\n" + "".join(f"- {x}\n" for x in s["earlier"])
-    text += f"\nWhat happens: {s['event']}\n\nDecide your next step. Answer with the JSON object only."
+    text += f"\nWhat happens: {s['event']}\n\n{ask}"
     return text
 
 

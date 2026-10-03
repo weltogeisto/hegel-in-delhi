@@ -893,7 +893,7 @@ const $ = id => document.getElementById(id);
 const panel = $('panel'), nowPlace = $('nowPlace'), nowStatus = $('nowStatus'), nowThought = $('nowThought'), nowWx = $('nowWx');
 const btnPrev = $('btnPrev'), btnNext = $('btnNext');
 let tab = 'today', hlPlace = null, lastKey = '', typer = null, shownThought = '';
-const KLABEL = {diary:'Thought', said:'Said', world:'Happened', bag:'Bought', wear:'Wardrobe', people:'Met', work:'Work', file:'The file'};
+const KLABEL = {diary:'Thought', said:'Said', world:'Happened', bag:'Bought', wear:'Wardrobe', people:'Met', work:'Work', file:'The file', plan:'Plan'};
 const rupees = n => '₹' + n.toLocaleString('en-IN');
 const paras = t => String(t).split(/\n\s*\n/).map(p => `<p>${esc(p.trim()).replace(/\n/g, '<br>')}</p>`).join('');
 function line(e){
@@ -903,6 +903,7 @@ function line(e){
     case 'people': return `<b>${esc(e.name)}</b>, ${esc(e.role)}. ${esc(e.text)}`;
     case 'work': return `<b>${esc(e.title)}</b>. ${esc(e.text)}`;
     case 'said': return (e.to ? `<b>To ${esc(e.to)}</b>: ` : '') + `“${esc(e.text)}”`;
+    case 'plan': return e.items.map(i => `${esc(i.time)} ${esc(i.intention)}`).join(' · ');
     default: return esc(e.text);
   }
 }
@@ -911,7 +912,9 @@ function owlHtml(m){
   if (!o || !(dayMode === 'archive' || (owlSeg && m >= owlSeg.s))) return '';
   let h = `<div class="owl"><p class="sum">Written overnight by the owl${o.written ? ', finished at ' + esc(o.written) : ''}.</p>`;
   if (o.diary) h += `<h3>Diary</h3>${paras(o.diary)}`;
-  if (o.revision_log) h += `<h3>Revision log</h3>${paras(o.revision_log)}`;
+  const moved = (o.theses || []).map(c => { const t = ((D.state && D.state.theses) || []).find(x => x.id === c.id);
+    return `<p>${esc(t ? t.text : c.id)}: ${esc(c.from)} → ${esc(c.to)} (${(c.evidence || []).map(v => `${esc(v.t)} “${esc(v.text)}”`).join('; ')})</p>`; }).join('');
+  if (o.revision_log || moved) h += `<h3>Revision log</h3>${o.revision_log ? paras(o.revision_log) : ''}${moved}`;
   if (o.depesche) h += `<h3>${esc(o.depesche.title)}</h3>${paras(o.depesche.text)}`;
   return h + '</div>';
 }
