@@ -101,7 +101,7 @@ class PlanTest(unittest.TestCase):
         plan = {"plan": [ok, item("25:00", "An hour that does not exist"), item("noon", "Not a time"), item("10:00", "x" * 121),
                          item("10:30", "Plan a murder"), item("11:00", "Read what Marx wrote"), item("11:30", ""), "text", item("9:05", "  Tea   on the verandah ")]}
         day, _ = self.run_with(Planner(plan))
-        self.assertEqual(day["plan"]["items"], [ok, item("09:05", "Tea on the verandah")])
+        self.assertEqual(day["plan"]["items"], [ok, item("10:30", "Plan a murder"), item("09:05", "Tea on the verandah")])    # no never-list any more; Marx is not met yet
         many = {"plan": [item(f"{h:02d}:00", f"Intention number {h}") for h in range(7, 15)]}
         box = Sandbox()
         try:
@@ -360,14 +360,14 @@ class ThesisTest(unittest.TestCase):
                     day, theses = self.night([{"id": "india", "status": "revised", "evidence": evidence}])
                 self.assertIn("no evidence", log.output[0])
                 self.assertEqual(day["owl"]["theses"], [])
-                self.assertEqual({x["id"]: x["status"] for x in theses}, {"india": "shaken", "state": "unshaken"})
+                self.assertEqual({x["id"]: x["status"] for x in theses}, {"india": "unshaken", "state": "unshaken"})
                 self.assertIn("diary", day["owl"])
 
     def test_a_change_with_evidence_is_applied_and_stored(self):
         day, theses = self.night([{"id": "india", "status": "revised", "evidence": ["03:33", self.t]},
                                   {"id": "state", "status": "unshaken", "evidence": [self.t]}])
         entry = next(e for e in self.day["entries"] if e["t"] == self.t and e["k"] == "diary")
-        self.assertEqual(day["owl"]["theses"], [{"id": "india", "from": "shaken", "to": "revised", "evidence": [{"t": self.t, "text": entry["text"]}]}])
+        self.assertEqual(day["owl"]["theses"], [{"id": "india", "from": "unshaken", "to": "revised", "evidence": [{"t": self.t, "text": entry["text"]}]}])
         self.assertEqual({x["id"]: x["status"] for x in theses}, {"india": "revised", "state": "unshaken"})
 
     def test_revise_in_detail(self):
@@ -409,13 +409,20 @@ class WeekTest(unittest.TestCase):
     def setUpClass(cls):
         cls.box = Sandbox()
         cls.messages = []
-        outer = cls.messages
+        cls.calls = {}                      # the extra calls, by kind
+        outer, calls = cls.messages, cls.calls
 
         class Watcher(StubMind):
             def decide(self, messages, sit):
                 if not any("refuses" in x["content"] for x in messages):
                     outer.append(messages[1]["content"])
                 return super().decide(messages, sit)
+
+            def chat(self, messages, schema=None, max_tokens=700, temperature=None):
+                props = (schema or {}).get("properties", {})
+                kind = "plan" if "plan" in props else "voice" if "does" in props else "write" if "continues" in props else "owl" if "diary" in props else "other"
+                calls[kind] = calls.get(kind, 0) + 1
+                return super().chat(messages, schema, max_tokens, temperature)
 
         e = cls.box.engine(Watcher())
         cls.days = []
@@ -461,6 +468,35 @@ class WeekTest(unittest.TestCase):
                 lines = m.split("You remember:\n")[1].split("\n\n")[0].split("\n")
                 self.assertLessEqual(len(lines), 8)
                 self.assertTrue(all(len(x) - 2 <= 220 for x in lines))
+
+    def test_the_people_answer_and_he_writes_and_nothing_is_refused_for_its_words(self):
+        said_days = 0
+        for day in self.days:
+            ents = day["entries"]
+            talked = [e for e in ents if e["k"] == "said" and not e.get("by")]
+            replies = [e for e in ents if e["k"] == "said" and e.get("by")]
+            said_days += bool(talked)
+            if talked:
+                self.assertTrue(replies, day["date"])                                       # a voice reply on every day with conversation
+            self.assertTrue(all(e["to"] == "Hegel" and e["by"] for e in replies))
+            steps = [s for s in day["steps"] if "decision" in s]
+            self.assertEqual(sum(1 for s in steps if s.get("voice")), len([s for s in steps if s["decision"].get("says") and s["present"]]))
+            for s in steps:
+                for errors in s["mind"].get("refused", []):
+                    self.assertFalse(any("cannot publish" in x or "the word" in x for x in errors), errors)
+            self.assertTrue(all(not e.get("sensitive") for e in ents))                      # the stand-in says nothing sensitive
+        self.assertGreaterEqual(said_days, 4)
+        sittings = [e for d in self.days for e in d["entries"] if e["k"] == "writing"]
+        self.assertTrue(sittings)                                                           # at least one sitting in the week
+        works = self.days[-1]["state"]["works"]
+        self.assertEqual(sum(w["sittings"] for w in works), len(sittings))
+        self.assertEqual(sum(w["words"] for w in works), sum(e["words"] for e in sittings))
+        self.assertEqual(self.calls["write"], len(sittings))                                # one extra call a sitting, no more
+        self.assertEqual(self.calls["plan"], 7)
+        voice_calls = self.calls["voice"]
+        steps = sum(len([s for s in d["steps"] if "decision" in s]) for d in self.days)
+        replies = sum(1 for d in self.days for s in d["steps"] if s.get("voice"))
+        self.assertTrue(replies <= voice_calls <= 2 * steps)
 
     def test_the_stand_in_never_repeats_itself_over_the_week(self):
         thoughts = [s["decision"]["thought"] for d in self.days for s in d["steps"] if "decision" in s]

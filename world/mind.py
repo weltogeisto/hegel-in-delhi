@@ -86,6 +86,13 @@ NOUNS = ("lamp tea stone fan gate bell paper ledger shutter verandah coin step c
 PLAN = [("07:30", "Walk to Lodhi Gardens with the papers"), ("10:30", "Khan Market: ink, and a look at the bookshop"),
         ("13:00", "Lunch, then an hour with the Hindi primer"), ("15:00", "Write up the morning's notes at the desk"),
         ("17:00", "See whether the Gymkhana plays bridge tonight"), ("20:00", "Dinner, and the day's reckoning")]
+REPLIES = ["Namaste, sir. The weather is not what it was.", "Ji, sir? Tell me, what do you need?", "Arre, sir, the same as yesterday, only warmer.",
+           "One minute, sir, I am just finishing this."]
+DOINGS = ["Nods, and goes back to what was in hand.", None, "Looks at him a moment longer than needed.", None]
+TITLES = ["Notes from the verandah", "On the morning's papers", "A page on the system of needs", "Letter about the bungalow"]
+LINES = ["The morning came in with the papers and the heat.", "Nothing here is quite where I left it, and I am no longer sure I did the leaving.",
+         "The tea arrived before the argument did.", "I set down what I saw and let the rest wait for the afternoon.",
+         "A city is a thought that has learned to walk about.", "The lamp does what lamps do, and so, I suppose, do I."]
 SINCE_MEAL = re.compile(r"last meal[^;]* (five|six|seven|eight|nine|ten|eleven|twelve|\d+) hours ago")
 
 
@@ -154,6 +161,17 @@ class StubMind:
             items = [{"time": t, "intention": w} for t, w in PLAN[:r.randint(3, 6)]]
             items[0]["intention"] = "(rehearsal) " + items[0]["intention"]
             return json.dumps({"plan": items})
+        if "does" in props:         # one of the people he meets, answering
+            r = random.Random(messages[-1]["content"])
+            return json.dumps({"says": "(rehearsal) " + r.choice(REPLIES), "does": r.choice(DOINGS)})
+        if "continues" in props:    # what he wrote
+            ask = messages[-1]["content"]
+            shelf = re.findall(r"“([^”]+)” \(", ask.split("Your manuscripts so far:")[1]) if "Your manuscripts so far:" in ask else []
+            r = random.Random(ask)
+            title = shelf[-1] if shelf and r.random() < 0.7 else "(rehearsal) " + r.choice(TITLES)
+            kind = r.choice(["essay", "notes", "letter"])
+            return json.dumps({"title": title, "kind": kind, "to": "a friend in Berlin" if kind == "letter" else None,
+                               "continues": title in shelf, "text": "(rehearsal) " + " ".join(r.sample(LINES, 3))})
         if "diary" in props:
             ask = messages[-1]["content"]
             times = re.findall(r"^(\d\d:\d\d) ", ask, re.M)

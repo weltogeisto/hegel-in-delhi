@@ -20,12 +20,21 @@ NORMALS = {1: (21, 8), 2: (24, 11), 3: (30, 16), 4: (36, 22), 5: (40, 26), 6: (3
            7: (35, 27), 8: (34, 27), 9: (34, 25), 10: (33, 20), 11: (28, 13), 12: (23, 9)}
 # CPCB National AQI breakpoints for 24-hour means: (conc lo, conc hi, index lo, index hi).
 PM25 = [(0, 30, 0, 50), (30, 60, 50, 100), (60, 90, 100, 200), (90, 120, 200, 300), (120, 250, 300, 400), (250, 500, 400, 500)]
-# The morning papers carry the state, the economy, the courts and the weather; the world leaves out
-# crime, violence and disaster, which the page has no business setting beside a pixel-art walk.
-SKIP = re.compile(r"\b(kill\w*|dead|death\w*|die[sd]?|dying|murder\w*|rape\w*|sexual\w*|assault\w*|harass\w*|molest\w*|abus\w*|"
-                  r"suicide|accident\w*|crash\w*|blast\w*|explosion|attack\w*|terror\w*|shot|shoot\w*|stabb\w*|injur\w*|"
-                  r"bod(y|ies)|riot\w*|lynch\w*|violen\w*|gang|arrest\w*|custody|missing|drown\w*|fire\b|burn\w*|war\b)", re.I)
+# The morning papers carry the state, the economy, the courts and the weather. Crime and violence stay out, which the
+# page has no business setting beside a pixel-art walk; wars and civil strife stay in, so a headline on the crime list
+# is dropped unless it is also about one of them.
+CRIME = re.compile(r"\b(kill\w*|dead|death\w*|die[sd]?|dying|murder\w*|rape\w*|sexual\w*|assault\w*|harass\w*|molest\w*|abus\w*|"
+                   r"suicide|accident\w*|crash\w*|blast\w*|explosion|shot|shoot\w*|stabb\w*|injur\w*|"
+                   r"bod(y|ies)|lynch\w*|gang|arrest\w*|custody|missing|drown\w*|fire\b|burn\w*)", re.I)
+STRIFE = re.compile(r"\b(wars?|warfare|armies|army|military|troops|soldiers?|ceasefire|missiles?|drones?|shelling|border|insurgen\w*|"
+                    r"militant\w*|clash\w*|conflict\w*|unrest|curfew|protest\w*|riot\w*|communal|coup|rebels?|invasion|invad\w*|battle\w*|"
+                    r"air ?strikes?|(?:military|missile|drone|rocket|artillery) strikes?)", re.I)
 PM10 = [(0, 50, 0, 50), (50, 100, 50, 100), (100, 250, 100, 200), (250, 350, 200, 300), (350, 430, 300, 400), (430, 600, 400, 500)]
+
+
+def fit_for_papers(title):
+    """A headline the morning papers may carry: not about crime or violence, unless it is about war or civil strife."""
+    return not CRIME.search(title) or bool(STRIFE.search(title))
 
 
 def get(url, timeout=15):
@@ -180,7 +189,7 @@ class Feeds:
                     title = html.unescape(re.sub(r"<[^>]+>", "", item.findtext("title") or "")).strip()
                     title = re.sub(r"\s+", " ", title)
                     key = title.lower()[:60]
-                    if 20 <= len(title) <= 160 and key not in seen and not SKIP.search(title):
+                    if 20 <= len(title) <= 160 and key not in seen and fit_for_papers(title):
                         seen.add(key)
                         titles.append(title)
                     if len(titles) >= 6:

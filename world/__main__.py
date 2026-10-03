@@ -171,7 +171,7 @@ def cmd_owl(cfg, args):
 
 def cmd_check(cfg, args):
     w = World()
-    problems = []
+    problems = [f"missing {f}" for f in ("mind/soul.md", "mind/owl.md", "mind/voices.md", "world/data/sensitive.txt") if not (cfg.repo / f).exists()]
     ids = list(w.places)
     for i, a in enumerate(ids):
         for b in ids[i + 1:]:
@@ -213,6 +213,12 @@ def cmd_check(cfg, args):
                     problems.append(f"{r['date']}: unknown place {p}")
         if day["segments"] and day["segments"][0]["from"] != "00:00":
             problems.append(f"{r['date']}: first segment does not start at 00:00")
+        manuscripts = {x["id"] for x in day["state"].get("works", [])}
+        for e in day["entries"]:
+            if e.get("sensitive") and not e.get("why"):
+                problems.append(f"{r['date']}: the sensitive entry at {e['t']} has no reason")
+            if e["k"] == "writing" and e.get("work") not in manuscripts:
+                problems.append(f"{r['date']}: the writing at {e['t']} is in no manuscript")
     for p in problems:
         print("✗", p)
     print("ok" if not problems else f"{len(problems)} problems")

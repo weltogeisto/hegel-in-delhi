@@ -37,6 +37,28 @@ PLAN_SCHEMA = {
         "required": ["time", "intention"]}}},
     "required": ["plan"],
 }
+VOICE_ASK = 'Answer with the JSON object only: {"says": "...", "does": null}'
+VOICE_SCHEMA = {
+    "type": "object",
+    "properties": {"says": {"type": "string", "maxLength": 420}, "does": {"anyOf": [{"type": "string", "maxLength": 200}, {"type": "null"}]}},
+    "required": ["says", "does"],
+}
+WRITING_KINDS = ["essay", "letter", "notes", "chapter", "poem", "other"]
+WRITE_ASK = ("You sat down to write. What did you write? Up to about 450 words, in English: a title, the kind "
+             f"({', '.join(WRITING_KINDS[:-1])} or other), whom it is to if it is a letter, and the text. If it carries on one of your "
+             "manuscripts, say so and give that title.")
+WRITE_FORMAT = 'Answer with the JSON object only: {"title": "...", "kind": "essay", "to": null, "continues": false, "text": "..."}'
+WRITE_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "title": {"type": "string", "maxLength": 100},
+        "kind": {"type": "string", "enum": WRITING_KINDS},
+        "to": NULLABLE_STR,
+        "continues": {"type": "boolean"},
+        "text": {"type": "string", "maxLength": 3000},
+    },
+    "required": ["title", "kind", "to", "continues", "text"],
+}
 
 
 def render(s, ask=ASK):

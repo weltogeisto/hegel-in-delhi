@@ -31,11 +31,16 @@ def fit(head, text, quote=False):
     return head + q[0] + text + q[1]
 
 
-def moment(label, e):
-    """One line for one entry of the record."""
+def moment(label, e, pov=None):
+    """One line for one entry of the record. With pov, a person's name, the same seen from that person's side."""
     head, k = f"{label}, {e['t']}, ", e["k"]
+    if k == "said" and pov:
+        who = "you said: " if (e.get("by") or "").lower() == pov.lower() else f"{e['by']} said: " if e.get("by") else \
+            f"he said to {e['to']}: " if e.get("to") else "he said: "
+        return fit(head + who, e["text"], quote=True)
     if k == "said":
-        return fit(head + (f"to {e['to']}: " if e.get("to") else "you said: "), e["text"], quote=True)
+        who = f"{e['by']} said to you: " if e.get("by") else f"to {e['to']}: " if e.get("to") else "you said: "
+        return fit(head + who, e["text"], quote=True)
     if k == "people":
         return fit(head + f"you met {e['name']}: ", e["text"])
     if k == "diary":
@@ -45,6 +50,8 @@ def moment(label, e):
 
 def names_of(c):
     """How he would name a cast member: the full name, and the surname (or, with no title, the first name)."""
+    if c.get("background"):
+        return {c["name"]}
     words = [w.strip(".") for w in c["name"].split()]
     named = [w for w in words if len(w) > 1 and w.lower() not in TITLES]
     return {c["name"]} | ({named[-1] if len(named) < len(words) else named[0]} if named else set())
@@ -54,7 +61,7 @@ def involves(c, pat, e):
     """Does entry e concern cast member c?"""
     k = e["k"]
     if k == "said":
-        return bool(pat.search(e.get("to", "")))
+        return bool(pat.search(e.get("to", "")) or pat.search(e.get("by", "")))
     if k == "people":
         return e.get("name") == c["name"]
     return k in ("diary", "world", "file") and bool(pat.search(e["text"]))
@@ -100,10 +107,11 @@ class Memory:
             if day:
                 yield day
 
-    def trail(self, day, past):
-        """(when, entry) of his record, newest first: today before the 'Earlier today' window, then each past day."""
+    def trail(self, day, past, window=True):
+        """(when, entry) of his record, newest first: today before the 'Earlier today' window (all of it without),
+        then each past day."""
         steps = (day.get("steps") or [])[-WINDOW:]
-        cut = steps[0]["t"] if steps else "00:00"
+        cut = steps[0]["t"] if steps and window else "00:00" if window else "24:00"
         for e in reversed(sorted((e for e in day["entries"] if e["t"] < cut), key=lambda e: e["t"])):
             yield "Today", e
         for p in past:
@@ -121,17 +129,9 @@ class Memory:
             c = self.world.cast[cid]
             if c.get("background"):
                 continue
-            pat = re.compile(r"\b(" + "|".join(re.escape(x) for x in names_of(c)) + r")\b", re.I)
-            mine = []
-            for label, e in self.trail(day, past):
-                key = (label, e["t"], e["k"], e.get("text") or e.get("name"))
-                if key not in taken and involves(c, pat, e):
-                    taken.add(key)
-                    mine.append(moment(label, e))
-                    if len(mine) == PER_PERSON:
-                        break
+            mine = self.moments(c, day, past, taken)
             if mine:
-                groups.append(mine[::-1])                       # oldest first
+                groups.append(mine)
         place = self.place_line(sit["place"], past)
         nights = [fit(f"{when(p)}, as the owl wrote it up: ", owl.gist(p["owl"]["diary"], GIST)) for p in past
                   if (d - date.fromisoformat(p["date"])).days <= NIGHTS and (p.get("owl") or {}).get("diary")]
@@ -147,6 +147,20 @@ class Memory:
             else:
                 break
         return lines()
+
+    def moments(self, c, day, past, taken=None, voice=False):
+        """His last PER_PERSON moments with cast member c, oldest first. Those in `taken` are passed over, those found
+        are added. For a voice: only what was said, in c's eyes, and all of today's."""
+        pat = re.compile(r"\b(" + "|".join(re.escape(x) for x in names_of(c)) + r")\b", re.I)
+        taken, mine = set() if taken is None else taken, []
+        for label, e in self.trail(day, past, window=not voice):
+            key = (label, e["t"], e["k"], e.get("text") or e.get("name"))
+            if key not in taken and (not voice or e["k"] == "said") and involves(c, pat, e):
+                taken.add(key)
+                mine.append(moment(label, e, c["name"] if voice else None))
+                if len(mine) == PER_PERSON:
+                    break
+        return mine[::-1]
 
     def place_line(self, pid, past):
         """The last thought he had here on an earlier day, as a list of one line or none."""

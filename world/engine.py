@@ -9,9 +9,9 @@ import json
 import logging
 import os
 import time
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 
-from . import contract, owl
+from . import contract, owl, voices, works
 from .clock import day_number, fmt, hm, long_date, minute_of, sun
 from .memory import Memory, record_text
 from .mind import MindAway
@@ -74,6 +74,7 @@ class Engine:
         self.days = Days(cfg.docs)
         self.memory = Memory(self.days, world)
         self.soul = (cfg.repo / "mind/soul.md").read_text(encoding="utf-8")
+        self.voice_prompt = (cfg.repo / "mind/voices.md").read_text(encoding="utf-8")
 
     # ── days ────────────────────────────────────────────────────────
     def new_day(self, prev, d):
@@ -140,6 +141,9 @@ class Engine:
         elif st.get("asleep") and not self.make_plan(day, t, sit, ctx) and not getattr(self.mind, "ready", True):
             refused.append(["the PC did not wake for the morning plan"])
             source = "away"             # no second wake in the same step; an awake PC that fumbled the plan still decides
+        elif not self.greet(day, sit, ctx):
+            refused.append(["the PC did not wake for a greeting"])
+            source = "away"
         else:
             messages = [{"role": "system", "content": self.soul}, {"role": "user", "content": contract.render(sit)}]
             try:
@@ -171,6 +175,11 @@ class Engine:
             if beat.get("choice"):
                 yes = self.ask_choice(messages, raw, beat)
                 ctx["beat_entries"] += self.world.settle_choice(beat, yes, st)
+        if source in ("mind", "stub"):
+            if ans.get("says") and ctx["present"]:
+                ctx["reply"] = self.reply(day, sit, ctx, ans["says"])
+            if ans["action"] == "write":
+                ctx["writing"] = self.write(messages, raw, ctx, st)
         step = self.world.apply(ans, plan, sit, ctx, st, day)
         step["mind"] = {"source": source, "attempts": attempts, "latency_s": round(time.time() - t_start, 1)}
         if refused:
@@ -198,6 +207,60 @@ class Engine:
         day["plan"], ctx["plan"] = {"written": fmt(minute_of(t)), "items": items}, items
         self.world.show_plan(sit, day)
         return True
+
+    def voice(self, cid, day, sit, says):
+        """One call: the person cid answers what he said, or speaks first when says is None. {by, says, does}, or None
+        when the answer is unusable. MindAway goes up."""
+        c = self.world.cast[cid]
+        remember = self.memory.moments(c, day, list(self.memory.before(date.fromisoformat(day["date"]))), voice=True)
+        where = self.world.places[sit["place"]]["name"]
+        messages = [{"role": "system", "content": self.voice_prompt}, {"role": "user", "content": voices.render(c, sit, where, says, remember)}]
+        return voices.clean(c, contract.extract_json(self.mind.chat(messages, contract.VOICE_SCHEMA, max_tokens=250)))
+
+    def greet(self, day, sit, ctx):
+        """A person he knows, new in sight today, may speak first: the line joins the event and what he has met.
+        False only when the PC did not wake."""
+        cid = self.world.greeter(ctx)
+        try:
+            said = self.voice(cid, day, sit, None) if cid else None
+        except MindAway as e:
+            log.warning("mind away for a greeting at %s: %s", sit["time"], e)
+            return getattr(self.mind, "ready", True)
+        if said:
+            ctx["greeting"] = said
+            sit["event"] += " " + voices.heard(said)
+            ctx["known_text"] += "\n" + voices.heard(said)
+        return True
+
+    def reply(self, day, sit, ctx, says):
+        """The one he spoke to answers (one call). None if the mind is away or the answer is unusable."""
+        try:
+            return self.voice(voices.pick(self.world.cast, says, ctx["present"]), day, sit, says)
+        except MindAway as e:
+            log.warning("mind away for an answer at %s: %s", sit["time"], e)
+            return None
+
+    def write(self, messages, raw, ctx, st):
+        """He chose to write: one call for what he wrote. Names from after 1831 that he has not met: he is asked once
+        to write it again without them, then the writing is dropped (the decision stands). None if dropped."""
+        msgs = messages + [{"role": "assistant", "content": raw}, {"role": "user", "content": works.ask(st)}]
+        for _ in range(2):
+            try:
+                reply = self.mind.chat(msgs, contract.WRITE_SCHEMA, max_tokens=1100)
+            except MindAway as e:
+                log.warning("mind away for the writing: %s", e)
+                return None
+            w = works.clean(contract.extract_json(reply))
+            if not w:
+                return None
+            wrong = self.world.unmet(w["title"] + "\n" + w["text"], ctx["known_text"])
+            if not wrong:
+                return w
+            msgs += [{"role": "assistant", "content": reply}, {"role": "user", "content":
+                     "Write it again without " + ", ".join(f"'{x}'" for x in wrong) + ": you have not met them in Delhi, and in 1831 you could not know them. "
+                     "Answer with the JSON object only."}]
+        log.info("writing dropped: %s", "; ".join(wrong))
+        return None
 
     def quiet(self, st, t, sit):
         """No usable answer: he carries on, without a thought on the page."""
@@ -273,7 +336,8 @@ class Engine:
         weekday = datetime.fromisoformat(day["date"]).strftime("%A")
         n = st.get("depesche_n", 0) + 1 if weekday == self.cfg.depesche_day else None
         known = self.memory.known_before(day["date"]) + "\n" + record_text(day)
-        written = owl.write(self.cfg, day, st, self.owl_mind, depesche_n=n, problems=lambda text: self.world.problems(text, known))
+        written = owl.write(self.cfg, day, st, self.owl_mind, depesche_n=n, problems=lambda text: self.world.problems(text, known),
+                            flag=self.world.flag, topic=self.world.topic)
         written["written"] = fmt(minute_of(now))
         day["owl"] = written
         self.days.save(day)

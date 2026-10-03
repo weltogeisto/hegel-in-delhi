@@ -102,6 +102,17 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
 .owl h3{font-size:17px;margin:14px 0 6px;font-weight:600}
 .owl p{margin:0 0 10px}
 .panel a{color:var(--accent-strong)}
+.veil{display:block;width:100%;text-align:left;color:#f6f3ff;border-radius:4px;padding:8px 10px;
+  background:repeating-conic-gradient(#0b0b12 0 25%,#181826 0 50%) 0 0/4px 4px,#0b0b12}
+.veil small{display:block;color:#b3a9dc;font-size:13px;margin-top:1px}
+.veil[aria-expanded="true"]{margin-bottom:8px}
+.veiled[hidden]{display:none}
+.now blockquote .veil{margin-top:4px}
+.panel h2.sub{margin-top:18px}
+.ms{padding:8px 0;border-top:2px dotted var(--rule)}
+.ms p{margin:0}
+.about label{display:flex;align-items:center;gap:8px;cursor:pointer;margin:0 0 8px}
+.about input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent);flex:none}
 @media (min-width:960px){
   html,body{overflow:hidden}
   .app{height:100%;grid-template-columns:minmax(0,1fr) 430px;gap:22px;padding:18px 22px}
@@ -171,7 +182,9 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
     <div class="box panel" id="panel" role="tabpanel"></div>
     <div class="about">
       <p>Day 1 is written by hand. After it, a small model lives his days on this map, and a large one writes them up each night while he sleeps.</p>
-      <p>The rule: the living are invented, the dead are on his shelf, the news is real. Everyone he meets is fictional; real people reach him only through books and newspapers.</p>
+      <p>The rule: the living are invented, the dead are on his shelf, the news is real. Everyone he meets is fictional; he may name the public figures he reads about, and no words are invented for them.</p>
+      <p>His views are his own, nineteenth-century ones included, and nobody corrects him. Entries the world flags as sensitive sit under a dark band until you click it.</p>
+      <label><input type="checkbox" id="showSens"> Show sensitive entries without asking</label>
       <p>The street plan is sketched from Lutyens' Delhi. Positions are approximate until the OpenStreetMap import.</p>
     </div>
   </aside>
@@ -893,7 +906,7 @@ const $ = id => document.getElementById(id);
 const panel = $('panel'), nowPlace = $('nowPlace'), nowStatus = $('nowStatus'), nowThought = $('nowThought'), nowWx = $('nowWx');
 const btnPrev = $('btnPrev'), btnNext = $('btnNext');
 let tab = 'today', hlPlace = null, lastKey = '', typer = null, shownThought = '';
-const KLABEL = {diary:'Thought', said:'Said', world:'Happened', bag:'Bought', wear:'Wardrobe', people:'Met', work:'Work', file:'The file', plan:'Plan'};
+const KLABEL = {diary:'Thought', said:'Said', world:'Happened', bag:'Bought', wear:'Wardrobe', people:'Met', work:'Work', file:'The file', plan:'Plan', writing:'Wrote'};
 const rupees = n => '₹' + n.toLocaleString('en-IN');
 const paras = t => String(t).split(/\n\s*\n/).map(p => `<p>${esc(p.trim()).replace(/\n/g, '<br>')}</p>`).join('');
 function line(e){
@@ -902,28 +915,50 @@ function line(e){
     case 'wear': return `<b>${esc(e.item)}</b>. ${esc(e.status)}`;
     case 'people': return `<b>${esc(e.name)}</b>, ${esc(e.role)}. ${esc(e.text)}`;
     case 'work': return `<b>${esc(e.title)}</b>. ${esc(e.text)}`;
-    case 'said': return (e.to ? `<b>To ${esc(e.to)}</b>: ` : '') + `“${esc(e.text)}”`;
+    case 'said': return (e.by ? `<b>${esc(e.by)}</b>: ` : e.to ? `<b>To ${esc(e.to)}</b>: ` : '') + `“${esc(e.text)}”`;
+    case 'writing': { const kind = e.kind === 'letter' && e.to ? 'letter to ' + e.to : e.kind + (e.to ? ' to ' + e.to : '');
+      return `<b>${esc(e.title)}</b> (${esc([kind, e.sitting > 1 ? 'sitting ' + e.sitting : ''].filter(Boolean).join(', '))})<br>${esc(e.text).replace(/\n/g, '<br>')}`; }
     case 'plan': return e.items.map(i => `${esc(i.time)} ${esc(i.intention)}`).join(' · ');
     default: return esc(e.text);
   }
 }
+/* the dark veil: a sensitive entry sits under a band until it is clicked, or for good if the viewer has asked for that */
+let showSens = false, focusSel = null; const revealed = new Set();
+try { showSens = localStorage.getItem('hegel.showSensitive') === '1'; } catch (err) {}
+function vz(key, why, html, host){
+  if (showSens) return html;
+  const open = revealed.has(key), id = `v${host}-${key.replace(/\W/g, '_')}`;
+  return `<button type="button" class="veil" aria-expanded="${open}" aria-controls="${id}" data-veil="${esc(key)}" data-host="${host}">`
+    + `<span>Sensitive · 19th-century views — ${open ? 'hide' : 'show'}</span>${why ? `<small>on ${esc(why)}</small>` : ''}</button>`
+    + `<div class="veiled" id="${id}"${open ? '' : ' hidden'}>${html}</div>`;
+}
+const vkey = e => `${D.date}|${e.i}`;
 function owlHtml(m){
   const o = D.owl, owlSeg = DAY.slice().reverse().find(s => s.owl);   // tonight's sleep, not the morning's
   if (!o || !(dayMode === 'archive' || (owlSeg && m >= owlSeg.s))) return '';
+  const vs = (name, html) => (o.sensitive || []).includes(name) ? vz(`${D.date}|owl|${name}`, (o.topic || {})[name], html, 'p') : html;
   let h = `<div class="owl"><p class="sum">Written overnight by the owl${o.written ? ', finished at ' + esc(o.written) : ''}.</p>`;
-  if (o.diary) h += `<h3>Diary</h3>${paras(o.diary)}`;
+  if (o.diary) h += `<h3>Diary</h3>${vs('diary', paras(o.diary))}`;
   const moved = (o.theses || []).map(c => { const t = ((D.state && D.state.theses) || []).find(x => x.id === c.id);
     return `<p>${esc(t ? t.text : c.id)}: ${esc(c.from)} → ${esc(c.to)} (${(c.evidence || []).map(v => `${esc(v.t)} “${esc(v.text)}”`).join('; ')})</p>`; }).join('');
-  if (o.revision_log || moved) h += `<h3>Revision log</h3>${o.revision_log ? paras(o.revision_log) : ''}${moved}`;
-  if (o.depesche) h += `<h3>${esc(o.depesche.title)}</h3>${paras(o.depesche.text)}`;
+  if (o.revision_log || moved) h += `<h3>Revision log</h3>${o.revision_log ? vs('revision_log', paras(o.revision_log)) : ''}${moved}`;
+  if (o.depesche) h += `<h3>${esc(o.depesche.title)}</h3>${vs('depesche', paras(o.depesche.text))}`;
   return h + '</div>';
+}
+function manuscripts(seen){      // his manuscripts as of now: the sittings still to be revealed today are taken off
+  const later = ENTRIES.filter(e => e.k === 'writing' && !seen.includes(e));
+  const rows = (((D.state || {}).works) || []).map(w => { const l = later.filter(e => e.work === w.id);
+    return {w, words: w.words - l.reduce((a, e) => a + (e.words || 0), 0), n: w.sittings - l.length}; }).filter(r => r.n > 0);
+  return rows.length ? '<h2 class="sub">Manuscripts so far</h2>' + rows.map(r => { const t = `<p><b>${esc(r.w.title)}</b> · ${esc(r.w.kind)}${r.w.to ? ' to ' + esc(r.w.to) : ''} · `
+    + `${r.words.toLocaleString('en-IN')} words · ${r.n} sitting${r.n > 1 ? 's' : ''}</p>`;
+    return `<div class="ms">${r.w.sensitive ? vz(`${D.date}|ms|${r.w.id}`, r.w.topic, t, 'p') : t}</div>`; }).join('') : '';
 }
 function renderPanel(m){
   if (!D){ panel.innerHTML = '<p class="empty">Opening the day…</p>'; return; }
   const seen = ENTRIES.filter(e => e.m <= m), E = D.empty || {};
   let html = '';
   const empty = msg => `<p class="empty">${msg}</p>`;
-  const entry = (e, label) => `<div class="entry"><span class="t">${e.t || '—'}</span><div>${label ? `<span class="k">${KLABEL[e.k] || ''}</span>` : ''}<p>${line(e)}</p></div></div>`;
+  const entry = (e, label) => `<div class="entry"><span class="t">${e.t || '—'}</span><div>${label ? `<span class="k">${KLABEL[e.k] || ''}</span>` : ''}${e.sensitive ? vz(vkey(e), e.topic, `<p>${line(e)}</p>`, 'p') : `<p>${line(e)}</p>`}</div></div>`;
   if (tab === 'today' || tab === 'thoughts'){
     const list = (tab === 'today' ? seen : seen.filter(e => e.k === 'diary')).slice().reverse();
     const up = DAY.some(s => !s.asleep && s.s <= m);
@@ -945,10 +980,10 @@ function renderPanel(m){
     html = '<h2>People</h2>' + (ppl.length ? ppl.map(e => entry(e)).join('') : empty(E.people || 'No one yet today.'))
       + '<p class="sum">Everyone he meets is fictional.</p>';
   } else if (tab === 'work'){
-    const w = seen.filter(e => e.k === 'work'), owl = owlHtml(m);
+    const w = seen.filter(e => e.k === 'work' || e.k === 'writing'), owl = owlHtml(m), ms = manuscripts(seen);
     const i = INDEX.findIndex(x => x.date === D.date), prev = INDEX[i-1];
     const last = dayMode === 'live' && prev && prev.owl ? `<p class="sum"><a href="#${prev.date}">Last night the owl wrote up day ${prev.n}.</a></p>` : '';
-    html = '<h2>Work</h2>' + (w.length ? w.map(e => entry(e)).join('') : owl ? '' : empty(E.work || 'Nothing on the desk yet today.')) + owl + last;
+    html = '<h2>Work</h2>' + (w.length ? w.map(e => entry(e)).join('') : owl || ms ? '' : empty(E.work || 'Nothing on the desk yet today.')) + ms + owl + last;
   } else if (tab === 'file'){
     const f = seen.filter(e => e.k === 'file');
     html = '<h2>The file</h2>' + (f.length ? f.map(e => entry(e)).join('') : empty(E.file || 'Nothing new in the file today.'));
@@ -974,18 +1009,27 @@ function updateDom(st, m){
   if (!scrubbing) scrub.value = minute;
   const key = minute + '|' + tab + '|' + hlPlace + '|' + dayMode;
   if (key === lastKey) return; lastKey = key;
+  const act = document.activeElement, back = focusSel || (act && act.dataset && act.dataset.veil ? veilSel(act) : null);   // a veil band keeps focus through the redraw
+  focusSel = null;
   renderPanel(m);
   if (!D) return;
   nowPlace.textContent = placeLabel(st);
   nowStatus.textContent = statusText(st, m);
   const wx = weatherAt(m);
   nowWx.hidden = !wx; if (wx) nowWx.textContent = `${Math.round(wx.temp)} °C, ${wx.sky}` + (wx.aqi ? ` · AQI ${wx.aqi}` : '');
-  const th = ENTRIES.filter(e => e.k === 'diary' && e.m <= m).pop();
-  const thHtml = th ? `<span class="t">${th.t}</span>${esc(th.text)}` : '<span class="t">—</span>Nothing thought yet today.';
-  if (thHtml !== shownThought){ shownThought = thHtml; typeThought(thHtml); }
+  const th = ENTRIES.filter(e => e.k === 'diary' && e.m <= m).pop(), veiled = th && th.sensitive && !showSens;
+  const thHtml = th ? `<span class="t">${th.t}</span>${veiled ? vz(vkey(th), th.topic, esc(th.text), 'n') : esc(th.text)}` : '<span class="t">—</span>Nothing thought yet today.';
+  if (thHtml !== shownThought){ shownThought = thHtml; if (veiled){ if (typer) cancelAnimationFrame(typer); nowThought.innerHTML = thHtml; } else typeThought(thHtml); }
+  const again = back && document.querySelector(back); if (again && again !== document.activeElement) again.focus({preventScroll: true});
 }
 
 /* ───────── controls ───────── */
+const veilSel = b => `[data-host="${b.dataset.host}"][data-veil="${b.dataset.veil}"]`;
+document.addEventListener('click', e => { const b = e.target.closest('[data-veil]'); if (!b) return;
+  if (!revealed.delete(b.dataset.veil)) revealed.add(b.dataset.veil);
+  focusSel = veilSel(b); lastKey = ''; shownThought = ''; });
+const sensBox = $('showSens'); sensBox.checked = showSens;
+sensBox.addEventListener('change', () => { showSens = sensBox.checked; try { localStorage.setItem('hegel.showSensitive', showSens ? '1' : '0'); } catch (err) {} lastKey = ''; shownThought = ''; });
 let scrubbing = false;
 const btnLive = $('btnLive'), btnPlay = $('btnPlay'), scrub = $('scrub'), btnTown = $('btnTown');
 function maxMinute(){ return dayMode === 'live' ? Math.min(1439.99, delhiMinutes()) : 1439.99; }

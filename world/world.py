@@ -7,7 +7,7 @@ import re
 from datetime import datetime, timedelta
 from pathlib import Path
 
-from . import contract
+from . import contract, voices, works
 from .clock import IST, WEEKDAYS, fmt, hm, minute_of, sun
 
 DATA = Path(__file__).resolve().parent / "data"
@@ -25,6 +25,7 @@ HUNGRY_H, VERY_HUNGRY_H, TIRED_H, TIRED_M = 5, 8, 16, 10_000        # hours sinc
 WALK_M, HOT_C = 75, 33                  # metres a minute; from this temperature walking counts one and a half times
 NUMBERS = "zero one two three four five six seven eight nine ten eleven twelve".split()
 PLAN_TIME = re.compile(r"(\d{1,2}):(\d{2})$")
+GREET_P = 0.35          # a person he knows, seen for the first time that day at a place, speaks first with this chance
 
 
 def load(name):
@@ -32,10 +33,25 @@ def load(name):
 
 
 def wordlist(name, plural=""):
-    """data/<name>: one word or phrase a line, # for comments. A regex for them as whole words, any case."""
+    """data/<name>: one word or phrase a line, # for comments, a trailing * for any ending.
+    A regex for them as whole words, any case."""
     lines = (DATA / name).read_text(encoding="utf-8").splitlines()
     terms = [x.strip() for x in lines if x.strip() and not x.strip().startswith("#")]
-    return re.compile(r"\b(" + "|".join(re.escape(t) for t in terms) + r")" + plural + r"\b", re.I) if terms else None
+    parts = [re.escape(t[:-1]) + r"\w*" if t.endswith("*") else re.escape(t) for t in terms]
+    return re.compile(r"\b(" + "|".join(parts) + r")" + plural + r"\b", re.I) if terms else None
+
+
+def headings(name):
+    """data/<name> by heading: [(heading, regex)] for each '# heading' line followed by terms."""
+    groups, head = [], None
+    for line in (DATA / name).read_text(encoding="utf-8").splitlines() + [""]:
+        x = line.strip()
+        if x.startswith("#"):
+            head = x[1:].strip() if len(x) <= 40 else None
+            groups.append((head, []))
+        elif x and groups and groups[-1][0]:
+            groups[-1][1].append(re.escape(x[:-1]) + r"\w*" if x.endswith("*") else re.escape(x))
+    return [(h, re.compile(r"\b(" + "|".join(t) + r")s?\b", re.I)) for h, t in groups if h and t]
 
 
 def meal_at(m):
@@ -93,7 +109,8 @@ class World:
         self.cast = load("cast.json")["cast"]
         self.beats = load("plot.json")["beats"]
         self.holidays = load("holidays.json")["holidays"]
-        self.never = wordlist("never.txt")
+        self.sensitive = wordlist("sensitive.txt", "s?")
+        self.headings = headings("sensitive.txt")
         self.after = wordlist("after_1831.txt", "s?")
         self.feeds = feeds
         self._wx = {}
@@ -205,6 +222,12 @@ class World:
     def short(self, cid):
         return self.cast[cid]["short"]
 
+    def greeter(self, ctx):
+        """Who speaks first, if anyone: of the people he knows who have just come into sight today, the first whose
+        chance (GREET_P, seeded by the date and the person) comes up."""
+        d = ctx["t"].date()
+        return next((c for c in ctx.get("fresh", []) if random.Random(f"greet|{d}|{c}").random() < GREET_P), None)
+
     # ── wardrobe ────────────────────────────────────────────────────
     def garment(self, state, gid):
         return next((w for w in state["wardrobe"] if w["id"] == gid), None)
@@ -279,13 +302,32 @@ class World:
         return out
 
     def problems(self, text, known):
-        """What the page will not publish in text: listed words, and names from after 1831 the record has not met."""
-        out = [f"the word '{m.group(0)}'" for m in (self.never.finditer(text) if self.never and text else ())]
-        return out + [f"'{x}', which you have not met in Delhi" for x in self.unmet(text, known)]
+        """What the owl may not write: names from after 1831 that the record has not met."""
+        return [f"'{x}', which you have not met in Delhi" for x in self.unmet(text, known)]
+
+    def flag(self, *texts):
+        """The sensitive term in the first of texts that has one, else None. The world flags and never refuses."""
+        for text in texts:
+            m = self.sensitive.search(text) if self.sensitive and text else None
+            if m:
+                return m.group(0)
+        return None
+
+    def topic(self, term):
+        """The heading a flagged term falls under ('religion', 'caste', …): what viewers see on the veil."""
+        return next((h for h, rx in self.headings if term and rx.fullmatch(term)), None)
+
+    def mark(self, e, *texts):
+        """Entry e, marked sensitive if any of texts has a flagged term: the term is the reason, its heading the topic.
+        The page veils it."""
+        why = self.flag(*texts)
+        if why:
+            e.update(sensitive=True, why=why, topic=self.topic(why))
+        return e
 
     def plan_items(self, out, ctx):
-        """The usable intentions of a morning plan: a time, under 120 characters, nothing the page will not publish
-        and nothing from after 1831 that he has not met. Invalid ones are dropped."""
+        """The usable intentions of a morning plan: a time, under 120 characters and nothing from after 1831
+        that he has not met. Invalid ones are dropped."""
         items, raw = [], out.get("plan") if isinstance(out, dict) else None
         for x in raw if isinstance(raw, list) else []:
             when, what = (x.get("time"), x.get("intention")) if isinstance(x, dict) else (None, None)
@@ -293,7 +335,7 @@ class World:
             what = " ".join(what.split()) if isinstance(what, str) else ""
             if not at or int(at[1]) > 23 or int(at[2]) > 59 or not what or len(what) > 120:
                 continue
-            if (self.never and self.never.search(what)) or self.unmet(what, ctx.get("known_text", "")):
+            if self.unmet(what, ctx.get("known_text", "")):
                 continue
             items.append({"time": f"{int(at[1]):02d}:{at[2]}", "intention": what})
         return items[:6]
@@ -423,6 +465,10 @@ class World:
             if c not in present:
                 present.append(c)
 
+        said = (prev_step or {}).get("voice")
+        if said and prev_step.get("end") == fmt(m):
+            events.append((voices.heard(said), None))              # their answer to what he said, as the step ends
+
         if state.get("asleep"):
             today["woke"] = fmt(m)
             line = f"You wake. {wx['sky'].capitalize()}, {wx['temp']} °C."
@@ -493,8 +539,8 @@ class World:
 
         seen = set(today.get("seen", {}).get(pid, []))
         new = [c for c in present if c not in seen and not self.cast[c].get("background") and not (beat and c in beat.get("brings", []))]
+        known = set(state["people"])
         if new:
-            known = set(state["people"])
             bits = [f"{self.cast[c]['name']} is here." if c in known else f"{self.short(c)} is here; you have not met." for c in new]
             events.append((" ".join(bits), None))
         today.setdefault("seen", {})[pid] = sorted(seen | set(present))
@@ -542,7 +588,8 @@ class World:
             "event": " ".join(p for p, _ in events),
         }
         self.show_plan(sit, day)
-        ctx = {"t": t, "present": present, "beat": beat, "public": [e for _, e in events if e]}
+        ctx = {"t": t, "present": present, "beat": beat, "public": [e for _, e in events if e],
+               "fresh": [c for c in new if c in known]}
         return sit, ctx
 
     # ── the rules ───────────────────────────────────────────────────
@@ -612,10 +659,6 @@ class World:
         if pl.get("entry") and action != "walk" and where not in state.get("today", {}).get("tickets", []):
             if not any(any(k in b["item"].lower() for k in pl["entry"]["match"]) for b in buys):
                 errors.append(f"you need an entry ticket for {pl['name']}; buy one at the counter")
-        # words the page will not publish
-        for k in ("thought", "says", "revision"):
-            if ans.get(k) and self.never and self.never.search(ans[k]):
-                errors.append(f"the page cannot publish the word '{self.never.search(ans[k]).group(0)}'; say it otherwise")
         # what he cannot know from 1831, and what he has just thought
         met = []
         for k in ("thought", "says", "revision"):
@@ -664,17 +707,29 @@ class World:
                 card = self.cast[c].get("card")
                 if card:
                     entry(t0, {"k": "people", "name": self.cast[c]["name"], "role": self.cast[c]["role"], "text": card})
+        def voiced(v):
+            entry(t0, self.mark({"k": "said", "by": v["by"], "to": "Hegel", "text": v["says"]}, v["says"]))
+
         if ctx.get("plan"):
-            entry(t0, {"k": "plan", "items": ctx["plan"]})
+            entry(t0, self.mark({"k": "plan", "items": ctx["plan"]}, " ".join(i["intention"] for i in ctx["plan"])))
+        if ctx.get("greeting"):
+            voiced(ctx["greeting"])                  # a person he knows spoke first
         if ans.get("thought"):
-            entry(t0, {"k": "diary", "text": ans["thought"].strip()})
+            entry(t0, self.mark({"k": "diary", "text": ans["thought"].strip()}, ans["thought"]))
         if ans.get("says"):
             who = [self.cast[c]["name"] for c in ctx["present"] if not self.cast[c].get("background")] or \
                   [self.cast[c]["name"] for c in ctx["present"]]
             e = {"k": "said", "text": ans["says"].strip()}
             if who:
                 e["to"] = names(who)
-            entry(t0, e)
+            entry(t0, self.mark(e, ans["says"]))
+        if ctx.get("reply"):
+            voiced(ctx["reply"])                     # and the one he spoke to answered
+        if ctx.get("writing"):                       # he sat down to write
+            w = ctx["writing"]
+            e = works.file(state, w, d)
+            entry(t0, self.mark(e, w["title"], w["text"], w["to"]))
+            self.mark(next(x for x in state["works"] if x["id"] == e["work"]), e["title"], w["to"])      # a title can be sensitive too
 
         t = t0
         if plan["moves"]:
@@ -755,7 +810,7 @@ class World:
                 state["wardrobe"].append({"id": gid, "item": item, "status": "Bought today."})
                 entry(t, {"k": "wear", "item": item, "status": "Bought today."})
         if ans.get("revision"):
-            entry(t0, {"k": "work", "title": "Revision log", "text": ans["revision"].strip()})
+            entry(t0, self.mark({"k": "work", "title": "Revision log", "text": ans["revision"].strip()}, ans["revision"]))
 
         for s in segs:
             s["from"], s["to"] = fmt(minute_of(s["from"])), ("24:00" if s["to"] >= midnight else fmt(minute_of(s["to"])))
@@ -763,5 +818,8 @@ class World:
         day["entries"].extend(entries)
         state["until"] = end.isoformat(timespec="minutes")
         state["asleep"] = night
-        return {"t": fmt(minute_of(t0)), "end": "24:00" if end >= midnight else fmt(minute_of(end)),
+        step = {"t": fmt(minute_of(t0)), "end": "24:00" if end >= midnight else fmt(minute_of(end)),
                 "event": sit["event"], "present": sit["present"], "decision": ans, "arrived": arrived}
+        if ctx.get("reply"):
+            step["voice"] = ctx["reply"]            # opens the next situation
+        return step

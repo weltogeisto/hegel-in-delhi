@@ -190,10 +190,13 @@ class RulesTest(unittest.TestCase):
                                   buys=[{"item": "bandhgala balance", "price_inr": 3500}])
         self.assertTrue(any("Thursday" in e for e in errors))
 
-    def test_words_the_page_will_not_publish(self):
-        st = state()
-        errors, _, _ = self.check(at_dt(date(2026, 10, 3), 600), st, thought="I would murder a cup of Prussian coffee this morning.")
-        self.assertTrue(any("cannot publish" in e for e in errors))
+    def test_words_that_were_never_listed_are_no_longer_refused(self):
+        st = state()          # the never-list is gone: the world flags what is sensitive and refuses nothing for its words
+        for said in ("I would murder a cup of Prussian coffee this morning.", "He offered a bribe to the clerk, and I kissed his hand."):
+            errors, _, _ = self.check(at_dt(date(2026, 10, 3), 600), st, thought=said, says=said, revision=said)
+            self.assertEqual(errors, [])
+        self.assertFalse((REPO / "world/data/never.txt").exists())
+        self.assertFalse(hasattr(self.w, "never"))
 
     def test_ticket_and_sleep_and_nothing_for_sale(self):
         st = state()
@@ -437,7 +440,8 @@ class PublishTest(unittest.TestCase):
             git("config", "user.name", "Test", cwd=work)
             (work / "docs/days").mkdir(parents=True)
             (work / "mind").mkdir()
-            shutil.copy(REPO / "mind/soul.md", work / "mind/soul.md")
+            for f in ("soul.md", "voices.md"):
+                shutil.copy(REPO / "mind" / f, work / "mind" / f)
             for f in ("2026-10-02.json", "index.json"):
                 shutil.copy(REPO / "docs/days" / f, work / "docs/days" / f)
             git("add", "-A", cwd=work)
