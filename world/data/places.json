@@ -1,0 +1,85 @@
+{
+  "note": "Delhi time. Hours per weekday group; 'sun' means sunrise or sunset that day. Walking times in minutes, measured on the page's map at day 1's pace (4.25 tiles a minute); the Directorate adds 15 minutes off the map. Prices in rupees, October 2026.",
+  "places": {
+    "home": {
+      "name": "Bungalow No. 1820, Tughlak Road", "short": "home", "at": "at home",
+      "hours": "always"
+    },
+    "lodhi": {
+      "name": "Lodhi Gardens", "short": "Lodhi Gardens", "at": "in Lodhi Gardens", "outdoor": true,
+      "hours": {"daily": ["05:00", "19:30"]},
+      "sells": [
+        {"item": "Chai from the stall at the Lodhi Road gate", "price": 20, "match": ["chai", "tea"]},
+        {"item": "Roasted corn on the cob", "price": 40, "match": ["corn", "bhutta"]},
+        {"item": "Bottle of water", "price": 20, "match": ["water"]}
+      ],
+      "range": [10, 200]
+    },
+    "safdarjung": {
+      "name": "Safdarjung's Tomb", "short": "Safdarjung's Tomb", "at": "at Safdarjung's Tomb", "outdoor": true,
+      "hours": {"daily": ["sun", "sun"]},
+      "entry": {"match": ["ticket", "entry", "admission"]},
+      "sells": [
+        {"item": "Entry ticket, foreign visitors", "price": 300, "match": ["foreign", "foreigner", "international"]},
+        {"item": "Entry ticket, Indian citizens", "price": 25, "match": ["ticket", "entry", "admission"]}
+      ],
+      "range": [20, 300]
+    },
+    "khan": {
+      "name": "Khan Market", "short": "Khan Market", "at": "at Khan Market",
+      "hours": {"daily": ["10:30", "20:30"]},
+      "sells": [
+        {"item": "Chai, a cup", "price": 20, "match": ["chai", "cup of tea"]},
+        {"item": "Samosa", "price": 30, "match": ["samosa"]},
+        {"item": "Chole bhature at a dhaba", "price": 180, "match": ["chole", "bhature"]},
+        {"item": "Lunch at a dhaba: dal, rice, roti", "price": 220, "match": ["dal", "thali", "dhaba", "lunch"]},
+        {"item": "Cappuccino at a café", "price": 280, "match": ["cappuccino", "coffee"]},
+        {"item": "Glucose biscuits", "price": 10, "match": ["biscuit"]},
+        {"item": "Assam tea, 250 g", "price": 220, "match": ["assam", "tea leaves", "loose tea"]},
+        {"item": "Notebook, bound", "price": 120, "match": ["notebook"]},
+        {"item": "Ink cartridges", "price": 90, "match": ["ink", "cartridge"]},
+        {"item": "Pack of playing cards", "price": 120, "match": ["playing cards", "deck of cards", "cards"]},
+        {"item": "Mosquito repellent", "price": 85, "match": ["mosquito", "repellent", "odomos"]},
+        {"item": "Candles, a packet", "price": 40, "match": ["candle"]},
+        {"item": "Umbrella", "price": 450, "match": ["umbrella"]},
+        {"item": "Wine, a bottle of Indian red", "price": 1100, "match": ["wine"], "alcohol": true},
+        {"item": "White cotton kurta, ready-made", "price": 1250, "match": ["kurta"], "garment": "kurta2", "wear": "kurta"},
+        {"item": "Night shirt, cotton", "price": 900, "match": ["night shirt", "nightshirt", "pyjama", "nightgown"], "garment": "nightshirt", "wear": "nightshirt"},
+        {"item": "Bandhgala, balance on collection", "price": 3500, "match": ["bandhgala", "bandh gala", "balance"], "garment": "bandhgala", "needs_flag": ["bandhgala", "ready"], "not_ready": "Masterji shakes his head: the bandhgala will be ready on Thursday, not before."}
+      ],
+      "books": {"match": ["book", "volume", "paperback", "history of", "primer", "dictionary", "novel", "poems"], "range": [99, 2500]},
+      "range": [10, 3500]
+    },
+    "gandhi": {
+      "name": "Gandhi Smriti", "short": "Gandhi Smriti", "at": "at Gandhi Smriti", "outdoor": true,
+      "hours": {"Tue-Sun": ["10:00", "17:00"]}
+    },
+    "gym": {
+      "name": "Delhi Gymkhana Club", "short": "the Gymkhana", "at": "at the Gymkhana",
+      "hours": {"daily": ["06:00", "23:00"]},
+      "host": "malhotra",
+      "host_note": "members and their guests only; he can enter when Mr. Malhotra is there to sign him in",
+      "formal": true
+    },
+    "iic": {
+      "name": "India International Centre", "short": "the IIC", "at": "at the IIC",
+      "hours": {"daily": ["09:00", "21:30"]},
+      "formal": true
+    },
+    "estates": {
+      "name": "Directorate of Estates, Nirman Bhawan", "short": "the Directorate", "at": "at the Directorate of Estates",
+      "hours": {"Mon-Fri": ["09:30", "17:30"]},
+      "holidays_closed": true,
+      "formal": true
+    }
+  },
+  "walk": {
+    "home-lodhi": 22, "home-safdarjung": 41, "home-khan": 25, "home-gandhi": 18, "home-gym": 25, "home-iic": 28, "home-estates": 38,
+    "lodhi-safdarjung": 23, "lodhi-khan": 26, "lodhi-gandhi": 34, "lodhi-gym": 40, "lodhi-iic": 11, "lodhi-estates": 53,
+    "safdarjung-khan": 50, "safdarjung-gandhi": 46, "safdarjung-gym": 37, "safdarjung-iic": 22, "safdarjung-estates": 57,
+    "khan-gandhi": 33, "khan-gym": 42, "khan-iic": 33, "khan-estates": 55,
+    "gandhi-gym": 25, "gandhi-iic": 40, "gandhi-estates": 25,
+    "gym-iic": 47, "gym-estates": 36,
+    "iic-estates": 59
+  }
+}

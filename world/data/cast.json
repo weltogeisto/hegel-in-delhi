@@ -1,0 +1,74 @@
+{
+  "note": "Every one of them is invented. 'where' lists when each tends to be where; p is the chance on a given day. Cards are the People entries written the first time Hegel meets them.",
+  "cast": {
+    "ramesh": {
+      "name": "Ramesh", "short": "Ramesh, the caretaker",
+      "role": "caretaker of the bungalow for the Central Public Works Department",
+      "where": [{"place": "home", "days": "Mon,Tue,Thu,Fri,Sat,Sun", "from": "06:00", "to": "20:30", "p": 1}]
+    },
+    "malhotra": {
+      "name": "Mr. R. K. Malhotra", "short": "Mr. R. K. Malhotra, retired IAS",
+      "role": "retired from the Indian Administrative Service",
+      "where": [
+        {"place": "lodhi", "days": "daily", "from": "07:00", "to": "08:15", "p": 0.7},
+        {"place": "gym", "days": "Tue,Thu,Fri,Sat", "from": "17:00", "to": "19:30", "p": 0.9}
+      ]
+    },
+    "masterji": {
+      "name": "Masterji", "short": "Masterji, the tailor",
+      "role": "tailor, Khan Market",
+      "where": [{"place": "khan", "days": "Mon-Sat", "from": "10:30", "to": "20:00", "p": 1}]
+    },
+    "nidhi": {
+      "name": "Nidhi Rao", "short": "Nidhi Rao, doctoral student in philosophy",
+      "role": "doctoral student in philosophy, JNU",
+      "where": [
+        {"place": "khan", "days": "Wed,Sat", "from": "13:00", "to": "16:30", "p": 0.5},
+        {"place": "lodhi", "days": "Fri,Sun", "from": "07:00", "to": "08:00", "p": 0.5},
+        {"place": "iic", "days": "Mon,Thu", "from": "15:00", "to": "18:30", "p": 0.5}
+      ]
+    },
+    "kapoor": {
+      "name": "Mrs. Kapoor", "short": "Mrs. Kapoor, a retired schoolteacher",
+      "role": "retired schoolteacher",
+      "card": "Taught history for thirty-one years at a girls' school in Lodhi Colony. Walks the gardens in the late afternoon and reads every plaque twice, once for the facts and once for the mistakes.",
+      "where": [{"place": "lodhi", "days": "daily", "from": "15:30", "to": "18:00", "p": 0.5}]
+    },
+    "saxena": {
+      "name": "Mr. Saxena", "short": "Mr. Saxena, a section officer",
+      "role": "section officer, Directorate of Estates",
+      "card": "Keeper of the file. Tea in a steel tumbler, three telephones on the desk, and a patience that has outlasted several ministers.",
+      "where": [{"place": "estates", "days": "Mon-Fri", "from": "09:30", "to": "17:30", "p": 1}]
+    },
+    "sunil": {
+      "name": "Sunil", "short": "Sunil, who sells chai",
+      "role": "chai seller",
+      "card": "Boils tea on a kerosene stove, mornings by the Lodhi Road gate, afternoons in the lane behind Khan Market. Knows the price of everything and the business of everyone.",
+      "where": [
+        {"place": "lodhi", "days": "daily", "from": "06:00", "to": "09:00", "p": 0.7},
+        {"place": "khan", "days": "daily", "from": "11:00", "to": "19:00", "p": 0.9}
+      ]
+    },
+    "bookseller": {
+      "name": "the bookseller", "short": "the bookseller", "role": "Khan Market", "background": true,
+      "where": [{"place": "khan", "days": "daily", "from": "10:30", "to": "20:30", "p": 1}]
+    },
+    "clerk": {
+      "name": "the ticket clerk", "short": "the ticket clerk", "role": "Safdarjung's Tomb", "background": true,
+      "where": [{"place": "safdarjung", "days": "daily", "from": "06:00", "to": "19:00", "p": 1}]
+    },
+    "guard": {
+      "name": "the guard at the library", "short": "the guard at the library", "role": "India International Centre", "background": true,
+      "where": [{"place": "iic", "days": "daily", "from": "09:00", "to": "21:30", "p": 1}]
+    },
+    "hegde": {
+      "name": "Shri G. Hegde", "short": "Shri G. Hegde",
+      "role": "Joint Secretary, transferring from Bengaluru",
+      "card": "The man the bungalow was meant for. Courteous, tired, and carrying the patience of a career spent in files.",
+      "where": [
+        {"place": "home", "days": "daily", "from": "06:30", "to": "08:30", "p": 0.8, "if": "hegde_lodger"},
+        {"place": "home", "days": "daily", "from": "19:00", "to": "22:00", "p": 0.8, "if": "hegde_lodger"}
+      ]
+    }
+  }
+}

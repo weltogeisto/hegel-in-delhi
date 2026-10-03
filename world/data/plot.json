@@ -1,0 +1,81 @@
+{
+  "note": "The Hegde file and other beats. A beat fires on the first decision that meets all its conditions. 'prompt' is what the mind is told; 'public' is what the page shows. 'at' makes the world interrupt Hegel at that minute if he is where the beat needs him. Appointments schedule a later beat. The ending is not written.",
+  "beats": [
+    {
+      "id": "hegde_note",
+      "from": "2026-10-03", "window": ["09:30", "20:30"], "where": "home", "needs": ["ramesh"],
+      "kind": "file",
+      "prompt": "Ramesh hands you a handwritten note from Shri G. Hegde. He would like to call on you on Monday at ten, to resolve the matter of the bungalow like gentlemen.",
+      "public": "Ramesh hands over a note from Shri G. Hegde: he would like to call on Monday at ten, to settle the matter of the bungalow like gentlemen.",
+      "file": "Shri Hegde asks to call on Monday at ten.",
+      "appointment": {"weekday": "Mon", "t": "10:00", "what": "Shri Hegde calls at the bungalow", "beat": "hegde_call"}
+    },
+    {
+      "id": "hegde_call",
+      "after": ["hegde_note"], "on_appointment": true, "at": "10:00", "window": ["10:00", "10:30"], "where": "home",
+      "brings": ["hegde"], "kind": "file",
+      "prompt": "The gate bell rings at ten sharp. Shri G. Hegde stands on the verandah in a pressed safari suit, a file under his arm. He has come, he says, to resolve the matter of the bungalow like gentlemen.",
+      "public": "Ten o'clock: Shri G. Hegde calls at the bungalow, a file under his arm, to settle the matter like gentlemen.",
+      "file": "Shri Hegde called in person. The matter rests with the Directorate.",
+      "missed": "hegde_card"
+    },
+    {
+      "id": "hegde_card",
+      "after": ["hegde_note"], "if_missed": "hegde_call", "window": ["10:30", "21:00"], "where": "home", "needs": ["ramesh"],
+      "kind": "file",
+      "prompt": "Ramesh hands you a visiting card. Shri Hegde came at ten, waited twenty minutes on the verandah and left. On the back of the card, in a careful hand: 'Perhaps the Directorate, then.'",
+      "public": "Ramesh hands over a visiting card. Shri Hegde came at ten, waited twenty minutes on the verandah and left. On the back: “Perhaps the Directorate, then.”",
+      "file": "Shri Hegde called at ten and found no one at home. He left his card."
+    },
+    {
+      "id": "saxena_file",
+      "from": "2026-10-05", "where": "estates", "needs": ["saxena"],
+      "kind": "file",
+      "prompt": "Mr. Saxena finds the file. It has gone up for orders. 'Come after fifteen days,' he says. 'Meanwhile, your occupation is irregular.'",
+      "public": "At the Directorate, Mr. Saxena finds the file. It has gone up for orders. “Come after fifteen days,” he says. “Meanwhile, your occupation is irregular.”",
+      "file": "Gone up for orders. Mr. Saxena: come after fifteen days. Occupation irregular.",
+      "appointment": {"in_days": 15, "what": "the file is due back from orders", "beat": "saxena_query"}
+    },
+    {
+      "id": "saxena_query",
+      "after": ["saxena_file"], "on_appointment": true, "where": "estates", "needs": ["saxena"],
+      "kind": "file",
+      "prompt": "Mr. Saxena opens the file again. The orders have come down with a query: the allottee is requested to furnish proof of identity as Shri G. Hegde.",
+      "public": "The file is back from orders, with a query: the allottee is requested to furnish proof of identity as Shri G. Hegde.",
+      "file": "Back from orders with a query: proof of identity as Shri G. Hegde."
+    },
+    {
+      "id": "bandhgala_ready",
+      "from": "2026-10-08", "window": ["10:30", "20:00"],
+      "variants": {
+        "khan": {
+          "needs": ["masterji"],
+          "prompt": "Masterji waves you into his shop. The bandhgala is ready for its fitting. The balance is ₹3,500.",
+          "public": "Masterji waves him in: the bandhgala is ready. The balance is ₹3,500."
+        },
+        "home": {
+          "needs": ["ramesh"],
+          "prompt": "Ramesh brings word from Masterji: your bandhgala is ready for its fitting at Khan Market. The balance is ₹3,500.",
+          "public": "Word from Masterji, through Ramesh: the bandhgala is ready. The balance is ₹3,500."
+        }
+      },
+      "kind": "world",
+      "flags": {"bandhgala": "ready"},
+      "wardrobe": {"bandhgala": "Ready at Masterji's. Balance ₹3,500."}
+    },
+    {
+      "id": "hegde_gate",
+      "from": "2026-10-13", "after": ["hegde_note"], "at": "17:30", "window": ["17:30", "21:00"], "where": "home",
+      "brings": ["hegde"], "kind": "file",
+      "prompt": "Shri Hegde stands at the gate with two suitcases, tired after ten days in a guest house. He asks, politely, whether he might at least use the second bedroom until the file is decided.",
+      "public": "Shri Hegde stands at the gate with two suitcases, ten days into a guest house. He asks whether he might use the second bedroom until the file is decided.",
+      "choice": {
+        "question": "Did you agree to let Shri Hegde use the second bedroom until the file is decided?",
+        "yes": {"flags": {"hegde_lodger": true}, "file": "Shri Hegde moves into the second bedroom, pending orders.",
+                "public": "Shri Hegde carries two suitcases into the second bedroom."},
+        "no": {"file": "Shri Hegde returns to the guest house in Chanakyapuri, pending orders.",
+               "public": "Shri Hegde picks up his suitcases and goes back to the guest house."}
+      }
+    }
+  ]
+}

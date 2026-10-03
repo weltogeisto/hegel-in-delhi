@@ -1,0 +1,285 @@
+"""The engine: keeps the published day a little ahead of Delhi time.
+
+Each tick it looks at where the timeline ends. While that is less than LEAD_MIN minutes away, it builds
+the next situation, asks the mind, checks the answer, writes the step into docs/days/<date>.json and
+moves on. The page reveals each step when its time comes. The day file is the state: no database.
+"""
+import copy
+import json
+import logging
+import os
+import time
+from datetime import datetime, timedelta
+
+from . import contract, owl
+from .clock import day_number, fmt, hm, long_date, minute_of, sun
+from .mind import MindAway
+from .world import at_dt
+
+log = logging.getLogger("world")
+MAX_DECISIONS = 8
+CHOICE_SCHEMA = {"type": "object", "properties": {"answer": {"type": "string", "enum": ["yes", "no"]}}, "required": ["answer"]}
+
+
+class Days:
+    """docs/days: one JSON file per day plus index.json."""
+
+    def __init__(self, docs):
+        self.dir = docs / "days"
+
+    def path(self, d):
+        return self.dir / f"{d.isoformat() if hasattr(d, 'isoformat') else d}.json"
+
+    def load(self, d):
+        p = self.path(d)
+        return json.loads(p.read_text(encoding="utf-8")) if p.exists() else None
+
+    def save(self, day):
+        self.dir.mkdir(parents=True, exist_ok=True)
+        p = self.path(day["date"])
+        tmp = p.with_suffix(".tmp")
+        tmp.write_text(json.dumps(day, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+        os.replace(tmp, p)
+        ix = self.index()
+        row = {"date": day["date"], "n": day["n"], "title": day["title"], "holiday": day.get("holiday")}
+        if day.get("owl"):
+            row["owl"] = True
+        ix["days"] = sorted([r for r in ix["days"] if r["date"] != day["date"]] + [row], key=lambda r: r["date"])
+        tmp = (self.dir / "index.json").with_suffix(".tmp")
+        tmp.write_text(json.dumps(ix, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+        os.replace(tmp, self.dir / "index.json")
+
+    def index(self):
+        p = self.dir / "index.json"
+        return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {"format": 1, "days": []}
+
+    def latest(self, on_or_before=None):
+        rows = [r for r in self.index()["days"] if on_or_before is None or r["date"] <= on_or_before.isoformat()]
+        return self.load(rows[-1]["date"]) if rows else None
+
+
+def until_of(day):
+    u = day["state"]["until"]
+    if "T" in u:
+        return datetime.fromisoformat(u)
+    d = datetime.fromisoformat(day["date"]).date()
+    return at_dt(d, hm(u))
+
+
+class Engine:
+    def __init__(self, cfg, world, mind, git=None, owl_mind=None):
+        self.cfg, self.world, self.mind, self.git = cfg, world, mind, git
+        self.owl_mind = owl_mind or mind
+        self.days = Days(cfg.docs)
+        self.soul = (cfg.repo / "mind/soul.md").read_text(encoding="utf-8")
+
+    # ── days ────────────────────────────────────────────────────────
+    def new_day(self, prev, d):
+        st = copy.deepcopy(prev["state"])
+        st["today"] = {}
+        st.pop("yesterday", None)
+        rise, set_ = sun(d)
+        hol = self.world.holiday(d)
+        day = {
+            "format": 1, "n": day_number(d), "date": d.isoformat(), "title": long_date(d),
+            "holiday": hol["name"] if hol else None,
+            "sun": {"rise": fmt(rise), "set": fmt(set_)},
+            "weather": self.world.weather_public(d),
+            "places": self.world.place_info(d),
+            "opening": {"imprest": st["imprest"], "wearing": st["wearing"],
+                        "wardrobe": [{"item": w["item"], "status": w["status"]} for w in st["wardrobe"]]},
+            "segments": [], "entries": [], "steps": [], "owl": None, "complete": False, "state": st,
+        }
+        if st.get("asleep"):
+            wake = at_dt(d, self.world.wake_time(d))
+            day["segments"].append({"from": "00:00", "to": fmt(minute_of(wake)), "mode": "inside", "at": "home",
+                                    "asleep": True, "owl": True, "now": "Asleep."})
+            st["place"], st["until"] = "home", wake.isoformat(timespec="minutes")
+        else:
+            st["until"] = at_dt(d, 0).isoformat(timespec="minutes")
+        log.info("day %s begins (%s)", day["n"], day["date"])
+        return day
+
+    def resume(self, day, now):
+        """The world was off for a while. Pick up at home, now, without inventing what happened meanwhile."""
+        d = now.date()
+        start = until_of(day)
+        if day["date"] < d.isoformat():
+            day["complete"] = True
+            self.days.save(day)
+            day = self.new_day(day, d)
+            start = until_of(day)
+        st = day["state"]
+        now = now.replace(second=0, microsecond=0)
+        if start < now:
+            st["asleep"] = False
+            day["segments"].append({"from": fmt(minute_of(start)), "to": fmt(minute_of(now)), "mode": "inside",
+                                    "at": st["place"] if st["place"] == "home" else "home", "now": "At home."})
+            st["place"], st["until"] = "home", now.isoformat(timespec="minutes")
+            day["steps"].append({"t": fmt(minute_of(start)), "end": fmt(minute_of(now)), "resumed": True})
+        log.warning("resumed at %s after a gap", now.isoformat(timespec="minutes"))
+        return day
+
+    # ── one step ────────────────────────────────────────────────────
+    def step(self, day, t):
+        st = day["state"]
+        prev = next((s for s in reversed(day["steps"]) if "decision" in s), None)
+        sit, ctx = self.world.situation(t, st, day, prev)
+        m = minute_of(t)
+        t_start = time.time()
+        refused, warnings, raw, result, attempts, source = [], [], "", None, 0, self.mind.source
+        if 30 <= m < 240 and not st.get("asleep"):
+            source = "bedtime"          # the world sends him to bed after half past midnight
+        else:
+            messages = [{"role": "system", "content": self.soul}, {"role": "user", "content": contract.render(sit)}]
+            try:
+                for _ in range(3):
+                    attempts += 1
+                    raw = self.mind.decide(messages, sit)
+                    ans = contract.extract_json(raw)
+                    errors, warnings, rep = self.world.check(ans, sit, ctx, st)
+                    if not errors:
+                        result = rep
+                        break
+                    refused.append(errors)
+                    log.info("refused at %s: %s", sit["time"], "; ".join(errors))
+                    messages += [{"role": "assistant", "content": raw},
+                                 {"role": "user", "content": "The world refuses this step: " + "; ".join(errors)
+                                  + ". Decide again. Answer with the JSON object only."}]
+            except MindAway as e:
+                log.warning("mind away at %s: %s", sit["time"], e)
+                refused.append([str(e)])
+                source = "away"
+            if result is None and source != "away":
+                source = "quiet"
+        if result is None:
+            result = self.quiet(st, t, sit)
+        ans, plan = result
+        beat = ctx["beat"]
+        if beat and source in ("mind", "stub"):
+            ctx["beat_entries"] = self.world.fire(beat, t, st)
+            if beat.get("choice"):
+                yes = self.ask_choice(messages, raw, beat)
+                ctx["beat_entries"] += self.world.settle_choice(beat, yes, st)
+        step = self.world.apply(ans, plan, sit, ctx, st, day)
+        step["mind"] = {"source": source, "attempts": attempts, "latency_s": round(time.time() - t_start, 1)}
+        if refused:
+            step["mind"]["refused"] = refused
+        if warnings:
+            step["mind"]["warnings"] = warnings
+        if beat and "beat_entries" in ctx:
+            step["beat"] = beat["id"]
+        day["steps"].append(step)
+        log.info("%s %s %s → %s until %s (%s)", day["date"], step["t"], ans["action"], ans["place"], step["end"], source)
+        return step
+
+    def quiet(self, st, t, sit):
+        """No usable answer: he carries on, without a thought on the page."""
+        m, cur = minute_of(t), st["place"]
+        if m >= 1320 or m < 240:
+            action, dest = "sleep", "home"
+        elif cur != "home" and cur not in sit["open_now"]:
+            action, dest = "walk", "home"
+        else:
+            action, dest = ("rest" if cur == "home" else "stay"), cur
+        ans = {"thought": None, "action": action, "place": dest, "minutes": 30, "says": None, "buys": [], "revision": None}
+        plan = {"moves": dest != cur, "dest": dest, "arrival": t + timedelta(minutes=self.world.walk(cur, dest)), "buys": []}
+        return ans, plan
+
+    def ask_choice(self, messages, raw, beat):
+        q = beat["choice"]["question"]
+        msgs = messages + [{"role": "assistant", "content": raw},
+                           {"role": "user", "content": f"For the record, one word: {q} Answer {{\"answer\": \"yes\"}} or {{\"answer\": \"no\"}}."}]
+        try:
+            a = contract.extract_json(self.mind.chat(msgs, CHOICE_SCHEMA, max_tokens=20, temperature=0))
+            return isinstance(a, dict) and a.get("answer") == "yes"
+        except MindAway:
+            return False
+
+    # ── the tick ────────────────────────────────────────────────────
+    def advance(self, now):
+        """Fill the timeline up to now + lead. Returns the dates whose files changed."""
+        changed = []
+        day = self.days.latest(now.date() + timedelta(days=1))
+        if day is None:
+            raise RuntimeError("no day files in docs/days; day 1 must be there")
+        if until_of(day) < now - timedelta(minutes=45):
+            day = self.resume(day, now)
+            changed.append(day["date"])
+        horizon = now + timedelta(minutes=self.cfg.lead)
+        for _ in range(MAX_DECISIONS):
+            until = until_of(day)
+            if until >= horizon:
+                break
+            if until.date().isoformat() > day["date"]:
+                if not day.get("complete"):
+                    day["complete"] = True
+                    self.days.save(day)
+                    changed.append(day["date"])
+                day = self.days.load(until.date()) or self.new_day(day, until.date())
+                self.days.save(day)
+                changed.append(day["date"])
+                continue
+            self.step(day, until)
+            day["weather"] = self.world.weather_public(datetime.fromisoformat(day["date"]).date())
+            self.days.save(day)
+            changed.append(day["date"])
+        return list(dict.fromkeys(changed))
+
+    def owl_ready(self, now):
+        """Yesterday's day, if it is finished, not yet written up, it is past OWL_AT and no try in the last hour."""
+        d = now.date() - timedelta(days=1)
+        day = self.days.load(d)
+        if not day or day.get("owl") or not day.get("complete") or now < at_dt(now.date(), hm(self.cfg.owl_at)):
+            return None
+        mark = self.cfg.state / f"owl-{d.isoformat()}.tried"
+        if mark.exists() and time.time() - mark.stat().st_mtime < 3600:
+            return None
+        return day
+
+    def due(self, now):
+        day = self.days.latest(now.date() + timedelta(days=1))
+        return day is None or until_of(day) < now + timedelta(minutes=self.cfg.lead)
+
+    def run_owl(self, day, now):
+        latest = self.days.latest(now.date() + timedelta(days=1))
+        st = latest["state"]
+        weekday = datetime.fromisoformat(day["date"]).strftime("%A")
+        n = st.get("depesche_n", 0) + 1 if weekday == self.cfg.depesche_day else None
+        written = owl.write(self.cfg, day, st, self.owl_mind, depesche_n=n)
+        written["written"] = fmt(minute_of(now))
+        day["owl"] = written
+        self.days.save(day)
+        if n:
+            st["depesche_n"] = n
+        st["yesterday"] = owl.gist(written.get("diary"))
+        if latest["date"] != day["date"]:
+            self.days.save(latest)
+        log.info("the owl wrote up day %s", day["n"])
+        return [day["date"], latest["date"]]
+
+    def tick(self, now):
+        owl_day = self.owl_ready(now)
+        if not owl_day and not self.due(now):
+            return []           # most minutes: nothing to decide, no network
+        if self.git:
+            self.git.sync()
+        changed = self.advance(now)
+        msg = None
+        if changed:
+            day = self.days.load(changed[-1])
+            last = next((s for s in reversed(day["steps"]) if "decision" in s), None)
+            msg = f"Day {day['n']}, {last['t']}: {last['decision']['action']} ({last['decision']['place']})" if last else f"Day {day['n']} begins"
+        owl_day = self.owl_ready(now)
+        if owl_day:
+            self.cfg.state.mkdir(parents=True, exist_ok=True)
+            (self.cfg.state / f"owl-{owl_day['date']}.tried").touch()
+            try:
+                changed += self.run_owl(owl_day, now)
+                msg = (msg + "; " if msg else "") + f"the owl writes up day {owl_day['n']}"
+            except (MindAway, owl.OwlError) as e:
+                log.warning("owl failed: %s", e)
+        if changed and self.git:
+            paths = [self.days.path(x) for x in dict.fromkeys(changed)] + [self.days.dir / "index.json"]
+            self.git.publish(paths, msg)
+        return changed

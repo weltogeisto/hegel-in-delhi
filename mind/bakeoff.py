@@ -11,7 +11,6 @@ against the world's rules and saves the results. Standard library only.
 """
 import argparse
 import json
-import re
 import statistics
 import sys
 import time
@@ -22,38 +21,8 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 RESULTS = HERE / "results"
-PLACES = ["home", "lodhi", "safdarjung", "khan", "gandhi", "gym", "iic", "estates"]
-ACTIONS = ["stay", "walk", "read", "write", "talk", "buy", "eat", "rest", "sleep"]
-NULLABLE_STR = {"anyOf": [{"type": "string"}, {"type": "null"}]}
-SCHEMA = {
-    "type": "object",
-    "properties": {
-        "thought": {"type": "string"},
-        "action": {"type": "string", "enum": ACTIONS},
-        "place": {"type": "string", "enum": PLACES},
-        "minutes": {"type": "integer", "minimum": 5, "maximum": 240},
-        "says": NULLABLE_STR,
-        "buys": {"type": "array", "items": {
-            "type": "object",
-            "properties": {"item": {"type": "string"}, "price_inr": {"type": "integer", "minimum": 0}},
-            "required": ["item", "price_inr"]}},
-        "revision": NULLABLE_STR,
-    },
-    "required": ["thought", "action", "place", "minutes", "says", "buys", "revision"],
-}
-
-
-def render(s):
-    present = ", ".join(s["present"]) if s["present"] else "nobody"
-    return (
-        f"{s['day']}, {s['time']} Delhi time. You are at: {s['place']}.\n"
-        f"Weather: {s['weather']}. Air quality index: {s['aqi']}.\n"
-        f"Wearing: {s['outfit']}. Imprest left: ₹{s['imprest_left']:,}.\n"
-        f"Present: {present}.\n"
-        f"Open now: {', '.join(s['open_now'])}.\n\n"
-        f"What happens: {s['event']}\n\n"
-        "Decide your next step. Answer with the JSON object only."
-    )
+sys.path.insert(0, str(HERE.parent))
+from world.contract import SCHEMA, check, extract_json, render  # noqa: E402  (one contract for bake-off and the world)
 
 
 def post(url, payload, timeout):
@@ -82,57 +51,6 @@ def ask(url, system, user, model, timeout, constrained=True):
         raise
     msg = data["choices"][0]["message"]
     return (msg.get("content") or "").strip(), constrained
-
-
-def extract_json(text):
-    text = re.sub(r"<think>.*?</think>", "", text, flags=re.S).strip()
-    text = re.sub(r"^```(?:json)?\s*|\s*```$", "", text).strip()
-    try:
-        return json.loads(text)
-    except json.JSONDecodeError:
-        m = re.search(r"\{.*\}", text, flags=re.S)
-        if m:
-            try:
-                return json.loads(m.group(0))
-            except json.JSONDecodeError:
-                return None
-    return None
-
-
-def check(ans, s):
-    errors, warnings = [], []
-    if not isinstance(ans, dict):
-        return ["answer is not a JSON object"], warnings
-    for k in SCHEMA["required"]:
-        if k not in ans:
-            errors.append(f"missing '{k}'")
-    if errors:
-        return errors, warnings
-    if ans["action"] not in ACTIONS:
-        errors.append(f"unknown action '{ans['action']}'")
-    if ans["place"] not in PLACES:
-        errors.append(f"unknown place '{ans['place']}'")
-    elif ans["place"] not in s["open_now"]:
-        errors.append(f"'{ans['place']}' is closed now")
-    if not isinstance(ans["minutes"], int) or not 5 <= ans["minutes"] <= 240:
-        errors.append(f"minutes out of range: {ans['minutes']}")
-    try:
-        spent = sum(int(b.get("price_inr", 0)) for b in ans["buys"])
-    except (TypeError, ValueError, AttributeError):
-        spent = 0
-        errors.append("buys is malformed")
-    if spent > s["imprest_left"]:
-        errors.append(f"spends ₹{spent} with ₹{s['imprest_left']} left")
-    thought = ans["thought"] if isinstance(ans["thought"], str) else ""
-    if len(thought) < 20:
-        errors.append("thought is empty or too short")
-    elif len(thought) > 700:
-        warnings.append("thought is very long")
-    if ans["says"] and not s["present"]:
-        warnings.append("talks although nobody is present")
-    if ans["action"] == "walk" and ans["place"] == s["place"]:
-        warnings.append("walks to where he already is")
-    return errors, warnings
 
 
 def run(args):
