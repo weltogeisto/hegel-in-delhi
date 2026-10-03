@@ -759,7 +759,10 @@ class World(Economy):
         if ctx.get("greeting"):
             voiced(ctx["greeting"])                  # a person he knows spoke first
         if ans.get("thought"):
-            entry(t0, self.mark({"k": "diary", "text": ans["thought"].strip()}, ans["thought"]))
+            e = self.mark({"k": "diary", "text": ans["thought"].strip()}, ans["thought"])
+            if ctx.get("shelf"):
+                e["shelf"] = [{"work": x["work"], "ref": x["ref"]} for x in ctx["shelf"]]       # what lay open before him
+            entry(t0, e)
         if ans.get("says"):
             who = [self.cast[c]["name"] for c in ctx["present"] if not self.cast[c].get("background")] or \
                   [self.cast[c]["name"] for c in ctx["present"]]

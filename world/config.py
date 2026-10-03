@@ -39,6 +39,7 @@ class Config:
         self.state = Path(v.get("HEGEL_STATE", Path.home() / ".local/state/hegel")).expanduser()
         self.lead = int(v.get("LEAD_MIN", "15"))
         self.feeds = v.get("HEGEL_FEEDS", "1") not in ("0", "no", "false", "")
+        self.shelf = v.get("HEGEL_SHELF", "1") not in ("0", "no", "false", "")          # his books in front of him (mind/shelf)
         self.news_feeds = [u.strip() for u in v.get("NEWS_FEEDS", (
             "https://www.thehindu.com/news/national/feeder/default.rss,"
             "https://indianexpress.com/section/india/feed/")).split(",") if u.strip()]

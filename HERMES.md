@@ -121,6 +121,36 @@ python3 -m world simulate --date $(date -d tomorrow +%F) --mind http://$PC_HOST:
 
 Send Welt the summary line and `/tmp/hegel-dress/days/<date>.json` as a file. The line counts steps, refusals (the world asked the mind to decide again) and quiet steps (no usable answer after three tries). Done when Welt has read the day and says go.
 
+## Task 5b: The Hegel test
+
+The Hegel test is the yardstick that decides between Bonsai, Qwen and, later, a trained model. It has three parts: twenty blind passages (can a judge tell the real Hegel from the model's answers?), thirty questions about his life, and the twenty bake-off situations through the live contract. Standard library only. His books for the shelf are in the repo (`mind/shelf/`, 9 MB; `MANIFEST.md` lists every text, its source and why it is public domain); nothing is downloaded at runtime. Bonsai (port 8081) and Qwen (port 8080) do not fit in VRAM together: run one at a time.
+
+```bash
+cd ~/hegel-in-delhi && git pull
+python3 -m unittest discover -s tests          # prints OK
+source ~/.config/hegel/env
+python3 tools/hegel_test.py --url http://$PC_HOST:$MIND_PORT --label bonsai
+python3 tools/hegel_test.py --url http://$PC_HOST:$MIND_PORT --label bonsai-shelf --shelf
+```
+
+Now ask Welt to have Codex stop Bonsai and start the Qwen server. Then:
+
+```bash
+python3 tools/hegel_test.py --url http://$PC_HOST:$QWEN_PORT --label qwen-shelf --shelf
+python3 tools/hegel_test.py --compare bonsai bonsai-shelf qwen-shelf
+```
+
+A run is about 130 short calls (80 of them for the blind part); expect 20 to 60 minutes of PC time. With `--shelf` the mind gets passages from his books with every question; in the blind part the book of the real passage and its twin in the other language are held out, so the shelf cannot hand over the answer. Ask Codex to restart Bonsai afterwards.
+
+Send Welt, as files: `mind/results/hegeltest-bonsai.html`, `hegeltest-bonsai-shelf.html`, `hegeltest-qwen-shelf.html` and `hegeltest.md`. Each sheet shows twenty questions with five answers each (one is the real passage); the judge picks one and, if they like, presses Show key. Export judgments downloads `hegeltest-<label>-judged.json`. Welt and Claude each judge every sheet, one file per judge: save Welt's as `mind/results/hegeltest-<label>-judged.json` and Claude's as `mind/results/hegeltest-<label>-judged-claude.json`. Then:
+
+```bash
+python3 tools/hegel_test.py --compare bonsai bonsai-shelf qwen-shelf
+git add mind/results && git commit -m "Hegel test results" && git push
+```
+
+Done when `mind/results/hegeltest.md` lists both judges for all three runs, with the share of real passages picked (chance is 20%; lower is better, because the model then sounds more like Hegel). Send Welt the table.
+
 ## Task 6: Shadow week
 
 Hegel lives for a week on the `shadow` branch. The public page keeps replaying day 1; Welt watches the shadow at https://weltogeisto.github.io/hegel-in-delhi/?branch=shadow. The branch is public on GitHub but not on the page.

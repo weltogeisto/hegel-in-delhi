@@ -1,5 +1,6 @@
 """Tests for the morning plan, the body's needs, theses that show their evidence, and a rehearsed week."""
 import json
+import re
 import shutil
 import statistics
 import subprocess
@@ -461,7 +462,7 @@ class WeekTest(unittest.TestCase):
         self.assertTrue(all("Your plan for today:" in m for m in self.messages))                   # the wake-up decision too
 
     def test_the_prompts_stay_compact(self):
-        sizes = [len(m) for m in self.messages]
+        sizes = [len(re.sub(r"\nFrom your shelf:\n(?:- .*\n)+", "", m)) for m in self.messages]           # the shelf has its own budget (test_shelf)
         self.assertLess(statistics.mean(sizes), 2500)
         self.assertLess(max(sizes), 3600)
         for m in self.messages:

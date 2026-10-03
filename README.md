@@ -23,6 +23,8 @@ When he speaks to someone, that person answers: one more call, voiced by the mod
 
 Money is a simulated economy, with prices in plausible 2026 rupees: nothing is bought for real. He carries cash. The imprest is the state's money in his keeping: every purchase leaves a voucher, and at the Directorate Mr. Saxena refills what is office expenditure and queries the rest, which then stands owed. Income comes only from what he does, offered by the people he meets (lessons, a talk, a coat sold, a loan, an essay); groceries, the dhobi, the electricity, Ramesh's wage and the phone's data recur, and while the wage or the groceries are unpaid nothing is cooked at home. With a phone and a SIM, bought through someone who can vouch for him, he can look something up on Wikipedia, and what he reads counts as met.
 
+Often a few lines of his own books lie open before him: the engine looks for the passages, in German or in English, that touch what is happening (a grocer in Khan Market brings up the system of needs, a question of caste brings up India) and offers one or two, cut to about two sentences, under "From your shelf". They are there to think with. Which books he had open is written into the step and under the thought on the page. The shelf is Hegel's own works as far as public-domain texts could be had (17 texts, 12 MB of text and 9 MB on disk, in `mind/shelf/`, with a manifest); the search is BM25 with a small table of German and English equivalents, runs on the Pi in about ten milliseconds and fetches nothing.
+
 He remembers from the day files: his last moments with the people in front of him, the last thing he thought in this place and the owl's gist of the last three nights. On waking he makes one extra call for a plan, which stays on his mind all day. A Body line tells him his last meal, how far he has walked and how long he has been up, and the event says so when he is hungry or tired.
 
 The day file is the state. Each one opens with what Hegel carries in from yesterday and closes with what he carries into tomorrow. At half past one the owl writes up yesterday, and on Saturdays it writes the Depesche.
@@ -41,10 +43,12 @@ The living are invented, the dead are on his shelf, the news is real: everyone h
 | `world/` | The world engine: places, hours, prices, the cast, the Hegde file, the rules, the feeds, the owl |
 | `world/data/` | The world's facts as JSON and word lists, editable without touching code |
 | `mind/` | The day mind's prompt, the owl's, the voices', test situations and the bake-off |
+| `mind/shelf/` | His books: cleaned public-domain texts (`<id>.txt.gz`), the search index and `MANIFEST.md` (sources, why each is public domain, what was left out) |
+| `mind/hegeltest/` | The data of the Hegel test: twenty blind passages and thirty questions about his life |
 | `pc/` | Windows scripts for the PC, and `CODEX.md` |
 | `scripts/` | Pi scripts: wake the PC, test wake and sleep, the world's timer |
 | `tests/` | `python3 -m unittest discover -s tests` |
-| `tools/` | `osm_map.py` rebuilds the map and the walking times from OpenStreetMap; run it only when the map should change |
+| `tools/` | `osm_map.py` rebuilds the map and the walking times from OpenStreetMap; run it only when the map should change. `corpus.py` fetches and cleans the shelf's texts and builds its index (`--index`); `hegel_test.py` is the Hegel test |
 | `HERMES.md` | The runbook Hermes follows |
 
 `python3 -m world simulate --date 2026-10-03` rehearses a whole day offline with a stand-in mind whose thoughts are marked `(rehearsal)`. Add `--mind http://PC:8081` to rehearse with the real one. Nothing is pushed.
@@ -56,6 +60,7 @@ The living are invented, the dead are on his shelf, the news is real: everyone h
 3. Bake-off: Bonsai vs Qwen ⟶ Hermes, task 3; Welt decides
 4. Wake and sleep ⟶ Codex 7–8, Welt (BIOS, router); Hermes, task 4
 5. World engine on the Pi ⟶ written; Hermes installs and rehearses, task 5
+5b. The shelf and the Hegel test ⟶ written; Hermes runs the test for Bonsai and Qwen, task 5b; Welt and Claude judge the sheets
 6. Live page reading the day files ⟶ written; day 1 replays until the first live day
 7. Shadow week on the `shadow` branch, watched at `?branch=shadow` ⟶ Hermes, task 6; then the public switch, task 7
 8. The owl at night ⟶ written, on the day mind's model until the PC can switch to the larger one at night; real streets from OpenStreetMap done

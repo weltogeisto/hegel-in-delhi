@@ -83,6 +83,8 @@ def render(s, ask=ASK):
         text += "\nYou remember:\n" + "".join(f"- {x}\n" for x in s["remember"])
     if s.get("earlier"):
         text += "\nEarlier today:\n" + "".join(f"- {x}\n" for x in s["earlier"])
+    if s.get("shelf"):
+        text += "\nFrom your shelf:\n" + "".join(f"- {x['label']}: “{x['text']}”\n" for x in s["shelf"])
     text += f"\nWhat happens: {s['event']}\n\n{ask}"
     return text
 

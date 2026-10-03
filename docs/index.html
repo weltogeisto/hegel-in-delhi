@@ -109,6 +109,7 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
 .veil[aria-expanded="true"]{margin-bottom:8px}
 .veiled[hidden]{display:none}
 .now blockquote .veil{margin-top:4px}
+.now .shelf{margin:6px 0 0;color:var(--muted);font-size:13px}
 .panel h2.sub{margin-top:18px}
 .panel h3{font-size:17px;margin:14px 0 6px;font-weight:600}
 .panel .cash{font-size:22px;margin:0 0 4px}
@@ -174,6 +175,7 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
       <p class="status" id="nowStatus">&nbsp;</p>
       <p class="wx" id="nowWx" hidden></p>
       <blockquote id="nowThought"></blockquote>
+      <p class="shelf" id="nowShelf" hidden></p>
     </div>
     <nav class="box menu" role="tablist" aria-label="What Hegel did today">
       <button role="tab" type="button" data-tab="today" aria-selected="true">Today</button>
@@ -859,7 +861,7 @@ function render(m, now){
 
 /* ───────── panel ───────── */
 const $ = id => document.getElementById(id);
-const panel = $('panel'), nowPlace = $('nowPlace'), nowStatus = $('nowStatus'), nowThought = $('nowThought'), nowWx = $('nowWx');
+const panel = $('panel'), nowPlace = $('nowPlace'), nowStatus = $('nowStatus'), nowThought = $('nowThought'), nowShelf = $('nowShelf'), nowWx = $('nowWx');
 const btnPrev = $('btnPrev'), btnNext = $('btnNext');
 let tab = 'today', hlPlace = null, lastKey = '', typer = null, shownThought = '';
 const KLABEL = {diary:'Thought', said:'Said', world:'Happened', bag:'Bought', wear:'Wardrobe', people:'Met', work:'Work', file:'The file', plan:'Plan', writing:'Wrote', income:'Earned', expense:'Paid', read:'Read'};
@@ -878,9 +880,12 @@ function line(e){
     case 'income': case 'expense': return `<b>${esc(e.item)}</b>, ${rupees(e.amount)}${e.cheque ? ' by cheque, not yet cashed' : ''}.`
       + (e.to ? ` To ${esc(e.to)}.` : '') + (e.from ? ` From ${esc(e.from)}.` : '');
     case 'read': return `<b>${esc(e.title)}</b>, read on his phone.<br>${esc(e.text)}<br>${wiki(e.url)}`;
+    case 'diary': return esc(e.text) + (e.shelf && e.shelf.length ? `<small class="src">${esc(shelfLine(e))}</small>` : '');
     default: return esc(e.text);
   }
 }
+function shelfLabel(x){ return x.ref ? (x.ref[0] === '§' ? x.work + ' ' + x.ref : x.work + ', ' + x.ref) : x.work; }   // 'Philosophy of Right §189', 'Philosophie der Geschichte, Einleitung'
+function shelfLine(e){ return 'From his shelf: ' + e.shelf.map(shelfLabel).join(' · '); }
 function wiki(u){      // the source of what he read, with its licence
   const ok = /^https:\/\/[a-z-]+\.wikipedia\.org\//.test(u || '');
   return `<small class="src">${ok ? `<a href="${esc(u)}" target="_blank" rel="noopener">From Wikipedia (CC BY-SA)</a>` : 'From Wikipedia (CC BY-SA)'}</small>`;
@@ -1009,6 +1014,8 @@ function updateDom(st, m){
   const th = ENTRIES.filter(e => e.k === 'diary' && e.m <= m).pop(), veiled = th && th.sensitive && !showSens;
   const thHtml = th ? `<span class="t">${th.t}</span>${veiled ? vz(vkey(th), th.topic, esc(th.text), 'n') : esc(th.text)}` : '<span class="t">—</span>Nothing thought yet today.';
   if (thHtml !== shownThought){ shownThought = thHtml; if (veiled){ if (typer) cancelAnimationFrame(typer); nowThought.innerHTML = thHtml; } else typeThought(thHtml); }
+  nowShelf.hidden = !(th && th.shelf && th.shelf.length) || veiled;                               // the books that lay open before him, under the thought
+  if (!nowShelf.hidden) nowShelf.textContent = shelfLine(th);
   const again = back && document.querySelector(back); if (again && again !== document.activeElement) again.focus({preventScroll: true});
 }
 

@@ -11,7 +11,7 @@ import os
 import time
 from datetime import date, datetime, timedelta
 
-from . import contract, lookup, owl, voices, works
+from . import contract, lookup, owl, shelf, voices, works
 from .clock import day_number, fmt, hm, long_date, minute_of, sun
 from .memory import Memory, record_text
 from .money import ADVANCE
@@ -20,6 +20,7 @@ from .world import at_dt
 
 log = logging.getLogger("world")
 MAX_DECISIONS = 8
+SHELF_MEMORY = 6                # steps of the day in which a passage of the shelf is not offered again
 CHOICE_SCHEMA = {"type": "object", "properties": {"answer": {"type": "string", "enum": ["yes", "no"]}}, "required": ["answer"]}
 
 
@@ -77,6 +78,7 @@ class Engine:
         self.lookup = lookup.find           # (query, cache folder) -> the page he reads, or a note; tests put a stand-in here
         self.soul = (cfg.repo / "mind/soul.md").read_text(encoding="utf-8")
         self.voice_prompt = (cfg.repo / "mind/voices.md").read_text(encoding="utf-8")
+        self.shelf = shelf.load(cfg.repo / "mind/shelf/index.json.gz", cfg.repo / "world/data/shelf_terms.json") if cfg.shelf else None
 
     # ── days ────────────────────────────────────────────────────────
     def migrate(self, prev, st):
@@ -168,6 +170,10 @@ class Engine:
             refused.append(["the PC did not wake for a greeting"])
             source = "away"
         else:
+            sit["shelf"] = self.offer(day, sit, ctx, st)
+            if sit["shelf"]:
+                ctx["shelf"] = sit["shelf"]
+                ctx["known_text"] += "\n" + "\n".join(x["text"] for x in sit["shelf"])         # what is open before him he has met
             messages = [{"role": "system", "content": self.soul}, {"role": "user", "content": contract.render(sit)}]
             try:
                 for _ in range(3):
@@ -207,6 +213,8 @@ class Engine:
                 ctx["read"] = self.look(ans["looks_up"], st)
         step = self.world.apply(ans, plan, sit, ctx, st, day)
         step["mind"] = {"source": source, "attempts": attempts, "latency_s": round(time.time() - t_start, 1)}
+        if ctx.get("shelf") and source in ("mind", "stub"):
+            step["shelf"] = [{"work": x["work"], "ref": x["ref"], "id": x["id"]} for x in ctx["shelf"]]
         if refused:
             step["mind"]["refused"] = refused
         if warnings:
@@ -216,6 +224,18 @@ class Engine:
         day["steps"].append(step)
         log.info("%s %s %s → %s until %s (%s)", day["date"], step["t"], ans["action"], ans["place"], step["end"], source)
         return step
+
+    def offer(self, day, sit, ctx, st):
+        """The passages of his shelf for this decision: the two that fit the event, the place, the people present and their
+        roles, his last two thoughts and his theses best, leaving out any that were offered in the last SHELF_MEMORY steps of
+        the day. [] without a shelf, or when nothing on it fits."""
+        if not self.shelf:
+            return []
+        used = {x["id"] for step in day["steps"][-SHELF_MEMORY:] for x in step.get("shelf") or []}
+        roles = [self.world.cast[c]["role"] for c in ctx["present"]]
+        thoughts = [text for _, text in ctx["recent"][-2:]]
+        parts = shelf.query_parts(sit["event"], self.world.places[sit["place"]]["short"], roles, thoughts, [x["text"] for x in st.get("theses", [])])
+        return self.shelf.pick(parts, avoid=used)
 
     def make_plan(self, day, t, sit, ctx):
         """On waking: one extra call for the day's intentions. With no usable answer he simply has no plan.

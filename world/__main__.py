@@ -18,6 +18,7 @@ import sys
 from datetime import date, timedelta
 from pathlib import Path
 
+from . import shelf
 from .clock import fmt, minute_of, now_ist, parse_now
 from .config import Config
 from .engine import Days, Engine, until_of
@@ -195,7 +196,13 @@ def economy_problems(w):
 
 def cmd_check(cfg, args):
     w = World()
-    problems = [f"missing {f}" for f in ("mind/soul.md", "mind/owl.md", "mind/voices.md", "world/data/sensitive.txt") if not (cfg.repo / f).exists()]
+    problems = [f"missing {f}" for f in ("mind/soul.md", "mind/owl.md", "mind/voices.md", "world/data/sensitive.txt", "mind/shelf/index.json.gz",
+                                         "world/data/shelf_terms.json") if not (cfg.repo / f).exists()]
+    try:
+        if (cfg.repo / "mind/shelf/index.json.gz").exists() and not shelf.load(cfg.repo / "mind/shelf/index.json.gz", cfg.repo / "world/data/shelf_terms.json"):
+            problems.append("the shelf index cannot be read")
+    except (OSError, ValueError, KeyError) as e:
+        problems.append(f"the shelf index is damaged: {e}")
     ids = list(w.places)
     for i, a in enumerate(ids):
         for b in ids[i + 1:]:

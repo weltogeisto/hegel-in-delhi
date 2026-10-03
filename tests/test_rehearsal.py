@@ -2,6 +2,7 @@
 reading the same days. (Ramesh's wage falls due on 1 November, which is outside these three weeks.)"""
 import json
 import random
+import re
 import shutil
 import statistics
 import subprocess
@@ -14,6 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import test_deal  # noqa: E402
 from test_world import DAY1, REPO, Sandbox  # noqa: E402  (this also keeps the tests off the Pi's env file)
 
+from world import shelf
 from world.mind import NOUNS, StubMind  # noqa: E402
 from world.world import at_dt  # noqa: E402
 
@@ -32,7 +34,10 @@ def run():
         class Watcher(StubMind):
             def decide(self, messages, sit):
                 if not any("refuses" in x["content"] for x in messages):
-                    prompts.append(len(messages[1]["content"]))
+                    section = re.search(r"\nFrom your shelf:\n(?:- .*\n)+", messages[1]["content"])
+                    prompts.append(len(messages[1]["content"]) - (len(section.group(0)) if section else 0))        # the shelf has its own budget
+                    if section:
+                        calls.setdefault("shelf", []).append(len(section.group(0)) - 1)
                     money.append(next(len(x) for x in sit["on_mind"] if x.startswith("Money:")))
                 return super().decide(messages, sit)
 
@@ -151,6 +156,8 @@ class Rehearsal(unittest.TestCase):
         self.assertEqual(per_day["plan"], 1)
         self.assertEqual(per_day["owl"], 1)
         self.assertLess(per_day["choice"], 1)                                            # offers are rare
+        self.assertGreater(len(self.calls["shelf"]), 0.7 * len(self.prompts))              # most decisions have passages from his shelf
+        self.assertLessEqual(max(self.calls["shelf"]), shelf.MAX_SECTION)                  # and they never run past their own budget
 
     def test_every_day_shows_the_money_line_to_the_mind(self):
         for day in self.days:
