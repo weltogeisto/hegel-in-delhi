@@ -11,9 +11,10 @@ import os
 import time
 from datetime import date, datetime, timedelta
 
-from . import contract, owl, voices, works
+from . import contract, lookup, owl, voices, works
 from .clock import day_number, fmt, hm, long_date, minute_of, sun
 from .memory import Memory, record_text
+from .money import ADVANCE
 from .mind import MindAway
 from .world import at_dt
 
@@ -73,14 +74,32 @@ class Engine:
         self.owl_mind = owl_mind or mind
         self.days = Days(cfg.docs)
         self.memory = Memory(self.days, world)
+        self.lookup = lookup.find           # (query, cache folder) -> the page he reads, or a note; tests put a stand-in here
         self.soul = (cfg.repo / "mind/soul.md").read_text(encoding="utf-8")
         self.voice_prompt = (cfg.repo / "mind/voices.md").read_text(encoding="utf-8")
 
     # ── days ────────────────────────────────────────────────────────
+    def migrate(self, prev, st):
+        """A state from before the economy (day 1's) gets its accounts: a voucher for every purchase in the bag entries of
+        the days so far, and the places he has been."""
+        acc = st["account"] = {"advance": ADVANCE, "vouchers": [], "admitted": 0, "queried": 0}
+        visits = st.setdefault("visits", {})
+        earlier = [self.days.load(r["date"]) for r in self.days.index()["days"] if r["date"] < prev["date"]]
+        for day in [x for x in earlier if x] + [prev]:
+            acc["vouchers"] += [{"date": day["date"], "t": e["t"], "item": e["item"], "price": e["price"], "office": self.world.is_office(e["item"])}
+                                for e in day["entries"] if e["k"] == "bag" and e["price"]]
+            for sg in day["segments"]:
+                pid = sg.get("at") or sg.get("b")
+                if pid and day["date"] not in visits.setdefault(pid, []):
+                    visits[pid].append(day["date"])
+
     def new_day(self, prev, d):
         st = copy.deepcopy(prev["state"])
         st["today"] = {}
         st.pop("yesterday", None)
+        if "account" not in st:
+            self.migrate(prev, st)
+        self.world.ledger(st)
         rise, set_ = sun(d)
         hol = self.world.holiday(d)
         day = {
@@ -90,7 +109,9 @@ class Engine:
             "weather": self.world.weather_public(d),
             "places": self.world.place_info(d),
             "opening": {"imprest": st["imprest"], "wearing": st["wearing"],
-                        "wardrobe": [{"item": w["item"], "status": w["status"]} for w in st["wardrobe"]]},
+                        "wardrobe": [{"item": w["item"], "status": w["status"]} for w in st["wardrobe"]],
+                        "cash": st["imprest"], "account": copy.deepcopy(st["account"]), "owed": copy.deepcopy(st["owed"]),
+                        "cheques": copy.deepcopy(st["cheques"])},
             "segments": [], "entries": [], "steps": [], "owl": None, "complete": False, "state": st,
         }
         if st.get("asleep"):
@@ -127,6 +148,8 @@ class Engine:
     # ── one step ────────────────────────────────────────────────────
     def step(self, day, t):
         st = day["state"]
+        if "account" not in st:
+            self.migrate(day, st)               # a day file from before the economy: its books are made on first need
         prev = next((s for s in reversed(day["steps"]) if "decision" in s), None)
         sit, ctx = self.world.situation(t, st, day, prev)
         remember = self.memory.recall(sit, ctx, day)
@@ -174,12 +197,14 @@ class Engine:
             ctx["beat_entries"] = self.world.fire(beat, t, st)
             if beat.get("choice"):
                 yes = self.ask_choice(messages, raw, beat)
-                ctx["beat_entries"] += self.world.settle_choice(beat, yes, st)
+                ctx["beat_entries"] += self.world.settle_choice(beat, yes, st, t)
         if source in ("mind", "stub"):
             if ans.get("says") and ctx["present"]:
                 ctx["reply"] = self.reply(day, sit, ctx, ans["says"])
             if ans["action"] == "write":
                 ctx["writing"] = self.write(messages, raw, ctx, st)
+            if ans.get("looks_up"):
+                ctx["read"] = self.look(ans["looks_up"], st)
         step = self.world.apply(ans, plan, sit, ctx, st, day)
         step["mind"] = {"source": source, "attempts": attempts, "latency_s": round(time.time() - t_start, 1)}
         if refused:
@@ -261,6 +286,12 @@ class Engine:
                      "Answer with the JSON object only."}]
         log.info("writing dropped: %s", "; ".join(wrong))
         return None
+
+    def look(self, query, st):
+        """He looks something up on his phone: the page he reads, {title, text, source, url}, or {note} for what went wrong."""
+        if not (st["tech"]["phone"] and st["tech"]["sim"]):
+            return {"note": "You have nothing to look it up on."}
+        return self.lookup(query, self.cfg.state / "lookup")
 
     def quiet(self, st, t, sit):
         """No usable answer: he carries on, without a thought on the page."""

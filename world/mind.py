@@ -94,15 +94,32 @@ LINES = ["The morning came in with the papers and the heat.", "Nothing here is q
          "The tea arrived before the argument did.", "I set down what I saw and let the rest wait for the afternoon.",
          "A city is a thought that has learned to walk about.", "The lamp does what lamps do, and so, I suppose, do I."]
 SINCE_MEAL = re.compile(r"last meal[^;]* (five|six|seven|eight|nine|ten|eleven|twelve|\d+) hours ago")
+VOUCHERS = re.compile(r"(\d+) vouchers? pending ₹([\d,]+)")
+DATE_AT = re.compile(r"(\w+ \d+ \w+) (\d\d:\d\d): (German lesson|your talk at the IIC)")      # an appointment line of the prompt
 
 
 class StubMind:
     """A stand-in for rehearsals and tests: plausible, deterministic, clearly not Hegel.
-    Its thoughts start with '(rehearsal)' so a stub day can never pass for a real one."""
+    Its thoughts start with '(rehearsal)' so a stub day can never pass for a real one.
+    It exercises the economy: it says yes to every offer, keeps its lessons and its talk, goes to the Directorate on a weekday
+    once its vouchers pass ₹2,000, buys a phone and SIM at Khan Market once it has ₹10,000 and someone there to vouch, and looks up Marx once."""
     source = "stub"
+    read = False                    # has the look-up he asked for come back?
+    lesson = ("", 0)                # the day and the minute the lesson under way ends
 
     def ensure_awake(self):
         pass
+
+    @staticmethod
+    def booked(sit, now):
+        """(place, minute) of a lesson or talk today that he must keep and that is near, else None."""
+        for line in sit.get("on_mind", []):
+            m = DATE_AT.match(line)
+            if m and sit["day"].startswith(m[1]):
+                at = int(m[2][:2]) * 60 + int(m[2][3:])
+                if at - 90 <= now < at + 60:
+                    return ("home" if m[3] == "German lesson" else "iic"), at
+        return None
 
     def decide(self, messages, sit):
         r = random.Random(sit["id"])
@@ -114,14 +131,35 @@ class StubMind:
             ans.update(action="walk" if here != "home" else "rest", place="home", minutes=30)
             return json.dumps(self.thought(ans, sit, refused))
         out = [p for p in open_now if p not in ("home", "estates", here)]
-        ev = sit["event"]
+        ev, cash = sit["event"], sit["imprest_left"]
         hungry = now >= 11 * 60 and ("hungry" in ev or any(SINCE_MEAL.search(x) for x in sit.get("on_mind", [])))
+        owns = any("You have a phone with a SIM" in x for x in sit.get("on_mind", []))
+        if "On your phone you read" in ev or "look it up on" in ev or "page will not load" in ev or "Nothing comes up" in ev:
+            self.read = True
+        vouchers = next((int(v[2].replace(",", "")) for x in sit.get("on_mind", []) if (v := VOUCHERS.search(x))), 0)
+        vouch = [p for p in sit["present"] if not p.startswith("the ") and f"{p} is here; you have not met" not in ev]
+        booked = self.booked(sit, now)
+        if (end := re.search(r"It runs until (\d\d):(\d\d)", ev)):
+            self.lesson = (sit["day"], int(end[1]) * 60 + int(end[2]))
+        if self.lesson[0] == sit["day"] and now < self.lesson[1]:
+            booked = ("home", now)
         if now >= 22 * 60 or now < 5 * 60:
             ans.update(action="sleep" if here == "home" else "walk", place="home", minutes=240)
         elif now >= 21 * 60 + 15 and here != "home":
             ans.update(action="walk", place="home", minutes=30)
         elif here not in open_now:
             ans.update(action="walk", place="home", minutes=30)
+        elif booked and booked[0] in open_now and here != booked[0]:
+            ans.update(action="walk", place=booked[0], minutes=30)                      # to the lesson or the talk
+        elif booked and here == booked[0]:
+            ans.update(action="rest" if here == "home" else "read", place=here, minutes=max(5, min(60, booked[1] - now)) if now < booked[1] else 30)
+        elif here == "home" and "expect bakshish" in ev:
+            ans.update(action="buy", place="home", minutes=15, buys=[{"item": "Bakshish for Ramesh", "price_inr": 500}])
+        elif here == "khan" and cash >= 10000 and vouch and any("Mobile phone" in x for x in sit["for_sale"]):
+            ans.update(action="buy", place="khan", minutes=30, buys=[{"item": "Mobile phone, basic Android", "price_inr": 9000},
+                       {"item": "Prepaid SIM card", "price_inr": 300}, {"item": "Mobile data, 28 days", "price_inr": 350}])
+        elif vouchers > 2000 and "estates" in open_now and here != "estates" and 570 <= now <= 16 * 60 and sit["day"][:3] in ("Mon", "Tue", "Wed", "Thu", "Fri"):
+            ans.update(action="walk", place="estates", minutes=30)                      # the vouchers want going through
         elif here == "home" and ("laid out" in ev or "serves dinner" in ev):
             ans.update(action="eat", place="home", minutes=r.choice([30, 45]))
         elif hungry and here == "khan" and sit["imprest_left"] >= 220:
@@ -140,6 +178,8 @@ class StubMind:
             ans["buys"] = [{"item": "Chai, a cup", "price_inr": 20}]
         if here == "safdarjung" and ans["action"] != "walk" and "arrive" in sit["event"]:
             ans["buys"].append({"item": "Entry ticket, foreign visitors", "price_inr": 300})
+        if owns and not self.read:
+            ans["looks_up"] = "Karl Marx"
         return json.dumps(self.thought(ans, sit))
 
     @staticmethod

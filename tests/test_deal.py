@@ -711,7 +711,7 @@ class PageNodeTest(unittest.TestCase):
       [grab("function line(e){", "function owlHtml"), grab("function owlHtml(m){", "function renderPanel")]).join("\\n");
     const io = JSON.parse(process.argv[2]);
     const ls = io.storage === 'throw' ? {getItem(){ throw new Error('blocked'); }} : {getItem: k => io.storage};
-    const page = new Function("D", "DAY", "dayMode", "ENTRIES", "localStorage", src + "; return {line, owlHtml, vz, vkey, manuscripts, KLABEL, revealed, show: () => showSens};")(io.D, [], 'archive', io.ENTRIES || [], ls);
+    const page = new Function("D", "DAY", "dayMode", "ENTRIES", "localStorage", src + "; return {line, owlHtml, vz, vkey, manuscripts, purse, purseHtml, wiki, KLABEL, revealed, show: () => showSens};")(io.D, [], 'archive', io.ENTRIES || [], ls);
     const arg = a => a && a.$e ? a.$e.map(i => io.ENTRIES[i]) : a;      // {"$e": [0]}: those of the page's own entries, by identity
     console.log(JSON.stringify(io.calls.map(c => { const f = page[c[0]]; return typeof f === 'function' ? f(...c.slice(1).map(arg)) : f; })));
     """

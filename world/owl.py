@@ -6,7 +6,7 @@ from .contract import extract_json
 
 log = logging.getLogger("world")
 STATUSES = ["unshaken", "shaken", "revised", "abandoned"]
-KINDS = ["diary", "said", "writing", "work", "world", "file", "people", "bag", "wear", "plan"]      # which entry speaks for a minute
+KINDS = ["diary", "said", "writing", "work", "read", "world", "file", "people", "income", "expense", "bag", "wear", "plan"]      # which entry speaks for a minute
 WRITING = 400                          # characters of each sitting that the owl reads
 
 
@@ -46,6 +46,10 @@ def record(day, limit=9000):
             lines.append(f"{e['t']} happened: {e['text']}")
         elif k == "bag":
             lines.append(f"{e['t']} bought: {e['item']}, ₹{e['price']}")
+        elif k in ("income", "expense"):
+            lines.append(f"{e['t']} {'earned' if k == 'income' else 'paid'}: {e['item']}, ₹{e['amount']:,}" + (" (a cheque, not cashed)" if e.get("cheque") else ""))
+        elif k == "read":
+            lines.append(f"{e['t']} read on his phone, from {e['source']}, “{e['title']}”: {e['text']}")
         elif k == "people":
             lines.append(f"{e['t']} met for the first time: {e['name']}, {e['role']}")
         elif k == "work":
@@ -77,6 +81,10 @@ def entry_text(e, n=160):
     k = e["k"]
     if k == "bag":
         text = f"{e['item']}, ₹{e['price']}"
+    elif k in ("income", "expense"):
+        text = f"{e['item']}, ₹{e['amount']:,}"
+    elif k == "read":
+        text = f"{e['title']}: {e['text']}"
     elif k == "wear":
         text = f"{e['item']}. {e['status']}"
     elif k == "plan":

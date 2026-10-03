@@ -1,0 +1,104 @@
+{
+  "note": "Offers, and the beats that follow them: the same shape as plot.json. 'when' holds an offer's conditions (met_days: days he has met them; visits: days he has been in a place; known: people he has met; since_day: days since day 1; cash_below, cash_min; flags; wardrobe: a garment he still owns; words: a manuscript of that many words; on: one date). Effects, in a beat or in a choice's yes or no: pay (money to him now, or after_min later, at a place 'at', or at his next sitting of 'write' words), cheque (the same, but a cheque he cannot bank), owe, sell (a garment, and what it fetches where 'at'), schedule (a standing engagement with 'days', or an appointment in_days for a beat that follows). 'again_days': a refused offer comes back after that many days. Every offer is made by someone present; every price is simulated.",
+  "offers": [
+    {
+      "id": "tutoring_german", "kind": "world", "needs": ["nidhi"], "again_days": 14,
+      "when": {"met_days": {"nidhi": 2}},
+      "prompt": "Nidhi says her cousin Ananya needs German before a semester in Leipzig. Would you give her two lessons a week, ₹1,000 each in cash, Tuesdays and Fridays at five, here at the bungalow, an hour each?",
+      "public": "Nidhi asks whether he would teach her cousin Ananya German before a semester in Leipzig: two lessons a week at ₹1,000 each, Tuesdays and Fridays at five, at the bungalow.",
+      "choice": {
+        "question": "Did you agree to give Nidhi's cousin Ananya two German lessons a week at ₹1,000 each, Tuesdays and Fridays at five at the bungalow?",
+        "yes": {
+          "public": "He agrees. Ananya will come to the bungalow on Tuesdays and Fridays at five.",
+          "schedule": {"id": "tutoring_german", "days": "Tue,Fri", "t": "17:00", "minutes": 60, "place": "home", "with": "ananya",
+                       "what": "German lesson", "pay": 1000, "cancel_after": 2}
+        },
+        "no": {"public": "He declines. Nidhi shrugs: she will find someone else."}
+      }
+    },
+    {
+      "id": "iic_talk", "kind": "world", "where": "iic", "needs": ["officer"],
+      "when": {"visits": {"iic": 2}, "known": ["malhotra"]},
+      "prompt": "The programme officer of the Centre comes over. Mr. Malhotra has spoken well of you, and the Centre asks whether you would speak in the lecture hall in seven days, at half past six in the evening. The honorarium is ₹10,000, by cheque after the talk.",
+      "public": "The programme officer of the IIC invites him to speak in the lecture hall in seven days, at 18:30. The honorarium is ₹10,000, by cheque after the talk.",
+      "choice": {
+        "question": "Did you agree to give a talk at the IIC in seven days, at 18:30, for an honorarium of ₹10,000 by cheque?",
+        "yes": {
+          "public": "He accepts. The talk is in seven days, at 18:30.",
+          "schedule": {"in_days": 7, "t": "18:30", "what": "your talk at the IIC", "beat": "iic_talk_day"}
+        },
+        "no": {"public": "He declines the invitation."}
+      }
+    },
+    {
+      "id": "iic_talk_day", "after": ["iic_talk"], "on_appointment": true, "at": "18:30", "window": ["18:30", "19:15"], "where": "iic",
+      "brings": ["officer"], "kind": "world",
+      "prompt": "The programme officer shows you into the lecture hall. The seats are filling. The talk is yours, for about an hour.",
+      "public": "Half past six: he speaks in the lecture hall of the IIC, an hour, to a full room.",
+      "cheque": {"from": "the India International Centre", "amount": 10000, "item": "Honorarium for the talk at the IIC", "after_min": 60, "at": "iic"}
+    },
+    {
+      "id": "sell_frock", "kind": "world", "where": "khan", "needs": ["masterji"],
+      "when": {"since_day": 5, "wardrobe": "frock"},
+      "prompt": "Masterji says that a dealer in Sunder Nagar would pay ₹12,000, in cash, for a genuine Berlin frock coat. Yours hangs in the wardrobe at the bungalow.",
+      "public": "Masterji says a dealer in Sunder Nagar would pay ₹12,000 in cash for a genuine Berlin frock coat.",
+      "choice": {
+        "question": "Did you agree to sell your Berlin frock coat to the dealer in Sunder Nagar for ₹12,000 in cash?",
+        "yes": {
+          "public": "He agrees. Masterji will send a boy to the bungalow for the coat; the dealer pays ₹12,000 in cash the next time he is at Khan Market.",
+          "sell": {"garment": "frock", "amount": 12000, "to": "a dealer in Sunder Nagar", "at": "khan"}
+        },
+        "no": {"public": "He keeps the coat. Masterji nods: it is a good coat."}
+      }
+    },
+    {
+      "id": "loan_malhotra", "kind": "world", "needs": ["malhotra"],
+      "when": {"cash_below": 1000},
+      "prompt": "Mr. Malhotra, who misses little, sees that your purse is thin. ₹5,000 would see you through, he says; you may repay it when you can.",
+      "public": "Mr. Malhotra sees that his purse is thin and offers ₹5,000 until he can repay it.",
+      "choice": {
+        "question": "Did you accept ₹5,000 from Mr. Malhotra as a loan?",
+        "yes": {
+          "public": "He accepts the loan.",
+          "pay": {"from": "Mr. R. K. Malhotra", "amount": 5000, "item": "Loan from Mr. Malhotra"},
+          "owe": {"to": "Mr. R. K. Malhotra", "amount": 5000, "why": "the loan", "with": "malhotra", "after_days": 7}
+        },
+        "no": {"public": "He declines, with thanks."}
+      }
+    },
+    {
+      "id": "essay_fee", "kind": "world", "when": {"words": 1500},
+      "variants": {
+        "iic": {
+          "needs": ["officer"],
+          "prompt": "The programme officer has heard about your pages. An editor at the Yamuna Review, a Delhi magazine, would pay ₹6,000 in cash for an essay of yours, on your next sitting of at least three hundred words.",
+          "public": "The programme officer tells him that the Yamuna Review, a Delhi magazine, would pay ₹6,000 in cash for an essay."
+        },
+        "khan": {
+          "needs": ["nidhi"],
+          "prompt": "Nidhi says a friend of hers edits the Yamuna Review, a Delhi magazine, and would pay ₹6,000 in cash for an essay of yours, on your next sitting of at least three hundred words.",
+          "public": "Nidhi tells him that a friend at the Yamuna Review, a Delhi magazine, would pay ₹6,000 in cash for an essay."
+        },
+        "lodhi": {
+          "needs": ["nidhi"],
+          "prompt": "Nidhi says a friend of hers edits the Yamuna Review, a Delhi magazine, and would pay ₹6,000 in cash for an essay of yours, on your next sitting of at least three hundred words.",
+          "public": "Nidhi tells him that a friend at the Yamuna Review, a Delhi magazine, would pay ₹6,000 in cash for an essay."
+        }
+      },
+      "choice": {
+        "question": "Did you agree to write an essay for the Yamuna Review for ₹6,000 in cash, at your next sitting of three hundred words or more?",
+        "yes": {
+          "public": "He agrees to write the essay for the Yamuna Review.",
+          "pay": {"from": "the Yamuna Review", "amount": 6000, "item": "Fee for an essay", "write": 300}
+        },
+        "no": {"public": "He declines: the pages are not for sale."}
+      }
+    },
+    {
+      "id": "diwali_bakshish", "kind": "world", "where": "home", "needs": ["ramesh"], "brings": ["dhobi"],
+      "window": ["06:00", "13:00"], "when": {"on": "2026-11-08"},
+      "prompt": "It is Diwali. Ramesh, and the dhobi who has come by with the washing, wait with the patience of men who expect bakshish: at Diwali one gives something to those who serve the house.",
+      "public": "Diwali morning: Ramesh and the dhobi wait for their bakshish."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "note": "Costs that recur, in rupees, October 2026. 'when': a weekday, a day of the month (from a date) or every N days from the SIM or the last data pack. 'item' is what the expense entry calls it. A cost that falls due is owed at once and paid as soon as he is where 'at' and 'with' say (at home, with Ramesh) and has the cash; 'lapse' is what stops at home while it stays unpaid. Prices are simulated.",
+  "costs": [
+    {
+      "id": "wage", "short": "Ramesh's wage", "item": "Ramesh's wage for cooking", "why": "the wage for cooking", "amount": 8000, "to": "Ramesh",
+      "when": {"monthday": 1, "from": "2026-11-01"}, "at": "home", "with": "ramesh",
+      "lapse": "Nothing is cooked at home: Ramesh has not been paid his wage for cooking."
+    },
+    {
+      "id": "groceries", "short": "groceries", "item": "Groceries for Ramesh's kitchen", "why": "groceries", "amount": 1500, "to": "Ramesh",
+      "when": {"weekday": "Sun"}, "at": "home", "with": "ramesh",
+      "lapse": "Nothing is cooked at home: the groceries have not been paid for."
+    },
+    {
+      "id": "dhobi", "short": "the dhobi", "item": "The dhobi", "why": "the washing", "amount": 300, "to": "the dhobi",
+      "when": {"weekday": "Sat"}, "at": "home"
+    },
+    {
+      "id": "electricity", "short": "electricity", "item": "Electricity", "why": "electricity", "amount": 1800, "to": "the electricity company",
+      "when": {"monthday": 10}, "at": "home"
+    },
+    {
+      "id": "data", "short": "mobile data", "item": "Mobile data", "why": "mobile data", "amount": 350, "to": "the mobile company",
+      "when": {"every": 28}
+    }
+  ]
+}

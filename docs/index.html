@@ -109,6 +109,10 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
 .veiled[hidden]{display:none}
 .now blockquote .veil{margin-top:4px}
 .panel h2.sub{margin-top:18px}
+.panel h3{font-size:17px;margin:14px 0 6px;font-weight:600}
+.panel .cash{font-size:22px;margin:0 0 4px}
+.panel ul.plain{margin:0;padding-left:1.2em}
+.src{display:block;margin-top:4px;color:var(--muted);font-size:13px}
 .ms{padding:8px 0;border-top:2px dotted var(--rule)}
 .ms p{margin:0}
 .about label{display:flex;align-items:center;gap:8px;cursor:pointer;margin:0 0 8px}
@@ -172,7 +176,7 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
     <nav class="box menu" role="tablist" aria-label="What Hegel did today">
       <button role="tab" type="button" data-tab="today" aria-selected="true">Today</button>
       <button role="tab" type="button" data-tab="thoughts" aria-selected="false">Thoughts</button>
-      <button role="tab" type="button" data-tab="bag" aria-selected="false">Bag</button>
+      <button role="tab" type="button" data-tab="purse" aria-selected="false">Purse</button>
       <button role="tab" type="button" data-tab="wardrobe" aria-selected="false">Wardrobe</button>
       <button role="tab" type="button" data-tab="people" aria-selected="false">People</button>
       <button role="tab" type="button" data-tab="work" aria-selected="false">Work</button>
@@ -906,7 +910,7 @@ const $ = id => document.getElementById(id);
 const panel = $('panel'), nowPlace = $('nowPlace'), nowStatus = $('nowStatus'), nowThought = $('nowThought'), nowWx = $('nowWx');
 const btnPrev = $('btnPrev'), btnNext = $('btnNext');
 let tab = 'today', hlPlace = null, lastKey = '', typer = null, shownThought = '';
-const KLABEL = {diary:'Thought', said:'Said', world:'Happened', bag:'Bought', wear:'Wardrobe', people:'Met', work:'Work', file:'The file', plan:'Plan', writing:'Wrote'};
+const KLABEL = {diary:'Thought', said:'Said', world:'Happened', bag:'Bought', wear:'Wardrobe', people:'Met', work:'Work', file:'The file', plan:'Plan', writing:'Wrote', income:'Earned', expense:'Paid', read:'Read'};
 const rupees = n => '₹' + n.toLocaleString('en-IN');
 const paras = t => String(t).split(/\n\s*\n/).map(p => `<p>${esc(p.trim()).replace(/\n/g, '<br>')}</p>`).join('');
 function line(e){
@@ -919,8 +923,15 @@ function line(e){
     case 'writing': { const kind = e.kind === 'letter' && e.to ? 'letter to ' + e.to : e.kind + (e.to ? ' to ' + e.to : '');
       return `<b>${esc(e.title)}</b> (${esc([kind, e.sitting > 1 ? 'sitting ' + e.sitting : ''].filter(Boolean).join(', '))})<br>${esc(e.text).replace(/\n/g, '<br>')}`; }
     case 'plan': return e.items.map(i => `${esc(i.time)} ${esc(i.intention)}`).join(' · ');
+    case 'income': case 'expense': return `<b>${esc(e.item)}</b>, ${rupees(e.amount)}${e.cheque ? ' by cheque, not yet cashed' : ''}.`
+      + (e.to ? ` To ${esc(e.to)}.` : '') + (e.from ? ` From ${esc(e.from)}.` : '');
+    case 'read': return `<b>${esc(e.title)}</b>, read on his phone.<br>${esc(e.text)}<br>${wiki(e.url)}`;
     default: return esc(e.text);
   }
+}
+function wiki(u){      // the source of what he read, with its licence
+  const ok = /^https:\/\/[a-z-]+\.wikipedia\.org\//.test(u || '');
+  return `<small class="src">${ok ? `<a href="${esc(u)}" target="_blank" rel="noopener">From Wikipedia (CC BY-SA)</a>` : 'From Wikipedia (CC BY-SA)'}</small>`;
 }
 /* the dark veil: a sensitive entry sits under a band until it is clicked, or for good if the viewer has asked for that */
 let showSens = false, focusSel = null; const revealed = new Set();
@@ -953,6 +964,36 @@ function manuscripts(seen){      // his manuscripts as of now: the sittings stil
     + `${r.words.toLocaleString('en-IN')} words · ${r.n} sitting${r.n > 1 ? 's' : ''}</p>`;
     return `<div class="ms">${r.w.sensitive ? vz(`${D.date}|ms|${r.w.id}`, r.w.topic, t, 'p') : t}</div>`; }).join('') : '';
 }
+function purse(seen){      // what he carries, owes and has vouchered as of now: the day's opening, then each money entry
+  const o = (D && D.opening) || {}, a = o.account;
+  const p = {cash: o.cash != null ? o.cash : (o.imprest || 0), advance: a ? a.advance : 0, vouchers: a ? a.vouchers.map(v => v.price) : [],
+    admitted: a ? a.admitted : 0, queried: a ? a.queried : 0, owed: (o.owed || []).map(x => ({to: x.to, amount: x.amount, why: x.why})),
+    cheques: (o.cheques || []).map(x => ({from: x.from, amount: x.amount})), earned: 0, paid: 0};
+  for (const e of seen){
+    if (e.imprest){ p.cash += e.imprest; p.advance += e.imprest; }                   // day 1: the advance is handed over
+    if (e.k === 'bag'){ p.cash -= e.price; p.paid += e.price; if (e.price) p.vouchers.push(e.price); }
+    if (e.k === 'income'){ if (e.cheque) p.cheques.push({from: e.from, amount: e.amount}); else { p.cash += e.amount; p.earned += e.amount; } }
+    if (e.k === 'expense'){ p.cash -= e.amount; p.paid += e.amount;
+      if (e.settles){ const i = p.owed.findIndex(x => x.to === e.to && x.amount === e.amount && x.why === e.why); if (i >= 0) p.owed.splice(i, 1); } }
+    if (e.owe) p.owed.push({to: e.owe.to, amount: e.owe.amount, why: e.owe.why});
+    if (e.recoup){ p.vouchers = []; p.admitted += e.recoup.admitted; p.queried += e.recoup.queried; }
+  }
+  return p;
+}
+function purseHtml(seen){
+  const p = purse(seen), sum = l => l.reduce((x, y) => x + y, 0), pend = sum(p.vouchers);
+  const row = e => `<div class="entry"><span class="t">${e.t || '—'}</span><div><p>${line(e)}</p></div></div>`;
+  const list = (es, none) => es.length ? es.slice().reverse().map(row).join('') : `<p class="empty">${none}</p>`;
+  const bullets = (l, f, none) => l.length ? `<ul class="plain">${l.map(x => `<li>${f(x)}</li>`).join('')}</ul>` : `<p class="empty">${none}</p>`;
+  return '<h2>Purse</h2>' + `<p class="cash">Cash <b>${rupees(p.cash)}</b></p>`
+    + '<h3>The imprest account</h3>'
+    + `<p>The state's advance: ${rupees(p.advance)}. Vouchered, not yet gone through: ${rupees(pend)} (${p.vouchers.length}). Admitted so far ${rupees(p.admitted)}; queried ${rupees(p.queried)}.</p>`
+    + '<h3>Owed</h3>' + bullets(p.owed, x => `${esc(x.to)}: ${rupees(x.amount)} (${esc(x.why)})`, 'Nothing.')
+    + '<h3>Cheques he cannot cash</h3>' + bullets(p.cheques, x => `${rupees(x.amount)} from ${esc(x.from)}`, 'None. He has no bank account.')
+    + '<h3>Money in today</h3>' + list(seen.filter(e => e.k === 'income'), 'Nothing earned yet today.')
+    + '<h3>Money out today</h3>' + list(seen.filter(e => e.k === 'bag' || e.k === 'expense'), 'Nothing spent yet today.')
+    + `<p class="sum">Today: ${rupees(p.earned)} in cash earned, ${rupees(p.paid)} spent.</p>`;
+}
 function renderPanel(m){
   if (!D){ panel.innerHTML = '<p class="empty">Opening the day…</p>'; return; }
   const seen = ENTRIES.filter(e => e.m <= m), E = D.empty || {};
@@ -964,16 +1005,12 @@ function renderPanel(m){
     const up = DAY.some(s => !s.asleep && s.s <= m);
     const none = up ? 'Nothing yet today.' : 'He has not woken yet.' + (dayMode !== 'live' && WAKE ? ` He wakes at ${WAKE} Delhi time.` : '');
     html = `<h2>${tab === 'today' ? 'Today, newest first' : 'Thoughts'}</h2>` + (list.length ? list.map(e => entry(e, tab === 'today')).join('') : empty(none));
-  } else if (tab === 'bag'){
-    const bag = seen.filter(e => e.k === 'bag'), spent = bag.reduce((a,e) => a + e.price, 0);
-    const open = (D.opening && D.opening.imprest) || 0, credit = seen.filter(e => e.imprest).reduce((a,e) => a + e.imprest, 0);
-    const sum = !open && credit ? `Spent ${rupees(spent)} of the ${rupees(credit)} imprest. ${rupees(credit - spent)} left.`
-      : open || credit ? (spent ? `Spent ${rupees(spent)} today. ` : '') + `${rupees(open + credit - spent)} of the imprest left.` : '';
-    html = '<h2>Bag</h2>' + (bag.length ? bag.map(e => entry(e)).join('') : empty(E.bag || 'Nothing bought yet today.')) + (sum ? `<p class="sum">${sum}</p>` : '');
+  } else if (tab === 'purse'){
+    html = purseHtml(seen);
   } else if (tab === 'wardrobe'){
     const items = new Map();
     ((D.opening && D.opening.wardrobe) || []).forEach(w => items.set(w.item, {t:'', k:'wear', item:w.item, status:w.status}));
-    seen.filter(e => e.k === 'wear').forEach(e => items.set(e.item, e));
+    seen.filter(e => e.k === 'wear').forEach(e => e.gone ? items.delete(e.item) : items.set(e.item, e));     // a garment he sold is gone
     html = '<h2>Wardrobe</h2>' + (items.size ? [...items.values()].map(e => entry(e)).join('') : empty(E.wardrobe || 'Nothing yet. He is still asleep.'));
   } else if (tab === 'people'){
     const ppl = seen.filter(e => e.k === 'people');

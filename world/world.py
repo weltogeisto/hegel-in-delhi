@@ -4,14 +4,15 @@ import copy
 import json
 import random
 import re
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 from . import contract, voices, works
-from .clock import IST, WEEKDAYS, fmt, hm, minute_of, sun
+from .clock import DAYNAMES, WEEKDAYS, at_dt, days_match, fmt, hm, minute_of, sun
+from .memory import names_of
+from .money import HOME_GIFT, Economy
 
 DATA = Path(__file__).resolve().parent / "data"
-DAYNAMES = [w[:3] for w in WEEKDAYS]
 SPRITES = {"frock": "frock", "shirt": "shirt", "kurta": "kurta", "kurta2": "kurta", "bandhgala": "bandhgala", "nightshirt": "nightshirt"}
 NOW = {"read": "Reading {at}.", "write": "Writing {at}.", "buy": "Shopping {at}.", "eat": "Eating {at}.",
        "rest": "Resting {at}.", "stay": "{At}.", "sleep": "Asleep."}
@@ -75,26 +76,6 @@ def hours_ago(minutes):
     return "an hour ago" if h == 1 else f"{NUMBERS[h] if h < len(NUMBERS) else h} hours ago"
 
 
-def days_match(spec, d):
-    """'daily', 'Mon-Fri', 'Tue-Sun', 'Mon,Wed,Sat'."""
-    if spec == "daily":
-        return True
-    wd = d.weekday()
-    for part in spec.split(","):
-        part = part.strip()
-        if "-" in part:
-            a, b = (DAYNAMES.index(x) for x in part.split("-"))
-            if (a <= wd <= b) if a <= b else (wd >= a or wd <= b):
-                return True
-        elif DAYNAMES.index(part) == wd:
-            return True
-    return False
-
-
-def at_dt(d, minutes):
-    return datetime(d.year, d.month, d.day, tzinfo=IST) + timedelta(minutes=minutes)
-
-
 def names(lst):
     lst = list(lst)
     if len(lst) < 2:
@@ -102,12 +83,13 @@ def names(lst):
     return ", ".join(lst[:-1]) + " and " + lst[-1]
 
 
-class World:
+class World(Economy):
     def __init__(self, feeds=None):
         p = load("places.json")
         self.places, self.walks = p["places"], p["walk"]
         self.cast = load("cast.json")["cast"]
-        self.beats = load("plot.json")["beats"]
+        self.beats = load("plot.json")["beats"] + load("offers.json")["offers"]
+        self.costs = load("costs.json")["costs"]
         self.holidays = load("holidays.json")["holidays"]
         self.sensitive = wordlist("sensitive.txt", "s?")
         self.headings = headings("sensitive.txt")
@@ -212,12 +194,12 @@ class World:
             for i, w in enumerate(c["where"]):
                 if w["place"] != pid or not days_match(w["days"], d):
                     continue
-                if w.get("if") and not flags.get(w["if"]):
+                if (w.get("if") and not flags.get(w["if"])) or (w.get("date") and w["date"] != d.isoformat()):
                     continue
                 if hm(w["from"]) <= m < hm(w["to"]) and random.Random(f"{d}|{cid}|{i}").random() < w["p"]:
                     out.append(cid)
                     break
-        return out
+        return out + [c for c in self.in_session(state, pid, t) if c not in out]
 
     def short(self, cid):
         return self.cast[cid]["short"]
@@ -249,7 +231,7 @@ class World:
     def served(self, t, state):
         """The meal Ramesh has laid out at home at time t, if any."""
         name = meal_at(minute_of(t))
-        return name if name and "ramesh" in self.present_ids("home", t, state) else None
+        return name if name and "ramesh" in self.present_ids("home", t, state) and not self.kitchen(state) else None
 
     def feed(self, state, t, food):
         """A meal starts the clock again; a snack pushes hunger back two hours."""
@@ -375,6 +357,12 @@ class World:
             return None
         if b.get("from") and d.isoformat() < b["from"]:
             return None
+        self.ledger(state)
+        if b.get("when") and not self.when_ok(b["when"], t, state):
+            return None
+        back = state["refused"].get(b["id"])
+        if back and (d - date.fromisoformat(back)).days < b.get("again_days", 0):
+            return None                         # a refused offer comes back only after a while
         if any(x not in state["beats"] for x in b.get("after", [])):
             return None
         if b.get("if_missed") and b["if_missed"] not in state.get("missed", []):
@@ -397,7 +385,7 @@ class World:
         return variant
 
     def due_beat(self, t, state, pid):
-        for b in self.beats:
+        for b in self.beats + self.sessions(t.date(), state):
             v = self.eligible(b, t, state, pid)
             if v:
                 return v
@@ -406,7 +394,7 @@ class World:
     def interrupt(self, t0, end, state, pid):
         """The earliest fixed-time beat between t0 and end that needs Hegel where he will be."""
         best = end
-        for b in self.beats:
+        for b in self.beats + self.sessions(t0.date(), state):
             if not b.get("at"):
                 continue
             at = at_dt(t0.date(), hm(b["at"]))
@@ -432,24 +420,35 @@ class World:
             a = self._appointment(state, beat["id"])
             if a:
                 state["appointments"].remove(a)
-        ap = beat.get("appointment")
-        if ap:
-            d = t.date()
-            if "weekday" in ap:
-                d += timedelta(days=1)
-                while DAYNAMES[d.weekday()] != ap["weekday"]:
-                    d += timedelta(days=1)
-            else:
-                d += timedelta(days=ap["in_days"])
-            state["appointments"].append({"date": d.isoformat(), "t": ap.get("t"), "what": ap["what"], "beat": ap["beat"]})
-        return out
+        if beat.get("appointment"):
+            self.appoint(state, beat["appointment"], t)
+        if beat.get("session"):
+            self.attend(beat, t, state)
+        return out + self.effects(beat, t, state)
 
-    def settle_choice(self, beat, yes, state):
+    def appoint(self, state, ap, t):
+        """Put an appointment on his mind: for a weekday, or in_days days from now, for the beat that follows."""
+        d = t.date()
+        if "weekday" in ap:
+            d += timedelta(days=1)
+            while DAYNAMES[d.weekday()] != ap["weekday"]:
+                d += timedelta(days=1)
+        else:
+            d += timedelta(days=ap["in_days"])
+        state["appointments"].append({"date": d.isoformat(), "t": ap.get("t"), "what": ap["what"], "beat": ap["beat"]})
+
+    def settle_choice(self, beat, yes, state, t):
         branch = beat["choice"]["yes" if yes else "no"]
         state["flags"].update(branch.get("flags", {}))
         if branch.get("file"):
             state["file"] = branch["file"]
-        return [{"k": beat.get("kind", "world"), "text": branch["public"]}] if branch.get("public") else []
+        if branch.get("appointment"):
+            self.appoint(state, branch["appointment"], t)
+        if not yes and beat.get("again_days") and beat["id"] in state["beats"]:
+            state["beats"].remove(beat["id"])                    # an offer he refused may be made again
+            self.ledger(state)["refused"][beat["id"]] = t.date().isoformat()
+        out = [{"k": beat.get("kind", "world"), "text": branch["public"]}] if branch.get("public") else []
+        return out + self.effects(branch, t, state)
 
     # ── the situation ───────────────────────────────────────────────
     def situation(self, t, state, day, prev_step=None):
@@ -460,11 +459,16 @@ class World:
         wx = self.wx_at(t)
         present = self.present_ids(pid, t, state)
         events = []          # (prompt, public entry or None)
+        self.ledger(state)
+        self.track(state, d, pid, present)
         beat = self.due_beat(t, state, pid)
         for c in (beat or {}).get("brings", []):
             if c not in present:
                 present.append(c)
 
+        read = (prev_step or {}).get("read")
+        if read and prev_step.get("end") == fmt(m):                # what he looked up on his phone, as the step ends
+            events.append((f"On your phone you read: {read['title']}. {read['text']}" if read.get("text") else read["note"], None))
         said = (prev_step or {}).get("voice")
         if said and prev_step.get("end") == fmt(m):
             events.append((voices.heard(said), None))              # their answer to what he said, as the step ends
@@ -492,6 +496,8 @@ class World:
 
         if beat:
             events.append((beat["prompt"], None))
+        lines, entries = self.upkeep(t, state, pid, present, today)
+        events += [(x, None) for x in lines] + [("", e) for e in entries]
 
         if pid != "home" and not self.is_open(pid, t, state):
             events.append((f"{self.places[pid]['name']} is closing. You must leave.", None))
@@ -501,18 +507,21 @@ class World:
                 events.append((f"{self.places[pid]['name']} closes at {fmt(close)}.", None))
 
         if pid == "home" and not state.get("asleep"):
-            meal = meal_at(m)
-            if meal == "breakfast" and "breakfast" not in today and "ramesh" in present:
+            meal, why = meal_at(m), self.kitchen(state)
+            if why and meal and "no_meals" not in today:
+                today["no_meals"] = True
+                events.append((why, None))                         # said once a day: the kitchen is shut until it is paid
+            elif not why and meal == "breakfast" and "breakfast" not in today and "ramesh" in present:
                 today["breakfast"] = True
                 events.append((f"Ramesh has laid out breakfast: {random.Random(f'breakfast|{d}').choice(BREAKFAST)}.", None))
-            if meal == "lunch" and "lunch" not in today:
+            elif not why and meal == "lunch" and "lunch" not in today:
                 today["lunch"] = True
                 if "ramesh" in present:
                     menu = random.Random(f"lunch|{d}").choice(LUNCH)
                     events.append((f"Ramesh has laid out lunch: {menu}.", None))
                 else:
                     events.append(("Ramesh has his day off. There is no lunch at home today.", None))
-            if meal == "dinner" and "dinner" not in today and "ramesh" in present:
+            elif not why and meal == "dinner" and "dinner" not in today and "ramesh" in present:
                 today["dinner"] = True
                 menu = random.Random(f"dinner|{d}").choice(DINNER)
                 events.append((f"Ramesh serves dinner before he goes home: {menu}.", None))
@@ -547,20 +556,22 @@ class World:
 
         body, felt = self.needs(t, state)
         events += [(x, None) for x in felt]
-        if not events:
+        if not any(p for p, _ in events):
             part = "morning" if m < 720 else "afternoon" if m < 1020 else "evening" if m < 1260 else "night"
             events.append((f"Nothing in particular happens. The {part} goes on.", None))
 
         open_now = self.open_places(t, state)
         closes = {p: fmt(c) for p in open_now if (c := self.closes(p, t, state)) and c - m <= 180}
+        have = lambda s: s.get("tech") in ("phone", "sim") and state["tech"][s["tech"]]         # a phone or SIM he already has is not offered again
         for_sale = [f"{s['item']} ₹{s['price']}" for s in self.places[pid].get("sells", [])
-                    if not s.get("needs_flag") or state["flags"].get(s["needs_flag"][0]) == s["needs_flag"][1]]
+                    if (not s.get("needs_flag") or state["flags"].get(s["needs_flag"][0]) == s["needs_flag"][1]) and not have(s)]
         if self.places[pid].get("books"):
             for_sale.append("books")
         on_mind = [f"The file: {state['file']}"]
         for a in state["appointments"]:
             when = datetime.fromisoformat(a["date"]).date()
             on_mind.append(f"{WEEKDAYS[when.weekday()]} {when.day} {when.strftime('%B')}{' ' + a['t'] if a.get('t') else ''}: {a['what']}.")
+        on_mind += self.engagement_lines(t, state)
         flag = state["flags"].get("bandhgala")
         if flag == "ordered":
             on_mind.append("Your bandhgala is with Masterji at Khan Market, promised for Thursday 8 October.")
@@ -568,6 +579,9 @@ class World:
             on_mind.append("Your bandhgala is ready at Masterji's. The balance is ₹3,500.")
         if state.get("theses"):
             on_mind.append("Your theses: " + "; ".join(f"{x['text']} ({x['status']})" for x in state["theses"]) + ".")
+        on_mind.append(self.money_line(state, t))
+        if state["tech"]["phone"] and state["tech"]["sim"]:
+            on_mind.append("You have a phone with a SIM: you may look something up (looks_up).")
         on_mind.append(body)
         earlier = []
         for s in (day.get("steps") or [])[-6:]:
@@ -582,10 +596,10 @@ class World:
             "day": f"{WEEKDAYS[d.weekday()]} {d.day} {d.strftime('%B')}" + (f" ({hol['name']})" if hol else ""),
             "time": fmt(m), "place": pid,
             "weather": f"{wx['temp']} °C, {wx['sky']}", "aqi": wx.get("aqi") or "unknown",
-            "imprest_left": state["imprest"], "outfit": self.outfit_name(state),
+            "imprest_left": state["imprest"], "cash_label": "Cash", "outfit": self.outfit_name(state),
             "present": [self.short(c) for c in present], "open_now": open_now, "closes": closes,
             "for_sale": for_sale, "on_mind": on_mind, "earlier": earlier,
-            "event": " ".join(p for p, _ in events),
+            "event": " ".join(p for p, _ in events if p),
         }
         self.show_plan(sit, day)
         ctx = {"t": t, "present": present, "beat": beat, "public": [e for _, e in events if e],
@@ -599,6 +613,10 @@ class World:
         if errors:
             return errors, warnings, None
         ans = copy.deepcopy(ans)
+        if isinstance(ans.get("looks_up"), str):
+            ans["looks_up"] = " ".join(ans["looks_up"].split())
+        if not ans.get("looks_up"):
+            ans.pop("looks_up", None)                  # nothing to look up: the key stays out of the record
         t, cur = ctx["t"], state["place"]
         action, dest = ans["action"], ans["place"]
         if action == "walk" and dest == cur:
@@ -623,7 +641,8 @@ class World:
         where = dest
         pl = self.places[where]
         hol = self.holiday(arrival.date())
-        buys = []
+        here = self.present_ids(dest, arrival, state) if moves else ctx["present"]          # who is there when he buys
+        have, buys = dict(self.ledger(state)["tech"]), []
         for b in ans["buys"]:
             item, price = b["item"].strip(), b["price_inr"]
             low = item.lower()
@@ -636,10 +655,20 @@ class World:
                 if nf and state["flags"].get(nf[0]) != nf[1]:
                     errors.append(match.get("not_ready", f"'{item}' is not to be had yet"))
                     continue
+                tech = match.get("tech")
+                problem = self.tech_problem(tech, have, state, here) if tech else None
+                if problem:
+                    errors.append(problem)
+                    continue
                 if price != match["price"]:
                     warnings.append(f"price of '{item}' set to ₹{match['price']}")
                 buys.append({"item": match["item"], "price": match["price"], "garment": match.get("garment"), "wear": match.get("wear"),
-                             "food": match.get("food")})
+                             "food": match.get("food"), "office": match.get("office"), "tech": tech})
+                if tech:
+                    have[tech] = True
+                if tech == "sim":
+                    who = self.names_present(state, here)[0]
+                    buys[-1]["note"] = f"Bought in {min(names_of(self.cast[who]), key=len)}'s name."
             elif pl.get("books") and any(k in low for k in pl["books"]["match"]):
                 lo, hi = pl["books"]["range"]
                 if not lo <= price <= hi:
@@ -650,12 +679,17 @@ class World:
                 if not lo <= price <= hi:
                     errors.append(f"₹{price} is not a believable price for '{item}' {pl['at']}")
                 buys.append({"item": item, "price": price})
+            elif where == "home" and voices.addressed(self.cast, item, here):      # at home only a payment or a gift to a person there
+                lo, hi = HOME_GIFT
+                if not lo <= price <= hi:
+                    errors.append(f"₹{price:,} is not a believable gift or payment for {self.cast[voices.addressed(self.cast, item, here)]['name']} (₹{lo}–{hi:,})")
+                buys.append({"item": item, "price": price})
             else:
                 errors.append(f"nothing is sold {pl['at']}")
                 break
         spent = sum(b["price"] for b in buys)
         if spent > state["imprest"]:
-            errors.append(f"that costs ₹{spent:,} and only ₹{state['imprest']:,} of the imprest is left")
+            errors.append(f"that costs ₹{spent:,} and you have only ₹{state['imprest']:,} in cash")
         if pl.get("entry") and action != "walk" and where not in state.get("today", {}).get("tickets", []):
             if not any(any(k in b["item"].lower() for k in pl["entry"]["match"]) for b in buys):
                 errors.append(f"you need an entry ticket for {pl['name']}; buy one at the counter")
@@ -671,6 +705,16 @@ class World:
             warnings.append("talks although nobody is present")
         plan = {"moves": moves, "dest": dest, "arrival": arrival, "buys": buys}
         return errors, warnings, (ans, plan)
+
+    def tech_problem(self, tech, have, state, here):
+        """Why he cannot buy this piece of technology just now (have: what he owns, with what is in the same purchase), or None."""
+        if tech in ("phone", "sim") and have.get(tech):
+            return f"you already have a {'phone' if tech == 'phone' else 'SIM'}"
+        if tech == "sim" and not self.names_present(state, here):
+            return "The shop wants an ID for a SIM; you have none."
+        if tech == "data" and not have.get("sim"):
+            return "A data pack is for a SIM, and you have none."
+        return None
 
     # ── the step ────────────────────────────────────────────────────
     def apply(self, ans, plan, sit, ctx, state, day):
@@ -730,6 +774,11 @@ class World:
             e = works.file(state, w, d)
             entry(t0, self.mark(e, w["title"], w["text"], w["to"]))
             self.mark(next(x for x in state["works"] if x["id"] == e["work"]), e["title"], w["to"])      # a title can be sensitive too
+            for x in self.on_writing(state, e["words"], t0):                                           # a magazine's fee for a sitting long enough
+                entry(t0, x)
+        if ctx.get("read") and ctx["read"].get("text"):                                                 # he looked something up on his phone
+            r = ctx["read"]
+            entry(t0, self.mark({"k": "read", "title": r["title"], "text": r["text"], "source": r["source"], "url": r["url"]}, r["title"], r["text"]))
 
         t = t0
         if plan["moves"]:
@@ -789,8 +838,12 @@ class World:
         if action == "eat" and dest == "home" and self.served(t, state):
             self.feed(state, t, "meal")
         for b in plan["buys"]:
-            entry(t, {"k": "bag", "item": b["item"], "price": b["price"]})
+            entry(t, dict({"k": "bag", "item": b["item"], "price": b["price"]}, **{k: b[k] for k in ("office", "note") if b.get(k)}))
             state["imprest"] -= b["price"]
+            self.voucher(state, t, b["item"], b["price"], b.get("office"))
+            if b.get("tech"):
+                got = {"phone": {"phone": True}, "sim": {"sim": True, "sim_from": d.isoformat()}, "data": {"data_from": d.isoformat()}}
+                state["tech"].update(got[b["tech"]])
             if b.get("food"):
                 self.feed(state, t, b["food"])
             pl = self.places[dest]
@@ -822,4 +875,6 @@ class World:
                 "event": sit["event"], "present": sit["present"], "decision": ans, "arrived": arrived}
         if ctx.get("reply"):
             step["voice"] = ctx["reply"]            # opens the next situation
+        if ctx.get("read"):
+            step["read"] = ctx["read"]              # what he looked up: opens the next situation
         return step

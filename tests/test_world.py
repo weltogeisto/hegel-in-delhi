@@ -42,6 +42,12 @@ def answer(**kw):
     return a
 
 
+def page_about(query, cache):
+    """A stand-in for lookup.find: a page for anything."""
+    return {"title": query, "text": f"A page about {query}, as the encyclopedia has it. It runs to a few sentences.", "source": "Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/" + query.replace(" ", "_")}
+
+
 class Sandbox:
     """A scratch copy of docs/days with day 1, and a config pointing at it."""
 
@@ -55,7 +61,9 @@ class Sandbox:
         self.days = Days(self.cfg.docs)
 
     def engine(self, mind=None, git=None):
-        return Engine(self.cfg, World(), mind or StubMind(), git=git)
+        e = Engine(self.cfg, World(), mind or StubMind(), git=git)
+        e.lookup = page_about                   # no test goes to Wikipedia
+        return e
 
     def run_day(self, d, engine=None):
         engine = engine or self.engine()
@@ -178,7 +186,7 @@ class RulesTest(unittest.TestCase):
         self.assertEqual(plan["buys"][0]["price"], 20)                       # the world's price, not the mind's
         st["imprest"] = 10
         errors, _, _ = self.check(t, st, action="buy", place="khan", buys=[{"item": "chai", "price_inr": 20}])
-        self.assertTrue(any("imprest" in e for e in errors))
+        self.assertTrue(any("only ₹10 in cash" in e for e in errors))
 
     def test_dry_day_and_unready_bandhgala(self):
         st = state()
@@ -264,8 +272,10 @@ class EngineTest(unittest.TestCase):
             self.assertEqual(a["to"], b["from"], f"gap or overlap at {a['to']}/{b['from']}")
         for s in segs:
             self.assertLess(hm(s["from"]), hm(s["to"]))
-        spent = sum(e["price"] for e in day["entries"] if e["k"] == "bag")
-        self.assertEqual(day["opening"]["imprest"] - spent, day["state"]["imprest"])
+        got = sum(e["amount"] for e in day["entries"] if e["k"] == "income" and not e.get("cheque"))       # cash comes in as well as goes out
+        spent = sum(e["price"] for e in day["entries"] if e["k"] == "bag") + sum(e["amount"] for e in day["entries"] if e["k"] == "expense")
+        self.assertEqual(day["opening"]["imprest"] + got - spent, day["state"]["imprest"])
+        self.assertGreaterEqual(day["state"]["imprest"], 0)
 
     def test_a_whole_day(self):
         day = self.box.run_day(date(2026, 10, 3))

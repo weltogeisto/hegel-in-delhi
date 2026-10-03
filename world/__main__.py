@@ -101,7 +101,7 @@ def cmd_status(cfg, args):
     print(f"Delhi now      {now:%Y-%m-%d %H:%M}")
     print(f"latest day     {day['n']} ({day['date']}), {len(steps)} steps, complete: {day.get('complete', False)}")
     print(f"published to   {until:%Y-%m-%d %H:%M} ({ahead:+.0f} min)" + ("  ← behind" if ahead < 0 else ""))
-    print(f"he is          {'asleep' if st.get('asleep') else 'awake'}, place {st['place']}, imprest ₹{st['imprest']:,}")
+    print(f"he is          {'asleep' if st.get('asleep') else 'awake'}, place {st['place']}, cash ₹{st['imprest']:,}")
     print(f"the file       {st.get('file')}")
     if last:
         d, m = last["decision"], last.get("mind", {})
@@ -151,7 +151,7 @@ def cmd_simulate(cfg, args):
         srcs[s["mind"]["source"]] = srcs.get(s["mind"]["source"], 0) + 1
     refused = sum(len(s["mind"].get("refused", [])) for s in steps)
     print(f"day {day['n']} ({day['date']}): {len(steps)} steps, {len(day['segments'])} segments, {len(day['entries'])} entries; "
-          f"by {srcs}; {refused} refusals; imprest ₹{day['state']['imprest']:,}")
+          f"by {srcs}; {refused} refusals; cash ₹{day['state']['imprest']:,}")
     print(f"wrote {out}/days/{day['date']}.json  (serve {out} and open index.html#{day['date']} to watch it)")
     return 0
 
@@ -167,6 +167,30 @@ def cmd_owl(cfg, args):
     if engine.git:
         engine.git.publish([days.path(x) for x in dict.fromkeys(changed)] + [days.dir / "index.json"], f"Day {day['n']}: the owl's write-up")
     return 0
+
+
+def economy_problems(w):
+    """What is wrong with the costs and the offers: places, people and beats that do not exist."""
+    out, beats = [], {b["id"] for b in w.beats}
+    for c in w.costs:
+        if c.get("at") and c["at"] not in w.places:
+            out.append(f"cost {c['id']}: unknown place {c['at']}")
+        if c.get("with") and c["with"] not in w.cast:
+            out.append(f"cost {c['id']}: unknown cast {c['with']}")
+        if not {"weekday", "monthday", "every"} & set(c["when"]):
+            out.append(f"cost {c['id']}: no rule for when it falls due")
+    for b in w.beats:
+        for spec in [b] + [x for x in (b.get("choice") or {}).values() if isinstance(x, dict)]:
+            for key in ("pay", "cheque", "sell", "schedule", "owe"):
+                x = spec.get(key) or {}
+                for ref, known in (("at", w.places), ("with", w.cast), ("beat", beats)):
+                    if x.get(ref) and x[ref] not in known:
+                        out.append(f"beat {b['id']}: {key} refers to unknown {ref} {x[ref]}")
+        for cond in (b.get("when") or {}).get("met_days", {}), (b.get("when") or {}).get("visits", {}):
+            for k in cond:
+                if k not in w.cast and k not in w.places:
+                    out.append(f"beat {b['id']}: unknown {k} in its conditions")
+    return out
 
 
 def cmd_check(cfg, args):
@@ -196,6 +220,7 @@ def cmd_check(cfg, args):
         for x in b.get("after", []) + [b.get("missed"), b.get("if_missed"), (b.get("appointment") or {}).get("beat")]:
             if x and x not in {y["id"] for y in w.beats}:
                 problems.append(f"beat {b['id']}: unknown beat {x}")
+    problems += economy_problems(w)
     days = Days(cfg.docs)
     for r in days.index()["days"]:
         day = days.load(r["date"])
@@ -213,6 +238,11 @@ def cmd_check(cfg, args):
                     problems.append(f"{r['date']}: unknown place {p}")
         if day["segments"] and day["segments"][0]["from"] != "00:00":
             problems.append(f"{r['date']}: first segment does not start at 00:00")
+        if "cash" in day["opening"]:                 # from the economy on, the entries add up to the cash he ends the day with
+            cash = day["opening"]["cash"] + sum(e["amount"] for e in day["entries"] if e["k"] == "income" and not e.get("cheque")) \
+                - sum(e["price"] for e in day["entries"] if e["k"] == "bag") - sum(e["amount"] for e in day["entries"] if e["k"] == "expense")
+            if cash != day["state"]["imprest"]:
+                problems.append(f"{r['date']}: the entries leave ₹{cash:,} but the state says ₹{day['state']['imprest']:,}")
         manuscripts = {x["id"] for x in day["state"].get("works", [])}
         for e in day["entries"]:
             if e.get("sensitive") and not e.get("why"):

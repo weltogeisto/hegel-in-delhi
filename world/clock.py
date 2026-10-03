@@ -6,6 +6,7 @@ IST = timezone(timedelta(hours=5, minutes=30), "IST")
 LAT, LON = 28.600, 77.210           # Tughlak Road, roughly
 DAY_ONE = date(2026, 10, 2)
 WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+DAYNAMES = [w[:3] for w in WEEKDAYS]
 MONTHS = ["January", "February", "March", "April", "May", "June", "July",
           "August", "September", "October", "November", "December"]
 
@@ -33,6 +34,27 @@ def fmt(minutes):
 
 def minute_of(dt):
     return dt.hour * 60 + dt.minute
+
+
+def at_dt(d, minutes):
+    """Minute `minutes` of date d, in Delhi time."""
+    return datetime(d.year, d.month, d.day, tzinfo=IST) + timedelta(minutes=minutes)
+
+
+def days_match(spec, d):
+    """'daily', 'Mon-Fri', 'Tue-Sun', 'Mon,Wed,Sat'."""
+    if spec == "daily":
+        return True
+    wd = d.weekday()
+    for part in spec.split(","):
+        part = part.strip()
+        if "-" in part:
+            a, b = (DAYNAMES.index(x) for x in part.split("-"))
+            if (a <= wd <= b) if a <= b else (wd >= a or wd <= b):
+                return True
+        elif DAYNAMES.index(part) == wd:
+            return True
+    return False
 
 
 def day_number(d):

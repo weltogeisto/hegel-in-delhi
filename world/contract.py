@@ -22,6 +22,7 @@ SCHEMA = {
             "properties": {"item": {"type": "string"}, "price_inr": {"type": "integer", "minimum": 0}},
             "required": ["item", "price_inr"]}},
         "revision": NULLABLE_STR,
+        "looks_up": NULLABLE_STR,           # optional, and not required: something to look up on his phone
     },
     "required": ["thought", "action", "place", "minutes", "says", "buys", "revision"],
 }
@@ -70,7 +71,7 @@ def render(s, ask=ASK):
     text = (
         f"{s['day']}, {s['time']} Delhi time. You are at: {s['place']}.\n"
         f"Weather: {s['weather']}. Air quality index: {s['aqi']}.\n"
-        f"Wearing: {s['outfit']}. Imprest left: ₹{s['imprest_left']:,}.\n"
+        f"Wearing: {s['outfit']}. {s.get('cash_label', 'Imprest left')}: ₹{s['imprest_left']:,}.\n"
         f"Present: {present}.\n"
         f"Open now: {open_now}.\n"
     )
@@ -121,9 +122,11 @@ def check_shape(ans):
             isinstance(b, dict) and isinstance(b.get("item"), str) and isinstance(b.get("price_inr"), int)
             and not isinstance(b.get("price_inr"), bool) and b["price_inr"] >= 0 for b in ans["buys"]):
         errors.append("buys is malformed")
-    for k in ("says", "revision"):
-        if ans[k] is not None and not isinstance(ans[k], str):
+    for k in ("says", "revision", "looks_up"):
+        if ans.get(k) is not None and not isinstance(ans[k], str):
             errors.append(f"'{k}' must be text or null")
+    if isinstance(ans.get("looks_up"), str) and len(ans["looks_up"]) > 100:
+        errors.append("looks_up is too long: a few words to look up")
     thought = ans["thought"] if isinstance(ans["thought"], str) else ""
     if len(thought.strip()) < 20:
         errors.append("thought is empty or too short")
