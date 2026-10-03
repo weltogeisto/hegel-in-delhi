@@ -71,7 +71,7 @@ class Rehearsal(unittest.TestCase):
             self.assertEqual((segs[0]["from"], segs[-1]["to"]), ("00:00", "24:00"), day["date"])
             self.assertTrue(all(a["to"] == b["from"] for a, b in zip(segs, segs[1:])), day["date"])
             steps = [s for s in day["steps"] if "decision" in s]
-            self.assertTrue(15 <= len(steps) <= 30, (day["date"], len(steps)))
+            self.assertTrue(15 <= len(steps) <= 35, (day["date"], len(steps)))     # real-map walks are shorter: more steps fit
             refused += sum(len(s["mind"].get("refused", [])) for s in steps)
             self.assertTrue(day["complete"] and day["owl"], day["date"])
         self.assertLessEqual(refused / DAYS, 2)
