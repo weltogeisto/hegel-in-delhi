@@ -6,6 +6,8 @@ The adapter learns from two sources only: Hegel's own books (the shelf, public d
 
 Do the steps in order and report each result to Welt in one line, with the exact error text if something fails. Don't improvise around a failure; stop and report. Windows commands run in PowerShell as Administrator; Linux commands run in the WSL2 Ubuntu shell.
 
+**Before you start.** This runbook builds on `pc/CODEX.md` (llama.cpp in `C:\hegel\llama`, Bonsai as the "Hegel mind" task, the sleep watchdog). If parts of it were never done, say so in step 1 and skip the lines here that touch "Hegel mind", the watchdog or `C:\hegel\awake.flag`; everything else stands. Welt is needed at these points, so ask and wait: the reboot and the Ubuntu user name in step 2, the base model in step 3 if there is no exact match, the go after the samples in step 4, and the projection in step 5 if it is over 20 hours. The long runs (the distillation, the training) go into tmux: start them, report that they are running with the first progress line, and end your turn. When Welt asks you to check, attach, report the last progress line, and carry on with the next step once the run says it is done; after a crash, run the same command again (step 4) or add `--resume` (step 5).
+
 | Step | What | PC time |
 |---|---|---|
 | 1 | Report what is installed | 5 min |
@@ -67,7 +69,6 @@ nvidia-smi                      # must show the 3090. Never install a Linux NVID
 sudo apt update && sudo apt install -y python3-venv python3-pip git tmux build-essential
 git clone https://github.com/weltogeisto/hegel-in-delhi ~/hegel-in-delhi
 cd ~/hegel-in-delhi && git log -1 --oneline
-ls pc/TRAINING.md tools/train_data.py   # if missing, Welt has not merged yet: git checkout ccr-5ef65e9d-sxf8y0
 python3 -m unittest discover -s tests   # prints OK (about two minutes)
 ```
 
@@ -118,7 +119,7 @@ Keep the PC awake (the sleep watchdog does not see the training as activity), an
 
 ```powershell
 New-Item -Force C:\hegel\awake.flag
-Disable-ScheduledTask "Hegel mind" | Out-Null
+Disable-ScheduledTask "Hegel mind" -ErrorAction SilentlyContinue | Out-Null
 Stop-ScheduledTask "Hegel mind" -ErrorAction SilentlyContinue
 Stop-Process -Name llama-server -ErrorAction SilentlyContinue
 ```
@@ -209,7 +210,7 @@ curl.exe -fsSL -o C:\hegel\scripts\start-hegel.ps1 https://raw.githubusercontent
 curl.exe -fsSL -o C:\hegel\scripts\sleep-watchdog.ps1 https://raw.githubusercontent.com/weltogeisto/hegel-in-delhi/main/pc/sleep-watchdog.ps1
 ```
 
-If Welt has not merged yet, copy both files from `\\wsl$\Ubuntu-24.04\home\<user>\hegel-in-delhi\pc\` instead. The new watchdog also counts ports 8082 and 8083 as activity; restart its task (`Stop-ScheduledTask "Hegel sleep watchdog"; Start-ScheduledTask "Hegel sleep watchdog"`). In `start-hegel.ps1`, set the default of `-Model` to the full path of the Qwen GGUF from step 1, then:
+The new watchdog also counts ports 8082 and 8083 as activity; restart its task (`Stop-ScheduledTask "Hegel sleep watchdog"; Start-ScheduledTask "Hegel sleep watchdog"`). In `start-hegel.ps1`, set the default of `-Model` to the full path of the Qwen GGUF from step 1, then:
 
 ```powershell
 Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File C:\hegel\scripts\start-hegel.ps1'
@@ -249,10 +250,10 @@ Leave the trained mind running on 8082 and tell Welt it is ready. Hermes runs th
 When Hermes is done:
 
 ```powershell
-Remove-Item C:\hegel\awake.flag
+Remove-Item C:\hegel\awake.flag -ErrorAction SilentlyContinue
 Stop-Process -Name llama-server -ErrorAction SilentlyContinue
-Enable-ScheduledTask "Hegel mind" | Out-Null
-Start-ScheduledTask "Hegel mind"
+Enable-ScheduledTask "Hegel mind" -ErrorAction SilentlyContinue | Out-Null
+Start-ScheduledTask "Hegel mind" -ErrorAction SilentlyContinue
 ```
 
 Bonsai is back on 8081, and the PC sleeps when idle again; put Windows' sleep timer back if step 4 changed it. Tell Welt the world on the Pi may run again. Keep `pc/out/hegel-lora/`, `C:\hegel\models\hegel-lora.gguf` and `mind/train/` until Welt says otherwise: a second round of training starts from them.
