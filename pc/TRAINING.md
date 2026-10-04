@@ -16,7 +16,7 @@ Do the steps in order and report each result to Welt in one line, with the exact
 | 4 | The data: books, general set, distillation with Qwen | 10 min, then **5–8 hours** with Qwen on the GPU |
 | 5 | Dry run, then the training | 30 min, then **8–16 hours** |
 | 6 | Convert the adapter, serve it on 8082 | 20 min |
-| 7 | Optional: the adapter on Bonsai | 10 min |
+| 7 | Optional: the adapter on Bonsai 2 | 10–30 min |
 | 8 | Hand over to Hermes for the Hegel test | 20–60 min of PC time |
 
 Steps 4 and 5 run for hours unattended. During them the GPU is busy, so **the world on the Pi must not be live**: ask Welt to pause it before step 4 and to say when it may run again.
@@ -40,7 +40,7 @@ curl.exe http://127.0.0.1:8080/v1/models
 curl.exe http://127.0.0.1:8080/props
 ```
 
-Report to Welt: GPU and driver version, free disk on C:, RAM, the Windows build, the llama.cpp build number, the full path of the Qwen GGUF that serves port 8080, and the command line it is started with. Training needs about **90 GB free** on the disk that holds WSL; if there is less, stop and report.
+Report to Welt: GPU and driver version, free disk on C:, RAM, the Windows build, the llama.cpp build number, the full path of the Qwen GGUF that serves port 8080, and the command line it is started with; and which Bonsai is installed, by its file name (`Ternary-Bonsai-2-27B-...` is Bonsai 2, made from Qwen3.8-27B; `Ternary-Bonsai-27B-...` is the first Bonsai, made from Qwen3.6-27B). Training needs about **90 GB free** on the disk that holds WSL; if there is less, stop and report.
 
 ## 2. WSL2, CUDA, Python
 
@@ -224,19 +224,21 @@ curl.exe -s http://127.0.0.1:8082/v1/chat/completions -H "Content-Type: applicat
 
 Send Welt the answer as it came.
 
-## 7. Optional, one try: the adapter on Bonsai
+## 7. Optional, one try: the adapter on Bonsai 2
 
-Bonsai is a ternary version of a Qwen 27B. If it shares the installed Qwen's architecture, the adapter may load on it; it may also refuse, or load and answer worse. One try, no fixing:
+Bonsai 2 27B is PrismML's ternary version of Qwen3.8-27B: the same base the adapter was trained on, with its weights cut to three values in a rotated basis. The adapter may load on it and carry Hegel over at Bonsai's speed; it may also refuse, or load and answer worse. PrismML publishes no full-precision Bonsai 2 to train on and says nothing about adapters, so this is one try, no fixing. It does not apply to the first Bonsai (made from Qwen3.6-27B): if step 1 found only that one, skip this step and say so.
+
+Bonsai 2 runs only on PrismML's llama.cpp fork (`prism-b10658` or newer); the stock server rejects its file types. From https://github.com/PrismML-Eng/llama.cpp/releases take the Windows CUDA build and unzip it into `C:\hegel\llama-prism` (not over the stock one). If Bonsai 2 is not on the PC yet, it is `Ternary-Bonsai-2-27B-PQ2_0.gguf` (7.2 GB) from https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf.
 
 ```powershell
 Stop-Process -Name llama-server -ErrorAction SilentlyContinue
-Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File C:\hegel\scripts\start-hegel.ps1 -Model C:\hegel\models\Ternary-Bonsai-27B-Q2_g64.gguf -Port 8083 -Alias hegel-bonsai'
+Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File C:\hegel\scripts\start-hegel.ps1 -Llama C:\hegel\llama-prism\llama-server.exe -Model C:\hegel\models\Ternary-Bonsai-2-27B-PQ2_0.gguf -Port 8083 -Alias hegel-bonsai'
 Start-Sleep 90
 curl.exe http://127.0.0.1:8083/health
 Get-Content C:\hegel\logs\hegel-bonsai.err.log -Tail 15
 ```
 
-Report whether it loaded and, if so, its answer to the same question (step 6's `curl.exe`, port 8083). Then stop it (`Stop-Process -Name llama-server`) and start the 8082 server again as in step 6.
+Report whether it loaded and, if so, its answer to the same question (step 6's `curl.exe`, port 8083). Then stop it (`Stop-Process -Name llama-server`) and start the 8082 server again as in step 6. If it answers, Hermes tests it as well (step 8).
 
 ## 8. Hand over to Hermes
 
