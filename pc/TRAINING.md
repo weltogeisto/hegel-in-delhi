@@ -130,7 +130,7 @@ In Ubuntu (the data tool needs only Python's standard library, no virtual enviro
 
 ```bash
 cd ~/hegel-in-delhi
-python3 tools/train_data.py --corpus          # about 10 s: about 2,300 documents, about 3.1 M tokens: his books, his papers and two lives of him
+python3 tools/train_data.py --corpus          # about 10 s: about 2,500 documents, about 3.4 M tokens: his books, his papers, his letters and two lives of him
 python3 tools/train_data.py --general 1500    # a few minutes, needs the internet: human-written answers, Apache-2.0 and ODC-BY
 curl -s http://127.0.0.1:8080/health          # must answer {"status":"ok"}; without mirrored networking use the PC's LAN address
 ```
@@ -180,7 +180,7 @@ Then the real run, with the settings the dry run proved:
 python pc/train_hegel.py --base ~/models/qwen-base 2>&1 | tee -a pc/out/train.log
 ```
 
-Phase 1 trains on his books, his early papers and two lives of him, Rosenkranz's and Caird's (about 3 M tokens, one pass), phase 2 on the decisions, plans, writings and voices mixed one to one with the general set (two passes). It prints a line per step with the loss. Expect 8 to 16 hours, or what the dry run projected. A checkpoint is saved every 25 steps.
+Phase 1 trains on his books, his early papers, his letters (1785-1831, edited 1887) and two lives of him, Rosenkranz's and Caird's (about 3.4 M tokens, one pass), phase 2 on the decisions, plans, writings and voices mixed one to one with the general set (two passes). It prints a line per step with the loss. Expect 8 to 16 hours, or what the dry run projected. A checkpoint is saved every 25 steps.
 
 - **After a crash or reboot:** the same command with `--resume`. A finished phase 1 is not trained again.
 - **The loss** should fall in the first hundred steps of each phase and then flatten. Report it if it rises steadily, reads `nan`, or stays at 0.

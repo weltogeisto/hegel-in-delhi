@@ -162,16 +162,17 @@ class RealCorpusTest(TmpCase):
     def test_it_holds_only_passages_of_the_shelf_index_so_no_damaged_scan_and_nothing_after_1831(self):
         with gzip.open(REPO / "mind/shelf/index.json.gz", "rt", encoding="utf-8") as f:
             indexed = set(json.load(f)["texts"])
-        kept = {p for w in corpus.kept_works() if not w["shelf"] for _, p in w["passages"]}        # the lives: kept by the same filters, never indexed
+        kept = {p for w in corpus.kept_works() if not w["shelf"] for _, p in w["passages"]}        # the lives and letters: same filters, never indexed
         for d in self.docs:
             for passage in d["text"].split("\n\n")[1:]:
-                self.assertIn(passage, kept if d["text"].startswith(LIVES) or "Papieren" in d["text"][:80] else indexed)
+                self.assertIn(passage, kept | indexed)
         self.assertFalse(kept & indexed)
         self.assertFalse(any(corpus.GARBLE.search(p) for d in self.docs for p in d["text"].split("\n\n")[1:]))
 
     def test_the_lives_are_in_and_end_before_his_death(self):
         lives = [d["text"] for d in self.docs if d["text"].startswith(LIVES)]
         self.assertGreater(sum(map(len, lives)), 800000)
+        self.assertTrue(any(d.startswith("Karl Hegel (ed.), Briefe von und an Hegel") for d in lives))
         self.assertTrue(any("Grundlinien" not in d and "Hölderlin" in d for d in lives))
         for d in lives:
             self.assertNotRegex(d.split("\n\n")[0], r"Hegels? Tod|His Death")               # no chapter on his death
@@ -185,7 +186,7 @@ class RealCorpusTest(TmpCase):
             self.assertTrue(any(work_title(w) in h for h in heads), w["id"])
 
 
-LIVES = ("Karl Rosenkranz, ", "Edward Caird, ")
+LIVES = ("Karl Rosenkranz, ", "Edward Caird, ", "Karl Hegel (ed.), ")
 
 
 def work_title(w):

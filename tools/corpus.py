@@ -634,12 +634,227 @@ work("caird", "Hegel", "en", "Hegel (Philosophical Classics for English Readers)
      skip="the prefatory note, the account of his death and burial, and chapters VII-IX (Caird's own exposition of the system)",
      author="Edward Caird", shelf=False)
 
+# ── the letters: for training only ──────────────────────────────────
+LETTER_NO = re.compile(r"(?:\S{1,2}\s)?\d{1,3}\s?[.,]?(?:\s\S{1,2})?")             # a letter's number alone on its line: '40.', '61. ö', 'ö 63.'
+LETTER_HEAD = re.compile(r"(?:van |v\. |von )?[A-ZÄÖÜ][^\n]{0,45}? an [^\n]{2,50}?\.?")        # 'Hegel an v. Knebel.', 'Caroline Paulus an Hegel.'
+TRAVEL = re.compile(r"[RK]eise nach (?:den )?[A-ZÄÖÜ][\w ]{2,25}\.?")                         # the three journeys, each numbered as one letter: 'Reise nach Paris'
+NAME_WORD = {"v.", "van", "von", "und", "u.", "d.", "der", "den", "die", "seine", "seinen", "seiner"}
+SIGNATURE = re.compile(r"(?m)^Hegel[,.]? ?Werke\.[^\n]{0,20}\n")                        # the printer's signature at the foot of a sheet: 'Hegel, Werke. XIX. 1. 3'
+YEAR_END = re.compile(r"(?:^|[\s(\[])1[78][\dOIl]{2}[\dIl]?(?:\s*\d\))?[\s.,?!)\]]*$|\d\s?/\s?\d{1,2}\s\d\d\.?$")   # '... Nov. 1807.', '... (1811]', '... 20/9 21.'
+SHORT_YEAR = re.compile(r"\s\d\d?\.?$")                                                   # '... Octbr 06.', '... Aug. 5.'
+EDITOR = re.compile(r"\bgeb\.|\bgest\.|\bH\.s?\b|\b[Vv]gl\.|\bNr\. \d|folgenden? (?:Briefe?|Correspondenz|Bülletins)")      # the words of the editor's sketch
+MONTH = re.compile(r"\b(?:Jan|Feb|M[äa]r|Apr|Mai|May|Jun|Jul|Aug|Sep|Oct|Okt|Nov|Dec|Dez|Jenner|Hornung|Ostern|Pfingsten|Weihnacht|Sommer|Herbst|Winter|Fr[üu]hjahr|"
+                   r"Janvier|F[ée]vr|Avril|Juin|Juil|Ao[uû]t|Octobre|Novembre|D[ée]cembre)", re.I)
+LATER_YEAR = re.compile(r"\b18(?:3[2-9]|[4-9]\d)\b")                                         # a year after his death: in the editor's words, never in a letter
+PAGE_NO = re.compile(r"[—-]\s?\d{1,4}\s?[—-]|II?I?\.")                                   # '— 160 —': the head of a page; 'II.': the title of a part
+FOOT_START = re.compile(r"(?:[1Il]\)|\*\)|[a-d]\))\s?\S")                                    # the first footnote of a page: '1) Der bekannte Philosoph ...'
+NOTE_OPEN = re.compile(r"\[\(?(?:Gedr|Nach |Nach$|Antwort|Es folg|Folgt|Der Schlu|Dieser |Schellings Antwort|Poststempel|Das Folg|Abgedr|Revid|Vgl|Druck nach|Darunter|Der (?:Brief|Herausgeber|Gedanke)|Dictat|Nur die|Stellenweise|Brief mit|van Ghert hatte)")
+# what the Fraktur model reads for a letter of a name: 'Riethammer' (Niethammer), 'Bchelling' (Schelling), 'Cvusin' (Cousin), 'Jrau' (Frau)
+NAME_SLIPS = {"B": "HSNVD", "R": "KN", "V": "N", "J": "FI", "O": "SG", "P": "V", "T": "L", "D": "V", "H": "S", "A": "KN", "v": "o", "y": "o", "p": "o", "l": "s", "r": "c", "f": "z", "i": "z", "j": "z"}
+
+
+def letter_head(lines, i):
+    """(title, index of the line after it) if the line at `i` is a letter's heading as the scan reads it: 'Hegel an Niethammer.', two lines long
+    where the name wraps ('... Stein' / 'v. Altenstein.'), or the title of a journey whose letters to his wife are printed as one. The words of a
+    heading are names: a line of a letter that has ' an ' in it is not one."""
+    s = lines[i].strip()
+    if TRAVEL.fullmatch(s):
+        return re.sub(r"^Keise", "Reise", s).rstrip("."), i + 1
+    if not (len(s) <= 90 and LETTER_HEAD.fullmatch(s)):
+        return None
+    j = i + 1
+    nxt = lines[j].strip() if j < len(lines) else ""
+    if not s.endswith(".") and 0 < len(nxt) <= 25 and nxt.endswith(".") and not re.search(r"\d", nxt):
+        s, j = f"{s} {nxt}", j + 1
+    words = s.replace(" an ", " ", 1).split()
+    if len(words) > 9 or sum(w[0].isupper() or w in NAME_WORD for w in words) < 0.85 * len(words) or re.search(r"\d", s):
+        return None
+    return s.rstrip("."), j
+
+
+def starts_letter(lines, k):
+    """True if a letter begins at line `k`: its number, and then its heading."""
+    j = k + 1
+    while j < len(lines) and not lines[j].strip() and j - k <= 2:
+        j += 1
+    return bool(LETTER_NO.fullmatch(lines[k].strip())) and j < len(lines) and letter_head(lines, j) is not None
+
+
+def is_date(line):
+    """A short line that says where and when a letter was written: it ends with the year ('Bamberg, den 21. Nov. 1807.') or with a month and the
+    last digits of the year ('Jena d. 18. Octbr 06.'), and is no running sentence; the editor's own date, in brackets, counts."""
+    words, month = line.split(), MONTH.search(line)
+    if not (0 < len(line) <= 60 and len(words) <= 9 and not re.search(r"\d\s*[—–]\s*\d", line) and (line[0].isupper() or line[0].isdigit() or line[0] in "[ö" or month and re.search(r"\d", line))):
+        return False
+    return bool((YEAR_END.search(line) or month and SHORT_YEAR.search(line)) and (len(words) <= 4 or month or any(w.strip(".,").isdigit() for w in words[:-1]) or bool(re.search(r"\d/\d", line))))
+
+
+def prose(block):
+    """A block of lines that is the editor's own writing (a sketch of the man who wrote the letter): three lines or more, long and wordy."""
+    return len(block) >= 3 and sum(map(len, block)) >= 45 * len(block) and sum(w[0].islower() for l in block for w in l.split()) >= 8
+
+
+def letter_opening(lines, start):
+    """(date, address, next): what stands between a letter's heading and the letter itself. Within the first blocks under the heading, a line
+    that is a date ('Bamberg, den 21. Nov. 1807.'; the scan's slips at its edge trimmed): `date`, with the address lines before it, and the
+    index after it. The editor's sketch of the man, which often comes before it, goes (with no date, a first block of his words only)."""
+    blocks, k = [], start
+    while k < len(lines) and len(blocks) < 4 and not starts_letter(lines, k):          # (the next letter's date is not this one's)
+        if lines[k].strip():
+            end = k
+            while end < len(lines) and lines[end].strip() and not starts_letter(lines, end):
+                end += 1
+            blocks.append((k, end))
+            k = end
+        else:
+            k += 1
+    for n, (a, b) in enumerate(blocks):
+        hit = None if prose(lines[a:b]) else next((x for x in range(a, min(b, a + 4)) if is_date(lines[x].strip()) and all(len(l) <= 60 for l in lines[a:x])), None)
+        if hit is not None:
+            date = re.sub(r"^(?:\W|[a-zäöü]){1,2}\s+(?=[A-ZÄÖÜ])", "", lines[hit].strip()).replace("[", "").replace("]", "").strip(" .,;)(!?")
+            date = re.sub(r"(1[78]\d\d)\d$", r"\1", re.sub(r"\s*\d\)\s*", " ", date))      # a footnote mark; a closing bracket read as a digit
+            date = re.sub(r"(1[78]\d\d)\s\d$", r"\1", date.replace("(", ""))
+            address = [x for c, d in blocks[:n] if not prose(lines[c:d]) for x in lines[c:d] + [""]] + lines[a:hit]
+            return re.sub(r"\s+", " ", date), address, hit + 1
+    if blocks and prose(lines[blocks[0][0]:blocks[0][1]]) and EDITOR.search(" ".join(lines[blocks[0][0]:blocks[0][1]])):
+        return None, [], blocks[0][1]                                       # the sketch, with no date after it to say so
+    return None, [], start
+
+
+def slip(wrong, right):
+    """True if `right` is `wrong` with one letter that the Fraktur model confuses read as another."""
+    diff = [(a, b) for a, b in zip(wrong, right) if a != b]
+    return len(wrong) == len(right) and len(diff) == 1 and diff[0][1] in NAME_SLIPS.get(diff[0][0], "")
+
+
+def mend_names(text):
+    """{wrong: right} for the names that head the letters of `text`: a name that is one confusable letter off a name the text writes five times or
+    more, and at least four times as often ('Riethammer', 'Niethammer')."""
+    body = Counter(w for l in text.split("\n") if not l.startswith("@@ ") for w in re.findall(r"[A-ZÄÖÜ][a-zäöüß]{2,}", l))
+    fix = {}
+    for t in re.findall(r"(?m)^@@ (.*)$", text):
+        for w in re.findall(r"[A-ZÄÖÜ][a-zäöüß]{3,}", t.split(",")[0]):
+            near = [r for r, n in body.items() if n >= 5 and n >= 4 * body[w] and slip(w, r)]
+            if len(near) == 1:
+                fix[w] = near[0]
+    return fix
+
+
+def drop_notes(raw):
+    """Text without the editor's bracketed notes: one that is closed by a ']' (four words or more, and no date), or one that opens as a note does
+    ('[Gedruckt bei ...') and ends where the scan breaks off, at a ')' read for the ']' or at the end of the paragraph. The editor's single words
+    ('[zu]') and dates ('[Bern, Januar 1795.)') stay."""
+    out, pos = [], 0
+    for m in re.finditer(r"\[\(?", raw):
+        if m.start() < pos:
+            continue
+        close = re.compile(r"\]|\n\s*\n").search(raw, m.end(), m.end() + 500)
+        content = raw[m.end():close.start()] if close and close.group(0) == "]" else None
+        if content is not None and len(content.split()) >= 4 and raw[m.end()].isupper() and not YEAR_END.search(content.strip()):
+            end = close.end()
+        elif NOTE_OPEN.match(raw, m.start()):
+            end = re.compile(r"\]|\.\)|\n\s*\n|$").search(raw, m.end())
+            end = end.end() if end.group(0).strip() else end.start()
+        else:
+            continue
+        out.append(raw[pos:m.start()])
+        pos = end
+    return "".join(out) + raw[pos:]
+
+
+def drop_footnotes(lines):
+    """The lines without the footnotes at the foot of each page: from the first, a paragraph that starts '1) ...', to the number that heads the next
+    page, or of a part (the scan breaks a footnote into paragraphs, which the cleaner would take for text)."""
+    out, i = [], 0
+    while i < len(lines):
+        if FOOT_START.match(lines[i].strip()) and (not i or not lines[i - 1].strip()):
+            end = next((k for k in range(i + 1, min(len(lines), i + 40)) if PAGE_NO.fullmatch(lines[k].strip())), None)
+            if end is not None and not any(starts_letter(lines, k) for k in range(i + 1, end)):
+                i = end
+                continue
+        out.append(lines[i])
+        i += 1
+    return out
+
+
+def fit_date(title, date):
+    """The date as far as it fits a heading, 'Hegel an Niethammer, Nürnberg 20. Aug. 1816' (world/shelf.py cuts a longer reference short with an
+    ellipsis, and the year is what goes): the filler words go first ('den', 'd.'), then the words at the front, the place first."""
+    if len(f"{title}, {date}") > shelf.REF_CHARS:
+        date = re.sub(r"\b(?:den|d\.) ", "", date)
+    while date and len(f"{title}, {date}") > shelf.REF_CHARS:
+        date = date.split(" ", 1)[1] if " " in date else ""
+    return date
+
+
+def letters_pre(raw):
+    """Karl Hegel's edition, read from Fraktur: each letter opens with its number on a line ('40.'), then 'Hegel an v. Knebel.', the address
+    and the place and date. That opening becomes the letter's heading, '@@ Hegel an v. Knebel, Bamberg, 30. August 1807'; a line that has
+    ' an ' in it but no number before it is text. The editor's bracketed notes on where a letter was printed go ([Gedruckt; ...]: they cite
+    books of after 1831), the footnotes of each page, his sketch of the man who wrote it (between the heading and the date), the printer's
+    signatures, the words on his death in the sketch of the last part, and every block of lines that names a year after it (1832 to 1899: the
+    letters were written before, so such a year is the editor's, or the scan's misreading). 'Begel', frak2021's usual reading of the Fraktur
+    'Hegel', is set right here so that the headings carry the name (mend_capitals mends the text itself), and so are the other names in the
+    headings (mend_names)."""
+    raw = drop_notes(re.sub(r"\bBegel", "Hegel", SIGNATURE.sub("", re.sub(r"(?m)^@@ ", "", raw))))
+    raw = re.sub(r"\s*Tod am 14\. November 1831\.", "", raw)
+    lines, out, i = drop_footnotes(raw.split("\n")), [], 0
+    while i < len(lines):
+        s, j, found = lines[i].strip(), i + 1, None
+        same = re.fullmatch(r"(\d{1,3})[.,]\s+(\S.*)", s)                        # the number and the heading on one line
+        if same:
+            lines[i] = same.group(2)
+            found = letter_head(lines, i)
+            lines[i] = s
+        if not found and starts_letter(lines, i):
+            while j < len(lines) and not lines[j].strip() and j - i <= 2:
+                j += 1
+            found = letter_head(lines, j)
+        if not found:
+            out.append(lines[i])
+            i += 1
+            continue
+        title, end = found
+        date, address, i = letter_opening(lines, end)
+        date = fit_date(title, date or "")
+        out += ["", f"@@ {title}" + (f", {date}" if date else ""), ""] + address
+    text = re.sub(r"\n{3,}", "\n\n", "\n".join(out))
+    text = re.sub(r"(?m)^(@@ .*)\b188(\d)\b", r"\g<1>183\2", text)                   # a heading's 1831 read as 1881 (no letter is later)
+    text = "\n\n".join(b for b in text.split("\n\n") if b.startswith("@@ ") or not LATER_YEAR.search(b))
+    fix = mend_names(text)
+
+    def mend(m):
+        head, comma, date = m.group(1).partition(", ")
+        head = re.sub(r"\b[A-ZÄÖÜ](?=[A-ZÄÖÜ][a-zäöüß])", "", head).rstrip(".)] ")           # 'FFrau', 'RNiethammer', 'Frau))'
+        return "@@ " + re.sub(r"[A-ZÄÖÜ][a-zäöüß]{3,}", lambda w: fix.get(w.group(0), w.group(0)), head) + comma + date
+    return re.sub(r"(?m)^@@ (.*)$", mend, text)
+
+
+LETTERS_WHY = ("Hegel d. 1831; the letters to him were written before 1832; Karl Hegel (1813-1901), who edited them, died more than 70 years ago; "
+               "published 1887: public domain everywhere. archive.org's own text of the scan is Fraktur read as roman type; this is a fresh reading "
+               "with Tesseract and UB Mannheim's Fraktur model (tools/ocr.py)")
+LETTERS_SPEC = dict(pre=letters_pre, auto=OCR_HEADS, footnotes=r"^(\*+\)|\d{1,2}\)|[a-d]\)\s)", repeat=10 ** 9)      # a heading that ends in a year is no running head
+KARL_HEGEL = "Leipzig: Duncker & Humblot (Werke, Bd. XIX)"
+PARTS = dict(I=(r"^G Wilhelm Friedrich Hegel, geb\. am 27\. August", "Stuttgart, Bern, Frankfurt, Jena, 1785-1807", "keep"),
+             II=(r"^Bamberg\. [NVH]ürnberg\.?$", "Bamberg, Nürnberg, 1807-1816"), III=(r"^[BH]eidelberg\. Berlin\.$", "Heidelberg, Berlin, 1817-1831"))
+
+work("briefe-1", "Briefe", "de", "Briefe von und an Hegel, Erster Theil", "ed. Karl Hegel", "1887", KARL_HEGEL, scan("georgwilhelmfri26hegegoog", "frak2021"), LETTERS_WHY,
+     dict(LETTERS_SPEC, start=PARTS["I"][0], heads=[(2, *PARTS["I"]), (2, *PARTS["II"])]),
+     skip="Karl Hegel's preface and the table of contents with the list of the letters; the printer's marks, the footnotes and the bracketed notes of 1887 on where each "
+          "letter was printed, and his sketches of the men who wrote to Hegel; the volume ends in letter 162 (10 October 1816), where the scan stops",
+     author="Karl Hegel (ed.)", shelf=False)
+work("briefe-2", "Briefe", "de", "Briefe von und an Hegel, Zweiter Theil", "ed. Karl Hegel", "1887", KARL_HEGEL, scan("georgwilhelmfri25hegegoog", "frak2021"), LETTERS_WHY,
+     dict(LETTERS_SPEC, start=PARTS["III"][0], end=r"^Anhang\.$", heads=[(2, *PARTS["III"])]),
+     skip="the same apparatus; the sentence on his death in the sketch of the last part; and everything after Varnhagen's letter of 4 November 1831, the last "
+          "written before he died: the Anhang (his widow's letters on his death and his works, and the pages on Cousin, Schelling and Hegel) and the register of persons",
+     author="Karl Hegel (ed.)", shelf=False)
+
 LEFT_OUT = [
     ("Vorlesungen über die Ästhetik; Vorlesungen über die Geschichte der Philosophie, in German", "The nineteenth-century editions (Hotho 1835-38, Michelet 1833-36) exist only as "
      "Fraktur scans with the same OCR damage. The 1927 Jubiläumsausgabe is in roman type but is no nineteenth-century text, and I left it out rather than weigh its editor's rights. "
      "Both works are on the shelf in English (Bosanquet's Introduction to the Aesthetics; Haldane and Simson)."),
-    ("Briefe von und an Hegel (K. Hegel, 1887); Neue Briefe Hegels und Verwandtes (Lasson, 1912)", "The first is a Fraktur scan. The second prints the letters among articles by "
-     "Ernst Crous (d. 1967) and Herman Nohl (d. 1960), still in copyright in the EU, and the OCR cannot separate them. No clean public-domain edition of selected letters is reachable."),
+    ("Neue Briefe Hegels und Verwandtes (Lasson, 1912)", "It prints the letters among articles by Ernst Crous (d. 1967) and Herman Nohl (d. 1960), still in "
+     "copyright in the EU, and the OCR cannot separate them. Karl Hegel's edition of 1887 is in, for training only; no other public-domain edition of letters is reachable."),
     ("Speirs and Burdon Sanderson, Lectures on the Philosophy of Religion (1895); Osmaston, The Philosophy of Fine Art (1920)", "Public domain in the US by their dates, but I could not "
      "establish when the translators died, so the status in the EU is unclear. Left out."),
     ("Hegel's Science of Logic (Gutenberg 6729 and 6834, in German)", "Public domain and clean, but not asked for and as long as the rest together; the Encyclopaedia Logic carries the same thought."),
@@ -755,6 +970,34 @@ def mend(text, vocab):
     return re.sub(r"[A-Za-zÄÖÜäöüß]{2,}", fix, text), count
 
 
+# The Fraktur capitals that frak2021 confuses, as read -> what they may stand for: 'Begel' (Hegel), 'Rarl' (Karl), 'Jreunden' (Freunden),
+# 'Cheil' (Theil), 'Cectüre' (Lectüre), 'Gigenheiten' (Eigenheiten), 'Oymnasium' (Gymnasium), 'Pumblot' (Humblot), 'Warheineke' (Marheineke).
+CAPITALS = {"B": ("H", "D"), "R": ("K", "A"), "J": ("F", "I"), "T": ("L",), "C": ("T", "L", "E"), "S": ("H", "G"), "G": ("E", "C"),
+            "O": ("G", "D"), "P": ("H", "B"), "W": ("M",), "V": ("B",)}
+
+
+def mend_capitals(text, known, pool):
+    """(text, n): a capitalized word that his books use twice at most (`known` counts their words; a scan's slip turns up even there), set
+    right where swapping its first letter for one that frak2021 confuses with it gives a word that the German texts use twenty times as often
+    and at least 20 times (`pool`), and no other swap comes near (a quarter as often). For the lives, read from Fraktur; his books are left as
+    they are."""
+    count = 0
+
+    def fix(m):
+        nonlocal count
+        word, rest = m.group(1), m.group(2) or ""
+        seen = known[shelf.fold(word)]
+        if seen > 2 or word[0] not in CAPITALS:
+            return m.group(0)
+        found = sorted(((pool[shelf.fold(c + word[1:])], c + word[1:]) for c in CAPITALS[word[0]]), reverse=True)
+        if found[0][0] >= max(20, 20 * seen) and (len(found) == 1 or found[1][0] * 4 <= found[0][0]):
+            count += 1
+            return found[0][1] + rest
+        return m.group(0)
+
+    return re.sub(r"\b([A-ZÄÖÜ][a-zäöüß]{2,})('s)?\b", fix, text), count
+
+
 def kept_works():
     """The passages of every cleaned work that are worth keeping, as the index holds them: split, spoiled words mended, and dropped where the
     scan is damaged or the text names something from after 1831 (world/data/after_1831.txt). [{id, work, lang, dropped, mended, passages}].
@@ -782,6 +1025,9 @@ def kept_works():
         kept, noise, anachronism, mended = [], 0, 0, 0
         for ref, p in split[w["id"]]:
             p, n = mend(p, good[w["lang"]])
+            if not w["shelf"] and w["lang"] == "de":
+                p, k = mend_capitals(p, on_shelf[1]["de"], everything[1]["de"])
+                n += k
             mended += n
             if (later and later.search(p)) or (w["spec"].get("footnotes") == FOOT_DE and re.search(r"\b1[4-9]\d\d\s?[—–-]\s?1[4-9]\d\d\b", p)):
                 anachronism += 1                          # (in Lasson's volumes, a pair of dates is his footnote on a person)
@@ -846,10 +1092,12 @@ def manifest():
            f"**Total:** {len(rows)} texts, {mb(chars)} MB of text, {mb(gz)} MB gzipped on disk (`mind/shelf/*.txt.gz`), and the index "
            f"`mind/shelf/index.json.gz`, {mb(isz)} MB, with {len(index['texts'])} passages. Together {mb(gz + isz)} MB in the repository.", "",
            "## For training only: his life and his papers", "",
-           "Two lives of him and the papers of his youth that Rosenkranz printed with his. They never lie on his shelf (a book of 1844 about himself "
+           "Two lives of him, the papers of his youth that Rosenkranz printed with his, and his letters, those he wrote and those written to him in 1785-1831, "
+           "as his son Karl edited them in 1887. They never lie on his shelf (a book of 1844 about himself "
            "could not), and the index he reads from leaves them out; `tools/train_data.py --corpus` puts them into the training corpus, so that the trained "
-           "mind knows his life as its own. Each is cut where he dies: Rosenkranz at the chapter on his death, Caird before the account of it. The scans "
-           "are read afresh by `tools/ocr.py`: Rosenkranz with UB Mannheim's Fraktur model (frak2021), Caird with Tesseract's English model. A passage of a "
+           "mind knows his life as its own. Each is cut where he dies: Rosenkranz at the chapter on his death, Caird before the account of it, the letters "
+           "after the last one written before 14 November 1831. The scans "
+           "are read afresh by `tools/ocr.py`: Rosenkranz and the letters with UB Mannheim's Fraktur model (frak2021), Caird with Tesseract's English model. A passage of a "
            f"life is kept when {round(LIFE_KNOWN * 100)}% of its words are known words of the shelf (88% for his books): a life is full of names and places; "
            "below that line it is mostly Latin or French, which the models read worse.", "",
            "| id | work | language | source | why it is public domain | MB text / MB gz | passages | left out |", "|---|---|---|---|---|---|---|---|", *life_rows, "",

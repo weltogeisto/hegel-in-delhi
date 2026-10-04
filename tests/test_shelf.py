@@ -9,6 +9,7 @@ import sys
 import tempfile
 import time
 import unittest
+from collections import Counter
 from unittest import mock
 from datetime import date, timedelta
 from pathlib import Path
@@ -116,10 +117,25 @@ class LivesTest(unittest.TestCase):
 
     def test_no_life_is_in_the_index_he_reads_from(self):
         lives = {w["id"] for w in corpus.WORKS if not w["shelf"]}
-        self.assertEqual(lives, {"rosenkranz-leben", "rosenkranz-urkunden", "caird"})
+        self.assertEqual(lives, {"rosenkranz-leben", "rosenkranz-urkunden", "caird", "briefe-1", "briefe-2"})
         self.assertTrue(all(not w["shelf"] for w in corpus.WORKS if w["author"] != "Hegel"))      # a book about him is never on his shelf
         index = json.loads(gzip.open(shelf.INDEX, "rt", encoding="utf-8").read())
         self.assertFalse(lives & {w["id"] for w in index["works"]})
+
+    def test_a_letter_opens_under_its_heading_and_the_editors_notes_go(self):
+        raw = ("1785.\n1.\n\nBegel an Baag.\nAn Herrn Haag\nMathematikhausen\num ½12 Uhr, d. 8. Juni 1785.\n\nWerthester Freund!\n\n"
+               "Für Deinen letzten Brief [Gedruckt; Rosenkranz S. 12.] bin ich Dir sehr verbunden.\n\nIch schrieb an Niethammer.\nSonst nichts.")
+        out = corpus.letters_pre(raw).split("\n\n")
+        self.assertIn("@@ Hegel an Baag, um ½12 Uhr, d. 8. Juni 1785", out)
+        self.assertIn("Für Deinen letzten Brief  bin ich Dir sehr verbunden.", out)
+        self.assertIn("Ich schrieb an Niethammer.\nSonst nichts.", out)          # no number before it: no heading
+
+    def test_misread_fraktur_capitals_are_mended_only_into_common_words(self):
+        known, pool = Counter({"theil": 147, "begel": 1, "kind": 50}), Counter({"theil": 295, "hegel": 1222, "kind": 300, "freunden": 40})
+        text, n = corpus.mend_capitals("Begel's Erster Cheil, Jreunden und Bamberg.", known, pool)
+        self.assertEqual(text, "Hegel's Erster Theil, Freunden und Bamberg.")
+        self.assertEqual(n, 3)
+        self.assertEqual(corpus.mend_capitals("Theil", known, pool), ("Theil", 0))      # a word his books use is never touched
 
     def test_a_built_life_is_cut_at_his_death(self):
         for w in corpus.WORKS:
