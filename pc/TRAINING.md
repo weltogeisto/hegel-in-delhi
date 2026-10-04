@@ -22,14 +22,16 @@ Steps 4 and 5 run for hours unattended. During them the GPU is busy, so **the wo
 
 ## 1. Report what is installed
 
+The training needs llama.cpp's `llama-server` twice: to serve Qwen for the rehearsal days (step 4) and to serve the finished adapter (step 6). If `C:\hegel\llama\llama-server.exe` is missing, that is expected on a PC where `pc/CODEX.md` was never run: install it, don't stop. From https://github.com/ggml-org/llama.cpp/releases/latest download the Windows x64 CUDA build and the matching `cudart` package (same CUDA version) and unzip both into `C:\hegel\llama`. A current release reads Qwen3.8 (architecture `qwen35`).
+
 ```powershell
 nvidia-smi
 Get-PSDrive C | Format-Table Used, Free
 (Get-CimInstance Win32_ComputerSystem).TotalPhysicalMemory / 1GB
 [System.Environment]::OSVersion.Version
 C:\hegel\llama\llama-server.exe --version
-Get-ChildItem C:\, $env:USERPROFILE -Filter *.gguf -Recurse -ErrorAction SilentlyContinue | Format-Table FullName, @{n='GB';e={[math]::Round($_.Length/1GB,1)}}
-Get-CimInstance Win32_Process -Filter "Name='llama-server.exe'" | Format-List ProcessId, CommandLine
+Get-PSDrive -PSProvider FileSystem | ForEach-Object { Get-ChildItem "$($_.Root)" -Filter *.gguf -Recurse -ErrorAction SilentlyContinue } | Format-Table FullName, @{n='GB';e={[math]::Round($_.Length/1GB,1)}}
+Get-CimInstance Win32_Process | Where-Object { $_.Name -match 'llama|ollama|lm ?studio|lms' } | Format-List Name, ProcessId, CommandLine
 ```
 
 If the Qwen server is running, also:
@@ -39,7 +41,7 @@ curl.exe http://127.0.0.1:8080/v1/models
 curl.exe http://127.0.0.1:8080/props
 ```
 
-Report to Welt: GPU and driver version, free disk on C:, RAM, the Windows build, the llama.cpp build number, the full path of the Qwen GGUF that serves port 8080, and the command line it is started with. Training needs about **90 GB free** on the disk that holds WSL; if there is less, stop and report.
+Report to Welt: GPU and driver version, free disk on C:, RAM, the Windows build, the llama.cpp build number, the full path of the Qwen3.8-27B GGUF, and what serves Qwen today (llama-server, Ollama, LM Studio or something else) with its command line. If Qwen lives only in Ollama, its GGUF is the largest file under `%USERPROFILE%\.ollama\models\blobs` (no extension): report that path; llama-server reads it as it is. Training needs about **90 GB free** on the disk that holds WSL; if there is less, stop and report.
 
 ## 2. WSL2, CUDA, Python
 
@@ -117,7 +119,11 @@ Stop-ScheduledTask "Hegel mind" -ErrorAction SilentlyContinue
 Stop-Process -Name llama-server -ErrorAction SilentlyContinue
 ```
 
-If Windows' own sleep timer is on (Settings → System → Power → when plugged in, sleep after), set it to Never for steps 4 and 5 and note the old value. Start the Qwen server on 8080 as it is usually started (the command line from step 1), and nothing else on the GPU.
+If Windows' own sleep timer is on (Settings → System → Power → when plugged in, sleep after), set it to Never for steps 4 and 5 and note the old value. Stop whatever served Qwen until now (Ollama, LM Studio), so that only one model is on the GPU, and serve Qwen with llama-server on port 8080 (the GGUF path from step 1):
+
+```powershell
+Start-Process C:\hegel\llama\llama-server.exe -ArgumentList '-m "C:\path\to\qwen3.8-27b.gguf" -ngl 99 -c 16384 --host 0.0.0.0 --port 8080 --alias qwen'
+```
 
 In Ubuntu (the data tool needs only Python's standard library, no virtual environment):
 
