@@ -1,12 +1,11 @@
 # Puts the PC to sleep when Hegel's mind and Welt have both been idle.
 # Runs as SYSTEM at startup. When in doubt, it stays awake.
-#   - Mind activity: any established connection to the llama-server ports (8080 Qwen, 8081 Bonsai, 8082 the trained Hegel, 8083 the optional
-#     Bonsai with the adapter).
+#   - Mind activity: any established connection to the llama-server ports (8080 Qwen, 8081 Bonsai, 8082 the trained Hegel on Qwen).
 #   - User activity: C:\hegel\logs\user-idle.txt, written by idle-reporter.ps1.
 #   - Override: while C:\hegel\awake.flag exists, the PC never sleeps.
 param(
   [int]$IdleMinutes = 10,
-  [int[]]$Ports = @(8080, 8081, 8082, 8083),
+  [int[]]$Ports = @(8080, 8081, 8082),
   [int]$PollSeconds = 15
 )
 Add-Type -AssemblyName System.Windows.Forms

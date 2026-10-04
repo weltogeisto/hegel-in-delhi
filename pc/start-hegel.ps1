@@ -1,5 +1,4 @@
 # Starts Hegel's trained mind: the installed Qwen 27B GGUF with the Hegel LoRA on top, llama-server, port 8082 (pc/TRAINING.md, step 6).
-# With -Model, -Port and -Alias it serves the same adapter on another GGUF, for the one try on Bonsai (step 7).
 # Runs in the foreground (-Wait), like start-mind.ps1. It is started by hand for the tests: the "Hegel mind" task keeps starting Bonsai.
 param(
   [string]$Llama = "C:\hegel\llama\llama-server.exe",
@@ -16,7 +15,7 @@ foreach ($f in @($Llama, $Model, $Lora)) {
   if (-not (Test-Path $f)) { Write-Error "missing: $f"; exit 1 }       # an unfilled QWEN-GGUF-FILENAME stops here
 }
 # One 27B fits in the 24 GB at a time: any other llama-server must be stopped first.
-$others = Get-NetTCPConnection -State Listen -LocalPort 8080, 8081, 8082, 8083 -ErrorAction SilentlyContinue | Where-Object { $_.LocalPort -ne $Port }
+$others = Get-NetTCPConnection -State Listen -LocalPort 8080, 8081, 8082 -ErrorAction SilentlyContinue | Where-Object { $_.LocalPort -ne $Port }
 if ($others -and -not $Force) {
   Write-Error ("a llama-server is already listening on port " + (($others.LocalPort | Sort-Object -Unique) -join ", ") + "; stop it first, or pass -Force")
   exit 1

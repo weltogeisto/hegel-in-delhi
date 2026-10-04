@@ -7,7 +7,7 @@ Live page: https://weltogeisto.github.io/hegel-in-delhi/
 ## How it runs
 
 - **The world (Raspberry Pi 5, always on).** Clock in Delhi time, places, opening hours, prices, walking routes, the purse and the imprest account, the costs that recur, the offers that bring money in, the cast of fictional Delhiites, the Hegde file. Feeds for weather, air quality, news and holidays. It decides *when* Hegel must decide, checks every decision against the rules, and publishes.
-- **The mind (PC with RTX 3090, asleep most of the day).** The Pi wakes it for each decision, 15–25 a day. Ternary Bonsai 27B or Qwen 27B answers in a fixed JSON format, then the PC sleeps again.
+- **The mind (PC with RTX 3090, asleep most of the day).** The Pi wakes it for each decision, 15–25 a day. Ternary Bonsai 27B or Qwen3.8-27B answers in a fixed JSON format (Hegel's own trained mind runs on Qwen3.8), then the PC sleeps again.
 - **The owl (same PC, during Delhi's night).** The larger model writes the diary, the revision log and the weekly Depesche.
 - **The page (GitHub Pages, free).** The Pi pushes each step 10–15 minutes before it happens; the page reveals it when its time comes.
 

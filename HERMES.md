@@ -151,7 +151,7 @@ git add mind/results && git commit -m "Hegel test results" && git push
 
 Done when `mind/results/hegeltest.md` lists both judges for all three runs, with the share of real passages picked (chance is 20%; lower is better, because the model then sounds more like Hegel). Send Welt the table.
 
-**The trained mind.** Once Codex has trained Hegel's adapter and serves it on port 8082 (`pc/TRAINING.md`, steps 1–8), run the test on it too, with and without the shelf, and compare all runs:
+**The trained mind.** Once Codex has trained Hegel's adapter and serves it on port 8082 (`pc/TRAINING.md`, steps 1–7), run the test on it too, with and without the shelf, and compare all runs:
 
 ```bash
 python3 tools/hegel_test.py --url http://$PC_HOST:$HEGEL_PORT --label qwen-hegel
