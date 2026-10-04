@@ -9,6 +9,9 @@
     python3 tools/corpus.py --all                 # fetch, clean, index, manifest
     python3 tools/corpus.py --probe id            # headings found, and a sample of the cleaned text (for writing a spec)
 
+Two lives of Hegel are read too, Rosenkranz's (1844) and Caird's (1883). They are no books of his and never lie on his shelf: they go into the
+training corpus only (tools/train_data.py), cut where he dies. Their scans are read afresh by tools/ocr.py (Tesseract), which --fetch runs.
+
 Standard library only. Nothing is fetched at runtime on the Pi: the shelf is built here and committed.
 A cleaned work is text in paragraphs separated by a blank line; '# x' and '## x' are headings, a paragraph that
 starts with '§ 189.' is a numbered section."""
@@ -402,14 +405,20 @@ def archive(i):
     return dict(page=f"https://archive.org/details/{i}", url=ARCHIVE.format(i=i), cache=f"ia-{i}.txt", base={})
 
 
+def scan(i, model):
+    """A scan on archive.org read afresh by tools/ocr.py with the given Tesseract model, where archive.org's own text is too damaged."""
+    return dict(page=f"https://archive.org/details/{i}", url=None, ocr=(i, model), cache=f"ocr-{model}-{i}.txt", base={})
+
+
 WORKS = []
 
 
-def work(id, work, lang, title, who, year, edition, source, why, spec, ref="head", skip=None):
+def work(id, work, lang, title, who, year, edition, source, why, spec, ref="head", skip=None, author="Hegel", shelf=True):
     """One text on the shelf. `work` is the short title shown with a passage ('Philosophy of Right'); ref 'sec' cites by §
-    ('§189'), 'head' by the heading it stands under; `skip` says what of the book was left out."""
+    ('§189'), 'head' by the heading it stands under; `skip` says what of the book was left out. A text by someone else about him (a life)
+    has its `author` and shelf=False: it is cleaned and goes into the training corpus, but never into the index he reads from."""
     WORKS.append(dict(id=id, work=work, lang=lang, title=title, who=who, year=year, edition=edition, source=source, why=why,
-                      spec={**source["base"], **spec}, ref=ref, skip=skip))
+                      spec={**source["base"], **spec}, ref=ref, skip=skip, author=author, shelf=shelf))
 
 
 def pd_en(who, y):
@@ -577,10 +586,55 @@ work("enzyklopaedie", "Enzyklopädie", "de", "Encyklopädie der philosophischen 
           heads=[(1, r"^Vorrede zur zweiten Ausgabe\.?$", "Vorrede zur zweiten Ausgabe"), (1, r"^Einleitung\.$", "Einleitung")]),
      ref="sec", skip="Rosenkranz's introduction; the scanned volume breaks off at §496")
 
+# ── the lives: for training only, never on his shelf ──────────────
+OCR_HEADS = [(2, r"^@@ (.+)$")]                          # tools/ocr.py marks each chapter '@@ Title' where it begins
+OCR_FOOT = r"^(\*+\)|\d{1,2}\))"                          # a footnote: '*) Siehe ...', '1) ...'
+CAIRD_HEADS = {"Criticvsm": "Criticism", "Charistianity": "Christianity", "Relvgion": "Religion", "the Syste": "the System", "Nirnberg Gymnasiwin": "Nürnberg Gymnasium",
+               "Hevdelberg": "Heidelberg", "Hegel tn Society": "Hegel in Society", "The ¢ Critical Journal": "The Critical Journal"}
+
+
+SPECK = re.compile(r"(?<=[ \n])(?!(?:a|A|I|O|an|am|as|at|be|by|do|go|he|if|in|is|it|me|my|no|of|on|or|so|to|up|us|we|II|IV|VI|IX|XI)(?=[ \n]))[A-Za-z|»«¢©®]{1,2}(?=[ \n])")
+
+
+def caird_heads(raw):
+    """The page heads of Caird's book are in italics, which Tesseract reads worst: the misreadings among them, set right. And the specks at
+    the margin of this scan, read as letters ('It i is a proof', 'the heads tt of'), taken out: a token of one or two letters that is no word."""
+    def fix(m):
+        line = m.group(0)
+        for wrong, right in CAIRD_HEADS.items():
+            line = line.replace(wrong, right) if not line.endswith(right) else line
+        return line
+    raw = re.sub(r"(?m)^@@ His Death\n", "", raw)          # the page so headed ends, before the cut, with his last preface: it stays under 'Last Writings'
+    return SPECK.sub("", re.sub(r"(?m)^@@ .*$", fix, raw)).replace("  ", " ")
+
+
+ROSENKRANZ = scan("bub_gb_MjCJlAnRvYoC", "frak2021")
+ROSENKRANZ_WHY = ("Rosenkranz (1805-1879) died more than 70 years ago; published 1844: public domain everywhere. The scan's own archive.org text is "
+                  "useless (Fraktur read as roman type); this is a fresh reading with Tesseract and UB Mannheim's Fraktur model (tools/ocr.py)")
+work("rosenkranz-leben", "Hegel's Leben", "de", "Georg Wilhelm Friedrich Hegel's Leben", "Karl Rosenkranz", "1844",
+     "Berlin: Duncker und Humblot (Supplement zu Hegel's Werken)", ROSENKRANZ, ROSENKRANZ_WHY,
+     dict(start=r"^Herkun[fk]t\.?$", end=r"^@@ Hegels Tod$", auto=OCR_HEADS, heads=[(2, r"^Herkun[fk]t\.?$", "Herkunft")], footnotes=OCR_FOOT),
+     skip="the preface of 1844 (on the quarrels of the school after his death), and everything from the chapter on his death on",
+     author="Karl Rosenkranz", shelf=False)
+work("rosenkranz-urkunden", "Urkunden", "de", "Aus Hegel's Papieren 1785-1831 (the documents printed in Rosenkranz's Leben)", "ed. Karl Rosenkranz", "1844",
+     "Berlin: Duncker und Humblot (Supplement zu Hegel's Werken)", ROSENKRANZ, ROSENKRANZ_WHY,
+     dict(start=r"^@@ Hegel.s Tagebuch aus der Gymnasialzeit$", end=r"^(@@ |X\.\s*)?Grabrede", auto=OCR_HEADS, footnotes=OCR_FOOT),
+     skip="the two funeral speeches at the end", shelf=False)
+
+work("caird", "Hegel", "en", "Hegel (Philosophical Classics for English Readers)", "Edward Caird", "1883",
+     "Edinburgh and London: William Blackwood and Sons; Philadelphia: J. B. Lippincott; the life, chapters I-VI", scan("hegel00cair_0", "eng"),
+     "Caird (1835-1908) died more than 70 years ago; published 1883: public domain everywhere. Read afresh with Tesseract (tools/ocr.py): "
+     "archive.org's own text of this scan leaves margin specks in the lines",
+     dict(start=r"^LEHRJAHRE", end=r"^Seven days after these words", first="Lehrjahre: the School and the University", caps=True, auto=OCR_HEADS,
+          pre=caird_heads, footnotes=r"^(\d{1,2}\s|[*†‡]\s?\w)", drop=[r"^@@ CHAPTER", r"^CHAPTER\s+[IVXL1l]+\.?$", r"^LEHRJAHRE"],
+          heads=[(1, r"^WANDERJAHRE", "Wanderjahre: Hegel as a Private Tutor at Berne and Frankfort", "para"),
+                 (1, r"^HEGEL AND SCHELLING", "Hegel and Schelling: Jena, 1800-1807", "para"),
+                 (1, r"^HEGEL AFTER THE BATTLE", "Hegel after the Battle of Jena: the School at Nürnberg", "para"),
+                 (1, r"^HEGEL AS A PROFESSOR", "Hegel as a Professor at Heidelberg and Berlin", "para")]),
+     skip="the prefatory note, the account of his death and burial, and chapters VII-IX (Caird's own exposition of the system)",
+     author="Edward Caird", shelf=False)
+
 LEFT_OUT = [
-    ("Rosenkranz, Georg Wilhelm Friedrich Hegel's Leben (1844)", "Public domain, but every scan on archive.org is Fraktur read by an OCR engine for roman type: about three words "
-     "in ten are wrong (long s read as f or j, d as b, ch as d), and no clean transcription is reachable. A shelf that offers him 'muftifcher' is worse than none. "
-     "It needs a hand transcription (the Deutsches Textarchiv or Zeno carry no copy I could use)."),
     ("Vorlesungen über die Ästhetik; Vorlesungen über die Geschichte der Philosophie, in German", "The nineteenth-century editions (Hotho 1835-38, Michelet 1833-36) exist only as "
      "Fraktur scans with the same OCR damage. The 1927 Jubiläumsausgabe is in roman type but is no nineteenth-century text, and I left it out rather than weigh its editor's rights. "
      "Both works are on the shelf in English (Bosanquet's Introduction to the Aesthetics; Haldane and Simson)."),
@@ -620,8 +674,12 @@ def pick(ids):
 def cmd_fetch(ids):
     for w in pick(ids):
         cached = (CACHE / w["source"]["cache"]).exists()
-        p = fetch(w["source"]["url"], w["source"]["cache"])
-        print(f"{'cached ' if cached else 'fetched'} {w['id']:15} {p.stat().st_size / 1e6:6.2f} MB  {w['source']['url']}")
+        if w["source"].get("ocr") and not cached:
+            import ocr                                      # tools/ocr.py: about ten minutes a book on four cores
+            CACHE.mkdir(parents=True, exist_ok=True)
+            (CACHE / w["source"]["cache"]).write_bytes(ocr.ocr(*w["source"]["ocr"]).read_bytes())
+        p = CACHE / w["source"]["cache"] if w["source"].get("ocr") else fetch(w["source"]["url"], w["source"]["cache"])
+        print(f"{'cached ' if cached else 'fetched'} {w['id']:15} {p.stat().st_size / 1e6:6.2f} MB  {w['source']['url'] or w['source']['page'] + ' (OCR)'}")
 
 
 def cmd_clean(ids):
@@ -650,6 +708,9 @@ def known_ratio(text, vocab):
 
 
 GARBLE = re.compile(r"[a-zäöüß][A-ZÄÖÜ]|\\|[a-z][|{}][a-z]")       # a capital inside a word, a backslash, a bar: OCR ('moraUty', 'difEerences')
+
+
+LIFE_KNOWN = 0.70        # a life is full of names, places and old spellings that his books lack: below this it is mostly Latin or French, read worse
 
 
 def readable(text, vocab, minimum=0.88):
@@ -702,33 +763,40 @@ def kept_works():
     later = wordlist("after_1831.txt", "s?")
     texts = {w["id"]: read_work(w) for w in WORKS if path_of(w).exists()}
     split = {w["id"]: shelf.split_passages(texts[w["id"]], w["ref"]) for w in WORKS if w["id"] in texts}
-    vocab, good = {lang: Counter() for lang in ("en", "de")}, {lang: Counter() for lang in ("en", "de")}
-    for w in WORKS:
-        if w["id"] in split:
-            for _, p in split[w["id"]]:
-                vocab[w["lang"]].update(re.findall(r"[a-z]{3,}", shelf.fold(p)))
-                good[w["lang"]].update(t for t in re.findall(r"[a-z]{3,}", shelf.fold(GARBLE.sub(" ", p))))
+    def counts(ids):
+        vocab, good = {lang: Counter() for lang in ("en", "de")}, {lang: Counter() for lang in ("en", "de")}
+        for w in WORKS:
+            if w["id"] in ids:
+                for _, p in split[w["id"]]:
+                    vocab[w["lang"]].update(re.findall(r"[a-z]{3,}", shelf.fold(p)))
+                    good[w["lang"]].update(t for t in re.findall(r"[a-z]{3,}", shelf.fold(GARBLE.sub(" ", p))))
+        return vocab, good
+
+    # His books are judged by their own words only, so that a life added for training leaves the shelf as it was; a life is judged by all.
+    on_shelf, everything = counts({w["id"] for w in WORKS if w["shelf"] and w["id"] in split}), counts(set(split))
     works = []
     for w in WORKS:
         if w["id"] not in split:
             continue
+        vocab, good = on_shelf if w["shelf"] else everything
         kept, noise, anachronism, mended = [], 0, 0, 0
         for ref, p in split[w["id"]]:
             p, n = mend(p, good[w["lang"]])
             mended += n
             if (later and later.search(p)) or (w["spec"].get("footnotes") == FOOT_DE and re.search(r"\b1[4-9]\d\d\s?[—–-]\s?1[4-9]\d\d\b", p)):
                 anachronism += 1                          # (in Lasson's volumes, a pair of dates is his footnote on a person)
-            elif not readable(p, vocab[w["lang"]]):
+            elif not readable(p, vocab[w["lang"]], 0.88 if w["shelf"] else LIFE_KNOWN):
                 noise += 1
             else:
                 kept.append((ref, p))
-        works.append({"id": w["id"], "work": w["work"], "lang": w["lang"], "dropped": {"damaged": noise, "later": anachronism}, "mended": mended, "passages": kept})
+        works.append({"id": w["id"], "work": w["work"], "lang": w["lang"], "dropped": {"damaged": noise, "later": anachronism}, "mended": mended, "passages": kept,
+                      "shelf": w["shelf"], "author": w["author"]})
     return works
 
 
 def build():
-    """The index of every cleaned work, built from its kept passages and saved."""
-    index = shelf.build_index(kept_works())
+    """The index of every cleaned work on his shelf (not the lives), built from its kept passages and saved."""
+    index = shelf.build_index([{k: v for k, v in w.items() if k not in ("shelf", "author")} for w in kept_works() if w["shelf"]])
     shelf.save_index(index)
     return index
 
@@ -750,11 +818,18 @@ def manifest():
     """mind/shelf/MANIFEST.md: every text with its source and why it is public domain, what was left out, the sizes."""
     index = json.loads(gzip.open(shelf.INDEX, "rt", encoding="utf-8").read())
     meta = {w["id"]: w for w in index["works"]}
-    rows, chars, gz = [], 0, 0
+    lives = {w["id"]: w for w in kept_works() if not w["shelf"]}
+    rows, life_rows, chars, gz = [], [], 0, 0
     for w in WORKS:
         if not path_of(w).exists():
             continue
         size, text = path_of(w).stat().st_size, read_work(w)
+        if not w["shelf"]:
+            m = lives.get(w["id"], {"passages": [], "dropped": {"damaged": 0, "later": 0}})
+            life_rows.append(f"| `{w['id']}` | **{w['title']}**<br>{w['who']}<br>{w['year']}; {w['edition']} | {'English' if w['lang'] == 'en' else 'German'} "
+                             f"| [{w['source']['page'].split('//')[1]}]({w['source']['page']}) | {w['why']} | {mb(len(text.encode('utf-8')))} / {mb(size)} "
+                             f"| {len(m['passages'])} ({m['dropped']['damaged']} damaged, {m['dropped']['later']} after 1831 dropped) | {w['skip']} |")
+            continue
         chars, gz = chars + len(text), gz + size
         m = meta.get(w["id"], {"n": 0, "dropped": {"damaged": 0, "later": 0}, "mended": 0})
         rows.append(f"| `{w['id']}` | **{w['title']}**<br>{w['who']}<br>{w['year']}; {w['edition']} | {'English' if w['lang'] == 'en' else 'German'} "
@@ -770,6 +845,14 @@ def manifest():
            "| id | work | language | source | why it is public domain | MB text / MB gz | passages |", "|---|---|---|---|---|---|---|", *rows, "",
            f"**Total:** {len(rows)} texts, {mb(chars)} MB of text, {mb(gz)} MB gzipped on disk (`mind/shelf/*.txt.gz`), and the index "
            f"`mind/shelf/index.json.gz`, {mb(isz)} MB, with {len(index['texts'])} passages. Together {mb(gz + isz)} MB in the repository.", "",
+           "## For training only: his life and his papers", "",
+           "Two lives of him and the papers of his youth that Rosenkranz printed with his. They never lie on his shelf (a book of 1844 about himself "
+           "could not), and the index he reads from leaves them out; `tools/train_data.py --corpus` puts them into the training corpus, so that the trained "
+           "mind knows his life as its own. Each is cut where he dies: Rosenkranz at the chapter on his death, Caird before the account of it. The scans "
+           "are read afresh by `tools/ocr.py`: Rosenkranz with UB Mannheim's Fraktur model (frak2021), Caird with Tesseract's English model. A passage of a "
+           f"life is kept when {round(LIFE_KNOWN * 100)}% of its words are known words of the shelf (88% for his books): a life is full of names and places; "
+           "below that line it is mostly Latin or French, which the models read worse.", "",
+           "| id | work | language | source | why it is public domain | MB text / MB gz | passages | left out |", "|---|---|---|---|---|---|---|---|", *life_rows, "",
            "## Notes on status", "",
            "- **Haldane and Simson, History of Philosophy (volumes II and III; the title page of volume I names Haldane alone).** Published 1892-96, so free in the US. "
            "Elizabeth Haldane died in 1937. Frances H. Simson, who translated volumes II and III with her, is a name I could not date in any source I could reach; "

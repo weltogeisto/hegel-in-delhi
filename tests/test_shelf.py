@@ -1,5 +1,6 @@
 """Tests for the shelf: cleaning a corpus, splitting it into passages, BM25 and the English-German table, the section in the prompt,
 the shelf in the decisions, the line on the page, and the real shelf (its manifest, its speed, five situations)."""
+import gzip
 import json
 import re
 import shutil
@@ -108,6 +109,25 @@ class CleaningTest(unittest.TestCase):
         for must in ("Philosophy of Right", "Philosophy of History", "Philosophy of Mind", "History of Philosophy", "Phenomenology of Mind",
                      "Phänomenologie des Geistes", "Philosophie des Rechts", "Philosophie der Geschichte", "Enzyklopädie"):
             self.assertIn(must, {w["work"] for w in corpus.WORKS})
+
+
+class LivesTest(unittest.TestCase):
+    """The lives of him (Rosenkranz, Caird) go into the training corpus, never onto his shelf."""
+
+    def test_no_life_is_in_the_index_he_reads_from(self):
+        lives = {w["id"] for w in corpus.WORKS if not w["shelf"]}
+        self.assertEqual(lives, {"rosenkranz-leben", "rosenkranz-urkunden", "caird"})
+        self.assertTrue(all(not w["shelf"] for w in corpus.WORKS if w["author"] != "Hegel"))      # a book about him is never on his shelf
+        index = json.loads(gzip.open(shelf.INDEX, "rt", encoding="utf-8").read())
+        self.assertFalse(lives & {w["id"] for w in index["works"]})
+
+    def test_a_built_life_is_cut_at_his_death(self):
+        for w in corpus.WORKS:
+            if not w["shelf"] and corpus.path_of(w).exists():
+                text = corpus.read_work(w)
+                self.assertGreater(len(text), 100000, w["id"])
+                tail = text[-3000:].lower()
+                self.assertFalse(re.search(r"begräbnis|begraben|beerdig|funeral|buried|grave", tail), w["id"])
 
 
 class PassageTest(unittest.TestCase):

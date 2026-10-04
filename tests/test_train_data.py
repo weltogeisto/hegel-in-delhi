@@ -93,14 +93,36 @@ class CorpusTest(TmpCase):
         for w in corpus.WORKS:
             line = td.header(w, "§12", "§14")
             self.assertLess(len(line), td.HEAD_ROOM, w["id"])
-            self.assertTrue(line.startswith("Hegel"), w["id"])
             self.assertIn("§12 ff.", line)
+            if w["author"] != "Hegel":                                          # a life of him: its author and year
+                self.assertTrue(line.startswith(w["author"] + ", "), w["id"])
+                self.assertRegex(line, r"\(\d{4}\)")
+                continue
+            self.assertTrue(line.startswith("Hegel"), w["id"])
             if w["who"].startswith("tr. "):
                 self.assertIn(w["who"], line, w["id"])
                 self.assertRegex(line, r"\(\d{4}\)")
             else:
                 self.assertNotIn("tr. ", line)
                 self.assertNotIn("(", line, w["id"])
+
+    def test_a_life_is_headed_by_its_author_and_year(self):
+        life = {"title": "Georg Wilhelm Friedrich Hegel's Leben", "who": "Karl Rosenkranz", "year": "1844", "author": "Karl Rosenkranz"}
+        self.assertEqual(td.header(life, "Jena", "Jena"), "Karl Rosenkranz, Georg Wilhelm Friedrich Hegel's Leben (1844), Jena")
+
+    def test_the_blind_passages_of_the_hegel_test_stay_out_of_the_corpus(self):
+        q = self.tmp() / "questions.json"
+        blind = "The state is the march of God in the world; its ground or cause is the power of reason realizing itself as will."
+        q.write_text(json.dumps({"questions": [{"passage": blind, "original": blind.replace("itself", "itseK")}]}), encoding="utf-8")
+        kept = [{"id": "dyde", "lang": "en", "passages": [("§257", "The state is the actuality of the ethical idea, the ethical spirit as the substantial will."),
+                                                        ("§258", "Addition. " + blind + " When thinking of the idea of the state we must not have in mind a particular state."),
+                                                        ("§259", "The idea of the state has immediate actuality in the individual state.")]}]
+        out, n = td.held_out(kept, q)
+        self.assertEqual(n, 1)
+        self.assertEqual([r for r, _ in out[0]["passages"]], ["§257", "§259"])
+        self.assertEqual(len(kept[0]["passages"]), 3)                           # the input is left alone
+        real, dropped = td.held_out(corpus.kept_works())                        # the real test against the real shelf
+        self.assertGreaterEqual(dropped, 20)
 
     def test_subsample_keeps_every_work_in_proportion(self):
         docs = [("a", "en", "x" * 100)] * 50 + [("b", "de", "y" * 100)] * 50
@@ -134,16 +156,26 @@ class RealCorpusTest(TmpCase):
         for d in self.docs:
             self.assertEqual(list(d), ["text"])
             self.assertTrue(td.MIN_DOC <= len(d["text"]) <= td.DOC_CHARS)
-            self.assertTrue(d["text"].startswith("Hegel"), d["text"][:60])
+            self.assertTrue(d["text"].startswith(LIVES) or d["text"].startswith("Hegel"), d["text"][:60])
             self.assertLess(len(d["text"].split("\n\n")[0]), td.HEAD_ROOM)
 
     def test_it_holds_only_passages_of_the_shelf_index_so_no_damaged_scan_and_nothing_after_1831(self):
         with gzip.open(REPO / "mind/shelf/index.json.gz", "rt", encoding="utf-8") as f:
             indexed = set(json.load(f)["texts"])
+        kept = {p for w in corpus.kept_works() if not w["shelf"] for _, p in w["passages"]}        # the lives: kept by the same filters, never indexed
         for d in self.docs:
             for passage in d["text"].split("\n\n")[1:]:
-                self.assertIn(passage, indexed)
+                self.assertIn(passage, kept if d["text"].startswith(LIVES) or "Papieren" in d["text"][:80] else indexed)
+        self.assertFalse(kept & indexed)
         self.assertFalse(any(corpus.GARBLE.search(p) for d in self.docs for p in d["text"].split("\n\n")[1:]))
+
+    def test_the_lives_are_in_and_end_before_his_death(self):
+        lives = [d["text"] for d in self.docs if d["text"].startswith(LIVES)]
+        self.assertGreater(sum(map(len, lives)), 800000)
+        self.assertTrue(any("Grundlinien" not in d and "Hölderlin" in d for d in lives))
+        for d in lives:
+            self.assertNotRegex(d.split("\n\n")[0], r"Hegels? Tod|His Death")               # no chapter on his death
+            self.assertNotRegex(d, r"(?i)he was buried|hegel.?s (begräbni|leiche)|an (hegels|seinem) grabe|grabrede")
 
     def test_both_languages_and_every_work_are_there(self):
         heads = {d["text"].split("\n\n")[0] for d in self.docs}
@@ -151,6 +183,9 @@ class RealCorpusTest(TmpCase):
         self.assertTrue(any("tr. S. W. Dyde (1896)" in h for h in heads))
         for w in corpus.WORKS:
             self.assertTrue(any(work_title(w) in h for h in heads), w["id"])
+
+
+LIVES = ("Karl Rosenkranz, ", "Edward Caird, ")
 
 
 def work_title(w):

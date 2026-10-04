@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Hegel in Delhi: the training data for a Hegel LoRA. Standard library only, Python 3.9 and later; runs on the PC under WSL2 or on the Pi.
 
-    python3 tools/train_data.py --corpus                      # mind/train/corpus.jsonl: his books as continued-pretraining text
+    python3 tools/train_data.py --corpus                      # mind/train/corpus.jsonl: his books, his papers and his lives as continued-pretraining text
     python3 tools/train_data.py --general 1000                # mind/train/general.jsonl: human-written instruction data, for balance
     python3 tools/train_data.py --distill --url http://127.0.0.1:8080 --days 20 --candidates 4 --start 2026-10-03
     python3 tools/train_data.py --stats                       # counts, token estimates and a few random samples to read
@@ -122,9 +122,14 @@ def work_title(w):
 
 def header(w, first, last):
     """'Hegel, Grundlinien der Philosophie des Rechts, §188' for a German text; an English one adds the translator and the year:
-    'Hegel's Philosophy of Right, tr. S. W. Dyde (1896), §188 ff.'. `first` and `last` are the refs of the document's first and last passage."""
+    'Hegel's Philosophy of Right, tr. S. W. Dyde (1896), §188 ff.'; a life of him names its author and year: 'Karl Rosenkranz, Georg
+    Wilhelm Friedrich Hegel's Leben (1844), Jena'. `first` and `last` are the refs of the document's first and last passage."""
     title = work_title(w)
-    line = title if title.startswith("Hegel") else f"Hegel, {title}"
+    if w.get("author", "Hegel") != "Hegel":
+        year = re.match(r"\d{4}", w["year"])
+        line = f"{w['author']}, {title}" + (f" ({year.group(0)})" if year else "")
+    else:
+        line = title if title.startswith("Hegel") else f"Hegel, {title}"
     if w["who"].startswith("tr. "):
         year = re.match(r"\d{4}", w["year"])
         line += f", {w['who']}" + (f" ({year.group(0)})" if year else "")
@@ -158,6 +163,25 @@ def documents(kept, meta, limit=DOC_CHARS):
     return out
 
 
+BLIND = REPO / "mind/hegeltest/questions.json"
+HELD_OUT_RUN = 8                                       # a passage that shares a run of this many words with a blind passage of the Hegel test stays out
+
+
+def held_out(kept, questions=BLIND):
+    """(kept, n): the works' passages without those that overlap the twenty real passages of the Hegel test's blind part, so that the trained
+    mind cannot have learnt the answers by heart; n is how many were dropped."""
+    runs = set()
+    for q in json.loads(Path(questions).read_text(encoding="utf-8"))["questions"] if Path(questions).exists() else []:
+        for text in (q.get("passage"), q.get("original")):
+            runs |= shingles(text or "", HELD_OUT_RUN)
+    dropped, out = 0, []
+    for w in kept:
+        passages = [(ref, t) for ref, t in w["passages"] if not runs & shingles(t, HELD_OUT_RUN)]
+        dropped += len(w["passages"]) - len(passages)
+        out.append({**w, "passages": passages})
+    return out, dropped
+
+
 def subsample(docs, max_chars):
     """About max_chars characters of the documents, every k-th one, so that every work stays in the same proportion."""
     total = sum(len(t) for _, _, t in docs)
@@ -170,7 +194,8 @@ def subsample(docs, max_chars):
 def cmd_corpus(a, out):
     import corpus                                       # tools/corpus.py: the damaged-passage filter lives there
     t0 = time.time()
-    kept = corpus.kept_works()                          # the passages of the shelf's index: mended, no damaged scan, nothing after 1831
+    kept = corpus.kept_works()                          # the passages of the shelf's index and of the lives: mended, no damaged scan, nothing after 1831
+    kept, blind = held_out(kept)
     docs = documents(kept, {w["id"]: w for w in corpus.WORKS})
     if a.max_chars:
         docs = subsample(docs, a.max_chars)
@@ -185,7 +210,8 @@ def cmd_corpus(a, out):
     chars = sum(len(t) for _, _, t in docs)
     langs = {lang: sum(len(t) for _, g, t in docs if g == lang) for lang in ("de", "en")}
     print(f"wrote {out / 'corpus.jsonl'}: {n} documents, {chars / 1e6:.2f} M characters (German {langs['de'] / 1e6:.2f}, English {langs['en'] / 1e6:.2f}), "
-          f"longest {max(len(t) for _, _, t in docs)}; about {tokens_of(chars) / 1e6:.2f} M tokens (characters / 4) in {time.time() - t0:.0f} s")
+          f"longest {max(len(t) for _, _, t in docs)}; about {tokens_of(chars) / 1e6:.2f} M tokens (characters / 4) in {time.time() - t0:.0f} s; "
+          f"{blind} passages left out because they overlap the Hegel test's blind passages")
     return 0
 
 

@@ -6,7 +6,7 @@ Generated on the PC by `tools/train_data.py`, read by `pc/train_hegel.py`, run b
 
 No assistant turn in this data is written by Claude. Anthropic's terms bar training other models on Claude's output, so each target comes from one of two places:
 
-- **Hegel's own texts**, public domain: `corpus.jsonl`, cut from the shelf (`mind/shelf/*.txt.gz`).
+- **Hegel's own texts and the lives of him**, public domain: `corpus.jsonl`, cut from the shelf (`mind/shelf/*.txt.gz`): his books, his early papers, and the biographies by Rosenkranz (1844) and Caird (1883), which were written by people, a century and more before any language model.
 - **Qwen itself**: `decisions.jsonl`, `plans.jsonl`, `writings.jsonl`, `voices.jsonl`, the mind's own answers to the world's own prompts.
 
 The one exception is `general.jsonl`, below, which is human-written (or, with `--answer-with`, Qwen-written). Prompts are the project's own files: the soul (`mind/soul.md`), the voices' card (`mind/voices.md`) and the situations that the world engine renders. Nothing here is a thought, an answer or a scene that Claude made up. The tests' fixtures are made-up strings, but they go to temporary folders and never into this one.
@@ -15,7 +15,7 @@ The one exception is `general.jsonl`, below, which is human-written (or, with `-
 
 | File | What | Made by | Lines |
 |---|---|---|---|
-| `corpus.jsonl` | Phase 1, continued pretraining: his books, in documents of at most 6,000 characters under a header line (`Hegel, Grundlinien der Philosophie des Rechts, §188`; an English text adds the translator and year) | `--corpus`, about 10 s, anywhere | `{"text": "..."}` |
+| `corpus.jsonl` | Phase 1, continued pretraining: his books, the papers of his youth and two lives of him (Rosenkranz 1844, Caird 1883, each cut where he dies; see `mind/shelf/MANIFEST.md`), in documents of at most 6,000 characters under a header line (`Hegel, Grundlinien der Philosophie des Rechts, §188`; an English text adds the translator and year; a life names its author: `Karl Rosenkranz, Georg Wilhelm Friedrich Hegel's Leben (1844), Jena`). The twenty real passages of the Hegel test's blind part are left out, so that the trained mind cannot have learnt them by heart | `--corpus`, about 10 s, anywhere | `{"text": "..."}` |
 | `decisions.jsonl` | Phase 2: the live prompt and the best valid answer of K candidates | `--distill`, on the PC with Qwen | `{"messages": [system = the soul, user = the rendered situation, assistant = the chosen JSON], "meta": {...}}` |
 | `plans.jsonl` | the morning plan call that the world accepted | `--distill` | same, the user turn ends with the plan question |
 | `writings.jsonl` | what he wrote when he sat down to, that the world accepted | `--distill` | `[system, user, assistant = the decision, user = the writing ask, assistant = the writing]`; only the last answer is trained on |
