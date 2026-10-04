@@ -106,6 +106,10 @@ Take the first one that answers `200`, in that order. The 16-bit ones (`unsloth/
 
 **Stop and report** if the GGUF names no original repository, if it is a community fine-tune (a `finetune` field other than `Instruct` or empty, or words like abliterated, uncensored, distill), or if none of the four answers `200`. Welt decides then; don't pick a near match.
 
+**Also stop and report if the model is Qwen3.5 or later** (`general.architecture` starting `qwen35`, or 3.5 or higher in the name). Unsloth advises against 4-bit training (QLoRA) for that family because of its unusually large quantization error, and a 16-bit LoRA of a 27B needs about 56 GB, more than the 3090 has. Welt picks one of two routes:
+- **QLoRA on the 3090 anyway**, as this runbook does, and let the Hegel test judge the result.
+- **A rented 80 GB GPU** (an A100 or H100 by the hour) for the training only. The same scripts run with `--bf16` added in step 5, take the 16-bit repo (`unsloth/<model>` or `Qwen/<model>`), and the run is about three times faster. Steps 4 and 6 to 8 stay on the PC.
+
 ```bash
 hf download <the repo you picked> --local-dir ~/models/qwen-base
 du -sh ~/models/qwen-base && ls ~/models/qwen-base
@@ -171,6 +175,7 @@ python pc/train_hegel.py --base ~/models/qwen-base --dry-run 2>&1 | tee pc/out/d
 The dry run loads the model (5–10 minutes), runs five steps of each phase and prints, per phase, the peak VRAM and a projection (`projection: N s per step x M steps = H h`). Report both projection lines and the peak VRAM.
 
 - **Out of memory:** add `--seq-format 3072` and try again; if it still runs out, also `--rank 16`. Report which settings ran and use the same for the real run. If `--seq-format 3072` makes the data check say that over a fifth of the examples are too long, stop and report.
+- **Speed:** Unsloth already brings the speed-ups that are documented for this kind of run (its own kernels, its gradient checkpointing, the books packed into full blocks of 2048 tokens). What is left is training on fewer tokens: `--epochs-format 1` takes one pass over the decisions instead of two and saves a third of the time, more or less.
 - **Projection over 20 hours** for both phases together: report it. Welt picks between fewer books (`python3 tools/train_data.py --corpus --max-chars 6000000`, about half), one pass over the decisions (`--epochs-format 1`), or the long run.
 - **"the model's chat template does not render the prompt as the beginning of the full chat":** stop and report the whole message.
 

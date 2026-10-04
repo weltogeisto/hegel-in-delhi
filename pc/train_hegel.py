@@ -220,7 +220,7 @@ def load_model(args, adapter=None):
     """The base in 4 bits with a fresh LoRA, or (adapter given) with phase 1's weights put into that LoRA, trainable."""
     from unsloth import FastLanguageModel
     model, tokenizer = FastLanguageModel.from_pretrained(model_name=args.base, max_seq_length=max(args.seq_corpus, args.seq_format),
-                                                         dtype=None, load_in_4bit=True)
+                                                         dtype=None, load_in_4bit=not args.bf16)
     model = FastLanguageModel.get_peft_model(
         model, r=args.rank, lora_alpha=args.alpha, lora_dropout=0, bias="none", random_state=args.seed,
         target_modules=ATTENTION_MLP + (LINEAR_ATTENTION if args.targets == "all" else []), use_gradient_checkpointing="unsloth")
@@ -373,6 +373,7 @@ def main(argv=None):
     p.add_argument("--rank", type=int, default=32)
     p.add_argument("--alpha", type=int, default=32)
     p.add_argument("--targets", choices=["standard", "all"], default="standard", help="'all' adds the linear-attention projections (llama.cpp may not convert them)")
+    p.add_argument("--bf16", action="store_true", help="a 16-bit LoRA instead of QLoRA: about 56 GB for a 27B, so a rented 80 GB GPU; Unsloth advises it for Qwen3.5")
     p.add_argument("--batch", type=int, default=1)
     p.add_argument("--accum", type=int, default=16, help="gradient accumulation steps (default 16)")
     p.add_argument("--lr-corpus", type=float, default=1e-4)
