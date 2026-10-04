@@ -266,8 +266,7 @@ class SettingsTest(unittest.TestCase):
             th.train = original
         self.assertEqual((captured["rank"], captured["alpha"], captured["batch"], captured["accum"]), (32, 32, 1, 16))
         self.assertEqual((captured["lr_corpus"], captured["lr_format"], captured["epochs_corpus"], captured["epochs_format"]), (1e-4, 5e-5, 1, 2))
-        self.assertEqual((captured["seq_corpus"], captured["targets"], captured["phase"]), (2048, "standard", "both"))
-        self.assertEqual(th.ATTENTION_MLP, ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"])
+        self.assertEqual((captured["seq_corpus"], captured["phase"], captured["bf16"]), (2048, "both", False))
 
     def test_a_base_is_required_for_training_but_not_for_the_check(self):
         with contextlib.redirect_stderr(io.StringIO()):

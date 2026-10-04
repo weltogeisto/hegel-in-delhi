@@ -1,6 +1,6 @@
 # Codex on the PC: train Hegel's own mind
 
-Goal: a LoRA adapter that makes the installed Qwen 27B sound like Hegel and know the world's format, served on port 8082 on top of the Qwen GGUF the PC already has. Bonsai (8081) and the plain Qwen (8080) stay as they are, so the Hegel test can compare all three.
+Goal: a LoRA adapter that makes the installed Qwen3.8-27B sound like Hegel and know the world's format, served on port 8082 on top of the Qwen GGUF the PC already has. Bonsai (8081) and the plain Qwen (8080) stay as they are, so the Hegel test can compare all three.
 
 The adapter learns from two sources only: Hegel's own books (the shelf, public domain) and Qwen's own best decisions in rehearsal days, chosen by the world. One more source keeps it from forgetting general skills: human-written answers from a public dataset. **No training data may be written by Claude or any other outside model**: don't add, edit or "improve" any example by hand or with another AI. If a file looks wrong, report it.
 
@@ -79,39 +79,29 @@ python3 -m venv ~/hegel-train && source ~/hegel-train/bin/activate
 pip install --upgrade pip
 pip install unsloth "huggingface_hub[cli]" gguf
 python -c "import torch; print(torch.__version__, torch.cuda.is_available(), torch.cuda.get_device_name(0))"
+python -c "import transformers, unsloth; print('transformers', transformers.__version__, 'unsloth', unsloth.__version__)"
 mkdir -p ~/hegel-in-delhi/pc/out && pip freeze > ~/hegel-in-delhi/pc/out/requirements.txt
 ```
 
-Versions are not pinned by hand. Unsloth pins torch, transformers, trl, peft and bitsandbytes to a combination it has tested, and the model family decides the minimum transformers version. `pc/out/requirements.txt` records what was installed; the training also writes the versions into `pc/out/hegel-lora/training.json`. Report the torch line (it must end in `True NVIDIA GeForce RTX 3090`) and send Welt `pc/out/requirements.txt`.
+Versions are not pinned by hand. Unsloth pins torch, transformers, trl, peft and bitsandbytes to a combination it has tested, and the model family decides the minimum transformers version. `pc/out/requirements.txt` records what was installed; the training also writes the versions into `pc/out/hegel-lora/training.json`. Report both lines: the torch line must end in `True NVIDIA GeForce RTX 3090`, and transformers must be 5 or later (Qwen3.8 uses the `qwen3_5` architecture, which needs Transformers v5). If it is older, run `pip install -U unsloth unsloth_zoo "transformers>=5"` once and report again. Send Welt `pc/out/requirements.txt`.
 
 ## 3. The base model in Hugging Face format
 
-The adapter must be trained on exactly the model the PC serves: same family, same size, same version, same instruct variant. Read the GGUF's own description of itself (replace the path with the one from step 1; `C:\` is `/mnt/c/` in WSL):
+The adapter must be trained on exactly the model the PC serves: Qwen3.8-27B. Check that the GGUF says so (replace the path with the one from step 1; `C:\` is `/mnt/c/` in WSL):
 
 ```bash
 source ~/hegel-train/bin/activate
 gguf-dump --no-tensors "/mnt/c/path/to/the-qwen.gguf" | grep -E "general\.(architecture|name|basename|size_label|version|finetune|base_model)|\.context_length"
 ```
 
-`general.base_model.0.repo_url` (or `general.basename`, `general.size_label` and `general.finetune`) names the original repository, for example `https://huggingface.co/Qwen/<model>`. Report all the lines.
+Expected: the architecture `qwen35` (Qwen3.8 uses the Qwen3.5 architecture), a size of 27B, and `general.base_model.0.repo_url` pointing at `Qwen/Qwen3.8-27B` (or the name and size saying Qwen3.8 27B). Report all the lines.
 
-Then look for Unsloth's pre-quantized 4-bit copy of that same repository, which is about 17 GB instead of about 55 GB. Replace `<model>` with the name after `Qwen/`:
+The base for training is Unsloth's pre-quantized 4-bit copy, `unsloth/Qwen3.8-27B-unsloth-bnb-4bit` (about 17 GB): the one their Qwen3.8 guide uses, and with which a 27B fits the 3090's 24 GB.
 
-```bash
-for r in unsloth/<model>-unsloth-bnb-4bit unsloth/<model>-bnb-4bit unsloth/<model> Qwen/<model>; do
-  echo "$r $(curl -s -o /dev/null -w '%{http_code}' https://huggingface.co/api/models/$r)"; done
-```
-
-Take the first one that answers `200`, in that order. The 16-bit ones (`unsloth/<model>`, `Qwen/<model>`) work too; the training loads them in 4 bits, but the download is three times larger.
-
-**Stop and report** if the GGUF names no original repository, if it is a community fine-tune (a `finetune` field other than `Instruct` or empty, or words like abliterated, uncensored, distill), or if none of the four answers `200`. Welt decides then; don't pick a near match.
-
-**Also stop and report if the model is Qwen3.5 or later** (`general.architecture` starting `qwen35`, or 3.5 or higher in the name). Unsloth advises against 4-bit training (QLoRA) for that family because of its unusually large quantization error, and a 16-bit LoRA of a 27B needs about 56 GB, more than the 3090 has. Welt picks one of two routes:
-- **QLoRA on the 3090 anyway**, as this runbook does, and let the Hegel test judge the result.
-- **A rented 80 GB GPU** (an A100 or H100 by the hour) for the training only. The same scripts run with `--bf16` added in step 5, take the 16-bit repo (`unsloth/<model>` or `Qwen/<model>`), and the run is about three times faster. Steps 4 and 6 to 8 stay on the PC.
+**Stop and report** if the GGUF is not Qwen3.8-27B, or is a community fine-tune of it (a `finetune` field with words like abliterated, uncensored, distill), or if that repository does not answer: `curl -s -o /dev/null -w '%{http_code}\n' https://huggingface.co/api/models/unsloth/Qwen3.8-27B-unsloth-bnb-4bit` must print `200`. Welt decides then; don't pick a near match.
 
 ```bash
-hf download <the repo you picked> --local-dir ~/models/qwen-base
+hf download unsloth/Qwen3.8-27B-unsloth-bnb-4bit --local-dir ~/models/qwen-base
 du -sh ~/models/qwen-base && ls ~/models/qwen-base
 ```
 
@@ -205,7 +195,7 @@ python ~/llama.cpp/convert_lora_to_gguf.py pc/out/hegel-lora --base ~/models/qwe
 ls -lh pc/out/hegel-lora.gguf && cp pc/out/hegel-lora.gguf /mnt/c/hegel/models/
 ```
 
-- If it complains about the base's config (a 4-bit `quantization_config`), run it again with `--base-model-id Qwen/<model>` in place of `--base ~/models/qwen-base`.
+- If it complains about the base's config (a 4-bit `quantization_config`), run it again with `--base-model-id Qwen/Qwen3.8-27B` in place of `--base ~/models/qwen-base`.
 - If it names an unsupported architecture or tensor: take the latest llama.cpp release for both the converter and the Windows server, and try once more. Report if that fails too.
 
 On Windows:

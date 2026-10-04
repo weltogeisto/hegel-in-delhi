@@ -11,7 +11,9 @@
 Phase 1, corpus: continued pretraining on corpus.jsonl (his books), plain causal-LM loss, the documents joined into blocks of 2048 tokens.
 Phase 2, format: SFT on decisions, plans, writings and voices (what the world asks of him), mixed one to one with general.jsonl, loss on the
 final assistant turn of each example only. The prompt is rendered by the model's own chat template with thinking off, as the live server does it.
-The same LoRA (r 32, alpha 32, every attention and MLP projection) carries on from one phase to the next. Base: a pre-quantized 4-bit repo of the same Qwen, or its 16-bit repo loaded in 4 bits (QLoRA).
+The same LoRA (r 32, alpha 32, every attention and MLP module of the language layers) carries on from one phase to the next. Base: Unsloth's
+pre-quantized 4-bit Qwen3.8-27B (QLoRA), loaded as their Qwen3.8 guide does it: Qwen3.8 is a vision-language model, so FastModel loads it and
+the vision tower is left alone.
 
 The heavy imports (unsloth, torch, transformers) happen inside the functions that train, so that this file can be imported, and --check-data run,
 anywhere. The loss masks, the packing and the data checks are plain Python and are tested without a GPU (tests/test_train_hegel.py)."""
@@ -33,8 +35,6 @@ DATA, OUT = REPO / "mind/train", HERE / "out"
 CHAT_FILES = {"decisions": "decisions.jsonl", "plans": "plans.jsonl", "writings": "writings.jsonl", "voices": "voices.jsonl", "general": "general.jsonl"}
 FORMAT = ("decisions", "plans", "writings", "voices")        # what the world asks of him: phase 2's own data
 STAND_IN = ("(rehearsal)", "(stub)")                         # a stand-in mind's marks: such text is not training data
-ATTENTION_MLP = ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
-LINEAR_ATTENTION = ["in_proj_qkv", "in_proj_z", "out_proj"]  # the gated-delta-net layers of Qwen3.5/3.6; llama.cpp's LoRA conversion may not take them
 CHARS_PER_TOKEN = 3.5                                        # for guessing whether an example fits the sequence length; the real count is made at training time
 WRITING_KEYS = {"title", "kind", "to", "continues", "text"}
 
@@ -217,13 +217,14 @@ def vram():
 
 
 def load_model(args, adapter=None):
-    """The base in 4 bits with a fresh LoRA, or (adapter given) with phase 1's weights put into that LoRA, trainable."""
-    from unsloth import FastLanguageModel
-    model, tokenizer = FastLanguageModel.from_pretrained(model_name=args.base, max_seq_length=max(args.seq_corpus, args.seq_format),
-                                                         dtype=None, load_in_4bit=not args.bf16)
-    model = FastLanguageModel.get_peft_model(
-        model, r=args.rank, lora_alpha=args.alpha, lora_dropout=0, bias="none", random_state=args.seed,
-        target_modules=ATTENTION_MLP + (LINEAR_ATTENTION if args.targets == "all" else []), use_gradient_checkpointing="unsloth")
+    """The base (4 bits unless --bf16) with a fresh LoRA on its language layers, or (adapter given) with phase 1's weights put into that LoRA,
+    trainable. The calls are those of Unsloth's Qwen3.8 guide."""
+    from unsloth import FastModel
+    model, tokenizer = FastModel.from_pretrained(model_name=args.base, max_seq_length=max(args.seq_corpus, args.seq_format),
+                                                 load_in_4bit=not args.bf16, full_finetuning=False, offload_embedding=not args.bf16)
+    model = FastModel.get_peft_model(
+        model, finetune_vision_layers=False, finetune_language_layers=True, finetune_attention_modules=True, finetune_mlp_modules=True,
+        r=args.rank, lora_alpha=args.alpha, lora_dropout=0, bias="none", random_state=args.seed, use_gradient_checkpointing="unsloth")
     if adapter:
         # The same LoRA built afresh and filled with phase 1's weights: loading the adapter folder itself can come back frozen.
         from peft import set_peft_model_state_dict
@@ -231,7 +232,7 @@ def load_model(args, adapter=None):
         result = set_peft_model_state_dict(model, load_file(str(Path(adapter) / "adapter_model.safetensors")))
         missing = [k for k in getattr(result, "missing_keys", []) if "lora_" in k]
         if missing:
-            raise SystemExit(f"phase 1's adapter does not fit this LoRA ({len(missing)} weights missing, e.g. {missing[0]}): were --rank, --alpha or --targets "
+            raise SystemExit(f"phase 1's adapter does not fit this LoRA ({len(missing)} weights missing, e.g. {missing[0]}): were --rank or --alpha "
                              "changed between the phases? Report this to Welt.")
         print(f"phase 1's adapter loaded from {adapter}", flush=True)
     trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
@@ -372,8 +373,7 @@ def main(argv=None):
     p.add_argument("--seq-format", type=int, default=4096, help="longest example in phase 2 (default 4096: the soul and a situation alone are about 2,300 tokens)")
     p.add_argument("--rank", type=int, default=32)
     p.add_argument("--alpha", type=int, default=32)
-    p.add_argument("--targets", choices=["standard", "all"], default="standard", help="'all' adds the linear-attention projections (llama.cpp may not convert them)")
-    p.add_argument("--bf16", action="store_true", help="a 16-bit LoRA instead of QLoRA: about 56 GB for a 27B, so a rented 80 GB GPU; Unsloth advises it for Qwen3.5")
+    p.add_argument("--bf16", action="store_true", help="a 16-bit LoRA instead of QLoRA: over 36 GB for Qwen3.8-27B, so only on a rented GPU")
     p.add_argument("--batch", type=int, default=1)
     p.add_argument("--accum", type=int, default=16, help="gradient accumulation steps (default 16)")
     p.add_argument("--lr-corpus", type=float, default=1e-4)
