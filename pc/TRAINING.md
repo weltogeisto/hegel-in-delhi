@@ -136,6 +136,8 @@ python3 tools/train_data.py --general 1500    # a few minutes, needs the interne
 curl -s http://127.0.0.1:8080/health          # must answer {"status":"ok"}; without mirrored networking use the PC's LAN address
 ```
 
+If `--general` stops early (Hugging Face answers `429`, too many requests), that is no failure: the examples so far are kept, and the same command run again later tops them up. A free Hugging Face read token raises the limit (`export HF_TOKEN=hf_...`). The general set is needed only in step 5, so start the distillation anyway and top it up while that runs.
+
 Now the distillation. It rehearses 20 days of the world with Qwen as the mind, asks Qwen four times at every decision, lets the world reject what breaks its rules or knows too much after 1831, and keeps the best of the rest. Run it in tmux so that a closed window doesn't stop it:
 
 ```bash

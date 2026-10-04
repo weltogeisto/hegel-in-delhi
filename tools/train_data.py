@@ -233,23 +233,30 @@ class GeneralError(Exception):
     pass
 
 
-def fetch_json(url, tries=5, sleep=time.sleep):
-    """JSON from the datasets server, tried again with growing pauses on the errors that pass (502, 429, a dropped connection)."""
-    last = None
+def fetch_json(url, tries=6, sleep=None):
+    """JSON from the datasets server, tried again on the errors that pass: a dropped connection or a 5xx after a short pause, a 429 (too many
+    requests) after the pause the server asks for in Retry-After, or else 30, 60, 90 ... seconds. A Hugging Face token in HF_TOKEN raises the
+    server's limits."""
+    sleep, last, headers = sleep or time.sleep, None, {"User-Agent": "hegel-in-delhi-train-data/1.0"}
+    if os.environ.get("HF_TOKEN"):
+        headers["Authorization"] = f"Bearer {os.environ['HF_TOKEN']}"
     for attempt in range(1, tries + 1):
+        wait = 2 * attempt
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": "hegel-in-delhi-train-data/1.0"})
-            with urllib.request.urlopen(req, timeout=60) as r:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=60) as r:
                 return json.loads(r.read().decode("utf-8"))
         except urllib.error.HTTPError as e:
             last = f"HTTP {e.code}"
+            if e.code == 429:
+                after = (e.headers or {}).get("Retry-After", "")
+                wait = min(600, int(after)) if after.isdigit() else 30 * attempt
             e.close()
             if e.code not in (429, 500, 502, 503, 504):
                 break
         except (urllib.error.URLError, OSError, ValueError) as e:
             last = str(e)
         if attempt < tries:
-            sleep(2 * attempt)
+            sleep(wait)
     raise GeneralError(f"{url}: {last}")
 
 
@@ -274,11 +281,13 @@ def usable(row, sources=GENERAL_SOURCES):
     return [{"role": m["role"], "content": m["content"].strip()} for m in msgs]
 
 
-def fetch_general(n, base=GENERAL_API, dataset=GENERAL_DATASET, sources=GENERAL_SOURCES, seed=1831, sleep=time.sleep, say=print):
+def fetch_general(n, base=GENERAL_API, dataset=GENERAL_DATASET, sources=GENERAL_SOURCES, seed=1831, sleep=None, say=print, skip=(), pace=1.0):
     """n examples of the general set: [{"messages": [...], "meta": {...}}], fewer if the dataset runs out. The rows API is read in pages of 100.
     The mixture is stored in blocks, one subset after the other, so the first step is to probe the size and a row every `stride` rows to find where
     the allowed subsets lie (a block narrower than the stride can be missed); then random pages inside those stretches are read, round-robin over the
-    sources so that each gives an equal share, until n examples are in or the pages given for the search are used up."""
+    sources so that each gives an equal share, until n examples are in or the pages given for the search are used up. Rows whose ids are in `skip`
+    (a top-up) are passed over; `pace` seconds pass between pages. If the server stops answering once some examples are in, those are returned."""
+    sleep = sleep or time.sleep
     q = urllib.parse.urlencode({"dataset": dataset, "config": "default", "split": "train"})
     rows_url = f"{base}/rows?{q}&offset={{}}&length={{}}"
     total = fetch_json(rows_url.format(0, 1), sleep=sleep).get("num_rows_total") or 0
@@ -296,7 +305,7 @@ def fetch_general(n, base=GENERAL_API, dataset=GENERAL_DATASET, sources=GENERAL_
     say(f"dataset {dataset}: {total} rows; stretches with allowed sources: " + (", ".join(f"{s} {len(v)}" for s, v in found.items()) or "none"))
     if not found:
         raise GeneralError(f"none of the sources {sources} was found in {dataset}")
-    rng, seen, tried, out = random.Random(seed), set(), set(), collections.OrderedDict((s, []) for s in found)
+    rng, seen, tried, out = random.Random(seed + len(skip)), set(skip), set(), collections.OrderedDict((s, []) for s in found)
     budget = 25 + n // 4                                             # rounds of one page per source
     for spent in range(budget):
         if sum(map(len, out.values())) >= n:
@@ -308,7 +317,15 @@ def fetch_general(n, base=GENERAL_API, dataset=GENERAL_DATASET, sources=GENERAL_
             if len(out[s]) >= share or off in tried:
                 continue
             tried.add(off)
-            for item in fetch_json(rows_url.format(off, PAGE), sleep=sleep)["rows"]:
+            sleep(pace)
+            try:
+                page = fetch_json(rows_url.format(off, PAGE), sleep=sleep)["rows"]
+            except GeneralError as e:
+                if not any(out.values()):
+                    raise
+                say(f"  the server stopped answering ({e}); keeping {sum(map(len, out.values()))}. Run the same command again later to top up.")
+                return [x for v in out.values() for x in v][:n]
+            for item in page:
                 row = item["row"]
                 chat = usable(row, (s,))
                 if chat and row["id"] not in seen and len(out[s]) < share and sum(map(len, out.values())) < n:
@@ -341,23 +358,28 @@ def cmd_general(a, out):
     if a.answer_with and health(a.answer_with).get("stub"):
         print("that server is a stand-in: its answers are not training data", file=sys.stderr)
         return 1
+    have = read_jsonl(out / "general.jsonl", repair=True)            # an earlier run, cut short by the server: top it up
+    if len(have) >= a.general:
+        print(f"{out / 'general.jsonl'} already has {len(have)} examples")
+        return 0
     try:
-        rows = fetch_general(a.general, base=a.general_url)
+        rows = fetch_general(a.general - len(have), base=a.general_url, skip={r["meta"]["id"] for r in have})
         if rows and a.answer_with:
             rows = answer_with(rows, a.answer_with)
     except GeneralError as e:
-        print(f"cannot make the general set: {e}", file=sys.stderr)
+        print(f"cannot make the general set: {e}" + (f"; {len(have)} examples from before are kept" if have else ""), file=sys.stderr)
         return 1
-    if not rows:
+    if not rows and not have:
         print("no usable examples found", file=sys.stderr)
         return 1
     random.Random(1831).shuffle(rows)
+    rows = have + rows
     write_jsonl(out / "general.jsonl", rows)
     chars = sum(len(m["content"]) for r in rows for m in r["messages"])
     print(f"wrote {out / 'general.jsonl'}: {len(rows)} of {a.general} examples, {chars / 1e6:.2f} M characters, about {tokens_of(chars) / 1e6:.2f} M tokens; "
           f"prompts and " + ("answers by Qwen" if a.answer_with else "answers (human-written)") + f" from {GENERAL_DATASET}, license {GENERAL_LICENSE}")
     if len(rows) < a.general:
-        print(f"only {len(rows)} of {a.general}: the allowed subsets ran out of usable rows", file=sys.stderr)
+        print(f"only {len(rows)} of {a.general} so far: run the same command again later to top up (with HF_TOKEN set, the server allows more)", file=sys.stderr)
     return 0
 
 

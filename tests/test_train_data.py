@@ -233,9 +233,11 @@ def fake_rows():
 
 
 class FakeDatasets(BaseHTTPRequestHandler):
-    """The rows API of the datasets server, over fake_rows(). `fail` is how many requests answer 502 first."""
+    """The rows API of the datasets server, over fake_rows(). `fail` is how many requests answer 502 first; `limit_after` is how many pages
+    it serves before it answers 429 (Retry-After 7) to every request."""
     rows = []
     fail = 0
+    limit_after = None
     requests = []
 
     def log_message(self, *a):
@@ -246,6 +248,11 @@ class FakeDatasets(BaseHTTPRequestHandler):
         if FakeDatasets.fail > 0:
             FakeDatasets.fail -= 1
             self.send_response(502)
+            self.end_headers()
+            return
+        if FakeDatasets.limit_after is not None and sum("length=100" in r for r in FakeDatasets.requests) > FakeDatasets.limit_after:
+            self.send_response(429)
+            self.send_header("Retry-After", "7")
             self.end_headers()
             return
         q = dict(x.split("=", 1) for x in self.path.split("?", 1)[1].split("&"))
@@ -259,7 +266,7 @@ class FakeDatasets(BaseHTTPRequestHandler):
 
 class GeneralTest(TmpCase):
     def setUp(self):
-        FakeDatasets.rows, FakeDatasets.fail, FakeDatasets.requests = fake_rows(), 0, []
+        FakeDatasets.rows, FakeDatasets.fail, FakeDatasets.limit_after, FakeDatasets.requests = fake_rows(), 0, None, []
         self.httpd, self.url = serve(FakeDatasets)
         self.addCleanup(stop, self.httpd)
 
@@ -294,6 +301,31 @@ class GeneralTest(TmpCase):
         FakeDatasets.fail = 2
         got = td.fetch_general(10, base=self.url, sleep=lambda s: None, say=lambda *a: None)
         self.assertEqual(len(got), 10)
+
+    def test_a_429_waits_as_long_as_the_server_asks_and_keeps_what_it_has(self):
+        FakeDatasets.limit_after = 1
+        waits = []
+        got = td.fetch_general(60, base=self.url, sleep=waits.append, say=lambda *a: None, pace=0)
+        self.assertTrue(0 < len(got) < 60)                                       # what came before the limit is kept
+        self.assertIn(7, waits)                                                  # Retry-After honoured
+
+    def test_a_second_run_tops_up_without_repeating_an_example(self):
+        out = self.tmp()
+        FakeDatasets.limit_after = 1
+        with mock.patch.object(td.time, "sleep", lambda s: None):
+            code, text, err = run_main("--general", "40", "--general-url", self.url, "--out", str(out))
+        first = [json.loads(x) for x in (out / "general.jsonl").read_text(encoding="utf-8").splitlines()]
+        self.assertEqual(code, 0, err)
+        self.assertTrue(0 < len(first) < 40)
+        self.assertIn("top up", err)
+        FakeDatasets.limit_after, FakeDatasets.requests = None, []
+        with mock.patch.object(td.time, "sleep", lambda s: None):
+            code, text, err = run_main("--general", "40", "--general-url", self.url, "--out", str(out))
+        rows = [json.loads(x) for x in (out / "general.jsonl").read_text(encoding="utf-8").splitlines()]
+        self.assertEqual(code, 0, err)
+        self.assertEqual(len(rows), 40)
+        self.assertEqual(len({r["meta"]["id"] for r in rows}), 40)
+        self.assertEqual(rows[:len(first)], first)                               # the earlier ones are kept as they were
 
     def test_an_unreachable_server_is_an_error_with_the_url(self):
         with self.assertRaises(td.GeneralError) as cm:
