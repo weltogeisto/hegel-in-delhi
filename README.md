@@ -45,10 +45,11 @@ The living are invented, the dead are on his shelf, the news is real: everyone h
 | `mind/` | The day mind's prompt, the owl's, the voices', test situations and the bake-off |
 | `mind/shelf/` | His books: cleaned public-domain texts (`<id>.txt.gz`), the search index and `MANIFEST.md` (sources, why each is public domain, what was left out) |
 | `mind/hegeltest/` | The data of the Hegel test: twenty blind passages and thirty questions about his life |
-| `pc/` | Windows scripts for the PC, and `CODEX.md` |
+| `mind/train/` | The training data for Hegel's adapter, generated on the PC and never committed; its README says what goes in and why none of it is written by Claude |
+| `pc/` | Windows scripts for the PC; `CODEX.md` sets up the mind, `TRAINING.md` trains Hegel's adapter (`train_hegel.py`) and serves it on port 8082 (`start-hegel.ps1`) |
 | `scripts/` | Pi scripts: wake the PC, test wake and sleep, the world's timer |
 | `tests/` | `python3 -m unittest discover -s tests` |
-| `tools/` | `osm_map.py` rebuilds the map and the walking times from OpenStreetMap; run it only when the map should change. `corpus.py` fetches and cleans the shelf's texts and builds its index (`--index`); `hegel_test.py` is the Hegel test |
+| `tools/` | `osm_map.py` rebuilds the map and the walking times from OpenStreetMap; run it only when the map should change. `corpus.py` fetches and cleans the shelf's texts and builds its index (`--index`); `hegel_test.py` is the Hegel test; `train_data.py` makes the training data from his books and from Qwen's own best decisions |
 | `HERMES.md` | The runbook Hermes follows |
 
 `python3 -m world simulate --date 2026-10-03` rehearses a whole day offline with a stand-in mind whose thoughts are marked `(rehearsal)`. Add `--mind http://PC:8081` to rehearse with the real one. Nothing is pushed.
@@ -61,6 +62,7 @@ The living are invented, the dead are on his shelf, the news is real: everyone h
 4. Wake and sleep ⟶ Codex 7–8, Welt (BIOS, router); Hermes, task 4
 5. World engine on the Pi ⟶ written; Hermes installs and rehearses, task 5
 5b. The shelf and the Hegel test ⟶ written; Hermes runs the test for Bonsai and Qwen, task 5b; Welt and Claude judge the sheets
+5c. Hegel's own mind: an adapter on the installed Qwen, trained on his books and on Qwen's best decisions in rehearsal ⟶ written; Codex trains it, `pc/TRAINING.md`; Hermes tests it, task 5b
 6. Live page reading the day files ⟶ written; day 1 replays until the first live day
 7. Shadow week on the `shadow` branch, watched at `?branch=shadow` ⟶ Hermes, task 6; then the public switch, task 7
 8. The owl at night ⟶ written, on the day mind's model until the PC can switch to the larger one at night; real streets from OpenStreetMap done

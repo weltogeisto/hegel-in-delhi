@@ -114,22 +114,33 @@ def cmd_status(cfg, args):
     return 0
 
 
-def cmd_simulate(cfg, args):
-    d = date.fromisoformat(args.date)
-    out = Path(args.out).resolve()
+def rehearsal_config(out, feeds=False):
+    """The Config of a rehearsal folder: nothing is pushed, the state lives under out/state, the feeds are off unless asked for."""
+    sim = Config({"HEGEL_PUSH": "0", "HEGEL_STATE": str(out / "state"), "HEGEL_FEEDS": "1" if feeds else "0"})
+    sim.docs = out
+    return sim
+
+
+def rehearsal_setup(cfg, date_str, out, feeds=False):
+    """Make `out` a scratch copy of the day files before date_str (and the page), and return the Config that writes there: nothing is
+    pushed, its state lives under out/state. `simulate` and tools/train_data.py both rehearse in such a folder."""
     (out / "days").mkdir(parents=True, exist_ok=True)
     src = Days(cfg.docs)
-    prev = [r for r in src.index()["days"] if r["date"] < args.date]
+    prev = [r for r in src.index()["days"] if r["date"] < date_str]
     if not prev:
-        sys.exit("simulate needs an earlier day in docs/days to start from")
-    for r in src.index()["days"]:
-        if r["date"] < args.date:
-            shutil.copy(src.path(r["date"]), out / "days" / f"{r['date']}.json")
+        sys.exit("a rehearsal needs an earlier day in docs/days to start from")
+    for r in prev:
+        shutil.copy(src.path(r["date"]), out / "days" / f"{r['date']}.json")
     (out / "days/index.json").write_text(json.dumps({"format": 1, "days": prev}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     if (cfg.docs / "index.html").exists():
         shutil.copy(cfg.docs / "index.html", out / "index.html")
-    sim = Config({"HEGEL_PUSH": "0", "HEGEL_STATE": str(out / "state"), "HEGEL_FEEDS": "1" if args.feeds else "0"})
-    sim.docs = out
+    return rehearsal_config(out, feeds)
+
+
+def cmd_simulate(cfg, args):
+    d = date.fromisoformat(args.date)
+    out = Path(args.out).resolve()
+    sim = rehearsal_setup(cfg, args.date, out, args.feeds)
     world = World(Feeds(sim))
     mind = make_mind(sim, args.mind or "stub", wake=args.wake)
     engine = Engine(sim, world, mind, git=None)

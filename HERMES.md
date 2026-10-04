@@ -151,6 +151,16 @@ git add mind/results && git commit -m "Hegel test results" && git push
 
 Done when `mind/results/hegeltest.md` lists both judges for all three runs, with the share of real passages picked (chance is 20%; lower is better, because the model then sounds more like Hegel). Send Welt the table.
 
+**The trained mind.** Once Codex has trained Hegel's adapter and serves it on port 8082 (`pc/TRAINING.md`, steps 1–8), run the test on it too, with and without the shelf, and compare all runs:
+
+```bash
+python3 tools/hegel_test.py --url http://$PC_HOST:$HEGEL_PORT --label qwen-hegel
+python3 tools/hegel_test.py --url http://$PC_HOST:$HEGEL_PORT --label qwen-hegel-shelf --shelf
+python3 tools/hegel_test.py --compare bonsai bonsai-shelf qwen-shelf qwen-hegel qwen-hegel-shelf
+```
+
+The judging is the same as above, one file per judge and sheet. Welt decides which mind goes live.
+
 ## Task 6: Shadow week
 
 Hegel lives for a week on the `shadow` branch. The public page keeps replaying day 1; Welt watches the shadow at https://weltogeisto.github.io/hegel-in-delhi/?branch=shadow. The branch is public on GitHub but not on the page.

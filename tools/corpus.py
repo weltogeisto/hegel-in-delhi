@@ -694,9 +694,10 @@ def mend(text, vocab):
     return re.sub(r"[A-Za-zÄÖÜäöüß]{2,}", fix, text), count
 
 
-def build():
-    """The index of every cleaned work: split into passages, dropped where the scan is damaged or the text names something from
-    after 1831 (world/data/after_1831.txt), then indexed."""
+def kept_works():
+    """The passages of every cleaned work that are worth keeping, as the index holds them: split, spoiled words mended, and dropped where the
+    scan is damaged or the text names something from after 1831 (world/data/after_1831.txt). [{id, work, lang, dropped, mended, passages}].
+    tools/train_data.py reads the same passages for the training corpus, so a damaged one is out of both."""
     from world.world import wordlist
     later = wordlist("after_1831.txt", "s?")
     texts = {w["id"]: read_work(w) for w in WORKS if path_of(w).exists()}
@@ -722,7 +723,12 @@ def build():
             else:
                 kept.append((ref, p))
         works.append({"id": w["id"], "work": w["work"], "lang": w["lang"], "dropped": {"damaged": noise, "later": anachronism}, "mended": mended, "passages": kept})
-    index = shelf.build_index(works)
+    return works
+
+
+def build():
+    """The index of every cleaned work, built from its kept passages and saved."""
+    index = shelf.build_index(kept_works())
     shelf.save_index(index)
     return index
 
