@@ -24,6 +24,8 @@ Steps 4 and 5 run for hours unattended. During them the GPU is busy, so **the wo
 
 The training needs llama.cpp's `llama-server` twice: to serve Qwen for the rehearsal days (step 4) and to serve the finished adapter (step 6). If `C:\hegel\llama\llama-server.exe` is missing, that is expected on a PC where `pc/CODEX.md` was never run: install it, don't stop. From https://github.com/ggml-org/llama.cpp/releases/latest download the Windows x64 CUDA build and the matching `cudart` package (same CUDA version) and unzip both into `C:\hegel\llama`. A current release reads Qwen3.8 (architecture `qwen35`).
 
+**If Windows blocks it** (Smart App Control refuses the unsigned llama.cpp DLLs), or Qwen already runs on llama.cpp inside WSL: use llama.cpp in WSL for everything and skip the Windows build. Don't turn Smart App Control off; once off, Windows cannot turn it back on. Report the WSL server's build and the GGUF it serves (`ps aux | grep llama-server`). Step 4 talks to it on `127.0.0.1:8080` as written; step 6 serves the adapter from WSL (see there).
+
 ```powershell
 nvidia-smi
 Get-PSDrive C | Format-Table Used, Free
@@ -202,6 +204,15 @@ ls -lh pc/out/hegel-lora.gguf && cp pc/out/hegel-lora.gguf /mnt/c/hegel/models/
 
 - If it complains about the base's config (a 4-bit `quantization_config`), run it again with `--base-model-id Qwen/Qwen3.8-27B` in place of `--base ~/models/qwen-base`.
 - If it names an unsupported architecture or tensor: take the latest llama.cpp release for both the converter and the Windows server, and try once more. Report if that fails too.
+
+**With llama.cpp in WSL** (step 1), serve it there instead of the Windows lines below, in tmux, with the GGUF the WSL server uses for Qwen:
+
+```bash
+tmux new -s hegel
+llama-server -m /path/to/qwen3.8-27b.gguf --lora ~/hegel-in-delhi/pc/out/hegel-lora.gguf -ngl 99 -c 16384 --host 0.0.0.0 --port 8082 --alias hegel
+```
+
+The Pi must reach port 8082: add the Windows firewall rule below, and if WSL does not run with `networkingMode=mirrored`, forward the port (`netsh interface portproxy add v4tov4 listenport=8082 listenaddress=0.0.0.0 connectport=8082 connectaddress=<WSL address from 'wsl hostname -I'>`). Then check from Windows with `curl.exe http://127.0.0.1:8082/health` and ask the question below the same way.
 
 On Windows:
 
