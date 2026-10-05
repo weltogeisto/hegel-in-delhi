@@ -30,3 +30,8 @@ Hegel, knowledge cut off in November 1831, rediscovering the world in 2026 Delhi
 ## Still open
 
 - Nothing at the moment.
+
+## Ideas, not yet decided
+
+- **A notebook of the age.** The owl keeps a short running summary (about 1,000–1,500 characters) of what he has come to understand about this century: machines, institutions, events, people, and how his view of each has shifted. It enters his prompt every day, so what he learned weeks ago stays in front of him. It records only what he met and thought; it never steers him. Reason: today his prompt remembers only the last moments and the owl's gist of three nights, so older discoveries are allowed by the 1831 gate but fade from view.
+- **An inbox.** People can send him emails, which he reads on a device in the world and may answer. Open questions: how mail gets in (a real address the Pi reads, a form, or Welt forwarding by hand), who approves it, whether his answers are public, and how he comes by an address in the world.
