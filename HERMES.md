@@ -161,6 +161,32 @@ python3 tools/hegel_test.py --compare bonsai bonsai-shelf qwen-shelf qwen-hegel 
 
 The judging is the same as above, one file per judge and sheet. Welt decides which mind goes live.
 
+## Task 5c: The second Hegel test
+
+The blind part of task 5b did not separate the minds: the judges found the real passage in all twenty questions for every mind, plain Qwen and trained alike, because the real passages are excerpts of nineteenth-century translations and the model's answers are modern chat prose. The second test removes that giveaway. In plain completion mode (no chat template, no system prompt) the mind gets the first half of each of the same twenty passages, under the header line that his books carry in the training text, and writes on. Judges pick the real second half out of five, all in one typography. The same run scores the style of the continuations with Burrows' Delta against his English translators (lower is closer) and counts continuations that copy the real second half (the model may know these translations from pretraining; the tool asks again up to twice, then marks them as recited). It is a fourth part of the tool, `cont`; `--only cont` leaves the other parts of `mind/results/hegeltest-<label>.json` as they are. A run is about 80 short completions, 10 to 20 minutes of PC time. The shelf plays no part in it.
+
+Codex serves the plain Qwen on port 8082 (it is serving it now). Check it, then:
+
+```bash
+cd ~/hegel-in-delhi && git pull
+python3 -m unittest discover -s tests          # prints OK
+source ~/.config/hegel/env
+curl -s http://$PC_HOST:$HEGEL_PORT/health     # {"status":"ok"}
+python3 tools/hegel_test.py --url http://$PC_HOST:$HEGEL_PORT --label qwen --only cont
+```
+
+Now ask Welt to have Codex restart the server on 8082 with the adapter (`--lora pc/out/hegel-lora.gguf`, as in `pc/TRAINING.md` step 6). Then:
+
+```bash
+python3 tools/hegel_test.py --url http://$PC_HOST:$HEGEL_PORT --label qwen-hegel --only cont
+python3 tools/hegel_test.py --compare qwen qwen-shelf qwen-hegel qwen-hegel-shelf
+git add mind/results && git commit -m "Hegel test: continuations" && git push
+```
+
+The run prints one line per passage and, at the end, the recited and cut counts and the Delta of the model, of the real second halves and of the chat answers of the blind part. `hegeltest.md` has a second table, "Continuation", beside the first. Send Welt `mind/results/hegeltest.md` and the two new sheets, `hegeltest-qwen-cont.html` and `hegeltest-qwen-hegel-cont.html`. Welt and Claude judge each sheet as before, one file per judge; Export judgments downloads `hegeltest-<label>-cont-judged.json`, so save Welt's as `mind/results/hegeltest-<label>-cont-judged.json` and Claude's as `mind/results/hegeltest-<label>-cont-judged-claude.json`, then run `--compare` again and push.
+
+Done when the Continuation table lists both judges for both runs. Send Welt the table and say which mind the judges found harder to tell from the real second half, and whether the trained mind's Delta is lower than the plain one's (the real second halves are the floor). If many continuations are recited or cut (more than 10 of 80), say so: those runs say less.
+
 ## Task 6: Shadow week
 
 Hegel lives for a week on the `shadow` branch. The public page keeps replaying day 1; Welt watches the shadow at https://weltogeisto.github.io/hegel-in-delhi/?branch=shadow. The branch is public on GitHub but not on the page.

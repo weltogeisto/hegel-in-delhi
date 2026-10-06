@@ -17,6 +17,7 @@ Do the steps in order and report each result to Welt in one line, with the exact
 | 5 | Dry run, then the training | 30 min, then **8–16 hours** |
 | 6 | Convert the adapter, serve it on 8082 | 20 min |
 | 7 | Hand over to Hermes for the Hegel test | 20–60 min of PC time |
+| 8 | Perplexity on held-out text | 15 min |
 
 Steps 4 and 5 run for hours unattended. During them the GPU is busy, so **the world on the Pi must not be live**: ask Welt to pause it before step 4 and to say when it may run again.
 
@@ -272,3 +273,18 @@ Start-ScheduledTask "Hegel mind" -ErrorAction SilentlyContinue
 ```
 
 Bonsai is back on 8081, and the PC sleeps when idle again. Ask Welt to put Windows' sleep timer back, in PowerShell as Administrator: `powershell -NoProfile -ExecutionPolicy Bypass -File C:\hegel\scripts\open-hegel-port.ps1 -Undo` (if step 4 changed the timer by hand, set it back to the value noted then). Tell Welt the world on the Pi may run again. Keep `pc/out/hegel-lora/`, `C:\hegel\models\hegel-lora.gguf` and `mind/train/` until Welt says otherwise: a second round of training starts from them.
+
+## 8. Perplexity on held-out text
+
+A number to put beside the judges: how well the model predicts Hegel's text that it never saw. The twenty real passages of the Hegel test were left out of the training; twenty more passages of the same books were in it. Do this once the adapter exists (step 6), in WSL.
+
+The server must be stopped: llama-perplexity and the server do not fit in the 3090's 24 GB together. Note how the server was started (the full command line), stop it, and keep `C:\hegel\awake.flag` as it is.
+
+```bash
+cd ~/hegel-in-delhi && git pull
+python3 tools/hegel_test.py --export-ppl mind/results/ppl
+```
+
+It writes `mind/results/ppl/heldout.txt` and `seen.txt` and prints four `llama-perplexity` command lines: each file without the adapter and with `--lora`. Run all four. `QWEN.gguf` is the Qwen GGUF of step 1, `pc/out/hegel-lora.gguf` the adapter of step 6; use the `llama-perplexity` of the same llama.cpp build as the server (it lies next to `llama-server`). With the Windows build, copy the folder with `cp -r mind/results/ppl /mnt/c/hegel/ppl` and run `C:\hegel\llama\llama-perplexity.exe` in PowerShell with the same options and the Windows paths. Each run takes a minute or two.
+
+Report to Welt the four lines that read `Final estimate: PPL = ...`, each marked with its file and with or without the adapter. The adapter should lower the perplexity on both files, and on `seen.txt` by more than on `heldout.txt`. If it does not lower it on `heldout.txt`, say so plainly: that is the result. Then start the server again the way it was and tell Welt.
