@@ -6,8 +6,9 @@
         --plan '{"title": "On tea", "kind": "essay", "to": null, "continues": false, "about": "the tea at Khan Market"}'
 
 Each --plan is a JSON object as the world's account of a sitting: title, kind, to, continues, about. The prompt is made as the world makes it
-(works.primer from the shelf in mind/shelf, works.prompt with the editor's notes), completed by the mind as it is in the world (works.TOKENS,
-the sampling of HTTPMind.complete) and cleaned by works.sitting. Per plan it prints the full prompt, then the sitting (or why it is unusable),
+(works.exemplars, two passages of mind/hegeltest/questions.json under headers that name their topics, then works.prompt with the editor's
+notes), completed by the mind as it is in the world (works.TOKENS, the sampling of HTTPMind.complete), cleaned by works.sitting and checked by
+works.flaw (a copy of an exemplar, or off the subject: unusable). Per plan it prints the full prompt, then the sitting (or why it is unusable),
 then "-----". A plan with "continues" carries on an earlier plan of the same title, as a manuscript does."""
 import argparse
 import json
@@ -17,7 +18,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO))
-from world import shelf, works  # noqa: E402
+from world import works  # noqa: E402
 from world.clock import now_ist  # noqa: E402
 from world.mind import HTTPMind, MindAway  # noqa: E402
 
@@ -27,22 +28,26 @@ PLANS = [{"title": "On the noise of the street", "kind": "essay", "to": None, "c
           "about": "his first days in Delhi, the heat and the noise, and what has become of the system here"}]
 
 
-def sample(mind, books, plan, st, d, seed=None):
-    """(the primer or None, the prompt, the sitting or None, why not): one plan through the world's path. A usable sitting is filed in st, as the
+def sample(mind, plan, st, d, seed=None):
+    """(the exemplars, the prompt, the sitting or None, why not): one plan through the world's path. A usable sitting is filed in st, as the
     engine does, so that a later plan that continues it flows on from it."""
     plan = works.outline(dict({"kind": "essay", "to": None, "continues": False}, **plan))
     if not plan:
-        return None, "", None, "the plan has no title or no about"
-    book = works.primer(books, plan)
-    prompt, opening = works.prompt(plan, st, d, book)
+        return [], "", None, "the plan has no title or no about"
+    shown = works.exemplars(plan, d, REPO)
+    prompt, opening = works.prompt(plan, st, d, shown)
     try:
         raw = mind.complete(prompt, works.TOKENS, seed=seed)
     except MindAway as e:
-        return book, prompt, None, f"the mind did not answer: {e}"
+        return shown, prompt, None, f"the mind did not answer: {e}"
     w = works.sitting(plan, raw, opening)
-    if w:
-        works.file(st, w, d)
-    return book, prompt, w, "" if w else f"fewer than {works.MIN_WORDS} words were left of the completion ({raw.strip()!r})" if raw.strip() else "the completion was empty"
+    if not w:
+        return shown, prompt, None, f"fewer than {works.MIN_WORDS} words were left of the completion ({raw.strip()!r})" if raw.strip() else "the completion was empty"
+    bad = works.flaw(plan, w, shown, opening)
+    if bad:
+        return shown, prompt, None, f"the completion {bad}; what it made of the sitting was:\n{w['text']}"
+    works.file(st, w, d)
+    return shown, prompt, w, ""
 
 
 def main(argv=None, mind=None):
@@ -61,13 +66,12 @@ def main(argv=None, mind=None):
         p.error(f"--plan is not JSON: {e}")
     if not all(isinstance(x, dict) for x in plans):
         p.error("--plan must be a JSON object")
-    books = shelf.load(REPO / "mind/shelf/index.json.gz", REPO / "world/data/shelf_terms.json")
-    if not books:
-        print("(no shelf in mind/shelf: no primer)", file=sys.stderr)
+    if not works.passages(REPO):
+        print(f"(no {works.QUESTIONS}: no exemplars)", file=sys.stderr)
     mind, st = mind or HTTPMind(a.url, timeout=a.timeout), {}
     for plan in plans:
-        book, prompt, w, why = sample(mind, books, plan, st, a.date, a.seed)
-        print(f"=== prompt (primer: {book['label'] if book else 'none'}) ===\n{prompt}\n=== sitting ===\n" + (w["text"] if w else f"(unusable) {why}") + "\n-----")
+        shown, prompt, w, why = sample(mind, plan, st, a.date, a.seed)
+        print(f"=== prompt (exemplars: {', '.join(x['topic'] for x in shown) or 'none'}) ===\n{prompt}\n=== sitting ===\n" + (w["text"] if w else f"(unusable) {why}") + "\n-----")
     return 0
 
 

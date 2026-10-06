@@ -307,18 +307,18 @@ class Engine:
 
     def write_plain(self, messages, raw, ctx, st):
         """One small chat call says what the sitting is (title, kind, to, continues, about), then the text is a plain-text completion under a
-        header in the style of his books (works.prompt), after a passage of his English books that fits it (works.primer, which is not part
-        of the text). Names from after 1831 that he has not met cannot be asked away here: the completion is made once more with another
-        seed. None if no usable text came, and it is then for the chat call; MindAway only from the first call, when the chat call could
-        not answer either."""
+        header in the style of his books (works.prompt), after two passages of his books each under a header that names its topic
+        (works.exemplars, which are not part of the text). A completion that copies an exemplar or is off the subject (works.flaw), and names
+        from after 1831 that he has not met, cannot be asked away here: the completion is made once more with another seed. None if no
+        usable text came, and it is then for the chat call; MindAway only from the first call, when the chat call could not answer either."""
         msgs = messages + [{"role": "assistant", "content": raw}, {"role": "user", "content": works.sitting_ask(st)}]
         plan = works.outline(contract.extract_json(self.mind.chat(msgs, contract.SITTING_SCHEMA, max_tokens=300)))
         if not plan:
             log.info("writing: no usable account of what the sitting is")
             return None
-        book = works.primer(self.shelf, plan)
-        log.info("writing: primer %s", book["label"] if book else "none")
-        prompt, opening = works.prompt(plan, st, ctx["t"].date(), book)
+        shown = works.exemplars(plan, ctx["t"].date(), self.cfg.repo)
+        log.info("writing: exemplars %s", ", ".join(x["topic"] for x in shown) or "none")
+        prompt, opening = works.prompt(plan, st, ctx["t"].date(), shown)
         for seed in (None, random.randrange(1, 2 ** 31)):
             try:
                 w = works.sitting(plan, self.mind.complete(prompt, works.TOKENS, seed=seed), opening)
@@ -328,6 +328,10 @@ class Engine:
             if not w:
                 log.info("writing: the completion is unusable")
                 return None
+            bad = works.flaw(plan, w, shown, opening)
+            if bad:
+                log.info("writing: the completion %s", bad)
+                continue
             wrong = self.world.unmet(w["title"] + "\n" + w["about"] + "\n" + w["text"], ctx["known_text"])
             if not wrong:
                 return dict(w, mode="plain")

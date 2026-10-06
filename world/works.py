@@ -1,45 +1,40 @@
 """His manuscripts: what he writes when he sits down to write, and the index of his works in state["works"]."""
+import json
+import random
 import re
-import string
-from collections import Counter
+from pathlib import Path
 
-from .clock import MONTHS, day_number
+from .clock import DAY_ONE, MONTHS, day_number
 from .contract import SITTING_ASK, SITTING_FORMAT, WRITE_ASK, WRITE_FORMAT, WRITING_KINDS
 from .shelf import sentences
 
+REPO = Path(__file__).resolve().parent.parent
 CAP = 3000              # characters a sitting may run to (about 450 words)
 TOKENS = 600            # what a plain-text completion may run to
 MIN_WORDS = 20          # a completion with fewer words is unusable
 TAIL = 800              # characters of the latest sitting kept in the index, for the next one to flow on from
 CARRY = 120             # words of that tail that go into the next prompt
 
-# The plain-text prompt: a passage of his English books as a document of its own (PRIMER), then a header line in the style of his books, the
-# argument and a note on his situation as the editor's lines in square brackets, a blank line, then the salutation of a new letter or the tail
-# of the sitting before.
-PRIMER = "{head}\n\n{text}\n\n\n"
-PRIMER_WORDS = (80, 220)        # the passages of the shelf that will do
-PRIMER_HEADS = {                # the header line of each English book as the training corpus has it (tools/train_data.py header()), without the ref
-    "wallace-logic": "Hegel, The Logic of Hegel, tr. William Wallace (1892)",
-    "wallace-mind": "Hegel's Philosophy of Mind, tr. William Wallace (1894)",
-    "dyde-right": "Hegel's Philosophy of Right, tr. S. W. Dyde (1896)",
-    "sibree-history": "Hegel, Lectures on the Philosophy of History, tr. J. Sibree (1857)",
-    "haldane-1": "Hegel, Lectures on the History of Philosophy, volume I, tr. E. S. Haldane (1892)",
-    "haldane-2": "Hegel, Lectures on the History of Philosophy, volume II, tr. E. S. Haldane and Frances H. Simson (1894)",
-    "haldane-3": "Hegel, Lectures on the History of Philosophy, volume III, tr. E. S. Haldane and Frances H. Simson (1896)",
-    "baillie-1": "Hegel, The Phenomenology of Mind, volume I, tr. J. B. Baillie (1910)",
-    "baillie-2": "Hegel, The Phenomenology of Mind, volume II, tr. J. B. Baillie (1910)",
-    "bosanquet-art": "Hegel, The Introduction to Hegel's Philosophy of Fine Art, tr. Bernard Bosanquet (1886)"}
-SCAN_LITTER = re.compile(r"[a-z][A-Z]|\w' s\b|\w ' \w|[\\|■^~{}<>_]")       # a capital inside a word, a broken apostrophe, a stray sign
-RARE, COMMON = 10, 2000         # a word the English books use fewer than RARE times, one letter from one they use COMMON times, is a misreading
-MISREAD_RARE, MISREAD_COMMON = 50, 300      # and one used fewer than 50 times, a tenth as often as the word old type misreads it from
-MISREAD = (("li", "h"), ("h", "li"), ("rn", "m"))        # old type misread: h as li and li as h ("tlie", "hke"), m as rn ("rnay")
+# The plain-text prompt: two passages of his English books, each a short document under a header that names its topic, so that the model sees a
+# header decide what follows (EXEMPLAR, from QUESTIONS); then the writing's own header in the same shape, the argument and a note on his
+# situation as the editor's lines in square brackets, a blank line, then the salutation of a new letter or the tail of the sitting before.
+QUESTIONS = "mind/hegeltest/questions.json"      # the Hegel test's hand-cleaned passages, each with a "topic", a "work" and the "passage"
+EXEMPLAR = "Hegel, On {topic}. From the {work}.\n\n{text}\n\n\n"
+SHOWN = 2               # exemplars in front of the header
+COPY_RUN = 8            # words in a row that a sitting may not share with an exemplar
 HEADERS = {"essay": "Hegel, {title}. Written at Delhi, {date}.",
            "letter": "Hegel to {to}. Delhi, {date}.",
            "poem": "Hegel, {title}. A poem, written at Delhi, {date}."}
 ARGUMENT = "[{about}]"
-NOTE = "[Until November 1831 he was professor of philosophy at Berlin.{stay}]"
-STAY = " He has been in Delhi {days}."          # where the world knows how long (clock.DAY_ONE, the morning he woke)
-HEADLINE = re.compile(r"Hegel,|Hegel to\b|Hegel's [^,\n]*, tr\.")
+NOTE = "[He died at Berlin in November 1831, professor of philosophy there, and woke in Delhi on {woke}{ago}.]"      # as mind/soul.md has him
+NUMBERS = "zero one two three four five six seven eight nine ten eleven twelve".split()         # the days that are told in words
+HEADLINE = re.compile(r"Hegel, \S|Hegel to\b")          # a header, of an exemplar or of a writing: a new document
+CLOSING = r"(?i:(?:(?:ever|always|most|very|as ever)[ ,]+)*(?:yours|your (?:(?:most|ever|very) )?(?:faithful|friend|affectionate|loving|devoted|obedient|humble|sincere|old)))\b"
+FILLER = r"(?:(?i:ever|always|very|most|truly|sincerely|faithfully|affectionately|devotedly|friend|servant|and|my|dear)|[A-Z][\w.]*)"
+SIGN_OFF = re.compile(CLOSING + r"(?:[ ,]+" + FILLER + r"){0,6}[ ,.]*$")      # "Yours ever," "Your faithful friend, Hegel": a short closing line, with the name if it has one
+SIGNATURE = re.compile(r"(?:(?:G\. ?W\. ?F\.|Georg|Wilhelm|Wilh\.|Friedrich|G\.|W\.|F\.) )*Hegel[.,]?$")      # a line that is only his name
+IDLE = set("""about above after again against among around because before being below between cannot could doing during every first having itself might never
+other shall should since still their there these those through under until using where whether which while whose would without within""".split())
 ENDING = re.compile(r"(\*\s*){3,}$|(?i:THE END|FOOTNOTES?)[.:]?$")
 SENTENCE_END = re.compile(r"[.!?][\"')\]]*(?=\s|$)")
 STRAIGHT = str.maketrans({"“": '"', "”": '"', "‘": "'", "’": "'"})
@@ -146,69 +141,64 @@ def sitting_ask(state):
     return SITTING_ASK + manuscripts(state) + " " + SITTING_FORMAT
 
 
-def english_counts(shelf):
-    """{word: how often} over the English books on the shelf, counted once per shelf; empty for a shelf without its texts."""
-    counts = getattr(shelf, "english_counts", None)
-    if counts is None:
-        texts, counts = getattr(shelf, "data", {}).get("texts", []), Counter()
-        for w in getattr(shelf, "works", []):
-            if w["lang"] == "en":
-                for text in texts[w["start"]:w["start"] + w["n"]]:
-                    counts.update(re.findall(r"[a-z]{2,}", text.lower()))
-        shelf.english_counts = counts
-    return counts
-
-
-def near(word):
-    """The spellings one letter away from word: a letter dropped, changed or added."""
-    abc = string.ascii_lowercase
-    return ({word[:i] + word[i + 1:] for i in range(len(word))} | {word[:i] + c + word[i + 1:] for i in range(len(word)) for c in abc}
-            | {word[:i] + c + word[i:] for i in range(len(word) + 1) for c in abc}) - {word}
-
-
-def damaged(text, counts):
-    """Whether a passage still shows its scan, which the model would copy: SCAN_LITTER, a rare word one letter from a common one ('tho', 'hke'),
-    or a rare word that is a common one misread by old type ('tlie'). `counts` from english_counts; with none, only SCAN_LITTER counts."""
-    if SCAN_LITTER.search(text):
-        return True
-    for w in set(re.findall(r"[a-z]{2,}", text.lower())) if counts else ():
-        if counts[w] < RARE and any(counts[x] >= COMMON for x in near(w)):
-            return True
-        if counts[w] < MISREAD_RARE and any(a in w and counts[w.replace(a, b)] >= max(MISREAD_COMMON, 10 * counts[w]) for a, b in MISREAD):
-            return True
-    return False
-
-
-def primer(shelf, plan):
-    """The passage of his English books that fits the sitting best, {"label", "head", "text"}, or None (no shelf, or nothing English of
-    PRIMER_WORDS words without the marks of its scan among what the title and what the sitting is about call up). `head` is the header line
-    of its work and ref."""
-    counts = english_counts(shelf) if shelf else None
-    for hit in (shelf.search([(plan["title"], 1.0), (plan["about"], 1.0)]) if shelf else []):
-        if hit["lang"] == "en" and PRIMER_WORDS[0] <= len(hit["text"].split()) <= PRIMER_WORDS[1] and not damaged(hit["text"], counts):
-            head = PRIMER_HEADS.get(hit["id"].rpartition(":")[0], f"Hegel, {hit['work']}")
-            return {"label": hit["label"], "head": head + (f", {hit['ref']}" if hit["ref"] else ""), "text": hit["text"]}
-    return None
+def when(d):
+    """'6 October 2026'."""
+    return f"{d.day} {MONTHS[d.month - 1]} {d.year}"
 
 
 def note(d):
-    """The editor's note on his situation on the day d: what he was until November 1831, and how long he has been in Delhi."""
+    """The editor's note on his situation on the day d: that he died at Berlin in November 1831, where he was professor of philosophy, and woke in
+    Delhi on clock.DAY_ONE; and how long ago that is, where the day is not before it."""
     days = day_number(d) - 1
-    stay = STAY.format(days=f"for {days} day{'s' * (days > 1)}" if days else "since this morning") if days >= 0 else ""
-    return NOTE.format(stay=stay)
+    ago = "" if days < 0 else ", this morning" if days == 0 else ", yesterday" if days == 1 else f", {NUMBERS[days] if days < len(NUMBERS) else days} days ago"
+    return NOTE.format(woke=when(DAY_ONE), ago=ago)
 
 
-def prompt(plan, state, d, book=None):
-    """(the prompt for a plain-text completion of the sitting, its opening line): the primer `book` (works.primer), if there is one, as a document
-    of its own; then the header in the style of his books for the day d, the argument and the note on his situation in square brackets and a
-    blank line; then the last words of the manuscript's latest sitting when he carries one on (one from before the index kept tails starts
-    fresh), or the salutation of a new letter, which is the opening line that his text begins with ('' otherwise)."""
+_passages = {}
+
+
+def passages(repo=REPO):
+    """The passages of the Hegel test in repo/QUESTIONS as [{"topic", "work", "text"}], read once per process and repo. [] if the file is missing
+    or is not as expected (and then looked at again next time)."""
+    path = Path(repo) / QUESTIONS
+    if path not in _passages:
+        try:
+            rows = [q for q in json.loads(path.read_text(encoding="utf-8"))["questions"] if isinstance(q, dict) and isinstance(q.get("passage"), str)]
+        except (OSError, ValueError, KeyError, TypeError):
+            return []
+        got = [{"topic": line(q.get("topic"), 80), "work": line(q.get("work"), 80), "text": q["passage"].strip()} for q in rows]
+        got = [x for x in got if x["topic"] and x["work"] and x["text"]]
+        if not got:
+            return []
+        _passages[path] = got
+    return _passages[path]
+
+
+def words(text, n):
+    """The words of text of at least n letters, in lower case, a plural s dropped."""
+    return {w[:-1] if w.endswith("s") and not w.endswith("ss") else w for w in re.findall(r"[^\W\d_]+", text.lower()) if len(w) >= n}
+
+
+def exemplars(plan, d, repo=REPO):
+    """The passages that stand in front of the header, [{"topic", "work", "text"}]: SHOWN of them, drawn by a seed from the title and the day, from
+    those whose topic shares no word with the title or what the sitting is about, so that none is the real passage on its subject. A word is one
+    of four letters or more (of three, for a topic with none longer, as 'war'), in lower case, a plural s dropped. Fewer if fewer qualify; []
+    if the file is missing."""
+    taken = words(plan["title"] + " " + plan["about"], 3)
+    fit = [x for x in passages(repo) if not (words(x["topic"], 4) or words(x["topic"], 3)) & taken]
+    return random.Random(f"{plan['title']}|{d.isoformat()}").sample(fit, min(SHOWN, len(fit)))
+
+
+def prompt(plan, state, d, shown=()):
+    """(the prompt for a plain-text completion of the sitting, its opening line): the exemplars `shown` (works.exemplars), each as a document of
+    its own; then the header in the style of his books for the day d, the argument and the note on his situation in square brackets and a blank
+    line; then the last words of the manuscript's latest sitting when he carries one on (one from before the index kept tails starts fresh), or
+    the salutation of a new letter, which is the opening line that his text begins with ('' otherwise)."""
     work = find(state.get("works") or [], plan["title"]) if plan["continues"] else None
     src = work or plan
     kind = src["kind"] if src["kind"] != "letter" or src["to"] else "essay"
-    when = f"{d.day} {MONTHS[d.month - 1]} {d.year}"
-    header = HEADERS.get(kind, HEADERS["essay"]).format(title=src["title"].rstrip("."), to=src["to"], date=when)
-    head = (PRIMER.format(**book) if book else "") + header + "\n" + ARGUMENT.format(about=plan["about"]) + "\n" + note(d) + "\n\n"
+    header = HEADERS.get(kind, HEADERS["essay"]).format(title=src["title"].rstrip("."), to=src["to"], date=when(d))
+    head = "".join(EXEMPLAR.format(**x) for x in shown) + header + "\n" + ARGUMENT.format(about=plan["about"]) + "\n" + note(d) + "\n\n"
     carry = carried((work or {}).get("tail") or "")
     opening = (f"Dear {plan['to']}," if plan["to"][:1].isupper() else "Dear friend,") if kind == "letter" and not work else ""
     return head + (carry or (opening + "\n\n" if opening else "")), opening
@@ -242,23 +232,50 @@ def echoes(text, title, opening):
 
 def sitting(plan, raw, opening=""):
     """The sitting from a plain-text completion, or None if it is unusable. The model may say the title or header again, or run on into another
-    document: leading echoes are dropped, and the text stops at a line that begins a new header or is only "* * *", THE END or Footnotes.
-    Paragraphs stay (and a poem's lines), other whitespace is collapsed, quotes are straight, a sentence that repeats an earlier one of the
-    sitting goes (and a paragraph with it, if nothing else is left of it; a poem's refrains stay), and the text is cut to CAP and back to its
-    last sentence end (a poem's not); fewer than MIN_WORDS words is unusable. A new letter's opening line goes in front."""
-    poem, body = plan["kind"] == "poem", []
-    for ln in (x.strip() for x in (raw or "").replace("\r\n", "\n").translate(STRAIGHT).replace("--", "—").split("\n")):
+    document: leading echoes are dropped, and the text stops at a line that begins a new section or document (a "§", a header) or is only
+    "* * *", THE END or Footnotes. A letter stops after its sign-off ("Yours ever,", or his name alone), which stays with the signature line
+    that follows it, if there is one, as a paragraph of its own. Paragraphs stay (and a poem's lines), other whitespace is collapsed, quotes are
+    straight, a sentence that repeats an earlier one of the sitting goes (and a paragraph with it, if nothing else is left of it; a poem's
+    refrains stay), and the text is cut to CAP and back to its last sentence end (a poem's not); fewer than MIN_WORDS words is unusable. A new
+    letter's opening line goes in front."""
+    poem, letter, body, close = plan["kind"] == "poem", plan["kind"] == "letter", [], []
+    lines = [x.strip() for x in (raw or "").replace("\r\n", "\n").translate(STRAIGHT).replace("--", "—").split("\n")]
+    for i, ln in enumerate(lines):
         if not body and (not ln or echoes(ln, plan["title"], opening)):
             continue
-        if HEADLINE.match(ln) or ENDING.match(ln):
+        if HEADLINE.match(ln) or ln.startswith("§") or ENDING.match(ln):
+            break
+        if letter and (SIGN_OFF.match(ln) or SIGNATURE.match(ln)):
+            after = next((x for x in lines[i + 1:] if x), "")
+            close = [ln] + ([after] if SIGN_OFF.match(ln) and SIGNATURE.match(after) else [])
             break
         body.append(ln)
     paras = [("\n" if poem else " ").join(" ".join(x.split()) for x in p.split("\n") if x.strip()) for p in re.split(r"\n\s*\n", "\n".join(body))]
-    text = cut("\n\n".join(p for p in (paras if poem else fresh(paras)) if p), CAP - (len(opening) + 2 if opening else 0))
-    ends = [m.end() for m in SENTENCE_END.finditer(text)]
-    if not poem and not (ends and ends[-1] == len(text)):
-        text = text[:ends[-1]] if ends else ""
-    if len(text.split()) < MIN_WORDS:
+    text = "\n\n".join(p for p in (paras if poem else fresh(paras)) if p)
+    kept = cut(text, CAP - (len(opening) + 2 if opening else 0) - (len("\n".join(close)) + 2 if close else 0))
+    ends = [m.end() for m in SENTENCE_END.finditer(kept)]
+    signed = "\n".join(close) if kept == text else ""          # a sign-off belongs to a page that is all here
+    if not poem and not (ends and ends[-1] == len(kept)):
+        kept = kept[:ends[-1]] if ends else ""
+    if len(kept.split()) < MIN_WORDS:
         return None
+    kept = kept + "\n\n" + signed if signed else kept
     return {"title": plan["title"], "kind": plan["kind"], "to": plan["to"], "continues": plan["continues"], "about": plan["about"],
-            "text": opening + "\n\n" + text if opening else text}
+            "text": opening + "\n\n" + kept if opening else kept}
+
+
+def flaw(plan, w, shown, opening=""):
+    """Why the sitting w (from works.sitting) must not stand, or None: it copies an exemplar of `shown` (a run of COPY_RUN words, in lower case and
+    without punctuation, that both have), or it is off the subject (the plan's title and what it is about have words of five letters or more that
+    are not IDLE, and none of them is in the text, without the salutation `opening`)."""
+    text = w["text"][len(opening):]
+    run = fold(text).split()
+    grams = {tuple(run[i:i + COPY_RUN]) for i in range(len(run) - COPY_RUN + 1)}
+    for x in shown:
+        theirs = fold(x["text"]).split()
+        if any(tuple(theirs[i:i + COPY_RUN]) in grams for i in range(len(theirs) - COPY_RUN + 1)):
+            return f"copies the exemplar on {x['topic']}"
+    about = words(plan["title"] + " " + plan["about"], 5) - IDLE
+    if about and not about & words(text, 5):
+        return "is off the subject: it has none of " + ", ".join(sorted(about)[:8])
+    return None

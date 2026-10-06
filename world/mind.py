@@ -215,10 +215,15 @@ class StubMind:
         return ans
 
     def complete(self, prompt, max_tokens=700, temperature=None, seed=None):
-        """Two paragraphs of rehearsal prose, the same for the same prompt and seed, with no sentence twice."""
+        """Two paragraphs of rehearsal prose, the same for the same prompt and seed, with no sentence twice. A word of the title in the last header
+        of the prompt (a line "Hegel, <title>. ..." or "Hegel to <name>. ...") is woven into the last sentence, so that it is on its subject."""
         r = random.Random(f"{prompt}|{seed}")
         a = r.sample(LINES, 3)
-        return "(rehearsal) " + " ".join(a) + "\n\n" + " ".join(r.sample([x for x in LINES if x not in a], 3))
+        b = r.sample([x for x in LINES if x not in a], 3)
+        heads = re.findall(r"^Hegel(?:,| to) ([^\n]*?)\.(?: |$)", prompt, re.M)
+        words = [w for w in re.findall(r"[A-Za-z]{5,}", heads[-1]) if w != "rehearsal"] if heads else []
+        weave = [f"Of the {r.choice(words).lower()} I will say only this, that it is not what it seems."] if words else []
+        return "(rehearsal) " + " ".join(a) + "\n\n" + " ".join(b + weave)
 
     def chat(self, messages, schema=None, max_tokens=700, temperature=None):
         props = (schema or {}).get("properties", {})

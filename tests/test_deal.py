@@ -8,7 +8,6 @@ import sys
 import tempfile
 import threading
 import unittest
-from collections import Counter
 from datetime import date, timedelta
 from functools import partial
 from http.server import BaseHTTPRequestHandler, HTTPServer, SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -19,7 +18,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
 from test_world import DAY1, REPO, Sandbox, answer, state  # noqa: E402  (this also keeps the tests off the Pi's env file)
 
-from world import contract, owl, shelf, voices, works  # noqa: E402
+from world import contract, owl, voices, works  # noqa: E402
+from world.clock import DAY_ONE  # noqa: E402
 from world.engine import Engine  # noqa: E402
 from world.feeds import Feeds, fit_for_papers  # noqa: E402
 from world.memory import Memory, record_text  # noqa: E402
@@ -724,10 +724,12 @@ class WritingTest(unittest.TestCase):
 PROSE = ("The morning came in with the papers and the heat, and I set it down as I saw it, which is the only method that I know. "
          "What the papers call news is the day's surface, and beneath it the old necessity goes about its work.\n\n"
          "I read them twice, and was the wiser only in the matter of the price of tea.")
-NOTE6 = "[Until November 1831 he was professor of philosophy at Berlin. He has been in Delhi for 4 days.]"        # the editor's note of 6 October, the fifth day
+NOTE6 = "[He died at Berlin in November 1831, professor of philosophy there, and woke in Delhi on 2 October 2026, four days ago.]"        # the editor's note of 6 October, the fifth day
 LOOPS = {"repeat_penalty": 1.1, "repeat_last_n": 256, "dry_multiplier": 0.8}        # the sampling that a plain completion asks the server for, against loops
-UNMET = ("Marx would have seen at once what the tea-seller sells, and the whole of the afternoon besides, I think, "
+UNMET = ("Marx would have seen at once what the tea-seller sells on the verandah of a morning, and the whole of the afternoon besides, I think, "
          "for he saw everything at once and wrote it down.")
+OFF = ("The tea came at nine, and the tailor with it, and we spoke of the price of cloth for an hour, "
+       "until the sun was high and the day's heat had come in at the door.")           # nothing of the verandah, the morning or the papers
 SITTING = json.dumps({"title": "On the verandah", "kind": "notes", "to": None, "continues": False,
                       "about": "The morning on the verandah, and what the papers made of it."})
 CHAT_SITTING = json.dumps({"title": "On the verandah", "kind": "notes", "to": None, "continues": False,
@@ -879,12 +881,41 @@ class WritingPromptTest(unittest.TestCase):
         self.assertIn("On the verandah", works.sitting(self.plan(), PROSE.replace("The morning", "On the verandah, the morning"))["text"])             # but in the text it stays
 
     def test_the_text_stops_where_a_new_document_begins(self):
-        for stop in ("Hegel to Karl. Delhi, 7 October 2026.", "Hegel, On the colonies. Written at Delhi, 7 October 2026.", "* * *", "***", "THE END", "The end.", "Footnotes", "FOOTNOTES:",
-                     "Hegel's Philosophy of Right, tr. S. W. Dyde (1896), §259", "Hegel, Lectures on the Philosophy of History, tr. J. Sibree (1857), Introduction"):         # or a primer's header
+        for stop in ("Hegel to Karl. Delhi, 7 October 2026.", "Hegel, On the colonies. Written at Delhi, 7 October 2026.", "Hegel, On war. From the Philosophy of Right.",
+                     "Hegel, Letter to Karl. Written at Delhi, 7 October 2026.", "§152", "§ 152. The Spinozist substance is", "§152 And so the next section of the book begins",
+                     "* * *", "***", "THE END", "The end.", "Footnotes", "FOOTNOTES:"):
             with self.subTest(stop=stop):
                 got = works.sitting(self.plan(), PROSE + "\n\n" + stop + "\n\nSomething else, written long after, that does not belong here at all.")
                 self.assertEqual(got["text"], PROSE)
         self.assertIn("Hegel", works.sitting(self.plan(), PROSE + " Hegel, he said, would have laughed at it, and I did.")["text"])         # only at the start of a line
+        self.assertIn("§152", works.sitting(self.plan(), PROSE + " See §152, where the same is said, and §153 too, I think.")["text"])          # and so is a §
+        got = works.sitting(self.plan(kind="letter", to="Karl"), "Dear Karl,\n\n" + PROSE + "\n\nSo it goes.\n\n§152\nThe substance of Spinoza is one, and I have more to say of it.", "Dear Karl,")
+        self.assertEqual(got["text"], "Dear Karl,\n\n" + PROSE + "\n\nSo it goes.")
+
+    def test_a_letter_stops_after_its_sign_off_and_keeps_it_with_the_signature_line(self):
+        more = "\n\nSpinoza, to come back to him, made the substance one, and I have more to say of it.\n\n§152\nAnd so on."
+        letter = lambda raw: works.sitting(self.plan(kind="letter", to="Karl"), raw, "Dear Karl,")["text"]
+        for close, kept in (("Yours ever,", "Yours ever,"), ("Yours ever,\nG. W. F. Hegel", "Yours ever,\nG. W. F. Hegel"), ("Yours ever,\n\nHegel.", "Yours ever,\nHegel."),
+                            ("Ever yours, Hegel", "Ever yours, Hegel"), ("Your faithful friend,\nWilhelm Hegel\n", "Your faithful friend,\nWilhelm Hegel"),
+                            ("Your friend,\nHegel\nPS. A word more, that does not belong here.", "Your friend,\nHegel"), ("Yours,", "Yours,"), ("Yours faithfully,\nKarl", "Yours faithfully,"),
+                            ("Hegel", "Hegel"), ("G. W. F. Hegel", "G. W. F. Hegel"), ("Hegel.\nHegel.", "Hegel.")):         # his name alone is a closing too; one signature, no more
+            with self.subTest(close=close):
+                self.assertEqual(letter("Dear Karl,\n\n" + PROSE + "\n\n" + close + more), "Dear Karl,\n\n" + PROSE + "\n\n" + kept)
+        self.assertEqual(letter(PROSE + "\nYours ever,\nHegel\n" + "Another letter, with enough words to count, begins here and goes on."), "Dear Karl,\n\n" + PROSE + "\n\nYours ever,\nHegel")
+        for line in ("Yours is the better view, I think, and I will keep to it.", "Your friend Karl came by at ten, and we talked of it all afternoon.", "Ever since the morning I have thought of it.",
+                     "Hegel said as much himself, and Hegel is not to be argued with."):         # an ordinary line is no closing
+            with self.subTest(line=line):
+                self.assertIn("Spinoza", letter("Dear Karl,\n\n" + PROSE + "\n\n" + line + more))
+        self.assertIn("Spinoza", works.sitting(self.plan(), PROSE + "\n\nYours ever,\nHegel" + more)["text"])        # only a letter has one: the essay goes on
+        self.assertIsNone(works.sitting(self.plan(kind="letter", to="Karl"), "Dear Karl,\n\nYours ever,\nHegel", "Dear Karl,"))        # nothing left but the closing
+        self.assertEqual(letter("Dear Karl,\n\n" + PROSE + " And now I must say that the\n\nYours ever,\nHegel"), "Dear Karl,\n\n" + PROSE + "\n\nYours ever,\nHegel")      # the unfinished sentence goes, the closing stays
+        many = " ".join(f"Sentence number {i} is of some length, and goes on, and then it stops." for i in range(200))
+        long = letter("Dear Karl,\n\n" + many + "\n\nYours ever,\nHegel")
+        self.assertTrue(len(long) <= works.CAP and long.endswith("stops."))                      # the sign-off of a page that is cut is not that page's
+        short = works.sitting(self.plan(kind="letter", to="Karl"), "Dear Karl,\n\n" + PROSE + "\n\nYours ever,\nHegel", "Dear Karl,")
+        self.assertTrue(len(short["text"]) <= works.CAP)
+        self.assertIsNone(works.sitting(self.plan(kind="letter", to="Karl"), "word " * 16 + "end.\n\nYours ever,\nHegel"))              # the closing does not count for the twenty words
+        self.assertIsNotNone(works.sitting(self.plan(kind="letter", to="Karl"), "word " * 19 + "end.\n\nYours ever,\nHegel"))
 
     def test_paragraphs_stay_and_other_whitespace_goes(self):
         raw = "  The first   paragraph runs\non over two lines,\tand ends here, with enough words to count as a paragraph.  \n\n\n\n  The second one, also long enough to be counted, ends here too.  \r\n"
@@ -955,16 +986,18 @@ class WritingPromptTest(unittest.TestCase):
         poem = "The tea is hot, and the day is long,\nand the heat comes in at the door.\n\nThe tea is hot, and the day is long,\nand the heat comes in at the door.\n\nAnd so the day goes on, and on, and on."
         self.assertEqual(works.sitting(self.plan(kind="poem"), poem)["text"].count("The tea is hot"), 2)
 
-    def test_the_sitting_has_what_the_note_says_of_him(self):
-        self.assertIn("November 1831", SOUL)                                                       # as the soul has it: he knows nothing after
-        self.assertIn("Berlin", SOUL)
-        for d, stay in ((date(2026, 10, 2), " He has been in Delhi since this morning."), (date(2026, 10, 3), " He has been in Delhi for 1 day."),
-                        (date(2026, 10, 6), " He has been in Delhi for 4 days."), (date(2026, 11, 12), " He has been in Delhi for 41 days."),
-                        (date(2026, 9, 30), ""), (date(2126, 1, 1), " He has been in Delhi for 36250 days.")):
+    def test_the_note_says_what_the_soul_says_of_him(self):
+        for said in ("November 1831", "died in Berlin", "woke up in Delhi"):
+            self.assertIn(said, SOUL)
+        for d, ago in ((date(2026, 10, 2), ", this morning"), (date(2026, 10, 3), ", yesterday"), (date(2026, 10, 4), ", two days ago"), (date(2026, 10, 6), ", four days ago"),
+                       (date(2026, 10, 14), ", twelve days ago"), (date(2026, 10, 15), ", 13 days ago"), (date(2026, 11, 12), ", 41 days ago"), (date(2026, 9, 30), ""),
+                       (date(2126, 1, 1), ", 36250 days ago")):
             with self.subTest(d=d):
                 n = works.note(d)
-                self.assertEqual(n, f"[Until November 1831 he was professor of philosophy at Berlin.{stay}]")
+                self.assertEqual(n, f"[He died at Berlin in November 1831, professor of philosophy there, and woke in Delhi on 2 October 2026{ago}.]")
                 self.assertTrue(len(n) <= 160 and "\n" not in n and n[0] == "[" and n[-1] == "]")
+        self.assertEqual(works.NOTE, "[He died at Berlin in November 1831, professor of philosophy there, and woke in Delhi on {woke}{ago}.]")
+        self.assertEqual(DAY_ONE, date(2026, 10, 2))
         for kind, to in (("essay", None), ("letter", "Karl"), ("poem", None)):                 # the second bracketed line, whatever the kind
             lines = works.prompt(self.plan(kind=kind, to=to), {}, self.D)[0].split("\n")
             self.assertEqual((lines[1], lines[2]), ("[the morning's papers]", NOTE6))
@@ -972,120 +1005,204 @@ class WritingPromptTest(unittest.TestCase):
         self.assertEqual(works.sitting(self.plan(), NOTE6 + "\n" + PROSE)["text"], PROSE)       # said again, it is dropped like the argument
 
 
-def hit(words=100, lang="en", work="dyde-right", ref="§258"):
-    return {"id": f"{work}:1", "work": "Philosophy of Right", "ref": ref, "lang": lang, "label": f"Philosophy of Right {ref}", "score": 20.0,
-            "text": " ".join(["word"] * words)}
+def content(text, n=4):
+    """The words of text of n letters or more, as the tests count them: lower case, whole words."""
+    return set(re.findall(r"[a-z]{%d,}" % n, text.lower()))
 
 
-class FakeShelf:
-    """Shelf.search as it is: the hits in the order they are given, and what it was asked."""
-
-    def __init__(self, *hits):
-        self.hits, self.asked = hits, []
-
-    def search(self, parts, n=40, skip=lambda doc: False):
-        self.asked.append(parts)
-        return list(self.hits)
-
-
-class PrimerTest(unittest.TestCase):
-    """The passage of his English books that goes in front of the writing's header."""
+class ExemplarTest(unittest.TestCase):
+    """The two passages of his books that stand in front of the writing's header, each under a header that names its topic."""
     D = date(2026, 10, 6)
     plan = staticmethod(WritingPromptTest.plan)
+    ROWS = (("the state", "Philosophy of Right", "The state is the march of God in the world, and so on."),
+            ("war", "Philosophy of Right", "War is the ethical health of peoples, and so on."),
+            ("the family", "Philosophy of Right", "Love is the unity of myself with another, and so on."))
 
-    @classmethod
-    def setUpClass(cls):
-        cls.real = shelf.load(REPO / "mind/shelf/index.json.gz", REPO / "world/data/shelf_terms.json")
+    def repo(self, *rows, raw=None):
+        """A repo of its own in which mind/hegeltest/questions.json has `rows` as (topic, work, passage), or `raw`; its folder."""
+        tmp = Path(tempfile.mkdtemp(prefix="hegel-repo-"))
+        self.addCleanup(shutil.rmtree, tmp, True)
+        (tmp / "mind/hegeltest").mkdir(parents=True)
+        (tmp / works.QUESTIONS).write_text(raw if raw is not None else json.dumps({"note": "n", "questions": [{"topic": t, "work": w, "passage": x} for t, w, x in rows]}))
+        return tmp
 
-    def test_the_best_english_passage_of_the_right_length(self):
-        fake = FakeShelf(hit(100, "de"), hit(79), hit(221), hit(80, ref="§99"), hit(150))
-        book = works.primer(fake, self.plan())
-        self.assertEqual(fake.asked, [[("On the verandah", 1.0), ("the morning's papers", 1.0)]])                  # the title and what it is about
-        self.assertEqual(book, {"label": "Philosophy of Right §99", "head": "Hegel's Philosophy of Right, tr. S. W. Dyde (1896), §99", "text": "word " * 79 + "word"})
-        self.assertEqual(works.primer(FakeShelf(hit(220, ref="")), self.plan())["head"], "Hegel's Philosophy of Right, tr. S. W. Dyde (1896)")      # no ref, no comma
-        self.assertEqual(works.primer(FakeShelf(hit(100, work="new-book")), self.plan())["head"], "Hegel, Philosophy of Right, §258")          # a work not in the table
-        self.assertEqual(works.PRIMER_WORDS, (80, 220))
+    def test_the_passages_are_those_of_the_hegel_tests_file_read_once(self):
+        want = json.loads((REPO / "mind/hegeltest/questions.json").read_text(encoding="utf-8"))["questions"]
+        got = works.passages(REPO)
+        self.assertEqual(got, [{"topic": q["topic"], "work": q["work"], "text": q["passage"]} for q in want])
+        self.assertEqual((len(got), works.QUESTIONS), (20, "mind/hegeltest/questions.json"))
+        with mock.patch.object(Path, "read_text", side_effect=AssertionError("read again")):
+            self.assertIs(works.passages(REPO), got)                                          # cached per process
+        self.assertEqual(works.passages(), got)                                               # the repo of the code is the default
+        repo = self.repo(*self.ROWS)
+        self.assertEqual(works.passages(repo), [{"topic": t, "work": w, "text": x} for t, w, x in self.ROWS])
+        self.assertIs(works.passages(repo), works.passages(repo))
 
-    def test_a_passage_that_still_shows_its_scan_is_passed_over(self):
-        c = works.english_counts(self.real)
-        for text in ("the tho abstract sphere", "the noisy din of the Wo rid' s History", "tlie state", "hke a shadow", "it rnay be", "the stAte"):
-            self.assertTrue(works.damaged(text, c), text)
-        for text in ("the like of it", "a lie that is told", "the size of the state", "turn the corn", "his house has a garden"):
-            self.assertFalse(works.damaged(text, c), text)
-        self.assertFalse(works.damaged("tlie state", Counter()))                     # without the books' words only the litter of the scan counts
-        dirty = dict(hit(100, ref="§1"), text=" ".join(["word"] * 98) + " Wo rid' s")
-        self.assertEqual(works.primer(FakeShelf(dirty, hit(100, ref="§2")), self.plan())["label"], "Philosophy of Right §2")
-        self.assertIs(works.english_counts(self.real), c)                            # counted once per shelf
-        for plan in (self.plan(title="On the noise of the street", about="the din of the street below the verandah, and what thought makes of what it cannot shut out"),
-                     self.plan(kind="letter", to="Niethammer", title="Letter to Niethammer", about="his first days in Delhi, the heat and the noise, and what has become of the system here")):
-            self.assertFalse(works.damaged(works.primer(self.real, plan)["text"], c))
+    def test_a_missing_or_damaged_file_gives_no_passages_and_is_looked_at_again(self):
+        gone = Path(tempfile.mkdtemp(prefix="hegel-repo-"))
+        self.addCleanup(shutil.rmtree, gone, True)
+        self.assertEqual((works.passages(gone), works.exemplars(self.plan(), self.D, gone)), ([], []))
+        for raw in ("not json", "[]", "{}", '{"questions": 5}', '{"questions": [1, "x", {"topic": "a"}, {"topic": "a", "work": "b", "passage": " "}]}'):
+            with self.subTest(raw=raw):
+                tmp = self.repo(raw=raw)
+                self.assertEqual(works.passages(tmp), [])
+        tmp = self.repo(raw="not json")
+        self.assertEqual(works.passages(tmp), [])
+        (tmp / works.QUESTIONS).write_text(json.dumps({"questions": [{"topic": " the   state ", "work": "Philosophy of Right", "passage": " Text. \n"}, {"topic": "x"}]}))
+        self.assertEqual(works.passages(tmp), [{"topic": "the state", "work": "Philosophy of Right", "text": "Text."}])         # what is there now: one, tidied
 
-    def test_no_shelf_or_no_match_no_primer(self):
-        self.assertIsNone(works.primer(None, self.plan()))
-        self.assertIsNone(works.primer(FakeShelf(), self.plan()))
-        self.assertIsNone(works.primer(FakeShelf(hit(100, "de"), hit(60), hit(300)), self.plan()))
-        self.assertEqual(works.prompt(self.plan(), {}, self.D, None), works.prompt(self.plan(), {}, self.D))
+    def test_two_distinct_ones_the_same_for_the_same_sitting(self):
+        shown = works.exemplars(self.plan(), self.D)
+        self.assertEqual(len(shown), 2)
+        self.assertNotEqual(shown[0]["topic"], shown[1]["topic"])
+        self.assertTrue(all(x in works.passages(REPO) for x in shown))
+        self.assertEqual(shown, works.exemplars(self.plan(), self.D))                                       # a seed from the title and the day
+        self.assertEqual(shown, works.exemplars(self.plan(kind="letter", to="Karl", continues=True), self.D))
+        pairs = {tuple(x["topic"] for x in works.exemplars(self.plan(), self.D + timedelta(days=i))) for i in range(30)}
+        self.assertGreater(len(pairs), 10)                                                                   # another day, another pair
+        titles = {tuple(x["topic"] for x in works.exemplars(self.plan(title=f"On {t}"), self.D)) for t in "abcdefghijklmnopqrstuvwxyz"}
+        self.assertGreater(len(titles), 10)
+        self.assertEqual(works.SHOWN, 2)
 
-    def test_the_heads_are_those_of_the_training_corpus(self):
-        import corpus
-        import train_data
-        meta = {w["id"]: w for w in corpus.WORKS}
-        for wid, head in works.PRIMER_HEADS.items():
-            self.assertEqual(train_data.header(meta[wid], "", ""), head)
-            self.assertEqual(train_data.header(meta[wid], "§258", "§258"), head + ", §258")
-        self.assertLessEqual({w["id"] for w in self.real.works if w["lang"] == "en"}, set(works.PRIMER_HEADS))      # every English book of the shelf has its head
-
-    def test_the_real_shelf_has_one_for_the_essay_and_the_letter(self):
-        plans = [self.plan(title="On the noise of the street", about="the din of the street below the verandah, and what thought makes of what it cannot shut out"),
-                 self.plan(kind="letter", to="Niethammer", title="Letter to Niethammer", about="his first days in Delhi, and what has become of the system here"),
-                 self.plan(title="Das System der Bedürfnisse", about="die Bedürfnisse des Bürgers und der Stand der Handwerker")]            # German words call up German passages, too
+    def test_none_shares_a_word_of_four_letters_with_the_title_or_what_it_is_about(self):
+        topics = [x["topic"] for x in works.passages(REPO)]
+        plans = [self.plan(title=f"On {t}", about="the same, again") for t in topics] + [self.plan(title="Letter to Niethammer", kind="letter", to="Niethammer",
+                 about="the state, the family, the beautiful soul, India, the Orient, the German spirit, Napoleon, freedom and religion")]
         for plan in plans:
             with self.subTest(title=plan["title"]):
-                book = works.primer(self.real, plan)
-                doc = self.real.data["texts"].index(book["text"])
-                work = self.real.work_of(doc)
-                self.assertEqual(work["lang"], "en")
-                self.assertTrue(works.PRIMER_WORDS[0] <= len(book["text"].split()) <= works.PRIMER_WORDS[1])
-                self.assertEqual(book["head"], works.PRIMER_HEADS[work["id"]] + ", " + self.real.data["refs"][doc])
-                self.assertEqual(book["label"], shelf.label(work["work"], self.real.data["refs"][doc]))
-        self.assertEqual(max(self.real.search([(plans[2]["about"], 1.0)]), key=lambda h: h["score"])["lang"], "de")          # the best match was German: the primer is not
-        self.assertIsNone(works.primer(self.real, self.plan(title="Qqzx", about="Zzyxw")))
+                for date_ in (self.D, self.D + timedelta(days=3)):
+                    shown = works.exemplars(plan, date_)
+                    self.assertEqual(len({x["topic"] for x in shown}), 2)
+                    for x in shown:
+                        self.assertFalse(content(x["topic"]) & content(plan["title"] + " " + plan["about"]), x["topic"])
+        for title, gone in (("On wars", "war"), ("On the states of India", "the state"), ("An art lesson", "art"), ("On the Family", "the family"), ("On Minerva", "the owl of Minerva")):
+            with self.subTest(title=title):
+                self.assertNotIn(gone, {x["topic"] for d in range(60) for x in works.exemplars(self.plan(title=title), self.D + timedelta(days=d))})        # a plural s, a capital: the same word
+        self.assertIn("war", {x["topic"] for d in range(60) for x in works.exemplars(self.plan(title="On peace"), self.D + timedelta(days=d))})
 
-    def test_it_stands_in_front_as_a_document_of_its_own(self):
-        book = {"label": "L", "head": "Hegel's Philosophy of Right, tr. S. W. Dyde (1896), §258", "text": "A passage of his book, in one paragraph."}
-        plain = works.prompt(self.plan(), {}, self.D)
-        self.assertEqual(works.PRIMER, "{head}\n\n{text}\n\n\n")
-        self.assertEqual(works.prompt(self.plan(), {}, self.D, book), (f"{book['head']}\n\n{book['text']}\n\n\n" + plain[0], ""))
-        self.assertEqual(works.prompt(self.plan(kind="letter", to="Karl"), {}, self.D, book)[0].split("\n\n\n")[1], works.prompt(self.plan(kind="letter", to="Karl"), {}, self.D)[0])
+    def test_fewer_if_fewer_qualify_and_none_without_the_file(self):
+        repo = self.repo(*self.ROWS)
+        got = works.exemplars(self.plan(), self.D, repo)
+        self.assertEqual((len(got), len({x["topic"] for x in got})), (2, 2))
+        self.assertTrue(all(x["topic"] in ("the state", "war", "the family") for x in got))
+        got = works.exemplars(self.plan(title="On the state"), self.D, repo)
+        self.assertEqual(sorted(x["topic"] for x in got), ["the family", "war"])
+        got = works.exemplars(self.plan(about="the state and the family"), self.D, repo)
+        self.assertEqual([x["topic"] for x in got], ["war"])                                                # one qualifies: one is shown
+        self.assertEqual(works.exemplars(self.plan(title="War", about="the state, the family"), self.D, repo), [])
+        with mock.patch.object(works, "QUESTIONS", "mind/nothing.json"):
+            self.assertEqual(works.exemplars(self.plan(), self.D), [])
+
+    def test_the_header_of_an_exemplar_has_the_shape_of_the_writings_own(self):
+        self.assertEqual(works.EXEMPLAR, "Hegel, On {topic}. From the {work}.\n\n{text}\n\n\n")
+        for x in works.passages(REPO):
+            head, blank, text, rest = works.EXEMPLAR.format(**x).split("\n", 3)
+            self.assertEqual((head, blank, text, rest), (f"Hegel, On {x['topic']}. From the {x['work']}.", "", x["text"], "\n\n"))
+            self.assertRegex(head, r"^Hegel, On [^.]+\. From the [^.]+\.$")
+            self.assertIsNone(works.HEADLINE.match(x["text"]))
+        self.assertRegex(works.HEADERS["essay"].format(title="On war", date="6 October 2026"), r"^Hegel, [^.]+\. [^.]+, 6 October 2026\.$")        # "Hegel, <title>. <provenance>."
+        self.assertEqual({x["work"] for x in works.passages(REPO)}, {"Philosophy of Right", "Philosophy of History", "Philosophy of Fine Art", "Philosophy of Mind", "Phenomenology of Mind"})
+
+    def test_the_prompt_is_the_exemplars_then_the_header_the_argument_the_note_and_the_tail_or_the_salutation(self):
+        one, two = ({"topic": "the family", "work": "Philosophy of Right", "text": "Love is one."}, {"topic": "war", "work": "Philosophy of Right", "text": "War is two."})
+        docs = "Hegel, On the family. From the Philosophy of Right.\n\nLove is one.\n\n\nHegel, On war. From the Philosophy of Right.\n\nWar is two.\n\n\n"
+        self.assertEqual(works.prompt(self.plan(), {}, self.D, [one, two]),
+                         (docs + f"Hegel, On the verandah. Written at Delhi, 6 October 2026.\n[the morning's papers]\n{NOTE6}\n\n", ""))
+        self.assertEqual(works.prompt(self.plan(kind="letter", to="Karl", title="Letter to Karl"), {}, self.D, [one, two]),
+                         (docs + f"Hegel to Karl. Delhi, 6 October 2026.\n[the morning's papers]\n{NOTE6}\n\nDear Karl,\n\n", "Dear Karl,"))
+        self.assertEqual(works.prompt(self.plan(kind="poem", title="Ode to tea."), {}, self.D, (one, two))[0],
+                         docs + f"Hegel, Ode to tea. A poem, written at Delhi, 6 October 2026.\n[the morning's papers]\n{NOTE6}\n\n")
+        self.assertEqual(works.prompt(self.plan(), {}, self.D, [one])[0], docs.split("\n\n\n")[0] + "\n\n\n" + works.prompt(self.plan(), {}, self.D)[0])      # as many as there are
+        self.assertEqual(works.prompt(self.plan(), {}, self.D, []), works.prompt(self.plan(), {}, self.D))                  # none: the header alone
         st = {}
         works.file(st, {"title": "On Sense", "kind": "essay", "to": None, "continues": False, "text": PROSE}, self.D)
-        carried = works.prompt(self.plan(title="On Sense", continues=True), st, self.D, book)[0]
-        self.assertTrue(carried.startswith(book["head"]) and carried.endswith("\n\n" + PROSE))                  # and the tail of the sitting before still ends the prompt
+        carried = works.prompt(self.plan(title="On Sense", continues=True), st, self.D, [one, two])
+        self.assertEqual(carried, (docs + f"Hegel, On Sense. Written at Delhi, 6 October 2026.\n[the morning's papers]\n{NOTE6}\n\n{PROSE}", ""))      # a manuscript carried on: the tail last
+        works.file(st, {"title": "Letter to Karl", "kind": "letter", "to": "Karl", "continues": False, "text": "Dear Karl, " + "word " * 30 + "end."}, self.D)
+        again = works.prompt(self.plan(title="Letter to Karl", continues=True), st, self.D, [one, two])
+        self.assertEqual(again, (docs + f"Hegel to Karl. Delhi, 6 October 2026.\n[the morning's papers]\n{NOTE6}\n\n{works.carried(st['works'][1]['tail'])}", ""))
 
-    def test_the_engine_primes_the_completion_and_logs_its_label_and_stores_none_of_it(self):
+    def test_the_real_prompt_of_the_default_essay(self):
+        plan = works.outline({"title": "On the noise of the street", "kind": "essay", "to": None, "continues": False,
+                              "about": "the din of the street below the verandah, and what thought makes of what it cannot shut out"})
+        shown = works.exemplars(plan, self.D)
+        text = works.prompt(plan, {}, self.D, shown)[0]
+        self.assertEqual(text.count("\n\n\n"), 2)                                                                  # one after each exemplar
+        self.assertTrue(text.startswith(f"Hegel, On {shown[0]['topic']}. From the {shown[0]['work']}.\n\n{shown[0]['text']}\n\n\nHegel, On {shown[1]['topic']}."))
+        self.assertTrue(text.endswith(f"\n\n\nHegel, On the noise of the street. Written at Delhi, 6 October 2026.\n[{plan['about']}]\n{NOTE6}\n\n"))
+
+    def test_the_engine_shows_exemplars_logs_their_topics_and_stores_none_of_them(self):
         mind = Talker(says=None, action="write", sitting=SITTING, text=PROSE)
         with self.assertLogs("world", "INFO") as logged:
             box, e, day, step = one_step(mind, "ramesh", "home")
         try:
             prompt = next(a[0] for k, a in mind.asked if k == "complete")
-            book = works.primer(e.shelf, works.outline(json.loads(SITTING)))
-            self.assertTrue(prompt.startswith(book["head"] + "\n\n" + book["text"] + "\n\n\nHegel, On the verandah."))
-            self.assertIn(f"writing: primer {book['label']}", "\n".join(logged.output))
+            plan = works.outline(json.loads(SITTING))
+            shown = works.exemplars(plan, date.fromisoformat(day["date"]))
+            self.assertEqual(len(shown), 2)
+            self.assertTrue(prompt.startswith(f"Hegel, On {shown[0]['topic']}. From the {shown[0]['work']}.\n\n{shown[0]['text']}\n\n\nHegel, On {shown[1]['topic']}. "))
+            self.assertIn(f"writing: exemplars {shown[0]['topic']}, {shown[1]['topic']}", "\n".join(logged.output))
+            self.assertNotIn("writing: primer", "\n".join(logged.output))
             w = next(x for x in day["entries"] if x["k"] == "writing")
             self.assertEqual(w["text"], PROSE)
-            self.assertNotIn(book["head"], json.dumps(day, ensure_ascii=False))
+            for x in shown:
+                self.assertNotIn(x["text"], json.dumps(day, ensure_ascii=False))
         finally:
             box.close()
 
-    def test_without_a_shelf_the_prompt_is_the_header_and_the_notes_alone(self):
+    def test_without_the_file_the_prompt_is_the_header_and_the_notes_alone(self):
         mind = Talker(sitting=SITTING, text=PROSE)
-        with self.assertLogs("world", "INFO") as logged:
+        with mock.patch.object(works, "QUESTIONS", "mind/nothing.json"), self.assertLogs("world", "INFO") as logged:
             w, _ = write_with(mind)
         prompt = next(a[0] for k, a in mind.asked if k == "complete")
         self.assertEqual(prompt, "Hegel, On the verandah. Written at Delhi, 3 October 2026.\n[The morning on the verandah, and what the papers made of it.]\n"
-                                 "[Until November 1831 he was professor of philosophy at Berlin. He has been in Delhi for 1 day.]\n\n")
-        self.assertIn("writing: primer none", "\n".join(logged.output))
+                                 "[He died at Berlin in November 1831, professor of philosophy there, and woke in Delhi on 2 October 2026, yesterday.]\n\n")
+        self.assertIn("writing: exemplars none", "\n".join(logged.output))
         self.assertEqual(w["text"], PROSE)
+
+
+class GuardTest(unittest.TestCase):
+    """What a sitting may not be: a copy of an exemplar that it was shown, or off its subject."""
+    plan = staticmethod(WritingPromptTest.plan)
+    EX = [{"topic": "war", "work": "Philosophy of Right", "text": "One two three four five six seven eight nine ten eleven twelve."}]
+
+    def flaw(self, text, plan=None, shown=None, opening=""):
+        return works.flaw(plan or self.plan(), {"text": opening + "\n\n" + text if opening else text}, self.EX if shown is None else shown, opening)
+
+    def test_a_run_of_eight_words_that_an_exemplar_has_too_is_a_copy(self):
+        base = "The morning came in with the papers, and then "
+        self.assertEqual(works.COPY_RUN, 8)
+        self.assertEqual(self.flaw(base + "three four five six seven eight nine ten, and so on."), "copies the exemplar on war")
+        self.assertEqual(self.flaw(base + "Three, FOUR; five-six seven eight nine ten."), "copies the exemplar on war")          # in lower case, without punctuation
+        self.assertEqual(self.flaw("Five six seven eight nine ten eleven twelve! " + base + "and so on."), "copies the exemplar on war")      # at the start, at the end
+        self.assertIsNone(self.flaw(base + "three four five six seven eight nine, and then not."))                              # seven are not enough
+        self.assertIsNone(self.flaw(base + "three four five six seven eight nine ten.", shown=[]))                               # nothing shown, nothing copied
+        self.assertIsNone(self.flaw(base + "seven words are not eight words.", shown=[dict(self.EX[0], text="Seven words are not eight words.")]))        # a shorter one cannot be
+        both = self.EX + [{"topic": "art", "work": "Philosophy of Fine Art", "text": "Alpha beta gamma delta epsilon zeta eta theta iota kappa."}]
+        self.assertEqual(self.flaw(base + "beta gamma delta epsilon zeta eta theta iota.", shown=both), "copies the exemplar on art")      # any of them
+
+    def test_a_sitting_with_none_of_the_words_of_its_title_and_what_it_is_about_is_off_the_subject(self):
+        self.assertIsNone(self.flaw(PROSE))
+        self.assertEqual(self.flaw(OFF), "is off the subject: it has none of morning, paper, verandah")
+        self.assertIsNone(self.flaw(OFF + " And the Verandahs were swept."))                                                    # one is enough: a capital, a plural s
+        self.assertIsNone(self.flaw(OFF, plan=self.plan(title="On tea", about="the tea")))                                      # none of five letters: nothing to be off
+        self.assertIsNone(self.flaw(OFF, plan=self.plan(title="On it", about="where there, after these, against those")))      # nor of words that say nothing
+        self.assertIsNone(self.flaw(OFF, plan=self.plan(title="On the heat", about="the tea")))                                 # words of four letters are not enough
+        letter = self.plan(kind="letter", to="Niethammer", title="Letter to Niethammer", about="the tea and the cloth")
+        self.assertIsNone(self.flaw("The price of cloth, and the tea.", plan=letter, opening="Dear Niethammer,"))
+        self.assertEqual(self.flaw(OFF.replace("cloth", "silk").replace("tea", "milk"), plan=letter, opening="Dear Niethammer,"), "is off the subject: it has none of cloth, letter, niethammer")
+        self.assertIsNone(works.flaw(letter, {"text": "Dear Niethammer,\n\n" + OFF.replace("cloth", "silk").replace("tea", "milk")}, []))     # the salutation, if it is not told, is text
+        long = self.plan(title="alphabet brothers charlies deltas elephants foxtrots gamblers hotels islands jungles kilobytes limbers", about="x")
+        self.assertEqual(self.flaw(OFF, plan=long).count(","), 7)                                                              # of twelve it names eight
+
+    def test_the_stand_in_is_never_off_its_subject(self):
+        for title in ("(rehearsal) Notes from the verandah", "(rehearsal) A page on the system of needs", "On the noise of the street", "(rehearsal) Letter about the bungalow"):
+            for seed in range(5):
+                prompt = f"Hegel, On war. From the Philosophy of Right.\n\nWar is war.\n\n\nHegel, {title}. Written at Delhi, 6 October 2026.\n[x]\n[y]\n\n"
+                plan = {"title": title, "about": "(rehearsal) the tea", "kind": "essay", "to": None, "continues": False}
+                w = works.sitting(plan, StubMind().complete(prompt, seed=seed))
+                self.assertIsNone(works.flaw(plan, w, []), (title, seed))
+                self.assertTrue((content(StubMind().complete(prompt, seed=seed), 5) & content(title, 5)) - {"rehearsal"} or content(title, 5) <= {"rehearsal"}, title)
 
 
 class HTTPCompleteTest(unittest.TestCase):
@@ -1142,7 +1259,8 @@ class HTTPCompleteTest(unittest.TestCase):
             self.assertEqual((p1, p2), ("/v1/chat/completions", "/completion"))
             self.assertEqual(list(chat["response_format"]["json_schema"]["schema"]["properties"]), ["title", "kind", "to", "continues", "about"])
             self.assertEqual(chat["messages"][-1]["content"], works.sitting_ask(st))
-            self.assertEqual(comp["prompt"], works.prompt(works.outline(json.loads(SITTING)), st, SAT)[0])
+            plan = works.outline(json.loads(SITTING))
+            self.assertEqual(comp["prompt"], works.prompt(plan, st, SAT, works.exemplars(plan, SAT))[0])
             self.assertEqual((comp["n_predict"], works.TOKENS), (600, 600))
             self.assertTrue(all(comp[k] == v for k, v in LOOPS.items()) and not any(k in chat for k in LOOPS))        # the sampling against loops is the completion's alone
             FakeCompletion.calls.clear()
@@ -1174,9 +1292,10 @@ class PlainWritingTest(unittest.TestCase):
             self.assertEqual(msgs[-1]["content"].count("Your manuscripts"), 0)
             prompt, n_predict, seed = next(a for k, a in mind.asked if k == "complete")
             d = date.fromisoformat(day["date"])
-            book = works.primer(e.shelf, works.outline(json.loads(SITTING)))                           # the real shelf has a passage for it, which comes first
-            self.assertTrue(book)
-            self.assertEqual(prompt, f"{book['head']}\n\n{book['text']}\n\n\nHegel, On the verandah. Written at Delhi, {d.day} {d:%B %Y}.\n"
+            shown = works.exemplars(works.outline(json.loads(SITTING)), d)                              # two passages of his books come first, each under its topic
+            self.assertEqual(len(shown), 2)
+            self.assertEqual(prompt, "".join(f"Hegel, On {x['topic']}. From the {x['work']}.\n\n{x['text']}\n\n\n" for x in shown) +
+                                     f"Hegel, On the verandah. Written at Delhi, {d.day} {d:%B %Y}.\n"
                                      f"[The morning on the verandah, and what the papers made of it.]\n{works.note(d)}\n\n")
             self.assertEqual((n_predict, seed), (works.TOKENS, None))
             w = next(x for x in day["entries"] if x["k"] == "writing")
@@ -1185,7 +1304,7 @@ class PlainWritingTest(unittest.TestCase):
                               "about": "The morning on the verandah, and what the papers made of it."})
             self.assertEqual(w["words"], len(PROSE.split()))
             self.assertEqual(day["state"]["works"][0]["tail"], PROSE)
-            self.assertNotIn(book["text"], json.dumps(day, ensure_ascii=False))                       # the primer is nowhere in what is stored
+            self.assertTrue(all(x["text"] not in json.dumps(day, ensure_ascii=False) for x in shown))        # the exemplars are nowhere in what is stored
             self.assertNotIn("sensitive", w)
             self.assertEqual(step["mind"]["source"], "stub")
         finally:
@@ -1201,7 +1320,7 @@ class PlainWritingTest(unittest.TestCase):
             box.close()
 
     def test_what_the_sitting_is_about_is_checked_for_the_veil_too(self):
-        about = json.dumps(dict(json.loads(SITTING), about="What the tailor said of his caste."))
+        about = json.dumps(dict(json.loads(SITTING), about="What the tailor said of his caste, this morning."))
         box, e, day, step = one_step(Talker(says=None, action="write", sitting=about, text=PROSE), "ramesh", "home")
         try:
             w = next(x for x in day["entries"] if x["k"] == "writing")
@@ -1210,14 +1329,17 @@ class PlainWritingTest(unittest.TestCase):
             box.close()
 
     def test_a_sitting_he_carries_on_flows_from_the_sitting_before(self):
-        mind = Talker(text=PROSE, sitting=json.dumps(dict(json.loads(SITTING), title="on the VERANDAH", continues=True, about="More of it.")))
+        about = json.dumps(dict(json.loads(SITTING), title="on the VERANDAH", continues=True, about="More of the morning's papers."))
+        mind = Talker(text=PROSE, sitting=about)
         st = state()
         works.file(st, {"title": "On the verandah", "kind": "notes", "to": None, "continues": False, "text": PROSE}, SAT)
         w, st = write_with(mind, st)
         self.assertEqual((w["mode"], w["continues"]), ("plain", True))
         (_, (prompt, _, _)) = next(x for x in mind.asked if x[0] == "complete")
-        self.assertEqual(prompt, "Hegel, On the verandah. Written at Delhi, 3 October 2026.\n[More of it.]\n"
-                                 f"[Until November 1831 he was professor of philosophy at Berlin. He has been in Delhi for 1 day.]\n\n{PROSE}")       # the tail: all of it, it is short
+        shown = works.exemplars(works.outline(json.loads(about)), SAT)
+        self.assertEqual(len(shown), 2)
+        self.assertEqual(prompt, "".join(works.EXEMPLAR.format(**x) for x in shown) + "Hegel, On the verandah. Written at Delhi, 3 October 2026.\n[More of the morning's papers.]\n"
+                                 f"[He died at Berlin in November 1831, professor of philosophy there, and woke in Delhi on 2 October 2026, yesterday.]\n\n{PROSE}")       # the tail: all of it, it is short
         self.assertIn("“On the verandah” (notes, 1 sitting)", next(m for k, m in mind.asked if k == "sitting")[-1]["content"])
         entry = works.file(st, w, SAT)
         self.assertEqual((entry["sitting"], len(st["works"])), (2, 1))
@@ -1234,6 +1356,63 @@ class PlainWritingTest(unittest.TestCase):
         self.assertEqual(self.kinds(mind), ["sitting", "complete", "complete"])                    # no chat call that writes
         w, _ = write_with(Talker(sitting=SITTING, text=UNMET), known="Marx")                         # what he has met may be written
         self.assertEqual(w["mode"], "plain")
+
+    @staticmethod
+    def exemplar_of(prompt, n=0):
+        """The passage of the n-th exemplar of a prompt."""
+        return prompt.split("\n\n\n")[n].split("\n\n", 1)[1]
+
+    def test_a_completion_that_copies_an_exemplar_is_made_again_with_another_seed(self):
+        seeds = []
+
+        def text(prompt, seed):
+            seeds.append(seed)
+            return "The morning came in with the papers, and I read them on the verandah. " + self.exemplar_of(prompt, 1) if len(seeds) == 1 else PROSE
+
+        mind = Talker(sitting=SITTING, text=text)
+        with self.assertLogs("world", "INFO") as logged:
+            w, _ = write_with(mind)
+        self.assertEqual((w["mode"], w["text"]), ("plain", PROSE))
+        self.assertTrue(seeds[0] is None and isinstance(seeds[1], int))
+        self.assertEqual(self.kinds(mind), ["sitting", "complete", "complete"])                    # no chat call that writes
+        shown = works.exemplars(works.outline(json.loads(SITTING)), SAT)
+        self.assertIn(f"writing: the completion copies the exemplar on {shown[1]['topic']}", "\n".join(logged.output))
+
+    def test_a_completion_that_is_off_the_subject_is_made_again_with_another_seed(self):
+        texts = iter([OFF, PROSE])
+        mind = Talker(sitting=SITTING, text=lambda prompt, seed: next(texts))
+        with self.assertLogs("world", "INFO") as logged:
+            w, _ = write_with(mind)
+        self.assertEqual((w["mode"], w["text"]), ("plain", PROSE))
+        self.assertEqual(self.kinds(mind), ["sitting", "complete", "complete"])
+        self.assertIn("writing: the completion is off the subject: it has none of morning, paper, verandah", "\n".join(logged.output))
+
+    def test_a_copy_twice_or_off_the_subject_twice_and_the_chat_call_writes_it(self):
+        copy = lambda prompt, seed: "The morning came in with the papers, and I read them on the verandah. " + self.exemplar_of(prompt)
+        for text, why in ((copy, "copies the exemplar"), (lambda prompt, seed: OFF, "is off the subject")):
+            with self.subTest(why=why), self.assertLogs("world", "INFO") as logged:
+                mind = Talker(sitting=SITTING, text=text, writing=CHAT_SITTING)
+                w, _ = write_with(mind)
+                self.assertEqual((w["mode"], self.kinds(mind)), ("chat", ["sitting", "complete", "complete", "write"]))
+                self.assertEqual(w["text"], "The morning came in with the papers and the heat, and I wrote it down.")
+                self.assertEqual(sum(why in x for x in logged.output), 2)
+                self.assertIn("writing by chat call", "\n".join(logged.output))
+        calls = []
+
+        def mixed(prompt, seed):                                                                  # one of each: the second seed is the last
+            calls.append(seed)
+            return OFF if len(calls) == 1 else copy(prompt, seed)
+
+        mind = Talker(sitting=SITTING, text=mixed, writing=CHAT_SITTING)
+        w, _ = write_with(mind)
+        self.assertEqual((w["mode"], self.kinds(mind)), ("chat", ["sitting", "complete", "complete", "write"]))
+
+    def test_a_letter_that_signs_off_and_goes_on_is_cut_after_the_signature(self):
+        plan = json.dumps({"title": "Letter to Karl", "kind": "letter", "to": "Karl", "continues": False, "about": "The morning on the verandah, and what the papers made of it."})
+        raw = (PROSE + "\n\nYours ever,\nG. W. F. Hegel\n\nSpinoza, to come back to him, made the substance one, and I have more to say of it, as I have said.\n\n"
+               "§152\nAnd so on, and on, and on, and the next section begins.")
+        w, _ = write_with(Talker(sitting=plan, text=raw))
+        self.assertEqual((w["mode"], w["text"]), ("plain", "Dear Karl,\n\n" + PROSE + "\n\nYours ever,\nG. W. F. Hegel"))
 
     def test_a_name_in_what_it_is_about_counts_too(self):
         mind = Talker(sitting=json.dumps(dict(json.loads(SITTING), about="What Marx would say.")), text=PROSE, writing=CHAT_SITTING)
@@ -1351,7 +1530,7 @@ class PlainWritingTest(unittest.TestCase):
             first = sittings[0]
             self.assertTrue(first["text"].startswith("Dear Karl,\n\nThis is the sitting number 1"))      # a new letter begins with its salutation
             self.assertTrue(mind.prompts[0].endswith("Dear Karl,\n\n"))
-            self.assertTrue(mind.prompts[1].split("\n\n\n")[-1].startswith("Hegel to Karl. Delhi, "))     # the same letter again: its header (after the primer, if any), and then
+            self.assertTrue(mind.prompts[1].split("\n\n\n")[-1].startswith("Hegel to Karl. Delhi, "))     # the same letter again: its header (after the exemplars), and then
             self.assertTrue(mind.prompts[1].endswith(works.carried(works.tail_of(first["text"]))))        # the end of the sitting before, so that it flows on
             self.assertFalse(mind.prompts[1].endswith("Dear Karl,\n\n"))
             self.assertEqual(ws[0]["tail"], works.tail_of(sittings[1]["text"]))
