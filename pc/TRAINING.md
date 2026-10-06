@@ -195,7 +195,7 @@ When it says `adapter saved to .../pc/out/hegel-lora`, send Welt `pc/out/hegel-l
 
 ## 6. Convert the adapter and serve it on port 8082
 
-llama.cpp's converter turns the adapter into a GGUF adapter. Use the same llama.cpp build as the Windows `llama-server` (the build number from step 1), in its own environment so that it doesn't disturb the training stack:
+llama.cpp's converter turns the adapter into a GGUF adapter. Use the same llama.cpp build as the `llama-server` that will serve it (the build number from step 1), and run it in the training environment:
 
 ```bash
 source ~/hegel-train/bin/activate              # the training environment: it has Transformers 5, which Qwen3.8 needs
