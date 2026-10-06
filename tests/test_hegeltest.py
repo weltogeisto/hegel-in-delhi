@@ -281,7 +281,7 @@ class RunTest(unittest.TestCase):
         asks = [c for c in self.plain_calls if "prompt" in c]
         self.assertEqual(len(asks), 80)                                      # the stub gives clean text: no try is repeated
         self.assertFalse(any("messages" in c or "system" in c for c in asks))
-        self.assertEqual({(c["temperature"], tuple(c["stop"]), c["cache_prompt"]) for c in asks}, {(ht.TEMPERATURE, ("\n\n",), False)})
+        self.assertEqual({(c["temperature"], "stop" in c, c["cache_prompt"]) for c in asks}, {(ht.TEMPERATURE, False, False)})
         for q, row in zip(QUESTIONS, self.out["continuation"]):
             opening, rest = ht.split_passage(q["passage"])
             mine = [c for c in asks if c["prompt"] == ht.header_for(q) + "\n\n" + opening]
@@ -495,7 +495,14 @@ class CompleteTest(unittest.TestCase):
             text = ht.complete(srv.url, "Hegel, Philosophy of Right\n\nThe state is free.", 60, 0.9, 20, seed=7)
             body = ht.StubLlama.calls[-1]
         self.assertTrue(text.strip() and not text.startswith(" "))
-        self.assertEqual(body, {"prompt": "Hegel, Philosophy of Right\n\nThe state is free.", "n_predict": 60, "temperature": 0.9, "seed": 7, "stop": ["\n\n"], "cache_prompt": False})
+        self.assertEqual(body, {"prompt": "Hegel, Philosophy of Right\n\nThe state is free.", "n_predict": 60, "temperature": 0.9, "seed": 7, "cache_prompt": False})
+
+    def test_the_continuation_is_its_first_paragraph_even_after_opening_blank_lines(self):
+        for content, want in (("\n\nIt goes on. Still.\n\nA new start.", "It goes on. Still."), (" It goes on.\n \nNot this.", "It goes on.")):
+            reply = mock.MagicMock()
+            reply.__enter__.return_value.read.return_value = json.dumps({"content": content}).encode()
+            with mock.patch.object(ht.urllib.request, "urlopen", return_value=reply):
+                self.assertEqual(ht.complete("http://x", "p", 20, 0.5, 20), want)
 
     def test_without_a_seed_none_is_sent(self):
         with FakeServer() as srv:

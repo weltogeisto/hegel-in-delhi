@@ -105,14 +105,16 @@ def ask(url, system, user, temperature, tokens, timeout, seed=None):
 
 
 def complete(url, prompt, tokens, temperature, timeout, seed=None):
-    """The raw continuation of prompt from a llama-server's /completion (no chat template, no system prompt, stopping at a blank line); '' if it did not answer."""
-    payload = {"prompt": prompt, "n_predict": tokens, "temperature": temperature, "stop": ["\n\n"], "cache_prompt": False}
+    """The raw continuation of prompt from a llama-server's /completion (no chat template, no system prompt): its first paragraph, after any blank lines
+    it opens with; '' if it did not answer. No stop string: a model that starts a new paragraph at once would stop before its first word."""
+    payload = {"prompt": prompt, "n_predict": tokens, "temperature": temperature, "cache_prompt": False}
     if seed is not None:
         payload["seed"] = seed
     req = urllib.request.Request(url.rstrip("/") + "/completion", data=json.dumps(payload).encode("utf-8"), headers={"Content-Type": "application/json"})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
-            return (json.loads(r.read().decode("utf-8")).get("content") or "").strip()
+            text = (json.loads(r.read().decode("utf-8")).get("content") or "").strip()
+            return re.split(r"\n\s*\n", text)[0].strip()
     except (urllib.error.URLError, OSError, ValueError, AttributeError) as e:
         print(f"  no continuation: {e}", file=sys.stderr)
         return ""
