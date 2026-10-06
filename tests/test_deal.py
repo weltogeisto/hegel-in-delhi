@@ -10,7 +10,7 @@ import threading
 import unittest
 from datetime import date, timedelta
 from functools import partial
-from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+from http.server import BaseHTTPRequestHandler, HTTPServer, SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from unittest import mock
 
@@ -148,12 +148,16 @@ class SensitiveTest(unittest.TestCase):
                     d["says"] = "The Hindu knows his caste."
                 return json.dumps(d)
 
+            def complete(self, prompt, max_tokens=700, temperature=None, seed=None):
+                return "A page on the savage and the civilised, which I write down as it stands, long enough to count for something in the afternoon, and I mean every word."
+
             def chat(self, messages, schema=None, max_tokens=700, temperature=None):
                 props = (schema or {}).get("properties", {})
                 if "does" in props:
                     return json.dumps({"says": said, "does": None})
                 if "continues" in props:
-                    return json.dumps({"title": "On the colonies", "kind": "essay", "to": None, "continues": False, "text": "A page on the savage and the civilised, long enough."})
+                    out = {"title": "On the colonies", "kind": "essay", "to": None, "continues": False}
+                    return json.dumps(dict(out, about="The savage and the civilised.") if "about" in props else dict(out, text="A page on the savage and the civilised, long enough."))
                 if "plan" in props:
                     return json.dumps({"plan": [{"time": "09:00", "intention": "Ask about the caste of the tailor"}, {"time": "11:00", "intention": "Tea"},
                                                 {"time": "13:00", "intention": "Lunch"}]})
@@ -179,7 +183,7 @@ class SensitiveTest(unittest.TestCase):
             self.assertTrue(all(x["sensitive"] and x["why"] == "Hindu" for x in mine))
             self.assertTrue(all(x["sensitive"] and x["why"] == "caste" for x in theirs))
             writing = [x for x in ents if x["k"] == "writing"]
-            self.assertTrue(writing and all(x["sensitive"] and x["why"] == "colonies" for x in writing))
+            self.assertTrue(writing and all(x["sensitive"] and x["why"] == "colonies" and x["mode"] == "plain" for x in writing))
             self.assertTrue(all(w.get("sensitive") and w["why"] == "colonies" for w in day["state"]["works"]))        # the title alone is enough for the index
             self.assertFalse([x for x in ents if x["k"] in ("bag", "wear", "world", "file", "people") and "sensitive" in x])
             e.run_owl(box.days.load(SAT), at_dt(SAT + timedelta(days=1), 90))
@@ -274,10 +278,12 @@ def find_present(cid, place):
 
 
 class Talker(StubMind):
-    """Decides to talk (or to write), answers the voice and the writing calls from the script, and keeps what it was asked."""
+    """Decides to talk (or to write), answers the voice and the writing calls from the script, and keeps what it was asked.
+    A writing is answered by `writing` (the chat call that writes it all), or in plain mode by `sitting` (the chat call that says what it is)
+    and `text` (the completion: a string, an exception, or a function of the prompt and the seed)."""
 
-    def __init__(self, says="Nidhi, what do you make of this market?", action="talk", voice=None, writing=None):
-        self.says, self.action, self.voice, self.writing, self.asked = says, action, voice, writing, []
+    def __init__(self, says="Nidhi, what do you make of this market?", action="talk", voice=None, writing=None, sitting=None, text=None):
+        self.says, self.action, self.voice, self.writing, self.sitting, self.text, self.asked = says, action, voice, writing, sitting, text, []
 
     def decide(self, messages, sit):
         if any("refuses" in x["content"] for x in messages):
@@ -286,20 +292,29 @@ class Talker(StubMind):
 
     def chat(self, messages, schema=None, max_tokens=700, temperature=None):
         props = (schema or {}).get("properties", {})
-        kind = "voice" if "does" in props else "write" if "continues" in props else None
+        kind = "voice" if "does" in props else "sitting" if "about" in props else "write" if "continues" in props else None
         if kind:
             self.asked.append((kind, messages))
-            script = self.voice if kind == "voice" else self.writing
+            script = {"voice": self.voice, "sitting": self.sitting, "write": self.writing}[kind]
             if isinstance(script, Exception):
                 raise script
             if script is not None:
                 return script(messages) if callable(script) else script
         return super().chat(messages, schema, max_tokens, temperature)
 
+    def complete(self, prompt, max_tokens=700, temperature=None, seed=None):
+        self.asked.append(("complete", (prompt, max_tokens, seed)))
+        if isinstance(self.text, Exception):
+            raise self.text
+        if self.text is not None:
+            return self.text(prompt, seed) if callable(self.text) else self.text
+        return super().complete(prompt, max_tokens, temperature, seed)
 
-def one_step(mind, cid, place, d=None, m=None, prior=None, patch_greet=0.0):
+
+def one_step(mind, cid, place, d=None, m=None, prior=None, patch_greet=0.0, write_mode="plain"):
     """One real step at a time when cid is at place. Returns (box, day, step)."""
     box = Sandbox()
+    box.cfg.write_mode = write_mode
     e = box.engine(mind)
     d, m = (d, m) if d else find_present(cid, place)
     prev = box.days.load(date(2026, 10, 2))
@@ -557,7 +572,8 @@ class WritingTest(unittest.TestCase):
         st, d = {}, date(2026, 10, 3)
         sit = lambda title, cont, text="one two three four five": {"title": title, "kind": "essay", "to": None, "continues": cont, "text": text}
         a = works.file(st, sit("On Sense", False), d)
-        self.assertEqual(st["works"], [{"id": "on-sense", "title": "On Sense", "kind": "essay", "to": None, "started": "2026-10-03", "words": 5, "sittings": 1, "last": "2026-10-03"}])
+        self.assertEqual(st["works"], [{"id": "on-sense", "title": "On Sense", "kind": "essay", "to": None, "started": "2026-10-03", "words": 5, "sittings": 1, "last": "2026-10-03",
+                                        "tail": "one two three four five"}])
         self.assertEqual((a["k"], a["title"], a["sitting"], a["words"], a["work"]), ("writing", "On Sense", 1, 5, "on-sense"))
         b = works.file(st, sit("on  sense", True, "six seven"), d + timedelta(days=2))          # the same title, in any case: it continues
         self.assertEqual((b["sitting"], b["title"]), (2, "On Sense"))
@@ -567,7 +583,8 @@ class WritingTest(unittest.TestCase):
         self.assertEqual([w["id"] for w in st["works"]], ["on-sense", "on-sense-2", "letter-to-hegde"])
         works.file(st, sit("On Sense", True), d)                                                  # the latest of that title
         self.assertEqual([w["sittings"] for w in st["works"]], [2, 2, 1])
-        self.assertEqual(sorted(st["works"][0]), ["id", "kind", "last", "sittings", "started", "title", "to", "words"])
+        self.assertEqual(sorted(st["works"][0]), ["id", "kind", "last", "sittings", "started", "tail", "title", "to", "words"])
+        self.assertEqual(st["works"][0]["tail"], "six seven")                                     # the tail of the latest sitting only
         self.assertIn("“On Sense” (essay, 2 sittings)", works.ask(st))
         self.assertTrue(works.ask(st).endswith(contract.WRITE_FORMAT))
         self.assertNotIn("manuscripts so far", works.ask({}))
@@ -590,9 +607,9 @@ class WritingTest(unittest.TestCase):
     def sitting(self, title="On the verandah", text="The morning came in with the papers and the heat, and I wrote it down.", **kw):
         return json.dumps(dict({"title": title, "kind": "notes", "to": None, "continues": False, "text": text}, **kw))
 
-    def test_one_extra_call_when_he_writes_and_the_sitting_is_an_entry_and_a_manuscript(self):
+    def test_in_chat_mode_one_extra_call_when_he_writes_and_the_sitting_is_an_entry_and_a_manuscript(self):
         mind = Talker(says=None, action="write", writing=self.sitting())
-        box, e, day, step = one_step(mind, "ramesh", "home")
+        box, e, day, step = one_step(mind, "ramesh", "home", write_mode="chat")
         try:
             calls = [c for c in mind.asked if c[0] == "write"]
             self.assertEqual(len(calls), 1)
@@ -612,7 +629,7 @@ class WritingTest(unittest.TestCase):
 
     def test_no_call_unless_he_writes(self):
         mind = Talker(says=None, action="read", writing=self.sitting())
-        box, e, day, step = one_step(mind, "ramesh", "home")
+        box, e, day, step = one_step(mind, "ramesh", "home", write_mode="chat")
         try:
             self.assertEqual([c for c in mind.asked if c[0] == "write"], [])
             self.assertFalse(any(x["k"] == "writing" for x in day["entries"]))
@@ -630,7 +647,7 @@ class WritingTest(unittest.TestCase):
             return bad if len(replies) == 1 else good
 
         mind = Talker(says=None, action="write", writing=script)
-        box, e, day, step = one_step(mind, "ramesh", "home")
+        box, e, day, step = one_step(mind, "ramesh", "home", write_mode="chat")
         try:
             self.assertEqual(len([c for c in mind.asked if c[0] == "write"]), 2)
             self.assertIn("Write it again without 'Marx'", replies[1])
@@ -638,7 +655,7 @@ class WritingTest(unittest.TestCase):
         finally:
             box.close()
         mind = Talker(says=None, action="write", writing=bad)
-        box, e, day, step = one_step(mind, "ramesh", "home")
+        box, e, day, step = one_step(mind, "ramesh", "home", write_mode="chat")
         try:
             self.assertEqual(len([c for c in mind.asked if c[0] == "write"]), 2)                    # asked once more, no more
             self.assertFalse(any(x["k"] == "writing" for x in day["entries"]))                        # dropped
@@ -650,7 +667,7 @@ class WritingTest(unittest.TestCase):
 
     def test_what_he_has_already_met_may_be_written(self):
         mind = Talker(says=None, action="write", writing=self.sitting(text="Ambedkar writes like a barrister, and I read him on the verandah."))
-        box, e, day, step = one_step(mind, "ramesh", "home")
+        box, e, day, step = one_step(mind, "ramesh", "home", write_mode="chat")
         try:
             self.assertTrue(any(x["k"] == "writing" for x in day["entries"]))                         # day one's record has Ambedkar
         finally:
@@ -659,7 +676,7 @@ class WritingTest(unittest.TestCase):
     def test_a_mind_that_is_away_or_unusable_drops_the_writing_quietly(self):
         for writing in (MindAway("no answer"), "not json", json.dumps({"title": "", "kind": "essay", "to": None, "continues": False, "text": "x"})):
             with self.subTest(writing=str(writing)[:20]):
-                box, e, day, step = one_step(Talker(says=None, action="write", writing=writing), "ramesh", "home")
+                box, e, day, step = one_step(Talker(says=None, action="write", writing=writing), "ramesh", "home", write_mode="chat")
                 try:
                     self.assertFalse(any(x["k"] == "writing" for x in day["entries"]))
                     self.assertTrue(any(x["k"] == "diary" for x in day["entries"]))
@@ -684,6 +701,7 @@ class WritingTest(unittest.TestCase):
                 return super().chat(messages, schema, max_tokens, temperature)
 
         box = Sandbox()
+        box.cfg.write_mode = "chat"
         try:
             e = box.engine(Writer())
             for i in range(2):
@@ -699,6 +717,483 @@ class WritingTest(unittest.TestCase):
             self.assertEqual(sum(w["sittings"] for w in ws), sum(e["k"] == "writing" for d in (first, day) for e in d["entries"]))
         finally:
             box.close()
+
+
+PROSE = ("The morning came in with the papers and the heat, and I set it down as I saw it, which is the only method that I know. "
+         "What the papers call news is the day's surface, and beneath it the old necessity goes about its work.\n\n"
+         "I read them twice, and was the wiser only in the matter of the price of tea.")
+UNMET = ("Marx would have seen at once what the tea-seller sells, and the whole of the afternoon besides, I think, "
+         "for he saw everything at once and wrote it down.")
+SITTING = json.dumps({"title": "On the verandah", "kind": "notes", "to": None, "continues": False,
+                      "about": "The morning on the verandah, and what the papers made of it."})
+CHAT_SITTING = json.dumps({"title": "On the verandah", "kind": "notes", "to": None, "continues": False,
+                           "text": "The morning came in with the papers and the heat, and I wrote it down."})
+
+
+class FakeCompletion(BaseHTTPRequestHandler):
+    """Answers /completion with `content` (or with `code`) and the chat endpoint with `plan`, and keeps what it was sent: (path, body)."""
+    calls, content, code, plan, writing = [], "", 200, "", ""
+
+    def log_message(self, *a):
+        pass
+
+    def send(self, code, out):
+        data = json.dumps(out).encode() if not isinstance(out, bytes) else out
+        self.send_response(code)
+        self.send_header("Content-Length", str(len(data)))
+        self.end_headers()
+        self.wfile.write(data)
+
+    def do_GET(self):
+        self.send(200, {"status": "ok"})
+
+    def do_POST(self):
+        body = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
+        FakeCompletion.calls.append((self.path, body))
+        if self.path != "/completion":
+            about = "about" in body["response_format"]["json_schema"]["schema"]["properties"]
+            return self.send(200, {"choices": [{"message": {"content": FakeCompletion.plan if about else FakeCompletion.writing}}]})
+        if FakeCompletion.code != 200:
+            return self.send(FakeCompletion.code, {})
+        self.send(200, FakeCompletion.content if isinstance(FakeCompletion.content, bytes) else {"content": FakeCompletion.content, "stop": True})
+
+
+def write_with(mind, st=None, write_mode="plain", known=""):
+    """Engine.write on its own: (the sitting or None, the state it was written into)."""
+    box = Sandbox()
+    try:
+        box.cfg.write_mode, box.cfg.shelf = write_mode, False
+        st = state() if st is None else st
+        msgs = [{"role": "system", "content": SOUL}, {"role": "user", "content": "the situation"}]
+        return box.engine(mind).write(msgs, "the decision", {"t": at_dt(SAT, 15 * 60), "known_text": known}, st), st
+    finally:
+        box.close()
+
+
+class NoComplete(Talker):
+    complete = None                 # a mind that cannot complete
+
+
+class Scribe(StubMind):
+    """Writes at the desk at home through the day, three sittings in all: a letter, the same letter again (it carries on), then another work.
+    Keeps the prompts it was given to complete."""
+
+    def __init__(self):
+        self.n, self.prompts = 0, []
+
+    def decide(self, messages, sit):
+        if any("refuses" in x["content"] for x in messages) or sit["place"] != "home" or not 540 <= int(sit["time"][:2]) * 60 + int(sit["time"][3:]) < 1080:
+            return super().decide(messages, sit)
+        return json.dumps(answer(thought=f"(rehearsal) {sit['id']} at the desk with the ledger.", action="write", place="home", minutes=60))
+
+    def chat(self, messages, schema=None, max_tokens=700, temperature=None):
+        props = (schema or {}).get("properties", {})
+        if "continues" in props:
+            self.n += 1
+            out = {"title": "A Letter" if self.n < 3 else "The Ledger", "kind": "letter", "to": "Karl", "continues": self.n == 2}
+            return json.dumps(dict(out, about=f"Sitting {self.n}.") if "about" in props else dict(out, text=f"Dear Karl, this is the sitting number {self.n}, and I have more to say than a page can hold."))
+        return super().chat(messages, schema, max_tokens, temperature)
+
+    def complete(self, prompt, max_tokens=700, temperature=None, seed=None):
+        self.prompts.append(prompt)
+        return f"This is the sitting number {len(self.prompts)}, and I have more to say than a page can hold, as the heat of the afternoon and the quiet of the house allow."
+
+
+class WritingPromptTest(unittest.TestCase):
+    """The prompt of a plain-text sitting, and what is made of the completion."""
+    D = date(2026, 10, 6)
+
+    @staticmethod
+    def plan(**kw):
+        return dict({"title": "On the verandah", "kind": "essay", "to": None, "continues": False, "about": "the morning's papers"}, **kw)
+
+    def test_the_header_of_each_kind(self):
+        for kind in ("essay", "notes", "chapter", "other"):
+            self.assertEqual(works.prompt(self.plan(kind=kind), {}, self.D),
+                             ("Hegel, On the verandah. Written at Delhi, 6 October 2026.\n[the morning's papers]\n\n", ""))
+        self.assertEqual(works.prompt(self.plan(kind="poem", title="Ode to tea."), {}, self.D),
+                         ("Hegel, Ode to tea. A poem, written at Delhi, 6 October 2026.\n[the morning's papers]\n\n", ""))         # no full stop twice
+        self.assertEqual(works.prompt(self.plan(kind="letter", to="Karl", title="Letter to Karl"), {}, self.D),
+                         ("Hegel to Karl. Delhi, 6 October 2026.\n[the morning's papers]\n\nDear Karl,\n\n", "Dear Karl,"))      # a new letter opens with its salutation
+        self.assertEqual(works.prompt(self.plan(kind="letter", to="a friend in Berlin"), {}, self.D)[1], "Dear friend,")
+        self.assertEqual(works.prompt(self.plan(kind="letter"), {}, self.D)[0].split("\n")[0], "Hegel, On the verandah. Written at Delhi, 6 October 2026.")        # no one to
+        self.assertIn("Delhi, 12 December 2026.", works.prompt(self.plan(), {}, date(2026, 12, 12))[0])
+        self.assertIn("Delhi, 1 January 2027.", works.prompt(self.plan(), {}, date(2027, 1, 1))[0])
+
+    def test_a_manuscript_he_carries_on_gives_its_tail_to_flow_on_from(self):
+        text = "\n\n".join(" ".join(f"w{p}x{i}" for i in range(90)) + "." for p in range(5))             # five paragraphs of 90 words
+        st = {}
+        works.file(st, {"title": "On Sense", "kind": "essay", "to": None, "continues": False, "text": text}, self.D)
+        head = "Hegel, On Sense. Written at Delhi, 6 October 2026.\n[the morning's papers]\n\n"
+        prompt, opening = works.prompt(self.plan(title="on  sense", continues=True, kind="poem"), st, self.D)          # the manuscript's own title and kind
+        self.assertTrue(prompt.startswith(head))
+        tail = prompt[len(head):]
+        self.assertEqual((len(tail.split()), opening), (works.CARRY, ""))
+        self.assertTrue(text.endswith(tail))
+        self.assertIn("\n\n", tail)                                                                         # paragraphs stay
+        self.assertTrue(tail.startswith("w") and tail.endswith("."))                                        # at a word, not in the middle of one
+        self.assertEqual(works.prompt(self.plan(title="On Sense"), st, self.D)[0], head)                    # not continuing: fresh
+        letter = {"title": "Dear Karl", "kind": "letter", "to": "Karl", "continues": False, "text": "Dear Karl, " + "word " * 30 + "end."}
+        works.file(st, letter, self.D)
+        prompt, opening = works.prompt(self.plan(title="Dear Karl", continues=True, kind="essay"), st, self.D)
+        self.assertEqual(prompt, f"Hegel to Karl. Delhi, 6 October 2026.\n[the morning's papers]\n\n{works.carried(st['works'][1]['tail'])}")
+        self.assertEqual(opening, "")                                                                       # no second salutation
+
+    def test_an_index_from_before_tails_starts_fresh(self):
+        st = {"works": [{"id": "on-sense", "title": "On Sense", "kind": "letter", "to": "Karl", "started": "2026-10-03", "words": 5, "sittings": 1, "last": "2026-10-03"}]}
+        self.assertEqual(works.prompt(self.plan(title="On Sense", continues=True), st, self.D),
+                         ("Hegel to Karl. Delhi, 6 October 2026.\n[the morning's papers]\n\n", ""))      # the header, no tail, and no salutation: it is not a new letter
+        got = works.file(st, {"title": "On Sense", "kind": "letter", "to": "Karl", "continues": True, "text": "one two three"}, self.D)
+        self.assertEqual((got["sitting"], st["works"][0]["tail"]), (2, "one two three"))
+        self.assertEqual(works.prompt(self.plan(title="Nothing yet", continues=True), st, self.D)[0].split("\n")[0], "Hegel, Nothing yet. Written at Delhi, 6 October 2026.")
+
+    def test_the_index_keeps_the_tail_of_the_latest_sitting_from_a_word(self):
+        self.assertEqual(works.tail_of("A short sitting.\n"), "A short sitting.")
+        text = "alpha " * 400 + "omega."
+        tail = works.tail_of(text)
+        self.assertTrue(text.endswith(tail) and tail.startswith("alpha") and tail.endswith("omega.") and 700 < len(tail) <= works.TAIL)
+        self.assertEqual(works.tail_of("x" * 5000), "")          # one word as long as that has no beginning to start from
+        st = {}
+        entry = works.file(st, {"title": "t", "kind": "essay", "to": None, "continues": False, "text": text, "about": "tea", "mode": "plain"}, self.D)
+        self.assertEqual(st["works"][0]["tail"], tail)
+        self.assertEqual((entry["mode"], entry["about"]), ("plain", "tea"))
+        self.assertNotIn("mode", works.file({}, {"title": "t", "kind": "essay", "to": None, "continues": False, "text": text}, self.D))        # as before
+
+    def test_what_he_means_to_write(self):
+        ok = works.outline({"title": "  On   sense ", "kind": "letter", "to": " Karl ", "continues": True, "about": " The  [heat]\nof the day. "})
+        self.assertEqual(ok, {"title": "On sense", "kind": "letter", "to": "Karl", "continues": True, "about": "The (heat) of the day."})
+        self.assertEqual(works.outline({"title": "t", "kind": "sermon", "to": "", "continues": "yes", "about": "a" * 300}),
+                         {"title": "t", "kind": "other", "to": None, "continues": False, "about": "a" * 200})
+        for bad in (None, [], {}, {"title": "", "about": "x"}, {"title": "t"}, {"title": "t", "about": " "}, {"title": 1, "about": "x"}, {"title": "t", "about": 3}):
+            self.assertIsNone(works.outline(bad))
+
+    def test_the_echo_of_the_title_and_the_header_is_dropped(self):
+        raw = ("\n\nHegel, On the verandah. Written at Delhi, 6 October 2026.\n[the morning's papers]\n\nON THE VERANDAH.\n\n" + PROSE)
+        self.assertEqual(works.sitting(self.plan(), raw)["text"], PROSE)
+        self.assertEqual(works.sitting(self.plan(), "On the verandah\n" + PROSE)["text"], PROSE)
+        self.assertEqual(works.sitting(self.plan(kind="letter", to="Karl"), "Dear Karl,\n\n" + PROSE, "Dear Karl,")["text"], "Dear Karl,\n\n" + PROSE)    # said once
+        self.assertIn("On the verandah", works.sitting(self.plan(), PROSE.replace("The morning", "On the verandah, the morning"))["text"])             # but in the text it stays
+
+    def test_the_text_stops_where_a_new_document_begins(self):
+        for stop in ("Hegel to Karl. Delhi, 7 October 2026.", "Hegel, On the colonies. Written at Delhi, 7 October 2026.", "* * *", "***", "THE END", "The end.", "Footnotes", "FOOTNOTES:"):
+            with self.subTest(stop=stop):
+                got = works.sitting(self.plan(), PROSE + "\n\n" + stop + "\n\nSomething else, written long after, that does not belong here at all.")
+                self.assertEqual(got["text"], PROSE)
+        self.assertIn("Hegel", works.sitting(self.plan(), PROSE + " Hegel, he said, would have laughed at it, and I did.")["text"])         # only at the start of a line
+
+    def test_paragraphs_stay_and_other_whitespace_goes(self):
+        raw = "  The first   paragraph runs\non over two lines,\tand ends here, with enough words to count as a paragraph.  \n\n\n\n  The second one, also long enough to be counted, ends here too.  \r\n"
+        self.assertEqual(works.sitting(self.plan(), raw)["text"], "The first paragraph runs on over two lines, and ends here, with enough words to count as a paragraph.\n\n"
+                                                                    "The second one, also long enough to be counted, ends here too.")
+        poem = works.sitting(self.plan(kind="poem"), "Roses are red,\nviolets are blue,\nthe tea is hot,\nand so are you, my dear,\n\nand so on, and on, and on we go, dear friend.\n\nTHE END")
+        self.assertEqual(poem["text"].split("\n"), ["Roses are red,", "violets are blue,", "the tea is hot,", "and so are you, my dear,", "", "and so on, and on, and on we go, dear friend."])
+
+    def test_the_typography_is_one(self):
+        raw = "“The morning,” he said, “came in with the papers” -- and the heat, and I set it down as it was, which is ‘my’ method, and the only one that I know."
+        self.assertEqual(works.sitting(self.plan(), raw)["text"], "\"The morning,\" he said, \"came in with the papers\" — and the heat, and I set it down as it was, which is 'my' method, and the only one that I know.")
+
+    def test_a_sitting_is_cut_to_three_thousand_characters_and_back_to_a_sentence_end(self):
+        long = works.sitting(self.plan(), "A sentence of some length goes here, and then it stops. " * 200)["text"]
+        self.assertTrue(len(long) <= works.CAP and long.endswith("stops."))
+        words = works.sitting(self.plan(), "word " * 1000)
+        self.assertIsNone(words)                                                                         # no sentence end at all: nothing usable
+        mid = works.sitting(self.plan(), PROSE + " And then I began to say that the")["text"]
+        self.assertEqual(mid, PROSE)                                                                     # the unfinished sentence goes
+        self.assertTrue(len(works.sitting(self.plan(kind="letter", to="Karl"), "A sentence of some length goes here. " * 200, "Dear Karl,")["text"]) <= works.CAP)
+
+    def test_too_short_or_empty_is_unusable(self):
+        for raw in (None, "", "  \n\n ", "Hegel, On the verandah. Written at Delhi, 6 October 2026.", "Only a few words here.", "word " * 18 + "end.", "* * *\n" + PROSE):
+            with self.subTest(raw=str(raw)[:30]):
+                self.assertIsNone(works.sitting(self.plan(), raw))
+        self.assertIsNotNone(works.sitting(self.plan(), "word " * 19 + "end."))                         # twenty words are enough
+        self.assertIsNone(works.sitting(self.plan(kind="letter", to="Karl"), "Few words.", "Dear Karl,"))      # the salutation does not count
+
+    def test_a_new_letter_begins_with_its_salutation(self):
+        got = works.sitting(self.plan(kind="letter", to="Karl", continues=False), PROSE, "Dear Karl,")
+        self.assertEqual((got["text"], got["kind"], got["to"], got["about"]), ("Dear Karl,\n\n" + PROSE, "letter", "Karl", "the morning's papers"))
+
+
+class HTTPCompleteTest(unittest.TestCase):
+    def setUp(self):
+        from world.mind import HTTPMind
+        self.server = HTTPServer(("127.0.0.1", 0), FakeCompletion)
+        threading.Thread(target=self.server.serve_forever, daemon=True).start()
+        FakeCompletion.calls, FakeCompletion.content, FakeCompletion.code, FakeCompletion.plan, FakeCompletion.writing = [], "\n\nThe text.", 200, SITTING, CHAT_SITTING
+        self.url = f"http://127.0.0.1:{self.server.server_port}"
+        self.mind = HTTPMind(self.url)
+
+    def tearDown(self):
+        self.server.shutdown()
+        self.server.server_close()
+
+    def test_the_request_is_a_raw_prompt_with_no_chat_template_and_no_stop(self):
+        self.assertEqual(self.mind.complete("Hegel, X.\n\n", 700), "\n\nThe text.")                   # as it comes: the caller cleans up
+        (path, body), = FakeCompletion.calls
+        self.assertEqual(path, "/completion")
+        self.assertEqual(body, {"prompt": "Hegel, X.\n\n", "n_predict": 700, "temperature": 0.7, "cache_prompt": False})
+        self.mind.complete("p", 50, temperature=0.2, seed=1831)
+        self.assertEqual(FakeCompletion.calls[1][1], {"prompt": "p", "n_predict": 50, "temperature": 0.2, "cache_prompt": False, "seed": 1831})
+        from world.mind import HTTPMind
+        HTTPMind(self.url, temperature=0.4).complete("q")
+        self.assertEqual((FakeCompletion.calls[2][1]["temperature"], FakeCompletion.calls[2][1]["n_predict"]), (0.4, 700))        # the mind's own default
+        self.assertFalse(any("stop" in b or "messages" in b or "response_format" in b for _, b in FakeCompletion.calls))
+
+    def test_a_mind_that_does_not_answer_is_away(self):
+        from world.mind import HTTPMind
+        FakeCompletion.code = 503
+        with self.assertRaises(MindAway):
+            self.mind.complete("p")
+        for content in (b"not json", b"[]", b"{}"):
+            FakeCompletion.code, FakeCompletion.content = 200, content
+            with self.assertRaises(MindAway, msg=content):
+                self.mind.complete("p")
+        FakeCompletion.content = b'{"content": null}'
+        self.assertEqual(self.mind.complete("p"), "")
+        with self.assertRaises(MindAway):
+            HTTPMind("http://127.0.0.1:9").complete("p")          # nothing listens there
+
+    def test_the_whole_chain_over_http(self):
+        """One chat call for what the sitting is, one completion for its text; a refused completion falls back to the chat call."""
+        box = Sandbox()
+        try:
+            box.cfg.shelf = False
+            e, st = box.engine(self.mind), state()
+            FakeCompletion.content = "\n\nHegel, On the verandah. Written at Delhi, 6 October 2026.\n\n" + PROSE
+            msgs = [{"role": "system", "content": SOUL}, {"role": "user", "content": "the situation"}]
+            ctx = {"t": at_dt(SAT, 15 * 60), "known_text": ""}
+            w = e.write(msgs, "the decision", ctx, st)
+            self.assertEqual((w["title"], w["kind"], w["mode"], w["text"]), ("On the verandah", "notes", "plain", PROSE))
+            (p1, chat), (p2, comp) = FakeCompletion.calls
+            self.assertEqual((p1, p2), ("/v1/chat/completions", "/completion"))
+            self.assertEqual(list(chat["response_format"]["json_schema"]["schema"]["properties"]), ["title", "kind", "to", "continues", "about"])
+            self.assertEqual(chat["messages"][-1]["content"], works.sitting_ask(st))
+            self.assertEqual(comp["prompt"], works.prompt(works.outline(json.loads(SITTING)), st, SAT)[0])
+            self.assertEqual(comp["n_predict"], works.TOKENS)
+            FakeCompletion.calls.clear()
+            FakeCompletion.code = 503                                                # the server has no /completion
+            w = e.write(msgs, "the decision", ctx, st)
+            self.assertEqual([p for p, _ in FakeCompletion.calls], ["/v1/chat/completions", "/completion", "/v1/chat/completions"])
+            self.assertEqual((w["mode"], w["text"]), ("chat", "The morning came in with the papers and the heat, and I wrote it down."))
+            self.assertEqual(list(FakeCompletion.calls[2][1]["response_format"]["json_schema"]["schema"]["properties"]), ["title", "kind", "to", "continues", "text"])
+        finally:
+            box.close()
+
+
+class PlainWritingTest(unittest.TestCase):
+    """He writes: what the sitting is by a chat call, its text by a completion, and the fallbacks."""
+
+    def kinds(self, mind):
+        return [k for k, _ in mind.asked if k != "voice"]
+
+    def test_a_sitting_is_a_chat_call_and_a_completion_and_an_entry_and_a_manuscript(self):
+        mind = Talker(says=None, action="write", sitting=SITTING, text=PROSE)
+        box, e, day, step = one_step(mind, "ramesh", "home")
+        try:
+            self.assertEqual(self.kinds(mind), ["sitting", "complete"])
+            msgs = next(m for k, m in mind.asked if k == "sitting")
+            self.assertEqual(msgs[0]["content"], SOUL)
+            self.assertEqual(msgs[-1]["content"], works.sitting_ask({}))
+            self.assertTrue(msgs[-1]["content"].startswith("You sat down to write. Say what you will write, not the text yet"))
+            self.assertEqual(msgs[-2]["role"], "assistant")                                       # the decision he has just made
+            self.assertEqual(msgs[-1]["content"].count("Your manuscripts"), 0)
+            prompt, n_predict, seed = next(a for k, a in mind.asked if k == "complete")
+            d = date.fromisoformat(day["date"])
+            self.assertEqual(prompt, f"Hegel, On the verandah. Written at Delhi, {d.day} {d:%B %Y}.\n[The morning on the verandah, and what the papers made of it.]\n\n")
+            self.assertEqual((n_predict, seed), (700, None))
+            w = next(x for x in day["entries"] if x["k"] == "writing")
+            self.assertEqual({k: w[k] for k in ("title", "kind", "to", "sitting", "work", "text", "mode", "about")},
+                             {"title": "On the verandah", "kind": "notes", "to": None, "sitting": 1, "work": "on-the-verandah", "text": PROSE, "mode": "plain",
+                              "about": "The morning on the verandah, and what the papers made of it."})
+            self.assertEqual(w["words"], len(PROSE.split()))
+            self.assertEqual(day["state"]["works"][0]["tail"], PROSE)
+            self.assertNotIn("sensitive", w)
+            self.assertEqual(step["mind"]["source"], "stub")
+        finally:
+            box.close()
+
+    def test_no_call_at_all_unless_he_writes(self):
+        mind = Talker(says=None, action="read", sitting=SITTING, text=PROSE)
+        box, e, day, step = one_step(mind, "ramesh", "home")
+        try:
+            self.assertEqual(self.kinds(mind), [])
+            self.assertFalse(any(x["k"] == "writing" for x in day["entries"]))
+        finally:
+            box.close()
+
+    def test_what_the_sitting_is_about_is_checked_for_the_veil_too(self):
+        about = json.dumps(dict(json.loads(SITTING), about="What the tailor said of his caste."))
+        box, e, day, step = one_step(Talker(says=None, action="write", sitting=about, text=PROSE), "ramesh", "home")
+        try:
+            w = next(x for x in day["entries"] if x["k"] == "writing")
+            self.assertEqual((w["sensitive"], w["why"]), (True, "caste"))
+        finally:
+            box.close()
+
+    def test_a_sitting_he_carries_on_flows_from_the_sitting_before(self):
+        mind = Talker(text=PROSE, sitting=json.dumps(dict(json.loads(SITTING), title="on the VERANDAH", continues=True, about="More of it.")))
+        st = state()
+        works.file(st, {"title": "On the verandah", "kind": "notes", "to": None, "continues": False, "text": PROSE}, SAT)
+        w, st = write_with(mind, st)
+        self.assertEqual((w["mode"], w["continues"]), ("plain", True))
+        (_, (prompt, _, _)) = next(x for x in mind.asked if x[0] == "complete")
+        self.assertEqual(prompt, f"Hegel, On the verandah. Written at Delhi, 3 October 2026.\n[More of it.]\n\n{PROSE}")       # the tail: all of it, it is short
+        self.assertIn("“On the verandah” (notes, 1 sitting)", next(m for k, m in mind.asked if k == "sitting")[-1]["content"])
+        entry = works.file(st, w, SAT)
+        self.assertEqual((entry["sitting"], len(st["works"])), (2, 1))
+
+    def test_a_completion_with_a_name_he_has_not_met_is_made_again_with_another_seed(self):
+        texts = iter([UNMET, PROSE])
+        mind = Talker(sitting=SITTING, text=lambda prompt, seed: next(texts))
+        w, _ = write_with(mind)
+        self.assertEqual((w["mode"], w["text"]), ("plain", PROSE))
+        seeds = [a[2] for k, a in mind.asked if k == "complete"]
+        self.assertEqual(len(seeds), 2)
+        self.assertIsNone(seeds[0])
+        self.assertIsInstance(seeds[1], int)
+        self.assertEqual(self.kinds(mind), ["sitting", "complete", "complete"])                    # no chat call that writes
+        w, _ = write_with(Talker(sitting=SITTING, text=UNMET), known="Marx")                         # what he has met may be written
+        self.assertEqual(w["mode"], "plain")
+
+    def test_a_name_in_what_it_is_about_counts_too(self):
+        mind = Talker(sitting=json.dumps(dict(json.loads(SITTING), about="What Marx would say.")), text=PROSE, writing=CHAT_SITTING)
+        w, _ = write_with(mind)
+        self.assertEqual((w["mode"], self.kinds(mind)), ("chat", ["sitting", "complete", "complete", "write"]))
+
+    def test_names_twice_and_the_chat_call_writes_it(self):
+        mind = Talker(sitting=SITTING, text=UNMET, writing=CHAT_SITTING)
+        w, st = write_with(mind)
+        self.assertEqual((w["mode"], w["text"]), ("chat", "The morning came in with the papers and the heat, and I wrote it down."))
+        self.assertEqual(self.kinds(mind), ["sitting", "complete", "complete", "write"])
+        self.assertNotIn("about", w)
+        msgs = next(m for k, m in mind.asked if k == "write")
+        self.assertEqual(msgs[-1]["content"], works.ask({}))                                           # the old call, as it was
+
+    def test_names_everywhere_and_the_writing_is_dropped(self):
+        bad = json.dumps(dict(json.loads(CHAT_SITTING), text=UNMET))
+        mind = Talker(sitting=SITTING, text=UNMET, writing=bad)
+        w, st = write_with(mind)
+        self.assertIsNone(w)
+        self.assertEqual(self.kinds(mind), ["sitting", "complete", "complete", "write", "write"])       # the chat call asked once more, no more
+        self.assertNotIn("works", st)
+
+    def test_a_completion_that_fails_or_is_unusable_falls_back_to_the_chat_call(self):
+        for text in (MindAway("HTTP 404 from the mind"), "Too short to be a sitting.", "\n\n", "* * *\n" + PROSE):
+            with self.subTest(text=str(text)[:20]):
+                mind = Talker(sitting=SITTING, text=text, writing=CHAT_SITTING)
+                w, _ = write_with(mind)
+                self.assertEqual(w["mode"], "chat")
+                self.assertEqual(self.kinds(mind), ["sitting", "complete", "write"])                    # one completion, then the chat call
+
+    def test_a_chat_call_that_cannot_say_what_it_is_falls_back_to_the_chat_call(self):
+        for sitting in ("not json", json.dumps({"title": "x", "kind": "essay", "to": None, "continues": False}), json.dumps({"title": "", "about": "x"})):
+            with self.subTest(sitting=sitting[:20]):
+                mind = Talker(sitting=sitting, text=PROSE, writing=CHAT_SITTING)
+                w, _ = write_with(mind)
+                self.assertEqual((w["mode"], self.kinds(mind)), ("chat", ["sitting", "write"]))          # no completion without a title and an about
+
+    def test_a_mind_that_is_away_for_the_first_call_drops_the_writing_quietly(self):
+        mind = Talker(sitting=MindAway("no answer"), text=PROSE, writing=CHAT_SITTING)
+        w, _ = write_with(mind)
+        self.assertIsNone(w)
+        self.assertEqual(self.kinds(mind), ["sitting"])                                                  # the chat call would not answer either
+
+    def test_a_mind_without_complete_uses_the_chat_call(self):
+        mind = NoComplete(sitting=SITTING, writing=CHAT_SITTING)
+        w, _ = write_with(mind)
+        self.assertEqual((w["mode"], self.kinds(mind)), ("chat", ["write"]))
+
+    def test_chat_mode_is_the_old_single_call_exactly(self):
+        calls = []
+
+        class Spy(Talker):
+            def chat(self, messages, schema=None, max_tokens=700, temperature=None):
+                calls.append((messages, schema, max_tokens, temperature))
+                return super().chat(messages, schema, max_tokens, temperature)
+
+        mind = Spy(sitting=SITTING, text=PROSE, writing=CHAT_SITTING)
+        st = state()
+        w, _ = write_with(mind, st, write_mode="chat")
+        (messages, schema, max_tokens, temperature), = calls
+        self.assertEqual(messages, [{"role": "system", "content": SOUL}, {"role": "user", "content": "the situation"}, {"role": "assistant", "content": "the decision"},
+                                    {"role": "user", "content": works.ask(st)}])
+        self.assertIs(schema, contract.WRITE_SCHEMA)
+        self.assertEqual((max_tokens, temperature), (1100, None))
+        self.assertEqual(self.kinds(mind), ["write"])                                                    # nothing else asked, no completion
+        self.assertEqual(w, {"title": "On the verandah", "kind": "notes", "to": None, "continues": False,
+                             "text": "The morning came in with the papers and the heat, and I wrote it down.", "mode": "chat"})
+
+    def test_chat_mode_asks_the_rewrite_and_drops_as_before(self):
+        replies = []
+        bad = json.dumps(dict(json.loads(CHAT_SITTING), text="Marx would have seen at once what the tea-seller sells, I think so."))
+
+        def script(messages):
+            replies.append(messages[-1]["content"])
+            return bad
+
+        mind = Talker(writing=script, text=PROSE, sitting=SITTING)
+        w, _ = write_with(mind, write_mode="chat")
+        self.assertIsNone(w)
+        self.assertIn("Write it again without 'Marx'", replies[1])
+        self.assertEqual(self.kinds(mind), ["write", "write"])
+
+    def test_the_stand_in_completes_and_says_what_the_sitting_is(self):
+        a = StubMind().complete("Hegel, X.\n\n")
+        self.assertEqual(a, StubMind().complete("Hegel, X.\n\n"))                                       # the same every time
+        self.assertNotEqual(a, StubMind().complete("Hegel, X.\n\n", seed=7))
+        self.assertTrue(a.startswith("(rehearsal) ") and a.count("\n\n") == 1)
+        self.assertGreaterEqual(len(a.split()), works.MIN_WORDS)
+        ask = [{"role": "user", "content": works.sitting_ask({"works": [{"title": "On Sense", "kind": "essay", "sittings": 1}]})}]
+        out = json.loads(StubMind().chat(ask, contract.SITTING_SCHEMA))
+        self.assertEqual(sorted(out), sorted(contract.SITTING_SCHEMA["required"]))
+        self.assertTrue(out["about"].startswith("(rehearsal)") and "text" not in out)
+        self.assertEqual(out["continues"], out["title"] == "On Sense")
+        self.assertEqual(contract.SITTING_SCHEMA["properties"]["kind"]["enum"], contract.WRITING_KINDS)
+        self.assertEqual(contract.SITTING_SCHEMA["properties"]["about"]["maxLength"], 200)
+        self.assertNotEqual(contract.SITTING_ASK[:40], contract.WRITE_ASK[:40])
+
+    def test_sittings_add_up_across_steps_and_days_in_plain_mode(self):
+        box = Sandbox()
+        try:
+            mind = Scribe()
+            e = box.engine(mind)
+            for i in range(2):
+                day = box.run_day(SAT + timedelta(days=i), e)
+            ws = day["state"]["works"]
+            sittings = [x for d in (box.days.load(SAT), day) for x in d["entries"] if x["k"] == "writing"]
+            self.assertTrue(sittings and all(x["mode"] == "plain" for x in sittings))
+            self.assertEqual((ws[0]["title"], ws[0]["sittings"], ws[0]["to"]), ("A Letter", 2, "Karl"))
+            self.assertEqual(sum(w["sittings"] for w in ws), len(sittings))
+            self.assertEqual(len(mind.prompts), len(sittings))
+            first = sittings[0]
+            self.assertTrue(first["text"].startswith("Dear Karl,\n\nThis is the sitting number 1"))      # a new letter begins with its salutation
+            self.assertTrue(mind.prompts[0].endswith("Dear Karl,\n\n"))
+            self.assertTrue(mind.prompts[1].startswith("Hegel to Karl. Delhi, "))                         # the same letter again: its header, and then
+            self.assertTrue(mind.prompts[1].endswith(works.carried(works.tail_of(first["text"]))))        # the end of the sitting before, so that it flows on
+            self.assertFalse(mind.prompts[1].endswith("Dear Karl,\n\n"))
+            self.assertEqual(ws[0]["tail"], works.tail_of(sittings[1]["text"]))
+        finally:
+            box.close()
+
+    def test_a_whole_stub_day_in_chat_mode_never_completes(self):
+        box = Sandbox()
+        try:
+            box.cfg.write_mode = "chat"
+            mind = Scribe()
+            day = box.run_day(SAT, box.engine(mind))
+            sittings = [x for x in day["entries"] if x["k"] == "writing"]
+            self.assertTrue(sittings and all(x["mode"] == "chat" and "about" not in x for x in sittings))
+            self.assertEqual(mind.prompts, [])
+            self.assertTrue(all(x["text"].startswith("Dear Karl, this is the sitting number") for x in sittings))
+        finally:
+            box.close()
+
+
+class WriteModeConfigTest(unittest.TestCase):
+    def test_plain_unless_chat_is_asked_for(self):
+        from world.config import Config
+        self.assertEqual(Config().write_mode, "plain")
+        for value, mode in (("chat", "chat"), (" CHAT ", "chat"), ("plain", "plain"), ("", "plain"), ("banana", "plain")):
+            self.assertEqual(Config({"HEGEL_WRITE_MODE": value}).write_mode, mode, value)
 
 
 class PageNodeTest(unittest.TestCase):

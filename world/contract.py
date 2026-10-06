@@ -60,6 +60,21 @@ WRITE_SCHEMA = {
     },
     "required": ["title", "kind", "to", "continues", "text"],
 }
+SITTING_ASK = ("You sat down to write. Say what you will write, not the text yet: a title, the kind "
+               f"({', '.join(WRITING_KINDS[:-1])} or other), whom it is to if it is a letter, and in one sentence, from your day, what this "
+               "sitting is about. If it carries on one of your manuscripts, say so and give that title.")
+SITTING_FORMAT = 'Answer with the JSON object only: {"title": "...", "kind": "essay", "to": null, "continues": false, "about": "..."}'
+SITTING_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "title": {"type": "string", "maxLength": 100},
+        "kind": {"type": "string", "enum": WRITING_KINDS},
+        "to": NULLABLE_STR,
+        "continues": {"type": "boolean"},
+        "about": {"type": "string", "maxLength": 200},
+    },
+    "required": ["title", "kind", "to", "continues", "about"],
+}
 
 
 def render(s, ask=ASK):

@@ -8,6 +8,7 @@ import copy
 import json
 import logging
 import os
+import random
 import time
 from datetime import date, datetime, timedelta
 
@@ -286,8 +287,53 @@ class Engine:
             return None
 
     def write(self, messages, raw, ctx, st):
-        """He chose to write: one call for what he wrote. Names from after 1831 that he has not met: he is asked once
-        to write it again without them, then the writing is dropped (the decision stands). None if dropped."""
+        """He chose to write: the sitting, {title, kind, to, continues, text, mode, ...}, or None if it is dropped (the decision stands).
+        In plain mode (write_mode, with a mind that can complete) the text comes from a plain-text completion; when that gives nothing
+        the chat call writes it, as it does throughout in chat mode."""
+        if self.cfg.write_mode == "plain" and callable(getattr(self.mind, "complete", None)):
+            try:
+                w = self.write_plain(messages, raw, ctx, st)
+            except MindAway as e:
+                log.warning("mind away for the writing: %s", e)
+                return None
+            if w:
+                log.info("writing by plain completion: %s", w["title"])
+                return w
+            log.info("writing: no text from a plain completion, falling back to the chat call")
+        w = self.write_chat(messages, raw, ctx, st)
+        if w:
+            log.info("writing by chat call: %s", w["title"])
+        return w
+
+    def write_plain(self, messages, raw, ctx, st):
+        """One small chat call says what the sitting is (title, kind, to, continues, about), then the text is a plain-text completion under a
+        header in the style of his books (works.prompt). Names from after 1831 that he has not met cannot be asked away here: the completion
+        is made once more with another seed. None if no usable text came, and it is then for the chat call; MindAway only from the first
+        call, when the chat call could not answer either."""
+        msgs = messages + [{"role": "assistant", "content": raw}, {"role": "user", "content": works.sitting_ask(st)}]
+        plan = works.outline(contract.extract_json(self.mind.chat(msgs, contract.SITTING_SCHEMA, max_tokens=300)))
+        if not plan:
+            log.info("writing: no usable account of what the sitting is")
+            return None
+        prompt, opening = works.prompt(plan, st, ctx["t"].date())
+        for seed in (None, random.randrange(1, 2 ** 31)):
+            try:
+                w = works.sitting(plan, self.mind.complete(prompt, works.TOKENS, seed=seed), opening)
+            except MindAway as e:
+                log.warning("completion failed for the writing: %s", e)
+                return None
+            if not w:
+                log.info("writing: the completion is unusable")
+                return None
+            wrong = self.world.unmet(w["title"] + "\n" + w["about"] + "\n" + w["text"], ctx["known_text"])
+            if not wrong:
+                return dict(w, mode="plain")
+            log.info("writing: the completion has names he has not met: %s", "; ".join(wrong))
+        return None
+
+    def write_chat(self, messages, raw, ctx, st):
+        """One chat call for what he wrote. Names from after 1831 that he has not met: he is asked once to write it again without them,
+        then the writing is dropped (the decision stands). None if dropped."""
         msgs = messages + [{"role": "assistant", "content": raw}, {"role": "user", "content": works.ask(st)}]
         for _ in range(2):
             try:
@@ -300,7 +346,7 @@ class Engine:
                 return None
             wrong = self.world.unmet(w["title"] + "\n" + w["text"], ctx["known_text"])
             if not wrong:
-                return w
+                return dict(w, mode="chat")
             msgs += [{"role": "assistant", "content": reply}, {"role": "user", "content":
                      "Write it again without " + ", ".join(f"'{x}'" for x in wrong) + ": you have not met them in Delhi, and in 1831 you could not know them. "
                      "Answer with the JSON object only."}]

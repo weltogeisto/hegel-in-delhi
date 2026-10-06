@@ -775,7 +775,7 @@ class World(Economy):
         if ctx.get("writing"):                       # he sat down to write
             w = ctx["writing"]
             e = works.file(state, w, d)
-            entry(t0, self.mark(e, w["title"], w["text"], w["to"]))
+            entry(t0, self.mark(e, w["title"], w["text"], w["to"], w.get("about")))
             self.mark(next(x for x in state["works"] if x["id"] == e["work"]), e["title"], w["to"])      # a title can be sensitive too
             for x in self.on_writing(state, e["words"], t0):                                           # a magazine's fee for a sitting long enough
                 entry(t0, x)

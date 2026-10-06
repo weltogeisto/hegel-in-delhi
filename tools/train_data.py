@@ -650,6 +650,7 @@ def cmd_distill(a, out, explicit_out):
             return 1
         sim = rehearsal_setup(Config(), a.start, folder, a.feeds)
         marker.write_text(json.dumps({"start": a.start, "feeds": a.feeds}), encoding="utf-8")
+    sim.write_mode = "chat"                 # a writing is one chat call, which is what the training example is; the plain-text way has no chat turn to record
     sink = Sink(out)
     world = RecordingWorld(Feeds(sim))
     engine = Engine(sim, world, None, git=None)

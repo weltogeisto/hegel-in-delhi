@@ -569,6 +569,13 @@ class DistillDayTest(DistillCase):
             self.assertEqual(w["messages"][2]["content"], decisions[w["meta"]["key"].split("|")[0]])         # the decision it carries on from
             self.assertEqual(set(json.loads(w["messages"][4]["content"])), {"title", "kind", "to", "continues", "text"})
 
+    def test_a_writing_is_a_chat_example_whatever_the_world_does_by_default(self):
+        """The distiller pins write_mode to chat: the rehearsal's sittings are chat calls (which is what writings.jsonl records), never completions."""
+        day = json.loads((self.out / "rehearsal/days/2026-10-03.json").read_text(encoding="utf-8"))
+        sittings = [e for e in day["entries"] if e["k"] == "writing"]
+        self.assertTrue(sittings and all(e["mode"] == "chat" and "about" not in e for e in sittings))
+        self.assertEqual(len([r for r in self.rows(self.out, "writings.jsonl") if r["meta"]["day"] == "2026-10-03"]), len(sittings))
+
     def test_what_the_tool_writes_is_what_the_trainer_checks(self):
         """With the stand-in's marks taken out (the trainer rightly refuses them), the files pass pc/train_hegel.py's data check."""
         import importlib.util

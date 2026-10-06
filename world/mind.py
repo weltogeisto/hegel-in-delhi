@@ -71,6 +71,24 @@ class HTTPMind:
                 raise MindAway(f"mind request failed: {e}")
         raise MindAway("no answer")
 
+    def complete(self, prompt, max_tokens=700, temperature=None, seed=None):
+        """The text that continues prompt, from llama-server's /completion: the raw prompt, no chat template, no system prompt and no stop
+        string (a model that opens with a blank line would stop before its first word), so the caller cleans up. MindAway as for chat()."""
+        self.ensure_awake()
+        payload = {"prompt": prompt, "n_predict": max_tokens, "temperature": self.temperature if temperature is None else temperature,
+                   "cache_prompt": False}
+        if seed is not None:
+            payload["seed"] = seed
+        req = urllib.request.Request(self.url + "/completion", data=json.dumps(payload).encode("utf-8"), headers={"Content-Type": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=self.timeout) as r:
+                content = json.loads(r.read().decode("utf-8"))["content"]
+            return content if isinstance(content, str) else ""
+        except urllib.error.HTTPError as e:
+            raise MindAway(f"HTTP {e.code} from the mind")
+        except (urllib.error.URLError, OSError, ValueError, KeyError, TypeError) as e:
+            raise MindAway(f"mind request failed: {e}")
+
     def decide(self, messages, sit):
         return self.chat(messages, SCHEMA)
 
@@ -90,6 +108,8 @@ REPLIES = ["Namaste, sir. The weather is not what it was.", "Ji, sir? Tell me, w
            "One minute, sir, I am just finishing this."]
 DOINGS = ["Nods, and goes back to what was in hand.", None, "Looks at him a moment longer than needed.", None]
 TITLES = ["Notes from the verandah", "On the morning's papers", "A page on the system of needs", "Letter about the bungalow"]
+ABOUTS = ["the morning's walk and what it showed him", "the tea, the heat and the order of the day", "what the neighbours' habits say of the city",
+          "a thought that would not wait for the afternoon"]
 LINES = ["The morning came in with the papers and the heat.", "Nothing here is quite where I left it, and I am no longer sure I did the leaving.",
          "The tea arrived before the argument did.", "I set down what I saw and let the rest wait for the afternoon.",
          "A city is a thought that has learned to walk about.", "The lamp does what lamps do, and so, I suppose, do I."]
@@ -192,6 +212,11 @@ class StubMind:
         ans["thought"] = f"(rehearsal) {text}"
         return ans
 
+    def complete(self, prompt, max_tokens=700, temperature=None, seed=None):
+        """Two paragraphs of rehearsal prose, the same for the same prompt and seed."""
+        r = random.Random(f"{prompt}|{seed}")
+        return "(rehearsal) " + " ".join(r.sample(LINES, 3)) + "\n\n" + " ".join(r.sample(LINES, 3))
+
     def chat(self, messages, schema=None, max_tokens=700, temperature=None):
         props = (schema or {}).get("properties", {})
         if "answer" in props:
@@ -204,14 +229,18 @@ class StubMind:
         if "does" in props:         # one of the people he meets, answering
             r = random.Random(messages[-1]["content"])
             return json.dumps({"says": "(rehearsal) " + r.choice(REPLIES), "does": r.choice(DOINGS)})
-        if "continues" in props:    # what he wrote
+        if "continues" in props:    # what he wrote, or with "about" what he means to write
             ask = messages[-1]["content"]
             shelf = re.findall(r"“([^”]+)” \(", ask.split("Your manuscripts so far:")[1]) if "Your manuscripts so far:" in ask else []
             r = random.Random(ask)
             title = shelf[-1] if shelf and r.random() < 0.7 else "(rehearsal) " + r.choice(TITLES)
             kind = r.choice(["essay", "notes", "letter"])
-            return json.dumps({"title": title, "kind": kind, "to": "a friend in Berlin" if kind == "letter" else None,
-                               "continues": title in shelf, "text": "(rehearsal) " + " ".join(r.sample(LINES, 3))})
+            out = {"title": title, "kind": kind, "to": "a friend in Berlin" if kind == "letter" else None, "continues": title in shelf}
+            if "about" in props:
+                out["about"] = "(rehearsal) " + r.choice(ABOUTS)
+            else:
+                out["text"] = "(rehearsal) " + " ".join(r.sample(LINES, 3))
+            return json.dumps(out)
         if "diary" in props:
             ask = messages[-1]["content"]
             times = re.findall(r"^(\d\d:\d\d) ", ask, re.M)
