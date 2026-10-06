@@ -216,7 +216,7 @@ tmux new -s hegel
 llama-server -m /path/to/qwen3.8-27b.gguf --lora ~/hegel-in-delhi/pc/out/hegel-lora.gguf -ngl 99 -c 16384 --host 0.0.0.0 --port 8082 --alias hegel
 ```
 
-The Pi must reach port 8082: add the Windows firewall rule below, and if WSL does not run with `networkingMode=mirrored`, forward the port (`netsh interface portproxy add v4tov4 listenport=8082 listenaddress=0.0.0.0 connectport=8082 connectaddress=<WSL address from 'wsl hostname -I'>`). Then check from Windows with `curl.exe http://127.0.0.1:8082/health` and ask the question below the same way.
+Check it with `curl -s http://127.0.0.1:8082/health` and ask the question below in its WSL form. The Pi reaches it once Welt has run `pc/open-hegel-port.ps1` (below).
 
 On Windows:
 
@@ -232,14 +232,28 @@ Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File
 Start-Sleep 90
 curl.exe http://127.0.0.1:8082/health
 Select-String -Path C:\hegel\logs\hegel.err.log -Pattern "lora|adapter" | Select-Object -Last 5
-New-NetFirewallRule -DisplayName "Hegel trained mind 8082" -Direction Inbound -Protocol TCP -LocalPort 8082 -Action Allow -Profile Private
 ```
 
-Expected: `{"status":"ok"}` and log lines saying the LoRA adapter was loaded. Report both. Then one question:
+Expected: `{"status":"ok"}` and log lines saying the LoRA adapter was loaded. Report both.
+
+**Welt's step, either way.** The Pi must reach port 8082, and Windows' own sleep timer must be off while the Hegel test runs. Both need an Administrator window, which Codex's approval policy does not open ("blocked by policy"): ask Welt to run these two lines in PowerShell as Administrator, and wait for the lines it prints. It adds the firewall rule, forwards the port to WSL if needed, and notes the old sleep timer for step 7.
 
 ```powershell
-'{"messages":[{"role":"user","content":"What is the relation of the state to civil society? Two sentences."}],"max_tokens":150}' | Set-Content -Encoding ascii C:\hegel\logs\ask.json
+curl.exe -fsSL -o C:\hegel\scripts\open-hegel-port.ps1 https://raw.githubusercontent.com/weltogeisto/hegel-in-delhi/main/pc/open-hegel-port.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File C:\hegel\scripts\open-hegel-port.ps1
+```
+
+Then one question, with thinking off, as the adapter was trained and as the world asks. Without it Qwen3.8 thinks first and spends the whole budget on that: an empty `content` with `finish_reason: "length"`.
+
+```powershell
+'{"messages":[{"role":"user","content":"What is the relation of the state to civil society? Two sentences."}],"max_tokens":200,"chat_template_kwargs":{"enable_thinking":false}}' | Set-Content -Encoding ascii C:\hegel\logs\ask.json
 curl.exe -s http://127.0.0.1:8082/v1/chat/completions -H "Content-Type: application/json" -d "@C:\hegel\logs\ask.json"
+```
+
+In WSL:
+
+```bash
+curl -s http://127.0.0.1:8082/v1/chat/completions -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"What is the relation of the state to civil society? Two sentences."}],"max_tokens":200,"chat_template_kwargs":{"enable_thinking":false}}'
 ```
 
 Send Welt the answer as it came.
@@ -257,4 +271,4 @@ Enable-ScheduledTask "Hegel mind" -ErrorAction SilentlyContinue | Out-Null
 Start-ScheduledTask "Hegel mind" -ErrorAction SilentlyContinue
 ```
 
-Bonsai is back on 8081, and the PC sleeps when idle again; put Windows' sleep timer back if step 4 changed it. Tell Welt the world on the Pi may run again. Keep `pc/out/hegel-lora/`, `C:\hegel\models\hegel-lora.gguf` and `mind/train/` until Welt says otherwise: a second round of training starts from them.
+Bonsai is back on 8081, and the PC sleeps when idle again. Ask Welt to put Windows' sleep timer back, in PowerShell as Administrator: `powershell -NoProfile -ExecutionPolicy Bypass -File C:\hegel\scripts\open-hegel-port.ps1 -Undo` (if step 4 changed the timer by hand, set it back to the value noted then). Tell Welt the world on the Pi may run again. Keep `pc/out/hegel-lora/`, `C:\hegel\models\hegel-lora.gguf` and `mind/train/` until Welt says otherwise: a second round of training starts from them.
