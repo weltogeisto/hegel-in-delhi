@@ -1,5 +1,7 @@
 """His manuscripts: what he writes when he sits down to write, and the index of his works in state["works"]."""
 import re
+import string
+from collections import Counter
 
 from .clock import MONTHS, day_number
 from .contract import SITTING_ASK, SITTING_FORMAT, WRITE_ASK, WRITE_FORMAT, WRITING_KINDS
@@ -27,6 +29,10 @@ PRIMER_HEADS = {                # the header line of each English book as the tr
     "baillie-1": "Hegel, The Phenomenology of Mind, volume I, tr. J. B. Baillie (1910)",
     "baillie-2": "Hegel, The Phenomenology of Mind, volume II, tr. J. B. Baillie (1910)",
     "bosanquet-art": "Hegel, The Introduction to Hegel's Philosophy of Fine Art, tr. Bernard Bosanquet (1886)"}
+SCAN_LITTER = re.compile(r"[a-z][A-Z]|\w' s\b|\w ' \w|[\\|■^~{}<>_]")       # a capital inside a word, a broken apostrophe, a stray sign
+RARE, COMMON = 10, 2000         # a word the English books use fewer than RARE times, one letter from one they use COMMON times, is a misreading
+MISREAD_RARE, MISREAD_COMMON = 50, 300      # and one used fewer than 50 times, a tenth as often as the word old type misreads it from
+MISREAD = (("li", "h"), ("h", "li"), ("rn", "m"))        # old type misread: h as li and li as h ("tlie", "hke"), m as rn ("rnay")
 HEADERS = {"essay": "Hegel, {title}. Written at Delhi, {date}.",
            "letter": "Hegel to {to}. Delhi, {date}.",
            "poem": "Hegel, {title}. A poem, written at Delhi, {date}."}
@@ -140,11 +146,46 @@ def sitting_ask(state):
     return SITTING_ASK + manuscripts(state) + " " + SITTING_FORMAT
 
 
+def english_counts(shelf):
+    """{word: how often} over the English books on the shelf, counted once per shelf; empty for a shelf without its texts."""
+    counts = getattr(shelf, "english_counts", None)
+    if counts is None:
+        texts, counts = getattr(shelf, "data", {}).get("texts", []), Counter()
+        for w in getattr(shelf, "works", []):
+            if w["lang"] == "en":
+                for text in texts[w["start"]:w["start"] + w["n"]]:
+                    counts.update(re.findall(r"[a-z]{2,}", text.lower()))
+        shelf.english_counts = counts
+    return counts
+
+
+def near(word):
+    """The spellings one letter away from word: a letter dropped, changed or added."""
+    abc = string.ascii_lowercase
+    return ({word[:i] + word[i + 1:] for i in range(len(word))} | {word[:i] + c + word[i + 1:] for i in range(len(word)) for c in abc}
+            | {word[:i] + c + word[i:] for i in range(len(word) + 1) for c in abc}) - {word}
+
+
+def damaged(text, counts):
+    """Whether a passage still shows its scan, which the model would copy: SCAN_LITTER, a rare word one letter from a common one ('tho', 'hke'),
+    or a rare word that is a common one misread by old type ('tlie'). `counts` from english_counts; with none, only SCAN_LITTER counts."""
+    if SCAN_LITTER.search(text):
+        return True
+    for w in set(re.findall(r"[a-z]{2,}", text.lower())) if counts else ():
+        if counts[w] < RARE and any(counts[x] >= COMMON for x in near(w)):
+            return True
+        if counts[w] < MISREAD_RARE and any(a in w and counts[w.replace(a, b)] >= max(MISREAD_COMMON, 10 * counts[w]) for a, b in MISREAD):
+            return True
+    return False
+
+
 def primer(shelf, plan):
     """The passage of his English books that fits the sitting best, {"label", "head", "text"}, or None (no shelf, or nothing English of
-    PRIMER_WORDS words among what the title and what the sitting is about call up). `head` is the header line of its work and ref."""
+    PRIMER_WORDS words without the marks of its scan among what the title and what the sitting is about call up). `head` is the header line
+    of its work and ref."""
+    counts = english_counts(shelf) if shelf else None
     for hit in (shelf.search([(plan["title"], 1.0), (plan["about"], 1.0)]) if shelf else []):
-        if hit["lang"] == "en" and PRIMER_WORDS[0] <= len(hit["text"].split()) <= PRIMER_WORDS[1]:
+        if hit["lang"] == "en" and PRIMER_WORDS[0] <= len(hit["text"].split()) <= PRIMER_WORDS[1] and not damaged(hit["text"], counts):
             head = PRIMER_HEADS.get(hit["id"].rpartition(":")[0], f"Hegel, {hit['work']}")
             return {"label": hit["label"], "head": head + (f", {hit['ref']}" if hit["ref"] else ""), "text": hit["text"]}
     return None

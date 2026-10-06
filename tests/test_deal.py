@@ -8,6 +8,7 @@ import sys
 import tempfile
 import threading
 import unittest
+from collections import Counter
 from datetime import date, timedelta
 from functools import partial
 from http.server import BaseHTTPRequestHandler, HTTPServer, SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -1004,6 +1005,20 @@ class PrimerTest(unittest.TestCase):
         self.assertEqual(works.primer(FakeShelf(hit(220, ref="")), self.plan())["head"], "Hegel's Philosophy of Right, tr. S. W. Dyde (1896)")      # no ref, no comma
         self.assertEqual(works.primer(FakeShelf(hit(100, work="new-book")), self.plan())["head"], "Hegel, Philosophy of Right, §258")          # a work not in the table
         self.assertEqual(works.PRIMER_WORDS, (80, 220))
+
+    def test_a_passage_that_still_shows_its_scan_is_passed_over(self):
+        c = works.english_counts(self.real)
+        for text in ("the tho abstract sphere", "the noisy din of the Wo rid' s History", "tlie state", "hke a shadow", "it rnay be", "the stAte"):
+            self.assertTrue(works.damaged(text, c), text)
+        for text in ("the like of it", "a lie that is told", "the size of the state", "turn the corn", "his house has a garden"):
+            self.assertFalse(works.damaged(text, c), text)
+        self.assertFalse(works.damaged("tlie state", Counter()))                     # without the books' words only the litter of the scan counts
+        dirty = dict(hit(100, ref="§1"), text=" ".join(["word"] * 98) + " Wo rid' s")
+        self.assertEqual(works.primer(FakeShelf(dirty, hit(100, ref="§2")), self.plan())["label"], "Philosophy of Right §2")
+        self.assertIs(works.english_counts(self.real), c)                            # counted once per shelf
+        for plan in (self.plan(title="On the noise of the street", about="the din of the street below the verandah, and what thought makes of what it cannot shut out"),
+                     self.plan(kind="letter", to="Niethammer", title="Letter to Niethammer", about="his first days in Delhi, the heat and the noise, and what has become of the system here")):
+            self.assertFalse(works.damaged(works.primer(self.real, plan)["text"], c))
 
     def test_no_shelf_or_no_match_no_primer(self):
         self.assertIsNone(works.primer(None, self.plan()))
