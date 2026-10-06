@@ -219,9 +219,15 @@ def vram():
 def load_model(args, adapter=None):
     """The base (4 bits unless --bf16) with a fresh LoRA on its language layers, or (adapter given) with phase 1's weights put into that LoRA,
     trainable. The calls are those of Unsloth's Qwen3.8 guide."""
+    if args.loss_target_gib is not None:
+        import os
+        os.environ["UNSLOTH_CE_LOSS_TARGET_GB"] = str(args.loss_target_gib)
     from unsloth import FastModel
+    # Load on the single training GPU before Unsloth offloads embeddings to RAM;
+    # automatic placement can dispatch the quantized tail to unsupported CPU storage.
     model, tokenizer = FastModel.from_pretrained(model_name=args.base, max_seq_length=max(args.seq_corpus, args.seq_format),
-                                                 load_in_4bit=not args.bf16, full_finetuning=False, offload_embedding=not args.bf16)
+                                                 load_in_4bit=not args.bf16, full_finetuning=False, offload_embedding=not args.bf16,
+                                                 device_map={"": 0}, text_only=args.text_only)
     model = FastModel.get_peft_model(
         model, finetune_vision_layers=False, finetune_language_layers=True, finetune_attention_modules=True, finetune_mlp_modules=True,
         r=args.rank, lora_alpha=args.alpha, lora_dropout=0, bias="none", random_state=args.seed, use_gradient_checkpointing="unsloth")
@@ -238,6 +244,13 @@ def load_model(args, adapter=None):
     trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
     if not trainable:
         raise SystemExit("the adapter was loaded frozen: nothing to train. Report this to Welt.")
+    import gc
+    import torch
+    gc.collect()
+    torch.cuda.empty_cache()
+    print(f"CUDA cache released: {gib(torch.cuda.memory_allocated())} GiB allocated, "
+          f"{gib(torch.cuda.memory_reserved())} reserved, {gib(torch.cuda.mem_get_info()[0])} free; "
+          f"loss budget {args.loss_target_gib} GiB", flush=True)
     print(f"LoRA r={args.rank} alpha={args.alpha}: {trainable / 1e6:.1f} M trainable parameters; {vram()}", flush=True)
     return model, tokenizer
 
@@ -280,6 +293,10 @@ def run_phase(name, model, tokenizer, rows, lr, epochs, args, folder):
         report_to="none", seed=args.seed, remove_unused_columns=False, disable_tqdm=True)
     trainer = Trainer(model=model, args=targs, train_dataset=Dataset.from_list(rows), processing_class=tok,
                       data_collator=DataCollatorForSeq2Seq(tokenizer=tok, padding=True, label_pad_token_id=-100), callbacks=[Report()])
+    # Release unused load/previous-phase cache before the loss sizes its chunks.
+    import gc
+    gc.collect()
+    torch.cuda.empty_cache()
     torch.cuda.reset_peak_memory_stats()
     print(f"[{name}] {len(rows)} sequences, {planned} steps planned" + (f", running {steps} (dry run)" if args.dry_run else "") + f", lr {lr}, {epochs} epoch(s)"
           + (f", resuming from {Path(last).name}" if last else ""), flush=True)
@@ -374,6 +391,8 @@ def main(argv=None):
     p.add_argument("--rank", type=int, default=32)
     p.add_argument("--alpha", type=int, default=32)
     p.add_argument("--bf16", action="store_true", help="a 16-bit LoRA instead of QLoRA: over 36 GB for Qwen3.8-27B, so only on a rented GPU")
+    p.add_argument("--text-only", action="store_true", help="load Qwen's language model without the unused vision encoder for text training")
+    p.add_argument("--loss-target-gib", type=float, help="explicit Unsloth fused loss chunk memory budget in GiB")
     p.add_argument("--batch", type=int, default=1)
     p.add_argument("--accum", type=int, default=16, help="gradient accumulation steps (default 16)")
     p.add_argument("--lr-corpus", type=float, default=1e-4)
@@ -383,6 +402,8 @@ def main(argv=None):
     p.add_argument("--save-steps", type=int, default=25, help="a checkpoint every this many optimizer steps (default 25)")
     p.add_argument("--seed", type=int, default=3407)
     args = p.parse_args(argv)
+    if args.loss_target_gib is not None and (not math.isfinite(args.loss_target_gib) or args.loss_target_gib <= 0):
+        p.error("--loss-target-gib must be a finite positive number")
     if args.check_data:
         ok, _ = check_data(args.data, args.seq_corpus, args.seq_format, strict=args.strict)
         return 0 if ok else 1

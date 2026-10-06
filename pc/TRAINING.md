@@ -184,6 +184,8 @@ Then the real run, with the settings the dry run proved:
 python pc/train_hegel.py --base ~/models/qwen-base 2>&1 | tee -a pc/out/train.log
 ```
 
+The first adapter (October 2026) was trained on the 3090 with `--rank 16 --text-only --loss-target-gib 0.125`: rank 16 because rank 32 did not fit, `--text-only` to leave Qwen3.8's unused vision encoder out of memory, and a small budget for the loss computation. It took 14 h 41 min (books 3 h 05 min, decisions 11 h 36 min), peaked at 22.5 GiB allocated (24.0 in use) and gave a 445 MB adapter. To train it again the same way, add those three options.
+
 Phase 1 trains on his books, his early papers, his letters (1785-1831, edited 1887) and two lives of him, Rosenkranz's and Caird's (about 3.4 M tokens, one pass), phase 2 on the decisions, plans, writings and voices mixed one to one with the general set (two passes). It prints a line per step with the loss. Expect 8 to 16 hours, or what the dry run projected. A checkpoint is saved every 25 steps.
 
 - **After a crash or reboot:** the same command with `--resume`. A finished phase 1 is not trained again.

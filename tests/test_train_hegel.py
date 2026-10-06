@@ -268,6 +268,21 @@ class SettingsTest(unittest.TestCase):
         self.assertEqual((captured["lr_corpus"], captured["lr_format"], captured["epochs_corpus"], captured["epochs_format"]), (1e-4, 5e-5, 1, 2))
         self.assertEqual((captured["seq_corpus"], captured["phase"], captured["bf16"]), (2048, "both", False))
 
+    def test_the_memory_options_of_the_first_run_are_off_by_default_and_checked(self):
+        captured = {}
+        original = th.train
+        th.train = lambda args: captured.update(vars(args))
+        try:
+            th.main(["--base", "x/y"])
+            self.assertEqual((captured["text_only"], captured["loss_target_gib"]), (False, None))
+            th.main(["--base", "x/y", "--rank", "16", "--text-only", "--loss-target-gib", "0.125"])
+            self.assertEqual((captured["rank"], captured["text_only"], captured["loss_target_gib"]), (16, True, 0.125))
+            for bad in ("0", "-1", "nan", "inf"):
+                with contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+                    th.main(["--base", "x/y", "--loss-target-gib", bad])
+        finally:
+            th.train = original
+
     def test_a_base_is_required_for_training_but_not_for_the_check(self):
         with contextlib.redirect_stderr(io.StringIO()):
             with self.assertRaises(SystemExit):
