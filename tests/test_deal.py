@@ -15,9 +15,10 @@ from pathlib import Path
 from unittest import mock
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
 from test_world import DAY1, REPO, Sandbox, answer, state  # noqa: E402  (this also keeps the tests off the Pi's env file)
 
-from world import contract, owl, voices, works  # noqa: E402
+from world import contract, owl, shelf, voices, works  # noqa: E402
 from world.engine import Engine  # noqa: E402
 from world.feeds import Feeds, fit_for_papers  # noqa: E402
 from world.memory import Memory, record_text  # noqa: E402
@@ -722,6 +723,8 @@ class WritingTest(unittest.TestCase):
 PROSE = ("The morning came in with the papers and the heat, and I set it down as I saw it, which is the only method that I know. "
          "What the papers call news is the day's surface, and beneath it the old necessity goes about its work.\n\n"
          "I read them twice, and was the wiser only in the matter of the price of tea.")
+NOTE6 = "[Until November 1831 he was professor of philosophy at Berlin. He has been in Delhi for 4 days.]"        # the editor's note of 6 October, the fifth day
+LOOPS = {"repeat_penalty": 1.1, "repeat_last_n": 256, "dry_multiplier": 0.8}        # the sampling that a plain completion asks the server for, against loops
 UNMET = ("Marx would have seen at once what the tea-seller sells, and the whole of the afternoon besides, I think, "
          "for he saw everything at once and wrote it down.")
 SITTING = json.dumps({"title": "On the verandah", "kind": "notes", "to": None, "continues": False,
@@ -810,11 +813,11 @@ class WritingPromptTest(unittest.TestCase):
     def test_the_header_of_each_kind(self):
         for kind in ("essay", "notes", "chapter", "other"):
             self.assertEqual(works.prompt(self.plan(kind=kind), {}, self.D),
-                             ("Hegel, On the verandah. Written at Delhi, 6 October 2026.\n[the morning's papers]\n\n", ""))
+                             (f"Hegel, On the verandah. Written at Delhi, 6 October 2026.\n[the morning's papers]\n{NOTE6}\n\n", ""))
         self.assertEqual(works.prompt(self.plan(kind="poem", title="Ode to tea."), {}, self.D),
-                         ("Hegel, Ode to tea. A poem, written at Delhi, 6 October 2026.\n[the morning's papers]\n\n", ""))         # no full stop twice
+                         (f"Hegel, Ode to tea. A poem, written at Delhi, 6 October 2026.\n[the morning's papers]\n{NOTE6}\n\n", ""))         # no full stop twice
         self.assertEqual(works.prompt(self.plan(kind="letter", to="Karl", title="Letter to Karl"), {}, self.D),
-                         ("Hegel to Karl. Delhi, 6 October 2026.\n[the morning's papers]\n\nDear Karl,\n\n", "Dear Karl,"))      # a new letter opens with its salutation
+                         (f"Hegel to Karl. Delhi, 6 October 2026.\n[the morning's papers]\n{NOTE6}\n\nDear Karl,\n\n", "Dear Karl,"))      # a new letter opens with its salutation
         self.assertEqual(works.prompt(self.plan(kind="letter", to="a friend in Berlin"), {}, self.D)[1], "Dear friend,")
         self.assertEqual(works.prompt(self.plan(kind="letter"), {}, self.D)[0].split("\n")[0], "Hegel, On the verandah. Written at Delhi, 6 October 2026.")        # no one to
         self.assertIn("Delhi, 12 December 2026.", works.prompt(self.plan(), {}, date(2026, 12, 12))[0])
@@ -824,7 +827,7 @@ class WritingPromptTest(unittest.TestCase):
         text = "\n\n".join(" ".join(f"w{p}x{i}" for i in range(90)) + "." for p in range(5))             # five paragraphs of 90 words
         st = {}
         works.file(st, {"title": "On Sense", "kind": "essay", "to": None, "continues": False, "text": text}, self.D)
-        head = "Hegel, On Sense. Written at Delhi, 6 October 2026.\n[the morning's papers]\n\n"
+        head = f"Hegel, On Sense. Written at Delhi, 6 October 2026.\n[the morning's papers]\n{NOTE6}\n\n"
         prompt, opening = works.prompt(self.plan(title="on  sense", continues=True, kind="poem"), st, self.D)          # the manuscript's own title and kind
         self.assertTrue(prompt.startswith(head))
         tail = prompt[len(head):]
@@ -836,13 +839,13 @@ class WritingPromptTest(unittest.TestCase):
         letter = {"title": "Dear Karl", "kind": "letter", "to": "Karl", "continues": False, "text": "Dear Karl, " + "word " * 30 + "end."}
         works.file(st, letter, self.D)
         prompt, opening = works.prompt(self.plan(title="Dear Karl", continues=True, kind="essay"), st, self.D)
-        self.assertEqual(prompt, f"Hegel to Karl. Delhi, 6 October 2026.\n[the morning's papers]\n\n{works.carried(st['works'][1]['tail'])}")
+        self.assertEqual(prompt, f"Hegel to Karl. Delhi, 6 October 2026.\n[the morning's papers]\n{NOTE6}\n\n{works.carried(st['works'][1]['tail'])}")
         self.assertEqual(opening, "")                                                                       # no second salutation
 
     def test_an_index_from_before_tails_starts_fresh(self):
         st = {"works": [{"id": "on-sense", "title": "On Sense", "kind": "letter", "to": "Karl", "started": "2026-10-03", "words": 5, "sittings": 1, "last": "2026-10-03"}]}
         self.assertEqual(works.prompt(self.plan(title="On Sense", continues=True), st, self.D),
-                         ("Hegel to Karl. Delhi, 6 October 2026.\n[the morning's papers]\n\n", ""))      # the header, no tail, and no salutation: it is not a new letter
+                         (f"Hegel to Karl. Delhi, 6 October 2026.\n[the morning's papers]\n{NOTE6}\n\n", ""))      # the header, no tail, and no salutation: it is not a new letter
         got = works.file(st, {"title": "On Sense", "kind": "letter", "to": "Karl", "continues": True, "text": "one two three"}, self.D)
         self.assertEqual((got["sitting"], st["works"][0]["tail"]), (2, "one two three"))
         self.assertEqual(works.prompt(self.plan(title="Nothing yet", continues=True), st, self.D)[0].split("\n")[0], "Hegel, Nothing yet. Written at Delhi, 6 October 2026.")
@@ -875,7 +878,8 @@ class WritingPromptTest(unittest.TestCase):
         self.assertIn("On the verandah", works.sitting(self.plan(), PROSE.replace("The morning", "On the verandah, the morning"))["text"])             # but in the text it stays
 
     def test_the_text_stops_where_a_new_document_begins(self):
-        for stop in ("Hegel to Karl. Delhi, 7 October 2026.", "Hegel, On the colonies. Written at Delhi, 7 October 2026.", "* * *", "***", "THE END", "The end.", "Footnotes", "FOOTNOTES:"):
+        for stop in ("Hegel to Karl. Delhi, 7 October 2026.", "Hegel, On the colonies. Written at Delhi, 7 October 2026.", "* * *", "***", "THE END", "The end.", "Footnotes", "FOOTNOTES:",
+                     "Hegel's Philosophy of Right, tr. S. W. Dyde (1896), §259", "Hegel, Lectures on the Philosophy of History, tr. J. Sibree (1857), Introduction"):         # or a primer's header
             with self.subTest(stop=stop):
                 got = works.sitting(self.plan(), PROSE + "\n\n" + stop + "\n\nSomething else, written long after, that does not belong here at all.")
                 self.assertEqual(got["text"], PROSE)
@@ -893,13 +897,14 @@ class WritingPromptTest(unittest.TestCase):
         self.assertEqual(works.sitting(self.plan(), raw)["text"], "\"The morning,\" he said, \"came in with the papers\" — and the heat, and I set it down as it was, which is 'my' method, and the only one that I know.")
 
     def test_a_sitting_is_cut_to_three_thousand_characters_and_back_to_a_sentence_end(self):
-        long = works.sitting(self.plan(), "A sentence of some length goes here, and then it stops. " * 200)["text"]
+        many = lambda n: " ".join(f"Sentence number {i} is of some length, and goes on, and then it stops." for i in range(n))
+        long = works.sitting(self.plan(), many(200))["text"]
         self.assertTrue(len(long) <= works.CAP and long.endswith("stops."))
         words = works.sitting(self.plan(), "word " * 1000)
         self.assertIsNone(words)                                                                         # no sentence end at all: nothing usable
         mid = works.sitting(self.plan(), PROSE + " And then I began to say that the")["text"]
         self.assertEqual(mid, PROSE)                                                                     # the unfinished sentence goes
-        self.assertTrue(len(works.sitting(self.plan(kind="letter", to="Karl"), "A sentence of some length goes here. " * 200, "Dear Karl,")["text"]) <= works.CAP)
+        self.assertTrue(len(works.sitting(self.plan(kind="letter", to="Karl"), many(200), "Dear Karl,")["text"]) <= works.CAP)
 
     def test_too_short_or_empty_is_unusable(self):
         for raw in (None, "", "  \n\n ", "Hegel, On the verandah. Written at Delhi, 6 October 2026.", "Only a few words here.", "word " * 18 + "end.", "* * *\n" + PROSE):
@@ -911,6 +916,161 @@ class WritingPromptTest(unittest.TestCase):
     def test_a_new_letter_begins_with_its_salutation(self):
         got = works.sitting(self.plan(kind="letter", to="Karl", continues=False), PROSE, "Dear Karl,")
         self.assertEqual((got["text"], got["kind"], got["to"], got["about"]), ("Dear Karl,\n\n" + PROSE, "letter", "Karl", "the morning's papers"))
+
+    def test_a_sentence_that_repeats_an_earlier_one_goes(self):
+        first = "The morning came in with the papers and the heat, and I set it down as I saw it."
+        raw = (f"{first} What the papers call news is the day's surface. {first} Beneath it the old necessity goes about its work, as ever. "
+               "The Morning came in with the papers and the heat, and I set it down as I saw it! What the papers call  NEWS is the day's surface...")
+        self.assertEqual(works.sitting(self.plan(), raw)["text"],
+                         f"{first} What the papers call news is the day's surface. Beneath it the old necessity goes about its work, as ever.")
+        loop = "I am here, and I write it down as the heat comes on. "
+        self.assertEqual(works.sitting(self.plan(), loop * 3 + "The papers came at nine, and they had nothing in them but the price of tea.")["text"],
+                         loop + "The papers came at nine, and they had nothing in them but the price of tea.")
+        self.assertEqual(works.sitting(self.plan(), loop * 300 + "A last sentence that is new, and long enough to count, ends the page.")["text"],
+                         loop + "A last sentence that is new, and long enough to count, ends the page.")             # the loop does not eat the room for what follows
+        mr = "Mr. Hegde came at nine, and Mr. Saxena at ten, and both asked after the tea. Mr. Hegde stayed to lunch, and Mr. Saxena did not."
+        self.assertEqual(works.sitting(self.plan(), mr)["text"], mr)                                                      # an abbreviation does not end a sentence
+
+    def test_a_paragraph_that_repeats_an_earlier_one_goes(self):
+        last = "A new paragraph, with enough words to stand on its own, as the third and last of the page."
+        self.assertEqual(works.sitting(self.plan(), PROSE + "\n\n" + PROSE + "\n\n" + last)["text"], PROSE + "\n\n" + last)
+        a, b = PROSE.split("\n\n")
+        mixed = works.sitting(self.plan(), PROSE + "\n\n" + b + " " + last + "\n\n" + a)["text"]                         # what is left of a paragraph stays, an empty one goes
+        self.assertEqual(mixed, PROSE + "\n\n" + last)
+        self.assertNotIn("\n\n\n", mixed)
+        text = works.sitting(self.plan(kind="letter", to="Karl"), "Dear Karl,\n\n" + PROSE + "\n\n" + PROSE, "Dear Karl,")["text"]
+        self.assertEqual(text, "Dear Karl,\n\n" + PROSE)
+
+    def test_what_is_left_after_the_repeats_must_still_be_twenty_words(self):
+        said = "I write it down here again, as I have said. "
+        self.assertEqual(len((said * 6).split()), 60)
+        self.assertIsNone(works.sitting(self.plan(), said * 6))                                      # long enough as it came, a single sentence once the repeats go
+        b = PROSE.split("\n\n")[1]
+        self.assertEqual(len(b.split()), 17)
+        self.assertIsNone(works.sitting(self.plan(), b + "\n\n" + b))                                 # the same with a paragraph: 34 words, then 17
+        self.assertIsNotNone(works.sitting(self.plan(), said * 6 + "And now something else, which is new, and which carries the page past the twenty words."))
+
+    def test_a_poems_refrain_stays(self):
+        poem = "The tea is hot, and the day is long,\nand the heat comes in at the door.\n\nThe tea is hot, and the day is long,\nand the heat comes in at the door.\n\nAnd so the day goes on, and on, and on."
+        self.assertEqual(works.sitting(self.plan(kind="poem"), poem)["text"].count("The tea is hot"), 2)
+
+    def test_the_sitting_has_what_the_note_says_of_him(self):
+        self.assertIn("November 1831", SOUL)                                                       # as the soul has it: he knows nothing after
+        self.assertIn("Berlin", SOUL)
+        for d, stay in ((date(2026, 10, 2), " He has been in Delhi since this morning."), (date(2026, 10, 3), " He has been in Delhi for 1 day."),
+                        (date(2026, 10, 6), " He has been in Delhi for 4 days."), (date(2026, 11, 12), " He has been in Delhi for 41 days."),
+                        (date(2026, 9, 30), ""), (date(2126, 1, 1), " He has been in Delhi for 36250 days.")):
+            with self.subTest(d=d):
+                n = works.note(d)
+                self.assertEqual(n, f"[Until November 1831 he was professor of philosophy at Berlin.{stay}]")
+                self.assertTrue(len(n) <= 160 and "\n" not in n and n[0] == "[" and n[-1] == "]")
+        for kind, to in (("essay", None), ("letter", "Karl"), ("poem", None)):                 # the second bracketed line, whatever the kind
+            lines = works.prompt(self.plan(kind=kind, to=to), {}, self.D)[0].split("\n")
+            self.assertEqual((lines[1], lines[2]), ("[the morning's papers]", NOTE6))
+        self.assertEqual(NOTE6, works.note(self.D))
+        self.assertEqual(works.sitting(self.plan(), NOTE6 + "\n" + PROSE)["text"], PROSE)       # said again, it is dropped like the argument
+
+
+def hit(words=100, lang="en", work="dyde-right", ref="§258"):
+    return {"id": f"{work}:1", "work": "Philosophy of Right", "ref": ref, "lang": lang, "label": f"Philosophy of Right {ref}", "score": 20.0,
+            "text": " ".join(["word"] * words)}
+
+
+class FakeShelf:
+    """Shelf.search as it is: the hits in the order they are given, and what it was asked."""
+
+    def __init__(self, *hits):
+        self.hits, self.asked = hits, []
+
+    def search(self, parts, n=40, skip=lambda doc: False):
+        self.asked.append(parts)
+        return list(self.hits)
+
+
+class PrimerTest(unittest.TestCase):
+    """The passage of his English books that goes in front of the writing's header."""
+    D = date(2026, 10, 6)
+    plan = staticmethod(WritingPromptTest.plan)
+
+    @classmethod
+    def setUpClass(cls):
+        cls.real = shelf.load(REPO / "mind/shelf/index.json.gz", REPO / "world/data/shelf_terms.json")
+
+    def test_the_best_english_passage_of_the_right_length(self):
+        fake = FakeShelf(hit(100, "de"), hit(79), hit(221), hit(80, ref="§99"), hit(150))
+        book = works.primer(fake, self.plan())
+        self.assertEqual(fake.asked, [[("On the verandah", 1.0), ("the morning's papers", 1.0)]])                  # the title and what it is about
+        self.assertEqual(book, {"label": "Philosophy of Right §99", "head": "Hegel's Philosophy of Right, tr. S. W. Dyde (1896), §99", "text": "word " * 79 + "word"})
+        self.assertEqual(works.primer(FakeShelf(hit(220, ref="")), self.plan())["head"], "Hegel's Philosophy of Right, tr. S. W. Dyde (1896)")      # no ref, no comma
+        self.assertEqual(works.primer(FakeShelf(hit(100, work="new-book")), self.plan())["head"], "Hegel, Philosophy of Right, §258")          # a work not in the table
+        self.assertEqual(works.PRIMER_WORDS, (80, 220))
+
+    def test_no_shelf_or_no_match_no_primer(self):
+        self.assertIsNone(works.primer(None, self.plan()))
+        self.assertIsNone(works.primer(FakeShelf(), self.plan()))
+        self.assertIsNone(works.primer(FakeShelf(hit(100, "de"), hit(60), hit(300)), self.plan()))
+        self.assertEqual(works.prompt(self.plan(), {}, self.D, None), works.prompt(self.plan(), {}, self.D))
+
+    def test_the_heads_are_those_of_the_training_corpus(self):
+        import corpus
+        import train_data
+        meta = {w["id"]: w for w in corpus.WORKS}
+        for wid, head in works.PRIMER_HEADS.items():
+            self.assertEqual(train_data.header(meta[wid], "", ""), head)
+            self.assertEqual(train_data.header(meta[wid], "§258", "§258"), head + ", §258")
+        self.assertLessEqual({w["id"] for w in self.real.works if w["lang"] == "en"}, set(works.PRIMER_HEADS))      # every English book of the shelf has its head
+
+    def test_the_real_shelf_has_one_for_the_essay_and_the_letter(self):
+        plans = [self.plan(title="On the noise of the street", about="the din of the street below the verandah, and what thought makes of what it cannot shut out"),
+                 self.plan(kind="letter", to="Niethammer", title="Letter to Niethammer", about="his first days in Delhi, and what has become of the system here"),
+                 self.plan(title="Das System der Bedürfnisse", about="die Bedürfnisse des Bürgers und der Stand der Handwerker")]            # German words call up German passages, too
+        for plan in plans:
+            with self.subTest(title=plan["title"]):
+                book = works.primer(self.real, plan)
+                doc = self.real.data["texts"].index(book["text"])
+                work = self.real.work_of(doc)
+                self.assertEqual(work["lang"], "en")
+                self.assertTrue(works.PRIMER_WORDS[0] <= len(book["text"].split()) <= works.PRIMER_WORDS[1])
+                self.assertEqual(book["head"], works.PRIMER_HEADS[work["id"]] + ", " + self.real.data["refs"][doc])
+                self.assertEqual(book["label"], shelf.label(work["work"], self.real.data["refs"][doc]))
+        self.assertEqual(max(self.real.search([(plans[2]["about"], 1.0)]), key=lambda h: h["score"])["lang"], "de")          # the best match was German: the primer is not
+        self.assertIsNone(works.primer(self.real, self.plan(title="Qqzx", about="Zzyxw")))
+
+    def test_it_stands_in_front_as_a_document_of_its_own(self):
+        book = {"label": "L", "head": "Hegel's Philosophy of Right, tr. S. W. Dyde (1896), §258", "text": "A passage of his book, in one paragraph."}
+        plain = works.prompt(self.plan(), {}, self.D)
+        self.assertEqual(works.PRIMER, "{head}\n\n{text}\n\n\n")
+        self.assertEqual(works.prompt(self.plan(), {}, self.D, book), (f"{book['head']}\n\n{book['text']}\n\n\n" + plain[0], ""))
+        self.assertEqual(works.prompt(self.plan(kind="letter", to="Karl"), {}, self.D, book)[0].split("\n\n\n")[1], works.prompt(self.plan(kind="letter", to="Karl"), {}, self.D)[0])
+        st = {}
+        works.file(st, {"title": "On Sense", "kind": "essay", "to": None, "continues": False, "text": PROSE}, self.D)
+        carried = works.prompt(self.plan(title="On Sense", continues=True), st, self.D, book)[0]
+        self.assertTrue(carried.startswith(book["head"]) and carried.endswith("\n\n" + PROSE))                  # and the tail of the sitting before still ends the prompt
+
+    def test_the_engine_primes_the_completion_and_logs_its_label_and_stores_none_of_it(self):
+        mind = Talker(says=None, action="write", sitting=SITTING, text=PROSE)
+        with self.assertLogs("world", "INFO") as logged:
+            box, e, day, step = one_step(mind, "ramesh", "home")
+        try:
+            prompt = next(a[0] for k, a in mind.asked if k == "complete")
+            book = works.primer(e.shelf, works.outline(json.loads(SITTING)))
+            self.assertTrue(prompt.startswith(book["head"] + "\n\n" + book["text"] + "\n\n\nHegel, On the verandah."))
+            self.assertIn(f"writing: primer {book['label']}", "\n".join(logged.output))
+            w = next(x for x in day["entries"] if x["k"] == "writing")
+            self.assertEqual(w["text"], PROSE)
+            self.assertNotIn(book["head"], json.dumps(day, ensure_ascii=False))
+        finally:
+            box.close()
+
+    def test_without_a_shelf_the_prompt_is_the_header_and_the_notes_alone(self):
+        mind = Talker(sitting=SITTING, text=PROSE)
+        with self.assertLogs("world", "INFO") as logged:
+            w, _ = write_with(mind)
+        prompt = next(a[0] for k, a in mind.asked if k == "complete")
+        self.assertEqual(prompt, "Hegel, On the verandah. Written at Delhi, 3 October 2026.\n[The morning on the verandah, and what the papers made of it.]\n"
+                                 "[Until November 1831 he was professor of philosophy at Berlin. He has been in Delhi for 1 day.]\n\n")
+        self.assertIn("writing: primer none", "\n".join(logged.output))
+        self.assertEqual(w["text"], PROSE)
 
 
 class HTTPCompleteTest(unittest.TestCase):
@@ -930,9 +1090,9 @@ class HTTPCompleteTest(unittest.TestCase):
         self.assertEqual(self.mind.complete("Hegel, X.\n\n", 700), "\n\nThe text.")                   # as it comes: the caller cleans up
         (path, body), = FakeCompletion.calls
         self.assertEqual(path, "/completion")
-        self.assertEqual(body, {"prompt": "Hegel, X.\n\n", "n_predict": 700, "temperature": 0.7, "cache_prompt": False})
+        self.assertEqual(body, dict({"prompt": "Hegel, X.\n\n", "n_predict": 700, "temperature": 0.7, "cache_prompt": False}, **LOOPS))
         self.mind.complete("p", 50, temperature=0.2, seed=1831)
-        self.assertEqual(FakeCompletion.calls[1][1], {"prompt": "p", "n_predict": 50, "temperature": 0.2, "cache_prompt": False, "seed": 1831})
+        self.assertEqual(FakeCompletion.calls[1][1], dict({"prompt": "p", "n_predict": 50, "temperature": 0.2, "cache_prompt": False, "seed": 1831}, **LOOPS))
         from world.mind import HTTPMind
         HTTPMind(self.url, temperature=0.4).complete("q")
         self.assertEqual((FakeCompletion.calls[2][1]["temperature"], FakeCompletion.calls[2][1]["n_predict"]), (0.4, 700))        # the mind's own default
@@ -968,7 +1128,8 @@ class HTTPCompleteTest(unittest.TestCase):
             self.assertEqual(list(chat["response_format"]["json_schema"]["schema"]["properties"]), ["title", "kind", "to", "continues", "about"])
             self.assertEqual(chat["messages"][-1]["content"], works.sitting_ask(st))
             self.assertEqual(comp["prompt"], works.prompt(works.outline(json.loads(SITTING)), st, SAT)[0])
-            self.assertEqual(comp["n_predict"], works.TOKENS)
+            self.assertEqual((comp["n_predict"], works.TOKENS), (600, 600))
+            self.assertTrue(all(comp[k] == v for k, v in LOOPS.items()) and not any(k in chat for k in LOOPS))        # the sampling against loops is the completion's alone
             FakeCompletion.calls.clear()
             FakeCompletion.code = 503                                                # the server has no /completion
             w = e.write(msgs, "the decision", ctx, st)
@@ -998,14 +1159,18 @@ class PlainWritingTest(unittest.TestCase):
             self.assertEqual(msgs[-1]["content"].count("Your manuscripts"), 0)
             prompt, n_predict, seed = next(a for k, a in mind.asked if k == "complete")
             d = date.fromisoformat(day["date"])
-            self.assertEqual(prompt, f"Hegel, On the verandah. Written at Delhi, {d.day} {d:%B %Y}.\n[The morning on the verandah, and what the papers made of it.]\n\n")
-            self.assertEqual((n_predict, seed), (700, None))
+            book = works.primer(e.shelf, works.outline(json.loads(SITTING)))                           # the real shelf has a passage for it, which comes first
+            self.assertTrue(book)
+            self.assertEqual(prompt, f"{book['head']}\n\n{book['text']}\n\n\nHegel, On the verandah. Written at Delhi, {d.day} {d:%B %Y}.\n"
+                                     f"[The morning on the verandah, and what the papers made of it.]\n{works.note(d)}\n\n")
+            self.assertEqual((n_predict, seed), (works.TOKENS, None))
             w = next(x for x in day["entries"] if x["k"] == "writing")
             self.assertEqual({k: w[k] for k in ("title", "kind", "to", "sitting", "work", "text", "mode", "about")},
                              {"title": "On the verandah", "kind": "notes", "to": None, "sitting": 1, "work": "on-the-verandah", "text": PROSE, "mode": "plain",
                               "about": "The morning on the verandah, and what the papers made of it."})
             self.assertEqual(w["words"], len(PROSE.split()))
             self.assertEqual(day["state"]["works"][0]["tail"], PROSE)
+            self.assertNotIn(book["text"], json.dumps(day, ensure_ascii=False))                       # the primer is nowhere in what is stored
             self.assertNotIn("sensitive", w)
             self.assertEqual(step["mind"]["source"], "stub")
         finally:
@@ -1036,7 +1201,8 @@ class PlainWritingTest(unittest.TestCase):
         w, st = write_with(mind, st)
         self.assertEqual((w["mode"], w["continues"]), ("plain", True))
         (_, (prompt, _, _)) = next(x for x in mind.asked if x[0] == "complete")
-        self.assertEqual(prompt, f"Hegel, On the verandah. Written at Delhi, 3 October 2026.\n[More of it.]\n\n{PROSE}")       # the tail: all of it, it is short
+        self.assertEqual(prompt, "Hegel, On the verandah. Written at Delhi, 3 October 2026.\n[More of it.]\n"
+                                 f"[Until November 1831 he was professor of philosophy at Berlin. He has been in Delhi for 1 day.]\n\n{PROSE}")       # the tail: all of it, it is short
         self.assertIn("“On the verandah” (notes, 1 sitting)", next(m for k, m in mind.asked if k == "sitting")[-1]["content"])
         entry = works.file(st, w, SAT)
         self.assertEqual((entry["sitting"], len(st["works"])), (2, 1))
@@ -1142,6 +1308,9 @@ class PlainWritingTest(unittest.TestCase):
         self.assertNotEqual(a, StubMind().complete("Hegel, X.\n\n", seed=7))
         self.assertTrue(a.startswith("(rehearsal) ") and a.count("\n\n") == 1)
         self.assertGreaterEqual(len(a.split()), works.MIN_WORDS)
+        for seed in range(40):                                                                          # it never says a sentence twice: the cleaning leaves all of it
+            b = StubMind().complete("Hegel, X.\n\n", seed=seed)
+            self.assertEqual(works.sitting({"title": "t", "kind": "essay", "to": None, "continues": False, "about": "a"}, b)["text"], b, seed)
         ask = [{"role": "user", "content": works.sitting_ask({"works": [{"title": "On Sense", "kind": "essay", "sittings": 1}]})}]
         out = json.loads(StubMind().chat(ask, contract.SITTING_SCHEMA))
         self.assertEqual(sorted(out), sorted(contract.SITTING_SCHEMA["required"]))
@@ -1167,7 +1336,7 @@ class PlainWritingTest(unittest.TestCase):
             first = sittings[0]
             self.assertTrue(first["text"].startswith("Dear Karl,\n\nThis is the sitting number 1"))      # a new letter begins with its salutation
             self.assertTrue(mind.prompts[0].endswith("Dear Karl,\n\n"))
-            self.assertTrue(mind.prompts[1].startswith("Hegel to Karl. Delhi, "))                         # the same letter again: its header, and then
+            self.assertTrue(mind.prompts[1].split("\n\n\n")[-1].startswith("Hegel to Karl. Delhi, "))     # the same letter again: its header (after the primer, if any), and then
             self.assertTrue(mind.prompts[1].endswith(works.carried(works.tail_of(first["text"]))))        # the end of the sitting before, so that it flows on
             self.assertFalse(mind.prompts[1].endswith("Dear Karl,\n\n"))
             self.assertEqual(ws[0]["tail"], works.tail_of(sittings[1]["text"]))

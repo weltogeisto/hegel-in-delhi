@@ -1,22 +1,39 @@
 """His manuscripts: what he writes when he sits down to write, and the index of his works in state["works"]."""
 import re
 
-from .clock import MONTHS
+from .clock import MONTHS, day_number
 from .contract import SITTING_ASK, SITTING_FORMAT, WRITE_ASK, WRITE_FORMAT, WRITING_KINDS
+from .shelf import sentences
 
 CAP = 3000              # characters a sitting may run to (about 450 words)
-TOKENS = 700            # what a plain-text completion may run to
+TOKENS = 600            # what a plain-text completion may run to
 MIN_WORDS = 20          # a completion with fewer words is unusable
 TAIL = 800              # characters of the latest sitting kept in the index, for the next one to flow on from
 CARRY = 120             # words of that tail that go into the next prompt
 
-# The plain-text prompt: a header line in the style of his books, the argument as an editor's line in square brackets, a blank line, then the
-# salutation of a new letter or the tail of the sitting before.
+# The plain-text prompt: a passage of his English books as a document of its own (PRIMER), then a header line in the style of his books, the
+# argument and a note on his situation as the editor's lines in square brackets, a blank line, then the salutation of a new letter or the tail
+# of the sitting before.
+PRIMER = "{head}\n\n{text}\n\n\n"
+PRIMER_WORDS = (80, 220)        # the passages of the shelf that will do
+PRIMER_HEADS = {                # the header line of each English book as the training corpus has it (tools/train_data.py header()), without the ref
+    "wallace-logic": "Hegel, The Logic of Hegel, tr. William Wallace (1892)",
+    "wallace-mind": "Hegel's Philosophy of Mind, tr. William Wallace (1894)",
+    "dyde-right": "Hegel's Philosophy of Right, tr. S. W. Dyde (1896)",
+    "sibree-history": "Hegel, Lectures on the Philosophy of History, tr. J. Sibree (1857)",
+    "haldane-1": "Hegel, Lectures on the History of Philosophy, volume I, tr. E. S. Haldane (1892)",
+    "haldane-2": "Hegel, Lectures on the History of Philosophy, volume II, tr. E. S. Haldane and Frances H. Simson (1894)",
+    "haldane-3": "Hegel, Lectures on the History of Philosophy, volume III, tr. E. S. Haldane and Frances H. Simson (1896)",
+    "baillie-1": "Hegel, The Phenomenology of Mind, volume I, tr. J. B. Baillie (1910)",
+    "baillie-2": "Hegel, The Phenomenology of Mind, volume II, tr. J. B. Baillie (1910)",
+    "bosanquet-art": "Hegel, The Introduction to Hegel's Philosophy of Fine Art, tr. Bernard Bosanquet (1886)"}
 HEADERS = {"essay": "Hegel, {title}. Written at Delhi, {date}.",
            "letter": "Hegel to {to}. Delhi, {date}.",
            "poem": "Hegel, {title}. A poem, written at Delhi, {date}."}
 ARGUMENT = "[{about}]"
-HEADLINE = re.compile(r"Hegel,|Hegel to\b")
+NOTE = "[Until November 1831 he was professor of philosophy at Berlin.{stay}]"
+STAY = " He has been in Delhi {days}."          # where the world knows how long (clock.DAY_ONE, the morning he woke)
+HEADLINE = re.compile(r"Hegel,|Hegel to\b|Hegel's [^,\n]*, tr\.")
 ENDING = re.compile(r"(\*\s*){3,}$|(?i:THE END|FOOTNOTES?)[.:]?$")
 SENTENCE_END = re.compile(r"[.!?][\"')\]]*(?=\s|$)")
 STRAIGHT = str.maketrans({"“": '"', "”": '"', "‘": "'", "’": "'"})
@@ -123,32 +140,71 @@ def sitting_ask(state):
     return SITTING_ASK + manuscripts(state) + " " + SITTING_FORMAT
 
 
-def prompt(plan, state, d):
-    """(the prompt for a plain-text completion of the sitting, its opening line): the header in the style of his books for the day d, the
-    argument in square brackets and a blank line, then the last words of the manuscript's latest sitting when he carries one on (one from before
-    the index kept tails starts fresh), or the salutation of a new letter, which is the opening line that his text begins with ('' otherwise)."""
+def primer(shelf, plan):
+    """The passage of his English books that fits the sitting best, {"label", "head", "text"}, or None (no shelf, or nothing English of
+    PRIMER_WORDS words among what the title and what the sitting is about call up). `head` is the header line of its work and ref."""
+    for hit in (shelf.search([(plan["title"], 1.0), (plan["about"], 1.0)]) if shelf else []):
+        if hit["lang"] == "en" and PRIMER_WORDS[0] <= len(hit["text"].split()) <= PRIMER_WORDS[1]:
+            head = PRIMER_HEADS.get(hit["id"].rpartition(":")[0], f"Hegel, {hit['work']}")
+            return {"label": hit["label"], "head": head + (f", {hit['ref']}" if hit["ref"] else ""), "text": hit["text"]}
+    return None
+
+
+def note(d):
+    """The editor's note on his situation on the day d: what he was until November 1831, and how long he has been in Delhi."""
+    days = day_number(d) - 1
+    stay = STAY.format(days=f"for {days} day{'s' * (days > 1)}" if days else "since this morning") if days >= 0 else ""
+    return NOTE.format(stay=stay)
+
+
+def prompt(plan, state, d, book=None):
+    """(the prompt for a plain-text completion of the sitting, its opening line): the primer `book` (works.primer), if there is one, as a document
+    of its own; then the header in the style of his books for the day d, the argument and the note on his situation in square brackets and a
+    blank line; then the last words of the manuscript's latest sitting when he carries one on (one from before the index kept tails starts
+    fresh), or the salutation of a new letter, which is the opening line that his text begins with ('' otherwise)."""
     work = find(state.get("works") or [], plan["title"]) if plan["continues"] else None
     src = work or plan
     kind = src["kind"] if src["kind"] != "letter" or src["to"] else "essay"
     when = f"{d.day} {MONTHS[d.month - 1]} {d.year}"
     header = HEADERS.get(kind, HEADERS["essay"]).format(title=src["title"].rstrip("."), to=src["to"], date=when)
-    head = header + "\n" + ARGUMENT.format(about=plan["about"]) + "\n\n"
+    head = (PRIMER.format(**book) if book else "") + header + "\n" + ARGUMENT.format(about=plan["about"]) + "\n" + note(d) + "\n\n"
     carry = carried((work or {}).get("tail") or "")
     opening = (f"Dear {plan['to']}," if plan["to"][:1].isupper() else "Dear friend,") if kind == "letter" and not work else ""
     return head + (carry or (opening + "\n\n" if opening else "")), opening
 
 
+def fold(x):
+    """x in lower case with punctuation and whitespace folded: what two sentences must share to be the same."""
+    return re.sub(r"\W+", " ", x.lower()).strip()
+
+
+def fresh(paras):
+    """paras without the sentences that repeat an earlier sentence (in any paragraph), and without the paragraphs that are left empty by it, which
+    is every paragraph that repeats an earlier one."""
+    seen, out = set(), []
+    for para in paras:
+        keep = []
+        for s in sentences(para):
+            key = fold(s)
+            if not key or key not in seen:
+                keep.append(s)
+                seen.add(key)
+        if keep:
+            out.append(" ".join(keep))
+    return out
+
+
 def echoes(text, title, opening):
     """Is this line one that the prompt already has: the title, a header, the argument or the salutation?"""
-    key = lambda x: re.sub(r"\W+", " ", x.lower()).strip()
-    return key(text) == key(title) or HEADLINE.match(text) or text[:1] == "[" and text[-1:] == "]" or bool(opening) and text == opening
+    return fold(text) == fold(title) or HEADLINE.match(text) or text[:1] == "[" and text[-1:] == "]" or bool(opening) and text == opening
 
 
 def sitting(plan, raw, opening=""):
     """The sitting from a plain-text completion, or None if it is unusable. The model may say the title or header again, or run on into another
     document: leading echoes are dropped, and the text stops at a line that begins a new header or is only "* * *", THE END or Footnotes.
-    Paragraphs stay (and a poem's lines), other whitespace is collapsed, quotes are straight, and the text is cut to CAP and back to its last
-    sentence end (a poem's not); fewer than MIN_WORDS words is unusable. A new letter's opening line goes in front."""
+    Paragraphs stay (and a poem's lines), other whitespace is collapsed, quotes are straight, a sentence that repeats an earlier one of the
+    sitting goes (and a paragraph with it, if nothing else is left of it; a poem's refrains stay), and the text is cut to CAP and back to its
+    last sentence end (a poem's not); fewer than MIN_WORDS words is unusable. A new letter's opening line goes in front."""
     poem, body = plan["kind"] == "poem", []
     for ln in (x.strip() for x in (raw or "").replace("\r\n", "\n").translate(STRAIGHT).replace("--", "—").split("\n")):
         if not body and (not ln or echoes(ln, plan["title"], opening)):
@@ -157,7 +213,7 @@ def sitting(plan, raw, opening=""):
             break
         body.append(ln)
     paras = [("\n" if poem else " ").join(" ".join(x.split()) for x in p.split("\n") if x.strip()) for p in re.split(r"\n\s*\n", "\n".join(body))]
-    text = cut("\n\n".join(p for p in paras if p), CAP - (len(opening) + 2 if opening else 0))
+    text = cut("\n\n".join(p for p in (paras if poem else fresh(paras)) if p), CAP - (len(opening) + 2 if opening else 0))
     ends = [m.end() for m in SENTENCE_END.finditer(text)]
     if not poem and not (ends and ends[-1] == len(text)):
         text = text[:ends[-1]] if ends else ""

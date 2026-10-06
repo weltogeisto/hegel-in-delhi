@@ -11,6 +11,7 @@ import urllib.request
 from .contract import SCHEMA
 
 log = logging.getLogger("world")
+REPEAT_PENALTY, REPEAT_LAST_N, DRY_MULTIPLIER = 1.1, 256, 0.8      # sampling for plain completions, against loops (llama-server's DRY sampler; a server that does not know a field ignores it)
 
 
 class MindAway(Exception):
@@ -73,10 +74,11 @@ class HTTPMind:
 
     def complete(self, prompt, max_tokens=700, temperature=None, seed=None):
         """The text that continues prompt, from llama-server's /completion: the raw prompt, no chat template, no system prompt and no stop
-        string (a model that opens with a blank line would stop before its first word), so the caller cleans up. MindAway as for chat()."""
+        string (a model that opens with a blank line would stop before its first word), so the caller cleans up. It is sampled against loops
+        (repeat penalty, DRY). MindAway as for chat()."""
         self.ensure_awake()
         payload = {"prompt": prompt, "n_predict": max_tokens, "temperature": self.temperature if temperature is None else temperature,
-                   "cache_prompt": False}
+                   "cache_prompt": False, "repeat_penalty": REPEAT_PENALTY, "repeat_last_n": REPEAT_LAST_N, "dry_multiplier": DRY_MULTIPLIER}
         if seed is not None:
             payload["seed"] = seed
         req = urllib.request.Request(self.url + "/completion", data=json.dumps(payload).encode("utf-8"), headers={"Content-Type": "application/json"})
@@ -213,9 +215,10 @@ class StubMind:
         return ans
 
     def complete(self, prompt, max_tokens=700, temperature=None, seed=None):
-        """Two paragraphs of rehearsal prose, the same for the same prompt and seed."""
+        """Two paragraphs of rehearsal prose, the same for the same prompt and seed, with no sentence twice."""
         r = random.Random(f"{prompt}|{seed}")
-        return "(rehearsal) " + " ".join(r.sample(LINES, 3)) + "\n\n" + " ".join(r.sample(LINES, 3))
+        a = r.sample(LINES, 3)
+        return "(rehearsal) " + " ".join(a) + "\n\n" + " ".join(r.sample([x for x in LINES if x not in a], 3))
 
     def chat(self, messages, schema=None, max_tokens=700, temperature=None):
         props = (schema or {}).get("properties", {})
