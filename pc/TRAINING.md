@@ -198,15 +198,15 @@ When it says `adapter saved to .../pc/out/hegel-lora`, send Welt `pc/out/hegel-l
 llama.cpp's converter turns the adapter into a GGUF adapter. Use the same llama.cpp build as the Windows `llama-server` (the build number from step 1), in its own environment so that it doesn't disturb the training stack:
 
 ```bash
-python3 -m venv ~/llama-convert && source ~/llama-convert/bin/activate
+source ~/hegel-train/bin/activate              # the training environment: it has Transformers 5, which Qwen3.8 needs
 git clone --depth 1 --branch b<BUILD> https://github.com/ggml-org/llama.cpp ~/llama.cpp
-pip install -r ~/llama.cpp/requirements/requirements-convert_lora_to_gguf.txt
 cd ~/hegel-in-delhi
-python ~/llama.cpp/convert_lora_to_gguf.py pc/out/hegel-lora --base ~/models/qwen-base --outtype f16 --outfile pc/out/hegel-lora.gguf
+python ~/llama.cpp/convert_lora_to_gguf.py pc/out/hegel-lora --base-model-id Qwen/Qwen3.8-27B --outtype f16 --outfile pc/out/hegel-lora.gguf
 ls -lh pc/out/hegel-lora.gguf && cp pc/out/hegel-lora.gguf /mnt/c/hegel/models/
 ```
 
-- If it complains about the base's config (a 4-bit `quantization_config`), run it again with `--base-model-id Qwen/Qwen3.8-27B` in place of `--base ~/models/qwen-base`.
+- Run the converter in the training environment, not in one of its own: llama.cpp's converter requirements pin Transformers 4.x, which does not know Qwen3.8's architecture (`qwen3_5`) and fails with "Transformers does not recognize this architecture". Don't install those requirements into the training environment either; if the converter misses a single module (for example `sentencepiece`), install just that one.
+- `--base-model-id` reads the base's configuration from Hugging Face; the local 4-bit copy's configuration carries a quantization block the converter may refuse.
 - If it names an unsupported architecture or tensor: take the latest llama.cpp release for both the converter and the Windows server, and try once more. Report if that fails too.
 
 **With llama.cpp in WSL** (step 1), serve it there instead of the Windows lines below, in tmux, with the GGUF the WSL server uses for Qwen:
