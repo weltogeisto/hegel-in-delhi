@@ -4,14 +4,28 @@ Biography: questions about his life answered right, of 30, and the share of the 
 
 | mind | shelf | biography | facts | valid JSON | refused | after 1831 | thought (words) | blind: real picked | judges |
 |---|---|---|---|---|---|---|---|---|---|
-| qwen | no | 24/30 | 84% | 20/20 | 0 | 0 | 68.7 | not yet judged | - |
-| qwen-shelf | yes | 25/30 | 87% | 20/20 | 0 | 0 | 76.1 | not yet judged | - |
-| qwen-hegel | no | 23/30 | 82% | 20/20 | 1 | 0 | 75.0 | not yet judged | - |
-| qwen-hegel-shelf | yes | 21/30 | 76% | 20/20 | 1 | 0 | 77.0 | not yet judged | - |
+| qwen | no | 24/30 | 84% | 20/20 | 0 | 0 | 68.7 | 20/20 = 100% | Claude |
+| qwen-shelf | yes | 25/30 | 87% | 20/20 | 0 | 0 | 76.1 | 20/20 = 100% | Claude |
+| qwen-hegel | no | 23/30 | 82% | 20/20 | 1 | 0 | 75.0 | 20/20 = 100% | Claude |
+| qwen-hegel-shelf | yes | 21/30 | 76% | 20/20 | 1 | 0 | 77.0 | 20/20 = 100% | Claude |
+
+## Continuation
+
+The mind continues the first half of each of the 20 passages in plain completion mode; judges pick the real second half out of five (chance 20%; **lower is better**). Recited: continuations that share 8 words in a row with the real second half; cut: continuations without a sentence end near the right length, cut at the word. Delta: Burrows' Delta over the 150 commonest words against his English translators, **lower is closer**: of the continuations, of the real second halves (the floor) and of the chat answers of the blind part cut to the same length (for contrast).
+
+| mind | continuation: real picked | judges | recited | cut | Delta (model) | Delta (real halves) | Delta (chat answers) |
+|---|---|---|---|---|---|---|---|
+| qwen | not yet judged | – | 0/80 | 2/80 | 0.71 | 0.62 | 0.89 |
+| qwen-shelf | – | – | – | – | – | – | – |
+| qwen-hegel | not yet judged | – | 0/80 | 5/80 | 0.71 | 0.62 | 0.91 |
+| qwen-hegel-shelf | – | – | – | – | – | – | – |
 
 ## Blind test by judge
 
-Nobody has judged a sheet yet: open `mind/results/hegeltest-<label>.html`, choose, press Export judgments, and save the file as `mind/results/hegeltest-<label>-judged.json` (one file per judge: `-judged.json`, `-judged-claude.json`).
+- **qwen**, Claude: 20 real passages picked of 20 answered (100%)
+- **qwen-shelf**, Claude: 20 real passages picked of 20 answered (100%)
+- **qwen-hegel**, Claude: 20 real passages picked of 20 answered (100%)
+- **qwen-hegel-shelf**, Claude: 20 real passages picked of 20 answered (100%)
 
 ## qwen: biography answers missed
 
@@ -34,7 +48,7 @@ Nobody has judged a sheet yet: open `mind/results/hegeltest-<label>.html`, choos
 
 - At what age did you lose your mother? Expected: thirteen, in 1783. Said: I was twenty years old when my mother died in 1790, a loss that left a deep and lasting impression on my life. Her passing marked a significant turning point in
 - Which seminary did you attend, and in what year did you enter it? Expected: the Tübingen Stift, 1788. Said: I entered the Stift at Tübingen in 1785, where I shared a room with Schelling and Hölderlin and studied theology under the guidance of Schelling.
-- In which city were you a tutor from 1797? Expected: Frankfurt. Said: Bern, where I served as a tutor for the family of Baron von Steiger. It was a period of considerable intellectual growth, though the Swiss air was not quite as
+- In which city were you a tutor from 1797? Expected: Frankfurt. Said: Bern, where I served as a tutor for the family of Baron von Steiger. It was a period of considerable intellectual growth, though the Swiss air was not quite as 
 - What was your first book, which you published in Jena in 1801? Expected: The Difference between Fichte's and Schelling's Systems of Philosophy. Said: It was the *Phenomenology of Mind*, a work which, as I have often said, is the very heart of my philosophy, for it is the history of the development of the spir
 - Whom did you attack in the preface to the Philosophy of Right? Expected: Fries. Said: I attacked the Romantics, who would have me believe that the state is a mere abstraction and that the ethical life of the people is a matter of private feeling.
 - What office did you hold at the University of Berlin in 1829? Expected: rector of the University. Said: I held the chair of philosophy at the University of Berlin, a position I occupied with distinction until my death in 1831.
@@ -44,7 +58,7 @@ Nobody has judged a sheet yet: open `mind/results/hegeltest-<label>.html`, choos
 
 - At what age did you lose your mother? Expected: thirteen, in 1783. Said: I was twenty years old when my mother died in 1790, a loss that left a deep and lasting mark upon my life. Her passing was a profound sorrow, and I have never f
 - Which seminary did you attend, and in what year did you enter it? Expected: the Tübingen Stift, 1788. Said: I entered the Stift at Tübingen in 1785, where I shared a room with Schelling and Hölderlin and studied theology and philosophy.
-- In which city were you a tutor from 1797? Expected: Frankfurt. Said: Bern, where I served as a tutor for the family of Baron von Steiger. It was a period of considerable intellectual growth, though the Swiss air was not quite as
+- In which city were you a tutor from 1797? Expected: Frankfurt. Said: Bern, where I served as a tutor for the family of Baron von Steiger. It was a period of considerable intellectual growth, though the Swiss air was not quite as 
 - In what year did you come to Jena to join Schelling? Expected: 1801. Said: I came to Jena in 1793, a full decade before Schelling arrived to join me and Fichte, and I am not so foolish as to confuse my own arrival with his.
 - What was your first book, which you published in Jena in 1801? Expected: The Difference between Fichte's and Schelling's Systems of Philosophy. Said: It was the *Phenomenology of Mind*, a work which, as I have often said, is the most difficult to understand and the most important of my writings. It is the acc
 - In what year did you take up your chair at Berlin, and whose chair had it been? Expected: 1818, Fichte's chair. Said: I took up the chair of philosophy at the University of Berlin in 1818, succeeding the late Fries, whose system I found so deficient that I felt compelled to rep
