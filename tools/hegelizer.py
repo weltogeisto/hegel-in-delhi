@@ -142,6 +142,22 @@ def split_long(text, limit):
     return out + [text] if text.strip() else out
 
 
+HEADING = re.compile(r"(?:^|(?<=[.!?:]\s))§§?\s*\d+[a-z]?\.\s*")                 # a section number that opens a paragraph: "§ 168. Since marriage ..."
+LABEL = re.compile(r"(?:^|(?<=[.!?]\s))(?:Note|Addition|Remark|Zusatz)\s*\.?\s*[—–-]+\s*")      # "Note. —", "Addition. —"
+CROSS = re.compile(r"\s*\((?:[^()]*?\s)?§§?\s*\d+[^()]*\)")                  # "(§ 258)", "(cf. § 41)": a reference to another section
+FOOTMARK = re.compile(r"\[\d+\]|\*\)")                                         # "[12]", "*)"
+CAPS = re.compile(r"^((?:[A-Z][A-Z'’-]+\s+)*[A-Z][A-Z'’-]+)(?=\s+[a-z])")      # a small-caps opening: "PHILOSOPHY misses ..."
+
+
+def apparatus(text):
+    """text without the editor's apparatus, which a restyled page of his must not copy: section numbers that open a paragraph, the labels
+    "Note. —" and "Addition. —", references to other sections in brackets, footnote marks; a small-caps opening is set in ordinary case.
+    A '§' left in the text (a reference in the run of a sentence) stays, and the unit is then dropped in build_units."""
+    text = FOOTMARK.sub("", CROSS.sub("", LABEL.sub("", HEADING.sub("", text))))
+    text = CAPS.sub(lambda m: m.group(1).capitalize(), text.lstrip())
+    return " ".join(text.split())
+
+
 def work_units(passages, window=UNIT_WORDS):
     """([(ref, text)], lost): the units of one work from its passages [(ref, text)] in order. Consecutive passages are merged until the unit has `window[0]`
     words; if the next passage would take it past `window[1]`, the whole sentences at its front that fit are taken and the rest begins the next unit.
@@ -243,7 +259,8 @@ def assign_split(units, seed=SPLIT_SEED, share=HELD_SHARE):
 
 def build_units(books, seed=SPLIT_SEED, questions=BLIND):
     """(units, report): the units of every English work of the shelf, [{"id", "work", "ref", "original", "split"}], and per work how many were made and
-    how many dropped for overlapping the blind passages ("overlap"), for a scan's damage ("damaged") or as fragments ("lost"). Ids are 'work:k' for the
+    how many dropped for overlapping the blind passages ("overlap"), for a scan's damage ("damaged"), for a section reference left in the run of a
+    sentence ("apparatus") or as fragments ("lost"). The passages lose their editor's apparatus first (apparatus()). Ids are 'work:k' for the
     k-th unit made (before the drops), so they stay while the shelf does."""
     runs, shingles, run = blind_runs(questions)
     counts = english_counts(books)
@@ -252,13 +269,15 @@ def build_units(books, seed=SPLIT_SEED, questions=BLIND):
         if w["lang"] != "en":
             continue
         refs, texts = books.data["refs"][w["start"]:w["start"] + w["n"]], books.data["texts"][w["start"]:w["start"] + w["n"]]
-        made, lost = work_units(list(zip(refs, texts)))
-        rep = report[w["id"]] = {"made": len(made), "overlap": 0, "damaged": 0, "lost": lost}
+        made, lost = work_units([(ref, apparatus(text)) for ref, text in zip(refs, texts)])
+        rep = report[w["id"]] = {"made": len(made), "overlap": 0, "damaged": 0, "apparatus": 0, "lost": lost}
         for k, (ref, text) in enumerate(made):
             if runs & shingles(text, run):
                 rep["overlap"] += 1
             elif damaged(text, counts):
                 rep["damaged"] += 1
+            elif "§" in text:
+                rep["apparatus"] += 1
             else:
                 units.append({"id": f"{w['id']}:{k}", "work": w["id"], "ref": ref, "original": text})
     return assign_split(units, seed), report
@@ -277,15 +296,15 @@ def cmd_build(a, out):
         return 1
     units, report = build_units(books, SPLIT_SEED if a.seed is None else a.seed)
     write_rows(out / UNITS, units)
-    print(f"{out / UNITS}\n  {'work':15} {'units':>6} {'train':>6} {'held':>5} {'words':>8}   dropped: {'overlap':>7} {'damaged':>7} {'fragments':>9}")
-    total = {"units": 0, "train": 0, "held": 0, "words": 0, "overlap": 0, "damaged": 0, "lost": 0}
+    print(f"{out / UNITS}\n  {'work':15} {'units':>6} {'train':>6} {'held':>5} {'words':>8}   dropped: {'overlap':>7} {'damaged':>7} {'apparatus':>9} {'fragments':>9}")
+    total = {"units": 0, "train": 0, "held": 0, "words": 0, "overlap": 0, "damaged": 0, "apparatus": 0, "lost": 0}
     for work, rep in report.items():
         mine = [u for u in units if u["work"] == work]
         row = {"units": len(mine), "train": sum(u["split"] == "train" for u in mine), "held": sum(u["split"] == "held" for u in mine),
-               "words": sum(words_of(u["original"]) for u in mine), **{k: rep[k] for k in ("overlap", "damaged", "lost")}}
+               "words": sum(words_of(u["original"]) for u in mine), **{k: rep[k] for k in ("overlap", "damaged", "apparatus", "lost")}}
         total = {k: total[k] + v for k, v in row.items()}
-        print(f"  {work:15} {row['units']:6} {row['train']:6} {row['held']:5} {row['words']:8}   {'':8} {row['overlap']:7} {row['damaged']:7} {row['lost']:9}")
-    print(f"  {'all':15} {total['units']:6} {total['train']:6} {total['held']:5} {total['words']:8}   {'':8} {total['overlap']:7} {total['damaged']:7} {total['lost']:9}")
+        print(f"  {work:15} {row['units']:6} {row['train']:6} {row['held']:5} {row['words']:8}   {'':8} {row['overlap']:7} {row['damaged']:7} {row['apparatus']:9} {row['lost']:9}")
+    print(f"  {'all':15} {total['units']:6} {total['train']:6} {total['held']:5} {total['words']:8}   {'':8} {total['overlap']:7} {total['damaged']:7} {total['apparatus']:9} {total['lost']:9}")
     stale = mismatched(units, read_rows(out / DONE))
     if stale:
         print(f"WARNING: {stale} rows of {out / DONE} do not match these units (another shelf or seed?); --paraphrase will refuse them. Move that file away to start over.")

@@ -81,8 +81,8 @@ class RealShelfTest(unittest.TestCase):
         self.assertEqual(len({u["id"] for u in self.units}), len(self.units))
 
     def test_a_unit_is_contiguous_text_of_its_work(self):
-        books = shelf.load()
-        body = {w["id"]: " ".join(" ".join(t.split()) for t in books.data["texts"][w["start"]:w["start"] + w["n"]]) for w in books.works if w["lang"] == "en"}
+        books = shelf.load()                    # (its passages without the editor's apparatus, as build_units reads them)
+        body = {w["id"]: " ".join(hz.apparatus(t) for t in books.data["texts"][w["start"]:w["start"] + w["n"]]) for w in books.works if w["lang"] == "en"}
         for u in self.units:
             self.assertIn(u["original"], body[u["work"]], u["id"])
 
@@ -195,6 +195,27 @@ class WindowTest(unittest.TestCase):
         self.assertEqual(hz.fill(text, 25), (S(10, "a") + " " + S(10, "b"), S(10, "c")))
         self.assertEqual(hz.fill(text, 5), ("", text))
         self.assertEqual(hz.fill(text, 100), (text, ""))
+
+
+class ApparatusTest(unittest.TestCase):
+    """The editor's apparatus goes before units are made: a restyled page of his must not copy section numbers or note labels."""
+
+    def test_section_numbers_labels_references_and_footnote_marks_go(self):
+        cases = {"§ 168. Since marriage proceeds out of freedom": "Since marriage proceeds out of freedom",
+                 "it is so. Note. — Marriage, or monogamy, rather": "it is so. Marriage, or monogamy, rather",
+                 "it is so. Addition. — The state is": "it is so. The state is",
+                 "as was shown (§ 258) the state": "as was shown the state",
+                 "the ethical (cf. § 142 and § 150) life[3] goes on*)": "the ethical life goes on",
+                 "§ 1. PHILOSOPHY misses an advantage": "Philosophy misses an advantage",
+                 "(1) the first, (2) the second": "(1) the first, (2) the second"}                    # his own enumerations stay
+        for raw, clean in cases.items():
+            self.assertEqual(hz.apparatus(raw), clean, raw)
+        self.assertEqual(hz.apparatus("in § 41 we saw"), "in § 41 we saw")                       # in the run of a sentence: build_units drops the unit
+
+    def test_no_unit_of_the_real_shelf_keeps_a_section_mark(self):
+        units, report = hz.build_units(shelf.load())
+        self.assertFalse([u["id"] for u in units if "§" in u["original"]])
+        self.assertTrue(all("apparatus" in r for r in report.values()))
 
 
 class DamageTest(unittest.TestCase):

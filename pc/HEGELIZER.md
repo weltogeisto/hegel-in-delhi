@@ -55,7 +55,7 @@ If the card runs out of memory, use `-c 32768` (8192 per slot is plenty: a passa
 python3 tools/hegelizer.py --build
 ```
 
-It takes a minute and writes `mind/train/hegelizer-units.jsonl`: passages of his ten English books (Wallace, Dyde, Sibree, Haldane, Baillie, Bosanquet) merged or cut to 150 to 250 words. It leaves out the units that share eight words with the Hegel test's twenty passages and the units that still show their scan ("tlie", "hke"). 5% of each book is held out for the test. The table is the count per book and in all, with how many were dropped and why. Report the table. Expect about 4,100 units, 205 of them held out; if there are fewer than 3,000, stop and report.
+It takes a minute and writes `mind/train/hegelizer-units.jsonl`: passages of his ten English books (Wallace, Dyde, Sibree, Haldane, Baillie, Bosanquet) merged or cut to 150 to 250 words. The editors' apparatus comes out first (section numbers, "Note. —", references like "(§ 258)", footnote marks), so that a restyled page never copies it. It leaves out the units that share eight words with the Hegel test's twenty passages, the units that still show their scan ("tlie", "hke") and the few with a section reference in mid-sentence. 5% of each book is held out for the test. The table is the count per book and in all, with how many were dropped and why. Report the table. Expect about 4,100 units, 205 of them held out; if there are fewer than 3,000, stop and report.
 
 ## 4. Plain versions
 
