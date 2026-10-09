@@ -4,6 +4,7 @@
     python3 tools/hegel_test.py --url http://PC:8081 --label bonsai            # the four parts, without the shelf
     python3 tools/hegel_test.py --url http://PC:8081 --label bonsai-shelf --shelf
     python3 tools/hegel_test.py --url http://PC:8082 --label qwen --only cont  # one part; the others already in the file stay
+    python3 tools/hegel_test.py --url http://PC:8082 --label hegelizer --only restyle   # the Hegelizer (pc/HEGELIZER.md); not one of the default parts
     python3 tools/hegel_test.py --compare bonsai bonsai-shelf qwen             # writes mind/results/hegeltest.md
     python3 tools/hegel_test.py --export-ppl mind/results/ppl                  # held-out and seen text for llama-perplexity
     python3 tools/hegel_test.py --serve-stub 8099                              # a stand-in llama-server, to try the tool
@@ -19,6 +20,10 @@ completion mode (no chat template, no system prompt), and writes on; the sheet m
 second half and four continuations in one typography, and a Burrows' Delta over the 150 commonest words says how close the continuations
 lie to his English translators. With --shelf the mind gets passages from his shelf with every question; in the blind test the book the real
 passage comes from (and its German or English twin) is held out, so the shelf cannot hand over the answer; the continuations ignore it.
+(e) Restyle, only with --only restyle (it needs mind/train/hegelizer.jsonl, tools/hegelizer.py): 20 held-out units of the Hegelizer's data, passages of his translators that
+no training saw, each with the plain modern version that a model made of it. The mind is asked four times, through the chat endpoint and world/restyle.py's
+prompt, to put the plain version in his manner; the sheet mind/results/hegeltest-<label>-restyle.html shows the plain version and five wordings of it, four the
+mind's and one the real passage, and Burrows' Delta says how close the restyled versions lie to his translators, against the plain versions and the real ones.
 --export-ppl writes the text for llama.cpp's llama-perplexity: the 20 real passages, which the adapter never saw, and 20 that it did.
 Standard library only."""
 import argparse
@@ -46,12 +51,14 @@ sys.path.insert(0, str(REPO))
 sys.path.insert(0, str(REPO / "mind"))
 sys.path.insert(0, str(HERE))                  # tools/corpus.py and tools/train_data.py, for the header line of a document
 import bakeoff  # noqa: E402  (the 20 test situations and the one way of asking the mind)
-from world import contract, shelf  # noqa: E402
+from world import contract, restyle, shelf  # noqa: E402
 from world.world import wordlist  # noqa: E402
 
 DATA, RESULTS = REPO / "mind/hegeltest", REPO / "mind/results"
 ANSWERS, TEMPERATURE, WORDS = 4, 0.9, (80, 140)
 PARTS = ("blind", "bio", "behaviour", "cont")
+OPTIONAL = ("restyle",)                         # a part that is run only when asked for with --only: it needs the Hegelizer's data
+HEGELIZER, RESTYLE_N, RESTYLE_TOKENS = REPO / "mind/train/hegelizer.jsonl", 20, 2.5      # the paraphrased units; pairs for the sheet; max_tokens per word of the real passage
 RUN, SPLIT_MIN, TRIES = 8, 35, 3                # words in a row that two texts share when one has the other's wording (as train_data.HELD_OUT_RUN); the shortest half of a split passage; tries for one continuation
 STYLE_SEGMENT, STYLE_FEATURES = 1000, 150       # words in a segment of the Delta reference; the commonest words Delta looks at
 # the book a real passage comes from, with its twin in the other language: held out of the shelf in the blind test
@@ -160,20 +167,25 @@ def order_for(label, qid, n):
 
 def sheet_data(label, rows):
     """The items of the sheet, five options each in shuffled order, and the key. `rows` are the blind answers (an item shows the question; the
-    real option is the passage) or the continuations (they carry the real second half as "rest"; an item shows the opening of the passage)."""
+    real option is the passage), the continuations (they carry the real second half as "rest"; an item shows the opening of the passage) or the
+    restyles (they carry the "plain" version, which an item shows, and the real passage as "original"; "work" and "ref" say where it is from)."""
     qs, key = [], []
     by_id = {q["id"]: q for q in load("questions.json")["questions"]}
     for b in rows:
-        q = by_id[b["id"]]
-        pool = b["answers"] + [b.get("rest", q["passage"])]     # the real one last, then shuffled
-        pos = order_for(label, q["id"], len(b["answers"]))
+        if "plain" in b:
+            pool, lead, (topic, source, translation) = b["answers"] + [b["original"]], {"plain": b["plain"]}, restyle_source(b["work"], b["ref"])
+        else:
+            q = by_id[b["id"]]
+            pool = b["answers"] + [b.get("rest", q["passage"])]     # the real one last, then shuffled
+            lead = {"opening": b["opening"]} if "rest" in b else {"question": q["question"]}
+            topic, translation = q["topic"], q["translation"]
+            source = f"{q['work']} {q['ref']}" if q["ref"].startswith("§") else f"{q['work']}, {q['ref']}"
+        pos = order_for(label, b["id"], len(b["answers"]))
         letters = "ABCDEFGH"[:len(pool)]
         shown = [pool[i] for i in pos]
         real = letters[pos.index(len(pool) - 1)]
-        lead = {"opening": b["opening"]} if "rest" in b else {"question": q["question"]}
-        qs.append({"id": q["id"], "topic": q["topic"], **lead, "options": dict(zip(letters, shown)), "real": real,
-                   "from": f"{q['work']} {q['ref']}" if q["ref"].startswith("§") else f"{q['work']}, {q['ref']}", "translation": q["translation"]})
-        key.append({"id": q["id"], "real": real, "order": ["real" if i == len(pool) - 1 else f"model {i + 1}" for i in pos], "from": qs[-1]["from"]})
+        qs.append({"id": b["id"], "topic": topic, **lead, "options": dict(zip(letters, shown)), "real": real, "from": source, "translation": translation})
+        key.append({"id": b["id"], "real": real, "order": ["real" if i == len(pool) - 1 else f"model {i + 1}" for i in pos], "from": qs[-1]["from"]})
     return qs, key
 
 
@@ -221,7 +233,7 @@ function paint(){
 }
 function build(){
   document.getElementById('qs').innerHTML = DATA.map((q, n) => `<section class="card" id="c-${q.id}"><h2>${n + 1}. ${esc(q.topic)}</h2>`
-    + (q.opening ? `<p class="muted">The passage begins:</p><blockquote><p>${esc(q.opening)}</p></blockquote><p class="muted">How does it go on?</p>` : `<p><i>${esc(q.question)}</i></p>`)
+    + (q.opening ? `<p class="muted">The passage begins:</p><blockquote><p>${esc(q.opening)}</p></blockquote><p class="muted">How does it go on?</p>` : __PLAIN__`<p><i>${esc(q.question)}</i></p>`)
     + Object.entries(q.options).map(([l, text]) => `<label class="opt" data-l="${l}"><input type="radio" name="${q.id}" value="${l}"><span class="l">${l}</span><p>${esc(text)}</p></label>`).join('')
     + `<div class="row"><button type="button" data-key="${q.id}">Show key</button></div><p class="verdict" id="v-${q.id}"></p></section>`).join('');
   DATA.forEach(q => { const c = state.choices[q.id]; if (c) document.querySelector(`input[name="${q.id}"][value="${c}"]`).checked = true; if (state.shown[q.id]) reveal(q.id); });
@@ -253,15 +265,22 @@ INTRO_CONT = ("Twenty passages from his books in nineteenth-century English tran
               "real second half, four were written by the model, which was given the opening as the start of a page of his books and wrote on. Pick the one you "
               "think is real. Chance is one in five: the lower the judges' hit rate, the more the model sounds like him. Some passages hold his nineteenth-century "
               "views as he lectured them, unsoftened.")
+INTRO_RESTYLE = ("Passages from his books in nineteenth-century English translation. Each is shown first in a plain modern version, then in five wordings of it: one is "
+                 "the real passage, as his translator has it, four were written by the model, which was given the plain version and asked to put it in his manner. "
+                 "Pick the one you think is real. Chance is one in five: the lower the judges' hit rate, the more the model sounds like him. Some passages hold his "
+                 "nineteenth-century views as he lectured them, unsoftened.")
+PLAIN_BRANCH = ('q.plain ? `<p class="muted">The plain version:</p><blockquote><p>${esc(q.plain)}</p></blockquote><p class="muted">Which wording is his translator\'s?</p>` : ')
 
 
 def write_sheet(label, rows, shelf_on):
-    """mind/results/hegeltest-<label>.html and -key.json for the blind answers or, if the rows are continuations, for the sheet of the cont part."""
+    """mind/results/hegeltest-<label>.html and -key.json for the blind answers or, if the rows are continuations or restyles, for the sheet of the cont or the
+    restyle part. The page of the blind and the cont sheet is the same bytes as it was before the restyle part came."""
     qs, key = sheet_data(label, rows)
-    cont = any("rest" in b for b in rows)
+    cont, plain = any("rest" in b for b in rows), any("plain" in b for b in rows)
     data = json.dumps(qs, ensure_ascii=False).replace("</", "<\\/").replace("<!--", "<\\!--")
     page = (SHEET.replace("__LABEL_JSON__", json.dumps(label)).replace("__RUN__", hashlib.sha1(data.encode()).hexdigest()[:8]).replace("__LABEL__", html.escape(label))
-            .replace("__HEAD__", "Which ending is Hegel's?" if cont else "Which one is Hegel?").replace("__INTRO__", INTRO_CONT if cont else INTRO)
+            .replace("__HEAD__", "Which wording is Hegel's own?" if plain else "Which ending is Hegel's?" if cont else "Which one is Hegel?")
+            .replace("__INTRO__", INTRO_RESTYLE if plain else INTRO_CONT if cont else INTRO).replace("__PLAIN__", PLAIN_BRANCH if plain else "")
             .replace("__SHELF__", " (with his shelf)" if shelf_on else "").replace("__DATA__", data))
     RESULTS.mkdir(exist_ok=True)
     (RESULTS / f"hegeltest-{label}.html").write_text(page, encoding="utf-8")
@@ -419,12 +438,17 @@ def header_for(q, ref=None):
 
 
 def continuation(url, prompt, words, real, args, seed):
-    """One model continuation of prompt for a real half of `words` words, as (text, recited, cut). It is asked for with up to TRIES seeds (seed, seed + 1 ...)
-    until it is neither a copy of the real half (a run of RUN words shared with `real`, its shingles) nor without a sentence end near the right length;
-    then the best try stays: not recited before not cut, the earlier before the later. A try that has no sentence end is cut at `words` words."""
+    """One model continuation of prompt for a real half of `words` words, as (text, recited, cut): best_try of the raw completions."""
+    return best_try(lambda s: complete(url, prompt, int(2.5 * words), TEMPERATURE, args.timeout, seed=s), words, real, seed)
+
+
+def best_try(fetch, words, real, seed):
+    """One model text for a real passage of `words` words, as (text, recited, cut). `fetch(seed)` gives a try. It is asked for with up to TRIES seeds (seed,
+    seed + 1 ...) until it is neither a copy of the real passage (a run of RUN words shared with `real`, its shingles) nor without a sentence end near the right
+    length; then the best try stays: not recited before not cut, the earlier before the later. A try that has no sentence end is cut at `words` words."""
     tries = []
     for k in range(TRIES):
-        text = typography(complete(url, prompt, int(2.5 * words), TEMPERATURE, args.timeout, seed=seed + k))
+        text = typography(fetch(seed + k))
         trimmed = cut(text, words)
         shown = trimmed if trimmed is not None else " ".join(text.split()[:words])
         tries.append((shares_run(shown, real), trimmed is None, shown))
@@ -449,6 +473,80 @@ def run_cont(url, args):
         row["latency_s"] = round(time.time() - t0, 1)
         out.append(row)
         print(f"cont  {q['id']:12} {sum(map(bool, row['answers']))}/{args.answers} answers, {sum(row['recited'])} recited, {sum(row['cut'])} cut  {row['latency_s']:5.1f}s", flush=True)
+    return out
+
+
+# ── (e) the restyles ────────────────────────────────────────────────
+def digest(text):
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def restyle_pairs(n, path=None):
+    """The pairs for the restyle part: n of the held-out units of the Hegelizer's data (hegelizer.jsonl rows of split "held"), as [{"id", "work", "ref", "plain",
+    "original"}], taken from the works in turn, each work's units in an order that their ids decide: the same file always gives the same pairs, whichever mind
+    is tested. Fewer if the file has fewer. Stops with a message if the file is missing or holds no held-out unit."""
+    path = Path(path or HEGELIZER)
+    if not path.exists():
+        sys.exit(f"{path} is missing: the restyle part tests the Hegelizer's held-out units. Run tools/hegelizer.py --build and --paraphrase first (pc/HEGELIZER.md).")
+    rows = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        try:
+            row = json.loads(line)
+        except ValueError:
+            continue                                             # (a half line that a crash left)
+        if isinstance(row, dict) and row.get("split") == "held" and all(isinstance(row.get(k), str) and row[k].strip() for k in ("id", "work", "plain", "original")):
+            rows.append({"id": row["id"], "work": row["work"], "ref": row.get("ref") or "", "plain": row["plain"], "original": row["original"]})
+    if not rows:
+        sys.exit(f"{path} has no held-out unit (split 'held'): finish tools/hegelizer.py --paraphrase first.")
+    by_work = {}
+    for r in sorted(rows, key=lambda r: digest(r["id"])):
+        by_work.setdefault(r["work"], []).append(r)
+    order, picked = sorted(by_work, key=lambda w: digest("restyle|" + w)), []
+    while len(picked) < n and any(by_work.values()):
+        for w in order:
+            if by_work[w] and len(picked) < n:
+                picked.append(by_work[w].pop(0))
+    return picked
+
+
+def restyle_source(work, ref):
+    """(topic, from, translation) of a restyle item: the work's short title, that title and the ref ('Philosophy of Right §258'), and the translator and year
+    ('S. W. Dyde, 1896'), from the manifest of tools/corpus.py; the shelf work's id stands for the title where the manifest cannot be imported."""
+    tools = corpus_tools()
+    entry = tools[1].get(work) if tools else None
+    title = entry["work"] if entry else work
+    who, year = (re.match(r"tr\. (.*)", entry["who"]), re.match(r"\d{4}", entry["year"])) if entry else (None, None)
+    return title, shelf.label(title, ref), ", ".join(x for x in (who[1] if who else "", year[0] if year else "") if x)
+
+
+PREFACE = re.compile(r"\A\s*(?:here(?:'s| is| are)|sure|certainly|below is)[^\n]{0,120}:[ \t]*\n+", re.I)
+
+
+def restyle_answer(raw):
+    """The mind's reply as the text itself: clean_answer, and without a line of announcement at the start ('Here is the passage in Hegel's manner:'), which
+    a model not trained for the task adds and which would give it away by form, not by style."""
+    return clean_answer(PREFACE.sub("", raw or ""))
+
+
+def run_restyle(url, args, pairs):
+    """The restyle part for `pairs` (restyle_pairs): each plain version put in his manner args.answers times through the chat endpoint, with the prompt of
+    world/restyle.py, thinking off, at TEMPERATURE. A reply is cleaned, set in one typography and cut at the sentence end nearest the real passage's length, and
+    one that shares RUN words in a row with the real passage is asked again with the next seed (best_try)."""
+    out = []
+    for p in pairs:
+        t0 = time.time()
+        words, real = len(p["original"].split()), shingles(p["original"])
+        system, user = (m["content"] for m in restyle.messages(p["plain"]))
+        row = {"id": p["id"], "work": p["work"], "ref": p["ref"], "plain": p["plain"], "original": typography(p["original"]), "answers": [], "recited": [], "cut": []}
+        for i in range(args.answers):
+            text, recited, hard = best_try(lambda s: restyle_answer(ask(url, system, user, TEMPERATURE, int(RESTYLE_TOKENS * words), args.timeout, seed=s)),
+                                           words, real, args.seed + 17 * i)
+            row["answers"].append(text)
+            row["recited"].append(recited)
+            row["cut"].append(hard)
+        row["latency_s"] = round(time.time() - t0, 1)
+        out.append(row)
+        print(f"restyle {p['id']:20} {sum(map(bool, row['answers']))}/{args.answers} answers, {sum(row['recited'])} recited, {sum(row['cut'])} cut  {row['latency_s']:5.1f}s", flush=True)
     return out
 
 
@@ -534,6 +632,23 @@ def continuation_style(out):
     return summary
 
 
+def restyle_style(out):
+    """The summary of a run's restyles as it goes into the run JSON: answers, how many were recited and cut, and the Delta of the restyled versions (one per
+    group of the same seed, as long as the real passages together, and their mean), of the real passages together (the floor), and of the plain versions each
+    cut to the length of its real passage (where the model started from). Delta falls as a text grows, so every group is as long as the group of real passages."""
+    rows, ref = out["restyle"], reference()
+    summary = {"answers": sum(len(r["answers"]) for r in rows), "recited": sum(sum(r["recited"]) for r in rows), "cut": sum(sum(r["cut"]) for r in rows),
+               "delta": None, "reference": None}
+    if ref:
+        plain = [{"answers": [" ".join(r["plain"].split()[:len(r["original"].split())])]} for r in rows]
+        model = [delta(t) for t in groups_of(rows)]
+        mean = lambda xs: round(sum(xs) / len(xs), 3) if xs and None not in xs else None
+        summary["delta"] = {"model": mean(model), "model_groups": [round(x, 3) for x in model if x is not None], "real": mean([delta(" ".join(r["original"] for r in rows))]),
+                            "plain": mean([delta(t) for t in groups_of(plain)])}
+        summary["reference"] = {"segments": ref["segments"], "words": ref["words"], "left_out": ref["left_out"], "features": len(ref["features"])}
+    return summary
+
+
 # ── the text for llama-perplexity ───────────────────────────────────
 @functools.lru_cache(maxsize=1)
 def english_vocabulary():
@@ -601,6 +716,7 @@ def run(args):
     books, system = Books(args.shelf), voice()
     path = RESULTS / f"hegeltest-{args.label}.json"
     parts = set(args.only.split(",")) if args.only else set(PARTS)
+    pairs = restyle_pairs(args.restyle_n) if "restyle" in parts else []          # (stops here, before any part runs, if the Hegelizer's data is missing)
     out = {"label": args.label, "url": args.url, "started": "", "shelf": bool(args.shelf), "holdout": args.holdout if args.shelf else None, "answers_per_question": args.answers}
     if path.exists():
         out = {**out, **json.loads(path.read_text(encoding="utf-8"))}
@@ -620,6 +736,14 @@ def run(args):
         out["continuation"] = run_cont(args.url, args)
         write_sheet(f"{args.label}-cont", out["continuation"], False)
         sheets.append(RESULTS / f"hegeltest-{args.label}-cont.html")
+    if "restyle" in parts:
+        out["restyle"] = run_restyle(args.url, args, pairs)
+        write_sheet(f"{args.label}-restyle", out["restyle"], False)
+        sheets.append(RESULTS / f"hegeltest-{args.label}-restyle.html")
+        st = out["restyle_style"] = restyle_style(out)
+        d = st["delta"] or {}
+        print(f"restyle {st['recited']}/{st['answers']} recited, {st['cut']} cut; Delta: model {d.get('model')}, plain versions {d.get('plain')}, real passages {d.get('real')} "
+              f"(lower is closer to his translators)")
     if "continuation" in out and parts & {"cont", "blind"}:       # (the chat answers of a new blind part change the contrast)
         st = out["continuation_style"] = continuation_style(out)
         d = st["delta"] or {}
@@ -679,6 +803,22 @@ def compare(labels):
         lines.append(f"| {l} | " + ((f"{hit}/{n} = {100 * hit / n:.0f}%" if n else "not yet judged") if c else "–") + " | " + (", ".join(x["judge"] for x in j) if c and j else "–") + " | "
                      + (f"{sum(sum(x['recited']) for x in c)}/{total}" if c else "–") + " | " + (f"{sum(sum(x['cut']) for x in c)}/{total}" if c else "–") + " | "
                      + num(d.get("model")) + " | " + num(d.get("real")) + " | " + num(d.get("chat")) + " |")
+    if any(r.get("restyle") for r in runs.values()):
+        lines += ["", "## Restyle", "",
+                  "The Hegelizer's test: held-out passages of his translators (20 by default), each with the plain modern version a model made of it (tools/hegelizer.py). The mind puts the "
+                  "plain version in his manner, four times; judges pick the real passage out of five (chance 20%; **lower is better**). Recited: restyled versions that share 8 "
+                  "words in a row with the real passage; cut: versions without a sentence end near the right length, cut at the word. Delta as above, **lower is closer**: of the "
+                  "restyled versions and of the real passages (the floor).", "",
+                  "| mind | restyle: real picked | judges | recited | cut | Delta (model) | Delta (real) |", "|---|---|---|---|---|---|---|"]
+        for l, r in runs.items():
+            c, d = r.get("restyle"), ((r.get("restyle_style") or {}).get("delta") or {})
+            j = judged(f"{l}-restyle")
+            n, hit = sum(x["answered"] for x in j), sum(x["hits"] for x in j)
+            total = sum(len(x["answers"]) for x in c) if c else 0
+            num = lambda v: f"{v:.2f}" if isinstance(v, (int, float)) else "–"
+            lines.append(f"| {l} | " + ((f"{hit}/{n} = {100 * hit / n:.0f}%" if n else "not yet judged") if c else "–") + " | " + (", ".join(x["judge"] for x in j) if c and j else "–") + " | "
+                         + (f"{sum(sum(x['recited']) for x in c)}/{total}" if c else "–") + " | " + (f"{sum(sum(x['cut']) for x in c)}/{total}" if c else "–") + " | "
+                         + num(d.get("model")) + " | " + num(d.get("real")) + " |")
     lines += ["", "## Blind test by judge", ""]
     for l in runs:
         for x in judged(l):
@@ -690,6 +830,10 @@ def compare(labels):
     if judges:
         lines += ["", "## Continuation by judge", ""] + [f"- **{l}**, {x['judge']}: {x['hits']} real second halves picked of {x['answered']} answered"
                                                         + (f" ({100 * x['hits'] / x['answered']:.0f}%)" if x["answered"] else "") for l, x in judges]
+    judges = [(l, x) for l, r in runs.items() if r.get("restyle") for x in judged(f"{l}-restyle")]
+    if judges:
+        lines += ["", "## Restyle by judge", ""] + [f"- **{l}**, {x['judge']}: {x['hits']} real passages picked of {x['answered']} answered"
+                                                     + (f" ({100 * x['hits'] / x['answered']:.0f}%)" if x["answered"] else "") for l, x in judges]
     for l, r in runs.items():
         wrong = [i for i in (r.get("biography") or {}).get("items", []) if not i["right"]]
         if wrong:
@@ -706,6 +850,7 @@ PROSE = ["The state is not a machine laid over free persons; it is the actuality
          "Nor is this a dream of the study: it is what has been working itself out through the centuries, and the philosopher only arrives, at dusk, to read it."]
 
 
+RESTYLE_LEAD = restyle.RESTYLE_ASK.split("{")[0]               # how the user turn of a restyle call begins
 STUB_PARTS = (["The state", "Every people", "Whoever doubts the family", "The understanding", "A right that is only claimed", "Art in its time", "The history of the world", "What is rational"],
               ["is not what it seems to the single will", "learns nothing from what it has itself made", "keeps its own law before it knows it", "mistakes the part for the whole",
                "finds itself again in what it has put aside", "waits on a necessity that it does not yet see", "needs the other to be itself", "stands in its own light"],
@@ -758,6 +903,8 @@ class StubLlama(BaseHTTPRequestHandler):
             places = [re.match(r"\w+", x.strip())[0] for x in open_now[1].split(",")] if open_now else [place]
             text = json.dumps({"thought": "(stub) The day goes on, and the state of things asks to be thought.", "action": "stay",
                                "place": place if place in places else places[0], "minutes": 30, "says": None, "buys": [], "revision": None})
+        elif user.startswith(RESTYLE_LEAD):               # a restyle: a paragraph of plain sentences as long as the real passage (max_tokens is 2.5 times its words)
+            text = stub_continuation({"prompt": user, "seed": body.get("seed"), "n_predict": body.get("max_tokens", 100)}).strip()
         elif "one or two sentences" in user:
             q = next((x for x in load("biography.json")["questions"] if x["question"] in user), None)
             text = f"I would say: {q['fact']}." if q else "I do not recall."
@@ -777,7 +924,8 @@ def main():
     p.add_argument("--label", help="name of this run: bonsai, bonsai-shelf, qwen ...")
     p.add_argument("--shelf", action="store_true", help="give the mind passages from his shelf with every question")
     p.add_argument("--holdout", choices=["family", "none"], default="family", help="blind test with the shelf: leave out the book of the real passage and its twin")
-    p.add_argument("--only", help="comma-separated parts: blind, bio, behaviour, cont (a file already there keeps the others)")
+    p.add_argument("--only", help="comma-separated parts: blind, bio, behaviour, cont, and restyle, which runs only when named (a file already there keeps the others)")
+    p.add_argument("--restyle-n", type=int, default=RESTYLE_N, help="with --only restyle: held-out pairs to test (default 20)")
     p.add_argument("--answers", type=int, default=ANSWERS, help="model answers per blind question and continuations per passage (default 4)")
     p.add_argument("--seed", type=int, default=1831)
     p.add_argument("--timeout", type=int, default=300)
@@ -795,8 +943,8 @@ def main():
         return compare(a.compare)
     if not a.url or not a.label:
         p.error("--url and --label are required (or --compare, --export-ppl or --serve-stub)")
-    if a.only and not set(a.only.split(",")) <= set(PARTS):
-        p.error(f"--only takes parts out of {', '.join(PARTS)}")
+    if a.only and not set(a.only.split(",")) <= set(PARTS + OPTIONAL):
+        p.error(f"--only takes parts out of {', '.join(PARTS + OPTIONAL)}")
     return run(a)
 
 

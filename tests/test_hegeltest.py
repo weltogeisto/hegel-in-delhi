@@ -365,6 +365,306 @@ class RunTest(unittest.TestCase):
                 (self.tmp / name).unlink()
 
 
+def hegelizer_rows(per_work=3, train=2):
+    """Rows of a hegelizer.jsonl for the tests: real shelf passages (two in a row) as the originals of every English work, `per_work` held out and `train` for
+    training each, with a made-up plain version (a fixture; the tool needs only that it is text)."""
+    books, rows = ht.shelf.load(), []
+    for w in books.works:
+        if w["lang"] != "en":
+            continue
+        for k in range(per_work + train):
+            i = w["start"] + 10 + 2 * k
+            original = books.data["texts"][i] + " " + books.data["texts"][i + 1]
+            plain = "Put plainly: " + " ".join(original.split()[: int(len(original.split()) * 0.9)]).replace(";", ",")
+            rows.append({"id": f"{w['id']}:{k}", "work": w["id"], "ref": books.data["refs"][i], "split": "held" if k < per_work else "train", "plain": plain, "original": original})
+    return rows
+
+
+class RestyleTest(unittest.TestCase):
+    """The restyle part: the pairs, the calls, the sheet, the results and the comparison, against the stub server and a hegelizer.jsonl made for the test."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.tmp = Path(tempfile.mkdtemp(prefix="hegel-restyle-"))
+        cls.rows = hegelizer_rows()
+        cls.file = cls.tmp / "hegelizer.jsonl"
+        cls.file.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in cls.rows), encoding="utf-8")
+        cls.patches = [mock.patch.object(ht, "RESULTS", cls.tmp / "results"), mock.patch.object(ht, "HEGELIZER", cls.file)]
+        for p in cls.patches:
+            p.start()
+        with FakeServer() as srv:
+            cls.rc = cli("--url", srv.url, "--label", "rs", "--only", "restyle", "--timeout", "20")
+            cls.calls = list(ht.StubLlama.calls)
+        cls.out = json.loads((cls.tmp / "results/hegeltest-rs.json").read_text(encoding="utf-8"))
+
+    @classmethod
+    def tearDownClass(cls):
+        for p in cls.patches:
+            p.stop()
+        shutil.rmtree(cls.tmp, ignore_errors=True)
+
+    def held(self):
+        return [r for r in self.rows if r["split"] == "held"]
+
+    def test_the_pairs_are_held_out_units_spread_over_the_works_and_the_same_every_time(self):
+        pairs = ht.restyle_pairs(20)
+        self.assertEqual(len(pairs), 20)
+        held_ids = {r["id"] for r in self.held()}
+        self.assertTrue({p["id"] for p in pairs} <= held_ids)
+        self.assertEqual({w: sum(p["work"] == w for p in pairs) for w in {p["work"] for p in pairs}}, {w: 2 for w in {r["work"] for r in self.rows}})
+        self.assertEqual(pairs, ht.restyle_pairs(20))
+        self.assertEqual(set(pairs[0]), {"id", "work", "ref", "plain", "original"})
+        reversed_file = self.tmp / "reversed.jsonl"
+        reversed_file.write_text("".join(json.dumps(r) + "\n" for r in reversed(self.rows)), encoding="utf-8")
+        self.assertEqual(pairs, ht.restyle_pairs(20, reversed_file))                    # not a matter of the order of the lines
+        self.assertEqual([p["id"] for p in ht.restyle_pairs(5)], [p["id"] for p in pairs[:5]])
+        self.assertEqual(len({p["work"] for p in ht.restyle_pairs(10)}), 10)             # the first ten are ten works
+        self.assertEqual(len(ht.restyle_pairs(100)), 30)                                 # fewer if there are fewer
+        self.assertEqual(len({p["id"] for p in ht.restyle_pairs(100)}), 30)
+
+    def test_the_pairs_ignore_training_units_and_half_lines(self):
+        odd = self.tmp / "odd.jsonl"
+        odd.write_text(json.dumps({**self.rows[0], "split": "train"}) + "\n" + json.dumps({**self.rows[1], "plain": ""}) + "\n" + json.dumps(self.rows[2])[:50], encoding="utf-8")
+        with self.assertRaises(SystemExit) as cm:
+            ht.restyle_pairs(20, odd)
+        self.assertIn("has no held-out unit", str(cm.exception))
+
+    def test_without_the_hegelizer_file_it_stops_with_a_clear_message_before_asking_anything(self):
+        with mock.patch.object(ht, "HEGELIZER", self.tmp / "nowhere.jsonl"), FakeServer() as srv:
+            with self.assertRaises(SystemExit) as cm:
+                cli("--url", srv.url, "--label", "x", "--only", "blind,restyle", "--timeout", "20")
+            self.assertEqual(ht.StubLlama.calls, [])
+        self.assertIn("nowhere.jsonl is missing", str(cm.exception))
+        self.assertIn("tools/hegelizer.py --build and --paraphrase", str(cm.exception))
+
+    def test_a_run_asks_each_plain_version_four_times_through_the_chat_endpoint_with_the_prompt_of_world_restyle(self):
+        self.assertEqual(self.rc, 0)
+        self.assertEqual(len(self.calls), 80)
+        self.assertTrue(all("messages" in c and "prompt" not in c for c in self.calls))
+        pairs = {p["plain"]: p for p in ht.restyle_pairs(20)}
+        for c in self.calls:
+            from world import restyle
+            plain = c["messages"][1]["content"][len("Rewrite in Hegel's manner:\n\n"):]
+            p = pairs[plain]
+            self.assertEqual(c["messages"], restyle.messages(p["plain"]))
+            self.assertEqual((c["temperature"], c["chat_template_kwargs"]), (ht.TEMPERATURE, {"enable_thinking": False}))
+            self.assertEqual(c["max_tokens"], int(2.5 * len(p["original"].split())))
+        for p in pairs.values():
+            mine = [c for c in self.calls if c["messages"][1]["content"].endswith(p["plain"])]
+            self.assertEqual(sorted(c["seed"] for c in mine), [1831 + 17 * i for i in range(4)], p["id"])
+
+    def test_the_rows_hold_four_cleaned_versions_of_about_the_length_of_the_real_passage(self):
+        rows = self.out["restyle"]
+        self.assertEqual([r["id"] for r in rows], [p["id"] for p in ht.restyle_pairs(20)])
+        for r in rows:
+            n = len(r["original"].split())
+            self.assertEqual(set(r), {"id", "work", "ref", "plain", "original", "answers", "recited", "cut", "latency_s"})
+            self.assertEqual((len(r["answers"]), len(r["recited"]), len(r["cut"])), (4, 4, 4))
+            self.assertEqual(len(set(r["answers"])), 4, r["id"])
+            self.assertEqual(r["original"], ht.typography(next(x["original"] for x in self.rows if x["id"] == r["id"])))
+            self.assertTrue(r["plain"].startswith("Put plainly: "))
+            for a in r["answers"]:
+                self.assertTrue(0.7 * n <= len(a.split()) <= 1.3 * n, (r["id"], n, len(a.split())))
+                self.assertRegex(a, r"[.?!]$")
+                self.assertNotRegex(a, "[“”‘’–…\u00a0]|  |--")
+            self.assertFalse(any(r["recited"]) or any(r["cut"]))
+
+    def test_the_results_have_the_part_and_its_style_and_nothing_else_new(self):
+        self.assertEqual(set(self.out), {"label", "url", "started", "shelf", "holdout", "answers_per_question", "restyle", "restyle_style"})
+        st = self.out["restyle_style"]
+        self.assertEqual((st["answers"], st["recited"], st["cut"]), (80, 0, 0))
+        d = st["delta"]
+        self.assertEqual(len(d["model_groups"]), 4)
+        self.assertAlmostEqual(d["model"], sum(d["model_groups"]) / 4, delta=0.002)
+        self.assertLess(d["real"], d["model"])                                            # the real passages are the floor; the stub's sentences are not his
+        self.assertIn("plain", d)
+        self.assertEqual(st["reference"]["features"], 150)
+
+    def test_the_sheet_shows_the_plain_version_and_five_wordings_with_the_real_one_at_the_keys_letter(self):
+        page = (self.tmp / "results/hegeltest-rs-restyle.html").read_text(encoding="utf-8")
+        key = json.loads((self.tmp / "results/hegeltest-rs-restyle-key.json").read_text(encoding="utf-8"))["questions"]
+        data = json.loads(re.search(r"DATA = (\[.*\]);\n", page).group(1).replace("<\\/", "</"))
+        self.assertEqual(len(data), 20)
+        for item, k, row in zip(data, key, self.out["restyle"]):
+            self.assertEqual(sorted(item["options"]), list("ABCDE"))
+            self.assertEqual(item["options"][item["real"]], row["original"])
+            self.assertEqual((k["id"], k["real"]), (row["id"], item["real"]))
+            self.assertEqual(k["order"][ord(k["real"]) - 65], "real")
+            self.assertEqual(sorted(k["order"]), ["model 1", "model 2", "model 3", "model 4", "real"])
+            self.assertEqual(sorted(item["options"].values()), sorted(row["answers"] + [row["original"]]))
+            self.assertEqual(item["plain"], row["plain"])
+            self.assertTrue(not ({"question", "opening"} & set(item)))
+            self.assertEqual(list(item), ["id", "topic", "plain", "options", "real", "from", "translation"])
+        self.assertGreater(len({k["real"] for k in key}), 2)
+        self.assertIn('const LABEL = "rs-restyle"', page)
+        self.assertIn("Which wording is Hegel's own?", page)
+        self.assertIn("The plain version:", page)
+        self.assertNotIn("__PLAIN__", page)
+        first = next(i for i in data if i["id"].startswith("dyde-right"))
+        self.assertEqual((first["topic"], first["translation"]), ("Philosophy of Right", "S. W. Dyde, 1896"))
+        self.assertTrue(first["from"].startswith("Philosophy of Right"), first["from"])
+
+    def test_the_sheet_renders_the_plain_version_where_the_continuation_sheet_renders_the_opening(self):
+        if not shutil.which("node"):
+            self.skipTest("node is not installed")
+        script = r"""
+const fs = require('fs'); const page = fs.readFileSync(process.argv[2], 'utf8'); const js = /<script>([\s\S]*)<\/script>/.exec(page)[1];
+const els = {}; const el = id => els[id] || (els[id] = {id, innerHTML: '', value: '', textContent: '', addEventListener(){}, classList: {toggle(){}}, querySelectorAll(){ return []; }, dataset: {}});
+global.document = {getElementById: el, querySelector: () => ({checked: false}), addEventListener(){}, createElement: () => ({}), body: {appendChild(){}}};
+global.localStorage = {getItem: () => null, setItem(){}}; eval(js); console.log(els['qs'].innerHTML);
+"""
+        (self.tmp / "render.js").write_text(script, encoding="utf-8")
+        got = subprocess.run(["node", str(self.tmp / "render.js"), str(self.tmp / "results/hegeltest-rs-restyle.html")], capture_output=True, text=True)
+        self.assertEqual(got.returncode, 0, got.stderr)
+        self.assertEqual(got.stdout.count('<p class="muted">The plain version:</p>'), 20)
+        self.assertEqual(got.stdout.count("<label class=\"opt\""), 100)
+        self.assertIn("Put plainly: ", got.stdout)
+        self.assertNotIn("The passage begins", got.stdout)
+        self.assertNotIn("<i>", got.stdout)
+
+    def test_the_source_of_an_item_is_the_work_the_translator_and_the_ref(self):
+        self.assertEqual(ht.restyle_source("dyde-right", "§258"), ("Philosophy of Right", "Philosophy of Right §258", "S. W. Dyde, 1896"))
+        self.assertEqual(ht.restyle_source("sibree-history", "Introduction"), ("Philosophy of History", "Philosophy of History, Introduction", "J. Sibree, 1857"))
+        self.assertEqual(ht.restyle_source("haldane-2", "")[2], "E. S. Haldane and Frances H. Simson, 1894")
+        with mock.patch.object(ht, "corpus_tools", return_value=None):
+            self.assertEqual(ht.restyle_source("dyde-right", "§258"), ("dyde-right", "dyde-right §258", ""))
+
+    def test_a_version_that_recites_the_real_passage_is_asked_again_with_the_next_seed(self):
+        pair = ht.restyle_pairs(1)[0]
+        clean = " ".join(["Reason"] + ["and"] * 7 + ["freedom"] * 5) + ". " + " ".join(f"item{i}" for i in range(int(len(pair["original"].split()) * 0.9))) + "."
+        seeds, replies = [], [pair["original"], clean, clean + " Again.", clean + " More.", clean + " Yet.", clean + " Still."]
+
+        def fake(url, system, user, temperature, tokens, timeout, seed=None):
+            seeds.append(seed)
+            return replies[len(seeds) - 1]
+
+        args = type("A", (), {"timeout": 5, "answers": 2, "seed": 100})()
+        with mock.patch.object(ht, "ask", fake), contextlib.redirect_stdout(io.StringIO()):
+            row = ht.run_restyle("u", args, [pair])[0]
+        self.assertEqual(seeds[:2], [100, 101])
+        self.assertEqual(row["answers"][0], clean)
+        self.assertEqual((row["recited"], row["cut"]), ([False, False], [False, False]))
+        replies[:] = [pair["original"]] * 10
+        seeds.clear()
+        with mock.patch.object(ht, "ask", fake), contextlib.redirect_stdout(io.StringIO()):
+            row = ht.run_restyle("u", args, [pair])[0]
+        self.assertEqual(seeds, [100, 101, 102, 117, 118, 119])                          # the same budget as a continuation: TRIES seeds for each version
+        self.assertEqual((row["recited"], row["cut"]), ([True, True], [False, False]))     # kept, and marked
+
+    def test_a_version_without_a_sentence_end_near_the_length_is_cut_at_the_word_and_marked(self):
+        pair = ht.restyle_pairs(1)[0]
+        n = len(pair["original"].split())
+        endless = " ".join(f"w{i}" for i in range(n * 2))
+        args = type("A", (), {"timeout": 5, "answers": 1, "seed": 7})()
+        with mock.patch.object(ht, "ask", lambda *a, **k: endless), contextlib.redirect_stdout(io.StringIO()):
+            row = ht.run_restyle("u", args, [pair])[0]
+        self.assertEqual((len(row["answers"][0].split()), row["recited"], row["cut"]), (n, [False], [True]))
+
+    def test_an_announcement_before_the_text_is_not_part_of_the_version(self):
+        self.assertEqual(ht.restyle_answer("Here is the passage in Hegel's manner:\n\nThe state is free."), "The state is free.")
+        self.assertEqual(ht.restyle_answer("Sure! Here's the rewrite:\nThe state is free."), "The state is free.")
+        self.assertEqual(ht.restyle_answer("The state is free: and so is its law.\nSecond line."), "The state is free: and so is its law. Second line.")
+        self.assertEqual(ht.restyle_answer("Hegel: “The state is free.”"), "The state is free.")
+        self.assertEqual(ht.restyle_answer(None), "")
+
+    def test_the_style_is_made_of_the_groups_of_one_seed_and_of_the_plain_versions_cut_to_the_length_of_the_real_passages(self):
+        rows = [{"id": q["id"], "plain": "freedom " * 300, "original": ht.split_passage(q["passage"])[1], "answers": [f"the thing of {i} and {q['id']}." for i in range(4)],
+                 "recited": [False, True, False, False], "cut": [False, False, False, True]} for q in QUESTIONS]
+        st = ht.restyle_style({"restyle": rows})
+        self.assertEqual((st["answers"], st["recited"], st["cut"]), (80, 20, 20))
+        self.assertEqual(len(st["delta"]["model_groups"]), 4)
+        total = sum(len(r["original"].split()) for r in rows)
+        plain = ht.delta(" ".join(" ".join(r["plain"].split()[:len(r["original"].split())]) for r in rows))
+        self.assertEqual(st["delta"]["plain"], round(plain, 3))
+        self.assertGreater(total, 1000)
+        with mock.patch.object(ht, "reference", return_value=None):
+            self.assertEqual(ht.restyle_style({"restyle": rows})["delta"], None)
+
+    def test_the_part_merges_into_a_results_file_that_is_there_and_is_not_one_of_the_default_parts(self):
+        results = self.tmp / "results"
+        earlier = {"label": "keep", "url": "http://pc:8082", "started": "2026-10-05T10:00:00", "shelf": True, "holdout": "family", "answers_per_question": 4,
+                   "blind": blind_for(), "biography": {"right": 17, "n": 30, "partial": 0.8, "items": []},
+                   "behaviour": {"n": 20, "valid": 20, "refused": 0, "leaking": 0, "leaks": [], "thought_words": 40.0, "thought_chars": 250.0, "rows": []}}
+        (results / "hegeltest-keep.json").write_text(json.dumps(earlier, indent=1) + "\n", encoding="utf-8")
+        with FakeServer() as srv:
+            self.assertEqual(cli("--url", srv.url, "--label", "keep", "--only", "restyle", "--restyle-n", "6", "--timeout", "20"), 0)
+            calls = list(ht.StubLlama.calls)
+        out = json.loads((results / "hegeltest-keep.json").read_text(encoding="utf-8"))
+        for k in ("label", "url", "shelf", "holdout", "answers_per_question", "blind", "biography", "behaviour"):
+            self.assertEqual(out[k], earlier[k], k)
+        self.assertEqual(list(out)[:9], list(earlier))
+        self.assertEqual(list(out)[9:], ["restyle", "restyle_style"])
+        self.assertEqual((len(out["restyle"]), len(calls)), (6, 24))
+        self.assertEqual(ht.PARTS, ("blind", "bio", "behaviour", "cont"))
+        self.assertEqual(ht.OPTIONAL, ("restyle",))
+        with mock.patch("sys.stderr"), self.assertRaises(SystemExit):
+            cli("--url", "http://127.0.0.1:9", "--label", "x", "--only", "restyle,nonsense")
+
+    def test_compare_has_a_restyle_table_with_the_judgments_read_against_the_key(self):
+        results = self.tmp / "results"
+        with FakeServer() as srv:
+            cli("--url", srv.url, "--label", "rsb", "--only", "restyle", "--timeout", "20")
+        (results / "hegeltest-bare.json").write_text(json.dumps({"label": "bare", "shelf": False}), encoding="utf-8")
+        with contextlib.redirect_stdout(io.StringIO()):
+            ht.compare(["rs", "rsb", "bare"])
+            md = (results / "hegeltest.md").read_text(encoding="utf-8")
+            d = self.out["restyle_style"]["delta"]
+            self.assertIn("## Restyle", md)
+            self.assertIn("| mind | restyle: real picked | judges | recited | cut | Delta (model) | Delta (real) |", md)
+            self.assertIn(f"| rs | not yet judged | – | 0/80 | 0/80 | {d['model']:.2f} | {d['real']:.2f} |", md)
+            self.assertIn("| bare | – | – | – | – | – | – |", md)
+            key = json.loads((results / "hegeltest-rsb-restyle-key.json").read_text(encoding="utf-8"))["questions"]
+            wrong = lambda q: next(c for c in "ABCDE" if c != q["real"])
+            (results / "hegeltest-rsb-restyle-judged.json").write_text(json.dumps(
+                {"label": "rsb-restyle", "judge": "welt", "choices": {q["id"]: (q["real"] if i < 6 else wrong(q)) for i, q in enumerate(key)}}), encoding="utf-8")
+            self.assertEqual([(j["judge"], j["hits"], j["answered"]) for j in ht.judged("rsb-restyle")], [("welt", 6, 20)])
+            ht.compare(["rs", "rsb"])
+            md = (results / "hegeltest.md").read_text(encoding="utf-8")
+            self.assertRegex(md, r"\| rsb \| 6/20 = 30% \| welt \| 0/80 \| 0/80 \| ")
+            self.assertIn("## Restyle by judge", md)
+            self.assertIn("**rsb**, welt: 6 real passages picked of 20 answered (30%)", md)
+            self.assertIn("not yet judged", md.split("## Continuation")[0])                # the blind column is its own
+            (results / "hegeltest-bare.json").write_text(json.dumps({"label": "bare"}), encoding="utf-8")
+            ht.compare(["bare"])
+            self.assertNotIn("## Restyle", (results / "hegeltest.md").read_text(encoding="utf-8"))    # no run has the part: no table
+            (results / "hegeltest-rsb-restyle-judged.json").unlink()
+
+    def test_the_stub_answers_a_restyle_call_with_prose_as_long_as_the_real_passage(self):
+        from world import restyle
+        with FakeServer() as srv:
+            a, b = (ht.ask(srv.url, *[m["content"] for m in restyle.messages("A plain thing. " * 10)], 0.9, 500, 20, seed=s) for s in (1, 2))
+        self.assertNotEqual(a, b)
+        for text in (a, b):
+            self.assertAlmostEqual(len(text.split()), 200, delta=25)
+            self.assertRegex(text, r"[.]$")
+            self.assertNotIn(ht.PROSE[0][:40], text)
+
+
+class UnchangedSheetsTest(unittest.TestCase):
+    """The restyle part generalised sheet_data and write_sheet; the blind and cont sheets of the results already committed come out byte for byte as they did."""
+
+    BLIND_PAGE_SHA = {"qwen": "545a186e4180b49e7f6472be350bf7e91e8f6af74c8096c726f0f2e4fedaf773", "qwen-hegel": "358d5917a0232329b1c220a033602d593a2aaec0538881a188b3b605c10e8766"}
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp(prefix="hegel-same-"))
+        patch = mock.patch.object(ht, "RESULTS", self.tmp)
+        patch.start()
+        self.addCleanup(patch.stop)
+        self.addCleanup(shutil.rmtree, self.tmp, True)
+
+    def test_the_continuation_sheets_and_all_keys_are_the_committed_ones(self):
+        import hashlib
+        for label in ("qwen", "qwen-hegel"):
+            run = json.loads((REPO / f"mind/results/hegeltest-{label}.json").read_text(encoding="utf-8"))
+            ht.write_sheet(label, run["blind"], run["shelf"])
+            ht.write_sheet(f"{label}-cont", run["continuation"], False)
+            for name in (f"hegeltest-{label}-key.json", f"hegeltest-{label}-cont.html", f"hegeltest-{label}-cont-key.json"):
+                self.assertEqual((self.tmp / name).read_bytes(), (REPO / "mind/results" / name).read_bytes(), name)
+            page = (self.tmp / f"hegeltest-{label}.html").read_bytes()
+            self.assertEqual(hashlib.sha256(page).hexdigest(), self.BLIND_PAGE_SHA[label], label)           # the blind page as the code made it before the restyle part
+            self.assertNotIn(b"plain", page.replace(b"explain", b""))
+
+
 class SplitTest(unittest.TestCase):
     def test_every_real_passage_splits_at_a_sentence_end_into_two_halves_of_at_least_35_words(self):
         for q in QUESTIONS:
