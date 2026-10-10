@@ -702,9 +702,13 @@ class World(Economy):
         hol = self.holiday(arrival.date())
         here = self.present_ids(dest, arrival, state) if moves else ctx["present"]          # who is there when he buys
         have, buys = dict(self.ledger(state)["tech"]), []
+        settled_here = {" ".join(e["item"].casefold().split()) for e in ctx.get("public", [])
+                        if e.get("k") == "expense" and e.get("settles") is True and isinstance(e.get("item"), str)}
         for b in ans["buys"]:
             item, price = b["item"].strip(), b["price_inr"]
             low = item.lower()
+            if " ".join(item.casefold().split()) in settled_here:
+                errors.append(f"'{item}' was already paid by the world at the start of this step; do not pay it again")
             match = next((s for s in pl.get("sells", []) if any(k in low for k in s["match"])), None)
             if match:
                 if match.get("alcohol") and hol and hol.get("dry"):
