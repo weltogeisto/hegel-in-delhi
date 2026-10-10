@@ -213,15 +213,26 @@ def lines_to_paragraphs(lines, spec):
     return out + [cur] if cur else out
 
 
+SUSPENDED = {"und", "oder", "bis", "sowie", "and", "or", "nor"}      # 'vor- und rückwärts': the hyphen stands for the rest of the word
+
+
+def joined(out, nxt, words):
+    """out, which ends in a letter and a hyphen, and nxt, which starts in lower case, as one text. The word split at the end of a line or a
+    page is joined; the hyphen stays if the text itself writes the compound that way elsewhere (more often than as one word), and before
+    'und' or 'oder' it stays with its space."""
+    head, tail = re.search(f"([{LETTER}]+)-$", out).group(1), re.match(f"[{LETTER}]+", nxt).group(0)
+    if tail.lower() in SUSPENDED:
+        return out + " " + nxt
+    solid, hyph = (head + tail).lower(), f"{head}-{tail}".lower()
+    return out[:-1] + ("-" if words[hyph] > words[solid] else "") + nxt
+
+
 def rejoin(lines, words):
-    """The lines of a paragraph as one text. A word split by a hyphen at the end of a line is joined; the hyphen stays
-    if the text itself writes the compound that way elsewhere (more often than as one word)."""
+    """The lines of a paragraph as one text, a word split by a hyphen at the end of a line joined (see joined)."""
     out = lines[0]
     for nxt in lines[1:]:
         if re.search(f"[{LETTER}]-$", out) and re.match("[a-zäöüß]", nxt):
-            head, tail = re.search(f"([{LETTER}]+)-$", out).group(1), re.match(f"[{LETTER}]+", nxt).group(0)
-            solid, hyph = (head + tail).lower(), f"{head}-{tail}".lower()
-            out = out[:-1] + ("-" if words[hyph] > words[solid] else "") + nxt
+            out = joined(out, nxt, words)
         else:
             out += " " + nxt
     return out
@@ -308,16 +319,18 @@ def number_sections(paras, rx):
     return [p.strip() for p in out]
 
 
-def merge_breaks(paras):
-    """A paragraph cut by a page break (no full stop at its end, the next starting in lower case) is made whole again,
-    and a paragraph that is only a section sign and its number takes the text that follows."""
+def merge_breaks(paras, words=None):
+    """A paragraph cut by a page break (no full stop at its end, the next starting in lower case) is made whole again, a word split
+    across the break joined as at a line end (see joined; given the text's word counts), and a paragraph that is only a section sign
+    and its number takes the text that follows."""
     out = []
     for p in paras:
         if out and re.fullmatch(r"§\s*\d+[a-z]?\.?[\s\-–—]*", out[-1]) and not p.startswith("#"):
             out[-1] = f"{out[-1]} {p}"
         elif out and not out[-1].startswith("#") and not p.startswith("#") and not re.search(r"[.!?:;”’\"»]$", out[-1]) \
                 and re.match(r"[a-zäöüß(]", p):
-            out[-1] += " " + p
+            split = words is not None and re.search(f"[{LETTER}]-$", out[-1]) and re.match("[a-zäöüß]", p)
+            out[-1] = joined(out[-1], p, words) if split else out[-1] + " " + p
         else:
             out.append(p)
     return out
@@ -393,7 +406,7 @@ def clean(raw, spec):
         out = number_sections(out, spec["sections"])
     if spec.get("zusatz"):                                  # '2. Zusatz zu § 1. (Die Idee.) Text' as '§ 1 Zusatz. (Die Idee.) Text'
         out = [re.sub(spec["zusatz"], lambda m: f"§ {m.group(1)} Zusatz.", p) for p in out]
-    return "\n\n".join(merge_breaks(out)) + "\n"
+    return "\n\n".join(merge_breaks(out, words)) + "\n"
 
 
 # ── the works ───────────────────────────────────────────────────────
@@ -585,6 +598,23 @@ work("enzyklopaedie", "Enzyklopädie", "de", "Encyklopädie der philosophischen 
           drop=[r"^Einleitung\.\s*\d*$", r"^\d*\s*(Erster|Zweiter|Dritter) Theil\.?\s*\d*$"],
           heads=[(1, r"^Vorrede zur zweiten Ausgabe\.?$", "Vorrede zur zweiten Ausgabe"), (1, r"^Einleitung\.$", "Einleitung")]),
      ref="sec", skip="Rosenkranz's introduction; the scanned volume breaks off at §496")
+
+
+def yoga(raw):
+    """The Fraktur Y read as V, B or H ('Voga', 'Vogi', 'Boga-Lehre', 'Hoga-sastra') made Yoga and Yogi again, and the one 'Humbaoldt'."""
+    return re.sub(r"\b[VBH]og([ai])(?![a-zäöüß]{2})", r"Yog\1", raw).replace("Humbaoldt", "Humboldt")
+
+
+work("gita", "Über die Bhagavad-Gita", "de",
+     "Über die unter dem Namen Bhagavad-Gita bekannte Episode des Mahabharata, von Wilhelm von Humboldt (his review in two articles, "
+     "Jahrbücher für wissenschaftliche Kritik, 1827)", "ed. Friedrich Förster (Werke, Bd. 16: Vermischte Schriften I)", "1834 (written 1827)",
+     "Berlin: Duncker und Humblot, pp. 361-435", scan("georgwilhelmfrie16hege", "frak2021"),
+     "Hegel d. 1831; Förster (1791-1868), who edited the volume, died more than 70 years ago; published 1834: public domain everywhere. "
+     "archive.org's own text of the scan is Fraktur read as roman type; this is a fresh reading with Tesseract and UB Mannheim's Fraktur model (tools/ocr.py)",
+     dict(start=r"^Bei dem Gegenstand, über welchen der", end=r"Solger.s nachgelassene", first="Erster Artikel", pre=yoga,
+          footnotes=r"^(\*+\)|\d{1,2}\))", drop=[r"^@@ "], heads=[(1, r"^Nachdem im vorstehenden Artikel die gelehrte", "Zweiter Artikel", "keep")],
+          known=0.70, letters=0.72),           # Sanskrit names and his references (Bhag. VII, 3) are no OCR damage: a clean scan, judged more loosely
+     skip="the rest of the volume (his other reviews and early essays), his footnotes, and the two passages that are quotations in Latin and French")
 
 # ── the lives: for training only, never on his shelf ──────────────
 OCR_HEADS = [(2, r"^@@ (.+)$")]                          # tools/ocr.py marks each chapter '@@ Title' where it begins
@@ -928,9 +958,9 @@ GARBLE = re.compile(r"[a-zäöüß][A-ZÄÖÜ]|\\|[a-z][|{}][a-z]")       # a ca
 LIFE_KNOWN = 0.70        # a life is full of names, places and old spellings that his books lack: below this it is mostly Latin or French, read worse
 
 
-def readable(text, vocab, minimum=0.88):
+def readable(text, vocab, minimum=0.88, letters=0.78):
     """Enough real words and letters, and no letter the scan has spoiled: a passage of OCR litter or a table is not worth showing."""
-    return known_ratio(text, vocab) >= minimum and sum(c.isalpha() for c in text) >= 0.78 * len(text) and len(text) >= 150 \
+    return known_ratio(text, vocab) >= minimum and sum(c.isalpha() for c in text) >= letters * len(text) and len(text) >= 150 \
         and not GARBLE.search(text)
 
 
@@ -1031,7 +1061,7 @@ def kept_works():
             mended += n
             if (later and later.search(p)) or (w["spec"].get("footnotes") == FOOT_DE and re.search(r"\b1[4-9]\d\d\s?[—–-]\s?1[4-9]\d\d\b", p)):
                 anachronism += 1                          # (in Lasson's volumes, a pair of dates is his footnote on a person)
-            elif not readable(p, vocab[w["lang"]], 0.88 if w["shelf"] else LIFE_KNOWN):
+            elif not readable(p, vocab[w["lang"]], w["spec"].get("known", 0.88 if w["shelf"] else LIFE_KNOWN), w["spec"].get("letters", 0.78)):
                 noise += 1
             else:
                 kept.append((ref, p))
@@ -1112,7 +1142,7 @@ def manifest():
            "- **The Gutenberg files of Haldane and Simson** are the 1955 Routledge reprint; only the text of 1892-96 is used.",
            "- **Lasson's Meiner volumes (1911-1920)** carry the editor's prefaces and notes; they are cut. The 1917 preface of the first volume is war-time politics.",
            "- Passages that name anything on `world/data/after_1831.txt` are dropped from the index, and so are passages in which fewer than 88% of the words "
-           "are known words of the shelf, or in which a letter is still spoiled by the scan (a capital inside a word, a backslash). Words the scan spoiled in "
+           "are known words of the shelf (70% in the Gita review, whose Sanskrit names the shelf does not know), or in which a letter is still spoiled by the scan (a capital inside a word, a backslash). Words the scan spoiled in "
            "a regular way ('itseK' for itself, 'aU' for all, 'reaUty') are set right first, but only where one reading is a word that occurs on the shelf "
            "and no other is nearly as common; the table says how many each text needed. About 8% of all passages are lost to damage, up to 16% in the worst scans "
            "(Baillie volume II, Dyde).", "",

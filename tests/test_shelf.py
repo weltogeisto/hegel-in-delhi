@@ -58,6 +58,13 @@ class CleaningTest(unittest.TestCase):
         self.assertIn("The individual wills", out)
         self.assertIn("again self-consciousness, as always", out)
 
+    def test_a_word_split_by_a_page_break_is_joined_and_a_suspended_hyphen_keeps_its_space(self):
+        raw = "Das ist weni-\n\nger gut, als er geht hin-\nund her, und das Selbst-\n\nbewußtsein ist das Selbst-bewußtsein, hier wie Selbst-bewußtsein dort."
+        out = self.clean(raw)
+        self.assertIn("Das ist weniger gut", out)
+        self.assertIn("geht hin- und her", out)
+        self.assertIn("das Selbst-bewußtsein ist", out)                                     # the text writes it with a hyphen, so it keeps it
+
     def test_footnote_paragraphs_and_spacing(self):
         raw = "Text , with spacing ; and a star*.\n\n[1] A footnote of the editor.\n\n* Another footnote.\n\nMore text ( here ) ."
         out = self.clean(raw)
@@ -445,7 +452,7 @@ class RealShelfTest(unittest.TestCase):
         for w in corpus.WORKS:
             self.assertIn(f"`{w['id']}`", manifest)
             self.assertIn(w["source"]["page"], manifest)
-        self.assertRegex(manifest, r"\*\*Total:\*\* 17 texts, [\d.]+ MB of text, [\d.]+ MB gzipped")
+        self.assertRegex(manifest, r"\*\*Total:\*\* 18 texts, [\d.]+ MB of text, [\d.]+ MB gzipped")
         self.assertIn("Left out, and why", manifest)
         self.assertIn("Rosenkranz", manifest)
         total = sum(p.stat().st_size for p in (REPO / "mind/shelf").iterdir())
