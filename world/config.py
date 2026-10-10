@@ -50,7 +50,7 @@ class Config:
         self.owl_at = v.get("OWL_AT", "01:30")
         self.depesche_day = v.get("DEPESCHE_DAY", "Saturday")
         self.timeout = int(v.get("MIND_TIMEOUT", "300"))
-        self.write_mode = "chat" if v.get("HEGEL_WRITE_MODE", "plain").strip().lower() == "chat" else "plain"      # his writings: plain-text completion, or the chat call
+        self.write_mode = "plain" if v.get("HEGEL_WRITE_MODE", "chat").strip().lower() == "plain" else "chat"      # his writings: the chat call (default), or a plain-text completion
 
     def get(self, key, default=None):
         return self.values.get(key, default)

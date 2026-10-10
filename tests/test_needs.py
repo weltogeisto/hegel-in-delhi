@@ -494,8 +494,7 @@ class WeekTest(unittest.TestCase):
         self.assertEqual(sum(w["sittings"] for w in works), len(sittings))
         self.assertEqual(sum(w["words"] for w in works), sum(e["words"] for e in sittings))
         self.assertEqual(self.calls["write"], len(sittings))                                # one extra chat call a sitting, no more
-        self.assertTrue(all(e["mode"] == "plain" and e["about"].startswith("(rehearsal) ") for e in sittings))       # the text of each came by completion
-        self.assertTrue(all(e["text"].startswith(("(rehearsal) ", "Dear friend,\n\n(rehearsal) ")) and "\n\n" in e["text"] for e in sittings))
+        self.assertTrue(all(e["mode"] == "chat" and e["text"].startswith("(rehearsal) ") for e in sittings))        # the default: the chat call writes each
         self.assertTrue(all(0 < len(w["tail"]) <= 800 for w in works))
         self.assertEqual(self.calls["plan"], 7)
         voice_calls = self.calls["voice"]

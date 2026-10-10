@@ -185,7 +185,7 @@ class SensitiveTest(unittest.TestCase):
             self.assertTrue(all(x["sensitive"] and x["why"] == "Hindu" for x in mine))
             self.assertTrue(all(x["sensitive"] and x["why"] == "caste" for x in theirs))
             writing = [x for x in ents if x["k"] == "writing"]
-            self.assertTrue(writing and all(x["sensitive"] and x["why"] == "colonies" and x["mode"] == "plain" for x in writing))
+            self.assertTrue(writing and all(x["sensitive"] and x["why"] == "colonies" and x["mode"] == "chat" for x in writing))
             self.assertTrue(all(w.get("sensitive") and w["why"] == "colonies" for w in day["state"]["works"]))        # the title alone is enough for the index
             self.assertFalse([x for x in ents if x["k"] in ("bag", "wear", "world", "file", "people") and "sensitive" in x])
             e.run_owl(box.days.load(SAT), at_dt(SAT + timedelta(days=1), 90))
@@ -1248,7 +1248,7 @@ class HTTPCompleteTest(unittest.TestCase):
         """One chat call for what the sitting is, one completion for its text; a refused completion falls back to the chat call."""
         box = Sandbox()
         try:
-            box.cfg.shelf = False
+            box.cfg.shelf, box.cfg.write_mode = False, "plain"
             e, st = box.engine(self.mind), state()
             FakeCompletion.content = "\n\nHegel, On the verandah. Written at Delhi, 6 October 2026.\n\n" + PROSE
             msgs = [{"role": "system", "content": SOUL}, {"role": "user", "content": "the situation"}]
@@ -1517,6 +1517,7 @@ class PlainWritingTest(unittest.TestCase):
     def test_sittings_add_up_across_steps_and_days_in_plain_mode(self):
         box = Sandbox()
         try:
+            box.cfg.write_mode = "plain"
             mind = Scribe()
             e = box.engine(mind)
             for i in range(2):
@@ -1552,10 +1553,10 @@ class PlainWritingTest(unittest.TestCase):
 
 
 class WriteModeConfigTest(unittest.TestCase):
-    def test_plain_unless_chat_is_asked_for(self):
+    def test_chat_unless_plain_is_asked_for(self):
         from world.config import Config
-        self.assertEqual(Config().write_mode, "plain")
-        for value, mode in (("chat", "chat"), (" CHAT ", "chat"), ("plain", "plain"), ("", "plain"), ("banana", "plain")):
+        self.assertEqual(Config().write_mode, "chat")
+        for value, mode in (("plain", "plain"), (" PLAIN ", "plain"), ("chat", "chat"), ("", "chat"), ("banana", "chat")):
             self.assertEqual(Config({"HEGEL_WRITE_MODE": value}).write_mode, mode, value)
 
 
