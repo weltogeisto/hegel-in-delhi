@@ -103,6 +103,26 @@ def encountered_text(day):
     return "\n".join(parts)
 
 
+def thought_place(day, step):
+    """Where the decision's thought occurred, before its requested action.
+
+    A destination is not the place of the thought that chose the trip. Use the
+    recorded segment at the decision time; the start of a walk is its origin.
+    Legacy stationary steps without segments retain their explicit place, but
+    an old walking intention alone supplies no location evidence.
+    """
+    t = step.get("t", "")
+    for segment in day.get("segments") or []:
+        if segment.get("from", "24:00") <= t < segment.get("to", "00:00"):
+            if segment.get("mode") == "walk":
+                return segment.get("a") if t == segment.get("from") else None
+            return segment.get("at")
+    decision = step.get("decision") or {}
+    if not day.get("segments") and decision.get("action") == "stay":
+        return decision.get("place")
+    return None
+
+
 class Memory:
     def __init__(self, days, world):
         self.days, self.world = days, world
@@ -185,7 +205,7 @@ class Memory:
         for p in past:
             for s in reversed(p.get("steps") or []):
                 dec = s.get("decision") or {}
-                if dec.get("place") == pid and (dec.get("thought") or "").strip():
+                if thought_place(p, s) == pid and (dec.get("thought") or "").strip():
                     return [fit(f"{when(p)}, {s['t']}, {self.world.places[pid]['at']}, you thought: ", dec["thought"], quote=True)]
         return []
 
