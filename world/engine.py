@@ -457,6 +457,10 @@ class Engine:
 
     def run_owl(self, day, now):
         latest = self.days.latest(now.date() + timedelta(days=1))
+        # Days.load returns a distinct object. When this is still the latest
+        # day, update the state on the object that will actually be saved.
+        if latest["date"] == day["date"]:
+            latest = day
         st = latest["state"]
         weekday = datetime.fromisoformat(day["date"]).strftime("%A")
         n = st.get("depesche_n", 0) + 1 if weekday == self.cfg.depesche_day else None
@@ -465,9 +469,9 @@ class Engine:
                             flag=self.world.flag, topic=self.world.topic)
         written["written"] = fmt(minute_of(now))
         day["owl"] = written
-        self.days.save(day)
         if n:
             st["depesche_n"] = n
+        self.days.save(day)
         if latest["date"] != day["date"]:
             self.days.save(latest)
         log.info("the owl wrote up day %s", day["n"])
