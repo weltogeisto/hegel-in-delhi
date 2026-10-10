@@ -9,6 +9,8 @@ No assistant turn in this data is written by Claude. Anthropic's terms bar train
 - **Hegel's own texts, his letters and the lives of him**, public domain: `corpus.jsonl`, cut from the shelf (`mind/shelf/*.txt.gz`): his books, his early papers, his letters (written 1785-1831 by him and the people around him, edited by his son Karl in 1887), and the biographies by Rosenkranz (1844) and Caird (1883), which were written by people, a century and more before any language model.
 - **Qwen itself**: `decisions.jsonl`, `plans.jsonl`, `writings.jsonl`, `voices.jsonl`, the mind's own answers to the world's own prompts.
 
+The Hegelizer's files (below) keep the rule the other way round: the target, the assistant turn of every example, is a real passage of his translators; what Qwen wrote is only the input, a plain modern version of that passage.
+
 The one exception is `general.jsonl`, below, which is human-written (or, with `--answer-with`, Qwen-written). Prompts are the project's own files: the soul (`mind/soul.md`), the voices' card (`mind/voices.md`) and the situations that the world engine renders. Nothing here is a thought, an answer or a scene that Claude made up. The tests' fixtures are made-up strings, but they go to temporary folders and never into this one.
 
 ## The files
@@ -21,6 +23,9 @@ The one exception is `general.jsonl`, below, which is human-written (or, with `-
 | `writings.jsonl` | what he wrote when he sat down to, that the world accepted | `--distill` | `[system, user, assistant = the decision, user = the writing ask, assistant = the writing]`; only the last answer is trained on |
 | `voices.jsonl` | what the people he meets answered (their own prompt, `mind/voices.md`) | `--distill` | `[system = voices.md, user, assistant = {"says", "does"}]` |
 | `general.jsonl` | Phase 2 balance, one general example for each of the above, so that the adapter keeps answering other things too | `--general N` | `{"messages": [...], "meta": {...}}` |
+| `hegelizer-units.jsonl` | the Hegelizer's units: passages of his English translations of 150 to 250 words (consecutive shelf passages merged, none sharing eight words with the Hegel test's twenty passages, none with the marks of its scan), 5% of each book held out | `tools/hegelizer.py --build`, anywhere, about 10 s | `{"id", "work", "ref", "original", "split": "train" or "held"}` |
+| `hegelizer.jsonl` | Phase 3, restyle: each unit with the plain modern version that plain Qwen wrote of it; the trainer asks `world/restyle.py`'s prompt for the plain version and trains on the real passage | `tools/hegelizer.py --paraphrase`, on the PC with plain Qwen, about 6 hours | `{"id", "work", "ref", "split", "plain", "original"}` |
+| `hegelizer-failed.jsonl` | the units whose plain version failed the check twice, with the reasons; asked again only with `--retry-failed` | same | `{"id", "work", "reason"}` |
 | `rehearsal/` | the scratch world of the distillation: its day files are the state that a resume carries on from | `--distill` | not data |
 
 `meta` carries what the tool needs to resume and to be audited: the step key (`2026-10-04T09:30`, or `...|plan`, `...|voice|1`, `...|write`), the day, the number of candidates and how many were valid, the score and its parts, the try (1, or later after the world's refusals). The trainer reads `messages` only.
@@ -32,6 +37,10 @@ The world rehearses days with the real Qwen as the mind (the machinery of `pytho
 Resumable: every example is appended with its step key; a crash, a Ctrl-C or a PC that stops answering ends the run without losing a step, and the same command carries on, replaying recorded steps without asking again.
 
 Time on the PC: about (K + 3) calls per decision, 20 days of about 26 decisions at K = 4 is 4 to 7 hours.
+
+## The Hegelizer
+
+Inverse paraphrasing (Krishna et al., EMNLP 2020): `tools/hegelizer.py` takes passages of his English translators from the shelf, has plain Qwen rewrite each in plain modern English, and `pc/train_hegel.py --phase restyle` trains a fresh LoRA to turn the plain version back into the real passage. The plain version must be about as long as the real one (0.6 to 1.4 times the words), have no list or heading, and share no run of eight words with it; otherwise it is asked once more and then recorded as failed. The units held out (`"split": "held"`) are never trained on: the trainer measures its loss on them at the end of each epoch, and the Hegel test's restyle part (`tools/hegel_test.py --only restyle`) judges the adapter on them. The runbook is `pc/HEGELIZER.md`.
 
 ## The general set
 
@@ -50,6 +59,8 @@ python3 tools/train_data.py --general 1000
 python3 tools/train_data.py --distill --url http://127.0.0.1:8080 --days 20 --candidates 4 --start 2026-10-03
 python3 tools/train_data.py --stats                  # counts, token estimates (characters / 4), random samples to read
 python3 pc/train_hegel.py --check-data               # validates the files; needs no GPU
+python3 tools/hegelizer.py --build                   # the Hegelizer's units, then --paraphrase --url ... --workers 4, then --stats (pc/HEGELIZER.md)
+python3 pc/train_hegel.py --check-data --phase restyle
 ```
 
 `--serve-stub 8099` starts a stand-in llama-server so that `--distill` can be tried without the PC. Its answers carry the marks `(rehearsal)` and `(stub)`; `--distill` writes them to a temporary folder, never here, and both `--stats` and `--check-data` refuse any file that contains such a mark.

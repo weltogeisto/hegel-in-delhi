@@ -74,7 +74,7 @@ class Config:
         if not 0 <= self.owl_reasoning_tokens <= 2048:
             raise ValueError("HEGEL_OWL_REASONING_TOKENS must be from 0 to 2048")
         self.thesis_reminders = v.get("HEGEL_THESIS_REMINDERS", "1") not in ("0", "no", "false", "")
-        self.write_mode = "plain" if v.get("HEGEL_WRITE_MODE", "chat").strip().lower() == "plain" else "chat"      # grounded chat by default; raw completion is opt-in
+        self.write_mode = "plain" if v.get("HEGEL_WRITE_MODE", "chat").strip().lower() == "plain" else "chat"      # his writings: the chat call (default), or a plain-text completion
 
     def get(self, key, default=None):
         return self.values.get(key, default)

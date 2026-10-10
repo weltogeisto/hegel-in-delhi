@@ -186,7 +186,7 @@ class SensitiveTest(unittest.TestCase):
             self.assertTrue(all(x["sensitive"] and x["why"] == "Hindu" for x in mine))
             self.assertTrue(all(x["sensitive"] and x["why"] == "caste" for x in theirs))
             writing = [x for x in ents if x["k"] == "writing"]
-            self.assertTrue(writing and all(x["sensitive"] and x["why"] == "colonies" and x["mode"] == "plain" for x in writing))
+            self.assertTrue(writing and all(x["sensitive"] and x["why"] == "colonies" and x["mode"] == "chat" for x in writing))
             self.assertTrue(all(w.get("sensitive") and w["why"] == "colonies" for w in day["state"]["works"]))        # the title alone is enough for the index
             self.assertFalse([x for x in ents if x["k"] in ("bag", "wear", "world", "file", "people") and "sensitive" in x])
             e.run_owl(box.days.load(SAT), at_dt(SAT + timedelta(days=1), 90))
