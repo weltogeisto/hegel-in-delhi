@@ -57,14 +57,15 @@ Run your Node and browser checks too, if they apply. Report each conflict and ho
 
 ## 3. Hand the branch over
 
-WSL has no GitHub login, so send the branch as patches:
+WSL has no GitHub login, so send the branch as a git bundle. Patches would lose the merge commit and its conflict resolutions; a bundle keeps them:
 
 ```bash
-mkdir -p /mnt/c/hegel/handover/patches
-git format-patch origin/main..codex/runtime-fixes -o /mnt/c/hegel/handover/patches
+mkdir -p /mnt/c/hegel/handover
+git bundle create /mnt/c/hegel/handover/runtime-fixes.bundle origin/main..codex/runtime-fixes
+git bundle verify /mnt/c/hegel/handover/runtime-fixes.bundle
 ```
 
-Send Welt the patch files and the test log; Claude reviews, applies and pushes them. If Welt sets up a GitHub login in WSL, push the branch `codex/runtime-fixes` instead, never main.
+Send Welt the bundle and the test log; Claude reviews, applies and pushes them. If Welt sets up a GitHub login in WSL, push the branch `codex/runtime-fixes` instead, never main.
 
 ## 4. Structured memory of what happened
 
@@ -94,7 +95,7 @@ Start only after Welt confirms that step 3 is in the repo. Build on your `runtim
   - JSON validity;
   - prompt sizes.
 - **Don't train on these days, and don't repair the record by hand.**
-- **Deliver** as a branch plus patches, as in step 3.
+- **Deliver** as a bundle, as in step 3.
 
 ## 5. Independent review
 
