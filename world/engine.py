@@ -362,7 +362,7 @@ class Engine:
         if ctx.get("manuscripts"):
             request += "\n\n" + ctx["manuscripts"]
         msgs = for_task(messages + [{"role": "assistant", "content": raw}, {"role": "user", "content": request}], "writing")
-        for _ in range(2):
+        for attempt in range(2):
             try:
                 writing_call = getattr(self.mind, "chat_writing", self.mind.chat)
                 reply = writing_call(msgs, contract.WRITE_SCHEMA, max_tokens=1100)
@@ -371,7 +371,20 @@ class Engine:
                 return None
             w = works.clean(contract.extract_json(reply))
             if not w:
+                log.warning("writing dropped: unusable JSON or empty manuscript")
                 return None
+            if w["continues"] and not works.find(st.get("works") or [], w["title"]):
+                log.warning("writing: unknown continuation title %r", w["title"])
+                if attempt:
+                    log.warning("writing dropped: continuation still names no existing manuscript")
+                    return None
+                titles = [x["title"] for x in (st.get("works") or [])[-5:]]
+                correction = ("That title is not an existing manuscript. To continue a manuscript, use its existing title exactly. "
+                              "Recent existing titles: " + json.dumps(titles, ensure_ascii=False) + ". "
+                              "For a new work, set continues to false. Do not invent an earlier sitting. "
+                              "Answer with the JSON object only.")
+                msgs += [{"role": "assistant", "content": reply}, {"role": "user", "content": correction}]
+                continue
             wrong = self.world.unmet(w["title"] + "\n" + w["text"], ctx["known_text"])
             if not wrong:
                 return dict(w, mode="chat")
