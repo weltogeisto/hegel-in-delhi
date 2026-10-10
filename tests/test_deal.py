@@ -170,6 +170,7 @@ class SensitiveTest(unittest.TestCase):
 
         box = Sandbox()
         try:
+            box.cfg.write_mode = "plain"       # exercise flags on the optional completion path
             e = box.engine(Racist())
             day = box.run_day(SAT, e)
             steps = [s for s in day["steps"] if "decision" in s]
@@ -616,8 +617,10 @@ class WritingTest(unittest.TestCase):
             calls = [c for c in mind.asked if c[0] == "write"]
             self.assertEqual(len(calls), 1)
             msgs = calls[0][1]
-            self.assertEqual(msgs[0]["content"], SOUL)
-            self.assertEqual(msgs[-1]["content"], works.ask({}))
+            self.assertTrue(msgs[0]["content"].startswith(SOUL.split("## Your answer\n")[0].rstrip()))
+            self.assertNotIn("## Your answer", msgs[0]["content"])
+            self.assertIn('title, kind, to, continues, text', msgs[0]["content"])
+            self.assertEqual(msgs[-1]["content"], works.ask({}, SAT))
             self.assertIn("You sat down to write. What did you write?", msgs[-1]["content"])
             self.assertEqual(msgs[-2]["role"], "assistant")                                       # the decision he has just made
             w = next(x for x in day["entries"] if x["k"] == "writing")
@@ -1249,6 +1252,7 @@ class HTTPCompleteTest(unittest.TestCase):
         box = Sandbox()
         try:
             box.cfg.shelf = False
+            box.cfg.write_mode = "plain"       # this test is specifically the /completion chain
             e, st = box.engine(self.mind), state()
             FakeCompletion.content = "\n\nHegel, On the verandah. Written at Delhi, 6 October 2026.\n\n" + PROSE
             msgs = [{"role": "system", "content": SOUL}, {"role": "user", "content": "the situation"}]
@@ -1285,7 +1289,9 @@ class PlainWritingTest(unittest.TestCase):
         try:
             self.assertEqual(self.kinds(mind), ["sitting", "complete"])
             msgs = next(m for k, m in mind.asked if k == "sitting")
-            self.assertEqual(msgs[0]["content"], SOUL)
+            self.assertTrue(msgs[0]["content"].startswith(SOUL.split("## Your answer\n")[0].rstrip()))
+            self.assertNotIn("## Your answer", msgs[0]["content"])
+            self.assertIn('title, kind, to, continues, about', msgs[0]["content"])
             self.assertEqual(msgs[-1]["content"], works.sitting_ask({}))
             self.assertTrue(msgs[-1]["content"].startswith("You sat down to write. Say what you will write, not the text yet"))
             self.assertEqual(msgs[-2]["role"], "assistant")                                       # the decision he has just made
@@ -1426,7 +1432,7 @@ class PlainWritingTest(unittest.TestCase):
         self.assertEqual(self.kinds(mind), ["sitting", "complete", "complete", "write"])
         self.assertNotIn("about", w)
         msgs = next(m for k, m in mind.asked if k == "write")
-        self.assertEqual(msgs[-1]["content"], works.ask({}))                                           # the old call, as it was
+        self.assertEqual(msgs[-1]["content"], works.ask({}, SAT))                                           # the old call, as it was
 
     def test_names_everywhere_and_the_writing_is_dropped(self):
         bad = json.dumps(dict(json.loads(CHAT_SITTING), text=UNMET))
@@ -1462,7 +1468,7 @@ class PlainWritingTest(unittest.TestCase):
         w, _ = write_with(mind)
         self.assertEqual((w["mode"], self.kinds(mind)), ("chat", ["write"]))
 
-    def test_chat_mode_is_the_old_single_call_exactly(self):
+    def test_chat_mode_keeps_the_full_context_and_adds_the_simulation_date(self):
         calls = []
 
         class Spy(Talker):
@@ -1474,8 +1480,12 @@ class PlainWritingTest(unittest.TestCase):
         st = state()
         w, _ = write_with(mind, st, write_mode="chat")
         (messages, schema, max_tokens, temperature), = calls
-        self.assertEqual(messages, [{"role": "system", "content": SOUL}, {"role": "user", "content": "the situation"}, {"role": "assistant", "content": "the decision"},
-                                    {"role": "user", "content": works.ask(st)}])
+        self.assertEqual(messages[1:], [{"role": "user", "content": "the situation"}, {"role": "assistant", "content": "the decision"},
+                                        {"role": "user", "content": works.ask(st, SAT)}])
+        self.assertTrue(messages[0]["content"].startswith(SOUL.split("## Your answer\n")[0].rstrip()))
+        self.assertNotIn("## Your answer", messages[0]["content"])
+        self.assertIn("title, kind, to, continues, text", messages[0]["content"])
+        self.assertIn(f"Date of this sitting: {works.when(SAT)}", messages[-1]["content"])
         self.assertIs(schema, contract.WRITE_SCHEMA)
         self.assertEqual((max_tokens, temperature), (1100, None))
         self.assertEqual(self.kinds(mind), ["write"])                                                    # nothing else asked, no completion
@@ -1517,6 +1527,7 @@ class PlainWritingTest(unittest.TestCase):
     def test_sittings_add_up_across_steps_and_days_in_plain_mode(self):
         box = Sandbox()
         try:
+            box.cfg.write_mode = "plain"
             mind = Scribe()
             e = box.engine(mind)
             for i in range(2):
@@ -1552,10 +1563,10 @@ class PlainWritingTest(unittest.TestCase):
 
 
 class WriteModeConfigTest(unittest.TestCase):
-    def test_plain_unless_chat_is_asked_for(self):
+    def test_chat_unless_plain_is_explicitly_requested(self):
         from world.config import Config
-        self.assertEqual(Config().write_mode, "plain")
-        for value, mode in (("chat", "chat"), (" CHAT ", "chat"), ("plain", "plain"), ("", "plain"), ("banana", "plain")):
+        self.assertEqual(Config().write_mode, "chat")
+        for value, mode in (("chat", "chat"), (" CHAT ", "chat"), ("plain", "plain"), (" PLAIN ", "plain"), ("", "chat"), ("banana", "chat")):
             self.assertEqual(Config({"HEGEL_WRITE_MODE": value}).write_mode, mode, value)
 
 

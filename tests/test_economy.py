@@ -444,7 +444,7 @@ class OfferTest(unittest.TestCase):
         self.assertTrue(e["cheque"])
         self.assertEqual((e["amount"], e["item"]), (10000, "Honorarium for the talk at the IIC"))
         self.assertIn("You have no bank account to put it in.", e["text"])
-        self.assertIn("1 cheque ₹10,000 uncashed", look(w, at_dt(D(15), 600), st, "home")[0]["on_mind"][-2])
+        self.assertIn("1 cheque ₹10,000 uncashed", next(line for line in look(w, at_dt(D(15), 600), st, "home")[0]["on_mind"] if line.startswith("Money:")))
 
     def test_a_talk_he_does_not_give_pays_nothing(self):
         w, st = self.w, fresh()
@@ -685,7 +685,7 @@ class CostTest(unittest.TestCase):
         st["imprest"], st["last_meal"] = 100, "2026-10-04T06:00+05:30"
         with There(home=["ramesh"]):
             errors, entries = act(w, at_dt(D(4), 13 * 60 + 5), st, "home", answer(action="eat", place="home"))
-        self.assertEqual(errors, [])
+        self.assertTrue(any("groceries have not been paid" in error for error in errors))
         self.assertEqual(st["last_meal"], "2026-10-04T06:00+05:30")
 
     def test_the_dhobi_comes_on_saturdays_and_is_paid_at_home(self):

@@ -26,6 +26,7 @@ HUNGRY_H, VERY_HUNGRY_H, TIRED_H, TIRED_M = 5, 8, 16, 10_000        # hours sinc
 WALK_M, HOT_C = 75, 33                  # metres a minute; from this temperature walking counts one and a half times
 NUMBERS = "zero one two three four five six seven eight nine ten eleven twelve".split()
 PLAN_TIME = re.compile(r"(\d{1,2}):(\d{2})$")
+RECENT_CHARS, PURCHASE_CHARS = 480, 240  # bounded current recall; full records stay on disk
 GREET_P = 0.35          # a person he knows, seen for the first time that day at a place, speaks first with this chance
 
 
@@ -232,6 +233,20 @@ class World(Economy):
         """The meal Ramesh has laid out at home at time t, if any."""
         name = meal_at(minute_of(t))
         return name if name and "ramesh" in self.present_ids("home", t, state) and not self.kitchen(state) else None
+
+    def meal_status(self, t, state):
+        """Available household service, independent of an NPC's claim about a tray."""
+        if self.kitchen(state):
+            return self.kitchen(state)
+        if "ramesh" not in self.present_ids("home", t, state):
+            return "No household meal is available while Ramesh is absent."
+        if name := self.served(t, state):
+            return f"{name.capitalize()} is available now."
+        later = [(name, a) for name, (a, _) in MEAL_WINDOWS.items() if a > minute_of(t)]
+        if later:
+            name, at = later[0]
+            return f"No household meal is available now; the next service is {name} from {fmt(at)}."
+        return "No household meal is available now; today's meal services have ended."
 
     def feed(self, state, t, food):
         """A meal starts the clock again; a snack pushes hunger back two hours."""
@@ -580,8 +595,26 @@ class World(Economy):
         if state.get("theses"):
             on_mind.append("Your theses: " + "; ".join(f"{x['text']} ({x['status']})" for x in state["theses"]) + ".")
         on_mind.append(self.money_line(state, t))
+        purchases = []
+        for e in day.get("entries", []) + [e for _, e in events if e]:
+            amount = e.get("price") if e.get("k") == "bag" else e.get("amount") if e.get("k") == "expense" and e.get("settles") is True else None
+            if type(amount) in (int, float):
+                purchases.append((e, amount))
+        paid = []
+        for e, amount in reversed(purchases[-4:]):
+            item = e["item"]
+            if len(item) > 80:
+                item = item[:79].rsplit(" ", 1)[0] + "…"
+            line = f"{e.get('t', fmt(m))} {item} ₹{amount:,}"
+            if sum(len(x) + 2 for x in paid) + len(line) > PURCHASE_CHARS:
+                break
+            paid.append(line)
+        if paid:
+            on_mind.append("Recorded purchases/payments today: " + "; ".join(reversed(paid)) + ".")
         if state["tech"]["phone"] and state["tech"]["sim"]:
             on_mind.append("You have a phone with a SIM: you may look something up (looks_up).")
+        if pid == "home":
+            on_mind.append("Household: " + self.meal_status(t, state))
         on_mind.append(body)
         earlier = []
         for s in (day.get("steps") or [])[-6:]:
@@ -589,7 +622,26 @@ class World(Economy):
             if not dec.get("thought"):
                 continue
             first = re.split(r"(?<=[.!?])\s", dec["thought"].strip())[0]
-            earlier.append(f"{s['t']} {dec['action']} ({dec['place']}): {first}")
+            if len(first) > 140:
+                first = first[:139].rsplit(" ", 1)[0] + "…"
+            activity = [seg["now"] for seg in day.get("segments", [])
+                        if seg.get("now") and s["t"] <= seg["from"] < s["end"] and seg["to"] <= s["end"]]
+            completed = " ".join(dict.fromkeys(activity))
+            if len(completed) > 140:
+                completed = completed[:139].rsplit(" ", 1)[0] + "…"
+            line = f"{s['t']} recorded step: {dec['action']} ({dec['place']})"
+            if completed:
+                line += f"; executed activity: {completed}"
+            line += f"; you thought: “{first}”"
+            warnings = (s.get("mind") or {}).get("warnings") or []
+            if warnings:
+                note = "; ".join(warnings[:2])
+                if len(note) > 140:
+                    note = note[:139].rsplit(" ", 1)[0] + "…"
+                line += " Engine note: " + note + "."
+            earlier.append(line)
+        while len(earlier) > 1 and sum(len(x) + 3 for x in earlier) > RECENT_CHARS:
+            earlier.pop(0)                  # oldest recall yields to recent action and correction facts
         hol = self.holiday(d)
         sit = {
             "id": f"{d.isoformat()}T{fmt(m)}",
@@ -687,6 +739,8 @@ class World(Economy):
             else:
                 errors.append(f"nothing is sold {pl['at']}")
                 break
+        if action == "eat" and dest == "home" and not self.served(arrival, state):
+            errors.append(self.meal_status(arrival, state) + " Choose an available activity; a request for food is not a completed meal.")
         spent = sum(b["price"] for b in buys)
         if spent > state["imprest"]:
             errors.append(f"that costs ₹{spent:,} and you have only ₹{state['imprest']:,} in cash")

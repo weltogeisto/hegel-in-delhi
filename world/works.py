@@ -131,9 +131,60 @@ def manuscripts(state):
     return " Your manuscripts so far: " + "; ".join(shelf) + "." if shelf else ""
 
 
-def ask(state):
-    """The question for the chat call that writes the whole sitting."""
-    return WRITE_ASK + manuscripts(state) + " " + WRITE_FORMAT
+def ask(state, d=None):
+    """A chat writing request, kept after the full identity and situation by Engine.write_chat.
+
+    The date comes from the simulation clock. The evidence distinction is an
+    instruction to the writer, not a factual validator or a change to stored memory.
+    """
+    dated = f"Date of this sitting: {when(d)}. " if d is not None else ""
+    grounding = (
+        "Use the observations, events and received words in the situation for claims about your day. "
+        "Your thoughts and interpretations are not additional events; plans are intentions until the record says they happened. "
+        "Do not invent recent journeys, meetings, correspondence or lessons. Mark speculation or fiction as such. "
+        "Writing a letter does not mean it was sent or that an answer arrived. "
+        "Let the particular subject and genre guide the writing: develop the reasons for a claim rather than substituting a familiar formula. "
+        "A private letter may be practical, affectionate or irritated without becoming a philosophical lecture. "
+    )
+    # The distiller recognises WRITE_ASK at the beginning of this request.
+    return WRITE_ASK + manuscripts(state) + " " + dated + grounding + WRITE_FORMAT
+
+
+
+def manuscript_excerpts(selected, limit=9000):
+    """Bounded exact excerpts from previous sittings, with omissions marked."""
+    if not selected:
+        return ""
+    intro = ("Earlier manuscripts: these are your previous claims and arguments, not independent evidence of events. "
+             "If you continue a work, develop or explicitly reconsider it; do not silently reverse a claim. "
+             "An unsupported claim in an earlier draft remains unsupported. Some middle sittings or text may be omitted.\n")
+    blocks = []
+    # Reserve room for every selected work, rather than letting the first consume
+    # the context. Excerpts keep their opening and ending when they do not fit.
+    per_work = max(0, (limit - len(intro)) // len(selected))
+    for work, rows in selected:
+        header = f"\nManuscript: {work['title']} ({work['kind']}; {work['id']}).\n"
+        per_row = max(0, (per_work - len(header)) // len(rows))
+        parts = []
+        for d, entry in rows:
+            label = f"[{d} {entry['t']}, sitting {entry['sitting']}]\n"
+            text = entry['text']
+            budget = per_row - len(label) - 2
+            if budget < 70:
+                continue
+            if len(text) > budget:
+                gap = "\n[… middle of this sitting omitted …]\n"
+                room = budget - len(gap)
+                left = room // 2
+                beginning = text[:left].rsplit(' ', 1)[0]
+                ending = text[-(room - left):].split(' ', 1)[-1]
+                text = beginning + gap + ending
+            parts.append(label + text + "\n")
+        if parts:
+            blocks.append(header + ''.join(parts))
+    result = intro + ''.join(blocks) if blocks else ""
+    assert len(result) <= limit
+    return result
 
 
 def sitting_ask(state):

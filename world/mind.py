@@ -21,8 +21,23 @@ class MindAway(Exception):
 class HTTPMind:
     source = "mind"
 
-    def __init__(self, url, wake=None, timeout=300, temperature=0.7):
+    def __init__(self, url, wake=None, timeout=300, temperature=0.7, voice_adapter_scale=None,
+                 writing_reasoning_tokens=0, writing_adapter_scale=None,
+                 decision_reasoning_tokens=0, decision_adapter_scale=None):
         self.url, self.wake, self.timeout, self.temperature = url.rstrip("/"), wake, timeout, temperature
+        if voice_adapter_scale not in (None, 0, 1):
+            raise ValueError("voice_adapter_scale must be None, 0 or 1")
+        if writing_adapter_scale not in (None, 0, 1):
+            raise ValueError("writing_adapter_scale must be None, 0 or 1")
+        self._check_reasoning_budget(writing_reasoning_tokens)
+        self._check_reasoning_budget(decision_reasoning_tokens)
+        if decision_adapter_scale not in (None, 0, 1):
+            raise ValueError("decision_adapter_scale must be None, 0 or 1")
+        self.decision_reasoning_tokens = decision_reasoning_tokens
+        self.decision_adapter_scale = decision_adapter_scale
+        self.voice_adapter_scale = voice_adapter_scale
+        self.writing_reasoning_tokens = writing_reasoning_tokens
+        self.writing_adapter_scale = writing_adapter_scale
         self.ready = False
 
     def health(self, timeout=3):
@@ -48,11 +63,64 @@ class HTTPMind:
         self.ready = True
         log.info("mind awake after %.0fs", time.time() - t0)
 
-    def chat(self, messages, schema=None, max_tokens=700, temperature=None):
+    def chat_voice(self, messages, schema=None, max_tokens=250):
+        """Optionally disable the single loaded LoRA for another character, per request.
+
+        This never changes the server's global adapter setting. When enabled,
+        ordinary character calls explicitly use adapter 0 at scale 1, so each
+        role change takes the server's adapter/cache-switch path. None preserves
+        the previous behaviour.
+        """
+        if self.voice_adapter_scale is None:
+            return self.chat(messages, schema, max_tokens=max_tokens)
+        return self.chat(messages, schema, max_tokens=max_tokens, adapter_scale=self.voice_adapter_scale)
+
+    @staticmethod
+    def _check_reasoning_budget(tokens):
+        if type(tokens) is not int or not 0 <= tokens <= 2048:
+            raise ValueError("reasoning budget must be an integer from 0 to 2048")
+
+    def chat_decision(self, messages, schema=None, max_tokens=700):
+        """Use the optional decision profile for actions and morning planning.
+
+        Preserve legacy chat overrides when the profile is unset. NPCs, writing,
+        and retrospective reports retain their own settings.
+        """
+        if not self.decision_reasoning_tokens and self.decision_adapter_scale is None:
+            return self.chat(messages, schema, max_tokens=max_tokens)
+        return self.chat(messages, schema, max_tokens=max_tokens + self.decision_reasoning_tokens,
+                         reasoning_budget=self.decision_reasoning_tokens,
+                         adapter_scale=self.decision_adapter_scale)
+
+    def chat_writing(self, messages, schema=None, max_tokens=1100):
+        """Optionally reserve bounded reasoning time for the manuscript call only.
+
+        Reasoning remains server-side response metadata: chat returns only final
+        content. The final-answer allowance is retained by adding the reasoning
+        budget. Per-request adapter selection never alters global server state.
+        Defaults preserve the previous non-thinking, inherited-adapter path.
+        """
+        if not self.writing_reasoning_tokens and self.writing_adapter_scale is None:
+            return self.chat(messages, schema, max_tokens=max_tokens)
+        return self.chat(messages, schema, max_tokens=max_tokens + self.writing_reasoning_tokens,
+                         reasoning_budget=self.writing_reasoning_tokens,
+                         adapter_scale=self.writing_adapter_scale)
+
+    def chat(self, messages, schema=None, max_tokens=700, temperature=None, *, adapter_scale=None,
+             reasoning_budget=0):
+        if adapter_scale is None and self.voice_adapter_scale is not None:
+            adapter_scale = 1
+        if adapter_scale not in (None, 0, 1):
+            raise ValueError("adapter_scale must be None, 0 or 1")
+        self._check_reasoning_budget(reasoning_budget)
         self.ensure_awake()
         payload = {"model": "local", "messages": messages, "max_tokens": max_tokens,
                    "temperature": self.temperature if temperature is None else temperature,
-                   "chat_template_kwargs": {"enable_thinking": False}}
+                   "chat_template_kwargs": {"enable_thinking": bool(reasoning_budget)}}
+        if reasoning_budget:
+            payload["reasoning_budget_tokens"] = reasoning_budget
+        if adapter_scale is not None:
+            payload["lora"] = [{"id": 0, "scale": adapter_scale}]
         if schema:
             payload["response_format"] = {"type": "json_schema", "json_schema": {"name": "answer", "schema": schema}}
         for constrained in ((True, False) if schema else (False,)):
@@ -92,7 +160,7 @@ class HTTPMind:
             raise MindAway(f"mind request failed: {e}")
 
     def decide(self, messages, sit):
-        return self.chat(messages, SCHEMA)
+        return self.chat_decision(messages, SCHEMA)
 
 
 THOUGHTS = [
