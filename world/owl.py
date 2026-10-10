@@ -81,6 +81,13 @@ def closing_record(day):
         lines.append(f"Recorded clothing worn: {state['wearing']}.")
     if state.get("file"):
         lines.append("Recorded Directorate file status: " + state['file'])
+    if "steps" in day:
+        meals = [s['t'] + (f"–{s['end']}" if s.get('end') else "") + f" at {s['decision']['place']}"
+                 for s in day["steps"] if (s.get("decision") or {}).get("action") == "eat"]
+        if meals or day.get("complete"):
+            lines.append("Recorded eating actions: " + ("; ".join(meals) if meals else
+                         "none in this completed day's step log") + ".")
+            lines.append("Offers, plans and purchases alone do not establish an eating action.")
     readings = [e for e in day.get("entries", []) if e.get("k") == "read"]
     for e in readings:
         lines.append(f"Reading actually delivered at {e['t']}: {e['source']}, {e['title']}" + (f"; {e['work']}, {e.get('ref', '')}" if e.get('work') else "") + ".")
