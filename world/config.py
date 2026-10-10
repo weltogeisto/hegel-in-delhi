@@ -34,6 +34,8 @@ class Config:
         self.values = v
         self.repo = Path(v.get("HEGEL_REPO", REPO)).expanduser()
         self.docs = self.repo / "docs"
+        soul_file = Path(v.get("HEGEL_SOUL_FILE", "mind/soul.md")).expanduser()
+        self.soul_file = soul_file if soul_file.is_absolute() else self.repo / soul_file
         self.branch = v.get("HEGEL_BRANCH", "main")
         self.push = v.get("HEGEL_PUSH", "1") not in ("0", "no", "false", "")
         self.state = Path(v.get("HEGEL_STATE", Path.home() / ".local/state/hegel")).expanduser()
@@ -50,6 +52,28 @@ class Config:
         self.owl_at = v.get("OWL_AT", "01:30")
         self.depesche_day = v.get("DEPESCHE_DAY", "Saturday")
         self.timeout = int(v.get("MIND_TIMEOUT", "300"))
+        voice_scale = v.get("HEGEL_VOICE_ADAPTER_SCALE", "").strip()
+        if voice_scale not in ("", "0", "1"):
+            raise ValueError("HEGEL_VOICE_ADAPTER_SCALE must be empty, 0 or 1")
+        self.voice_adapter_scale = int(voice_scale) if voice_scale else None
+        self.writing_reasoning_tokens = int(v.get("HEGEL_WRITE_REASONING_TOKENS", "0"))
+        if not 0 <= self.writing_reasoning_tokens <= 2048:
+            raise ValueError("HEGEL_WRITE_REASONING_TOKENS must be from 0 to 2048")
+        writing_scale = v.get("HEGEL_WRITE_ADAPTER_SCALE", "").strip()
+        if writing_scale not in ("", "0", "1"):
+            raise ValueError("HEGEL_WRITE_ADAPTER_SCALE must be empty, 0 or 1")
+        self.writing_adapter_scale = int(writing_scale) if writing_scale else None
+        self.decision_reasoning_tokens = int(v.get("HEGEL_DECISION_REASONING_TOKENS", "0"))
+        if not 0 <= self.decision_reasoning_tokens <= 2048:
+            raise ValueError("HEGEL_DECISION_REASONING_TOKENS must be from 0 to 2048")
+        decision_scale = v.get("HEGEL_DECISION_ADAPTER_SCALE", "").strip()
+        if decision_scale not in ("", "0", "1"):
+            raise ValueError("HEGEL_DECISION_ADAPTER_SCALE must be empty, 0 or 1")
+        self.decision_adapter_scale = int(decision_scale) if decision_scale else None
+        self.owl_reasoning_tokens = int(v.get("HEGEL_OWL_REASONING_TOKENS", "0"))
+        if not 0 <= self.owl_reasoning_tokens <= 2048:
+            raise ValueError("HEGEL_OWL_REASONING_TOKENS must be from 0 to 2048")
+        self.thesis_reminders = v.get("HEGEL_THESIS_REMINDERS", "1") not in ("0", "no", "false", "")
         self.write_mode = "plain" if v.get("HEGEL_WRITE_MODE", "chat").strip().lower() == "plain" else "chat"      # his writings: the chat call (default), or a plain-text completion
 
     def get(self, key, default=None):

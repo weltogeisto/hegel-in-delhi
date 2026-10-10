@@ -85,6 +85,44 @@ def record_text(day):
     return "\n".join(list(strings(day.get("entries") or [])) + [s.get("event") or "" for s in day.get("steps") or []])
 
 
+def encountered_text(day):
+    """Evidence of exposure, not proof a received claim is true.
+
+    A thought, manuscript, intention, own utterance or owl interpretation cannot
+    introduce a modern name into the knowledge gate. The full record remains
+    available through record_text and the attributed recall functions.
+    """
+    parts = []
+    for entry in day.get("entries") or []:
+        kind = entry.get("k")
+        if kind in {"world", "people", "file", "wear", "bag", "read"} or (kind == "said" and entry.get("by")):
+            parts.extend(strings(entry))
+    for step in day.get("steps") or []:
+        parts.append(step.get("event") or "")
+        parts.extend(x["text"] for x in step.get("shelf_exposure") or [] if isinstance(x.get("text"), str))
+    return "\n".join(parts)
+
+
+def thought_place(day, step):
+    """Where the decision's thought occurred, before its requested action.
+
+    A destination is not the place of the thought that chose the trip. Use the
+    recorded segment at the decision time; the start of a walk is its origin.
+    Legacy stationary steps without segments retain their explicit place, but
+    an old walking intention alone supplies no location evidence.
+    """
+    t = step.get("t", "")
+    for segment in day.get("segments") or []:
+        if segment.get("from", "24:00") <= t < segment.get("to", "00:00"):
+            if segment.get("mode") == "walk":
+                return segment.get("a") if t == segment.get("from") else None
+            return segment.get("at")
+    decision = step.get("decision") or {}
+    if not day.get("segments") and decision.get("action") == "stay":
+        return decision.get("place")
+    return None
+
+
 class Memory:
     def __init__(self, days, world):
         self.days, self.world = days, world
@@ -167,9 +205,43 @@ class Memory:
         for p in past:
             for s in reversed(p.get("steps") or []):
                 dec = s.get("decision") or {}
-                if dec.get("place") == pid and (dec.get("thought") or "").strip():
+                if thought_place(p, s) == pid and (dec.get("thought") or "").strip():
                     return [fit(f"{when(p)}, {s['t']}, {self.world.places[pid]['at']}, you thought: ", dec["thought"], quote=True)]
         return []
+
+    def manuscripts(self, day, before_time=None, limit=9000):
+        """Earlier text of the latest three works, attributed as drafts, not facts.
+
+        Read the first and two latest sittings of each work, including across day
+        boundaries. The current in-memory day wins over its saved copy. No future
+        day or later sitting is eligible. No generated summary changes the text.
+        """
+        works = (day.get("state", {}).get("works") or [])[-3:]
+        ids = {w.get("id") for w in works if w.get("id")}
+        if not ids:
+            return ""
+        start = min((w.get("started", day["date"]) for w in works))
+        past_dates = sorted({r["date"] for r in self.days.index()["days"] if start <= r["date"] < day["date"]})
+        prior = [self.load(date.fromisoformat(d)) for d in past_dates] + [day]
+        groups = {key: [] for key in ids}
+        for old in prior:
+            if not old:
+                continue
+            for entry in old.get("entries", []):
+                if entry.get("k") != "writing" or entry.get("work") not in ids:
+                    continue
+                if old["date"] == day["date"] and before_time and entry.get("t", "24:00") >= before_time:
+                    continue
+                groups[entry["work"]].append((old["date"], entry))
+        from .works import manuscript_excerpts
+        selected = []
+        for work in works:
+            rows = sorted(groups.get(work.get("id"), []), key=lambda pair: (pair[0], pair[1]["t"], pair[1].get("sitting", 0)))
+            if not rows:
+                continue
+            indices = sorted({0, *range(max(0, len(rows) - 2), len(rows))})
+            selected.append((work, [rows[i] for i in indices]))
+        return manuscript_excerpts(selected, limit=limit)
 
     def recent_thoughts(self, day, n=12):
         """(time, text) of his last n thoughts, oldest first: today's, and the end of yesterday's if today has fewer."""
@@ -181,14 +253,17 @@ class Memory:
         return out
 
     def known_before(self, date_str):
-        """The text of every day file before date_str."""
-        if not self._known or self._known[0] != date_str:
-            for p in sorted(self.days.dir.glob("????-??-??.json")):
-                if p.stem < date_str and p.stem not in self._text:
-                    self._text[p.stem] = record_text(self.days.load(p.stem))      # the day itself is not kept, only its text
-            self._known = (date_str, "\n".join(self._text[k] for k in sorted(self._text) if k < date_str))
+        """Observed/received material before date_str, refreshed when a source file changes."""
+        paths = [p for p in sorted(self.days.dir.glob("????-??-??.json")) if p.stem < date_str]
+        stamps = tuple((p.stem, p.stat().st_mtime_ns, p.stat().st_size) for p in paths)
+        if not self._known or self._known[0] != stamps:
+            for p, stamp in zip(paths, stamps):
+                if p.stem not in self._text or self._text[p.stem][0] != stamp:
+                    self._text[p.stem] = (stamp, encountered_text(self.days.load(p.stem)))
+            self._known = (stamps, "\n".join(self._text[p.stem][1] for p in paths))
         return self._known[1]
 
     def known_text(self, day, sit):
-        """Everything he has met since waking: every earlier day file, today so far, and what he is shown now."""
-        return "\n".join([self.known_before(day["date"]), record_text(day), contract.render(sit)])
+        """Past and current exposure; recalled thoughts and intentions are not new evidence."""
+        current = {k: v for k, v in sit.items() if k not in {"on_mind", "remember", "earlier"}}
+        return "\n".join([self.known_before(day["date"]), encountered_text(day), contract.render(current)])

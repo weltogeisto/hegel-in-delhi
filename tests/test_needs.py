@@ -281,7 +281,8 @@ class NeedsTest(unittest.TestCase):
 
     def test_eating_at_home_is_a_meal_only_when_a_meal_is_laid_out(self):
         st = state()
-        play(self.w, st, self.at(SAT, 11), action="eat", place="home")
+        sit, ctx = self.w.situation(self.at(SAT, 11), st, {"steps": []})
+        self.assertTrue(self.w.check(answer(action="eat", place="home"), sit, ctx, st)[0])  # unavailable eating is refused
         self.assertNotIn("last_meal", st)                                                    # nothing on the table at eleven
         play(self.w, st, self.at(SAT, 13, 10), action="eat", place="home")
         self.assertEqual(st["last_meal"], "2026-10-03T13:10+05:30")
@@ -289,7 +290,8 @@ class NeedsTest(unittest.TestCase):
         play(self.w, st, self.at(SAT, 7, 30), action="eat", place="home")
         self.assertEqual(st["last_meal"], "2026-10-03T07:30+05:30")                          # breakfast counts
         st = state()
-        play(self.w, st, self.at(WED, 13, 10), action="eat", place="home")
+        sit, ctx = self.w.situation(self.at(WED, 13, 10), st, {"steps": []})
+        self.assertTrue(self.w.check(answer(action="eat", place="home"), sit, ctx, st)[0])
         self.assertNotIn("last_meal", st)                                                    # Ramesh's day off: no lunch
         st = state()
         play(self.w, st, self.at(SAT, 13, 10), action="read", place="home")
@@ -494,7 +496,8 @@ class WeekTest(unittest.TestCase):
         self.assertEqual(sum(w["sittings"] for w in works), len(sittings))
         self.assertEqual(sum(w["words"] for w in works), sum(e["words"] for e in sittings))
         self.assertEqual(self.calls["write"], len(sittings))                                # one extra chat call a sitting, no more
-        self.assertTrue(all(e["mode"] == "chat" and e["text"].startswith("(rehearsal) ") for e in sittings))        # the default: the chat call writes each
+        self.assertTrue(all(e["mode"] == "chat" and "about" not in e for e in sittings))       # default: one chat call retains the situation
+        self.assertTrue(all(e["text"].startswith("(rehearsal) ") for e in sittings))
         self.assertTrue(all(0 < len(w["tail"]) <= 800 for w in works))
         self.assertEqual(self.calls["plan"], 7)
         voice_calls = self.calls["voice"]

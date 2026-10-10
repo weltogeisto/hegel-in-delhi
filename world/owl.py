@@ -27,7 +27,7 @@ def schema(with_depesche):
     return {"type": "object", "properties": props, "required": list(props)}
 
 
-def record(day, limit=9000):
+def record(day, limit=24000):
     """The day as the owl reads it: plain lines, oldest first."""
     lines = [f"Day {day['n']}, {day['title']}" + (f", {day['holiday']}" if day.get("holiday") else "") + "."]
     for e in day["entries"]:
@@ -49,7 +49,8 @@ def record(day, limit=9000):
         elif k in ("income", "expense"):
             lines.append(f"{e['t']} {'earned' if k == 'income' else 'paid'}: {e['item']}, ₹{e['amount']:,}" + (" (a cheque, not cashed)" if e.get("cheque") else ""))
         elif k == "read":
-            lines.append(f"{e['t']} read on his phone, from {e['source']}, “{e['title']}”: {e['text']}")
+            medium = "read" if e.get("source_sha256") else "read on his phone"
+            lines.append(f"{e['t']} {medium}, from {e['source']}, “{e['title']}”: {e['text']}")
         elif k == "people":
             lines.append(f"{e['t']} met for the first time: {e['name']}, {e['role']}")
         elif k == "work":
@@ -61,8 +62,61 @@ def record(day, limit=9000):
     places = [s for s in day["segments"] if s["mode"] == "walk"]
     if places:
         lines.append("Walks: " + "; ".join(f"{s['from']} {s['a']} to {s['b']}" for s in places) + ".")
+    lines.extend(closing_record(day))
     text = "\n".join(lines)
-    return text if len(text) <= limit else text[:limit] + "\n[record cut short]"
+    return text if len(text) <= limit else fit_record(lines, limit)
+
+
+def closing_record(day):
+    """Canonical outcomes from this day, separately from anyone's claims."""
+    state = day.get("state") or {}
+    if not state:
+        return []
+    lines = ["Recorded state at this day's close (authoritative for possessions and transactions; dialogue, plans and manuscripts do not by themselves change these outcomes):"]
+    if "imprest" in state:
+        lines.append(f"Recorded cash: ₹{state['imprest']:,}.")
+    for item in state.get("wardrobe") or []:
+        lines.append(f"Recorded wardrobe: {item['item']}: {item['status']}.")
+    if state.get("wearing"):
+        lines.append(f"Recorded clothing worn: {state['wearing']}.")
+    if state.get("file"):
+        lines.append("Recorded Directorate file status: " + state['file'])
+    if "steps" in day:
+        meals = [s['t'] + (f"–{s['end']}" if s.get('end') else "") + f" at {s['decision']['place']}"
+                 for s in day["steps"] if (s.get("decision") or {}).get("action") == "eat"]
+        if meals or day.get("complete"):
+            lines.append("Recorded eating actions: " + ("; ".join(meals) if meals else
+                         "none in this completed day's step log") + ".")
+            lines.append("Offers, plans and purchases alone do not establish an eating action.")
+    readings = [e for e in day.get("entries", []) if e.get("k") == "read"]
+    for e in readings:
+        lines.append(f"Reading actually delivered at {e['t']}: {e['source']}, {e['title']}" + (f"; {e['work']}, {e.get('ref', '')}" if e.get('work') else "") + ".")
+    return lines
+
+
+def fit_record(lines, limit):
+    """Shorten long entries across the entire chronology, never just drop its end.
+
+    A timestamp and attribution still precede each excerpt. If the budget cannot
+    even represent every entry, fail explicitly instead of writing a diary from
+    an undisclosed partial day. Full source entries remain in the day file.
+    """
+    notice = "[Long entries shortened; every recorded event is represented below.]"
+    flat = [re.sub(r"\s+", " ", line).strip() for line in lines]
+
+    def fitted(cap):
+        return "\n".join([notice] + [line if len(line) <= cap else line[:cap - 1].rstrip() + "…" for line in flat])
+
+    low, high = 48, max(map(len, flat), default=48)
+    if len(fitted(low)) > limit:
+        raise OwlError(f"The day's {len(lines)} record lines cannot fit in the {limit}-character owl budget; no diary generated.")
+    while low < high:
+        mid = (low + high + 1) // 2
+        if len(fitted(mid)) <= limit:
+            low = mid
+        else:
+            high = mid - 1
+    return fitted(low)
 
 
 def gist(diary, n=320):
@@ -134,7 +188,11 @@ def write(cfg, day, state, mind, depesche_n=None, problems=None, flag=None, topi
     ask += "Write the diary, the revision log and the theses (each with its evidence times)" + (", and the Depesche" if depesche_n is not None else "") + ". Answer with the JSON object only."
     messages = [{"role": "system", "content": system}, {"role": "user", "content": ask}]
     for attempt in range(2):
-        raw = mind.chat(messages, schema(depesche_n is not None), max_tokens=2200 if depesche_n is not None else 1200, temperature=0.8)
+        budget = getattr(cfg, "owl_reasoning_tokens", 0)
+        kwargs = {"max_tokens": (2200 if depesche_n is not None else 1200) + budget, "temperature": 0.8}
+        if budget:
+            kwargs["reasoning_budget"] = budget
+        raw = mind.chat(messages, schema(depesche_n is not None), **kwargs)
         out = extract_json(raw)
         if not isinstance(out, dict) or not isinstance(out.get("diary"), str) or len(out["diary"].strip()) < 80:
             raise OwlError("the owl's answer was unusable: " + (raw or "")[:200])

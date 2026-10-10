@@ -14,9 +14,10 @@ from datetime import date, datetime, timedelta
 
 from . import contract, lookup, owl, shelf, voices, works
 from .clock import day_number, fmt, hm, long_date, minute_of, sun
-from .memory import Memory, record_text
+from .memory import Memory, encountered_text
 from .money import ADVANCE
 from .mind import MindAway
+from .task_prompt import for_task
 from .world import at_dt
 
 log = logging.getLogger("world")
@@ -77,7 +78,7 @@ class Engine:
         self.days = Days(cfg.docs)
         self.memory = Memory(self.days, world)
         self.lookup = lookup.find           # (query, cache folder) -> the page he reads, or a note; tests put a stand-in here
-        self.soul = (cfg.repo / "mind/soul.md").read_text(encoding="utf-8")
+        self.soul = cfg.soul_file.read_text(encoding="utf-8")
         self.voice_prompt = (cfg.repo / "mind/voices.md").read_text(encoding="utf-8")
         self.shelf = shelf.load(cfg.repo / "mind/shelf/index.json.gz", cfg.repo / "world/data/shelf_terms.json") if cfg.shelf else None
 
@@ -155,6 +156,8 @@ class Engine:
             self.migrate(day, st)               # a day file from before the economy: its books are made on first need
         prev = next((s for s in reversed(day["steps"]) if "decision" in s), None)
         sit, ctx = self.world.situation(t, st, day, prev)
+        if not getattr(self.cfg, "thesis_reminders", True):
+            sit["on_mind"] = [line for line in sit.get("on_mind", []) if not line.startswith("Your theses: ")]
         remember = self.memory.recall(sit, ctx, day)
         if remember:
             sit["remember"] = remember
@@ -207,8 +210,11 @@ class Engine:
                 ctx["beat_entries"] += self.world.settle_choice(beat, yes, st, t)
         if source in ("mind", "stub"):
             if ans.get("says") and ctx["present"]:
-                ctx["reply"] = self.reply(day, sit, ctx, ans["says"])
+                ctx["purchases"] = plan["buys"] + [{"item": e["item"], "price": e["amount"]}
+                                                       for e in ctx["public"] if e.get("k") == "expense" and e.get("settles") is True]
+                ctx["reply"] = self.reply(day, sit, ctx, ans["says"], recipient=ans.get("speaks_to"))
             if ans["action"] == "write":
+                ctx["manuscripts"] = self.memory.manuscripts(day, before_time=fmt(minute_of(t)))
                 ctx["writing"] = self.write(messages, raw, ctx, st)
             if ans.get("looks_up"):
                 ctx["read"] = self.look(ans["looks_up"], st)
@@ -216,6 +222,8 @@ class Engine:
         step["mind"] = {"source": source, "attempts": attempts, "latency_s": round(time.time() - t_start, 1)}
         if ctx.get("shelf") and source in ("mind", "stub"):
             step["shelf"] = [{"work": x["work"], "ref": x["ref"], "id": x["id"]} for x in ctx["shelf"]]
+            # Save only the passage actually shown, not the model's interpretation.
+            step["shelf_exposure"] = [{k: x[k] for k in ("work", "ref", "text")} for x in ctx["shelf"]]
         if refused:
             step["mind"]["refused"] = refused
         if warnings:
@@ -241,9 +249,10 @@ class Engine:
     def make_plan(self, day, t, sit, ctx):
         """On waking: one extra call for the day's intentions. With no usable answer he simply has no plan.
         False only when the mind is away."""
-        messages = [{"role": "system", "content": self.soul}, {"role": "user", "content": contract.render(sit, contract.PLAN_ASK)}]
+        messages = for_task([{"role": "system", "content": self.soul}, {"role": "user", "content": contract.render(sit, contract.PLAN_ASK)}], "day-planning")
         try:
-            items = self.world.plan_items(contract.extract_json(self.mind.chat(messages, contract.PLAN_SCHEMA, max_tokens=500)), ctx)
+            ask = getattr(self.mind, "chat_decision", self.mind.chat)
+            items = self.world.plan_items(contract.extract_json(ask(messages, contract.PLAN_SCHEMA, max_tokens=500)), ctx)
         except MindAway as e:
             log.warning("mind away for the plan at %s: %s", sit["time"], e)
             return False
@@ -254,14 +263,22 @@ class Engine:
         self.world.show_plan(sit, day)
         return True
 
-    def voice(self, cid, day, sit, says):
+    def voice(self, cid, day, sit, says, purchases=None):
         """One call: the person cid answers what he said, or speaks first when says is None. {by, says, does}, or None
         when the answer is unusable. MindAway goes up."""
         c = self.world.cast[cid]
         remember = self.memory.moments(c, day, list(self.memory.before(date.fromisoformat(day["date"]))), voice=True)
         where = self.world.places[sit["place"]]["name"]
-        messages = [{"role": "system", "content": self.voice_prompt}, {"role": "user", "content": voices.render(c, sit, where, says, remember)}]
-        return voices.clean(c, contract.extract_json(self.mind.chat(messages, contract.VOICE_SCHEMA, max_tokens=250)))
+        people = day.get("state", {}).get("people")
+        first_meeting = cid not in people if people is not None else None
+        meal_status = None
+        if cid == "ramesh" and sit["place"] == "home" and day.get("state") is not None:
+            when = at_dt(date.fromisoformat(day["date"]), hm(sit["time"]))
+            meal_status = (self.world.served(when, day["state"]) or "none") + ". " + self.world.meal_status(when, day["state"])
+        messages = [{"role": "system", "content": self.voice_prompt}, {"role": "user", "content": voices.render(c, sit, where, says, remember, first_meeting=first_meeting, purchases=purchases, meal_status=meal_status, world_facts=voices.recorded_facts(self.world, cid, day.get("state") or {}))}]
+        voice_chat = getattr(type(self.mind), "chat_voice", None)
+        reply = voice_chat(self.mind, messages, contract.VOICE_SCHEMA, max_tokens=250) if voice_chat else self.mind.chat(messages, contract.VOICE_SCHEMA, max_tokens=250)
+        return voices.clean(c, contract.extract_json(reply))
 
     def greet(self, day, sit, ctx):
         """A person he knows, new in sight today, may speak first: the line joins the event and what he has met.
@@ -278,10 +295,10 @@ class Engine:
             ctx["known_text"] += "\n" + voices.heard(said)
         return True
 
-    def reply(self, day, sit, ctx, says):
+    def reply(self, day, sit, ctx, says, recipient=None):
         """The one he spoke to answers (one call). None if the mind is away or the answer is unusable."""
         try:
-            return self.voice(voices.pick(self.world.cast, says, ctx["present"]), day, sit, says)
+            return self.voice(voices.pick(self.world.cast, says, ctx["present"], recipient=recipient), day, sit, says, purchases=ctx.get("purchases"))
         except MindAway as e:
             log.warning("mind away for an answer at %s: %s", sit["time"], e)
             return None
@@ -311,7 +328,7 @@ class Engine:
         (works.exemplars, which are not part of the text). A completion that copies an exemplar or is off the subject (works.flaw), and names
         from after 1831 that he has not met, cannot be asked away here: the completion is made once more with another seed. None if no
         usable text came, and it is then for the chat call; MindAway only from the first call, when the chat call could not answer either."""
-        msgs = messages + [{"role": "assistant", "content": raw}, {"role": "user", "content": works.sitting_ask(st)}]
+        msgs = for_task(messages + [{"role": "assistant", "content": raw}, {"role": "user", "content": works.sitting_ask(st)}], "planning")
         plan = works.outline(contract.extract_json(self.mind.chat(msgs, contract.SITTING_SCHEMA, max_tokens=300)))
         if not plan:
             log.info("writing: no usable account of what the sitting is")
@@ -341,16 +358,33 @@ class Engine:
     def write_chat(self, messages, raw, ctx, st):
         """One chat call for what he wrote. Names from after 1831 that he has not met: he is asked once to write it again without them,
         then the writing is dropped (the decision stands). None if dropped."""
-        msgs = messages + [{"role": "assistant", "content": raw}, {"role": "user", "content": works.ask(st)}]
-        for _ in range(2):
+        request = works.ask(st, ctx["t"].date())
+        if ctx.get("manuscripts"):
+            request += "\n\n" + ctx["manuscripts"]
+        msgs = for_task(messages + [{"role": "assistant", "content": raw}, {"role": "user", "content": request}], "writing")
+        for attempt in range(2):
             try:
-                reply = self.mind.chat(msgs, contract.WRITE_SCHEMA, max_tokens=1100)
+                writing_call = getattr(self.mind, "chat_writing", self.mind.chat)
+                reply = writing_call(msgs, contract.WRITE_SCHEMA, max_tokens=1100)
             except MindAway as e:
                 log.warning("mind away for the writing: %s", e)
                 return None
             w = works.clean(contract.extract_json(reply))
             if not w:
+                log.warning("writing dropped: unusable JSON or empty manuscript")
                 return None
+            if w["continues"] and not works.find(st.get("works") or [], w["title"]):
+                log.warning("writing: unknown continuation title %r", w["title"])
+                if attempt:
+                    log.warning("writing dropped: continuation still names no existing manuscript")
+                    return None
+                titles = [x["title"] for x in (st.get("works") or [])[-5:]]
+                correction = ("That title is not an existing manuscript. To continue a manuscript, use its existing title exactly. "
+                              "Recent existing titles: " + json.dumps(titles, ensure_ascii=False) + ". "
+                              "For a new work, set continues to false. Do not invent an earlier sitting. "
+                              "Answer with the JSON object only.")
+                msgs += [{"role": "assistant", "content": reply}, {"role": "user", "content": correction}]
+                continue
             wrong = self.world.unmet(w["title"] + "\n" + w["text"], ctx["known_text"])
             if not wrong:
                 return dict(w, mode="chat")
@@ -384,7 +418,7 @@ class Engine:
         msgs = messages + [{"role": "assistant", "content": raw},
                            {"role": "user", "content": f"For the record, one word: {q} Answer {{\"answer\": \"yes\"}} or {{\"answer\": \"no\"}}."}]
         try:
-            a = contract.extract_json(self.mind.chat(msgs, CHOICE_SCHEMA, max_tokens=20, temperature=0))
+            a = contract.extract_json(self.mind.chat(for_task(msgs, "choice"), CHOICE_SCHEMA, max_tokens=20, temperature=0))
             return isinstance(a, dict) and a.get("answer") == "yes"
         except MindAway:
             return False
@@ -436,17 +470,21 @@ class Engine:
 
     def run_owl(self, day, now):
         latest = self.days.latest(now.date() + timedelta(days=1))
+        # Days.load returns a distinct object. When this is still the latest
+        # day, update the state on the object that will actually be saved.
+        if latest["date"] == day["date"]:
+            latest = day
         st = latest["state"]
         weekday = datetime.fromisoformat(day["date"]).strftime("%A")
         n = st.get("depesche_n", 0) + 1 if weekday == self.cfg.depesche_day else None
-        known = self.memory.known_before(day["date"]) + "\n" + record_text(day)
+        known = self.memory.known_before(day["date"]) + "\n" + encountered_text(day)
         written = owl.write(self.cfg, day, st, self.owl_mind, depesche_n=n, problems=lambda text: self.world.problems(text, known),
                             flag=self.world.flag, topic=self.world.topic)
         written["written"] = fmt(minute_of(now))
         day["owl"] = written
-        self.days.save(day)
         if n:
             st["depesche_n"] = n
+        self.days.save(day)
         if latest["date"] != day["date"]:
             self.days.save(latest)
         log.info("the owl wrote up day %s", day["n"])

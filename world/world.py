@@ -26,6 +26,7 @@ HUNGRY_H, VERY_HUNGRY_H, TIRED_H, TIRED_M = 5, 8, 16, 10_000        # hours sinc
 WALK_M, HOT_C = 75, 33                  # metres a minute; from this temperature walking counts one and a half times
 NUMBERS = "zero one two three four five six seven eight nine ten eleven twelve".split()
 PLAN_TIME = re.compile(r"(\d{1,2}):(\d{2})$")
+RECENT_CHARS, PURCHASE_CHARS = 480, 240  # bounded current recall; full records stay on disk
 GREET_P = 0.35          # a person he knows, seen for the first time that day at a place, speaks first with this chance
 
 
@@ -232,6 +233,20 @@ class World(Economy):
         """The meal Ramesh has laid out at home at time t, if any."""
         name = meal_at(minute_of(t))
         return name if name and "ramesh" in self.present_ids("home", t, state) and not self.kitchen(state) else None
+
+    def meal_status(self, t, state):
+        """Available household service, independent of an NPC's claim about a tray."""
+        if self.kitchen(state):
+            return self.kitchen(state)
+        if "ramesh" not in self.present_ids("home", t, state):
+            return "No household meal is available while Ramesh is absent."
+        if name := self.served(t, state):
+            return f"{name.capitalize()} is available now."
+        later = [(name, a) for name, (a, _) in MEAL_WINDOWS.items() if a > minute_of(t)]
+        if later:
+            name, at = later[0]
+            return f"No household meal is available now; the next service is {name} from {fmt(at)}."
+        return "No household meal is available now; today's meal services have ended."
 
     def feed(self, state, t, food):
         """A meal starts the clock again; a snack pushes hunger back two hours."""
@@ -580,8 +595,26 @@ class World(Economy):
         if state.get("theses"):
             on_mind.append("Your theses: " + "; ".join(f"{x['text']} ({x['status']})" for x in state["theses"]) + ".")
         on_mind.append(self.money_line(state, t))
+        purchases = []
+        for e in day.get("entries", []) + [e for _, e in events if e]:
+            amount = e.get("price") if e.get("k") == "bag" else e.get("amount") if e.get("k") == "expense" and e.get("settles") is True else None
+            if type(amount) in (int, float):
+                purchases.append((e, amount))
+        paid = []
+        for e, amount in reversed(purchases[-4:]):
+            item = e["item"]
+            if len(item) > 80:
+                item = item[:79].rsplit(" ", 1)[0] + "…"
+            line = f"{e.get('t', fmt(m))} {item} ₹{amount:,}"
+            if sum(len(x) + 2 for x in paid) + len(line) > PURCHASE_CHARS:
+                break
+            paid.append(line)
+        if paid:
+            on_mind.append("Recorded purchases/payments today: " + "; ".join(reversed(paid)) + ".")
         if state["tech"]["phone"] and state["tech"]["sim"]:
             on_mind.append("You have a phone with a SIM: you may look something up (looks_up).")
+        if pid == "home":
+            on_mind.append("Household: " + self.meal_status(t, state))
         on_mind.append(body)
         earlier = []
         for s in (day.get("steps") or [])[-6:]:
@@ -589,7 +622,26 @@ class World(Economy):
             if not dec.get("thought"):
                 continue
             first = re.split(r"(?<=[.!?])\s", dec["thought"].strip())[0]
-            earlier.append(f"{s['t']} {dec['action']} ({dec['place']}): {first}")
+            if len(first) > 140:
+                first = first[:139].rsplit(" ", 1)[0] + "…"
+            activity = [seg["now"] for seg in day.get("segments", [])
+                        if seg.get("now") and s["t"] <= seg["from"] < s["end"] and seg["to"] <= s["end"]]
+            completed = " ".join(dict.fromkeys(activity))
+            if len(completed) > 140:
+                completed = completed[:139].rsplit(" ", 1)[0] + "…"
+            line = f"{s['t']} recorded step: {dec['action']} ({dec['place']})"
+            if completed:
+                line += f"; executed activity: {completed}"
+            line += f"; you thought: “{first}”"
+            warnings = (s.get("mind") or {}).get("warnings") or []
+            if warnings:
+                note = "; ".join(warnings[:2])
+                if len(note) > 140:
+                    note = note[:139].rsplit(" ", 1)[0] + "…"
+                line += " Engine note: " + note + "."
+            earlier.append(line)
+        while len(earlier) > 1 and sum(len(x) + 3 for x in earlier) > RECENT_CHARS:
+            earlier.pop(0)                  # oldest recall yields to recent action and correction facts
         hol = self.holiday(d)
         sit = {
             "id": f"{d.isoformat()}T{fmt(m)}",
@@ -598,6 +650,7 @@ class World(Economy):
             "weather": f"{wx['temp']} °C, {wx['sky']}", "aqi": wx.get("aqi") or "unknown",
             "imprest_left": state["imprest"], "cash_label": "Cash", "outfit": self.outfit_name(state),
             "present": [self.short(c) for c in present], "open_now": open_now, "closes": closes,
+            "speakers": [{"id": c, "name": self.short(c)} for c in present],
             "for_sale": for_sale, "on_mind": on_mind, "earlier": earlier,
             "event": " ".join(p for p, _ in events if p),
         }
@@ -613,6 +666,12 @@ class World(Economy):
         if errors:
             return errors, warnings, None
         ans = copy.deepcopy(ans)
+        recipient = ans.get("speaks_to")
+        if recipient is not None:
+            if recipient not in self.cast or recipient not in ctx["present"]:
+                errors.append("speaks_to must name a recipient ID present here")
+            if not ans.get("says") or not ans["says"].strip():
+                errors.append("speaks_to requires spoken words in says")
         if isinstance(ans.get("looks_up"), str):
             ans["looks_up"] = " ".join(ans["looks_up"].split())
         if not ans.get("looks_up"):
@@ -643,9 +702,13 @@ class World(Economy):
         hol = self.holiday(arrival.date())
         here = self.present_ids(dest, arrival, state) if moves else ctx["present"]          # who is there when he buys
         have, buys = dict(self.ledger(state)["tech"]), []
+        settled_here = {" ".join(e["item"].casefold().split()) for e in ctx.get("public", [])
+                        if e.get("k") == "expense" and e.get("settles") is True and isinstance(e.get("item"), str)}
         for b in ans["buys"]:
             item, price = b["item"].strip(), b["price_inr"]
             low = item.lower()
+            if " ".join(item.casefold().split()) in settled_here:
+                errors.append(f"'{item}' was already paid by the world at the start of this step; do not pay it again")
             match = next((s for s in pl.get("sells", []) if any(k in low for k in s["match"])), None)
             if match:
                 if match.get("alcohol") and hol and hol.get("dry"):
@@ -687,6 +750,8 @@ class World(Economy):
             else:
                 errors.append(f"nothing is sold {pl['at']}")
                 break
+        if action == "eat" and dest == "home" and not self.served(arrival, state):
+            errors.append(self.meal_status(arrival, state) + " Choose an available activity; a request for food is not a completed meal.")
         spent = sum(b["price"] for b in buys)
         if spent > state["imprest"]:
             errors.append(f"that costs ₹{spent:,} and you have only ₹{state['imprest']:,} in cash")
@@ -764,11 +829,14 @@ class World(Economy):
                 e["shelf"] = [{"work": x["work"], "ref": x["ref"]} for x in ctx["shelf"]]       # what lay open before him
             entry(t0, e)
         if ans.get("says"):
-            who = [self.cast[c]["name"] for c in ctx["present"] if not self.cast[c].get("background")] or \
-                  [self.cast[c]["name"] for c in ctx["present"]]
+            who = [self.cast[ans["speaks_to"]]["name"]] if ans.get("speaks_to") else (
+                  [self.cast[c]["name"] for c in ctx["present"] if not self.cast[c].get("background")] or
+                  [self.cast[c]["name"] for c in ctx["present"]])
             e = {"k": "said", "text": ans["says"].strip()}
             if who:
                 e["to"] = names(who)
+            if ans.get("speaks_to"):
+                e["to_id"] = ans["speaks_to"]
             entry(t0, self.mark(e, ans["says"]))
         if ctx.get("reply"):
             voiced(ctx["reply"])                     # and the one he spoke to answered
@@ -820,8 +888,9 @@ class World(Economy):
             else:
                 mode = "inside"
             if action == "talk":
-                who = [self.cast[c]["name"] for c in ctx["present"] if not self.cast[c].get("background")] or \
-                      [self.cast[c]["name"] for c in ctx["present"]]
+                who = [self.cast[ans["speaks_to"]]["name"]] if ans.get("speaks_to") else (
+                      [self.cast[c]["name"] for c in ctx["present"] if not self.cast[c].get("background")] or
+                      [self.cast[c]["name"] for c in ctx["present"]])
                 now = f"Talking with {names(who)} {pl['at']}." if who else f"Talking to himself {pl['at']}."
             elif night:
                 now = "Asleep. The owl is writing up the day." if minute_of(t) >= 1200 else "Asleep."

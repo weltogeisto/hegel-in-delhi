@@ -50,7 +50,9 @@ def make_mind(cfg, which, wake=True):
     url = cfg.mind_url if which in (None, "pc") else which
     if not url:
         sys.exit("no mind configured: set PC_HOST (and MIND_PORT) in ~/.config/hegel/env, or pass --mind URL or --mind stub")
-    return HTTPMind(url, wake=cfg.wake if wake else None, timeout=cfg.timeout)
+    return HTTPMind(url, wake=cfg.wake if wake else None, timeout=cfg.timeout, voice_adapter_scale=cfg.voice_adapter_scale,
+                    writing_reasoning_tokens=cfg.writing_reasoning_tokens, writing_adapter_scale=cfg.writing_adapter_scale,
+                    decision_reasoning_tokens=cfg.decision_reasoning_tokens, decision_adapter_scale=cfg.decision_adapter_scale)
 
 
 def cmd_tick(cfg, args):
