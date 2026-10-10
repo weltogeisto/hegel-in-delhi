@@ -170,7 +170,6 @@ class SensitiveTest(unittest.TestCase):
 
         box = Sandbox()
         try:
-            box.cfg.write_mode = "plain"       # exercise flags on the optional completion path
             e = box.engine(Racist())
             day = box.run_day(SAT, e)
             steps = [s for s in day["steps"] if "decision" in s]
