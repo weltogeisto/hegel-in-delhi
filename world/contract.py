@@ -17,6 +17,7 @@ SCHEMA = {
         "place": {"type": "string", "enum": PLACES},
         "minutes": {"type": "integer", "minimum": 5, "maximum": 240},
         "says": NULLABLE_STR,
+        "speaks_to": dict(NULLABLE_STR, description="Optional recipient ID from the current prompt; omit or use null if no ID is listed."),
         "buys": {"type": "array", "items": {
             "type": "object",
             "properties": {"item": {"type": "string"}, "price_inr": {"type": "integer", "minimum": 0}},
@@ -90,6 +91,9 @@ def render(s, ask=ASK):
         f"Present: {present}.\n"
         f"Open now: {open_now}.\n"
     )
+    if s.get("speakers"):
+        text += "Recipient IDs here: " + "; ".join(f"{x['id']} = {x['name']}" for x in s["speakers"]) + ".\n"
+        text += "'speaks_to'=addressee ID/null; speak here before any move.\n"
     if s.get("for_sale"):
         text += f"For sale here: {'; '.join(s['for_sale'])}.\n"
     if s.get("on_mind"):
@@ -139,7 +143,7 @@ def check_shape(ans):
             isinstance(b, dict) and isinstance(b.get("item"), str) and isinstance(b.get("price_inr"), int)
             and not isinstance(b.get("price_inr"), bool) and b["price_inr"] >= 0 for b in ans["buys"]):
         errors.append("buys is malformed")
-    for k in ("says", "revision", "looks_up"):
+    for k in ("says", "revision", "looks_up", "speaks_to"):
         if ans.get(k) is not None and not isinstance(ans[k], str):
             errors.append(f"'{k}' must be text or null")
     if isinstance(ans.get("looks_up"), str) and len(ans["looks_up"]) > 100:

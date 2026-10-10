@@ -212,7 +212,7 @@ class Engine:
             if ans.get("says") and ctx["present"]:
                 ctx["purchases"] = plan["buys"] + [{"item": e["item"], "price": e["amount"]}
                                                        for e in ctx["public"] if e.get("k") == "expense" and e.get("settles") is True]
-                ctx["reply"] = self.reply(day, sit, ctx, ans["says"])
+                ctx["reply"] = self.reply(day, sit, ctx, ans["says"], recipient=ans.get("speaks_to"))
             if ans["action"] == "write":
                 ctx["manuscripts"] = self.memory.manuscripts(day, before_time=fmt(minute_of(t)))
                 ctx["writing"] = self.write(messages, raw, ctx, st)
@@ -295,10 +295,10 @@ class Engine:
             ctx["known_text"] += "\n" + voices.heard(said)
         return True
 
-    def reply(self, day, sit, ctx, says):
+    def reply(self, day, sit, ctx, says, recipient=None):
         """The one he spoke to answers (one call). None if the mind is away or the answer is unusable."""
         try:
-            return self.voice(voices.pick(self.world.cast, says, ctx["present"]), day, sit, says, purchases=ctx.get("purchases"))
+            return self.voice(voices.pick(self.world.cast, says, ctx["present"], recipient=recipient), day, sit, says, purchases=ctx.get("purchases"))
         except MindAway as e:
             log.warning("mind away for an answer at %s: %s", sit["time"], e)
             return None

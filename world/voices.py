@@ -20,8 +20,12 @@ def addressed(cast, says, present):
     return min(hits)[1] if hits else None
 
 
-def pick(cast, says, present):
-    """Who answers: the one he names, else the first person present who is not background, else a background person."""
+def pick(cast, says, present, recipient=None):
+    """An explicit present recipient takes precedence; legacy speech keeps its fallback."""
+    if recipient is not None:
+        if recipient not in cast or recipient not in present:
+            raise ValueError("explicit speech recipient is not present")
+        return recipient
     return addressed(cast, says, present) or next((c for c in present if not cast[c].get("background")), None) \
         or (present[0] if present else None)
 

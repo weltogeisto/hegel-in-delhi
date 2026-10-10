@@ -650,6 +650,7 @@ class World(Economy):
             "weather": f"{wx['temp']} °C, {wx['sky']}", "aqi": wx.get("aqi") or "unknown",
             "imprest_left": state["imprest"], "cash_label": "Cash", "outfit": self.outfit_name(state),
             "present": [self.short(c) for c in present], "open_now": open_now, "closes": closes,
+            "speakers": [{"id": c, "name": self.short(c)} for c in present],
             "for_sale": for_sale, "on_mind": on_mind, "earlier": earlier,
             "event": " ".join(p for p, _ in events if p),
         }
@@ -665,6 +666,12 @@ class World(Economy):
         if errors:
             return errors, warnings, None
         ans = copy.deepcopy(ans)
+        recipient = ans.get("speaks_to")
+        if recipient is not None:
+            if recipient not in self.cast or recipient not in ctx["present"]:
+                errors.append("speaks_to must name a recipient ID present here")
+            if not ans.get("says") or not ans["says"].strip():
+                errors.append("speaks_to requires spoken words in says")
         if isinstance(ans.get("looks_up"), str):
             ans["looks_up"] = " ".join(ans["looks_up"].split())
         if not ans.get("looks_up"):
@@ -818,11 +825,14 @@ class World(Economy):
                 e["shelf"] = [{"work": x["work"], "ref": x["ref"]} for x in ctx["shelf"]]       # what lay open before him
             entry(t0, e)
         if ans.get("says"):
-            who = [self.cast[c]["name"] for c in ctx["present"] if not self.cast[c].get("background")] or \
-                  [self.cast[c]["name"] for c in ctx["present"]]
+            who = [self.cast[ans["speaks_to"]]["name"]] if ans.get("speaks_to") else (
+                  [self.cast[c]["name"] for c in ctx["present"] if not self.cast[c].get("background")] or
+                  [self.cast[c]["name"] for c in ctx["present"]])
             e = {"k": "said", "text": ans["says"].strip()}
             if who:
                 e["to"] = names(who)
+            if ans.get("speaks_to"):
+                e["to_id"] = ans["speaks_to"]
             entry(t0, self.mark(e, ans["says"]))
         if ctx.get("reply"):
             voiced(ctx["reply"])                     # and the one he spoke to answered
@@ -874,8 +884,9 @@ class World(Economy):
             else:
                 mode = "inside"
             if action == "talk":
-                who = [self.cast[c]["name"] for c in ctx["present"] if not self.cast[c].get("background")] or \
-                      [self.cast[c]["name"] for c in ctx["present"]]
+                who = [self.cast[ans["speaks_to"]]["name"]] if ans.get("speaks_to") else (
+                      [self.cast[c]["name"] for c in ctx["present"] if not self.cast[c].get("background")] or
+                      [self.cast[c]["name"] for c in ctx["present"]])
                 now = f"Talking with {names(who)} {pl['at']}." if who else f"Talking to himself {pl['at']}."
             elif night:
                 now = "Asleep. The owl is writing up the day." if minute_of(t) >= 1200 else "Asleep."
