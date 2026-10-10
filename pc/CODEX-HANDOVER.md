@@ -16,6 +16,8 @@ Decided with Welt after your work block of 8 October (`Hegel: four-hour work blo
 
 Report each step to Welt in one line, with the exact error text if something fails. Stop on anything unexpected; don't improvise.
 
+**Status, 10 October:** steps 1 to 3 are done and on main (c0aa95f): the six mechanisms, the merge, and the parked phase-2 tooling, 761 tests OK. Start step 4 from `origin/main`.
+
 ## 1. Commit your block's source changes
 
 Work in the repository where the six mechanisms sit uncommitted:
@@ -76,6 +78,8 @@ Start only after Welt confirms that step 3 is in the repo. Build on your `runtim
 - what someone said never turns into fact;
 - no charge is booked twice.
 
+**The design reference** is MemIR (Jin et al., May 2026, [arXiv 2605.25869](https://arxiv.org/abs/2605.25869)). It names our failure "provenance-role collapse": memory kept as flat text loses track of where a piece of information came from. Its fix is typed memory: verbatim evidence spans, and claim atoms that count as fact only when they point to a supporting span. It gains most on source tracking, temporal grounding and contradiction resolution, and it also runs on Qwen3-14B. Follow its structure, with one deliberate difference: MemIR rewrites "X said Y" into the underlying fact, and we must never do that. What someone said stays a statement, with its speaker.
+
 **Requirements:**
 - **One store of records per day, each with a stable id:**
   - *events:* what he observed;
@@ -101,7 +105,14 @@ Start only after Welt confirms that step 3 is in the repo. Build on your `runtim
 
 This can run alongside step 4, but it needs Welt.
 
-- Send Welt `review-only.zip` and the human review guide. Welt finds one independent reader who knows Hegel.
+- **The guide goes to Claude first.** Send Welt the human review guide; Claude reviews it before anything goes to the reader.
+- **Two raters, both blind.** Welt finds one independent reader who knows Hegel. Welt rates the same pairs, also blind, with the source and the order hidden and the order randomised per pair. A judge can never agree with an expert more reliably than two experts agree with each other, so the agreement between the two raters is the ceiling every later measure is read against. Report it per dimension (Cohen's κ, or Krippendorff's α if a rating is missing).
+- **Score dimensions, not one overall impression.** Holistic judgments of persona fidelity are unstable (PRISM, EMNLP 2026, [arXiv 2608.26674](https://arxiv.org/abs/2608.26674)). The guide asks each rater for four separate judgments per pair, each with a one-line reason:
+  1. **Argument moves:** does the text develop a claim the way he does (from the difficulty within a position, to what it presupposes and where it turns into its opposite), or does it assert, list, or lay a triad over the material?
+  2. **His commitments:** are the positions his, as of 1831, including the prejudiced ones, neither softened into a present-day view nor exaggerated into a caricature?
+  3. **Response to the particular case:** does the thought start from the specific situation and stay with it, or could the same paragraph stand under any title?
+  4. **Voice:** does it read like him, not like a translator's pastiche or a modern essay?
+- **Any automatic judge comes later and is a strong model,** never the 27B mind: in a legal-reasoning study with detailed rubrics, strong models agreed with the experts and weaker open models did not ([arXiv 2512.01020](https://arxiv.org/abs/2512.01020)). Before it measures anything, it is calibrated on 30 to 50 pairs the reader has labelled, and it counts only on dimensions where it agrees with the reader about as well as the two raters agree with each other.
 - From your `fresh-task-template.json`, prepare 8 essay situations and 8 letter situations for Welt to write. No model writes them. They are for the next comparison; don't run it yet.
 
 ## 6. Parked, and off limits
