@@ -1,6 +1,6 @@
 # Codex status: outcome memory
 
-Updated: 2026-10-11 10:10 UTC. Branch: `codex/outcome-memory`.
+Updated: 2026-10-11 12:55 UTC. Branch: `codex/outcome-memory`.
 Starting main commit: `c03a4313c81b473e7aaabac35c503dc11b07e3b8`.
 
 This is a development checkpoint. Step 4 is not complete and is not deployed.
@@ -50,9 +50,23 @@ three after-arm record contradictions, eight statement-to-fact promotions and
 one semantic resettlement episode (INR 60 under new purchase IDs). These are
 conservative, single-reviewer counts, not independent validation.
 
-**Stopped under the unexpected-failure rule.** The follow-up is paused and the
-larger three-seed run has not started. No runtime fix, label change, retuning or
-state repair was made from the smoke. Both runtime flags remain off.
+The failed run was stopped, handed over and preserved. Welt subsequently asked
+what comes next within the authorised autonomous window. A separate repair
+candidate now records executed food consumption and current location, labels
+plans as intentions, gives NPCs actual settled receipts, and distinguishes new
+purchases from repayment by explicit purpose and canonical source ID. The
+world's own obligation settlement remains authoritative; dialogue cannot create
+a new payable debt. Legitimate repeated purchases remain possible.
+
+The revised extractor preserves claim kind and the verifier receives the original
+sentence, so a future visit or signature need not become an asserted event.
+Unattributed occurrence votes exclude unverified statements, draft narratives,
+plans and quoted source content. Both protocols are versioned; old fitted
+settings fail the compatibility check. No frozen labels or old outputs changed.
+The focused suite passed **102 tests in 0.304 seconds, OK**, including 21 new
+regressions. The full suite, new development calibration and model-backed
+regression checks are pending. Both runtime flags remain off. The larger
+three-seed run remains held until a fresh smoke is reviewed.
 See [OUTCOME-MEMORY-SMOKE.md](OUTCOME-MEMORY-SMOKE.md) for the full report,
 costs, uncertainty flags, false deletions and proposed repairs.
 
@@ -61,12 +75,22 @@ Local validation output: `C:\hegel\handover\outcome-memory-20261011\validation-v
 
 ## Remaining work, in order
 
-1. Hand over the failed-smoke report, preserved raw evidence and verified bundle.
-2. Resume only after the unexpected failure has been reviewed. The proposed
-   execution-record, temporal-extraction and financial-reconciliation repairs
-   are documented but not implemented.
-3. The three-new-seed/two-day-per-arm evaluation is held. Do not start it against
-   this candidate as if the smoke had established reliability.
+1. Freeze and validate the separate repair candidate. Use the same 150 frozen
+   labelled sentences and uncertainty flags for protocol-compatible calibration;
+   this remains development evidence. Do not tune on the failed smoke.
+2. Before any fresh smoke, require a completed full-suite OK, unchanged source
+   and input hashes, owned-server cleanup, and all frozen model regressions to
+   pass: executed food retained, offer-only food rejected, attributed speech
+   retained but unqualified speech content rejected, plans not fulfilled facts,
+   current location respected, earlier departure retained, signatures/future
+   intentions not invented as events. Use the existing retention safeguard;
+   report false acceptance, false deletion, temperature and ECE without hiding
+   worsening metrics. Stop and report a failed gate or unexpected error.
+3. Only then freeze a new one-seed/one-day before/after smoke with a new seed;
+   audit all requested error types and costs. Publish its report and verified
+   bundle before the held three-new-seed/two-day-per-arm evaluation.
+4. Save a checkpoint and pause by 14:41 UTC (16:41 Berlin). Preserve any frozen
+   active job and report it; do not start further work after that deadline.
 
 Step 5's two differently shuffled review packets are prepared with the same
 94 texts, including ten hidden controls. The identity key stays with Welt

@@ -710,6 +710,22 @@ class World(Economy):
         for b in ans["buys"]:
             item, price = b["item"].strip(), b["price_inr"]
             low = item.lower()
+            if sit.get('reconcile_payments'):
+                purpose, reference = b.get('purpose'), b.get('source_charge_id')
+                if purpose not in ('purchase', 'settlement') or 'source_charge_id' not in b:
+                    errors.append('each buys row needs purpose and source_charge_id; distinguish a new purchase from an existing charge')
+                    continue
+                if purpose == 'settlement':
+                    if not isinstance(reference, str) or not reference:
+                        errors.append('settlement requires the canonical ID of an existing recorded obligation; dialogue cannot create a debt')
+                    elif reference in state.get('settled_charges', []):
+                        errors.append(f'charge {reference} is already settled; omit this repayment')
+                    else:
+                        errors.append(f'charge {reference} cannot be settled through buys; the world settles recorded obligations when their conditions permit')
+                    continue
+                if reference is not None:
+                    errors.append('a new purchase must have source_charge_id=null; it cannot settle an earlier charge')
+                    continue
             if " ".join(item.casefold().split()) in settled_here:
                 errors.append(f"'{item}' was already paid by the world at the start of this step; do not pay it again")
             match = next((s for s in pl.get("sells", []) if any(k in low for k in s["match"])), None)
@@ -913,7 +929,9 @@ class World(Economy):
             end = arrival
 
         if action == "eat" and dest == "home" and self.served(t, state):
+            meal = self.served(t, state)
             self.feed(state, t, "meal")
+            entry(t, {"k": "consumed", "item": meal, "food": "meal", "source": "household service"})
         for i,b in enumerate(plan["buys"]):
             # A retry of this execution context reuses the transaction identity.
             # A distinct sitting or two same-price items get distinct identities,
@@ -934,6 +952,8 @@ class World(Economy):
                 state["tech"].update(got[b["tech"]])
             if b.get("food"):
                 self.feed(state, t, b["food"])
+                entry(t, {"k": "consumed", "item": b["item"], "food": b["food"],
+                          "source": "catalogue food execution", "charge_id": cid})
             pl = self.places[dest]
             if pl.get("entry") and any(k in b["item"].lower() for k in pl["entry"]["match"]):
                 state.setdefault("today", {}).setdefault("tickets", []).append(dest)

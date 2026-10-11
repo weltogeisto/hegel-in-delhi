@@ -12,7 +12,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent.parent))
 from world.claim_check import (ClaimExtractor,SupportVerifier,EXTRACTION_PROTOCOL,
-    PROTOCOL,api,fit_temperature,calibrated,calibration_metrics)
+    PROTOCOL,api,fit_temperature,calibrated,calibration_metrics,score_extracted)
 
 
 def sha(path):
@@ -99,11 +99,11 @@ def run(url,data,out,audit_file,sources,heartbeat=None):
             extracted=extractor.extract(row['sentence'],context=contexts[row['id']])
             claims=[claim for s in extracted for claim in s['claims']]
             evidence=(data/row['evidence_file']).read_text()
-            votes=[verifier.score(claim,evidence) for claim in claims]
+            votes=[vote for sentence in extracted for vote in score_extracted(sentence,evidence,verifier)]
         result=dict(id=row['id'],split=row['split'],group=row['group'],sentence=row['sentence'],
             label=labels[row['id']]['label'],rationale=labels[row['id']]['rationale'],
             uncertain=row['id'] in uncertain,uncertainty_reason=uncertain.get(row['id']),
-            concrete_assertion=labels[row['id']]['concrete_assertion'],claims=claims,
+            concrete_assertion=labels[row['id']]['concrete_assertion'],claims=claims,extracted=extracted,
             evidence_sha256=row['evidence_sha256'],context_sha256=row['source_text_sha256'],
             log_odds=min((v['log_odds'] for v in votes),default=None),votes=votes)
         (out/(row['id']+'.json')).write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')

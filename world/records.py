@@ -11,10 +11,12 @@ import re
 import copy
 from collections import Counter
 
-VERSION = 1
+VERSION = 2
 POLICY = ("Records: events attest observations/actions; statements attest only words said, "
-          "not their truth; works are drafts, not sent letters. Offers and purchases "
-          "do not attest eating. Reading attests exposure, not the truth of its content. "
+          "not their truth; works are drafts, not sent letters. Intentions are plans, "
+          "not completed acts. Only executed consumption records or eating actions "
+          "attest eating; an offer or a receipt alone does not. "
+          "Reading attests exposure, not the truth of its content. "
           "Omitted records prove no absence.")
 
 
@@ -88,6 +90,10 @@ def project(day):
             add("work", "entries", i, e, work_id=e.get("work"), title=e.get("title"),
                 genre=e.get("kind"), recipient=e.get("to"), text=e.get("text", ""),
                 status="draft", sitting=e.get("sitting"), **common)
+        elif k == "consumed":
+            add("event", "entries", i, e, type="consumption", item=e.get("item"),
+                food=e.get("food"), charge_id=e.get("charge_id"),
+                execution_source=e.get("source"), **common)
         elif k in ("bag", "income", "expense"):
             cheque = bool(e.get("cheque"))
             add("payment", "entries", i, e, canonical_id=charge_id(e),
@@ -113,6 +119,12 @@ def project(day):
                     item=o.get("item") or o.get("why"), amount=o["amount"],
                     direction="out", settled=False, creditor=o.get("to"),
                     obligation=True, **common)
+
+    plan = day.get("plan") or {}
+    for i, item in enumerate(plan.get("items", [])):
+        add("event", "plan.items", i, item, type="intention", status="planned",
+            time=plan.get("written"), intended_time=item.get("time"), place=None,
+            text=item.get("intention", ""))
 
     for i, step in enumerate(day.get("steps", [])):
         ans = step.get("decision")
@@ -144,6 +156,10 @@ def project(day):
             amount=st["imprest"], at_close=bool(day.get("complete")), place=None)
 
     horizon='24:00' if day.get('complete') else (st.get('until') or '').split('T')[-1][:5] or None
+    if st.get('place'):
+        snapshot=dict(place=st['place'],through=st.get('until'),complete=bool(day.get('complete')))
+        add('event','state','place',snapshot,type='location',time=horizon,place=st['place'],
+            text='Recorded location at this horizon only; not a past or planned location.')
     for key in ('wearing','wardrobe','bag','file'):
         if key in st:
             snapshot=dict(value=st[key],through=st.get('until'),complete=bool(day.get('complete')))
@@ -154,8 +170,8 @@ def project(day):
             amount=o['amount'],direction='out',settled=False,creditor=o.get('to'),
             obligation=True,time=horizon,place=None)
 
-    source = {key: day.get(key) for key in ("entries", "steps", "segments", "observations", "complete")}
-    source["state"] = {k: st.get(k) for k in ('imprest','wearing','wardrobe','bag','file','owed')}
+    source = {key: day.get(key) for key in ("entries", "steps", "segments", "observations", "plan", "complete")}
+    source["state"] = {k: st.get(k) for k in ('imprest','place','wearing','wardrobe','bag','file','owed')}
     source["through"] = st.get("until")
     return dict(version=VERSION, date=date, source_sha256=digest(source),
                 complete=bool(day.get("complete")), steps_present="steps" in day, records=rows)
@@ -210,6 +226,10 @@ def line(r):
         return head + interval + f": executed {r['action']}."
     if typ == "cash":
         return head + f": cash ₹{r['amount']} at {'day close' if r['at_close'] else 'current horizon only'}."
+    if typ == "consumption":
+        return head + f": executed consumption of {r.get('item')}; {r.get('food')}; source={r.get('execution_source')}; charge={r.get('charge_id') or 'none'}; eating occurred."
+    if typ == "intention":
+        return head + f": intention only, planned for {r.get('intended_time')}: {r.get('text')}; not evidence of execution."
     if typ == "read":
         return head + f": read {r.get('source_name')}, “{r.get('title')}”: “{r['words']}” (source content unverified)."
     if typ == "wear":
@@ -221,7 +241,7 @@ def line(r):
 
 def critical(r):
     return r["kind"] == "payment" or (r["kind"] == "event" and
-           (r.get("type") in ("cash", "read", "wear", "inventory") or r.get("action") == "eat"))
+           (r.get("type") in ("cash", "read", "wear", "inventory", "consumption", "location") or r.get("action") == "eat"))
 
 
 def render(store, limit=24000):
@@ -271,7 +291,7 @@ def relevant(store, query='', limit=24000):
         chosen=[r for r in rows if today(r) and critical(r)]
     else:
         chosen=[r for r in rows if today(r) and r['kind']=='event' and
-                (r.get('type')=='cash' or r.get('action')=='eat')]
+                (r.get('type') in ('cash','consumption','location') or r.get('action')=='eat')]
     tokens=set(re.findall(r'\w{4,}',query.casefold()))
     selected={r['id'] for r in chosen}
     others=[r for r in rows if r['id'] not in selected]
@@ -294,6 +314,8 @@ def current(day, sit, ctx):
     stamp=sit['time']
     view.setdefault('entries',[]).extend(dict(e,t=stamp,place=sit['place']) for e in ctx.get('public',[]))
     observed=[]
+    observed.append(dict(t=stamp,place=sit['place'],text=
+        f"Current location: {sit['place']}. People present now: {', '.join(sit.get('present', [])) or 'nobody'}."))
     weather=f"Weather: {sit['weather']}. Air quality index: {sit['aqi']}."
     if weather not in ctx.get('observations',[]):
         observed.append(dict(t=stamp,place=sit['place'],text=weather))

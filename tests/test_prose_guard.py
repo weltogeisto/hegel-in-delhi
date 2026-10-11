@@ -63,8 +63,8 @@ class ProseGuardTest(unittest.TestCase):
 
     def test_extractor_keeps_speech_attribution_and_checks_every_sentence(self):
         response=dict(choices=[dict(message=dict(content=json.dumps({'sentences':[
-            {'index':0,'claims':['Ramesh said breakfast was ready.']},
-            {'index':1,'claims':[]}]})))])
+            {'index':0,'claims':['Ramesh said breakfast was ready.'],'claim_kinds':['statement']},
+            {'index':1,'claims':[],'claim_kinds':[]}]})))])
         with patch('world.claim_check.api',return_value=response) as api:
             rows=ClaimExtractor('http://test').extract('Ramesh said breakfast was ready. Freedom requires determination.')
         self.assertEqual(['Ramesh said breakfast was ready.'],rows[0]['claims'])

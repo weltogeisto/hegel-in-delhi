@@ -8,7 +8,7 @@ import time
 import urllib.error
 import urllib.request
 
-from .contract import SCHEMA
+from .contract import SCHEMA, decision_schema
 
 log = logging.getLogger("world")
 REPEAT_PENALTY, REPEAT_LAST_N, DRY_MULTIPLIER = 1.1, 256, 0.8      # sampling for plain completions, against loops (llama-server's DRY sampler; a server that does not know a field ignores it)
@@ -160,7 +160,7 @@ class HTTPMind:
             raise MindAway(f"mind request failed: {e}")
 
     def decide(self, messages, sit):
-        return self.chat_decision(messages, SCHEMA)
+        return self.chat_decision(messages, decision_schema(sit))
 
 
 THOUGHTS = [
@@ -280,6 +280,9 @@ class StubMind:
         doing = f"{ans['action']} {'to' if ans['action'] == 'walk' else 'at'} {ans['place']}"
         text = r.choice(THOUGHTS).format(time=sit["time"], doing=doing, a=a, b=b, c=c, minutes=ans["minutes"])
         ans["thought"] = f"(rehearsal) {text}"
+        if sit.get('reconcile_payments'):
+            for buy in ans.get('buys', []):
+                buy.update(purpose='purchase', source_charge_id=None)
         return ans
 
     def complete(self, prompt, max_tokens=700, temperature=None, seed=None):

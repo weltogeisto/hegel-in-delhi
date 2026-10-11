@@ -188,6 +188,7 @@ class Engine:
             source = "away"
         else:
             if getattr(self.cfg,'outcome_memory',False):
+                sit['reconcile_payments'] = True
                 store=records.current(day,sit,ctx)
                 past=list(self.memory.before(t.date()))[:3]
                 # The current snapshot wins; older snapshots retain their own dates.
@@ -309,7 +310,10 @@ class Engine:
         if cid == "ramesh" and sit["place"] == "home" and day.get("state") is not None:
             when = at_dt(date.fromisoformat(day["date"]), hm(sit["time"]))
             meal_status = (self.world.served(when, day["state"]) or "none") + ". " + self.world.meal_status(when, day["state"])
-        messages = [{"role": "system", "content": self.voice_prompt}, {"role": "user", "content": voices.render(c, sit, where, says, remember, first_meeting=first_meeting, purchases=purchases, meal_status=meal_status, world_facts=voices.recorded_facts(self.world, cid, day.get("state") or {}))}]
+        facts = voices.recorded_facts(self.world, cid, day.get("state") or {})
+        if getattr(getattr(self, 'cfg', None), 'outcome_memory', False):
+            facts += voices.recorded_receipts(day, sit['place'])
+        messages = [{"role": "system", "content": self.voice_prompt}, {"role": "user", "content": voices.render(c, sit, where, says, remember, first_meeting=first_meeting, purchases=purchases, meal_status=meal_status, world_facts=facts)}]
         voice_chat = getattr(type(self.mind), "chat_voice", None)
         reply = voice_chat(self.mind, messages, contract.VOICE_SCHEMA, max_tokens=250) if voice_chat else self.mind.chat(messages, contract.VOICE_SCHEMA, max_tokens=250)
         return voices.clean(c, contract.extract_json(reply))
