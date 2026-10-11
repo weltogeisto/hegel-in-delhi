@@ -40,4 +40,3 @@ class BlindReviewTest(unittest.TestCase):
             self.assertEqual(16,len({r['id'] for r in rows}))
             rows[0]['observations'][0]['text']='human enters a situation'
             self.assertEqual('',rows[1]['observations'][0]['text'])
-

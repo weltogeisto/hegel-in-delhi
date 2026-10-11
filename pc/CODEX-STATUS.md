@@ -1,6 +1,6 @@
 # Codex status: outcome memory
 
-Updated: 2026-10-11 08:56 UTC. Branch: `codex/outcome-memory`.
+Updated: 2026-10-11 09:17 UTC. Branch: `codex/outcome-memory`.
 Starting main commit: `c03a4313c81b473e7aaabac35c503dc11b07e3b8`.
 
 This is a development checkpoint. Step 4 is not complete and is not deployed.
@@ -19,10 +19,10 @@ The live world remains paused. No training is running or authorised by this work
 
 ## Evidence so far
 
-The latest focused run passed 63 tests. The full unittest suite and revised
-150-sentence calibration are running in WSL tmux `hegel-outcome-checks`.
-Staging also found `tests/test_blind_review.py:43: new blank line at EOF`.
-This formatting warning is parked until the frozen validation run finishes.
+The full suite passed at checkpoint `e537ed4`: **825 tests in 708.777 seconds,
+OK (18 skipped)**. The validation job exited 0, verified the frozen source and
+protected inputs, and stopped its own test server. The 150-sentence atomic
+calibration completed; raw requests, votes and frozen labels are preserved.
 The dedicated test server uses port 18184, three slots with 16384 context each,
 and no adapter. Three concurrent warm-up requests succeeded; observed GPU memory
 was 19338/24576 MiB. This establishes initial capacity, not overnight stability.
@@ -31,19 +31,28 @@ The earlier full-sentence checker failed: its 0.9 threshold retained none of
 seven supported concrete held-out sentences. Its ECE changed from 0.1733 to
 0.1631. The replacement checks atomic factual premises and flags ten ambiguous
 manual labels. Reuse of the inspected split is development, not independent
-confirmation. New calibration metrics are pending.
+confirmation. The new fit uses temperature 2.86013 and threshold 0.20. Factual
+claim ECE improved on calibration (0.18076 to 0.10566) and worsened on the reused
+holdout (0.15670 to 0.17542). The rule kept 53/55 supported calibration sentences
+and 24/24 supported holdout sentences; it also accepted 24/43 and 5/18 unsupported
+sentences, respectively. The predeclared retention gate passed; this is not
+approval for live use. Only 4 and 1 certain supported concrete sentences remain
+in those partitions. Ten ambiguous labels are reported separately.
+
+See [OUTCOME-MEMORY-VALIDATION.md](OUTCOME-MEMORY-VALIDATION.md) for the review.
+Next is the requested fresh one-day before/after smoke test, as an isolated
+diagnostic with the fitted settings frozen. Acceptance remains pending its
+manual audit. No threshold or label changes will be made from the smoke result.
 
 Detailed design and limits: [STRUCTURED-MEMORY.md](STRUCTURED-MEMORY.md).
 Local validation output: `C:\hegel\handover\outcome-memory-20261011\validation-v3`.
 
 ## Remaining work, in order
 
-1. Review the full suite and calibration, including false deletion and false
-   acceptance. Stop and report the exact error on an unexpected failure.
-2. Run the frozen one-seed, one-day before/after smoke test; manually audit
+1. Run the frozen one-seed, one-day before/after smoke test; manually audit
    contradictions, statements promoted to facts, duplicate charges, JSON,
    prompt sizes and elapsed time. Produce the report and verified bundle.
-3. Run three new seeds for two days per arm on the isolated test instance,
+2. Run three new seeds for two days per arm on the isolated test instance,
    concurrently only if capacity holds. Preserve all raw outputs.
 
 Step 5's two differently shuffled review packets are prepared with the same
