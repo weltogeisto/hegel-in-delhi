@@ -1,6 +1,6 @@
 # Codex status: outcome memory
 
-Updated: 2026-10-11 09:17 UTC. Branch: `codex/outcome-memory`.
+Updated: 2026-10-11 10:10 UTC. Branch: `codex/outcome-memory`.
 Starting main commit: `c03a4313c81b473e7aaabac35c503dc11b07e3b8`.
 
 This is a development checkpoint. Step 4 is not complete and is not deployed.
@@ -40,20 +40,33 @@ approval for live use. Only 4 and 1 certain supported concrete sentences remain
 in those partitions. Ten ambiguous labels are reported separately.
 
 See [OUTCOME-MEMORY-VALIDATION.md](OUTCOME-MEMORY-VALIDATION.md) for the review.
-Next is the requested fresh one-day before/after smoke test, as an isolated
-diagnostic with the fitted settings frozen. Acceptance remains pending its
-manual audit. No threshold or label changes will be made from the smoke result.
+The frozen one-day before/after smoke finished with exit 0 at 09:56:10 UTC;
+both arms completed 31 steps and cleanup verified unchanged source/inputs and
+stopped the owned server. Baseline: 544.034 seconds; after: 1448.087 seconds.
+The manual audit found an unexpected execution/evidence mismatch: corn purchases
+increment the simulator's snack state, but the record projection omits that
+consumption. A true consumption premise is consequently deleted. It also found
+three after-arm record contradictions, eight statement-to-fact promotions and
+one semantic resettlement episode (INR 60 under new purchase IDs). These are
+conservative, single-reviewer counts, not independent validation.
+
+**Stopped under the unexpected-failure rule.** The follow-up is paused and the
+larger three-seed run has not started. No runtime fix, label change, retuning or
+state repair was made from the smoke. Both runtime flags remain off.
+See [OUTCOME-MEMORY-SMOKE.md](OUTCOME-MEMORY-SMOKE.md) for the full report,
+costs, uncertainty flags, false deletions and proposed repairs.
 
 Detailed design and limits: [STRUCTURED-MEMORY.md](STRUCTURED-MEMORY.md).
 Local validation output: `C:\hegel\handover\outcome-memory-20261011\validation-v3`.
 
 ## Remaining work, in order
 
-1. Run the frozen one-seed, one-day before/after smoke test; manually audit
-   contradictions, statements promoted to facts, duplicate charges, JSON,
-   prompt sizes and elapsed time. Produce the report and verified bundle.
-2. Run three new seeds for two days per arm on the isolated test instance,
-   concurrently only if capacity holds. Preserve all raw outputs.
+1. Hand over the failed-smoke report, preserved raw evidence and verified bundle.
+2. Resume only after the unexpected failure has been reviewed. The proposed
+   execution-record, temporal-extraction and financial-reconciliation repairs
+   are documented but not implemented.
+3. The three-new-seed/two-day-per-arm evaluation is held. Do not start it against
+   this candidate as if the smoke had established reliability.
 
 Step 5's two differently shuffled review packets are prepared with the same
 94 texts, including ten hidden controls. The identity key stays with Welt
