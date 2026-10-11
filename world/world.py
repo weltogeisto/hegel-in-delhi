@@ -2,6 +2,7 @@
 tells the mind what is happening, checks the answer, and turns it into the day's segments and entries."""
 import copy
 import json
+import logging
 import random
 import re
 from datetime import date, datetime, timedelta
@@ -488,6 +489,7 @@ class World(Economy):
         if said and prev_step.get("end") == fmt(m):
             events.append((voices.heard(said), None))              # their answer to what he said, as the step ends
 
+        carried = len(events)          # prior read/reply retain their own attributed entries
         if state.get("asleep"):
             today["woke"] = fmt(m)
             line = f"You wake. {wx['sky'].capitalize()}, {wx['temp']} °C."
@@ -656,7 +658,8 @@ class World(Economy):
         }
         self.show_plan(sit, day)
         ctx = {"t": t, "present": present, "beat": beat, "public": [e for _, e in events if e],
-               "fresh": [c for c in new if c in known]}
+               "fresh": [c for c in new if c in known],
+               "observations": [f"Weather: {sit['weather']}. Air quality index: {sit['aqi']}."] + [prompt for prompt, _ in events[carried:] if prompt], "observed_at": pid}
         return sit, ctx
 
     # ── the rules ───────────────────────────────────────────────────
@@ -794,6 +797,8 @@ class World(Economy):
         def entry(t, e):
             e = dict(e)
             e["t"] = fmt(minute_of(t))
+            if e.get("k") != "plan":       # retain the established intention-only plan format
+                e.setdefault("place", state["place"])
             entries.append(e)
 
         def dress(t, pid, asleep=False):
@@ -909,8 +914,19 @@ class World(Economy):
 
         if action == "eat" and dest == "home" and self.served(t, state):
             self.feed(state, t, "meal")
-        for b in plan["buys"]:
-            entry(t, dict({"k": "bag", "item": b["item"], "price": b["price"]}, **{k: b[k] for k in ("office", "note") if b.get(k)}))
+        for i,b in enumerate(plan["buys"]):
+            # A retry of this execution context reuses the transaction identity.
+            # A distinct sitting or two same-price items get distinct identities,
+            # even if a legacy caller supplies the same simulated minute.
+            identities=ctx.setdefault('purchase_ids',{})
+            if i not in identities:
+                identities[i]=self.new_charge(state)
+            cid=identities[i]
+            if cid in state.setdefault('settled_charges',[]):
+                logging.getLogger('world').warning('duplicate charge suppressed: %s',cid)
+                continue
+            entry(t, dict({"k": "bag", "item": b["item"], "price": b["price"], "charge_id":cid}, **{k: b[k] for k in ("office", "note") if b.get(k)}))
+            state.setdefault('settled_charges',[]).append(cid)
             state["imprest"] -= b["price"]
             self.voucher(state, t, b["item"], b["price"], b.get("office"))
             if b.get("tech"):
@@ -945,6 +961,9 @@ class World(Economy):
         state["asleep"] = night
         step = {"t": fmt(minute_of(t0)), "end": "24:00" if end >= midnight else fmt(minute_of(end)),
                 "event": sit["event"], "present": sit["present"], "decision": ans, "arrived": arrived}
+        if "observations" in ctx:
+            step["observations"] = list(ctx["observations"])
+            step["observed_at"] = ctx["observed_at"]
         if ctx.get("reply"):
             step["voice"] = ctx["reply"]            # opens the next situation
         if ctx.get("read"):

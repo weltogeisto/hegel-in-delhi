@@ -75,6 +75,13 @@ class Config:
             raise ValueError("HEGEL_OWL_REASONING_TOKENS must be from 0 to 2048")
         self.thesis_reminders = v.get("HEGEL_THESIS_REMINDERS", "1") not in ("0", "no", "false", "")
         self.write_mode = "plain" if v.get("HEGEL_WRITE_MODE", "chat").strip().lower() == "plain" else "chat"      # his writings: the chat call (default), or a plain-text completion
+        self.outcome_memory = v.get('HEGEL_OUTCOME_MEMORY','0') not in ('0','no','false','')
+        # Explicit opt-in until the isolated results have been reviewed. Missing
+        # calibration must fail rather than invent a temperature at runtime.
+        self.claim_check = v.get('HEGEL_CLAIM_CHECK','0') not in ('0','no','false','')
+        if self.claim_check and not self.outcome_memory:
+            raise ValueError('HEGEL_CLAIM_CHECK requires HEGEL_OUTCOME_MEMORY')
+        self.claim_calibration = Path(v.get('HEGEL_CLAIM_CALIBRATION',self.repo/'pc/claim-calibration.json')).expanduser()
 
     def get(self, key, default=None):
         return self.values.get(key, default)

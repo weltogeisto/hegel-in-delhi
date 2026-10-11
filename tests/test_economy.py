@@ -530,7 +530,9 @@ class OfferTest(unittest.TestCase):
             self.assertEqual(oid, "loan_malhotra")
             self.assertEqual(st["imprest"], 5400)
             self.assertEqual([(e["k"], e.get("amount")) for e in out], [("world", None), ("world", None), ("income", 5000), ("world", None)])
-            self.assertEqual(out[-1]["owe"], {"to": "Mr. R. K. Malhotra", "amount": 5000, "why": "the loan", "since": "2026-10-05"})
+            self.assertEqual(out[-1]["owe"], {"to": "Mr. R. K. Malhotra", "amount": 5000, "why": "the loan", "since": "2026-10-05",
+                "charge_id": st['owed'][0]['charge_id']})
+            self.assertTrue(st['owed'][0]['charge_id'].startswith('charge:'))
             self.assertEqual(st["owed"][0]["after"], "2026-10-12")
             look(w, at_dt(D(6), 450), st, "lodhi")
             look(w, at_dt(D(11), 450), st, "lodhi")
@@ -645,11 +647,12 @@ class CostTest(unittest.TestCase):
         with There(khan=["masterji"], home=["ramesh"]):
             sit, ctx = look(w, at_dt(D(4), 11 * 60), st, "khan")
             self.assertEqual(st["owed"], [{"to": "Ramesh", "amount": 1500, "why": "groceries", "since": "2026-10-04", "cost": "groceries", "item": "Groceries for Ramesh's kitchen",
-                                         "at": "home", "with": "ramesh"}])
+                                         "at": "home", "with": "ramesh", "charge_id": "cost:groceries:2026-10-04"}])
             self.assertEqual(self.paid(ctx), [])
             note = next(e for e in ctx["public"] if e.get("owe"))
             self.assertEqual((note["k"], note["text"]), ("world", "Groceries: ₹1,500 falls due to Ramesh."))
-            self.assertEqual(note["owe"], {"to": "Ramesh", "amount": 1500, "why": "groceries", "since": "2026-10-04"})
+            self.assertEqual(note["owe"], {"to": "Ramesh", "amount": 1500, "why": "groceries", "since": "2026-10-04",
+                "cost": "groceries", "charge_id": "cost:groceries:2026-10-04"})
             self.assertEqual(st["imprest"], 10501)
             self.assertIn("owes Ramesh ₹1,500 (groceries)", look(w, at_dt(D(4), 15 * 60), st, "khan")[0]["on_mind"][-2])
             sit, ctx = look(w, at_dt(D(4), 19 * 60), st, "home")

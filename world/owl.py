@@ -3,6 +3,7 @@ import logging
 import re
 
 from .contract import extract_json
+from . import records
 
 log = logging.getLogger("world")
 STATUSES = ["unshaken", "shaken", "revised", "abandoned"]
@@ -179,10 +180,29 @@ def revise(day, theses, answer):
     return changes
 
 
-def write(cfg, day, state, mind, depesche_n=None, problems=None, flag=None, topic=None):
+def write(cfg, day, state, mind, depesche_n=None, problems=None, flag=None, topic=None, claim_guard=None):
     system = (cfg.repo / "mind/owl.md").read_text(encoding="utf-8")
     theses = state.get("theses", [])
-    ask = (f"{record(day)}\n\nYour theses: " + "; ".join(f"{t['id']}: {t['text']} ({t['status']})" for t in theses) + ".\n\n")
+    typed=getattr(cfg,'outcome_memory',False)
+    evidence=records.relevant(records.project(day)) if typed else record(day)
+    shown=evidence
+    if typed:
+        thoughts=[f"{e['t']} [interpretation, not event evidence]: {e['text']}"
+                  for e in day.get('entries',[]) if e.get('k')=='diary']
+        selected=[];remaining=1950
+        for thought in reversed(thoughts):
+            excerpt=thought[:min(500,remaining)]
+            if len(excerpt)<len(thought):
+                excerpt=excerpt[:max(0,len(excerpt)-12)]+'… [excerpt]'
+            if len(excerpt)<75:
+                break
+            selected.insert(0,excerpt);remaining-=len(excerpt)+1
+        interpretations='\n'.join(selected)
+        if len(selected)<len(thoughts):
+            interpretations+='\n[Earlier interpretations omitted.]'
+        if interpretations:
+            shown=records.relevant(records.project(day),limit=24000-len(interpretations)-2)+'\n\n'+interpretations
+    ask = (f"{shown}\n\nYour theses: " + "; ".join(f"{t['id']}: {t['text']} ({t['status']})" for t in theses) + ".\n\n")
     if depesche_n is not None:
         ask += f"Tonight is also the night of the weekly Depesche, number {depesche_n}.\n\n"
     ask += "Write the diary, the revision log and the theses (each with its evidence times)" + (", and the Depesche" if depesche_n is not None else "") + ". Answer with the JSON object only."
@@ -204,6 +224,25 @@ def write(cfg, day, state, mind, depesche_n=None, problems=None, flag=None, topi
             raise OwlError("the owl wrote what he could not know in 1831: " + "; ".join(wrong))
         messages += [{"role": "assistant", "content": raw},
                      {"role": "user", "content": "Write it again without " + "; ".join(wrong) + ". Answer with the JSON object only."}]
+    if claim_guard:
+        compact=records.relevant(records.project(day),limit=9000)
+        for field in ('diary','revision_log','depesche'):
+            if not isinstance(out.get(field),str) or not out[field].strip():
+                continue
+            original=out[field]
+            def regenerate(bad):
+                request=(f"Rewrite only the {field}, preserving its argument. Remove or qualify unsupported claims. "
+                         "Do not invent events.\n"+compact+"\nUnsupported: "+str(bad)+"\nOriginal: "+original)
+                answer=extract_json(mind.chat([dict(role='system',content=system),dict(role='user',content=request)],
+                    {'type':'object','properties':{'text':{'type':'string'}},'required':['text']},max_tokens=1200))
+                if not isinstance(answer,dict) or not isinstance(answer.get('text'),str):
+                    raise OwlError('Owl prose regeneration returned unusable JSON')
+                return answer['text']
+            out[field]=claim_guard.protect(original,evidence,regenerate,label=f"{day.get('date')} owl {field}")
+        wrong=sorted(set(problems('\n'.join(out[k] for k in ('diary','revision_log','depesche')
+                    if isinstance(out.get(k),str))))) if problems else []
+        if wrong:
+            raise OwlError('Regenerated owl prose failed the knowledge check: '+'; '.join(wrong))
     written = {"diary": out["diary"].strip(), "revision_log": (out.get("revision_log") or "").strip() or None,
                "theses": revise(day, theses, out.get("theses"))}
     if depesche_n is not None and isinstance(out.get("depesche"), str) and out["depesche"].strip():

@@ -307,7 +307,11 @@ class StubMind:
             return json.dumps({"says": "(rehearsal) " + r.choice(REPLIES), "does": r.choice(DOINGS)})
         if "continues" in props:    # what he wrote, or with "about" what he means to write
             ask = messages[-1]["content"]
-            shelf = re.findall(r"“([^”]+)” \(", ask.split("Your manuscripts so far:")[1]) if "Your manuscripts so far:" in ask else []
+            # Only the explicitly labelled index is a list of continuable works.
+            # Typed records below it also quote dialogue with parenthetical
+            # provenance; those quotations must not become manuscript titles.
+            index=re.search(r'Your manuscripts so far:(.*?)(?:\. (?:Date of this sitting:|Use the observations)|\n|$)',ask,re.S)
+            shelf = re.findall(r"“([^”]+)” \(",index.group(1)) if index else []
             r = random.Random(ask)
             title = shelf[-1] if shelf and r.random() < 0.7 else "(rehearsal) " + r.choice(TITLES)
             kind = r.choice(["essay", "notes", "letter"])
