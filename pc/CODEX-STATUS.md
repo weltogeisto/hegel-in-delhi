@@ -1,6 +1,6 @@
 # Codex status: outcome memory
 
-Updated: 2026-10-11 12:55 UTC. Branch: `codex/outcome-memory`.
+Updated: 2026-10-11, after validation-v4 review. Branch: `codex/outcome-memory`.
 Starting main commit: `c03a4313c81b473e7aaabac35c503dc11b07e3b8`.
 
 This is a development checkpoint. Step 4 is not complete and is not deployed.
@@ -63,32 +63,39 @@ sentence, so a future visit or signature need not become an asserted event.
 Unattributed occurrence votes exclude unverified statements, draft narratives,
 plans and quoted source content. Both protocols are versioned; old fitted
 settings fail the compatibility check. No frozen labels or old outputs changed.
-The focused suite passed **102 tests in 0.304 seconds, OK**, including 21 new
-regressions. The full suite, new development calibration and model-backed
-regression checks are pending. Both runtime flags remain off. The larger
-three-seed run remains held until a fresh smoke is reviewed.
+The focused suite passed **102 tests in 0.304 seconds, OK**, including 19 new
+regressions (the earlier count of 21 was incorrect). The full suite then passed
+**844 tests in 705.557 seconds, OK (18 skipped)** at repair checkpoint `5a1833f`.
+All nine model regression checks passed. Exit 0, final source/input hashes and
+owned-server cleanup were independently verified. The new development fit uses
+temperature 1.003927 and threshold 0.34. Calibration retained 55/55 supported
+sentences, but accepted 26/43 unsupported; reused holdout retained 23/24 and
+accepted 10/18 unsupported. Its one supported concrete holdout sentence was
+omitted. Claim ECE worsened slightly with scaling, from 0.192858 to 0.192976 and
+from 0.216934 to 0.217214. This is not reliable enough for live approval.
+
+The calibration-partition retention safeguard and targeted regression gates
+passed; a separate fresh diagnostic smoke can now proceed with frozen settings,
+seed 1270154432. Both runtime flags remain off. The larger three-seed run remains
+held until that smoke is manually reviewed. See
+[OUTCOME-MEMORY-REPAIR-VALIDATION.md](OUTCOME-MEMORY-REPAIR-VALIDATION.md).
 See [OUTCOME-MEMORY-SMOKE.md](OUTCOME-MEMORY-SMOKE.md) for the full report,
 costs, uncertainty flags, false deletions and proposed repairs.
 
 Detailed design and limits: [STRUCTURED-MEMORY.md](STRUCTURED-MEMORY.md).
-Local validation output: `C:\hegel\handover\outcome-memory-20261011\validation-v3`.
+Local current validation: `C:\hegel\handover\outcome-memory-20261011\validation-v4`.
+The completed `validation-v3` and failed `smoke-v1` remain preserved.
 
 ## Remaining work, in order
 
-1. Freeze and validate the separate repair candidate. Use the same 150 frozen
-   labelled sentences and uncertainty flags for protocol-compatible calibration;
-   this remains development evidence. Do not tune on the failed smoke.
-2. Before any fresh smoke, require a completed full-suite OK, unchanged source
-   and input hashes, owned-server cleanup, and all frozen model regressions to
-   pass: executed food retained, offer-only food rejected, attributed speech
-   retained but unqualified speech content rejected, plans not fulfilled facts,
-   current location respected, earlier departure retained, signatures/future
-   intentions not invented as events. Use the existing retention safeguard;
-   report false acceptance, false deletion, temperature and ECE without hiding
-   worsening metrics. Stop and report a failed gate or unexpected error.
-3. Only then freeze a new one-seed/one-day before/after smoke with a new seed;
+1. Completed: full suite, revised development calibration, targeted model
+   checks, source/input verification and owned-server cleanup. No old labels,
+   frozen settings or saved outputs changed. Calibration limitations are above.
+2. Freeze a new one-seed/one-day before/after smoke with seed 1270154432;
    audit all requested error types and costs. Publish its report and verified
    bundle before the held three-new-seed/two-day-per-arm evaluation.
+3. Stop and report an unexpected error; preserve every partial output. Do not
+   retune settings or repair the frozen trajectory to make it pass.
 4. Save a checkpoint and pause by 14:41 UTC (16:41 Berlin). Preserve any frozen
    active job and report it; do not start further work after that deadline.
 
