@@ -103,20 +103,22 @@ Start only after Welt confirms that step 3 is in the repo. Build on your `runtim
 
 ## 5. Blind review
 
-Decided with Welt on 11 October: Claude is the reviewer, and Welt rates the same texts as a second blind rater. Claude did not write the texts, but helped write his prompts, and model judges tend to prefer model-written text. So the review carries hidden controls and the key stays away from Claude until both have rated.
+Decided with Welt on 11 October: the first rater is Grok 4.7, run by Welt through Perplexity with web search off. It knows nothing of this project. Claude rates the same packet as a second rater from another model family; Welt may rate too. Model judges tend to prefer model-written text, so the review carries hidden controls, and the key stays away from every rater until all have rated.
 
 - **The packet.** Take the texts from `review-only.zip`. Mix in about 10 real Hegel passages of the same length (150 to 300 words) from the English translations on his shelf, as hidden controls. Choose less famous passages, not the ones everyone quotes. Give every text a random id, strip the arm, the source and anything that gives them away, and shuffle the order.
-- **The key** (id → arm or control) goes to Welt only: never into the repo, a bundle or a file Claude can read. Welt uploads it after both have rated.
+- **Two orders.** Make the packet twice, the same texts shuffled differently (`packet-a`, `packet-b`). Grok rates both, in separate chats: where its two scores for a text differ by more than one point, the order swayed it.
+- **The key** (id → arm or control) goes to Welt only: never into the repo, a bundle or a file any rater can read. Welt uploads it here after all have rated.
+- **The answer format** is a CSV, one row per text: `id,argument,commitments,particular,voice,reasons`. The guide asks for exactly that, so the ratings come back machine-readable.
 - **The ratings.** Each rater scores every text from 1 to 5 on four dimensions, each with a one-line reason. Holistic judgments of persona fidelity are unstable (PRISM, EMNLP 2026, [arXiv 2608.26674](https://arxiv.org/abs/2608.26674)).
   1. **Argument moves:** does the text develop a claim the way he does (from the difficulty within a position, to what it presupposes and where it turns into its opposite), or does it assert, list, or lay a triad over the material?
   2. **His commitments:** are the positions his, as of 1831, including the prejudiced ones, neither softened into a present-day view nor exaggerated into a caricature?
   3. **Response to the particular case:** does the thought start from the specific situation and stay with it, or could the same paragraph stand under any title?
   4. **Voice:** does it read like him, not like a translator's pastiche or a modern essay?
 - **What it measures, once the key is in:**
-  - **The controls:** if Claude does not score the real passages above the model texts, Claude's ratings measure nothing, and the review needs a human Hegel reader after all.
-  - **Agreement:** between Claude and Welt, per dimension (Cohen's κ; Krippendorff's α if a rating is missing). That agreement is the ceiling any later automatic judge is read against.
+  - **The controls:** a rater who does not score the real passages above the model texts measures nothing; if no rater does, the review needs a human Hegel reader after all.
+  - **Agreement:** between Grok and Claude (and Welt, if Welt rates), per dimension (Cohen's κ; Krippendorff's α if a rating is missing). That agreement is the ceiling any later automatic judge is read against.
   - **The arms:** compared only on dimensions where the controls separate.
-- **The guide** is the instruction sheet that goes with the packet: the four dimensions as above, the 1-to-5 scale, and nothing about which texts are which.
+- **The guide** is the instruction sheet that goes with the packet: the four dimensions as above, the 1-to-5 scale, the CSV format, the instruction not to search the web or look anything up, and nothing about which texts are which.
 - From your `fresh-task-template.json`, prepare 8 essay situations and 8 letter situations for Welt to write. No model writes them. They are for the next comparison; don't run it yet.
 
 ## 6. Parked, and off limits
