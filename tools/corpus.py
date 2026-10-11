@@ -615,6 +615,23 @@ work("gita", "Über die Bhagavad-Gita", "de",
           footnotes=r"^(\*+\)|\d{1,2}\))", drop=[r"^@@ "], heads=[(1, r"^Nachdem im vorstehenden Artikel die gelehrte", "Zweiter Artikel", "keep")],
           known=0.70, letters=0.72),           # Sanskrit names and his references (Bhag. VII, 3) are no OCR damage: a clean scan, judged more loosely
      skip="the rest of the volume (his other reviews and early essays), his footnotes, and the two passages that are quotations in Latin and French")
+def first_word(raw):
+    """The first word of the first address, "Durch", read as "Durcx"."""
+    return raw.replace("Durcx allergn", "Durch allergn")
+
+
+work("reden", "Gymnasialreden", "de", "Fünf Gymnasial-Reden, gehalten zu Nürnberg (1809, 1810, 1811, 1813, 1815)",
+     "ed. Friedrich Förster (Werke, Bd. 16: Vermischte Schriften I)", "1834 (spoken 1809-1815)", "Berlin: Duncker und Humblot, pp. 133-202",
+     scan("georgwilhelmfrie16hege", "frak2021"),
+     "Hegel d. 1831; Förster (1791-1868), who edited the volume, died more than 70 years ago; published 1834: public domain everywhere. "
+     "archive.org's own text of the scan is Fraktur read as roman type; this is a fresh reading with Tesseract and UB Mannheim's Fraktur model (tools/ocr.py)",
+     dict(start=r"^Dur\S{1,3} allergn.digste Befehle", end=r"^IV\.$|Ueber Friedrich Heinrich Jacobi.s Wer", first="Am 29. September 1809",
+          footnotes=r"^(\*+\)|\d{1,2}\))", drop=[r"^@@ ", r"^IV\. Kritiken", r"Gymnasial-Reden\.?\s*$"], pre=first_word,
+          heads=[(1, r"^Bei dieser zweiten Preisvertheilungsfeierlichkeit", "Am 14. September 1810", "keep"),
+                 (1, r"^Es hat, als der geendigte Studien", "Am 2. September 1811", "keep"),
+                 (1, r"^Das Ende eines Studienjahres fordert", "Am 2. September 1813", "keep"),
+                 (1, r"^Wir versammeln uns heute wieder", "Am 30. August 1815", "keep")]),
+     skip="the rest of the volume, and his footnotes")
 
 # ── the lives: for training only, never on his shelf ──────────────
 OCR_HEADS = [(2, r"^@@ (.+)$")]                          # tools/ocr.py marks each chapter '@@ Title' where it begins

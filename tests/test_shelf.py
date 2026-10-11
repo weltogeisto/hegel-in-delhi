@@ -452,7 +452,7 @@ class RealShelfTest(unittest.TestCase):
         for w in corpus.WORKS:
             self.assertIn(f"`{w['id']}`", manifest)
             self.assertIn(w["source"]["page"], manifest)
-        self.assertRegex(manifest, r"\*\*Total:\*\* 18 texts, [\d.]+ MB of text, [\d.]+ MB gzipped")
+        self.assertRegex(manifest, r"\*\*Total:\*\* 19 texts, [\d.]+ MB of text, [\d.]+ MB gzipped")
         self.assertIn("Left out, and why", manifest)
         self.assertIn("Rosenkranz", manifest)
         total = sum(p.stat().st_size for p in (REPO / "mind/shelf").iterdir())
