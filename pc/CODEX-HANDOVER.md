@@ -124,4 +124,5 @@ Decided with Welt on 11 October: the first rater is Grok 4.7, run by Welt throug
 ## 6. Parked, and off limits
 
 - **The Hegelizer:** don't start it until steps 1 to 4 are done and Welt says go.
+- **Faster rehearsals (parked 11 October, decided after the smoke test):** if the wall time per simulated day makes rehearsals the bottleneck, check whether the official Qwen3.8-27B weights include an MTP head and whether our GGUF kept it. If they do, llama-server's `--spec-type draft-mtp` drafts tokens that the model checks: about twice the speed, and in principle the same text. Don't swap the mind for a community fine-tune to get it (nerkyor's Coder390 has an MTP head, but it is trained toward frontier-model answers).
 - **Don't touch** the training data, the adapters, the firewall, the power settings, the ML packages or the live world.
