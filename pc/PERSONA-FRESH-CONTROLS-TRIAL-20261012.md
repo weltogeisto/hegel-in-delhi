@@ -48,7 +48,15 @@ under Claude's specification, without another invented retry.
 
 ## Frozen execution and review
 
-Create persona-fresh-controls-v1 under
+The first preparation (persona-fresh-controls-v1) stopped before generation:
+the original directions case uses display name Ramesh, while Engine retrieval
+requires cast ID ramesh. That partial directory and error are preserved. The
+runner now resolves a unique existing cast name to its ID for internal context,
+while retaining the exact case and displayed presence in the writing prompt.
+Unknown or ambiguous names fail rather than receiving an invented role. No
+production runtime or original case was changed by this tooling repair.
+
+Create persona-fresh-controls-v2 under
 C:/hegel/handover/codex-tasks-20261012. Freeze the candidate source, this
 protocol, original and selected cases, schedule, shelf and preflight inputs.
 Check prompt counts against the whole-prompt 7,263-token ceiling, B-only
@@ -57,10 +65,12 @@ Use shared 8082 slot 2 in a new tmux session; slot 0 stays reserved for shadow.
 Never stop or reconfigure the server. Do not overlap another evaluation GPU
 job. The CPU suite may overlap and that overlap must be disclosed in timing.
 
-Focused checks: 24 tests OK across the persona and writer-trial test modules,
-including four new regressions for fresh scheduling, fixed case selection,
-retaining original essay genres, and rejecting an altered schedule before any
-server call. Packet coverage also checks T4e's v2 guide and withheld labels.
+Focused checks: 26 tests OK across the persona and writer-trial test modules,
+including six new regressions for fresh scheduling, fixed case selection,
+retaining original essay genres, rejecting an altered schedule before any
+server call, preserving display names while resolving cast IDs, and rejecting
+unknown or ambiguous cast names. Packet coverage also checks T4e's v2 guide
+and withheld labels.
 Run the full suite in an archive of the exact candidate on native WSL storage,
 record final count/OK/skips and exits, and compare every archived file to Git
 and the tested snapshot. Source stays frozen through packet creation.
@@ -74,7 +84,7 @@ all failures and original outputs.
 
 Then package once from the frozen primary candidate:
 
-    HEGEL_ENV=/dev/null python3 pc/persona_trial.py packet --task T4e --out /mnt/c/hegel/handover/codex-tasks-20261012/persona-fresh-controls-v1 --review persona-fresh-controls-20261012 --private-key /mnt/c/hegel/handover/welt-only/persona-fresh-controls-20261012-key.json
+    HEGEL_ENV=/dev/null python3 pc/persona_trial.py packet --task T4e --out /mnt/c/hegel/handover/codex-tasks-20261012/persona-fresh-controls-v2 --review persona-fresh-controls-20261012 --private-key /mnt/c/hegel/handover/welt-only/persona-fresh-controls-20261012-key.json
 
 Publish the 48-text v2 blind packet, integrity/generation/cost reports and final
 suite result. Assignments, actual shelf offers and the new key stay outside Git

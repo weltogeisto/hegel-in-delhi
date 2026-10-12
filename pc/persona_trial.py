@@ -68,6 +68,18 @@ def configuration(out, variant):
     return cfg
 
 
+def present_ids(world, names):
+    """Keep frozen display names in the prompt; use existing cast IDs in context."""
+    ids = []
+    for name in names:
+        matches = [cid for cid, person in world.cast.items()
+                   if name in (cid, person.get('name'), person.get('short'))]
+        if len(matches) != 1:
+            raise ValueError('Present name must identify exactly one existing cast member: '+name)
+        ids.append(matches[0])
+    return ids
+
+
 def write_case(engine, job, out):
     case = json.loads((out / 'cases.json').read_text())[job['case']]
     d = date.fromisoformat(case['date'])
@@ -91,8 +103,11 @@ def write_case(engine, job, out):
         imprest_left=st['imprest'], cash_label='Cash', outfit=st['wearing'],
         present=case.get('present', []), open_now=[case['place']], closes={},
         speakers=[], for_sale=[], on_mind=[], earlier=[], event=events)
+    present = case.get('present', [])
+    if present:
+        present = present_ids(engine.world, present)
     ctx = dict(t=at_dt(d, int(case['time'][:2])*60+int(case['time'][3:])),
-               present=case.get('present', []), recent=[], known_text=event)
+               present=present, recent=[], known_text=event)
     engine.shelf = shelf.load(out/'shelf.json.gz', out/'shelf-terms.json')
     offered = engine.offer(dict(steps=[]), sit, ctx, st)
     sit['shelf'] = offered; sit['event'] = event

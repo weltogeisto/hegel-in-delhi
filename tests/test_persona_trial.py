@@ -12,6 +12,37 @@ from pc import persona_trial, writer_trial
 
 
 class PersonaTrialTest(unittest.TestCase):
+    def test_display_name_maps_to_existing_cast_id_without_changing_the_case_or_prompt(self):
+        with tempfile.TemporaryDirectory() as temp:
+            out = Path(temp)
+            case = dict(id='directions', kind='essay', date='2026-10-16', time='15:20',
+                place='home', present=['Ramesh'], events=[dict(id='e1',text='Ramesh rotated a map.')],
+                unknowns=['What the child understood'])
+            (out/'cases.json').write_text(json.dumps({'directions': case}))
+            captured = {}
+            class Engine:
+                soul = 'the persona'
+                world = SimpleNamespace(cast={'ramesh': dict(name='Ramesh',short='Ramesh, the caretaker')})
+                days = SimpleNamespace(load=lambda d:dict(state=dict(wearing='coat',imprest=240)))
+                def offer(self,day,sit,ctx,st):
+                    captured.update(present_ids=ctx['present'],present_display=sit['present']); return []
+                def write_chat(self,messages,raw,ctx,st):
+                    captured['prompt'] = messages[1]['content']; return dict(text='An essay.')
+            with patch.object(persona_trial.shelf,'load',return_value=object()):
+                result,evidence = persona_trial.write_case(Engine(),dict(case='directions'),out)
+            self.assertEqual(['ramesh'],captured['present_ids'])
+            self.assertEqual(['Ramesh'],captured['present_display'])
+            self.assertIn('Ramesh',captured['prompt'])
+            self.assertEqual(case,evidence['case'])
+            self.assertEqual(case,json.loads((out/'cases.json').read_text())['directions'])
+
+    def test_unknown_or_ambiguous_present_name_is_not_assigned_an_invented_role(self):
+        world = SimpleNamespace(cast={'one':dict(name='Visitor'), 'two':dict(name='Visitor')})
+        for name in ('Unknown visitor', 'Visitor'):
+            with self.subTest(name=name), self.assertRaisesRegex(ValueError, 'exactly one existing'):
+                persona_trial.present_ids(world,[name])
+        self.assertEqual(['one'],persona_trial.present_ids(world,['one']))
+
     def test_fresh_controls_have_48_adjacent_outputs_without_old_persona_seeds(self):
         jobs = persona_trial.paired_jobs('T4e')
         self.assertEqual(48, len(jobs))
