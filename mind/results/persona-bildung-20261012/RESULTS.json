@@ -1,0 +1,87 @@
+{
+  "task": "T4c",
+  "verdict": "FAIL",
+  "gates": {
+    "karl_commitments_gain_at_least_0_5": true,
+    "karl_argument_no_worse": true,
+    "fare_commitments_no_worse": false,
+    "fare_argument_no_worse": true
+  },
+  "scores_commit": "e6f99570dbf5a90980a93eb50cccbefeca8f5812",
+  "scores_sha256": "90b6648e9e95da30873cb062d444c071a38be6895e20e38240acccf6d182384f",
+  "cases": {
+    "karl": {
+      "A": {
+        "n": 10,
+        "argument": 2.3,
+        "commitments": 2.0,
+        "particular": 3.4,
+        "voice": 2.9
+      },
+      "B": {
+        "n": 10,
+        "argument": 2.6,
+        "commitments": 3.0,
+        "particular": 3.3,
+        "voice": 2.7
+      }
+    },
+    "fare": {
+      "A": {
+        "n": 5,
+        "argument": 2.8,
+        "commitments": 3.4,
+        "particular": 4.0,
+        "voice": 3.0
+      },
+      "B": {
+        "n": 5,
+        "argument": 2.8,
+        "commitments": 3.0,
+        "particular": 4.0,
+        "voice": 3.0
+      }
+    }
+  },
+  "comparison": {
+    "A": "Exactly mind/soul.md at ecb71f0; not soul-v2",
+    "B": "Same persona plus only the education paragraph in mind/soul-bildung.md"
+  },
+  "case_variant_wall_seconds": {
+    "karl": {
+      "A": 186.03031565499805,
+      "B": 189.8802541210007
+    },
+    "fare": {
+      "A": 93.93776138900103,
+      "B": 91.59846504400048
+    }
+  },
+  "variant_wall_seconds": {
+    "A": 279.9680770439991,
+    "B": 281.47871916500117
+  },
+  "elapsed_seconds": 562.9083925499999,
+  "prompts": [
+    2052,
+    2077,
+    2191,
+    2216
+  ],
+  "words_range": [
+    154,
+    289
+  ],
+  "over_200_words": 14,
+  "jobs": 30,
+  "nonempty": 30,
+  "usable": 30,
+  "calls": 30,
+  "retries": 0,
+  "server_length_stops": 0,
+  "protected_files_verified": 41,
+  "single_blind_rater": true,
+  "source": "ecb71f0a27e1b888a646849d6f7ada2465896b2a",
+  "default_changed": false,
+  "default_owner": "Claude; changes only after reviewing this result"
+}

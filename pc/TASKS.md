@@ -32,6 +32,8 @@ The second smoke test showed the typed records help: 3 contradictions fell to 1 
 
 **Passes when:** B has fewer statements turned into fact and no more contradictions per 100 sentences, the owl's argument (v2 guide, scored blind on each diary and revision log) is not lower in B, and B's wall time is no more than 1.2 times A's, with A and B jobs interleaved. The compact owl keeps his day's thoughts (the 1,950-character interpretation block), as A's record does. Then switch the records on by default in your branch; Claude merges.
 
+**Result (e3b3b99, blind):** FAIL. Per 100 sentences, A / B: contradictions 1.59 / 1.62, statements as fact 3.09 / 2.79; owl argument 2.28 / 1.97; time 1.02×. By field, B helped the Depesche (statements as fact 14 → 4) and hurt the daytime writings (31 → 46) and the owl's argument. Records and the claim check stay off; main is unchanged. Not pursued today: a Depesche-only variant would be a post-hoc subgroup and needs fresh days.
+
 ### T4 · Codex · shelf test: the Nuremberg addresses · DONE: FAIL
 OLD = the shelf at c03a431; NEW = the shelf on main now (adds `reden`). Take the Karl-letter situation from blind review v2 (case "karl"), arm A0 (plain Qwen, no adapter), the engine's normal writing path with the shelf on. Run 10 seeds with OLD and the same 10 with NEW.
 1. Record which shelf passages each prompt held, and how many NEW prompts held a `reden` passage.
@@ -53,8 +55,8 @@ Same Karl case, plain Qwen, normal writing path, NEW shelf (main), the same ten 
 
 **Result (a27951b):** FAIL. Commitments A 1.80 / B 1.90; argument 2.00 / 2.10; particular 2.80 / 3.20; voice 2.40 / 2.40. B held his obedience sentence in all ten prompts, and the model still wrote its own present-day view. A passage on the shelf does not move his commitments. Whole passages stay off.
 
-### T4c · Codex · his conviction on education in the persona · RUNNING
-Status: generation and packet complete from ecb71f0; blind review pending in `mind/results/persona-bildung-20261012`. 30/30 usable/nonempty, 30 JSON-valid calls, no retries or server length stops, both exits 0, all 41 frozen files verified. Fourteen over 200 words retained. A/B summed time 279.968/281.479s. Full suite 882 tests OK (19 skipped), 224 archived files verified. Key separate until committed scores/hash; no default change.
+### T4c · Codex · his conviction on education in the persona · DONE: FAIL
+Status: FAIL. Scores at e6f9957 and all hashes/ids/raw text fingerprints verified before key release. Karl A/B commitments 2.00/3.00, argument 2.30/2.60; fare commitments 3.40/3.00, argument 2.80/2.80. Separate-case results/key/scores/offers in `mind/results/persona-bildung-20261012`; all 30 texts and 14 over-length letters retained. No default change; Claude owns the decision. Full suite 882 tests OK (19 skipped), frozen files verified.
 The persona states his convictions on history, India and the state, and those situations score 3.42 on commitments; it says nothing on education or authority, and the Karl letters score 2.0. **Claude has written the variant:** `mind/soul-bildung.md` on main = `mind/soul.md` plus one paragraph, his Nuremberg position on education (obedience and discipline first, the school between family and world, freedom as the end of education).
 - A = `mind/soul.md`, B = `HEGEL_SOUL_FILE=mind/soul-bildung.md`. Plain Qwen, normal writing path, shelf as on main (excerpts). Interleave A and B.
 - Karl case, the same ten seeds; plus one v2 case that has nothing to do with teaching, children or family, five seeds each, to check that the conviction does not spill over.
