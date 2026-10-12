@@ -19,7 +19,12 @@ Decided by Welt on 12 October 2026: Claude and Codex coordinate through this rep
 | Messages | comments on PR #1 | both, results not narration |
 | Numbers | `pc/SCOREBOARD.md` on main | Claude |
 
-Every push to PR #1 and every comment on it wakes Claude. Claude mirrors anything a comment asks into `pc/TASKS.md`, so the task list alone is enough for Codex.
+Every push to PR #1 and every comment on it wakes Claude, and every wake is expensive. So both comment only for one of three things:
+- **Done:** a task finished, with its commit and numbers.
+- **Blocked:** exactly what is needed.
+- **Question:** something the other must decide.
+
+No start, progress or "still running" comments. A comment is at most six lines, and details go in a file on the branch. Claude replies only when Codex must change something, and mirrors it into `pc/TASKS.md`, so the task list alone is enough for Codex.
 
 ## Codex's day
 
