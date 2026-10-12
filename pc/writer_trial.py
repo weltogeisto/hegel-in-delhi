@@ -441,7 +441,7 @@ def packet(args):
             key[ident]=dict(row['job'],field=field,text_sha256=hashlib.sha256(text.encode()).hexdigest(),
                 sentences=len(spans),empty=not bool(text.strip()),source=str(path))
     random.SystemRandom().shuffle(texts)
-    guide=GUIDE if args.task in ('T4','T4b','T4c') else '''# Fixed-day factual audit
+    guide=GUIDE if args.task in ('T4','T4b','T4c','T4d') else '''# Fixed-day factual audit
 
 Read only these texts and their supplied typed records. Do not search. Do not infer a variant or consult a key.
 Count contradictions with the records separately from unverified statements asserted as fact. A claim clearly

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""T4c: one frozen education-persona paragraph, with a non-education control."""
+"""Frozen paired education-persona trials, with declared control gates."""
 import argparse
 import copy
 from datetime import date
@@ -22,10 +22,28 @@ SOULS = {'A': 'mind/soul.md', 'B': 'mind/soul-bildung.md'}
 CASES = {'karl': 10, 'fare': 5}
 
 
-def paired_jobs():
-    pairs = [(case, seed) for case, count in CASES.items()
-             for seed in range(2026101220, 2026101220 + count)]
-    rng = random.Random(2026101217)
+def experiment(task='T4c', control_case=None):
+    if task == 'T4c':
+        return dict(cases=CASES, starts={case: 2026101220 for case in CASES},
+            ordering_seed=2026101217,
+            control_selection='Existing v2 fare reimbursement letter, unrelated to education or family.',
+            pass_rule='Karl: B commitments >= A+0.5 and argument >= A. Fare: neither commitments nor argument lower.')
+    if task != 'T4d':
+        raise ValueError('Unknown persona trial: '+task)
+    if not control_case or control_case in ('karl', 'fare'):
+        raise ValueError('T4d requires a distinct second non-teaching control')
+    return dict(cases={'karl': 6, 'fare': 10, control_case: 10},
+        starts={'karl': 2026101260, 'fare': 2026101270, control_case: 2026101280},
+        ordering_seed=2026101231,
+        control_selection='Fare letter and the explicitly selected existing v2 non-teaching control: '+control_case,
+        pass_rule='Karl: B commitments >= A+0.5 and argument >= A. Across the 20 control texts per arm: neither commitments nor argument lower. No pooled Karl/control gate.')
+
+
+def paired_jobs(task='T4c', control_case=None):
+    spec = experiment(task, control_case)
+    pairs = [(case, seed) for case, count in spec['cases'].items()
+             for seed in range(spec['starts'][case], spec['starts'][case] + count)]
+    rng = random.Random(spec['ordering_seed'])
     rng.shuffle(pairs)
     jobs = []
     for case, seed in pairs:
@@ -50,7 +68,15 @@ def write_case(engine, job, out):
     if 'cash_inr' in case: st['imprest'] = case['cash_inr']
     events = '\n'.join(x['text'] for x in case['events'])
     event = events + '\nUnknown: ' + '; '.join(case['unknowns']) + '.'
-    event += (f"\nThis sitting is a private, unsent letter to {case['to']}, "
+    if case['kind'] == 'letter':
+        writing = f"a private, unsent letter to {case['to']}"
+        thought = f"I shall write privately to {case['to']} about the events recorded here."
+    elif case['kind'] == 'essay':
+        writing = 'an essay on the events recorded here'
+        thought = 'I shall write an essay about the events recorded here.'
+    else:
+        raise ValueError('Unsupported writing kind: '+case['kind'])
+    event += (f"\nThis sitting is {writing}, "
               '120–200 words, below 2800 characters. Do not invent a recent event or identify the unknown people.')
     sit = dict(id=case['date']+'T'+case['time'], day=d.strftime('%A %-d %B'),
         time=case['time'], place=case['place'], weather='unknown', aqi='unknown',
@@ -63,7 +89,7 @@ def write_case(engine, job, out):
     offered = engine.offer(dict(steps=[]), sit, ctx, st)
     sit['shelf'] = offered; sit['event'] = event
     ctx['known_text'] += '\n' + '\n'.join(x['text'] for x in offered)
-    raw = json.dumps(dict(thought=f"I shall write privately to {case['to']} about the events recorded here.",
+    raw = json.dumps(dict(thought=thought,
         action='write', place=case['place'], minutes=45, says=None, buys=[], revision=None))
     messages = [dict(role='system', content=engine.soul),
                 dict(role='user', content=contract.render(sit))]
@@ -90,13 +116,20 @@ def require_t3_finished(base, packet):
 
 def prepare(args):
     if args.out.exists(): raise ValueError('Create-once output already exists')
+    task = getattr(args, 'task', 'T4c')
+    control_case = getattr(args, 'control_case', None)
+    spec = experiment(task, control_case)
     cases = json.loads(args.cases.read_text())['writing_cases']
-    selected = {c['id']: c for c in cases if c['id'] in CASES}
-    if set(selected) != set(CASES): raise ValueError('Both frozen v2 cases are required')
-    if any(c['kind'] != 'letter' for c in selected.values()): raise ValueError('Both cases must be letters')
+    selected = {c['id']: c for c in cases if c['id'] in spec['cases']}
+    if set(selected) != set(spec['cases']): raise ValueError('Every declared frozen v2 case is required')
+    if any(selected[name]['kind'] != 'letter' for name in ('karl', 'fare')):
+        raise ValueError('Karl and fare must remain letters')
+    if any(c['kind'] not in ('letter', 'essay') for c in selected.values()):
+        raise ValueError('Every case must be a letter or essay')
     args.out.mkdir(parents=True)
     trial.dump(args.out/'cases.json', selected)
-    trial.dump(args.out/'T4c-jobs.json', paired_jobs())
+    jobs = paired_jobs(task, control_case)
+    trial.dump(args.out/(task+'-jobs.json'), jobs)
     for rel, name in [('mind/shelf/index.json.gz', 'shelf.json.gz'),
                       ('world/data/shelf_terms.json', 'shelf-terms.json')]:
         (args.out/name).write_bytes((ROOT/rel).read_bytes())
@@ -105,7 +138,7 @@ def prepare(args):
     if new.replace(paragraph+'\n', '', 1) != old:
         raise ValueError('Persona variant must differ by the single education paragraph only')
     preflight = []; offers = {}
-    for case in CASES:
+    for case in spec['cases']:
         for variant in SOULS:
             mind = trial.TrialMind(args.url, 1, 2, args.out, capture=True)
             engine = Engine(configuration(args.out, variant), World(), mind)
@@ -124,35 +157,40 @@ def prepare(args):
     files += [Path(__file__), ROOT/'pc/writer_trial.py', ROOT/'pc/blind_review.py',
               ROOT/'docs/days/2026-10-02.json', args.cases] + [ROOT/p for p in SOULS.values()]
     files += [p for p in args.out.iterdir() if p.is_file()]
-    trial.dump(args.out/'protocol.json', dict(task='T4c', at=trial.stamp(), jobs=30,
+    trial.dump(args.out/'protocol.json', dict(task=task, at=trial.stamp(), jobs=len(jobs),
         candidate=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
         ceiling=trial.CEILING, training=False, rollout=False, claim_check=False,
-        cases=dict(karl=10, fare=5), seeds='2026101220–29 Karl; 2026101220–24 fare',
+        cases=spec['cases'], second_control=control_case,
+        seeds={case:list(range(spec['starts'][case], spec['starts'][case]+count))
+               for case,count in spec['cases'].items()}, ordering_seed=spec['ordering_seed'],
         comparison='Only the persona differs: soul.md versus soul-bildung.md. Excerpts and event-only query in both.',
-        control_selection='The existing v2 fare letter concerns reimbursement, not teaching, children or family; same genre as Karl.',
-        pass_rule='Karl: B commitments >= A+0.5 and argument >= A. Fare: neither commitments nor argument lower.',
+        control_selection=spec['control_selection'], pass_rule=spec['pass_rule'],
         generation_held_until='T3 complete, integrity verified and 210-text blind packet produced.',
         protected_sha256={str(p.resolve()):trial.sha(p) for p in sorted(set(files))}))
-    print(json.dumps(dict(task='T4c',jobs=30,preflight=preflight,generation_started=False)),flush=True)
+    print(json.dumps(dict(task=task,jobs=len(jobs),preflight=preflight,generation_started=False)),flush=True)
 
 
 def run(args):
     require_t3_finished(args.t3_root, args.t3_packet)
-    trial.verify(args.out)
+    protocol = trial.verify(args.out)
+    task = getattr(args, 'task', 'T4c')
+    if protocol['task'] != task: raise ValueError('Requested task differs from the frozen protocol')
+    jobs = json.loads((args.out/(task+'-jobs.json')).read_text())
+    if jobs != paired_jobs(task, protocol.get('second_control')):
+        raise ValueError('Schedule differs from the predeclared paired experiment')
     if trial.api(args.url,'/health').get('status') != 'ok' or trial.api(args.url,'/lora-adapters') != []:
         raise ValueError('A healthy adapter-free shared server is required')
     if trial.api(args.url,'/props')['total_slots'] < 3: raise ValueError('Three shared slots required')
-    output=args.out/'T4c'
+    output=args.out/task
     if output.exists(): raise ValueError('Create-once run already exists')
     output.mkdir(); started=time.monotonic(); failure=None; rows=[]
-    jobs=json.loads((args.out/'T4c-jobs.json').read_text())
     try:
         for i,job in enumerate(jobs,1):
             trial.verify(args.out);directory=output/job['id'];directory.mkdir();began=time.monotonic()
             mind=trial.TrialMind(args.url,job['seed'],2,directory)
             engine=Engine(configuration(args.out,job['variant']),World(),mind,git=None)
             assert engine.claim_guard is None
-            print('START T4c',i,len(jobs),job['id'],flush=True)
+            print('START',task,i,len(jobs),job['id'],flush=True)
             result,evidence=write_case(engine,job,args.out)
             paragraph=next(line for line in (ROOT/SOULS['B']).read_text().splitlines() if line.startswith('- On education '))
             for call in mind.calls:
@@ -164,7 +202,7 @@ def run(args):
                 finish_reasons=[c.get('finish_reason') for c in mind.calls])
             trial.dump(directory/'result.json',row);rows.append(row)
             trial.dump(output/'status.json',dict(at=trial.stamp(),done=i,total=len(jobs),last=job['id'],wall_seconds=time.monotonic()-started))
-            print('DONE T4c',i,len(jobs),'calls',len(mind.calls),flush=True)
+            print('DONE',task,i,len(jobs),'calls',len(mind.calls),flush=True)
         trial.verify(args.out)
         trial.dump(output/'complete.json',dict(at=trial.stamp(),jobs=len(rows),wall_seconds=time.monotonic()-started,
             variant_wall_seconds={v:sum(r['wall_seconds'] for r in rows if r['job']['variant']==v) for v in SOULS},
@@ -188,9 +226,11 @@ if __name__=='__main__':
     p.add_argument('action',choices=['prepare','run','packet']);p.add_argument('--out',type=Path,required=True)
     p.add_argument('--cases',type=Path);p.add_argument('--url',default='http://127.0.0.1:8082')
     p.add_argument('--review');p.add_argument('--private-key',type=Path)
+    p.add_argument('--task',choices=['T4c','T4d'],default='T4c')
+    p.add_argument('--control-case',help='Explicit second non-teaching v2 control for T4d')
     p.add_argument('--t3-root',type=Path,default=Path('/mnt/c/hegel/handover/codex-tasks-20261012'))
     p.add_argument('--t3-packet',type=Path,default=Path('/home/ai/hegel-in-delhi/mind/results/fixed-day-writers-20261012'))
-    a=p.parse_args();a.task='T4c'
+    a=p.parse_args()
     if a.action=='prepare':prepare(a)
     elif a.action=='run':sys.exit(run(a))
     else:trial.packet(a)

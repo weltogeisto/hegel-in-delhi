@@ -55,7 +55,7 @@ Same Karl case, plain Qwen, normal writing path, NEW shelf (main), the same ten 
 
 **Result (a27951b):** FAIL. Commitments A 1.80 / B 1.90; argument 2.00 / 2.10; particular 2.80 / 3.20; voice 2.40 / 2.40. B held his obedience sentence in all ten prompts, and the model still wrote its own present-day view. A passage on the shelf does not move his commitments. Whole passages stay off.
 
-### T4c · Codex · his conviction on education in the persona · DONE: FAIL
+### T4c · Codex · his conviction on education in the persona · DONE: FAIL (control gate)
 Status: FAIL. Scores at e6f9957 and all hashes/ids/raw text fingerprints verified before key release. Karl A/B commitments 2.00/3.00, argument 2.30/2.60; fare commitments 3.40/3.00, argument 2.80/2.80. Separate-case results/key/scores/offers in `mind/results/persona-bildung-20261012`; all 30 texts and 14 over-length letters retained. No default change; Claude owns the decision. Full suite 882 tests OK (19 skipped), frozen files verified.
 The persona states his convictions on history, India and the state, and those situations score 3.42 on commitments; it says nothing on education or authority, and the Karl letters score 2.0. **Claude has written the variant:** `mind/soul-bildung.md` on main = `mind/soul.md` plus one paragraph, his Nuremberg position on education (obedience and discipline first, the school between family and world, freedom as the end of education).
 - A = `mind/soul.md`, B = `HEGEL_SOUL_FILE=mind/soul-bildung.md`. Plain Qwen, normal writing path, shelf as on main (excerpts). Interleave A and B.
@@ -63,6 +63,17 @@ The persona states his convictions on history, India and the state, and those si
 - One blind packet of 30 for Claude, with the v2 guide.
 
 **Passes when:** on Karl, B beats A on commitments by at least 0.5 with argument not lower; on the other case, neither commitments nor argument is lower. Then Claude makes the paragraph part of `mind/soul.md`.
+
+**Result (a2f1c16, blind):** Karl commitments A 2.00 / B 3.00, argument 2.30 / 2.60, the largest gain so far. Fare control: commitments 3.40 / 3.00, argument 2.80 / 2.80. The declared rule said the control must not be lower, so it fails and the default stays. The control drop is two letters of five per arm, where two A letters used his doctrine of the sign of property; too few to tell leakage from chance.
+
+### T4d · Codex · confirm the education paragraph on more letters · RUNNING
+Status: preparing 52 fresh-seed outputs with columns retained as an essay, per a22f693. Focused 20 tests OK; full suite and model evidence pending. Protocol in `PERSONA-CONFIRMATION-TRIAL-20261012.md`; defaults unchanged.
+Same A (`mind/soul.md`) and B (`HEGEL_SOUL_FILE=mind/soul-bildung.md`), plain Qwen, normal writing path, shelf as on main, interleaved. All seeds new, none from T4c.
+- Karl case: 6 seeds per arm (replication).
+- Controls: the fare case (letter) and the v2 essay case `columns`, 10 seeds per arm each, so 20 control texts per arm. The control need not be a letter; v2 has only two letter cases.
+- One blind packet of 52 for Claude, v2 guide.
+
+**Passes when (declared now, before running):** Karl commitments B ≥ A + 0.5 with argument not lower; and over the 20 control texts per arm, neither commitments nor argument is lower in B. Then Claude puts the paragraph into `mind/soul.md`.
 
 ### T5 · Claude · score, merge, scoreboard · RUNNING
 Score every blind packet within the hour it lands, commit the scores with their hash, merge whatever passes, and keep `pc/SCOREBOARD.md` current.
