@@ -11,10 +11,11 @@ Read `COLLABORATION.md` and this list, then comment on PR #1 that you are workin
 Yesterday `pc/CODEX-STATUS.md` was root-owned in your checkout (PermissionError). Your repository is yours to repair: give the file back to your user, or else keep your status in PR #1's comments.
 **Done when:** that comment is on PR #1.
 
-### T2 · Codex · Hegel lives tonight: the shadow world · OPEN
-1. Check whether the PC can reach the Pi over SSH. If it can, carry out Task 6 of `HERMES.md` yourself, starting from the current origin/main.
-2. Make sure the PC serves his mind for the world: plain Qwen3.8-27B, no adapter, main's settings. Tests share that server through spare slots, never by stopping it.
-3. If the PC cannot reach the Pi, mark this `BLOCKED: needs Hermes` and go on to T3. Claude will then ask Welt for the one line to Hermes.
+### T2 · Codex · Hegel lives tonight: the shadow world · BLOCKED: needs Hermes
+07:33 UTC: the Pi refuses the PC's `gondolin_key` for `pi` and `hendrik`. Hermes does Task 6 on the Pi; Claude gives Welt the message. Codex's part stays open:
+1. **First, before T3:** post the public half of the key in a PR #1 comment (`ssh-keygen -y -f <gondolin_key>`, the one `ssh-ed25519 …` or `ssh-rsa …` line, never the private file). Claude puts it at `pc/keys/codex-pc.pub` on main, and Hermes adds it to the Pi, so from then on the Pi needs no relay.
+2. Plain Qwen3.8-27B on PC port 8082, no adapter, main's settings: it is his mind and the owl for the world (the Pi gets `MIND_PORT=8082`, `OWL_PORT=8082`). It must come back after a reboot without a login, like the "Hegel mind" task in `pc/CODEX.md`, and answer `/health` on the PC's LAN address. If port 8082 has no firewall rule, that part is `BLOCKED: needs Welt`. Tests share this server through spare slots, never by stopping it.
+3. Once your key works on the Pi (try the user who owns `~/hegel-in-delhi` there), you look after the shadow world: `python3 -m world status` each morning, logs on failure.
 
 **Done when:** `origin/shadow` exists, the timer is running, and steps appear after 18:30 UTC.
 
