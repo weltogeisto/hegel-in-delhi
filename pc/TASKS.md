@@ -64,10 +64,10 @@ The persona states his convictions on history, India and the state, and those si
 ### T4d · Codex · confirm the education paragraph on more letters · OPEN
 Same A (`mind/soul.md`) and B (`HEGEL_SOUL_FILE=mind/soul-bildung.md`), plain Qwen, normal writing path, shelf as on main, interleaved. All seeds new, none from T4c.
 - Karl case: 6 seeds per arm (replication).
-- Controls: the fare case and one more v2 case with nothing about teaching, children or family; 10 seeds per arm each, so 20 control letters per arm.
+- Controls: the fare case (letter) and the v2 essay case `columns`, 10 seeds per arm each, so 20 control texts per arm. The control need not be a letter; v2 has only two letter cases.
 - One blind packet of 52 for Claude, v2 guide.
 
-**Passes when (declared now, before running):** Karl commitments B ≥ A + 0.5 with argument not lower; and over the 20 control letters per arm, neither commitments nor argument is lower in B. Then Claude puts the paragraph into `mind/soul.md`.
+**Passes when (declared now, before running):** Karl commitments B ≥ A + 0.5 with argument not lower; and over the 20 control texts per arm, neither commitments nor argument is lower in B. Then Claude puts the paragraph into `mind/soul.md`.
 
 ### T5 · Claude · score, merge, scoreboard · RUNNING
 Score every blind packet within the hour it lands, commit the scores with their hash, merge whatever passes, and keep `pc/SCOREBOARD.md` current.
