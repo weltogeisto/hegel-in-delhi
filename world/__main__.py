@@ -63,7 +63,7 @@ def cmd_tick(cfg, args):
     except BlockingIOError:
         log.debug("another tick is running")
         return 0
-    now = parse_now(args.now) if args.now else now_ist()
+    now = parse_now(args.now) if args.now else now_ist(getattr(cfg, "clock_shift_min", 0))
     mind = make_mind(cfg, args.mind)
     owl_mind = mind if args.mind == "stub" or not cfg.owl_url or cfg.owl_url == cfg.mind_url else HTTPMind(cfg.owl_url, wake=cfg.wake, timeout=cfg.timeout)
     engine = Engine(cfg, World(Feeds(cfg)), mind, git=Git(cfg) if not args.no_git else None, owl_mind=owl_mind)
@@ -73,7 +73,7 @@ def cmd_tick(cfg, args):
 
 def cmd_start(cfg, args):
     """Schedule the first live day: the world stays quiet until that midnight, then begins cleanly."""
-    d = date.fromisoformat(args.date) if args.date else now_ist().date() + timedelta(days=1)
+    d = date.fromisoformat(args.date) if args.date else now_ist(getattr(cfg, "clock_shift_min", 0)).date() + timedelta(days=1)
     days = Days(cfg.docs)
     day = days.latest()
     if day["date"] >= d.isoformat():
@@ -91,7 +91,7 @@ def cmd_start(cfg, args):
 
 def cmd_status(cfg, args):
     days = Days(cfg.docs)
-    now = now_ist()
+    now = now_ist(getattr(cfg, "clock_shift_min", 0))
     day = days.latest(now.date() + timedelta(days=1))
     if not day:
         print("no day files")
@@ -178,7 +178,7 @@ def cmd_owl(cfg, args):
         sys.exit(f"no day file for {args.date}")
     mind = make_mind(cfg, args.mind) if args.mind or not cfg.owl_url else HTTPMind(cfg.owl_url, wake=cfg.wake, timeout=cfg.timeout)
     engine = Engine(cfg, World(), mind, git=None if args.no_git else Git(cfg), owl_mind=mind)
-    changed = engine.run_owl(day, now_ist())
+    changed = engine.run_owl(day, now_ist(getattr(cfg, "clock_shift_min", 0)))
     if engine.git:
         engine.git.publish([days.path(x) for x in dict.fromkeys(changed)] + [days.dir / "index.json"], f"Day {day['n']}: the owl's write-up")
     return 0

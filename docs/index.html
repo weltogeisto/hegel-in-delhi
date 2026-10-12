@@ -612,7 +612,8 @@ const OWLS = [owlSprite(false), owlSprite(true)];
 const qs = new URLSearchParams(location.search);
 const BRANCH = /^[\w.-]{1,60}$/.test(qs.get('branch') || '') ? qs.get('branch') : '';
 const BASE = BRANCH ? `https://raw.githubusercontent.com/weltogeisto/hegel-in-delhi/${BRANCH}/docs/days/` : 'days/';
-const delhiNow = () => new Date(Date.now() + 330*60000);
+let SHIFT = 0;                                          // minutes a rehearsal runs his clock ahead of Delhi (index.json)
+const delhiNow = () => new Date(Date.now() + (330 + SHIFT)*60000);
 const delhiDate = () => delhiNow().toISOString().slice(0,10);
 function delhiMinutes(){ const d = delhiNow(); return d.getUTCHours()*60 + d.getUTCMinutes() + d.getUTCSeconds()/60; }
 async function getJSON(name){
@@ -645,7 +646,9 @@ function prepare(day){
 }
 function wantedDate(){ const h = decodeURIComponent(location.hash.slice(1)); return /^\d{4}-\d{2}-\d{2}$/.test(h) ? h : null; }
 async function refreshIndex(){
-  const ix = await getJSON('index.json'), today = delhiDate();
+  const ix = await getJSON('index.json');
+  SHIFT = Number.isFinite(+ix.clock_shift_min) ? +ix.clock_shift_min : 0;
+  const today = delhiDate();
   INDEX = (ix.days || []).filter(d => d.date <= today).sort((a,b) => a.date < b.date ? -1 : a.date > b.date ? 1 : 0);
 }
 async function openWanted(){

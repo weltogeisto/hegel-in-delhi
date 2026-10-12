@@ -29,8 +29,9 @@ CHOICE_SCHEMA = {"type": "object", "properties": {"answer": {"type": "string", "
 class Days:
     """docs/days: one JSON file per day plus index.json."""
 
-    def __init__(self, docs):
+    def __init__(self, docs, shift_min=None):
         self.dir = docs / "days"
+        self.shift_min = shift_min          # None leaves the index's clock shift as it is
 
     def path(self, d):
         return self.dir / f"{d.isoformat() if hasattr(d, 'isoformat') else d}.json"
@@ -51,6 +52,10 @@ class Days:
         if day.get("owl"):
             row["owl"] = True
         ix["days"] = sorted([r for r in ix["days"] if r["date"] != day["date"]] + [row], key=lambda r: r["date"])
+        if self.shift_min:
+            ix["clock_shift_min"] = self.shift_min          # the page reads its clock from here
+        elif self.shift_min == 0:
+            ix.pop("clock_shift_min", None)
         tmp = (self.dir / "index.json").with_suffix(".tmp")
         tmp.write_text(json.dumps(ix, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
         os.replace(tmp, self.dir / "index.json")
@@ -76,7 +81,7 @@ class Engine:
     def __init__(self, cfg, world, mind, git=None, owl_mind=None, claim_guard=None):
         self.cfg, self.world, self.mind, self.git = cfg, world, mind, git
         self.owl_mind = owl_mind or mind
-        self.days = Days(cfg.docs)
+        self.days = Days(cfg.docs, getattr(cfg, "clock_shift_min", 0))
         self.memory = Memory(self.days, world)
         self.lookup = lookup.find           # (query, cache folder) -> the page he reads, or a note; tests put a stand-in here
         self.soul = cfg.soul_file.read_text(encoding="utf-8")

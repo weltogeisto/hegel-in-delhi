@@ -40,6 +40,7 @@ class Config:
         self.push = v.get("HEGEL_PUSH", "1") not in ("0", "no", "false", "")
         self.state = Path(v.get("HEGEL_STATE", Path.home() / ".local/state/hegel")).expanduser()
         self.lead = int(v.get("LEAD_MIN", "15"))
+        self.clock_shift_min = int(v.get("HEGEL_CLOCK_SHIFT_MIN", "0") or 0)    # rehearsals only: his clock runs this far ahead of Delhi
         self.feeds = v.get("HEGEL_FEEDS", "1") not in ("0", "no", "false", "")
         self.shelf = v.get("HEGEL_SHELF", "1") not in ("0", "no", "false", "")          # his books in front of him (mind/shelf)
         self.shelf_whole = v.get("HEGEL_SHELF_WHOLE", "0").strip().lower() in ("1", "yes", "true")   # whole passages, not excerpts
