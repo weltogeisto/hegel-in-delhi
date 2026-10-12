@@ -281,6 +281,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Reading at home."
+  },
+  {
+   "from": "06:29",
+   "to": "06:59",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -333,6 +340,34 @@
     }
    ],
    "t": "05:59"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh stands at the threshold, as he did on the first morning, ready to serve the tea that bridges the gap between my waking and the day. I am hungry, the last meal being ten hours ago, but the household service does not begin until 07:00. I will take the cup he offers and use the remaining thirty minutes to finish my examination of the papers on the step, noting how the administration's silence contrasts with the public's noise.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "06:29"
+  },
+  {
+   "k": "said",
+   "text": "Good morning, Ramesh. The tea is welcome. I trust the household is quiet this morning; I shall take my reading to the step before the sun grows too strong.",
+   "to": "Ramesh",
+   "t": "06:29"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Morning, Shri Hegel. Yes, quiet as a library. I’ll have the breakfast ready by seven, if you don’t mind.",
+   "t": "06:29"
   }
  ],
  "steps": [
@@ -380,13 +415,65 @@
      "text": "These Censors enjoy a permanent office, and are very much feared. They exercise a strict surveillance over everything that concerns the government, and the public and private conduct of the Mandarins, and make their report immediately to the Emperor. They have also the right of remonstrating with and blaming him."
     }
    ]
+  },
+  {
+   "t": "06:29",
+   "end": "06:59",
+   "event": "Ramesh is here.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh stands at the threshold, as he did on the first morning, ready to serve the tea that bridges the gap between my waking and the day. I am hungry, the last meal being ten hours ago, but the household service does not begin until 07:00. I will take the cup he offers and use the remaining thirty minutes to finish my examination of the papers on the step, noting how the administration's silence contrasts with the public's noise.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 30,
+    "says": "Good morning, Ramesh. The tea is welcome. I trust the household is quiet this morning; I shall take my reading to the step before the sun grows too strong.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Morning, Shri Hegel. Yes, quiet as a library. I’ll have the breakfast ready by seven, if you don’t mind.",
+    "does": "He sets the tea tray down on the step and steps back, hands clasped behind his back."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.1
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T06:29+05:30",
+  "until": "2026-10-13T06:59+05:30",
   "asleep": false,
   "imprest": 10501,
   "wearing": "kurta",
@@ -448,7 +535,9 @@
   "today": {
    "woke": "05:59",
    "seen": {
-    "home": []
+    "home": [
+     "ramesh"
+    ]
    }
   },
   "account": {
@@ -538,7 +627,8 @@
   },
   "met_days": {
    "ramesh": [
-    "2026-10-02"
+    "2026-10-02",
+    "2026-10-13"
    ],
    "malhotra": [
     "2026-10-02"
