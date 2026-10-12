@@ -12,10 +12,9 @@ Yesterday `pc/CODEX-STATUS.md` was root-owned in your checkout (PermissionError)
 **Done when:** that comment is on PR #1.
 
 ### T2 · Codex · Hegel lives tonight: the shadow world · BLOCKED: needs Hermes
-07:33 UTC: the Pi refuses the PC's `gondolin_key` for `pi` and `hendrik`. Hermes does Task 6 on the Pi; Claude gives Welt the message. Codex's part stays open:
-1. **First, before T3:** post the public half of the key in a PR #1 comment (`ssh-keygen -y -f <gondolin_key>`, the one `ssh-ed25519 …` or `ssh-rsa …` line, never the private file). Claude puts it at `pc/keys/codex-pc.pub` on main, and Hermes adds it to the Pi, so from then on the Pi needs no relay.
-2. Plain Qwen3.8-27B on PC port 8082, no adapter, main's settings: it is his mind and the owl for the world (the Pi gets `MIND_PORT=8082`, `OWL_PORT=8082`). It must come back after a reboot without a login, like the "Hegel mind" task in `pc/CODEX.md`, and answer `/health` on the PC's LAN address. If port 8082 has no firewall rule, that part is `BLOCKED: needs Welt`. Tests share this server through spare slots, never by stopping it.
-3. Once your key works on the Pi (try the user who owns `~/hegel-in-delhi` there), you look after the shadow world: `python3 -m world status` each morning, logs on failure.
+07:33 UTC: the Pi refuses the PC's `gondolin_key` for `pi` and `hendrik`. 07:40: plain Qwen runs in WSL on 8082 (tmux `hegel-server`, three 16k slots, no adapter), but the LAN address 192.168.188.21:8082 does not answer (WSL NAT, no port forward).
+- **Welt (hard limit: firewall, power):** runs `pc/open-hegel-port.ps1` as Administrator, then sends Hermes Task 6 with `MIND_PORT=8082`, `OWL_PORT=8082` and `--date 2026-10-13`. Whether Codex's public key goes on the Pi is Welt's decision, in the same message.
+- **Codex:** keep the server up; tests share it through spare slots, never by stopping it. Propose (do not apply) how 8082 survives a reboot: the WSL address changes, and the "Hegel mind" task starts Bonsai on 8081, which would not fit beside Qwen. If Welt authorizes your key, try the user who owns `~/hegel-in-delhi` on the Pi, and from then on look after the shadow world: `python3 -m world status` each morning, logs on failure.
 
 **Done when:** `origin/shadow` exists, the timer is running, and steps appear after 18:30 UTC.
 
