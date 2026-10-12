@@ -8,6 +8,7 @@ The goal for today is that Hegel lives his first real day tonight. Delhi midnigh
 
 ### T1 · Codex · check in · OPEN
 Read `COLLABORATION.md` and this list, then comment on PR #1 that you are working through it.
+Yesterday `pc/CODEX-STATUS.md` was root-owned in your checkout (PermissionError). Your repository is yours to repair: give the file back to your user, or else keep your status in PR #1's comments.
 **Done when:** that comment is on PR #1.
 
 ### T2 · Codex · Hegel lives tonight: the shadow world · OPEN
