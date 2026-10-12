@@ -11,7 +11,7 @@ Read `COLLABORATION.md` and this list, then comment on PR #1 that you are workin
 Yesterday `pc/CODEX-STATUS.md` was root-owned in your checkout (PermissionError). Your repository is yours to repair: give the file back to your user, or else keep your status in PR #1's comments.
 **Done when:** that comment is on PR #1.
 
-### T2 · Codex · Hegel lives tonight: the shadow world · BLOCKED: needs Hermes
+### T2 · Hegel lives tonight: the shadow world · RUNNING: Hermes started it (shadow 9d1ac38, fixes now on main); first steps due after 18:30 UTC
 07:33 UTC: the Pi refuses the PC's `gondolin_key` for `pi` and `hendrik`. 07:40: plain Qwen runs in WSL on 8082 (tmux `hegel-server`, three 16k slots, no adapter), but the LAN address 192.168.188.21:8082 does not answer. WSL runs in mirrored mode, so the missing piece is the Windows and Hyper-V firewall rules, which `pc/open-hegel-port.ps1` adds.
 - **Welt (hard limit: firewall, power):** runs `pc/open-hegel-port.ps1` as Administrator, then sends Hermes Task 6 with `MIND_PORT=8082`, `OWL_PORT=8082` and `--date 2026-10-13`. Whether Codex's public key goes on the Pi is Welt's decision, in the same message.
 - **Codex:** keep the server up; tests share it through spare slots, never by stopping it. Propose (do not apply) how 8082 survives a reboot: the server is a tmux session, and the "Hegel mind" task starts Bonsai on 8081, which would not fit beside Qwen. If Welt authorizes your key, try the user who owns `~/hegel-in-delhi` on the Pi, and from then on look after the shadow world: `python3 -m world status` each morning, logs on failure.
@@ -38,7 +38,7 @@ OLD = the shelf at c03a431; NEW = the shelf on main now (adds `reden`). Take the
 **Result (a8d3bdd):** FAIL. Commitments OLD 2.00 / NEW 2.00; argument 2.10 / 2.20; voice 2.40 / 2.70; particular 3.10 / 3.30. The idea was not really tested: NEW offered `reden:58`, whose last sentence is his line on respect and obedience towards teachers, but the 380-character excerpt kept another sentence. The query also carried the trial's "Unknown" and instruction lines, which pulled in Xenophanes. The addresses stay on the shelf: no dimension got worse.
 
 ### T4b · Codex · shelf test: whole passages · RUNNING
-Status: isolated candidate 2f2096e (`codex/shelf-whole-eval`), full suite and 20 paired letters active. 113 focused tests OK (2 skipped). A/B preflight 2,061/2,250 tokens; B holds the obedience sentence. T3 primary freeze unchanged.
+Status: isolated candidate 2f2096e generation complete, 20/20 nonempty/uncut, one call each; exits 0, 39 source/input files verified. A/B summed job times 219.353/233.694s. Blind packet `mind/results/shelf-whole-20261012` is ready for scoring; key separate. 113 focused tests OK (2 skipped); full suite 874 tests OK (19 skipped), 704.466s, 207 archive files verified. T3 primary freeze unchanged.
 Same Karl case, plain Qwen, normal writing path, NEW shelf (main), the same ten seeds. **Claude has written the switch:** branch `claude/shelf-whole` (e7b7687, on main), `HEGEL_SHELF_WHOLE=1` shows each offered passage whole within 1,900 characters. Merge it into your branch.
 - A = excerpts (flag off), B = whole passages (flag on). Interleave A and B.
 - The shelf query is the case's events only, as in the live world. The "Unknown" list and the writing instruction stay in the writer's prompt but not in the query.

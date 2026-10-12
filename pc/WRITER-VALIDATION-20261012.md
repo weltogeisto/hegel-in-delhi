@@ -29,3 +29,18 @@ actual server tokens; B contains `Gehorsams gegen die Lehrer`. Both use
 only case events for retrieval, retaining unknowns and instructions in the
 writer prompt. tmux: `hegel-shelf-suite`, `hegel-shelf-whole`; slot 2 shares
 the healthy no-adapter server with T3 slot 1 and leaves slot 0 for the world.
+
+## Isolated whole-passage candidate
+
+T4b source `2f2096eae362da0031f848d4fee680fa4bc68bac`, tree
+`3520ba71700b6982e87a0563eaa4c0a8b46b3bdf`, was tested in its own native
+WSL archived snapshot. Final result: 874 tests in 704.466 seconds,
+OK (19 skipped), wrapper exit 0. All 207 archived files matched the
+tested snapshot byte-for-byte after completion. Focused checks were
+113 tests OK (2 skipped), 3.792s.
+
+The primary checkout's T3 source freeze remains unchanged. Main 861ebe6
+now includes the CLI/status repair 9d1ac38; that protected-code merge is
+deferred until the T3 packet has been produced. Its TASKS-only update was
+cherry-picked. The 874-test result applies to the frozen isolated source,
+not an untested subsequent main merge. Blind literary scoring is pending.

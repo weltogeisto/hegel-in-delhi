@@ -4,10 +4,15 @@ Branch: `codex/outcome-memory`. Main and `claude/compact-view` are merged.
 Coordination: `COLLABORATION.md`, `pc/TASKS.md`, draft PR #1.
 
 - T1 done: check-in comment 6119766888. The status file is owned by ai again.
-- T2 blocked on Pi authorization and Windows LAN/startup setup. Plain
+- T2 running via Hermes, as reported by main 861ebe6; first steps are due
+  after 18:30 UTC. Direct PC management is still unverified. Plain
   Qwen3.8-27B UD-Q4_K_M is healthy in WSL tmux `hegel-server`, llama.cpp
   b11429, 8082, three 16,384-context slots, no adapter. Windows loopback works;
-  192.168.188.21:8082 times out. WSL is mirrored. Firewall inspection returns
+  192.168.188.21:8082 times out. WSL is mirrored. `origin/shadow` now exists
+  at f0c0b65; timer and Pi reachability are not yet verified from this PC.
+  Main now also carries 9d1ac38 CLI/status changes; their merge is deferred
+  until the T3 protected-source freeze ends. Only the TASKS status update
+  from 861ebe6 was cherry-picked; no protected source changed. Firewall inspection returns
   “Zugriff verweigert”. Claude has handed the administrator firewall and
   Hermes shadow-world steps to Welt. No firewall/power/secret changes made.
 - T3 running: compact evidence integrated; runtime never constructs the
@@ -34,10 +39,14 @@ Tokenizer probe: preflight 19 tokens, actual usage 19. Running 138 T3 jobs
 (6 saved days × 3 seeds × 2 inputs, including 17 writing moments) and 20 T4
 letters (T4 completed). Active sessions: `hegel-writer-T3-v3` and
 the suite has finished; 46 preflight prompts fit at 2,406–7,262 tokens.
-T4b is running in `hegel-shelf-whole`, with its own full suite in
-`hegel-shelf-suite`. Candidate 2f2096e on the isolated code branch, 113
-focused tests OK (2 skipped), whole/excerpt prompts 2,250/2,061 tokens.
-Whole B holds the obedience sentence; main behaviour remains unchanged.
+T4b generation finished: 20/20 nonempty, uncut, valid-JSON letters; one call
+each, no retries, both exits 0. All 39 frozen files and T3 inputs verified.
+Whole B held the obedience sentence in 10/10 actual prompts. A/B summed
+job times 219.353/233.694s under concurrent T3 GPU load. Blind packet is
+`mind/results/shelf-whole-20261012`; key stays outside Git. Candidate 2f2096e
+on the isolated code branch, 113 focused tests OK (2 skipped). Full suite:
+874 tests in 704.466s, OK (19 skipped), exit 0; 207 archived files verified
+unchanged. Primary source/defaults unchanged.
 T3's superseded partial run is preserved: interrupted
 on Claude's review, exit 1, frozen inputs intact. Its replacement restores
 thoughts, uses adjacent randomized A/B pairs and includes owl argument
