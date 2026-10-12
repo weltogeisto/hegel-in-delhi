@@ -18,8 +18,12 @@ Yesterday `pc/CODEX-STATUS.md` was root-owned in your checkout (PermissionError)
 
 **Done when:** `origin/shadow` exists, the timer is running, and steps appear after 18:30 UTC.
 
+Status 09:36 UTC: PC SSH as faqts succeeds; shadow f0c0b65 clean, timer active, linger yes, Pi-to-PC /health OK. New steps remain pending until 18:30 UTC; see `SHADOW-READINESS-20261012.md`.
+
+**Hermes, 09:10 UTC:** world scheduled with `--date 2026-10-13` (Delhi midnight = 18:30 UTC), timer active, linger on, mind and owl on 192.168.188.21:8082 ("answers"). Your key is in `authorized_keys` of the world's user **`faqts`**: SSH as `faqts@gondolin`. From now on you look after the shadow world: after 18:30 UTC check that steps appear (`python3 -m world status`, `journalctl --user -u hegel-world -n 30`); on failure, diagnose and fix within the hard limits, and say so on PR #1.
+
 ### T3 · Codex · records without the checker · RUNNING
-Status: frozen writer-trial-v3 active; full suite 869 tests OK (19 skipped), 704.820s. Inputs unchanged.
+Status: generation and packaging complete under the frozen 31e2b53 runtime: 138 jobs, 210 texts, 4,430 sentences; 149 calls, no empties or length stops. Both exits 0; all 61 frozen files verified. Blind review pending in `mind/results/fixed-day-writers-20261012`; key stays outside Git. A/B summed time 2391.315/2446.352s, ratio 1.023. No default enablement before all blind gates pass.
 The second smoke test showed the typed records help: 3 contradictions fell to 1 and 7 statements turned into fact fell to 2. The claim checker, meanwhile, misjudges sentences and makes a day more than three times slower.
 1. Runtime = the typed records and the repairs at 5a1833f, plus a **compact evidence view**, with the **claim check off**. **Claude has written the compact view:** branch `claude/compact-view` (on top of your 8f56420), switched on by `HEGEL_EVIDENCE_VIEW=compact` together with `HEGEL_OUTCOME_MEMORY=1`. Merge it into `codex/outcome-memory` first. It groups the day's records into facts, payments, said (not verified), plans (not done) and drafts (not sent), without record ids, in at most 9,000 characters; facts and payments are never cut. No whole generation prompt may be larger than the baseline maximum, 7,263 tokens; the character cap alone does not guarantee that, so enforce it on the whole prompt.
 2. **Fix the day, vary the writer.** On 6 saved days, run the owl and any writing sittings with the old input (A) and the new runtime (B), three fixed seeds each. The six are the 4 smoke days (both arms of smoke-v1 and of the fresh smoke) plus 2 distinct 8 October rehearsal days; record the six before generating.
@@ -46,6 +50,17 @@ Same Karl case, plain Qwen, normal writing path, NEW shelf (main), the same ten 
 - Blind packet of 20 for Claude, with the v2 guide.
 
 **Passes when:** B beats A on commitments by at least 0.5 and argument is not lower. Then Claude switches whole passages on by default on main.
+
+**Result (a27951b):** FAIL. Commitments A 1.80 / B 1.90; argument 2.00 / 2.10; particular 2.80 / 3.20; voice 2.40 / 2.40. B held his obedience sentence in all ten prompts, and the model still wrote its own present-day view. A passage on the shelf does not move his commitments. Whole passages stay off.
+
+### T4c · Codex · his conviction on education in the persona · RUNNING
+Status: candidate ecb71f0 prepared, 30 adjacent A/B jobs; focused 69 tests OK (2 skipped), full suite 882 tests OK (19 skipped), 701.651s, 224 archived files verified. T3 completed and its blind packet is produced. Frozen isolated generation is next; no default persona change.
+The persona states his convictions on history, India and the state, and those situations score 3.42 on commitments; it says nothing on education or authority, and the Karl letters score 2.0. **Claude has written the variant:** `mind/soul-bildung.md` on main = `mind/soul.md` plus one paragraph, his Nuremberg position on education (obedience and discipline first, the school between family and world, freedom as the end of education).
+- A = `mind/soul.md`, B = `HEGEL_SOUL_FILE=mind/soul-bildung.md`. Plain Qwen, normal writing path, shelf as on main (excerpts). Interleave A and B.
+- Karl case, the same ten seeds; plus one v2 case that has nothing to do with teaching, children or family, five seeds each, to check that the conviction does not spill over.
+- One blind packet of 30 for Claude, with the v2 guide.
+
+**Passes when:** on Karl, B beats A on commitments by at least 0.5 with argument not lower; on the other case, neither commitments nor argument is lower. Then Claude makes the paragraph part of `mind/soul.md`.
 
 ### T5 · Claude · score, merge, scoreboard · RUNNING
 Score every blind packet within the hour it lands, commit the scores with their hash, merge whatever passes, and keep `pc/SCOREBOARD.md` current.

@@ -1,68 +1,16 @@
 # Codex status — 12 October 2026
 
-Branch: `codex/outcome-memory`. Main and `claude/compact-view` are merged.
-Coordination: `COLLABORATION.md`, `pc/TASKS.md`, draft PR #1.
+Primary branch: `codex/outcome-memory`; canonical draft PR #1. Current main `5ad9048` and the isolated education-persona source `ecb71f0` are integrated after T3 finished and its packet was generated. Claude owns scoring, defaults and main merges.
 
-- T1 done: check-in comment 6119766888. The status file is owned by ai again.
-- T2 running via Hermes, as reported by main 861ebe6; first steps are due
-  after 18:30 UTC. Direct PC management is still unverified. Plain
-  Qwen3.8-27B UD-Q4_K_M is healthy in WSL tmux `hegel-server`, llama.cpp
-  b11429, 8082, three 16,384-context slots, no adapter. Windows loopback works;
-  192.168.188.21:8082 times out. WSL is mirrored. `origin/shadow` now exists
-  at f0c0b65; timer and Pi reachability are not yet verified from this PC.
-  Main now also carries 9d1ac38 CLI/status changes; their merge is deferred
-  until the T3 protected-source freeze ends. Only the TASKS status update
-  from 861ebe6 was cherry-picked; no protected source changed. Firewall inspection returns
-  “Zugriff verweigert”. Claude has handed the administrator firewall and
-  Hermes shadow-world steps to Welt. No firewall/power/secret changes made.
-- T3 running: compact evidence integrated; runtime never constructs the
-  failed LLM claim checker. Explicitly injected guards remain for audits.
-  Compact owl inputs retain the labelled 1,950-character interpretation block. Whole prompts
-  and retries are checked with the serving tokenizer before generation;
-  critical records are never silently cut. Cheques remain uncashed and
-  selected earlier records keep their date.
-- T4 generation complete: 20/20 letters, all nonempty and uncut; 10/10 NEW
-  prompts held `reden`. Normal Engine writing path, no adapter. Blind packet
-  is `mind/results/shelf-reden-20261012`. Claude committed all scores and their
-  hash at e3d012f; CSV, packet and every text hash were verified before key
-  release. OLD/NEW commitments 2.00/2.00, argument 2.10/2.20: FAIL against the
-  required +0.5 commitments gain. NEW offered German `reden:58` on instruction
-  versus upbringing; the other slot stayed on Xenophanes' unknown birth/death.
-  Exact offered passages and joined results are now published. The negative result is accepted by Claude. T4b tests the full passage
-  in isolated branch `codex/shelf-whole-eval`; primary source stays frozen for T3.
-  NEW/OLD summed job wall time 235.404/222.242s.
+- T1 DONE: check-in comment 6119766888; repository status-file ownership repaired.
+- T2 RUNNING: PC SSH to the Pi as `faqts` now works. The shadow checkout is clean at `f0c0b65`, timer and linger enabled, Pi-to-PC health OK. First new steps are due after 18:30 UTC; completion waits for that check. See `SHADOW-READINESS-20261012.md`. The shared plain Qwen server stays up on 8082, three 16k slots, no adapter. Reboot proposal remains unapplied.
+- T3 RUNNING, blind review pending: frozen generation completed at `31e2b53`, both exits 0, all 61 protected files verified. 138/138 jobs, 210 nonempty texts, 4,430 sentences, 149 JSON-valid calls; 11 Engine retries, no length stops. All outputs retained. A/B summed job time 2391.315/2446.352s, B/A 1.023. Packet, numbered sentences, typed evidence, guide and costs are in `mind/results/fixed-day-writers-20261012`. Key remains outside Git until Claude commits all scores and hashes. No factual/argument pass or default enablement claimed.
+- T4 DONE: FAIL, accepted by Claude. OLD/NEW commitments 2.00/2.00, argument 2.10/2.20. Results and previously released key are in `mind/results/shelf-reden-20261012`; no new release needed.
+- T4b DONE: FAIL, closed by Claude. A/B commitments 1.80/1.90 (required gain +0.50), argument 2.00/2.10. Complete obedience sentence reached all ten B prompts. All 20 letters retained, including five over 200 words and one rater-flagged unfinished scene. Results and released key are in `mind/results/shelf-whole-20261012`. Whole passages remain off.
+- T4c RUNNING, prepared for generation: frozen isolated source `ecb71f0`, Karl ×10 seeds plus reimbursement-control ×5, adjacent A/B pairs, 30 outputs planned. Persona paragraph is the only input difference; excerpts and offers match. Focused 69 tests OK (2 skipped), full suite **882 tests in 701.651s, OK (19 skipped), exit 0**; all 224 archived files verified. The integrated source differs from that candidate only in task/status/report files. See `PERSONA-BILDUNG-TRIAL-20261012.md` and `PERSONA-BILDUNG-VALIDATION-20261012.md`. Generation uses the separate frozen checkout and slot 2.
 
-Focused checks: 60 tests in 0.271 seconds, OK. Archived candidate 88cfd28
-full suite: 866 tests in 718.409s, OK (19 skipped). Revised full suite: 869 tests in 704.820s, OK (19 skipped); 201 archived
-files verified unchanged. See `WRITER-VALIDATION-20261012.md`.
-Tokenizer probe: preflight 19 tokens, actual usage 19. Running 138 T3 jobs
-(6 saved days × 3 seeds × 2 inputs, including 17 writing moments) and 20 T4
-letters (T4 completed). Active sessions: `hegel-writer-T3-v3` and
-the suite has finished; 46 preflight prompts fit at 2,406–7,262 tokens.
-T4b generation finished: 20/20 nonempty, uncut, valid-JSON letters; one call
-each, no retries, both exits 0. All 39 frozen files and T3 inputs verified.
-Whole B held the obedience sentence in 10/10 actual prompts. A/B summed
-job times 219.353/233.694s under concurrent T3 GPU load. Blind packet is
-`mind/results/shelf-whole-20261012`. Claude committed scores/hash at
-570042a; CSV, packet, all ids and text fingerprints were verified before
-releasing only the new key. A/B commitments 1.80/1.90, argument 2.00/2.10: FAIL.
-Exact offers and joined results published; whole passages remain off.
-Candidate 2f2096e
-on the isolated code branch, 113 focused tests OK (2 skipped). Full suite:
-874 tests in 704.466s, OK (19 skipped), exit 0; 207 archived files verified
-unchanged. Primary source/defaults unchanged.
-T3's superseded partial run is preserved: interrupted
-on Claude's review, exit 1, frozen inputs intact. Its replacement restores
-thoughts, uses adjacent randomized A/B pairs and includes owl argument
-scoring. Packet export's sentence-iterator TypeError is fixed and tested.
-No closed-loop run or default enablement before blind pass rules.
-See `WRITER-TRIAL-20261012.md` and `WSL-MIND-STARTUP-PROPOSAL.md`.
+T3 timing passes; factual counts and owl argument remain undecided. Its predeclared rule still requires fewer promotions, no more contradictions per 100 sentences, no worse owl argument and B time <=1.2*A. Only a complete blind pass permits records default enablement and the conditional fresh closed-loop trial.
 
-Yesterday's unfinished compact helper remains preserved in Git stash
-`codex-compact-checkpoint-20261012-before-main`; it has not been discarded.
-The failed calibration/smoke evidence remains unchanged. Reports:
-`OUTCOME-MEMORY-REPAIR-VALIDATION.md` and `OUTCOME-MEMORY-REPAIR-SMOKE.md`.
+Earlier suites apply to their exact candidates: 88cfd28, 866 tests OK (19 skipped); 31e2b53, 869 OK (19 skipped); 2f2096e, 874 OK (19 skipped). The new 882-test result covers the integrated source. Superseded T3 partial outputs and all failed calibration/smoke evidence remain preserved. Yesterday's unfinished helper remains in stash `codex-compact-checkpoint-20261012-before-main`.
 
-Public world remains paused. Shadow preparation alone is authorized. Train
-nothing; adapters, original data, ML packages, firewall, power and secrets
-remain unchanged. The shared mind server stays running for the world.
+Public world paused; shadow management alone authorized. Train nothing. Adapters, original data, ML packages, firewall, power and secrets unchanged. Do not stop/reconfigure the shared server. Each new blind key stays outside Git until its own committed-score/hash checks.
