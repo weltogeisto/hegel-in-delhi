@@ -274,16 +274,120 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "05:59",
+   "to": "06:29",
+   "mode": "inside",
+   "at": "home",
+   "now": "Reading at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “The Hindu Downtown announces MoC Kolu Kondattam 2026 contest” · “‘Will make Jantar Mantar in every city’: CJP announces protests in Rajasthan” · “Investigation reveals collection of ‘party fund’ during Anbil Mahesh Poyyamozhi’s tenure as School Education Minister, CCB tells Madras High Court”",
+   "t": "05:59"
+  },
+  {
+   "k": "plan",
+   "items": [
+    {
+     "time": "06:30",
+     "intention": "Read the papers on the step and note the tensions in the headlines regarding protest and administration."
+    },
+    {
+     "time": "07:30",
+     "intention": "Walk to Lodhi Gardens to observe the tombs and the morning light on the architecture."
+    },
+    {
+     "time": "09:30",
+     "intention": "Return home to write in the journal, reflecting on the difference between dream and state."
+    },
+    {
+     "time": "12:00",
+     "intention": "Prepare a simple meal of bread and tea, as no household food is available."
+    },
+    {
+     "time": "15:00",
+     "intention": "Sort the pending vouchers and check the cash to ensure the dhobi payment is ready for Saturday."
+    },
+    {
+     "time": "18:00",
+     "intention": "Take a short evening walk around the bungalow to cool down before the night."
+    }
+   ],
+   "t": "05:59"
+  },
+  {
+   "k": "diary",
+   "text": "The headlines speak of a contest for a title, a plan to scatter monuments like seeds, and a minister's purse examined by the court. It is civil society churning, the particular asserting itself against the universal. I shall sit on the step and read them properly, before the sun climbs too high and the heat turns the paper to a shield against the sun rather than a text.",
+   "shelf": [
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§224"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China"
+    }
+   ],
+   "t": "05:59"
+  }
+ ],
+ "steps": [
+  {
+   "t": "05:59",
+   "end": "06:29",
+   "event": "You wake. Clear, 23 °C. The papers lie on the step where the hawker threw them. Headlines: The Hindu Downtown announces MoC Kolu Kondattam 2026 contest; ‘Will make Jantar Mantar in every city’: CJP announces protests in Rajasthan; Investigation reveals collection of ‘party fund’ during Anbil Mahesh Poyyamozhi’s tenure as School Education Minister, CCB tells Madras High Court.",
+   "present": [],
+   "decision": {
+    "thought": "The headlines speak of a contest for a title, a plan to scatter monuments like seeds, and a minister's purse examined by the court. It is civil society churning, the particular asserting itself against the universal. I shall sit on the step and read them properly, before the sun climbs too high and the heat turns the paper to a shield against the sun rather than a text.",
+    "action": "read",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 13.0
+   },
+   "shelf": [
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§224",
+     "id": "rechts:490"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "id": "sibree-history:406"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§224",
+     "text": "Deliberationen der Mitglieder des Gerichts über das zu fällende Urteil unter sich sind Äußerungen der noch besonderen Meinungen und Ansichten, also ihrer Natur nach nichts öffentliches."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "text": "These Censors enjoy a permanent office, and are very much feared. They exercise a strict surveillance over everything that concerns the government, and the public and private conduct of the Mandarins, and make their report immediately to the Emperor. They have also the right of remonstrating with and blaming him."
+    }
+   ]
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T05:59+05:30",
-  "asleep": true,
+  "until": "2026-10-13T06:29+05:30",
+  "asleep": false,
   "imprest": 10501,
   "wearing": "kurta",
   "wardrobe": [
@@ -341,7 +445,12 @@
    }
   ],
   "depesche_n": 0,
-  "today": {},
+  "today": {
+   "woke": "05:59",
+   "seen": {
+    "home": []
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -400,7 +509,8 @@
   },
   "visits": {
    "home": [
-    "2026-10-02"
+    "2026-10-02",
+    "2026-10-13"
    ],
    "lodhi": [
     "2026-10-02"
@@ -419,7 +529,13 @@
   "cheques": [],
   "receipts": [],
   "engagements": [],
-  "costs": {},
+  "costs": {
+   "wage": "2026-10-12",
+   "groceries": "2026-10-12",
+   "dhobi": "2026-10-12",
+   "electricity": "2026-10-12",
+   "data": "2026-10-12"
+  },
   "met_days": {
    "ramesh": [
     "2026-10-02"
@@ -439,5 +555,34 @@
    "phone": false,
    "sim": false
   }
+ },
+ "plan": {
+  "written": "05:59",
+  "items": [
+   {
+    "time": "06:30",
+    "intention": "Read the papers on the step and note the tensions in the headlines regarding protest and administration."
+   },
+   {
+    "time": "07:30",
+    "intention": "Walk to Lodhi Gardens to observe the tombs and the morning light on the architecture."
+   },
+   {
+    "time": "09:30",
+    "intention": "Return home to write in the journal, reflecting on the difference between dream and state."
+   },
+   {
+    "time": "12:00",
+    "intention": "Prepare a simple meal of bread and tea, as no household food is available."
+   },
+   {
+    "time": "15:00",
+    "intention": "Sort the pending vouchers and check the cash to ensure the dhobi payment is ready for Saturday."
+   },
+   {
+    "time": "18:00",
+    "intention": "Take a short evening walk around the bungalow to cool down before the night."
+   }
+  ]
  }
 }
