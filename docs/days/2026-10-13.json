@@ -12,13 +12,13 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 25,
+    "temp": 24,
     "sky": "clear",
     "rain": 0,
     "aqi": 73
    },
    {
-    "temp": 25,
+    "temp": 24,
     "sky": "clear",
     "rain": 0,
     "aqi": 74
@@ -42,13 +42,13 @@
     "aqi": 84
    },
    {
-    "temp": 23,
+    "temp": 24,
     "sky": "clear",
     "rain": 0,
     "aqi": 89
    },
    {
-    "temp": 23,
+    "temp": 24,
     "sky": "clear",
     "rain": 0,
     "aqi": 95
@@ -60,7 +60,7 @@
     "aqi": 102
    },
    {
-    "temp": 25,
+    "temp": 26,
     "sky": "clear",
     "rain": 0,
     "aqi": 110
@@ -72,67 +72,67 @@
     "aqi": 113
    },
    {
-    "temp": 28,
+    "temp": 29,
     "sky": "clear",
     "rain": 0,
     "aqi": 116
    },
    {
-    "temp": 29,
+    "temp": 30,
     "sky": "clear",
     "rain": 0,
     "aqi": 119
    },
    {
-    "temp": 30,
+    "temp": 31,
     "sky": "clear",
     "rain": 0,
     "aqi": 121
    },
    {
-    "temp": 30,
+    "temp": 31,
     "sky": "clear",
     "rain": 0,
     "aqi": 123
    },
    {
-    "temp": 31,
+    "temp": 32,
     "sky": "clear",
     "rain": 0,
     "aqi": 126
    },
    {
-    "temp": 30,
+    "temp": 32,
     "sky": "clear",
     "rain": 0,
     "aqi": 127
    },
    {
-    "temp": 30,
+    "temp": 31,
     "sky": "clear",
     "rain": 0,
     "aqi": 129
    },
    {
-    "temp": 28,
+    "temp": 30,
     "sky": "clear",
     "rain": 0,
     "aqi": 131
    },
    {
-    "temp": 27,
+    "temp": 28,
     "sky": "clear",
     "rain": 0,
     "aqi": 133
    },
    {
-    "temp": 26,
+    "temp": 28,
     "sky": "clear",
     "rain": 0,
     "aqi": 134
    },
    {
-    "temp": 26,
+    "temp": 27,
     "sky": "clear",
     "rain": 0,
     "aqi": 136
@@ -144,7 +144,7 @@
     "aqi": 139
    },
    {
-    "temp": 25,
+    "temp": 26,
     "sky": "clear",
     "rain": 0,
     "aqi": 141
@@ -302,6 +302,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Walking the paths of Lodhi Gardens."
+  },
+  {
+   "from": "08:04",
+   "to": "08:19",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Talking with Mr. R. K. Malhotra in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -425,6 +432,37 @@
     }
    ],
    "t": "07:19"
+  },
+  {
+   "k": "diary",
+   "text": "Mr. Malhotra stands before me, a man who has served the state for thirty-four years, yet here he is, retired, walking the loop where the tombs of the Lodis remind us that empires are merely traffic on a road. I am the philosopher of the state; he is the functionary who once wielded its pen. The tension between the ethical idea and its bureaucratic execution is palpable in this morning air, thick with dust and the smell of roasted corn. I shall not let the moment pass in silence; I must ask him how it feels to step down from the machinery one has helped build.",
+   "sensitive": true,
+   "why": "empires",
+   "topic": "empire and colonies",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    }
+   ],
+   "t": "08:04"
+  },
+  {
+   "k": "said",
+   "text": "Mr. Malhotra, you have served the state for three decades. In my lectures, I argue that the state is the actuality of the ethical idea. But you, who have lived within its apparatus, what did it feel like to witness the Idea move through the machinery of bureaucracy? Was there a moment when the machinery seemed to move of its own accord, independent of the spirit it was meant to serve?",
+   "to": "Mr. R. K. Malhotra",
+   "t": "08:04"
+  },
+  {
+   "k": "said",
+   "by": "Mr. R. K. Malhotra",
+   "to": "Hegel",
+   "text": "I don't know what a 'spirit' is, but I know the difference between a file and a decision. The machinery doesn't move, it waits. You have to push it, and even then, it usually just creaks.",
+   "t": "08:04"
   }
  ],
  "steps": [
@@ -631,13 +669,65 @@
      "text": "This is not a moderation which exists in the least possible enjoyment, no aimless abstemiousness and self-mortification, but a power belonging to consciousness, which keeps its self-possession in bodily excess. We see from this that we have not to think of Socrates throughout after the fashion of the litany of moral virtues."
     }
    ]
+  },
+  {
+   "t": "08:04",
+   "end": "08:19",
+   "event": "Nothing in particular happens. The morning goes on.",
+   "present": [
+    "Mr. R. K. Malhotra, retired IAS"
+   ],
+   "decision": {
+    "thought": "Mr. Malhotra stands before me, a man who has served the state for thirty-four years, yet here he is, retired, walking the loop where the tombs of the Lodis remind us that empires are merely traffic on a road. I am the philosopher of the state; he is the functionary who once wielded its pen. The tension between the ethical idea and its bureaucratic execution is palpable in this morning air, thick with dust and the smell of roasted corn. I shall not let the moment pass in silence; I must ask him how it feels to step down from the machinery one has helped build.",
+    "action": "talk",
+    "place": "lodhi",
+    "minutes": 15,
+    "says": "Mr. Malhotra, you have served the state for three decades. In my lectures, I argue that the state is the actuality of the ethical idea. But you, who have lived within its apparatus, what did it feel like to witness the Idea move through the machinery of bureaucracy? Was there a moment when the machinery seemed to move of its own accord, independent of the spirit it was meant to serve?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Mr. R. K. Malhotra",
+    "says": "I don't know what a 'spirit' is, but I know the difference between a file and a decision. The machinery doesn't move, it waits. You have to push it, and even then, it usually just creaks.",
+    "does": "He adjusts his kurta and looks at his watch."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.2
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:451"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:641"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "Such a beauty we find also in its loveliest form in the Indian World; a beauty of enervation in which all that is rough, rigid and contradictory is dissolved, and we have only the soul in a state of emotion, — a soul, however, in which the death of free self-reliant Spirit is perceptible."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "So far as the ecclesiastical body owns property, performs overt acts of worship, and maintains individuals for this service, it leaves the inner realm and enters that of the world. Hence it places itself directly under the jurisdiction of the state."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-10-13T08:04+05:30",
+  "until": "2026-10-13T08:19+05:30",
   "asleep": false,
   "imprest": 10501,
   "wearing": "kurta",
