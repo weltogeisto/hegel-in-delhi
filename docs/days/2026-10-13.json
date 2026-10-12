@@ -323,6 +323,13 @@
    "mode": "walk",
    "a": "lodhi",
    "b": "home"
+  },
+  {
+   "from": "08:49",
+   "to": "09:04",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -512,6 +519,34 @@
     }
    ],
    "t": "08:29"
+  },
+  {
+   "k": "diary",
+   "text": "Idli. I do not know the word, nor the taste, but the steam rises with a dignity that suggests a system of needs well-ordered. Ramesh stands by with the tray, his face a blank slate upon which I must write my own history. The body requires fuel before the spirit can labour; I shall eat, and then I shall speak to him.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§248"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301"
+    }
+   ],
+   "t": "08:49"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, the food is good. Tell me, in this house, what is the name of this white cake, and what is the dark sauce? I wish to learn the words of the land before I learn its history.",
+   "to": "Ramesh",
+   "t": "08:49"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "That's idli, sir. The dark one is sambar. You'll get used to the words soon enough.",
+   "t": "08:49"
   }
  ],
  "steps": [
@@ -863,13 +898,65 @@
      "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
     }
    ]
+  },
+  {
+   "t": "08:49",
+   "end": "09:04",
+   "event": "Ramesh has laid out breakfast: idli with sambar and coconut chutney.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Idli. I do not know the word, nor the taste, but the steam rises with a dignity that suggests a system of needs well-ordered. Ramesh stands by with the tray, his face a blank slate upon which I must write my own history. The body requires fuel before the spirit can labour; I shall eat, and then I shall speak to him.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, the food is good. Tell me, in this house, what is the name of this white cake, and what is the dark sauce? I wish to learn the words of the land before I learn its history.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "That's idli, sir. The dark one is sambar. You'll get used to the words soon enough.",
+    "does": "He places a fresh bowl of sambar on the table and wipes a smudge from the tablecloth."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.5
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§248",
+     "id": "dyde-right:567"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301",
+     "id": "dyde-right:763"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§248",
+     "text": "Addition. — The civic society is forced to found colonies, owing to the increase of population, but more especially because production oversteps the needs of consumption, and the growing numbers cannot satisfy their needs by their work."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301",
+     "text": "It requires but little reflection to see that the services performed by the classes in behalf of the general well-being and public liberty cannot be traced to an insight special to these classes. The highest state of&cials have necessarily deeper and more comprehensive insight into the workings and needs of the state, and also greater skill and wider practical experience."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T08:49+05:30",
+  "until": "2026-10-13T09:04+05:30",
   "asleep": false,
   "imprest": 10501,
   "wearing": "kurta",
@@ -939,7 +1026,8 @@
     ]
    },
    "walked": 3000,
-   "strain": 3000
+   "strain": 3000,
+   "breakfast": true
   },
   "account": {
    "advance": 15000,
@@ -1047,7 +1135,9 @@
   "tech": {
    "phone": false,
    "sim": false
-  }
+  },
+  "last_meal": "2026-10-13T08:49+05:30",
+  "snacks": 0
  },
  "plan": {
   "written": "05:59",
