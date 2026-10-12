@@ -281,7 +281,7 @@ class Engine:
         roles = [self.world.cast[c]["role"] for c in ctx["present"]]
         thoughts = [text for _, text in ctx["recent"][-2:]]
         parts = shelf.query_parts(sit["event"], self.world.places[sit["place"]]["short"], roles, thoughts, [x["text"] for x in st.get("theses", [])])
-        return self.shelf.pick(parts, avoid=used)
+        return self.shelf.pick(parts, avoid=used, whole=getattr(self.cfg, 'shelf_whole', False))
 
     def make_plan(self, day, t, sit, ctx):
         """On waking: one extra call for the day's intentions. With no usable answer he simply has no plan.

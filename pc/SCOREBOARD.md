@@ -17,10 +17,12 @@ Each run is one seed and one day, and the closed-loop days diverge, so these are
 
 ## Thinking: blind review, 1 to 5
 
-Mean of Claude and Grok, both blind (`mind/results/blind-review-v2/`). Argument is the reliable dimension (raters agree at κ 0.84). Commitments is where the model differs most from the real Hegel.
+v2 rows: mean of Claude and Grok, both blind (`mind/results/blind-review-v2/`). Rows from 12 October: Claude alone, blind, scores committed before the key. Argument is the reliable dimension (raters agree at κ 0.84). Commitments is where the model differs most from the real Hegel.
 
 | Date | Set | n | Argument | Commitments | Voice |
 |---|---|---:|---:|---:|---:|
+| 12 Oct | T4, letter to Karl, old shelf (Claude, blind) | 10 | 2.10 | 2.00 | 2.40 |
+| 12 Oct | T4, letter to Karl, shelf with the Nuremberg addresses (Claude, blind) | 10 | 2.20 | 2.00 | 2.70 |
 | 11 Oct | v2, plain Qwen (A0), six long situations | 12 | 3.21 | 3.42 | 2.83 |
 | 11 Oct | v2, letters to Karl, all arms | 10 | 2.00 | 2.15 | 2.40 |
 | 11 Oct | v2, real passages (controls) | 10 | 3.10 | 4.65 | 3.70 |

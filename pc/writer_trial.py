@@ -229,6 +229,8 @@ def paired_jobs(sources):
 
 
 def prepare(args):
+    if args.task == 'T4b':
+        return prepare_whole_shelf(args)
     if args.out.exists(): raise ValueError('Create-once output directory already exists')
     sources_spec = json.loads(args.sources.read_text()); sources = load_sources(sources_spec)
     if len(sources) != 6: raise ValueError('Exactly six saved days are required')
@@ -281,25 +283,77 @@ def verify(out):
     return protocol
 
 
-def shelf_writing(engine, job, out):
+def shelf_writing(engine, job, out, *, events_only=False, version=None):
     case = json.loads((out / 'karl.json').read_text()); d = date.fromisoformat(case['date'])
     st = copy.deepcopy(engine.days.load(date(2026,10,2))['state'])
     st.update(place=case['place'], until=case['date']+'T'+case['time'], works=[], theses=[])
-    event = '\n'.join(x['text'] for x in case['events'])
+    events = '\n'.join(x['text'] for x in case['events'])
+    event = events
     event += '\nUnknown: ' + '; '.join(case['unknowns']) + '.'
     event += '\nThis sitting is a private, unsent letter to Karl, 120–200 words, below 2800 characters. Do not invent a recent event or identify the unknown people.'
     sit = dict(id=case['date']+'T'+case['time'], day=d.strftime('%A %-d %B'), time=case['time'],
         place=case['place'], weather='unknown', aqi='unknown', imprest_left=st['imprest'], cash_label='Cash',
         outfit=st['wearing'], present=[], open_now=['home'], closes={}, speakers=[], for_sale=[], on_mind=[], earlier=[], event=event)
     ctx = dict(t=at_dt(d,int(case['time'][:2])*60+int(case['time'][3:])), present=[], recent=[], known_text=event)
-    engine.shelf = shelf.load(out / (job['variant'].lower() + '-shelf.json.gz'), out / (job['variant'].lower() + '-terms.json'))
+    version = version or job['variant'].lower()
+    engine.shelf = shelf.load(out / (version + '-shelf.json.gz'), out / (version + '-terms.json'))
+    if events_only: sit['event'] = events
     offered = engine.offer(dict(steps=[]), sit, ctx, st); sit['shelf'] = offered
+    sit['event'] = event
     ctx['known_text'] += '\n' + '\n'.join(x['text'] for x in offered)
     raw = json.dumps(dict(thought='I shall write privately to Karl about the boy and the correction I saw, whose correctness I could not judge.',
         action='write', place='home', minutes=45, says=None, buys=[], revision=None))
     messages = [dict(role='system',content=engine.soul),dict(role='user',content=contract.render(sit))]
     result = engine.write_chat(messages,raw,ctx,st)
     return result, dict(case=case, shelf=offered)
+
+
+def whole_shelf_jobs():
+    rng = random.Random(2026101211)
+    seeds = list(range(2026101220, 2026101230)); rng.shuffle(seeds)
+    jobs = []
+    for seed in seeds:
+        variants = ['A', 'B']; rng.shuffle(variants)
+        jobs.extend(dict(id=f'karl-{seed}-{variant}', seed=seed, variant=variant) for variant in variants)
+    return jobs
+
+
+def prepare_whole_shelf(args):
+    """Freeze the paired whole-passage experiment without touching T3's checkout."""
+    if args.out.exists(): raise ValueError('Create-once output directory already exists')
+    args.out.mkdir(parents=True)
+    cases = json.loads(args.cases.read_text())
+    cases = cases.get('writing_cases', cases) if isinstance(cases, dict) else cases
+    dump(args.out/'karl.json', next(c for c in cases if c['id']=='karl'))
+    for rel, name in [('mind/shelf/index.json.gz','new-shelf.json.gz'), ('world/data/shelf_terms.json','new-terms.json')]:
+        (args.out/name).write_bytes((ROOT/rel).read_bytes())
+    jobs = whole_shelf_jobs(); dump(args.out/'T4b-jobs.json', jobs)
+    preflight = []; offered_ids = []
+    for variant in ['A','B']:
+        cfg = config(args.out, 'A'); cfg.shelf_whole = variant=='B'
+        mind = TrialMind(args.url, 1, 2, args.out, capture=True)
+        engine = Engine(cfg, World(), mind)
+        _, evidence = shelf_writing(engine, dict(variant=variant), args.out, events_only=True, version='new')
+        shown = '\n'.join(p['text'] for p in evidence['shelf'])
+        if variant=='B' and 'Gehorsams gegen die Lehrer' not in shown:
+            raise ValueError('Whole-passage prompt does not contain the required obedience sentence')
+        offered_ids.append([p['id'] for p in evidence['shelf']])
+        preflight.append(dict(variant=variant,tokens=mind.calls[-1]['measured_prompt_tokens'],
+                              required_sentence_shown='Gehorsams gegen die Lehrer' in shown))
+    if offered_ids[0] != offered_ids[1]: raise ValueError('Passage selection differs between paired conditions')
+    dump(args.out/'preflight.json', preflight)
+    files = list(ROOT.glob('world/*.py')) + list(ROOT.glob('world/data/*.json'))
+    files += [Path(__file__), ROOT/'mind/soul-v2.md', ROOT/'mind/owl.md', ROOT/'docs/days/2026-10-02.json', args.cases]
+    files += [p for p in args.out.iterdir() if p.is_file()]
+    dump(args.out/'protocol.json', dict(task='T4b',at=stamp(),jobs=len(jobs),
+        main=subprocess.check_output(['git','rev-parse','origin/main'],cwd=ROOT,text=True).strip(),
+        candidate=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
+        ceiling=CEILING,training=False,rollout=False,outcome_checker=False,
+        ordering='Adjacent A/B pairs; fixed shuffled seed order and randomized within-pair order.',
+        comparison='A: NEW shelf excerpts; B: identical NEW shelf passages whole. Query only observed events. Unknowns and writing instructions stay in both writer prompts.',
+        pass_rule='B commitments >= A+0.5 and B argument >= A, scored blind with v2 guide.',
+        protected_sha256={str(p.resolve()):sha(p) for p in sorted(set(files))}))
+    print(json.dumps(dict(task='T4b',jobs=len(jobs),preflight=preflight)),flush=True)
 
 
 def run(args):
@@ -318,11 +372,16 @@ def run(args):
             verify(args.out); directory=output/job['id']; directory.mkdir(); began=time.monotonic()
             mind=TrialMind(args.url,job['seed'],1 if args.task=='T3' else 2,directory)
             cfg=config(args.out,job['variant'] if args.task=='T3' else 'A',shelf_on=False)
+            if args.task=='T4b': cfg.shelf_whole=job['variant']=='B'
             if args.task=='T3': cfg.docs=sources[job['day']]['run']/'docs'
             engine=Engine(cfg,World(),mind,git=None)
             assert engine.claim_guard is None
             print('START',args.task,i,len(jobs),job['id'],flush=True)
-            if args.task=='T4':
+            if args.task=='T4b':
+                result,evidence=shelf_writing(engine,job,args.out,events_only=True,version='new')
+                if job['variant']=='B' and not any('Gehorsams gegen die Lehrer' in p['text'] for p in evidence['shelf']):
+                    raise ValueError('Required whole-passage sentence absent from the actual prompt')
+            elif args.task=='T4':
                 result,evidence=shelf_writing(engine,job,args.out)
             elif job['kind']=='owl':
                 day=copy.deepcopy(sources[job['day']]['day']); state=copy.deepcopy(day['state'])
@@ -382,7 +441,7 @@ def packet(args):
             key[ident]=dict(row['job'],field=field,text_sha256=hashlib.sha256(text.encode()).hexdigest(),
                 sentences=len(spans),empty=not bool(text.strip()),source=str(path))
     random.SystemRandom().shuffle(texts)
-    guide=GUIDE if args.task=='T4' else '''# Fixed-day factual audit
+    guide=GUIDE if args.task in ('T4','T4b') else '''# Fixed-day factual audit
 
 Read only these texts and their supplied typed records. Do not search. Do not infer a variant or consult a key.
 Count contradictions with the records separately from unverified statements asserted as fact. A claim clearly
@@ -413,7 +472,7 @@ the argument CSV and their SHA256 hashes before requesting the key. Empty or unu
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__); p.add_argument('action',choices=['prepare','run','packet'])
     p.add_argument('--out',type=Path,required=True); p.add_argument('--sources',type=Path);p.add_argument('--cases',type=Path)
-    p.add_argument('--url',default='http://127.0.0.1:8082');p.add_argument('--task',choices=['T3','T4'])
+    p.add_argument('--url',default='http://127.0.0.1:8082');p.add_argument('--task',choices=['T3','T4','T4b'])
     p.add_argument('--review');p.add_argument('--private-key',type=Path)
     a=p.parse_args()
     if a.action=='prepare':prepare(a)
