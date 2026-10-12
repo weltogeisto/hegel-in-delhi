@@ -79,6 +79,8 @@ Two runs agree that the paragraph lifts Karl (+1.0, +0.83, 16 letters per arm). 
 
 **Passes when (declared now, before running):** over the 24 control texts per arm, B's commitments and argument are each no more than 0.25 below A's. The margin is set after two zero-margin failures, so it counts only on these fresh situations. If B is more than 0.25 lower on either, the paragraph is closed for good. On a pass, Claude puts the paragraph into `mind/soul.md`.
 
+**Note before the key (Claude, after scoring blind):** child's map (case `directions`) is a lesson Ramesh gives a child, so it is not free of teaching, which the paragraph is about. I missed that when I chose it. The declared gate stands as written, over all 24 texts per arm. Each case's means will be reported, and a shift in `directions` will be read as in the paragraph's own domain, not as spillover.
+
 ### T5 · Claude · score, merge, scoreboard · RUNNING
 Score every blind packet within the hour it lands, commit the scores with their hash, merge whatever passes, and keep `pc/SCOREBOARD.md` current.
 
