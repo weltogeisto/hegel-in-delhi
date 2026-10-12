@@ -7,9 +7,9 @@ from argparse import Namespace
 from pathlib import Path
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 from pc import writer_trial
-from pc.writer_trial import paired_jobs, prefix_day, writing_calls, trace_rows, verify
+from pc.writer_trial import paired_jobs, whole_shelf_jobs, shelf_writing, prefix_day, writing_calls, trace_rows, verify
 
 
 class WriterTrialTest(unittest.TestCase):
@@ -66,6 +66,32 @@ class WriterTrialTest(unittest.TestCase):
                              [b[k] for k in ('day', 'kind', 'time', 'seed')])
             first_variants.add(a['variant'])
         self.assertEqual({'A', 'B'}, first_variants)
+
+    def test_whole_passage_test_pairs_the_same_ten_seeds(self):
+        jobs = whole_shelf_jobs()
+        self.assertEqual(20, len(jobs))
+        self.assertEqual(jobs, whole_shelf_jobs())
+        self.assertEqual(set(range(2026101220,2026101230)), {j['seed'] for j in jobs})
+        for a,b in zip(jobs[::2],jobs[1::2]):
+            self.assertEqual(a['seed'], b['seed'])
+            self.assertEqual({'A','B'}, {a['variant'],b['variant']})
+
+    def test_events_only_query_does_not_remove_unknowns_from_writer_input(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp)
+            case=dict(id='karl',date='2026-10-03',time='12:00',place='home',
+                      events=[dict(text='A boy copied a correction.')],unknowns=['The teacher name'])
+            (root/'karl.json').write_text(json.dumps(case))
+            engine=Mock();engine.soul='persona'
+            engine.days.load.return_value={'state':dict(imprest=100,wearing='coat')}
+            queried=[]
+            engine.offer.side_effect=lambda day,sit,ctx,st: queried.append(sit['event']) or []
+            with patch('pc.writer_trial.shelf.load'):
+                shelf_writing(engine,{'variant':'B'},root,events_only=True,version='new')
+            self.assertEqual(['A boy copied a correction.'],queried)
+            shown=engine.write_chat.call_args.args[0][1]['content']
+            self.assertIn('Unknown: The teacher name',shown)
+            self.assertIn('private, unsent letter to Karl',shown)
 
     def test_packet_counts_sentence_iterator_without_revealing_shelf_or_key(self):
         with tempfile.TemporaryDirectory() as temp:

@@ -99,7 +99,8 @@ def cmd_status(cfg, args):
     st = day["state"]
     until = until_of(day)
     ahead = (until - now).total_seconds() / 60
-    steps = [s for s in day["steps"] if "decision" in s]
+    # The handwritten prologue predates engine decision steps.
+    steps = [s for s in day.get("steps", []) if "decision" in s]
     last = steps[-1] if steps else None
     print(f"Delhi now      {now:%Y-%m-%d %H:%M}")
     print(f"latest day     {day['n']} ({day['date']}), {len(steps)} steps, complete: {day.get('complete', False)}")
