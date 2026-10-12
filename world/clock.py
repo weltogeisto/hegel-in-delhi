@@ -11,8 +11,9 @@ MONTHS = ["January", "February", "March", "April", "May", "June", "July",
           "August", "September", "October", "November", "December"]
 
 
-def now_ist():
-    return datetime.now(IST)
+def now_ist(shift_min=0):
+    """Delhi time now; a rehearsal may run his clock shift_min ahead (HEGEL_CLOCK_SHIFT_MIN)."""
+    return datetime.now(IST) + timedelta(minutes=shift_min)
 
 
 def parse_now(text):
