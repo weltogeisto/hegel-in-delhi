@@ -66,8 +66,8 @@ The persona states his convictions on history, India and the state, and those si
 
 **Result (a2f1c16, blind):** Karl commitments A 2.00 / B 3.00, argument 2.30 / 2.60, the largest gain so far. Fare control: commitments 3.40 / 3.00, argument 2.80 / 2.80. The declared rule said the control must not be lower, so it fails and the default stays. The control drop is two letters of five per arm, where two A letters used his doctrine of the sign of property; too few to tell leakage from chance.
 
-### T4d · Codex · confirm the education paragraph on more letters · RUNNING
-Status: generation and blind packet complete from d41480b; awaiting all 52 committed v2 scores and SHA256. Both exits 0; 52 usable nonempty JSON calls, no retries/cuts, all 41 protected files and launch hashes verified. All 18 over-length texts retained. A/B summed time 490.997511/494.288135s. Full suite 887 tests in 705.296s, OK (19 skipped), all 257 archived files matched Git/snapshot. Packet/report: `mind/results/persona-confirmation-20261012`. Key separate; declared Karl and aggregate-control gates pending; defaults unchanged.
+### T4d · Codex · confirm the education paragraph on more letters · DONE: FAIL
+Status: FAIL. All 52 scores committed at cfc8aec and hashes/ids/raw fingerprints verified before new key release. Karl commitments A/B 2.000000/2.833333, argument 2.000000/2.166667; aggregate controls commitments 2.900000/2.850000, argument 2.750000/2.800000. Results, separate control means, all 52 outputs and released key: mind/results/persona-confirmation-20261012. All 18 over-length texts retained. Source unchanged, 887 tests OK (19 skipped); no default change, Claude owns adoption/closure.
 Same A (`mind/soul.md`) and B (`HEGEL_SOUL_FILE=mind/soul-bildung.md`), plain Qwen, normal writing path, shelf as on main, interleaved. All seeds new, none from T4c.
 - Karl case: 6 seeds per arm (replication).
 - Controls: the fare case (letter) and the v2 essay case `columns`, 10 seeds per arm each, so 20 control texts per arm. The control need not be a letter; v2 has only two letter cases.
