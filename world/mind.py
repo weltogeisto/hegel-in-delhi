@@ -63,6 +63,25 @@ class HTTPMind:
         self.ready = True
         log.info("mind awake after %.0fs", time.time() - t0)
 
+    def prompt_tokens(self, value, thinking=False):
+        """Count the actual server template/tokenizer, including its generation prefix.
+
+        This is metadata only: no model generation and no tokenizer package.
+        """
+        self.ensure_awake()
+        def post(path, payload):
+            request = urllib.request.Request(self.url + path, data=json.dumps(payload).encode('utf-8'),
+                                             headers={'Content-Type': 'application/json'})
+            with urllib.request.urlopen(request, timeout=self.timeout) as response:
+                return json.load(response)
+        if isinstance(value, list):
+            value = post('/apply-template', dict(messages=value,
+                         chat_template_kwargs=dict(enable_thinking=thinking)))['prompt']
+        tokens = post('/tokenize', dict(content=value, add_special=True, parse_special=True))['tokens']
+        if not isinstance(tokens, list) or not all(type(x) is int for x in tokens):
+            raise MindAway('tokenizer returned invalid token IDs')
+        return len(tokens)
+
     def chat_voice(self, messages, schema=None, max_tokens=250):
         """Optionally disable the single loaded LoRA for another character, per request.
 

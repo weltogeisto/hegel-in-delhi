@@ -12,7 +12,7 @@ import random
 import time
 from datetime import date, datetime, timedelta
 
-from . import claim_check, contract, lookup, owl, records, shelf, voices, works
+from . import claim_check, contract, lookup, owl, records, shelf, voices, works, prompt_budget
 from .clock import day_number, fmt, hm, long_date, minute_of, sun
 from .memory import Memory, encountered_text
 from .money import ADVANCE
@@ -82,7 +82,9 @@ class Engine:
         self.soul = cfg.soul_file.read_text(encoding="utf-8")
         self.voice_prompt = (cfg.repo / "mind/voices.md").read_text(encoding="utf-8")
         self.shelf = shelf.load(cfg.repo / "mind/shelf/index.json.gz", cfg.repo / "world/data/shelf_terms.json") if cfg.shelf else None
-        self.claim_guard = claim_guard or claim_check.from_config(cfg,getattr(mind,'url',None))
+        # The LLM checker failed the factuality/cost evaluation. Audit callers
+        # may still inject a guard explicitly; runtime flags never construct one.
+        self.claim_guard = claim_guard
 
     def regenerate_prose(self, mind, text, unsupported, evidence, system=None):
         schema={'type':'object','properties':{'text':{'type':'string'}},'required':['text']}
@@ -392,8 +394,12 @@ class Engine:
             # 9000-character manuscript allowance; the writing's header stays last.
             prefix=''.join(works.EXEMPLAR.format(**x) for x in shown)
             room=min(3000,9000-len(prompt)-45)
-            factual=records.relevant(ctx['records'],plan['about'],limit=room)
-            prompt=prefix+'[Typed records for this sitting:\n'+factual+']\n'+prompt[len(prefix):]
+            factual=records.relevant(ctx['records'],plan['about'],limit=room,view=getattr(self.cfg,'evidence_view','full'))
+            body = prompt[len(prefix):]
+            prompt=prefix+'[Typed records for this sitting:\n'+factual+']\n'+body
+            if getattr(self.cfg, 'evidence_view', 'full') == 'compact':
+                prompt = prompt_budget.fit(self.mind, lambda n: prefix + '[Typed records for this sitting:\n' +
+                    records.compact(ctx['records'], plan['about'], limit=n) + ']\n' + body, room)
         for seed in (None, random.randrange(1, 2 ** 31)):
             try:
                 w = works.sitting(plan, self.mind.complete(prompt, works.TOKENS, seed=seed), opening)
@@ -420,11 +426,20 @@ class Engine:
         if ctx.get("manuscripts"):
             manuscript=ctx['manuscripts'][:6000] if ctx.get('records') else ctx['manuscripts']
             request += '\n\n'+manuscript
-        if ctx.get('records'):
-            request+='\n\n'+records.relevant(ctx['records'],limit=3000)
-        msgs = for_task(messages + [{"role": "assistant", "content": raw}, {"role": "user", "content": request}], "writing")
+        compact_view = bool(ctx.get('records')) and getattr(self.cfg, 'evidence_view', 'full') == 'compact'
+        def build(room):
+            ask = request
+            if ctx.get('records'):
+                ask += '\n\n' + records.relevant(ctx['records'], limit=room, view=getattr(self.cfg, 'evidence_view', 'full'))
+            return for_task(messages + [dict(role='assistant', content=raw), dict(role='user', content=ask)], 'writing')
+        msgs = prompt_budget.fit(self.mind, build, 3000,
+            thinking=bool(getattr(self.cfg, 'writing_reasoning_tokens', 0))) if compact_view else build(3000)
         for attempt in range(2):
             try:
+                if compact_view and callable(getattr(self.mind, 'prompt_tokens', None)):
+                    size = self.mind.prompt_tokens(msgs, thinking=bool(getattr(self.cfg, 'writing_reasoning_tokens', 0)))
+                    if size > prompt_budget.MAX_TOKENS:
+                        raise prompt_budget.PromptBudgetError(f'Writing retry has {size} tokens, above {prompt_budget.MAX_TOKENS}')
                 writing_call = getattr(self.mind, "chat_writing", self.mind.chat)
                 reply = writing_call(msgs, contract.WRITE_SCHEMA, max_tokens=1100)
             except MindAway as e:

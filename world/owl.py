@@ -3,7 +3,7 @@ import logging
 import re
 
 from .contract import extract_json
-from . import records
+from . import records, prompt_budget
 
 log = logging.getLogger("world")
 STATUSES = ["unshaken", "shaken", "revised", "abandoned"]
@@ -184,9 +184,10 @@ def write(cfg, day, state, mind, depesche_n=None, problems=None, flag=None, topi
     system = (cfg.repo / "mind/owl.md").read_text(encoding="utf-8")
     theses = state.get("theses", [])
     typed=getattr(cfg,'outcome_memory',False)
-    evidence=records.relevant(records.project(day)) if typed else record(day)
+    view=getattr(cfg,'evidence_view','full')
+    evidence=records.relevant(records.project(day),view=view) if typed else record(day)
     shown=evidence
-    if typed:
+    if typed and view != 'compact':
         thoughts=[f"{e['t']} [interpretation, not event evidence]: {e['text']}"
                   for e in day.get('entries',[]) if e.get('k')=='diary']
         selected=[];remaining=1950
@@ -201,17 +202,26 @@ def write(cfg, day, state, mind, depesche_n=None, problems=None, flag=None, topi
         if len(selected)<len(thoughts):
             interpretations+='\n[Earlier interpretations omitted.]'
         if interpretations:
-            shown=records.relevant(records.project(day),limit=24000-len(interpretations)-2)+'\n\n'+interpretations
+            shown=records.relevant(records.project(day),limit=24000-len(interpretations)-2,view=view)+'\n\n'+interpretations
     ask = (f"{shown}\n\nYour theses: " + "; ".join(f"{t['id']}: {t['text']} ({t['status']})" for t in theses) + ".\n\n")
     if depesche_n is not None:
         ask += f"Tonight is also the night of the weekly Depesche, number {depesche_n}.\n\n"
     ask += "Write the diary, the revision log and the theses (each with its evidence times)" + (", and the Depesche" if depesche_n is not None else "") + ". Answer with the JSON object only."
     messages = [{"role": "system", "content": system}, {"role": "user", "content": ask}]
+    if typed and view == 'compact':
+        suffix = ask[len(shown):]
+        messages = prompt_budget.fit(mind, lambda room: [dict(role='system', content=system),
+            dict(role='user', content=records.compact(records.project(day), limit=room) + suffix)],
+            records.COMPACT_CHARS, thinking=bool(getattr(cfg, 'owl_reasoning_tokens', 0)))
     for attempt in range(2):
         budget = getattr(cfg, "owl_reasoning_tokens", 0)
         kwargs = {"max_tokens": (2200 if depesche_n is not None else 1200) + budget, "temperature": 0.8}
         if budget:
             kwargs["reasoning_budget"] = budget
+        if typed and view == 'compact' and callable(getattr(mind, 'prompt_tokens', None)):
+            size = mind.prompt_tokens(messages, thinking=bool(budget))
+            if size > prompt_budget.MAX_TOKENS:
+                raise prompt_budget.PromptBudgetError(f'Owl retry has {size} tokens, above {prompt_budget.MAX_TOKENS}')
         raw = mind.chat(messages, schema(depesche_n is not None), **kwargs)
         out = extract_json(raw)
         if not isinstance(out, dict) or not isinstance(out.get("diary"), str) or len(out["diary"].strip()) < 80:

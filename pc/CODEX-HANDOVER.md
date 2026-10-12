@@ -6,7 +6,7 @@ Decided with Welt after your work block of 8 October (`Hegel: four-hour work blo
 - **The order of work:**
   1. Get your six runtime fixes into the repo.
   2. Build structured memory of what happened.
-  3. Get an independent human review.
+  3. Get a blind review with hidden controls.
 - **The Hegelizer is parked** until Welt says go. It is the inverse-paraphrasing pipeline in `pc/HEGELIZER.md`.
 - **Main has moved** since your block's checkpoint:
   - Writings are back on the chat call by default. `HEGEL_WRITE_MODE=plain` keeps the plain-text path and its guards.
@@ -101,21 +101,28 @@ Start only after Welt confirms that step 3 is in the repo. Build on your `runtim
 - **Don't train on these days, and don't repair the record by hand.**
 - **Deliver** as a bundle, as in step 3.
 
-## 5. Independent review
+## 5. Blind review
 
-This can run alongside step 4, but it needs Welt.
+Decided with Welt on 11 October: the first rater is Grok 4.7, run by Welt through Perplexity with web search off. It knows nothing of this project. Claude rates the same packet as a second rater from another model family; Welt may rate too. Model judges tend to prefer model-written text, so the review carries hidden controls, and the key stays away from every rater until all have rated.
 
-- **The guide goes to Claude first.** Send Welt the human review guide; Claude reviews it before anything goes to the reader.
-- **Two raters, both blind.** Welt finds one independent reader who knows Hegel. Welt rates the same pairs, also blind, with the source and the order hidden and the order randomised per pair. A judge can never agree with an expert more reliably than two experts agree with each other, so the agreement between the two raters is the ceiling every later measure is read against. Report it per dimension (Cohen's κ, or Krippendorff's α if a rating is missing).
-- **Score dimensions, not one overall impression.** Holistic judgments of persona fidelity are unstable (PRISM, EMNLP 2026, [arXiv 2608.26674](https://arxiv.org/abs/2608.26674)). The guide asks each rater for four separate judgments per pair, each with a one-line reason:
+- **The packet.** Take the texts from `review-only.zip`. Mix in about 10 real Hegel passages of the same length (150 to 300 words) from the English translations on his shelf, as hidden controls. Choose less famous passages, not the ones everyone quotes. Give every text a random id, strip the arm, the source and anything that gives them away, and shuffle the order.
+- **Two orders.** Make the packet twice, the same texts shuffled differently (`packet-a`, `packet-b`). Grok rates both, in separate chats: where its two scores for a text differ by more than one point, the order swayed it.
+- **The key** (id → arm or control) goes to Welt only: never into the repo, a bundle or a file any rater can read. Welt uploads it here after all have rated.
+- **The answer format** is a CSV, one row per text: `id,argument,commitments,particular,voice,reasons`. The guide asks for exactly that, so the ratings come back machine-readable.
+- **The ratings.** Each rater scores every text from 1 to 5 on four dimensions, each with a one-line reason. Holistic judgments of persona fidelity are unstable (PRISM, EMNLP 2026, [arXiv 2608.26674](https://arxiv.org/abs/2608.26674)).
   1. **Argument moves:** does the text develop a claim the way he does (from the difficulty within a position, to what it presupposes and where it turns into its opposite), or does it assert, list, or lay a triad over the material?
   2. **His commitments:** are the positions his, as of 1831, including the prejudiced ones, neither softened into a present-day view nor exaggerated into a caricature?
   3. **Response to the particular case:** does the thought start from the specific situation and stay with it, or could the same paragraph stand under any title?
   4. **Voice:** does it read like him, not like a translator's pastiche or a modern essay?
-- **Any automatic judge comes later and is a strong model,** never the 27B mind: in a legal-reasoning study with detailed rubrics, strong models agreed with the experts and weaker open models did not ([arXiv 2512.01020](https://arxiv.org/abs/2512.01020)). Before it measures anything, it is calibrated on 30 to 50 pairs the reader has labelled, and it counts only on dimensions where it agrees with the reader about as well as the two raters agree with each other.
+- **What it measures, once the key is in:**
+  - **The controls:** a rater who does not score the real passages above the model texts measures nothing; if no rater does, the review needs a human Hegel reader after all.
+  - **Agreement:** between Grok and Claude (and Welt, if Welt rates), per dimension (Cohen's κ; Krippendorff's α if a rating is missing). That agreement is the ceiling any later automatic judge is read against.
+  - **The arms:** compared only on dimensions where the controls separate.
+- **The guide** is the instruction sheet that goes with the packet: the four dimensions as above, the 1-to-5 scale, the CSV format, the instruction not to search the web or look anything up, and nothing about which texts are which.
 - From your `fresh-task-template.json`, prepare 8 essay situations and 8 letter situations for Welt to write. No model writes them. They are for the next comparison; don't run it yet.
 
 ## 6. Parked, and off limits
 
 - **The Hegelizer:** don't start it until steps 1 to 4 are done and Welt says go.
+- **Faster rehearsals (parked 11 October, decided after the smoke test):** if the wall time per simulated day makes rehearsals the bottleneck, check whether the official Qwen3.8-27B weights include an MTP head and whether our GGUF kept it. If they do, llama-server's `--spec-type draft-mtp` drafts tokens that the model checks: about twice the speed, and in principle the same text. Don't swap the mind for a community fine-tune to get it (nerkyor's Coder390 has an MTP head, but it is trained toward frontier-model answers).
 - **Don't touch** the training data, the adapters, the firewall, the power settings, the ML packages or the live world.

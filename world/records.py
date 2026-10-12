@@ -279,12 +279,111 @@ def render(store, limit=24000):
     return fit(lo)
 
 
-def relevant(store, query='', limit=24000):
+COMPACT_CHARS = 9000      # the compact view stays well under the prompt the writers had before typed records
+COMPACT_HEAD = ("What happened today, from the record. Facts happened. Payments are as booked. Said: only the words "
+                "someone spoke, not facts. Plans: intentions, not acts. Drafts: written, not sent. What is not listed is "
+                "unknown, not absent.")
+
+
+def compact_line(r):
+    """One plain line for a writer, without the record id: when, where, what. (section, text)."""
+    t = r.get("time") or "?"
+    at = f" at {r['place']}" if r.get("place") else ""
+    kind = r["kind"]
+    if kind == "statement":
+        return "said", f"{t}{at} {r.get('speaker') or 'someone'} to {r.get('recipient') or 'someone'}: “{r.get('words', '')}”"
+    if kind == "work":
+        return "drafts", f"{t} {r.get('genre') or 'work'} “{r.get('title') or ''}” to {r.get('recipient') or 'nobody named'}"
+    if kind == "payment":
+        who = f" to {r['creditor']}" if r.get("creditor") else f" from {r['payer']}" if r.get("payer") else ""
+        state = ("received" if r.get('settled') else "cheque received, not cashed") if r.get("direction") == "in" else "paid" if r.get("settled") else "owed, not paid"
+        return "payments", f"{t} ₹{r.get('amount')} {r.get('item') or ''}{who}: {state}" + (" (a cheque)" if r.get("medium") == "cheque" else "")
+    typ = r.get("type")
+    if typ == "intention":
+        return "plans", f"planned for {r.get('intended_time') or '?'}: {r.get('text', '')}"
+    if typ == "action":
+        span = f"{t}–{r['end']}" if r.get("end") else t
+        if r.get("action") == "walk":
+            return "facts", f"{span} walked from {r.get('origin') or '?'} to {r.get('destination') or '?'}"
+        return "facts", f"{span} {r.get('action')}{at}"
+    if typ == "consumption":
+        return "facts", f"{t}{at} ate {r.get('item')}" + (f" ({r['food']})" if r.get("food") else "")
+    if typ == "cash":
+        return "facts", f"cash {'at the close of the day' if r.get('at_close') else 'at ' + t}: ₹{r.get('amount')}"
+    if typ == "read":
+        return "facts", f"{t} read “{r.get('title') or ''}” ({r.get('source_name') or 'a source'})"
+    if typ == "wear":
+        return "facts", f"{t} {r.get('item')}: {r.get('status')}"
+    if typ == "people":
+        return "facts", f"{t} met {r.get('name')}, {r.get('role')}"
+    if typ == "location":
+        return "facts", f"{t} he is at {r.get('place')}"
+    return "facts", f"{t}{at} {r.get('text', '')}"
+
+
+def compact(store, query='', limit=COMPACT_CHARS):
+    """The day's records grouped for a writer: facts, payments, what was said (not verified), plans (not done) and
+    drafts (not sent), without record ids or provenance, so the evidence costs a fraction of the full view.
+
+    Nothing is summarised or invented: every line comes from one record. Facts and payments are never cut. When the
+    view is too long, quoted words and long observations are shortened first, then the oldest observations and
+    earlier days' lines are left out, and the view says so. RecordBudgetError if even the facts and payments do not fit.
+    """
+    today = store["date"] + ":"
+    order = ("facts", "payments", "said", "plans", "drafts")
+    titles = {"facts": "Facts:", "payments": "Payments:", "said": "Said (not verified):",
+              "plans": "Plans (intentions, not done):", "drafts": "Drafts (not sent):"}
+    rows = sorted(store["records"], key=lambda r: (r["id"][:10], r.get("time") or "", r["id"]))
+    lines = []                                   # (section, text, kept: never shortened or dropped, earlier day)
+    for r in rows:
+        section, text = compact_line(r)
+        text = re.sub(r"\s+", " ", text).strip()
+        firm = section == "payments" or (section == "facts" and r.get("type") in ("action", "consumption", "cash", "location", "wear"))
+        old = not r['id'].startswith(today)
+        lines.append((section, (r['id'][:10] + ' ' + text) if old else text, firm, old))
+    tokens = set(re.findall(r"\w{4,}", query.casefold()))
+    earlier = [x for x in lines if x[3]]
+    earlier.sort(key=lambda x: len(tokens & set(re.findall(r"\w{4,}", x[1].casefold()))), reverse=True)
+    lines = [x for x in lines if not x[3]] + [x for x in earlier[:6] if tokens & set(re.findall(r"\w{4,}", x[1].casefold()))]
+
+    def build(chosen, cap):
+        out, dropped = [COMPACT_HEAD], len(lines) - len(chosen)
+        for section in order:
+            body = [(t if firm or len(t) <= cap else t[:cap - 1].rstrip() + "…") for s, t, firm, _ in chosen if s == section]
+            if body:
+                out.append(titles[section] + "\n" + "\n".join(body))
+        if dropped:
+            out.append(f"[{dropped} earlier lines left out; leaving out proves nothing.]")
+        return "\n\n".join(out)
+
+    chosen = list(lines)
+    floor = 60
+    if len(build(chosen, floor)) > limit:
+        firm_only = [x for x in chosen if x[2]]
+        loose = [x for x in chosen if not x[2]]
+        while loose and len(build(firm_only + loose, floor)) > limit:
+            loose.pop(0)                         # the oldest observation or quotation goes first
+        chosen = [x for x in lines if x in firm_only or x in loose]
+        if len(build(chosen, floor)) > limit:
+            raise RecordBudgetError(f"{len(firm_only)} facts and payments cannot fit in {limit} characters")
+    lo, hi = floor, max([len(x[1]) for x in chosen] + [floor])
+    while lo < hi:
+        mid = (lo + hi + 1) // 2
+        if len(build(chosen, mid)) <= limit:
+            lo = mid
+        else:
+            hi = mid - 1
+    return build(chosen, lo)
+
+
+def relevant(store, query='', limit=24000, view='full'):
     """Budgeted projection, never a generated summary or a change to stored facts.
 
     Critical outcomes have reserved room. Omitted rows remain in the daily store;
     the prompt explicitly warns that a selected view is not an exhaustive log.
     """
+    if view == 'compact':
+        return compact(store, query, min(limit, COMPACT_CHARS))
     rows=store['records']
     today=lambda r:r['id'].startswith(store['date']+':')
     if limit>=12000:
