@@ -351,6 +351,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Reading at home."
+  },
+  {
+   "from": "10:14",
+   "to": "10:59",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -662,6 +669,21 @@
     }
    ],
    "t": "09:59"
+  },
+  {
+   "k": "diary",
+   "text": "The sun is at its zenith, and the air is thick with dust and heat. My plan called for a meal at noon, but Ramesh keeps the sambar warm, which suggests the household rhythm is not yet fully aligned with my clock. I shall not rush the digestion of the morning's reading; I will sit in the shade of the bungalow's veranda for a while, letting the mind settle before the next exertion.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…"
+    }
+   ],
+   "t": "10:14"
   }
  ],
  "steps": [
@@ -1217,13 +1239,60 @@
     }
    ],
    "beat": "hegde_note"
+  },
+  {
+   "t": "10:14",
+   "end": "10:59",
+   "event": "Nothing in particular happens. The morning goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The sun is at its zenith, and the air is thick with dust and heat. My plan called for a meal at noon, but Ramesh keeps the sambar warm, which suggests the household rhythm is not yet fully aligned with my clock. I shall not rush the digestion of the morning's reading; I will sit in the shade of the bungalow's veranda for a while, letting the mind settle before the next exertion.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 45,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.4
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273",
+     "id": "dyde-right:681"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "id": "phaen:385"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273",
+     "text": "Note. — The perfecting of the state into a constitutional monarchy is the work of the modern world, in which the substantive idea has attained the infinite form."
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "text": "Nicht der Unterschied, welcher sich als bestimmtes Ding, oder als Bewußtsein eines bestimmten natürlichen Daseins, als ein Gefühl, oder als Begierde und Zweck für dieselbe, ob er durch das eigene oder durch ein fremdes Bewußtsein gesetzt sei, hat mehr Wesenheit, sondern allein der Unterschied, der ein gedachter, oder unmittelbar nicht von Mir unterschieden ist."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T10:14+05:30",
+  "until": "2026-10-13T10:59+05:30",
   "asleep": false,
   "imprest": 10501,
   "wearing": "kurta",
