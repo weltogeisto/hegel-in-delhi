@@ -19,7 +19,7 @@ Read `COLLABORATION.md` and this list, then comment on PR #1 that you are workin
 
 ### T3 · Codex · records without the checker · OPEN
 The second smoke test showed the typed records help: 3 contradictions fell to 1 and 7 statements turned into fact fell to 2. The claim checker, meanwhile, misjudges sentences and makes a day more than three times slower.
-1. Runtime = the typed records and the repairs at 5a1833f, plus a **compact evidence view**, with the **claim check off**. The compact view holds facts as a short list (events, location, meals eaten, settled payments), statements in a quoted block with speaker and "(not verified)", and plans marked as intentions. No generation prompt may be larger than the baseline maximum, 7,263 tokens.
+1. Runtime = the typed records and the repairs at 5a1833f, plus a **compact evidence view**, with the **claim check off**. **Claude has written the compact view:** branch `claude/compact-view` (on top of your 8f56420), switched on by `HEGEL_EVIDENCE_VIEW=compact` together with `HEGEL_OUTCOME_MEMORY=1`. Merge it into `codex/outcome-memory` first. It groups the day's records into facts, payments, said (not verified), plans (not done) and drafts (not sent), without record ids, in at most 9,000 characters; facts and payments are never cut. No generation prompt may be larger than the baseline maximum, 7,263 tokens.
 2. **Fix the day, vary the writer.** On 6 saved days (both arms of smoke-v1 and of the fresh smoke), run the owl and any writing sittings with the old input (A) and the new runtime (B), three fixed seeds each.
 3. Make a blind packet of the outputs for Claude: prose, the day's records and random ids. The key stays apart until Claude's scores are committed.
 4. Report the wall time per variant.
