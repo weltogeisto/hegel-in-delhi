@@ -316,6 +316,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Talking to himself in Lodhi Gardens."
+  },
+  {
+   "from": "08:29",
+   "to": "08:49",
+   "mode": "walk",
+   "a": "lodhi",
+   "b": "home"
   }
  ],
  "entries": [
@@ -490,6 +497,21 @@
    "k": "said",
    "text": "You mistake the nature of the thing, sir. A machine is dead; it requires a hand from outside to move it. The state is not a machine, but a living organism, the actuality of the ethical idea. It does not creak because it is pushed; it moves because the spirit within it recognizes its own freedom. Your file is stuck not because the machinery is broken, but because it has not yet found the form that corresponds to its content. It must be allowed to grow into its decision, not forced.",
    "t": "08:19"
+  },
+  {
+   "k": "diary",
+   "text": "The sun climbs, and with it the heat that presses the air into stillness. I have spoken to the air, and the air has answered with silence, which is the only honest reply a garden can give. It is time to return to the bungalow and let the pen do what the mouth cannot: to order the chaos of this morning into the quiet of the page.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33"
+    }
+   ],
+   "t": "08:29"
   }
  ],
  "steps": [
@@ -796,13 +818,58 @@
      "text": "In the same way knowledge also is an accident, which is created by God at every moment that I know anything; to-day we no longer possess the knowledge which we yesterday possessed. A man,” when writing, “does not move the pen when he thinks he moves it, but the motion is an accident of the pen, created by God at the moment.”"
     }
    ]
+  },
+  {
+   "t": "08:29",
+   "end": "08:49",
+   "event": "Nothing in particular happens. The morning goes on.",
+   "present": [],
+   "decision": {
+    "thought": "The sun climbs, and with it the heat that presses the air into stillness. I have spoken to the air, and the air has answered with silence, which is the only honest reply a garden can give. It is time to return to the bungalow and let the pen do what the mouth cannot: to order the chaos of this morning into the quiet of the page.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.5
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "id": "rechts:121"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "lodhi",
-  "until": "2026-10-13T08:29+05:30",
+  "place": "home",
+  "until": "2026-10-13T08:49+05:30",
   "asleep": false,
   "imprest": 10501,
   "wearing": "kurta",
@@ -871,8 +938,8 @@
      "malhotra"
     ]
    },
-   "walked": 1500,
-   "strain": 1500
+   "walked": 3000,
+   "strain": 3000
   },
   "account": {
    "advance": 15000,
