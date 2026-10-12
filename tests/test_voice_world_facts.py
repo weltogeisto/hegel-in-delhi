@@ -58,5 +58,18 @@ class VoiceWorldFactsTests(unittest.TestCase):
     def test_missing_ledger_does_not_claim_a_zero_balance(self):
         e=self.engine();facts=voices.recorded_facts(e.world,"ramesh",{})
         self.assertNotIn("unpaid washing balance"," ".join(facts))
+    def test_earlier_payment_here_is_settled_for_the_seller(self):
+        e=self.engine();day={"date":"2026-10-03","state":state(),"entries":[
+            dict(t="06:27",k="bag",item="Bottle of water",price=20),dict(t="06:27",k="bag",item="Roasted corn on the cob",price=40),
+            dict(t="06:10",k="bag",item="Samosa",price=20),dict(t="06:20",k="said",text="Sixty rupees, please.")]}
+        sit=dict(day="Saturday 3 October",time="06:37",place="lodhi",outfit="white cotton kurta",event="He stands at the stall.",for_sale=[])
+        before=copy.deepcopy(day);e.voice("sunil",day,sit,"I paid you at half past six.",purchases=[]);self.assertEqual(day,before)
+        text=e.mind.chat.call_args.args[0][-1]["content"]
+        self.assertIn("06:27 Bottle of water ₹20; 06:27 Roasted corn on the cob ₹40",text)
+        self.assertIn("Do not ask for them again",text);self.assertNotIn("Samosa",text)
+    def test_no_payment_here_adds_no_fact(self):
+        e=self.engine()
+        self.assertEqual(voices.paid_here(e.world.places["lodhi"],[dict(t="06:10",k="bag",item="Samosa",price=20)]),[])
+        self.assertEqual(voices.paid_here(e.world.places["home"],[]),[])
 
 if __name__=="__main__":unittest.main()

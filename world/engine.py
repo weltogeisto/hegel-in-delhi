@@ -313,6 +313,7 @@ class Engine:
             when = at_dt(date.fromisoformat(day["date"]), hm(sit["time"]))
             meal_status = (self.world.served(when, day["state"]) or "none") + ". " + self.world.meal_status(when, day["state"])
         facts = voices.recorded_facts(self.world, cid, day.get("state") or {})
+        facts += voices.paid_here(self.world.places[sit["place"]], day.get("entries", []))
         if getattr(getattr(self, 'cfg', None), 'outcome_memory', False):
             facts += voices.recorded_receipts(day, sit['place'])
         messages = [{"role": "system", "content": self.voice_prompt}, {"role": "user", "content": voices.render(c, sit, where, says, remember, first_meeting=first_meeting, purchases=purchases, meal_status=meal_status, world_facts=facts)}]

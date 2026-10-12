@@ -6,12 +6,14 @@
 <title>Hegel in Delhi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600&family=Literata:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
   --shell:#5b4a92; --shell-ink:#f6f3ff; --shell-muted:#d6cff4;
   --bezel:#2c2d3d; --box:#fcfcf8; --ink:#1d2340; --muted:#545a7c;
   --accent:#e2457f; --accent-strong:#bf2a60; --rule:#c7c9df;
+  --pixel:"Pixelify Sans","Courier New",Courier,monospace;
+  --read:"Literata",Georgia,"Times New Roman",serif;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
@@ -31,7 +33,7 @@
 html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
 body{
   margin:0;height:100%;background:var(--shell);color:var(--shell-ink);
-  font-family:"Pixelify Sans","Courier New",Courier,monospace;
+  font-family:var(--pixel);
   font-size:17px;line-height:1.45;
 }
 .app{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;padding:14px;max-width:1520px;margin:0 auto}
@@ -60,8 +62,8 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
 .timebar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .timebar input[type=range]{flex:1;min-width:140px;accent-color:var(--accent)}
 .timebar output{min-width:5.5em;font-size:18px}
-.note{font-size:14px;color:var(--shell-muted);margin:0}
-.attrib{font-size:12px}.attrib a{color:inherit}
+.note{font-size:15px;color:var(--shell-muted);margin:0}
+.attrib{font-size:13px}.attrib a{color:inherit}
 .side{display:flex;flex-direction:column;gap:14px;min-width:0}
 .box{
   background:var(--box);color:var(--ink);border:3px solid var(--ink);border-radius:8px;
@@ -105,23 +107,23 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
 .panel a{color:var(--accent-strong)}
 .veil{display:block;width:100%;text-align:left;color:#f6f3ff;border-radius:4px;padding:8px 10px;
   background:repeating-conic-gradient(#0b0b12 0 25%,#181826 0 50%) 0 0/4px 4px,#0b0b12}
-.veil small{display:block;color:#b3a9dc;font-size:13px;margin-top:1px}
+.veil small{display:block;color:#b3a9dc;font-size:14px;margin-top:1px}
 .veil[aria-expanded="true"]{margin-bottom:8px}
 .veiled[hidden]{display:none}
 .now blockquote .veil{margin-top:4px}
-.now .shelf{margin:6px 0 0;color:var(--muted);font-size:13px}
+.now .shelf{margin:6px 0 0;color:var(--muted);font-size:14px}
 .panel h2.sub{margin-top:18px}
 .panel h3{font-size:17px;margin:14px 0 6px;font-weight:600}
 .panel .cash{font-size:22px;margin:0 0 4px}
 .panel ul.plain{margin:0;padding-left:1.2em}
-.src{display:block;margin-top:4px;color:var(--muted);font-size:13px}
+.src{display:block;margin-top:4px;color:var(--muted);font-size:14px}
 .ms{padding:8px 0;border-top:2px dotted var(--rule)}
 .ms p{margin:0}
 .about label{display:flex;align-items:center;gap:8px;cursor:pointer;margin:0 0 8px}
 .about input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent);flex:none}
 @media (min-width:960px){
   html,body{overflow:hidden}
-  .app{height:100%;grid-template-columns:minmax(0,1fr) 430px;gap:22px;padding:18px 22px}
+  .app{height:100%;grid-template-columns:minmax(0,1fr) 500px;gap:22px;padding:18px 22px}
   .console{min-height:0}
   .bezel{flex:1;height:auto;min-height:0}
   .side{overflow-y:auto;min-height:0;padding:0 6px 18px 0}
@@ -135,6 +137,10 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
   .mapbtns{right:20px;top:20px}
   .mapbtns button{font-size:13px;padding:5px 7px}
 }
+/* Reading text in a book face; the pixel face stays for titles, labels, buttons and times. */
+.top p,.note,.now .status,.now blockquote,.entry p,.owl p,.panel p,.panel li,.place-card p,.ms p,.about,.veil{font-family:var(--read);line-height:1.55}
+.now blockquote,.entry p,.owl p,.panel p,.panel li,.ms p{font-size:17px}
+.now blockquote .t,.panel .cash,.veil small{font-family:var(--pixel)}
 @media (prefers-reduced-motion: reduce){ .caret{animation:none} }
 </style>
 </head>

@@ -77,14 +77,16 @@ Same A (`mind/soul.md`) and B (`HEGEL_SOUL_FILE=mind/soul-bildung.md`), plain Qw
 
 **Result (5d64613, blind; Claude re-joined key and scores, same numbers):** Karl commitments A 2.00 / B 2.83, argument 2.00 / 2.17: both Karl gates pass, and the gain replicates T4c (+1.0). Controls, 20 per arm: commitments 2.90 / 2.85, fails by one rating point in 40 texts; argument 2.75 / 2.80, passes. Fare 3.10 / 3.00, columns 2.70 / 2.70. Default unchanged.
 
-### T4e · Codex · the education paragraph on fresh controls · RUNNING
-Status: blind packet complete from e885f43; awaiting all 48 committed v2 scores and SHA256. Both exits 0, all 48 usable nonempty JSON calls, no retries/cuts; 42 protected files, launch/protocol/archive hashes and all 100 raw-output files verified. All 35 texts over 200 words and one at 2,915 characters retained unchanged. A/B time 460.678871/449.972687s. Exact suite 893 tests in 701.846s, OK (19 skipped), 273 archived files match Git/snapshot. Packet/report: `mind/results/persona-fresh-controls-20261012`. New key and actual offers private; T4e margin gates pending, prior failures unchanged, no default change.
+### T4e · Codex · the education paragraph on fresh controls · DONE: PASS
+Status: PASS. All 48 score rows committed at 1075ca2; unchanged CSV SHA256 committed at 1ad876c. Complete pre-key verification receipt saved before key/actual-offers release. Aggregate commitments A/B 2.625000/2.750000, argument 2.750000/2.750000: both B >= A-0.25 gates pass. Each case and Claude's pre-key directions teaching-domain note preserved in mind/results/persona-fresh-controls-20261012/RESULTS.md. No exclusions or pooling; all 35 texts over 200 words and the 2,915-character text retained. Completed generation source e885f43: 893 tests OK (19 skipped); combined main073 runtime 7f2dd04: 895 tests in 694.120s OK (19 skipped), both exits 0, 281 archive files verified. No default change; Claude owns adoption/closure and main merge. T2 first-step check remains due after 18:30 UTC.
 Two runs agree that the paragraph lifts Karl (+1.0, +0.83, 16 letters per arm). Both failed a control gate of "not lower" with no margin, which with one rater and 5 to 20 texts per arm fails about half the time even when the paragraph changes nothing. This run fixes the gate, so it must use situations the paragraph has not yet been tested on.
 - Same A and B as T4d, plain Qwen, normal writing path, shelf as on main, interleaved, all seeds new.
 - Controls only: the v2 long situations arch, child's map and bowls, 8 seeds per arm each, so 24 texts per arm. No Karl letters.
 - One blind packet of 48 for Claude, v2 guide.
 
 **Passes when (declared now, before running):** over the 24 control texts per arm, B's commitments and argument are each no more than 0.25 below A's. The margin is set after two zero-margin failures, so it counts only on these fresh situations. If B is more than 0.25 lower on either, the paragraph is closed for good. On a pass, Claude puts the paragraph into `mind/soul.md`.
+
+**Note before the key (Claude, after scoring blind):** child's map (case `directions`) is a lesson Ramesh gives a child, so it is not free of teaching, which the paragraph is about. I missed that when I chose it. The declared gate stands as written, over all 24 texts per arm. Each case's means will be reported, and a shift in `directions` will be read as in the paragraph's own domain, not as spillover.
 
 ### T5 · Claude · score, merge, scoreboard · RUNNING
 Score every blind packet within the hour it lands, commit the scores with their hash, merge whatever passes, and keep `pc/SCOREBOARD.md` current.
