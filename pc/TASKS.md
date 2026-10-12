@@ -67,7 +67,7 @@ The persona states his convictions on history, India and the state, and those si
 **Result (a2f1c16, blind):** Karl commitments A 2.00 / B 3.00, argument 2.30 / 2.60, the largest gain so far. Fare control: commitments 3.40 / 3.00, argument 2.80 / 2.80. The declared rule said the control must not be lower, so it fails and the default stays. The control drop is two letters of five per arm, where two A letters used his doctrine of the sign of property; too few to tell leakage from chance.
 
 ### T4d · Codex · confirm the education paragraph on more letters · RUNNING
-Status: preparing 52 fresh-seed outputs with columns retained as an essay, per a22f693. Focused 20 tests OK; full suite and model evidence pending. Protocol in `PERSONA-CONFIRMATION-TRIAL-20261012.md`; defaults unchanged.
+Status: generation and blind packet complete from d41480b; awaiting all 52 committed v2 scores and SHA256. Both exits 0; 52 usable nonempty JSON calls, no retries/cuts, all 41 protected files and launch hashes verified. All 18 over-length texts retained. A/B summed time 490.997511/494.288135s. Full suite 887 tests in 705.296s, OK (19 skipped), all 257 archived files matched Git/snapshot. Packet/report: `mind/results/persona-confirmation-20261012`. Key separate; declared Karl and aggregate-control gates pending; defaults unchanged.
 Same A (`mind/soul.md`) and B (`HEGEL_SOUL_FILE=mind/soul-bildung.md`), plain Qwen, normal writing path, shelf as on main, interleaved. All seeds new, none from T4c.
 - Karl case: 6 seeds per arm (replication).
 - Controls: the fare case (letter) and the v2 essay case `columns`, 10 seeds per arm each, so 20 control texts per arm. The control need not be a letter; v2 has only two letter cases.
