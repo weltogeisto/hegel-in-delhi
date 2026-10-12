@@ -61,6 +61,8 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
 :focus-visible{outline:3px solid #ffd84d;outline-offset:2px}
 .timebar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .timebar input[type=range]{flex:1;min-width:140px;accent-color:var(--accent)}
+#strip{display:block;width:100%;height:30px;border-radius:4px;cursor:pointer;image-rendering:pixelated;background:var(--bezel)}
+#strip[hidden]{display:none}
 .timebar output{min-width:5.5em;font-size:18px}
 .note{font-size:15px;color:var(--shell-muted);margin:0}
 .attrib{font-size:13px}.attrib a{color:inherit}
@@ -166,6 +168,7 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
         <button id="btnInside" type="button" aria-pressed="true" hidden>Outside</button>
       </div>
     </div>
+    <canvas id="strip" height="30" aria-label="His day at a glance: tap to go to a moment" hidden></canvas>
     <div class="timebar">
       <button id="btnLive" type="button" aria-pressed="true">Live</button>
       <button id="btnPlay" type="button" aria-pressed="false">Play the day</button>
@@ -980,26 +983,41 @@ function vignette(W, H){
 
 /* ── life on the map: traffic on the main roads, runners in Lodhi Gardens, Sunil's chai, whoever he is talking to ── */
 let MAPHITS = [], TRAFFIC = null;
-function roadPath(a, b){                       // breadth-first over road tiles only, from one edge of the map to another
+const MAIN = /^(primary|secondary|tertiary|roundabout)/;
+let RDIST = null;
+function roadDist(){                            // for every road tile, how many tiles to the nearest edge of the carriageway
+  const d = new Uint8Array(GW*GH), qq = [];
+  for (let k=0;k<GW*GH;k++){ if (grid[k] === G.ROAD) d[k] = 255; else qq.push(k); }
+  for (let h=0; h<qq.length; h++){ const k = qq[h], x = k % GW, y = (k/GW)|0;
+    for (const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){ const nx = x+dx, ny = y+dy; if (!inb(nx,ny)) continue; const n = I(nx,ny); if (d[n] > d[k] + 1){ d[n] = d[k] + 1; qq.push(n); } } }
+  return d;
+}
+const isMain = k => grid[k] === G.ROAD && rid[k] >= 0 && MAIN.test(ROADS[rid[k]].cls || '');
+function roadPath(a, b){                       // the cheapest way along the middle of the main roads
+  if (!RDIST) RDIST = roadDist();
   const start = nearRoad(a), goal = nearRoad(b); if (start < 0 || goal < 0) return null;
-  const prev = new Int32Array(GW*GH).fill(-1), qq = [start]; prev[start] = start;
-  for (let h=0; h<qq.length; h++){ const k = qq[h]; if (k === goal) break; const x = k % GW, y = (k/GW)|0;
-    for (const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){ const nx = x+dx, ny = y+dy; if (!inb(nx,ny)) continue; const n = I(nx,ny);
-      if (prev[n] < 0 && grid[n] === G.ROAD && rid[n] >= 0 && /^(primary|secondary|tertiary|roundabout)/.test(ROADS[rid[n]].cls || '')){ prev[n] = k; qq.push(n); } } }
-  if (prev[goal] < 0) return null;
-  const path = []; for (let k = goal; ; k = prev[k]){ path.push([k % GW, (k/GW)|0]); if (k === start) break; }
+  const cost = new Float64Array(GW*GH).fill(Infinity), prev = new Int32Array(GW*GH).fill(-1), heap = [[0,start]]; cost[start] = 0;
+  const push = it => { heap.push(it); let i = heap.length - 1; while (i){ const pa = (i-1) >> 1; if (heap[pa][0] <= heap[i][0]) break; [heap[pa],heap[i]] = [heap[i],heap[pa]]; i = pa; } };
+  const pop = () => { const top = heap[0], last = heap.pop(); if (heap.length){ heap[0] = last; let i = 0; for (;;){ const l = 2*i+1, r2 = l+1; let m2 = i; if (l < heap.length && heap[l][0] < heap[m2][0]) m2 = l; if (r2 < heap.length && heap[r2][0] < heap[m2][0]) m2 = r2; if (m2 === i) break; [heap[m2],heap[i]] = [heap[i],heap[m2]]; i = m2; } } return top; };
+  while (heap.length){ const [c,k] = pop(); if (c > cost[k]) continue; if (k === goal) break; const x = k % GW, y = (k/GW)|0;
+    for (const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){ const nx = x+dx, ny = y+dy; if (!inb(nx,ny)) continue; const n = I(nx,ny); if (!isMain(n)) continue;
+      const nc = c + 1 + 4/Math.max(1, RDIST[n]); if (nc < cost[n]){ cost[n] = nc; prev[n] = k; push([nc, n]); } } }
+  if (prev[goal] < 0 && goal !== start) return null;
+  const path = []; for (let k = goal; ; k = prev[k]){ path.push([k % GW, (k/GW)|0, RDIST[k]]); if (k === start) break; }
   return path.reverse();
 }
 function nearRoad(p){ let best = -1, bd = 1e9; for (let dy=-8; dy<=8; dy++) for (let dx=-8; dx<=8; dx++){ const x = p.x+dx, y = p.y+dy; if (!inb(x,y)) continue; const k = I(x,y);
-  if (grid[k] === G.ROAD && rid[k] >= 0 && /^(primary|secondary|tertiary)/.test(ROADS[rid[k]].cls || '')){ const d = dx*dx + dy*dy; if (d < bd){ bd = d; best = k; } } } return best; }
+  if (isMain(k)){ const d = dx*dx + dy*dy; if (d < bd){ bd = d; best = k; } } } return best; }
 function buildTraffic(){
   TRAFFIC = []; const sg = SIGNS || [], spot = id => PLACES[id] && PLACES[id].spot ? {x:PLACES[id].spot[0], y:PLACES[id].spot[1]} : null;
   const pairs = []; for (let i=0;i<sg.length;i++) for (let j=i+1;j<sg.length;j++) pairs.push([sg[i], sg[j]]);
   [['khan','lodhi'],['home','gym'],['safdarjung','khan'],['iic','home'],['gandhi','lodhi']].forEach(([a,b]) => { if (spot(a) && spot(b)) pairs.push([spot(a), spot(b)]); });
   for (const [from, to] of pairs){ const p = roadPath(from, to); if (!p || p.length < 30) continue;
-    const sm = p.map((_,k) => { let x = 0, y = 0, n = 0; for (let d=-4; d<=4; d++){ const q2 = p[Math.max(0, Math.min(p.length-1, k+d))]; x += q2[0]; y += q2[1]; n++; } return [x/n, y/n]; });   // smoothed, so cars glide along the diagonal avenues
+    const sm = p.map((pt,k) => { let x = 0, y = 0, n = 0; for (let d=-2; d<=2; d++){ const q2 = p[Math.max(0, Math.min(p.length-1, k+d))]; x += q2[0]; y += q2[1]; n++; }
+      x /= n; y /= n; return isMain(I(Math.round(x), Math.round(y))) ? [x, y, pt[2]] : pt; });             // smoothed, but never off the road
     TRAFFIC.push(sm); }
 }
+let VCOLLECT = null;   // a check can collect where vehicles would be drawn
 const CARS = ['#f4f4f0','#c9ccd3','#b3262f','#2f4f6f','#1d1d26','#e8e0c8','#8a9aa8'];
 function vehicles(now, light, p, X, Y, lightsOnly){
   if (!TRAFFIC) buildTraffic();
@@ -1012,10 +1030,16 @@ function vehicles(now, light, p, X, Y, lightsOnly){
       const s = Math.min(L - 1.001, f*(L-1)), i = Math.floor(s), fr = s - i;
       const A = path[back ? L-1-i : i], B = path[back ? Math.max(0, L-2-i) : Math.min(L-1, i+1)], C = path[back ? Math.max(0, L-4-i) : Math.min(L-1, i+3)];
       let dx = C[0]-A[0], dy = C[1]-A[1]; const len = Math.hypot(dx,dy) || 1; dx /= len; dy /= len;
-      const x = (A[0] + (B[0]-A[0])*fr + .5)*U, y = (A[1] + (B[1]-A[1])*fr + .5)*U, lane = v % 4 < 2 ? 8 : 15;
-      const lx = x + dy*lane, ly = y - dx*lane, horiz = Math.abs(dx) >= Math.abs(dy), fx = horiz ? Math.sign(dx) : 0, fy = horiz ? 0 : Math.sign(dy);   // India drives on the left
+      const x = (A[0] + (B[0]-A[0])*fr + .5)*U, y = (A[1] + (B[1]-A[1])*fr + .5)*U, room = Math.max(0, (Math.min(A[2] || 1, B[2] || 1) - .5)*U - (kind === 'bus' ? 5 : 4.5)), lane = Math.min(v % 4 < 2 ? 6 : 13, room);
+      const horiz = Math.abs(dx) >= Math.abs(dy), fx = horiz ? Math.sign(dx) : 0, fy = horiz ? 0 : Math.sign(dy);   // India drives on the left
       const w = kind === 'bus' ? 19 : kind === 'auto' ? 9 : 12, h = kind === 'bus' ? 8 : kind === 'auto' ? 6 : 7, vw = horiz ? w : h, vh = horiz ? h : w;
-      const px = Math.round((lx - vw/2)*au), py = Math.round((ly - vh/2)*au), R = (a,b,c,d,col) => { ctx.fillStyle = col; ctx.fillRect(X(px+a), Y(py+b), c*p, d*p); };
+      const onRoad = (qx,qy) => [[qx,qy],[qx+vw-1,qy],[qx,qy+vh-1],[qx+vw-1,qy+vh-1]].every(([cx,cy]) => grid[I(Math.floor(cx/T), Math.floor(cy/T))] === G.ROAD);
+      let px = 0, py = 0, ok = false;
+      for (const l of [lane, lane*.6, lane*.3, 0]){                                                            // keep to the left, closer to the middle where the road is narrow
+        px = Math.round((x + dy*l - vw/2)*au); py = Math.round((y - dx*l - vh/2)*au); if (onRoad(px,py)){ ok = true; break; } }
+      if (!ok) continue;
+      const R = (a,b,c,d,col) => { ctx.fillStyle = col; ctx.fillRect(X(px+a), Y(py+b), c*p, d*p); };
+      if (VCOLLECT){ VCOLLECT.push([px, py, vw, vh]); continue; }
       const front = (depth, across) => horiz ? [fx > 0 ? vw-depth : 0, across, depth, vh-2*across] : [across, fy > 0 ? vh-depth : 0, vw-2*across, depth];
       const rear = (depth, across) => horiz ? [fx > 0 ? 0 : vw-depth, across, depth, vh-2*across] : [across, fy > 0 ? 0 : vh-depth, vw-2*across, depth];
       if (lightsOnly){ if (!night) continue;
@@ -1072,7 +1096,7 @@ const put = (spr,fx,fy,who) => { q.drawImage(spr, Math.round(fx) - 12, Math.roun
 
 /* what he is doing, read from the step's words: "At home. Breakfast, then the Constitution of India, then his own notebook." */
 const ACTS = [[/asleep|sleep/,'sleep'], [/desk|writ|page for|notebook|letter to|manuscript/,'write'], [/breakfast|lunch|dinner|eating|meal/,'eat'],
-  [/rest|nap|doz/,'rest'], [/bridge|cards|whist/,'cards'], [/read|paper|constitution|ambedkar|book|librar|stud/,'read'], [/file|directorate|saxena|official|talk|guest/,'talk']];
+  [/rest|nap|doz/,'rest'], [/bridge|cards|whist/,'cards'], [/read|paper|constitution|ambedkar|book|librar|stud/,'read'], [/file|directorate|saxena|official|talk/,'talk']];
 const ROOM_ACT = {home:'read', gym:'cards', iic:'read', estates:'talk'};
 function actsOf(seg){
   if (seg.asleep) return ['sleep'];
@@ -1439,6 +1463,26 @@ const HOME_ROOM = {
     if (night > .45){ gecko(42,13,now); if (act === 'write' || (act !== 'sleep' && night > .4)) moths(51,29,now); if (act === 'read') moths(66,55,now); }
     if (night > .4){ P(135,69,5,3,'#3f6b3f'); P(136,70,3,1,'#2f5a2f'); P(137,70,1,1,'#ff8a3a'); smoke(137,68,now); }   // a mosquito coil
     if (night < .3) squirrel(now);
+    // the room keeps what his days leave in it: what he bought, what he has written, the bandhgala once it is his
+    const bought = re => ENTRIES.some(e => e.k === 'bag' && e.m <= m && re.test(e.item || ''));
+    if (bought(/notebook|fountain pen/)){ P(33,38,8,5,'#6f2a2a'); P(33,38,8,1,'#8a3a3a'); P(42,39,5,1,INK); P(46,39,1,1,'#c9a24a'); }
+    if (bought(/ambedkar|annihilation/)){ P(93,68,6,2,'#f3efe4'); P(93,68,6,1,'#2f4f8f'); }
+    if (bought(/hindi primer/)) { P(92,66,6,2,'#e07a2a'); }
+    if (bought(/assam tea|tea,/)){ P(41,76,4,5,'#3f6b3f'); P(41,76,4,1,'#c9a24a'); }
+    if (bought(/glucose biscuit/)){ P(13,37,5,3,'#e8c547'); P(13,38,5,1,'#c94a2a'); }
+    if (bought(/mobile phone/)){ P(44,37,3,5,'#1d1d26'); P(45,38,1,3,'#3a6382'); }
+    if (bought(/umbrella/)){ P(46,104,2,6,'#1d1d26'); P(45,103,4,2,'#2b2b33'); P(47,110,1,1,'#c9a24a'); }
+    if (bought(/wine/)){ P(27,74,2,5,'#5a1a2a'); P(27,73,2,1,'#c9a24a'); }
+    if (bought(/candle/)){ P(44,74,1,3,'#f6f2e6'); if (night > .4) P(44,73,1,1,'#ffd27a'); }
+    if (bought(/mosquito repellent/)){ P(126,44,3,3,'#e6eaee'); if (night > .3) P(127,45,1,1,'#3fdf6a'); }
+    if (bought(/playing cards/)){ P(96,72,3,2,'#ffffff'); P(96,72,1,1,'#b3262f'); }
+    if (bought(/ink/)){ P(37,32,3,2,'#2f4f8f'); }
+    const written = ENTRIES.filter(e => e.k === 'writing' && e.m <= m).reduce((a,e) => a + (e.words || 0), 0) + ((D && D.state && D.state.works) || []).reduce((a,w) => a + (w.words || 0), 0) - ENTRIES.filter(e => e.k === 'writing').reduce((a,e) => a + (e.words || 0), 0);
+    const sheets = Math.max(0, Math.min(12, Math.ceil(Math.max(0, written)/350)));
+    for (let i=0;i<sheets;i++) P(30, 36 - i, 8, 1, i % 2 ? '#f6f2e6' : '#e6e0d0');                       // his manuscript, a sheet for every page or so
+    const files = ENTRIES.filter(e => e.k === 'file' && e.m <= m).length; for (let i=0;i<Math.min(6, files);i++) P(16, 30 - i, 12, 1, i % 2 ? '#e3c98a' : '#d4b878');   // the file thickens
+    const wd = ((D && D.state && D.state.wardrobe) || []).find(w => /bandhgala/i.test(w.item || '')), hasIt = wd && !/at masterji|ordered|ready/i.test(wd.status || '');
+    if (hasIt){ P(172,6,6,13,'#4a4e5e'); P(173,5,4,1,'#6b4a33'); P(174,7,2,10,'#30333f'); }
     if (act !== 'sleep') this.quilt(false);
     if (act === 'sleep'){ put(person('hegel','lie','nightshirt'),159,57, 'hegel'); this.quilt(true); P(155,44,14,1,'#f4f1e8'); }
     else if (act === 'rest'){ put(person('hegel','lie',o),159,57, 'hegel'); const lg = OUTFITS[o] ? OUTFITS[o].p : '#2b2f45'; P(154,49,4,9,lg); P(160,49,4,9,lg); P(154,58,4,2,'#1d1d26'); P(160,58,4,2,'#1d1d26'); P(155,44,8,5,'#7a2a2a'); P(155,44,8,1,'#a04040'); }
@@ -1863,7 +1907,52 @@ function typeThought(text){
   const step = (t) => { i = Math.min(body.length, Math.floor((t - start)/18)); nowThought.innerHTML = prefix + esc(body.slice(0,i)) + (i < body.length ? '<span class="caret"></span>' : ''); if (i < body.length) typer = requestAnimationFrame(step); };
   typer = requestAnimationFrame(step);
 }
+/* ───────── his day at a glance: a strip of what he does, hour by hour ───────── */
+const strip = document.getElementById('strip'), sctx = strip.getContext('2d');
+const STRIPCOL = {sleep:'#2a2c4a', read:'#d8c7a0', write:'#e8dcc0', eat:'#e6b77a', rest:'#c9b8d8', talk:'#cfd8c4', cards:'#a94e37', shop:'#f2b134', walk:'#e2457f', stroll:'#7fb257', stand:'#c9a46a'};
+const ICONS = {           // 7 x 7 glyphs
+  sleep:['..###..','.##....','##.....','##.....','##.....','.##....','..###..'], read:['.......','##.#.##','#.###.#','#.#.#.#','#.#.#.#','##.#.##','.......'],
+  write:['......#','.....#.','....#..','...#...','..#....','.#.....','###....'], eat:['.#.#.#.','.#.#.#.','..###..','...#...','.#####.','#.....#','.#####.'],
+  rest:['.......','##.....','#######','#######','#.....#','.......','.......'], talk:['.#####.','#.....#','#.#.#.#','#.....#','.####..','.#.....','.......'],
+  cards:['###.###','#.#.#.#','###.###','.......','###.###','#.#.#.#','###.###'], shop:['#######','#.#.#.#','.......','##...##','##.#.##','##.#.##','##.#.##'],
+  walk:['..##...','..##...','.####..','#.##.#.','..##...','.#..#..','#....#.'], stroll:['..###..','.#####.','#######','.#####.','...#...','...#...','..###..'], stand:['..##...','..##...','.####..','#.##.#.','..##...','..##...','.#..#..']};
+let stripKey = '';
+function stripParts(){
+  const parts = [];
+  for (const seg of DAY){
+    if (seg.mode === 'walk'){ parts.push({s:seg.s, e:seg.e, k:'walk', seg}); continue; }
+    if (seg.mode === 'stroll'){ const shop = seg.at === 'khan'; parts.push({s:seg.s, e:seg.e, k: shop ? 'shop' : 'stroll', seg}); continue; }
+    if (seg.mode === 'stand'){ parts.push({s:seg.s, e:seg.e, k:'stand', seg}); continue; }
+    const acts = actsOf(seg), n = acts.length;
+    acts.forEach((a,i) => parts.push({s: seg.s + (seg.e - seg.s)*i/n, e: seg.s + (seg.e - seg.s)*(i+1)/n, k: STRIPCOL[a] ? a : 'read', seg}));
+  }
+  return parts;
+}
+function drawStrip(m){
+  if (!POLISH || !D){ strip.hidden = true; return; } strip.hidden = false;
+  const W = Math.round(strip.clientWidth*dpr), H = Math.round(30*dpr); if (!W) return;
+  const key = W + '|' + Math.floor(m) + '|' + daySig.length + '|' + D.date; if (key === stripKey) return; stripKey = key;
+  if (strip.width !== W){ strip.width = W; } strip.height = H; sctx.imageSmoothingEnabled = false;
+  sctx.fillStyle = '#2c2d3d'; sctx.fillRect(0,0,W,H);
+  const x = t => Math.round(t/1440*W), u = Math.max(1, Math.round(2*dpr)), known = DAY.length ? DAY[DAY.length-1].e : 0;
+  for (const pt of stripParts()){
+    const x0 = x(pt.s), x1 = Math.max(x0 + 1, x(pt.e)), past = pt.s <= m;
+    sctx.fillStyle = STRIPCOL[pt.k] || '#888'; sctx.globalAlpha = past ? 1 : .45; sctx.fillRect(x0, 4*dpr, x1 - x0, H - 8*dpr);
+    sctx.fillStyle = 'rgba(0,0,0,.25)'; sctx.fillRect(x1 - 1, 4*dpr, 1, H - 8*dpr);
+    const g = ICONS[pt.k]; if (g && x1 - x0 > 9*u){ const gx = Math.round((x0 + x1)/2 - 3.5*u), gy = Math.round(H/2 - 3.5*u);
+      sctx.fillStyle = pt.k === 'sleep' ? '#ffd84d' : '#1d2340'; g.forEach((row,ry) => [...row].forEach((ch,rx) => { if (ch === '#') sctx.fillRect(gx + rx*u, gy + ry*u, u, u); })); }
+  }
+  sctx.globalAlpha = 1;
+  if (dayMode === 'live' && known < 1440){ sctx.fillStyle = 'rgba(255,255,255,.06)'; sctx.fillRect(x(known), 4*dpr, W - x(known), H - 8*dpr); }
+  for (let h=3; h<24; h+=3){ sctx.fillStyle = 'rgba(255,255,255,.35)'; sctx.fillRect(x(h*60), H - 4*dpr, 1, 3*dpr); }
+  const cx = x(m); sctx.fillStyle = '#ffd84d'; sctx.fillRect(cx - u, 0, 2*u, H); sctx.fillStyle = '#1d2340'; sctx.fillRect(cx - u, 0, 2*u, u);
+}
+strip.addEventListener('click', e => { const b = strip.getBoundingClientRect(), t = Math.max(0, Math.min(1439, (e.clientX - b.left)/b.width*1440));
+  setLive(false); setPlay(false); simMin = Math.min(t, maxMinute()); lastKey = ''; stripKey = ''; });
+strip.addEventListener('mousemove', e => { const b = strip.getBoundingClientRect(), t = (e.clientX - b.left)/b.width*1440, pt = stripParts().find(q2 => t >= q2.s && t < q2.e);
+  strip.title = pt ? `${fmt(pt.s)}–${fmt(pt.e)} ${pt.seg.now || placeOf(pt.seg.at || pt.seg.b).name}` : ''; });
 function updateDom(st, m){
+  drawStrip(m);
   const minute = Math.floor(m);
   $('clock').textContent = fmt(m);
   if (!scrubbing) scrub.value = minute;
@@ -1959,9 +2048,12 @@ function frame(now){
 }
 window.__hegel = {MISSING, get routes(){ return DAY.filter(s => s.route).map(s => ({from:s.from, len:s.route.length})); },
   routeLen: (a,b) => route(a,b).length, mode: () => dayMode, day: () => D,
-  setPolish: v => { POLISH = !!v; if (GW) paintMap(); lastKey = ''; }, polish: () => POLISH, inside: () => inT > .5 ? inRoom : null,
+  setPolish: v => { POLISH = !!v; if (GW) paintMap(); lastKey = ''; stripKey = ''; }, polish: () => POLISH, inside: () => inT > .5 ? inRoom : null,
   force: f => { FORCE = f ? Object.assign({mode:'inside', s:0, e:1440}, f) : null; lastKey = ''; },
   traffic: () => (TRAFFIC || []).map(t => t.length),
+  offroadCheck: () => { let n = 0, off = 0, slots = 0; (TRAFFIC || []).forEach(() => slots += 13*240); for (let t=0; t<60000; t+=250){ VCOLLECT = []; vehicles(t, [0,0,0,0], 1, v => v, v => v, false);
+      for (const [x,y,w,h] of VCOLLECT){ n++; if ([[x,y],[x+w-1,y],[x,y+h-1],[x+w-1,y+h-1]].some(([cx,cy]) => grid[I(Math.floor(cx/T), Math.floor(cy/T))] !== G.ROAD)) off++; } }
+    VCOLLECT = null; return {drawn:n, cornerOffRoad:off, hiddenShare: +(1 - n/slots).toFixed(3)}; },
   say: who => { SAY = who ? {who, place: inT > .5 ? 'room' : 'map', until: performance.now() + 25000} : null; },
   setMinute: v => { setLive(false); simMin = v; lastKey = ''; }, setTown: v => { town = v; }, setZoom: v => { zoom = v; },
   center: (x,y) => { follow = false; cam.x = (x+.5)*T; cam.y = (y+.5)*T; }, get grid(){ return {w:GW, h:GH, tile:T, px:[MW,MH], buildMs:BUILD_MS}; }};
