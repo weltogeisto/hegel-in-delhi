@@ -23,6 +23,8 @@ v2 rows: mean of Claude and Grok, both blind (`mind/results/blind-review-v2/`). 
 
 | Date | Set | n | Argument | Commitments | Voice |
 |---|---|---:|---:|---:|---:|
+| 12 Oct | T4d, letter to Karl, education paragraph B / A (fresh seeds) | 6 / 6 | 2.17 / 2.00 | 2.83 / 2.00 | 3.00 / 2.83 |
+| 12 Oct | T4d, controls fare + columns, B / A | 20 / 20 | 2.80 / 2.75 | 2.85 / 2.90 | 2.95 / 2.85 |
 | 12 Oct | T4c, letter to Karl, persona with his conviction on education (B) | 10 | 2.60 | 3.00 | – |
 | 12 Oct | T4c, letter to Karl, persona as on main (A) | 10 | 2.30 | 2.00 | – |
 | 12 Oct | T4c, fare letter (control), B / A | 5 / 5 | 2.80 / 2.80 | 3.00 / 3.40 | – |
