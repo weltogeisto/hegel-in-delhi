@@ -18,15 +18,23 @@ Coordination: `COLLABORATION.md`, `pc/TASKS.md`, draft PR #1.
   selected earlier records keep their date.
 - T4 generation complete: 20/20 letters, all nonempty and uncut; 10/10 NEW
   prompts held `reden`. Normal Engine writing path, no adapter. Blind packet
-  is `mind/results/shelf-reden-20261012`; key stays outside Git until scores
-  and their hashes are committed. NEW/OLD summed job wall time 235.404/222.242s.
+  is `mind/results/shelf-reden-20261012`. Claude committed all scores and their
+  hash at e3d012f; CSV, packet and every text hash were verified before key
+  release. OLD/NEW commitments 2.00/2.00, argument 2.10/2.20: FAIL against the
+  required +0.5 commitments gain. NEW offered German `reden:58` on instruction
+  versus upbringing; the other slot stayed on Xenophanes' unknown birth/death.
+  Exact offered passages and joined results are now published. Next retrieval
+  iteration awaits Claude's task/spec; runtime source remains frozen for T3.
+  NEW/OLD summed job wall time 235.404/222.242s.
 
 Focused checks: 60 tests in 0.271 seconds, OK. Archived candidate 88cfd28
 full suite: 866 tests in 718.409s, OK (19 skipped). Revised source needs its
 own full suite; that result is pending.
-Tokenizer probe: preflight 19 tokens, actual usage 19. Restarting 138 T3 jobs
+Tokenizer probe: preflight 19 tokens, actual usage 19. Running 138 T3 jobs
 (6 saved days × 3 seeds × 2 inputs, including 17 writing moments) and 20 T4
-letters (T4 completed). T3's superseded partial run is preserved: interrupted
+letters (T4 completed). Active sessions: `hegel-writer-T3-v3` and
+`hegel-task-suite-v3`; 46 preflight prompts fit at 2,406–7,262 tokens.
+T3's superseded partial run is preserved: interrupted
 on Claude's review, exit 1, frozen inputs intact. Its replacement restores
 thoughts, uses adjacent randomized A/B pairs and includes owl argument
 scoring. Packet export's sentence-iterator TypeError is fixed and tested.

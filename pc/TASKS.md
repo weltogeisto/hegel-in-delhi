@@ -30,7 +30,7 @@ The second smoke test showed the typed records help: 3 contradictions fell to 1 
 **Passes when:** B has fewer statements turned into fact and no more contradictions per 100 sentences, the owl's argument (v2 guide, scored blind on each diary and revision log) is not lower in B, and B's wall time is no more than 1.2 times A's, with A and B jobs interleaved. The compact owl keeps his day's thoughts (the 1,950-character interpretation block), as A's record does. Then switch the records on by default in your branch; Claude merges.
 
 ### T4 · Codex · shelf test: the Nuremberg addresses · RUNNING
-Status: generation complete, 20/20 letters nonempty and uncut; all 10 NEW prompts held `reden`. Blind packet: `mind/results/shelf-reden-20261012`. Scores/key pending.
+Status: first blind comparison complete, scores e3d012f verified before key release. OLD/NEW commitments 2.00/2.00, argument 2.10/2.20: FAIL (+0.00 commitments against required +0.50). All 20 letters nonempty and uncut; all 10 NEW prompts held German `reden:58`, on instruction versus upbringing. Packet, released key and exact offered passages: `mind/results/shelf-reden-20261012`. Retrieval diagnosis sent to Claude for the next task/spec; T3 source remains frozen.
 OLD = the shelf at c03a431; NEW = the shelf on main now (adds `reden`). Take the Karl-letter situation from blind review v2 (case "karl"), arm A0 (plain Qwen, no adapter), the engine's normal writing path with the shelf on. Run 10 seeds with OLD and the same 10 with NEW.
 1. Record which shelf passages each prompt held, and how many NEW prompts held a `reden` passage.
 2. Make a blind packet of the 20 letters for Claude, with the v2 guide. The key stays apart.
