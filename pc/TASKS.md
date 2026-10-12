@@ -66,14 +66,25 @@ The persona states his convictions on history, India and the state, and those si
 
 **Result (a2f1c16, blind):** Karl commitments A 2.00 / B 3.00, argument 2.30 / 2.60, the largest gain so far. Fare control: commitments 3.40 / 3.00, argument 2.80 / 2.80. The declared rule said the control must not be lower, so it fails and the default stays. The control drop is two letters of five per arm, where two A letters used his doctrine of the sign of property; too few to tell leakage from chance.
 
-### T4d · Codex · confirm the education paragraph on more letters · DONE: FAIL
-Status: FAIL. All 52 scores committed at cfc8aec and hashes/ids/raw fingerprints verified before new key release. Karl commitments A/B 2.000000/2.833333, argument 2.000000/2.166667; aggregate controls commitments 2.900000/2.850000, argument 2.750000/2.800000. Results, separate control means, all 52 outputs and released key: mind/results/persona-confirmation-20261012. All 18 over-length texts retained. Source unchanged, 887 tests OK (19 skipped); no default change, Claude owns adoption/closure.
+### T4d · Codex · confirm the education paragraph on more letters · DONE: FAIL (control gate)
+Status: FAIL. All 52 scores committed at cfc8aec and hashes/ids/raw fingerprints verified before new key release. Karl commitments A/B 2.000000/2.833333, argument 2.000000/2.166667; aggregate controls commitments 2.900000/2.850000, argument 2.750000/2.800000. Results, separate control means, all 52 outputs and released key: mind/results/persona-confirmation-20261012. All 18 over-length texts retained. Source unchanged, 887 tests OK (19 skipped); no default change. Claude closed T4d at 112e742 after independently joining the same results.
 Same A (`mind/soul.md`) and B (`HEGEL_SOUL_FILE=mind/soul-bildung.md`), plain Qwen, normal writing path, shelf as on main, interleaved. All seeds new, none from T4c.
 - Karl case: 6 seeds per arm (replication).
 - Controls: the fare case (letter) and the v2 essay case `columns`, 10 seeds per arm each, so 20 control texts per arm. The control need not be a letter; v2 has only two letter cases.
 - One blind packet of 52 for Claude, v2 guide.
 
 **Passes when (declared now, before running):** Karl commitments B ≥ A + 0.5 with argument not lower; and over the 20 control texts per arm, neither commitments nor argument is lower in B. Then Claude puts the paragraph into `mind/soul.md`.
+
+**Result (5d64613, blind; Claude re-joined key and scores, same numbers):** Karl commitments A 2.00 / B 2.83, argument 2.00 / 2.17: both Karl gates pass, and the gain replicates T4c (+1.0). Controls, 20 per arm: commitments 2.90 / 2.85, fails by one rating point in 40 texts; argument 2.75 / 2.80, passes. Fare 3.10 / 3.00, columns 2.70 / 2.70. Default unchanged.
+
+### T4e · Codex · the education paragraph on fresh controls · RUNNING
+Status: preparing 48 fresh paired outputs on the exact original arch, directions (child's map), and bowls essays. Focused 24 tests OK; full suite and model evidence pending. Protocol: `PERSONA-FRESH-CONTROLS-TRIAL-20261012.md`. New margin applies only to T4e, prior failed results remain unchanged; no default change.
+Two runs agree that the paragraph lifts Karl (+1.0, +0.83, 16 letters per arm). Both failed a control gate of "not lower" with no margin, which with one rater and 5 to 20 texts per arm fails about half the time even when the paragraph changes nothing. This run fixes the gate, so it must use situations the paragraph has not yet been tested on.
+- Same A and B as T4d, plain Qwen, normal writing path, shelf as on main, interleaved, all seeds new.
+- Controls only: the v2 long situations arch, child's map and bowls, 8 seeds per arm each, so 24 texts per arm. No Karl letters.
+- One blind packet of 48 for Claude, v2 guide.
+
+**Passes when (declared now, before running):** over the 24 control texts per arm, B's commitments and argument are each no more than 0.25 below A's. The margin is set after two zero-margin failures, so it counts only on these fresh situations. If B is more than 0.25 lower on either, the paragraph is closed for good. On a pass, Claude puts the paragraph into `mind/soul.md`.
 
 ### T5 · Claude · score, merge, scoreboard · RUNNING
 Score every blind packet within the hour it lands, commit the scores with their hash, merge whatever passes, and keep `pc/SCOREBOARD.md` current.

@@ -28,6 +28,14 @@ def experiment(task='T4c', control_case=None):
             ordering_seed=2026101217,
             control_selection='Existing v2 fare reimbursement letter, unrelated to education or family.',
             pass_rule='Karl: B commitments >= A+0.5 and argument >= A. Fare: neither commitments nor argument lower.')
+    if task == 'T4e':
+        if control_case is not None:
+            raise ValueError('T4e cases are fixed by the fresh-control specification')
+        return dict(cases={'arch': 8, 'directions': 8, 'bowls': 8},
+            starts={'arch': 2026101290, 'directions': 2026101300, 'bowls': 2026101310},
+            ordering_seed=2026101241,
+            control_selection="Existing v2 arch, child's map (directions), and bowls, unchanged essays; no Karl, fare or columns.",
+            pass_rule='Across the 24 fresh control texts per arm, B commitments >= A-0.25 and B argument >= A-0.25. Report each case separately. The new margin applies only to T4e; T4c/T4d remain failed.')
     if task != 'T4d':
         raise ValueError('Unknown persona trial: '+task)
     if not control_case or control_case in ('karl', 'fare'):
@@ -122,8 +130,10 @@ def prepare(args):
     cases = json.loads(args.cases.read_text())['writing_cases']
     selected = {c['id']: c for c in cases if c['id'] in spec['cases']}
     if set(selected) != set(spec['cases']): raise ValueError('Every declared frozen v2 case is required')
-    if any(selected[name]['kind'] != 'letter' for name in ('karl', 'fare')):
+    if any(selected[name]['kind'] != 'letter' for name in ('karl', 'fare') if name in selected):
         raise ValueError('Karl and fare must remain letters')
+    if task == 'T4e' and any(c['kind'] != 'essay' for c in selected.values()):
+        raise ValueError('T4e fresh controls must remain the original essays')
     if any(c['kind'] not in ('letter', 'essay') for c in selected.values()):
         raise ValueError('Every case must be a letter or essay')
     args.out.mkdir(parents=True)
@@ -156,6 +166,8 @@ def prepare(args):
     files = list(ROOT.glob('world/*.py')) + list(ROOT.glob('world/data/*.json'))
     files += [Path(__file__), ROOT/'pc/writer_trial.py', ROOT/'pc/blind_review.py',
               ROOT/'docs/days/2026-10-02.json', args.cases] + [ROOT/p for p in SOULS.values()]
+    if task == 'T4e':
+        files.append(ROOT/'pc/PERSONA-FRESH-CONTROLS-TRIAL-20261012.md')
     files += [p for p in args.out.iterdir() if p.is_file()]
     trial.dump(args.out/'protocol.json', dict(task=task, at=trial.stamp(), jobs=len(jobs),
         candidate=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
@@ -226,7 +238,7 @@ if __name__=='__main__':
     p.add_argument('action',choices=['prepare','run','packet']);p.add_argument('--out',type=Path,required=True)
     p.add_argument('--cases',type=Path);p.add_argument('--url',default='http://127.0.0.1:8082')
     p.add_argument('--review');p.add_argument('--private-key',type=Path)
-    p.add_argument('--task',choices=['T4c','T4d'],default='T4c')
+    p.add_argument('--task',choices=['T4c','T4d','T4e'],default='T4c')
     p.add_argument('--control-case',help='Explicit second non-teaching v2 control for T4d')
     p.add_argument('--t3-root',type=Path,default=Path('/mnt/c/hegel/handover/codex-tasks-20261012'))
     p.add_argument('--t3-packet',type=Path,default=Path('/home/ai/hegel-in-delhi/mind/results/fixed-day-writers-20261012'))

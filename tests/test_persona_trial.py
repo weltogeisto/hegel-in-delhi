@@ -12,6 +12,50 @@ from pc import persona_trial, writer_trial
 
 
 class PersonaTrialTest(unittest.TestCase):
+    def test_fresh_controls_have_48_adjacent_outputs_without_old_persona_seeds(self):
+        jobs = persona_trial.paired_jobs('T4e')
+        self.assertEqual(48, len(jobs))
+        self.assertEqual(48, len({j['id'] for j in jobs}))
+        old = persona_trial.paired_jobs() + persona_trial.paired_jobs('T4d', 'columns')
+        self.assertFalse({j['seed'] for j in old} & {j['seed'] for j in jobs})
+        self.assertEqual({'arch': 16, 'directions': 16, 'bowls': 16},
+            {case: sum(j['case'] == case for j in jobs) for case in {j['case'] for j in jobs}})
+        for a, b in zip(jobs[::2], jobs[1::2]):
+            self.assertEqual((a['case'], a['seed']), (b['case'], b['seed']))
+            self.assertEqual({'A', 'B'}, {a['variant'], b['variant']})
+
+    def test_fresh_control_selection_cannot_be_overridden(self):
+        with self.assertRaisesRegex(ValueError, 'fixed by'):
+            persona_trial.paired_jobs('T4e', 'columns')
+
+    def test_fresh_controls_reject_missing_cases_and_changed_genres_before_creation(self):
+        with tempfile.TemporaryDirectory() as temp:
+            base = Path(temp); source = base/'cases.json'; out = base/'out'
+            cases = [dict(id='arch', kind='essay'), dict(id='directions', kind='essay')]
+            args = Namespace(task='T4e', cases=source, out=out)
+            source.write_text(json.dumps(dict(writing_cases=cases)))
+            with self.assertRaisesRegex(ValueError, 'Every declared'):
+                persona_trial.prepare(args)
+            self.assertFalse(out.exists())
+            cases.append(dict(id='bowls', kind='letter'))
+            source.write_text(json.dumps(dict(writing_cases=cases)))
+            with self.assertRaisesRegex(ValueError, 'original essays'):
+                persona_trial.prepare(args)
+            self.assertFalse(out.exists())
+
+    def test_changed_fresh_control_schedule_never_reaches_the_server(self):
+        with tempfile.TemporaryDirectory() as temp:
+            out = Path(temp); jobs = persona_trial.paired_jobs('T4e')
+            jobs[0]['case'] = 'karl'
+            (out/'T4e-jobs.json').write_text(json.dumps(jobs))
+            args = Namespace(task='T4e', out=out, t3_root=out, t3_packet=out)
+            with patch.object(persona_trial, 'require_t3_finished'), \
+                 patch.object(writer_trial, 'verify', return_value=dict(task='T4e', second_control=None)), \
+                 patch.object(writer_trial, 'api') as api:
+                with self.assertRaisesRegex(ValueError, 'predeclared paired'):
+                    persona_trial.run(args)
+            api.assert_not_called()
+
     def test_confirmation_has_52_adjacent_letters_with_no_reused_t4c_seed(self):
         jobs = persona_trial.paired_jobs('T4d', 'second-control')
         self.assertEqual(jobs, persona_trial.paired_jobs('T4d', 'second-control'))
@@ -148,7 +192,7 @@ class PersonaTrialTest(unittest.TestCase):
                 persona_trial.require_t3_finished(base,packet)
 
     def test_persona_packets_use_v2_guide_and_never_expose_assignments(self):
-        for task in ('T4c', 'T4d'):
+        for task in ('T4c', 'T4d', 'T4e'):
             with self.subTest(task=task):
                 self.check_packet(task)
 

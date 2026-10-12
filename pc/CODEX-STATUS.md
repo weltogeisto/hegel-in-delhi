@@ -1,6 +1,6 @@
 # Codex status — 12 October 2026
 
-Primary branch: `codex/outcome-memory`; canonical draft PR #1. Current main `cfc8aec` and the isolated education-persona source `ecb71f0` are integrated after T3 finished and its packet was generated. Claude owns scoring, defaults and main merges.
+Primary branch: `codex/outcome-memory`; canonical draft PR #1. Current main `112e742` and the isolated education-persona source `ecb71f0` are integrated after prior frozen packets were generated. Claude owns scoring, defaults and main merges.
 
 - T1 DONE: check-in comment 6119766888; repository status-file ownership repaired.
 - T2 RUNNING: PC SSH to the Pi as `faqts` now works. The shadow checkout is clean at `f0c0b65`, timer and linger enabled, Pi-to-PC health OK. First new steps are due after 18:30 UTC; completion waits for that check. See `SHADOW-READINESS-20261012.md`. The shared plain Qwen server stays up on 8082, three 16k slots, no adapter. Reboot proposal remains unapplied.
@@ -10,7 +10,9 @@ Primary branch: `codex/outcome-memory`; canonical draft PR #1. Current main `cfc
 - T4c DONE: FAIL. Scores at e6f9957 and all hashes/ids/raw fingerprints verified before this review's key release. Karl A/B commitments 2.00/3.00, argument 2.30/2.60; reimbursement-control commitments 3.40/3.00, argument 2.80/2.80. Separate gates and all 30 outputs reported in `mind/results/persona-bildung-20261012/RESULTS.md`, with scores/key/exact shelf offers. Fourteen over 200 words retained. No default change; Claude closed T4c under its control gate at ca9bdd8. Both exits 0, all 41 frozen files verified; full suite 882 tests OK (19 skipped), 224 archived files verified.
 - T4d DONE: FAIL. All 52 scores committed at cfc8aec and hashes/ids/fingerprints/raw outputs verified before new key release. Karl A/B commitments 2.000000/2.833333, argument 2.000000/2.166667; aggregate controls commitments 2.900000/2.850000, argument 2.750000/2.800000. Individual fare/columns means and all outputs in mind/results/persona-confirmation-20261012/RESULTS.md, with key/scores/verification/exact offers. All 18 over-length texts retained. No default change; Claude owns adoption or closure. Source unchanged from 887 tests OK (19 skipped), all 257 archive files verified.
 
-T3 failed the complete blind rule despite fewer promotions and acceptable time. No default or closed-loop enablement follows. Claude owns closure or a new explicit iteration; the failed evidence remains unchanged.
+- T4e RUNNING, preparation: specified at main 112e742 and comment 6126059778. Same A/B persona intervention, controls only: arch, directions (child's map), bowls, eight fresh paired seeds each, 48 essays. New aggregate margin: B commitments and argument each >= A-0.25, applying only to T4e. Four new regressions and packet-guide coverage; 24 focused tests OK. Full suite/model evidence pending. Protocol: `PERSONA-FRESH-CONTROLS-TRIAL-20261012.md`. No default change; original failed trials remain immutable.
+
+T3 failed the complete blind rule despite fewer promotions and acceptable time. No default or closed-loop enablement follows. Claude owns closure or a new explicit iteration; the failed evidence remains unchanged. Claude independently joined and closed T4d at 112e742, with the same results, before specifying T4e.
 
 Earlier suites apply to their exact candidates: 88cfd28, 866 tests OK (19 skipped); 31e2b53, 869 OK (19 skipped); 2f2096e, 874 OK (19 skipped). The 882-test result covers the earlier integrated source; the new 887-test result covers exact T4d candidate d41480b. Superseded T3 partial outputs and all failed calibration/smoke evidence remain preserved. Yesterday's unfinished helper remains in stash `codex-compact-checkpoint-20261012-before-main`.
 
