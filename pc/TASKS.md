@@ -25,7 +25,7 @@ The second smoke test showed the typed records help: 3 contradictions fell to 1 
 3. Make a blind packet of the outputs for Claude: prose, the day's records and random ids. The key stays apart until Claude's scores are committed.
 4. Report the wall time per variant.
 
-**Passes when:** B has fewer statements turned into fact and no more contradictions per 100 sentences, and its wall time is no more than 1.2 times A's. Then switch the records on by default in your branch; Claude merges.
+**Passes when:** B has fewer statements turned into fact and no more contradictions per 100 sentences, the owl's argument (v2 guide, scored blind on each diary and revision log) is not lower in B, and B's wall time is no more than 1.2 times A's, with A and B jobs interleaved. The compact owl keeps his day's thoughts (the 1,950-character interpretation block), as A's record does. Then switch the records on by default in your branch; Claude merges.
 
 ### T4 · Codex · shelf test: the Nuremberg addresses · OPEN
 OLD = the shelf at c03a431; NEW = the shelf on main now (adds `reden`). Take the Karl-letter situation from blind review v2 (case "karl"), arm A0 (plain Qwen, no adapter), the engine's normal writing path with the shelf on. Run 10 seeds with OLD and the same 10 with NEW.
