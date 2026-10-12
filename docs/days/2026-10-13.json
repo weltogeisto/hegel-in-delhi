@@ -330,6 +330,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "09:04",
+   "to": "09:14",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -547,6 +554,37 @@
    "to": "Hegel",
    "text": "That's idli, sir. The dark one is sambar. You'll get used to the words soon enough.",
    "t": "08:49"
+  },
+  {
+   "k": "diary",
+   "text": "Idli, sambar. The vocabulary of the household is as fixed as the castes; one must learn the names before one can master the thing. The sun is already climbing, and the plan calls for the journal, but the mind must first digest the food, not merely the words.",
+   "sensitive": true,
+   "why": "castes",
+   "topic": "caste",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    }
+   ],
+   "t": "09:04"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. I shall endeavor to master the sambar as I have mastered the English. Now, if you will excuse me, I must attend to my writing before the heat forces a pause.",
+   "to": "Ramesh",
+   "t": "09:04"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir, the sambar is waiting in the kitchen. Take your time with the writing.",
+   "t": "09:04"
   }
  ],
  "steps": [
@@ -950,13 +988,65 @@
      "text": "It requires but little reflection to see that the services performed by the classes in behalf of the general well-being and public liberty cannot be traced to an insight special to these classes. The highest state of&cials have necessarily deeper and more comprehensive insight into the workings and needs of the state, and also greater skill and wider practical experience."
     }
    ]
+  },
+  {
+   "t": "09:04",
+   "end": "09:14",
+   "event": "Ramesh says: “That's idli, sir. The dark one is sambar. You'll get used to the words soon enough.” He places a fresh bowl of sambar on the table and wipes a smudge from the tablecloth.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Idli, sambar. The vocabulary of the household is as fixed as the castes; one must learn the names before one can master the thing. The sun is already climbing, and the plan calls for the journal, but the mind must first digest the food, not merely the words.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Thank you, Ramesh. I shall endeavor to master the sambar as I have mastered the English. Now, if you will excuse me, I must attend to my writing before the heat forces a pause.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir, the sambar is waiting in the kitchen. Take your time with the writing.",
+    "does": "He straightens the tablecloth one last time before stepping back."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.9
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "id": "haldane-1:113"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:130"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "text": "A long time is undoubtedly required by Mind in working out Philosophy, and when one first reflects on it, the length of the time may seem astonishing, like the immensity of the space spoken of in astronomy. But it must be considered in regard to the slow progress of the world-spirit, that there is no need for it to hasten:—“A thousand years are in Thy sight as one day.”"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "Although morality and ethics have the same meaning according to their etymology, yet these different words may be used for different conceptions. Addition. — ^When we speak of right, we mean not only civil right, which is the usual significance of the word, but also morality, ethical observance and world-history."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T09:04+05:30",
+  "until": "2026-10-13T09:14+05:30",
   "asleep": false,
   "imprest": 10501,
   "wearing": "kurta",
