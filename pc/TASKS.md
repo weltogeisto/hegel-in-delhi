@@ -27,12 +27,23 @@ The second smoke test showed the typed records help: 3 contradictions fell to 1 
 
 **Passes when:** B has fewer statements turned into fact and no more contradictions per 100 sentences, the owl's argument (v2 guide, scored blind on each diary and revision log) is not lower in B, and B's wall time is no more than 1.2 times A's, with A and B jobs interleaved. The compact owl keeps his day's thoughts (the 1,950-character interpretation block), as A's record does. Then switch the records on by default in your branch; Claude merges.
 
-### T4 · Codex · shelf test: the Nuremberg addresses · OPEN
+### T4 · Codex · shelf test: the Nuremberg addresses · DONE: FAIL
 OLD = the shelf at c03a431; NEW = the shelf on main now (adds `reden`). Take the Karl-letter situation from blind review v2 (case "karl"), arm A0 (plain Qwen, no adapter), the engine's normal writing path with the shelf on. Run 10 seeds with OLD and the same 10 with NEW.
 1. Record which shelf passages each prompt held, and how many NEW prompts held a `reden` passage.
 2. Make a blind packet of the 20 letters for Claude, with the v2 guide. The key stays apart.
 
 **Baseline** (v2, Karl letters, all arms): commitments 2.15, argument 2.00. **Passes when:** NEW beats OLD on commitments by at least 0.5 and argument is not lower. This run is cheap, so fit it in while T3 runs.
+
+**Result (a8d3bdd):** FAIL. Commitments OLD 2.00 / NEW 2.00; argument 2.10 / 2.20; voice 2.40 / 2.70; particular 3.10 / 3.30. The idea was not really tested: NEW offered `reden:58`, whose last sentence is his line on respect and obedience towards teachers, but the 380-character excerpt kept another sentence. The query also carried the trial's "Unknown" and instruction lines, which pulled in Xenophanes. The addresses stay on the shelf: no dimension got worse.
+
+### T4b · Codex · shelf test: whole passages · OPEN
+Same Karl case, plain Qwen, normal writing path, NEW shelf (main), the same ten seeds. **Claude has written the switch:** branch `claude/shelf-whole` (e7b7687, on main), `HEGEL_SHELF_WHOLE=1` shows each offered passage whole within 1,900 characters. Merge it into your branch.
+- A = excerpts (flag off), B = whole passages (flag on). Interleave A and B.
+- The shelf query is the case's events only, as in the live world. The "Unknown" list and the writing instruction stay in the writer's prompt but not in the query.
+- Record the offered passages. Check that B's prompts hold `Gehorsams gegen die Lehrer`.
+- Blind packet of 20 for Claude, with the v2 guide.
+
+**Passes when:** B beats A on commitments by at least 0.5 and argument is not lower. Then Claude switches whole passages on by default on main.
 
 ### T5 · Claude · score, merge, scoreboard · RUNNING
 Score every blind packet within the hour it lands, commit the scores with their hash, merge whatever passes, and keep `pc/SCOREBOARD.md` current.
