@@ -37,8 +37,8 @@ OLD = the shelf at c03a431; NEW = the shelf on main now (adds `reden`). Take the
 
 **Result (a8d3bdd):** FAIL. Commitments OLD 2.00 / NEW 2.00; argument 2.10 / 2.20; voice 2.40 / 2.70; particular 3.10 / 3.30. The idea was not really tested: NEW offered `reden:58`, whose last sentence is his line on respect and obedience towards teachers, but the 380-character excerpt kept another sentence. The query also carried the trial's "Unknown" and instruction lines, which pulled in Xenophanes. The addresses stay on the shelf: no dimension got worse.
 
-### T4b · Codex · shelf test: whole passages · RUNNING
-Status: isolated candidate 2f2096e generation complete, 20/20 nonempty/uncut, one call each; exits 0, 39 source/input files verified. A/B summed job times 219.353/233.694s. Blind packet `mind/results/shelf-whole-20261012` is ready for scoring; key separate. 113 focused tests OK (2 skipped); full suite 874 tests OK (19 skipped), 704.466s, 207 archive files verified. T3 primary freeze unchanged.
+### T4b · Codex · shelf test: whole passages · DONE: FAIL
+Status: FAIL. Scores at 570042a and all hashes/ids verified before key release. A/B commitments 1.80/1.90, argument 2.00/2.10; required commitments gain +0.50. Results/key/exact offered passages in `mind/results/shelf-whole-20261012`. 20/20 outputs retained; full suite 874 tests OK (19 skipped). Whole passages remain off; T3 source/defaults unchanged.
 Same Karl case, plain Qwen, normal writing path, NEW shelf (main), the same ten seeds. **Claude has written the switch:** branch `claude/shelf-whole` (e7b7687, on main), `HEGEL_SHELF_WHOLE=1` shows each offered passage whole within 1,900 characters. Merge it into your branch.
 - A = excerpts (flag off), B = whole passages (flag on). Interleave A and B.
 - The shelf query is the case's events only, as in the live world. The "Unknown" list and the writing instruction stay in the writer's prompt but not in the query.

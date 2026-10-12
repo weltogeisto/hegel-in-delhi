@@ -43,7 +43,11 @@ T4b generation finished: 20/20 nonempty, uncut, valid-JSON letters; one call
 each, no retries, both exits 0. All 39 frozen files and T3 inputs verified.
 Whole B held the obedience sentence in 10/10 actual prompts. A/B summed
 job times 219.353/233.694s under concurrent T3 GPU load. Blind packet is
-`mind/results/shelf-whole-20261012`; key stays outside Git. Candidate 2f2096e
+`mind/results/shelf-whole-20261012`. Claude committed scores/hash at
+570042a; CSV, packet, all ids and text fingerprints were verified before
+releasing only the new key. A/B commitments 1.80/1.90, argument 2.00/2.10: FAIL.
+Exact offers and joined results published; whole passages remain off.
+Candidate 2f2096e
 on the isolated code branch, 113 focused tests OK (2 skipped). Full suite:
 874 tests in 704.466s, OK (19 skipped), exit 0; 207 archived files verified
 unchanged. Primary source/defaults unchanged.
