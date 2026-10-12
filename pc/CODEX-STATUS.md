@@ -12,17 +12,25 @@ Coordination: `COLLABORATION.md`, `pc/TASKS.md`, draft PR #1.
   Hermes shadow-world steps to Welt. No firewall/power/secret changes made.
 - T3 running: compact evidence integrated; runtime never constructs the
   failed LLM claim checker. Explicitly injected guards remain for audits.
-  Compact owl inputs exclude the old interpretation excerpts. Whole prompts
+  Compact owl inputs retain the labelled 1,950-character interpretation block. Whole prompts
   and retries are checked with the serving tokenizer before generation;
   critical records are never silently cut. Cheques remain uncashed and
   selected earlier records keep their date.
-- T4 prepared with the same Karl case, 10 paired seeds, two frozen shelf
-  versions. Normal Engine writing path, no adapter; blind review pending.
+- T4 generation complete: 20/20 letters, all nonempty and uncut; 10/10 NEW
+  prompts held `reden`. Normal Engine writing path, no adapter. Blind packet
+  is `mind/results/shelf-reden-20261012`; key stays outside Git until scores
+  and their hashes are committed. NEW/OLD summed job wall time 235.404/222.242s.
 
-Focused checks: 57 tests in 0.244 seconds, OK. Full suite is pending.
-Tokenizer probe: preflight 19 tokens, actual usage 19. Preparing 138 T3 jobs
+Focused checks: 60 tests in 0.271 seconds, OK. Archived candidate 88cfd28
+full suite: 866 tests in 718.409s, OK (19 skipped). Revised source needs its
+own full suite; that result is pending.
+Tokenizer probe: preflight 19 tokens, actual usage 19. Restarting 138 T3 jobs
 (6 saved days × 3 seeds × 2 inputs, including 17 writing moments) and 20 T4
-letters. No closed-loop run or default enablement before blind pass rules.
+letters (T4 completed). T3's superseded partial run is preserved: interrupted
+on Claude's review, exit 1, frozen inputs intact. Its replacement restores
+thoughts, uses adjacent randomized A/B pairs and includes owl argument
+scoring. Packet export's sentence-iterator TypeError is fixed and tested.
+No closed-loop run or default enablement before blind pass rules.
 See `WRITER-TRIAL-20261012.md` and `WSL-MIND-STARTUP-PROPOSAL.md`.
 
 Yesterday's unfinished compact helper remains preserved in Git stash

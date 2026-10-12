@@ -1,10 +1,15 @@
 """Fixed-day evaluation must not look into future state or select successful retries."""
 import copy
+import contextlib
+import io
 import json
+from argparse import Namespace
 from pathlib import Path
 import tempfile
 import unittest
-from pc.writer_trial import prefix_day, writing_calls, trace_rows, verify
+from unittest.mock import patch
+from pc import writer_trial
+from pc.writer_trial import paired_jobs, prefix_day, writing_calls, trace_rows, verify
 
 
 class WriterTrialTest(unittest.TestCase):
@@ -48,6 +53,42 @@ class WriterTrialTest(unittest.TestCase):
             root=Path(temp);p=root/'source';p.write_text('changed')
             (root/'protocol.json').write_text(json.dumps({'protected_sha256':{str(p):'old'}}))
             with self.assertRaisesRegex(ValueError,'Frozen input changed'):verify(root)
+
+    def test_seeded_schedule_keeps_each_ab_pair_adjacent(self):
+        sources = {'one': {'times': ['12:00', '14:00']}, 'two': {'times': []}}
+        jobs = paired_jobs(sources)
+        self.assertEqual(jobs, paired_jobs(sources))
+        self.assertEqual(24, len(jobs))
+        first_variants = set()
+        for a, b in zip(jobs[::2], jobs[1::2]):
+            self.assertEqual({'A', 'B'}, {a['variant'], b['variant']})
+            self.assertEqual([a[k] for k in ('day', 'kind', 'time', 'seed')],
+                             [b[k] for k in ('day', 'kind', 'time', 'seed')])
+            first_variants.add(a['variant'])
+        self.assertEqual({'A', 'B'}, first_variants)
+
+    def test_packet_counts_sentence_iterator_without_revealing_shelf_or_key(self):
+        with tempfile.TemporaryDirectory() as temp:
+            base = Path(temp); repo = base/'repo'; out = base/'run'
+            result = out/'T4'/'private-job'; result.mkdir(parents=True)
+            (out/'T4'/'run.exit').write_text('0\n')
+            text = 'The first assertion follows. The second tests it.'
+            (result/'result.json').write_text(json.dumps(dict(job=dict(variant='NEW', seed=42),
+                result=dict(text=text), evidence=dict(case={'id':'karl'}, shelf=[{'text':'PRIVATE SHELF'}]))))
+            key = base/'private'/'key.json'
+            args = Namespace(out=out,task='T4',review='review',private_key=key)
+            with patch.object(writer_trial, 'ROOT', repo), patch.object(writer_trial, 'verify'), contextlib.redirect_stdout(io.StringIO()):
+                writer_trial.packet(args)
+            target = repo/'mind/results/review'
+            texts = json.loads((target/'texts.json').read_text())
+            self.assertEqual(2, len(texts[0]['sentences']))
+            self.assertEqual(text, texts[0]['text'])
+            self.assertEqual(2, json.loads((target/'manifest.json').read_text())['sentences'])
+            packet = (target/'packet.md').read_text()
+            self.assertNotIn('PRIVATE SHELF', packet)
+            self.assertNotIn('NEW', packet)
+            self.assertEqual('NEW', json.loads(key.read_text())['keys'][texts[0]['id']]['variant'])
+            self.assertFalse((target/'key.json').exists())
 
 
 if __name__=='__main__':unittest.main()

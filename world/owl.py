@@ -187,7 +187,8 @@ def write(cfg, day, state, mind, depesche_n=None, problems=None, flag=None, topi
     view=getattr(cfg,'evidence_view','full')
     evidence=records.relevant(records.project(day),view=view) if typed else record(day)
     shown=evidence
-    if typed and view != 'compact':
+    interpretations=''
+    if typed:
         thoughts=[f"{e['t']} [interpretation, not event evidence]: {e['text']}"
                   for e in day.get('entries',[]) if e.get('k')=='diary']
         selected=[];remaining=1950
@@ -211,7 +212,8 @@ def write(cfg, day, state, mind, depesche_n=None, problems=None, flag=None, topi
     if typed and view == 'compact':
         suffix = ask[len(shown):]
         messages = prompt_budget.fit(mind, lambda room: [dict(role='system', content=system),
-            dict(role='user', content=records.compact(records.project(day), limit=room) + suffix)],
+            dict(role='user', content=records.compact(records.project(day), limit=room)
+                 + ('\n\n' + interpretations if interpretations else '') + suffix)],
             records.COMPACT_CHARS, thinking=bool(getattr(cfg, 'owl_reasoning_tokens', 0)))
     for attempt in range(2):
         budget = getattr(cfg, "owl_reasoning_tokens", 0)

@@ -212,19 +212,28 @@ def load_sources(spec):
     return result
 
 
+def paired_jobs(sources):
+    """Shuffle situations, then run each seeded A/B pair adjacently."""
+    pairs = [dict(day=ident, kind=kind, time=when, seed=seed)
+             for ident, source in sources.items() for seed in SEEDS
+             for kind, when in [('owl', '24:00')] + [('writing', t) for t in source['times']]]
+    rng = random.Random(2026101209)
+    rng.shuffle(pairs)
+    jobs = []
+    for pair in pairs:
+        variants = ['A', 'B']; rng.shuffle(variants)
+        for variant in variants:
+            jobs.append(dict(pair, variant=variant,
+                id=f'{pair["day"]}-{pair["kind"]}-{pair["time"].replace(":", "")}-{pair["seed"]}-{variant}'))
+    return jobs
+
+
 def prepare(args):
     if args.out.exists(): raise ValueError('Create-once output directory already exists')
     sources_spec = json.loads(args.sources.read_text()); sources = load_sources(sources_spec)
     if len(sources) != 6: raise ValueError('Exactly six saved days are required')
     args.out.mkdir(parents=True)
-    jobs = []
-    for ident, source in sources.items():
-        for seed in SEEDS:
-            for kind, when in [('owl', '24:00')] + [('writing', t) for t in source['times']]:
-                for variant in ('A', 'B'):
-                    jobs.append(dict(day=ident, kind=kind, time=when, seed=seed, variant=variant,
-                                     id=f'{ident}-{kind}-{when.replace(":", "")}-{seed}-{variant}'))
-    random.Random(2026101209).shuffle(jobs)
+    jobs = paired_jobs(sources)
     dump(args.out / 'sources.json', sources_spec); dump(args.out / 'T3-jobs.json', jobs)
     cases = json.loads(args.cases.read_text()); cases = cases.get('writing_cases', cases) if isinstance(cases, dict) else cases
     karl = next(c for c in cases if c['id'] == 'karl'); dump(args.out / 'karl.json', karl)
@@ -255,13 +264,13 @@ def prepare(args):
         main=subprocess.check_output(['git','rev-parse','origin/main'],cwd=ROOT,text=True).strip(),
         candidate=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
         ceiling=CEILING, outcome_checker=False, rollout=False, training=False,
-        ordering='Frozen shuffled schedule; one sequential worker per task, slots 1 and 2; slot 0 reserved for world.',
+        ordering='T3: seeded-random pair order, adjacent A/B with seeded-random order within every pair; T4: frozen shuffled schedule. Sequential task workers, slots 1 and 2; slot 0 reserved for world.',
         comparison='Same fixed situation/accepted decision and current persona in A and B. A uses legacy owl/input; B uses compact typed evidence. No new decisions or feedback between sittings.',
         limits=['Known development histories, not fresh independent worlds.', 'Old baselines have less granular observed-event records; ambiguous claims must be flagged, not silently called false.',
                 'A and B see the same original situation/decision; earlier fictional claims may remain there and in manuscript memory, explicitly labelled interpretation.',
                 'Shared GPU concurrency is logged; compare summed per-job wall times, with cached prompts disabled in both variants.'],
-        pass_rule='B: fewer statement promotions per 100 sentences, no more contradictions per 100 sentences, wall time <= 1.2*A. Report failed/empty outputs separately; no default enablement before blind scoring.',
-        protected_sha256={str(p):sha(p) for p in sorted(set(files))}))
+        pass_rule='B: fewer statement promotions per 100 sentences, no more contradictions per 100 sentences, owl argument (diary/revision log, v2 rubric) not lower, wall time <= 1.2*A. Report failed/empty outputs separately; no default enablement before blind scoring.',
+        protected_sha256={str(p.resolve()):sha(p) for p in sorted(set(files))}))
     print(json.dumps(dict(prepared=True, T3_jobs=len(jobs), T4_jobs=20, sources=sources_spec)), flush=True)
 
 
@@ -331,6 +340,7 @@ def run(args):
         verify(args.out)
         dump(output/'complete.json',dict(at=stamp(),jobs=len(results),wall_seconds=time.monotonic()-started,
             variant_wall_seconds={v:sum(r['wall_seconds'] for r in results if r['job']['variant']==v) for v in sorted({r['job']['variant'] for r in results})},
+            job_wall_seconds=[dict(r['job'], wall_seconds=r['wall_seconds'], calls=r['calls']) for r in results],
             frozen_inputs_verified=True,shared_server_left_running=True,blind_review_pending=True))
     except BaseException as exc:
         failure=dict(at=stamp(),error=repr(exc),traceback=traceback.format_exc()); dump(output/'failure.json',failure)
@@ -361,7 +371,7 @@ def packet(args):
             raw=(result or {}).get(field)
             text=raw.get('text','') if isinstance(raw,dict) else raw or ''
             ident=secrets.token_hex(6).upper()
-            spans=sentence_spans(text)
+            spans=list(sentence_spans(text))
             evidence=row['evidence']
             if args.task=='T3':
                 proof=dict(evidence,records=[{k:v for k,v in r.items() if not (r['kind']=='work' and k=='text')} for r in evidence['records']])
@@ -381,8 +391,13 @@ prose and a plausible quotation prove no event. Missing evidence is not a contra
 For each numbered sentence with a problem, record one row: id,sentence,contradiction,promotion,uncertain,record_ids,reason.
 Use 0/1 flags; a sentence can receive both kinds of error. Count each kind at most once per sentence.
 Return a second CSV with one row per text: id,sentences,contradictions,promotions,uncertain.
+Return a third CSV for every diary and revision log: id,argument,reason. Score argument from 1 to 5:
+does the text develop a claim from the difficulty within a position, to what it presupposes and where it
+turns into its opposite, or does it assert, list, or lay a triad over the material? Give a one-line reason.
+For an empty revision log use 1 and the reason "empty; no argument"; absence must not raise the mean.
+Judge the supplied prose, not the position or eloquence of a quoted speaker in its records.
 Use the supplied sentence count, including all zero-error texts. Score every text and commit both CSVs and
-their SHA256 hashes before requesting the key. Empty or unusable outputs remain in the packet and are reported.
+the argument CSV and their SHA256 hashes before requesting the key. Empty or unusable outputs remain in the packet and are reported.
 '''
     (target/'guide.md').write_text(guide,encoding='utf-8'); dump(target/'texts.json',texts)
     rendered=[]

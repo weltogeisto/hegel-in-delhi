@@ -2,7 +2,7 @@
 import json
 import unittest
 from unittest.mock import Mock, patch
-from world import prompt_budget, records
+from world import owl, prompt_budget, records
 from world.config import Config
 from world.mind import HTTPMind
 from test_compact_view import day
@@ -70,6 +70,27 @@ class WriterBudgetTest(unittest.TestCase):
         with patch('world.claim_check.from_config', side_effect=AssertionError('audit only')):
             engine = Engine(cfg, World(), Mock())
         self.assertIsNone(engine.claim_guard)
+
+    def test_compact_owl_keeps_thoughts_even_when_evidence_allowance_shrinks(self):
+        d = day()
+        thought = 'The promise binds the speaker without making its object actual.'
+        d['entries'].append(dict(k='diary', t='17:00', text=thought))
+        cfg = Config({'HEGEL_OUTCOME_MEMORY': '1', 'HEGEL_EVIDENCE_VIEW': 'compact'})
+        seen = []
+        def count(messages, thinking=False):
+            seen.append(messages[1]['content'])
+            return 8000 if len(seen) == 1 else 1000
+        mind = Mock()
+        mind.prompt_tokens.side_effect = count
+        mind.chat.return_value = json.dumps(dict(diary='A considered diary sentence. ' * 8,
+                                                revision_log='', theses=[]))
+        owl.write(cfg, d, d['state'], mind)
+        self.assertGreaterEqual(len(seen), 2)
+        for prompt in seen:
+            self.assertIn(thought, prompt)
+            self.assertIn('[interpretation, not event evidence]', prompt)
+            self.assertIn('₹20 Chai: paid', prompt)
+        self.assertIn(thought, mind.chat.call_args.args[0][1]['content'])
 
 
 if __name__ == '__main__':

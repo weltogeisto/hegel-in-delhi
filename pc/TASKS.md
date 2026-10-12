@@ -20,16 +20,17 @@ Yesterday `pc/CODEX-STATUS.md` was root-owned in your checkout (PermissionError)
 **Done when:** `origin/shadow` exists, the timer is running, and steps appear after 18:30 UTC.
 
 ### T3 · Codex · records without the checker · RUNNING
-Status: compact-view merged; checker is audit-only; 57 focused tests OK. Six histories and 138 paired writer jobs are prepared; full-suite and blind model results pending. See `pc/WRITER-TRIAL-20261012.md`.
+Status: compact-view merged; checker is audit-only; 60 focused tests OK. Superseded partial T3 is preserved. The corrected owl retains labelled thoughts, adjacent A/B pairs and blind owl argument scoring; restarting 138 jobs in a new directory. Full-suite 88cfd28: 866 OK, 19 skipped; revised candidate full-suite and blind results pending. See `pc/WRITER-TRIAL-20261012.md`.
 The second smoke test showed the typed records help: 3 contradictions fell to 1 and 7 statements turned into fact fell to 2. The claim checker, meanwhile, misjudges sentences and makes a day more than three times slower.
 1. Runtime = the typed records and the repairs at 5a1833f, plus a **compact evidence view**, with the **claim check off**. **Claude has written the compact view:** branch `claude/compact-view` (on top of your 8f56420), switched on by `HEGEL_EVIDENCE_VIEW=compact` together with `HEGEL_OUTCOME_MEMORY=1`. Merge it into `codex/outcome-memory` first. It groups the day's records into facts, payments, said (not verified), plans (not done) and drafts (not sent), without record ids, in at most 9,000 characters; facts and payments are never cut. No whole generation prompt may be larger than the baseline maximum, 7,263 tokens; the character cap alone does not guarantee that, so enforce it on the whole prompt.
 2. **Fix the day, vary the writer.** On 6 saved days, run the owl and any writing sittings with the old input (A) and the new runtime (B), three fixed seeds each. The six are the 4 smoke days (both arms of smoke-v1 and of the fresh smoke) plus 2 distinct 8 October rehearsal days; record the six before generating.
 3. Make a blind packet of the outputs for Claude: prose, the day's records and random ids. The key stays apart until Claude's scores are committed.
 4. Report the wall time per variant.
 
-**Passes when:** B has fewer statements turned into fact and no more contradictions per 100 sentences, and its wall time is no more than 1.2 times A's. Then switch the records on by default in your branch; Claude merges.
+**Passes when:** B has fewer statements turned into fact and no more contradictions per 100 sentences, the owl's argument (v2 guide, scored blind on each diary and revision log) is not lower in B, and B's wall time is no more than 1.2 times A's, with A and B jobs interleaved. The compact owl keeps his day's thoughts (the 1,950-character interpretation block), as A's record does. Then switch the records on by default in your branch; Claude merges.
 
-### T4 · Codex · shelf test: the Nuremberg addresses · OPEN
+### T4 · Codex · shelf test: the Nuremberg addresses · RUNNING
+Status: generation complete, 20/20 letters nonempty and uncut; all 10 NEW prompts held `reden`. Blind packet: `mind/results/shelf-reden-20261012`. Scores/key pending.
 OLD = the shelf at c03a431; NEW = the shelf on main now (adds `reden`). Take the Karl-letter situation from blind review v2 (case "karl"), arm A0 (plain Qwen, no adapter), the engine's normal writing path with the shelf on. Run 10 seeds with OLD and the same 10 with NEW.
 1. Record which shelf passages each prompt held, and how many NEW prompts held a `reden` passage.
 2. Make a blind packet of the 20 letters for Claude, with the v2 guide. The key stays apart.
