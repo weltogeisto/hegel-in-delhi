@@ -295,6 +295,13 @@
    "mode": "walk",
    "a": "home",
    "b": "lodhi"
+  },
+  {
+   "from": "07:19",
+   "to": "08:04",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Walking the paths of Lodhi Gardens."
   }
  ],
  "entries": [
@@ -403,6 +410,21 @@
    "to": "Hegel",
    "text": "All right, sir. The gate is unlocked, so you just walk out. I'll keep the sambar warm.",
    "t": "06:59"
+  },
+  {
+   "k": "diary",
+   "text": "The sambar is a kindness I shall not refuse when I return, but for now the morning light is the proper teacher. I see Malhotra already in motion, his stride measured and firm. I shall not disturb his circuit, but I will keep pace with him at a respectful distance, observing how the mind moves through space when it is unburdened by the need to explain itself to strangers.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "General Standpoint of the Scholastics"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates"
+    }
+   ],
+   "t": "07:19"
   }
  ],
  "steps": [
@@ -559,13 +581,63 @@
      "text": "The antagonism of Athens and Sparta now commences— a favourite theme for historical treatment. It may be asserted that it is an idle inquiry, which of these two states justly claims the superiority, and that the endeavour should rather be, to exhibit each as in its own department a necessary and worthy phase of the Greek Spirit."
     }
    ]
+  },
+  {
+   "t": "07:19",
+   "end": "08:04",
+   "event": "Ramesh says: “All right, sir. The gate is unlocked, so you just walk out. I'll keep the sambar warm.” He nods once and turns to lock the main gate behind him. You arrive at Lodhi Gardens. It closes at 19:30. Mr. R. K. Malhotra is here.",
+   "present": [
+    "Mr. R. K. Malhotra, retired IAS"
+   ],
+   "decision": {
+    "thought": "The sambar is a kindness I shall not refuse when I return, but for now the morning light is the proper teacher. I see Malhotra already in motion, his stride measured and firm. I shall not disturb his circuit, but I will keep pace with him at a respectful distance, observing how the mind moves through space when it is unburdened by the need to explain itself to strangers.",
+    "action": "stay",
+    "place": "lodhi",
+    "minutes": 45,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.4,
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "General Standpoint of the Scholastics",
+     "id": "haldane-3:239"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "id": "haldane-1:967"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "General Standpoint of the Scholastics",
+     "text": "But the divine kingdom, the dwelling-place of the dead, was to be reached only through the gate of death; yet the natural world was dead to an equal degree—all that lived in it was the vision of that other world, and hope—it had no present. It was of no avail to introduce mediators as a connecting link, the Virgin Mary, or the dead in a world beyond."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "text": "This is not a moderation which exists in the least possible enjoyment, no aimless abstemiousness and self-mortification, but a power belonging to consciousness, which keeps its self-possession in bodily excess. We see from this that we have not to think of Socrates throughout after the fashion of the litany of moral virtues."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-10-13T07:19+05:30",
+  "until": "2026-10-13T08:04+05:30",
   "asleep": false,
   "imprest": 10501,
   "wearing": "kurta",
@@ -629,6 +701,9 @@
    "seen": {
     "home": [
      "ramesh"
+    ],
+    "lodhi": [
+     "malhotra"
     ]
    },
    "walked": 1500,
@@ -696,7 +771,8 @@
     "2026-10-13"
    ],
    "lodhi": [
-    "2026-10-02"
+    "2026-10-02",
+    "2026-10-13"
    ],
    "gandhi": [
     "2026-10-02"
@@ -725,7 +801,8 @@
     "2026-10-13"
    ],
    "malhotra": [
-    "2026-10-02"
+    "2026-10-02",
+    "2026-10-13"
    ],
    "masterji": [
     "2026-10-02"
