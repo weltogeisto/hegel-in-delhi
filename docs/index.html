@@ -669,9 +669,10 @@ function header(){
   btnPrev.hidden = !prev; btnNext.hidden = !next;
   btnPrev.dataset.date = prev ? prev.date : ''; btnNext.dataset.date = next ? next.date : '';
   if (prev) btnPrev.setAttribute('aria-label', `Day ${prev.n}`); if (next) btnNext.setAttribute('aria-label', `Day ${next.n}`);
-  $('note').textContent = dayMode === 'live' ? 'Delhi time. Live: each step appears when its time comes.'
-    : dayMode === 'replay' ? `Delhi time. Day ${D.n} replays until the live simulation takes over.`
-    : `Delhi time. Day ${D.n}, from the archive.`;
+  const clock = SHIFT ? `Rehearsal clock, Delhi ${SHIFT > 0 ? '+' : '−'}${+(Math.abs(SHIFT)/60).toFixed(2)} h.` : 'Delhi time.';
+  $('note').textContent = dayMode === 'live' ? `${clock} Live: each step appears when its time comes.`
+    : dayMode === 'replay' ? `${clock} Day ${D.n} replays until the live simulation takes over.`
+    : `${clock} Day ${D.n}, from the archive.`;
 }
 function goDate(date){
   if (!date || date === delhiDate()){ history.pushState(null, '', location.pathname + location.search); openWanted().catch(fail); }
