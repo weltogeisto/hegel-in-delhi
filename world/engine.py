@@ -392,7 +392,7 @@ class Engine:
             # 9000-character manuscript allowance; the writing's header stays last.
             prefix=''.join(works.EXEMPLAR.format(**x) for x in shown)
             room=min(3000,9000-len(prompt)-45)
-            factual=records.relevant(ctx['records'],plan['about'],limit=room)
+            factual=records.relevant(ctx['records'],plan['about'],limit=room,view=getattr(self.cfg,'evidence_view','full'))
             prompt=prefix+'[Typed records for this sitting:\n'+factual+']\n'+prompt[len(prefix):]
         for seed in (None, random.randrange(1, 2 ** 31)):
             try:
@@ -421,7 +421,7 @@ class Engine:
             manuscript=ctx['manuscripts'][:6000] if ctx.get('records') else ctx['manuscripts']
             request += '\n\n'+manuscript
         if ctx.get('records'):
-            request+='\n\n'+records.relevant(ctx['records'],limit=3000)
+            request+='\n\n'+records.relevant(ctx['records'],limit=3000,view=getattr(self.cfg,'evidence_view','full'))
         msgs = for_task(messages + [{"role": "assistant", "content": raw}, {"role": "user", "content": request}], "writing")
         for attempt in range(2):
             try:

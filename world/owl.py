@@ -184,7 +184,8 @@ def write(cfg, day, state, mind, depesche_n=None, problems=None, flag=None, topi
     system = (cfg.repo / "mind/owl.md").read_text(encoding="utf-8")
     theses = state.get("theses", [])
     typed=getattr(cfg,'outcome_memory',False)
-    evidence=records.relevant(records.project(day)) if typed else record(day)
+    view=getattr(cfg,'evidence_view','full')
+    evidence=records.relevant(records.project(day),view=view) if typed else record(day)
     shown=evidence
     if typed:
         thoughts=[f"{e['t']} [interpretation, not event evidence]: {e['text']}"
@@ -201,7 +202,7 @@ def write(cfg, day, state, mind, depesche_n=None, problems=None, flag=None, topi
         if len(selected)<len(thoughts):
             interpretations+='\n[Earlier interpretations omitted.]'
         if interpretations:
-            shown=records.relevant(records.project(day),limit=24000-len(interpretations)-2)+'\n\n'+interpretations
+            shown=records.relevant(records.project(day),limit=24000-len(interpretations)-2,view=view)+'\n\n'+interpretations
     ask = (f"{shown}\n\nYour theses: " + "; ".join(f"{t['id']}: {t['text']} ({t['status']})" for t in theses) + ".\n\n")
     if depesche_n is not None:
         ask += f"Tonight is also the night of the weekly Depesche, number {depesche_n}.\n\n"

@@ -76,6 +76,7 @@ class Config:
         self.thesis_reminders = v.get("HEGEL_THESIS_REMINDERS", "1") not in ("0", "no", "false", "")
         self.write_mode = "plain" if v.get("HEGEL_WRITE_MODE", "chat").strip().lower() == "plain" else "chat"      # his writings: the chat call (default), or a plain-text completion
         self.outcome_memory = v.get('HEGEL_OUTCOME_MEMORY','0') not in ('0','no','false','')
+        self.evidence_view = 'compact' if v.get('HEGEL_EVIDENCE_VIEW', 'full').strip().lower() == 'compact' else 'full'      # how the writers see the records: grouped and short, or every record with its id
         # Explicit opt-in until the isolated results have been reviewed. Missing
         # calibration must fail rather than invent a temperature at runtime.
         self.claim_check = v.get('HEGEL_CLAIM_CHECK','0') not in ('0','no','false','')
