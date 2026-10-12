@@ -288,6 +288,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "06:59",
+   "to": "07:19",
+   "mode": "walk",
+   "a": "home",
+   "b": "lodhi"
   }
  ],
  "entries": [
@@ -368,6 +375,34 @@
    "to": "Hegel",
    "text": "Morning, Shri Hegel. Yes, quiet as a library. I’ll have the breakfast ready by seven, if you don’t mind.",
    "t": "06:29"
+  },
+  {
+   "k": "diary",
+   "text": "The body demands its fuel, but the clock is against me; breakfast is not yet set. I shall not stand idle while the sun climbs. I will take the tea Ramesh has just placed, and then set out for the walk to Lodhi Gardens, as I intended. The tombs await my observation, and the air is clear.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§227"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Wars with the Persians"
+    }
+   ],
+   "t": "06:59"
+  },
+  {
+   "k": "said",
+   "text": "I shall begin the walk now, Ramesh. Thank you for the tea. I will return before the heat settles.",
+   "to": "Ramesh",
+   "t": "06:59"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "All right, sir. The gate is unlocked, so you just walk out. I'll keep the sambar warm.",
+   "t": "06:59"
   }
  ],
  "steps": [
@@ -467,13 +502,70 @@
      "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
     }
    ]
+  },
+  {
+   "t": "06:59",
+   "end": "07:19",
+   "event": "Ramesh says: “Morning, Shri Hegel. Yes, quiet as a library. I’ll have the breakfast ready by seven, if you don’t mind.” He sets the tea tray down on the step and steps back, hands clasped behind his back.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The body demands its fuel, but the clock is against me; breakfast is not yet set. I shall not stand idle while the sun climbs. I will take the tea Ramesh has just placed, and then set out for the walk to Lodhi Gardens, as I intended. The tombs await my observation, and the air is clear.",
+    "action": "walk",
+    "place": "lodhi",
+    "minutes": 30,
+    "says": "I shall begin the walk now, Ramesh. Thank you for the tea. I will return before the heat settles.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "lodhi",
+   "voice": {
+    "by": "Ramesh",
+    "says": "All right, sir. The gate is unlocked, so you just walk out. I'll keep the sambar warm.",
+    "does": "He nods once and turns to lock the main gate behind him."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 12.7,
+    "refused": [
+     [
+      "No household meal is available now; the next service is breakfast from 07:00. Choose an available activity; a request for food is not a completed meal."
+     ]
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§227",
+     "id": "dyde-right:541"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Wars with the Persians",
+     "id": "sibree-history:811"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§227",
+     "text": "They may have the right to present themselves in person before the court (in judicio stare), but of what use is that, if they are not present as intelligent spirits 'i The justice, which they receive, remains for them an. external fate. In the civic community the idea is lost in particularity, and dispersed by the separation of inner and outer."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Wars with the Persians",
+     "text": "The antagonism of Athens and Sparta now commences— a favourite theme for historical treatment. It may be asserted that it is an idle inquiry, which of these two states justly claims the superiority, and that the endeavour should rather be, to exhibit each as in its own department a necessary and worthy phase of the Greek Spirit."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-10-13T06:59+05:30",
+  "place": "lodhi",
+  "until": "2026-10-13T07:19+05:30",
   "asleep": false,
   "imprest": 10501,
   "wearing": "kurta",
@@ -538,7 +630,9 @@
     "home": [
      "ramesh"
     ]
-   }
+   },
+   "walked": 1500,
+   "strain": 1500
   },
   "account": {
    "advance": 15000,
