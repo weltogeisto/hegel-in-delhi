@@ -344,6 +344,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Writing at home."
+  },
+  {
+   "from": "09:59",
+   "to": "10:14",
+   "mode": "inside",
+   "at": "home",
+   "now": "Reading at home."
   }
  ],
  "entries": [
@@ -635,6 +642,26 @@
    "why": "Hindu",
    "topic": "religion",
    "t": "09:14"
+  },
+  {
+   "k": "file",
+   "text": "Ramesh hands over a note from Shri G. Hegde: he would like to call on Monday at ten, to settle the matter of the bungalow like gentlemen.",
+   "t": "09:59"
+  },
+  {
+   "k": "diary",
+   "text": "A note from the man who was meant to have my house. He comes to resolve the matter 'like gentlemen.' The accident of the clerical error becomes a social encounter. I must see what this man is, and whether the state can correct its own mistake with grace, or if I must hold the ground I have made.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme"
+    }
+   ],
+   "t": "09:59"
   }
  ],
  "steps": [
@@ -1142,13 +1169,61 @@
      "text": "O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal. This is the state-constitution."
     }
    ]
+  },
+  {
+   "t": "09:59",
+   "end": "10:14",
+   "event": "Ramesh says: “Yes sir. The pen can wait until the sambar gets cold, but I suppose that is your choice. I will be outside if you need anything.” He nods once and steps back out of the room, closing the door softly behind him. Ramesh hands you a handwritten note from Shri G. Hegde. He would like to call on you on Monday at ten, to resolve the matter of the bungalow like gentlemen.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "A note from the man who was meant to have my house. He comes to resolve the matter 'like gentlemen.' The accident of the clerical error becomes a social encounter. I must see what this man is, and whether the state can correct its own mistake with grace, or if I must hold the ground I have made.",
+    "action": "read",
+    "place": "home",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.4
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "id": "haldane-3:507"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence. So also it is not a matter merely external and particular, the performance of which is intrusted to him."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "text": "In the Quæstionibus theosophicis Boehme makes particular use of the form of Yes and No for the separator, for this opposition. He says: “The reader must know that in Yes and No all things consist, whether divine, devilish, earthly, or what they may be called. The One as the Yes is pure power and life, and it is the truth of God or God Himself."
+    }
+   ],
+   "beat": "hegde_note"
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T09:59+05:30",
+  "until": "2026-10-13T10:14+05:30",
   "asleep": false,
   "imprest": 10501,
   "wearing": "kurta",
@@ -1185,15 +1260,23 @@
    "masterji",
    "nidhi"
   ],
-  "file": "Under examination. The Directorate is closed until Monday.",
+  "file": "Shri Hegde asks to call on Monday at ten.",
   "beats": [
    "allotment",
-   "hegde_guesthouse"
+   "hegde_guesthouse",
+   "hegde_note"
   ],
   "flags": {
    "bandhgala": "ordered"
   },
-  "appointments": [],
+  "appointments": [
+   {
+    "date": "2026-10-19",
+    "t": "10:00",
+    "what": "Shri Hegde calls at the bungalow",
+    "beat": "hegde_call"
+   }
+  ],
   "theses": [
    {
     "id": "india",
