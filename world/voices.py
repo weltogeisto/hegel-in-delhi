@@ -61,6 +61,21 @@ def recorded_facts(world, cid, state):
     return facts
 
 
+def paid_here(place, entries, limit=6):
+    """His settled purchases earlier today at this place, from the day's records, so a seller does not ask twice.
+
+    A voice remembers only what was said; without this, a seller who named a
+    price asks for it again in the next exchange, and he pays twice.
+    """
+    goods = {s["item"] for s in place.get("sells", [])}
+    paid = [f"{e['t']} {e['item']} ₹{e['price']:,}" for e in entries
+            if e.get("k") == "bag" and e.get("item") in goods and type(e.get("price")) in (int, float)]
+    if not paid:
+        return []
+    return ["He has already paid at this place today, and these are settled: " + "; ".join(paid[-limit:]) +
+            ". Do not ask for them again; ask only for anything new he takes now."]
+
+
 def render(c, sit, where, says, remember, first_meeting=None, purchases=None, meal_status=None, world_facts=None):
     """The user message for one voice. `where` is the place's name; `says` is what he said to them, or None when they speak first."""
     text = f"You are {c['name']}, {c['role']}." + (f" {c['card']}" if c.get("card") else "") + "\n\n"
