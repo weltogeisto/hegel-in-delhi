@@ -351,6 +351,13 @@
    "mode": "walk",
    "a": "home",
    "b": "lodhi"
+  },
+  {
+   "from": "08:31",
+   "to": "09:01",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Walking the paths of Lodhi Gardens."
   }
  ],
  "entries": [
@@ -722,13 +729,41 @@
      "text": "WITH the Empire of China History has to begin, for it is the oldest, as far as history gives us any information; and its principle has such substantiality, that for the empire in question it is at once the oldest and the newest."
     }
    ]
+  },
+  {
+   "t": "08:31",
+   "end": "09:01",
+   "event": "Shri G. Hegde says: “Good morning, sir. I am not ready, and I am not going to be. Please, just take your walk.” You arrive at Lodhi Gardens. It closes at 19:30. Sunil is here.",
+   "present": [
+    "Sunil, who sells chai"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "stay",
+    "place": "lodhi",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.1,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-10-14T08:31+05:30",
+  "until": "2026-10-14T09:01+05:30",
   "asleep": false,
   "imprest": 6891,
   "wearing": "kurta",
@@ -806,6 +841,9 @@
    "seen": {
     "home": [
      "hegde"
+    ],
+    "lodhi": [
+     "sunil"
     ]
    },
    "walked": 1500,
@@ -910,7 +948,8 @@
    ],
    "lodhi": [
     "2026-10-02",
-    "2026-10-13"
+    "2026-10-13",
+    "2026-10-14"
    ],
    "gandhi": [
     "2026-10-02"
@@ -951,7 +990,8 @@
     "2026-10-02"
    ],
    "sunil": [
-    "2026-10-13"
+    "2026-10-13",
+    "2026-10-14"
    ],
    "hegde": [
     "2026-10-02",
