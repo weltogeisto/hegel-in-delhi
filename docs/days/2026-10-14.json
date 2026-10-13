@@ -344,6 +344,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "08:11",
+   "to": "08:31",
+   "mode": "walk",
+   "a": "home",
+   "b": "lodhi"
   }
  ],
  "entries": [
@@ -435,6 +442,34 @@
    "to": "Hegel",
    "text": "A small joke, sir, but I am not paid to act. I have my own files to clear and I will not be sharing the bungalow pending some other order. I will take the room I was allotted and leave the rest to the Directorate's files.",
    "t": "06:56"
+  },
+  {
+   "k": "diary",
+   "text": "Shri Hegde has retired to his room, leaving the house to the silence of the morning. The air is hazy, but the plan for the walk remains; one must observe the city to understand the spirit that dwells in it. I shall take my leave and step out into the light.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China"
+    }
+   ],
+   "t": "08:11"
+  },
+  {
+   "k": "said",
+   "text": "Good morning, Shri Hegde. I shall take my walk now; do not worry about the second bedroom until you are ready.",
+   "to": "Shri G. Hegde",
+   "t": "08:11"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Good morning, sir. I am not ready, and I am not going to be. Please, just take your walk.",
+   "t": "08:11"
   }
  ],
  "steps": [
@@ -635,13 +670,65 @@
      ]
     ]
    }
+  },
+  {
+   "t": "08:11",
+   "end": "08:31",
+   "event": "Nothing in particular happens. The morning goes on.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Shri Hegde has retired to his room, leaving the house to the silence of the morning. The air is hazy, but the plan for the walk remains; one must observe the city to understand the spirit that dwells in it. I shall take my leave and step out into the light.",
+    "action": "walk",
+    "place": "lodhi",
+    "minutes": 20,
+    "says": "Good morning, Shri Hegde. I shall take my walk now; do not worry about the second bedroom until you are ready.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "lodhi",
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Good morning, sir. I am not ready, and I am not going to be. Please, just take your walk.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 257.1
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "id": "sibree-history:376"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "text": "WITH the Empire of China History has to begin, for it is the oldest, as far as history gives us any information; and its principle has such substantiality, that for the empire in question it is at once the oldest and the newest."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-10-14T08:11+05:30",
+  "place": "lodhi",
+  "until": "2026-10-14T08:31+05:30",
   "asleep": false,
   "imprest": 6891,
   "wearing": "kurta",
@@ -720,7 +807,9 @@
     "home": [
      "hegde"
     ]
-   }
+   },
+   "walked": 1500,
+   "strain": 1500
   },
   "account": {
    "advance": 15000,
