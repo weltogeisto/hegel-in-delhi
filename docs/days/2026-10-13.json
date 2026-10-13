@@ -533,6 +533,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "20:02",
+   "to": "20:29",
+   "mode": "walk",
+   "a": "khan",
+   "b": "home"
   }
  ],
  "entries": [
@@ -1577,6 +1584,34 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "19:52"
+  },
+  {
+   "k": "diary",
+   "text": "The chai is hot, and the needle in Masterji’s eye has stopped its dance. I have drunk enough to know the taste of this place, and the market is closing its shutters with the finality of a state decree. I must return to the bungalow before the night fully claims the street.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "20:02"
+  },
+  {
+   "k": "said",
+   "text": "Masterji, the air is cooling. I must return to my duties. The state, even a mistaken one, requires its secretaries to be present.",
+   "to": "the bookseller",
+   "t": "20:02"
+  },
+  {
+   "k": "said",
+   "by": "The bookseller",
+   "to": "Hegel",
+   "text": "Masterji, that's heavy philosophy for 8 PM. You're closing time, and the air is nice, so maybe just walk back instead of rushing off? The chai is still hot, finish it.",
+   "t": "20:02"
   }
  ],
  "steps": [
@@ -3507,13 +3542,65 @@
      "text": "In general it must stand to its members as a second family, a position which remains more indefinite than the family relation, because the general civic community is at a farther remove from indi viduals and their special needs."
     }
    ]
+  },
+  {
+   "t": "20:02",
+   "end": "20:29",
+   "event": "Masterji says: “Ramesh, the chai is hot. Keep it moving.” Masterji hands the cup over the counter with a steady hand, eyes still on the needle. Khan Market closes at 20:30.",
+   "present": [
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The chai is hot, and the needle in Masterji’s eye has stopped its dance. I have drunk enough to know the taste of this place, and the market is closing its shutters with the finality of a state decree. I must return to the bungalow before the night fully claims the street.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 25,
+    "says": "Masterji, the air is cooling. I must return to my duties. The state, even a mistaken one, requires its secretaries to be present.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "voice": {
+    "by": "The bookseller",
+    "says": "Masterji, that's heavy philosophy for 8 PM. You're closing time, and the air is nice, so maybe just walk back instead of rushing off? The chai is still hot, finish it.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.8
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "id": "dyde-right:542"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "text": "To right as such, happiness is something external. Tet in the system of wants well-being is an essential element. The universal, which is at first only right, has to spread itself over the whole field of particularity. Justice, it is true, is a large factor in the civic community. The state will flourish, if it has good laws, of which free property is the fundamental condition."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-10-13T20:02+05:30",
+  "place": "home",
+  "until": "2026-10-13T20:29+05:30",
   "asleep": false,
   "imprest": 6891,
   "wearing": "kurta",
@@ -3602,8 +3689,8 @@
      "sunil"
     ]
    },
-   "walked": 12075,
-   "strain": 12075,
+   "walked": 14100,
+   "strain": 14100,
    "breakfast": true,
    "tired": true,
    "hunger": 1
