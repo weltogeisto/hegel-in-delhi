@@ -1,51 +1,429 @@
 {
-  "_about": "Parts a fan of the page may choose when they join the fan club and ask to be met. The label is what the fan sees; 'who' is what the world tells the voice about them, and nothing else about the real person is known or invented; 'at' is where on his rounds they may turn up. The ids are mirrored in supabase/fanclub.sql and in docs/index.html, and a test keeps the three equal.",
+  "_about": "Parts a fan of the page may choose when they join the fan club and ask to be met. The label is what the fan sees; 'who' is what the world tells the voice about them, and nothing else about the real person is known or invented; 'at' is where they may turn up: places on his rounds, or 'dream' for those who come only in his dreams at night (the owl writes the dream). 'when' limits the hours. Living people, religious figures and modern political leaders are not offered as parts: the world invents nothing for living public figures, and the others weigh too much in this city to be worn as a costume. The ids are mirrored in supabase/fanclub.sql and in docs/index.html, and a test keeps the three equal.",
   "groups": [
-    {"name": "Out on the lanes", "roles": [
-      {"id": "parakeets", "label": "A birdwatcher counting the parakeets of Lodhi Gardens", "at": ["lodhi"],
-       "who": "a birdwatcher with binoculars and a notebook of tallies, counting the rose-ringed parakeets in the tombs' domes"},
-      {"id": "kites", "label": "A kite-fighter from Old Delhi with glass-coated string", "at": ["lodhi"],
-       "who": "a kite-fighter from Old Delhi, a spool of glass-coated manja in hand, with firm views on the wind"},
-      {"id": "ghalib", "label": "A street poet who knows all of Ghalib by heart", "at": ["khan", "lodhi"],
-       "who": "a reciter of Mirza Ghalib, the Delhi poet who was writing his ghazals in exactly Hegel's years, glad to quote a couplet"},
-      {"id": "chai", "label": "A chai-stall regular with a theory of everything, one cup long", "at": ["khan", "lodhi"],
-       "who": "a regular at the chai stall who explains how the world works in the time it takes to finish one cup"},
-      {"id": "auto", "label": "An auto driver who knows a shortcut to everywhere", "at": ["khan", "home"],
-       "who": "an auto-rickshaw driver who knows a shortcut to every place in Delhi and is sure of a few beyond it"},
-      {"id": "chess", "label": "A chess hustler in Khan Market who plays blitz for chai", "at": ["khan"],
-       "who": "a chess hustler with a roll-up board in Khan Market's middle lane, playing five-minute games for a cup of chai"},
-      {"id": "dogs", "label": "A dog-walker with three indies and control over none", "at": ["lodhi", "home"],
-       "who": "a dog-walker towed by three Indian street dogs, none of which is listening"},
-      {"id": "scout", "label": "A film location scout who wants him for a cameo", "at": ["khan", "lodhi", "safdarjung"],
-       "who": "a location scout for a Hindi film, framing shots with both hands, sure that a white-haired German would be perfect for one scene"},
-      {"id": "chhole", "label": "A food writer hunting the perfect chhole bhature", "at": ["khan"],
-       "who": "a food writer on a long hunt for the perfect plate of chhole bhature, notebook out, ranking every stall"},
-      {"id": "guide", "label": "A guide at Safdarjung's Tomb with a theory about the dome", "at": ["safdarjung"],
-       "who": "a licensed guide at Safdarjung's Tomb with a private theory about the dome that the official tour leaves out"}
-    ]},
-    {"name": "Old friends and old enemies", "roles": [
-      {"id": "schopenhauer", "label": "A Schopenhauer devotee, still sore about Berlin in 1820", "at": ["iic", "lodhi"],
-       "who": "a devotee of Schopenhauer, who in Berlin in 1820 set his lectures at the same hour as Hegel's and lectured to an empty room; still sore about it"},
-      {"id": "marxist", "label": "A young Marxist determined to stand him on his feet", "at": ["iic", "khan"],
-       "who": "a young Marxist from the university who means to turn his philosophy right side up, as Marx said he did"},
-      {"id": "kantian", "label": "A Kantian on pilgrimage, here about the thing in itself", "at": ["iic"],
-       "who": "a Kantian on a pilgrimage of argument, who has come to ask about the thing in itself and will not leave without an answer"},
-      {"id": "gita", "label": "A Sanskrit scholar who has read his 1827 review of the Gita", "at": ["iic", "khan"],
-       "who": "a Sanskrit scholar who has read his 1827 review of the Bhagavad Gita, with pencilled objections in the margins"},
-      {"id": "goethe", "label": "A Goethe enthusiast with a question about colour", "at": ["iic", "gym"],
-       "who": "an admirer of Goethe's theory of colours, which Hegel defended against Newton, with a prism in a pocket and a question about yellow"},
-      {"id": "phd", "label": "A PhD student writing 300 pages about him, too nervous to say hello", "at": ["iic"],
-       "who": "a doctoral student three hundred pages into a thesis on him, who recognises him and can barely speak"}
-    ]},
-    {"name": "Odd ones", "roles": [
-      {"id": "stamp", "label": "A backpacker who knows his face from a 1970 postage stamp", "at": ["lodhi", "khan"],
-       "who": "a German backpacker who knows his face from the West German stamp of 1970, his two hundredth birthday, and cannot place it"},
-      {"id": "owl", "label": "A night-walker who keeps seeing an owl on his roof at dusk", "at": ["home"],
-       "who": "an evening walker who has seen an owl on his roof at dusk, more than once, and wants to know whose it is"},
-      {"id": "forecast", "label": "A meteorologist personally offended by the forecast", "at": ["iic", "lodhi"],
-       "who": "a meteorologist from the weather office, taking today's forecast as a personal insult"},
-      {"id": "diplomat", "label": "A retired diplomat who plays bridge at the Gymkhana", "at": ["gym"],
-       "who": "a retired ambassador who plays bridge at the Gymkhana, keeps score in three languages and remembers every hand since 1974"}
-    ]}
+    {
+      "name": "Out on the lanes",
+      "roles": [
+        {
+          "id": "parakeets",
+          "label": "A birdwatcher counting the parakeets of Lodhi Gardens",
+          "at": [
+            "lodhi"
+          ],
+          "who": "a birdwatcher with binoculars and a notebook of tallies, counting the rose-ringed parakeets in the tombs' domes"
+        },
+        {
+          "id": "kites",
+          "label": "A kite-fighter from Old Delhi with glass-coated string",
+          "at": [
+            "lodhi"
+          ],
+          "who": "a kite-fighter from Old Delhi, a spool of glass-coated manja in hand, with firm views on the wind"
+        },
+        {
+          "id": "ghalib",
+          "label": "A street poet who knows all of Ghalib by heart",
+          "at": [
+            "khan",
+            "lodhi"
+          ],
+          "who": "a reciter of Mirza Ghalib, the Delhi poet who was writing his ghazals in exactly Hegel's years, glad to quote a couplet"
+        },
+        {
+          "id": "chai",
+          "label": "A chai-stall regular with a theory of everything, one cup long",
+          "at": [
+            "khan",
+            "lodhi"
+          ],
+          "who": "a regular at the chai stall who explains how the world works in the time it takes to finish one cup"
+        },
+        {
+          "id": "auto",
+          "label": "An auto driver who knows a shortcut to everywhere",
+          "at": [
+            "khan",
+            "home"
+          ],
+          "who": "an auto-rickshaw driver who knows a shortcut to every place in Delhi and is sure of a few beyond it"
+        },
+        {
+          "id": "chess",
+          "label": "A chess hustler in Khan Market who plays blitz for chai",
+          "at": [
+            "khan"
+          ],
+          "who": "a chess hustler with a roll-up board in Khan Market's middle lane, playing five-minute games for a cup of chai"
+        },
+        {
+          "id": "dogs",
+          "label": "A dog-walker with three indies and control over none",
+          "at": [
+            "lodhi",
+            "home"
+          ],
+          "who": "a dog-walker towed by three Indian street dogs, none of which is listening"
+        },
+        {
+          "id": "scout",
+          "label": "A film location scout who wants him for a cameo",
+          "at": [
+            "khan",
+            "lodhi",
+            "safdarjung"
+          ],
+          "who": "a location scout for a Hindi film, framing shots with both hands, sure that a white-haired German would be perfect for one scene"
+        },
+        {
+          "id": "chhole",
+          "label": "A food writer hunting the perfect chhole bhature",
+          "at": [
+            "khan"
+          ],
+          "who": "a food writer on a long hunt for the perfect plate of chhole bhature, notebook out, ranking every stall"
+        },
+        {
+          "id": "guide",
+          "label": "A guide at Safdarjung's Tomb with a theory about the dome",
+          "at": [
+            "safdarjung"
+          ],
+          "who": "a licensed guide at Safdarjung's Tomb with a private theory about the dome that the official tour leaves out"
+        },
+        {
+          "id": "smallthings",
+          "label": "A reader who insists he read The God of Small Things",
+          "at": [
+            "khan",
+            "iic"
+          ],
+          "who": "a reader with a dog-eared copy of Arundhati Roy's The God of Small Things, who will not let him leave without promising to read it"
+        }
+      ]
+    },
+    {
+      "name": "Old friends and old enemies",
+      "roles": [
+        {
+          "id": "kant",
+          "label": "Immanuel Kant, on his walk, by Königsberg time only",
+          "at": [
+            "lodhi"
+          ],
+          "when": {
+            "from": "19:38",
+            "to": "20:38"
+          },
+          "who": "Immanuel Kant on his afternoon walk, which starts at half past three by Königsberg's own sun, 19:38 in Delhi, as punctual as ever"
+        },
+        {
+          "id": "schopenhauer",
+          "label": "A Schopenhauer devotee, still sore about Berlin in 1820",
+          "at": [
+            "iic",
+            "lodhi"
+          ],
+          "who": "a devotee of Schopenhauer, who in Berlin in 1820 set his lectures at the same hour as Hegel's and lectured to an empty room; still sore about it"
+        },
+        {
+          "id": "marxist",
+          "label": "A young Marxist determined to stand him on his feet",
+          "at": [
+            "iic",
+            "khan"
+          ],
+          "who": "a young Marxist from the university who means to turn his philosophy right side up, as Marx said he did"
+        },
+        {
+          "id": "kantian",
+          "label": "A Kantian on pilgrimage, here about the thing in itself",
+          "at": [
+            "iic"
+          ],
+          "who": "a Kantian on a pilgrimage of argument, who has come to ask about the thing in itself and will not leave without an answer"
+        },
+        {
+          "id": "gita",
+          "label": "A Sanskrit scholar who has read his 1827 review of the Gita",
+          "at": [
+            "iic",
+            "khan"
+          ],
+          "who": "a Sanskrit scholar who has read his 1827 review of the Bhagavad Gita, with pencilled objections in the margins"
+        },
+        {
+          "id": "goethe",
+          "label": "A Goethe enthusiast with a question about colour",
+          "at": [
+            "iic",
+            "gym"
+          ],
+          "who": "an admirer of Goethe's theory of colours, which Hegel defended against Newton, with a prism in a pocket and a question about yellow"
+        },
+        {
+          "id": "phd",
+          "label": "A PhD student writing 300 pages about him, too nervous to say hello",
+          "at": [
+            "iic"
+          ],
+          "who": "a doctoral student three hundred pages into a thesis on him, who recognises him and can barely speak"
+        }
+      ]
+    },
+    {
+      "name": "Odd ones",
+      "roles": [
+        {
+          "id": "stamp",
+          "label": "A backpacker who knows his face from a 1970 postage stamp",
+          "at": [
+            "lodhi",
+            "khan"
+          ],
+          "who": "a German backpacker who knows his face from the West German stamp of 1970, his two hundredth birthday, and cannot place it"
+        },
+        {
+          "id": "owl",
+          "label": "A night-walker who keeps seeing an owl on his roof at dusk",
+          "at": [
+            "home"
+          ],
+          "who": "an evening walker who has seen an owl on his roof at dusk, more than once, and wants to know whose it is"
+        },
+        {
+          "id": "forecast",
+          "label": "A meteorologist personally offended by the forecast",
+          "at": [
+            "iic",
+            "lodhi"
+          ],
+          "who": "a meteorologist from the weather office, taking today's forecast as a personal insult"
+        },
+        {
+          "id": "diplomat",
+          "label": "A retired diplomat who plays bridge at the Gymkhana",
+          "at": [
+            "gym"
+          ],
+          "who": "a retired ambassador who plays bridge at the Gymkhana, keeps score in three languages and remembers every hand since 1974"
+        }
+      ]
+    },
+    {
+      "name": "In costume, on the way to Comic Con",
+      "roles": [
+        {
+          "id": "goku",
+          "label": "A cosplayer as Son Goku, hair gelled into spikes",
+          "at": [
+            "khan",
+            "lodhi"
+          ],
+          "who": "a cosplayer dressed as Son Goku on the way to Delhi Comic Con, hair gelled into spikes, practising a power-up at the traffic lights"
+        },
+        {
+          "id": "bulma",
+          "label": "A cosplayer as Bulma, with a home-made Dragon Radar",
+          "at": [
+            "khan",
+            "iic"
+          ],
+          "who": "a cosplayer dressed as Bulma on the way to Delhi Comic Con, with a home-made Dragon Radar that beeps at everything"
+        },
+        {
+          "id": "ash",
+          "label": "A cosplayer as Ash Ketchum, sure there are Pokémon in Lodhi",
+          "at": [
+            "lodhi"
+          ],
+          "who": "a cosplayer dressed as Ash Ketchum, cap on backwards, certain there are Pokémon in the Lodhi tombs"
+        },
+        {
+          "id": "mufasa",
+          "label": "A cosplayer as Mufasa, roaring at the circle of life",
+          "at": [
+            "khan",
+            "lodhi"
+          ],
+          "who": "a cosplayer in a Mufasa lion costume, much too warm for Delhi, roaring gently at the circle of life in the traffic"
+        },
+        {
+          "id": "dracula",
+          "label": "Count Dracula, who goes out only after dark",
+          "at": [
+            "lodhi",
+            "khan",
+            "home"
+          ],
+          "when": "night",
+          "who": "a gaunt man in an opera cape who calls himself Count Dracula, out only after sunset, polite, and very interested in the old"
+        }
+      ]
+    },
+    {
+      "name": "In his dreams",
+      "roles": [
+        {
+          "id": "napoleon",
+          "label": "Napoleon, the world-soul on horseback",
+          "at": [
+            "dream"
+          ],
+          "who": "Napoleon Bonaparte, whom he saw ride through Jena in October 1806 and called the world-soul on horseback, riding through the dream"
+        },
+        {
+          "id": "beethoven",
+          "label": "Beethoven, born the same year as he was",
+          "at": [
+            "dream"
+          ],
+          "who": "Ludwig van Beethoven, born like him in 1770, conducting something only he can hear"
+        },
+        {
+          "id": "bettina",
+          "label": "Bettina von Arnim, who knew him in Berlin",
+          "at": [
+            "dream"
+          ],
+          "who": "Bettina von Arnim, who knew him in Berlin and knew Goethe and Beethoven before that, and talks of all three at once"
+        },
+        {
+          "id": "marx",
+          "label": "Karl Marx, who says he found him standing on his head",
+          "at": [
+            "dream"
+          ],
+          "who": "Karl Marx, who says he found Hegel's dialectic standing on its head and turned it the right way up"
+        },
+        {
+          "id": "engels",
+          "label": "Friedrich Engels, who heard Schelling attack him in 1841",
+          "at": [
+            "dream"
+          ],
+          "who": "Friedrich Engels, who sat in Schelling's Berlin lectures of 1841 while Schelling attacked Hegel's philosophy, and wrote back"
+        },
+        {
+          "id": "bakunin",
+          "label": "Mikhail Bakunin, once his keenest reader in Moscow",
+          "at": [
+            "dream"
+          ],
+          "who": "Mikhail Bakunin, once his keenest reader in Moscow, now persuaded that the urge to destroy is a creative urge"
+        },
+        {
+          "id": "herzen",
+          "label": "Alexander Herzen, who called him the algebra of revolution",
+          "at": [
+            "dream"
+          ],
+          "who": "Alexander Herzen, who called his philosophy the algebra of revolution"
+        },
+        {
+          "id": "kierkegaard",
+          "label": "Søren Kierkegaard, looking for the single individual",
+          "at": [
+            "dream"
+          ],
+          "who": "Søren Kierkegaard, asking where the single individual is to be found in his system"
+        },
+        {
+          "id": "nietzsche",
+          "label": "Friedrich Nietzsche, moustache first, with a hammer",
+          "at": [
+            "dream"
+          ],
+          "who": "Friedrich Nietzsche, moustache first, who philosophises with a hammer"
+        },
+        {
+          "id": "arendt",
+          "label": "Hannah Arendt, with a cigarette and a question about judging",
+          "at": [
+            "dream"
+          ],
+          "who": "Hannah Arendt, with a cigarette and a question about thinking and judging"
+        },
+        {
+          "id": "einstein",
+          "label": "Albert Einstein, who would like a word about time",
+          "at": [
+            "dream"
+          ],
+          "who": "Albert Einstein, who would like a word about time and whether now is the same for everyone"
+        },
+        {
+          "id": "heisenberg",
+          "label": "Werner Heisenberg, unsure where he is, sure how fast",
+          "at": [
+            "dream"
+          ],
+          "who": "Werner Heisenberg, uncertain where exactly he is in the dream and quite sure how fast"
+        },
+        {
+          "id": "tagore",
+          "label": "Rabindranath Tagore, poet of Gitanjali",
+          "at": [
+            "dream"
+          ],
+          "who": "Rabindranath Tagore, poet of Gitanjali and the first Asian to win the Nobel Prize, with a question about the universal and the particular"
+        },
+        {
+          "id": "bach",
+          "label": "Johann Sebastian Bach, counting a fugue in the traffic",
+          "at": [
+            "dream"
+          ],
+          "who": "Johann Sebastian Bach, who died twenty years before he was born, hearing a fugue in Delhi's horns"
+        },
+        {
+          "id": "brahms",
+          "label": "Johannes Brahms, gruff, with a cigar and a lullaby",
+          "at": [
+            "dream"
+          ],
+          "who": "Johannes Brahms, gruff, with a cigar and a lullaby"
+        },
+        {
+          "id": "hildegard",
+          "label": "Hildegard von Bingen, with a vision and a remedy",
+          "at": [
+            "dream"
+          ],
+          "who": "Hildegard von Bingen, abbess, composer and healer, with a vision and a herbal remedy"
+        },
+        {
+          "id": "shelley",
+          "label": "Mary Shelley, curious about a man woken after two centuries",
+          "at": [
+            "dream"
+          ],
+          "who": "Mary Shelley, who wrote Frankenstein in 1818 and is very curious about a man woken after two centuries"
+        },
+        {
+          "id": "hesse",
+          "label": "Hermann Hesse, who wrote Siddhartha",
+          "at": [
+            "dream"
+          ],
+          "who": "Hermann Hesse, author of Siddhartha, who went East in 1911 looking for India"
+        },
+        {
+          "id": "nefertiti",
+          "label": "Nefertiti, whose bust stands in his Berlin",
+          "at": [
+            "dream"
+          ],
+          "who": "Nefertiti, queen of Egypt, whose painted bust stands in Berlin's Neues Museum, in his own city"
+        },
+        {
+          "id": "cleopatra",
+          "label": "Cleopatra, who has heard he called Egypt a riddle",
+          "at": [
+            "dream"
+          ],
+          "who": "Cleopatra, last pharaoh of Egypt, who has heard that he called her country the land of the riddle"
+        }
+      ]
+    }
   ]
 }

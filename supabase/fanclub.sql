@@ -23,7 +23,7 @@ security definer
 set search_path = public
 as $$
 declare
-  roles constant text[] := array['parakeets', 'kites', 'ghalib', 'chai', 'auto', 'chess', 'dogs', 'scout', 'chhole', 'guide', 'schopenhauer', 'marxist', 'kantian', 'gita', 'goethe', 'phd', 'stamp', 'owl', 'forecast', 'diplomat'];
+  roles constant text[] := array['parakeets', 'kites', 'ghalib', 'chai', 'auto', 'chess', 'dogs', 'scout', 'chhole', 'guide', 'smallthings', 'kant', 'schopenhauer', 'marxist', 'kantian', 'gita', 'goethe', 'phd', 'stamp', 'owl', 'forecast', 'diplomat', 'goku', 'bulma', 'ash', 'mufasa', 'dracula', 'napoleon', 'beethoven', 'bettina', 'marx', 'engels', 'bakunin', 'herzen', 'kierkegaard', 'nietzsche', 'arendt', 'einstein', 'heisenberg', 'tagore', 'bach', 'brahms', 'hildegard', 'shelley', 'hesse', 'nefertiti', 'cleopatra'];
   recent int;
   total bigint;
 begin

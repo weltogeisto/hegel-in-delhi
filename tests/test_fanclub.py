@@ -18,7 +18,7 @@ class FanClubTest(unittest.TestCase):
         return [r["id"] for g in self.visitors["groups"] for r in g["roles"]]
 
     def test_every_part_is_complete_and_unique(self):
-        places = {"home", "lodhi", "khan", "iic", "gym", "safdarjung", "gandhi", "estates"}
+        places = {"home", "lodhi", "khan", "iic", "gym", "safdarjung", "gandhi", "estates", "dream"}
         seen = set()
         for g in self.visitors["groups"]:
             for r in g["roles"]:
@@ -28,6 +28,20 @@ class FanClubTest(unittest.TestCase):
                 self.assertTrue(r["label"] and r["who"] and r["at"], r["id"])
                 self.assertLessEqual(len(r["label"]), 70, r["id"])
                 self.assertTrue(set(r["at"]) <= places, r["id"])
+                self.assertTrue(r["at"] == ["dream"] or "dream" not in r["at"], r["id"])      # a dream is not also a place
+                self.assertIn(str(r.get("when", "any")) if not isinstance(r.get("when"), dict) else "window", ("any", "night", "window"), r["id"])
+
+    def test_no_living_people_religious_figures_or_modern_leaders_are_worn(self):
+        worn = " ".join(r["label"] + " " + r["who"] for g in self.visitors["groups"] for r in g["roles"]).lower()
+        for name in ("krishna", "buddha", "mother teresa", "indira", "bhutto", "malala"):
+            self.assertNotIn(name, worn)
+        roy = next(r for g in self.visitors["groups"] for r in g["roles"] if r["id"] == "smallthings")
+        self.assertIn("reader", roy["who"])                         # her book, carried by a reader; she is not voiced
+
+    def test_kant_walks_only_at_half_past_three_koenigsberg_time(self):
+        kant = next(r for g in self.visitors["groups"] for r in g["roles"] if r["id"] == "kant")
+        self.assertEqual(kant["when"], {"from": "19:38", "to": "20:38"})   # 15:30 local mean time at 20.5° E is 14:08 UTC, 19:38 in Delhi
+        self.assertIn("KANT_WALK = [19*60 + 38, 20*60 + 38]", self.page)
 
     def test_the_page_offers_exactly_the_parts_of_the_data_file(self):
         block = re.search(r'<script type="application/json" id="fanRoles">(.*?)</script>', self.page, re.S)
