@@ -442,6 +442,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "16:28",
+   "to": "16:48",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -1100,6 +1107,34 @@
    "to": "Hegel",
    "text": "Yes sir, just as you say. I will plate it up now while it is still hot.",
    "t": "16:18"
+  },
+  {
+   "k": "diary",
+   "text": "The system of needs demands satisfaction, but the household mechanism refuses to serve until the evening. My body, which I thought I had mastered, rebels against the rigidity of the schedule. I must wait in the tension between the appetite and the clock, perhaps by taking a walk to cool the head as I promised, or by sitting in contemplation of the absurdity of my situation.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    }
+   ],
+   "t": "16:28"
+  },
+  {
+   "k": "said",
+   "text": "Very well, Ramesh. I shall wait. Do not rush the sambar; it must be right.",
+   "to": "Ramesh",
+   "t": "16:28"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "It is already plated, sir. I did not rush it, just as you said.",
+   "t": "16:28"
   }
  ],
  "steps": [
@@ -2312,13 +2347,73 @@
      "text": ""
     }
    ]
+  },
+  {
+   "t": "16:28",
+   "end": "16:48",
+   "event": "Ramesh says: “Yes sir, just as you say. I will plate it up now while it is still hot.” Ramesh turns away to fetch the sambar and rice.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The system of needs demands satisfaction, but the household mechanism refuses to serve until the evening. My body, which I thought I had mastered, rebels against the rigidity of the schedule. I must wait in the tension between the appetite and the clock, perhaps by taking a walk to cool the head as I promised, or by sitting in contemplation of the absurdity of my situation.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 20,
+    "says": "Very well, Ramesh. I shall wait. Do not rush the sambar; it must be right.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "It is already plated, sir. I did not rush it, just as you said.",
+    "does": "He places the steaming bowl and plate on the table in front of him."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 12.9,
+    "refused": [
+     [
+      "No household meal is available now; the next service is dinner from 19:30. Choose an available activity; a request for food is not a completed meal."
+     ]
+    ],
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T16:28+05:30",
+  "until": "2026-10-13T16:48+05:30",
   "asleep": false,
   "imprest": 6961,
   "wearing": "kurta",
