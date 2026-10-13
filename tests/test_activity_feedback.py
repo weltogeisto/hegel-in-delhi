@@ -9,12 +9,34 @@ class ActivityFeedbackTests(unittest.TestCase):
     def scene(self,hour,minute=0,d=date(2026,10,3)):
         return self.world.situation(at_dt(d,60*hour+minute),self.st,self.day)
     def test_npc_food_claim_cannot_execute_an_unavailable_meal(self):
-        sit,ctx=self.scene(18,12);sit['event']='Ramesh says: the parathas are ready.'
+        # Ramesh goes home at 20:30; between meals he cooks only when he is there, so a claim at 20:45 creates nothing
+        sit,ctx=self.scene(20,45);sit['event']='Ramesh says: the parathas are ready.'
         before=copy.deepcopy(self.st)
         errors,_,_=self.world.check(answer(action='eat'),sit,ctx,self.st)
-        self.assertTrue(any('next service is dinner from 19:30' in x for x in errors))
+        self.assertTrue(any('while Ramesh is absent' in x for x in errors))
         self.assertEqual(self.st,before)
         self.assertTrue(any('No household meal is available' in x for x in sit['on_mind']))
+    def test_between_meals_ramesh_puts_a_plate_together_when_asked(self):
+        sit,ctx=self.scene(16,48)
+        self.assertTrue(any('Ramesh puts a plate together' in x for x in sit['on_mind']))
+        errors,_,rep=self.world.check(answer(action='eat'),sit,ctx,self.st)
+        self.assertEqual(errors,[])
+        self.world.apply(*rep,sit,ctx,self.st,self.day)
+        self.assertEqual(self.st['last_meal'],'2026-10-03T16:48+05:30')
+        self.assertTrue(any(e['k']=='world' and e['text'].startswith('Ramesh puts a plate together:') for e in self.day['entries']))
+    def test_no_plate_within_three_hours_of_a_meal(self):
+        self.st['last_meal']='2026-10-03T14:00+05:30'
+        sit,ctx=self.scene(16,0)
+        errors,_,_=self.world.check(answer(action='eat'),sit,ctx,self.st)
+        self.assertTrue(any('next service is dinner from 19:30' in x for x in errors))
+    def test_tea_is_brought_once_at_half_past_four(self):
+        self.st['last_meal']='2026-10-03T13:05+05:30'
+        sit,_=self.scene(16,35)
+        self.assertIn('Ramesh brings tea:',sit['event'])
+        self.assertEqual(self.st.get('snacks'),1)
+        sit,_=self.scene(16,50)
+        self.assertNotIn('Ramesh brings tea',sit['event'] or '')
+        self.assertEqual(self.st.get('snacks'),1)
     def test_available_meal_executes_and_advances_food_clock(self):
         sit,ctx=self.scene(13,2)
         errors,_,rep=self.world.check(answer(action='eat'),sit,ctx,self.st)

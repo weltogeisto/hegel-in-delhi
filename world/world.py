@@ -21,7 +21,11 @@ LUNCH = ["dal, rice, bhindi and curd", "rajma, rice and a cucumber raita", "kadh
 DINNER = ["rotis, dal makhani and a bowl of curd", "khichdi with ghee and papad", "rotis, palak paneer and dal", "vegetable pulao and raita"]
 BREAKFAST = ["aloo parathas, curd and pickle", "poha with peanuts and a pot of tea", "idli with sambar and coconut chutney",
              "toast, butter and a plate of cut papaya"]
+PLATE = ["parathas kept from the morning, with curd and pickle", "a plate of khichdi with ghee", "an omelette, toast and a pot of tea",
+         "rice, the day's dal and a fried egg"]
+TEA = ["tea and a plate of pakoras", "tea and Marie biscuits", "tea and a few samosas from the market", "tea and toast with butter"]
 MEAL_WINDOWS = {"breakfast": (420, 570), "lunch": (780, 870), "dinner": (1170, 1230)}   # laid out at home while Ramesh is there
+TEA_WINDOW, PLATE_GAP_H = (990, 1050), 3   # tea at half past four; between meals Ramesh puts a plate together if three hours have passed
 HUNGRY_H, VERY_HUNGRY_H, TIRED_H, TIRED_M = 5, 8, 16, 10_000        # hours since a meal, hours awake, metres walked
 WALK_M, HOT_C = 75, 33                  # metres a minute; from this temperature walking counts one and a half times
 NUMBERS = "zero one two three four five six seven eight nine ten eleven twelve".split()
@@ -234,6 +238,15 @@ class World(Economy):
         name = meal_at(minute_of(t))
         return name if name and "ramesh" in self.present_ids("home", t, state) and not self.kitchen(state) else None
 
+    def plate(self, t, state):
+        """Between the set meals, what Ramesh puts together if he is asked: he is at home, the kitchen is stocked,
+        and the last meal was at least three hours ago. None otherwise."""
+        if self.served(t, state) or self.kitchen(state) or "ramesh" not in self.present_ids("home", t, state):
+            return None
+        if state.get("last_meal") and t - datetime.fromisoformat(state["last_meal"]) < timedelta(hours=PLATE_GAP_H):
+            return None
+        return random.Random(f"plate|{t.date()}|{minute_of(t) // 60}").choice(PLATE)
+
     def meal_status(self, t, state):
         """Available household service, independent of an NPC's claim about a tray."""
         if self.kitchen(state):
@@ -243,10 +256,10 @@ class World(Economy):
         if name := self.served(t, state):
             return f"{name.capitalize()} is available now."
         later = [(name, a) for name, (a, _) in MEAL_WINDOWS.items() if a > minute_of(t)]
-        if later:
-            name, at = later[0]
-            return f"No household meal is available now; the next service is {name} from {fmt(at)}."
-        return "No household meal is available now; today's meal services have ended."
+        nxt = f"the next service is {later[0][0]} from {fmt(later[0][1])}" if later else "today's meal services have ended"
+        if plate := self.plate(t, state):
+            return f"No set meal now ({nxt}); if you ask, Ramesh puts a plate together: {plate}."
+        return f"No household meal is available now; {nxt}."
 
     def feed(self, state, t, food):
         """A meal starts the clock again; a snack pushes hunger back two hours."""
@@ -540,6 +553,10 @@ class World(Economy):
                 today["dinner"] = True
                 menu = random.Random(f"dinner|{d}").choice(DINNER)
                 events.append((f"Ramesh serves dinner before he goes home: {menu}.", None))
+            elif not why and TEA_WINDOW[0] <= m < TEA_WINDOW[1] and "tea" not in today and "ramesh" in present:
+                today["tea"] = True                                # tea is brought, not asked for: it holds hunger off two hours
+                self.feed(state, t, "snack")
+                events.append((f"Ramesh brings tea: {random.Random(f'tea|{d}').choice(TEA)}.", {"k": "world", "text": "Ramesh brings tea."}))
             cut = random.Random(f"power|{d}")
             if cut.random() < 0.06:
                 at = cut.randint(1140, 1290)
@@ -750,7 +767,7 @@ class World(Economy):
             else:
                 errors.append(f"nothing is sold {pl['at']}")
                 break
-        if action == "eat" and dest == "home" and not self.served(arrival, state):
+        if action == "eat" and dest == "home" and not (self.served(arrival, state) or self.plate(arrival, state)):
             errors.append(self.meal_status(arrival, state) + " Choose an available activity; a request for food is not a completed meal.")
         spent = sum(b["price"] for b in buys)
         if spent > state["imprest"]:
@@ -907,8 +924,12 @@ class World(Economy):
         else:
             end = arrival
 
-        if action == "eat" and dest == "home" and self.served(t, state):
-            self.feed(state, t, "meal")
+        if action == "eat" and dest == "home":
+            if self.served(t, state):
+                self.feed(state, t, "meal")
+            elif plate := self.plate(t, state):                      # between meals, asked for
+                entry(t, {"k": "world", "text": f"Ramesh puts a plate together: {plate}."})
+                self.feed(state, t, "meal")
         for b in plan["buys"]:
             entry(t, dict({"k": "bag", "item": b["item"], "price": b["price"]}, **{k: b[k] for k in ("office", "note") if b.get(k)}))
             state["imprest"] -= b["price"]
