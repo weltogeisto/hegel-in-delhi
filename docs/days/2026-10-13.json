@@ -484,6 +484,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "18:20",
+   "to": "18:30",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1327,6 +1334,34 @@
    "to": "Hegel",
    "text": "Yes sir. The sambar will be up in ten minutes, once I get this spice right. You just ring the bell when you're ready.",
    "t": "18:05"
+  },
+  {
+   "k": "diary",
+   "text": "The meal is ten minutes away, a small interval of waiting that the body must endure. I have walked ten kilometres today; the legs are tired, and the spirit requires a moment of stillness before the nourishment arrives. I shall sit in the verandah, where the evening air is cooler, and let the mind rest in the quiet before the domestic institution of the dinner table reasserts itself.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§32"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Roman World, Rome to the Second Punic War"
+    }
+   ],
+   "t": "18:20"
+  },
+  {
+   "k": "said",
+   "text": "Very well, Ramesh. I shall wait.",
+   "to": "Ramesh",
+   "t": "18:20"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir. No rush. I'll give you a call when it's ready.",
+   "t": "18:20"
   }
  ],
  "steps": [
@@ -2872,13 +2907,65 @@
      "text": "Security for the state and its subjects against misuse of power by the authorities and their officers is found directly iu their responsibility arising out of their nature as a hierarchy. But it is also found in the legitimate societies and corporations. They hold in check the inflow of subjective wilfulness into the power of the officers."
     }
    ]
+  },
+  {
+   "t": "18:20",
+   "end": "18:30",
+   "event": "Ramesh says: “Yes sir. The sambar will be up in ten minutes, once I get this spice right. You just ring the bell when you're ready.” He nods once and turns back toward the kitchen corridor, holding the wooden spoon steady.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The meal is ten minutes away, a small interval of waiting that the body must endure. I have walked ten kilometres today; the legs are tired, and the spirit requires a moment of stillness before the nourishment arrives. I shall sit in the verandah, where the evening air is cooler, and let the mind rest in the quiet before the domestic institution of the dinner table reasserts itself.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 10,
+    "says": "Very well, Ramesh. I shall wait.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir. No rush. I'll give you a call when it's ready.",
+    "does": "Ramesh nods once and turns back toward the kitchen corridor, holding the wooden spoon steady."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.5
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§32",
+     "id": "dyde-right:124"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Roman World, Rome to the Second Punic War",
+     "id": "sibree-history:897"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§32",
+     "text": "Its superficial character is revealed in the process, since all the particulars finally turn back again into the conception of the universal. The empirical sciences usually analyze what they find in pictorial ideas, and if the individual is successfully brought back to the general, the general property is then called the conception. But this is not our procedure."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Roman World, Rome to the Second Punic War",
+     "text": "It took Licinius ten years to carry laws favourable to the plebs; the latter allowed itself to be kept back by the mere formality of the veto on the part of other tribunes, and still more patiently did it wait for the long-delayed execution of these laws. It may be asked: By what was such a disposition and character produced?"
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T18:20+05:30",
+  "until": "2026-10-13T18:30+05:30",
   "asleep": false,
   "imprest": 6961,
   "wearing": "kurta",
