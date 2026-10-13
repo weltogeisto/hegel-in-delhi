@@ -393,6 +393,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "12:58",
+   "to": "13:18",
+   "mode": "walk",
+   "a": "home",
+   "b": "lodhi"
   }
  ],
  "entries": [
@@ -893,6 +900,37 @@
    "to": "Hegel",
    "text": "Yes sir, fresh tea it is. I will keep the sambar on the low flame, though it will be better if we eat before it gets too cold.",
    "t": "12:28"
+  },
+  {
+   "k": "diary",
+   "text": "The sambar waits, but the heat is already pressing against the white cotton. I will not sit in the parlor to rot; a walk to the cool shade of the trees is necessary to clear the head before the meal. The body must be moved to prevent the spirit from stagnating in this humidity.",
+   "sensitive": true,
+   "why": "stagnating",
+   "topic": "the ranking of peoples",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§201"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature"
+    }
+   ],
+   "t": "12:58"
+  },
+  {
+   "k": "said",
+   "text": "Very good, Ramesh. I shall take a brief walk to cool the head. Return the sambar when I come back; it shall not be wasted.",
+   "to": "Ramesh",
+   "t": "12:58"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir. I will wait for you. Just do not take too long, the sambar is delicate.",
+   "t": "12:58"
   }
  ],
  "steps": [
@@ -1764,13 +1802,65 @@
      "text": "It requires but little reflection to see that the services performed by the classes in behalf of the general well-being and public liberty cannot be traced to an insight special to these classes. The highest state of&cials have necessarily deeper and more comprehensive insight into the workings and needs of the state, and also greater skill and wider practical experience."
     }
    ]
+  },
+  {
+   "t": "12:58",
+   "end": "13:18",
+   "event": "Ramesh says: “Yes sir, fresh tea it is. I will keep the sambar on the low flame, though it will be better if we eat before it gets too cold.” Ramesh nods and turns to walk back toward the kitchen.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The sambar waits, but the heat is already pressing against the white cotton. I will not sit in the parlor to rot; a walk to the cool shade of the trees is necessary to clear the head before the meal. The body must be moved to prevent the spirit from stagnating in this humidity.",
+    "action": "walk",
+    "place": "lodhi",
+    "minutes": 30,
+    "says": "Very good, Ramesh. I shall take a brief walk to cool the head. Return the sambar when I come back; it shall not be wasted.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "lodhi",
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir. I will wait for you. Just do not take too long, the sambar is delicate.",
+    "does": "He wipes his hands on the cloth tied around his waist and steps back toward the kitchen door."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.7
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§201",
+     "id": "dyde-right:482"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "id": "haldane-2:425"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§201",
+     "text": "The family is the first basis of the state, and classes or estates are the second. This second is of con- sequence because private persons, through self-seeking, are compelled to turn themselves out towards others. This is the linkhy which self-seeking is joined to the universal or the state, whose care it must be to keep the connection strong and steadfast."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "text": "In short, as there can be no movement in vacuum, so also a vacuum cannot move.”"
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-10-13T12:58+05:30",
+  "place": "lodhi",
+  "until": "2026-10-13T13:18+05:30",
   "asleep": false,
   "imprest": 7001,
   "wearing": "kurta",
@@ -1855,8 +1945,8 @@
      "sunil"
     ]
    },
-   "walked": 7050,
-   "strain": 7050,
+   "walked": 8550,
+   "strain": 8550,
    "breakfast": true
   },
   "account": {
