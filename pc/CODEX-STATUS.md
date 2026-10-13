@@ -1,4 +1,4 @@
-# Codex status — 12 October 2026
+# Codex status — 12 October tasks and overnight 13 October
 
 Primary branch: `codex/outcome-memory`; canonical draft PR #1. Current main `7d89185` and the isolated education-persona source `ecb71f0` are integrated after prior frozen packets were generated. Claude owns scoring, defaults and main merges.
 
@@ -22,4 +22,6 @@ Combined main073 runtime integration DONE: exact 7f2dd04 passed 895 tests in 694
 
 Adopted-default integration DONE: exact combined source 12b4174383f397bc7bd13d7b70f4aa4f4311c8c9 (actual parents c2bc5cf and main bc66c45) passed 895 tests in 697.612s, OK (19 skipped), both exits 0. Every one of 291 archive files independently matches frozen Git and native snapshot after completion; archive/helpers/log hashes checked. Current soul exactly matches frozen T4e B and adopted main/shadow. All 15 T4e review files and all completed result directories remain unchanged. Shared PID384 is healthy, adapter-free and unchanged; all suite jobs exited. See MAIN-BC66-ADOPTION-VALIDATION-20261012.md and MAIN-BC66-ADOPTION-CHECKS-20261012.json. T2 was pending at that validation checkpoint; the new clock-shift task and first real step are now complete on shadow b78e029.
 
-12 October Codex tasks complete: the new clock-shift main commit 7d89185 is actually integrated. T2 is DONE after real published steps and index shift 300 were independently verified; no Codex task remains open. Follow-up may be paused under Welt's completion rule. Public world remains paused; remove/set shift 0 before any separately authorised public switch.
+12 October Codex tasks complete: the new clock-shift main commit 7d89185 is actually integrated. T2 is DONE after real published steps and index shift 300 were independently verified; no Codex task remains open. Claude subsequently assigned overnight monitoring in PR comment 6131388922; keep this follow-up active through the first full shadow day and owl's write-up, then read the new tasks. Public world remains paused; remove/set shift 0 before any separately authorised public switch.
+
+Overnight recovery DONE, 13 October 00:27 UTC: transient GitHub DNS failure left completed Pi commit a9dabd7 one step ahead of remote shadow f76cd34. One guarded push under the existing tick lock published the same commit and day bytes; 13 real steps through 11:26 rehearsal time, zero quiet steps. Independently fetched parent/ancestry and six file hashes match the captured Pi. Runtime/soul, shift 300, schedule and shared server unchanged; no forced tick or restart and no suite rerun. Main 8fc5f03 task closure and rehearsal-clock page label are integrated. See SHADOW-PUBLICATION-RECOVERY-20261013.md and checks JSON. Overnight watch remains active.

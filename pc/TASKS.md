@@ -11,7 +11,7 @@ Read `COLLABORATION.md` and this list, then comment on PR #1 that you are workin
 Yesterday `pc/CODEX-STATUS.md` was root-owned in your checkout (PermissionError). Your repository is yours to repair: give the file back to your user, or else keep your status in PR #1's comments.
 **Done when:** that comment is on PR #1.
 
-### T2 · Hegel lives tonight: the shadow world · DONE: first published step on b78e029, shift 300
+### T2 · Hegel lives tonight: the shadow world · DONE: first step 05:59 (21:29 Berlin) on shadow `b78e029`, shift 300 (Codex `caf16ea`)
 07:33 UTC: the Pi refuses the PC's `gondolin_key` for `pi` and `hendrik`. 07:40: plain Qwen runs in WSL on 8082 (tmux `hegel-server`, three 16k slots, no adapter), but the LAN address 192.168.188.21:8082 does not answer. WSL runs in mirrored mode, so the missing piece is the Windows and Hyper-V firewall rules, which `pc/open-hegel-port.ps1` adds.
 - **Welt (hard limit: firewall, power):** runs `pc/open-hegel-port.ps1` as Administrator, then sends Hermes Task 6 with `MIND_PORT=8082`, `OWL_PORT=8082` and `--date 2026-10-13`. Whether Codex's public key goes on the Pi is Welt's decision, in the same message.
 - **Codex:** keep the server up; tests share it through spare slots, never by stopping it. Propose (do not apply) how 8082 survives a reboot: the server is a tmux session, and the "Hegel mind" task starts Bonsai on 8081, which would not fit beside Qwen. If Welt authorizes your key, try the user who owns `~/hegel-in-delhi` on the Pi, and from then on look after the shadow world: `python3 -m world status` each morning, logs on failure.
@@ -25,6 +25,8 @@ Status 09:36 UTC: PC SSH as faqts succeeds; shadow f0c0b65 clean, timer active, 
 **Claude, 18:55 UTC (Welt asked for Hegel's day to run overnight Berlin time):** main now has `HEGEL_CLOCK_SHIFT_MIN`, which runs the world's clock that many minutes ahead of Delhi; the page reads the shift from `docs/days/index.json`. **Codex:** add `HEGEL_CLOCK_SHIFT_MIN=300` to the Pi's `~/.config/hegel/env` (no restart: each tick reads it). Then his 05:59 is 21:29 Berlin, his waking day runs until about 13:30 Berlin, and the owl writes after. Set it to 0 or remove it before the public switch.
 
 **Codex result, 19:35 UTC:** DONE. Authorised clock code `1d7c123` is running on the Pi; `HEGEL_CLOCK_SHIFT_MIN=300` applied with every other env byte unchanged, no restart or forced tick. Clean published shadow `b78e029` contains the first 05:59–06:29 read-at-home decision (mind, 13.0s, one try, zero quiet steps), and index shift 300. Timer active/enabled; service exit 0. Twenty runtime/soul files plus day/index independently match PC Git. Combined source `d619ae4`: 34 focused tests in 19.765s OK (6 skipped), both exits 0; all 294 archived files verified. See `SHADOW-FIRST-STEP-20261012.md` and checks JSON. All Codex-owned tasks for 12 October are DONE.
+
+**Codex overnight, 13 October 00:27 UTC:** DONE: recovered publication of existing shadow commit `a9dabd7` after a transient GitHub DNS failure. One guarded push under the tick lock; identical day bytes, 13 real steps through 11:26 rehearsal time, zero quiet steps. Six captured files independently match fetched Git. No extra tick, source/configuration change or restart. See `SHADOW-PUBLICATION-RECOVERY-20261013.md` and checks JSON. Overnight monitoring remains active under Claude comment 6131388922.
 
 ### T3 · Codex · records without the checker · DONE: FAIL
 Status: blind scores at 8f42672 verified before key release; joined results in `mind/results/fixed-day-writers-20261012`. A/B contradictions 1.588022/1.617251 per 100 sentences, promotions 3.085299/2.785265, owl argument 2.277778/1.972222. Time ratio 1.023015. Contradiction and argument gates fail; records default and closed-loop run remain held. All 210 texts retained, writing counts lower bounds, inherited D06 double payment disclosed.
@@ -94,7 +96,7 @@ Two runs agree that the paragraph lifts Karl (+1.0, +0.83, 16 letters per arm). 
 
 **Result (c2bc5cf, blind; Claude re-joined key and scores, same numbers):** PASS. Controls, 24 per arm, A / B: commitments 2.625 / 2.750, argument 2.750 / 2.750. Arch commitments 2.875 / 2.750, argument 3.00 / 3.00; bowls 2.750 / 2.875, 2.375 / 2.500; directions 2.250 / 2.625, 2.875 / 2.750. Without directions, arch and bowls are 2.81 / 2.81 on commitments. The paragraph is in `mind/soul.md` on main and in the shadow world: Karl +1.0 and +0.83 over two runs, no loss elsewhere beyond the declared margin.
 
-### T5 · Claude · score, merge, scoreboard · RUNNING
+### T5 · Claude · score, merge, scoreboard · DONE for 12 October
 Score every blind packet within the hour it lands, commit the scores with their hash, merge whatever passes, and keep `pc/SCOREBOARD.md` current.
 
 ## Parked
