@@ -42,7 +42,7 @@
     "aqi": 90
    },
    {
-    "temp": 24,
+    "temp": 25,
     "sky": "clear",
     "rain": 0,
     "aqi": 96
@@ -79,25 +79,25 @@
    },
    {
     "temp": 29,
-    "sky": "clear",
+    "sky": "mostly clear",
     "rain": 0,
     "aqi": 135
    },
    {
     "temp": 30,
-    "sky": "clear",
-    "rain": 0,
+    "sky": "drizzle",
+    "rain": 0.1,
     "aqi": 137
    },
    {
     "temp": 30,
-    "sky": "clear",
-    "rain": 0,
+    "sky": "drizzle",
+    "rain": 0.1,
     "aqi": 137
    },
    {
     "temp": 30,
-    "sky": "clear",
+    "sky": "mostly clear",
     "rain": 0,
     "aqi": 138
    },
@@ -109,6 +109,18 @@
    },
    {
     "temp": 30,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 139
+   },
+   {
+    "temp": 29,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 139
+   },
+   {
+    "temp": 28,
     "sky": "clear",
     "rain": 0,
     "aqi": 139
@@ -126,25 +138,13 @@
     "aqi": 139
    },
    {
-    "temp": 27,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 139
-   },
-   {
-    "temp": 26,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 139
-   },
-   {
     "temp": 26,
     "sky": "clear",
     "rain": 0,
     "aqi": 140
    },
    {
-    "temp": 25,
+    "temp": 26,
     "sky": "clear",
     "rain": 0,
     "aqi": 142
@@ -470,6 +470,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh and Shri G. Hegde at home."
+  },
+  {
+   "from": "17:45",
+   "to": "18:05",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -1257,6 +1264,34 @@
    "to": "Hegel",
    "text": "Thank you, sir. I appreciate the kindness, truly. I will just unpack my few things and settle in.",
    "t": "17:30"
+  },
+  {
+   "k": "diary",
+   "text": "Shri Hegde withdraws with the quiet dignity of a man who knows his place in the hierarchy, even if that place was assigned by a clerk's slip of the pen. It is a small instance of the ethical life in action: the individual submitting to the universal order, even when that order is arbitrary. I shall observe the settling-in from a distance; the second bedroom is his, and the sambar is my immediate concern.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China"
+    }
+   ],
+   "t": "17:45"
+  },
+  {
+   "k": "said",
+   "text": "Take your time, Shri Hegde. The room is yours. Ramesh, see that the sambar is brought to the table; the man who has walked all day requires sustenance, and the spirit requires rest.",
+   "to": "Ramesh",
+   "t": "17:45"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir. The sambar is almost ready, just need to check the spice one last time.",
+   "t": "17:45"
   }
  ],
  "steps": [
@@ -2698,13 +2733,65 @@
     }
    ],
    "beat": "hegde_gate"
+  },
+  {
+   "t": "17:45",
+   "end": "18:05",
+   "event": "Shri G. Hegde says: “Thank you, sir. I appreciate the kindness, truly. I will just unpack my few things and settle in.” He nods politely and gestures for Ramesh to lead the way.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Shri Hegde withdraws with the quiet dignity of a man who knows his place in the hierarchy, even if that place was assigned by a clerk's slip of the pen. It is a small instance of the ethical life in action: the individual submitting to the universal order, even when that order is arbitrary. I shall observe the settling-in from a distance; the second bedroom is his, and the sambar is my immediate concern.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 20,
+    "says": "Take your time, Shri Hegde. The room is yours. Ramesh, see that the sambar is brought to the table; the man who has walked all day requires sustenance, and the spirit requires rest.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir. The sambar is almost ready, just need to check the spice one last time.",
+    "does": "Ramesh nods slightly and turns to walk towards the kitchen corridor."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.8
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "id": "sibree-history:376"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "text": "WITH the Empire of China History has to begin, for it is the oldest, as far as history gives us any information; and its principle has such substantiality, that for the empire in question it is at once the oldest and the newest."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T17:45+05:30",
+  "until": "2026-10-13T18:05+05:30",
   "asleep": false,
   "imprest": 6961,
   "wearing": "kurta",
@@ -2918,6 +3005,9 @@
    ],
    "sunil": [
     "2026-10-13"
+   ],
+   "hegde": [
+    "2026-10-02"
    ]
   },
   "refused": {},
