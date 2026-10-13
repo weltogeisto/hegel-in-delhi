@@ -463,6 +463,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "17:30",
+   "to": "17:45",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -1205,6 +1212,51 @@
    "to": "Hegel",
    "text": "The evening air is clear, sir. I will leave the gate latched, just in case. Your sambar will be ready when you return.",
    "t": "17:18"
+  },
+  {
+   "k": "file",
+   "text": "Shri Hegde stands at the gate with two suitcases, ten days into a guest house. He asks whether he might use the second bedroom until the file is decided.",
+   "t": "17:30"
+  },
+  {
+   "k": "file",
+   "text": "Shri Hegde carries two suitcases into the second bedroom.",
+   "t": "17:30"
+  },
+  {
+   "k": "people",
+   "name": "Shri G. Hegde",
+   "role": "Joint Secretary, transferring from Bengaluru",
+   "text": "The man the bungalow was meant for. Courteous, tired, and carrying the patience of a career spent in files.",
+   "t": "17:30"
+  },
+  {
+   "k": "diary",
+   "text": "Shri Hegde stands at the gate with his luggage, a man displaced by a clerical error, asking for the shelter of a second room. It is a small, immediate act of accommodation, distinct from the grand ethical movements of the state, yet it resolves the immediate tension of his exhaustion. I will grant him the room; hospitality is the first form of recognition between two subjects who are not yet fully estranged.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202"
+    }
+   ],
+   "t": "17:30"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, you are welcome to the second bedroom tonight. Ramesh will show you the way. We shall speak of the file on Monday, as agreed, but for now, rest.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "17:30"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Thank you, sir. I appreciate the kindness, truly. I will just unpack my few things and settle in.",
+   "t": "17:30"
   }
  ],
  "steps": [
@@ -2592,13 +2644,67 @@
      "text": "It is also the soul of all knowledge which is truly scientific. In the popular way of looking at things, the refusal to be bound by the abstract deliverances of understanding appears as fairness, which, according to the proverb Live and let live, demands that each should have its turn; we admit the one, but we admit the other also."
     }
    ]
+  },
+  {
+   "t": "17:30",
+   "end": "17:45",
+   "event": "Ramesh says: “The evening air is clear, sir. I will leave the gate latched, just in case. Your sambar will be ready when you return.” He nods slightly and turns back to the stove, adjusting the flame to low. Shri Hegde stands at the gate with two suitcases, tired after ten days in a guest house. He asks, politely, whether he might at least use the second bedroom until the file is decided.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Shri Hegde stands at the gate with his luggage, a man displaced by a clerical error, asking for the shelter of a second room. It is a small, immediate act of accommodation, distinct from the grand ethical movements of the state, yet it resolves the immediate tension of his exhaustion. I will grant him the room; hospitality is the first form of recognition between two subjects who are not yet fully estranged.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Shri Hegde, you are welcome to the second bedroom tonight. Ramesh will show you the way. We shall speak of the file on Monday, as agreed, but for now, rest.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Thank you, sir. I appreciate the kindness, truly. I will just unpack my few things and settle in.",
+    "does": "He nods politely and gestures for Ramesh to lead the way."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.1
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "id": "dyde-right:550"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202",
+     "id": "dyde-right:483"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "text": "Thus what might be a dangerous upheaval becomes largely harmless, and shorter time is left for conflicts to adjust themselves merely by unconscious necessity. Addition. — Police control and provision are intended to intervene between the individual and the universal possibility of obtaining his wants."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202",
+     "text": "Since the returns of labour depend on the seasons, and harvests are influenced by variable weather and other natural conditions, provision for wants must take account of the future. However, owing to the natural conditions, this way of life involves but little reflection, and is but slightly modified by subjective volition."
+    }
+   ],
+   "beat": "hegde_gate"
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T17:30+05:30",
+  "until": "2026-10-13T17:45+05:30",
   "asleep": false,
   "imprest": 6961,
   "wearing": "kurta",
@@ -2634,18 +2740,21 @@
    "malhotra",
    "masterji",
    "nidhi",
-   "sunil"
+   "sunil",
+   "hegde"
   ],
-  "file": "Shri Hegde asks to call on Monday at ten.",
+  "file": "Shri Hegde moves into the second bedroom, pending orders.",
   "beats": [
    "allotment",
    "hegde_guesthouse",
    "hegde_note",
    "bandhgala_ready",
-   "sell_frock"
+   "sell_frock",
+   "hegde_gate"
   ],
   "flags": {
-   "bandhgala": "collected"
+   "bandhgala": "collected",
+   "hegde_lodger": true
   },
   "appointments": [
    {
@@ -2672,6 +2781,7 @@
    "woke": "05:59",
    "seen": {
     "home": [
+     "hegde",
      "ramesh"
     ],
     "lodhi": [
