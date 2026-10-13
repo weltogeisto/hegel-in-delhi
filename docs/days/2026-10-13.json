@@ -57,25 +57,25 @@
     "temp": 25,
     "sky": "clear",
     "rain": 0,
-    "aqi": 119
+    "aqi": 120
    },
    {
     "temp": 26,
     "sky": "clear",
     "rain": 0,
-    "aqi": 129
+    "aqi": 128
    },
    {
     "temp": 27,
     "sky": "clear",
     "rain": 0,
-    "aqi": 132
+    "aqi": 131
    },
    {
     "temp": 28,
     "sky": "clear",
     "rain": 0,
-    "aqi": 134
+    "aqi": 133
    },
    {
     "temp": 29,
@@ -93,67 +93,67 @@
     "temp": 30,
     "sky": "drizzle",
     "rain": 0.1,
-    "aqi": 137
+    "aqi": 138
    },
    {
     "temp": 30,
     "sky": "mostly clear",
     "rain": 0,
-    "aqi": 138
+    "aqi": 140
    },
    {
     "temp": 30,
     "sky": "clear",
     "rain": 0,
-    "aqi": 138
+    "aqi": 141
    },
    {
     "temp": 30,
     "sky": "clear",
     "rain": 0,
-    "aqi": 139
+    "aqi": 143
    },
    {
     "temp": 29,
     "sky": "clear",
     "rain": 0,
-    "aqi": 139
+    "aqi": 144
    },
    {
     "temp": 28,
     "sky": "clear",
     "rain": 0,
-    "aqi": 139
+    "aqi": 145
    },
    {
     "temp": 28,
     "sky": "clear",
     "rain": 0,
-    "aqi": 139
+    "aqi": 146
    },
    {
     "temp": 27,
     "sky": "clear",
     "rain": 0,
-    "aqi": 139
+    "aqi": 147
    },
    {
     "temp": 26,
     "sky": "clear",
     "rain": 0,
-    "aqi": 140
+    "aqi": 148
    },
    {
     "temp": 26,
-    "sky": "clear",
+    "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 142
+    "aqi": 150
    },
    {
     "temp": 25,
-    "sky": "clear",
+    "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 145
+    "aqi": 152
    }
   ]
  },
@@ -547,6 +547,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "21:14",
+   "to": "21:24",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -1647,6 +1654,34 @@
    "to": "Hegel",
    "text": "Very good, sir. I’ll keep the plates warm.",
    "t": "20:29"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s absence is a contradiction in terms, yet here is the food, warm and waiting. The universal will of the household persists through the particular act of a servant who is not there. I shall eat, for the body requires its due, and Shri Hegde is a guest who must be shown the way to the second bedroom, however briefly.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "French Philosophy, The Positive Aspect"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198"
+    }
+   ],
+   "t": "21:14"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, the air is thick tonight and the house is quiet. Ramesh has prepared a plate. Would you care to join me for a moment before you retire, or shall I show you to the room?",
+   "to": "Shri G. Hegde",
+   "t": "21:14"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Thank you, sir, but I will take the room now. I have a long week ahead with the files, and I want to be rested for Monday. Please, don't trouble yourself.",
+   "t": "21:14"
   }
  ],
  "steps": [
@@ -3682,13 +3717,65 @@
      "text": "The wider connection due to the sea becomes al means for colonization, to which, be it sporadic or systematic, the full-grown civic community finds itself impelled. Thus for a part of its population it provides on a new soil a return to the family principle, and also procures for itself at the same time a new incentive and field for work."
     }
    ]
+  },
+  {
+   "t": "21:14",
+   "end": "21:24",
+   "event": "Ramesh says: “Very good, sir. I’ll keep the plates warm.” He sets a fresh plate of roti and dal on the table in front of Hegel.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Ramesh’s absence is a contradiction in terms, yet here is the food, warm and waiting. The universal will of the household persists through the particular act of a servant who is not there. I shall eat, for the body requires its due, and Shri Hegde is a guest who must be shown the way to the second bedroom, however briefly.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Shri Hegde, the air is thick tonight and the house is quiet. Ramesh has prepared a plate. Would you care to join me for a moment before you retire, or shall I show you to the room?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Thank you, sir, but I will take the room now. I have a long week ahead with the files, and I want to be rested for Monday. Please, don't trouble yourself.",
+    "does": "He gestures for Hegel to proceed to the bedroom."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.9
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "French Philosophy, The Positive Aspect",
+     "id": "haldane-3:965"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "id": "wallace-logic:882"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "French Philosophy, The Positive Aspect",
+     "text": "In order to refute the assertion that there is more good than evil in the world, he says that everything to which we reduce the good consists only in an enjoyment, a pleasure, a satisfaction; but this must be preceded by a want, a lack, a pain, the removal of which constitutes satisfaction."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "text": "Like the solar system, so for example in the practical sphere the state is a system of three syllogisms. (1) The Individual or person, through his particularity or physical or mental needs (which when carried out to their full development give civil society), is coupled with the universal, i.e. with society, law, right, government."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T21:14+05:30",
+  "until": "2026-10-13T21:24+05:30",
   "asleep": false,
   "imprest": 6891,
   "wearing": "kurta",
@@ -3781,7 +3868,6 @@
    "strain": 14100,
    "breakfast": true,
    "tired": true,
-   "hunger": 1,
    "dinner": true
   },
   "account": {
