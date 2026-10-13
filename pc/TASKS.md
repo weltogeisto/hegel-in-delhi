@@ -129,6 +129,7 @@ After every full shadow day: read the day, the owl and `python3 -m world status`
 When Welt says so: Codex sets `HEGEL_CLOCK_SHIFT_MIN` to 0 and points the Pi's world at `main` instead of `shadow`; the live page then shows his days instead of the Day 1 replay.
 
 ## Parked
+- Fans on his rounds (after the public switch; the fan club itself is on branch `claude/fanclub`, Supabase project `hegel-in-delhi`): the world reads fans with `meet` and `approved` through a read-only database role, places at most one on about one day in six at a place from their part's `at` list (`world/data/visitors.json`), and lets the voice speak for them from `who` alone. It needs a read key on the Pi, which is a secret: Welt installs it.
 - How fast his convictions move (from T8): `state` changes status on about half of all nights. A slower rule (two nights agreeing, or one step a week at most) would change his thinking, so it needs a blind test under the ratchet. Revisit after a week of shadow days shows the actual drift.
 - Faster rehearsals (MTP speculative decoding): only if rehearsal time becomes the bottleneck. A day takes 14 minutes without the checker.
 - The Hegelizer and any training: hard limit.
