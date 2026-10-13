@@ -414,6 +414,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Shopping in Lodhi Gardens."
+  },
+  {
+   "from": "14:13",
+   "to": "14:33",
+   "mode": "walk",
+   "a": "lodhi",
+   "b": "home"
   }
  ],
  "entries": [
@@ -984,6 +991,21 @@
    "item": "Roasted corn on the cob",
    "price": 40,
    "t": "14:03"
+  },
+  {
+   "k": "diary",
+   "text": "The sun is a tyrant, as I noted, and my digestion has been tested by the absence of sambar and the presence of roasted corn. I have walked eight kilometres, which is a sufficient quantity of motion for one day, and the heat is now less a physical force than a philosophical provocation. It is time to return to the bungalow and attend to the administrative machinery that sustains me, for the state, however abstract, requires its vouchers and its cash.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Arabian Philosophy"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Oriental Philosophy"
+    }
+   ],
+   "t": "14:13"
   }
  ],
  "steps": [
@@ -2005,13 +2027,58 @@
      "text": "To the consideration of final causes such assertions as these belong: “That the hairs of the eyelids are for a protection to the eyes; that the thick skins and hides of living creatures are to defend them from heat and cold; that the trees have leaves so that the fruit may not suffer from sun and wind”: the hair is on the head on account of warmth…"
     }
    ]
+  },
+  {
+   "t": "14:13",
+   "end": "14:33",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [],
+   "decision": {
+    "thought": "The sun is a tyrant, as I noted, and my digestion has been tested by the absence of sambar and the presence of roasted corn. I have walked eight kilometres, which is a sufficient quantity of motion for one day, and the heat is now less a physical force than a philosophical provocation. It is time to return to the bungalow and attend to the administrative machinery that sustains me, for the state, however abstract, requires its vouchers and its cash.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.6
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Arabian Philosophy",
+     "id": "haldane-3:67"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Oriental Philosophy",
+     "id": "haldane-1:328"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Arabian Philosophy",
+     "text": "As quickly as the Arabians with their fanaticism spread themselves over the Eastern and the Western world, so quickly were the various stages of culture passed through by them, and very shortly they advanced in culture much farther than the West."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Oriental Philosophy",
+     "text": "The destruction of all that is particular either is an illimitable, the exaltitude of the East, or, in so far as that which is posited and determined for itself is known, it is a dry, dead understanding, which cannot take up the speculative Notion into itself."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "lodhi",
-  "until": "2026-10-13T14:13+05:30",
+  "place": "home",
+  "until": "2026-10-13T14:33+05:30",
   "asleep": false,
   "imprest": 6961,
   "wearing": "kurta",
@@ -2096,10 +2163,9 @@
      "sunil"
     ]
    },
-   "walked": 8550,
-   "strain": 8550,
-   "breakfast": true,
-   "hunger": 1
+   "walked": 10050,
+   "strain": 10050,
+   "breakfast": true
   },
   "account": {
    "advance": 15000,
