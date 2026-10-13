@@ -421,6 +421,13 @@
    "mode": "walk",
    "a": "lodhi",
    "b": "home"
+  },
+  {
+   "from": "14:33",
+   "to": "15:33",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1006,6 +1013,21 @@
     }
    ],
    "t": "14:13"
+  },
+  {
+   "k": "diary",
+   "text": "The sun has beaten the life out of the morning, and my legs ache from the ten kilometres already walked. The vouchers can wait until the light fails; the body, like the state, requires rest to function. I shall retire to the cool of the bungalow and let the heat pass.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    }
+   ],
+   "t": "14:33"
   }
  ],
  "steps": [
@@ -2072,13 +2094,60 @@
      "text": "The destruction of all that is particular either is an illimitable, the exaltitude of the East, or, in so far as that which is posited and determined for itself is known, it is a dry, dead understanding, which cannot take up the speculative Notion into itself."
     }
    ]
+  },
+  {
+   "t": "14:33",
+   "end": "15:33",
+   "event": "You are tired.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The sun has beaten the life out of the morning, and my legs ache from the ten kilometres already walked. The vouchers can wait until the light fails; the body, like the state, requires rest to function. I shall retire to the cool of the bungalow and let the heat pass.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 60,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 3.7
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:479"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "The second grade required him to keep his hands clasped together over his head for twelve years in succession. Already his nails had almost grown into his hands. The third grade is not always passed through in the same way; generally the Yogi has to spend a day between five fires, that is, between four tires occupying the four quarters of heaven, and the Sun."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T14:33+05:30",
+  "until": "2026-10-13T15:33+05:30",
   "asleep": false,
   "imprest": 6961,
   "wearing": "kurta",
@@ -2165,7 +2234,8 @@
    },
    "walked": 10050,
    "strain": 10050,
-   "breakfast": true
+   "breakfast": true,
+   "tired": true
   },
   "account": {
    "advance": 15000,
