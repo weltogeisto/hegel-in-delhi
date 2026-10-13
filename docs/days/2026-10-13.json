@@ -372,6 +372,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with Masterji and Sunil at Khan Market."
+  },
+  {
+   "from": "11:41",
+   "to": "12:08",
+   "mode": "walk",
+   "a": "khan",
+   "b": "home"
   }
  ],
  "entries": [
@@ -801,6 +808,34 @@
    "item": "Bandhgala, charcoal",
    "status": "Collected from Masterji.",
    "t": "11:26"
+  },
+  {
+   "k": "diary",
+   "text": "The transaction is complete, and the garment is in my hands. I shall not linger in this bazaar of needs; the sun is high, and the heat is already pressing against the cotton of my kurta. I must return to the bungalow to prepare the simple meal that stands in my plan, for the body, too, requires its due measure of sustenance before the mind can continue its work.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§63"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§80"
+    }
+   ],
+   "t": "11:41"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Masterji. The fit is acceptable. I shall return when the season turns, or when the spirit requires a new collar.",
+   "to": "Masterji and Sunil",
+   "t": "11:41"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Season turns or not, the collar is cut tight. If it chokes you, that is your business.",
+   "t": "11:41"
   }
  ],
  "steps": [
@@ -1516,13 +1551,67 @@
     }
    ],
    "beat": "sell_frock"
+  },
+  {
+   "t": "11:41",
+   "end": "12:08",
+   "event": "Masterji says: “The money is counted. The coat is yours to keep, as you say. I will not argue with a man who values a ghost over cash.” He counts the notes into the till, then pulls the bandhgala from the rack and holds it out.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The transaction is complete, and the garment is in my hands. I shall not linger in this bazaar of needs; the sun is high, and the heat is already pressing against the cotton of my kurta. I must return to the bungalow to prepare the simple meal that stands in my plan, for the body, too, requires its due measure of sustenance before the mind can continue its work.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 20,
+    "says": "Thank you, Masterji. The fit is acceptable. I shall return when the season turns, or when the spirit requires a new collar.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "voice": {
+    "by": "Masterji",
+    "says": "Season turns or not, the collar is cut tight. If it chokes you, that is your business.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.1
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§63",
+     "id": "dyde-right:187"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§80",
+     "id": "dyde-right:221"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§63",
+     "text": "Money represents things, but since it does not represent want itself, but is only a sign of it, it is again governed by the specific value, which it merely stands for. One can be owner of an object without being master of its value. A family, which can neither sell nor pawn its goods, is not master of their value."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§80",
+     "text": "Indeed, in every contract, except such as are directly on a cash basis, this separation is to be found. Security or pledge is concerned with an object which I give up, or an object which is to be mine. It either keeps or puts me in actual possession of the value, although in neither case am I in possession of the specific thing."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-10-13T11:41+05:30",
+  "place": "home",
+  "until": "2026-10-13T12:08+05:30",
   "asleep": false,
   "imprest": 7001,
   "wearing": "kurta",
@@ -1607,8 +1696,8 @@
      "sunil"
     ]
    },
-   "walked": 5025,
-   "strain": 5025,
+   "walked": 7050,
+   "strain": 7050,
    "breakfast": true
   },
   "account": {
