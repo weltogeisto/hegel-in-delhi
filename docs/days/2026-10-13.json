@@ -379,6 +379,13 @@
    "mode": "walk",
    "a": "khan",
    "b": "home"
+  },
+  {
+   "from": "12:08",
+   "to": "12:28",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -836,6 +843,21 @@
    "to": "Hegel",
    "text": "Season turns or not, the collar is cut tight. If it chokes you, that is your business.",
    "t": "11:41"
+  },
+  {
+   "k": "diary",
+   "text": "Masterji’s words are a small joke, but the collar is indeed tight, and the heat is pressing in. I must return to the bungalow to attend to the practical matters of the day, as the plan dictates, and perhaps cool the body before the afternoon work begins. The transition from the market to the home is a movement from the particular to the universal, or at least from the noisy to the quiet.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§534"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction"
+    }
+   ],
+   "t": "12:08"
   }
  ],
  "steps": [
@@ -1605,13 +1627,63 @@
      "text": "Indeed, in every contract, except such as are directly on a cash basis, this separation is to be found. Security or pledge is concerned with an object which I give up, or an object which is to be mine. It either keeps or puts me in actual possession of the value, although in neither case am I in possession of the specific thing."
     }
    ]
+  },
+  {
+   "t": "12:08",
+   "end": "12:28",
+   "event": "Masterji says: “Season turns or not, the collar is cut tight. If it chokes you, that is your business.”",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Masterji’s words are a small joke, but the collar is indeed tight, and the heat is pressing in. I must return to the bungalow to attend to the practical matters of the day, as the plan dictates, and perhaps cool the body before the afternoon work begins. The transition from the market to the home is a movement from the particular to the universal, or at least from the noisy to the quiet.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.5,
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§534",
+     "id": "wallace-mind:290"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction",
+     "id": "sibree-history:7"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§534",
+     "text": "Such an order acts with the power of an external state, which, in so far as it is rooted in the higher or substantial state, appears as state “police.” On the other hand, in this sphere of particularity the only recognition of the aim of substantial universality and the only carrying of it out is restricted to the business of particular branches and interests."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction",
+     "text": "Herodotus the Father, i.e. the Founder of History, and Thucydides have been already mentioned. Xenophon's Retreat of the Ten Thousand, is a work equally original. Csesar's Commentaries are the simple masterpiece of a mighty spirit. Among the ancients, these annalists were necessarily great captains and statesmen."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T12:08+05:30",
+  "until": "2026-10-13T12:28+05:30",
   "asleep": false,
   "imprest": 7001,
   "wearing": "kurta",
