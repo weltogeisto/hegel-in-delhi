@@ -386,6 +386,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "12:28",
+   "to": "12:58",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -858,6 +865,34 @@
     }
    ],
    "t": "12:08"
+  },
+  {
+   "k": "diary",
+   "text": "The sambar is likely cold by now, and the heat is making the tight collar of the new Bandhgala feel like a vice. I have walked seven kilometres today; the body demands a pause before the intellectual labour of sorting the state's money. I shall sit here in the shade and wait for the household service to begin, for one cannot write clearly on an empty stomach, nor sort vouchers in a fever of thirst.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301"
+    }
+   ],
+   "t": "12:28"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, the heat is quite oppressive. I will sit and rest until the meal is ready. Do not bring the sambar now; let it cool further if it must, but ensure the tea is fresh.",
+   "to": "Ramesh",
+   "t": "12:28"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir, fresh tea it is. I will keep the sambar on the low flame, though it will be better if we eat before it gets too cold.",
+   "t": "12:28"
   }
  ],
  "steps": [
@@ -1677,13 +1712,65 @@
      "text": "Herodotus the Father, i.e. the Founder of History, and Thucydides have been already mentioned. Xenophon's Retreat of the Ten Thousand, is a work equally original. Csesar's Commentaries are the simple masterpiece of a mighty spirit. Among the ancients, these annalists were necessarily great captains and statesmen."
     }
    ]
+  },
+  {
+   "t": "12:28",
+   "end": "12:58",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The sambar is likely cold by now, and the heat is making the tight collar of the new Bandhgala feel like a vice. I have walked seven kilometres today; the body demands a pause before the intellectual labour of sorting the state's money. I shall sit here in the shade and wait for the household service to begin, for one cannot write clearly on an empty stomach, nor sort vouchers in a fever of thirst.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": "Ramesh, the heat is quite oppressive. I will sit and rest until the meal is ready. Do not bring the sambar now; let it cool further if it must, but ensure the tea is fresh.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir, fresh tea it is. I will keep the sambar on the low flame, though it will be better if we eat before it gets too cold.",
+    "does": "Ramesh nods and turns to walk back toward the kitchen."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.6
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301",
+     "id": "dyde-right:763"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301",
+     "text": "It requires but little reflection to see that the services performed by the classes in behalf of the general well-being and public liberty cannot be traced to an insight special to these classes. The highest state of&cials have necessarily deeper and more comprehensive insight into the workings and needs of the state, and also greater skill and wider practical experience."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T12:28+05:30",
+  "until": "2026-10-13T12:58+05:30",
   "asleep": false,
   "imprest": 7001,
   "wearing": "kurta",
