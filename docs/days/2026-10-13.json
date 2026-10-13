@@ -512,6 +512,13 @@
    "mode": "walk",
    "a": "home",
    "b": "khan"
+  },
+  {
+   "from": "19:22",
+   "to": "19:37",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Talking with Masterji at Khan Market."
   }
  ],
  "entries": [
@@ -1454,6 +1461,40 @@
    "to": "Hegel",
    "text": "I see, sir. I will cancel the kitchen preparations then.",
    "t": "18:55"
+  },
+  {
+   "k": "diary",
+   "text": "The air is warm but the humidity is absent, a mercy in the evening. Masterji stands by his table, and the bookseller is behind his counter; the market is still open for another hour. I am hungry, though not for the heavy dhaba food, and the light is good enough for a quick transaction. I shall address the tailor first, as the matter of the collar remains open, and then I shall take a samosa from the stall nearby to satisfy the body's immediate demand before it becomes a distraction.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "19:22"
+  },
+  {
+   "k": "said",
+   "text": "Masterji, I return. You said the collar was tight, a matter of my own business. I accept the judgment. But tell me, is there a way to ease it without the violence of a new cut? And while I am here, I shall take a samosa; the body must be kept in order so that the mind may remain free.",
+   "to": "Masterji",
+   "t": "19:22"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "I don't cut ghosts, sir. I cut cloth. Ramesh, one samosa, hot. And if you want the collar to breathe, you stop wearing it in the heat like it's a shackle.",
+   "t": "19:22"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "19:22"
   }
  ],
  "steps": [
@@ -3210,15 +3251,73 @@
      "text": ""
     }
    ]
+  },
+  {
+   "t": "19:22",
+   "end": "19:37",
+   "event": "Ramesh says: “I see, sir. I will cancel the kitchen preparations then.” He nods once and turns to walk back towards the kitchen. You arrive at Khan Market. It closes at 20:30.",
+   "present": [
+    "Masterji, the tailor",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The air is warm but the humidity is absent, a mercy in the evening. Masterji stands by his table, and the bookseller is behind his counter; the market is still open for another hour. I am hungry, though not for the heavy dhaba food, and the light is good enough for a quick transaction. I shall address the tailor first, as the matter of the collar remains open, and then I shall take a samosa from the stall nearby to satisfy the body's immediate demand before it becomes a distraction.",
+    "action": "talk",
+    "place": "khan",
+    "minutes": 15,
+    "says": "Masterji, I return. You said the collar was tight, a matter of my own business. I accept the judgment. But tell me, is there a way to ease it without the violence of a new cut? And while I am here, I shall take a samosa; the body must be kept in order so that the mind may remain free.",
+    "buys": [
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Masterji",
+    "says": "I don't cut ghosts, sir. I cut cloth. Ramesh, one samosa, hot. And if you want the collar to breathe, you stop wearing it in the heat like it's a shackle.",
+    "does": "He gestures to Ramesh without looking up, then turns back to the measuring tape."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 12.1
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1189"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "For “when Antisthenes turned outside a hole in his cloak, Socrates said to him, I see thy vanity through the hole in thy cloak.” Clothing is not a thing of rational import, but is regulated through needs that arise of themselves. In the North the clothing must be different from that in Central Africa; and in winter we do not wear cotton garments."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-10-13T19:22+05:30",
+  "until": "2026-10-13T19:37+05:30",
   "asleep": false,
-  "imprest": 6961,
+  "imprest": 6931,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -3376,6 +3475,13 @@
      "item": "Roasted corn on the cob",
      "price": 40,
      "office": false
+    },
+    {
+     "date": "2026-10-13",
+     "t": "19:22",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
     }
    ],
    "admitted": 0,
@@ -3441,7 +3547,7 @@
    "sim": false
   },
   "last_meal": "2026-10-13T08:49+05:30",
-  "snacks": 1,
+  "snacks": 2,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
