@@ -526,6 +526,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with Masterji at Khan Market."
+  },
+  {
+   "from": "19:52",
+   "to": "20:02",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -1536,6 +1543,40 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "19:37"
+  },
+  {
+   "k": "diary",
+   "text": "Masterji’s equation is crude: chai for the throat, the state for the people. It is a vulgar reduction, yet it captures the immediate need for the particular over the universal. I am thirsty, and the throat is indeed the first site of political negotiation. I shall accept the cup, not as a concession to the state, but as a maintenance of the body that must continue to think.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251"
+    }
+   ],
+   "t": "19:52"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Masterji. The state is too abstract to quench thirst. I will take the chai.",
+   "to": "Masterji",
+   "t": "19:52"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Ramesh, the chai is hot. Keep it moving.",
+   "t": "19:52"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "19:52"
   }
  ],
  "steps": [
@@ -3408,15 +3449,73 @@
      "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
     }
    ]
+  },
+  {
+   "t": "19:52",
+   "end": "20:02",
+   "event": "Masterji says: “Chai is for the throat, sir. The state is for the people. Different things. Ramesh, bring the chai, hot.” He nods once to Ramesh without looking up.",
+   "present": [
+    "Masterji, the tailor",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Masterji’s equation is crude: chai for the throat, the state for the people. It is a vulgar reduction, yet it captures the immediate need for the particular over the universal. I am thirsty, and the throat is indeed the first site of political negotiation. I shall accept the cup, not as a concession to the state, but as a maintenance of the body that must continue to think.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 10,
+    "says": "You are right, Masterji. The state is too abstract to quench thirst. I will take the chai.",
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Masterji",
+    "says": "Ramesh, the chai is hot. Keep it moving.",
+    "does": "Masterji hands the cup over the counter with a steady hand, eyes still on the needle."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.7
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:643"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251",
+     "id": "dyde-right:571"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "So, too, states have had a formal right against the Jews in regard to the concession to them of even civil rights, because they are not merely a religious body, but claim to look upon themselves as a foreign nation."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251",
+     "text": "In general it must stand to its members as a second family, a position which remains more indefinite than the family relation, because the general civic community is at a farther remove from indi viduals and their special needs."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-10-13T19:52+05:30",
+  "until": "2026-10-13T20:02+05:30",
   "asleep": false,
-  "imprest": 6911,
+  "imprest": 6891,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -3585,6 +3684,13 @@
     {
      "date": "2026-10-13",
      "t": "19:37",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-10-13",
+     "t": "19:52",
      "item": "Chai, a cup",
      "price": 20,
      "office": false
