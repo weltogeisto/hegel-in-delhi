@@ -105,14 +105,14 @@ Score every blind packet within the hour it lands, commit the scores with their 
 
 The first full shadow day ran clean: Day 12, 42 decisions, the owl at 01:30 rehearsal (Codex, shadow `5b52d7f`). Reading it, three things come before the public switch, in this order.
 
-### T6 · Codex · bring main into the shadow world · DONE: shadow merge `5a02a12`, contains `f933bd6`; natural tick exit 0; neither entry yet because Day 13 is still asleep
+### T6 · Codex · bring main into the shadow world · DONE: shadow merge `5a02a12`, contains `f933bd6`; natural tick exit 0; no plate or tea entry yet because Day 13 is still asleep
 Main has the page redesign (`6c4e009`) and the meal fix (`f933bd6`, T7). Merge main into `shadow` on the Pi (a merge, never a rebase) and let the next tick run.
 **Done when:** shadow contains `f933bd6`, and Day 13 shows a "Ramesh puts a plate together" or "Ramesh brings tea" entry, or you say why neither came up.
 
 ### T7 · Claude · the meal loop · DONE: `f933bd6`
 Day 12: he missed lunch at the tombs, and from 14:30 to 19:30 every attempt to eat at home was refused. The sambar is in 18 of his 42 thoughts, and once he invents a bowl set before him. Now, between meals, Ramesh puts a plate together when asked (not within three hours of a meal, not when he is away or the groceries are unpaid), and brings tea at 16:30. A world rule, not his voice; 777 tests pass.
 
-### T8 · Codex · how loose is the owl's thesis rule · RUNNING: three records and ten seeds frozen before generation; protocol in `T8-OWL-THESIS-PROTOCOL-20261013.md`
+### T8 · Codex · how loose is the owl's thesis rule · DONE: 30 seeds; any thesis 6/10, 4/10, 6/10; India 1/10, 1/10, 0/10; neither control exceeds 2/10 (`mind/results/owl-thesis-count-20261013`)
 On Day 12 the owl moved `india` ("India stands outside world history") from unshaken to shaken, citing the breakfast idli, the bandhgala bill and Hegde's suitcases. None of the three bears on India and history, and one night's draw cannot tell a pattern from a bad seed.
 1. Rerun the owl on Day 12's saved record with the current code, 10 seeds, nothing else changed. For each seed record which theses moved, to what, and on which evidence times.
 2. The same on two earlier rehearsal days with no India material. Name the two before running.
@@ -120,12 +120,18 @@ On Day 12 the owl moved `india` ("India stands outside world history") from unsh
 Report per day: how many of 10 seeds move any thesis, and how many move `india`. This is a count; no blind packet.
 **Then:** if `india` moves on more than 2 of 10 seeds on days that never touch it, Claude writes a stricter rule (a thesis moves only on evidence about its own subject) and you test it on the same seeds.
 
-### T9 · Codex · repetition across a day · DONE: Day 12 29/42 (69.05%); two rehearsals 16/33 (48.48%), 19/40 (47.50%); every thought and top ten phrases in `T9-REPETITION-20261013.md`
+### T9 · Codex · repetition across a day · DONE: Day 12 29/42 (69%); rehearsals 16/33 (48%), 19/40 (48%) (Codex `f51696b`, `T9-REPETITION-20261013.md`)
 Day 12's thoughts circle a few images: the sambar (18 of 42), the sun that presses or tyrannises (13), the kilometres walked (5). `repeats()` only catches near-identical thoughts.
 1. On Day 12 and two other shadow or rehearsal days, mark each thought that reuses a 4-word phrase (not stopwords alone) from an earlier thought that day.
 2. Report the share per day and the ten most reused phrases.
 
 Nothing changes yet: Claude decides from the numbers whether a variant (for instance, showing him what he has already said today) is worth a blind A/B. Expect the sambar share to fall on its own after T6.
+
+**Claude's decision:** no variant yet. Day 12 sits 21 points above the two rehearsals, and its top phrases are the meal loop's: "return to the bungalow" (6 thoughts), "and the air is", "and the heat is". The baseline, about 48%, is mostly grammatical frames, and one tic recurs across days: "I shall/will not let". So measure the first day with the meal fix before changing his prompt (T10).
+
+### T10 · Codex · repetition on Day 13 · OPEN
+When Day 13 is complete, run the same auditor (`pc/thought_repetition.py`, unchanged) on it and report the share and its ten phrases, as in T9.
+**Then:** if Day 13 is above 55%, Claude writes a variant (his recurring phrases of the day shown back to him as already said) for a blind A/B under the ratchet. At or below 55%, T9 closes and nothing changes.
 
 ### Welt · the public switch · hard limit
 When Welt says so: Codex sets `HEGEL_CLOCK_SHIFT_MIN` to 0 and points the Pi's world at `main` instead of `shadow`; the live page then shows his days instead of the Day 1 replay.
