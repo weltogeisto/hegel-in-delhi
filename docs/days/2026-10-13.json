@@ -491,6 +491,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "18:30",
+   "to": "18:45",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1362,6 +1369,34 @@
    "to": "Hegel",
    "text": "Yes sir. No rush. I'll give you a call when it's ready.",
    "t": "18:20"
+  },
+  {
+   "k": "diary",
+   "text": "The sambar is plated, yet I am told to wait; this is the discipline of the table, where the body must submit to the timing of the household. I shall sit in the study and let the mind turn over the day's observations while the heat of the kitchen does its work.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "18:30"
+  },
+  {
+   "k": "said",
+   "text": "Very well, Ramesh. I shall be in the study.",
+   "to": "Ramesh",
+   "t": "18:30"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir. I'll leave it on the porch. Don't worry about the door.",
+   "t": "18:30"
   }
  ],
  "steps": [
@@ -2959,13 +2994,65 @@
      "text": "It took Licinius ten years to carry laws favourable to the plebs; the latter allowed itself to be kept back by the mere formality of the veto on the part of other tribunes, and still more patiently did it wait for the long-delayed execution of these laws. It may be asked: By what was such a disposition and character produced?"
     }
    ]
+  },
+  {
+   "t": "18:30",
+   "end": "18:45",
+   "event": "Ramesh says: “Yes sir. No rush. I'll give you a call when it's ready.” Ramesh nods once and turns back toward the kitchen corridor, holding the wooden spoon steady.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The sambar is plated, yet I am told to wait; this is the discipline of the table, where the body must submit to the timing of the household. I shall sit in the study and let the mind turn over the day's observations while the heat of the kitchen does its work.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 15,
+    "says": "Very well, Ramesh. I shall be in the study.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir. I'll leave it on the porch. Don't worry about the door.",
+    "does": "Ramesh gives a short nod and turns back toward the kitchen corridor."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.5
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology",
+     "id": "baillie-1:489"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology",
+     "text": "Since these moments cannot yet have the signification of being made into purposes in opposition to the lost social order {Sittlichheit), they hold here no doubt in their simple uncriticised content, and the end towards which they work is the ethical substance…"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T18:30+05:30",
+  "until": "2026-10-13T18:45+05:30",
   "asleep": false,
   "imprest": 6961,
   "wearing": "kurta",
