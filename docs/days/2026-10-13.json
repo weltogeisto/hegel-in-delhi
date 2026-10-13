@@ -540,6 +540,13 @@
    "mode": "walk",
    "a": "khan",
    "b": "home"
+  },
+  {
+   "from": "20:29",
+   "to": "21:14",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -1612,6 +1619,34 @@
    "to": "Hegel",
    "text": "Masterji, that's heavy philosophy for 8 PM. You're closing time, and the air is nice, so maybe just walk back instead of rushing off? The chai is still hot, finish it.",
    "t": "20:02"
+  },
+  {
+   "k": "diary",
+   "text": "The bookseller’s advice is practical, but the air quality is a warning sign that the atmosphere itself is turning against the body. Ramesh’s dinner is a concrete satisfaction of a need, a moment where the system of needs meets the individual. I shall eat, for the body must be sustained to continue the movement of thought, and the walk can wait until the stomach is settled.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§248"
+    }
+   ],
+   "t": "20:29"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, thank you. The food is excellent. I shall finish my chai and then eat.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "20:29"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Very good, sir. I’ll keep the plates warm.",
+   "t": "20:29"
   }
  ],
  "steps": [
@@ -3594,13 +3629,66 @@
      "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
     }
    ]
+  },
+  {
+   "t": "20:29",
+   "end": "21:14",
+   "event": "The bookseller says: “Masterji, that's heavy philosophy for 8 PM. You're closing time, and the air is nice, so maybe just walk back instead of rushing off? The chai is still hot, finish it.” Ramesh serves dinner before he goes home: rotis, dal makhani and a bowl of curd.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The bookseller’s advice is practical, but the air quality is a warning sign that the atmosphere itself is turning against the body. Ramesh’s dinner is a concrete satisfaction of a need, a moment where the system of needs meets the individual. I shall eat, for the body must be sustained to continue the movement of thought, and the walk can wait until the stomach is settled.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 45,
+    "says": "Ramesh, thank you. The food is excellent. I shall finish my chai and then eat.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Very good, sir. I’ll keep the plates warm.",
+    "does": "He sets a fresh plate of roti and dal on the table in front of Hegel."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.9
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§248",
+     "id": "dyde-right:567"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§248",
+     "text": "The wider connection due to the sea becomes al means for colonization, to which, be it sporadic or systematic, the full-grown civic community finds itself impelled. Thus for a part of its population it provides on a new soil a return to the family principle, and also procures for itself at the same time a new incentive and field for work."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T20:29+05:30",
+  "until": "2026-10-13T21:14+05:30",
   "asleep": false,
   "imprest": 6891,
   "wearing": "kurta",
@@ -3693,7 +3781,8 @@
    "strain": 14100,
    "breakfast": true,
    "tired": true,
-   "hunger": 1
+   "hunger": 1,
+   "dinner": true
   },
   "account": {
    "advance": 15000,
@@ -3837,7 +3926,8 @@
     "2026-10-13"
    ],
    "hegde": [
-    "2026-10-02"
+    "2026-10-02",
+    "2026-10-13"
    ]
   },
   "refused": {},
@@ -3845,8 +3935,8 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-10-13T08:49+05:30",
-  "snacks": 2,
+  "last_meal": "2026-10-13T20:29+05:30",
+  "snacks": 0,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
