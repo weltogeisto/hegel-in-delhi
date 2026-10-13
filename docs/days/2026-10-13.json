@@ -407,6 +407,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Walking the paths of Lodhi Gardens."
+  },
+  {
+   "from": "14:03",
+   "to": "14:13",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Shopping in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -956,6 +963,27 @@
     }
    ],
    "t": "13:18"
+  },
+  {
+   "k": "diary",
+   "text": "The sambar is a ghost, and the sun is a tyrant. I am five hours past my last meal, and the body, that stubborn servant of the spirit, refuses to be ignored by mere contemplation. I shall not starve for the sake of aesthetic purity; the stomach demands its due, and the corn at the gate is within reach. It is a crude sustenance, but it is present, and presence is the only reality that matters to the tooth.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Bacon"
+    }
+   ],
+   "t": "14:03"
+  },
+  {
+   "k": "bag",
+   "item": "Roasted corn on the cob",
+   "price": 40,
+   "t": "14:03"
   }
  ],
  "steps": [
@@ -1927,15 +1955,65 @@
      "text": "However rude and barbarous this may on the one hand be, and however impossible it is to read Boehme continuously, or to take a firm grasp of his thoughts (for all these qualities, spirits and angels make one’s head swim), we must on the other hand recognize that he speaks of everything as it is in its actuality, and that he does this from his heart."
     }
    ]
+  },
+  {
+   "t": "14:03",
+   "end": "14:13",
+   "event": "You are hungry.",
+   "present": [],
+   "decision": {
+    "thought": "The sambar is a ghost, and the sun is a tyrant. I am five hours past my last meal, and the body, that stubborn servant of the spirit, refuses to be ignored by mere contemplation. I shall not starve for the sake of aesthetic purity; the stomach demands its due, and the corn at the gate is within reach. It is a crude sustenance, but it is present, and presence is the only reality that matters to the tooth.",
+    "action": "buy",
+    "place": "lodhi",
+    "minutes": 10,
+    "says": null,
+    "buys": [
+     {
+      "item": "Roasted corn on the cob",
+      "price_inr": 40
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.9
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "id": "haldane-3:1108"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Bacon",
+     "id": "haldane-3:456"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "text": "There is no man so foolish as that philosophy; when a man feels hungry, he does not call up the imagination of food, but sets about satisfying his hunger. All activity is a conception which does not yet exist, but whose subjectivity is abrogated."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Bacon",
+     "text": "To the consideration of final causes such assertions as these belong: “That the hairs of the eyelids are for a protection to the eyes; that the thick skins and hides of living creatures are to defend them from heat and cold; that the trees have leaves so that the fruit may not suffer from sun and wind”: the hair is on the head on account of warmth…"
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-10-13T14:03+05:30",
+  "until": "2026-10-13T14:13+05:30",
   "asleep": false,
-  "imprest": 7001,
+  "imprest": 6961,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -2020,7 +2098,8 @@
    },
    "walked": 8550,
    "strain": 8550,
-   "breakfast": true
+   "breakfast": true,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
@@ -2079,6 +2158,13 @@
      "t": "11:26",
      "item": "Bandhgala, balance on collection",
      "price": 3500,
+     "office": false
+    },
+    {
+     "date": "2026-10-13",
+     "t": "14:03",
+     "item": "Roasted corn on the cob",
+     "price": 40,
      "office": false
     }
    ],
@@ -2142,7 +2228,7 @@
    "sim": false
   },
   "last_meal": "2026-10-13T08:49+05:30",
-  "snacks": 0,
+  "snacks": 1,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
