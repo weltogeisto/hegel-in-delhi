@@ -435,6 +435,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Writing at home."
+  },
+  {
+   "from": "16:18",
+   "to": "16:28",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -1065,6 +1072,34 @@
    "why": "caste",
    "topic": "caste",
    "t": "15:33"
+  },
+  {
+   "k": "diary",
+   "text": "Seven hours have passed since the last proper meal, and the body rebels against the spirit's abstraction with a sharp, insistent hunger. Ramesh stands by with the sambar, which has certainly cooled, but the alternative is to starve until nineteen-thirty, which would be a test of will I am not currently equipped for. I will eat what is offered; the ethical life of the household includes the satisfaction of natural need, even if the food is lukewarm.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§304"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§243"
+    }
+   ],
+   "t": "16:18"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, bring the sambar and the rice. I will eat now. Do not wait for it to cool further; the heat of the dish is preferable to the coldness of an empty stomach.",
+   "to": "Ramesh",
+   "t": "16:18"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir, just as you say. I will plate it up now while it is still hot.",
+   "t": "16:18"
   }
  ],
  "steps": [
@@ -2225,13 +2260,65 @@
      "text": "Thus the notes are enlarged in order to include cognate or conflicting ideas, further consequences of the theory advocated, and the like. These expanded notes will, it is hoped, throw light upon the more abstract substance of the text, and present a more complete view of some of the ideas current in our own time."
     }
    ]
+  },
+  {
+   "t": "16:18",
+   "end": "16:28",
+   "event": "You are hungry.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Seven hours have passed since the last proper meal, and the body rebels against the spirit's abstraction with a sharp, insistent hunger. Ramesh stands by with the sambar, which has certainly cooled, but the alternative is to starve until nineteen-thirty, which would be a test of will I am not currently equipped for. I will eat what is offered; the ethical life of the household includes the satisfaction of natural need, even if the food is lukewarm.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Ramesh, bring the sambar and the rice. I will eat now. Do not wait for it to cool further; the heat of the dish is preferable to the coldness of an empty stomach.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir, just as you say. I will plate it up now while it is still hot.",
+    "does": "Ramesh turns away to fetch the sambar and rice."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.4
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§304",
+     "id": "dyde-right:775"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§243",
+     "id": "rechts:514"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§304",
+     "text": "Just as from the side of the princely function the executive (§ 300) has already. this character of reconciliation, so also from the side of the classes should one of their elements be converted into a mediating term. Of the classes of the civic community one contains the principle, which is really capable of filling this politica position."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§243",
+     "text": ""
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T16:18+05:30",
+  "until": "2026-10-13T16:28+05:30",
   "asleep": false,
   "imprest": 6961,
   "wearing": "kurta",
@@ -2319,7 +2406,8 @@
    "walked": 10050,
    "strain": 10050,
    "breakfast": true,
-   "tired": true
+   "tired": true,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
