@@ -449,6 +449,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "16:48",
+   "to": "17:18",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -1135,6 +1142,34 @@
    "to": "Hegel",
    "text": "It is already plated, sir. I did not rush it, just as you said.",
    "t": "16:28"
+  },
+  {
+   "k": "diary",
+   "text": "The engine of the household is rigid; it admits no exception for the philosopher's hunger, nor for the steaming bowl Ramesh has set before me. I cannot eat what the system has not authorized, even if the plate is full. I shall rise and move my body to cool the head further, leaving the sambar to wait with the rest of the day's provisions until the hour of service.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "First Division, Descartes"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction"
+    }
+   ],
+   "t": "16:48"
+  },
+  {
+   "k": "said",
+   "text": "Very well, Ramesh. I shall take my walk. The sambar can wait for its proper hour, as can I, though with less patience than the clock.",
+   "to": "Ramesh",
+   "t": "16:48"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Of course, sir. I’ll keep it warm on the stove for you. The gate is open, just say the word if you need anything on your way back.",
+   "t": "16:48"
   }
  ],
  "steps": [
@@ -2407,13 +2442,73 @@
      "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
     }
    ]
+  },
+  {
+   "t": "16:48",
+   "end": "17:18",
+   "event": "Ramesh says: “It is already plated, sir. I did not rush it, just as you said.” He places the steaming bowl and plate on the table in front of him.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The engine of the household is rigid; it admits no exception for the philosopher's hunger, nor for the steaming bowl Ramesh has set before me. I cannot eat what the system has not authorized, even if the plate is full. I shall rise and move my body to cool the head further, leaving the sambar to wait with the rest of the day's provisions until the hour of service.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 30,
+    "says": "Very well, Ramesh. I shall take my walk. The sambar can wait for its proper hour, as can I, though with less patience than the clock.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Of course, sir. I’ll keep it warm on the stove for you. The gate is open, just say the word if you need anything on your way back.",
+    "does": "He wipes his hands on his apron and steps back to let the man pass."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 13.7,
+    "refused": [
+     [
+      "No household meal is available now; the next service is dinner from 19:30. Choose an available activity; a request for food is not a completed meal."
+     ]
+    ],
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "First Division, Descartes",
+     "id": "haldane-3:554"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction",
+     "id": "sibree-history:250"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "First Division, Descartes",
+     "text": "Being alone is identical with pure thought, and not its content, be it what it may. Descartes further says: “By thought I, however, understand all that takes place in us within our consciousness, in as far as we are conscious of it; thus will, conception, and even feeling are identical with thought."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction",
+     "text": "But this having been attained, the activity displayed by the Spirit of the people in question is no longer needed; it has its desire. The Nation can still accomplish much in war and peace at home and abroad; but the living substantial soul itself may be said to have ceased its activity."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T16:48+05:30",
+  "until": "2026-10-13T17:18+05:30",
   "asleep": false,
   "imprest": 6961,
   "wearing": "kurta",
