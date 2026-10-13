@@ -358,6 +358,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "10:59",
+   "to": "11:26",
+   "mode": "walk",
+   "a": "home",
+   "b": "khan"
   }
  ],
  "entries": [
@@ -684,6 +691,45 @@
     }
    ],
    "t": "10:14"
+  },
+  {
+   "k": "world",
+   "text": "Word from Masterji, through Ramesh: the bandhgala is ready. The balance is ₹3,500.",
+   "t": "10:59"
+  },
+  {
+   "k": "wear",
+   "item": "Bandhgala, charcoal",
+   "status": "Ready at Masterji's. Balance ₹3,500.",
+   "t": "10:59"
+  },
+  {
+   "k": "diary",
+   "text": "The bandhgala is ready, and the tailoring of the body must keep pace with the tailoring of the spirit. I have the means, and the sun is high but the air is clear; I shall not let the hour slip while I sit in the heat. I will go to Khan Market to settle the account and see the garment, for a man in a bungalow must not look like a ghost.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "10:59"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. I shall go to Khan Market now to settle the balance with Masterji. Please keep the sambar warm until my return.",
+   "to": "Ramesh",
+   "t": "10:59"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir, the sambar is warm, but the balance is due before you leave. Please hand over the three thousand five hundred rupees now.",
+   "t": "10:59"
   }
  ],
  "steps": [
@@ -1286,13 +1332,66 @@
      "text": "Nicht der Unterschied, welcher sich als bestimmtes Ding, oder als Bewußtsein eines bestimmten natürlichen Daseins, als ein Gefühl, oder als Begierde und Zweck für dieselbe, ob er durch das eigene oder durch ein fremdes Bewußtsein gesetzt sei, hat mehr Wesenheit, sondern allein der Unterschied, der ein gedachter, oder unmittelbar nicht von Mir unterschieden ist."
     }
    ]
+  },
+  {
+   "t": "10:59",
+   "end": "11:26",
+   "event": "Ramesh brings word from Masterji: your bandhgala is ready for its fitting at Khan Market. The balance is ₹3,500.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The bandhgala is ready, and the tailoring of the body must keep pace with the tailoring of the spirit. I have the means, and the sun is high but the air is clear; I shall not let the hour slip while I sit in the heat. I will go to Khan Market to settle the account and see the garment, for a man in a bungalow must not look like a ghost.",
+    "action": "walk",
+    "place": "khan",
+    "minutes": 45,
+    "says": "Thank you, Ramesh. I shall go to Khan Market now to settle the balance with Masterji. Please keep the sambar warm until my return.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "khan",
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir, the sambar is warm, but the balance is due before you leave. Please hand over the three thousand five hundred rupees now.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.2
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "id": "dyde-right:549"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "text": "Note. — In contrast with freedom of business and trade in the civic community stands the other extreme of the establishment and direction of the work of all by means of official regulation. Under this head comes perhaps the construction of the pyramids and other monstrous Egyptian and Asiatic works."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ],
+   "beat": "bandhgala_ready"
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-10-13T10:59+05:30",
+  "place": "khan",
+  "until": "2026-10-13T11:26+05:30",
   "asleep": false,
   "imprest": 10501,
   "wearing": "kurta",
@@ -1320,7 +1419,7 @@
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "At Masterji's. Ready Thursday."
+    "status": "Ready at Masterji's. Balance ₹3,500."
    }
   ],
   "people": [
@@ -1333,10 +1432,11 @@
   "beats": [
    "allotment",
    "hegde_guesthouse",
-   "hegde_note"
+   "hegde_note",
+   "bandhgala_ready"
   ],
   "flags": {
-   "bandhgala": "ordered"
+   "bandhgala": "ready"
   },
   "appointments": [
    {
@@ -1369,8 +1469,8 @@
      "malhotra"
     ]
    },
-   "walked": 3000,
-   "strain": 3000,
+   "walked": 5025,
+   "strain": 5025,
    "breakfast": true
   },
   "account": {
