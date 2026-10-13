@@ -1359,7 +1359,9 @@ function vignette(W, H){
 
 
 /* ── life on the map: traffic on the main roads, runners in Lodhi Gardens, Sunil's chai, whoever he is talking to ── */
-let MAPHITS = [], TRAFFIC = null;
+// Traffic is through traffic: it comes in where a main road leaves the map and drives out at another. Every vehicle keeps
+// its distance from whatever is ahead in its lane and waits at a crossing for whoever is already in it.
+let MAPHITS = [], TRAFFIC = null, VEH = [], VLAST = 0, VID = 0;
 const MAIN = /^(primary|secondary|tertiary|roundabout)/;
 let RDIST = null;
 function roadDist(){                            // for every road tile, how many tiles to the nearest edge of the carriageway
@@ -1370,65 +1372,187 @@ function roadDist(){                            // for every road tile, how many
   return d;
 }
 const isMain = k => grid[k] === G.ROAD && rid[k] >= 0 && MAIN.test(ROADS[rid[k]].cls || '');
-function roadPath(a, b){                       // the cheapest way along the middle of the main roads
-  if (!RDIST) RDIST = roadDist();
-  const start = nearRoad(a), goal = nearRoad(b); if (start < 0 || goal < 0) return null;
+function roadTree(start){                      // from one tile, the cheapest ways along the middle of the main roads to all the others
   const cost = new Float64Array(GW*GH).fill(Infinity), prev = new Int32Array(GW*GH).fill(-1), heap = [[0,start]]; cost[start] = 0;
   const push = it => { heap.push(it); let i = heap.length - 1; while (i){ const pa = (i-1) >> 1; if (heap[pa][0] <= heap[i][0]) break; [heap[pa],heap[i]] = [heap[i],heap[pa]]; i = pa; } };
   const pop = () => { const top = heap[0], last = heap.pop(); if (heap.length){ heap[0] = last; let i = 0; for (;;){ const l = 2*i+1, r2 = l+1; let m2 = i; if (l < heap.length && heap[l][0] < heap[m2][0]) m2 = l; if (r2 < heap.length && heap[r2][0] < heap[m2][0]) m2 = r2; if (m2 === i) break; [heap[m2],heap[i]] = [heap[i],heap[m2]]; i = m2; } } return top; };
-  while (heap.length){ const [c,k] = pop(); if (c > cost[k]) continue; if (k === goal) break; const x = k % GW, y = (k/GW)|0;
+  while (heap.length){ const [c,k] = pop(); if (c > cost[k]) continue; const x = k % GW, y = (k/GW)|0;
     for (const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){ const nx = x+dx, ny = y+dy; if (!inb(nx,ny)) continue; const n = I(nx,ny); if (!isMain(n)) continue;
       const nc = c + 1 + 4/Math.max(1, RDIST[n]); if (nc < cost[n]){ cost[n] = nc; prev[n] = k; push([nc, n]); } } }
-  if (prev[goal] < 0 && goal !== start) return null;
-  const path = []; for (let k = goal; ; k = prev[k]){ path.push([k % GW, (k/GW)|0, RDIST[k]]); if (k === start) break; }
-  return path.reverse();
+  return prev;
 }
-function nearRoad(p){ let best = -1, bd = 1e9; for (let dy=-8; dy<=8; dy++) for (let dx=-8; dx<=8; dx++){ const x = p.x+dx, y = p.y+dy; if (!inb(x,y)) continue; const k = I(x,y);
-  if (isMain(k)){ const d = dx*dx + dy*dy; if (d < bd){ bd = d; best = k; } } } return best; }
+function trafficEntries(){                      // where the main roads leave the map
+  const out = [], edge = []; let run = [];
+  for (let x=0;x<GW;x++) edge.push([x,0]); for (let y=0;y<GH;y++) edge.push([GW-1,y]); for (let x=GW-1;x>=0;x--) edge.push([x,GH-1]); for (let y=GH-1;y>=0;y--) edge.push([0,y]);
+  const flush = () => { if (run.length){ const [x,y] = run[run.length >> 1]; if (!out.some(e => Math.abs(e[0]-x) + Math.abs(e[1]-y) < 4)) out.push([x,y]); run = []; } };
+  edge.forEach(([x,y]) => { if (isMain(I(x,y))) run.push([x,y]); else flush(); }); flush();
+  return out;
+}
+const isRoadPx = (x, y) => { const tx = Math.floor(x/U), ty = Math.floor(y/U); return inb(tx,ty) && grid[I(tx,ty)] === G.ROAD; };
+function trueMiddle(pts){                       // a path of tile centres runs down one row of a two-tile road: find the road's real middle and its width
+  const n = pts.length, shift = new Float32Array(n), half = new Float32Array(n), nx = new Float32Array(n), ny = new Float32Array(n);
+  for (let k=0;k<n;k++){
+    const a = pts[Math.max(0, k-3)], b = pts[Math.min(n-1, k+3)]; let dx = b[0]-a[0], dy = b[1]-a[1]; const l = Math.hypot(dx,dy) || 1; dx /= l; dy /= l;
+    nx[k] = dy; ny[k] = -dx;
+    const reach = sgn => { let d = 0; while (d < 28 && isRoadPx(pts[k][0] + nx[k]*sgn*(d+1), pts[k][1] + ny[k]*sgn*(d+1))) d++; return d; };   // a side road at a crossing stops the count at 28
+    const dp = reach(1), dm = reach(-1); shift[k] = (dp - dm)/2; half[k] = (dp + dm)/2;
+  }
+  const avg = (arr, k) => { let t = 0, c = 0; for (let d=-3; d<=3; d++){ const j = k + d; if (j >= 0 && j < n){ t += arr[j]; c++; } } return t/c; };
+  return pts.map((p, k) => { const sh = avg(shift, k), x = p[0] + nx[k]*sh, y = p[1] + ny[k]*sh, hw = Math.min(half[k], avg(half, k));
+    return isRoadPx(x, y) && isRoadPx(x + nx[k]*3, y + ny[k]*3) && isRoadPx(x - nx[k]*3, y - ny[k]*3) ? [x, y, hw] : [p[0], p[1], Math.min(hw, 8)]; });   // at a junction or round an island, keep to the tiles
+}
+// Local trips keep the smaller roads alive: a car pulls out of a gate, a car park or the end of a drive and turns in at another.
+let LOCAL_ENDS = null, THRU = [], LOCALS = [];
+function localEnds(){
+  const out = [];
+  for (let k=0;k<GW*GH;k++){
+    if (grid[k] !== G.ROAD) continue; const x = k % GW, y = (k/GW)|0;
+    const nbs = [[1,0],[-1,0],[0,1],[0,-1]].filter(([dx,dy]) => inb(x+dx,y+dy)).map(([dx,dy]) => I(x+dx,y+dy));
+    const lot = nbs.find(n => grid[n] === G.GATE || grid[n] === G.PARKING), cls = rid[k] >= 0 ? ROADS[rid[k]].cls || '' : '';
+    const end = lot != null || (nbs.filter(n => grid[n] === G.ROAD).length <= 1 && /service|residential|living/.test(cls));
+    if (end && !out.some(e => Math.abs(e.x - x) + Math.abs(e.y - y) < 4)) out.push({k, x, y, lot: lot == null ? -1 : lot});
+  }
+  return out;
+}
+function roadPathAny(start, goal){              // along any road, keeping to the middle, from one tile to another
+  const cost = new Float64Array(GW*GH).fill(Infinity), prev = new Int32Array(GW*GH).fill(-1), heap = [[0,start]]; cost[start] = 0;
+  const push = it => { heap.push(it); let i = heap.length - 1; while (i){ const pa = (i-1) >> 1; if (heap[pa][0] <= heap[i][0]) break; [heap[pa],heap[i]] = [heap[i],heap[pa]]; i = pa; } };
+  const pop = () => { const top = heap[0], last = heap.pop(); if (heap.length){ heap[0] = last; let i = 0; for (;;){ const l = 2*i+1, r2 = l+1; let m2 = i; if (l < heap.length && heap[l][0] < heap[m2][0]) m2 = l; if (r2 < heap.length && heap[r2][0] < heap[m2][0]) m2 = r2; if (m2 === i) break; [heap[m2],heap[i]] = [heap[i],heap[m2]]; i = m2; } } return top; };
+  while (heap.length){ const [c,k] = pop(); if (k === goal) break; if (c > cost[k]) continue; const x = k % GW, y = (k/GW)|0;
+    for (const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){ const nx = x+dx, ny = y+dy; if (!inb(nx,ny)) continue; const n = I(nx,ny); if (grid[n] !== G.ROAD) continue;
+      const nc = c + 1 + 4/Math.max(1, RDIST[n]); if (nc < cost[n]){ cost[n] = nc; prev[n] = k; push([nc, n]); } } }
+  if (prev[goal] < 0) return null;
+  const path = []; for (let k = goal; ; k = prev[k]){ path.push(k); if (k === start) break; } return path.reverse();
+}
+function makeRoute(tiles, local){
+  const path = tiles.map(k => [k % GW, (k/GW)|0]);
+  const sm = path.map((pt,k) => { let x = 0, y = 0, n = 0; for (let d=-2; d<=2; d++){ const q2 = path[Math.max(0, Math.min(path.length-1, k+d))]; x += q2[0]; y += q2[1]; n++; }
+    x /= n; y /= n; return grid[I(Math.round(x), Math.round(y))] === G.ROAD ? [x, y] : pt; });              // smoothed, but never off the road
+  const pts = trueMiddle(sm.map(([x,y]) => [(x+.5)*U, (y+.5)*U])), cum = [0];
+  for (let k=1;k<pts.length;k++) cum.push(cum[k-1] + Math.hypot(pts[k][0]-pts[k-1][0], pts[k][1]-pts[k-1][1]));
+  return {pts, cum, len: cum[cum.length-1], local};
+}
+function localRoute(){
+  if (!LOCAL_ENDS) LOCAL_ENDS = localEnds(); if (LOCAL_ENDS.length < 2) return -1;
+  for (let tries=0; tries<8; tries++){
+    const A = LOCAL_ENDS[Math.floor(Math.random()*LOCAL_ENDS.length)], B = LOCAL_ENDS[Math.floor(Math.random()*LOCAL_ENDS.length)], d = Math.abs(A.x - B.x) + Math.abs(A.y - B.y);
+    if (d < 15 || d > 90) continue;
+    const mid = roadPathAny(A.k, B.k); if (!mid || mid.length < 12) continue;
+    const tiles = (A.lot >= 0 ? [A.lot] : []).concat(mid, B.lot >= 0 ? [B.lot] : []);
+    TRAFFIC.push(makeRoute(tiles, true)); LOCALS.push(TRAFFIC.length - 1); return TRAFFIC.length - 1;
+  }
+  return -1;
+}
+const VKINDS = {car:{w:12, h:7, v:21}, auto:{w:9, h:6, v:16}, bus:{w:19, h:8, v:13}};     // art pixels, and art pixels a second: a car does about 55 km/h
 function buildTraffic(){
-  TRAFFIC = []; const sg = SIGNS || [], spot = id => PLACES[id] && PLACES[id].spot ? {x:PLACES[id].spot[0], y:PLACES[id].spot[1]} : null;
-  const pairs = []; for (let i=0;i<sg.length;i++) for (let j=i+1;j<sg.length;j++) pairs.push([sg[i], sg[j]]);
-  [['khan','lodhi'],['home','gym'],['safdarjung','khan'],['iic','home'],['gandhi','lodhi']].forEach(([a,b]) => { if (spot(a) && spot(b)) pairs.push([spot(a), spot(b)]); });
-  for (const [from, to] of pairs){ const p = roadPath(from, to); if (!p || p.length < 30) continue;
-    const sm = p.map((pt,k) => { let x = 0, y = 0, n = 0; for (let d=-2; d<=2; d++){ const q2 = p[Math.max(0, Math.min(p.length-1, k+d))]; x += q2[0]; y += q2[1]; n++; }
-      x /= n; y /= n; return isMain(I(Math.round(x), Math.round(y))) ? [x, y, pt[2]] : pt; });             // smoothed, but never off the road
-    TRAFFIC.push(sm); }
+  if (!RDIST) RDIST = roadDist();
+  TRAFFIC = []; VEH = []; THRU = []; LOCALS = [];
+  const ents = trafficEntries();
+  ents.forEach(([sx,sy]) => { const start = I(sx,sy), prev = roadTree(start);
+    ents.forEach(([gx,gy]) => { const goal = I(gx,gy); if (goal === start || prev[goal] < 0) return;
+      const tiles = []; for (let k = goal; ; k = prev[k]){ tiles.push(k); if (k === start) break; }
+      if (tiles.length < 40) return; TRAFFIC.push(makeRoute(tiles.reverse(), false)); THRU.push(TRAFFIC.length - 1);
+    }); });
+  for (let t=0; t<240; t+=.5) stepTraffic(.5, CAL_M, true);          // the roads already carry their traffic when the page opens
 }
-let VCOLLECT = null;   // a check can collect where vehicles would be drawn
+function trafficTarget(m){ const h = m/60; return h < 5 ? 14 : h < 7 ? 36 : h < 9.5 ? 125 : h < 17 ? 95 : h < 20.5 ? 130 : h < 23 ? 55 : 24; }   // the whole quarter: by day one vehicle to every thirty tiles of lane, two or three on the screen
+function placeVeh(o, dt = 0){
+  const r = TRAFFIC[o.r], P = r.pts, C = r.cum, last = C.length - 2;
+  while (o.i < last && C[o.i+1] < o.s) o.i++;
+  const at = s => { let i = o.i; while (i < last && C[i+1] < s) i++; while (i > 0 && C[i] > s) i--; const f = Math.max(0, Math.min(1, (s - C[i])/((C[i+1] - C[i]) || 1)));
+    return [P[i][0] + (P[i+1][0] - P[i][0])*f, P[i][1] + (P[i+1][1] - P[i][1])*f, Math.min(P[i][2] || 1, P[i+1][2] || 1)]; };
+  const a = at(o.s), b = at(Math.min(r.len, o.s + 14)), c = at(Math.max(0, o.s - 4));
+  let hx = b[0] - c[0], hy = b[1] - c[1]; const l0 = Math.hypot(hx, hy) || 1; hx /= l0; hy /= l0;
+  const K = VKINDS[o.kind], lane = Math.max(3.75, Math.min(7, a[2] - K.h/2 - 1));
+  // India drives on the left: half the road each way, never so near the middle that oncoming traffic meets,
+  // except to ease round a corner of the pavement where a diagonal road is drawn in steps
+  let want = lane; for (const l of [lane, Math.max(3.75, lane - 1.5), 3.75, 2.5, 1, 0]){ if (vehOnRoad(a[0] + hy*l, a[1] - hx*l, hx, hy, K.w - 2, K.h - 2)){ want = l; break; } }
+  if (r.local && (o.s < 20 || o.s > r.len - 20)) want = 0;
+  if (o.dodge) for (const l of [10, 9, 8, 7, 6, 5]){ if (l > want && vehOnRoad(a[0] + hy*l, a[1] - hx*l, hx, hy, K.w - 4, K.h - 4)){ want = l; break; } }
+  o.lat = o.lat == null || !dt ? want : o.lat + Math.max(-36*dt, Math.min(36*dt, want - o.lat));
+  const cx = a[0] + hy*o.lat, cy = a[1] - hx*o.lat;
+  Object.assign(o, {hx, hy, cx, cy, ang: Math.atan2(hy, hx)});
+}
+const vehCorners = (cx, cy, hx, hy, w, h) => [[1,1],[1,-1],[-1,1],[-1,-1]].map(([a,b]) => [cx + hx*w/2*a + hy*h/2*b, cy + hy*w/2*a - hx*h/2*b]);
+const vehOnRoad = (cx, cy, hx, hy, w, h) => vehCorners(cx, cy, hx, hy, w, h).every(([x,y]) => isRoadPx(x, y));
+function vehOverlap(a, b){                       // two turned rectangles meet unless some axis of either separates them
+  const r = (VKINDS[a.kind].w + VKINDS[b.kind].w)/2; if (Math.abs(a.cx - b.cx) > r || Math.abs(a.cy - b.cy) > r) return false;
+  const ca = vehCorners(a.cx, a.cy, a.hx, a.hy, VKINDS[a.kind].w - 1, VKINDS[a.kind].h - 1), cb = vehCorners(b.cx, b.cy, b.hx, b.hy, VKINDS[b.kind].w - 1, VKINDS[b.kind].h - 1);
+  for (const [ax, ay] of [[a.hx, a.hy], [a.hy, -a.hx], [b.hx, b.hy], [b.hy, -b.hx]]){
+    const pa = ca.map(([x,y]) => x*ax + y*ay), pb = cb.map(([x,y]) => x*ax + y*ay);
+    if (Math.max(...pa) < Math.min(...pb) || Math.max(...pb) < Math.min(...pa)) return false; }
+  return true;
+}
+const VSPR = {};
+function vehSprite(o){                          // drawn once per kind and colour, facing east; turned to its heading when it is drawn
+  const K = VKINDS[o.kind], key = o.kind + (o.kind === 'car' ? o.col : o.kind === 'bus' ? o.livery : ''); if (VSPR[key]) return VSPR[key];
+  const c = document.createElement('canvas'); c.width = K.w; c.height = K.h; const x = c.getContext('2d'), w = K.w, h = K.h, R = (a,b,cw,ch,col) => { x.fillStyle = col; x.fillRect(a,b,cw,ch); };
+  if (o.kind === 'auto'){ R(0,0,w,h,'#2f8f4a'); R(1,1,w-2,h-2,'#e8c547'); R(2,2,w-4,h-4,'#f2d35e'); R(w-2,1,2,h-2,'#1d2340'); R(0,1,1,h-2,'#2b2b33'); }
+  else if (o.kind === 'bus'){ R(0,0,w,h,o.livery); R(1,1,w-2,h-2,'#cfe3f2'); R(2,2,w-4,h-4,o.livery); R(w-2,1,2,h-2,'#9fc4d8'); R(3,3,w-6,1,'rgba(255,255,255,.35)'); }
+  else { R(0,0,w,h,o.col); R(w-3,1,3,h-2,'#7fa8c4'); R(0,1,2,h-2,'#6f8fa8'); R(3,1,w-6,h-2,'rgba(0,0,0,.12)'); R(3,1,w-6,1,'rgba(255,255,255,.35)'); }
+  return VSPR[key] = c;
+}
+const VB = 64, vcell = (x, y) => Math.floor(x/VB)*4096 + Math.floor(y/VB);
+const mutual = (a, b) => { const dx = a.cx - b.cx, dy = a.cy - b.cy; return dx*b.hx + dy*b.hy > 0 && -(dx*a.hx + dy*a.hy) > 0 && Math.abs(dx*b.hy - dy*b.hx) < 8; };   // each has the other ahead of it
+function vnear(cells, o){ const out = [], bx = Math.floor(o.cx/VB), by = Math.floor(o.cy/VB);   // the vehicles in the same and the neighbouring squares
+  for (let dx=-1; dx<=1; dx++) for (let dy=-1; dy<=1; dy++){ const l = cells.get((bx+dx)*4096 + by+dy); if (l) for (const b of l) if (b !== o) out.push(b); } return out; }
+function stepTraffic(dt, m, warm){
+  if (!TRAFFIC || !TRAFFIC.length) return;
+  const want = trafficTarget(m);
+  const nLocal = VEH.reduce((c, o) => c + (TRAFFIC[o.r].local ? 1 : 0), 0), wantLocal = Math.round(want*.4), wantThru = want - wantLocal;
+  for (let tries = warm ? 4 : 1; tries > 0; tries--){
+    const short = (wantThru - (VEH.length - nLocal)) > 0 && Math.random() < (wantThru - (VEH.length - nLocal))*(warm ? 1 : .08)*dt ? 'thru'
+      : (wantLocal - nLocal) > 0 && Math.random() < (wantLocal - nLocal)*(warm ? 1 : .08)*dt ? 'local' : null;
+    if (!short) continue;
+    const r = short === 'thru' ? THRU[Math.floor(Math.random()*THRU.length)] : LOCALS.length >= (warm ? 20 : 80) || (LOCALS.length > 8 && Math.random() < .5) ? LOCALS[Math.floor(Math.random()*LOCALS.length)] : localRoute();
+    if (r == null || r < 0) continue;
+    const u = Math.random(), kind = short === 'local' ? (u < .25 ? 'auto' : 'car') : u < .1 ? 'bus' : u < .4 ? 'auto' : 'car', o = {id: VID++, r, s: 0, i: 0, kind, v: 0, stuck: 0};
+    placeVeh(o);
+    if (!VEH.some(b => Math.abs(b.cx - o.cx) + Math.abs(b.cy - o.cy) < 40)){ o.vmax = VKINDS[kind].v*(.85 + .3*Math.random()); o.v = o.vmax*.6;
+      o.col = CARS[o.id % CARS.length]; o.livery = o.id % 2 ? '#d9772f' : '#3f8f43'; VEH.push(o); }
+  }
+  const cells = new Map(); for (const o of VEH){ const k = vcell(o.cx, o.cy); (cells.get(k) || cells.set(k, []).get(k)).push(o); }
+  for (const a of VEH){
+    let tv = a.vmax; const La = VKINDS[a.kind].w; a.dodge = false; a.near = vnear(cells, a);
+    for (const b of a.near){
+      const dx = b.cx - a.cx, dy = b.cy - a.cy, along = dx*a.hx + dy*a.hy; if (along <= 0 || along > 50) continue;
+      const hd = a.hx*b.hx + a.hy*b.hy;
+      if (hd < -.3){ if (Math.abs(dx*a.hy - dy*a.hx) < 9) a.dodge = true; continue; }          // oncoming: keep well to the left as it passes
+      if (hd < .5) continue;                                                                    // crossing: the junctions take turns by themselves
+      const lat = Math.abs(dx*a.hy - dy*a.hx), same = hd > .7; if (lat > (same ? 6 : 8)) continue;   // not in its lane
+      if (mutual(a, b) && a.id < b.id) continue;                                                // two that each see the other ahead: the older goes first
+      const gap = along - (La + VKINDS[b.kind].w)/2;
+      tv = Math.min(tv, Math.max(0, (gap - 4)/.6));
+    }
+    a.tv = tv;
+  }
+  for (const a of VEH){
+    a.v = Math.max(0, a.v + Math.max(-80*dt, Math.min(16*dt, a.tv - a.v)));
+    a.stuck = a.v < 1 ? a.stuck + dt : 0;
+    const was = {s: a.s, i: a.i, lat: a.lat, cx: a.cx, cy: a.cy, hx: a.hx, hy: a.hy, ang: a.ang, kind: a.kind};
+    a.s += a.v*dt; placeVeh(a, dt);
+    if (a.near.some(b => a.hx*b.hx + a.hy*b.hy > .5 && (b.cx - was.cx)*a.hx + (b.cy - was.cy)*a.hy > 0 && !(mutual(was, b) && a.id < b.id) && vehOverlap(a, b) && !vehOverlap(was, b))){ Object.assign(a, was); a.v = 0; }   // never drive into the one ahead; side by side, the one behind gives way
+  }
+  VEH = VEH.filter(a => a.s < TRAFFIC[a.r].len - 2 && a.stuck < 40);                         // out at the edge of the map (or, after forty seconds without moving, into a side lane)
+}
 const CARS = ['#f4f4f0','#c9ccd3','#b3262f','#2f4f6f','#1d1d26','#e8e0c8','#8a9aa8'];
 function vehicles(now, light, p, X, Y, lightsOnly){
   if (!TRAFFIC) buildTraffic();
-  const night = light[3] > .25, au = T/U;
-  TRAFFIC.forEach((path, pi) => {
-    const n = night ? 6 : 13, L = path.length;
-    for (let v=0; v<n; v++){
-      const kind = (pi*7 + v*3) % 8 === 0 ? 'bus' : (pi + v) % 3 === 0 ? 'auto' : 'car', speed = kind === 'bus' ? 2.2 : kind === 'auto' ? 3 : 3.8;
-      const back = v % 2 === 1, f = (((reduceMotion ? 0 : now/1000)*speed/L) + v/n + pi*.13) % 1;
-      const s = Math.min(L - 1.001, f*(L-1)), i = Math.floor(s), fr = s - i;
-      const A = path[back ? L-1-i : i], B = path[back ? Math.max(0, L-2-i) : Math.min(L-1, i+1)], C = path[back ? Math.max(0, L-4-i) : Math.min(L-1, i+3)];
-      let dx = C[0]-A[0], dy = C[1]-A[1]; const len = Math.hypot(dx,dy) || 1; dx /= len; dy /= len;
-      const x = (A[0] + (B[0]-A[0])*fr + .5)*U, y = (A[1] + (B[1]-A[1])*fr + .5)*U, room = Math.max(0, (Math.min(A[2] || 1, B[2] || 1) - .5)*U - (kind === 'bus' ? 5 : 4.5)), lane = Math.min(v % 4 < 2 ? 6 : 13, room);
-      const horiz = Math.abs(dx) >= Math.abs(dy), fx = horiz ? Math.sign(dx) : 0, fy = horiz ? 0 : Math.sign(dy);   // India drives on the left
-      const w = kind === 'bus' ? 19 : kind === 'auto' ? 9 : 12, h = kind === 'bus' ? 8 : kind === 'auto' ? 6 : 7, vw = horiz ? w : h, vh = horiz ? h : w;
-      const onRoad = (qx,qy) => [[qx,qy],[qx+vw-1,qy],[qx,qy+vh-1],[qx+vw-1,qy+vh-1]].every(([cx,cy]) => grid[I(Math.floor(cx/T), Math.floor(cy/T))] === G.ROAD);
-      let px = 0, py = 0, ok = false;
-      for (const l of [lane, lane*.6, lane*.3, 0]){                                                            // keep to the left, closer to the middle where the road is narrow
-        px = Math.round((x + dy*l - vw/2)*au); py = Math.round((y - dx*l - vh/2)*au); if (onRoad(px,py)){ ok = true; break; } }
-      if (!ok) continue;
-      const R = (a,b,c,d,col) => { ctx.fillStyle = col; ctx.fillRect(X(px+a), Y(py+b), c*p, d*p); };
-      if (VCOLLECT){ VCOLLECT.push([px, py, vw, vh]); continue; }
-      const front = (depth, across) => horiz ? [fx > 0 ? vw-depth : 0, across, depth, vh-2*across] : [across, fy > 0 ? vh-depth : 0, vw-2*across, depth];
-      const rear = (depth, across) => horiz ? [fx > 0 ? 0 : vw-depth, across, depth, vh-2*across] : [across, fy > 0 ? 0 : vh-depth, vw-2*across, depth];
-      if (lightsOnly){ if (!night) continue;
-        const [a,b,c,d] = front(1,1); ctx.fillStyle = 'rgba(255,244,200,.9)'; ctx.fillRect(X(px+a + fx*1), Y(py+b + fy*1), c*p, d*p);
-        ctx.fillStyle = 'rgba(255,236,170,.22)'; ctx.fillRect(X(px+a + fx*6 - (horiz ? 0 : 2)), Y(py+b + fy*6 - (horiz ? 2 : 0)), (horiz ? 6 : c+4)*p, (horiz ? d+4 : 6)*p);
-        const [e,g,hh,k] = rear(1,1); ctx.fillStyle = 'rgba(255,50,50,.85)'; ctx.fillRect(X(px+e), Y(py+g), hh*p, k*p); continue; }
-      R(1,2,vw,vh,'rgba(20,20,30,.28)');
-      if (kind === 'auto'){ R(0,0,vw,vh,'#2f8f4a'); R(1,1,vw-2,vh-2,'#e8c547'); R(2,2,vw-4,vh-4,'#f2d35e'); R(...front(2,1),'#1d2340'); R(...rear(1,1),'#2b2b33'); }
-      else if (kind === 'bus'){ const c = pi % 2 ? '#d9772f' : '#3f8f43'; R(0,0,vw,vh,c); R(1,1,vw-2,vh-2,'#cfe3f2'); R(2,2,vw-4,vh-4,c); R(...front(2,1),'#9fc4d8'); R(3,3,horiz ? vw-6 : 1, horiz ? 1 : vh-6,'rgba(255,255,255,.35)'); }
-      else { const c = CARS[(pi*5 + v) % CARS.length]; R(0,0,vw,vh,c); R(...front(3,1),'#7fa8c4'); R(...rear(2,1),'#6f8fa8'); R(horiz ? 3 : 1, horiz ? 1 : 3, horiz ? vw-6 : vw-2, horiz ? vh-2 : vh-6, 'rgba(0,0,0,.12)'); R(horiz ? 3 : 1, horiz ? 1 : 3, horiz ? vw-6 : 1, horiz ? 1 : vh-6, 'rgba(255,255,255,.35)'); }
-    }
-  });
+  if (!lightsOnly){ const dt = reduceMotion || !VLAST ? 0 : Math.min(.1, Math.max(0, (now - VLAST)/1000)); VLAST = now; stepTraffic(dt, CAL_M, false); }
+  const night = light[3] > .25, au = T/U, S = au*p;
+  for (const o of VEH){
+    const K = VKINDS[o.kind], sx0 = X(o.cx*au), sy0 = Y(o.cy*au);
+    if (sx0 < -60 || sy0 < -60 || sx0 > canvas.width + 60 || sy0 > canvas.height + 60) continue;
+    if (lightsOnly){ if (!night) continue;
+      ctx.save(); ctx.translate(Math.round(sx0), Math.round(sy0)); ctx.rotate(o.ang);
+      ctx.fillStyle = 'rgba(255,236,170,.22)'; ctx.fillRect((K.w/2 + 1)*S, (-K.h/2 - 1)*S, 7*S, (K.h + 2)*S);                          // the beam on the road ahead
+      ctx.fillStyle = 'rgba(255,244,200,.95)'; ctx.fillRect((K.w/2 - 1)*S, (-K.h/2 + 1)*S, S, S); ctx.fillRect((K.w/2 - 1)*S, (K.h/2 - 2)*S, S, S);
+      ctx.fillStyle = o.tv < o.v - 1 || o.v < 2 ? 'rgba(255,40,40,1)' : 'rgba(255,50,50,.75)'; ctx.fillRect((-K.w/2)*S, (-K.h/2 + 1)*S, S, S); ctx.fillRect((-K.w/2)*S, (K.h/2 - 2)*S, S, S);   // brake lights when it slows
+      ctx.restore(); continue; }
+    ctx.save(); ctx.globalAlpha = TRAFFIC[o.r].local ? Math.max(0, Math.min(1, o.s/14, (TRAFFIC[o.r].len - o.s)/14)) : 1; ctx.translate(Math.round(X((o.cx + 1)*au)), Math.round(Y((o.cy + 2)*au))); ctx.rotate(o.ang); ctx.fillStyle = 'rgba(20,20,30,.28)'; ctx.fillRect(-K.w/2*S, -K.h/2*S, K.w*S, K.h*S); ctx.restore();
+    const r = TRAFFIC[o.r], fade = r.local ? Math.max(0, Math.min(1, o.s/14, (r.len - o.s)/14)) : 1;   // in and out of a gate
+    ctx.save(); ctx.globalAlpha = fade; ctx.translate(Math.round(sx0), Math.round(sy0)); ctx.rotate(o.ang); ctx.imageSmoothingEnabled = false; ctx.drawImage(vehSprite(o), -K.w/2*S, -K.h/2*S, K.w*S, K.h*S); ctx.restore();
+  }
 }
 function sprite2(who, pose, outfit, fr, cx, cy, X, Y, p){ ctx.drawImage(person(who, pose, outfit, fr), X(cx - 6), Y(cy - 14), 12*p, 15*p); }
 function mapLife(m, now, st, p, X, Y){
@@ -2475,10 +2599,13 @@ window.__hegel = {MISSING, get routes(){ return DAY.filter(s => s.route).map(s =
   routeLen: (a,b) => route(a,b).length, mode: () => dayMode, day: () => D,
   setPolish: v => { POLISH = !!v; if (GW) paintMap(); lastKey = ''; stripKey = ''; }, polish: () => POLISH, inside: () => inT > .5 ? inRoom : null,
   force: f => { FORCE = f ? Object.assign({mode:'inside', s:0, e:1440}, f) : null; lastKey = ''; },
-  traffic: () => (TRAFFIC || []).map(t => t.length),
-  offroadCheck: () => { let n = 0, off = 0, slots = 0; (TRAFFIC || []).forEach(() => slots += 13*240); for (let t=0; t<60000; t+=250){ VCOLLECT = []; vehicles(t, [0,0,0,0], 1, v => v, v => v, false);
-      for (const [x,y,w,h] of VCOLLECT){ n++; if ([[x,y],[x+w-1,y],[x,y+h-1],[x+w-1,y+h-1]].some(([cx,cy]) => grid[I(Math.floor(cx/T), Math.floor(cy/T))] !== G.ROAD)) off++; } }
-    VCOLLECT = null; return {drawn:n, cornerOffRoad:off, hiddenShare: +(1 - n/slots).toFixed(3)}; },
+  traffic: () => { if (!TRAFFIC) buildTraffic(); return {through: THRU.length, local: LOCALS.length, vehicles: VEH.length, localVehicles: VEH.filter(o => TRAFFIC[o.r].local).length, target: trafficTarget(CAL_M)}; },
+  offroadCheck: (minute = CAL_M) => {                       // two simulated minutes of traffic: corners off the road, and vehicles that overlap
+    if (!TRAFFIC) buildTraffic(); let n = 0, off = 0, overlap = 0, pairs = new Set();
+    for (let t=0; t<120; t+=.25){ stepTraffic(.25, minute, false);
+      for (const o of VEH){ n++; if (!vehOnRoad(o.cx, o.cy, o.hx, o.hy, VKINDS[o.kind].w - 2, VKINDS[o.kind].h - 2)) off++; }
+      for (let i=0;i<VEH.length;i++) for (let j=i+1;j<VEH.length;j++){ const a = VEH[i], b = VEH[j]; if (vehOverlap(a, b)){ overlap++; pairs.add(a.id + '-' + b.id); } } }
+    return {samples:n, cornerOffRoad:off, overlapSamples:overlap, overlapPairs:pairs.size, vehicles:VEH.length}; },
   effigy: () => { const e = effigySpot(); return e ? [Math.floor(e.x/U), Math.floor(e.y/U)] : null; },
   calendar: c => { CALX = c || null; fest.k = null; KEYS = lightKeys((CALX && CALX.sun) || (D && D.sun)); seasonCheck(); lastKey = ''; stripKey = ''; },
   say: who => { SAY = who ? {who, place: inT > .5 ? 'room' : 'map', until: performance.now() + 25000} : null; },
