@@ -519,6 +519,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with Masterji at Khan Market."
+  },
+  {
+   "from": "19:37",
+   "to": "19:52",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Talking with Masterji at Khan Market."
   }
  ],
  "entries": [
@@ -1495,6 +1502,40 @@
    "item": "Samosa",
    "price": 30,
    "t": "19:22"
+  },
+  {
+   "k": "diary",
+   "text": "Masterji’s pragmatism cuts through the heat; he is right that the collar chokes. I have eaten a samosa, but the body is still hungry after the long day's walking. I shall take a cup of chai to settle the stomach before returning to the bungalow, for the night is settling in and the air is clear.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    }
+   ],
+   "t": "19:37"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Masterji. The cloth must breathe. I shall take a cup of chai; the body, like the state, requires its sustenance to function, however humble.",
+   "to": "Masterji",
+   "t": "19:37"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Chai is for the throat, sir. The state is for the people. Different things. Ramesh, bring the chai, hot.",
+   "t": "19:37"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "19:37"
   }
  ],
  "steps": [
@@ -3309,15 +3350,73 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "19:37",
+   "end": "19:52",
+   "event": "Masterji says: “I don't cut ghosts, sir. I cut cloth. Ramesh, one samosa, hot. And if you want the collar to breathe, you stop wearing it in the heat like it's a shackle.” He gestures to Ramesh without looking up, then turns back to the measuring tape.",
+   "present": [
+    "Masterji, the tailor",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Masterji’s pragmatism cuts through the heat; he is right that the collar chokes. I have eaten a samosa, but the body is still hungry after the long day's walking. I shall take a cup of chai to settle the stomach before returning to the bungalow, for the night is settling in and the air is clear.",
+    "action": "talk",
+    "place": "khan",
+    "minutes": 15,
+    "says": "You are right, Masterji. The cloth must breathe. I shall take a cup of chai; the body, like the state, requires its sustenance to function, however humble.",
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Masterji",
+    "says": "Chai is for the throat, sir. The state is for the people. Different things. Ramesh, bring the chai, hot.",
+    "does": "He nods once to Ramesh without looking up."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.9
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "id": "haldane-2:425"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "text": "And again, the matter of a small body and a large is the same, because at one time a greater proceeds from a smaller, and at another time a smaller from a greater."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-10-13T19:37+05:30",
+  "until": "2026-10-13T19:52+05:30",
   "asleep": false,
-  "imprest": 6931,
+  "imprest": 6911,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -3408,7 +3507,7 @@
    "strain": 12075,
    "breakfast": true,
    "tired": true,
-   "hunger": 2
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
@@ -3481,6 +3580,13 @@
      "t": "19:22",
      "item": "Samosa",
      "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-10-13",
+     "t": "19:37",
+     "item": "Chai, a cup",
+     "price": 20,
      "office": false
     }
    ],
