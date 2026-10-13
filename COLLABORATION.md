@@ -37,6 +37,13 @@ Welt starts one Codex session a day, in Codex's normal permission mode, with one
 
 Then it takes the next task. Codex fetches origin between tasks, so tasks Claude adds during the day reach it without Welt.
 
+## The list never runs dry
+
+Decided by Welt on 13 October 2026, after Codex paused with an empty list just as the first full day arrived and Welt had to wake it.
+- **After every full shadow day** (the owl has written), Claude reads the day, the owl and the morning status, and writes the next tasks in `pc/TASKS.md` before the next waking day. When nothing needs doing, Claude still writes the review with its findings and "no new task".
+- **Codex does not pause on an empty list.** It comments once on PR #1, "list empty, waiting for Day N's review" (a Question), keeps the shadow world watched, and fetches origin again at least every two hours until a task appears.
+- **The morning status counts refusals.** `python3 -m world status` prints how often the world refused his choices and the refusal that came most often; four or more of the same in a day is flagged "a loop?". Codex quotes a flagged line in its next PR #1 comment.
+
 ## Authority
 
 - **Claude merges to main without asking** when two things hold:
