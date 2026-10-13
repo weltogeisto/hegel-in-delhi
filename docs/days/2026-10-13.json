@@ -477,6 +477,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "18:05",
+   "to": "18:20",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -1292,6 +1299,34 @@
    "to": "Hegel",
    "text": "Yes sir. The sambar is almost ready, just need to check the spice one last time.",
    "t": "17:45"
+  },
+  {
+   "k": "diary",
+   "text": "The sambar waits in the kitchen, a small domestic institution of its own, bound by the laws of heat and time just as the state is bound by law. I shall not delay the meal for the sake of a philosophical stroll; the body is the first ethical substance, and it demands its due. I will stay here, perhaps reviewing the vouchers, until the call comes.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    }
+   ],
+   "t": "18:05"
+  },
+  {
+   "k": "said",
+   "text": "Very well, Ramesh. I shall be in the study.",
+   "to": "Ramesh",
+   "t": "18:05"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir. The sambar will be up in ten minutes, once I get this spice right. You just ring the bell when you're ready.",
+   "t": "18:05"
   }
  ],
  "steps": [
@@ -2785,13 +2820,65 @@
      "text": "WITH the Empire of China History has to begin, for it is the oldest, as far as history gives us any information; and its principle has such substantiality, that for the empire in question it is at once the oldest and the newest."
     }
    ]
+  },
+  {
+   "t": "18:05",
+   "end": "18:20",
+   "event": "Ramesh says: “Yes sir. The sambar is almost ready, just need to check the spice one last time.” Ramesh nods slightly and turns to walk towards the kitchen corridor.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The sambar waits in the kitchen, a small domestic institution of its own, bound by the laws of heat and time just as the state is bound by law. I shall not delay the meal for the sake of a philosophical stroll; the body is the first ethical substance, and it demands its due. I will stay here, perhaps reviewing the vouchers, until the call comes.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": "Very well, Ramesh. I shall be in the study.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir. The sambar will be up in ten minutes, once I get this spice right. You just ring the bell when you're ready.",
+    "does": "He nods once and turns back toward the kitchen corridor, holding the wooden spoon steady."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.7
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:23"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:748"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "Nor can it be taken ill, if honest men become impatient, when the subject is broached. Still less is it a surprise that the government has at last turned its attention to this false philosophizing. With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Security for the state and its subjects against misuse of power by the authorities and their officers is found directly iu their responsibility arising out of their nature as a hierarchy. But it is also found in the legitimate societies and corporations. They hold in check the inflow of subjective wilfulness into the power of the officers."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T18:05+05:30",
+  "until": "2026-10-13T18:20+05:30",
   "asleep": false,
   "imprest": 6961,
   "wearing": "kurta",
