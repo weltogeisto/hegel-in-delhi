@@ -505,6 +505,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "18:55",
+   "to": "19:22",
+   "mode": "walk",
+   "a": "home",
+   "b": "khan"
   }
  ],
  "entries": [
@@ -1419,6 +1426,34 @@
     }
    ],
    "t": "18:45"
+  },
+  {
+   "k": "diary",
+   "text": "The body insists, but the household mechanism is rigid: the sambar is not served until 19:30. To wait is to be subject to the arbitrary timing of the servant, a small humiliation. I must satisfy the need now, outside the domestic sphere. Khan Market is open until 20:30; I shall walk there and procure sustenance from the market, asserting my freedom against the clock.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§243"
+    }
+   ],
+   "t": "18:55"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, I shall dine out. The wait is too long for my constitution.",
+   "to": "Ramesh",
+   "t": "18:55"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "I see, sir. I will cancel the kitchen preparations then.",
+   "t": "18:55"
   }
  ],
  "steps": [
@@ -3118,13 +3153,70 @@
      "text": "With the attainment of this, however, rational observation seems in fact to have also reached its culminating point, at which it must take leave of itself and turn right about; for it is only when anything is entirely bad that there is an inherent and immediate necessity in it to wheel round completely into its opposite."
     }
    ]
+  },
+  {
+   "t": "18:55",
+   "end": "19:22",
+   "event": "You are very hungry.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The body insists, but the household mechanism is rigid: the sambar is not served until 19:30. To wait is to be subject to the arbitrary timing of the servant, a small humiliation. I must satisfy the need now, outside the domestic sphere. Khan Market is open until 20:30; I shall walk there and procure sustenance from the market, asserting my freedom against the clock.",
+    "action": "walk",
+    "place": "khan",
+    "minutes": 20,
+    "says": "Ramesh, I shall dine out. The wait is too long for my constitution.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "khan",
+   "voice": {
+    "by": "Ramesh",
+    "says": "I see, sir. I will cancel the kitchen preparations then.",
+    "does": "He nods once and turns to walk back towards the kitchen."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 11.6,
+    "refused": [
+     [
+      "No household meal is available now; the next service is dinner from 19:30. Choose an available activity; a request for food is not a completed meal."
+     ]
+    ]
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "id": "haldane-3:1108"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§243",
+     "id": "rechts:514"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "text": "There is no man so foolish as that philosophy; when a man feels hungry, he does not call up the imagination of food, but sets about satisfying his hunger. All activity is a conception which does not yet exist, but whose subjectivity is abrogated."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§243",
+     "text": ""
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-10-13T18:55+05:30",
+  "place": "khan",
+  "until": "2026-10-13T19:22+05:30",
   "asleep": false,
   "imprest": 6961,
   "wearing": "kurta",
@@ -3213,11 +3305,11 @@
      "sunil"
     ]
    },
-   "walked": 10050,
-   "strain": 10050,
+   "walked": 12075,
+   "strain": 12075,
    "breakfast": true,
    "tired": true,
-   "hunger": 1
+   "hunger": 2
   },
   "account": {
    "advance": 15000,
