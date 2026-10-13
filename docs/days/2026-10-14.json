@@ -323,6 +323,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Reading at home."
+  },
+  {
+   "from": "06:56",
+   "to": "07:11",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -386,6 +393,34 @@
     }
    ],
    "t": "06:26"
+  },
+  {
+   "k": "diary",
+   "text": "Shri Hegde stands in the doorway, a man of the bureaucracy who has mistaken my name for his own. I must address this absurdity with the gravity it deserves, for the state’s machinery has ground us together like millstones. I will speak to him plainly, before the day’s duties call me forth.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    }
+   ],
+   "t": "06:56"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, the Directorate’s error in allotting this bungalow to me instead of you is a small joke of the state, but we must play our parts. You are to occupy the second bedroom pending further orders. I shall be out for a walk in the gardens to clear my head of the dust and the dialectic. Do make yourself comfortable; the house is yours until I return.",
+   "to": "Shri G. Hegde",
+   "t": "06:56"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "A small joke, sir, but I am not paid to act. I have my own files to clear and I will not be sharing the bungalow pending some other order. I will take the room I was allotted and leave the rest to the Directorate's files.",
+   "t": "06:56"
   }
  ],
  "steps": [
@@ -478,13 +513,65 @@
      "text": "The destinies and deeds of states in their connection with one another are the visible dialectic of the finite nature of these spirits. Out of this dialectic the universal spirit, the spirit of the world, the unlimited spirit, produces itself. It has the highest right of all, and exercises its right upon the lower spirits in world-history."
     }
    ]
+  },
+  {
+   "t": "06:56",
+   "end": "07:11",
+   "event": "Shri G. Hegde is here.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Shri Hegde stands in the doorway, a man of the bureaucracy who has mistaken my name for his own. I must address this absurdity with the gravity it deserves, for the state’s machinery has ground us together like millstones. I will speak to him plainly, before the day’s duties call me forth.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Shri Hegde, the Directorate’s error in allotting this bungalow to me instead of you is a small joke of the state, but we must play our parts. You are to occupy the second bedroom pending further orders. I shall be out for a walk in the gardens to clear my head of the dust and the dialectic. Do make yourself comfortable; the house is yours until I return.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "A small joke, sir, but I am not paid to act. I have my own files to clear and I will not be sharing the bungalow pending some other order. I will take the room I was allotted and leave the rest to the Directorate's files.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.9
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "id": "dyde-right:205"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:643"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "text": "Addition. — The particular person is really a subordinate, who must devote his life to the service of the ethical fabric; when the state demands his life, he must yield it up. But should the man take his own life? Suicide may at first glance be looked upon as bravery, although it be the poor bravery of tailors and maid-servants."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "So, too, states have had a formal right against the Jews in regard to the concession to them of even civil rights, because they are not merely a religious body, but claim to look upon themselves as a foreign nation."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-14T06:56+05:30",
+  "until": "2026-10-14T07:11+05:30",
   "asleep": false,
   "imprest": 6891,
   "wearing": "kurta",
@@ -560,7 +647,9 @@
   "today": {
    "woke": "05:56",
    "seen": {
-    "home": []
+    "home": [
+     "hegde"
+    ]
    }
   },
   "account": {
@@ -707,7 +796,8 @@
    ],
    "hegde": [
     "2026-10-02",
-    "2026-10-13"
+    "2026-10-13",
+    "2026-10-14"
    ]
   },
   "refused": {},
