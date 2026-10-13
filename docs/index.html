@@ -171,6 +171,28 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
   .mapbtns{right:20px;top:20px}
   .mapbtns button{font-size:13px;padding:5px 7px}
 }
+/* the fan club */
+.titlebar{display:flex;align-items:center;justify-content:space-between;gap:10px 14px;flex-wrap:wrap}
+.titlebar h1{margin-right:auto}
+.fanbtn{font-size:14px;padding:5px 10px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.fanbtn .fancount:not(:empty){font-size:12px;background:var(--accent-strong);color:#fff;border-radius:999px;padding:1px 7px}
+.fanbtn[data-joined]{background:var(--accent-strong);color:#fff}
+.fanbtn[data-joined] .fancount{background:#fff;color:var(--accent-strong)}
+.fandlg{max-width:min(520px, calc(100vw - 32px));width:100%;border:3px solid var(--ink);border-radius:8px;background:var(--box);color:var(--ink);
+  padding:18px 20px;box-shadow:0 8px 0 var(--ink)}
+.fandlg::backdrop{background:rgba(16,14,40,.55)}
+.fandlg h2{font-size:22px;margin:0 0 8px;font-weight:600}
+.fandlg p{font-family:var(--read);font-size:16px;line-height:1.5;margin:0 0 12px}
+.fandlg .fan-small{font-size:14px;color:var(--muted)}
+.fan-check{display:flex;align-items:center;gap:10px;margin:4px 0 12px;font-size:16px;cursor:pointer}
+.fan-check input{width:20px;height:20px;accent-color:var(--accent)}
+.fan-field{display:grid;gap:4px;margin:0 0 12px;font-size:14px}
+.fan-field input,.fan-field select{font:inherit;font-family:var(--read);font-size:16px;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:6px;padding:7px 9px;width:100%;box-sizing:border-box}
+.fan-msg:empty{display:none}
+.fan-msg{font-size:15px;color:var(--accent-strong)}
+.fan-btns{display:flex;justify-content:flex-end;gap:10px}
+#fanJoin{background:var(--accent-strong);color:#fff}
+@media (max-width:700px){ .fanbtn{font-size:13px;padding:4px 8px} .fandlg{padding:16px} .fandlg h2{font-size:20px} }
 /* Reading text in a book face; the pixel face stays for titles, labels, buttons and times. */
 .top p,.note,.now .status,.now blockquote,.entry p,.owl p,.panel p,.panel li,.place-card p,.ms p,.about,.veil{font-family:var(--read);line-height:1.55}
 .now blockquote,.entry p,.owl p,.panel p,.panel li,.ms p{font-size:17px}
@@ -182,7 +204,10 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
 <div class="app">
   <section class="console" aria-label="Map of Hegel's quarter of Delhi">
     <header class="top">
-      <h1>Hegel in Delhi</h1>
+      <div class="titlebar">
+        <h1>Hegel in Delhi</h1>
+        <button id="btnFan" class="fanbtn" type="button" aria-haspopup="dialog">&#9829; Fan club<span id="fanCount" class="fancount"></span></button>
+      </div>
       <p>G. W. F. Hegel, fifty, wakes up in a Lutyens bungalow that the Directorate of Estates allotted to him by mistake.</p>
       <div class="daynav">
         <button id="btnPrev" type="button" hidden>&#9664;</button>
@@ -241,6 +266,22 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
   </aside>
 </div>
 
+<dialog id="fanDlg" class="fandlg" aria-labelledby="fanTitle">
+  <form id="fanForm" method="dialog">
+    <h2 id="fanTitle">The fan club</h2>
+    <p>Join to say you are following Hegel's days in Delhi. That is all it takes.</p>
+    <label class="fan-check"><input type="checkbox" id="fanMeet"> Let Hegel meet me</label>
+    <div id="fanMeetBox" hidden>
+      <p class="fan-small">Now and then the world places one member of the fan club on his rounds. Who are you in his Delhi?</p>
+      <label class="fan-field">First name or nickname<input id="fanName" maxlength="24" autocomplete="given-name" spellcheck="false"></label>
+      <label class="fan-field">Your part<select id="fanRole"></select></label>
+      <p class="fan-small">Only this name and part are kept, no email. The site's owner reads every name before it can enter his world. If he meets you, your name appears in that day's record on this page.</p>
+    </div>
+    <p id="fanMsg" class="fan-msg" role="status" aria-live="polite"></p>
+    <div class="fan-btns"><button type="button" id="fanCancel">Not now</button><button type="submit" id="fanJoin">Join</button></div>
+  </form>
+</dialog>
+<script type="application/json" id="fanRoles">[{"group": "Out on the lanes", "roles": [{"id": "parakeets", "label": "A birdwatcher counting the parakeets of Lodhi Gardens"}, {"id": "kites", "label": "A kite-fighter from Old Delhi with glass-coated string"}, {"id": "ghalib", "label": "A street poet who knows all of Ghalib by heart"}, {"id": "chai", "label": "A chai-stall regular with a theory of everything, one cup long"}, {"id": "auto", "label": "An auto driver who knows a shortcut to everywhere"}, {"id": "chess", "label": "A chess hustler in Khan Market who plays blitz for chai"}, {"id": "dogs", "label": "A dog-walker with three indies and control over none"}, {"id": "scout", "label": "A film location scout who wants him for a cameo"}, {"id": "chhole", "label": "A food writer hunting the perfect chhole bhature"}, {"id": "guide", "label": "A guide at Safdarjung's Tomb with a theory about the dome"}]}, {"group": "Old friends and old enemies", "roles": [{"id": "schopenhauer", "label": "A Schopenhauer devotee, still sore about Berlin in 1820"}, {"id": "marxist", "label": "A young Marxist determined to stand him on his feet"}, {"id": "kantian", "label": "A Kantian on pilgrimage, here about the thing in itself"}, {"id": "gita", "label": "A Sanskrit scholar who has read his 1827 review of the Gita"}, {"id": "goethe", "label": "A Goethe enthusiast with a question about colour"}, {"id": "phd", "label": "A PhD student writing 300 pages about him, too nervous to say hello"}]}, {"group": "Odd ones", "roles": [{"id": "stamp", "label": "A backpacker who knows his face from a 1970 postage stamp"}, {"id": "owl", "label": "A night-walker who keeps seeing an owl on his roof at dusk"}, {"id": "forecast", "label": "A meteorologist personally offended by the forecast"}, {"id": "diplomat", "label": "A retired diplomat who plays bridge at the Gymkhana"}]}]</script>
 <script>
 (() => {
 'use strict';
@@ -2595,6 +2636,53 @@ function frame(now){
   updateDom(st, m);
   requestAnimationFrame(frame);
 }
+/* ───────── the fan club: a count, and a chance to be met (Supabase project hegel-in-delhi; see supabase/fanclub.sql) ───────── */
+const FANCLUB = {url: 'https://tsvgdeyodxjyopeouwwt.supabase.co', key: 'sb_publishable_PdTP6ohMJFNfOI9-D8jraA_zxUdXPiO'};   // a publishable key: it may only join and count
+const btnFan = $('btnFan'), fanCount = $('fanCount'), fanDlg = $('fanDlg'), fanForm = $('fanForm'), fanMeet = $('fanMeet'), fanMeetBox = $('fanMeetBox');
+const fanName = $('fanName'), fanRole = $('fanRole'), fanMsg = $('fanMsg'), fanJoin = $('fanJoin');
+const fanStore = {get(){ try { return localStorage.getItem('hegel-fan'); } catch (e){ return null; } }, set(v){ try { localStorage.setItem('hegel-fan', v); } catch (e){} }};
+async function fanRpc(fn, body){
+  const res = await fetch(FANCLUB.url + '/rest/v1/rpc/' + fn, {method: 'POST', headers: {apikey: FANCLUB.key, 'Content-Type': 'application/json'}, body: JSON.stringify(body || {})});
+  const data = await res.json().catch(() => null);
+  if (!res.ok) throw new Error(data && data.message ? data.message : 'The fan club did not answer (' + res.status + ').');
+  return data;
+}
+function showFans(n){
+  const mine = fanStore.get();
+  if (mine){ btnFan.dataset.joined = ''; btnFan.firstChild.nodeValue = '♥ Fan no. ' + Number(mine).toLocaleString('en-IN'); }
+  fanCount.textContent = typeof n === 'number' ? (mine ? 'of ' : '') + n.toLocaleString('en-IN') : '';
+  btnFan.setAttribute('aria-label', (mine ? 'You are fan number ' + mine + '. ' : 'Join the fan club. ') + (typeof n === 'number' ? n + (n === 1 ? ' fan so far.' : ' fans so far.') : ''));
+}
+function countFans(){ fanRpc('fan_count').then(showFans).catch(() => showFans(null)); }
+(function fillRoles(){
+  try {
+    JSON.parse(document.getElementById('fanRoles').textContent).forEach(g => {
+      const og = document.createElement('optgroup'); og.label = g.group;
+      g.roles.forEach(r => { const o = document.createElement('option'); o.value = r.id; o.textContent = r.label; og.appendChild(o); });
+      fanRole.appendChild(og);
+    });
+  } catch (e){ console.warn(e); }
+})();
+btnFan.addEventListener('click', () => {
+  fanMsg.textContent = ''; fanJoin.disabled = false;
+  const mine = fanStore.get();
+  if (mine){ fanMsg.textContent = 'You are already fan number ' + Number(mine).toLocaleString('en-IN') + '. Thank you.'; fanJoin.disabled = true; }
+  if (fanDlg.showModal) fanDlg.showModal(); else fanDlg.setAttribute('open', '');
+});
+fanMeet.addEventListener('change', () => { fanMeetBox.hidden = !fanMeet.checked; if (fanMeet.checked) fanName.focus(); });
+$('fanCancel').addEventListener('click', () => fanDlg.close ? fanDlg.close() : fanDlg.removeAttribute('open'));
+fanForm.addEventListener('submit', async e => {
+  e.preventDefault();
+  const meet = fanMeet.checked, name = fanName.value.trim();
+  if (meet && !name){ fanMsg.textContent = 'To be met, give a first name or nickname.'; fanName.focus(); return; }
+  fanJoin.disabled = true; fanMsg.textContent = 'Joining…';
+  try {
+    const n = await fanRpc('join_fanclub', meet ? {p_meet: true, p_name: name, p_role: fanRole.value} : {p_meet: false});
+    fanStore.set(String(n)); showFans(n);
+    fanMsg.textContent = 'Welcome. You are fan number ' + Number(n).toLocaleString('en-IN') + '.' + (meet ? ' Once your name is read, you may turn up on his rounds.' : '');
+  } catch (err){ fanMsg.textContent = err.message; fanJoin.disabled = false; }
+});
+countFans(); setInterval(countFans, 10*60*1000);
 window.__hegel = {MISSING, get routes(){ return DAY.filter(s => s.route).map(s => ({from:s.from, len:s.route.length})); },
   routeLen: (a,b) => route(a,b).length, mode: () => dayMode, day: () => D,
   setPolish: v => { POLISH = !!v; if (GW) paintMap(); lastKey = ''; stripKey = ''; }, polish: () => POLISH, inside: () => inT > .5 ? inRoom : null,
