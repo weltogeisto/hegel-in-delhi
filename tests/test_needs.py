@@ -281,9 +281,11 @@ class NeedsTest(unittest.TestCase):
 
     def test_eating_at_home_is_a_meal_only_when_a_meal_is_laid_out(self):
         st = state()
+        st["last_meal"] = "2026-10-03T08:45+05:30"                                         # breakfast at a quarter to nine
         sit, ctx = self.w.situation(self.at(SAT, 11), st, {"steps": []})
         self.assertTrue(self.w.check(answer(action="eat", place="home"), sit, ctx, st)[0])  # unavailable eating is refused
-        self.assertNotIn("last_meal", st)                                                    # nothing on the table at eleven
+        self.assertEqual(st["last_meal"], "2026-10-03T08:45+05:30")                         # nothing on the table at eleven: no plate within three hours
+        st = state()
         play(self.w, st, self.at(SAT, 13, 10), action="eat", place="home")
         self.assertEqual(st["last_meal"], "2026-10-03T13:10+05:30")
         st = state()
