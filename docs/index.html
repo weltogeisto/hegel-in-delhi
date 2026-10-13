@@ -130,8 +130,40 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
   .bezel{flex:1;height:auto;min-height:0}
   .side{overflow-y:auto;min-height:0;padding:0 6px 18px 0}
 }
+.sheet-handle{display:none}
+@media (max-width:700px){
+  :root{--peek:132px}
+  html,body{overflow-x:hidden}
+  .app{padding:10px 12px calc(var(--peek) + 14px);gap:8px}
+  .console{gap:8px}
+  .top h1{font-size:22px;margin:0 0 2px}
+  .top > p{display:none}
+  .top .daynav{margin-top:2px}
+  .bezel{height:clamp(280px, calc(100svh - var(--peek) - 190px), 64svh);padding:10px 10px 10px 20px;border-radius:12px 12px 32px 12px}
+  .led{left:7px}
+  .timebar{gap:8px}
+  body.has-strip .timebar input[type=range]{display:none}
+  .timebar output{margin-left:auto}
+  .note{font-size:13px}
+  .side{position:fixed;left:0;right:0;bottom:0;z-index:30;max-height:88svh;gap:10px;
+    background:var(--shell);border-radius:18px 18px 0 0;box-shadow:0 -8px 28px rgba(10,8,30,.45);
+    padding:0 12px calc(14px + env(safe-area-inset-bottom,0px));
+    transform:translateY(calc(100% - var(--peek) - env(safe-area-inset-bottom,0px)));transition:transform .28s ease;overflow:hidden}
+  .side.open{transform:none;overflow-y:auto;overscroll-behavior:contain}
+  .sheet-handle{display:flex;align-items:center;justify-content:center;gap:8px;position:sticky;top:0;z-index:2;margin:0 -12px;padding:8px 0 6px;
+    background:var(--shell);border:0;box-shadow:none;border-radius:18px 18px 0 0;color:var(--shell-muted);font-size:13px;width:calc(100% + 24px)}
+  .sheet-handle::before{content:"";display:block;width:44px;height:5px;border-radius:3px;background:var(--shell-muted);opacity:.7}
+  .sheet-handle:active{transform:none}
+  .side:not(.open) .now blockquote{display:none}
+  .side:not(.open) .now .status{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;margin:0}
+  .side:not(.open) .now .wx,.side:not(.open) .now .shelf{display:none}
+  .now{padding:10px 14px}
+  .now .place{font-size:17px}
+  .now .status{margin:0 0 6px}
+}
+@media (prefers-reduced-motion: reduce){ .side{transition:none} }
 @media (max-width:520px){
-  .top h1{font-size:27px}
+  .top h1{font-size:22px}
   .top p{font-size:15px}
   .menu{padding:8px}
   .menu button{font-size:15px;padding-left:17px}
@@ -179,7 +211,8 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
     <p class="note attrib"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">Map data © OpenStreetMap contributors</a></p>
   </section>
 
-  <aside class="side">
+  <aside class="side" id="side">
+    <button class="sheet-handle" id="sheetHandle" type="button" aria-expanded="false" aria-controls="side">His day</button>
     <div class="box now" aria-live="polite">
       <p class="place" id="nowPlace">&nbsp;</p>
       <p class="status" id="nowStatus">&nbsp;</p>
@@ -1951,8 +1984,20 @@ strip.addEventListener('click', e => { const b = strip.getBoundingClientRect(), 
   setLive(false); setPlay(false); simMin = Math.min(t, maxMinute()); lastKey = ''; stripKey = ''; });
 strip.addEventListener('mousemove', e => { const b = strip.getBoundingClientRect(), t = (e.clientX - b.left)/b.width*1440, pt = stripParts().find(q2 => t >= q2.s && t < q2.e);
   strip.title = pt ? `${fmt(pt.s)}–${fmt(pt.e)} ${pt.seg.now || placeOf(pt.seg.at || pt.seg.b).name}` : ''; });
+/* the sheet on a phone: a handle to pull his day up, and the map stays on top */
+const side = document.getElementById('side'), handle = document.getElementById('sheetHandle'), phone = window.matchMedia('(max-width: 700px)');
+function setSheet(open){ side.classList.toggle('open', open); handle.setAttribute('aria-expanded', String(open)); handle.textContent = open ? 'Back to the map' : 'His day'; if (!open) side.scrollTop = 0; }
+function peek(){ if (!phone.matches) return; const nowBox = side.querySelector('.now'); const h = Math.ceil(handle.offsetHeight + (nowBox ? nowBox.offsetHeight : 90) + 14);
+  document.documentElement.style.setProperty('--peek', Math.min(h, 150) + 'px'); }
+handle.addEventListener('click', () => setSheet(!side.classList.contains('open')));
+side.querySelector('.now').addEventListener('click', e => { if (phone.matches && !side.classList.contains('open') && !e.target.closest('[data-veil]')) setSheet(true); });
+let sheetDrag = null;
+handle.addEventListener('pointerdown', e => { sheetDrag = {y: e.clientY}; });
+window.addEventListener('pointerup', e => { if (!sheetDrag) return; const dy = e.clientY - sheetDrag.y; sheetDrag = null; if (dy < -30) setSheet(true); else if (dy > 30) setSheet(false); });
+phone.addEventListener('change', () => { if (!phone.matches) setSheet(false); peek(); });
+new ResizeObserver(peek).observe(side.querySelector('.now'));
 function updateDom(st, m){
-  drawStrip(m);
+  drawStrip(m); document.body.classList.toggle('has-strip', !strip.hidden);
   const minute = Math.floor(m);
   $('clock').textContent = fmt(m);
   if (!scrubbing) scrub.value = minute;
@@ -2003,7 +2048,7 @@ document.querySelectorAll('.menu [role=tab]').forEach(b => b.addEventListener('c
 function selectTab(t){ tab = t; document.querySelectorAll('.menu [role=tab]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === t))); lastKey = ''; }
 panel.addEventListener('click', e => { const b = e.target.closest('[data-show]'); if (!b) return; const pl = PLACES[b.dataset.show];
   follow = false; town = false; btnTown.setAttribute('aria-pressed','false'); const [x0,y0,x1,y1] = pl.rect; cam.x = (x0+x1+1)/2*T; cam.y = (y0+y1+1)/2*T;
-  hlPlace = b.dataset.show; lastKey = ''; canvas.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block:'center'}); });
+  hlPlace = b.dataset.show; lastKey = ''; if (phone.matches) setSheet(false); canvas.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block:'center'}); });
 let drag = null;
 canvas.addEventListener('pointerdown', e => { canvas.setPointerCapture(e.pointerId); drag = {x:e.clientX, y:e.clientY, cx:cam.x, cy:cam.y, moved:0}; });
 canvas.addEventListener('pointermove', e => { if (!drag){ if (POLISH && e.pointerType === 'mouse'){ const b = canvas.getBoundingClientRect(); canvas.style.cursor = personAt((e.clientX - b.left)*dpr, (e.clientY - b.top)*dpr) ? 'pointer' : ''; } return; } const dx = e.clientX - drag.x, dy = e.clientY - drag.y; drag.moved = Math.max(drag.moved, Math.abs(dx) + Math.abs(dy));
