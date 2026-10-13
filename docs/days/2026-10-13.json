@@ -498,6 +498,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "18:45",
+   "to": "18:55",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -1397,6 +1404,21 @@
    "to": "Hegel",
    "text": "Yes sir. I'll leave it on the porch. Don't worry about the door.",
    "t": "18:30"
+  },
+  {
+   "k": "diary",
+   "text": "The meal is delayed by the arbitrary will of the household, a small friction in the mechanism of civil society. I shall not stand idly by my plate; the evening air is clear, and the walk was in my plan. I will step out to the porch and cool my nerves while the sambar simmers in its proper place.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology"
+    }
+   ],
+   "t": "18:45"
   }
  ],
  "steps": [
@@ -3046,13 +3068,63 @@
      "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
     }
    ]
+  },
+  {
+   "t": "18:45",
+   "end": "18:55",
+   "event": "Ramesh says: “Yes sir. I'll leave it on the porch. Don't worry about the door.” Ramesh gives a short nod and turns back toward the kitchen corridor.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The meal is delayed by the arbitrary will of the household, a small friction in the mechanism of civil society. I shall not stand idly by my plate; the evening air is clear, and the walk was in my plan. I will step out to the porch and cool my nerves while the sambar simmers in its proper place.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 10,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.6,
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "id": "haldane-1:400"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology",
+     "id": "baillie-1:456"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "text": "Thus it was after European manhood came to be at home with itself and to look upon the present, that the historical and that which is of foreign derivation was given. When man began to be at home with himself, he turned to the Greeks to find enjoyment in it. Let us leave the Latin and the Roman to the church and to jurisprudence."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology",
+     "text": "With the attainment of this, however, rational observation seems in fact to have also reached its culminating point, at which it must take leave of itself and turn right about; for it is only when anything is entirely bad that there is an inherent and immediate necessity in it to wheel round completely into its opposite."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T18:45+05:30",
+  "until": "2026-10-13T18:55+05:30",
   "asleep": false,
   "imprest": 6961,
   "wearing": "kurta",
