@@ -400,6 +400,13 @@
    "mode": "walk",
    "a": "home",
    "b": "lodhi"
+  },
+  {
+   "from": "13:18",
+   "to": "14:03",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Walking the paths of Lodhi Gardens."
   }
  ],
  "entries": [
@@ -931,6 +938,24 @@
    "to": "Hegel",
    "text": "Yes sir. I will wait for you. Just do not take too long, the sambar is delicate.",
    "t": "12:58"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s patience is a small mercy, but the sambar cannot wait forever, and neither can my digestion. I came for the tombs, for the silence of stone against the noise of the crowd, but the sun here is a tyrant that offers no reprieve. I shall take a short circuit of the eastern path, where the shade of the neem is thick, to let the blood cool before I return to the bungalow. The architecture of the Lodis is a confession of conquest, fixed in brick, unlike the fluid dream of the spirit I have been contemplating.",
+   "sensitive": true,
+   "why": "conquest",
+   "topic": "empire and colonies",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme"
+    }
+   ],
+   "t": "13:18"
   }
  ],
  "steps": [
@@ -1854,13 +1879,61 @@
      "text": "In short, as there can be no movement in vacuum, so also a vacuum cannot move.”"
     }
    ]
+  },
+  {
+   "t": "13:18",
+   "end": "14:03",
+   "event": "Ramesh says: “Yes sir. I will wait for you. Just do not take too long, the sambar is delicate.” He wipes his hands on the cloth tied around his waist and steps back toward the kitchen door. You arrive at Lodhi Gardens. It closes at 19:30.",
+   "present": [],
+   "decision": {
+    "thought": "Ramesh’s patience is a small mercy, but the sambar cannot wait forever, and neither can my digestion. I came for the tombs, for the silence of stone against the noise of the crowd, but the sun here is a tyrant that offers no reprieve. I shall take a short circuit of the eastern path, where the shade of the neem is thick, to let the blood cool before I return to the bungalow. The architecture of the Lodis is a confession of conquest, fixed in brick, unlike the fluid dream of the spirit I have been contemplating.",
+    "action": "stay",
+    "place": "lodhi",
+    "minutes": 45,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 6.0,
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "id": "haldane-3:507"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "id": "haldane-3:478"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "text": "In the Quæstionibus theosophicis Boehme makes particular use of the form of Yes and No for the separator, for this opposition. He says: “The reader must know that in Yes and No all things consist, whether divine, devilish, earthly, or what they may be called. The One as the Yes is pure power and life, and it is the truth of God or God Himself."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "text": "However rude and barbarous this may on the one hand be, and however impossible it is to read Boehme continuously, or to take a firm grasp of his thoughts (for all these qualities, spirits and angels make one’s head swim), we must on the other hand recognize that he speaks of everything as it is in its actuality, and that he does this from his heart."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-10-13T13:18+05:30",
+  "until": "2026-10-13T14:03+05:30",
   "asleep": false,
   "imprest": 7001,
   "wearing": "kurta",
