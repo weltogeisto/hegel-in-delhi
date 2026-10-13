@@ -456,6 +456,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "17:18",
+   "to": "17:30",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -1170,6 +1177,34 @@
    "to": "Hegel",
    "text": "Of course, sir. I’ll keep it warm on the stove for you. The gate is open, just say the word if you need anything on your way back.",
    "t": "16:48"
+  },
+  {
+   "k": "diary",
+   "text": "The sambar waits, but so does the sun, which has not yet dismissed the day. I walked the tombs in the heat and the air is thick with the dust of the city and the smoke of a thousand hearths. A short circuit around the bungalow will settle the blood before the bowl is served. The gate is open; I need only step through.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§81"
+    }
+   ],
+   "t": "17:18"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. Do not worry about the gate. I shall be back in a quarter hour, or less, if the air holds.",
+   "to": "Ramesh",
+   "t": "17:18"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "The evening air is clear, sir. I will leave the gate latched, just in case. Your sambar will be ready when you return.",
+   "t": "17:18"
   }
  ],
  "steps": [
@@ -2502,13 +2537,68 @@
      "text": "But this having been attained, the activity displayed by the Spirit of the people in question is no longer needed; it has its desire. The Nation can still accomplish much in war and peace at home and abroad; but the living substantial soul itself may be said to have ceased its activity."
     }
    ]
+  },
+  {
+   "t": "17:18",
+   "end": "17:30",
+   "event": "Ramesh says: “Of course, sir. I’ll keep it warm on the stove for you. The gate is open, just say the word if you need anything on your way back.” He wipes his hands on his apron and steps back to let the man pass.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The sambar waits, but so does the sun, which has not yet dismissed the day. I walked the tombs in the heat and the air is thick with the dust of the city and the smoke of a thousand hearths. A short circuit around the bungalow will settle the blood before the bowl is served. The gate is open; I need only step through.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": "Thank you, Ramesh. Do not worry about the gate. I shall be back in a quarter hour, or less, if the air holds.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "The evening air is clear, sir. I will leave the gate latched, just in case. Your sambar will be ready when you return.",
+    "does": "He nods slightly and turns back to the stove, adjusting the flame to low."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.4,
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution",
+     "id": "sibree-history:1411"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§81",
+     "id": "wallace-logic:364"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution",
+     "text": "The first Constitutional form of Government in France was one which recognized Royalty; the monarch was to stand at the head of the State, and on him in conjunction with his Mimisters was to devolve the executive power; the legislative body on the other hand were to make the laws."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§81",
+     "text": "It is also the soul of all knowledge which is truly scientific. In the popular way of looking at things, the refusal to be bound by the abstract deliverances of understanding appears as fairness, which, according to the proverb Live and let live, demands that each should have its turn; we admit the one, but we admit the other also."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T17:18+05:30",
+  "until": "2026-10-13T17:30+05:30",
   "asleep": false,
   "imprest": 6961,
   "wearing": "kurta",
