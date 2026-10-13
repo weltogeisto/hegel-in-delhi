@@ -34,6 +34,29 @@ class Git:
         if p.returncode != 0:
             log.warning("pull --ff-only failed, will merge on push: %s", (p.stderr or "").strip()[-200:])
 
+    def unpushed(self):
+        """Commits on this branch that origin has not got: a push the network refused, waiting to go out."""
+        p = self.run("rev-list", "--count", f"origin/{self.cfg.branch}..HEAD", check=False)
+        try:
+            return int(p.stdout.strip()) if p.returncode == 0 else 0
+        except ValueError:
+            return 0
+
+    def push_pending(self):
+        """Push what an earlier push could not. One try, from every tick: True when it went out."""
+        if not self.cfg.push or not self.unpushed():
+            return False
+        self.branch_ok()
+        p = self.run("push", "-q", "origin", f"HEAD:{self.cfg.branch}", check=False)
+        if p.returncode != 0 and any(w in (p.stderr or "").lower() for w in ("rejected", "fetch first", "non-fast-forward")):
+            self.run("pull", "--no-rebase", "--no-edit", "-q", "origin", self.cfg.branch, check=False)
+            p = self.run("push", "-q", "origin", f"HEAD:{self.cfg.branch}", check=False)
+        if p.returncode == 0:
+            log.info("pushed what an earlier push could not")
+            return True
+        log.warning("push still failing, will try again next minute: %s", (p.stderr or "").strip()[-200:])
+        return False
+
     def publish(self, paths, message):
         self.branch_ok()
         self.run("add", "--", *[str(x) for x in paths])

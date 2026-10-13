@@ -342,6 +342,7 @@ class EngineTest(unittest.TestCase):
             calls = []
             def sync(self): self.calls.append("sync")
             def publish(self, paths, msg): self.calls.append("publish")
+            def push_pending(self): return False      # nothing held back: a local check, no network
         rec = Recorder()
         e = self.box.engine(git=rec)
         now = at_dt(date(2026, 10, 3), 6 * 60)

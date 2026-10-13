@@ -17,6 +17,7 @@ from .clock import day_number, fmt, hm, long_date, minute_of, sun
 from .memory import Memory, encountered_text
 from .money import ADVANCE
 from .mind import MindAway
+from .publish import GitError
 from .task_prompt import for_task
 from .world import at_dt
 
@@ -573,6 +574,11 @@ class Engine:
         return [day["date"], latest["date"]]
 
     def tick(self, now):
+        if self.git:
+            try:
+                self.git.push_pending()     # a push the network refused earlier goes out within a minute, not at the next step
+            except GitError as e:
+                log.warning("could not push held-back commits: %s", e)
         owl_day = self.owl_ready(now)
         if not owl_day and not self.due(now):
             return []           # most minutes: nothing to decide, no network

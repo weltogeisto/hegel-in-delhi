@@ -1,3 +1,16 @@
+# Codex status — 13 October tasks
+
+Current main 61accbd is actually integrated into the PC branch at 44d2364. Claude owns specs, scoring, defaults and main merges. The historical checkpoints below remain preserved; this section supersedes their obsolete “no open tasks” and first-day/owl-pending claims.
+
+- T6 DONE: Pi shadow 5a02a12 is an actual merge of 5b52d7f and main 61accbd, including f933bd6 and the page redesign. Clean Pi equals actual remote; runtime/soul/page blobs equal main. The natural 17:22 UTC tick exited 0. Day 13 is asleep until 05:56 rehearsal with zero decisions, so neither new plate nor tea entry has come up. All captured day/state JSON hashes are unchanged. No forced tick, restart or configuration change. See T6-SHADOW-MAIN-20261013.md and checks JSON.
+- Combined PC source 44d2364: 70 focused tests in 9.248s, OK (1 skipped), both exits 0. The meal conflict preserves main's plate behavior and existing Codex receipts/payment identities. A new full combined suite is pending; prior full suites apply to their original frozen sources.
+- T8 RUNNING: pre-generation source/input/seed declaration complete. Current main61; Day12 and the no-India final-integration/plain-qwen Day2 and continuation-v2/focused-next-day Day3 records; ten seeds 2026101380–89 per day. Normal owl settings and Saturday Depesche retained. Capture-only preflight: 7182/6465/7183 prompt tokens, zero model calls. Counts and per-seed evidence will follow the frozen run; no blind packet or new rule. See T8-OWL-THESIS-PROTOCOL-20261013.md/json.
+- T9 DONE: eligible four-word reuse in 29/42 Day12 thoughts (69.05%), 16/33 rehearsal Day2 (48.48%), 19/40 rehearsal Day3 (47.50%). All 115 thoughts equal their validated decisions; every marked thought, earlier match and the top ten phrases per day are retained. This is literal reuse, not a semantic quality score. No runtime/prompt variant follows; Claude decides. See T9-REPETITION-20261013.md/json.
+
+The first full shadow day and natural owl completed at 5b52d7f before these tasks. Both earlier DNS incidents and their successful guarded publications remain preserved; no new live outage has tested the newer retry. Public world paused; shift stays 300. Shared plain-Qwen server PID384 stays unchanged, with slot0 reserved for shadow. No training, adapter, infrastructure or secret change.
+
+## Preserved earlier checkpoints
+
 # Codex status — 12 October tasks and overnight 13 October
 
 Primary branch: `codex/outcome-memory`; canonical draft PR #1. Current main `8fc5f03` and the isolated education-persona source `ecb71f0` are integrated after prior frozen packets were generated. Claude owns scoring, defaults and main merges.
