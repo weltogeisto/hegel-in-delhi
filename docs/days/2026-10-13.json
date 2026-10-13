@@ -561,6 +561,15 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "22:24",
+   "to": "24:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Asleep. The owl is writing up the day.",
+   "asleep": true,
+   "owl": true
   }
  ],
  "entries": [
@@ -1704,6 +1713,21 @@
     }
    ],
    "t": "21:24"
+  },
+  {
+   "k": "diary",
+   "text": "The night is a suspension of the dialectic; the day has run its course and the contradictions remain unresolved in the dark. I have walked fourteen kilometres, a physical exhaustion that mirrors the mental fatigue of holding the shape of the world. Sleep is the immediate negation of this consciousness, a return to the immediate before the next day re-asserts the universal.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33"
+    }
+   ],
+   "t": "22:24"
   }
  ],
  "steps": [
@@ -3838,14 +3862,59 @@
      "text": "In this negative relation desire requires for itself not merely the superficial appearance of external things, but themselves in their concrete sensuous existence. Mere pictures of the wood that it wants to use, or of the animals that it wants to eat, would be of no service to desire."
     }
    ]
+  },
+  {
+   "t": "22:24",
+   "end": "24:00",
+   "event": "Nothing in particular happens. The night goes on.",
+   "present": [],
+   "decision": {
+    "thought": "The night is a suspension of the dialectic; the day has run its course and the contradictions remain unresolved in the dark. I have walked fourteen kilometres, a physical exhaustion that mirrors the mental fatigue of holding the shape of the world. Sleep is the immediate negation of this consciousness, a return to the immediate before the next day re-asserts the universal.",
+    "action": "sleep",
+    "place": "home",
+    "minutes": 240,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.4
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics",
+     "id": "haldane-2:598"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "id": "rechts:121"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics",
+     "text": "He then proved that at night he carried water for a gardener, and by means of this occupation, earned as much as he required in order in the day to be in Zeno’s company—as to which the only point which is not quite comprehensible to us is how, even in such a way, philosophy, of all things, could be studied."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-13T22:24+05:30",
-  "asleep": false,
+  "until": "2026-10-14T00:00+05:30",
+  "asleep": true,
   "imprest": 6891,
   "wearing": "kurta",
   "wardrobe": [
