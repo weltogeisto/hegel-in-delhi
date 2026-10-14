@@ -505,6 +505,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Walking the paths of Lodhi Gardens."
+  },
+  {
+   "from": "19:30",
+   "to": "19:50",
+   "mode": "walk",
+   "a": "lodhi",
+   "b": "home"
   }
  ],
  "entries": [
@@ -1450,13 +1457,39 @@
      ]
     ]
    }
+  },
+  {
+   "t": "19:30",
+   "end": "19:50",
+   "event": "Lodhi Gardens is closing. You must leave.",
+   "present": [],
+   "decision": {
+    "thought": null,
+    "action": "walk",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.1,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "lodhi",
-  "until": "2026-10-14T19:30+05:30",
+  "place": "home",
+  "until": "2026-10-14T19:50+05:30",
   "asleep": false,
   "imprest": 6891,
   "wearing": "kurta",
@@ -1539,8 +1572,8 @@
      "sunil"
     ]
    },
-   "walked": 1500,
-   "strain": 1500,
+   "walked": 3000,
+   "strain": 3000,
    "hunger": 2
   },
   "account": {
