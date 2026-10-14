@@ -351,6 +351,13 @@
    "mode": "walk",
    "a": "home",
    "b": "lodhi"
+  },
+  {
+   "from": "08:07",
+   "to": "08:17",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Shopping in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -530,6 +537,47 @@
     }
    ],
    "t": "07:47"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Oh, it’s you again. Same time, same place, same tired face? I’ve got the kettle just starting to rumble, so if you want, I can put a cup out before the crowd gets thick.",
+   "t": "08:07"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil’s greeting is the friction of the particular against my universal routine; I accept the chai not as charity but as the necessary mediation of the body. The tombs are the objective spirit of the Mughals, fixed and dead, while this steam is the living, immediate spirit of the crowd. I shall drink, and then I shall walk the perimeter to see if the light has any content today.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33"
+    }
+   ],
+   "t": "08:07"
+  },
+  {
+   "k": "said",
+   "text": "Yes, Sunil. One cup, please. The same as always.",
+   "to": "Mr. R. K. Malhotra and Sunil",
+   "t": "08:07"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Haan, same as always. Twenty rupees, bhai. You’re lighter than usual today, or is it just the overcast?",
+   "t": "08:07"
+  },
+  {
+   "k": "bag",
+   "item": "Chai from the stall at the Lodhi Road gate",
+   "price": 20,
+   "t": "08:07"
   }
  ],
  "steps": [
@@ -831,15 +879,73 @@
      "text": "Addition. — The particular person is really a subordinate, who must devote his life to the service of the ethical fabric; when the state demands his life, he must yield it up. But should the man take his own life? Suicide may at first glance be looked upon as bravery, although it be the poor bravery of tailors and maid-servants."
     }
    ]
+  },
+  {
+   "t": "08:07",
+   "end": "08:17",
+   "event": "You arrive at Lodhi Gardens. It closes at 19:30. Mr. R. K. Malhotra is here. Sunil is here. Sunil says: “Oh, it’s you again. Same time, same place, same tired face? I’ve got the kettle just starting to rumble, so if you want, I can put a cup out before the crowd gets thick.” He nudges the kerosene flame with a matchstick and pours a splash of milk into the steaming urn.",
+   "present": [
+    "Mr. R. K. Malhotra, retired IAS",
+    "Sunil, who sells chai"
+   ],
+   "decision": {
+    "thought": "Sunil’s greeting is the friction of the particular against my universal routine; I accept the chai not as charity but as the necessary mediation of the body. The tombs are the objective spirit of the Mughals, fixed and dead, while this steam is the living, immediate spirit of the crowd. I shall drink, and then I shall walk the perimeter to see if the light has any content today.",
+    "action": "buy",
+    "place": "lodhi",
+    "minutes": 10,
+    "says": "Yes, Sunil. One cup, please. The same as always.",
+    "buys": [
+     {
+      "item": "Chai",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Haan, same as always. Twenty rupees, bhai. You’re lighter than usual today, or is it just the overcast?",
+    "does": "Sunil slides the tin cup across the counter and wipes his hands on his white kurta."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 13.2
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206",
+     "id": "dyde-right:491"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "id": "rechts:121"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206",
+     "text": "The recognition of the claim that whatever in the civic community and the state is rationally necessary should occur through subjective free choice is a fuller definition of the popular idea of freedom (§ 121). The particularity of the individual becomes definitely and actually realized, only by his limiting himself exclusively to one of the particular spheres of want."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-10-15T08:07+05:30",
+  "until": "2026-10-15T08:17+05:30",
   "asleep": false,
-  "imprest": 6891,
+  "imprest": 6871,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -916,6 +1022,10 @@
     "home": [
      "hegde",
      "ramesh"
+    ],
+    "lodhi": [
+     "malhotra",
+     "sunil"
     ]
    },
    "breakfast": true,
@@ -1008,6 +1118,13 @@
      "item": "Chai, a cup",
      "price": 20,
      "office": false
+    },
+    {
+     "date": "2026-10-15",
+     "t": "08:07",
+     "item": "Chai from the stall at the Lodhi Road gate",
+     "price": 20,
+     "office": false
     }
    ],
    "admitted": 0,
@@ -1023,7 +1140,8 @@
    "lodhi": [
     "2026-10-02",
     "2026-10-13",
-    "2026-10-14"
+    "2026-10-14",
+    "2026-10-15"
    ],
    "gandhi": [
     "2026-10-02"
@@ -1055,7 +1173,8 @@
    ],
    "malhotra": [
     "2026-10-02",
-    "2026-10-13"
+    "2026-10-13",
+    "2026-10-15"
    ],
    "masterji": [
     "2026-10-02",
@@ -1066,7 +1185,8 @@
    ],
    "sunil": [
     "2026-10-13",
-    "2026-10-14"
+    "2026-10-14",
+    "2026-10-15"
    ],
    "hegde": [
     "2026-10-02",
