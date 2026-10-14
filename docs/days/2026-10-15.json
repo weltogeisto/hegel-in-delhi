@@ -379,6 +379,13 @@
    "mode": "walk",
    "a": "lodhi",
    "b": "home"
+  },
+  {
+   "from": "08:57",
+   "to": "09:12",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -676,6 +683,34 @@
     }
    ],
    "t": "08:37"
+  },
+  {
+   "k": "diary",
+   "text": "The grey sky hangs low, a heavy curtain over the city that denies the sun its proper role in the drama of the day. Ramesh stands by, waiting for a word or a task, but the house is already in order. I must return to the study; the dialectic of the Indian spirit requires silence, not the clatter of the street, even if the street is merely a suspension of itself.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    }
+   ],
+   "t": "08:57"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, the house is sufficient for the moment. See that the study is aired out; the books require a cool room, and I shall be there until the heat, or the absence of it, becomes bearable. Do not disturb me.",
+   "to": "Ramesh",
+   "t": "08:57"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes, sir. I will open the windows and check the curtains. You won't find me in the way.",
+   "t": "08:57"
   }
  ],
  "steps": [
@@ -1191,13 +1226,65 @@
      "text": "Der Staat."
     }
    ]
+  },
+  {
+   "t": "08:57",
+   "end": "09:12",
+   "event": "Nothing in particular happens. The morning goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The grey sky hangs low, a heavy curtain over the city that denies the sun its proper role in the drama of the day. Ramesh stands by, waiting for a word or a task, but the house is already in order. I must return to the study; the dialectic of the Indian spirit requires silence, not the clatter of the street, even if the street is merely a suspension of itself.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, the house is sufficient for the moment. See that the study is aired out; the books require a cool room, and I shall be there until the heat, or the absence of it, becomes bearable. Do not disturb me.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes, sir. I will open the windows and check the curtains. You won't find me in the way.",
+    "does": "He gives a small, respectful nod and turns away to head toward the study."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.6
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-15T08:57+05:30",
+  "until": "2026-10-15T09:12+05:30",
   "asleep": false,
   "imprest": 6851,
   "wearing": "kurta",
