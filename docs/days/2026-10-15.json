@@ -316,6 +316,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Reading at home."
+  },
+  {
+   "from": "06:27",
+   "to": "06:32",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -368,6 +375,41 @@
     }
    ],
    "t": "05:57"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Good morning, sir. The weather is a bit grey, so I have made the tea a little stronger. Would you like breakfast in about thirty minutes?",
+   "t": "06:27"
+  },
+  {
+   "k": "diary",
+   "text": "The grey air is a fitting veil for the morning's work, though the strength of the tea suggests a mind already straining against the haze. I must observe the city's public opinion before the sun fully claims the sky, so I will dismiss the servant to his quarters and take my place on the step.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202"
+    }
+   ],
+   "t": "06:27"
+  },
+  {
+   "k": "said",
+   "text": "No, Ramesh, not yet. I shall take my tea here on the step while I read the papers. You may withdraw.",
+   "to": "Ramesh",
+   "t": "06:27"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes, sir. The step is dry enough, I have put a towel down. I will be in the kitchen if you need anything.",
+   "t": "06:27"
   }
  ],
  "steps": [
@@ -415,13 +457,65 @@
      "text": "Deliberationen der Mitglieder des Gerichts über das zu fällende Urteil unter sich sind Äußerungen der noch besonderen Meinungen und Ansichten, also ihrer Natur nach nichts öffentliches."
     }
    ]
+  },
+  {
+   "t": "06:27",
+   "end": "06:32",
+   "event": "Ramesh is here. Ramesh says: “Good morning, sir. The weather is a bit grey, so I have made the tea a little stronger. Would you like breakfast in about thirty minutes?” He sets a fresh pot of tea on the side table and waits by the door.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The grey air is a fitting veil for the morning's work, though the strength of the tea suggests a mind already straining against the haze. I must observe the city's public opinion before the sun fully claims the sky, so I will dismiss the servant to his quarters and take my place on the step.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 5,
+    "says": "No, Ramesh, not yet. I shall take my tea here on the step while I read the papers. You may withdraw.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes, sir. The step is dry enough, I have put a towel down. I will be in the kitchen if you need anything.",
+    "does": "He gives a small nod and steps back towards the kitchen door."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.2
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:514"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202",
+     "id": "dyde-right:483"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "The Chinese possess a most minute history of their country, and it has been already remarked, what arrangements are made in China, for having everything accurately noted down in their annals. The contrary is the case in India."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202",
+     "text": "The soil is capable of being an exclusive, private possession, and demands not merely the taking from it what it bears naturally, but an objective working up. Since the returns of labour depend on the seasons, and harvests are influenced by variable weather and other natural conditions, provision for wants must take account of the future."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-15T06:27+05:30",
+  "until": "2026-10-15T06:32+05:30",
   "asleep": false,
   "imprest": 6891,
   "wearing": "kurta",
@@ -497,7 +591,9 @@
   "today": {
    "woke": "05:57",
    "seen": {
-    "home": []
+    "home": [
+     "ramesh"
+    ]
    }
   },
   "account": {
@@ -628,7 +724,8 @@
   "met_days": {
    "ramesh": [
     "2026-10-02",
-    "2026-10-13"
+    "2026-10-13",
+    "2026-10-15"
    ],
    "malhotra": [
     "2026-10-02",
