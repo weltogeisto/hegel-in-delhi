@@ -13,8 +13,10 @@ import fcntl
 import json
 import logging
 import logging.handlers
+import re
 import shutil
 import sys
+from collections import Counter
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -112,9 +114,25 @@ def cmd_status(cfg, args):
         print(f"last step      {last['t']}–{last['end']} {d['action']} → {d['place']} ({m.get('source')}, {m.get('latency_s')}s, {m.get('attempts')} tries)")
     away = sum(1 for s in steps if s.get("mind", {}).get("source") in ("away", "quiet"))
     print(f"quiet steps    {away} today (mind away or refused three times)")
+    print("refusals       " + refusal_line(steps))
     if cfg.mind_url:
         print(f"mind           {cfg.mind_url}: {'answers' if HTTPMind(cfg.mind_url).health() else 'asleep or away'}")
     return 0
+
+
+LOOP_REFUSALS = 4      # the same refusal this often in one day is a loop: a rule that says no and offers nothing else
+
+
+def refusal_line(steps):
+    """How often the world refused his choices today, and the refusal that came most often. A refusal repeated LOOP_REFUSALS
+    times is flagged: on Day 12 'no household meal is available now' came back all afternoon and nothing else showed it."""
+    said = [e for s in steps for tries in s.get("mind", {}).get("refused", []) for e in tries
+            if isinstance(e, str) and not e.startswith("the PC did not wake")]
+    if not said:
+        return "0 today"
+    kind = lambda e: re.sub(r"\d+", "#", e.split(";")[0].split(". ")[0]).strip()[:80]
+    top, n = Counter(kind(e) for e in said).most_common(1)[0]
+    return f"{len(said)} today; most often ({n}×): {top}" + ("  ← a loop?" if n >= LOOP_REFUSALS else "")
 
 
 def rehearsal_config(out, feeds=False):

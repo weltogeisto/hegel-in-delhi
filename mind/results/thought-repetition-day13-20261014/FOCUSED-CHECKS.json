@@ -1,0 +1,50 @@
+{
+  "source_tree": "31eaa4873b7c2a8f1207f535ba36186de32c562c",
+  "source_archive_sha256": "8457e40225b2ccfb6773400cb037a6f12e5c7b70fc6f28ac4e6ff9d3448d8ed3",
+  "all_351_snapshot_files_verified_after_completion": true,
+  "runs": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_cli_status.py"
+      ],
+      "cwd": "/home/ai/hegel-eval/codex-tasks-20261014/T10-main-a462-focused-1432",
+      "started_utc": "2026-10-14T14:34:37.496887+00:00",
+      "finished_utc": "2026-10-14T14:34:37.655674+00:00",
+      "elapsed_seconds": 0.1558738920000451,
+      "exit": 0,
+      "stdout": "",
+      "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.020s\n\nOK\n",
+      "log": "/mnt/c/hegel/handover/codex-tasks-20261014/T10-main-a462-test_cli_status-20261014-1432.log",
+      "log_sha256": "86794120640779cb671ba5e0c86a20ba9e34a1c58d875f22e893ed52afef9026"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_fanclub.py"
+      ],
+      "cwd": "/home/ai/hegel-eval/codex-tasks-20261014/T10-main-a462-focused-1432",
+      "started_utc": "2026-10-14T14:34:37.658000+00:00",
+      "finished_utc": "2026-10-14T14:34:37.705946+00:00",
+      "elapsed_seconds": 0.04534087299998646,
+      "exit": 0,
+      "stdout": "",
+      "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.004s\n\nOK\n",
+      "log": "/mnt/c/hegel/handover/codex-tasks-20261014/T10-main-a462-test_fanclub-20261014-1432.log",
+      "log_sha256": "065c7d15facfd20f14fb9182747be315f3349fa1d5e1a0e966047509f4bfa9b1"
+    }
+  ],
+  "scope": "Focused new CLI status and fan-club static files on merged PC source; no GPU/model calls or Pi deployment. Previous 905-test result is not a full-suite result for this source."
+}

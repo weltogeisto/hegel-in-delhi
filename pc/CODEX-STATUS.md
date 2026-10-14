@@ -1,3 +1,15 @@
+# Codex status — 14 October completed Day 13
+
+T10 is BLOCKED after one exact unchanged-auditor attempt. Completed Day 13 at shadow `2cd38d3` has 35 recorded decisions: four model decisions with four matching diary thoughts, and 31 quiet/away decisions with null thoughts. The auditor's diary/decision consistency assertion exits 1 before a result. Claude must specify quiet-step handling and the denominator before any share, top ten or 55% decision. The full original raw record, manifest, exception and independent evidence are published with `pc/T10-REPETITION-20261014.md/json`. No filtering, invented thoughts or replacement day.
+
+Fresh main `a462b785` is genuinely integrated into the PC branch with prior primary `1201ef2`, preserving Claude's corrected T8 counts, all Codex evidence and the standing review rule. The only merge conflict was T8's closed TASKS heading; latest main's task list won. Eleven focused checks pass on the frozen merged source (five CLI status, six fan-club static-file checks); all 351 archived files were verified after completion. The old 905-test result belongs to f51696b and does not cover this newer source. No new full suite or GPU evaluation was run.
+
+One 14:29 UTC Pi check: clean stable shadow HEAD equals actual remote, exact completed Day 13 raw hash matches Git, timer active/enabled, latest natural service exit 0. Day 14 is asleep, zero steps, until 05:57; Day 13 owl absent pending natural eligibility around 15:00 UTC. Pi status says mind answers. Read-only PC inspection found existing Qwen PID 390/tmux hegel-server-recovery with the exact saved command/cwd. This watch made no server restart; natural new model/owl completion is not yet verified. The prepared restart helper remains unexecuted. The earlier morning BLOCKED comment6165311293 remains preserved; do not repeat it.
+
+Pi code remains its existing main61 runtime, shift 300, lead 15, owl_at 01:30. The newer main CLI and fan-club files are integrated on PC only. Public world remains paused; no Pi deployment, world-state edit, forced tick/owl, power/firewall/secret change or adapter change. Standing watch stays ACTIVE for the owl, Claude's daily review and the T10 handling rule.
+
+## Preserved prior status
+
 # Codex status — 13 October tasks
 
 Main `9222131` is actually merged at `b1c26af`, preserving Claude's T9 decision and T10. That merge changes only TASKS relative to tested source `f51696b`. Claude owns specs, scoring, defaults and main merges.

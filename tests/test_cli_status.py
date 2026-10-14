@@ -55,6 +55,25 @@ class CLIStatusTest(unittest.TestCase):
         self.assertIn("quiet steps    1 today", output)
         self.assertIn("last step      09:00–09:30 rest → home", output)
 
+    def test_status_counts_refusals_and_flags_a_loop(self):
+        day = copy.deepcopy(self.day)
+        meal = "No household meal is available now; the next service is dinner from 19:30. Choose an available activity"
+        day["steps"] = [{"t": f"{h}:00", "end": f"{h}:30", "decision": {"action": "rest", "place": "home"},
+                         "mind": {"source": "mind", "latency_s": 1.0, "attempts": 2, "refused": [[meal]]}} for h in (14, 15, 16, 17)]
+        day["steps"][0]["mind"]["refused"].append(["nothing is sold at home"])
+        self.days.save(day)
+        output = self.status()
+        self.assertIn("refusals       5 today; most often (4×): No household meal is available now", output)
+        self.assertIn("← a loop?", output)
+        day["steps"] = day["steps"][:2]
+        self.days.save(day)
+        output = self.status()
+        self.assertIn("refusals       3 today; most often (2×)", output)
+        self.assertNotIn("a loop", output)
+
+    def test_status_without_refusals(self):
+        self.assertIn("refusals       0 today", self.status())
+
     def test_explicit_start_schedules_midnight_without_inventing_steps(self):
         args = SimpleNamespace(date="2026-10-13", no_git=True)
         with redirect_stdout(io.StringIO()):
