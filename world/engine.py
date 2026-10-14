@@ -19,7 +19,7 @@ from .money import ADVANCE
 from .mind import MindAway
 from .publish import GitError
 from .task_prompt import for_task
-from .world import at_dt
+from .world import MEAL_WINDOWS, at_dt
 
 log = logging.getLogger("world")
 MAX_DECISIONS = 8
@@ -234,7 +234,7 @@ class Engine:
             if result is None and source != "away":
                 source = "quiet"
         if result is None:
-            result = self.quiet(st, t, sit)
+            result = self.quiet(st, t, sit, day)
         ans, plan = result
         if self.claim_guard and ans.get('thought'):
             proof=records.relevant(ctx['records'],ans['thought'])
@@ -483,18 +483,45 @@ class Engine:
             return {"note": "You have nothing to look it up on."}
         return self.lookup(query, self.cfg.state / "lookup")
 
-    def quiet(self, st, t, sit):
-        """No usable answer: he carries on, without a thought on the page."""
+    QUIET_OUT = 2           # quiet steps he may stay out before he goes home: an hour
+
+    def quiet(self, st, t, sit, day=None):
+        """No usable answer: he keeps the household's day, without a thought on the page. At night he goes to bed.
+        At home he eats the meal Ramesh lays out, once, and between meals the plate he asks for when hungry.
+        Out, he goes home when the place closes, when he is hungry, when a meal is laid out or after an hour."""
         m, cur = minute_of(t), st["place"]
         if m >= 1320 or m < 240:
             action, dest = "sleep", "home"
-        elif cur != "home" and cur not in sit["open_now"]:
+        elif cur == "home":
+            action, dest = ("eat" if self.quiet_meal(st, t) else "rest"), "home"
+        elif (cur not in sit["open_now"] or st.get("today", {}).get("hunger") or self.world.served(t, st)
+              or self.quiet_out(day, cur) >= self.QUIET_OUT):
             action, dest = "walk", "home"
         else:
-            action, dest = ("rest" if cur == "home" else "stay"), cur
+            action, dest = "stay", cur
         ans = {"thought": None, "action": action, "place": dest, "minutes": 30, "says": None, "buys": [], "revision": None}
         plan = {"moves": dest != cur, "dest": dest, "arrival": t + timedelta(minutes=self.world.walk(cur, dest)), "buys": []}
         return ans, plan
+
+    def quiet_meal(self, st, t):
+        """At home without a mind: the laid-out meal he has not yet eaten, or Ramesh's plate if he is hungry."""
+        if name := self.world.served(t, st):
+            start = at_dt(t.date(), MEAL_WINDOWS[name][0])
+            return not (st.get("last_meal") and datetime.fromisoformat(st["last_meal"]) >= start)
+        soon = any(0 < a - minute_of(t) <= 60 for a, _ in MEAL_WINDOWS.values())     # no plate an hour before a meal
+        return bool(st.get("today", {}).get("hunger") and not soon and self.world.plate(t, st))
+
+    @staticmethod
+    def quiet_out(day, place):
+        """How many quiet steps in a row he has already spent at this place away from home."""
+        n = 0
+        for s in reversed((day or {}).get("steps", [])):
+            if "decision" not in s:
+                continue
+            if s.get("mind", {}).get("source") not in ("away", "quiet") or s["decision"].get("place") != place:
+                break
+            n += 1
+        return n
 
     def ask_choice(self, messages, raw, beat):
         q = beat["choice"]["question"]
