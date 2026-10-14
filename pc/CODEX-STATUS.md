@@ -1,3 +1,15 @@
+# Codex status — 14 October quiet-step rule and owl timeout
+
+T10's metric/spec block is resolved by Claude main4016d8d/comment6171110370. The authorized auditor update counts null-thought decisions by source and uses only non-null thoughts in the denominator, with a minimum of 30. Six focused tests pass; all original T9 result fields reproduce exactly, including every mark/match and ranking. New auditor SHA256 bb77f3afc99ea2459e111e78bb8ac8f23adef68a74c79795d615c1ba5ba0439a. All 361 frozen files verified after completion. T10 remains OPEN until the first actual completed day meeting the floor. Day13 is not measurable: 4 thoughts, 31 away/null decisions. No Day13 rerun, share, variant or model call. Original failed attempt/input preserved unchanged.
+
+The natural Day13 owl FAILED at 15:05:06 UTC after a 300-second request timeout. One 15:11:28 Pi capture found clean stable2cd38d3 equal to actual remote; all eight file hashes/lengths/blobs match Git. Owl absent, Day14 asleep/0 steps until05:57, timer enabled/active. No flagged refusal line printed by the old main61 Pi CLI. A new completed model/owl recovery is not verified.
+
+Existing Qwen PID390 has the exact saved argv/cwd but runs CPU backends without CUDA. Generation was about1.95 tokens/s before cancellation at454tokens. CUDA loader dependencies libcudart.so.12/libcublas.so.12 are absent from its search path; the existing paired b11429 bundle resolves both in a read-only dependency check. The prepared process-library-path restoration needs Welt's explicit exception to his standing no-stop/restart/reconfigure rule. Nothing was started/stopped/reconfigured. No packages, global environment, power/firewall/secrets or Pi settings changed. The original restart helper remains unexecuted.
+
+The unchanged runtime permits the next natural owl retry around16:00UTC (one-hour try-marker cooldown); no forced retry or marker edit. Standing watch ACTIVE for the owl, T10's first measurable completed day and Claude's T11 review. Public world paused, shift300. Fresh main4016 is genuinely integrated into the PC branch; Pi stays on main61. The earlier905-test full suite still covers onlyf51696b; no full suite was repeated.
+
+## Preserved 14:47 status
+
 # Codex status — 14 October completed Day 13
 
 T10 is BLOCKED after one exact unchanged-auditor attempt. Completed Day 13 at shadow `2cd38d3` has 35 recorded decisions: four model decisions with four matching diary thoughts, and 31 quiet/away decisions with null thoughts. The auditor's diary/decision consistency assertion exits 1 before a result. Claude must specify quiet-step handling and the denominator before any share, top ten or 55% decision. The full original raw record, manifest, exception and independent evidence are published with `pc/T10-REPETITION-20261014.md/json`. No filtering, invented thoughts or replacement day.

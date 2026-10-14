@@ -1,0 +1,118 @@
+{
+  "declared_utc": "2026-10-13T17:26:58.534144+00:00",
+  "code": "61accbdab85d78f14379d2d711205541d2b634c1",
+  "snapshot": "/home/ai/hegel-eval/codex-tasks-20261013/main-61accbd",
+  "seeds": [
+    2026101380,
+    2026101381,
+    2026101382,
+    2026101383,
+    2026101384,
+    2026101385,
+    2026101386,
+    2026101387,
+    2026101388,
+    2026101389
+  ],
+  "jobs": 30,
+  "order": "seed-major, day12 then control-file then control-vouchers",
+  "generation_started": false,
+  "settings": {
+    "temperature": 0.8,
+    "owl_reasoning_tokens": 0,
+    "server": "shared PID384 Qwen3.8-27B UD-Q4_K_M",
+    "slot": 1,
+    "adapter": null,
+    "outcome_memory": false,
+    "checker": false,
+    "thesis_reminders": true,
+    "max_tokens": "1200, or the unchanged live Saturday Depesche allowance of 2200",
+    "reasoning": "disabled, exactly the captured Pi owl setting; no 384-token experimental profile"
+  },
+  "control_qualification": "Both complete original records were read before generation. Neither addresses India, Indian history/civilisation, religion/caste, or India’s relation to world history. They do contain Delhi household/administrative activity; that location alone is not material about the India thesis. The India thesis remains in the normal owl prompt, unchanged. No entries, thoughts, or statuses are rewritten.",
+  "days": [
+    {
+      "id": "day12",
+      "label": "shadow 5b52d7f, Day 12 / 2026-10-13",
+      "original_path": null,
+      "git_object": "5b52d7fc7ef1104860c9ef1b113afb0a811ee9f5:docs/days/2026-10-13.json",
+      "date": "2026-10-13",
+      "n": 12,
+      "decisions": 42,
+      "bytes": 161269,
+      "sha256": "b793330e51a2ddec2112d8261330a3ce69b78d7b5cb38963b13b301dcfb42508",
+      "owl_record_sha256": "16d5e19a04bb5be54add947bc28f39357cb895e4e61ca013e55841ca0f3b41be",
+      "theses_before": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "unshaken"
+        }
+      ],
+      "depesche_n": null,
+      "max_tokens": 1200,
+      "known_sha256": "7b31f9cb4a267dd6800590285fb2807bf6d72e47586ca4929520d3edb2bcccc7"
+    },
+    {
+      "id": "control-file",
+      "label": "8 October final-integration/plain-qwen rehearsal, Day 2 / 2026-10-03",
+      "original_path": "pc/out/six-hour-20261008/final-integration/plain-qwen/docs/days/2026-10-03.json",
+      "git_object": null,
+      "date": "2026-10-03",
+      "n": 2,
+      "decisions": 33,
+      "bytes": 88920,
+      "sha256": "0af0716cffe5b2b79661237743c29cfef013fe62ec962ed947962d2a6147f081",
+      "owl_record_sha256": "ce095560d9fbdfc365fc8993da9c9d07e82d82d1f3df51a6cdaa6da78614792b",
+      "theses_before": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "unshaken"
+        }
+      ],
+      "depesche_n": 1,
+      "max_tokens": 2200,
+      "known_sha256": "e964f70f906825e483fea14fe5e4613ee23bad63c7f094fc2785947988870a96"
+    },
+    {
+      "id": "control-vouchers",
+      "label": "8 October continuation-v2/focused-next-day rehearsal, Day 3 / 2026-10-04",
+      "original_path": "pc/out/six-hour-20261008/continuation-v2/focused-next-day/docs/days/2026-10-04.json",
+      "git_object": null,
+      "date": "2026-10-04",
+      "n": 3,
+      "decisions": 40,
+      "bytes": 92991,
+      "sha256": "a3151b9ff8e9d8a638c13d72527aebbf3e66208fa5f1e19af4f5d5a2c58eebb2",
+      "owl_record_sha256": "db092469e0e4a516652da9d9db23ed1d7655e779b45745ace1d780fb5eb1a840",
+      "theses_before": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "shaken"
+        }
+      ],
+      "depesche_n": null,
+      "max_tokens": 1200,
+      "known_sha256": "2c2213d85081d73113379c8271d3828684d3ed789dfbd72f46fa4d17c861e79d"
+    }
+  ],
+  "prior_protocol_sha256": "70349e79c7724b3a30fbf0a9535d83644299ca60d1ac24c4a7dc86c544e4a756",
+  "finalized_utc": "2026-10-13T17:31:49.436146+00:00"
+}

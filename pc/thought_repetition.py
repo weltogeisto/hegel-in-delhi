@@ -31,7 +31,18 @@ def grams(text):
 def audit(day, label, source_sha256):
     thoughts = [e for e in day['entries'] if e['k'] == 'diary']
     decisions = [s for s in day.get('steps', []) if 'decision' in s]
-    assert [(e['t'], e['text']) for e in thoughts] == [(s['t'], s['decision']['thought']) for s in decisions]
+    thought_decisions = [s for s in decisions if s['decision']['thought'] is not None]
+    null_decisions = [s for s in decisions if s['decision']['thought'] is None]
+    assert [(e['t'], e['text']) for e in thoughts] == [(s['t'], s['decision']['thought']) for s in thought_decisions]
+    assert all(s['decision']['thought'] is None for s in null_decisions)
+    counts = {'decisions': len(decisions), 'null_thought_decisions': len(null_decisions),
+              'null_thought_decisions_by_source': dict(sorted(Counter(
+                  s.get('mind', {}).get('source') or 'unknown' for s in null_decisions).items())),
+              'measurable': len(thoughts) >= 30}
+    if not counts['measurable']:
+        return {'label': label, 'date': day['date'], 'n': day['n'], 'source_sha256': source_sha256,
+                **counts, 'thoughts': len(thoughts), 'marked_thoughts': None, 'share': None,
+                'top_ten': [], 'all_repeated_phrases': [], 'marked': []}
     earlier = defaultdict(list)
     marked = []
     for index, e in enumerate(thoughts, 1):
@@ -45,7 +56,7 @@ def audit(day, label, source_sha256):
     repeated.sort(key=lambda x: (-x['reuses_after_first'], x['phrase']))
     n = sum(x['reuses_earlier_phrase'] for x in marked)
     return {'label': label, 'date': day['date'], 'n': day['n'], 'source_sha256': source_sha256,
-            'thoughts': len(marked), 'marked_thoughts': n, 'share': n/len(marked) if marked else None,
+            **counts, 'thoughts': len(marked), 'marked_thoughts': n, 'share': n/len(marked) if marked else None,
             'top_ten': repeated[:10], 'all_repeated_phrases': repeated, 'marked': marked}
 
 
@@ -61,6 +72,8 @@ def main():
                          'phrase': 'four contiguous words with at least one word outside the fixed stopword set',
                          'mark': 'at least one eligible phrase occurs in an earlier thought that day; within-thought repetition alone does not mark it',
                          'ranking': 'number of distinct later thoughts reusing a phrase after its first thought; ties alphabetic',
+                         'denominator': 'decisions with a non-null thought, independently equal to the diary; null thoughts are counted separately by mind.source',
+                         'minimum_thoughts': 30,
                          'stopwords': sorted(STOPWORDS),
                          'limit': 'Literal phrase reuse, not semantic repetition or a judgment that a thought is bad.'}, 'days': []}
     for item in manifest['days']:
@@ -70,7 +83,7 @@ def main():
     with args.out.open('x', encoding='utf-8') as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
         f.write('\n')
-    print(json.dumps([{'id': d['id'], 'marked': d['marked_thoughts'], 'thoughts': d['thoughts'], 'share': d['share'], 'top_ten': [{'phrase': p['phrase'], 'thoughts': p['thoughts']} for p in d['top_ten']]} for d in result['days']], ensure_ascii=False))
+    print(json.dumps([{'id': d['id'], 'decisions': d['decisions'], 'null_thought_decisions_by_source': d['null_thought_decisions_by_source'], 'measurable': d['measurable'], 'marked': d['marked_thoughts'], 'thoughts': d['thoughts'], 'share': d['share'], 'top_ten': [{'phrase': p['phrase'], 'thoughts': p['thoughts']} for p in d['top_ten']]} for d in result['days']], ensure_ascii=False))
 
 
 if __name__ == '__main__':
