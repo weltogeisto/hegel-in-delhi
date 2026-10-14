@@ -337,6 +337,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh and Shri G. Hegde at home."
+  },
+  {
+   "from": "07:02",
+   "to": "07:47",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -486,6 +493,21 @@
    "to": "Hegel",
    "text": "Metaphysical? No, sir, it’s just my kitchen and my sleep. You can wait in the car till the clerk fixes his file; I won’t be moving for him.",
    "t": "06:47"
+  },
+  {
+   "k": "diary",
+   "text": "Shri Hegde’s obstinacy is a particular will that refuses the universal claim of the state’s paperwork; I cannot force the spirit to move, but I can observe the mechanism of its resistance. The parathas are the immediate necessity of the body, which must be satisfied before the mind can contemplate the dialectic of the household. I will eat, for the stomach is the first state that must be governed.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§101"
+    }
+   ],
+   "t": "07:02"
   }
  ],
  "steps": [
@@ -691,13 +713,61 @@
      "text": "We place it to our credit when we reproach the French for their attacks upon religion and on the state. We must represent to ourselves the horrible state of society, the misery and degradation in France, in order to appreciate the services that these writers rendered."
     }
    ]
+  },
+  {
+   "t": "07:02",
+   "end": "07:47",
+   "event": "Shri G. Hegde says: “Metaphysical? No, sir, it’s just my kitchen and my sleep. You can wait in the car till the clerk fixes his file; I won’t be moving for him.” Shri G. Hegde turns his back and starts unlocking the inner door. Ramesh has laid out breakfast: aloo parathas, curd and pickle.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Shri Hegde’s obstinacy is a particular will that refuses the universal claim of the state’s paperwork; I cannot force the spirit to move, but I can observe the mechanism of its resistance. The parathas are the immediate necessity of the body, which must be satisfied before the mind can contemplate the dialectic of the household. I will eat, for the stomach is the first state that must be governed.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 45,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.8
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:23"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§101",
+     "id": "dyde-right:253"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state. The government has, up till now, shown such confidence in the scholars in this department as to leave the subject matter of philosophy wholly in their hands."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§101",
+     "text": "Revenge is mine, says God in the Bible, and, when some find in the word re-tribution the idea of a special pleasure for the subjective will, it must be replied that it signifies only the turning back of crime against itself. The Eumenides sleep, but crime wakes them. So it is the criminal's own deed which judges itself."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-15T07:02+05:30",
+  "until": "2026-10-15T07:47+05:30",
   "asleep": false,
   "imprest": 6891,
   "wearing": "kurta",
@@ -777,7 +847,8 @@
      "hegde",
      "ramesh"
     ]
-   }
+   },
+   "breakfast": true
   },
   "account": {
    "advance": 15000,
@@ -937,7 +1008,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-10-13T20:29+05:30",
+  "last_meal": "2026-10-15T07:02+05:30",
   "snacks": 0,
   "works": [
    {
