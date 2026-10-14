@@ -48,13 +48,13 @@
     "aqi": 149
    },
    {
-    "temp": 23,
+    "temp": 24,
     "sky": "clear",
     "rain": 0,
     "aqi": 148
    },
    {
-    "temp": 24,
+    "temp": 25,
     "sky": "clear",
     "rain": 0,
     "aqi": 147
@@ -66,20 +66,20 @@
     "aqi": 148
    },
    {
-    "temp": 27,
+    "temp": 28,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 151
    },
    {
     "temp": 29,
-    "sky": "mostly clear, hazy",
+    "sky": "clear, hazy",
     "rain": 0,
     "aqi": 153
    },
    {
     "temp": 30,
-    "sky": "clear, hazy",
+    "sky": "mostly clear, hazy",
     "rain": 0,
     "aqi": 155
    },
@@ -90,43 +90,43 @@
     "aqi": 157
    },
    {
-    "temp": 31,
+    "temp": 32,
     "sky": "mostly clear, hazy",
     "rain": 0,
     "aqi": 159
    },
    {
-    "temp": 31,
-    "sky": "drizzle",
-    "rain": 0.1,
+    "temp": 32,
+    "sky": "mostly clear, hazy",
+    "rain": 0,
     "aqi": 160
+   },
+   {
+    "temp": 32,
+    "sky": "drizzle",
+    "rain": 0.3,
+    "aqi": 162
    },
    {
     "temp": 31,
     "sky": "mostly clear, hazy",
     "rain": 0,
-    "aqi": 162
+    "aqi": 164
    },
    {
     "temp": 30,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 164
+    "aqi": 165
    },
    {
     "temp": 29,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 165
-   },
-   {
-    "temp": 28,
-    "sky": "clear, hazy",
-    "rain": 0,
     "aqi": 164
    },
    {
-    "temp": 27,
+    "temp": 28,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 163
@@ -144,7 +144,7 @@
     "aqi": 162
    },
    {
-    "temp": 25,
+    "temp": 26,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 161
@@ -495,6 +495,13 @@
   {
    "from": "18:31",
    "to": "19:01",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Walking the paths of Lodhi Gardens."
+  },
+  {
+   "from": "19:01",
+   "to": "19:30",
    "mode": "stroll",
    "at": "lodhi",
    "now": "Walking the paths of Lodhi Gardens."
@@ -1417,13 +1424,39 @@
      ]
     ]
    }
+  },
+  {
+   "t": "19:01",
+   "end": "19:30",
+   "event": "Lodhi Gardens closes at 19:30.",
+   "present": [],
+   "decision": {
+    "thought": null,
+    "action": "stay",
+    "place": "lodhi",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-10-14T19:01+05:30",
+  "until": "2026-10-14T19:30+05:30",
   "asleep": false,
   "imprest": 6891,
   "wearing": "kurta",
