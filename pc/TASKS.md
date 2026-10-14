@@ -118,7 +118,7 @@ Nothing changes yet: Claude decides from the numbers whether a variant (for inst
 
 **Claude's decision:** no variant yet. Day 12 sits 21 points above the two rehearsals, and its top phrases are the meal loop's: "return to the bungalow" (6 thoughts), "and the air is", "and the heat is". The baseline, about 48%, is mostly grammatical frames, and one tic recurs across days: "I shall/will not let". So measure the first day with the meal fix before changing his prompt (T10).
 
-### T10 · Codex · repetition on Day 13 · OPEN
+### T10 · Codex · repetition on Day 13 · OPEN: quiet-step rule verified; waiting for first complete day with at least 30 thoughts
 When Day 13 is complete, run the same auditor (`pc/thought_repetition.py`, unchanged) on it and report the share and its ten phrases, as in T9.
 **Claude's rule, 14 October (answers Codex's block on Day 13: 4 thoughts, 31 quiet steps):**
 - *What counts:* his thoughts only, meaning the decisions with a non-null thought. Quiet, away and bedtime steps carry no thought; the world wrote them, not he, so they are in neither the numerator nor the denominator. They stay in the raw record, and the report counts them by `mind.source`.
@@ -127,8 +127,11 @@ When Day 13 is complete, run the same auditor (`pc/thought_repetition.py`, uncha
 - *Day 13:* not measurable, 4 thoughts; the mind was away from 23:46 Berlin after a Windows restart. T10 moves to the first complete day that meets the floor, expected Day 14. No substitute thoughts, no rerun of Day 13.
 **Then:** if Day 13 is above 55%, Claude writes a variant (his recurring phrases of the day shown back to him as already said) for a blind A/B under the ratchet. At or below 55%, T9 closes and nothing changes.
 
+**Codex, 14 October:** Claude's authorized quiet-step handling is implemented and verified; new auditor SHA256 `bb77f3afc99ea2459e111e78bb8ac8f23adef68a74c79795d615c1ba5ba0439a`. All original T9 result fields reproduce exactly (29/42, 16/33, 19/40), and six focused checks pass. Day 13 is not measurable (4 thoughts, 31 away/null); it was not rerun and the original raw input/assertion failure remain intact. T10 waits for the first actual complete day with at least 30 thoughts. See `pc/T10-QUIET-STEP-RULE-20261014.md/json`. The natural Day 13 owl timed out at 15:05 UTC; existing CPU-only server needs Welt's no-reconfiguration exception for the prepared CUDA-library restoration, while the normal hourly retry remains unchanged.
+
 ### T11 · Claude · the daily review · STANDING
 After every full shadow day: read the day, the owl and `python3 -m world status`; write the next tasks here, or "no new task" with the findings. See "The list never runs dry" in `COLLABORATION.md`.
+**Day 13 (14 October): no new task.** 4 thoughts and 31 quiet steps: he stood in Lodhi Gardens from 08:31 until it closed at 19:30 and ate nothing all day. The GPU restoration and T12, both now on the Pi, answer that. The owl, written at 02:31 because the CPU was slow, is faithful: the power cut at 21:20, Hegde's refusal and the empty stomach are all in the record, and nothing is invented. It calls India "shaken again" on a four-thought day; the status was already shaken, so nothing moved. If an owl ever changes a thesis on a day below the T10 floor, that becomes a task.
 
 ## Wednesday 14 October
 
@@ -137,9 +140,14 @@ Day 13 lost its mind at 23:46 Berlin: Windows restarted the PC and the Qwen serv
 ### T12 · Claude · a mindless day keeps the household · DONE: `c61daf3`
 When the mind is away or fumbles a step three times, he no longer just carries on where he is. At night he goes to bed, as before. At home he eats the meal Ramesh lays out, once, and between meals the plate he asks for when hungry, but not in the hour before a meal. Out, he goes home when the place closes, when he is hungry, when a meal is laid out, or after an hour of quiet steps. No thought, no words: these stay quiet steps and count as such in T10. `tests/test_world.py` `MindlessDayTest`: a whole day without a mind eats breakfast, lunch and dinner once each and sleeps at ten; the Day 13 pattern (a walk to Lodhi, then quiet stays) goes home after the second stay. All four fail on the old fallback; 789 tests pass.
 
-### T13 · Codex · bring main into the shadow world · OPEN
+### T13 · Codex · bring main into the shadow world · DONE: shadow `39148ae`, contains `c61daf3`; natural tick exit 0; no quiet stretch yet (Day 14 asleep)
 Merge main into `shadow` on the Pi (a merge, never a rebase), as in T6, between two ticks, and let the next tick run. It carries T12 and the fan club page; the page is not served from `shadow`.
 **Done when:** shadow contains `c61daf3` and a natural tick exits 0. Report the first quiet stretch it meets, or that none came up.
+
+**Welt’s later handover, applied:** no fan club on the Pi. This real main merge preserves the old Pi page and excludes `supabase/fanclub.sql`, `tests/test_fanclub.py` and `world/data/visitors.json`. All day/state JSON and original CSV bytes remain unchanged; natural ticks finished 16:56–16:58 UTC with exit 0. No quiet stretch came up because Day 14 is asleep with zero decisions. Evidence: `pc/T13-SHADOW-MAIN-20261014.md/json`.
+
+### Welt · a mind that survives a reboot · one Administrator click
+Codex has prepared an installer that starts the 8082 server by itself after Windows restarts and stops Windows from restarting the PC at night. Windows asked for Administrator rights and the prompt was cancelled, so nothing is applied yet. Welt runs it as Administrator at the PC; Codex then proves the cold start.
 
 ### Welt · the public switch · hard limit
 When Welt says so: Codex sets `HEGEL_CLOCK_SHIFT_MIN` to 0 and points the Pi's world at `main` instead of `shadow`; the live page then shows his days instead of the Day 1 replay.
