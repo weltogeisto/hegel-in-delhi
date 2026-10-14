@@ -456,6 +456,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Walking the paths of Lodhi Gardens."
+  },
+  {
+   "from": "16:01",
+   "to": "16:31",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Walking the paths of Lodhi Gardens."
   }
  ],
  "entries": [
@@ -1219,13 +1226,39 @@
      ]
     ]
    }
+  },
+  {
+   "t": "16:01",
+   "end": "16:31",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [],
+   "decision": {
+    "thought": null,
+    "action": "stay",
+    "place": "lodhi",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.1,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-10-14T16:01+05:30",
+  "until": "2026-10-14T16:31+05:30",
   "asleep": false,
   "imprest": 6891,
   "wearing": "kurta",
