@@ -358,6 +358,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Shopping in Lodhi Gardens."
+  },
+  {
+   "from": "08:17",
+   "to": "08:27",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Talking with Sunil in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -578,6 +585,34 @@
    "item": "Chai from the stall at the Lodhi Road gate",
    "price": 20,
    "t": "08:07"
+  },
+  {
+   "k": "diary",
+   "text": "The overcast is a concession to my fatigue, a grey veil that softens the tyranny of the sun. I drink the chai, accepting the friction of the particular against my routine, and watch the air quality index climb in my mind's eye as I watch the smoke rise. The tombs are waiting, but the cup must be finished first.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§169"
+    }
+   ],
+   "t": "08:17"
+  },
+  {
+   "k": "said",
+   "text": "It is the overcast, Sunil. The day is dismissed early, as is proper. Thank you.",
+   "to": "Sunil",
+   "t": "08:17"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Proper, aap keh rahe ho? Haan, sky is grey, so maybe the mood is grey too. Drink hot, the mist will settle by ten.",
+   "t": "08:17"
   }
  ],
  "steps": [
@@ -937,13 +972,65 @@
      "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
     }
    ]
+  },
+  {
+   "t": "08:17",
+   "end": "08:27",
+   "event": "Sunil says: “Haan, same as always. Twenty rupees, bhai. You’re lighter than usual today, or is it just the overcast?” Sunil slides the tin cup across the counter and wipes his hands on his white kurta.",
+   "present": [
+    "Sunil, who sells chai"
+   ],
+   "decision": {
+    "thought": "The overcast is a concession to my fatigue, a grey veil that softens the tyranny of the sun. I drink the chai, accepting the friction of the particular against my routine, and watch the air quality index climb in my mind's eye as I watch the smoke rise. The tombs are waiting, but the cup must be finished first.",
+    "action": "talk",
+    "place": "lodhi",
+    "minutes": 10,
+    "says": "It is the overcast, Sunil. The day is dismissed early, as is proper. Thank you.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Proper, aap keh rahe ho? Haan, sky is grey, so maybe the mood is grey too. Drink hot, the mist will settle by ten.",
+    "does": "He wipes the rim of the tin cup with a corner of his kurta."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.1
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:565"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§169",
+     "id": "rechts:395"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "Among the Persians this negative assertion has become a positive one; and man has a relation to Universal Being of such a kind that he remains positive in sustaining it. Tin's One, Universal Being, is indeed not yet recognized as the free Unity of Thought; not yet \" worshipped in Spirit and in Truth;\" but is still clothed with a form — that of Light."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§169",
+     "text": "Das im abstrakten Eigentum willkürliche Moment des besonderen Bedürfnisses des bloß Einzelnen und die Eigensucht der Begierde verändert sich hier in die Sorge und den Erwerb für ein Gemeinsames, in ein Sittliches."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-10-15T08:17+05:30",
+  "until": "2026-10-15T08:27+05:30",
   "asleep": false,
   "imprest": 6871,
   "wearing": "kurta",
