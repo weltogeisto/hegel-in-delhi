@@ -393,6 +393,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Reading at home."
+  },
+  {
+   "from": "10:12",
+   "to": "11:12",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -733,6 +740,34 @@
     }
    ],
    "t": "09:12"
+  },
+  {
+   "k": "diary",
+   "text": "The grey sky remains, a heavy curtain that denies the sun its proper role in the drama of the day. I have read the papers and observed the state of public opinion, which is as confused as the administration that produced it. The plan calls for rest and contemplation, for the dialectic of the Indian spirit requires a quiet mind, not a wandering one.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Wars with the Persians"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    }
+   ],
+   "t": "10:12"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, leave me to my thoughts. The house is quiet enough.",
+   "to": "Ramesh",
+   "t": "10:12"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes, sir.",
+   "t": "10:12"
   }
  ],
  "steps": [
@@ -1347,13 +1382,65 @@
      "text": "The a priori conceptions of these inquirers are so rooted that no testimony can avail against them, and they have even denied what they had seen with their own eyes. In order to believe in this department even what one sees with these eyes, and still more to understand it, the first requisite is not to be in bondage to the hard and fast categories of the practical intellect."
     }
    ]
+  },
+  {
+   "t": "10:12",
+   "end": "11:12",
+   "event": "Nothing in particular happens. The morning goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The grey sky remains, a heavy curtain that denies the sun its proper role in the drama of the day. I have read the papers and observed the state of public opinion, which is as confused as the administration that produced it. The plan calls for rest and contemplation, for the dialectic of the Indian spirit requires a quiet mind, not a wandering one.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 60,
+    "says": "Ramesh, leave me to my thoughts. The house is quiet enough.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes, sir.",
+    "does": "He nods once, tucks a loose thread from his kurta into his pocket, and quietly steps out of the room, closing the door behind him."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.4
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Wars with the Persians",
+     "id": "sibree-history:811"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:495"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Wars with the Persians",
+     "text": "Everything which the Greek principle involved, then reached it3 perfect bloom and came into the light of day. The Athenians continued their wars of conquest for a considerable time, and thereby attained a high degree of prosperity; while the Lacedaemonians, who had no naval power, remained quiet."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "In the laws of Manu it is said: \" Let the King, even in extreme necessity, beware of exciting the Brahmins against him; for they can destroy him with their power, — they who create Fire, Sun, Moon, &c.\" They are servants neither of God nor of his People, but are God himself to the other Castes, — a position of things which constitutes the perverted character of the Hindoo mind."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-15T10:12+05:30",
+  "until": "2026-10-15T11:12+05:30",
   "asleep": false,
   "imprest": 6851,
   "wearing": "kurta",
