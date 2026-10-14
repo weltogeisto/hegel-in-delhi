@@ -149,6 +149,19 @@ Merge main into `shadow` on the Pi (a merge, never a rebase), as in T6, between 
 ### Welt · a mind that survives a reboot · one Administrator click
 Codex has prepared an installer that starts the 8082 server by itself after Windows restarts and stops Windows from restarting the PC at night. Windows asked for Administrator rights and the prompt was cancelled, so nothing is applied yet. Welt runs it as Administrator at the PC; Codex then proves the cold start.
 
+## Welt away, 15 to 25 October: the world pauses
+
+Welt leaves on 15 October at about 06:00 Berlin and shuts the PC down; back on the 25th. No stand-in mind: the world stops, and resumes on his return without inventing anything in between.
+
+### T14 · Codex · pause the world before the PC goes down · OPEN
+Tonight, as the last thing before Welt shuts down: after a natural tick, stop and disable `hegel-world.timer` on the Pi. Record the last step here (day, time, shadow commit). Leave the server, the day files and the shadow branch as they are.
+**Done when:** the timer is disabled and no tick ran after the recorded commit.
+
+### T15 · Codex · resume on 25 October · OPEN
+When Welt is back and the PC is up: start the 8082 server on the GPU, or confirm the boot task did; check its speed as on 14 October; then enable the timer. The engine's resume picks him up at home on that day. Day 14 is closed where it stopped, no days are invented in between (`test_resume_after_a_gap`), and the appointment that fell in the gap (Hegde, 19 October) simply passes.
+**Done when:** the first natural tick after the return exits 0 with source `mind`.
+**T10 and T11:** Day 14 is cut by the pause. It gets no owl and no review, and it does not count for T10 even with 30 thoughts; T10 waits for the first full day after the return.
+
 ### Welt · the public switch · hard limit
 When Welt says so: Codex sets `HEGEL_CLOCK_SHIFT_MIN` to 0 and points the Pi's world at `main` instead of `shadow`; the live page then shows his days instead of the Day 1 replay.
 
