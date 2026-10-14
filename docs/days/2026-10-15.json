@@ -344,6 +344,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "07:47",
+   "to": "08:07",
+   "mode": "walk",
+   "a": "home",
+   "b": "lodhi"
   }
  ],
  "entries": [
@@ -508,6 +515,21 @@
     }
    ],
    "t": "07:02"
+  },
+  {
+   "k": "diary",
+   "text": "The breakfast is finished, and the morning light is already beginning to fail in the haze. Shri Hegde remains obstinately in his room, a particular will that refuses to acknowledge the universal order of the house, but I cannot dwell on his petty resistance. The plan demands I go to Lodhi Gardens to observe the tombs and the state of the spirit, and it is past eight o'clock.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§340"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70"
+    }
+   ],
+   "t": "07:47"
   }
  ],
  "steps": [
@@ -761,13 +783,61 @@
      "text": "Revenge is mine, says God in the Bible, and, when some find in the word re-tribution the idea of a special pleasure for the subjective will, it must be replied that it signifies only the turning back of crime against itself. The Eumenides sleep, but crime wakes them. So it is the criminal's own deed which judges itself."
     }
    ]
+  },
+  {
+   "t": "07:47",
+   "end": "08:07",
+   "event": "Nothing in particular happens. The morning goes on.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The breakfast is finished, and the morning light is already beginning to fail in the haze. Shri Hegde remains obstinately in his room, a particular will that refuses to acknowledge the universal order of the house, but I cannot dwell on his petty resistance. The plan demands I go to Lodhi Gardens to observe the tombs and the state of the spirit, and it is past eight o'clock.",
+    "action": "walk",
+    "place": "lodhi",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "lodhi",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.7
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§340",
+     "id": "dyde-right:843"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "id": "dyde-right:205"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§340",
+     "text": "The spirit of a nation is an existing individual having in particularity its objective actuality and self-consciousness. Because of this particularity it is limited. The destinies and deeds of states in their connection with one another are the visible dialectic of the finite nature of these spirits."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "text": "Addition. — The particular person is really a subordinate, who must devote his life to the service of the ethical fabric; when the state demands his life, he must yield it up. But should the man take his own life? Suicide may at first glance be looked upon as bravery, although it be the poor bravery of tailors and maid-servants."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-10-15T07:47+05:30",
+  "place": "lodhi",
+  "until": "2026-10-15T08:07+05:30",
   "asleep": false,
   "imprest": 6891,
   "wearing": "kurta",
@@ -848,7 +918,9 @@
      "ramesh"
     ]
    },
-   "breakfast": true
+   "breakfast": true,
+   "walked": 1500,
+   "strain": 1500
   },
   "account": {
    "advance": 15000,
