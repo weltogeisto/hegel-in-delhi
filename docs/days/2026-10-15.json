@@ -372,6 +372,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Talking with Sunil in Lodhi Gardens."
+  },
+  {
+   "from": "08:37",
+   "to": "08:57",
+   "mode": "walk",
+   "a": "lodhi",
+   "b": "home"
   }
  ],
  "entries": [
@@ -654,6 +661,21 @@
    "item": "Chai from the stall at the Lodhi Road gate",
    "price": 20,
    "t": "08:27"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil's banter is a low form of recognition, but it acknowledges me as a figure in the landscape, not as a spirit. I have already taken my chai; the grey light is sufficient for observation, and my plan calls for a return to the bungalow to rest. The tombs are static; the dialectic moves in the mind.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§256"
+    }
+   ],
+   "t": "08:37"
   }
  ],
  "steps": [
@@ -1122,13 +1144,60 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "08:37",
+   "end": "08:57",
+   "event": "Sunil says: “Veil, infinite, form... aap toh philosopher lagte ho, not a chai drinker. Walk your tombs, but don't drop my cup on the grass. I'll be here if you get thirsty again.” Sunil wipes his hands on his apron and turns back to the kerosene stove.",
+   "present": [
+    "Sunil, who sells chai"
+   ],
+   "decision": {
+    "thought": "Sunil's banter is a low form of recognition, but it acknowledges me as a figure in the landscape, not as a spirit. I have already taken my chai; the grey light is sufficient for observation, and my plan calls for a return to the bungalow to rest. The tombs are static; the dialectic moves in the mind.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 45,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.7
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:643"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§256",
+     "id": "rechts:532"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "The civil rights implied in it give rise to a feeling of self-respect, the sense of counting as a lawful person in the civic community. This feeling of being infinite and free from all Others is the root out of which springs the needed balance of the various kinds of thought and sentiment. The isolation with which the Jews have been blamed it is better to preserve."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§256",
+     "text": "Der Staat."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "lodhi",
-  "until": "2026-10-15T08:37+05:30",
+  "place": "home",
+  "until": "2026-10-15T08:57+05:30",
   "asleep": false,
   "imprest": 6851,
   "wearing": "kurta",
@@ -1214,8 +1283,8 @@
     ]
    },
    "breakfast": true,
-   "walked": 1500,
-   "strain": 1500
+   "walked": 3000,
+   "strain": 3000
   },
   "account": {
    "advance": 15000,
