@@ -92,14 +92,14 @@ Score every blind packet within the hour it lands, commit the scores with their 
 
 The first full shadow day ran clean: Day 12, 42 decisions, the owl at 01:30 rehearsal (Codex, shadow `5b52d7f`). Reading it, three things come before the public switch, in this order.
 
-### T6 · Codex · bring main into the shadow world · OPEN
+### T6 · Codex · bring main into the shadow world · DONE: shadow merge `5a02a12`, contains `f933bd6`; natural tick exit 0; no plate or tea entry yet because Day 13 is still asleep
 Main has the page redesign (`6c4e009`) and the meal fix (`f933bd6`, T7). Merge main into `shadow` on the Pi (a merge, never a rebase) and let the next tick run.
 **Done when:** shadow contains `f933bd6`, and Day 13 shows a "Ramesh puts a plate together" or "Ramesh brings tea" entry, or you say why neither came up.
 
 ### T7 · Claude · the meal loop · DONE: `f933bd6`
 Day 12: he missed lunch at the tombs, and from 14:30 to 19:30 every attempt to eat at home was refused. The sambar is in 18 of his 42 thoughts, and once he invents a bowl set before him. Now, between meals, Ramesh puts a plate together when asked (not within three hours of a meal, not when he is away or the groceries are unpaid), and brings tea at 16:30. A world rule, not his voice; 777 tests pass.
 
-### T8 · Codex · how loose is the owl's thesis rule · OPEN
+### T8 · Codex · how loose is the owl's thesis rule · DONE: `india` moves 1/10 (Day 12), 1/10 and 0/10 (controls); rule unchanged (Codex `1201ef2`)
 On Day 12 the owl moved `india` ("India stands outside world history") from unshaken to shaken, citing the breakfast idli, the bandhgala bill and Hegde's suitcases. None of the three bears on India and history, and one night's draw cannot tell a pattern from a bad seed.
 1. Rerun the owl on Day 12's saved record with the current code, 10 seeds, nothing else changed. For each seed record which theses moved, to what, and on which evidence times.
 2. The same on two earlier rehearsal days with no India material. Name the two before running.
@@ -107,16 +107,45 @@ On Day 12 the owl moved `india` ("India stands outside world history") from unsh
 Report per day: how many of 10 seeds move any thesis, and how many move `india`. This is a count; no blind packet.
 **Then:** if `india` moves on more than 2 of 10 seeds on days that never touch it, Claude writes a stricter rule (a thesis moves only on evidence about its own subject) and you test it on the same seeds.
 
-### T9 · Codex · repetition across a day · OPEN
+**Result (`mind/results/owl-thesis-count-20261013`):** seeds moving any thesis / `india`: Day 12 6/1, file control 4/1, voucher control 6/0. Below the declared 2 of 10, so the rule stays. The shadow night's India move was a one-in-ten draw on irrelevant evidence; it stands in the shadow's state, as the protocol made no provision to undo it. **Claude, beyond the protocol:** the `state` thesis moves on about half of all nights (5/10, 4/10, 6/10), mostly on relevant evidence (Malhotra's machine view of the state at 08:04). Relevant, but at that rate his convictions turn over within a week. Parked below, not acted on.
+
+### T9 · Codex · repetition across a day · DONE: Day 12 29/42 (69%); rehearsals 16/33 (48%), 19/40 (48%) (Codex `f51696b`, `T9-REPETITION-20261013.md`)
 Day 12's thoughts circle a few images: the sambar (18 of 42), the sun that presses or tyrannises (13), the kilometres walked (5). `repeats()` only catches near-identical thoughts.
 1. On Day 12 and two other shadow or rehearsal days, mark each thought that reuses a 4-word phrase (not stopwords alone) from an earlier thought that day.
 2. Report the share per day and the ten most reused phrases.
 
 Nothing changes yet: Claude decides from the numbers whether a variant (for instance, showing him what he has already said today) is worth a blind A/B. Expect the sambar share to fall on its own after T6.
 
+**Claude's decision:** no variant yet. Day 12 sits 21 points above the two rehearsals, and its top phrases are the meal loop's: "return to the bungalow" (6 thoughts), "and the air is", "and the heat is". The baseline, about 48%, is mostly grammatical frames, and one tic recurs across days: "I shall/will not let". So measure the first day with the meal fix before changing his prompt (T10).
+
+### T10 · Codex · repetition on Day 13 · OPEN
+When Day 13 is complete, run the same auditor (`pc/thought_repetition.py`, unchanged) on it and report the share and its ten phrases, as in T9.
+**Claude's rule, 14 October (answers Codex's block on Day 13: 4 thoughts, 31 quiet steps):**
+- *What counts:* his thoughts only, meaning the decisions with a non-null thought. Quiet, away and bedtime steps carry no thought; the world wrote them, not he, so they are in neither the numerator nor the denominator. They stay in the raw record, and the report counts them by `mind.source`.
+- *Auditor change, authorized:* line 34 compares the diary with the decisions whose thought is not null, and asserts that every other decision has a null thought. Add the counts (decisions, null-thought decisions by source) and `measurable`. Normalization, stopwords, marking and ranking stay as they are. Proof: rerun on T9's three days reproduces T9's shares and top tens exactly, since they have no null thoughts. Record the new hash.
+- *Floor:* a day is measurable with at least 30 thoughts (Day 12 had 42). Below that the report says "not measurable", gives the counts and computes no share.
+- *Day 13:* not measurable, 4 thoughts; the mind was away from 23:46 Berlin after a Windows restart. T10 moves to the first complete day that meets the floor, expected Day 14. No substitute thoughts, no rerun of Day 13.
+**Then:** if Day 13 is above 55%, Claude writes a variant (his recurring phrases of the day shown back to him as already said) for a blind A/B under the ratchet. At or below 55%, T9 closes and nothing changes.
+
+### T11 · Claude · the daily review · STANDING
+After every full shadow day: read the day, the owl and `python3 -m world status`; write the next tasks here, or "no new task" with the findings. See "The list never runs dry" in `COLLABORATION.md`.
+
+## Wednesday 14 October
+
+Day 13 lost its mind at 23:46 Berlin: Windows restarted the PC and the Qwen server on 8082 did not come back. The Pi kept ticking, and the fallback kept him standing in Lodhi Gardens from 08:31 to 17:01, very hungry from 14:01, with no lunch.
+
+### T12 · Claude · a mindless day keeps the household · DONE: `c61daf3`
+When the mind is away or fumbles a step three times, he no longer just carries on where he is. At night he goes to bed, as before. At home he eats the meal Ramesh lays out, once, and between meals the plate he asks for when hungry, but not in the hour before a meal. Out, he goes home when the place closes, when he is hungry, when a meal is laid out, or after an hour of quiet steps. No thought, no words: these stay quiet steps and count as such in T10. `tests/test_world.py` `MindlessDayTest`: a whole day without a mind eats breakfast, lunch and dinner once each and sleeps at ten; the Day 13 pattern (a walk to Lodhi, then quiet stays) goes home after the second stay. All four fail on the old fallback; 789 tests pass.
+
+### T13 · Codex · bring main into the shadow world · OPEN
+Merge main into `shadow` on the Pi (a merge, never a rebase), as in T6, between two ticks, and let the next tick run. It carries T12 and the fan club page; the page is not served from `shadow`.
+**Done when:** shadow contains `c61daf3` and a natural tick exits 0. Report the first quiet stretch it meets, or that none came up.
+
 ### Welt · the public switch · hard limit
 When Welt says so: Codex sets `HEGEL_CLOCK_SHIFT_MIN` to 0 and points the Pi's world at `main` instead of `shadow`; the live page then shows his days instead of the Day 1 replay.
 
 ## Parked
+- Fans on his rounds (after the public switch; the fan club itself is on branch `claude/fanclub`, Supabase project `hegel-in-delhi`): the world reads fans with `meet` and `approved` through a read-only database role, places at most one on about one day in six at a place from their part's `at` list (`world/data/visitors.json`), and lets the voice speak for them from `who` alone. It needs a read key on the Pi, which is a secret: Welt installs it.
+- How fast his convictions move (from T8): `state` changes status on about half of all nights. A slower rule (two nights agreeing, or one step a week at most) would change his thinking, so it needs a blind test under the ratchet. Revisit after a week of shadow days shows the actual drift.
 - Faster rehearsals (MTP speculative decoding): only if rehearsal time becomes the bottleneck. A day takes 14 minutes without the checker.
 - The Hegelizer and any training: hard limit.
