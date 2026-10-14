@@ -309,16 +309,120 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "05:57",
+   "to": "06:27",
+   "mode": "inside",
+   "at": "home",
+   "now": "Reading at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Petitions in Supreme Court allege police excesses during Delhi CEC protests” · “What is the Ankita Bhandari case, and why has Rahul Gandhi added weight to her parents’ protest” · “TNPDCL will incur additional cost of ₹5 crore to ₹7 crore per day for purchase of gas power: Nirmal Kumar”",
+   "t": "05:57"
+  },
+  {
+   "k": "plan",
+   "items": [
+    {
+     "time": "06:30",
+     "intention": "Read the newspapers on the step to observe the state of public opinion."
+    },
+    {
+     "time": "08:00",
+     "intention": "Walk to Lodhi Gardens to study the tombs and the morning light."
+    },
+    {
+     "time": "11:00",
+     "intention": "Return home to rest and contemplate the dialectic of the Indian spirit."
+    },
+    {
+     "time": "14:00",
+     "intention": "Draft a letter to the Directorate regarding the pending vouchers."
+    },
+    {
+     "time": "17:00",
+     "intention": "Take a short walk in the compound to exercise the body."
+    },
+    {
+     "time": "19:00",
+     "intention": "Retire to the study to review my theses on world history."
+    }
+   ],
+   "t": "05:57"
+  },
+  {
+   "k": "diary",
+   "text": "The hazy air at 24 degrees is a fitting prelude to a morning of observation. The headlines speak of petitions against police excesses and the weight of political protest, a civil society in motion that I must dissect through the lens of public opinion. I am hungry, having eaten nothing for a day, but the spirit of the morning demands I attend to the state of the world before attending to my own body. I shall sit on the step, as planned, and let the papers do their work.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§318"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§224"
+    }
+   ],
+   "t": "05:57"
+  }
+ ],
+ "steps": [
+  {
+   "t": "05:57",
+   "end": "06:27",
+   "event": "You wake. Partly cloudy, hazy, 24 °C. The papers lie on the step where the hawker threw them. Headlines: Petitions in Supreme Court allege police excesses during Delhi CEC protests; What is the Ankita Bhandari case, and why has Rahul Gandhi added weight to her parents’ protest; TNPDCL will incur additional cost of ₹5 crore to ₹7 crore per day for purchase of gas power: Nirmal Kumar.",
+   "present": [],
+   "decision": {
+    "thought": "The hazy air at 24 degrees is a fitting prelude to a morning of observation. The headlines speak of petitions against police excesses and the weight of political protest, a civil society in motion that I must dissect through the lens of public opinion. I am hungry, having eaten nothing for a day, but the spirit of the morning demands I attend to the state of the world before attending to my own body. I shall sit on the step, as planned, and let the papers do their work.",
+    "action": "read",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 13.1
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§318",
+     "id": "dyde-right:803"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§224",
+     "id": "rechts:490"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§318",
+     "text": "Who does not learn to despise pubhe opinion, which is one thing in one place and another in another, will never produce anything great. The liberty of taking part in state affairs, the pricking impulse to say and to have said one's opinion, is directly secured by police laws and regulations, which, however, hinder and punish the excess of this liberty."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§224",
+     "text": "Deliberationen der Mitglieder des Gerichts über das zu fällende Urteil unter sich sind Äußerungen der noch besonderen Meinungen und Ansichten, also ihrer Natur nach nichts öffentliches."
+    }
+   ]
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-15T05:57+05:30",
-  "asleep": true,
+  "until": "2026-10-15T06:27+05:30",
+  "asleep": false,
   "imprest": 6891,
   "wearing": "kurta",
   "wardrobe": [
@@ -390,7 +494,12 @@
    }
   ],
   "depesche_n": 0,
-  "today": {},
+  "today": {
+   "woke": "05:57",
+   "seen": {
+    "home": []
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -486,7 +595,8 @@
    "home": [
     "2026-10-02",
     "2026-10-13",
-    "2026-10-14"
+    "2026-10-14",
+    "2026-10-15"
    ],
    "lodhi": [
     "2026-10-02",
@@ -559,6 +669,35 @@
     "sittings": 2,
     "last": "2026-10-13",
     "tail": "There is no state here that has made itself. There is only nature, history as traffic, the dream of a spirit that has not yet woken up to its own freedom.\n\nI am a ghost in this bungalow. I am not Shri Hegde. I am Hegel. I am a spirit that has traveled from the summit of the Germanic world to the dawn of the Oriental. I am here to observe, to record, to understand. I am not to change. I am not to teach. I am to see the difference between the dream and the state, between the given and the grown, between the nature and the spirit. And in seeing it, I confirm my own freedom. I am free because I am outside the dream. I am free because I am in the state, even if I am a mistake in its allotment. The state is rational, and I am rational. Therefore, I am free. The dream is not. It is only a dream."
+   }
+  ]
+ },
+ "plan": {
+  "written": "05:57",
+  "items": [
+   {
+    "time": "06:30",
+    "intention": "Read the newspapers on the step to observe the state of public opinion."
+   },
+   {
+    "time": "08:00",
+    "intention": "Walk to Lodhi Gardens to study the tombs and the morning light."
+   },
+   {
+    "time": "11:00",
+    "intention": "Return home to rest and contemplate the dialectic of the Indian spirit."
+   },
+   {
+    "time": "14:00",
+    "intention": "Draft a letter to the Directorate regarding the pending vouchers."
+   },
+   {
+    "time": "17:00",
+    "intention": "Take a short walk in the compound to exercise the body."
+   },
+   {
+    "time": "19:00",
+    "intention": "Retire to the study to review my theses on world history."
    }
   ]
  }
