@@ -323,6 +323,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "06:32",
+   "to": "06:47",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -410,6 +417,40 @@
    "to": "Hegel",
    "text": "Yes, sir. The step is dry enough, I have put a towel down. I will be in the kitchen if you need anything.",
    "t": "06:27"
+  },
+  {
+   "k": "diary",
+   "text": "The grey air hangs thick, a veil for the spirit to pierce through. Shri Hegde stands before me, a living contradiction of the file: the man who should be here is not, yet he is. I must address him plainly, for the state is actuality, and actuality requires speech.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "First Division, Descartes"
+    }
+   ],
+   "t": "06:32"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, the confusion of our names is a matter of administrative error, yet you stand in my house. I trust you will make yourself comfortable in the second bedroom, pending the Directorate's orders, and that we may maintain a civilized silence in one another's presence.",
+   "to": "Ramesh and Shri G. Hegde",
+   "sensitive": true,
+   "why": "civilized",
+   "topic": "the ranking of peoples",
+   "t": "06:32"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "I am not staying in your house, sir. I am staying in my allotted room, as per the order you are apparently ignoring. Please do not call it a civilized silence; call it a boundary.",
+   "sensitive": true,
+   "why": "civilized",
+   "topic": "the ranking of peoples",
+   "t": "06:32"
   }
  ],
  "steps": [
@@ -509,13 +550,66 @@
      "text": "The soil is capable of being an exclusive, private possession, and demands not merely the taking from it what it bears naturally, but an objective working up. Since the returns of labour depend on the seasons, and harvests are influenced by variable weather and other natural conditions, provision for wants must take account of the future."
     }
    ]
+  },
+  {
+   "t": "06:32",
+   "end": "06:47",
+   "event": "Ramesh says: “Yes, sir. The step is dry enough, I have put a towel down. I will be in the kitchen if you need anything.” He gives a small nod and steps back towards the kitchen door. Shri G. Hegde is here.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The grey air hangs thick, a veil for the spirit to pierce through. Shri Hegde stands before me, a living contradiction of the file: the man who should be here is not, yet he is. I must address him plainly, for the state is actuality, and actuality requires speech.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Shri Hegde, the confusion of our names is a matter of administrative error, yet you stand in my house. I trust you will make yourself comfortable in the second bedroom, pending the Directorate's orders, and that we may maintain a civilized silence in one another's presence.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "I am not staying in your house, sir. I am staying in my allotted room, as per the order you are apparently ignoring. Please do not call it a civilized silence; call it a boundary.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.4
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "First Division, Descartes",
+     "id": "haldane-3:593"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "First Division, Descartes",
+     "text": "He thus comes to speak of the earth, the sun, &c., and of his conception of the circling motion of the heavenly bodies in the form of vortices: of metaphysical hypotheses as to how small particles pass into, out of, and through pores and act on one another; and finally to saltpetre and gunpowder."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-15T06:32+05:30",
+  "until": "2026-10-15T06:47+05:30",
   "asleep": false,
   "imprest": 6891,
   "wearing": "kurta",
@@ -592,6 +686,7 @@
    "woke": "05:57",
    "seen": {
     "home": [
+     "hegde",
      "ramesh"
     ]
    }
@@ -745,7 +840,8 @@
    "hegde": [
     "2026-10-02",
     "2026-10-13",
-    "2026-10-14"
+    "2026-10-14",
+    "2026-10-15"
    ]
   },
   "refused": {},
