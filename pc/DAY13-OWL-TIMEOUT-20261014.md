@@ -1,0 +1,11 @@
+# Day 13 natural owl timeout, 14 October 2026
+
+The natural 15:00 UTC owl call failed at 15:05:06 with `owl failed: mind request failed: timed out`. Day 13 has no owl write-up. Later timer ticks exited 0 without a new attempt; service success and answering health do not establish model completion.
+
+One read-only Pi capture at 15:11:28 found clean stable HEAD `2cd38d3`, equal to actual fetched remote shadow. All eight captured hashes, lengths and blob IDs independently match Git. The helper captures hashes, not raw bytes. The complete Day 13 remains four model decisions plus 31 away/null-thought steps, with its original raw hash unchanged. Day 14 is asleep, zero steps, until 05:57. The timer is enabled/active; Pi config and runtime are unchanged.
+
+The existing PC server PID390 still has the exact saved argv/cwd, but loaded CPU backends and no CUDA backend. Its log records roughly 20.83 prompt tokens/s and 1.95 generated tokens/s, reaching 454 generated tokens before client cancellation at the 300-second timeout. Read-only GPU status was 568 MiB / 0% utilization. The existing CUDA backend cannot resolve `libcudart.so.12` and `libcublas.so.12` in the current loader search path.
+
+Both libraries already exist in the paired b11429 CUDA bundle. A read-only `ldd` check with that directory resolves all dependencies. A concrete restoration plan is preserved outside Git; it changes only the server process's library search path while keeping the saved model/argv, port and three slots. It has **not** been executed. Replacing/reconfiguring the shared server needs Welt's explicit exception to his standing no-stop/restart/reconfigure instruction. No packages, global environment, power guard, firewall, secrets or Pi settings were changed; the existing server stays untouched.
+
+This is the first observed owl failure today. The unchanged runtime prevents another attempt for one hour after its try marker, making the next natural retry eligible around 16:00 UTC. No forced owl, marker edit or extra SSH was made. Completion remains pending. Detailed journal, process/backend evidence and independent Git comparisons are in the JSON; exact original receipts and server log remain outside Git.

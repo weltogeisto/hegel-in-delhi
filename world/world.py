@@ -2,6 +2,7 @@
 tells the mind what is happening, checks the answer, and turns it into the day's segments and entries."""
 import copy
 import json
+import logging
 import random
 import re
 from datetime import date, datetime, timedelta
@@ -501,6 +502,7 @@ class World(Economy):
         if said and prev_step.get("end") == fmt(m):
             events.append((voices.heard(said), None))              # their answer to what he said, as the step ends
 
+        carried = len(events)          # prior read/reply retain their own attributed entries
         if state.get("asleep"):
             today["woke"] = fmt(m)
             line = f"You wake. {wx['sky'].capitalize()}, {wx['temp']} °C."
@@ -673,7 +675,8 @@ class World(Economy):
         }
         self.show_plan(sit, day)
         ctx = {"t": t, "present": present, "beat": beat, "public": [e for _, e in events if e],
-               "fresh": [c for c in new if c in known]}
+               "fresh": [c for c in new if c in known],
+               "observations": [f"Weather: {sit['weather']}. Air quality index: {sit['aqi']}."] + [prompt for prompt, _ in events[carried:] if prompt], "observed_at": pid}
         return sit, ctx
 
     # ── the rules ───────────────────────────────────────────────────
@@ -724,6 +727,22 @@ class World(Economy):
         for b in ans["buys"]:
             item, price = b["item"].strip(), b["price_inr"]
             low = item.lower()
+            if sit.get('reconcile_payments'):
+                purpose, reference = b.get('purpose'), b.get('source_charge_id')
+                if purpose not in ('purchase', 'settlement') or 'source_charge_id' not in b:
+                    errors.append('each buys row needs purpose and source_charge_id; distinguish a new purchase from an existing charge')
+                    continue
+                if purpose == 'settlement':
+                    if not isinstance(reference, str) or not reference:
+                        errors.append('settlement requires the canonical ID of an existing recorded obligation; dialogue cannot create a debt')
+                    elif reference in state.get('settled_charges', []):
+                        errors.append(f'charge {reference} is already settled; omit this repayment')
+                    else:
+                        errors.append(f'charge {reference} cannot be settled through buys; the world settles recorded obligations when their conditions permit')
+                    continue
+                if reference is not None:
+                    errors.append('a new purchase must have source_charge_id=null; it cannot settle an earlier charge')
+                    continue
             if " ".join(item.casefold().split()) in settled_here:
                 errors.append(f"'{item}' was already paid by the world at the start of this step; do not pay it again")
             match = next((s for s in pl.get("sells", []) if any(k in low for k in s["match"])), None)
@@ -811,6 +830,8 @@ class World(Economy):
         def entry(t, e):
             e = dict(e)
             e["t"] = fmt(minute_of(t))
+            if e.get("k") != "plan":       # retain the established intention-only plan format
+                e.setdefault("place", state["place"])
             entries.append(e)
 
         def dress(t, pid, asleep=False):
@@ -925,13 +946,26 @@ class World(Economy):
             end = arrival
 
         if action == "eat" and dest == "home":
-            if self.served(t, state):
+            if meal := self.served(t, state):
                 self.feed(state, t, "meal")
+                entry(t, {"k": "consumed", "item": meal, "food": "meal", "source": "household service"})
             elif plate := self.plate(t, state):                      # between meals, asked for
                 entry(t, {"k": "world", "text": f"Ramesh puts a plate together: {plate}."})
                 self.feed(state, t, "meal")
-        for b in plan["buys"]:
-            entry(t, dict({"k": "bag", "item": b["item"], "price": b["price"]}, **{k: b[k] for k in ("office", "note") if b.get(k)}))
+                entry(t, {"k": "consumed", "item": plate, "food": "meal", "source": "household service"})
+        for i,b in enumerate(plan["buys"]):
+            # A retry of this execution context reuses the transaction identity.
+            # A distinct sitting or two same-price items get distinct identities,
+            # even if a legacy caller supplies the same simulated minute.
+            identities=ctx.setdefault('purchase_ids',{})
+            if i not in identities:
+                identities[i]=self.new_charge(state)
+            cid=identities[i]
+            if cid in state.setdefault('settled_charges',[]):
+                logging.getLogger('world').warning('duplicate charge suppressed: %s',cid)
+                continue
+            entry(t, dict({"k": "bag", "item": b["item"], "price": b["price"], "charge_id":cid}, **{k: b[k] for k in ("office", "note") if b.get(k)}))
+            state.setdefault('settled_charges',[]).append(cid)
             state["imprest"] -= b["price"]
             self.voucher(state, t, b["item"], b["price"], b.get("office"))
             if b.get("tech"):
@@ -939,6 +973,8 @@ class World(Economy):
                 state["tech"].update(got[b["tech"]])
             if b.get("food"):
                 self.feed(state, t, b["food"])
+                entry(t, {"k": "consumed", "item": b["item"], "food": b["food"],
+                          "source": "catalogue food execution", "charge_id": cid})
             pl = self.places[dest]
             if pl.get("entry") and any(k in b["item"].lower() for k in pl["entry"]["match"]):
                 state.setdefault("today", {}).setdefault("tickets", []).append(dest)
@@ -966,6 +1002,9 @@ class World(Economy):
         state["asleep"] = night
         step = {"t": fmt(minute_of(t0)), "end": "24:00" if end >= midnight else fmt(minute_of(end)),
                 "event": sit["event"], "present": sit["present"], "decision": ans, "arrived": arrived}
+        if "observations" in ctx:
+            step["observations"] = list(ctx["observations"])
+            step["observed_at"] = ctx["observed_at"]
         if ctx.get("reply"):
             step["voice"] = ctx["reply"]            # opens the next situation
         if ctx.get("read"):
