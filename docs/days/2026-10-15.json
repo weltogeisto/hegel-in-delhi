@@ -365,6 +365,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Talking with Sunil in Lodhi Gardens."
+  },
+  {
+   "from": "08:27",
+   "to": "08:37",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Talking with Sunil in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -613,6 +620,40 @@
    "to": "Hegel",
    "text": "Proper, aap keh rahe ho? Haan, sky is grey, so maybe the mood is grey too. Drink hot, the mist will settle by ten.",
    "t": "08:17"
+  },
+  {
+   "k": "diary",
+   "text": "The grey sky is not a mood but a condition, a suspension of the bright immediacy that usually forces the spirit into the particular. Sunil’s prediction of clearing is a hope, not a law; the dialectic of weather does not answer to human comfort. I shall finish this second cup and then walk the path between the tombs, where the stone silence offers a better interlocutor than the steam of the cup.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "08:27"
+  },
+  {
+   "k": "said",
+   "text": "The mist is the veil of the infinite, Sunil. It does not settle because it is good, but because the day demands its form. I shall walk the tombs while the air is cool.",
+   "to": "Sunil",
+   "t": "08:27"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Veil, infinite, form... aap toh philosopher lagte ho, not a chai drinker. Walk your tombs, but don't drop my cup on the grass. I'll be here if you get thirsty again.",
+   "t": "08:27"
+  },
+  {
+   "k": "bag",
+   "item": "Chai from the stall at the Lodhi Road gate",
+   "price": 20,
+   "t": "08:27"
   }
  ],
  "steps": [
@@ -1024,15 +1065,72 @@
      "text": "Das im abstrakten Eigentum willkürliche Moment des besonderen Bedürfnisses des bloß Einzelnen und die Eigensucht der Begierde verändert sich hier in die Sorge und den Erwerb für ein Gemeinsames, in ein Sittliches."
     }
    ]
+  },
+  {
+   "t": "08:27",
+   "end": "08:37",
+   "event": "Sunil says: “Proper, aap keh rahe ho? Haan, sky is grey, so maybe the mood is grey too. Drink hot, the mist will settle by ten.” He wipes the rim of the tin cup with a corner of his kurta.",
+   "present": [
+    "Sunil, who sells chai"
+   ],
+   "decision": {
+    "thought": "The grey sky is not a mood but a condition, a suspension of the bright immediacy that usually forces the spirit into the particular. Sunil’s prediction of clearing is a hope, not a law; the dialectic of weather does not answer to human comfort. I shall finish this second cup and then walk the path between the tombs, where the stone silence offers a better interlocutor than the steam of the cup.",
+    "action": "talk",
+    "place": "lodhi",
+    "minutes": 10,
+    "says": "The mist is the veil of the infinite, Sunil. It does not settle because it is good, but because the day demands its form. I shall walk the tombs while the air is cool.",
+    "buys": [
+     {
+      "item": "Chai from the stall at the Lodhi Road gate",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Veil, infinite, form... aap toh philosopher lagte ho, not a chai drinker. Walk your tombs, but don't drop my cup on the grass. I'll be here if you get thirsty again.",
+    "does": "Sunil wipes his hands on his apron and turns back to the kerosene stove."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.2
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "id": "sibree-history:383"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "text": "The first region of Chinese history is the north-western corner, — China Proper, — towards that point where the Hoang-ho descends from the mountains; for only at a later period did the Chinese empire extend itself towards the south, to the Yangtse-Kiang."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-10-15T08:27+05:30",
+  "until": "2026-10-15T08:37+05:30",
   "asleep": false,
-  "imprest": 6871,
+  "imprest": 6851,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1209,6 +1307,13 @@
     {
      "date": "2026-10-15",
      "t": "08:07",
+     "item": "Chai from the stall at the Lodhi Road gate",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-10-15",
+     "t": "08:27",
      "item": "Chai from the stall at the Lodhi Road gate",
      "price": 20,
      "office": false
