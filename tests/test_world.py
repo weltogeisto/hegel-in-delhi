@@ -24,7 +24,7 @@ from world.engine import Days, Engine, until_of  # noqa: E402
 from world.feeds import naqi, sky  # noqa: E402
 from world.mind import HTTPMind, StubMind  # noqa: E402
 from world.publish import Git  # noqa: E402
-from world.world import World, at_dt  # noqa: E402
+from world.world import MEAL_WINDOWS, World, at_dt  # noqa: E402
 
 DAY1 = json.loads((REPO / "docs/days/2026-10-02.json").read_text(encoding="utf-8"))
 
@@ -437,6 +437,70 @@ class HTTPTest(unittest.TestCase):
         step = next(s for s in day["steps"] if "decision" in s)
         self.assertEqual(step["mind"]["source"], "away")
         self.assertFalse(any(x["k"] == "diary" for x in day["entries"]))
+
+
+class MindlessDayTest(unittest.TestCase):
+    """With the PC gone, he keeps the household's day: meals at home, out no longer than an hour, bed at ten."""
+
+    D = date(2026, 10, 3)
+
+    def setUp(self):
+        self.box = Sandbox()
+        self.e = self.box.engine(HTTPMind("http://127.0.0.1:9"))       # nothing listens there
+
+    def tearDown(self):
+        self.box.close()
+
+    def state(self, place, **today):
+        st = copy.deepcopy(self.box.days.load(date(2026, 10, 2))["state"])
+        st.update(place=place, asleep=False, last_meal=at_dt(self.D, 7 * 60 + 30).isoformat(timespec="minutes"), snacks=0)
+        st["today"] = dict({"woke": "06:00"}, **today)
+        return st
+
+    @staticmethod
+    def steps(*rows):
+        return {"steps": [{"t": t, "decision": {"action": a, "place": p}, "mind": {"source": src}} for t, a, p, src in rows]}
+
+    def test_a_whole_day_without_a_mind(self):
+        day = self.box.run_day(self.D, self.e)
+        steps = [s for s in day["steps"] if "decision" in s]
+        self.assertTrue(steps and all(s["mind"]["source"] in ("away", "bedtime") for s in steps))
+        eats = [hm(s["t"]) for s in steps if s["decision"]["action"] == "eat"]
+        for name, (a, b) in MEAL_WINDOWS.items():
+            self.assertEqual(sum(a <= m < b for m in eats), 1, f"{name}: he eats the meal Ramesh lays out, once ({eats})")
+        self.assertTrue(all(s["decision"]["place"] == "home" for s in steps))
+        self.assertFalse(any(s["decision"].get("thought") or s["decision"].get("says") for s in steps))
+        self.assertFalse(any(x["k"] == "diary" for x in day["entries"]))
+        self.assertEqual([s["decision"]["action"] for s in steps if hm(s["t"]) >= 22 * 60][:1], ["sleep"])
+
+    def test_out_without_a_mind_he_goes_home_within_the_hour(self):
+        t, sit = at_dt(self.D, 10 * 60 + 1), {"open_now": ["lodhi", "khan", "iic"]}
+        st = self.state("lodhi")
+        walk = self.steps(("08:11", "walk", "lodhi", "mind"))
+        self.assertEqual(self.e.quiet(st, t, sit, walk)[0]["action"], "stay")
+        once = self.steps(("08:11", "walk", "lodhi", "mind"), ("08:31", "stay", "lodhi", "away"))
+        self.assertEqual(self.e.quiet(st, t, sit, once)[0]["action"], "stay")
+        twice = self.steps(("08:11", "walk", "lodhi", "mind"), ("08:31", "stay", "lodhi", "away"), ("09:01", "stay", "lodhi", "away"))
+        ans, plan = self.e.quiet(st, t, sit, twice)
+        self.assertEqual((ans["action"], ans["place"], plan["moves"]), ("walk", "home", True))
+        self.assertIsNone(ans["thought"])
+
+    def test_out_without_a_mind_hunger_or_closing_sends_him_home(self):
+        t = at_dt(self.D, 10 * 60 + 1)
+        walk = self.steps(("08:11", "walk", "lodhi", "mind"))
+        self.assertEqual(self.e.quiet(self.state("lodhi", hunger=1), t, {"open_now": ["lodhi"]}, walk)[0]["action"], "walk")
+        self.assertEqual(self.e.quiet(self.state("lodhi"), t, {"open_now": []}, walk)[0]["action"], "walk")
+
+    def test_at_home_without_a_mind_one_meal_and_no_plate_before_it(self):
+        sit = {"open_now": []}
+        st = self.state("home")
+        st["last_meal"] = None
+        self.assertEqual(self.e.quiet(st, at_dt(self.D, 13 * 60 + 1), sit)[0]["action"], "eat")
+        st["last_meal"] = at_dt(self.D, 13 * 60 + 1).isoformat(timespec="minutes")
+        self.assertEqual(self.e.quiet(st, at_dt(self.D, 13 * 60 + 31), sit)[0]["action"], "rest")      # lunch is eaten
+        hungry = self.state("home", hunger=1)
+        self.assertEqual(self.e.quiet(hungry, at_dt(self.D, 12 * 60 + 1), sit)[0]["action"], "rest")   # lunch within the hour
+        self.assertEqual(self.e.quiet(hungry, at_dt(self.D, 15 * 60 + 1), sit)[0]["action"], "eat")    # Ramesh's plate
 
 
 class PublishTest(unittest.TestCase):

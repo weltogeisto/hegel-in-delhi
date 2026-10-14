@@ -130,6 +130,17 @@ When Day 13 is complete, run the same auditor (`pc/thought_repetition.py`, uncha
 ### T11 · Claude · the daily review · STANDING
 After every full shadow day: read the day, the owl and `python3 -m world status`; write the next tasks here, or "no new task" with the findings. See "The list never runs dry" in `COLLABORATION.md`.
 
+## Wednesday 14 October
+
+Day 13 lost its mind at 23:46 Berlin: Windows restarted the PC and the Qwen server on 8082 did not come back. The Pi kept ticking, and the fallback kept him standing in Lodhi Gardens from 08:31 to 17:01, very hungry from 14:01, with no lunch.
+
+### T12 · Claude · a mindless day keeps the household · DONE: see the commit that adds this task
+When the mind is away or fumbles a step three times, he no longer just carries on where he is. At night he goes to bed, as before. At home he eats the meal Ramesh lays out, once, and between meals the plate he asks for when hungry, but not in the hour before a meal. Out, he goes home when the place closes, when he is hungry, when a meal is laid out, or after an hour of quiet steps. No thought, no words: these stay quiet steps and count as such in T10. `tests/test_world.py` `MindlessDayTest`: a whole day without a mind eats breakfast, lunch and dinner once each and sleeps at ten; the Day 13 pattern (a walk to Lodhi, then quiet stays) goes home after the second stay. All four fail on the old fallback; 789 tests pass.
+
+### T13 · Codex · bring main into the shadow world · OPEN
+Merge main into `shadow` on the Pi (a merge, never a rebase), as in T6, between two ticks, and let the next tick run. It carries T12 and the fan club page; the page is not served from `shadow`.
+**Done when:** shadow contains the T12 commit and a natural tick exits 0. Report the first quiet stretch it meets, or that none came up.
+
 ### Welt · the public switch · hard limit
 When Welt says so: Codex sets `HEGEL_CLOCK_SHIFT_MIN` to 0 and points the Pi's world at `main` instead of `shadow`; the live page then shows his days instead of the Day 1 replay.
 
