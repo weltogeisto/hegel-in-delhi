@@ -337,6 +337,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "07:01",
+   "to": "07:31",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -402,13 +409,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "07:01",
+   "end": "07:31",
+   "event": "Ramesh has laid out breakfast: toast, butter and a plate of cut papaya.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-16T07:01+05:30",
+  "until": "2026-10-16T07:31+05:30",
   "asleep": false,
   "imprest": 6851,
   "wearing": "kurta",
@@ -487,7 +522,8 @@
     "home": [
      "ramesh"
     ]
-   }
+   },
+   "breakfast": true
   },
   "account": {
    "advance": 15000,
@@ -666,7 +702,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-10-15T19:42+05:30",
+  "last_meal": "2026-10-16T07:01+05:30",
   "snacks": 0,
   "works": [
    {
