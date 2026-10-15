@@ -400,6 +400,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "11:12",
+   "to": "12:12",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -768,6 +775,24 @@
    "to": "Hegel",
    "text": "Yes, sir.",
    "t": "10:12"
+  },
+  {
+   "k": "diary",
+   "text": "The door closes, and with it the friction of the morning. I am alone again, but the solitude is not empty; it is the ground in which the seed of the state must take root, even if the soil here is hard and dry. I must sit and let the concept of the ethical life clarify itself, for I cannot build a constitution on a foundation of mere habit or caste.",
+   "sensitive": true,
+   "why": "caste",
+   "topic": "caste",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…"
+    }
+   ],
+   "t": "11:12"
   }
  ],
  "steps": [
@@ -1434,13 +1459,60 @@
      "text": "In the laws of Manu it is said: \" Let the King, even in extreme necessity, beware of exciting the Brahmins against him; for they can destroy him with their power, — they who create Fire, Sun, Moon, &c.\" They are servants neither of God nor of his People, but are God himself to the other Castes, — a position of things which constitutes the perverted character of the Hindoo mind."
     }
    ]
+  },
+  {
+   "t": "11:12",
+   "end": "12:12",
+   "event": "Ramesh says: “Yes, sir.” He nods once, tucks a loose thread from his kurta into his pocket, and quietly steps out of the room, closing the door behind him.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The door closes, and with it the friction of the morning. I am alone again, but the solitude is not empty; it is the ground in which the seed of the state must take root, even if the soil here is hard and dry. I must sit and let the concept of the ethical life clarify itself, for I cannot build a constitution on a foundation of mere habit or caste.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 60,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.5
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1189"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "id": "haldane-1:113"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "For “when Antisthenes turned outside a hole in his cloak, Socrates said to him, I see thy vanity through the hole in thy cloak.” Clothing is not a thing of rational import, but is regulated through needs that arise of themselves. In the North the clothing must be different from that in Central Africa; and in winter we do not wear cotton garments."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "text": "As the best of what is in the world is that which Thought produces, it is unreasonable to believe that reason only is in Nature, and not in Mind. That man who believes that what, like the philosophies, belongs to the region of mind must be merely contingent, is insincere in his belief in divine rule, and what he says of it is but empty talk."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-15T11:12+05:30",
+  "until": "2026-10-15T12:12+05:30",
   "asleep": false,
   "imprest": 6851,
   "wearing": "kurta",
