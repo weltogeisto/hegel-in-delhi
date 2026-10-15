@@ -407,6 +407,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "12:12",
+   "to": "12:22",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -793,6 +800,34 @@
     }
    ],
    "t": "11:12"
+  },
+  {
+   "k": "diary",
+   "text": "Five hours have passed since the morning meal, and the body, that material substrate of the spirit, now asserts its claim. Jacobi was right: one does not philosophize hunger away, one satisfies it. Ramesh is present, and the hour is nigh for the proper midday service, though it is not yet fully begun. I shall order the plate he offers, for a man cannot contemplate the dialectic of the Indian spirit on an empty stomach, nor draft a letter to the Directorate with a rumbling gut.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi"
+    }
+   ],
+   "t": "12:12"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, prepare the plate you mentioned: the omelette, the toast, and the pot of tea. I am hungry, and the body must be attended to before the spirit can continue its work.",
+   "to": "Ramesh",
+   "t": "12:12"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes, sir. I’ll have it ready in twenty minutes.",
+   "t": "12:12"
   }
  ],
  "steps": [
@@ -1506,13 +1541,65 @@
      "text": "As the best of what is in the world is that which Thought produces, it is unreasonable to believe that reason only is in Nature, and not in Mind. That man who believes that what, like the philosophies, belongs to the region of mind must be merely contingent, is insincere in his belief in divine rule, and what he says of it is but empty talk."
     }
    ]
+  },
+  {
+   "t": "12:12",
+   "end": "12:22",
+   "event": "You are hungry.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Five hours have passed since the morning meal, and the body, that material substrate of the spirit, now asserts its claim. Jacobi was right: one does not philosophize hunger away, one satisfies it. Ramesh is present, and the hour is nigh for the proper midday service, though it is not yet fully begun. I shall order the plate he offers, for a man cannot contemplate the dialectic of the Indian spirit on an empty stomach, nor draft a letter to the Directorate with a rumbling gut.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Ramesh, prepare the plate you mentioned: the omelette, the toast, and the pot of tea. I am hungry, and the body must be attended to before the spirit can continue its work.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes, sir. I’ll have it ready in twenty minutes.",
+    "does": "He nods once and turns away towards the kitchen corridor."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.1
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "id": "sibree-history:268"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "id": "haldane-3:1108"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "text": "Nor in fact does it continue to produce them; under Turkish government no bards have arisen. We must first take notice of those natural conditions which have to be excluded once for all from the drama of the World's History. In the Frigid and in the Torrid zone the locality of World-historical peoples cannot be found."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "text": "There is no man so foolish as that philosophy; when a man feels hungry, he does not call up the imagination of food, but sets about satisfying his hunger. All activity is a conception which does not yet exist, but whose subjectivity is abrogated."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-15T12:12+05:30",
+  "until": "2026-10-15T12:22+05:30",
   "asleep": false,
   "imprest": 6851,
   "wearing": "kurta",
@@ -1599,7 +1686,8 @@
    },
    "breakfast": true,
    "walked": 3000,
-   "strain": 3000
+   "strain": 3000,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
