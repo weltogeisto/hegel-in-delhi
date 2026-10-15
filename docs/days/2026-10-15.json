@@ -477,6 +477,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "16:42",
+   "to": "17:12",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -906,6 +913,11 @@
     }
    ],
    "t": "12:22"
+  },
+  {
+   "k": "world",
+   "text": "Ramesh brings tea.",
+   "t": "16:42"
   }
  ],
  "steps": [
@@ -1942,13 +1954,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "16:42",
+   "end": "17:12",
+   "event": "Ramesh brings tea: tea and a few samosas from the market.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-15T16:42+05:30",
+  "until": "2026-10-15T17:12+05:30",
   "asleep": false,
   "imprest": 6851,
   "wearing": "kurta",
@@ -2036,7 +2076,8 @@
    "breakfast": true,
    "walked": 3000,
    "strain": 3000,
-   "lunch": true
+   "lunch": true,
+   "tea": true
   },
   "account": {
    "advance": 15000,
@@ -2214,7 +2255,7 @@
    "sim": false
   },
   "last_meal": "2026-10-15T13:12+05:30",
-  "snacks": 0,
+  "snacks": 1,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
