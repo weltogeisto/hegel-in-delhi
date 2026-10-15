@@ -12,7 +12,7 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 25,
+    "temp": 26,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 152
@@ -24,26 +24,26 @@
     "aqi": 151
    },
    {
-    "temp": 24,
+    "temp": 25,
     "sky": "clear",
     "rain": 0,
     "aqi": 149
    },
    {
-    "temp": 24,
+    "temp": 25,
     "sky": "clear",
     "rain": 0,
     "aqi": 148
    },
    {
     "temp": 24,
-    "sky": "clear",
+    "sky": "mostly clear",
     "rain": 0,
     "aqi": 146
    },
    {
     "temp": 24,
-    "sky": "partly cloudy",
+    "sky": "mostly clear",
     "rain": 0,
     "aqi": 147
    },
@@ -54,104 +54,104 @@
     "aqi": 148
    },
    {
-    "temp": 23,
-    "sky": "drizzle",
-    "rain": 0.2,
+    "temp": 25,
+    "sky": "mostly clear",
+    "rain": 0,
+    "aqi": 148
+   },
+   {
+    "temp": 25,
+    "sky": "partly cloudy",
+    "rain": 0,
     "aqi": 148
    },
    {
     "temp": 22,
     "sky": "a sudden heavy shower",
-    "rain": 4.3,
-    "aqi": 148
-   },
-   {
-    "temp": 23,
-    "sky": "showers",
-    "rain": 1.5,
+    "rain": 4.9,
     "aqi": 149
    },
    {
     "temp": 24,
-    "sky": "partly cloudy",
-    "rain": 0,
+    "sky": "showers",
+    "rain": 1.3,
     "aqi": 149
    },
    {
-    "temp": 26,
-    "sky": "overcast",
-    "rain": 0,
+    "temp": 23,
+    "sky": "thunderstorm",
+    "rain": 2.1,
     "aqi": 149
    },
    {
-    "temp": 27,
-    "sky": "partly cloudy",
-    "rain": 0,
+    "temp": 24,
+    "sky": "thunderstorm",
+    "rain": 3.4,
     "aqi": 147
    },
    {
-    "temp": 28,
-    "sky": "mostly clear",
-    "rain": 0,
+    "temp": 23,
+    "sky": "thunderstorm",
+    "rain": 3.3,
     "aqi": 146
    },
    {
-    "temp": 29,
-    "sky": "partly cloudy",
-    "rain": 0,
+    "temp": 23,
+    "sky": "showers",
+    "rain": 2.3,
     "aqi": 145
    },
    {
-    "temp": 28,
-    "sky": "mostly clear",
-    "rain": 0,
+    "temp": 24,
+    "sky": "drizzle",
+    "rain": 0.4,
     "aqi": 143
    },
    {
-    "temp": 28,
-    "sky": "clear",
+    "temp": 25,
+    "sky": "mostly clear",
     "rain": 0,
     "aqi": 141
    },
    {
-    "temp": 27,
+    "temp": 24,
     "sky": "mostly clear",
     "rain": 0,
     "aqi": 140
    },
    {
-    "temp": 21,
-    "sky": "showers",
-    "rain": 2.7,
+    "temp": 24,
+    "sky": "overcast",
+    "rain": 0,
     "aqi": 141
    },
    {
-    "temp": 22,
-    "sky": "drizzle",
-    "rain": 0.9,
+    "temp": 24,
+    "sky": "mostly clear",
+    "rain": 0,
     "aqi": 144
    },
    {
-    "temp": 22,
-    "sky": "drizzle",
-    "rain": 0.1,
+    "temp": 24,
+    "sky": "clear",
+    "rain": 0,
     "aqi": 149
    },
    {
-    "temp": 22,
+    "temp": 23,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 157
    },
    {
-    "temp": 22,
-    "sky": "mostly clear, hazy",
+    "temp": 23,
+    "sky": "clear, hazy",
     "rain": 0,
     "aqi": 165
    },
    {
-    "temp": 22,
-    "sky": "mostly clear, hazy",
+    "temp": 23,
+    "sky": "clear, hazy",
     "rain": 0,
     "aqi": 172
    }
@@ -414,6 +414,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "12:22",
+   "to": "12:42",
+   "mode": "inside",
+   "at": "home",
+   "now": "Reading at home."
   }
  ],
  "entries": [
@@ -828,6 +835,21 @@
    "to": "Hegel",
    "text": "Yes, sir. I’ll have it ready in twenty minutes.",
    "t": "12:12"
+  },
+  {
+   "k": "diary",
+   "text": "The material organism requires its sustenance, and the spirit requires the body to be at rest to contemplate. I will sit in the study and wait for the omelette, allowing the thunderstorm to pass over the roof while I re-read the passage on the unconscious tools of the world-spirit.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§344"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction"
+    }
+   ],
+   "t": "12:22"
   }
  ],
  "steps": [
@@ -1593,13 +1615,60 @@
      "text": "There is no man so foolish as that philosophy; when a man feels hungry, he does not call up the imagination of food, but sets about satisfying his hunger. All activity is a conception which does not yet exist, but whose subjectivity is abrogated."
     }
    ]
+  },
+  {
+   "t": "12:22",
+   "end": "12:42",
+   "event": "Ramesh says: “Yes, sir. I’ll have it ready in twenty minutes.” He nods once and turns away towards the kitchen corridor.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The material organism requires its sustenance, and the spirit requires the body to be at rest to contemplate. I will sit in the study and wait for the omelette, allowing the thunderstorm to pass over the roof while I re-read the passage on the unconscious tools of the world-spirit.",
+    "action": "read",
+    "place": "home",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.3
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§344",
+     "id": "dyde-right:846"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction",
+     "id": "sibree-history:92"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§344",
+     "text": "Of this systematized reality they are aware, and in its interests are absorbed. Yet are they the unconscious tools and organs of the world-spirit, through whose inner activity the lower forms pass away. Thus the spirit by its own motion and for its own end makes ready and works out the transition iuto its next higher stage."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction",
+     "text": "These contingencies realise themselves in History: they involve a general principle of a different order from that on which depends the permanence of a people or a State. This principle is an essential phase in the development of the creating [dea, of Truth striving and urging towards [consciousness of] itself."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-15T12:22+05:30",
+  "until": "2026-10-15T12:42+05:30",
   "asleep": false,
   "imprest": 6851,
   "wearing": "kurta",
