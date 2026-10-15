@@ -554,6 +554,15 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "22:12",
+   "to": "24:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Asleep. The owl is writing up the day.",
+   "asleep": true,
+   "owl": true
   }
  ],
  "entries": [
@@ -2335,14 +2344,40 @@
      ]
     ]
    }
+  },
+  {
+   "t": "22:12",
+   "end": "24:00",
+   "event": "You are tired.",
+   "present": [],
+   "decision": {
+    "thought": null,
+    "action": "sleep",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.2,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-15T22:12+05:30",
-  "asleep": false,
+  "until": "2026-10-16T00:00+05:30",
+  "asleep": true,
   "imprest": 6851,
   "wearing": "kurta",
   "wardrobe": [
@@ -2431,7 +2466,8 @@
    "strain": 3000,
    "lunch": true,
    "tea": true,
-   "dinner": true
+   "dinner": true,
+   "tired": true
   },
   "account": {
    "advance": 15000,
