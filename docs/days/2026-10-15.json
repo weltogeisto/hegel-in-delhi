@@ -435,6 +435,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "13:42",
+   "to": "14:12",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1732,13 +1739,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "13:42",
+   "end": "14:12",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-15T13:42+05:30",
+  "until": "2026-10-15T14:12+05:30",
   "asleep": false,
   "imprest": 6851,
   "wearing": "kurta",
@@ -1826,7 +1861,6 @@
    "breakfast": true,
    "walked": 3000,
    "strain": 3000,
-   "hunger": 1,
    "lunch": true
   },
   "account": {
