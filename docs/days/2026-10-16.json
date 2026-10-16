@@ -393,6 +393,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "11:01",
+   "to": "11:31",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -682,13 +689,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "11:01",
+   "end": "11:31",
+   "event": "Nothing in particular happens. The morning goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.1,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-16T11:01+05:30",
+  "until": "2026-10-16T11:31+05:30",
   "asleep": false,
   "imprest": 6851,
   "wearing": "kurta",
