@@ -323,17 +323,69 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "06:02",
+   "to": "06:32",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Beer on new high: Sales see over 40% increase in first six months of financial year” · “Canada’s new immigration rules to favour Indian professionals with local work experience” · “CM Chandrababu Naidu invited for Navaratri festivities at Srisailam”",
+   "t": "06:02"
+  },
+  {
+   "k": "expense",
+   "item": "The dhobi",
+   "amount": 300,
+   "to": "the dhobi",
+   "why": "the washing",
+   "settles": true,
+   "text": "Paid to the dhobi.",
+   "t": "06:02"
+  }
+ ],
+ "steps": [
+  {
+   "t": "06:02",
+   "end": "06:32",
+   "event": "You wake. A brown haze, 21 °C. Ramesh has left the papers on the verandah. Headlines: Beer on new high: Sales see over 40% increase in first six months of financial year; Canada’s new immigration rules to favour Indian professionals with local work experience; CM Chandrababu Naidu invited for Navaratri festivities at Srisailam. You pay the dhobi ₹300 for the washing. Ramesh is here.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 0,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "the PC did not wake for the morning plan"
+     ]
+    ]
+   }
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-17T06:02+05:30",
-  "asleep": true,
-  "imprest": 6851,
+  "until": "2026-10-17T06:32+05:30",
+  "asleep": false,
+  "imprest": 6551,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -404,7 +456,14 @@
    }
   ],
   "depesche_n": 0,
-  "today": {},
+  "today": {
+   "woke": "06:02",
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -516,7 +575,8 @@
     "2026-10-13",
     "2026-10-14",
     "2026-10-15",
-    "2026-10-16"
+    "2026-10-16",
+    "2026-10-17"
    ],
    "lodhi": [
     "2026-10-02",
@@ -542,7 +602,7 @@
   "costs": {
    "wage": "2026-10-12",
    "groceries": "2026-10-12",
-   "dhobi": "2026-10-12",
+   "dhobi": "2026-10-17",
    "electricity": "2026-10-12",
    "data": "2026-10-12"
   },
@@ -551,7 +611,8 @@
     "2026-10-02",
     "2026-10-13",
     "2026-10-15",
-    "2026-10-16"
+    "2026-10-16",
+    "2026-10-17"
    ],
    "malhotra": [
     "2026-10-02",
