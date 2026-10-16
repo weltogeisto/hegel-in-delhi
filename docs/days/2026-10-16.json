@@ -505,6 +505,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "19:01",
+   "to": "19:31",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1247,13 +1254,42 @@
      ]
     ]
    }
+  },
+  {
+   "t": "19:01",
+   "end": "19:31",
+   "event": "Shri G. Hegde is here.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 0,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "the PC did not wake for a greeting"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-16T19:01+05:30",
+  "until": "2026-10-16T19:31+05:30",
   "asleep": false,
   "imprest": 6851,
   "wearing": "kurta",
@@ -1330,6 +1366,7 @@
    "woke": "06:01",
    "seen": {
     "home": [
+     "hegde",
      "ramesh"
     ]
    },
@@ -1506,7 +1543,8 @@
     "2026-10-02",
     "2026-10-13",
     "2026-10-14",
-    "2026-10-15"
+    "2026-10-15",
+    "2026-10-16"
    ]
   },
   "refused": {},
