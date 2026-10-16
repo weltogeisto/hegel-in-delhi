@@ -42,37 +42,37 @@
     "aqi": 139
    },
    {
-    "temp": 20,
-    "sky": "partly cloudy",
+    "temp": 21,
+    "sky": "overcast",
     "rain": 0,
     "aqi": 137
    },
    {
     "temp": 20,
-    "sky": "overcast",
-    "rain": 0,
+    "sky": "drizzle",
+    "rain": 0.5,
     "aqi": 135
    },
    {
     "temp": 20,
-    "sky": "overcast",
-    "rain": 0,
+    "sky": "drizzle",
+    "rain": 0.3,
     "aqi": 133
    },
    {
-    "temp": 22,
+    "temp": 21,
     "sky": "overcast",
     "rain": 0,
     "aqi": 131
    },
    {
-    "temp": 24,
+    "temp": 23,
     "sky": "overcast",
     "rain": 0,
     "aqi": 130
    },
    {
-    "temp": 25,
+    "temp": 24,
     "sky": "overcast",
     "rain": 0,
     "aqi": 131
@@ -115,12 +115,12 @@
    },
    {
     "temp": 26,
-    "sky": "overcast",
+    "sky": "partly cloudy, hazy",
     "rain": 0,
     "aqi": 150
    },
    {
-    "temp": 26,
+    "temp": 25,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 154
@@ -132,7 +132,7 @@
     "aqi": 161
    },
    {
-    "temp": 25,
+    "temp": 24,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 168
@@ -144,13 +144,13 @@
     "aqi": 176
    },
    {
-    "temp": 24,
+    "temp": 23,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 184
    },
    {
-    "temp": 24,
+    "temp": 23,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 190
@@ -519,6 +519,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "20:01",
+   "to": "20:31",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1319,13 +1326,42 @@
      ]
     ]
    }
+  },
+  {
+   "t": "20:01",
+   "end": "20:31",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-16T20:01+05:30",
+  "until": "2026-10-16T20:31+05:30",
   "asleep": false,
   "imprest": 6851,
   "wearing": "kurta",
