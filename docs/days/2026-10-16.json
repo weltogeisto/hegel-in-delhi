@@ -19,13 +19,13 @@
    },
    {
     "temp": 20,
-    "sky": "overcast",
+    "sky": "partly cloudy",
     "rain": 0,
     "aqi": 141
    },
    {
     "temp": 20,
-    "sky": "mostly clear",
+    "sky": "partly cloudy",
     "rain": 0,
     "aqi": 142
    },
@@ -37,14 +37,14 @@
    },
    {
     "temp": 20,
-    "sky": "overcast",
+    "sky": "partly cloudy",
     "rain": 0,
     "aqi": 139
    },
    {
     "temp": 20,
-    "sky": "showers",
-    "rain": 1.3,
+    "sky": "partly cloudy",
+    "rain": 0,
     "aqi": 137
    },
    {
@@ -72,7 +72,7 @@
     "aqi": 130
    },
    {
-    "temp": 26,
+    "temp": 25,
     "sky": "overcast",
     "rain": 0,
     "aqi": 131
@@ -108,7 +108,7 @@
     "aqi": 144
    },
    {
-    "temp": 28,
+    "temp": 27,
     "sky": "overcast",
     "rain": 0,
     "aqi": 147
@@ -120,8 +120,8 @@
     "aqi": 150
    },
    {
-    "temp": 25,
-    "sky": "mostly clear, hazy",
+    "temp": 26,
+    "sky": "clear, hazy",
     "rain": 0,
     "aqi": 154
    },
@@ -150,7 +150,7 @@
     "aqi": 184
    },
    {
-    "temp": 23,
+    "temp": 24,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 190
@@ -421,6 +421,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "13:01",
+   "to": "13:31",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -822,13 +829,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "13:01",
+   "end": "13:31",
+   "event": "Ramesh has laid out lunch: kadhi, rice and aloo gobhi.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-16T13:01+05:30",
+  "until": "2026-10-16T13:31+05:30",
   "asleep": false,
   "imprest": 6851,
   "wearing": "kurta",
@@ -909,7 +944,8 @@
     ]
    },
    "breakfast": true,
-   "hunger": 1
+   "hunger": 1,
+   "lunch": true
   },
   "account": {
    "advance": 15000,
@@ -1088,7 +1124,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-10-16T07:01+05:30",
+  "last_meal": "2026-10-16T13:01+05:30",
   "snacks": 0,
   "works": [
    {
