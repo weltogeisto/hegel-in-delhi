@@ -48,13 +48,13 @@
     "aqi": 245
    },
    {
-    "temp": 20,
+    "temp": 21,
     "sky": "fog",
     "rain": 0,
     "aqi": 262
    },
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "fog",
     "rain": 0,
     "aqi": 279
@@ -67,7 +67,7 @@
    },
    {
     "temp": 25,
-    "sky": "fog",
+    "sky": "a brown haze",
     "rain": 0,
     "aqi": 295
    },
@@ -114,13 +114,13 @@
     "aqi": 286
    },
    {
-    "temp": 26,
+    "temp": 27,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 285
    },
    {
-    "temp": 25,
+    "temp": 26,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 282
@@ -138,7 +138,7 @@
     "aqi": 271
    },
    {
-    "temp": 23,
+    "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 264
@@ -150,7 +150,7 @@
     "aqi": 257
    },
    {
-    "temp": 22,
+    "temp": 23,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 248
@@ -519,6 +519,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "20:02",
+   "to": "20:32",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1335,13 +1342,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "20:02",
+   "end": "20:32",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-17T20:02+05:30",
+  "until": "2026-10-17T20:32+05:30",
   "asleep": false,
   "imprest": 6551,
   "wearing": "kurta",
