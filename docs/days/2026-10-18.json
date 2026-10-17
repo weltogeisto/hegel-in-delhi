@@ -330,6 +330,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "06:29",
+   "to": "06:59",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -348,6 +355,16 @@
     "since": "2026-10-18"
    },
    "t": "05:59"
+  },
+  {
+   "k": "expense",
+   "item": "Groceries for Ramesh's kitchen",
+   "amount": 1500,
+   "to": "Ramesh",
+   "why": "groceries",
+   "settles": true,
+   "text": "Paid to Ramesh.",
+   "t": "06:29"
   }
  ],
  "steps": [
@@ -376,15 +393,43 @@
      ]
     ]
    }
+  },
+  {
+   "t": "06:29",
+   "end": "06:59",
+   "event": "You pay Ramesh ₹1,500 for groceries. Ramesh is here.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-18T06:29+05:30",
+  "until": "2026-10-18T06:59+05:30",
   "asleep": false,
-  "imprest": 6551,
+  "imprest": 5051,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -458,7 +503,9 @@
   "today": {
    "woke": "05:59",
    "seen": {
-    "home": []
+    "home": [
+     "ramesh"
+    ]
    }
   },
   "account": {
@@ -593,18 +640,7 @@
     "2026-10-02"
    ]
   },
-  "owed": [
-   {
-    "to": "Ramesh",
-    "amount": 1500,
-    "why": "groceries",
-    "since": "2026-10-18",
-    "cost": "groceries",
-    "item": "Groceries for Ramesh's kitchen",
-    "at": "home",
-    "with": "ramesh"
-   }
-  ],
+  "owed": [],
   "cheques": [],
   "receipts": [],
   "engagements": [],
@@ -621,7 +657,8 @@
     "2026-10-13",
     "2026-10-15",
     "2026-10-16",
-    "2026-10-17"
+    "2026-10-17",
+    "2026-10-18"
    ],
    "malhotra": [
     "2026-10-02",
