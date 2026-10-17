@@ -414,6 +414,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "12:32",
+   "to": "13:02",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -805,13 +812,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "12:32",
+   "end": "13:02",
+   "event": "You are hungry.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.1,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-17T12:32+05:30",
+  "until": "2026-10-17T13:02+05:30",
   "asleep": false,
   "imprest": 6551,
   "wearing": "kurta",
@@ -894,7 +929,8 @@
     ]
    },
    "breakfast": true,
-   "bad_air": true
+   "bad_air": true,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
