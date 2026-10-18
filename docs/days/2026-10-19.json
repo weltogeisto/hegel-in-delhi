@@ -13,147 +13,147 @@
   "hours": [
    {
     "temp": 22,
-    "sky": "clear",
+    "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 144
+    "aqi": 155
    },
    {
     "temp": 22,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 149
-   },
-   {
-    "temp": 21,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 153
-   },
-   {
-    "temp": 21,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 157
-   },
-   {
-    "temp": 21,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 160
-   },
-   {
-    "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 161
    },
    {
-    "temp": 20,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 162
-   },
-   {
     "temp": 21,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 162
-   },
-   {
-    "temp": 23,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 162
-   },
-   {
-    "temp": 25,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 162
-   },
-   {
-    "temp": 27,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 162
-   },
-   {
-    "temp": 28,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 162
-   },
-   {
-    "temp": 29,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 163
-   },
-   {
-    "temp": 30,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 166
    },
    {
-    "temp": 30,
+    "temp": 21,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 169
+    "aqi": 170
    },
    {
-    "temp": 29,
+    "temp": 21,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 173
+   },
+   {
+    "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 174
    },
    {
-    "temp": 28,
+    "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 179
+    "aqi": 175
    },
    {
-    "temp": 26,
+    "temp": 21,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 183
+    "aqi": 175
+   },
+   {
+    "temp": 23,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 175
    },
    {
     "temp": 25,
     "sky": "clear, hazy",
     "rain": 0,
+    "aqi": 175
+   },
+   {
+    "temp": 27,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 175
+   },
+   {
+    "temp": 28,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 176
+   },
+   {
+    "temp": 29,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 178
+   },
+   {
+    "temp": 30,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 180
+   },
+   {
+    "temp": 30,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 184
+   },
+   {
+    "temp": 29,
+    "sky": "clear, hazy",
+    "rain": 0,
     "aqi": 189
    },
    {
-    "temp": 24,
+    "temp": 28,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 195
+    "aqi": 193
    },
    {
-    "temp": 23,
+    "temp": 26,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 197
+   },
+   {
+    "temp": 25,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 202
    },
    {
+    "temp": 24,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 209
+   },
+   {
     "temp": 23,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 212
+    "aqi": 216
+   },
+   {
+    "temp": 23,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 223
    },
    {
     "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 221
+    "aqi": 230
    },
    {
     "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 229
+    "aqi": 236
    }
   ]
  },
@@ -372,6 +372,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "09:43",
+   "to": "10:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -581,13 +588,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "09:43",
+   "end": "10:00",
+   "event": "Nothing in particular happens. The morning goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-19T09:43+05:30",
+  "until": "2026-10-19T10:00+05:30",
   "asleep": false,
   "imprest": 5051,
   "wearing": "kurta",
