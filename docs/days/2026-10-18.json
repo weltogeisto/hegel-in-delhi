@@ -428,6 +428,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "13:29",
+   "to": "13:59",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -876,13 +883,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "13:29",
+   "end": "13:59",
+   "event": "Ramesh has laid out lunch: dal, rice, bhindi and curd.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-18T13:29+05:30",
+  "until": "2026-10-18T13:59+05:30",
   "asleep": false,
   "imprest": 5051,
   "wearing": "kurta",
@@ -963,7 +998,8 @@
     ]
    },
    "breakfast": true,
-   "hunger": 1
+   "hunger": 1,
+   "lunch": true
   },
   "account": {
    "advance": 15000,
@@ -1148,7 +1184,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-10-18T07:29+05:30",
+  "last_meal": "2026-10-18T13:29+05:30",
   "snacks": 0,
   "works": [
    {
