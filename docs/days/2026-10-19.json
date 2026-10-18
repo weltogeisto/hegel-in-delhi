@@ -386,6 +386,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "10:30",
+   "to": "11:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -652,13 +659,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "10:30",
+   "end": "11:00",
+   "event": "Ramesh hands you a visiting card. Shri Hegde came at ten, waited twenty minutes on the verandah and left. On the back of the card, in a careful hand: 'Perhaps the Directorate, then.'",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-19T10:30+05:30",
+  "until": "2026-10-19T11:00+05:30",
   "asleep": false,
   "imprest": 5051,
   "wearing": "kurta",
@@ -710,14 +745,7 @@
    "bandhgala": "collected",
    "hegde_lodger": true
   },
-  "appointments": [
-   {
-    "date": "2026-10-19",
-    "t": "10:00",
-    "what": "Shri Hegde calls at the bungalow",
-    "beat": "hegde_call"
-   }
-  ],
+  "appointments": [],
   "theses": [
    {
     "id": "india",
@@ -941,6 +969,9 @@
     "last": "2026-10-13",
     "tail": "There is no state here that has made itself. There is only nature, history as traffic, the dream of a spirit that has not yet woken up to its own freedom.\n\nI am a ghost in this bungalow. I am not Shri Hegde. I am Hegel. I am a spirit that has traveled from the summit of the Germanic world to the dawn of the Oriental. I am here to observe, to record, to understand. I am not to change. I am not to teach. I am to see the difference between the dream and the state, between the given and the grown, between the nature and the spirit. And in seeing it, I confirm my own freedom. I am free because I am outside the dream. I am free because I am in the state, even if I am a mistake in its allotment. The state is rational, and I am rational. Therefore, I am free. The dream is not. It is only a dream."
    }
+  ],
+  "missed": [
+   "hegde_call"
   ]
  }
 }
