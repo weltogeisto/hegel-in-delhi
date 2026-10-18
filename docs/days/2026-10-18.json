@@ -42,7 +42,7 @@
     "aqi": 178
    },
    {
-    "temp": 20,
+    "temp": 21,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 162
@@ -54,13 +54,13 @@
     "aqi": 144
    },
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "clear",
     "rain": 0,
     "aqi": 126
    },
    {
-    "temp": 23,
+    "temp": 24,
     "sky": "clear",
     "rain": 0,
     "aqi": 120
@@ -72,7 +72,7 @@
     "aqi": 118
    },
    {
-    "temp": 26,
+    "temp": 27,
     "sky": "clear",
     "rain": 0,
     "aqi": 116
@@ -90,7 +90,7 @@
     "aqi": 114
    },
    {
-    "temp": 28,
+    "temp": 29,
     "sky": "clear",
     "rain": 0,
     "aqi": 113
@@ -102,7 +102,7 @@
     "aqi": 114
    },
    {
-    "temp": 28,
+    "temp": 29,
     "sky": "clear",
     "rain": 0,
     "aqi": 115
@@ -127,13 +127,13 @@
    },
    {
     "temp": 24,
-    "sky": "mostly clear",
+    "sky": "clear",
     "rain": 0,
     "aqi": 127
    },
    {
     "temp": 24,
-    "sky": "mostly clear",
+    "sky": "clear",
     "rain": 0,
     "aqi": 133
    },
@@ -144,7 +144,7 @@
     "aqi": 139
    },
    {
-    "temp": 22,
+    "temp": 23,
     "sky": "clear",
     "rain": 0,
     "aqi": 147
@@ -509,6 +509,13 @@
   {
    "from": "18:59",
    "to": "19:29",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
+  },
+  {
+   "from": "19:29",
+   "to": "19:59",
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
@@ -1301,13 +1308,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "19:29",
+   "end": "19:59",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-18T19:29+05:30",
+  "until": "2026-10-18T19:59+05:30",
   "asleep": false,
   "imprest": 5051,
   "wearing": "kurta",
