@@ -36,7 +36,7 @@
     "aqi": 157
    },
    {
-    "temp": 20,
+    "temp": 21,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 160
@@ -48,31 +48,31 @@
     "aqi": 161
    },
    {
-    "temp": 19,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 162
-   },
-   {
     "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 162
    },
    {
-    "temp": 22,
+    "temp": 21,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 162
    },
    {
-    "temp": 24,
+    "temp": 23,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 162
    },
    {
-    "temp": 26,
+    "temp": 25,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 162
+   },
+   {
+    "temp": 27,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 162
@@ -90,13 +90,13 @@
     "aqi": 163
    },
    {
-    "temp": 29,
+    "temp": 30,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 166
    },
    {
-    "temp": 29,
+    "temp": 30,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 169
@@ -323,16 +323,58 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "06:13",
+   "to": "06:43",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “New draft proposal, new districts: what the Centre’s moves mean for Ladakh | Explained” · “‘Last warning’: Gangster Anil Pandit claims Tiger Shroff firing, warns Salman Khan” · “Uttar Pradesh Khadi festival begins in Meerut”",
+   "t": "06:13"
+  }
+ ],
+ "steps": [
+  {
+   "t": "06:13",
+   "end": "06:43",
+   "event": "You wake. Clear, hazy, 20 °C. Ramesh has left the papers on the verandah. Headlines: New draft proposal, new districts: what the Centre’s moves mean for Ladakh | Explained; ‘Last warning’: Gangster Anil Pandit claims Tiger Shroff firing, warns Salman Khan; Uttar Pradesh Khadi festival begins in Meerut. Ramesh is here.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 0,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "the PC did not wake for the morning plan"
+     ]
+    ]
+   }
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-19T06:13+05:30",
-  "asleep": true,
+  "until": "2026-10-19T06:43+05:30",
+  "asleep": false,
   "imprest": 5051,
   "wearing": "kurta",
   "wardrobe": [
@@ -404,7 +446,14 @@
    }
   ],
   "depesche_n": 0,
-  "today": {},
+  "today": {
+   "woke": "06:13",
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -518,7 +567,8 @@
     "2026-10-15",
     "2026-10-16",
     "2026-10-17",
-    "2026-10-18"
+    "2026-10-18",
+    "2026-10-19"
    ],
    "lodhi": [
     "2026-10-02",
@@ -555,7 +605,8 @@
     "2026-10-15",
     "2026-10-16",
     "2026-10-17",
-    "2026-10-18"
+    "2026-10-18",
+    "2026-10-19"
    ],
    "malhotra": [
     "2026-10-02",
