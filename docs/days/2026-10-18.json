@@ -30,7 +30,7 @@
     "aqi": 209
    },
    {
-    "temp": 22,
+    "temp": 21,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 194
@@ -72,7 +72,7 @@
     "aqi": 118
    },
    {
-    "temp": 27,
+    "temp": 26,
     "sky": "clear",
     "rain": 0,
     "aqi": 116
@@ -84,13 +84,13 @@
     "aqi": 115
    },
    {
-    "temp": 29,
+    "temp": 28,
     "sky": "clear",
     "rain": 0,
     "aqi": 114
    },
    {
-    "temp": 29,
+    "temp": 28,
     "sky": "clear",
     "rain": 0,
     "aqi": 113
@@ -102,7 +102,7 @@
     "aqi": 114
    },
    {
-    "temp": 29,
+    "temp": 28,
     "sky": "clear",
     "rain": 0,
     "aqi": 115
@@ -127,13 +127,13 @@
    },
    {
     "temp": 24,
-    "sky": "clear",
+    "sky": "mostly clear",
     "rain": 0,
     "aqi": 127
    },
    {
     "temp": 24,
-    "sky": "clear",
+    "sky": "mostly clear",
     "rain": 0,
     "aqi": 133
    },
@@ -418,6 +418,13 @@
   {
    "from": "12:29",
    "to": "12:59",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
+  },
+  {
+   "from": "12:59",
+   "to": "13:29",
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
@@ -841,13 +848,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "12:59",
+   "end": "13:29",
+   "event": "You are hungry.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-18T12:59+05:30",
+  "until": "2026-10-18T13:29+05:30",
   "asleep": false,
   "imprest": 5051,
   "wearing": "kurta",
@@ -927,7 +962,8 @@
      "ramesh"
     ]
    },
-   "breakfast": true
+   "breakfast": true,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
