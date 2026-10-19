@@ -330,6 +330,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "06:37",
+   "to": "07:07",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -367,13 +374,42 @@
      ]
     ]
    }
+  },
+  {
+   "t": "06:37",
+   "end": "07:07",
+   "event": "Shri G. Hegde is here.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.1,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-20T06:37+05:30",
+  "until": "2026-10-20T07:07+05:30",
   "asleep": false,
   "imprest": 5051,
   "wearing": "kurta",
@@ -443,6 +479,7 @@
    "woke": "06:07",
    "seen": {
     "home": [
+     "hegde",
      "ramesh"
     ]
    }
@@ -627,7 +664,8 @@
     "2026-10-15",
     "2026-10-16",
     "2026-10-17",
-    "2026-10-19"
+    "2026-10-19",
+    "2026-10-20"
    ]
   },
   "refused": {},
