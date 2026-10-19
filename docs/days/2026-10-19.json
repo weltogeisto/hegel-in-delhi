@@ -470,6 +470,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "16:30",
+   "to": "17:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -477,6 +484,11 @@
    "k": "world",
    "text": "Morning papers: “New draft proposal, new districts: what the Centre’s moves mean for Ladakh | Explained” · “‘Last warning’: Gangster Anil Pandit claims Tiger Shroff firing, warns Salman Khan” · “Uttar Pradesh Khadi festival begins in Meerut”",
    "t": "06:13"
+  },
+  {
+   "k": "world",
+   "text": "Ramesh brings tea.",
+   "t": "16:30"
   }
  ],
  "steps": [
@@ -1072,13 +1084,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "16:30",
+   "end": "17:00",
+   "event": "Ramesh hands you a visiting card. Shri Hegde came at ten, waited twenty minutes on the verandah and left. On the back of the card, in a careful hand: 'Perhaps the Directorate, then.' Ramesh brings tea: tea and a few samosas from the market.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-19T16:30+05:30",
+  "until": "2026-10-19T17:00+05:30",
   "asleep": false,
   "imprest": 5051,
   "wearing": "kurta",
@@ -1153,7 +1193,8 @@
     ]
    },
    "breakfast": true,
-   "lunch": true
+   "lunch": true,
+   "tea": true
   },
   "account": {
    "advance": 15000,
@@ -1342,7 +1383,7 @@
    "sim": false
   },
   "last_meal": "2026-10-19T13:00+05:30",
-  "snacks": 0,
+  "snacks": 1,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
