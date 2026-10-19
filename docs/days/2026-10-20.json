@@ -323,16 +323,58 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "06:07",
+   "to": "06:37",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Naveen Patnaik questions Odisha government’s 'silence' on Andhra's poll notification for disputed Kotia villages” · “Uttarakhand minister interrupts Daler Mehndi on stage, alleges singer was drunk” · “Kuki group announces shutdown of key Manipur highway after attacks on villages”",
+   "t": "06:07"
+  }
+ ],
+ "steps": [
+  {
+   "t": "06:07",
+   "end": "06:37",
+   "event": "You wake. A brown haze, 19 °C. Today is Dussehra, a national holiday. A dry day: no alcohol is sold. Ramesh has left the papers on the verandah. Headlines: Naveen Patnaik questions Odisha government’s 'silence' on Andhra's poll notification for disputed Kotia villages; Uttarakhand minister interrupts Daler Mehndi on stage, alleges singer was drunk; Kuki group announces shutdown of key Manipur highway after attacks on villages. Ramesh is here.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 0,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "the PC did not wake for the morning plan"
+     ]
+    ]
+   }
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-20T06:07+05:30",
-  "asleep": true,
+  "until": "2026-10-20T06:37+05:30",
+  "asleep": false,
   "imprest": 5051,
   "wearing": "kurta",
   "wardrobe": [
@@ -397,7 +439,14 @@
    }
   ],
   "depesche_n": 0,
-  "today": {},
+  "today": {
+   "woke": "06:07",
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -512,7 +561,8 @@
     "2026-10-16",
     "2026-10-17",
     "2026-10-18",
-    "2026-10-19"
+    "2026-10-19",
+    "2026-10-20"
    ],
    "lodhi": [
     "2026-10-02",
@@ -550,7 +600,8 @@
     "2026-10-16",
     "2026-10-17",
     "2026-10-18",
-    "2026-10-19"
+    "2026-10-19",
+    "2026-10-20"
    ],
    "malhotra": [
     "2026-10-02",
