@@ -12,127 +12,139 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 232
+    "aqi": 263
    },
    {
     "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 233
+    "aqi": 265
    },
    {
     "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 234
+    "aqi": 266
    },
    {
     "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 235
+    "aqi": 266
    },
    {
     "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 235
+    "aqi": 266
    },
    {
     "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 232
+    "aqi": 262
    },
    {
     "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 230
+    "aqi": 260
    },
    {
     "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 229
+    "aqi": 260
    },
    {
     "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 230
+    "aqi": 261
    },
    {
     "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 231
+    "aqi": 263
    },
    {
     "temp": 26,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 232
+    "aqi": 265
    },
    {
     "temp": 28,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 232
+    "aqi": 265
    },
    {
     "temp": 29,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 232
-   },
-   {
-    "temp": 29,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 231
+    "aqi": 266
    },
    {
     "temp": 30,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 229
+    "aqi": 265
+   },
+   {
+    "temp": 30,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 264
+   },
+   {
+    "temp": 30,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 263
    },
    {
     "temp": 29,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 227
-   },
-   {
-    "temp": 28,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 225
+    "aqi": 261
    },
    {
     "temp": 27,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 223
+    "aqi": 255
+   },
+   {
+    "temp": 26,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 248
    },
    {
     "temp": 25,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 221
+    "aqi": 241
    },
    {
     "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 218
+    "aqi": 232
    },
    {
     "temp": 24,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 223
+   },
+   {
+    "temp": 23,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 215
@@ -141,19 +153,7 @@
     "temp": 23,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 211
-   },
-   {
-    "temp": 23,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 206
-   },
-   {
-    "temp": 22,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 202
+    "aqi": 208
    }
   ]
  },
@@ -372,6 +372,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "09:37",
+   "to": "10:07",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -581,13 +588,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "09:37",
+   "end": "10:07",
+   "event": "Nothing in particular happens. The morning goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-20T09:37+05:30",
+  "until": "2026-10-20T10:07+05:30",
   "asleep": false,
   "imprest": 5051,
   "wearing": "kurta",
