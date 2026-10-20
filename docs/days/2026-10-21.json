@@ -30,7 +30,7 @@
     "aqi": 183
    },
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 182
@@ -60,36 +60,30 @@
     "aqi": 186
    },
    {
-    "temp": 23,
+    "temp": 24,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 189
    },
    {
-    "temp": 25,
+    "temp": 26,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 192
    },
    {
-    "temp": 27,
+    "temp": 28,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 195
    },
    {
-    "temp": 28,
+    "temp": 29,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 198
    },
    {
-    "temp": 29,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 200
-   },
-   {
     "temp": 30,
     "sky": "a brown haze",
     "rain": 0,
@@ -97,6 +91,12 @@
    },
    {
     "temp": 30,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 200
+   },
+   {
+    "temp": 31,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 201
@@ -108,7 +108,7 @@
     "aqi": 200
    },
    {
-    "temp": 29,
+    "temp": 30,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 200
@@ -132,7 +132,7 @@
     "aqi": 200
    },
    {
-    "temp": 25,
+    "temp": 26,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 202
@@ -144,7 +144,7 @@
     "aqi": 206
    },
    {
-    "temp": 24,
+    "temp": 25,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 211
@@ -323,16 +323,56 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "06:16",
+   "to": "06:46",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Guest lecturers yet to get hike in honorarium announced in the budget” · “Secy of State Marco Rubio: ‘On US-India deal… it’s down to certain words, phrases… We are weeks from finalising it… 99% of the work is done’” · “The ECI’s unfinished lessons”",
+   "t": "06:16"
+  }
+ ],
+ "steps": [
+  {
+   "t": "06:16",
+   "end": "06:46",
+   "event": "You wake. Clear, hazy, 20 °C. The papers lie on the step where the hawker threw them. Headlines: Guest lecturers yet to get hike in honorarium announced in the budget; Secy of State Marco Rubio: ‘On US-India deal… it’s down to certain words, phrases… We are weeks from finalising it… 99% of the work is done’; The ECI’s unfinished lessons.",
+   "present": [],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 0,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "the PC did not wake for the morning plan"
+     ]
+    ]
+   }
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-21T06:16+05:30",
-  "asleep": true,
+  "until": "2026-10-21T06:46+05:30",
+  "asleep": false,
   "imprest": 5051,
   "wearing": "kurta",
   "wardrobe": [
@@ -397,7 +437,12 @@
    }
   ],
   "depesche_n": 0,
-  "today": {},
+  "today": {
+   "woke": "06:16",
+   "seen": {
+    "home": []
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -513,7 +558,8 @@
     "2026-10-17",
     "2026-10-18",
     "2026-10-19",
-    "2026-10-20"
+    "2026-10-20",
+    "2026-10-21"
    ],
    "lodhi": [
     "2026-10-02",
