@@ -15,127 +15,133 @@
     "temp": 22,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 187
-   },
-   {
-    "temp": 22,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 184
-   },
-   {
-    "temp": 22,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 183
-   },
-   {
-    "temp": 22,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 182
-   },
-   {
-    "temp": 21,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 183
-   },
-   {
-    "temp": 20,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 184
-   },
-   {
-    "temp": 20,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 185
-   },
-   {
-    "temp": 21,
-    "sky": "clear, hazy",
-    "rain": 0,
     "aqi": 186
+   },
+   {
+    "temp": 22,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 183
+   },
+   {
+    "temp": 22,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 181
+   },
+   {
+    "temp": 22,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 180
+   },
+   {
+    "temp": 21,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 180
+   },
+   {
+    "temp": 20,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 180
+   },
+   {
+    "temp": 20,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 180
+   },
+   {
+    "temp": 21,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 181
    },
    {
     "temp": 24,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 189
+    "aqi": 181
    },
    {
     "temp": 26,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 192
+    "aqi": 181
    },
    {
     "temp": 28,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 195
+    "aqi": 184
    },
    {
     "temp": 29,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 198
+    "aqi": 187
    },
    {
     "temp": 30,
-    "sky": "a brown haze",
+    "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 200
+    "aqi": 189
    },
    {
     "temp": 30,
-    "sky": "a brown haze",
+    "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 200
+    "aqi": 191
    },
    {
     "temp": 31,
-    "sky": "a brown haze",
+    "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 201
+    "aqi": 192
    },
    {
     "temp": 30,
-    "sky": "a brown haze",
+    "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 200
+    "aqi": 193
    },
    {
     "temp": 30,
-    "sky": "a brown haze",
+    "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 200
+    "aqi": 193
    },
    {
     "temp": 28,
-    "sky": "a brown haze",
+    "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 200
+    "aqi": 194
    },
    {
     "temp": 27,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 199
+    "aqi": 195
    },
    {
     "temp": 26,
-    "sky": "a brown haze",
+    "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 200
+    "aqi": 196
    },
    {
     "temp": 26,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 198
+   },
+   {
+    "temp": 25,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 202
+    "aqi": 201
    },
    {
     "temp": 25,
@@ -144,16 +150,10 @@
     "aqi": 206
    },
    {
-    "temp": 25,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 211
-   },
-   {
     "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 216
+    "aqi": 210
    }
   ]
  },
@@ -372,6 +372,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "09:46",
+   "to": "10:16",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -571,13 +578,39 @@
      ]
     ]
    }
+  },
+  {
+   "t": "09:46",
+   "end": "10:16",
+   "event": "Nothing in particular happens. The morning goes on.",
+   "present": [],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-21T09:46+05:30",
+  "until": "2026-10-21T10:16+05:30",
   "asleep": false,
   "imprest": 5051,
   "wearing": "kurta",
