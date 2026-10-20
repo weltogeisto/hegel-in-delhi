@@ -358,6 +358,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "08:46",
+   "to": "09:16",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -505,13 +512,39 @@
      ]
     ]
    }
+  },
+  {
+   "t": "08:46",
+   "end": "09:16",
+   "event": "Nothing in particular happens. The morning goes on.",
+   "present": [],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-21T08:46+05:30",
+  "until": "2026-10-21T09:16+05:30",
   "asleep": false,
   "imprest": 5051,
   "wearing": "kurta",
