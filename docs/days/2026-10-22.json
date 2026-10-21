@@ -323,16 +323,58 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "06:17",
+   "to": "06:47",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “23rd Kaladarshini cultural festival from October 26 in Vijayawada” · “Amid anger over ‘racism’ in content creator’s video, Tripura CM Manik Saha seeks action” · “T.N. government fixes car purchase ceiling at ₹26 lakh for Ministers, other key Assembly functionaries; sets ₹15-lakh cap for other MLAs”",
+   "t": "06:17"
+  }
+ ],
+ "steps": [
+  {
+   "t": "06:17",
+   "end": "06:47",
+   "event": "You wake. A brown haze, 21 °C. Ramesh has left the papers on the verandah. Headlines: 23rd Kaladarshini cultural festival from October 26 in Vijayawada; Amid anger over ‘racism’ in content creator’s video, Tripura CM Manik Saha seeks action; T.N. government fixes car purchase ceiling at ₹26 lakh for Ministers, other key Assembly functionaries; sets ₹15-lakh cap for other MLAs. Ramesh is here.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 0,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "the PC did not wake for the morning plan"
+     ]
+    ]
+   }
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-22T06:17+05:30",
-  "asleep": true,
+  "until": "2026-10-22T06:47+05:30",
+  "asleep": false,
   "imprest": 5051,
   "wearing": "kurta",
   "wardrobe": [
@@ -397,7 +439,14 @@
    }
   ],
   "depesche_n": 0,
-  "today": {},
+  "today": {
+   "woke": "06:17",
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -514,7 +563,8 @@
     "2026-10-18",
     "2026-10-19",
     "2026-10-20",
-    "2026-10-21"
+    "2026-10-21",
+    "2026-10-22"
    ],
    "lodhi": [
     "2026-10-02",
@@ -553,7 +603,8 @@
     "2026-10-17",
     "2026-10-18",
     "2026-10-19",
-    "2026-10-20"
+    "2026-10-20",
+    "2026-10-22"
    ],
    "malhotra": [
     "2026-10-02",
