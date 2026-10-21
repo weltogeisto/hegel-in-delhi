@@ -12,7 +12,7 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 22,
+    "temp": 23,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 186
@@ -42,7 +42,7 @@
     "aqi": 180
    },
    {
-    "temp": 20,
+    "temp": 21,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 180
@@ -60,7 +60,7 @@
     "aqi": 181
    },
    {
-    "temp": 24,
+    "temp": 23,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 181
@@ -84,7 +84,7 @@
     "aqi": 187
    },
    {
-    "temp": 30,
+    "temp": 29,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 189
@@ -96,7 +96,7 @@
     "aqi": 191
    },
    {
-    "temp": 31,
+    "temp": 30,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 192
@@ -108,7 +108,7 @@
     "aqi": 193
    },
    {
-    "temp": 30,
+    "temp": 29,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 193
@@ -120,7 +120,7 @@
     "aqi": 194
    },
    {
-    "temp": 27,
+    "temp": 26,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 195
@@ -132,7 +132,7 @@
     "aqi": 196
    },
    {
-    "temp": 26,
+    "temp": 25,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 198
@@ -418,6 +418,13 @@
   {
    "from": "12:46",
    "to": "13:16",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
+  },
+  {
+   "from": "13:16",
+   "to": "13:46",
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
@@ -802,13 +809,39 @@
      ]
     ]
    }
+  },
+  {
+   "t": "13:16",
+   "end": "13:46",
+   "event": "Ramesh has his day off. There is no lunch at home today.",
+   "present": [],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-21T13:16+05:30",
+  "until": "2026-10-21T13:46+05:30",
   "asleep": false,
   "imprest": 5051,
   "wearing": "kurta",
@@ -881,7 +914,8 @@
      "hegde"
     ]
    },
-   "hunger": 1
+   "hunger": 1,
+   "lunch": true
   },
   "account": {
    "advance": 15000,
