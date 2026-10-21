@@ -533,6 +533,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "21:16",
+   "to": "21:46",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -540,6 +547,11 @@
    "k": "world",
    "text": "Morning papers: “Guest lecturers yet to get hike in honorarium announced in the budget” · “Secy of State Marco Rubio: ‘On US-India deal… it’s down to certain words, phrases… We are weeks from finalising it… 99% of the work is done’” · “The ECI’s unfinished lessons”",
    "t": "06:16"
+  },
+  {
+   "k": "world",
+   "text": "A power cut. The fan stops.",
+   "t": "21:16"
   }
  ],
  "steps": [
@@ -1330,13 +1342,39 @@
      ]
     ]
    }
+  },
+  {
+   "t": "21:16",
+   "end": "21:46",
+   "event": "The power goes. The fan stops. You find candles in the kitchen drawer.",
+   "present": [],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-21T21:16+05:30",
+  "until": "2026-10-21T21:46+05:30",
   "asleep": false,
   "imprest": 5051,
   "wearing": "kurta",
@@ -1410,7 +1448,8 @@
     ]
    },
    "hunger": 2,
-   "lunch": true
+   "lunch": true,
+   "power": true
   },
   "account": {
    "advance": 15000,
