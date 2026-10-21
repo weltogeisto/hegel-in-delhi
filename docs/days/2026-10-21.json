@@ -54,13 +54,13 @@
     "aqi": 180
    },
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 181
    },
    {
-    "temp": 23,
+    "temp": 24,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 181
@@ -72,13 +72,13 @@
     "aqi": 181
    },
    {
-    "temp": 28,
+    "temp": 27,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 184
    },
    {
-    "temp": 29,
+    "temp": 28,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 187
@@ -90,7 +90,7 @@
     "aqi": 189
    },
    {
-    "temp": 30,
+    "temp": 29,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 191
@@ -120,7 +120,7 @@
     "aqi": 194
    },
    {
-    "temp": 26,
+    "temp": 27,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 195
@@ -144,7 +144,7 @@
     "aqi": 201
    },
    {
-    "temp": 25,
+    "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 206
@@ -516,6 +516,13 @@
   {
    "from": "19:46",
    "to": "20:16",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
+  },
+  {
+   "from": "20:16",
+   "to": "20:46",
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
@@ -1264,13 +1271,39 @@
      ]
     ]
    }
+  },
+  {
+   "t": "20:16",
+   "end": "20:46",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-21T20:16+05:30",
+  "until": "2026-10-21T20:46+05:30",
   "asleep": false,
   "imprest": 5051,
   "wearing": "kurta",
