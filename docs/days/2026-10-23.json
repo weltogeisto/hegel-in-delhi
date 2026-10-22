@@ -60,7 +60,7 @@
     "aqi": 190
    },
    {
-    "temp": 23,
+    "temp": 24,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 188
@@ -90,31 +90,31 @@
     "aqi": 191
    },
    {
-    "temp": 30,
-    "sky": "mostly clear, hazy",
+    "temp": 31,
+    "sky": "clear, hazy",
     "rain": 0,
     "aqi": 191
    },
    {
-    "temp": 30,
-    "sky": "partly cloudy, hazy",
-    "rain": 0,
-    "aqi": 190
-   },
-   {
-    "temp": 30,
-    "sky": "drizzle",
-    "rain": 0.2,
-    "aqi": 190
-   },
-   {
-    "temp": 29,
+    "temp": 31,
     "sky": "mostly clear, hazy",
     "rain": 0,
     "aqi": 190
    },
    {
-    "temp": 27,
+    "temp": 31,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 190
+   },
+   {
+    "temp": 29,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 190
+   },
+   {
+    "temp": 28,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 190
@@ -126,12 +126,6 @@
     "aqi": 189
    },
    {
-    "temp": 25,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 188
-   },
-   {
     "temp": 24,
     "sky": "clear, hazy",
     "rain": 0,
@@ -139,6 +133,12 @@
    },
    {
     "temp": 24,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 188
+   },
+   {
+    "temp": 23,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 187
@@ -150,7 +150,7 @@
     "aqi": 186
    },
    {
-    "temp": 23,
+    "temp": 22,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 185
@@ -323,16 +323,58 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "06:09",
+   "to": "06:39",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “IIT-Madras announces research projects on AI, seeks to study feasibility of small data centres” · “Why did Ladakh cancel land allotment to Sonam Wangchuk’s institute? An answer in court” · “Should children be involved in political campaigning?”",
+   "t": "06:09"
+  }
+ ],
+ "steps": [
+  {
+   "t": "06:09",
+   "end": "06:39",
+   "event": "You wake. Clear, hazy, 20 °C. Ramesh has left the papers on the verandah. Headlines: IIT-Madras announces research projects on AI, seeks to study feasibility of small data centres; Why did Ladakh cancel land allotment to Sonam Wangchuk’s institute? An answer in court; Should children be involved in political campaigning?. Ramesh is here.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 0,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "the PC did not wake for the morning plan"
+     ]
+    ]
+   }
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-23T06:09+05:30",
-  "asleep": true,
+  "until": "2026-10-23T06:39+05:30",
+  "asleep": false,
   "imprest": 5051,
   "wearing": "kurta",
   "wardrobe": [
@@ -397,7 +439,14 @@
    }
   ],
   "depesche_n": 0,
-  "today": {},
+  "today": {
+   "woke": "06:09",
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -515,7 +564,8 @@
     "2026-10-19",
     "2026-10-20",
     "2026-10-21",
-    "2026-10-22"
+    "2026-10-22",
+    "2026-10-23"
    ],
    "lodhi": [
     "2026-10-02",
@@ -555,7 +605,8 @@
     "2026-10-18",
     "2026-10-19",
     "2026-10-20",
-    "2026-10-22"
+    "2026-10-22",
+    "2026-10-23"
    ],
    "malhotra": [
     "2026-10-02",
