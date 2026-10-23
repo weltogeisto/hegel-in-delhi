@@ -48,7 +48,7 @@
     "aqi": 228
    },
    {
-    "temp": 21,
+    "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 226
@@ -96,61 +96,61 @@
     "aqi": 239
    },
    {
-    "temp": 30,
-    "sky": "a brown haze",
-    "rain": 0,
+    "temp": 28,
+    "sky": "drizzle",
+    "rain": 0.1,
     "aqi": 240
-   },
-   {
-    "temp": 30,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 240
-   },
-   {
-    "temp": 29,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 240
-   },
-   {
-    "temp": 27,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 237
-   },
-   {
-    "temp": 26,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 234
    },
    {
     "temp": 25,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 231
+    "sky": "drizzle",
+    "rain": 0.2,
+    "aqi": 240
+   },
+   {
+    "temp": 25,
+    "sky": "drizzle",
+    "rain": 0.1,
+    "aqi": 240
    },
    {
     "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 227
+    "aqi": 237
    },
    {
     "temp": 23,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 234
+   },
+   {
+    "temp": 23,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 231
+   },
+   {
+    "temp": 22,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 227
+   },
+   {
+    "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 222
    },
    {
-    "temp": 23,
+    "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 219
    },
    {
-    "temp": 22,
+    "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 215
@@ -512,6 +512,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "19:39",
+   "to": "20:09",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -1287,13 +1294,42 @@
      ]
     ]
    }
+  },
+  {
+   "t": "19:39",
+   "end": "20:09",
+   "event": "Ramesh hands you a visiting card. Shri Hegde came at ten, waited twenty minutes on the verandah and left. On the back of the card, in a careful hand: 'Perhaps the Directorate, then.' Ramesh serves dinner before he goes home: rotis, palak paneer and dal.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-23T19:39+05:30",
+  "until": "2026-10-23T20:09+05:30",
   "asleep": false,
   "imprest": 5051,
   "wearing": "kurta",
@@ -1369,7 +1405,8 @@
    },
    "breakfast": true,
    "lunch": true,
-   "tea": true
+   "tea": true,
+   "dinner": true
   },
   "account": {
    "advance": 15000,
@@ -1568,8 +1605,8 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-10-23T13:09+05:30",
-  "snacks": 1,
+  "last_meal": "2026-10-23T19:39+05:30",
+  "snacks": 0,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
