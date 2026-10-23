@@ -48,7 +48,7 @@
     "aqi": 228
    },
    {
-    "temp": 20,
+    "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 226
@@ -60,7 +60,7 @@
     "aqi": 227
    },
    {
-    "temp": 24,
+    "temp": 23,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 228
@@ -72,16 +72,22 @@
     "aqi": 230
    },
    {
-    "temp": 28,
+    "temp": 27,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 234
    },
    {
-    "temp": 29,
+    "temp": 28,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 237
+   },
+   {
+    "temp": 29,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 239
    },
    {
     "temp": 30,
@@ -90,19 +96,13 @@
     "aqi": 239
    },
    {
-    "temp": 31,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 239
-   },
-   {
-    "temp": 31,
+    "temp": 30,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 240
    },
    {
-    "temp": 31,
+    "temp": 30,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 240
@@ -114,7 +114,7 @@
     "aqi": 240
    },
    {
-    "temp": 28,
+    "temp": 27,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 237
@@ -126,7 +126,7 @@
     "aqi": 234
    },
    {
-    "temp": 24,
+    "temp": 25,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 231
@@ -421,6 +421,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "13:09",
+   "to": "13:39",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -826,13 +833,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "13:09",
+   "end": "13:39",
+   "event": "Ramesh hands you a visiting card. Shri Hegde came at ten, waited twenty minutes on the verandah and left. On the back of the card, in a careful hand: 'Perhaps the Directorate, then.' Ramesh has laid out lunch: dal, rice, bhindi and curd.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-23T13:09+05:30",
+  "until": "2026-10-23T13:39+05:30",
   "asleep": false,
   "imprest": 5051,
   "wearing": "kurta",
@@ -907,7 +942,8 @@
     ]
    },
    "breakfast": true,
-   "hunger": 1
+   "hunger": 1,
+   "lunch": true
   },
   "account": {
    "advance": 15000,
@@ -1106,7 +1142,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-10-23T07:09+05:30",
+  "last_meal": "2026-10-23T13:09+05:30",
   "snacks": 0,
   "works": [
    {
