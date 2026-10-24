@@ -526,6 +526,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "20:42",
+   "to": "21:12",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1373,13 +1380,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "20:42",
+   "end": "21:12",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-24T20:42+05:30",
+  "until": "2026-10-24T21:12+05:30",
   "asleep": false,
   "imprest": 4751,
   "wearing": "kurta",
