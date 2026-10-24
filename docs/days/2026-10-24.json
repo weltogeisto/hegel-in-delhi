@@ -400,6 +400,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "11:42",
+   "to": "12:12",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -735,13 +742,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "11:42",
+   "end": "12:12",
+   "event": "Ramesh hands you a visiting card. Shri Hegde came at ten, waited twenty minutes on the verandah and left. On the back of the card, in a careful hand: 'Perhaps the Directorate, then.'",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-24T11:42+05:30",
+  "until": "2026-10-24T12:12+05:30",
   "asleep": false,
   "imprest": 4751,
   "wearing": "kurta",
