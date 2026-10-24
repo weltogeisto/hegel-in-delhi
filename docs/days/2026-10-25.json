@@ -18,13 +18,13 @@
     "aqi": 218
    },
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 209
    },
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 200
@@ -37,24 +37,24 @@
    },
    {
     "temp": 21,
-    "sky": "mostly clear, hazy",
+    "sky": "clear, hazy",
     "rain": 0,
     "aqi": 184
    },
    {
-    "temp": 20,
-    "sky": "mostly clear, hazy",
+    "temp": 21,
+    "sky": "clear, hazy",
     "rain": 0,
     "aqi": 171
    },
    {
-    "temp": 20,
+    "temp": 21,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 156
    },
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "clear",
     "rain": 0,
     "aqi": 141
@@ -90,7 +90,7 @@
     "aqi": 117
    },
    {
-    "temp": 30,
+    "temp": 31,
     "sky": "clear",
     "rain": 0,
     "aqi": 116
@@ -323,17 +323,69 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "06:13",
+   "to": "06:43",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Residents flag safety risk as silt removed from canals piles up along city roads” · “Farooq Abdullah stirs row with ‘Pakistan keeping Kashmir issue alive’ remark” · “Heavy rain to hit Chennai, northern, delta and western districts on Sunday”",
+   "t": "06:13"
+  },
+  {
+   "k": "expense",
+   "item": "Groceries for Ramesh's kitchen",
+   "amount": 1500,
+   "to": "Ramesh",
+   "why": "groceries",
+   "settles": true,
+   "text": "Paid to Ramesh.",
+   "t": "06:13"
+  }
+ ],
+ "steps": [
+  {
+   "t": "06:13",
+   "end": "06:43",
+   "event": "You wake. Clear, hazy, 21 °C. Ramesh has left the papers on the verandah. Headlines: Residents flag safety risk as silt removed from canals piles up along city roads; Farooq Abdullah stirs row with ‘Pakistan keeping Kashmir issue alive’ remark; Heavy rain to hit Chennai, northern, delta and western districts on Sunday. You pay Ramesh ₹1,500 for groceries. Ramesh is here.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 0,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "the PC did not wake for the morning plan"
+     ]
+    ]
+   }
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-25T06:13+05:30",
-  "asleep": true,
-  "imprest": 4751,
+  "until": "2026-10-25T06:43+05:30",
+  "asleep": false,
+  "imprest": 3251,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -397,7 +449,14 @@
    }
   ],
   "depesche_n": 0,
-  "today": {},
+  "today": {
+   "woke": "06:13",
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -517,7 +576,8 @@
     "2026-10-21",
     "2026-10-22",
     "2026-10-23",
-    "2026-10-24"
+    "2026-10-24",
+    "2026-10-25"
    ],
    "lodhi": [
     "2026-10-02",
@@ -542,7 +602,7 @@
   "engagements": [],
   "costs": {
    "wage": "2026-10-12",
-   "groceries": "2026-10-18",
+   "groceries": "2026-10-25",
    "dhobi": "2026-10-24",
    "electricity": "2026-10-12",
    "data": "2026-10-12"
@@ -559,7 +619,8 @@
     "2026-10-20",
     "2026-10-22",
     "2026-10-23",
-    "2026-10-24"
+    "2026-10-24",
+    "2026-10-25"
    ],
    "malhotra": [
     "2026-10-02",
