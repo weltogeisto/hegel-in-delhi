@@ -54,7 +54,7 @@
     "aqi": 236
    },
    {
-    "temp": 22,
+    "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 240
@@ -78,43 +78,43 @@
     "aqi": 239
    },
    {
-    "temp": 29,
-    "sky": "a brown haze",
+    "temp": 28,
+    "sky": "overcast",
     "rain": 0,
     "aqi": 236
    },
    {
-    "temp": 30,
+    "temp": 29,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 233
    },
    {
-    "temp": 31,
+    "temp": 30,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 229
    },
    {
-    "temp": 31,
+    "temp": 30,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 226
    },
    {
     "temp": 30,
-    "sky": "drizzle",
-    "rain": 0.1,
+    "sky": "a brown haze",
+    "rain": 0,
     "aqi": 224
    },
    {
-    "temp": 30,
+    "temp": 29,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 221
    },
    {
-    "temp": 27,
+    "temp": 28,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 222
@@ -126,31 +126,31 @@
     "aqi": 224
    },
    {
-    "temp": 25,
+    "temp": 26,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 228
    },
    {
-    "temp": 22,
+    "temp": 25,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 232
    },
    {
-    "temp": 21,
+    "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 237
    },
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 242
    },
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 247
@@ -519,6 +519,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "20:12",
+   "to": "20:42",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1337,13 +1344,42 @@
      ]
     ]
    }
+  },
+  {
+   "t": "20:12",
+   "end": "20:42",
+   "event": "Ramesh hands you a visiting card. Shri Hegde came at ten, waited twenty minutes on the verandah and left. On the back of the card, in a careful hand: 'Perhaps the Directorate, then.'",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-24T20:12+05:30",
+  "until": "2026-10-24T20:42+05:30",
   "asleep": false,
   "imprest": 4751,
   "wearing": "kurta",
