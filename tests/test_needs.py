@@ -7,6 +7,7 @@ import subprocess
 import sys
 import threading
 import unittest
+from unittest import mock
 from datetime import date, timedelta
 from http.server import HTTPServer
 from pathlib import Path
@@ -346,6 +347,9 @@ class Owlet(StubMind):
 
 class ThesisTest(unittest.TestCase):
     def setUp(self):
+        floor = mock.patch("world.owl.THESIS_FLOOR", 0)            # these test the evidence; the floor has its own tests (test_owl_persistence)
+        floor.start()
+        self.addCleanup(floor.stop)
         self.box = Sandbox()
         self.box.run_day(SAT)
         self.day = self.box.days.load(SAT)
