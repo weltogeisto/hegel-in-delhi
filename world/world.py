@@ -199,7 +199,8 @@ class World(Economy):
             for i, w in enumerate(c["where"]):
                 if w["place"] != pid or not days_match(w["days"], d):
                     continue
-                if (w.get("if") and not flags.get(w["if"])) or (w.get("date") and w["date"] != d.isoformat()):
+                if (w.get("if") and not flags.get(w["if"])) or (w.get("unless") and flags.get(w["unless"])) or \
+                        (w.get("date") and w["date"] != d.isoformat()):
                     continue
                 if hm(w["from"]) <= m < hm(w["to"]) and random.Random(f"{d}|{cid}|{i}").random() < w["p"]:
                     out.append(cid)
@@ -548,7 +549,9 @@ class World(Economy):
                     menu = random.Random(f"lunch|{d}").choice(LUNCH)
                     events.append((f"Ramesh has laid out lunch: {menu}.", None))
                 else:
-                    events.append(("Ramesh has his day off. There is no lunch at home today.", None))
+                    events.append(("Ramesh comes only on Mondays, Thursdays and Saturdays now. There is no lunch at home today."
+                                   if state.get("flags", {}).get("ramesh_parttime") else
+                                   "Ramesh has his day off. There is no lunch at home today.", None))
             elif not why and meal == "dinner" and "dinner" not in today and "ramesh" in present:
                 today["dinner"] = True
                 menu = random.Random(f"dinner|{d}").choice(DINNER)
