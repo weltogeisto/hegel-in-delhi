@@ -330,6 +330,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "06:23",
+   "to": "06:53",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -398,6 +405,39 @@
    "to": "Hegel",
    "text": "Plate will be on the table in five minutes, sir. As for Shri Hegde's file, I only keep the keys and the tea; the papers are in the office, not here.",
    "t": "06:08"
+  },
+  {
+   "k": "diary",
+   "text": "The particular will of the stomach demands its due, and the steel tiffin is the immediate medium through which it shall be satisfied. The file is a matter of the universal bureaucracy, best approached with the clarity of a cold morning, not in the heat of a full breakfast. I shall consume the rice and dal, for the spirit requires the body's stability to judge the state's error.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316"
+    }
+   ],
+   "t": "06:23"
+  },
+  {
+   "k": "said",
+   "text": "Very well. The plate is the immediate necessity; the file is a matter for the Directorate's office. I shall return to it after I have attended to my body.",
+   "to": "Ramesh",
+   "t": "06:23"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes, sir. The air is nice and cool this morning, good for the body. I will keep the kettle on just in case you want another cup after.",
+   "t": "06:23"
+  },
+  {
+   "k": "world",
+   "text": "Ramesh puts a plate together: rice, the day's dal and a fried egg.",
+   "t": "06:23"
   }
  ],
  "steps": [
@@ -452,13 +492,65 @@
      "text": "O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal. This is the state-constitution."
     }
    ]
+  },
+  {
+   "t": "06:23",
+   "end": "06:53",
+   "event": "Ramesh says: “Plate will be on the table in five minutes, sir. As for Shri Hegde's file, I only keep the keys and the tea; the papers are in the office, not here.” He sets the steel tiffin carrier on the verandah railing.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The particular will of the stomach demands its due, and the steel tiffin is the immediate medium through which it shall be satisfied. The file is a matter of the universal bureaucracy, best approached with the clarity of a cold morning, not in the heat of a full breakfast. I shall consume the rice and dal, for the spirit requires the body's stability to judge the state's error.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": "Very well. The plate is the immediate necessity; the file is a matter for the Directorate's office. I shall return to it after I have attended to my body.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes, sir. The air is nice and cool this morning, good for the body. I will keep the kettle on just in case you want another cup after.",
+    "does": "He pats the steel tiffin carrier once to ensure the lid is tight, then turns back towards the kitchen door."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.3
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316",
+     "id": "rechts:1044"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316",
+     "text": "Was sich wirklich im Staate geltend macht, muß sich freilich auf organische Weise betätigen, und dies ist in der Verfassung der Fall. Aber zu allen Zeiten war die öffentliche Meinung eine große Macht und ist es besonders in unserer Zeit, wo das Prinzip der subjektiven Freiheit diese Wichtigkeit und Bedeutung hat."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-26T06:23+05:30",
+  "until": "2026-10-26T06:53+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
@@ -737,7 +829,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-10-25T19:43+05:30",
+  "last_meal": "2026-10-26T06:23+05:30",
   "snacks": 0,
   "works": [
    {
