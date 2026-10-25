@@ -4,6 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Hegel in Delhi</title>
+<meta name="description" content="G. W. F. Hegel, fifty, wakes up in a Lutyens bungalow that the Directorate of Estates allotted to him by mistake. Watch his days in Delhi, live.">
+<meta name="theme-color" content="#5b4a92">
+<link rel="canonical" href="https://weltogeisto.github.io/hegel-in-delhi/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hegel in Delhi">
+<meta property="og:title" content="Hegel in Delhi">
+<meta property="og:description" content="G. W. F. Hegel, fifty, wakes up in a Lutyens bungalow that the Directorate of Estates allotted to him by mistake. Watch his days in Delhi, live.">
+<meta property="og:url" content="https://weltogeisto.github.io/hegel-in-delhi/">
+<meta property="og:image" content="https://weltogeisto.github.io/hegel-in-delhi/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Hegel in Delhi: a pixel map of Lutyens' Delhi, with Hegel on his day's rounds.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hegel in Delhi">
+<meta name="twitter:description" content="G. W. F. Hegel, fifty, wakes up in a Lutyens bungalow that the Directorate of Estates allotted to him by mistake. Watch his days in Delhi, live.">
+<meta name="twitter:image" content="https://weltogeisto.github.io/hegel-in-delhi/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600&family=Literata:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -105,6 +121,9 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
 .daynav button[hidden]{display:none}
 .now .wx{margin:-4px 0 10px;color:var(--muted);font-size:15px}
 .owl h3{font-size:17px;margin:14px 0 6px;font-weight:600}
+.prev{border-left:3px solid var(--accent);padding:2px 0 2px 12px;margin:0 0 16px}
+.prev .k{display:block;margin-bottom:4px}
+.prev p{margin:0 0 6px}
 .owl p{margin:0 0 10px}
 .panel a{color:var(--accent-strong)}
 .veil{display:block;width:100%;text-align:left;color:#f6f3ff;border-radius:4px;padding:8px 10px;
@@ -257,11 +276,13 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
     </nav>
     <div class="box panel" id="panel" role="tabpanel"></div>
     <div class="about">
-      <p>Day 1 is written by hand. After it, a small model lives his days on this map, and a large one writes them up each night while he sleeps.</p>
+      <p>Day 1 is written by hand. After it, a small model lives his days on this map, live and unscripted: each step is decided a few minutes before its time and appears when its time comes, on Delhi's clock. A large one writes the day up each night while he sleeps. Use the arrows by the date to read earlier days, Day 1 among them.</p>
       <p>The rule: the living are invented, the dead are on his shelf, the news is real. Everyone he meets is fictional; he may name the public figures he reads about, and no words are invented for them.</p>
       <p>His views are his own, nineteenth-century ones included, and nobody corrects him. Entries the world flags as sensitive sit under a dark band until you click it.</p>
       <label><input type="checkbox" id="showSens"> Show sensitive entries without asking</label>
+      <p>He has a purse, a file at the Directorate of Estates and a cook to pay. Nothing is bought for real; the prices are plausible 2026 rupees, and what he earns comes only from what he does.</p>
       <p>The streets, parks and buildings are Lutyens' Delhi as OpenStreetMap has them; compound walls and most trees are drawn in where the map is silent. His bungalow is fictional, on a real plot.</p>
+      <p>The world runs on a Raspberry Pi, his mind on a PC with one graphics card. When the mind is away, he keeps the household and the page shows no thoughts. How it works, and every day's record: <a href="https://github.com/weltogeisto/hegel-in-delhi" target="_blank" rel="noopener">github.com/weltogeisto/hegel-in-delhi</a>.</p>
     </div>
   </aside>
 </div>
@@ -2401,6 +2422,38 @@ function vz(key, why, html, host){
     + `<div class="veiled" id="${id}"${open ? '' : ' hidden'}>${html}</div>`;
 }
 const vkey = e => `${D.date}|${e.i}`;
+// Previously: the first two sentences of last night's write-up, as the owl wrote them, at the top of a live day
+const PREVIOUSLY = {};                       // date → {n, lines, sensitive, topic}, false when there is nothing to show, null while loading
+const ABBREV = /(?:\b(?:Mr|Mrs|Ms|Dr|St|Shri|Smt|No|Prof|Sri|Jr|Sr)|\b[A-Z])\.$/;
+function firstSentences(text, n = 2, cap = 320){
+  const parts = String(text || '').trim().split(/(?<=[.!?][”"’)]?)\s+(?=[“"(A-Z])/), out = [];
+  for (const part of parts){
+    if (out.length && ABBREV.test(out[out.length-1])) out[out.length-1] += ' ' + part;     // "Mr. Saxena" is one sentence
+    else out.push(part);
+  }
+  const two = out.slice(0, n).join(' ');
+  return two.length <= cap || out.length < 2 ? two : out[0];
+}
+function previouslyHtml(){
+  if (!D || dayMode === 'archive') return '';
+  const i = INDEX.findIndex(x => x.date === D.date), prev = INDEX[i-1];
+  if (!prev || !prev.owl) return '';
+  const p = PREVIOUSLY[prev.date];
+  if (p === undefined){
+    PREVIOUSLY[prev.date] = null;
+    getJSON(prev.date + '.json').then(day => {
+      const o = day && day.owl;
+      PREVIOUSLY[prev.date] = o && o.diary ? {n: day.n, lines: firstSentences(o.diary), sensitive: (o.sensitive || []).includes('diary'), topic: (o.topic || {}).diary} : false;
+      lastKey = '';
+    }).catch(() => { PREVIOUSLY[prev.date] = false; });
+    return '';
+  }
+  if (!p) return '';
+  const body = `<p>“${esc(p.lines)}”</p>`;
+  return `<div class="prev"><span class="k">Previously, day ${p.n}</span>${p.sensitive ? vz(`${prev.date}|owl|diary`, p.topic, body, 'p') : body}`
+    + `<p class="sum"><a href="#${prev.date}">The owl's whole write-up of day ${p.n}</a></p></div>`;
+}
+
 function owlHtml(m){
   const o = D.owl, owlSeg = DAY.slice().reverse().find(s => s.owl);   // tonight's sleep, not the morning's
   if (!o || !(dayMode === 'archive' || (owlSeg && m >= owlSeg.s))) return '';
@@ -2461,7 +2514,7 @@ function renderPanel(m){
     const list = (tab === 'today' ? seen : seen.filter(e => e.k === 'diary')).slice().reverse();
     const up = DAY.some(s => !s.asleep && s.s <= m);
     const none = up ? 'Nothing yet today.' : 'He has not woken yet.' + (dayMode !== 'live' && WAKE ? ` He wakes at ${WAKE} Delhi time.` : '');
-    html = `<h2>${tab === 'today' ? 'Today, newest first' : 'Thoughts'}</h2>` + (list.length ? list.map(e => entry(e, tab === 'today')).join('') : empty(none));
+    html = (tab === 'today' ? previouslyHtml() : '') + `<h2>${tab === 'today' ? 'Today, newest first' : 'Thoughts'}</h2>` + (list.length ? list.map(e => entry(e, tab === 'today')).join('') : empty(none));
   } else if (tab === 'purse'){
     html = purseHtml(seen);
   } else if (tab === 'wardrobe'){
