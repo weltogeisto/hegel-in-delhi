@@ -186,7 +186,7 @@ An hourly GitHub Actions check on `origin/shadow`: when the latest three waking 
 After the owl has written, run `python3 -m world report` for that day on the Pi and commit its row to `docs/days/reports.jsonl` on `shadow`.
 **Done when:** a night's row appears on `shadow` without anyone running it by hand.
 
-### T20 · Claude · the economy, and Ramesh's day off · DONE: see the commit that marks this; `pc/ECONOMY-20261025.md`
+### T20 · Claude · the economy, and Ramesh's day off · DONE: `8037632`; `pc/ECONOMY-20261025.md`
 Run 21 days with the stand-in mind and show where his money comes from and where it goes. Check that offers that bring money in can reach him. When a mindless step meets Ramesh's day off, he eats at Khan Market. A world rule: no thought, no words.
 **Done when:** the cash flow is in `pc/ECONOMY-20261025.md`, and a mindless day on Ramesh's day off has its meals, with tests.
 
