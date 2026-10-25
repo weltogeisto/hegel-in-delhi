@@ -255,9 +255,10 @@ class Economy:
     def when_ok(self, w, t, st):
         """The conditions of an offer: days met, visits, day count, cash, flags, a garment, a manuscript, a date."""
         d, cash = t.date(), st["imprest"]
+        net = cash - sum(o.get("amount", 0) for o in st.get("owed", []))      # a purse that cannot pay what is owed is thin too
         if w.get("on") and w["on"] != d.isoformat():
             return False
-        if day_number(d) < w.get("since_day", 0) or cash >= w.get("cash_below", 10 ** 9) or cash < w.get("cash_min", 0):
+        if day_number(d) < w.get("since_day", 0) or net >= w.get("cash_below", 10 ** 9) or cash < w.get("cash_min", 0):
             return False
         if any(len(st["met_days"].get(c, [])) < n for c, n in w.get("met_days", {}).items()):
             return False

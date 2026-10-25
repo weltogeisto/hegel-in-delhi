@@ -71,6 +71,17 @@ class CLIStatusTest(unittest.TestCase):
         self.assertIn("refusals       3 today; most often (2×)", output)
         self.assertNotIn("a loop", output)
 
+    def test_an_outage_is_not_a_refusal_loop(self):
+        day = copy.deepcopy(self.day)
+        day["steps"] = [{"t": f"{h}:00", "end": f"{h}:30", "decision": {"action": "rest", "place": "home"},
+                         "mind": {"source": "away", "latency_s": 3.0, "attempts": 1,
+                                  "refused": [["no answer from http://192.168.188.21:8082/health"]]}} for h in (14, 15, 16, 17, 18)]
+        self.days.save(day)
+        output = self.status()
+        self.assertIn("refusals       0 today", output)
+        self.assertIn("quiet steps    5 today", output)
+        self.assertNotIn("a loop", output)
+
     def test_status_without_refusals(self):
         self.assertIn("refusals       0 today", self.status())
 

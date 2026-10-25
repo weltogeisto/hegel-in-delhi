@@ -1,0 +1,52 @@
+name: Watchman
+# Every hour: is Hegel's mind with him, and is the world still publishing? (pc/TASKS.md, T17)
+# Anything but "ok" opens an issue labelled watchman, which GitHub emails to the owner; "ok" closes it.
+# To pause it, for instance while the world is paused on purpose, disable this workflow in the Actions tab.
+on:
+  schedule:
+    - cron: "23 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: watchman
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: tools
+      - uses: actions/checkout@v4
+        with:
+          ref: shadow
+          path: shadow
+          sparse-checkout: docs/days
+      - name: Look
+        run: python3 tools/watchman.py shadow/docs/days | tee watch.json
+      - name: Open, update or close the issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          OWNER: ${{ github.repository_owner }}
+        run: |
+          state=$(jq -r .state watch.json)
+          title=$(jq -r .title watch.json)
+          detail=$(jq -r .detail watch.json)
+          gh label create watchman --color B60205 --description "Opened by the hourly watchman" --force > /dev/null
+          num=$(gh issue list --label watchman --state open --json number --jq '.[0].number // empty')
+          was=$(gh issue list --label watchman --state open --json title --jq '.[0].title // empty')
+          if [ "$state" != ok ]; then
+            if [ -z "$num" ]; then
+              gh issue create --title "$title" --label watchman \
+                --body "$detail"$'\n\n'"@$OWNER, the watchman looks every hour and closes this issue when all is well."
+            elif [ "$was" != "$title" ]; then
+              gh issue edit "$num" --title "$title"
+              gh issue comment "$num" --body "$detail"
+            fi
+          elif [ -n "$num" ]; then
+            gh issue comment "$num" --body "All well again. $detail"
+            gh issue close "$num"
+          fi

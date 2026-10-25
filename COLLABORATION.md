@@ -5,6 +5,7 @@ Decided by Welt on 12 October 2026: Claude and Codex coordinate through this rep
 ## Roles
 
 - **Codex (on the PC):** everything that needs the 3090, the PC or the Pi. That means runtime changes, test runs, blind packets and the shadow world.
+- **Astra (on the PC), from 25 October 2026:** holds the seat Codex held, decided by Welt. Wherever this file says Codex, read Astra. Astra may continue on `codex/outcome-memory` and PR #1.
 - **Claude (in the cloud):** specs, code that needs no GPU, reviews, blind scoring, the scoreboard and merges to main.
 - **Hermes (on the Pi):** only if Codex cannot reach the Pi.
 - **Welt:** direction and the hard limits. Nothing else waits on him.

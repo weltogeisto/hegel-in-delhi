@@ -118,7 +118,7 @@ Nothing changes yet: Claude decides from the numbers whether a variant (for inst
 
 **Claude's decision:** no variant yet. Day 12 sits 21 points above the two rehearsals, and its top phrases are the meal loop's: "return to the bungalow" (6 thoughts), "and the air is", "and the heat is". The baseline, about 48%, is mostly grammatical frames, and one tic recurs across days: "I shall/will not let". So measure the first day with the meal fix before changing his prompt (T10).
 
-### T10 · Codex · repetition on Day 13 · OPEN
+### T10 · Codex · repetition on Day 13 · OPEN: quiet-step rule verified; waiting for first complete day with at least 30 thoughts
 When Day 13 is complete, run the same auditor (`pc/thought_repetition.py`, unchanged) on it and report the share and its ten phrases, as in T9.
 **Claude's rule, 14 October (answers Codex's block on Day 13: 4 thoughts, 31 quiet steps):**
 - *What counts:* his thoughts only, meaning the decisions with a non-null thought. Quiet, away and bedtime steps carry no thought; the world wrote them, not he, so they are in neither the numerator nor the denominator. They stay in the raw record, and the report counts them by `mind.source`.
@@ -127,8 +127,11 @@ When Day 13 is complete, run the same auditor (`pc/thought_repetition.py`, uncha
 - *Day 13:* not measurable, 4 thoughts; the mind was away from 23:46 Berlin after a Windows restart. T10 moves to the first complete day that meets the floor, expected Day 14. No substitute thoughts, no rerun of Day 13.
 **Then:** if Day 13 is above 55%, Claude writes a variant (his recurring phrases of the day shown back to him as already said) for a blind A/B under the ratchet. At or below 55%, T9 closes and nothing changes.
 
+**Codex, 14 October:** Claude's authorized quiet-step handling is implemented and verified; new auditor SHA256 `bb77f3afc99ea2459e111e78bb8ac8f23adef68a74c79795d615c1ba5ba0439a`. All original T9 result fields reproduce exactly (29/42, 16/33, 19/40), and six focused checks pass. Day 13 is not measurable (4 thoughts, 31 away/null); it was not rerun and the original raw input/assertion failure remain intact. T10 waits for the first actual complete day with at least 30 thoughts. See `pc/T10-QUIET-STEP-RULE-20261014.md/json`. The natural Day 13 owl timed out at 15:05 UTC; existing CPU-only server needs Welt's no-reconfiguration exception for the prepared CUDA-library restoration, while the normal hourly retry remains unchanged.
+
 ### T11 · Claude · the daily review · STANDING
 After every full shadow day: read the day, the owl and `python3 -m world status`; write the next tasks here, or "no new task" with the findings. See "The list never runs dry" in `COLLABORATION.md`.
+**Day 13 (14 October): no new task.** 4 thoughts and 31 quiet steps: he stood in Lodhi Gardens from 08:31 until it closed at 19:30 and ate nothing all day. The GPU restoration and T12, both now on the Pi, answer that. The owl, written at 02:31 because the CPU was slow, is faithful: the power cut at 21:20, Hegde's refusal and the empty stomach are all in the record, and nothing is invented. It calls India "shaken again" on a four-thought day; the status was already shaken, so nothing moved. If an owl ever changes a thesis on a day below the T10 floor, that becomes a task.
 
 ## Wednesday 14 October
 
@@ -137,9 +140,67 @@ Day 13 lost its mind at 23:46 Berlin: Windows restarted the PC and the Qwen serv
 ### T12 · Claude · a mindless day keeps the household · DONE: `c61daf3`
 When the mind is away or fumbles a step three times, he no longer just carries on where he is. At night he goes to bed, as before. At home he eats the meal Ramesh lays out, once, and between meals the plate he asks for when hungry, but not in the hour before a meal. Out, he goes home when the place closes, when he is hungry, when a meal is laid out, or after an hour of quiet steps. No thought, no words: these stay quiet steps and count as such in T10. `tests/test_world.py` `MindlessDayTest`: a whole day without a mind eats breakfast, lunch and dinner once each and sleeps at ten; the Day 13 pattern (a walk to Lodhi, then quiet stays) goes home after the second stay. All four fail on the old fallback; 789 tests pass.
 
-### T13 · Codex · bring main into the shadow world · OPEN
+### T13 · Codex · bring main into the shadow world · DONE: shadow `39148ae`, contains `c61daf3`; natural tick exit 0; no quiet stretch yet (Day 14 asleep)
 Merge main into `shadow` on the Pi (a merge, never a rebase), as in T6, between two ticks, and let the next tick run. It carries T12 and the fan club page; the page is not served from `shadow`.
 **Done when:** shadow contains `c61daf3` and a natural tick exits 0. Report the first quiet stretch it meets, or that none came up.
+
+**Welt’s later handover, applied:** no fan club on the Pi. This real main merge preserves the old Pi page and excludes `supabase/fanclub.sql`, `tests/test_fanclub.py` and `world/data/visitors.json`. All day/state JSON and original CSV bytes remain unchanged; natural ticks finished 16:56–16:58 UTC with exit 0. No quiet stretch came up because Day 14 is asleep with zero decisions. Evidence: `pc/T13-SHADOW-MAIN-20261014.md/json`.
+
+### Welt · a mind that survives a reboot · one Administrator click · DONE by Welt on 25 October through the Claude desktop app on the PC; not yet verified (T21)
+Codex has prepared an installer that starts the 8082 server by itself after Windows restarts and stops Windows from restarting the PC at night. Windows asked for Administrator rights and the prompt was cancelled, so nothing is applied yet. Welt runs it as Administrator at the PC; Codex then proves the cold start.
+
+## Welt away, 15 to 25 October: the world pauses
+
+Welt leaves on 15 October at about 06:00 Berlin and shuts the PC down; back on the 25th. No stand-in mind: the world stops, and resumes on his return without inventing anything in between.
+
+### T14 · Codex · pause the world before the PC goes down · NOT DONE: the timer kept running; Days 15–24 ran without a mind (0 thoughts, three meals a day, none on Ramesh's day off), kept as they are
+Tonight, as the last thing before Welt shuts down: after a natural tick, stop and disable `hegel-world.timer` on the Pi. Record the last step here (day, time, shadow commit). Leave the server, the day files and the shadow branch as they are.
+**Done when:** the timer is disabled and no tick ran after the recorded commit.
+
+### T15 · Codex · resume on 25 October · SUPERSEDED by T16: the world never stopped, so there is nothing to resume
+When Welt is back and the PC is up: start the 8082 server on the GPU, or confirm the boot task did; check its speed as on 14 October; then enable the timer. The engine's resume picks him up at home on that day. Day 14 is closed where it stopped, no days are invented in between (`test_resume_after_a_gap`), and the appointment that fell in the gap (Hegde, 19 October) simply passes.
+**Done when:** the first natural tick after the return exits 0 with source `mind`.
+**T10 and T11:** Day 14 is cut by the pause. It gets no owl and no review, and it does not count for T10 even with 30 thoughts; T10 waits for the first full day after the return.
+
+## Sunday 25 October: lights on
+
+From today the work follows `PLAN.md`, the season plan: Act 0 (lights on), Act 1 (seven full days in a row), Act 2 (opening night), Act 3 (the run, learning). Astra holds the PC seat (`COLLABORATION.md`).
+
+### T16 · Astra · the mind back on the GPU · DONE: verified 25 October; publication `e5b5d84`
+Start the 8082 server on the GPU, or confirm the boot task did, with the same saved command and CUDA path as on 14 October. Check its speed (about 34 tokens a second then). Leave the Pi's timer as it is: it never stopped.
+**Done when:** a natural tick shows source `mind`, and the speed is in the comment.
+
+### T21 · Astra · verify the installer · DONE: 25 October; all14 DWORDs and receipts verified
+Welt ran `Install-HegelStartup-And-UpdatePolicy.ps1` as Administrator on 25 October. Confirm that the task "Hegel Qwen 8082 GPU" exists and is enabled, that the installer's own test of the task and the fresh-shell cold start passed, and read back every Windows Update value from `pc/WELT-HANDOVER-20261014.md`. No deliberate reboot: the next natural one is the cold-start proof.
+**Done when:** the receipt and the read-back are in a file on your branch, and PR #1 says which values took.
+
+**Verified:** enabled/Ready S4U task, scheduled test0 and guarded fresh-shell cold start0; all14 DWORDs match independently. PID4130 retains the exact saved command/CUDA path. Two duplicate-installer refusals remain preserved. Real boot-trigger proof awaits the next natural reboot. See `pc/T21-WINDOWS-VERIFICATION-20261025.md/json`.
+
+### T17 · Claude · the watchman · DONE: `4c02444`; `tools/watchman.py`, `.github/workflows/watchman.yml`, hourly at :23
+An hourly GitHub Actions check on `origin/shadow`: when the latest three waking steps (between his waking and 22:00) all ran without a mind, it opens an issue, or comments on the open one, which GitHub emails to Welt. It closes the issue when the mind is back. No secrets; it reads the public branch.
+**Done when:** it flags Day 13's record in a test, and runs green on main.
+
+### T18 · Claude · the day report · DONE: `4c02444`; Day 12 gives 42 decisions and 29/42 (69%), as T9
+`python3 -m world report <date>`: one row per day with thoughts, quiet steps by source, refusals and the most frequent one, repetition share (T10's rule), meals, cash, places, people spoken to, theses moved and the owl's presence. `--table` prints a range as a scoreboard table.
+**Done when:** it reproduces Day 12's 42 decisions and T9's 29/42, with tests.
+
+### T19 · Astra · the report in the nightly run · OPEN: T18 is on main; `python3 -m world report <date> --json` prints the row
+After the owl has written, run `python3 -m world report` for that day on the Pi and commit its row to `docs/days/reports.jsonl` on `shadow`.
+**Done when:** a night's row appears on `shadow` without anyone running it by hand.
+
+### T20 · Claude · the economy, and Ramesh's day off · DONE: `8037632`; `pc/ECONOMY-20261025.md`
+Run 21 days with the stand-in mind and show where his money comes from and where it goes. Check that offers that bring money in can reach him. When a mindless step meets Ramesh's day off, he eats at Khan Market. A world rule: no thought, no words.
+**Done when:** the cash flow is in `pc/ECONOMY-20261025.md`, and a mindless day on Ramesh's day off has its meals, with tests.
+
+### T22 · Astra · bring main into the shadow world · OPEN
+Merge main into `shadow` on the Pi (a merge, never a rebase), as in T13, between two ticks. It carries the day report (T18, which T19 needs on the Pi), the dhaba on Ramesh's day off, Mr. Malhotra's loan that sees debts, and the resume fix (T20). Keep the fan club files off the Pi, as in T13.
+**Done when:** shadow contains `8037632` and a natural tick exits 0.
+
+### Welt · how a man in his position can live · decide before 1 November
+From 1 November his household costs about ₹17,600 a month, and the world offers at most about ₹8,700 a month that he can spend. The kitchen shuts on 1 November whatever he does (`pc/ECONOMY-20261025.md`). Three ways out: leave it; exits, not gifts (Ramesh accepts part-time, a cheque can be banked, a column that recurs; recommended); or a stipend. Claude builds the chosen one, with tests, before Day 31.
+
+### Act 1 gate · seven full days in a row
+On each of seven consecutive days: at least 30 thoughts; quiet steps at most 5% of waking steps; the owl wrote; no refusal loop; at most 1.6 contradictions and 3.1 statements as fact per 100 sentences; repetition measured (T10 on the first). Claude checks it in the daily review (T11) and writes the Act 2 tasks when it passes.
 
 ### Welt · the public switch · hard limit
 When Welt says so: Codex sets `HEGEL_CLOCK_SHIFT_MIN` to 0 and points the Pi's world at `main` instead of `shadow`; the live page then shows his days instead of the Day 1 replay.

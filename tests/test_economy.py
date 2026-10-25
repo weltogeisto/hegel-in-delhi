@@ -522,6 +522,15 @@ class OfferTest(unittest.TestCase):
         with There(lodhi=[]):
             self.assertIsNone(look(w, at_dt(D(5), 450), st, "lodhi")[1]["beat"])
 
+    def test_a_purse_that_cannot_pay_the_wage_is_thin_too(self):
+        w = self.w
+        with There(lodhi=["malhotra"]):
+            st = fresh()
+            st["imprest"] = 1451                                                                # 1 November: groceries paid, the wage not
+            self.assertIsNone(look(w, at_dt(D(5), 450), st, "lodhi")[1]["beat"])
+            st["owed"] = [{"to": "Ramesh", "amount": 8000, "why": "the wage for cooking", "cost": "wage", "since": "2026-10-05"}]
+            self.assertEqual(look(w, at_dt(D(5), 450), st, "lodhi")[1]["beat"]["id"], "loan_malhotra")
+
     def test_the_loan_is_cash_now_and_owed_to_malhotra_to_be_repaid_after_a_week(self):
         w, st = self.w, fresh()
         st["imprest"] = 400

@@ -7,6 +7,7 @@
     python3 -m world simulate --date 2026-10-03 --mind URL # the same day with the real mind, nothing pushed
     python3 -m world owl --date 2026-10-03                 # write up a finished day now
     python3 -m world check                # sanity-check the world's data and the day files
+    python3 -m world report [DATE [DATE]] # the scoreboard row of a day or a range (--table, --json)
 """
 import argparse
 import fcntl
@@ -20,13 +21,13 @@ from collections import Counter
 from datetime import date, timedelta
 from pathlib import Path
 
-from . import shelf, works
+from . import nightly_report, report, shelf, works
 from .clock import fmt, minute_of, now_ist, parse_now
 from .config import Config
 from .engine import Days, Engine, until_of
 from .feeds import Feeds
 from .mind import HTTPMind, StubMind
-from .publish import Git
+from .publish import Git, GitError
 from .world import World, at_dt
 
 log = logging.getLogger("world")
@@ -70,6 +71,12 @@ def cmd_tick(cfg, args):
     owl_mind = mind if args.mind == "stub" or not cfg.owl_url or cfg.owl_url == cfg.mind_url else HTTPMind(cfg.owl_url, wake=cfg.wake, timeout=cfg.timeout)
     engine = Engine(cfg, World(Feeds(cfg)), mind, git=Git(cfg) if not args.no_git else None, owl_mind=owl_mind)
     engine.tick(now)
+    if engine.git:
+        try:
+            nightly_report.publish_yesterday(cfg, now, engine.git)
+        except (OSError, ValueError, nightly_report.ReportError, GitError) as exc:
+            log.error("nightly report failed; will retry next tick: %s", exc)
+            return 1
     return 0
 
 
@@ -120,13 +127,40 @@ def cmd_status(cfg, args):
     return 0
 
 
+def cmd_report(cfg, args):
+    """The scoreboard row of the latest day, of one day, or of every day in a range."""
+    days = Days(Path(args.docs) if args.docs else cfg.docs)
+    index = [r["date"] for r in days.index()["days"]]
+    if not args.dates:
+        picked = index[-1:]
+    else:
+        first, last = args.dates[0], args.dates[-1]
+        picked = [d for d in index if first <= d <= last]
+    loaded = [day for day in (days.load(d) for d in picked) if day]
+    if len(loaded) > 1:
+        loaded = [day for day in loaded if any("decision" in s for s in day.get("steps", []))]   # not the handwritten prologue
+    if not loaded:
+        print("no day files")
+        return 1
+    rows = [report.row(day) for day in loaded]
+    if args.json:
+        for r in rows:
+            print(json.dumps(r, ensure_ascii=False))
+    elif args.table:
+        print(report.table(rows))
+    else:
+        print("\n\n".join(report.text(r) for r in rows))
+    return 0
+
+
 LOOP_REFUSALS = 4      # the same refusal this often in one day is a loop: a rule that says no and offers nothing else
 
 
 def refusal_line(steps):
     """How often the world refused his choices today, and the refusal that came most often. A refusal repeated LOOP_REFUSALS
     times is flagged: on Day 12 'no household meal is available now' came back all afternoon and nothing else showed it."""
-    said = [e for s in steps for tries in s.get("mind", {}).get("refused", []) for e in tries
+    said = [e for s in steps if s.get("mind", {}).get("source") != "away"       # an away step's note is the outage, not a refusal
+            for tries in s.get("mind", {}).get("refused", []) for e in tries
             if isinstance(e, str) and not e.startswith("the PC did not wake")]
     if not said:
         return "0 today"
@@ -317,10 +351,16 @@ def main():
     o.add_argument("--mind", help="'stub' or a URL (default: OWL_URL / OWL_PORT on the PC)")
     o.add_argument("--no-git", action="store_true")
     sub.add_parser("check", help="sanity-check data and day files")
+    r = sub.add_parser("report", help="the scoreboard row of a day, or of every day in a range")
+    r.add_argument("dates", nargs="*", help="one date, or the first and last of a range (default: the latest day)")
+    r.add_argument("--docs", help="another docs folder, e.g. a checkout of the shadow branch")
+    r.add_argument("--table", action="store_true", help="a Markdown table")
+    r.add_argument("--json", action="store_true", help="one JSON object per day")
     args = p.parse_args()
     cfg = Config()
     setup_logging(cfg, args.verbose)
-    return {"tick": cmd_tick, "start": cmd_start, "status": cmd_status, "simulate": cmd_simulate, "owl": cmd_owl, "check": cmd_check}[args.cmd](cfg, args)
+    return {"tick": cmd_tick, "start": cmd_start, "status": cmd_status, "simulate": cmd_simulate, "owl": cmd_owl, "check": cmd_check,
+            "report": cmd_report}[args.cmd](cfg, args)
 
 
 if __name__ == "__main__":

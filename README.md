@@ -56,6 +56,9 @@ The living are invented, the dead are on his shelf, the news is real: everyone h
 
 ## Plan
 
+From 25 October 2026 the work follows the season plan, `PLAN.md`: rehearsal, opening night, then the run, where he learns. What follows is how the project got here.
+
+
 1. Repo and page ⟶ Hermes, task 1
 2. The mind on the PC ⟶ Codex, `pc/CODEX.md` 1–6; Hermes, task 2
 3. Bake-off: Bonsai vs Qwen ⟶ Hermes, task 3; Welt decides
