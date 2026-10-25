@@ -45,64 +45,34 @@
     "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 160
+    "aqi": 156
    },
    {
     "temp": 20,
     "sky": "clear",
     "rain": 0,
-    "aqi": 148
+    "aqi": 139
    },
    {
     "temp": 21,
     "sky": "clear",
     "rain": 0,
-    "aqi": 135
+    "aqi": 122
    },
    {
     "temp": 22,
     "sky": "clear",
     "rain": 0,
-    "aqi": 125
-   },
-   {
-    "temp": 24,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 118
-   },
-   {
-    "temp": 26,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 112
-   },
-   {
-    "temp": 27,
-    "sky": "clear",
-    "rain": 0,
     "aqi": 107
    },
    {
-    "temp": 28,
+    "temp": 23,
     "sky": "clear",
     "rain": 0,
-    "aqi": 101
+    "aqi": 99
    },
    {
-    "temp": 29,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 98
-   },
-   {
-    "temp": 30,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 96
-   },
-   {
-    "temp": 29,
+    "temp": 26,
     "sky": "clear",
     "rain": 0,
     "aqi": 94
@@ -114,46 +84,76 @@
     "aqi": 91
    },
    {
+    "temp": 28,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 88
+   },
+   {
+    "temp": 29,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 85
+   },
+   {
+    "temp": 29,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 83
+   },
+   {
+    "temp": 29,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 81
+   },
+   {
+    "temp": 29,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 79
+   },
+   {
+    "temp": 27,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 76
+   },
+   {
     "temp": 26,
     "sky": "clear",
     "rain": 0,
-    "aqi": 89
+    "aqi": 74
    },
    {
     "temp": 25,
     "sky": "clear",
     "rain": 0,
-    "aqi": 86
+    "aqi": 73
    },
    {
     "temp": 24,
     "sky": "clear",
     "rain": 0,
-    "aqi": 86
+    "aqi": 73
    },
    {
-    "temp": 24,
+    "temp": 23,
     "sky": "clear",
     "rain": 0,
-    "aqi": 87
-   },
-   {
-    "temp": 22,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 89
+    "aqi": 77
    },
    {
     "temp": 22,
     "sky": "clear",
     "rain": 0,
-    "aqi": 92
+    "aqi": 85
    },
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "clear",
     "rain": 0,
-    "aqi": 103
+    "aqi": 94
    }
   ]
  },
@@ -526,6 +526,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "20:43",
+   "to": "21:43",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -548,6 +555,34 @@
    "k": "world",
    "text": "Ramesh brings tea.",
    "t": "16:43"
+  },
+  {
+   "k": "diary",
+   "text": "The evening is still, the air cool at 24 degrees, and the day’s movements have settled into a quiet tension. Shri Hegde is present, a particular will that has not yet yielded to the universal claim of the state’s paperwork, yet we share this silence. I will sit in the study and let the spirit contemplate the mechanism of this cohabitation, for the state is the actuality of the ethical idea, and even a mistaken allotment is a moment in its development.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§344"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    }
+   ],
+   "t": "20:43"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, the day is dismissed. Let us sit in quiet contemplation until the hour grows late.",
+   "to": "Shri G. Hegde",
+   "t": "20:43"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Sir, you are not Hegel, and I am not staying in your house. Please leave my kitchen.",
+   "t": "20:43"
   }
  ],
  "steps": [
@@ -1365,13 +1400,65 @@
      ]
     ]
    }
+  },
+  {
+   "t": "20:43",
+   "end": "21:43",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The evening is still, the air cool at 24 degrees, and the day’s movements have settled into a quiet tension. Shri Hegde is present, a particular will that has not yet yielded to the universal claim of the state’s paperwork, yet we share this silence. I will sit in the study and let the spirit contemplate the mechanism of this cohabitation, for the state is the actuality of the ethical idea, and even a mistaken allotment is a moment in its development.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 60,
+    "says": "Shri Hegde, the day is dismissed. Let us sit in quiet contemplation until the hour grows late.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Sir, you are not Hegel, and I am not staying in your house. Please leave my kitchen.",
+    "does": "She locks the door of the kitchen behind him."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.9
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§344",
+     "id": "dyde-right:846"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§344",
+     "text": "Of this systematized reality they are aware, and in its interests are absorbed. Yet are they the unconscious tools and organs of the world-spirit, through whose inner activity the lower forms pass away. Thus the spirit by its own motion and for its own end makes ready and works out the transition iuto its next higher stage."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-25T20:43+05:30",
+  "until": "2026-10-25T21:43+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
