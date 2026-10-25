@@ -186,9 +186,12 @@ An hourly GitHub Actions check on `origin/shadow`: when the latest three waking 
 After the owl has written, run `python3 -m world report` for that day on the Pi and commit its row to `docs/days/reports.jsonl` on `shadow`.
 **Done when:** a night's row appears on `shadow` without anyone running it by hand.
 
-### T20 · Claude · the economy, and Ramesh's day off · OPEN
+### T20 · Claude · the economy, and Ramesh's day off · DONE: see the commit that marks this; `pc/ECONOMY-20261025.md`
 Run 21 days with the stand-in mind and show where his money comes from and where it goes. Check that offers that bring money in can reach him. When a mindless step meets Ramesh's day off, he eats at Khan Market. A world rule: no thought, no words.
 **Done when:** the cash flow is in `pc/ECONOMY-20261025.md`, and a mindless day on Ramesh's day off has its meals, with tests.
+
+### Welt · how a man in his position can live · decide before 1 November
+From 1 November his household costs about ₹17,600 a month, and the world offers at most about ₹8,700 a month that he can spend. The kitchen shuts on 1 November whatever he does (`pc/ECONOMY-20261025.md`). Three ways out: leave it; exits, not gifts (Ramesh accepts part-time, a cheque can be banked, a column that recurs; recommended); or a stipend. Claude builds the chosen one, with tests, before Day 31.
 
 ### Act 1 gate · seven full days in a row
 On each of seven consecutive days: at least 30 thoughts; quiet steps at most 5% of waking steps; the owl wrote; no refusal loop; at most 1.6 contradictions and 3.1 statements as fact per 100 sentences; repetition measured (T10 on the first). Claude checks it in the daily review (T11) and writes the Act 2 tasks when it passes.
