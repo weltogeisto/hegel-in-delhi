@@ -344,6 +344,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh and Shri G. Hegde at home."
+  },
+  {
+   "from": "07:03",
+   "to": "07:48",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -473,6 +480,34 @@
    "to": "Hegel",
    "text": "Sir, please stop with the philosophy before the sun is even up. I am the Joint Secretary and this is my bungalow, so I intend to proceed by making tea and waiting for the clerk to fix his mistake. You can sit on the veranda if the air is that nice, but do not quote the Directorate at me again.",
    "t": "06:53"
+  },
+  {
+   "k": "diary",
+   "text": "The Joint Secretary asserts his particular claim to the house as if it were a possession of nature, unaware that the error in the file is a moment in the dialectic of the state's administration that must be resolved through reason, not tea. I shall accept the papaya, for the body remains a necessity, but I will not retreat to the veranda; I will remain in the drawing room where the universal right of the allotment is suspended, and let the sun rise on our respective positions without my concession.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Ionic Philosophy"
+    }
+   ],
+   "t": "07:03"
+  },
+  {
+   "k": "said",
+   "text": "I shall take the papaya, for it is a particular good, but I remain here. The error in the file is not a matter of personal preference but of administrative logic. You may proceed with your tea, Shri Hegde; the clerk will come, and the state's order will be clarified. I do not quote the Directorate at you; I observe the tension between your claim and the written order, which are currently in contradiction.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "07:03"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "You’re right, the file is a mess, but I’m not moving out until the tea is poured and the clerk arrives. Please, have your papaya; I’ll sort out the confusion once this man stops looking at me like I’m a philosophical paradox.",
+   "t": "07:03"
   }
  ],
  "steps": [
@@ -632,13 +667,66 @@
      "text": "It is the pure notion, pure thought, or self-existence, beiag-for-self, which is immediately being, and, therewith, beiag-for-another, and, qtia this being-for-another, is immediately turned back into itself and is at home with itself (bei sich).' It is thus the truly and solely revealed."
     }
    ]
+  },
+  {
+   "t": "07:03",
+   "end": "07:48",
+   "event": "Shri G. Hegde says: “Sir, please stop with the philosophy before the sun is even up. I am the Joint Secretary and this is my bungalow, so I intend to proceed by making tea and waiting for the clerk to fix his mistake. You can sit on the veranda if the air is that nice, but do not quote the Directorate at me again.” Ramesh has laid out breakfast: toast, butter and a plate of cut papaya.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The Joint Secretary asserts his particular claim to the house as if it were a possession of nature, unaware that the error in the file is a moment in the dialectic of the state's administration that must be resolved through reason, not tea. I shall accept the papaya, for the body remains a necessity, but I will not retreat to the veranda; I will remain in the drawing room where the universal right of the allotment is suspended, and let the sun rise on our respective positions without my concession.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 45,
+    "says": "I shall take the papaya, for it is a particular good, but I remain here. The error in the file is not a matter of personal preference but of administrative logic. You may proceed with your tea, Shri Hegde; the clerk will come, and the state's order will be clarified. I do not quote the Directorate at you; I observe the tension between your claim and the written order, which are currently in contradiction.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "You’re right, the file is a mess, but I’m not moving out until the tea is poured and the clerk arrives. Please, have your papaya; I’ll sort out the confusion once this man stops looking at me like I’m a philosophical paradox.",
+    "does": "She gestures towards the table and turns back to the stove to start the kettle."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.9
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "id": "haldane-1:832"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Ionic Philosophy",
+     "id": "haldane-1:492"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "text": "Socrates explains this in the following way: “It appears to me to be as if some one were to say that Socrates performs all his actions with understanding, and then in going on to give the reasons for each of my actions, were to say that I sit here because my body consists of bones and muscles; the bones are fixed and have joints that divide them (διαφυὰς)…"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Ionic Philosophy",
+     "text": "Plutarch characterizes Anaximenes’ mode of representation which makes everything proceed from air—later on it was called ether—and resolve itself therein, better thus: “As our soul, which is air, holds us together (συγρατεῖ), one spirit (πνεῦμα) and air together likewise hold (περιέχει) the whole world together; spirit and air are synonymous.”"
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-26T07:03+05:30",
+  "until": "2026-10-26T07:48+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
@@ -711,7 +799,8 @@
      "hegde",
      "ramesh"
     ]
-   }
+   },
+   "breakfast": true
   },
   "account": {
    "advance": 15000,
@@ -919,7 +1008,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-10-26T06:23+05:30",
+  "last_meal": "2026-10-26T07:03+05:30",
   "snacks": 0,
   "works": [
    {
