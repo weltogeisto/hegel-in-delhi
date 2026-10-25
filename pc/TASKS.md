@@ -166,13 +166,15 @@ When Welt is back and the PC is up: start the 8082 server on the GPU, or confirm
 
 From today the work follows `PLAN.md`, the season plan: Act 0 (lights on), Act 1 (seven full days in a row), Act 2 (opening night), Act 3 (the run, learning). Astra holds the PC seat (`COLLABORATION.md`).
 
-### T16 · Astra · the mind back on the GPU · OPEN
+### T16 · Astra · the mind back on the GPU · DONE: verified 25 October; publication `e5b5d84`
 Start the 8082 server on the GPU, or confirm the boot task did, with the same saved command and CUDA path as on 14 October. Check its speed (about 34 tokens a second then). Leave the Pi's timer as it is: it never stopped.
 **Done when:** a natural tick shows source `mind`, and the speed is in the comment.
 
-### T21 · Astra · verify the installer · OPEN
+### T21 · Astra · verify the installer · DONE: 25 October; all14 DWORDs and receipts verified
 Welt ran `Install-HegelStartup-And-UpdatePolicy.ps1` as Administrator on 25 October. Confirm that the task "Hegel Qwen 8082 GPU" exists and is enabled, that the installer's own test of the task and the fresh-shell cold start passed, and read back every Windows Update value from `pc/WELT-HANDOVER-20261014.md`. No deliberate reboot: the next natural one is the cold-start proof.
 **Done when:** the receipt and the read-back are in a file on your branch, and PR #1 says which values took.
+
+**Verified:** enabled/Ready S4U task, scheduled test0 and guarded fresh-shell cold start0; all14 DWORDs match independently. PID4130 retains the exact saved command/CUDA path. Two duplicate-installer refusals remain preserved. Real boot-trigger proof awaits the next natural reboot. See `pc/T21-WINDOWS-VERIFICATION-20261025.md/json`.
 
 ### T17 · Claude · the watchman · DONE: `4c02444`; `tools/watchman.py`, `.github/workflows/watchman.yml`, hourly at :23
 An hourly GitHub Actions check on `origin/shadow`: when the latest three waking steps (between his waking and 22:00) all ran without a mind, it opens an issue, or comments on the open one, which GitHub emails to Welt. It closes the issue when the mind is back. No secrets; it reads the public branch.
