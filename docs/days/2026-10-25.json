@@ -547,6 +547,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "22:08",
+   "to": "23:08",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -653,6 +660,26 @@
    "to": "Hegel",
    "text": "Right, right. The state acts, the state doesn't quote. Very philosophical for 9 PM. Goodnight, sir. Try to find the right door before you trip over the threshold.",
    "t": "21:53"
+  },
+  {
+   "k": "diary",
+   "text": "The state does indeed act rather than recite, and her retort has the sharpness of a dialectical refutation. I am tired, and the door stands open to the night air; it is time to withdraw into the interior of the house.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Ionic Philosophy"
+    }
+   ],
+   "t": "22:08"
+  },
+  {
+   "k": "said",
+   "text": "Goodnight, Shri Hegde.",
+   "t": "22:08"
   }
  ],
  "steps": [
@@ -1632,13 +1659,61 @@
      "text": "Studienanstalten sind Theils Institute des Unterrichts, nicht unmittelbar der Erziehung, Theils fangen sie nicht von den ersten Elementen der Bildung, weder der Erkenntniß, noch der Sitten, an."
     }
    ]
+  },
+  {
+   "t": "22:08",
+   "end": "23:08",
+   "event": "Shri G. Hegde says: “Right, right. The state acts, the state doesn't quote. Very philosophical for 9 PM. Goodnight, sir. Try to find the right door before you trip over the threshold.” She uncrosses her arms and steps back into the kitchen, leaving the bungalow door wide open.",
+   "present": [],
+   "decision": {
+    "thought": "The state does indeed act rather than recite, and her retort has the sharpness of a dialectical refutation. I am tired, and the door stands open to the night air; it is time to withdraw into the interior of the house.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 60,
+    "says": "Goodnight, Shri Hegde.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.4,
+    "warnings": [
+     "talks although nobody is present"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:641"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Ionic Philosophy",
+     "id": "haldane-1:484"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "So far as the ecclesiastical body owns property, performs overt acts of worship, and maintains individuals for this service, it leaves the inner realm and enters that of the world. Hence it places itself directly under the jurisdiction of the state."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Ionic Philosophy",
+     "text": "His philosophical reflections are not comprehensive, and do not extend as far as to determination. Diogenes says in the passage quoted before: “He adduced the Infinite” (τὸ ἄπειρον, the undetermined), “as principle and element; he neither determined it as air or water or any such thing.” There are, however, few attributes of this Infinite given."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-25T22:08+05:30",
+  "until": "2026-10-25T23:08+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
