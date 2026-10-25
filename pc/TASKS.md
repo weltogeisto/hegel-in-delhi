@@ -196,12 +196,12 @@ Run 21 days with the stand-in mind and show where his money comes from and where
 Merge main into `shadow` on the Pi (a merge, never a rebase), as in T13, between two ticks. It carries the day report (T18, which T19 needs on the Pi), the dhaba on Ramesh's day off, Mr. Malhotra's loan that sees debts, and the resume fix (T20). Keep the fan club files off the Pi, as in T13.
 **Done when:** shadow contains `8037632` and a natural tick exits 0.
 
-### Welt · how a man in his position can live · DECIDED 25 October: all of option 2, built by Claude (see the commit that marks this)
+### Welt · how a man in his position can live · DECIDED 25 October: all of option 2, built by Claude in `f76483e`
 From 1 November his household costs about ₹17,600 a month, and the world offers at most about ₹8,700 a month that he can spend. The kitchen shuts on 1 November whatever he does (`pc/ECONOMY-20261025.md`). Three ways out: leave it; exits, not gifts (Ramesh accepts part-time, a cheque can be banked, a column that recurs; recommended); or a stipend. Claude builds the chosen one, with tests, before Day 31.
 
 ### T23 · Astra · bring main into the shadow world · OPEN
 Merge main into `shadow` on the Pi, as in T22, between two ticks, fan files kept off. It carries the ways out Welt chose (`pc/ECONOMY-20261025.md`): Ramesh part-time, Mr. Saxena's letter and the bank account, the fortnightly column and the frock asked again. They must be on the Pi before 1 November (his Day 31), when the wage falls due.
-**Done when:** shadow contains the commit that marks the decision above, and a natural tick exits 0.
+**Done when:** shadow contains `f76483e`, and a natural tick exits 0.
 
 ### Act 1 gate · seven full days in a row
 On each of seven consecutive days: at least 30 thoughts; quiet steps at most 5% of waking steps; the owl wrote; no refusal loop; at most 1.6 contradictions and 3.1 statements as fact per 100 sentences; repetition measured (T10 on the first). Claude checks it in the daily review (T11) and writes the Act 2 tasks when it passes.
