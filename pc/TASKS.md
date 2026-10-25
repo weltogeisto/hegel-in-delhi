@@ -170,11 +170,11 @@ From today the work follows `PLAN.md`, the season plan: Act 0 (lights on), Act 1
 Start the 8082 server on the GPU, or confirm the boot task did, with the same saved command and CUDA path as on 14 October. Check its speed (about 34 tokens a second then). Leave the Pi's timer as it is: it never stopped.
 **Done when:** a natural tick shows source `mind`, and the speed is in the comment.
 
-### T17 · Claude · the watchman · DONE: see the commit that marks this; `tools/watchman.py`, `.github/workflows/watchman.yml`, hourly at :23
+### T17 · Claude · the watchman · DONE: `4c02444`; `tools/watchman.py`, `.github/workflows/watchman.yml`, hourly at :23
 An hourly GitHub Actions check on `origin/shadow`: when the latest three waking steps (between his waking and 22:00) all ran without a mind, it opens an issue, or comments on the open one, which GitHub emails to Welt. It closes the issue when the mind is back. No secrets; it reads the public branch.
 **Done when:** it flags Day 13's record in a test, and runs green on main.
 
-### T18 · Claude · the day report · DONE: same commit; Day 12 gives 42 decisions and 29/42 (69%), as T9
+### T18 · Claude · the day report · DONE: `4c02444`; Day 12 gives 42 decisions and 29/42 (69%), as T9
 `python3 -m world report <date>`: one row per day with thoughts, quiet steps by source, refusals and the most frequent one, repetition share (T10's rule), meals, cash, places, people spoken to, theses moved and the owl's presence. `--table` prints a range as a scoreboard table.
 **Done when:** it reproduces Day 12's 42 decisions and T9's 29/42, with tests.
 
