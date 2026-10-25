@@ -1,0 +1,76 @@
+{
+  "started_utc": "2026-10-25T14:06:32.405323+00:00",
+  "plan": {
+    "stamp": "20261025-140554",
+    "main": "e5dc1040db60495cdc78d677d3099da332f6e0a9",
+    "feature_commit": "f76483e6b9fad9ccb531064864595c3b5d8262fd",
+    "shadow_snapshot": "3c0a3e21a4fbf85bcc8480deb0bb23ebe2c73e77",
+    "variants": {
+      "PC": {
+        "tree": "174211cfae151210ef056e81c33f301b1b7c779b",
+        "archive": "/mnt/c/hegel/handover/codex-tasks-20261025/T23-PC-source-20261025-140554.tar",
+        "archive_sha256": "da20812daf46088a2f326d5a2ba2f1f998fc153ebc5ec94bf35ce64590082d1a",
+        "target": "/home/ai/hegel-eval/codex-tasks-20261025/T23-PC-20261025-140554",
+        "manifest": "/mnt/c/hegel/handover/codex-tasks-20261025/T23-PC-MANIFEST-20261025-140554.json",
+        "files": 430
+      },
+      "Pi": {
+        "tree": "c19b607ffc0f9b37c8a3b8c0ba17a2d34eb37541",
+        "archive": "/mnt/c/hegel/handover/codex-tasks-20261025/T23-Pi-source-20261025-140554.tar",
+        "archive_sha256": "ba61ee942e57bffb8ab5df226a25d09f8fea0849c4137fb8a674e71da8716e19",
+        "target": "/home/ai/hegel-eval/codex-tasks-20261025/T23-Pi-20261025-140554",
+        "manifest": "/mnt/c/hegel/handover/codex-tasks-20261025/T23-Pi-MANIFEST-20261025-140554.json",
+        "files": 208
+      }
+    },
+    "test_command": [
+      "python3",
+      "-m",
+      "unittest",
+      "-v",
+      "tests.test_economy.WaysOutTest"
+    ],
+    "reason": "Focused new combined-source integration check of unchanged Claude WaysOutTest on resolved PC merge and exact Pi candidate; no economy simulation/full suite/model call.",
+    "result_dir": "/mnt/c/hegel/handover/codex-tasks-20261025/T23-focused-checks-20261025-140554",
+    "session": "hegel-t23-unit-20261025-140554",
+    "PC_original_CSV": 22,
+    "Pi_original_CSV": 10
+  },
+  "before": {
+    "PC": {
+      "files": 430,
+      "archive_native_snapshot_exact": true,
+      "mismatches": []
+    },
+    "Pi": {
+      "files": 208,
+      "archive_native_snapshot_exact": true,
+      "mismatches": []
+    }
+  },
+  "model_calls": 0,
+  "runs": {
+    "PC": {
+      "exit": 0,
+      "elapsed_s": 0.22965708000265295
+    },
+    "Pi": {
+      "exit": 0,
+      "elapsed_s": 0.23225679300230695
+    }
+  },
+  "finished_utc": "2026-10-25T14:06:34.404338+00:00",
+  "after": {
+    "PC": {
+      "files": 430,
+      "archive_native_snapshot_exact": true,
+      "mismatches": []
+    },
+    "Pi": {
+      "files": 208,
+      "archive_native_snapshot_exact": true,
+      "mismatches": []
+    }
+  },
+  "all_passed": true
+}

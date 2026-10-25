@@ -1121,3 +1121,123 @@ class LessonVoiceTest(unittest.TestCase):
             self.assertEqual([x["by"] for x in day["entries"] if x["k"] == "said" and x.get("by")], ["Ananya"])
         finally:
             box.close()
+
+
+class WaysOutTest(unittest.TestCase):
+    """From 1 November his household costs more than the world offered (pc/ECONOMY-20261025.md). Welt chose exits, not
+    gifts: Ramesh accepts less, a cheque can be banked, and work recurs. Each is an offer he may refuse."""
+
+    def setUp(self):
+        self.w = World()
+
+    def wage(self, amount=8000):
+        return {"to": "Ramesh", "amount": amount, "why": "the wage for cooking", "since": "2026-11-01", "cost": "wage",
+                "item": "Ramesh's wage for cooking", "at": "home", "with": "ramesh"}
+
+    # Ramesh part-time
+    def test_ramesh_offers_three_days_a_week_when_the_wage_cannot_be_paid(self):
+        w, st = self.w, fresh(settled="2026-11-01")
+        st["owed"], st["imprest"] = [self.wage()], 1451
+        with There(home=["ramesh"]):
+            oid, out = offer(w, at_dt(D(2, 11), 480), st, "home")
+        self.assertEqual(oid, "ramesh_parttime")
+        self.assertTrue(st["flags"]["ramesh_parttime"])
+        self.assertEqual([(o["amount"], o["why"]) for o in st["owed"] if o.get("cost") == "wage"],
+                         [(4000, "the wage for cooking, three days a week")])
+        self.assertIn("Mondays, Thursdays and Saturdays", out[-1]["text"] if out else "")
+
+    def test_no_such_offer_while_he_can_pay(self):
+        w, st = self.w, fresh(settled="2026-11-01")
+        st["owed"], st["imprest"] = [self.wage()], 9000
+        with There(home=["ramesh"]):
+            beat = look(w, at_dt(D(2, 11), 480), st, "home")[1]["beat"]
+        self.assertNotEqual((beat or {}).get("id"), "ramesh_parttime")
+        self.assertEqual(st["owed"], [])                                                       # paid at once, Ramesh being there
+
+    def test_part_time_ramesh_comes_on_three_days_and_costs_less(self):
+        w, st = self.w, fresh(settled="2026-11-01")
+        week = lambda: {D(n, 11).strftime("%a"): "ramesh" in w.present_ids("home", at_dt(D(n, 11), 540), st) for n in range(2, 9)}
+        self.assertEqual(week(), {"Mon": True, "Tue": True, "Wed": False, "Thu": True, "Fri": True, "Sat": True, "Sun": True})
+        st["flags"]["ramesh_parttime"] = True
+        self.assertEqual(week(), {"Mon": True, "Tue": False, "Wed": False, "Thu": True, "Fri": False, "Sat": True, "Sun": False})
+        groceries = [o for o in w.accrue(at_dt(D(8, 11), 540), st) if o["cost"] == "groceries"]
+        self.assertEqual([o["amount"] for o in groceries], [900])
+        wage = [o for o in w.accrue(at_dt(D(1, 12), 540), st) if o["cost"] == "wage"]
+        self.assertEqual([(o["amount"], o["why"]) for o in wage], [(4000, "the wage for cooking, three days a week")])
+
+    # the bank
+    def cheque(self):
+        return {"from": "the India International Centre", "amount": 10000, "since": "2026-10-11"}
+
+    def test_a_cheque_brings_saxenas_letter_then_an_account_then_cash(self):
+        w, st = self.w, fresh()
+        st["cheques"], cash = [self.cheque()], st["imprest"]
+        with There(estates=["saxena"]):
+            oid, _ = offer(w, at_dt(D(12), 660), st, "estates")
+        self.assertEqual(oid, "allotment_letter")
+        self.assertTrue(st["flags"]["allotment_letter"])
+        with There(khan=["bank_clerk"]):
+            oid, out = offer(w, at_dt(D(12), 780), st, "khan")
+            self.assertEqual(oid, "bank_account")
+            self.assertTrue(st["flags"]["bank"])
+            self.assertEqual(st["cheques"], [])
+            self.assertIn("clears in 3 days", " ".join(e.get("text", "") for e in out))
+            look(w, at_dt(D(14), 780), st, "khan")
+            self.assertEqual(st["imprest"], cash)                                             # not yet cleared
+            sit, ctx = look(w, at_dt(D(15), 790), st, "khan")
+        self.assertEqual(st["imprest"], cash + 10000)
+        self.assertIn("the cheque from the India International Centre has cleared", sit["event"])
+
+    def test_no_account_without_the_letter(self):
+        with There(khan=["bank_clerk"]):
+            self.assertIsNone(look(self.w, at_dt(D(12), 780), fresh(), "khan")[1]["beat"])
+
+    def test_with_an_account_a_new_cheque_clears_in_three_days(self):
+        w, st = self.w, fresh()
+        st["flags"]["bank"], cash, t = True, st["imprest"], at_dt(D(12), 1170)
+        e = w.pay(st, {"from": "the India International Centre", "amount": 10000, "item": "Honorarium for the talk at the IIC",
+                       "cheque": True, "after": t.isoformat(timespec="minutes")}, t)
+        self.assertTrue(e["banked"])
+        self.assertEqual((st["imprest"], st["cheques"]), (cash, []))
+        self.assertEqual([(r["at"], r["after"], r["amount"]) for r in st["receipts"]], [("khan", "2026-10-15T19:30+05:30", 10000)])
+
+    # work that recurs
+    def test_the_essay_paid_sets_the_flag_that_brings_the_column(self):
+        w, st, t = self.w, fresh(), at_dt(D(12), 600)
+        w.receive(st, {"from": "the Yamuna Review", "amount": 6000, "item": "Fee for an essay", "write": 300, "flag": "essay_paid"}, t, False)
+        w.on_writing(st, 320, t)
+        self.assertTrue(st["flags"]["essay_paid"])
+
+    def test_a_column_every_fortnight_one_piece_at_a_time(self):
+        w, st = self.w, fresh()
+        st["flags"]["essay_paid"] = True
+        st["beats"].append("essay_fee")
+        with There(iic=["officer"]):
+            oid, _ = offer(w, at_dt(D(12), 900), st, "iic")
+        self.assertEqual(oid, "column")
+        self.assertEqual([(r["amount"], r["write"], r["commission"]) for r in st["receipts"]], [(4000, 300, "column")])
+        cash = st["imprest"]
+        w.on_writing(st, 310, at_dt(D(13), 600))
+        self.assertEqual(st["imprest"], cash + 4000)
+        self.assertEqual(st["commissions"][0]["next"], "2026-10-27")
+        self.assertEqual(w.commissions(at_dt(D(26), 540), st), ([], []))
+        lines, entries = w.commissions(at_dt(D(27), 540), st)
+        self.assertEqual(lines, ["The Yamuna Review asks for your next column: ₹4,000 in cash, at your next sitting of three hundred words or more."])
+        self.assertEqual(w.commissions(at_dt(D(27), 600), st), ([], []))                     # one piece at a time
+        self.assertEqual([r["commission"] for r in st["receipts"]], ["column"])
+
+    # the frock, again
+    def test_masterji_asks_again_about_the_frock_when_the_purse_is_thin(self):
+        w, st = self.w, fresh()
+        st["beats"].append("sell_frock")
+        st["imprest"] = 2500
+        with There(khan=["masterji"]):
+            oid, _ = offer(w, at_dt(D(12), 720), st, "khan")
+        self.assertEqual(oid, "sell_frock_again")
+        self.assertNotIn("frock", [g["id"] for g in st["wardrobe"]])
+        self.assertEqual([(r["amount"], r["at"]) for r in st["receipts"]], [(12000, "khan")])
+        st2 = fresh()
+        st2["beats"].append("sell_frock")
+        st2["imprest"] = 6000
+        with There(khan=["masterji"]):
+            self.assertNotEqual((look(w, at_dt(D(12), 720), st2, "khan")[1]["beat"] or {}).get("id"), "sell_frock_again")

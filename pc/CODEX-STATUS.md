@@ -1,3 +1,13 @@
+# PC status — 25 October T23 chosen rules verified
+
+T23 DONE. Real Pi merge d4bc5ff has parents3c0a3e2 and main e5dc104, contains f76483e and all of the chosen option2: part-time Ramesh, letter/bank account, recurring column and frock offered again. Natural tick exited0 at14:18:04UTC; one read-only capture finds inactive service, enabled/active timer, clean stable Pi=actual remote and17hash/length/blob matches. All208deployment raw files/tree and10original PiCSV match; day/state JSON, T19hook/CLI/ledger, old page and4fan exclusions are preserved. No forced tick/owl, server/model/health/power action.
+
+Nine unchanged new WaysOutTest checks pass for each frozen PC/Pi candidate,0.035s each; all430PC+208Pi files match before/after. PC TASKS/money conflicts and the first safe active-service deferral remain sealed. Details: pc/T23-WAYS-OUT-MAIN-20261025.md/json. The genuine PC merge of e5dc104 is completed with this result; all original PC22CSV bytes remain.
+
+The economy choice is resolved on main; do not re-ask it. T16/T19/T21/T22 remain DONE. T10 waits for the first FULL completed post-return day with at least30non-null thoughts; Day14excluded and25October not full, no auditor run. Actual boot-trigger proof awaits a natural reboot. T14 remains NOT DONE with every actual gap record retained, T15superseded. Public paused, shadow shift300. Standing watch stays ACTIVE; no further Pi/health/model polls absent a real new task/failure or eligible complete-day work.
+
+## Preserved T22 checkpoint (T23 next-work state superseded above)
+
 # PC status — 25 October T22 natural check complete
 
 T22 DONE. One scheduled read-only Pi capture records the natural tick finishing at 12:10:04 UTC, exit 0 / Result=success, inactive service, enabled/active timer. Clean stable Pi HEAD 5a6c54a equals independently fetched actual shadow; all 13 captured hash/length/blob IDs match raw Git. Runtime source is unchanged from genuine merge 324b859, parents 505a7a9 and main6d291f5, containing T20 8037632. Exact current/previous day and report bytes are separately frozen. Old page, four fan exclusions, configuration and original data remain. No redeployment, model/health probe or repeated test. See pc/T22-SHADOW-MAIN-20261025.md/json.

@@ -200,8 +200,14 @@ Merge main into `shadow` on the Pi (a merge, never a rebase), as in T13, between
 
 **Verified:** single read-only capture, clean stable Pi/actual remote `5a6c54a`, natural service exit0/inactive at12:10:04UTC, timerenabled/active. All13captured hashes/lengths/blobIDs match independent raw Git; runtime unchanged from real merge `324b859` containing `8037632`. Exact current/previous days and report bytes frozen separately. No redeployment, forced tick, model probe or repeated test. See `pc/T22-SHADOW-MAIN-20261025.md/json`.
 
-### Welt · how a man in his position can live · decide before 1 November
+### Welt · how a man in his position can live · DECIDED 25 October: all of option 2, built by Claude in `f76483e`
 From 1 November his household costs about ₹17,600 a month, and the world offers at most about ₹8,700 a month that he can spend. The kitchen shuts on 1 November whatever he does (`pc/ECONOMY-20261025.md`). Three ways out: leave it; exits, not gifts (Ramesh accepts part-time, a cheque can be banked, a column that recurs; recommended); or a stipend. Claude builds the chosen one, with tests, before Day 31.
+
+### T23 · Astra · bring main into the shadow world · DONE: shadow `d4bc5ff` contains `f76483e`; natural exit 0 at14:18:04UTC
+Merge main into `shadow` on the Pi, as in T22, between two ticks, fan files kept off. It carries the ways out Welt chose (`pc/ECONOMY-20261025.md`): Ramesh part-time, Mr. Saxena's letter and the bank account, the fortnightly column and the frock asked again. They must be on the Pi before 1 November (his Day 31), when the wage falls due.
+**Done when:** shadow contains `f76483e`, and a natural tick exits 0.
+
+**Verified:** real main merge d4bc5ff, clean stable Pi=actual remote, natural service exit0/inactive14:18:04UTC, timerenabled/active; all17captured hashes/lengths/blobs match raw Git. All208deployment raw files/tree and10PiCSV verified; original day/state/T19hook/ledger/page preserved,4fan files absent. Nine new-source checks per PC/Pi variant pass0.035s each; all430+208frozen files exact. Original conflicts and safe active-service deferral retained. See `pc/T23-WAYS-OUT-MAIN-20261025.md/json`.
 
 ### Act 1 gate · seven full days in a row
 On each of seven consecutive days: at least 30 thoughts; quiet steps at most 5% of waking steps; the owl wrote; no refusal loop; at most 1.6 contradictions and 3.1 statements as fact per 100 sentences; repetition measured (T10 on the first). Claude checks it in the daily review (T11) and writes the Act 2 tasks when it passes.

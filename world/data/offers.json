@@ -1,5 +1,5 @@
 {
-  "note": "Offers, and the beats that follow them: the same shape as plot.json. 'when' holds an offer's conditions (met_days: days he has met them; visits: days he has been in a place; known: people he has met; since_day: days since day 1; cash_below, cash_min; flags; wardrobe: a garment he still owns; words: a manuscript of that many words; on: one date). Effects, in a beat or in a choice's yes or no: pay (money to him now, or after_min later, at a place 'at', or at his next sitting of 'write' words), cheque (the same, but a cheque he cannot bank), owe, sell (a garment, and what it fetches where 'at'), schedule (a standing engagement with 'days', or an appointment in_days for a beat that follows). 'again_days': a refused offer comes back after that many days. Every offer is made by someone present; every price is simulated.",
+  "note": "Offers, and the beats that follow them: the same shape as plot.json. 'when' holds an offer's conditions (met_days: days he has met them; visits: days he has been in a place; known: people he has met; since_day: days since day 1; cash_below, cash_min; flags; wardrobe: a garment he still owns; words: a manuscript of that many words; on: one date; owes: a cost he owes and his cash cannot meet; cheques: cheques he holds; days: days of the week). Effects, in a beat or in a choice's yes or no: pay (money to him now, or after_min later, at a place 'at', or at his next sitting of 'write' words), cheque (the same, but a cheque he cannot bank), owe, sell (a garment, and what it fetches where 'at'), schedule (a standing engagement with 'days', or an appointment in_days for a beat that follows), reprice (a debt that stands owed is changed), bank (an account: cheques then clear in three days), commission (work that recurs every N days, one piece asked for at a time). A pay with 'flag' sets that flag when it is paid. 'again_days': a refused offer comes back after that many days. Every offer is made by someone present; every price is simulated.",
   "offers": [
     {
       "id": "tutoring_german", "kind": "world", "needs": ["nidhi"], "again_days": 14,
@@ -89,7 +89,7 @@
         "question": "Did you agree to write an essay for the Yamuna Review for ₹6,000 in cash, at your next sitting of three hundred words or more?",
         "yes": {
           "public": "He agrees to write the essay for the Yamuna Review.",
-          "pay": {"from": "the Yamuna Review", "amount": 6000, "item": "Fee for an essay", "write": 300}
+          "pay": {"from": "the Yamuna Review", "amount": 6000, "item": "Fee for an essay", "write": 300, "flag": "essay_paid"}
         },
         "no": {"public": "He declines: the pages are not for sale."}
       }
@@ -99,6 +99,88 @@
       "window": ["06:00", "13:00"], "when": {"on": "2026-11-08"},
       "prompt": "It is Diwali. Ramesh, and the dhobi who has come by with the washing, wait with the patience of men who expect bakshish: at Diwali one gives something to those who serve the house.",
       "public": "Diwali morning: Ramesh and the dhobi wait for their bakshish."
+    },
+    {
+      "id": "ramesh_parttime", "kind": "world", "where": "home", "needs": ["ramesh"], "again_days": 7,
+      "when": {"owes": ["wage"]},
+      "prompt": "Ramesh knows the wage is more than the purse holds, he says, without looking at it. He could come on Mondays, Thursdays and Saturdays only, for ₹4,000 a month.",
+      "public": "Ramesh offers to come three days a week, Mondays, Thursdays and Saturdays, for ₹4,000 a month instead of ₹8,000.",
+      "choice": {
+        "question": "Did you agree that Ramesh comes only on Mondays, Thursdays and Saturdays, for ₹4,000 a month?",
+        "yes": {
+          "public": "He agrees. From now on Ramesh comes on Mondays, Thursdays and Saturdays, for ₹4,000 a month.",
+          "flags": {"ramesh_parttime": true},
+          "reprice": {"cost": "wage", "amount": 4000, "why": "the wage for cooking, three days a week"}
+        },
+        "no": {"public": "He keeps Ramesh on as before. The wage stands owed."}
+      }
+    },
+    {
+      "id": "allotment_letter", "kind": "world", "where": "estates", "needs": ["saxena"], "again_days": 7,
+      "when": {"cheques": 1},
+      "prompt": "Mr. Saxena sees the cheque among your papers: without a bank account it is only paper. The State Bank in Khan Market wants proof of address, and he could type a letter confirming your allotment.",
+      "public": "Mr. Saxena offers a letter confirming the allotment, so that he can open a bank account for his cheque.",
+      "choice": {
+        "question": "Did you accept Mr. Saxena's letter confirming the allotment of the bungalow?",
+        "yes": {"public": "He accepts. Mr. Saxena types the letter, signs it and stamps it twice: proof of address, pending the file.", "flags": {"allotment_letter": true}},
+        "no": {"public": "He declines the letter. The cheque stays as it is."}
+      }
+    },
+    {
+      "id": "bank_account", "kind": "world", "where": "khan", "needs": ["bank_clerk"], "again_days": 3, "window": ["10:30", "16:00"],
+      "when": {"flags": {"allotment_letter": true}},
+      "prompt": "With Mr. Saxena's letter, the clerk at the State Bank would open a savings account today. A cheque paid in clears in three days.",
+      "public": "At the State Bank branch in Khan Market the clerk offers to open a savings account against Mr. Saxena's letter.",
+      "choice": {
+        "question": "Did you open a savings account at the State Bank in Khan Market?",
+        "yes": {"public": "He agrees, and opens a savings account. A cheque now clears in three days, and he can draw the money in Khan Market.", "bank": true},
+        "no": {"public": "He declines: not today."}
+      }
+    },
+    {
+      "id": "sell_frock_again", "kind": "world", "where": "khan", "needs": ["masterji"], "after": ["sell_frock"], "again_days": 14,
+      "when": {"wardrobe": "frock", "cash_below": 3000},
+      "prompt": "Masterji has not forgotten the frock coat. The dealer in Sunder Nagar still asks after it: ₹12,000, in cash.",
+      "public": "Masterji says the dealer in Sunder Nagar still asks after the frock coat: ₹12,000 in cash.",
+      "choice": {
+        "question": "Did you agree to sell your Berlin frock coat to the dealer in Sunder Nagar for ₹12,000 in cash?",
+        "yes": {
+          "public": "He agrees. Masterji will send a boy to the bungalow for the coat; the dealer pays ₹12,000 in cash the next time he is at Khan Market.",
+          "sell": {"garment": "frock", "amount": 12000, "to": "a dealer in Sunder Nagar", "at": "khan"}
+        },
+        "no": {"public": "He keeps the coat."}
+      }
+    },
+    {
+      "id": "column", "kind": "world", "after": ["essay_fee"], "again_days": 14,
+      "when": {"flags": {"essay_paid": true}},
+      "variants": {
+        "iic": {
+          "needs": ["officer"],
+          "prompt": "The programme officer says the editor of the Yamuna Review liked your essay and asks for a column: a piece every fortnight, ₹4,000 in cash for each, written at a sitting of at least three hundred words.",
+          "public": "The Yamuna Review asks him for a fortnightly column at ₹4,000 a piece."
+        },
+        "khan": {
+          "needs": ["nidhi"],
+          "prompt": "Nidhi says the editor of the Yamuna Review liked your essay and asks for a column: a piece every fortnight, ₹4,000 in cash for each, written at a sitting of at least three hundred words.",
+          "public": "The Yamuna Review asks him for a fortnightly column at ₹4,000 a piece."
+        },
+        "lodhi": {
+          "needs": ["nidhi"],
+          "prompt": "Nidhi says the editor of the Yamuna Review liked your essay and asks for a column: a piece every fortnight, ₹4,000 in cash for each, written at a sitting of at least three hundred words.",
+          "public": "The Yamuna Review asks him for a fortnightly column at ₹4,000 a piece."
+        }
+      },
+      "choice": {
+        "question": "Did you agree to write a column for the Yamuna Review, a piece every fortnight at ₹4,000 in cash, at a sitting of three hundred words or more?",
+        "yes": {
+          "public": "He agrees to write a fortnightly column for the Yamuna Review.",
+          "commission": {"id": "column", "every": 14,
+                         "pay": {"from": "the Yamuna Review", "amount": 4000, "item": "Fee for a column", "write": 300},
+                         "ask": "The Yamuna Review asks for your next column: ₹4,000 in cash, at your next sitting of three hundred words or more."}
+        },
+        "no": {"public": "He declines the column."}
+      }
     }
   ]
 }

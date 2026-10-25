@@ -9,6 +9,8 @@ from .records import charge_id
 ADVANCE = 15000                 # the imprest advance he must account for
 SESSION_WAIT = 30               # minutes a person waits for him at a standing engagement
 HOME_GIFT = (50, 5000)          # what a gift or payment to a person at home may come to
+CLEAR_DAYS = 3                  # a cheque paid in at the State Bank clears in this many days
+BANK = "the State Bank, Khan Market"
 
 
 def cap(text):
@@ -34,7 +36,7 @@ class Economy:
     def ledger(self, st):
         """The money keys a state may lack (day 1's does), with their defaults, so that older states carry on."""
         st.setdefault("account", {"advance": ADVANCE, "vouchers": [], "admitted": 0, "queried": 0})
-        for k in ("owed", "cheques", "receipts", "engagements"):
+        for k in ("owed", "cheques", "receipts", "engagements", "commissions"):
             st.setdefault(k, [])
         st.setdefault('settled_charges',[])
         for o in st['owed']:
@@ -119,10 +121,17 @@ class Economy:
                 return x
         return None
 
+    def cost_of(self, c, st):
+        """A recurring cost as it stands for him now: a flag he holds (Ramesh part-time) may change its amount and words."""
+        for flag, alt in c.get("if_flag", {}).items():
+            if st.get("flags", {}).get(flag):
+                return dict(c, **alt)
+        return c
+
     def next_cost(self, st, d):
         """'dhobi ₹300 Sat 10 Oct': the next recurring cost to fall due."""
         best = None
-        for c in self.costs:
+        for c in (self.cost_of(c, st) for c in self.costs):
             last = date.fromisoformat(st["costs"].get(c["id"]) or (d - timedelta(days=1)).isoformat())
             nd = self.next_due(c["when"], last, st)
             if nd and (best is None or nd < best[0]):
@@ -132,7 +141,7 @@ class Economy:
     def accrue(self, t, st):
         """Costs that have fallen due since he last looked go onto what he owes. Returns them."""
         d, fresh = t.date(), []
-        for c in self.costs:
+        for c in (self.cost_of(c, st) for c in self.costs):
             last = st["costs"].setdefault(c["id"], (d - timedelta(days=1)).isoformat())
             due = self.last_due(c["when"], d, st)
             if due and due.isoformat() > last:
@@ -186,6 +195,15 @@ class Economy:
         """Money comes to him: cash into the purse, or a cheque he has no bank account for. Returns the entry.
         Collected long after its time, it is what they left for him."""
         cheque, n = bool(r.get("cheque")), r["amount"]
+        if r.get("flag"):
+            st["flags"][r["flag"]] = True                       # e.g. the essay is paid for: the editor may come back
+        if r.get("banked"):
+            st["imprest"] += n
+            return {"k": "world", "drawn": n, "text": f"You draw ₹{n:,} at the State Bank in Khan Market: the cheque from {r['banked']} has cleared."}
+        if cheque and st.get("flags", {}).get("bank"):
+            st["receipts"].append(self.cleared(r["from"], n, r["item"], t))
+            return {"k": "income", "item": r["item"], "amount": n, "from": r["from"], "cheque": True, "banked": True,
+                    "text": f"{cap(r['from'])} hands you a cheque for ₹{n:,}. You pay it in at the State Bank; it clears in {CLEAR_DAYS} days."}
         e = {"k": "income", "item": r["item"], "amount": n, "from": r["from"],
              "charge_id": r.get('charge_id') or self.new_charge(st)}
         if cheque:
@@ -206,7 +224,7 @@ class Economy:
         r = {"from": spec["from"], "amount": spec["amount"], "item": spec["item"], "cheque": cheque,
              "after": (t + timedelta(minutes=spec.get("after_min", 0))).isoformat(timespec="minutes")}
         r['charge_id']=self.new_charge(st)
-        r.update({k: spec[k] for k in ("at", "write") if spec.get(k)})
+        r.update({k: spec[k] for k in ("at", "write", "flag", "commission") if spec.get(k)})
         if r["after"] == t.isoformat(timespec="minutes") and not (r.get("at") or r.get("write")):
             return [self.pay(st, r, t)]
         st["receipts"].append(r)
@@ -230,6 +248,42 @@ class Economy:
             if r.get("write") and words >= r["write"]:
                 st["receipts"].remove(r)
                 out.append(self.pay(st, r, t))
+                for c in st.get("commissions", []):
+                    if c["id"] == r.get("commission"):
+                        c["next"] = (t.date() + timedelta(days=c["every"])).isoformat()       # the next piece, a fortnight on
+        return out
+
+    # ── work that recurs, and the bank ──────────────────────────────
+    def commission(self, st, spec, t):
+        """Work that recurs (a column): the first piece is asked for now, the next one `every` days after each is paid."""
+        st["commissions"].append({"id": spec["id"], "every": spec["every"], "pay": spec["pay"], "ask": spec.get("ask"), "next": None})
+        return self.receive(st, dict(spec["pay"], commission=spec["id"]), t, False)
+
+    def commissions(self, t, st):
+        """A piece of recurring work is due to be asked for again: one at a time. Returns (event lines, entries)."""
+        lines, entries = [], []
+        for c in st.get("commissions", []):
+            if c["next"] and c["next"] <= t.date().isoformat() and not any(r.get("commission") == c["id"] for r in st["receipts"]):
+                c["next"] = None
+                self.receive(st, dict(c["pay"], commission=c["id"]), t, False)
+                if c.get("ask"):
+                    lines.append(c["ask"])
+                    entries.append({"k": "world", "text": c["ask"]})
+        return lines, entries
+
+    def cleared(self, source, amount, item, t):
+        """A cheque paid in: the money, drawn in Khan Market once it has cleared."""
+        return {"from": BANK, "amount": amount, "item": f"{item}, cleared", "cheque": False, "at": "khan", "banked": source,
+                "after": (t + timedelta(days=CLEAR_DAYS)).isoformat(timespec="minutes")}
+
+    def bank(self, st, t):
+        """An account at the State Bank: from now on cheques clear, and those he holds are paid in at once. Returns entries."""
+        st["flags"]["bank"] = True
+        out = []
+        for c in list(st["cheques"]):
+            st["cheques"].remove(c)
+            st["receipts"].append(self.cleared(c["from"], c["amount"], c.get("item") or f"Cheque from {c['from']}", t))
+            out.append({"k": "world", "text": f"He pays in the cheque from {c['from']} for ₹{c['amount']:,}; it clears in {CLEAR_DAYS} days."})
         return out
 
     # ── the imprest account ─────────────────────────────────────────
@@ -270,6 +324,8 @@ class Economy:
         lines, entries = self.lapse(t, st)
         got = self.collect(t, st, pid)
         lines, entries = lines + got[0], entries + got[1]
+        got = self.commissions(t, st)
+        lines, entries = lines + got[0], entries + got[1]
         fresh = self.accrue(t, st)
         got = self.settle(t, st, pid, present, today)
         lines, entries = lines + got[0], entries + got[1]
@@ -282,7 +338,8 @@ class Economy:
 
     # ── offers and their conditions ─────────────────────────────────
     def when_ok(self, w, t, st):
-        """The conditions of an offer: days met, visits, day count, cash, flags, a garment, a manuscript, a date."""
+        """The conditions of an offer: days met, visits, day count, cash, flags, a garment, a manuscript, a date, a cost owed
+        that his cash cannot meet, cheques held, days of the week."""
         d, cash = t.date(), st["imprest"]
         net = cash - sum(o.get("amount", 0) for o in st.get("owed", []))      # a purse that cannot pay what is owed is thin too
         if w.get("on") and w["on"] != d.isoformat():
@@ -297,10 +354,15 @@ class Economy:
             return False
         if w.get("wardrobe") and not self.garment(st, w["wardrobe"]):
             return False
+        if any(not any(o.get("cost") == cid and o["amount"] > cash for o in st.get("owed", [])) for cid in w.get("owes", [])):
+            return False                                    # a cost of this kind stands owed, and his cash cannot meet it
+        if len(st.get("cheques", [])) < w.get("cheques", 0) or (w.get("days") and not days_match(w["days"], d)):
+            return False
         return not w.get("words") or any(x["words"] >= w["words"] for x in st.get("works", []))
 
     def effects(self, spec, t, st):
-        """The economy's effects of a beat, or of one answer to its choice: owe, pay, cheque, sell, schedule. Returns entries."""
+        """The economy's effects of a beat, or of one answer to its choice: owe, pay, cheque, sell, schedule, reprice (a debt
+        that stands owed is changed), bank (an account opened), commission (work that recurs). Returns entries."""
         self.ledger(st)
         out = []
         for key, cheque in (("pay", False), ("cheque", True)):
@@ -319,6 +381,15 @@ class Economy:
                         "owe": {k: o[k] for k in ("to", "amount", "why", "since", "charge_id")}})
         if spec.get("schedule"):
             self.schedule(st, spec["schedule"], t)
+        if spec.get("reprice"):
+            r = spec["reprice"]
+            for o in st["owed"]:
+                if o.get("cost") == r["cost"]:
+                    o.update({k: r[k] for k in ("amount", "why") if k in r})
+        if spec.get("bank"):
+            out += self.bank(st, t)
+        if spec.get("commission"):
+            out += self.commission(st, spec["commission"], t)
         return out
 
     def sell(self, st, spec, t):
