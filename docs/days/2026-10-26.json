@@ -358,6 +358,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "08:03",
+   "to": "08:33",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -813,13 +820,42 @@
      "text": "It is founded on the reality of property, in other words upon the necessity that the will, in order to keep a thing, must manifest itself in it. — Public monuments are property of the nation, or rather they, like all works of art intended for use, are living and self-sufficient ends because of their indwelling soul of remembrance and honour."
     }
    ]
+  },
+  {
+   "t": "08:03",
+   "end": "08:33",
+   "event": "Ramesh says: “Yes, sir. I will pour the tea right now. As for the clerk, I will give the call, but he is never in a hurry like you.” She picks up the cup and begins pouring the tea.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-26T08:03+05:30",
+  "until": "2026-10-26T08:33+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
