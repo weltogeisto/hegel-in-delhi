@@ -1,3 +1,11 @@
+# PC status — 25 October T22 natural check complete
+
+T22 DONE. One scheduled read-only Pi capture records the natural tick finishing at 12:10:04 UTC, exit 0 / Result=success, inactive service, enabled/active timer. Clean stable Pi HEAD 5a6c54a equals independently fetched actual shadow; all 13 captured hash/length/blob IDs match raw Git. Runtime source is unchanged from genuine merge 324b859, parents 505a7a9 and main6d291f5, containing T20 8037632. Exact current/previous day and report bytes are separately frozen. Old page, four fan exclusions, configuration and original data remain. No redeployment, model/health probe or repeated test. See pc/T22-SHADOW-MAIN-20261025.md/json.
+
+T16, T19 and T21 remain DONE. No further Pi/health/model polling while T10 waits, absent fresh actionable work or a real failure. T10 needs the first FULL completed post-return day with at least 30 non-null thoughts; Day 14 excluded and 25 October not full. No auditor run. T14 remains NOT DONE with the actual gap retained; T15 superseded. A real boot-trigger proof awaits the next natural reboot. Welt's economy choice was already asked and remains pending; no choice inferred. Public paused, shadow shift 300; no power/wake override.
+
+## Preserved T19 checkpoint (T22 pending gate superseded above)
+
 # PC status — 25 October automatic reports verified
 
 T19 DONE: the normal Pi timer published Day 23's first report at 11:50:06 UTC, shadow 5a6c54a. The 384-byte row has 33 away decisions, zero thoughts and null repetition; its input day is unchanged. No manual report, tick or owl. The locked hook appends once and retries saved rows after a commit failure.

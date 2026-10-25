@@ -194,11 +194,11 @@ After the owl has written, run `python3 -m world report` for that day on the Pi 
 Run 21 days with the stand-in mind and show where his money comes from and where it goes. Check that offers that bring money in can reach him. When a mindless step meets Ramesh's day off, he eats at Khan Market. A world rule: no thought, no words.
 **Done when:** the cash flow is in `pc/ECONOMY-20261025.md`, and a mindless day on Ramesh's day off has its meals, with tests.
 
-### T22 · Astra · bring main into the shadow world · OPEN
+### T22 · Astra · bring main into the shadow world · DONE: shadow contains `8037632`; natural tick exit 0 at 12:10:04 UTC
 Merge main into `shadow` on the Pi (a merge, never a rebase), as in T13, between two ticks. It carries the day report (T18, which T19 needs on the Pi), the dhaba on Ramesh's day off, Mr. Malhotra's loan that sees debts, and the resume fix (T20). Keep the fan club files off the Pi, as in T13.
 **Done when:** shadow contains `8037632` and a natural tick exits 0.
 
-**Deployed, still OPEN:** real merge `324b859` includes `8037632` and main `6d291f5`; all 206 raw files/tree and 10 original Pi CSV files verified, day/state JSON unchanged. Automatic report committed as `5a6c54a`. A captured natural service exit 0 check waits for the next scheduled heartbeat; no second monitoring SSH capture this turn.
+**Verified:** single read-only capture, clean stable Pi/actual remote `5a6c54a`, natural service exit0/inactive at12:10:04UTC, timerenabled/active. All13captured hashes/lengths/blobIDs match independent raw Git; runtime unchanged from real merge `324b859` containing `8037632`. Exact current/previous days and report bytes frozen separately. No redeployment, forced tick, model probe or repeated test. See `pc/T22-SHADOW-MAIN-20261025.md/json`.
 
 ### Welt · how a man in his position can live · decide before 1 November
 From 1 November his household costs about ₹17,600 a month, and the world offers at most about ₹8,700 a month that he can spend. The kitchen shuts on 1 November whatever he does (`pc/ECONOMY-20261025.md`). Three ways out: leave it; exits, not gifts (Ramesh accepts part-time, a cheque can be banked, a column that recurs; recommended); or a stipend. Claude builds the chosen one, with tests, before Day 31.
