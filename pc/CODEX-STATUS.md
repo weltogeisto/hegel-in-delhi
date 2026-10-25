@@ -4,6 +4,8 @@ Current main supersedes T15 with T16 and assigns the PC seat to Astra. T16 DONE:
 
 T14 NOT DONE, T15 superseded, and Claude has explicitly kept the gap. The03:50Berlin15October shutdown preceded the05:40target; the stop depended on this PC remaining awake. Frozen363decisions=16mind+347away retained; today's short late pause/re-enable does not repair history. Day23's zero-thought owl landed naturally10:08:29UTC with no thesis/status move. T10 remains OPEN for a FULL complete post-return day>=30thoughts; no auditor run. Windows startup/Update still blocked by cancelled UAC, no task/policy/cold-start proof, awake.flag present. Public paused/shift300, fanfiles absent. T19 next: automatic row after an owl under fresh main.
 
+Fresh main a015edc is genuinely integrated on PC, with both TASKS conflict originals preserved. Six focused combined report-command/status checks pass0.110s/process0; all395 frozen files verified after completion. No runtime source on Pi was changed for T16, no repeated GPU test/full suite/auditor. T19 remains OPEN.
+
 ## Preserved pending return checkpoint (superseded by the natural proof above)
 
 # Codex status — 25 October return; travel pause failed

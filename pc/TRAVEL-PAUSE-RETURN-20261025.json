@@ -579,5 +579,36 @@
   "T19": {
     "status": "OPEN",
     "need": "Integrate fresh main and make the row publish automatically after an owl; no manual row used as proof"
+  },
+  "main_integration": {
+    "main": "a015edc0710fc3bb31466b8ab524feea2d093f09",
+    "genuine_native_merge": true,
+    "native_intermediate": "91e558b3f290db9ed6c5d7fc89e3fafb1e659264",
+    "existing_CLI_functions_unchanged_except_main_dispatch": true,
+    "focused_verification": {
+      "started_utc": "2026-10-25T11:11:44.667712+00:00",
+      "finished_utc": "2026-10-25T11:11:45.048933+00:00",
+      "source_tree": "b0698bef17f3e4b5126616d517b2585a21c0fead",
+      "archive": "/mnt/c/hegel/handover/codex-tasks-20261025/T16-main-a015-focused-source-20261025-111141.tar",
+      "archive_sha256": "26308910a2c1bdc151d7acd54b8c020938ab33d6ff3c039ccd9faa4c5971f3fa",
+      "snapshot": "/home/ai/hegel-eval/codex-tasks-20261025/T16-main-a015-focused-20261025-111141",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "tests.test_report.ReportCommandTest",
+        "tests.test_cli_status"
+      ],
+      "wall_s": 0.5723515419995238,
+      "process_exit": 0,
+      "error": null,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "71b40fd0510f1c258c1462079631cfc5a9b69efa837f163dd56d27fc782d99b1",
+      "files_verified_before_and_after": 395,
+      "mismatches": [],
+      "tests": 6,
+      "scope": "Newly combined report CLI dispatch and prior status command; no T10 auditor invocation, original T9/T10 regression, T13 tests, model call or full suite"
+    },
+    "Pi_main_T18_code_not_deployed_yet": true
   }
 }
