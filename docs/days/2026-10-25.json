@@ -554,6 +554,15 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "23:08",
+   "to": "24:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Asleep. The owl is writing up the day.",
+   "asleep": true,
+   "owl": true
   }
  ],
  "entries": [
@@ -680,6 +689,21 @@
    "k": "said",
    "text": "Goodnight, Shri Hegde.",
    "t": "22:08"
+  },
+  {
+   "k": "diary",
+   "text": "The body has spoken its ultimatum; the spirit must yield to the necessity of rest to preserve itself for the morning's labours. I have walked no distance today, yet the stillness of the house is heavier than any exertion. I shall retire to the bedchamber, leaving the file on Hegde for the light of day, when the mind is less prone to dialectical overreach in the dark.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§351"
+    }
+   ],
+   "t": "23:08"
   }
  ],
  "steps": [
@@ -1707,14 +1731,59 @@
      "text": "His philosophical reflections are not comprehensive, and do not extend as far as to determination. Diogenes says in the passage quoted before: “He adduced the Infinite” (τὸ ἄπειρον, the undetermined), “as principle and element; he neither determined it as air or water or any such thing.” There are, however, few attributes of this Infinite given."
     }
    ]
+  },
+  {
+   "t": "23:08",
+   "end": "24:00",
+   "event": "It is late. The house is quiet. You are tired.",
+   "present": [],
+   "decision": {
+    "thought": "The body has spoken its ultimatum; the spirit must yield to the necessity of rest to preserve itself for the morning's labours. I have walked no distance today, yet the stillness of the house is heavier than any exertion. I shall retire to the bedchamber, leaving the file on Hegde for the light of day, when the mind is less prone to dialectical overreach in the dark.",
+    "action": "sleep",
+    "place": "home",
+    "minutes": 240,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.7
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "id": "haldane-2:20"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§351",
+     "id": "dyde-right:849"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "text": "We must stand above Plato, i.e. we must acquaint ourselves with the needs of thoughtful minds in our own time, or rather we must ourselves experience these needs."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§351",
+     "text": "It is this feature of them which is significant in world-history. The concrete ideas, which embody the national minds or - Spirits, h as its truth in the concrete idea i n its absolute, jiniversality. This is the spirit of the world, around whose throne stand the other spirits as perfecters of its actuality, and witnesses and ornaments of its splendour.\""
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-25T23:08+05:30",
-  "asleep": false,
+  "until": "2026-10-26T00:00+05:30",
+  "asleep": true,
   "imprest": 3251,
   "wearing": "kurta",
   "wardrobe": [
@@ -1790,7 +1859,9 @@
    "breakfast": true,
    "lunch": true,
    "tea": true,
-   "dinner": true
+   "dinner": true,
+   "late": true,
+   "tired": true
   },
   "account": {
    "advance": 15000,
