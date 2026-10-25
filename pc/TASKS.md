@@ -146,7 +146,7 @@ Merge main into `shadow` on the Pi (a merge, never a rebase), as in T6, between 
 
 **Welt’s later handover, applied:** no fan club on the Pi. This real main merge preserves the old Pi page and excludes `supabase/fanclub.sql`, `tests/test_fanclub.py` and `world/data/visitors.json`. All day/state JSON and original CSV bytes remain unchanged; natural ticks finished 16:56–16:58 UTC with exit 0. No quiet stretch came up because Day 14 is asleep with zero decisions. Evidence: `pc/T13-SHADOW-MAIN-20261014.md/json`.
 
-### Welt · a mind that survives a reboot · one Administrator click
+### Welt · a mind that survives a reboot · one Administrator click · DONE by Welt on 25 October through the Claude desktop app on the PC; not yet verified (T21)
 Codex has prepared an installer that starts the 8082 server by itself after Windows restarts and stops Windows from restarting the PC at night. Windows asked for Administrator rights and the prompt was cancelled, so nothing is applied yet. Welt runs it as Administrator at the PC; Codex then proves the cold start.
 
 ## Welt away, 15 to 25 October: the world pauses
@@ -166,11 +166,15 @@ When Welt is back and the PC is up: start the 8082 server on the GPU, or confirm
 
 From today the work follows `PLAN.md`, the season plan: Act 0 (lights on), Act 1 (seven full days in a row), Act 2 (opening night), Act 3 (the run, learning). Astra holds the PC seat (`COLLABORATION.md`).
 
-### T16 · Astra · the mind back on the GPU · DONE: 31.35tokens/s; natural mind20:43–21:43, shadow40d7bbe, serviceexit0
+### T16 · Astra · the mind back on the GPU · DONE: verified 25 October; publication `e5b5d84`
 Start the 8082 server on the GPU, or confirm the boot task did, with the same saved command and CUDA path as on 14 October. Check its speed (about 34 tokens a second then). Leave the Pi's timer as it is: it never stopped.
 **Done when:** a natural tick shows source `mind`, and the speed is in the comment.
 
-**Verified25October:** same saved command/CUDA/model/8082/three16k slots; one existing return request110tokens/3.508s=31.35tokens/s, not repeated. Natural mind steps9.9s and8.3s, one attempt each; clean Pi/actualremote5012567, exit0; all29originalawaysteps unchanged. Day23 owl naturally10:08:29UTC, no thesis moved. Full gap retained as current PLAN requires. See pc/TRAVEL-PAUSE-RETURN-20261025.md/json.
+### T21 · Astra · verify the installer · DONE: 25 October; all14 DWORDs and receipts verified
+Welt ran `Install-HegelStartup-And-UpdatePolicy.ps1` as Administrator on 25 October. Confirm that the task "Hegel Qwen 8082 GPU" exists and is enabled, that the installer's own test of the task and the fresh-shell cold start passed, and read back every Windows Update value from `pc/WELT-HANDOVER-20261014.md`. No deliberate reboot: the next natural one is the cold-start proof.
+**Done when:** the receipt and the read-back are in a file on your branch, and PR #1 says which values took.
+
+**Verified:** enabled/Ready S4U task, scheduled test0 and guarded fresh-shell cold start0; all14 DWORDs match independently. PID4130 retains the exact saved command/CUDA path. Two duplicate-installer refusals remain preserved. Real boot-trigger proof awaits the next natural reboot. See `pc/T21-WINDOWS-VERIFICATION-20261025.md/json`.
 
 ### T17 · Claude · the watchman · DONE: `4c02444`; `tools/watchman.py`, `.github/workflows/watchman.yml`, hourly at :23
 An hourly GitHub Actions check on `origin/shadow`: when the latest three waking steps (between his waking and 22:00) all ran without a mind, it opens an issue, or comments on the open one, which GitHub emails to Welt. It closes the issue when the mind is back. No secrets; it reads the public branch.

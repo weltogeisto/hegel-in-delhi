@@ -1,0 +1,47 @@
+{
+  "started_utc": "2026-10-25T11:08:31.345973+00:00",
+  "launch_attempts": 1,
+  "argv_nul_sha256": "1944b782a1c3557851d1c3639e04e43072e6c2a6e8eff6e96978f96d6e48d6b0",
+  "cwd": "/home/ai/hegel-in-delhi",
+  "LD_LIBRARY_PATH": "/home/ai/local-ai/llama/release-b11429/cudart-llama-b11429-bin-ubuntu-cuda-12.8-x64",
+  "CUDA_dependency_check": {
+    "exit": 0,
+    "stdout": "\tlinux-vdso.so.1 (0x00007d98edc14000)\n\tlibggml-base.so.0 => /home/ai/local-ai/llama/release-b11429/llama-b11429/libggml-base.so.0 (0x00007d98edb35000)\n\tlibcudart.so.12 => /home/ai/local-ai/llama/release-b11429/cudart-llama-b11429-bin-ubuntu-cuda-12.8-x64/libcudart.so.12 (0x00007d98e3000000)\n\tlibcublas.so.12 => /home/ai/local-ai/llama/release-b11429/cudart-llama-b11429-bin-ubuntu-cuda-12.8-x64/libcublas.so.12 (0x00007d98dbe00000)\n\tlibcuda.so.1 => /usr/lib/wsl/lib/libcuda.so.1 (0x00007d98edafd000)\n\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007d98dba00000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007d98e3317000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007d98edacd000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007d98db600000)\n\tlibgomp.so.1 => /lib/x86_64-linux-gnu/libgomp.so.1 (0x00007d98eda77000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007d98edc16000)\n\tlibdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007d98eda72000)\n\tlibpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007d98eda6b000)\n\tlibrt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007d98eda66000)\n\tlibcublasLt.so.12 => /home/ai/local-ai/llama/release-b11429/cudart-llama-b11429-bin-ubuntu-cuda-12.8-x64/libcublasLt.so.12 (0x00007d98a9200000)\n",
+    "stderr": ""
+  },
+  "action": "STARTED_ONCE",
+  "session": "hegel-server-auto-20261025-110831-345957",
+  "log": "/home/ai/hegel-logs/qwen-autostart-20261025-110831-345957.log",
+  "outcome": "GPU_READY",
+  "pid": 4130,
+  "health": [
+    200,
+    {
+      "status": "ok"
+    }
+  ],
+  "GPU": "0, NVIDIA GeForce RTX 3090, 19337 MiB, 0 %\n",
+  "GPU_processes": "",
+  "slots": [
+    {
+      "id": 0,
+      "n_ctx": 16384,
+      "speculative": false,
+      "is_processing": false
+    },
+    {
+      "id": 1,
+      "n_ctx": 16384,
+      "speculative": false,
+      "is_processing": false
+    },
+    {
+      "id": 2,
+      "n_ctx": 16384,
+      "speculative": false,
+      "is_processing": false
+    }
+  ],
+  "CUDA_backend_loaded": true,
+  "finished_utc": "2026-10-25T11:09:52.451057+00:00"
+}

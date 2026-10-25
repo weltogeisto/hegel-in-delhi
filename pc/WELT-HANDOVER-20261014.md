@@ -1,3 +1,5 @@
+> 25 October update: T21 verified Welt's Administrator installation, enabled task, original guarded fresh-shell cold start and all14 applied Windows Update DWORDs. See pc/T21-WINDOWS-VERIFICATION-20261025.md/json. The14October cancellation below is preserved as historical evidence. Real boot-trigger proof awaits the next natural reboot.
+
 # Welt's 14 October handover: verified results and remaining Windows block
 
 ## 1. GPU restored — DONE

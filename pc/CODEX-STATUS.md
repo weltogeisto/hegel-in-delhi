@@ -1,3 +1,13 @@
+# PC status — 25 October T16 and T21 verified
+
+T16 DONE at e5b5d84: original110token/3.508s call31.35tokens/s, two natural mind steps9.9s/8.3s, serviceexit0, clean Pi5012567 equal to independently fetched actual remote. Original29away steps and all gap records remain. T14 NOT DONE; Claude keeps the gap; T15 superseded. T10 waits for a FULL complete post-return day>=30thoughts; no auditor run.
+
+T21 DONE: Welt's11:08 Administrator installer registered enabled/Ready Hegel Qwen8082GPU task; scheduled test0 and guarded fresh-shell cold start0. Independent11:23 read-back verifies all14 Windows Update DWORDs. The installer's cold-start test gracefully replaced idlePID388 with PID4130 under tick.lock using the same command/CUDA path. Both later duplicate-installer refusals remain. awake.flag present. No deliberate reboot: real boot-trigger proof awaits the next natural reboot. Details: pc/T21-WINDOWS-VERIFICATION-20261025.md/json.
+
+Fresh main8e39933 is genuinely integrated on PC. T19 is next: automatic report row after an owl on Pi/shadow; no row manually written. Claude owns T20. Public paused/shift300; no fan feature onPi, no runtime/model/power change for this verification.
+
+## Preserved T16 checkpoint (then-current Windows block and PID superseded above)
+
 # PC status — 25 October T16 GPU recovery verified
 
 Current main supersedes T15 with T16 and assigns the PC seat to Astra. T16 DONE: same exact saved GPU command/PID388, one byte-identical14October request110tokens/3.508s=31.35tokens/s; natural mind steps20:43–21:43 and21:43–21:53 took9.9s/8.3s, one attempt each. Clean stable Pi5012567 matches actual fetched remote; serviceexit0/inactive and timerenabled/active. All9captured hashes/lengths/blobs match Git. Original29awaysteps and all gap steps/entries remain unchanged.
