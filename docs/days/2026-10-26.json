@@ -337,6 +337,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "06:53",
+   "to": "07:03",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -438,6 +445,34 @@
    "k": "world",
    "text": "Ramesh puts a plate together: rice, the day's dal and a fried egg.",
    "t": "06:23"
+  },
+  {
+   "k": "diary",
+   "text": "The particular need for sustenance is met, but the universal matter of the allotment remains suspended in the air between us. Shri Hegde stands there, the accidental cause of my displacement, a living contradiction of the bureaucratic error that placed me here. I must address him directly, for the tension between the file and the person must be resolved before I can proceed with my day. The air is cool, a fitting backdrop for a discussion of rights and residence.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Revealed Religion"
+    }
+   ],
+   "t": "06:53"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde. You stand in the room allotted to you by the Directorate, though the name on the paper is not yours. I am Hegel, not Hegde. The state’s intention was to house you, but the mechanism has delivered me. How do you intend to proceed, given that you are currently occupying the space designated for your own transfer, while I remain in the position of the accidental tenant?",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "06:53"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Sir, please stop with the philosophy before the sun is even up. I am the Joint Secretary and this is my bungalow, so I intend to proceed by making tea and waiting for the clerk to fix his mistake. You can sit on the veranda if the air is that nice, but do not quote the Directorate at me again.",
+   "t": "06:53"
   }
  ],
  "steps": [
@@ -544,13 +579,66 @@
      "text": "Was sich wirklich im Staate geltend macht, muß sich freilich auf organische Weise betätigen, und dies ist in der Verfassung der Fall. Aber zu allen Zeiten war die öffentliche Meinung eine große Macht und ist es besonders in unserer Zeit, wo das Prinzip der subjektiven Freiheit diese Wichtigkeit und Bedeutung hat."
     }
    ]
+  },
+  {
+   "t": "06:53",
+   "end": "07:03",
+   "event": "Ramesh says: “Yes, sir. The air is nice and cool this morning, good for the body. I will keep the kettle on just in case you want another cup after.” He pats the steel tiffin carrier once to ensure the lid is tight, then turns back towards the kitchen door. Shri G. Hegde is here.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The particular need for sustenance is met, but the universal matter of the allotment remains suspended in the air between us. Shri Hegde stands there, the accidental cause of my displacement, a living contradiction of the bureaucratic error that placed me here. I must address him directly, for the tension between the file and the person must be resolved before I can proceed with my day. The air is cool, a fitting backdrop for a discussion of rights and residence.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Shri Hegde. You stand in the room allotted to you by the Directorate, though the name on the paper is not yours. I am Hegel, not Hegde. The state’s intention was to house you, but the mechanism has delivered me. How do you intend to proceed, given that you are currently occupying the space designated for your own transfer, while I remain in the position of the accidental tenant?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Sir, please stop with the philosophy before the sun is even up. I am the Joint Secretary and this is my bungalow, so I intend to proceed by making tea and waiting for the clerk to fix his mistake. You can sit on the veranda if the air is that nice, but do not quote the Directorate at me again.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.5
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "id": "haldane-1:1015"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Revealed Religion",
+     "id": "baillie-2:630"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "text": "Socrates thus omits, in characterizing virtue, just what we saw had also disappeared in actuality, that is, first the real spirit of a people, and then reality as the sympathies of the individual. For it is just when consciousness is not yet turned back into itself, that the universal good appears to the individual as the object of his sympathy."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Revealed Religion",
+     "text": "It is the pure notion, pure thought, or self-existence, beiag-for-self, which is immediately being, and, therewith, beiag-for-another, and, qtia this being-for-another, is immediately turned back into itself and is at home with itself (bei sich).' It is thus the truly and solely revealed."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-26T06:53+05:30",
+  "until": "2026-10-26T07:03+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
@@ -620,6 +708,7 @@
    "woke": "06:08",
    "seen": {
     "home": [
+     "hegde",
      "ramesh"
     ]
    }
@@ -821,7 +910,8 @@
     "2026-10-22",
     "2026-10-23",
     "2026-10-24",
-    "2026-10-25"
+    "2026-10-25",
+    "2026-10-26"
    ]
   },
   "refused": {},
