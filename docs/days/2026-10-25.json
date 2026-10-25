@@ -12,145 +12,145 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 22,
-    "sky": "a brown haze",
-    "rain": 0,
+    "temp": 21,
+    "sky": "drizzle",
+    "rain": 1.1,
     "aqi": 200
    },
    {
-    "temp": 22,
-    "sky": "clear, hazy",
-    "rain": 0,
+    "temp": 21,
+    "sky": "drizzle",
+    "rain": 0.2,
     "aqi": 192
    },
    {
-    "temp": 22,
-    "sky": "clear, hazy",
-    "rain": 0,
+    "temp": 20,
+    "sky": "drizzle",
+    "rain": 0.1,
     "aqi": 185
    },
    {
-    "temp": 21,
+    "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 179
    },
    {
-    "temp": 21,
+    "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 172
    },
    {
-    "temp": 21,
+    "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 160
    },
    {
-    "temp": 21,
+    "temp": 20,
     "sky": "clear",
     "rain": 0,
     "aqi": 148
    },
    {
-    "temp": 22,
+    "temp": 21,
     "sky": "clear",
     "rain": 0,
     "aqi": 135
    },
    {
-    "temp": 23,
+    "temp": 22,
     "sky": "clear",
     "rain": 0,
     "aqi": 125
    },
    {
-    "temp": 25,
+    "temp": 24,
     "sky": "clear",
     "rain": 0,
     "aqi": 118
    },
    {
-    "temp": 27,
+    "temp": 26,
     "sky": "clear",
     "rain": 0,
     "aqi": 112
    },
    {
-    "temp": 29,
+    "temp": 27,
     "sky": "clear",
     "rain": 0,
     "aqi": 107
    },
    {
-    "temp": 30,
+    "temp": 28,
     "sky": "clear",
     "rain": 0,
     "aqi": 101
    },
    {
-    "temp": 31,
+    "temp": 29,
     "sky": "clear",
     "rain": 0,
     "aqi": 98
    },
    {
-    "temp": 31,
-    "sky": "mostly clear",
+    "temp": 30,
+    "sky": "clear",
     "rain": 0,
     "aqi": 96
    },
    {
-    "temp": 30,
+    "temp": 29,
     "sky": "clear",
     "rain": 0,
     "aqi": 94
    },
    {
-    "temp": 30,
+    "temp": 28,
     "sky": "clear",
     "rain": 0,
     "aqi": 91
    },
    {
-    "temp": 28,
+    "temp": 26,
     "sky": "clear",
     "rain": 0,
     "aqi": 89
    },
    {
-    "temp": 26,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 86
-   },
-   {
     "temp": 25,
     "sky": "clear",
     "rain": 0,
     "aqi": 86
-   },
-   {
-    "temp": 25,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 87
    },
    {
     "temp": 24,
     "sky": "clear",
     "rain": 0,
+    "aqi": 86
+   },
+   {
+    "temp": 24,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 87
+   },
+   {
+    "temp": 22,
+    "sky": "clear",
+    "rain": 0,
     "aqi": 89
    },
    {
-    "temp": 23,
+    "temp": 22,
     "sky": "clear",
     "rain": 0,
     "aqi": 92
    },
    {
-    "temp": 22,
+    "temp": 21,
     "sky": "clear",
     "rain": 0,
     "aqi": 103
@@ -428,6 +428,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "13:43",
+   "to": "14:13",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -867,13 +874,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "13:43",
+   "end": "14:13",
+   "event": "Ramesh hands you a visiting card. Shri Hegde came at ten, waited twenty minutes on the verandah and left. On the back of the card, in a careful hand: 'Perhaps the Directorate, then.'",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-25T13:43+05:30",
+  "until": "2026-10-25T14:13+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
@@ -947,7 +982,6 @@
     ]
    },
    "breakfast": true,
-   "hunger": 1,
    "lunch": true
   },
   "account": {
