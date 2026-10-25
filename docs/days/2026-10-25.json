@@ -540,6 +540,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "21:53",
+   "to": "22:08",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -618,6 +625,34 @@
    "to": "Hegel",
    "text": "Good. Please do. And next time, maybe check which bungalow you’re actually in before you start quoting state orders at me.",
    "t": "21:43"
+  },
+  {
+   "k": "diary",
+   "text": "The particular will has spoken, and with a sharpness that cuts through the bureaucratic fog. She is not merely a tenant; she is the obstacle to my own actuality in this place. I must not be moved by her tone, but I must acknowledge the tension: the universal claim of the state is lodged in her particular resistance. I will withdraw to my own room, where the spirit can contemplate the mechanism of this impasse without the distraction of her arms crossed in defiance.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§308"
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810"
+    }
+   ],
+   "t": "21:53"
+  },
+  {
+   "k": "said",
+   "text": "The state does not quote; it acts. But I shall not contest the architecture of your resentment at this hour. Goodnight.",
+   "to": "Shri G. Hegde",
+   "t": "21:53"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Right, right. The state acts, the state doesn't quote. Very philosophical for 9 PM. Goodnight, sir. Try to find the right door before you trip over the threshold.",
+   "t": "21:53"
   }
  ],
  "steps": [
@@ -1542,13 +1577,68 @@
      "text": "A slothful mind finds it natural to say: 'Don't let it be supposed that we mean to be in earnest with our philosophy. We shall be glad inter alia to study Logic: but Logic must be sure to leave us as we were before.' People have a feeling that, if thinking passes the ordinary range of our ideas and impressions, it cannot but be on the evil road."
     }
    ]
+  },
+  {
+   "t": "21:53",
+   "end": "22:08",
+   "event": "Shri G. Hegde says: “Good. Please do. And next time, maybe check which bungalow you’re actually in before you start quoting state orders at me.” She leans against the doorframe, crossing her arms over her chest.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The particular will has spoken, and with a sharpness that cuts through the bureaucratic fog. She is not merely a tenant; she is the obstacle to my own actuality in this place. I must not be moved by her tone, but I must acknowledge the tension: the universal claim of the state is lodged in her particular resistance. I will withdraw to my own room, where the spirit can contemplate the mechanism of this impasse without the distraction of her arms crossed in defiance.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": "The state does not quote; it acts. But I shall not contest the architecture of your resentment at this hour. Goodnight.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Right, right. The state acts, the state doesn't quote. Very philosophical for 9 PM. Goodnight, sir. Try to find the right door before you trip over the threshold.",
+    "does": "She uncrosses her arms and steps back into the kitchen, leaving the bungalow door wide open."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.4,
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§308",
+     "id": "dyde-right:783"
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810",
+     "id": "reden:58"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§308",
+     "text": "The individual is species, let us say, but has his intrinsic general actuality in the species next above it. He attains actual and vital contact with the universal in the sphere of the corporations and societies (§ 251). It remains open to him by means of his skill to make his way into any class, for which he has the capacity, including the universal class."
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810",
+     "text": "Studienanstalten sind Theils Institute des Unterrichts, nicht unmittelbar der Erziehung, Theils fangen sie nicht von den ersten Elementen der Bildung, weder der Erkenntniß, noch der Sitten, an."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-25T21:53+05:30",
+  "until": "2026-10-25T22:08+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
