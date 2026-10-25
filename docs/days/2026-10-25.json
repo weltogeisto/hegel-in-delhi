@@ -470,6 +470,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "16:43",
+   "to": "17:13",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -487,6 +494,11 @@
    "settles": true,
    "text": "Paid to Ramesh.",
    "t": "06:13"
+  },
+  {
+   "k": "world",
+   "text": "Ramesh brings tea.",
+   "t": "16:43"
   }
  ],
  "steps": [
@@ -1077,13 +1089,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "16:43",
+   "end": "17:13",
+   "event": "Ramesh hands you a visiting card. Shri Hegde came at ten, waited twenty minutes on the verandah and left. On the back of the card, in a careful hand: 'Perhaps the Directorate, then.' Ramesh brings tea: tea and a plate of pakoras.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-25T16:43+05:30",
+  "until": "2026-10-25T17:13+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
@@ -1157,7 +1197,8 @@
     ]
    },
    "breakfast": true,
-   "lunch": true
+   "lunch": true,
+   "tea": true
   },
   "account": {
    "advance": 15000,
@@ -1362,7 +1403,7 @@
    "sim": false
   },
   "last_meal": "2026-10-25T13:13+05:30",
-  "snacks": 0,
+  "snacks": 1,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
