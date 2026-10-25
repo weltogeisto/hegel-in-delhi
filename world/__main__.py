@@ -21,13 +21,13 @@ from collections import Counter
 from datetime import date, timedelta
 from pathlib import Path
 
-from . import report, shelf, works
+from . import nightly_report, report, shelf, works
 from .clock import fmt, minute_of, now_ist, parse_now
 from .config import Config
 from .engine import Days, Engine, until_of
 from .feeds import Feeds
 from .mind import HTTPMind, StubMind
-from .publish import Git
+from .publish import Git, GitError
 from .world import World, at_dt
 
 log = logging.getLogger("world")
@@ -71,6 +71,12 @@ def cmd_tick(cfg, args):
     owl_mind = mind if args.mind == "stub" or not cfg.owl_url or cfg.owl_url == cfg.mind_url else HTTPMind(cfg.owl_url, wake=cfg.wake, timeout=cfg.timeout)
     engine = Engine(cfg, World(Feeds(cfg)), mind, git=Git(cfg) if not args.no_git else None, owl_mind=owl_mind)
     engine.tick(now)
+    if engine.git:
+        try:
+            nightly_report.publish_yesterday(cfg, now, engine.git)
+        except (OSError, ValueError, nightly_report.ReportError, GitError) as exc:
+            log.error("nightly report failed; will retry next tick: %s", exc)
+            return 1
     return 0
 
 
