@@ -203,7 +203,7 @@ From 1 November his household costs about ₹17,600 a month, and the world offer
 Merge main into `shadow` on the Pi, as in T22, between two ticks, fan files kept off. It carries the ways out Welt chose (`pc/ECONOMY-20261025.md`): Ramesh part-time, Mr. Saxena's letter and the bank account, the fortnightly column and the frock asked again. They must be on the Pi before 1 November (his Day 31), when the wage falls due.
 **Done when:** shadow contains `f76483e`, and a natural tick exits 0.
 
-### T24 · Astra · the thesis floor, and Day 24's move undone · OPEN
+### T24 · Astra · the thesis floor, and Day 24's move undone · DONE: shadow `f12e387`; Day 25 shows `state` unshaken, Day 24's owl record untouched
 Day 24's owl moved `state` from unshaken to shaken on a day of 5 thoughts and 29 steps without a mind (`b47e316`). Main now holds the floor (`f469dfc`): a day with fewer than 30 thoughts moves no thesis, and the night records `theses_held`. Between two ticks on the Pi:
 1. Merge main into `shadow` (a merge, never a rebase), fan files kept off.
 2. In `docs/days/2026-10-26.json`, set the status of `state` in `state.theses` back to `unshaken`. Leave Day 24's owl record as it is: it is what the owl wrote that night. `india` stays shaken (Day 12, 42 thoughts).
