@@ -3,6 +3,7 @@ import logging
 import re
 
 from .contract import extract_json
+from .report import FLOOR as THESIS_FLOOR       # same floor as canonical main; PC extensions retained
 from . import records, prompt_budget
 
 log = logging.getLogger("world")
@@ -183,6 +184,7 @@ def revise(day, theses, answer):
 def write(cfg, day, state, mind, depesche_n=None, problems=None, flag=None, topic=None, claim_guard=None):
     system = (cfg.repo / "mind/owl.md").read_text(encoding="utf-8")
     theses = state.get("theses", [])
+    thesis_thoughts = sum(1 for e in day.get("entries", []) if e.get("k") == "diary")
     typed=getattr(cfg,'outcome_memory',False)
     view=getattr(cfg,'evidence_view','full')
     evidence=records.relevant(records.project(day),view=view) if typed else record(day)
@@ -205,6 +207,9 @@ def write(cfg, day, state, mind, depesche_n=None, problems=None, flag=None, topi
         if interpretations:
             shown=records.relevant(records.project(day),limit=24000-len(interpretations)-2,view=view)+'\n\n'+interpretations
     ask = (f"{shown}\n\nYour theses: " + "; ".join(f"{t['id']}: {t['text']} ({t['status']})" for t in theses) + ".\n\n")
+    if thesis_thoughts < THESIS_FLOOR:
+        ask += (f"Today he had {thesis_thoughts} thoughts of his own, fewer than {THESIS_FLOOR}: tonight no thesis changes its status. "
+                "Give each thesis its present status.\n\n")
     if depesche_n is not None:
         ask += f"Tonight is also the night of the weekly Depesche, number {depesche_n}.\n\n"
     ask += "Write the diary, the revision log and the theses (each with its evidence times)" + (", and the Depesche" if depesche_n is not None else "") + ". Answer with the JSON object only."
@@ -255,8 +260,15 @@ def write(cfg, day, state, mind, depesche_n=None, problems=None, flag=None, topi
                     if isinstance(out.get(k),str))))) if problems else []
         if wrong:
             raise OwlError('Regenerated owl prose failed the knowledge check: '+'; '.join(wrong))
-    written = {"diary": out["diary"].strip(), "revision_log": (out.get("revision_log") or "").strip() or None,
-               "theses": revise(day, theses, out.get("theses"))}
+    if thesis_thoughts >= THESIS_FLOOR:
+        changes = revise(day, theses, out.get("theses"))
+    else:
+        changes = []
+        if revise(day, [dict(t) for t in theses], out.get("theses")):
+            log.warning("owl: a day of %d thoughts moves no thesis (the floor is %d); the statuses stay", thesis_thoughts, THESIS_FLOOR)
+    written = {"diary": out["diary"].strip(), "revision_log": (out.get("revision_log") or "").strip() or None, "theses": changes}
+    if thesis_thoughts < THESIS_FLOOR:
+        written["theses_held"] = {"thoughts": thesis_thoughts, "floor": THESIS_FLOOR}
     if depesche_n is not None and isinstance(out.get("depesche"), str) and out["depesche"].strip():
         written["depesche"] = {"n": depesche_n, "title": f"Depesche aus Delhi, Nr. {depesche_n}", "text": out["depesche"].strip()}
     texts = {"diary": written["diary"], "revision_log": written["revision_log"], "depesche": (written.get("depesche") or {}).get("text")}

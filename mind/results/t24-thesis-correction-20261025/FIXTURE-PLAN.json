@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-25T16:04:04.550230+00:00",
+  "task_round": 1,
+  "cause": "Canonical Pi replay anchor Day1.until is2026-10-13T00:00+05:30; older evidence tests expect Day1 ending24:00 and simulate3October",
+  "original_failure": "/mnt/c/hegel/handover/codex-tasks-20261025/T24-focused-checks-20261025-160045/Pi.stderr.log",
+  "repair": "Use exact fresh-main Day1/index bytes only inside test Sandbox temporary docs; no snapshot/runtime/test/case data edits",
+  "fixture_source_main": "272123285c7a1801d06400efe0ef0050a06868c8",
+  "fixtures": {
+    "2026-10-02.json": "cf7a480104e051a2d1be3dbcabed4381a58ef96ec30bdc6002134b76cbd995c8",
+    "index.json": "88b0dedaeccd98338a907bef05dbaf6d6e08583402cf06a20a523d2f23c0e954"
+  },
+  "only_failed_cases_rerun": "tests.test_needs.ThesisTest (5cases)",
+  "already_passed_not_repeated": "PC12; Pi7floor/persistence cases",
+  "all_original_source_files_unchanged": true
+}

@@ -1,3 +1,13 @@
+# PC status — 25 October T24 verified
+
+T24 DONE. Genuine Pi merge f12e387 has real parents2929c3d and main2721232, contains f469dfc. Only Day25/26October state.theses[state].status was corrected to unshaken, adding2bytes; Day24's original owl and every other day/state JSON remain exact. India stays shaken. A natural tick finished16:06:04UTC exit0/Resultsuccess; one read-only capture confirms inactive service, enabled/active timer, clean stable Pi=actual remote and18hash/length/blobID matches. All208raw blobs/tree/10PiCSV were verified before ordinary push and after fetch. T19hook/CLI/ledger/oldpage and4fan exclusions remain.
+
+PC12focused cases pass; Pi7floor/persistence cases passed, then only5older failed evidence cases were retried with canonical main fixtures in their temporary sandboxes and pass. Original Pi fixture-date failures remain; all444PC+208Pi frozen source files are exact. No model/health probe, full-suite rerun or repeated passed cases. The genuine PC main merge retains its existing extensions with the same floor. Details: pc/T24-THESIS-CORRECTION-20261025.md/json and mind/results/t24-thesis-correction-20261025.
+
+T23/T22/T19/T16/T21 remain DONE. T10 waits for the first FULL natural complete post-return day>=30thoughts; Day14/25October excluded, no auditor. The one human-requested speedrun is complete and preserved privately with disclosed continuity limits; never rerun it. Claude answered T11 in6399668028 with this fix/task; no duplicate question. Actual boot proof awaits a natural reboot. T14 remains NOT DONE, gap retained. Page publication timing/GitHub link remain pending human choices. No public switch, wake/power override or fan feature on Pi; standing watch remains ACTIVE with no further Pi/model/health polling absent fresh actionable work/failure.
+
+## Preserved T23 checkpoint
+
 # PC status — 25 October T23 chosen rules verified
 
 T23 DONE. Real Pi merge d4bc5ff has parents3c0a3e2 and main e5dc104, contains f76483e and all of the chosen option2: part-time Ramesh, letter/bank account, recurring column and frock offered again. Natural tick exited0 at14:18:04UTC; one read-only capture finds inactive service, enabled/active timer, clean stable Pi=actual remote and17hash/length/blob matches. All208deployment raw files/tree and10original PiCSV match; day/state JSON, T19hook/CLI/ledger, old page and4fan exclusions are preserved. No forced tick/owl, server/model/health/power action.
