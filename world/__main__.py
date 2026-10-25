@@ -159,7 +159,8 @@ LOOP_REFUSALS = 4      # the same refusal this often in one day is a loop: a rul
 def refusal_line(steps):
     """How often the world refused his choices today, and the refusal that came most often. A refusal repeated LOOP_REFUSALS
     times is flagged: on Day 12 'no household meal is available now' came back all afternoon and nothing else showed it."""
-    said = [e for s in steps for tries in s.get("mind", {}).get("refused", []) for e in tries
+    said = [e for s in steps if s.get("mind", {}).get("source") != "away"       # an away step's note is the outage, not a refusal
+            for tries in s.get("mind", {}).get("refused", []) for e in tries
             if isinstance(e, str) and not e.startswith("the PC did not wake")]
     if not said:
         return "0 today"

@@ -1,3 +1,15 @@
+# PC status — 25 October automatic reports verified
+
+T19 DONE: the normal Pi timer published Day 23's first report at 11:50:06 UTC, shadow 5a6c54a. The 384-byte row has 33 away decisions, zero thoughts and null repetition; its input day is unchanged. No manual report, tick or owl. The locked hook appends once and retries saved rows after a commit failure.
+
+T22 is deployed and OPEN pending a captured natural service exit 0. Real Pi merge 324b859 has parents 505a7a9 and main 6d291f5, contains T20 8037632, and passed independent checks of all 206 raw files/tree. All day/state JSON remained unchanged through integration. The Pi's original CSV set is 10 files, as the sealed T13 JSON confirms; the PC set is 22. Both sets retain exact bytes. The old Pi page remains and all four fan files, including the keepalive workflow, are absent. Timer enabled/active through the guard. Next heartbeat: one useful read-only exit-0/source/hash capture, without a forced tick.
+
+Eleven T19 checks pass on fresh main; all 193 frozen target files and 415 PC archive/native files match. The first 11 checks and both deployment-wrapper failures remain preserved. Correcting the CSV baseline and absent Git pathspecs changed no runtime/test/model inputs. Details: pc/T19-NIGHTLY-REPORT-20261025.md/json.
+
+T16 and T21 DONE. Current GPU server is the installer's PID 4130, same saved command/CUDA path; no tests or launches repeated. All 14 Windows Update values match. Actual boot-trigger proof awaits the next natural reboot. T14 NOT DONE with the actual gap retained; T15 superseded. T10 waits for a FULL completed post-return day with at least 30 thoughts; Day 14 excluded. Public paused, shift 300. The economy direction remains Welt's decision before 1 November; no choice inferred or implemented.
+
+## Preserved T16/T21 checkpoint (T19 and main state superseded above)
+
 # PC status — 25 October T16 and T21 verified
 
 T16 DONE at e5b5d84: original110token/3.508s call31.35tokens/s, two natural mind steps9.9s/8.3s, serviceexit0, clean Pi5012567 equal to independently fetched actual remote. Original29away steps and all gap records remain. T14 NOT DONE; Claude keeps the gap; T15 superseded. T10 waits for a FULL complete post-return day>=30thoughts; no auditor run.

@@ -19,7 +19,7 @@ from .money import ADVANCE
 from .mind import MindAway
 from .publish import GitError
 from .task_prompt import for_task
-from .world import MEAL_WINDOWS, at_dt
+from .world import MEAL_WINDOWS, at_dt, meal_at
 
 log = logging.getLogger("world")
 MAX_DECISIONS = 8
@@ -157,6 +157,7 @@ class Engine:
             day["complete"] = True
             self.days.save(day)
             day = self.new_day(day, d)
+            self.days.save(day)             # asleep until morning, it has no step to save it; unsaved, every tick made it again
             start = until_of(day)
         st = day["state"]
         now = now.replace(second=0, microsecond=0)
@@ -484,30 +485,68 @@ class Engine:
         return self.lookup(query, self.cfg.state / "lookup")
 
     QUIET_OUT = 2           # quiet steps he may stay out before he goes home: an hour
+    EAT_OUT = "khan"        # where he eats when nothing is cooked at home: a dhaba in Khan Market
 
     def quiet(self, st, t, sit, day=None):
         """No usable answer: he keeps the household's day, without a thought on the page. At night he goes to bed.
         At home he eats the meal Ramesh lays out, once, and between meals the plate he asks for when hungry.
-        Out, he goes home when the place closes, when he is hungry, when a meal is laid out or after an hour."""
-        m, cur = minute_of(t), st["place"]
+        When nothing is cooked at home (Ramesh's day off, or the kitchen shut for an unpaid bill), he eats at a dhaba
+        in Khan Market if it is open and he has the cash. Out, he goes home when the place closes, when he is hungry,
+        when a meal is laid out or after an hour."""
+        m, cur, buys = minute_of(t), st["place"], []
         if m >= 1320 or m < 240:
             action, dest = "sleep", "home"
         elif cur == "home":
-            action, dest = ("eat" if self.quiet_meal(st, t) else "rest"), "home"
+            if self.quiet_meal(st, t):
+                action, dest = "eat", "home"
+            elif self.eat_out(st, t):
+                action, dest = "walk", self.EAT_OUT
+            else:
+                action, dest = "rest", "home"
+        elif cur == self.EAT_OUT and self.wants_food(st, t) and (meal := self.dhaba(st, t)):
+            action, dest, buys = "eat", cur, [meal]
         elif (cur not in sit["open_now"] or st.get("today", {}).get("hunger") or self.world.served(t, st)
               or self.quiet_out(day, cur) >= self.QUIET_OUT):
             action, dest = "walk", "home"
         else:
             action, dest = "stay", cur
-        ans = {"thought": None, "action": action, "place": dest, "minutes": 30, "says": None, "buys": [], "revision": None}
-        plan = {"moves": dest != cur, "dest": dest, "arrival": t + timedelta(minutes=self.world.walk(cur, dest)), "buys": []}
+        ans = {"thought": None, "action": action, "place": dest, "minutes": 30, "says": None, "revision": None,
+               "buys": [{"item": b["item"], "price_inr": b["price"]} for b in buys]}
+        plan = {"moves": dest != cur, "dest": dest, "arrival": t + timedelta(minutes=self.world.walk(cur, dest)), "buys": buys}
         return ans, plan
+
+    def eaten(self, st, t, name):
+        """Has he eaten since this meal's window opened today?"""
+        start = at_dt(t.date(), MEAL_WINDOWS[name][0])
+        return bool(st.get("last_meal") and datetime.fromisoformat(st["last_meal"]) >= start)
+
+    def wants_food(self, st, t):
+        """A meal's window is open and he has not eaten in it, or he is hungry."""
+        name = meal_at(minute_of(t))
+        return bool((name and not self.eaten(st, t, name)) or st.get("today", {}).get("hunger"))
+
+    def dhaba(self, st, t):
+        """The cheapest meal at the dhaba, if it is open now and he can pay for it."""
+        meals = [x for x in self.world.places[self.EAT_OUT].get("sells", []) if x.get("food") == "meal"]
+        cheap = min(meals, key=lambda x: x["price"], default=None)
+        if not cheap or cheap["price"] > st["imprest"] or not self.world.is_open(self.EAT_OUT, t, st):
+            return None
+        return {"item": cheap["item"], "price": cheap["price"], "food": "meal"}
+
+    def eat_out(self, st, t):
+        """Nothing will be cooked at home (Ramesh is not there, or the kitchen is shut) and he wants food: the dhaba,
+        if it is open when he gets there and he has the cash."""
+        if not self.wants_food(st, t):
+            return False
+        if "ramesh" in self.world.present_ids("home", t, st) and not self.world.kitchen(st):
+            return False
+        arrival = t + timedelta(minutes=self.world.walk("home", self.EAT_OUT))
+        return self.dhaba(st, arrival) is not None
 
     def quiet_meal(self, st, t):
         """At home without a mind: the laid-out meal he has not yet eaten, or Ramesh's plate if he is hungry."""
         if name := self.world.served(t, st):
-            start = at_dt(t.date(), MEAL_WINDOWS[name][0])
-            return not (st.get("last_meal") and datetime.fromisoformat(st["last_meal"]) >= start)
+            return not self.eaten(st, t, name)
         soon = any(0 < a - minute_of(t) <= 60 for a, _ in MEAL_WINDOWS.values())     # no plate an hour before a meal
         return bool(st.get("today", {}).get("hunger") and not soon and self.world.plate(t, st))
 

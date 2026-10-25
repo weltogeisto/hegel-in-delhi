@@ -321,6 +321,16 @@ class EngineTest(unittest.TestCase):
         self.assertGreaterEqual(until_of(day), now)
         self.assertIsNone(self.box.days.load(date(2026, 10, 4)))           # no invented days in between
 
+    def test_a_gap_that_ends_in_the_night_is_resumed_once(self):
+        e = self.box.engine()
+        night = at_dt(date(2026, 10, 7), 60)
+        with self.assertLogs("world", level="WARNING") as logs:
+            e.advance(night)
+            e.advance(night + timedelta(minutes=5))
+            e.advance(night + timedelta(minutes=10))
+        self.assertEqual(sum("resumed at" in line for line in logs.output), 1)
+        self.assertEqual(self.box.days.index()["days"][-1]["date"], "2026-10-07")
+
     def test_awake_at_midnight_goes_to_bed(self):
         class Insomniac(StubMind):
             def decide(self, messages, sit):
@@ -501,6 +511,58 @@ class MindlessDayTest(unittest.TestCase):
         hungry = self.state("home", hunger=1)
         self.assertEqual(self.e.quiet(hungry, at_dt(self.D, 12 * 60 + 1), sit)[0]["action"], "rest")   # lunch within the hour
         self.assertEqual(self.e.quiet(hungry, at_dt(self.D, 15 * 60 + 1), sit)[0]["action"], "eat")    # Ramesh's plate
+
+
+class DayOffTest(unittest.TestCase):
+    """Wednesday is Ramesh's day off. Without a mind (Day 20) he went hungry all day; now he eats at a dhaba in Khan Market."""
+
+    WED = date(2026, 10, 7)
+
+    def setUp(self):
+        self.box = Sandbox()
+        self.e = self.box.engine(HTTPMind("http://127.0.0.1:9"))       # nothing listens there
+
+    def tearDown(self):
+        self.box.close()
+
+    def test_a_mindless_wednesday_has_its_meals_at_the_dhaba(self):
+        day = self.box.run_day(self.WED, self.e)
+        steps = [s for s in day["steps"] if "decision" in s]
+        eats = [s for s in steps if s["decision"]["action"] == "eat"]
+        self.assertTrue(eats and all(s["decision"]["place"] == "khan" for s in eats), [(s["t"], s["decision"]["place"]) for s in eats])
+        for name in ("lunch", "dinner"):
+            a, b = MEAL_WINDOWS[name]
+            self.assertEqual(sum(a <= hm(s["t"]) < b for s in eats), 1, f"{name} at the dhaba, once")
+        bags = [e for e in day["entries"] if e["k"] == "bag"]
+        self.assertEqual([e["item"] for e in bags], ["Chole bhature at a dhaba"] * len(eats))
+        self.assertFalse(any(s["decision"].get("thought") or s["decision"].get("says") for s in steps))
+        self.assertEqual(steps[-1]["decision"]["action"], "sleep")
+
+    def state(self, cash, owed=()):
+        st = copy.deepcopy(self.box.days.load(date(2026, 10, 2))["state"])
+        st.update(place="home", asleep=False, imprest=cash, owed=list(owed), last_meal=None, snacks=0)
+        st["today"] = {"woke": "06:00"}
+        return st
+
+    def test_a_shut_kitchen_sends_him_out_even_with_ramesh_there(self):
+        t = at_dt(date(2026, 10, 8), 13 * 60 + 1)                            # Thursday: Ramesh is in
+        sit = {"open_now": ["khan"]}
+        self.assertEqual(self.e.quiet(self.state(3000), t, sit)[0]["action"], "eat")       # lunch at home
+        wage = {"to": "Ramesh", "amount": 8000, "why": "the wage for cooking", "cost": "wage", "since": "2026-10-08"}
+        ans, plan = self.e.quiet(self.state(3000, [wage]), t, sit)
+        self.assertEqual((ans["action"], ans["place"]), ("walk", "khan"))
+
+    def test_without_the_price_of_a_meal_he_stays_home(self):
+        t = at_dt(self.WED, 13 * 60 + 1)
+        self.assertEqual(self.e.quiet(self.state(100), t, {"open_now": ["khan"]})[0]["action"], "rest")
+
+    def test_at_the_dhaba_he_pays_and_is_fed(self):
+        st = self.state(3000)
+        st["place"] = "khan"
+        ans, plan = self.e.quiet(st, at_dt(self.WED, 13 * 60 + 31), {"open_now": ["khan"]})
+        self.assertEqual((ans["action"], ans["place"]), ("eat", "khan"))
+        self.assertEqual(plan["buys"], [{"item": "Chole bhature at a dhaba", "price": 180, "food": "meal"}])
+        self.assertEqual(ans["buys"], [{"item": "Chole bhature at a dhaba", "price_inr": 180}])
 
 
 class PublishTest(unittest.TestCase):
