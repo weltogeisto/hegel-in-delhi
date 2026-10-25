@@ -512,6 +512,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "19:43",
+   "to": "20:13",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -1293,13 +1300,42 @@
      ]
     ]
    }
+  },
+  {
+   "t": "19:43",
+   "end": "20:13",
+   "event": "Ramesh hands you a visiting card. Shri Hegde came at ten, waited twenty minutes on the verandah and left. On the back of the card, in a careful hand: 'Perhaps the Directorate, then.' Ramesh serves dinner before he goes home: khichdi with ghee and papad.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-25T19:43+05:30",
+  "until": "2026-10-25T20:13+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
@@ -1375,7 +1411,8 @@
    },
    "breakfast": true,
    "lunch": true,
-   "tea": true
+   "tea": true,
+   "dinner": true
   },
   "account": {
    "advance": 15000,
@@ -1580,8 +1617,8 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-10-25T13:13+05:30",
-  "snacks": 1,
+  "last_meal": "2026-10-25T19:43+05:30",
+  "snacks": 0,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
