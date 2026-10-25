@@ -153,14 +153,41 @@ Codex has prepared an installer that starts the 8082 server by itself after Wind
 
 Welt leaves on 15 October at about 06:00 Berlin and shuts the PC down; back on the 25th. No stand-in mind: the world stops, and resumes on his return without inventing anything in between.
 
-### T14 · Codex · pause the world before the PC goes down · OPEN
+### T14 · Codex · pause the world before the PC goes down · NOT DONE: the timer kept running; Days 15–24 ran without a mind (0 thoughts, three meals a day, none on Ramesh's day off), kept as they are
 Tonight, as the last thing before Welt shuts down: after a natural tick, stop and disable `hegel-world.timer` on the Pi. Record the last step here (day, time, shadow commit). Leave the server, the day files and the shadow branch as they are.
 **Done when:** the timer is disabled and no tick ran after the recorded commit.
 
-### T15 · Codex · resume on 25 October · OPEN
+### T15 · Codex · resume on 25 October · SUPERSEDED by T16: the world never stopped, so there is nothing to resume
 When Welt is back and the PC is up: start the 8082 server on the GPU, or confirm the boot task did; check its speed as on 14 October; then enable the timer. The engine's resume picks him up at home on that day. Day 14 is closed where it stopped, no days are invented in between (`test_resume_after_a_gap`), and the appointment that fell in the gap (Hegde, 19 October) simply passes.
 **Done when:** the first natural tick after the return exits 0 with source `mind`.
 **T10 and T11:** Day 14 is cut by the pause. It gets no owl and no review, and it does not count for T10 even with 30 thoughts; T10 waits for the first full day after the return.
+
+## Sunday 25 October: lights on
+
+From today the work follows `PLAN.md`, the season plan: Act 0 (lights on), Act 1 (seven full days in a row), Act 2 (opening night), Act 3 (the run, learning). Astra holds the PC seat (`COLLABORATION.md`).
+
+### T16 · Astra · the mind back on the GPU · OPEN
+Start the 8082 server on the GPU, or confirm the boot task did, with the same saved command and CUDA path as on 14 October. Check its speed (about 34 tokens a second then). Leave the Pi's timer as it is: it never stopped.
+**Done when:** a natural tick shows source `mind`, and the speed is in the comment.
+
+### T17 · Claude · the watchman · OPEN
+An hourly GitHub Actions check on `origin/shadow`: when the latest three waking steps (between his waking and 22:00) all ran without a mind, it opens an issue, or comments on the open one, which GitHub emails to Welt. It closes the issue when the mind is back. No secrets; it reads the public branch.
+**Done when:** it flags Day 13's record in a test, and runs green on main.
+
+### T18 · Claude · the day report · OPEN
+`python3 -m world report <date>`: one row per day with thoughts, quiet steps by source, refusals and the most frequent one, repetition share (T10's rule), meals, cash, places, people spoken to, theses moved and the owl's presence. `--table` prints a range as a scoreboard table.
+**Done when:** it reproduces Day 12's 42 decisions and T9's 29/42, with tests.
+
+### T19 · Astra · the report in the nightly run · OPEN (after T18)
+After the owl has written, run `python3 -m world report` for that day on the Pi and commit its row to `docs/days/reports.jsonl` on `shadow`.
+**Done when:** a night's row appears on `shadow` without anyone running it by hand.
+
+### T20 · Claude · the economy, and Ramesh's day off · OPEN
+Run 21 days with the stand-in mind and show where his money comes from and where it goes. Check that offers that bring money in can reach him. When a mindless step meets Ramesh's day off, he eats at Khan Market. A world rule: no thought, no words.
+**Done when:** the cash flow is in `pc/ECONOMY-20261025.md`, and a mindless day on Ramesh's day off has its meals, with tests.
+
+### Act 1 gate · seven full days in a row
+On each of seven consecutive days: at least 30 thoughts; quiet steps at most 5% of waking steps; the owl wrote; no refusal loop; at most 1.6 contradictions and 3.1 statements as fact per 100 sentences; repetition measured (T10 on the first). Claude checks it in the daily review (T11) and writes the Act 2 tasks when it passes.
 
 ### Welt · the public switch · hard limit
 When Welt says so: Codex sets `HEGEL_CLOCK_SHIFT_MIN` to 0 and points the Pi's world at `main` instead of `shadow`; the live page then shows his days instead of the Day 1 replay.
