@@ -131,6 +131,7 @@ When Day 13 is complete, run the same auditor (`pc/thought_repetition.py`, uncha
 
 ### T11 · Claude · the daily review · STANDING
 After every full shadow day: read the day, the owl and `python3 -m world status`; write the next tasks here, or "no new task" with the findings. See "The list never runs dry" in `COLLABORATION.md`.
+**Day 13 (14 October): no new task.** 4 thoughts and 31 quiet steps: he stood in Lodhi Gardens from 08:31 until it closed at 19:30 and ate nothing all day. The GPU restoration and T12, both now on the Pi, answer that. The owl, written at 02:31 because the CPU was slow, is faithful: the power cut at 21:20, Hegde's refusal and the empty stomach are all in the record, and nothing is invented. It calls India "shaken again" on a four-thought day; the status was already shaken, so nothing moved. If an owl ever changes a thesis on a day below the T10 floor, that becomes a task.
 
 ## Wednesday 14 October
 
@@ -144,6 +145,24 @@ Merge main into `shadow` on the Pi (a merge, never a rebase), as in T6, between 
 **Done when:** shadow contains `c61daf3` and a natural tick exits 0. Report the first quiet stretch it meets, or that none came up.
 
 **Welt’s later handover, applied:** no fan club on the Pi. This real main merge preserves the old Pi page and excludes `supabase/fanclub.sql`, `tests/test_fanclub.py` and `world/data/visitors.json`. All day/state JSON and original CSV bytes remain unchanged; natural ticks finished 16:56–16:58 UTC with exit 0. No quiet stretch came up because Day 14 is asleep with zero decisions. Evidence: `pc/T13-SHADOW-MAIN-20261014.md/json`.
+
+### Welt · a mind that survives a reboot · one Administrator click
+Codex has prepared an installer that starts the 8082 server by itself after Windows restarts and stops Windows from restarting the PC at night. Windows asked for Administrator rights and the prompt was cancelled, so nothing is applied yet. Welt runs it as Administrator at the PC; Codex then proves the cold start.
+
+## Welt away, 15 to 25 October: the world pauses
+
+Welt leaves on 15 October at about 06:00 Berlin and shuts the PC down; back on the 25th. No stand-in mind: the world stops, and resumes on his return without inventing anything in between.
+
+### T14 · Codex · pause the world before the PC goes down · NOT DONE: travel pause missed; actual gap retained per Claude
+Tonight, as the last thing before Welt shuts down: after a natural tick, stop and disable `hegel-world.timer` on the Pi. Record the last step here (day, time, shadow commit). Leave the server, the day files and the shadow branch as they are.
+**Done when:** the timer is disabled and no tick ran after the recorded commit.
+
+### T15 · Codex · resume on 25 October · SUPERSEDED by T16 on current main
+When Welt is back and the PC is up: start the 8082 server on the GPU, or confirm the boot task did; check its speed as on 14 October; then enable the timer. The engine's resume picks him up at home on that day. Day 14 is closed where it stopped, no days are invented in between (`test_resume_after_a_gap`), and the appointment that fell in the gap (Hegde, 19 October) simply passes.
+**Done when:** the first natural tick after the return exits 0 with source `mind`.
+**T10 and T11:** Day 14 is cut by the pause. It gets no owl and no review, and it does not count for T10 even with 30 thoughts; T10 waits for the first full day after the return.
+
+**25October verified return (current main calls this T16):** same savedGPUcommand, one110token speedcheck3.508s=31.35tokens/s. Two natural mind steps9.9s/8.3s, clean Pi/actualremote5012567, serviceexit0; all29oldawaysteps intact. T14 NOT DONE, retained gap per Claude; T15 superseded. Day23 naturalowl10:08:29UTC moved no thesis. T10 waits for a qualifying FULL day. See pc/TRAVEL-PAUSE-RETURN-20261025.md/json.
 
 ### Welt · the public switch · hard limit
 When Welt says so: Codex sets `HEGEL_CLOCK_SHIFT_MIN` to 0 and points the Pi's world at `main` instead of `shadow`; the live page then shows his days instead of the Day 1 replay.

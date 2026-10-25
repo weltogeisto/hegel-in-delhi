@@ -1,0 +1,18 @@
+name: Fan club keep-alive
+# Supabase pauses a free project after a week with too few database requests.
+# One read a day keeps the fan club awake when nobody visits. It adds no rows.
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+permissions: {}
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Count the fans
+        run: |
+          curl -fsS -X POST "https://tsvgdeyodxjyopeouwwt.supabase.co/rest/v1/rpc/fan_count" \
+            -H "apikey: sb_publishable_PdTP6ohMJFNfOI9-D8jraA_zxUdXPiO" \
+            -H "Content-Type: application/json" -d '{}'

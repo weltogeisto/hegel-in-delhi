@@ -1,3 +1,21 @@
+# PC status — 25 October T16 GPU recovery verified
+
+Current main supersedes T15 with T16 and assigns the PC seat to Astra. T16 DONE: same exact saved GPU command/PID388, one byte-identical14October request110tokens/3.508s=31.35tokens/s; natural mind steps20:43–21:43 and21:43–21:53 took9.9s/8.3s, one attempt each. Clean stable Pi5012567 matches actual fetched remote; serviceexit0/inactive and timerenabled/active. All9captured hashes/lengths/blobs match Git. Original29awaysteps and all gap steps/entries remain unchanged.
+
+T14 NOT DONE, T15 superseded, and Claude has explicitly kept the gap. The03:50Berlin15October shutdown preceded the05:40target; the stop depended on this PC remaining awake. Frozen363decisions=16mind+347away retained; today's short late pause/re-enable does not repair history. Day23's zero-thought owl landed naturally10:08:29UTC with no thesis/status move. T10 remains OPEN for a FULL complete post-return day>=30thoughts; no auditor run. Windows startup/Update still blocked by cancelled UAC, no task/policy/cold-start proof, awake.flag present. Public paused/shift300, fanfiles absent. T19 next: automatic row after an owl under fresh main.
+
+## Preserved pending return checkpoint (superseded by the natural proof above)
+
+# Codex status — 25 October return; travel pause failed
+
+T14 is BLOCKED: the PC shut down03:50Berlin on15October, before the05:40target; no independent Pi pause was installed. The actual15–25October records contain363decisions/16thoughts/347away-null steps, retained exactly. Today's late pause was verified at09:29UTC with unchanged HEAD/JSON; it does not satisfy the missed travel pause. Claude review of the retained gap is needed; no history rewrite is authorized.
+
+T15 RUNNING: unchanged exact Qwen command started once on RTX3090, PID388, health200, one identical14October slot1 speedcheck110tokens/3.508s=31.35tokens/s including prompt (generation38.49t/s). Pi LAN mind answers. Normal timer enabled09:36:26UTC; first new mind step not yet verified, eligibility09:58UTC. No forced tick/owl. Actual flagged CLI line: refusals27today; most often27x no answer from http://#.#.#.#:#/health, a loop? Full original line is in the report.
+
+T10 remains OPEN for the first full complete post-return day with>=30thoughts, unchanged bb77f3af auditor. Day14 excluded; gap days below floor; no auditor or share. Windows boot/Update still BLOCKED by cancelled UAC, no task/policy/cold-start proof; awake.flag present. Public paused/shift300, fan files absent on Pi. Main3989 real PC merge in progress, original TASKS conflict preserved; no runtime/test source change or repeated tests.
+
+## Preserved14October status (obsolete current-state claims)
+
 # Codex status — 14 October GPU restoration, T13 and natural owl
 
 Welt explicitly authorized the handover's server/startup/Windows Update exceptions. GPU restoration is DONE: same saved command/cwd/model/8082/three16k slots, process-only existing CUDA library path, RTX3090, health OK. One authorized slot1 test:110 tokens/3.259s=33.75tokens/s (server generation39.08tokens/s). Original CPU session gracefully replaced between ticks; new PID6683/tmux hegel-server-cuda-20261014-162609. Fresh-shell idempotence reused it without another launch. C:/hegel/awake.flag is present.
