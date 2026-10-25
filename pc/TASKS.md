@@ -184,7 +184,7 @@ An hourly GitHub Actions check on `origin/shadow`: when the latest three waking 
 `python3 -m world report <date>`: one row per day with thoughts, quiet steps by source, refusals and the most frequent one, repetition share (T10's rule), meals, cash, places, people spoken to, theses moved and the owl's presence. `--table` prints a range as a scoreboard table.
 **Done when:** it reproduces Day 12's 42 decisions and T9's 29/42, with tests.
 
-### T19 · Astra · the report in the nightly run · OPEN: T18 is on main; `python3 -m world report <date> --json` prints the row
+### T19 · Astra · the report in the nightly run · DONE: Day 24's row arrived on its own, shadow `2929c3d`
 After the owl has written, run `python3 -m world report` for that day on the Pi and commit its row to `docs/days/reports.jsonl` on `shadow`.
 **Done when:** a night's row appears on `shadow` without anyone running it by hand.
 
@@ -192,16 +192,23 @@ After the owl has written, run `python3 -m world report` for that day on the Pi 
 Run 21 days with the stand-in mind and show where his money comes from and where it goes. Check that offers that bring money in can reach him. When a mindless step meets Ramesh's day off, he eats at Khan Market. A world rule: no thought, no words.
 **Done when:** the cash flow is in `pc/ECONOMY-20261025.md`, and a mindless day on Ramesh's day off has its meals, with tests.
 
-### T22 · Astra · bring main into the shadow world · OPEN
+### T22 · Astra · bring main into the shadow world · DONE: carried by the T23 merge, shadow `d4bc5ff`
 Merge main into `shadow` on the Pi (a merge, never a rebase), as in T13, between two ticks. It carries the day report (T18, which T19 needs on the Pi), the dhaba on Ramesh's day off, Mr. Malhotra's loan that sees debts, and the resume fix (T20). Keep the fan club files off the Pi, as in T13.
 **Done when:** shadow contains `8037632` and a natural tick exits 0.
 
 ### Welt · how a man in his position can live · DECIDED 25 October: all of option 2, built by Claude in `f76483e`
 From 1 November his household costs about ₹17,600 a month, and the world offers at most about ₹8,700 a month that he can spend. The kitchen shuts on 1 November whatever he does (`pc/ECONOMY-20261025.md`). Three ways out: leave it; exits, not gifts (Ramesh accepts part-time, a cheque can be banked, a column that recurs; recommended); or a stipend. Claude builds the chosen one, with tests, before Day 31.
 
-### T23 · Astra · bring main into the shadow world · OPEN
+### T23 · Astra · bring main into the shadow world · DONE: shadow `d4bc5ff`, `f76483e` and `8037632` on shadow
 Merge main into `shadow` on the Pi, as in T22, between two ticks, fan files kept off. It carries the ways out Welt chose (`pc/ECONOMY-20261025.md`): Ramesh part-time, Mr. Saxena's letter and the bank account, the fortnightly column and the frock asked again. They must be on the Pi before 1 November (his Day 31), when the wage falls due.
 **Done when:** shadow contains `f76483e`, and a natural tick exits 0.
+
+### T24 · Astra · the thesis floor, and Day 24's move undone · OPEN
+Day 24's owl moved `state` from unshaken to shaken on a day of 5 thoughts and 29 steps without a mind (`b47e316`). Main now holds the floor (`f469dfc`): a day with fewer than 30 thoughts moves no thesis, and the night records `theses_held`. Between two ticks on the Pi:
+1. Merge main into `shadow` (a merge, never a rebase), fan files kept off.
+2. In `docs/days/2026-10-26.json`, set the status of `state` in `state.theses` back to `unshaken`. Leave Day 24's owl record as it is: it is what the owl wrote that night. `india` stays shaken (Day 12, 42 thoughts).
+3. Write the correction in `pc/T24-THESIS-CORRECTION-20261025.md`: what changed, why, and the commit.
+**Done when:** shadow contains `f469dfc`, Day 25's state shows `state` unshaken, and a natural tick exits 0.
 
 ### Act 1 gate · seven full days in a row
 On each of seven consecutive days: at least 30 thoughts; quiet steps at most 5% of waking steps; the owl wrote; no refusal loop; at most 1.6 contradictions and 3.1 statements as fact per 100 sentences; repetition measured (T10 on the first). Claude checks it in the daily review (T11) and writes the Act 2 tasks when it passes.
