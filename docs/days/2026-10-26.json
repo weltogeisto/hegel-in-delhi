@@ -18,7 +18,7 @@
     "aqi": 102
    },
    {
-    "temp": 20,
+    "temp": 21,
     "sky": "clear",
     "rain": 0,
     "aqi": 108
@@ -30,7 +30,7 @@
     "aqi": 113
    },
    {
-    "temp": 19,
+    "temp": 20,
     "sky": "clear",
     "rain": 0,
     "aqi": 118
@@ -48,7 +48,7 @@
     "aqi": 127
    },
    {
-    "temp": 18,
+    "temp": 19,
     "sky": "clear",
     "rain": 0,
     "aqi": 131
@@ -60,7 +60,7 @@
     "aqi": 135
    },
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "clear",
     "rain": 0,
     "aqi": 137
@@ -90,7 +90,7 @@
     "aqi": 148
    },
    {
-    "temp": 29,
+    "temp": 30,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 152
@@ -323,16 +323,143 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "06:08",
+   "to": "06:23",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “A Korean cultural evening in Hyderabad, with a distinctly Telangana touch” · “‘Crossing limits of indecency’: Amit Shah slams Mallikarjun Kharge over Modi remark” · “Jharkhand BJP unanimously passes political resolution at State Executive Committee meeting”",
+   "t": "06:08"
+  },
+  {
+   "k": "plan",
+   "items": [
+    {
+     "time": "06:15",
+     "intention": "Speak to Ramesh about the Hegde file and request the breakfast plate of rice, dal, and egg."
+    },
+    {
+     "time": "07:30",
+     "intention": "Walk to Lodhi Gardens to examine the tombs and the tension between the conqueror and the conquered."
+    },
+    {
+     "time": "10:00",
+     "intention": "Return home to read the newspapers and reflect on the headlines of the day."
+    },
+    {
+     "time": "12:30",
+     "intention": "Compose a letter to the Directorate regarding the error in the allotment and the pending orders."
+    },
+    {
+     "time": "15:00",
+     "intention": "Rest and review my notes on the position of India in world history, shaken by recent encounters."
+    },
+    {
+     "time": "18:00",
+     "intention": "Take a final walk around the bungalow perimeter as the sun is dismissed by the horizon."
+    }
+   ],
+   "sensitive": true,
+   "why": "conqueror",
+   "topic": "empire and colonies",
+   "t": "06:08"
+  },
+  {
+   "k": "diary",
+   "text": "The body has woken to the necessity of sustenance, ten hours since the last meal, and the mind requires the specific knowledge of the Hegde file before I can proceed. Ramesh is present; I shall address the practical matter of breakfast and the administrative query in one movement, for the particular will of the stomach and the universal duty of the state must be reconciled in the present moment.",
+   "shelf": [
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "06:08"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, the morning requires both nourishment and information. Prepare the plate of rice, dal, and egg for breakfast. Also, I require the details of the file regarding Shri Hegde's impending move into the second bedroom; the allotment was meant for him, and I must understand the status of the pending orders before I compose my letter to the Directorate.",
+   "to": "Ramesh",
+   "t": "06:08"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Plate will be on the table in five minutes, sir. As for Shri Hegde's file, I only keep the keys and the tea; the papers are in the office, not here.",
+   "t": "06:08"
+  }
+ ],
+ "steps": [
+  {
+   "t": "06:08",
+   "end": "06:23",
+   "event": "You wake. Clear, 19 °C. Ramesh has left the papers on the verandah. Headlines: A Korean cultural evening in Hyderabad, with a distinctly Telangana touch; ‘Crossing limits of indecency’: Amit Shah slams Mallikarjun Kharge over Modi remark; Jharkhand BJP unanimously passes political resolution at State Executive Committee meeting. Ramesh is here.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The body has woken to the necessity of sustenance, ten hours since the last meal, and the mind requires the specific knowledge of the Hegde file before I can proceed. Ramesh is present; I shall address the practical matter of breakfast and the administrative query in one movement, for the particular will of the stomach and the universal duty of the state must be reconciled in the present moment.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, the morning requires both nourishment and information. Prepare the plate of rice, dal, and egg for breakfast. Also, I require the details of the file regarding Shri Hegde's impending move into the second bedroom; the allotment was meant for him, and I must understand the status of the pending orders before I compose my letter to the Directorate.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Plate will be on the table in five minutes, sir. As for Shri Hegde's file, I only keep the keys and the tea; the papers are in the office, not here.",
+    "does": "He sets the steel tiffin carrier on the verandah railing."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 20.1
+   },
+   "shelf": [
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810",
+     "id": "reden:58"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810",
+     "text": "Nach dem Geiste der Sitten unserer Zeit ist ohnehin die unmittelbare Zucht nicht, etwa wie bei den Spartanern, eine öffentliche Sache, eine Veranstaltung des Staats, sondern Geschäft und Pflicht der Eltern; — außer in Waisenhäusern oder Seminarien, überhäupt in solchen Anstalten, welche die ganze Existenz eines jungen Menschen umfassen."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal. This is the state-constitution."
+    }
+   ]
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-26T06:08+05:30",
-  "asleep": true,
+  "until": "2026-10-26T06:23+05:30",
+  "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
   "wardrobe": [
@@ -397,7 +524,14 @@
    }
   ],
   "depesche_n": 1,
-  "today": {},
+  "today": {
+   "woke": "06:08",
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -518,7 +652,8 @@
     "2026-10-22",
     "2026-10-23",
     "2026-10-24",
-    "2026-10-25"
+    "2026-10-25",
+    "2026-10-26"
    ],
    "lodhi": [
     "2026-10-02",
@@ -561,7 +696,8 @@
     "2026-10-22",
     "2026-10-23",
     "2026-10-24",
-    "2026-10-25"
+    "2026-10-25",
+    "2026-10-26"
    ],
    "malhotra": [
     "2026-10-02",
@@ -618,6 +754,36 @@
   ],
   "missed": [
    "hegde_call"
+  ],
+  "commissions": []
+ },
+ "plan": {
+  "written": "06:08",
+  "items": [
+   {
+    "time": "06:15",
+    "intention": "Speak to Ramesh about the Hegde file and request the breakfast plate of rice, dal, and egg."
+   },
+   {
+    "time": "07:30",
+    "intention": "Walk to Lodhi Gardens to examine the tombs and the tension between the conqueror and the conquered."
+   },
+   {
+    "time": "10:00",
+    "intention": "Return home to read the newspapers and reflect on the headlines of the day."
+   },
+   {
+    "time": "12:30",
+    "intention": "Compose a letter to the Directorate regarding the error in the allotment and the pending orders."
+   },
+   {
+    "time": "15:00",
+    "intention": "Rest and review my notes on the position of India in world history, shaken by recent encounters."
+   },
+   {
+    "time": "18:00",
+    "intention": "Take a final walk around the bungalow perimeter as the sun is dismissed by the horizon."
+   }
   ]
  }
 }
