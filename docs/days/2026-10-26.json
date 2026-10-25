@@ -351,6 +351,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "07:48",
+   "to": "08:03",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -508,6 +515,34 @@
    "to": "Hegel",
    "text": "You’re right, the file is a mess, but I’m not moving out until the tea is poured and the clerk arrives. Please, have your papaya; I’ll sort out the confusion once this man stops looking at me like I’m a philosophical paradox.",
    "t": "07:03"
+  },
+  {
+   "k": "diary",
+   "text": "The Joint Secretary’s insistence on the tea and the clerk reveals the stubbornness of the particular against the universal; he clings to the immediate moment as if it were the whole of reality. I must yield to the necessity of the present, for the dialectic does not move by force but by the exhaustion of contradictions. The papaya is a sweet concession to the body, which must be fed before it can serve the spirit.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§64"
+    }
+   ],
+   "t": "07:48"
+  },
+  {
+   "k": "said",
+   "text": "I accept the papaya. Let the tea be poured and the clerk summoned; the confusion will resolve itself in the course of the day, as all particulars must.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "07:48"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes, sir. I will pour the tea right now. As for the clerk, I will give the call, but he is never in a hurry like you.",
+   "t": "07:48"
   }
  ],
  "steps": [
@@ -720,13 +755,71 @@
      "text": "Plutarch characterizes Anaximenes’ mode of representation which makes everything proceed from air—later on it was called ether—and resolve itself therein, better thus: “As our soul, which is air, holds us together (συγρατεῖ), one spirit (πνεῦμα) and air together likewise hold (περιέχει) the whole world together; spirit and air are synonymous.”"
     }
    ]
+  },
+  {
+   "t": "07:48",
+   "end": "08:03",
+   "event": "Shri G. Hegde says: “You’re right, the file is a mess, but I’m not moving out until the tea is poured and the clerk arrives. Please, have your papaya; I’ll sort out the confusion once this man stops looking at me like I’m a philosophical paradox.” She gestures towards the table and turns back to the stove to start the kettle.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The Joint Secretary’s insistence on the tea and the clerk reveals the stubbornness of the particular against the universal; he clings to the immediate moment as if it were the whole of reality. I must yield to the necessity of the present, for the dialectic does not move by force but by the exhaustion of contradictions. The papaya is a sweet concession to the body, which must be fed before it can serve the spirit.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 15,
+    "says": "I accept the papaya. Let the tea be poured and the clerk summoned; the confusion will resolve itself in the course of the day, as all particulars must.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes, sir. I will pour the tea right now. As for the clerk, I will give the call, but he is never in a hurry like you.",
+    "does": "She picks up the cup and begins pouring the tea."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 15.6,
+    "refused": [
+     [
+      "this repeats what you thought at 06:53; think something new"
+     ]
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "id": "dyde-right:205"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§64",
+     "id": "dyde-right:189"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "text": "Addition. — The particular person is really a subordinate, who must devote his life to the service of the ethical fabric; when the state demands his life, he must yield it up. But should the man take his own life? Suicide may at first glance be looked upon as bravery, although it be the poor bravery of tailors and maid-servants."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§64",
+     "text": "It is founded on the reality of property, in other words upon the necessity that the will, in order to keep a thing, must manifest itself in it. — Public monuments are property of the nation, or rather they, like all works of art intended for use, are living and self-sufficient ends because of their indwelling soul of remembrance and honour."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-26T07:48+05:30",
+  "until": "2026-10-26T08:03+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
@@ -1008,7 +1101,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-10-26T07:03+05:30",
+  "last_meal": "2026-10-26T07:48+05:30",
   "snacks": 0,
   "works": [
    {
