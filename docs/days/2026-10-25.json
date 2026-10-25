@@ -533,6 +533,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "21:43",
+   "to": "21:53",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -583,6 +590,34 @@
    "to": "Hegel",
    "text": "Sir, you are not Hegel, and I am not staying in your house. Please leave my kitchen.",
    "t": "20:43"
+  },
+  {
+   "k": "diary",
+   "text": "The particular will has asserted itself against the universal claim of the state’s allotment, and I am excluded from the material means of sustenance. I must withdraw with dignity, for the spirit does not beg for its dinner, but I am hungry and the night is long. I will return to the study to contemplate the dialectic of this absurdity, or perhaps to find a way to communicate with Ramesh.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19"
+    }
+   ],
+   "t": "21:43"
+  },
+  {
+   "k": "said",
+   "text": "I shall not enter. The state’s order is clear, yet your obstinacy is a force I cannot yet comprehend. I withdraw to my own quarters.",
+   "to": "Shri G. Hegde",
+   "t": "21:43"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Good. Please do. And next time, maybe check which bungalow you’re actually in before you start quoting state orders at me.",
+   "t": "21:43"
   }
  ],
  "steps": [
@@ -1452,13 +1487,68 @@
      "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
     }
    ]
+  },
+  {
+   "t": "21:43",
+   "end": "21:53",
+   "event": "Shri G. Hegde says: “Sir, you are not Hegel, and I am not staying in your house. Please leave my kitchen.” She locks the door of the kitchen behind him.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The particular will has asserted itself against the universal claim of the state’s allotment, and I am excluded from the material means of sustenance. I must withdraw with dignity, for the spirit does not beg for its dinner, but I am hungry and the night is long. I will return to the study to contemplate the dialectic of this absurdity, or perhaps to find a way to communicate with Ramesh.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 10,
+    "says": "I shall not enter. The state’s order is clear, yet your obstinacy is a force I cannot yet comprehend. I withdraw to my own quarters.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Good. Please do. And next time, maybe check which bungalow you’re actually in before you start quoting state orders at me.",
+    "does": "She leans against the doorframe, crossing her arms over her chest."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.3,
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "id": "sibree-history:376"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "id": "wallace-logic:71"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "text": "WITH the Empire of China History has to begin, for it is the oldest, as far as history gives us any information; and its principle has such substantiality, that for the empire in question it is at once the oldest and the newest."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "text": "A slothful mind finds it natural to say: 'Don't let it be supposed that we mean to be in earnest with our philosophy. We shall be glad inter alia to study Logic: but Logic must be sure to leave us as we were before.' People have a feeling that, if thinking passes the ordinary range of our ideas and impressions, it cannot but be on the evil road."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-25T21:43+05:30",
+  "until": "2026-10-25T21:53+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
