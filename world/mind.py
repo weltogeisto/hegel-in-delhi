@@ -171,9 +171,9 @@ THOUGHTS = [
 ]
 NOUNS = ("lamp tea stone fan gate bell paper ledger shutter verandah coin step chair kettle notebook shadow curtain "
          "spoon bicycle ticket cloth drawer window pigeon rickshaw umbrella wall clock bench branch stall bridge").split()
-PLAN = [("07:30", "Walk to Lodhi Gardens with the papers"), ("10:30", "Khan Market: ink, and a look at the bookshop"),
+PLAN = [("09:30", "Walk to Lodhi Gardens with the papers"), ("11:00", "Khan Market: ink, and a look at the bookshop"),
         ("13:00", "Lunch, then an hour with the Hindi primer"), ("15:00", "Write up the morning's notes at the desk"),
-        ("17:00", "See whether the Gymkhana plays bridge tonight"), ("20:00", "Dinner, and the day's reckoning")]
+        ("17:00", "See whether the Gymkhana plays bridge tonight"), ("19:30", "Dinner, and the day's reckoning")]
 REPLIES = ["Namaste, sir. The weather is not what it was.", "Ji, sir? Tell me, what do you need?", "Arre, sir, the same as yesterday, only warmer.",
            "One minute, sir, I am just finishing this."]
 DOINGS = ["Nods, and goes back to what was in hand.", None, "Looks at him a moment longer than needed.", None]
@@ -233,9 +233,9 @@ class StubMind:
             self.lesson = (sit["day"], int(end[1]) * 60 + int(end[2]))
         if self.lesson[0] == sit["day"] and now < self.lesson[1]:
             booked = ("home", now)
-        if now >= 22 * 60 or now < 5 * 60:
+        if now >= 20 * 60 + 30 or now < 5 * 60:                    # to bed before the world sends him, at nine
             ans.update(action="sleep" if here == "home" else "walk", place="home", minutes=240)
-        elif now >= 21 * 60 + 15 and here != "home":
+        elif now >= 20 * 60 and here != "home":
             ans.update(action="walk", place="home", minutes=30)
         elif here not in open_now:
             ans.update(action="walk", place="home", minutes=30)

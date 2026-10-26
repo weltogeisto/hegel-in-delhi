@@ -50,7 +50,7 @@ class Config:
         self.mind_url = v.get("MIND_URL") or (f"http://{host}:{port}" if host else None)
         self.owl_url = v.get("OWL_URL") or (f"http://{host}:{v.get('OWL_PORT', port)}" if host else self.mind_url)
         self.wake = str(self.repo / "scripts/wake_pc.sh") if v.get("PC_MAC") else None
-        self.owl_at = v.get("OWL_AT", "01:30")
+        self.owl_at = v.get("OWL_AT", "09:10")         # the morning after, as he wakes: the PC is up from nine
         self.depesche_day = v.get("DEPESCHE_DAY", "Saturday")
         self.timeout = int(v.get("MIND_TIMEOUT", "300"))
         voice_scale = v.get("HEGEL_VOICE_ADAPTER_SCALE", "").strip()

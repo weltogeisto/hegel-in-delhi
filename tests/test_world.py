@@ -331,7 +331,7 @@ class EngineTest(unittest.TestCase):
         self.assertEqual(sum("resumed at" in line for line in logs.output), 1)
         self.assertEqual(self.box.days.index()["days"][-1]["date"], "2026-10-07")
 
-    def test_awake_at_midnight_goes_to_bed(self):
+    def test_awake_at_midnight_goes_to_bed_at_once(self):
         class Insomniac(StubMind):
             def decide(self, messages, sit):
                 return json.dumps(answer(action="read", place="home", minutes=30))
@@ -345,7 +345,25 @@ class EngineTest(unittest.TestCase):
         sources = [s["mind"]["source"] for s in day["steps"] if "mind" in s]
         self.assertIn("bedtime", sources)
         bed = next(s for s in day["segments"] if s.get("asleep"))
-        self.assertEqual(bed["from"], "00:30")
+        self.assertEqual(bed["from"], "00:00")
+
+    def test_at_nine_in_the_evening_the_world_sends_him_to_bed(self):
+        class Insomniac(StubMind):
+            def decide(self, messages, sit):
+                return json.dumps(answer(action="read", place="home", minutes=30))
+        day = self.box.run_day(date(2026, 10, 3), self.box.engine(Insomniac()))
+        bed = next(s for s in day["steps"] if s.get("mind", {}).get("source") == "bedtime")
+        self.assertTrue("21:00" <= bed["t"] < "21:30", bed["t"])
+        self.assertEqual(bed["decision"]["action"], "sleep")
+
+    def test_bedtime_ends_a_long_activity(self):
+        class Talker(StubMind):
+            def decide(self, messages, sit):
+                return json.dumps(answer(action="read", place="home", minutes=240))
+        day = self.box.run_day(date(2026, 10, 3), self.box.engine(Talker()))
+        awake = [s for s in day["steps"] if "decision" in s and s["decision"]["action"] != "sleep"]
+        self.assertLessEqual(max(s["end"] for s in awake), "21:00")
+        self.assertEqual(next(s for s in day["steps"] if s.get("mind", {}).get("source") == "bedtime")["t"], "21:00")
 
     def test_quiet_minutes_touch_nothing(self):
         class Recorder:
@@ -431,7 +449,7 @@ class HTTPTest(unittest.TestCase):
     def test_refusal_then_acceptance(self):
         mind = HTTPMind(f"http://127.0.0.1:{self.server.server_port}")
         e = self.box.engine(mind)
-        e.advance(at_dt(date(2026, 10, 3), 6 * 60))
+        e.advance(at_dt(date(2026, 10, 3), 9 * 60 + 25))                    # he wakes at a quarter past nine, give or take five minutes
         day = self.box.days.load(date(2026, 10, 3))
         step = next(s for s in day["steps"] if "decision" in s)
         self.assertEqual(step["mind"]["source"], "mind")
@@ -442,7 +460,7 @@ class HTTPTest(unittest.TestCase):
     def test_mind_away_gives_a_quiet_step(self):
         mind = HTTPMind("http://127.0.0.1:9")       # nothing listens there
         e = self.box.engine(mind)
-        e.advance(at_dt(date(2026, 10, 3), 6 * 60))
+        e.advance(at_dt(date(2026, 10, 3), 9 * 60 + 25))
         day = self.box.days.load(date(2026, 10, 3))
         step = next(s for s in day["steps"] if "decision" in s)
         self.assertEqual(step["mind"]["source"], "away")
@@ -481,7 +499,7 @@ class MindlessDayTest(unittest.TestCase):
         self.assertTrue(all(s["decision"]["place"] == "home" for s in steps))
         self.assertFalse(any(s["decision"].get("thought") or s["decision"].get("says") for s in steps))
         self.assertFalse(any(x["k"] == "diary" for x in day["entries"]))
-        self.assertEqual([s["decision"]["action"] for s in steps if hm(s["t"]) >= 22 * 60][:1], ["sleep"])
+        self.assertEqual([s["decision"]["action"] for s in steps if hm(s["t"]) >= 21 * 60][:1], ["sleep"])
 
     def test_out_without_a_mind_he_goes_home_within_the_hour(self):
         t, sit = at_dt(self.D, 10 * 60 + 1), {"open_now": ["lodhi", "khan", "iic"]}

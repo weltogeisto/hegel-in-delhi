@@ -89,7 +89,7 @@ if __name__ == "__main__":
 
 class ThesisFloorTest(unittest.TestCase):
     """Day 24 (25 October) had 5 thoughts and 29 steps without a mind, and its owl moved 'state' to shaken.
-    A day with fewer of his own thoughts than T10 measures (30) moves no thesis; the owl is told so."""
+    A day with fewer of his own thoughts than T10 measures (20) moves no thesis; the owl is told so."""
 
     def setUp(self):
         self.box = Sandbox()
@@ -119,13 +119,13 @@ class ThesisFloorTest(unittest.TestCase):
             saved = self.night(5)
         self.assertEqual(saved["owl"]["theses"], [])
         self.assertEqual(saved["state"]["theses"][0]["status"], "unshaken")
-        self.assertEqual(saved["owl"]["theses_held"], {"thoughts": 5, "floor": 30})
+        self.assertEqual(saved["owl"]["theses_held"], {"thoughts": 5, "floor": 20})
         self.assertIn("moves no thesis", " ".join(logs.output))
-        self.assertIn("Today he had 5 thoughts of his own, fewer than 30: tonight no thesis changes its status.", self.asked[-1])
+        self.assertIn("Today he had 5 thoughts of his own, fewer than 20: tonight no thesis changes its status.", self.asked[-1])
         self.assertTrue(saved["owl"]["diary"])                                        # the night is still written up
 
     def test_a_full_day_moves_a_thesis_on_evidence(self):
         saved = self.night(30)
         self.assertEqual([(c["id"], c["from"], c["to"]) for c in saved["owl"]["theses"]], [("india", "unshaken", "shaken")])
         self.assertNotIn("theses_held", saved["owl"])
-        self.assertNotIn("fewer than 30", self.asked[-1])
+        self.assertNotIn("fewer than 20", self.asked[-1])

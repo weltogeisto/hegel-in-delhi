@@ -291,7 +291,7 @@ class VoiceTest(unittest.TestCase):
         day = self.box.run_day(date(2026, 10, 3))
         steps = [s for s in day["steps"] if "decision" in s]
         self.assertEqual(sum(len(s["mind"].get("refused", [])) for s in steps), 0)
-        thoughts = [s["decision"]["thought"] for s in steps]
+        thoughts = [s["decision"]["thought"] for s in steps if s["mind"]["source"] != "bedtime"]
         self.assertEqual(len(thoughts), len(set(thoughts)))
         for i, a in enumerate(thoughts):
             self.assertFalse(any(repeats(a, b) for b in thoughts[max(0, i - 12):i]), a)
