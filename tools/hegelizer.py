@@ -17,9 +17,10 @@ English word counts of the whole shelf as the yardstick). Of the rest, HELD_SHAR
 
 --paraphrase. One llama-server chat call per unit without a plain version (thinking off, TEMPERATURE), asked with PARAPHRASE_SYSTEM and PARAPHRASE_ASK. The
 reply stands if it is not empty, not cut off, in RATIO of the original's words, has no list marker or heading, and shares no run of RUN words with the
-original (folded: lower case, punctuation gone). Otherwise it is asked once more at RETRY_TEMPERATURE, and then the unit is recorded as failed. A reply that
-failed only by copying is shown the words it copied on that second ask (COPY_RETRY); any other failure is asked the same again. Every row records the RECIPE
-it was written under: recipe 1 (until 26 October 2026) never named the rule against copying, and 27 of the pilot's first 37 units failed by it. The units
+original (folded: lower case, punctuation gone). Otherwise it is asked again at RETRY_TEMPERATURE, up to ASKS asks in all, and then the unit is recorded as
+failed. A reply that failed by copying is shown every stretch it copied on the next ask (COPY_RETRY); any other failure is asked the same again. Every row
+records the RECIPE it was written under: recipe 1 never named the rule against copying (27 of the pilot's first 37 units failed by it); recipe 2 named it
+and showed only the first copied stretch, on one retry (6 of 40 failed in T25, among them long quotations). The units
 come in a fixed shuffled order, so that a run cut short still has every work in it. Rows are appended to hegelizer.jsonl one whole line at a time; a run
 that is stopped (Ctrl-C, a crash, a server that stops answering) loses nothing, and the same command carries on. Failed units wait in hegelizer-failed.jsonl
 and are tried again only with --retry-failed. A server that does not answer is no failure of a unit: nothing is recorded for it."""
@@ -52,14 +53,15 @@ RUN = 8                                         # words in a row that two texts 
 RATIO = (0.6, 1.4)                              # the plain version's words, as a share of the original's
 TOKENS_PER_WORD = 1.6                           # for max_tokens: a word of English philosophy in tokens, rounded up
 TEMPERATURE, RETRY_TEMPERATURE = 0.3, 0.7
+ASKS = 3                                        # asks per unit: the first at TEMPERATURE, the others at RETRY_TEMPERATURE
 PARAPHRASE_SYSTEM = "You rewrite passages of old philosophy in plain present-day English."
-RECIPE = 2                                      # the prompt and the retry below; every row records it
+RECIPE = 3                                      # the prompt, the retry and ASKS; every row records it
 PARAPHRASE_ASK = ("Rewrite the passage below in plain, modern English, as a careful writer would today. Keep every claim, example and step of the argument, "
                   "in the same order, and keep its technical terms. Add nothing, explain nothing, leave nothing out. Do not quote it: build every sentence "
-                  "anew, in your own words and word order, and never repeat eight or more words in a row from the passage. Use clear sentences and everyday "
-                  "words, about the same length. Answer with the rewritten text only.\n\n{original}")
-COPY_RETRY = ("Your rewrite repeats the passage word for word here: \"{run}\". Write the whole rewrite again, building every sentence anew, so that no eight "
-              "words in a row come from the passage. Keep every claim and technical term. Answer with the rewritten text only.")
+                  "anew, in your own words and word order, and never repeat eight or more words in a row from the passage. Rewrite its quotations too, in your own words "
+                  "and without quotation marks. Use clear sentences and everyday words, about the same length. Answer with the rewritten text only.\n\n{original}")
+COPY_RETRY = ("Your rewrite repeats the passage word for word here: {runs}. Write the whole rewrite again, building every sentence anew, quotations "
+              "included, so that no eight words in a row come from the passage. Keep every claim and technical term. Answer with the rewritten text only.")
 MARKUP = re.compile(r"^[ \t]*(?:[-*•+–]\s+\S|\d{1,3}[.)]\s+\S|#{1,6}\s|\*\*|>\s)", re.M)       # a list marker, a heading or bold at the start of a line
 PREFACE_WORDS = 15                              # a first line this short that ends in a colon announces the text ("Here is the rewrite:") and is no text
 TRIES, PATIENCE = 3, 15                         # a call the server does not answer is tried again this often, waiting PATIENCE seconds more each time
@@ -368,26 +370,32 @@ def judge(original, reply, finish=None):
 
 
 def copied(original, reply):
-    """The first stretch of the reply that repeats RUN or more words of the original in a row, folded as runs_of() folds them; empty if there is none."""
-    w, theirs = folded_words(re.sub(r"<think>.*?</think>", "", reply or "", flags=re.S)), runs_of(original)
-    for i in range(len(w) - RUN + 1):
+    """Every stretch of the reply that repeats RUN or more words of the original in a row, in the reply's order, folded as runs_of() folds them."""
+    w, theirs, out, i = folded_words(re.sub(r"<think>.*?</think>", "", reply or "", flags=re.S)), runs_of(original), [], 0
+    while i <= len(w) - RUN:
         if tuple(w[i:i + RUN]) in theirs:
             j = i
             while j + 1 <= len(w) - RUN and tuple(w[j + 1:j + 1 + RUN]) in theirs:
                 j += 1
-            return " ".join(w[i:j + RUN])
-    return ""
+            out.append(" ".join(w[i:j + RUN]))
+            i = j + RUN
+        else:
+            i += 1
+    return out
 
 
 def paraphrase_one(unit, url, timeout):
-    """(plain, None) or (None, why not) for one unit: asked at TEMPERATURE and, if the reply cannot stand, once more at RETRY_TEMPERATURE. A server that does
+    """(plain, None) or (None, why not) for one unit: asked at TEMPERATURE and, while the reply cannot stand, again at RETRY_TEMPERATURE, ASKS asks in all. A server that does
     not answer is tried TRIES times and then raises ServerError."""
     original = unit["original"]
     messages = [{"role": "system", "content": PARAPHRASE_SYSTEM}, {"role": "user", "content": PARAPHRASE_ASK.format(original=original)}]
     tokens, why = math.ceil(TOKENS_PER_WORD * RATIO[1] * words_of(original)), []
-    for temperature in (TEMPERATURE, RETRY_TEMPERATURE):
-        if why and problem.startswith("shares"):                    # it copied: show it the words, in the same conversation
-            messages = messages[:2] + [{"role": "assistant", "content": reply}, {"role": "user", "content": COPY_RETRY.format(run=copied(original, reply))}]
+    for temperature in (TEMPERATURE,) + (RETRY_TEMPERATURE,) * (ASKS - 1):
+        if why and problem.startswith("shares"):                    # it copied: show it every copied stretch of its last reply
+            runs = "; ".join(f'"{r}"' for r in copied(original, reply))
+            messages = messages[:2] + [{"role": "assistant", "content": reply}, {"role": "user", "content": COPY_RETRY.format(runs=runs)}]
+        else:
+            messages = messages[:2]
         for k in range(TRIES):
             try:
                 reply, finish = chat(url, messages, temperature, tokens, timeout)
