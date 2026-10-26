@@ -337,6 +337,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "19:15",
+   "to": "19:30",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -379,6 +386,34 @@
    "k": "world",
    "text": "Ramesh puts a plate together: parathas kept from the morning, with curd and pickle.",
    "t": "18:45"
+  },
+  {
+   "k": "diary",
+   "text": "The system of needs asserts itself against the abstract. I must eat, for the body is the immediate reality that precedes the concept. Ramesh, the particular servant, acts to sustain the universal organism that is my household. I shall watch him go, for in this small act of preparation I see the ethical life of the house at work.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Alexandrian Philosophy, Proclus"
+    }
+   ],
+   "t": "19:15"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. Take your time.",
+   "to": "Ramesh",
+   "t": "19:15"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Chalo, sir. I’ll be quick.",
+   "t": "19:15"
   }
  ],
  "steps": [
@@ -438,13 +473,65 @@
      "text": "Africa proper, as far as History goes back, has remained — for all purposes of connection with the rest of the World — shut up; it is the Gold-land compressed within itself, — the land of childhood, which lying beyond the day of self-conscious history, is enveloped in the dark mantle of Night."
     }
    ]
+  },
+  {
+   "t": "19:15",
+   "end": "19:30",
+   "event": "Ramesh says: “Yes, sir. I’ll put a plate together with the morning’s parathas, curd, and pickle. Give me a few minutes.” Ramesh turns toward the kitchen door without waiting for a reply.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The system of needs asserts itself against the abstract. I must eat, for the body is the immediate reality that precedes the concept. Ramesh, the particular servant, acts to sustain the universal organism that is my household. I shall watch him go, for in this small act of preparation I see the ethical life of the house at work.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": "Thank you, Ramesh. Take your time.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Chalo, sir. I’ll be quick.",
+    "does": "He pauses with his back turned, then continues walking toward the kitchen."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.7
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Alexandrian Philosophy, Proclus",
+     "id": "haldane-2:1111"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence. So also it is not a matter merely external and particular, the performance of which is intrusted to him."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Alexandrian Philosophy, Proclus",
+     "text": "His sequence is excellent, and he is right in placing the understanding, as the richer, last, since it is not until after the development of the moments which are present in life that the understanding springs forth, and from it in turn the soul. Proclus says (Theol. Plat."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-27T19:15+05:30",
+  "until": "2026-10-27T19:30+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
