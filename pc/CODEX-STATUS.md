@@ -1,3 +1,13 @@
+# PC status —26October T26 outage diagnosis complete
+
+T26 DONE. Existing Power Guard12-hour limit requested shutdown25Oct21:16:49UTC; Windows shut down21:17:57 and booted26Oct07:18:13.5. The saved startup launcher ran07:18:55, started exact plainQwen/CUDA once asPID501 and reachedGPU_READY07:20:37exit0. A later invocation reused501/zero launches. Naturalboot recovery is observed; preciseBootTriggervsLogonTrigger attribution remains unproved because TaskScheduler history returned no matching events. Six exact original source receipts accompany pc/T26-OVERNIGHT-OUTAGE-20261026.md/json and mind/results/t26-outage-20261026. No new Pi/model/health/system probe or runtime/power change.
+
+Both human-requested speedruns are complete and preserved privately. The approved style-LoRA pilot stopped before training:10accepted/27rejected of37units, all failures shared8sourcewords at both allowed attempts. Raw attempts/targets remain; no adapter/training/server/timer change. The human gave direct approval in this PC chat;6412691798 relays its exact question/reply. Recipe2 is now canonical main1dc94ea; its fresh diagnostic assignment has not yet been observed. The existing overall GPU window ends10:43:26UTC with a600second restoration reserve; no extension assumed. Do not resume recipe1 or infer a passed data gate from CPUdataok.
+
+T10 remains OPEN for a full actual completed post-return day>=30non-nullthoughts. The current natural26October day is partial and has20away steps; no auditor or quality-gate claim. T24/T23/T22/T19/T16/T21 remain DONE, T14 NOTDONE/T15superseded with actual history retained. Public world remains PAUSED; no fan feature is deployed toPi. Human Supabase resumption is a report, not a public switch authorization.
+
+## Preserved earlier checkpoints (current-state and boot-await claims superseded above)
+
 # PC status — 25 October T24 verified
 
 T24 DONE. Genuine Pi merge f12e387 has real parents2929c3d and main2721232, contains f469dfc. Only Day25/26October state.theses[state].status was corrected to unshaken, adding2bytes; Day24's original owl and every other day/state JSON remain exact. India stays shaken. A natural tick finished16:06:04UTC exit0/Resultsuccess; one read-only capture confirms inactive service, enabled/active timer, clean stable Pi=actual remote and18hash/length/blobID matches. All208raw blobs/tree/10PiCSV were verified before ordinary push and after fetch. T19hook/CLI/ledger/oldpage and4fan exclusions remain.

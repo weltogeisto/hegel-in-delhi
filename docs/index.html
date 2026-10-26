@@ -188,6 +188,8 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
 .fan-check input{width:20px;height:20px;accent-color:var(--accent)}
 .fan-field{display:grid;gap:4px;margin:0 0 12px;font-size:14px}
 .fan-field input,.fan-field select{font:inherit;font-family:var(--read);font-size:16px;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:6px;padding:7px 9px;width:100%;box-sizing:border-box}
+.fan-next p{font-size:15px;margin:0 0 10px}
+.fan-next b{font-family:var(--pixel);font-weight:600}
 .fan-msg:empty{display:none}
 .fan-msg{font-size:15px;color:var(--accent-strong)}
 .fan-btns{display:flex;justify-content:flex-end;gap:10px}
@@ -269,15 +271,18 @@ button[aria-pressed="true"]{background:var(--accent-strong);color:#fff}
 <dialog id="fanDlg" class="fandlg" aria-labelledby="fanTitle">
   <form id="fanForm" method="dialog">
     <h2 id="fanTitle">The fan club</h2>
-    <p>Join to say you are following Hegel's days in Delhi. That is all it takes.</p>
-    <label class="fan-check"><input type="checkbox" id="fanMeet"> Let Hegel meet me</label>
-    <div id="fanMeetBox" hidden>
-      <p class="fan-small">Now and then the world places one member of the fan club on his rounds. Who are you in his Delhi?</p>
-      <label class="fan-field">First name or nickname<input id="fanName" maxlength="24" autocomplete="given-name" spellcheck="false"></label>
-      <label class="fan-field">Your part<select id="fanRole"></select></label>
-      <p class="fan-small">Only this name and part are kept, no email. The site's owner reads every name before it can enter his world. If he meets you, your name appears in that day's record on this page.</p>
+    <div id="fanAsk">
+      <p>Join to say you are following Hegel's days in Delhi. That is all it takes.</p>
+      <label class="fan-check"><input type="checkbox" id="fanMeet"> Let Hegel meet me</label>
+      <div id="fanMeetBox" hidden>
+        <p class="fan-small">Now and then the world places one member of the fan club on his rounds. Who are you in his Delhi?</p>
+        <label class="fan-field">First name or nickname<input id="fanName" maxlength="24" autocomplete="given-name" spellcheck="false"></label>
+        <label class="fan-field">Your part<select id="fanRole"></select></label>
+        <p class="fan-small">Only this name and part are kept, no email. The site's owner reads every name before it can enter his world. If he meets you, your name appears in that day's record on this page.</p>
+      </div>
     </div>
     <p id="fanMsg" class="fan-msg" role="status" aria-live="polite"></p>
+    <div id="fanNext" class="fan-next" hidden></div>
     <div class="fan-btns"><button type="button" id="fanCancel">Not now</button><button type="submit" id="fanJoin">Join</button></div>
   </form>
 </dialog>
@@ -2675,23 +2680,47 @@ function countFans(){ fanRpc('fan_count').then(showFans).catch(() => showFans(nu
     });
   } catch (e){ console.warn(e); }
 })();
+const fanClose = () => fanDlg.close ? fanDlg.close() : fanDlg.removeAttribute('open');
+const fanPart = {get(){ try { return JSON.parse(localStorage.getItem('hegel-fan-part')); } catch (e){ return null; } }, set(v){ try { localStorage.setItem('hegel-fan-part', JSON.stringify(v)); } catch (e){} }};
+function fanExplain(){                                      // where a fan stands, and what to expect; the part is remembered on this device only
+  const p = fanPart.get(), box = $('fanNext');
+  const say = (lead, text) => { const el = document.createElement('p'), b = document.createElement('b'); b.textContent = lead + ' '; el.append(b, text); box.appendChild(el); };
+  box.textContent = '';
+  if (p && !p.meet){ say('Where you are.', 'Counted, and you asked for nothing more. Nothing will happen to you in his world.'); return; }
+  if (p) say('Your part.', p.name + ', ' + p.label + '.');
+  say('Where you are.', 'On the list. The site’s owner reads your name first, and fans are not placed in his world yet: that begins after opening night.');
+  say('What happens then.', 'The world may place you on one of his days, at most one fan a day and on about one day in six. ' +
+    (!p ? 'Parts from his dreams meet him at night, in a dream the owl writes; every other part meets him at a place on his rounds. ' : p.dream ? 'Your part belongs to his dreams, so he meets you at night, in a dream the owl writes. ' : 'Your part is one he can meet at a place on his rounds. ') +
+    'If it happens, your name appears in that day’s record on this page. Nothing is sent to you: there is no email.');
+}
+function fanDone(done){                                     // once a fan, there is nothing left to press but Close
+  $('fanAsk').hidden = done; $('fanNext').hidden = !done; fanJoin.hidden = done; $('fanCancel').textContent = done ? 'Close' : 'Not now';
+  if (done) fanExplain();
+}
 btnFan.addEventListener('click', () => {
-  fanMsg.textContent = ''; fanJoin.disabled = false;
+  fanMsg.textContent = ''; fanJoin.disabled = false; fanDone(false);
   const mine = fanStore.get();
-  if (mine){ fanMsg.textContent = 'You are already fan number ' + Number(mine).toLocaleString('en-IN') + '. Thank you.'; fanJoin.disabled = true; }
+  if (mine){ fanMsg.textContent = 'You are already fan number ' + Number(mine).toLocaleString('en-IN') + '. Thank you.'; fanDone(true); }
   if (fanDlg.showModal) fanDlg.showModal(); else fanDlg.setAttribute('open', '');
 });
 fanMeet.addEventListener('change', () => { fanMeetBox.hidden = !fanMeet.checked; if (fanMeet.checked) fanName.focus(); });
-$('fanCancel').addEventListener('click', () => fanDlg.close ? fanDlg.close() : fanDlg.removeAttribute('open'));
+$('fanCancel').addEventListener('click', fanClose);
+fanDlg.addEventListener('click', e => {                     // a tap on the dimmed page behind the window closes it
+  if (e.target !== fanDlg) return;
+  const r = fanDlg.getBoundingClientRect();
+  if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) fanClose();
+});
 fanForm.addEventListener('submit', async e => {
   e.preventDefault();
   const meet = fanMeet.checked, name = fanName.value.trim();
   if (meet && !name){ fanMsg.textContent = 'To be met, give a first name or nickname.'; fanName.focus(); return; }
   fanJoin.disabled = true; fanMsg.textContent = 'Joining…';
+  const opt = fanRole.selectedOptions[0];
   try {
     const n = await fanRpc('join_fanclub', meet ? {p_meet: true, p_name: name, p_role: fanRole.value} : {p_meet: false});
-    fanStore.set(String(n)); showFans(n);
-    fanMsg.textContent = 'Welcome. You are fan number ' + Number(n).toLocaleString('en-IN') + '.' + (meet ? ' Once your name is read, you may turn up on his rounds.' : '');
+    fanStore.set(String(n)); fanPart.set({meet, name: meet ? name : '', label: meet && opt ? opt.textContent : '', dream: !!(meet && opt && opt.parentNode.label === 'In his dreams')});
+    showFans(n); fanDone(true);
+    fanMsg.textContent = 'Welcome. You are fan number ' + Number(n).toLocaleString('en-IN') + '.';
   } catch (err){ fanMsg.textContent = err.message; fanJoin.disabled = false; }
 });
 countFans(); setInterval(countFans, 10*60*1000);

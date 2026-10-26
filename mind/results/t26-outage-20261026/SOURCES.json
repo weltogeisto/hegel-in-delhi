@@ -1,0 +1,48 @@
+{
+  "utc": "2026-10-26T09:36:36.442122+00:00",
+  "original_readonly_sources": {
+    "WINDOWS-BOOT-POWER-READ.json": {
+      "bytes": 1919,
+      "sha256": "1efe0da75ed13f0d49c4a25ef91fd38ae06efb6a4146c956ae60b51b2eb7becd"
+    },
+    "AUTOSTART-TASK-READ.json": {
+      "bytes": 661,
+      "sha256": "9ea57e28ed91de0903ae87f09973537c0ffba1c19c46a326760f97c1b1f21fb4"
+    },
+    "qwen-start-20261026-071855-5733251.json": {
+      "bytes": 2977,
+      "sha256": "f5c2d04b94db3bef1087cc90d571171414804a61d9e69df9a690f69c230003d3"
+    },
+    "qwen-start-20261026-073447-3756354.json": {
+      "bytes": 4379,
+      "sha256": "c14b1afb7ff39e78ad1fd781647dfac3cc579db19705de9afecf75cfcabd1994"
+    },
+    "qwen-autostart-20261026-071859-159822.json": {
+      "bytes": 2488,
+      "sha256": "c912ba26ce8e9e2e46795ff883bab78d7e5696722a4896c018baccaa4e544028"
+    },
+    "qwen-autostart-20261026-073447-180973.json": {
+      "bytes": 4745,
+      "sha256": "72b539cff366ba1c3b638ed3d568d52a6e484f0fd87e3cd68ea845046378b6a5"
+    }
+  },
+  "shadow_outage_snapshot": {
+    "ref": "c3be47f46ed92f64449c67ad95b47eebacd6e463",
+    "sha256": "ff772b751991c18d16c36e499bde4788013e8c03e92bf5ccaa919ed155dbd3ab",
+    "bytes": 72821,
+    "partial": true,
+    "decisions": 30,
+    "mind": 10,
+    "away": 20,
+    "first_away": "08:03",
+    "last_away_start": "17:33",
+    "last_away_end": "18:03",
+    "all_away_reasons_same": true,
+    "away_reason": [
+      [
+        "no answer from http://192.168.188.21:8082/health"
+      ]
+    ]
+  },
+  "no_new_Windows_Pi_model_health_query": true
+}
