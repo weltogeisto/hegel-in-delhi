@@ -233,9 +233,9 @@ class StubMind:
             self.lesson = (sit["day"], int(end[1]) * 60 + int(end[2]))
         if self.lesson[0] == sit["day"] and now < self.lesson[1]:
             booked = ("home", now)
-        if now >= 19 * 60 + 45 or now < 5 * 60:                    # to bed before the world sends him, at a quarter past eight
+        if now >= 20 * 60 + 30 or now < 5 * 60:                    # to bed before the world sends him, at nine
             ans.update(action="sleep" if here == "home" else "walk", place="home", minutes=240)
-        elif now >= 19 * 60 and here != "home":
+        elif now >= 20 * 60 and here != "home":
             ans.update(action="walk", place="home", minutes=30)
         elif here not in open_now:
             ans.update(action="walk", place="home", minutes=30)

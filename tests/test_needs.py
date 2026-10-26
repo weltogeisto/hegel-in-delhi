@@ -140,7 +140,7 @@ class PlanTest(unittest.TestCase):
         try:
             e = self.box.engine(HTTPMind(f"http://127.0.0.1:{server.server_port}"))
             now = at_dt(SAT, 0)
-            while now < at_dt(SAT, 9 * 60 + 15):     # a quiet night, then the wake-up step (he wakes at nine, give or take eight minutes)
+            while now < at_dt(SAT, 9 * 60 + 25):     # a quiet night, then the wake-up step (he wakes at a quarter past nine, give or take five minutes)
                 e.advance(now)
                 now += timedelta(minutes=5)
         finally:

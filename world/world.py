@@ -24,10 +24,10 @@ BREAKFAST = ["aloo parathas, curd and pickle", "poha with peanuts and a pot of t
 PLATE = ["parathas kept from the morning, with curd and pickle", "a plate of khichdi with ghee", "an omelette, toast and a pot of tea",
          "rice, the day's dal and a fried egg"]
 TEA = ["tea and a plate of pakoras", "tea and Marie biscuits", "tea and a few samosas from the market", "tea and toast with butter"]
-MEAL_WINDOWS = {"breakfast": (420, 600), "lunch": (780, 870), "dinner": (1140, 1200)}   # laid out at home while Ramesh is there
-WAKE_M, WAKE_JITTER = 540, 8     # he sleeps long: up at nine, give or take eight minutes (Welt, 26 October: his day fits the PC's twelve hours)
-BED_M = 1215                     # from a quarter past eight the world sends him to bed
-NIGHT_FROM = 1140                # a sleep begun from seven in the evening is the night's, until morning
+MEAL_WINDOWS = {"breakfast": (420, 600), "lunch": (780, 870), "dinner": (1170, 1230)}   # laid out at home while Ramesh is there
+WAKE_M, WAKE_JITTER = 555, 5     # his day is nine to nine (Welt, 26 October: the PC's twelve hours); up at a quarter past, the PC a few minutes before him
+BED_M = 1260                     # at nine in the evening the world sends him to bed
+NIGHT_FROM = 1200                # a sleep begun from eight in the evening is the night's, until morning
 TEA_WINDOW, PLATE_GAP_H = (990, 1050), 3   # tea at half past four; between meals Ramesh puts a plate together if three hours have passed
 HUNGRY_H, VERY_HUNGRY_H, TIRED_H, TIRED_M = 5, 8, 16, 10_000        # hours since a meal, hours awake, metres walked
 WALK_M, HOT_C = 75, 33                  # metres a minute; from this temperature walking counts one and a half times

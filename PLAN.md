@@ -34,7 +34,7 @@ Think of it as a theatre run. The shadow world is the rehearsal. The public swit
 **Goal:** seven days in a row that we would be proud to show.
 
 **Gate, on every one of the seven days:**
-- at least 20 thoughts (30 until 26 October, when his waking day shrank to about 11 hours to fit the PC's twelve);
+- at least 20 thoughts (30 until 26 October, when his day became nine to nine, to fit the PC's twelve hours);
 - quiet steps at most 5% of waking steps;
 - the owl writes every morning, before he wakes;
 - no refusal loop (four or more of the same refusal);
