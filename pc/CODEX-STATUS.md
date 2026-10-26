@@ -1,3 +1,11 @@
+# PC status —26October: fresh pilot trained and paired tests ready; T28 next
+
+T29 output work is DONE:24/24steps,2epochs,186train+20held/zero skips; both arms produced all160held restyles and100biography/contract controls. Exact plain Qwen/CUDA/argv/cwd/three16384slots and prior enabled+active Pi timer are restored; no adapter is serving production and no GPU job is running. Blinded option-only packets are in mind/results/t29-fresh-adapter-20261026. Keys and model mapping stay private until judgments are committed with their hashes; no voice/content gain is claimed. Details:pc/T29-FRESH-ADAPTER-20261026.md/json.
+
+Charged cumulative upper bound7200.229527073s of the explicitly approved16200s includes conservative earlier charges;600sreserve and independent PowerGuard/awake.flag unchanged. Current main81 is genuinely integrated by this merge, retaining PC extensions and histories. T28 is still OPEN/undeployed, with deadline19:45Berlin and skipped PowerGuard-rule inspection. Deploy next between inactive natural ticks; no forced tick/owl/day/state/history changes. T10 remains below20thoughts; public world paused.
+
+## Previous status (historical claims superseded above)
+
 # PC status — 26 October: calibration passed; full pilot waits for GPU budget
 
 T29 is BLOCKED on the new cumulative GPU-work-cap decision. Five calibration steps completed, exit0, at48.3s/step with24fullsteps planned and21.6GiB peak allocated. All186train+20held rows fitseq1024 without skips/truncation. Exact plainQwen/CUDA/cwd/argv/three16384slots were restored once asPID15760, then the prior enabled+active Pi timer. Controller wall422.613375s includes restoration. The separate calibration output/checkpoints are preserved and are not the full2epoch adapter. Details: pc/T29-CALIBRATION-20261026.md/json and mind/results/t29-calibration-20261026.

@@ -237,6 +237,11 @@ Recipe 3 is on main (`818396c`): a copying reply is shown every stretch it copie
 3. Report: failures among the 40 new units and among the 6, the mean word ratio of the new rows, the failures with reasons, three samples.
 **Passes if** at most 3 of the 40 new units fail and the mean ratio is within 0.8 to 1.2; the 6 are reported apart, since they are the hardest of the hard. Then the rest of the pilot's units without `--retry-failed`, and `--stats` decides by the runbook's gate. **Otherwise** stop and report; no recipe 4 without Claude, no training.
 
+### T29 · Astra · the Hegelizer pilot: train and test · DONE:24steps/2epochs;160held-restyles+100controls; exact plain restored; blind judging pending — pc/T29-FRESH-ADAPTER-20261026.md
+The data passed its gate (T27); Claude read three pairs (faithful, plain, nothing added). Under the approval you hold, `pc/HEGELIZER.md` steps 5 to 7: check the data, the dry run and its projection, the training, the conversion, the restyle test on the 20 held-out passages. Stop and report if the projection does not fit the cap.
+**When:** the GPU work needs the server stopped. On the shadow world's present clock (before T28) he sleeps until about 20:45 Berlin tonight, and the PC is up until about 20:18: train this afternoon, after Day 25's owl has written, and he loses nothing. Then restore plain Qwen and do T28. Once T28 has moved his clock, his day fills the PC's twelve hours and any GPU work pauses him.
+**Done when:** the adapter is saved apart from the live one, the step 7 outputs are on your branch, and plain Qwen serves the world again. Judging them is step 8: Welt's and Claude's.
+
 ### T26 · Astra · why the mind was away overnight · DONE: Power Guard shutdown21:17:57UTC; naturalboot07:18:13, launcher07:18:55, GPUready07:20:37; pc/T26-OVERNIGHT-OUTAGE-20261026.md
 Day 25 had 20 of 29 steps without a mind: from Sunday 21:18 UTC (his 08:03) to about Monday 07:00 UTC (his 18:03). The watchman opened issue #2 at 00:27 UTC. With the shadow clock five hours ahead, his waking day falls in Berlin's night, so the PC must be up then. Find out what happened: shut down, asleep or rebooted? Did the startup task fire, and when did the 8082 server come back? Change nothing: power settings are Welt's.
 **Done when:** the cause and the timeline are in a file on your branch, and PR #1 has them in a line.
