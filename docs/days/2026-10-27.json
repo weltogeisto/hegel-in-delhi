@@ -358,6 +358,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "20:00",
+   "to": "20:10",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -471,6 +478,34 @@
    "to": "Hegel",
    "text": "Yes, sir. I will give it to him and tell him exactly what you said. No need to worry about the name, sir.",
    "t": "19:45"
+  },
+  {
+   "k": "diary",
+   "text": "The mediation is complete; the concrete error of the name is to be resolved by the servant, not the master. I shall retire to my study, for the day has ended and the mind requires the quiet of the night to digest the contradictions of the day.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    }
+   ],
+   "t": "20:00"
+  },
+  {
+   "k": "said",
+   "text": "You may go, Ramesh. The matter is settled.",
+   "to": "Ramesh",
+   "t": "20:00"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir. Good night.",
+   "t": "20:00"
   }
  ],
  "steps": [
@@ -686,13 +721,65 @@
      "text": "The feeling of absolute power, however, reahsed both in general and in the particular form of service, is only dissolution implicitly, and albeit the fear of his lord is the beginning of wisdom, consciousness is not therein aware of being self-existent. Through work and labour, however, this consciousness of the bondsman comes to itself."
     }
    ]
+  },
+  {
+   "t": "20:00",
+   "end": "20:10",
+   "event": "Ramesh says: “Yes, sir. I will give it to him and tell him exactly what you said. No need to worry about the name, sir.” He takes the card from Hegel's hand and slips it into his kurta pocket.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The mediation is complete; the concrete error of the name is to be resolved by the servant, not the master. I shall retire to my study, for the day has ended and the mind requires the quiet of the night to digest the contradictions of the day.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "You may go, Ramesh. The matter is settled.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir. Good night.",
+    "does": "He turns and walks towards the gate, holding the card in his hand."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.0
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1189"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:23"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "For “when Antisthenes turned outside a hole in his cloak, Socrates said to him, I see thy vanity through the hole in thy cloak.” Clothing is not a thing of rational import, but is regulated through needs that arise of themselves. In the North the clothing must be different from that in Central Africa; and in winter we do not wear cotton garments."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state. The government has, up till now, shown such confidence in the scholars in this department as to leave the subject matter of philosophy wholly in their hands."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-27T20:00+05:30",
+  "until": "2026-10-27T20:10+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
