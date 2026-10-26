@@ -351,6 +351,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "19:45",
+   "to": "20:00",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -436,6 +443,34 @@
     }
    ],
    "t": "19:30"
+  },
+  {
+   "k": "diary",
+   "text": "The meal is finished, and the body’s immediate demands are satisfied, leaving the mind to turn toward the abstract. The haze outside is thick, a suspension between the day’s concrete reality and the night’s dream. I must address the matter of Shri Hegde’s card before it festers into a misunderstanding of my own nature.",
+   "shelf": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Artistic Beauty, The Work of Art"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness"
+    }
+   ],
+   "t": "19:45"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, take this card to the gate. Tell the man who left it that I am not Shri Hegde, but Hegel. And tell him that if he wishes to discuss the allotment, he may do so tomorrow, but not in the manner of a postman dropping paper. The confusion must be resolved, not merely noted.",
+   "to": "Ramesh",
+   "t": "19:45"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes, sir. I will give it to him and tell him exactly what you said. No need to worry about the name, sir.",
+   "t": "19:45"
   }
  ],
  "steps": [
@@ -599,13 +634,65 @@
      "text": "The procuring and maintaining of power and wealth turn, in part, merely on needs and wants, and are a matter that has to do with desire; in part, they become in their higher aspect something which is merely of mediate significance."
     }
    ]
+  },
+  {
+   "t": "19:45",
+   "end": "20:00",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The meal is finished, and the body’s immediate demands are satisfied, leaving the mind to turn toward the abstract. The haze outside is thick, a suspension between the day’s concrete reality and the night’s dream. I must address the matter of Shri Hegde’s card before it festers into a misunderstanding of my own nature.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, take this card to the gate. Tell the man who left it that I am not Shri Hegde, but Hegel. And tell him that if he wishes to discuss the allotment, he may do so tomorrow, but not in the manner of a postman dropping paper. The confusion must be resolved, not merely noted.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes, sir. I will give it to him and tell him exactly what you said. No need to worry about the name, sir.",
+    "does": "He takes the card from Hegel's hand and slips it into his kurta pocket."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.7
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Artistic Beauty, The Work of Art",
+     "id": "bosanquet-art:123"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "id": "baillie-1:223"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Artistic Beauty, The Work of Art",
+     "text": "In this negative relation desire requires for itself not merely the superficial appearance of external things, but themselves in their concrete sensuous existence. Mere pictures of the wood that it wants to use, or of the animals that it wants to eat, would be of no service to desire."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "text": "The feeling of absolute power, however, reahsed both in general and in the particular form of service, is only dissolution implicitly, and albeit the fear of his lord is the beginning of wisdom, consciousness is not therein aware of being self-existent. Through work and labour, however, this consciousness of the bondsman comes to itself."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-27T19:45+05:30",
+  "until": "2026-10-27T20:00+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
