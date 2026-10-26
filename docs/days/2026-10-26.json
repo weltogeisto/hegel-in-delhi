@@ -12,7 +12,7 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "clear",
     "rain": 0,
     "aqi": 101
@@ -60,7 +60,7 @@
     "aqi": 130
    },
    {
-    "temp": 22,
+    "temp": 21,
     "sky": "clear",
     "rain": 0,
     "aqi": 133
@@ -78,25 +78,25 @@
     "aqi": 139
    },
    {
-    "temp": 28,
+    "temp": 27,
     "sky": "clear",
     "rain": 0,
     "aqi": 141
    },
    {
-    "temp": 29,
+    "temp": 28,
     "sky": "clear",
     "rain": 0,
     "aqi": 144
    },
    {
-    "temp": 30,
+    "temp": 29,
     "sky": "clear",
     "rain": 0,
     "aqi": 147
    },
    {
-    "temp": 30,
+    "temp": 29,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 152
@@ -428,6 +428,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "13:03",
+   "to": "13:33",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -1164,13 +1171,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "13:03",
+   "end": "13:33",
+   "event": "Ramesh hands you a visiting card. Shri Hegde came at ten, waited twenty minutes on the verandah and left. On the back of the card, in a careful hand: 'Perhaps the Directorate, then.' Ramesh has laid out lunch: rajma, rice and a cucumber raita. You are hungry.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-26T13:03+05:30",
+  "until": "2026-10-26T13:33+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
@@ -1244,7 +1279,9 @@
      "ramesh"
     ]
    },
-   "breakfast": true
+   "breakfast": true,
+   "lunch": true,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
@@ -1452,7 +1489,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-10-26T07:48+05:30",
+  "last_meal": "2026-10-26T13:03+05:30",
   "snacks": 0,
   "works": [
    {
