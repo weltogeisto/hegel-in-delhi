@@ -19,7 +19,7 @@ from .money import ADVANCE
 from .mind import MindAway
 from .publish import GitError
 from .task_prompt import for_task
-from .world import MEAL_WINDOWS, at_dt, meal_at
+from .world import BED_M, MEAL_WINDOWS, at_dt, meal_at
 
 log = logging.getLogger("world")
 MAX_DECISIONS = 8
@@ -187,8 +187,8 @@ class Engine:
         m = minute_of(t)
         t_start = time.time()
         refused, warnings, raw, result, attempts, source = [], [], "", None, 0, self.mind.source
-        if 30 <= m < 240 and not st.get("asleep"):
-            source = "bedtime"          # the world sends him to bed after half past midnight
+        if (m >= BED_M or m < 240) and not st.get("asleep"):
+            source = "bedtime"          # the world sends him to bed from a quarter past eight
         elif st.get("asleep") and not self.make_plan(day, t, sit, ctx) and not getattr(self.mind, "ready", True):
             refused.append(["the PC did not wake for the morning plan"])
             source = "away"             # no second wake in the same step; an awake PC that fumbled the plan still decides
@@ -494,7 +494,7 @@ class Engine:
         in Khan Market if it is open and he has the cash. Out, he goes home when the place closes, when he is hungry,
         when a meal is laid out or after an hour."""
         m, cur, buys = minute_of(t), st["place"], []
-        if m >= 1320 or m < 240:
+        if m >= BED_M or m < 240:
             action, dest = "sleep", "home"
         elif cur == "home":
             if self.quiet_meal(st, t):

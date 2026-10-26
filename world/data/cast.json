@@ -1,5 +1,5 @@
 {
-  "note": "Every one of them is invented. 'where' lists when each tends to be where; p is the chance on a given day. Cards are the People entries written the first time Hegel meets them. A 'where' entry with 'if' holds only while that flag is set, with 'unless' only while it is not.",
+  "note": "Every one of them is invented. 'where' lists when each tends to be where; p is the chance on a given day. Cards are the People entries written the first time Hegel meets them. A 'where' entry with 'if' holds only while that flag is set, with 'unless' only while it is not. Since 26 October he sleeps until about a quarter past nine, so the morning rounds (Mr. Malhotra's walk, Nidhi in Lodhi Gardens, Sunil's chai, the dhobi, Shri Hegde as lodger) keep their length but begin at half past nine.",
   "cast": {
     "ramesh": {
       "name": "Ramesh", "short": "Ramesh, the caretaker",
@@ -11,9 +11,9 @@
     "malhotra": {
       "name": "Mr. R. K. Malhotra", "short": "Mr. R. K. Malhotra, retired IAS",
       "role": "retired from the Indian Administrative Service",
-      "card": "Thirty-four years in the service, most of them among files. Walks the Lodhi loop at seven, plays bridge at the Gymkhana in the evening, and has opinions on the state and on his partner's bidding. Dry, courteous, not easily impressed.",
+      "card": "Thirty-four years in the service, most of them among files. Walks the Lodhi loop at half past nine, after the papers, plays bridge at the Gymkhana in the evening, and has opinions on the state and on his partner's bidding. Dry, courteous, not easily impressed.",
       "where": [
-        {"place": "lodhi", "days": "daily", "from": "07:00", "to": "08:15", "p": 0.7},
+        {"place": "lodhi", "days": "daily", "from": "09:30", "to": "10:45", "p": 0.7},
         {"place": "gym", "days": "Tue,Thu,Fri,Sat", "from": "17:00", "to": "19:30", "p": 0.9}
       ]
     },
@@ -29,7 +29,7 @@
       "card": "Writing her doctorate on Hegel. Reads him in German and in English with a pencil, and has views on what he wrote about India that she does not keep to herself. Quick, sardonic, short of money by the end of the month.",
       "where": [
         {"place": "khan", "days": "Wed,Sat", "from": "13:00", "to": "16:30", "p": 0.5},
-        {"place": "lodhi", "days": "Fri,Sun", "from": "07:00", "to": "08:00", "p": 0.5},
+        {"place": "lodhi", "days": "Fri,Sun", "from": "09:30", "to": "10:30", "p": 0.5},
         {"place": "iic", "days": "Mon,Thu", "from": "15:00", "to": "18:30", "p": 0.5}
       ]
     },
@@ -50,7 +50,7 @@
       "role": "chai seller",
       "card": "Boils tea on a kerosene stove, mornings by the Lodhi Road gate, afternoons in the lane behind Khan Market. Knows the price of everything and the business of everyone.",
       "where": [
-        {"place": "lodhi", "days": "daily", "from": "06:00", "to": "09:00", "p": 0.7},
+        {"place": "lodhi", "days": "daily", "from": "06:00", "to": "11:00", "p": 0.7},
         {"place": "khan", "days": "daily", "from": "11:00", "to": "19:00", "p": 0.9}
       ]
     },
@@ -73,8 +73,8 @@
     "dhobi": {
       "name": "the dhobi", "short": "the dhobi", "role": "washerman for the bungalow", "background": true,
       "where": [
-        {"place": "home", "days": "Sat", "from": "08:30", "to": "10:30", "p": 1},
-        {"place": "home", "days": "daily", "date": "2026-11-08", "from": "08:00", "to": "11:00", "p": 1}
+        {"place": "home", "days": "Sat", "from": "09:30", "to": "11:30", "p": 1},
+        {"place": "home", "days": "daily", "date": "2026-11-08", "from": "09:30", "to": "12:30", "p": 1}
       ]
     },
     "officer": {
@@ -90,7 +90,7 @@
       "role": "Joint Secretary, transferring from Bengaluru",
       "card": "The man the bungalow was meant for. Courteous, tired, and carrying the patience of a career spent in files.",
       "where": [
-        {"place": "home", "days": "daily", "from": "06:30", "to": "08:30", "p": 0.8, "if": "hegde_lodger"},
+        {"place": "home", "days": "daily", "from": "09:30", "to": "11:30", "p": 0.8, "if": "hegde_lodger"},
         {"place": "home", "days": "daily", "from": "19:00", "to": "22:00", "p": 0.8, "if": "hegde_lodger"}
       ]
     }

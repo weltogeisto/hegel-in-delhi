@@ -2382,7 +2382,7 @@ function line(e){
     case 'writing': { const kind = e.kind === 'letter' && e.to ? 'letter to ' + e.to : e.kind + (e.to ? ' to ' + e.to : '');
       return `<b>${esc(e.title)}</b> (${esc([kind, e.sitting > 1 ? 'sitting ' + e.sitting : ''].filter(Boolean).join(', '))})<br>${esc(e.text).replace(/\n/g, '<br>')}`; }
     case 'plan': return e.items.map(i => `${esc(i.time)} ${esc(i.intention)}`).join(' · ');
-    case 'income': case 'expense': return `<b>${esc(e.item)}</b>, ${rupees(e.amount)}${e.cheque ? ' by cheque, not yet cashed' : ''}.`
+    case 'income': case 'expense': return `<b>${esc(e.item)}</b>, ${rupees(e.amount)}${e.cheque ? (e.banked ? ' by cheque, paid in at the State Bank' : ' by cheque, not yet cashed') : ''}.`
       + (e.to ? ` To ${esc(e.to)}.` : '') + (e.from ? ` From ${esc(e.from)}.` : '');
     case 'read': return `<b>${esc(e.title)}</b>, read on his phone.<br>${esc(e.text)}<br>${wiki(e.url)}`;
     case 'diary': return esc(e.text) + (e.shelf && e.shelf.length ? `<small class="src">${esc(shelfLine(e))}</small>` : '');
@@ -2430,11 +2430,14 @@ function purse(seen){      // what he carries, owes and has vouchered as of now:
   const o = (D && D.opening) || {}, a = o.account;
   const p = {cash: o.cash != null ? o.cash : (o.imprest || 0), advance: a ? a.advance : 0, vouchers: a ? a.vouchers.map(v => v.price) : [],
     admitted: a ? a.admitted : 0, queried: a ? a.queried : 0, owed: (o.owed || []).map(x => ({to: x.to, amount: x.amount, why: x.why})),
-    cheques: (o.cheques || []).map(x => ({from: x.from, amount: x.amount})), earned: 0, paid: 0};
+    cheques: (o.cheques || []).map(x => ({from: x.from, amount: x.amount})), clearing: [], earned: 0, paid: 0};
   for (const e of seen){
     if (e.imprest){ p.cash += e.imprest; p.advance += e.imprest; }                   // day 1: the advance is handed over
     if (e.k === 'bag'){ p.cash -= e.price; p.paid += e.price; if (e.price) p.vouchers.push(e.price); }
-    if (e.k === 'income'){ if (e.cheque) p.cheques.push({from: e.from, amount: e.amount}); else { p.cash += e.amount; p.earned += e.amount; } }
+    if (e.k === 'income'){ if (e.cheque) (e.banked ? p.clearing : p.cheques).push({from: e.from, amount: e.amount}); else { p.cash += e.amount; p.earned += e.amount; } }
+    if (e.paid_in){ const i = p.cheques.findIndex(x => x.from === e.from && x.amount === e.paid_in); if (i >= 0) p.cheques.splice(i, 1);   // into his new account
+      p.clearing.push({from: e.from, amount: e.paid_in}); }
+    if (e.drawn){ p.cash += e.drawn; p.earned += e.drawn; const i = p.clearing.findIndex(x => x.amount === e.drawn); if (i >= 0) p.clearing.splice(i, 1); }
     if (e.k === 'expense'){ p.cash -= e.amount; p.paid += e.amount;
       if (e.settles){ const i = p.owed.findIndex(x => x.to === e.to && x.amount === e.amount && x.why === e.why); if (i >= 0) p.owed.splice(i, 1); } }
     if (e.owe) p.owed.push({to: e.owe.to, amount: e.owe.amount, why: e.owe.why});
@@ -2451,8 +2454,9 @@ function purseHtml(seen){
     + '<h3>The imprest account</h3>'
     + `<p>The state's advance: ${rupees(p.advance)}. Vouchered, not yet gone through: ${rupees(pend)} (${p.vouchers.length}). Admitted so far ${rupees(p.admitted)}; queried ${rupees(p.queried)}.</p>`
     + '<h3>Owed</h3>' + bullets(p.owed, x => `${esc(x.to)}: ${rupees(x.amount)} (${esc(x.why)})`, 'Nothing.')
-    + '<h3>Cheques he cannot cash</h3>' + bullets(p.cheques, x => `${rupees(x.amount)} from ${esc(x.from)}`, 'None. He has no bank account.')
-    + '<h3>Money in today</h3>' + list(seen.filter(e => e.k === 'income'), 'Nothing earned yet today.')
+    + '<h3>Cheques he cannot cash</h3>' + bullets(p.cheques, x => `${rupees(x.amount)} from ${esc(x.from)}`, D.state && D.state.flags && D.state.flags.bank ? 'None.' : 'None. He has no bank account.')
+    + (p.clearing.length ? '<h3>At the bank, clearing</h3>' + bullets(p.clearing, x => `${rupees(x.amount)} from ${esc(x.from)}`, '') : '')
+    + '<h3>Money in today</h3>' + list(seen.filter(e => e.k === 'income' || e.drawn), 'Nothing earned yet today.')
     + '<h3>Money out today</h3>' + list(seen.filter(e => e.k === 'bag' || e.k === 'expense'), 'Nothing spent yet today.')
     + `<p class="sum">Today: ${rupees(p.earned)} in cash earned, ${rupees(p.paid)} spent.</p>`;
 }

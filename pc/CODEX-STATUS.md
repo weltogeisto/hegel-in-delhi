@@ -1,3 +1,13 @@
+# PC status — 26 October: calibration passed; full pilot waits for GPU budget
+
+T29 is BLOCKED on the new cumulative GPU-work-cap decision. Five calibration steps completed, exit0, at48.3s/step with24fullsteps planned and21.6GiB peak allocated. All186train+20held rows fitseq1024 without skips/truncation. Exact plainQwen/CUDA/cwd/argv/three16384slots were restored once asPID15760, then the prior enabled+active Pi timer. Controller wall422.613375s includes restoration. The separate calibration output/checkpoints are preserved and are not the full2epoch adapter. Details: pc/T29-CALIBRATION-20261026.md/json and mind/results/t29-calibration-20261026.
+
+Charged upper bound4052.966640s of7200 leaves52.45min including600srestoration. The unchanged fulltrain+pairedheld tests and biography/contract controls project104.11–198.54 more minutes at the stated token/retry ceilings. The one4.5hour question is pending a real human answer; no budget increase or full training/conversion/evaluation is assumed. Existing training/adapter/temp-pause approval and human “no cutoff” persist; independent PowerGuard/awake.flag remain unchanged. No new model/server/timer/Pi/power action in this publication.
+
+This genuine PC merge brings in T28 runtime source frommainf384e23, with its existing PC extensions retained. The seven new focused modules completed240tests with14skipped, exit0; all539frozen files/22originalCSV are exact. T28 remains OPEN and undeployed. The latest task-owner order sets its deadline19:45Berlin/18:45UTC regardless of T29 and drops the PowerGuard-rule inspection. Current actualmain8713707 adds task/status instructions only and has not yet been claimed as an ancestor here. The naturalDay25 owl is complete with13thoughts/20away, thesesheld; T10stillbelow20/noauditor. T27data remainsDONE; publicworldPAUSED and every original history/failure preserved.
+
+## Previous status (historical current claims superseded above)
+
 # PC status — 26 October: T27 data ready; calibration safely deferred
 
 T27 DONE: recipe 3 passed on 40 fresh cases (38 accepted, 2 failed), with the 6 hard cases reported apart (5 accepted, 1 failed). The original 220-unit pilot is complete: 206 accepted pairs, comprising 186 train and 20 held, and 14 active failures (6.36%). Accepted mean word ratio 0.885403; both original strict10% and human strict15% data gates pass, as does unchanged CPU trainer check at seq1024. All original targets and prior outcomes, including five byte-exact matching recipe2 cache rows, remain. Details: pc/T27-HEGELIZER-RECIPE3-20261026.md/json and mind/results/t27-hegelizer-recipe3-20261026.

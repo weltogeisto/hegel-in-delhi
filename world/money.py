@@ -283,7 +283,8 @@ class Economy:
         for c in list(st["cheques"]):
             st["cheques"].remove(c)
             st["receipts"].append(self.cleared(c["from"], c["amount"], c.get("item") or f"Cheque from {c['from']}", t))
-            out.append({"k": "world", "text": f"He pays in the cheque from {c['from']} for ₹{c['amount']:,}; it clears in {CLEAR_DAYS} days."})
+            out.append({"k": "world", "paid_in": c["amount"], "from": c["from"],
+                        "text": f"He pays in the cheque from {c['from']} for ₹{c['amount']:,}; it clears in {CLEAR_DAYS} days."})
         return out
 
     # ── the imprest account ─────────────────────────────────────────
