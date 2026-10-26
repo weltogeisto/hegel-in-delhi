@@ -372,6 +372,15 @@
    "mode": "inside",
    "at": "home",
    "now": "Reading at home."
+  },
+  {
+   "from": "21:00",
+   "to": "24:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Asleep.",
+   "asleep": true,
+   "owl": true
   }
  ],
  "entries": [
@@ -842,14 +851,35 @@
      "text": "For if I say ‘I see,’ or ‘I walk out,’ and ‘therefore I am,’ and understand by this the seeing and walking which is accomplished by the body, the conclusion is not absolutely certain, because, as often happens in a dream, I may imagine that I can see or walk even if I do not open my eyes nor move from my place, and I might also possibly do so supposing I had no body."
     }
    ]
+  },
+  {
+   "t": "21:00",
+   "end": "24:00",
+   "event": "Nothing in particular happens. The night goes on.",
+   "present": [],
+   "decision": {
+    "thought": null,
+    "action": "sleep",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "bedtime",
+    "attempts": 0,
+    "latency_s": 0.0
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-27T21:00+05:30",
-  "asleep": false,
+  "until": "2026-10-28T00:00+05:30",
+  "asleep": true,
   "imprest": 3251,
   "wearing": "kurta",
   "wardrobe": [
