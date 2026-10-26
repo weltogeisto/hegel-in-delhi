@@ -498,6 +498,20 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "18:03",
+   "to": "18:13",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "18:13",
+   "to": "19:13",
+   "mode": "inside",
+   "at": "home",
+   "now": "Writing at home."
   }
  ],
  "entries": [
@@ -688,6 +702,69 @@
    "k": "world",
    "text": "Ramesh brings tea.",
    "t": "16:33"
+  },
+  {
+   "k": "file",
+   "text": "Ramesh hands over a visiting card. Shri Hegde came at ten, waited twenty minutes on the verandah and left. On the back: “Perhaps the Directorate, then.”",
+   "t": "18:03"
+  },
+  {
+   "k": "diary",
+   "text": "The particular will of Shri Hegde has collided with the universal authority of the Directorate, and in its frustration, it has retreated into the abstract. He has not conquered my territory, but he has signaled his intent to appeal to the higher power that governs us both. This is the movement of the spirit from immediate existence to the realm of right, where the state must now intervene to resolve the contradiction.",
+   "sensitive": true,
+   "why": "conquered",
+   "topic": "empire and colonies",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§340"
+    }
+   ],
+   "t": "18:03"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, show me the card. The man has appealed to the Directorate; he seeks the universal over the particular. Do you have the number of the clerk I asked you to call this morning? I must inform them of this development before the day is dismissed.",
+   "to": "Ramesh",
+   "t": "18:03"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "The card is right here on the table, sir. The clerk’s number is in the logbook, but he didn’t pick up this morning; maybe he is still at the office.",
+   "t": "18:03"
+  },
+  {
+   "k": "diary",
+   "text": "The clerk’s absence is a particular obstacle, but the universal duty of the state remains. I will not chase the messenger; I will write the letter myself, as I did in Jena, and let the ink speak where the phone has failed. The card is here, the logbook open, but the act of writing is the act of freedom.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70"
+    }
+   ],
+   "t": "18:13"
+  },
+  {
+   "k": "writing",
+   "title": "Letter to the Directorate of Estates",
+   "kind": "letter",
+   "to": "The Officer in Charge, Directorate of Estates",
+   "sitting": 1,
+   "text": "26 October 2026\nTughlak Road, New Delhi\n\nTo the Officer in Charge,\n\nI write to you regarding the allotment of the bungalow on Tughlak Road, which was assigned to me under the name of Shri G. Hegde, Joint Secretary. It has come to my attention, through the visit of the intended allottee this morning, that this designation was an error on the part of the Directorate. I am, in fact, Georg Wilhelm Friedrich Hegel, and while I accept the hospitality of this residence with the dignity befitting a guest of the state, I must draw your attention to the discrepancy in the records.\n\nThe confusion is not merely a clerical slip but a particular instance of the friction between the universal authority of the administration and the particular reality of the individual. Shri Hegde called at ten o’clock and found no one at home, as I was engaged in the study of the ethical substance of this nation. He has left his card, which now rests upon my table. I have attempted to summon the clerk responsible for the logbook to resolve the transfer of the allotment, but the particular will of the clerk, or perhaps his absence from the office, has delayed the resolution. The system of needs is not always punctual, though the rational state ought to be.\n\nI request that the necessary corrections be made to the files so that the residence may be formally allocated to its proper occupant. In the interim, I shall continue to manage the household affairs, including the payment of the dhobi and the electricity, using the imprest funds provided. I am careful to distinguish between the state’s money, which requires vouchers, and my own cash, which is limited. This distinction is vital; the ethical fabric of the household, like that of the state, depends on the clear separation of particular and universal duties.\n\nI trust this matter will be resolved in the course of the day, as all particulars must resolve into the universal. I remain, with respect, your obedient servant,\n\nGeorg Wilhelm Friedrich Hegel\nResident, Tughlak Road",
+   "work": "letter-to-the-directorate-of-estates",
+   "words": 347,
+   "mode": "chat",
+   "t": "18:13"
   }
  ],
  "steps": [
@@ -1519,13 +1596,113 @@
      ]
     ]
    }
+  },
+  {
+   "t": "18:03",
+   "end": "18:13",
+   "event": "Ramesh hands you a visiting card. Shri Hegde came at ten, waited twenty minutes on the verandah and left. On the back of the card, in a careful hand: 'Perhaps the Directorate, then.'",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The particular will of Shri Hegde has collided with the universal authority of the Directorate, and in its frustration, it has retreated into the abstract. He has not conquered my territory, but he has signaled his intent to appeal to the higher power that governs us both. This is the movement of the spirit from immediate existence to the realm of right, where the state must now intervene to resolve the contradiction.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Ramesh, show me the card. The man has appealed to the Directorate; he seeks the universal over the particular. Do you have the number of the clerk I asked you to call this morning? I must inform them of this development before the day is dismissed.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "The card is right here on the table, sir. The clerk’s number is in the logbook, but he didn’t pick up this morning; maybe he is still at the office.",
+    "does": "He points to the card on the table with a finger, then opens the logbook to the relevant page."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.6
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§340",
+     "id": "dyde-right:843"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§340",
+     "text": "The destinies and deeds of states in their connection with one another are the visible dialectic of the finite nature of these spirits. Out of this dialectic the universal spirit, the spirit of the world, the unlimited spirit, produces itself. It has the highest right of all, and exercises its right upon the lower spirits in world-history."
+    }
+   ],
+   "beat": "hegde_card"
+  },
+  {
+   "t": "18:13",
+   "end": "19:13",
+   "event": "Ramesh says: “The card is right here on the table, sir. The clerk’s number is in the logbook, but he didn’t pick up this morning; maybe he is still at the office.” He points to the card on the table with a finger, then opens the logbook to the relevant page.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The clerk’s absence is a particular obstacle, but the universal duty of the state remains. I will not chase the messenger; I will write the letter myself, as I did in Jena, and let the ink speak where the phone has failed. The card is here, the logbook open, but the act of writing is the act of freedom.",
+    "action": "write",
+    "place": "home",
+    "minutes": 60,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 20.0
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "id": "dyde-right:740"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "id": "dyde-right:205"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "text": "The lower concrete civil life must be governed from below in a concrete way. And yet the work must be divided into its abstract branches, specially officered by middlemen, whose activity in connection with those below them must from the lowest to the highest executive offices take the form of a continuous concrete oversight."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "text": "Addition. — The particular person is really a subordinate, who must devote his life to the service of the ethical fabric; when the state demands his life, he must yield it up. But should the man take his own life? Suicide may at first glance be looked upon as bravery, although it be the poor bravery of tailors and maid-servants."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-26T18:03+05:30",
+  "until": "2026-10-26T19:13+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
@@ -1564,14 +1741,15 @@
    "sunil",
    "hegde"
   ],
-  "file": "Shri Hegde moves into the second bedroom, pending orders.",
+  "file": "Shri Hegde called at ten and found no one at home. He left his card.",
   "beats": [
    "allotment",
    "hegde_guesthouse",
    "hegde_note",
    "bandhgala_ready",
    "sell_frock",
-   "hegde_gate"
+   "hegde_gate",
+   "hegde_card"
   ],
   "flags": {
    "bandhgala": "collected",
@@ -1822,6 +2000,17 @@
     "sittings": 2,
     "last": "2026-10-13",
     "tail": "There is no state here that has made itself. There is only nature, history as traffic, the dream of a spirit that has not yet woken up to its own freedom.\n\nI am a ghost in this bungalow. I am not Shri Hegde. I am Hegel. I am a spirit that has traveled from the summit of the Germanic world to the dawn of the Oriental. I am here to observe, to record, to understand. I am not to change. I am not to teach. I am to see the difference between the dream and the state, between the given and the grown, between the nature and the spirit. And in seeing it, I confirm my own freedom. I am free because I am outside the dream. I am free because I am in the state, even if I am a mistake in its allotment. The state is rational, and I am rational. Therefore, I am free. The dream is not. It is only a dream."
+   },
+   {
+    "id": "letter-to-the-directorate-of-estates",
+    "title": "Letter to the Directorate of Estates",
+    "kind": "letter",
+    "to": "The Officer in Charge, Directorate of Estates",
+    "started": "2026-10-26",
+    "words": 347,
+    "sittings": 1,
+    "last": "2026-10-26",
+    "tail": "state ought to be.\n\nI request that the necessary corrections be made to the files so that the residence may be formally allocated to its proper occupant. In the interim, I shall continue to manage the household affairs, including the payment of the dhobi and the electricity, using the imprest funds provided. I am careful to distinguish between the state’s money, which requires vouchers, and my own cash, which is limited. This distinction is vital; the ethical fabric of the household, like that of the state, depends on the clear separation of particular and universal duties.\n\nI trust this matter will be resolved in the course of the day, as all particulars must resolve into the universal. I remain, with respect, your obedient servant,\n\nGeorg Wilhelm Friedrich Hegel\nResident, Tughlak Road"
    }
   ],
   "missed": [
