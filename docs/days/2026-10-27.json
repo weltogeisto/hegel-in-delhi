@@ -365,6 +365,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "20:10",
+   "to": "21:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Reading at home."
   }
  ],
  "entries": [
@@ -506,6 +513,21 @@
    "to": "Hegel",
    "text": "Yes sir. Good night.",
    "t": "20:00"
+  },
+  {
+   "k": "diary",
+   "text": "The servant departs with the concrete error in his hand, leaving me with the abstract solitude of the bungalow. The brown haze outside is a veil that blurs the boundary between the self and the world, much like the confusion of the name. I must now turn inward, for the external mediation is complete and the night demands contemplation.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "First Division, Descartes"
+    }
+   ],
+   "t": "20:10"
   }
  ],
  "steps": [
@@ -773,13 +795,60 @@
      "text": "With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state. The government has, up till now, shown such confidence in the scholars in this department as to leave the subject matter of philosophy wholly in their hands."
     }
    ]
+  },
+  {
+   "t": "20:10",
+   "end": "21:00",
+   "event": "Ramesh says: “Yes sir. Good night.” He turns and walks towards the gate, holding the card in his hand.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The servant departs with the concrete error in his hand, leaving me with the abstract solitude of the bungalow. The brown haze outside is a veil that blurs the boundary between the self and the world, much like the confusion of the name. I must now turn inward, for the external mediation is complete and the night demands contemplation.",
+    "action": "read",
+    "place": "home",
+    "minutes": 60,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.2
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction",
+     "id": "sibree-history:92"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "First Division, Descartes",
+     "id": "haldane-3:554"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction",
+     "text": "These contingencies realise themselves in History: they involve a general principle of a different order from that on which depends the permanence of a people or a State. This principle is an essential phase in the development of the creating [dea, of Truth striving and urging towards [consciousness of] itself."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "First Division, Descartes",
+     "text": "For if I say ‘I see,’ or ‘I walk out,’ and ‘therefore I am,’ and understand by this the seeing and walking which is accomplished by the body, the conclusion is not absolutely certain, because, as often happens in a dream, I may imagine that I can see or walk even if I do not open my eyes nor move from my place, and I might also possibly do so supposing I had no body."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-27T20:10+05:30",
+  "until": "2026-10-27T21:00+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
