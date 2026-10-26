@@ -210,6 +210,12 @@ Day 24's owl moved `state` from unshaken to shaken on a day of 5 thoughts and 29
 3. Write the correction in `pc/T24-THESIS-CORRECTION-20261025.md`: what changed, why, and the commit.
 **Done when:** shadow contains `f469dfc`, Day 25's state shows `state` unshaken, and a natural tick exits 0.
 
+## Monday 26 October
+
+### T26 · Astra · why the mind was away overnight · OPEN
+Day 25 had 20 of 29 steps without a mind: from Sunday 21:18 UTC (his 08:03) to about Monday 07:00 UTC (his 18:03). The watchman opened issue #2 at 00:27 UTC. With the shadow clock five hours ahead, his waking day falls in Berlin's night, so the PC must be up then. Find out what happened: shut down, asleep or rebooted? Did the startup task fire, and when did the 8082 server come back? Change nothing: power settings are Welt's.
+**Done when:** the cause and the timeline are in a file on your branch, and PR #1 has them in a line.
+
 ### Act 1 gate · seven full days in a row
 On each of seven consecutive days: at least 30 thoughts; quiet steps at most 5% of waking steps; the owl wrote; no refusal loop; at most 1.6 contradictions and 3.1 statements as fact per 100 sentences; repetition measured (T10 on the first). Claude checks it in the daily review (T11) and writes the Act 2 tasks when it passes.
 
