@@ -526,6 +526,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "20:13",
+   "to": "20:43",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -835,6 +842,34 @@
    "to": "Hegel",
    "text": "Yes sir, coming right up. I’ll add a little extra ghee since you asked for it. Please sit, I’ll be two minutes.",
    "t": "19:43"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh moves with the quiet efficiency of a man who knows his place in the ethical order, which is a place of service. The khichdi is a particular manifestation of care, yet I must address the universal question of the Hegde file before the steam rises too high. I will eat, for the body is the vessel of the spirit, but I shall not let the meal become a distraction from the administrative error that haunts this bungalow.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Megarics"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301"
+    }
+   ],
+   "t": "20:13"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, while you serve, tell me: when Shri Hegde called at ten this morning, did he leave any specific instructions, or merely his card? The Directorate’s error requires a precise account of facts, not mere speculation.",
+   "to": "Ramesh",
+   "t": "20:13"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "He didn't come in, sir. Just dropped the card at the gate and walked away. I wrote the time down, that's all. No instructions, just the paper.",
+   "t": "20:13"
   }
  ],
  "steps": [
@@ -1870,13 +1905,65 @@
      "text": "By this satisfaction of this right it gets its own life quickened, and at the same time breathes fresh life in the administrative officials; who thus have it brought home to them that not merely have they to enforce duties but also to have regard to rights."
     }
    ]
+  },
+  {
+   "t": "20:13",
+   "end": "20:43",
+   "event": "Ramesh says: “Yes sir, coming right up. I’ll add a little extra ghee since you asked for it. Please sit, I’ll be two minutes.” He turns towards the kitchen counter, picks up the serving spoon, and ladles the steaming khichdi into a bowl.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh moves with the quiet efficiency of a man who knows his place in the ethical order, which is a place of service. The khichdi is a particular manifestation of care, yet I must address the universal question of the Hegde file before the steam rises too high. I will eat, for the body is the vessel of the spirit, but I shall not let the meal become a distraction from the administrative error that haunts this bungalow.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": "Ramesh, while you serve, tell me: when Shri Hegde called at ten this morning, did he leave any specific instructions, or merely his card? The Directorate’s error requires a precise account of facts, not mere speculation.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "He didn't come in, sir. Just dropped the card at the gate and walked away. I wrote the time down, that's all. No instructions, just the paper.",
+    "does": "He places the bowl of khichdi on the table and sets down the spoon."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.7
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Megarics",
+     "id": "haldane-1:1142"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301",
+     "id": "dyde-right:763"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Megarics",
+     "text": "Or, if water is always more and more heated, it suddenly, at 80° Reamur, turns into steam. The dialectic of this passing into one another of quantity and quality is what our understanding does not recognize; it is certain that qualitative is not quantitative, and quantitative not qualitative."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301",
+     "text": "It requires but little reflection to see that the services performed by the classes in behalf of the general well-being and public liberty cannot be traced to an insight special to these classes."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-26T20:13+05:30",
+  "until": "2026-10-26T20:43+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
@@ -2162,7 +2249,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-10-26T19:43+05:30",
+  "last_meal": "2026-10-26T20:13+05:30",
   "snacks": 0,
   "works": [
    {
