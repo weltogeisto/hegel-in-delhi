@@ -38,7 +38,7 @@ class ReportTest(unittest.TestCase):
     def test_day13_is_not_measured_and_the_outage_is_not_a_refusal(self):
         r = report.row(DAY13)
         self.assertEqual(r["thoughts"], 4)
-        self.assertIsNone(r["repetition"])                              # T10: fewer than 30 thoughts
+        self.assertIsNone(r["repetition"])                              # T10: fewer than 20 thoughts
         self.assertEqual((r["quiet"], r["waking"]), (30, 34))
         self.assertEqual(r["refusals"], 0)                             # "no answer from …/health" is the outage itself
 
@@ -51,7 +51,7 @@ class ReportTest(unittest.TestCase):
         table = report.table(rows)
         self.assertIn("| 12 | 2026-10-13 | 42 | 0% | 4 (4× No household meal is available now, a loop?) | 69% |", table)
         self.assertIn("| 13 | 2026-10-14 | 4 | 88% | 0 | – |", table)
-        self.assertIn("not measured (fewer than 30 thoughts)", report.text(rows[1]))
+        self.assertIn("not measured (fewer than 20 thoughts)", report.text(rows[1]))
 
 
 class ReportCommandTest(unittest.TestCase):

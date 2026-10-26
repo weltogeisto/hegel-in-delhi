@@ -76,7 +76,7 @@ class PlanTest(unittest.TestCase):
         ask = mind.calls[0][1]["content"]
         self.assertTrue(ask.endswith(contract.PLAN_ASK))
         self.assertNotIn("Decide your next step", ask)
-        self.assertEqual(len(mind.seen), len(steps))                                        # a decision came after the plan
+        self.assertEqual(len(mind.seen), len([s for s in steps if s["mind"]["source"] != "bedtime"]))   # a decision came after the plan
         line = "Your plan for today: 08:00 Lodhi Gardens with the papers; 11:00 Khan Market for ink; 13:00 Lunch at home."
         self.assertTrue(all(line in m for m in mind.seen))                                  # the wake-up decision too
         self.assertEqual(day["plan"]["items"][1], item("11:00", "Khan Market for ink"))
@@ -94,7 +94,7 @@ class PlanTest(unittest.TestCase):
                     steps = [s for s in day["steps"] if "decision" in s]
                     self.assertNotIn("plan", day)
                     self.assertFalse(any(e["k"] == "plan" for e in day["entries"]))
-                    self.assertEqual({s["mind"]["source"] for s in steps}, {"stub"})        # he carried on
+                    self.assertEqual({s["mind"]["source"] for s in steps} - {"bedtime"}, {"stub"})      # he carried on
                 finally:
                     box.close()
 
@@ -140,7 +140,7 @@ class PlanTest(unittest.TestCase):
         try:
             e = self.box.engine(HTTPMind(f"http://127.0.0.1:{server.server_port}"))
             now = at_dt(SAT, 0)
-            while now < at_dt(SAT, 6 * 60):          # a quiet night, then the wake-up step
+            while now < at_dt(SAT, 9 * 60 + 15):     # a quiet night, then the wake-up step (he wakes at nine, give or take eight minutes)
                 e.advance(now)
                 now += timedelta(minutes=5)
         finally:
@@ -277,7 +277,7 @@ class NeedsTest(unittest.TestCase):
         st = state()
         sit, _ = self.w.situation(self.at(WED, 7, 30), st, day)                              # his day off
         self.assertNotIn("breakfast", sit["event"])
-        sit, _ = self.w.situation(self.at(SAT, 9, 45), state(), day)                         # the window closed at half past nine
+        sit, _ = self.w.situation(self.at(SAT, 10, 15), state(), day)                        # the window closed at ten
         self.assertNotIn("breakfast", sit["event"])
 
     def test_eating_at_home_is_a_meal_only_when_a_meal_is_laid_out(self):
@@ -472,7 +472,7 @@ class WeekTest(unittest.TestCase):
     def test_the_prompts_stay_compact(self):
         sizes = [len(re.sub(r"\nFrom your shelf:\n(?:- .*\n)+", "", m)) for m in self.messages]           # the shelf has its own budget (test_shelf)
         self.assertLess(statistics.mean(sizes), 2500)
-        self.assertLess(max(sizes), 3650)                     # the stub's canned replies, seeded by the voice prompt, move the max by ±40
+        self.assertLess(max(sizes), 3800)                     # the busiest scene: Khan Market on a Wednesday afternoon, four present, Nidhi's offer (±40 from the stub's replies)
         for m in self.messages:
             if "You remember:" in m:
                 lines = m.split("You remember:\n")[1].split("\n\n")[0].split("\n")
@@ -512,7 +512,7 @@ class WeekTest(unittest.TestCase):
         self.assertTrue(replies <= voice_calls <= 2 * steps)
 
     def test_the_stand_in_never_repeats_itself_over_the_week(self):
-        thoughts = [s["decision"]["thought"] for d in self.days for s in d["steps"] if "decision" in s]
+        thoughts = [s["decision"]["thought"] for d in self.days for s in d["steps"] if "decision" in s and s["mind"]["source"] != "bedtime"]
         for i, a in enumerate(thoughts):
             self.assertFalse(any(repeats(a, b) for b in thoughts[max(0, i - 12):i]), a)
 

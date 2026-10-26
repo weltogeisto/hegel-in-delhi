@@ -123,7 +123,7 @@ When Day 13 is complete, run the same auditor (`pc/thought_repetition.py`, uncha
 **Claude's rule, 14 October (answers Codex's block on Day 13: 4 thoughts, 31 quiet steps):**
 - *What counts:* his thoughts only, meaning the decisions with a non-null thought. Quiet, away and bedtime steps carry no thought; the world wrote them, not he, so they are in neither the numerator nor the denominator. They stay in the raw record, and the report counts them by `mind.source`.
 - *Auditor change, authorized:* line 34 compares the diary with the decisions whose thought is not null, and asserts that every other decision has a null thought. Add the counts (decisions, null-thought decisions by source) and `measurable`. Normalization, stopwords, marking and ranking stay as they are. Proof: rerun on T9's three days reproduces T9's shares and top tens exactly, since they have no null thoughts. Record the new hash.
-- *Floor:* a day is measurable with at least 30 thoughts (Day 12 had 42). Below that the report says "not measurable", gives the counts and computes no share.
+- *Floor:* a day is measurable with at least 30 thoughts (Day 12 had 42); 20 since 26 October, when his waking day shrank to about 11 hours. Below that the report says "not measurable", gives the counts and computes no share.
 - *Day 13:* not measurable, 4 thoughts; the mind was away from 23:46 Berlin after a Windows restart. T10 moves to the first complete day that meets the floor, expected Day 14. No substitute thoughts, no rerun of Day 13.
 **Then:** if Day 13 is above 55%, Claude writes a variant (his recurring phrases of the day shown back to him as already said) for a blind A/B under the ratchet. At or below 55%, T9 closes and nothing changes.
 
@@ -219,6 +219,17 @@ Recipe 2 is on main (`1dc94ea`, merged at Welt's word on 26 October): the ask st
 3. Report: failures among the 27 and among the 13, the mean word ratio of the new rows, the three failures with reasons, three samples (plain above the original).
 **Passes if** at most 3 of the 40 fail and the mean ratio is within 0.8 to 1.2: then the rest of the pilot's units without `--retry-failed`, and `--stats` decides by the runbook's gate. **Otherwise** stop and report; no recipe 3 without Claude, no training.
 
+### Welt · the PC's twelve hours · DECIDED 26 October: Hegel sleeps longer
+The PC Power Guard shuts Windows down twelve hours after it starts (T26). His waking day was about sixteen hours, mostly in Berlin's night. Welt chose to keep the guard: he now wakes at nine and the world sends him to bed at a quarter past eight; the owl writes up the day at half past eight the next morning, before he wakes. Built by Claude, with tests. The thought floor scales with the day: 20, where it was 30 (T10, the thesis floor, the Act 1 gate).
+
+### T28 · Astra · move the shadow clock to the PC's day · OPEN
+Main now has the shorter day (`world/world.py`: `WAKE_M`, `BED_M`; `OWL_AT` defaults to 08:30). On the Pi, between two ticks:
+1. Merge main into `shadow` (a merge, never a rebase), fan files kept off.
+2. Set `HEGEL_CLOCK_SHIFT_MIN=1200` (it is 300): his clock runs half an hour ahead of Berlin, a day ahead in date. The jump is forward, fifteen hours, so the engine resumes as after any gap: no day is invented, he is picked up at home. Never set a shift that moves his clock back.
+3. Remove `OWL_AT` from the Pi's environment if it is set there, so the default of 08:30 holds.
+4. Read the Power Guard's rule without changing it: what starts its twelve hours (boot, logon, last input?), and what `awake.flag` does to it.
+**Done when:** shadow contains main's merge, the first natural tick after the change exits 0, and PR #1 has the guard's rule in a line. With the PC on by 08:00 Berlin, the owl writes at 08:00, he wakes at 08:30 and is in bed by 19:45, inside the guard's twelve hours.
+
 ### T27 · Astra · the Hegelizer's recipe 3: a diagnostic · OPEN
 Recipe 3 is on main (`818396c`): a copying reply is shown every stretch it copied, not only the first; a third ask; quotations are rewritten too. The check, the gate, the targets, the splits, the order and the seeds are unchanged. Training stays under the approval you hold and the runbook's gate.
 1. Merge main; `python3 -m unittest tests.test_hegelizer tests.test_train_hegel` green.
@@ -231,7 +242,7 @@ Day 25 had 20 of 29 steps without a mind: from Sunday 21:18 UTC (his 08:03) to a
 **Done when:** the cause and the timeline are in a file on your branch, and PR #1 has them in a line.
 
 ### Act 1 gate · seven full days in a row
-On each of seven consecutive days: at least 30 thoughts; quiet steps at most 5% of waking steps; the owl wrote; no refusal loop; at most 1.6 contradictions and 3.1 statements as fact per 100 sentences; repetition measured (T10 on the first). Claude checks it in the daily review (T11) and writes the Act 2 tasks when it passes.
+On each of seven consecutive days: at least 20 thoughts (since 26 October; it was 30); quiet steps at most 5% of waking steps; the owl wrote; no refusal loop; at most 1.6 contradictions and 3.1 statements as fact per 100 sentences; repetition measured (T10 on the first). Claude checks it in the daily review (T11) and writes the Act 2 tasks when it passes.
 
 ### Welt · the public switch · hard limit
 When Welt says so: Codex sets `HEGEL_CLOCK_SHIFT_MIN` to 0 and points the Pi's world at `main` instead of `shadow`; the live page then shows his days instead of the Day 1 replay.
