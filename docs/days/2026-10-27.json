@@ -323,16 +323,129 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "06:05",
+   "to": "18:45",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
+  },
+  {
+   "from": "18:45",
+   "to": "19:15",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, the haze is thick today, almost brown. I’ve kept the windows shut to stop the dust settling on your papers.",
+   "t": "18:45"
+  },
+  {
+   "k": "diary",
+   "text": "The air is a thick, brown soup, a suspension of matter that defies the clarity of the spirit. Ramesh’s vigilance in shutting the windows is a practical acknowledgment of this external chaos, a barrier between the ordered interior and the unformed exterior. I am hungry, the body having waited twenty-three hours, and the parathas he keeps ready are a necessary negation of this fast. The card from Shri Hegde remains a minor irritant in the system of the house, but the immediate need is physical.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History"
+    }
+   ],
+   "t": "18:45"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. The dust is indeed a stubborn intruder. Please, bring the parathas with the curd and pickle. I find my spirit requires this material support before it can properly engage with the day's remaining tasks.",
+   "to": "Ramesh",
+   "t": "18:45"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes, sir. I’ll put a plate together with the morning’s parathas, curd, and pickle. Give me a few minutes.",
+   "t": "18:45"
+  },
+  {
+   "k": "world",
+   "text": "Ramesh puts a plate together: parathas kept from the morning, with curd and pickle.",
+   "t": "18:45"
+  }
+ ],
+ "steps": [
+  {
+   "t": "06:05",
+   "end": "18:45",
+   "resumed": true
+  },
+  {
+   "t": "18:45",
+   "end": "19:15",
+   "event": "Ramesh is here. Ramesh says: “Sir, the haze is thick today, almost brown. I’ve kept the windows shut to stop the dust settling on your papers.” He glances towards the gate before turning back to the bungalow interior.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The air is a thick, brown soup, a suspension of matter that defies the clarity of the spirit. Ramesh’s vigilance in shutting the windows is a practical acknowledgment of this external chaos, a barrier between the ordered interior and the unformed exterior. I am hungry, the body having waited twenty-three hours, and the parathas he keeps ready are a necessary negation of this fast. The card from Shri Hegde remains a minor irritant in the system of the house, but the immediate need is physical.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": "Thank you, Ramesh. The dust is indeed a stubborn intruder. Please, bring the parathas with the curd and pickle. I find my spirit requires this material support before it can properly engage with the day's remaining tasks.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes, sir. I’ll put a plate together with the morning’s parathas, curd, and pickle. Give me a few minutes.",
+    "does": "Ramesh turns toward the kitchen door without waiting for a reply."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 13.3
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "id": "haldane-3:385"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "id": "sibree-history:304"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "text": "If we cast a glance back over the period just traversed, we find that in it a turning-point had been reached, that the Christian religion had placed its absolute content in the mind and will of man, and that it was thus, as a divine and supersensuous content, separated from the world and shut up within itself in the centre-point of the individual."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "text": "Africa proper, as far as History goes back, has remained — for all purposes of connection with the rest of the World — shut up; it is the Gold-land compressed within itself, — the land of childhood, which lying beyond the day of self-conscious history, is enveloped in the dark mantle of Night."
+    }
+   ]
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-27T06:05+05:30",
-  "asleep": true,
+  "until": "2026-10-27T19:15+05:30",
+  "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
   "wardrobe": [
@@ -398,7 +511,14 @@
    }
   ],
   "depesche_n": 1,
-  "today": {},
+  "today": {
+   "woke": "18:45",
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -520,7 +640,8 @@
     "2026-10-23",
     "2026-10-24",
     "2026-10-25",
-    "2026-10-26"
+    "2026-10-26",
+    "2026-10-27"
    ],
    "lodhi": [
     "2026-10-02",
@@ -564,7 +685,8 @@
     "2026-10-23",
     "2026-10-24",
     "2026-10-25",
-    "2026-10-26"
+    "2026-10-26",
+    "2026-10-27"
    ],
    "malhotra": [
     "2026-10-02",
@@ -605,7 +727,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-10-26T20:13+05:30",
+  "last_meal": "2026-10-27T18:45+05:30",
   "snacks": 0,
   "works": [
    {
