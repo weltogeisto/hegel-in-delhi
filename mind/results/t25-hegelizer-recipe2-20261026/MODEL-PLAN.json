@@ -1,0 +1,35 @@
+{
+  "prepared_utc": "2026-10-26T11:52:12.484859+00:00",
+  "tmux": "hegel-t25-recipe2-20261026-114700",
+  "source": "/home/ai/hegel-eval/codex-tasks-20261026/t25-recipe2-diagnostic-20261026-114700/source",
+  "source_tree": "cad7d85ced76df77b5ecf3e938cf7f59da1c2cca",
+  "mirror": "/mnt/c/hegel/handover/codex-tasks-20261026/T25-recipe2-diagnostic-20261026-114700/model-job",
+  "model_url": "http://127.0.0.1:8082",
+  "base_seed": 116086016,
+  "generation_offset": 214,
+  "maximum_generation_calls": 60,
+  "maximum_wall_seconds": 1800,
+  "maximum_total_GPU_work_seconds": 7200,
+  "prior_GPU_work_seconds": 1461.4604370080006,
+  "restoration_reserve_seconds": 600,
+  "absolute_deadline_utc": null,
+  "immutable_inputs": {
+    "prior-recipe2-failed.jsonl": "1b9de1fdf4918f9c45022c7aa68a9c251322fa57c768f3ef15ae135689942e48",
+    "prior-recipe2-accepted.jsonl": "3b073c84179c28d1a09586de5555856398b661cf646fc82567a4195c96340401",
+    "COHORT.json": "c94c1a7eed30797b106be78ee1deaf986e4655c447887accf0a5a19fd6e9501b",
+    "SOURCE-MANIFEST.json": "750fea57194d326eef137a4ebe74528d9969e614a07daab3a35694fdd0bae09d",
+    "NO-CUTOFF-POLICY.json": "63da8c057f7044120559171ce12b3d119801baf0eb42d052b17688f5f93eb34f",
+    "input-data/hegelizer.jsonl": "e9dbfbbfce5fe68f812e123412e3315a4c487d24f6a460e3b32b69c59828373d",
+    "input-data/hegelizer-units.jsonl": "7b97a13f668d88696ecfdcfc35b2a74f914542635738c0b418d1dbad2a643490",
+    "input-data/hegelizer-failed.jsonl": "05f211303e8dc5c6a62d82533c6dbf493552faea594d21049b9159f073e511e2"
+  },
+  "existing_outputs_policy": "All10 prior recipe2 cases returned verbatim through a wrapper dispatch, including failure; unchanged canonical cmd_paraphrase selects same40 in original Random1831 order with2workers/--retry-failed/--limit40. Only30never-requested-in-recipe2 cases call unchanged paraphrase_one. Upstream serialized to preserve evaluation slot1; natural routing unchanged. No new source/checker/target edits.",
+  "task_gate": {
+    "maximum_failures": 3,
+    "mean_word_ratio": [
+      0.8,
+      1.2
+    ]
+  },
+  "no_training_or_server_timer_action": true
+}

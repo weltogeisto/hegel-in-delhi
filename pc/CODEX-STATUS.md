@@ -1,3 +1,15 @@
+# PC status — 26 October: T25 recipe 2 diagnostic failed
+
+T25 DONE: FAIL. Exact40 cases:34 accepted,6 failed (allowed3), mean accepted word ratio0.875050. Recipe1 hard cases:5failures/27; next13:1failure/13. All10 pre-existing recipe2 outcomes (9accepted/1failed) were preserved;30newcases made41generations plus1ordinary readiness call, allHTTP200, slot1. All472frozen source/archive/Git/native bytes and22originalPC CSV sequences match; original220targets, oldrecipe1 byteprefixes, reusedresults and all126newrawHTTPfiles/canonicalchecker/retries/seeds independently reconciled. Details and all40pairs: pc/T25-HEGELIZER-RECIPE2-20261026.md and mind/results/t25-hegelizer-recipe2-20261026.
+
+The requested92focused CPU checks passed in53.753s. All model cases were recorded at11:57:51UTC. Linux-to-Windows copytree metadata export then failed; originalstderr/staleRUN are retained, exact process exit/finalwall were not captured. A new byte-only export was verified without rerunning model outputs. Conservative GPU-wall upper-bound accounting is explicit. No calibration/training/newadapter, live server/timer/Pi/power action occurred.
+
+Welt directly wrote “no cutoff”: the absolute wall deadline is removed; cumulative7200seconds of pilotGPUjobwork/restoration reserve600 and independentPowerGuard remain. T25's <=3/40 gate remains distinct from the human15%corpus policy. No recipe3 or training follows this failed diagnostic; Claude owns the next recipe/spec. Prior uninvolved112-case unseen220 run and partialhaldane-1:114 remain preserved/held.
+
+T10 staysOPEN for a full actual completed post-return day>=30nonnullthoughts. T26/T24/T23/T22/T19/T16/T21 remainDONE; T14NOTDONE/T15superseded/history preserved. PublicworldPAUSED; no fan deployment, secrets/packages/globalenv/spending/firewall/power changes.
+
+## Previous status (historical claims superseded above)
+
 # PC status —26October T26 outage diagnosis complete
 
 T26 DONE. Existing Power Guard12-hour limit requested shutdown25Oct21:16:49UTC; Windows shut down21:17:57 and booted26Oct07:18:13.5. The saved startup launcher ran07:18:55, started exact plainQwen/CUDA once asPID501 and reachedGPU_READY07:20:37exit0. A later invocation reused501/zero launches. Naturalboot recovery is observed; preciseBootTriggervsLogonTrigger attribution remains unproved because TaskScheduler history returned no matching events. Six exact original source receipts accompany pc/T26-OVERNIGHT-OUTAGE-20261026.md/json and mind/results/t26-outage-20261026. No new Pi/model/health/system probe or runtime/power change.
