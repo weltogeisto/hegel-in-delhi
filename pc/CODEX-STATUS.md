@@ -1,3 +1,13 @@
+# PC status — 26 October: T27 data ready; calibration safely deferred
+
+T27 DONE: recipe 3 passed on 40 fresh cases (38 accepted, 2 failed), with the 6 hard cases reported apart (5 accepted, 1 failed). The original 220-unit pilot is complete: 206 accepted pairs, comprising 186 train and 20 held, and 14 active failures (6.36%). Accepted mean word ratio 0.885403; both original strict10% and human strict15% data gates pass, as does unchanged CPU trainer check at seq1024. All original targets and prior outcomes, including five byte-exact matching recipe2 cache rows, remain. Details: pc/T27-HEGELIZER-RECIPE3-20261026.md/json and mind/results/t27-hegelizer-recipe3-20261026.
+
+93 focused CPU tests passed; complete source/raw HTTP/prefix/checker/seed/slot/export verification passed. No repeated model outputs, target repairs, failed-case retries or unchanged tests. Both model controllers exited0 with actual wall receipts. A separate calibration guard observed an activating natural shadow service and deferred without any server/timer/model/training/power change. Calibration/full training and adapter evaluation have not started. Existing human authorization persists; the next guarded calibration must project the entire remaining pipeline against the cumulative7200-second cap and600-second restoration reserve. Charged upper bound3630.353265s; no absolute wall cutoff and no independent PowerGuard override.
+
+This genuine frozen T27 merge integrates main4da5c8c. New mainf384e23 assigns separate T28 (new day/clock/floor); it is discovered and not deployed here. T10 staysOPEN and requires a complete actual day meeting the applicable canonical floor, never a partial/rehearsal. T26/T25/T24/T23/T22/T19/T16/T21 and every original failure/history remain. Public world remains PAUSED.
+
+## Previous status (historical current claims superseded above)
+
 # PC status — 26 October: T25 recipe 2 diagnostic failed
 
 T25 DONE: FAIL. Exact40 cases:34 accepted,6 failed (allowed3), mean accepted word ratio0.875050. Recipe1 hard cases:5failures/27; next13:1failure/13. All10 pre-existing recipe2 outcomes (9accepted/1failed) were preserved;30newcases made41generations plus1ordinary readiness call, allHTTP200, slot1. All472frozen source/archive/Git/native bytes and22originalPC CSV sequences match; original220targets, oldrecipe1 byteprefixes, reusedresults and all126newrawHTTPfiles/canonicalchecker/retries/seeds independently reconciled. Details and all40pairs: pc/T25-HEGELIZER-RECIPE2-20261026.md and mind/results/t25-hegelizer-recipe2-20261026.

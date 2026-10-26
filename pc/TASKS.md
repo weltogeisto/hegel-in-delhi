@@ -219,6 +219,13 @@ Recipe 2 is on main (`1dc94ea`, merged at Welt's word on 26 October): the ask st
 3. Report: failures among the 27 and among the 13, the mean word ratio of the new rows, the three failures with reasons, three samples (plain above the original).
 **Passes if** at most 3 of the 40 fail and the mean ratio is within 0.8 to 1.2: then the rest of the pilot's units without `--retry-failed`, and `--stats` decides by the runbook's gate. **Otherwise** stop and report; no recipe 3 without Claude, no training.
 
+### T27 · Astra · the Hegelizer's recipe 3: a diagnostic · DONE: PASS — fresh 38/40, hard 5/6; original220 corpus 206 accepted/14 rejected, 186train+20held; pc/T27-HEGELIZER-RECIPE3-20261026.md
+Recipe 3 is on main (`818396c`): a copying reply is shown every stretch it copied, not only the first; a third ask; quotations are rewritten too. The check, the gate, the targets, the splits, the order and the seeds are unchanged. Training stays under the approval you hold and the runbook's gate.
+1. Merge main; `python3 -m unittest tests.test_hegelizer tests.test_train_hegel` green.
+2. `python3 tools/hegelizer.py --paraphrase --url http://127.0.0.1:8082 --workers 2 --retry-failed --limit 46`: recipe 2's 6 failures, then the next 40 units never asked.
+3. Report: failures among the 40 new units and among the 6, the mean word ratio of the new rows, the failures with reasons, three samples.
+**Passes if** at most 3 of the 40 new units fail and the mean ratio is within 0.8 to 1.2; the 6 are reported apart, since they are the hardest of the hard. Then the rest of the pilot's units without `--retry-failed`, and `--stats` decides by the runbook's gate. **Otherwise** stop and report; no recipe 4 without Claude, no training.
+
 ### T26 · Astra · why the mind was away overnight · DONE: Power Guard shutdown21:17:57UTC; naturalboot07:18:13, launcher07:18:55, GPUready07:20:37; pc/T26-OVERNIGHT-OUTAGE-20261026.md
 Day 25 had 20 of 29 steps without a mind: from Sunday 21:18 UTC (his 08:03) to about Monday 07:00 UTC (his 18:03). The watchman opened issue #2 at 00:27 UTC. With the shadow clock five hours ahead, his waking day falls in Berlin's night, so the PC must be up then. Find out what happened: shut down, asleep or rebooted? Did the startup task fire, and when did the 8082 server come back? Change nothing: power settings are Welt's.
 **Done when:** the cause and the timeline are in a file on your branch, and PR #1 has them in a line.
@@ -234,3 +241,4 @@ When Welt says so: Codex sets `HEGEL_CLOCK_SHIFT_MIN` to 0 and points the Pi's w
 - How fast his convictions move (from T8): `state` changes status on about half of all nights. A slower rule (two nights agreeing, or one step a week at most) would change his thinking, so it needs a blind test under the ratchet. Revisit after a week of shadow days shows the actual drift.
 - Faster rehearsals (MTP speculative decoding): only if rehearsal time becomes the bottleneck. A day takes 14 minutes without the checker.
 - The Hegelizer and any training: hard limit.
+- Scan damage in the Hegelizer's units: `baillie-2:266` reads "behef", "imiversal", "universahty", which `damaged()` let through (T25). Check the build before a full run; the pilot's units stay as they are.

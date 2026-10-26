@@ -292,19 +292,23 @@ class JudgeTest(unittest.TestCase):
     def test_copied_names_the_whole_stretch_that_repeats_the_original_folded(self):
         original = "The objective mind is the absolute idea, but only in itself; it is the spirit of a people at one stage of its history."
         reply = "Put simply: the objective mind is the absolute idea but only in itself. It belongs to one people at one moment."
-        self.assertEqual(hz.copied(original, reply), "the objective mind is the absolute idea but only in itself it")      # "; it is" and ". It belongs" fold alike
-        self.assertEqual(hz.copied(original, "Objective mind, then, is the absolute idea; yet only implicitly so, as a people's spirit at one time."), "")
-        self.assertEqual(hz.copied(original, "<think>the objective mind is the absolute idea but only</think> Something else entirely, of ten words or so."), "")
+        self.assertEqual(hz.copied(original, reply), ["the objective mind is the absolute idea but only in itself it"])      # "; it is" and ". It belongs" fold alike
+        self.assertEqual(hz.copied(original, "Objective mind, then, is the absolute idea; yet only implicitly so, as a people's spirit at one time."), [])
+        self.assertEqual(hz.copied(original, "<think>the objective mind is the absolute idea but only</think> Something else entirely, of ten words or so."), [])
+        two = "The objective mind is the absolute idea, but only in itself. So: the spirit of a people at one stage of its history."
+        self.assertEqual(hz.copied(original, two), ["the objective mind is the absolute idea but only in itself", "the spirit of a people at one stage of its history"])
 
     def test_the_prompt_is_the_agreed_one(self):
         self.assertEqual(hz.PARAPHRASE_SYSTEM, "You rewrite passages of old philosophy in plain present-day English.")
         self.assertEqual(hz.PARAPHRASE_ASK, "Rewrite the passage below in plain, modern English, as a careful writer would today. Keep every claim, example and step of the "
                          "argument, in the same order, and keep its technical terms. Add nothing, explain nothing, leave nothing out. Do not quote it: build every "
-                         "sentence anew, in your own words and word order, and never repeat eight or more words in a row from the passage. Use clear sentences and "
-                         "everyday words, about the same length. Answer with the rewritten text only.\n\n{original}")
-        self.assertEqual(hz.COPY_RETRY, "Your rewrite repeats the passage word for word here: \"{run}\". Write the whole rewrite again, building every sentence anew, so "
-                         "that no eight words in a row come from the passage. Keep every claim and technical term. Answer with the rewritten text only.")
-        self.assertEqual(hz.RECIPE, 2)
+                         "sentence anew, in your own words and word order, and never repeat eight or more words in a row from the passage. Rewrite its quotations "
+                         "too, in your own words and without quotation marks. Use clear sentences and everyday words, about the same length. Answer with the "
+                         "rewritten text only.\n\n{original}")
+        self.assertEqual(hz.COPY_RETRY, "Your rewrite repeats the passage word for word here: {runs}. Write the whole rewrite again, building every sentence anew, "
+                         "quotations included, so that no eight words in a row come from the passage. Keep every claim and technical term. Answer with the "
+                         "rewritten text only.")
+        self.assertEqual((hz.RECIPE, hz.ASKS), (3, 3))
         self.assertEqual((hz.TEMPERATURE, hz.RETRY_TEMPERATURE, hz.RATIO, hz.RUN, hz.UNIT_WORDS, hz.HELD_SHARE), (0.3, 0.7, (0.6, 1.4), 8, (150, 250), 0.05))
 
 
@@ -442,7 +446,7 @@ class RunTest(unittest.TestCase):
         for u in rows:
             r = got[u["id"]]
             self.assertEqual(list(r), ["id", "work", "ref", "split", "plain", "original", "recipe"])
-            self.assertEqual(r["recipe"], 2)
+            self.assertEqual(r["recipe"], 3)
             self.assertEqual((r["work"], r["ref"], r["split"], r["original"]), (u["work"], u["ref"], u["split"], u["original"]))
             self.assertEqual(r["plain"], modern(u["original"]))
         self.assertEqual({r["split"] for r in got.values()}, {"train", "held"})
@@ -468,18 +472,19 @@ class RunTest(unittest.TestCase):
         short = [c["temperature"] for c in srv.calls if c["original"].startswith("SHORT")]
         self.assertEqual(short, [0.3, 0.7])
         self.assertEqual([r["id"] for r in self.done()], ["t:0"])                  # SHORT came right the second time; LIST never does
-        self.assertEqual([c["temperature"] for c in srv.calls if c["original"].startswith("LIST")], [0.3, 0.7])
+        self.assertEqual([c["temperature"] for c in srv.calls if c["original"].startswith("LIST")], [0.3, 0.7, 0.7])
 
     def test_a_reply_that_copied_is_shown_the_words_it_copied_and_asked_again(self):
         rows = self.units(["COPY", "SHORT"])
         with Llama(scripted) as srv:
             self.run_it(srv)
         copy = [c["body"] for c in srv.calls if c["original"].startswith("COPY")]
-        self.assertEqual([b["temperature"] for b in copy], [0.3, 0.7])
-        self.assertEqual([m["role"] for m in copy[1]["messages"]], ["system", "user", "assistant", "user"])
-        self.assertEqual(copy[1]["messages"][:2], copy[0]["messages"])                          # the same ask, then its reply and the words it copied
-        self.assertEqual(copy[1]["messages"][2]["content"], rows[0]["original"])
-        self.assertEqual(copy[1]["messages"][3]["content"], hz.COPY_RETRY.format(run=hz.copied(rows[0]["original"], rows[0]["original"])))
+        self.assertEqual([b["temperature"] for b in copy], [0.3, 0.7, 0.7])
+        for later in copy[1:]:
+            self.assertEqual([m["role"] for m in later["messages"]], ["system", "user", "assistant", "user"])
+            self.assertEqual(later["messages"][:2], copy[0]["messages"])                        # the same ask, then its last reply and the words it copied
+            self.assertEqual(later["messages"][2]["content"], rows[0]["original"])
+            self.assertEqual(later["messages"][3]["content"], hz.COPY_RETRY.format(runs='"' + hz.copied(rows[0]["original"], rows[0]["original"])[0] + '"'))
         self.assertIn('"copy u0w0 u0w1 u0w2', copy[1]["messages"][3]["content"])
         short = [c["body"] for c in srv.calls if c["original"].startswith("SHORT")]
         self.assertEqual([[m["role"] for m in b["messages"]] for b in short], [["system", "user"]] * 2)      # any other failure is asked the same again
@@ -488,7 +493,19 @@ class RunTest(unittest.TestCase):
         self.units(["COPY"])
         with Llama(lambda o, t, n: o if n == 0 else modern(o)) as srv:
             self.run_it(srv)
-        self.assertEqual([(r["id"], r["recipe"]) for r in self.done()], [("t:0", 2)])
+        self.assertEqual([(r["id"], r["recipe"]) for r in self.done()], [("t:0", 3)])
+
+    def test_the_third_ask_is_shown_what_the_second_reply_copied(self):
+        rows = self.units(["COPY"])
+        o = rows[0]["original"].split()
+        first, second = " ".join(o[:10] + ["zq"] * 150), " ".join(["zq"] * 150 + o[50:62])
+        replies = {0: first, 1: second, 2: modern(rows[0]["original"])}
+        with Llama(lambda orig, t, n: replies[n]) as srv:
+            self.run_it(srv)
+        third = srv.calls[2]["body"]["messages"]
+        self.assertEqual(third[2]["content"], second)
+        self.assertEqual(third[3]["content"], hz.COPY_RETRY.format(runs='"' + " ".join(o[50:62]).lower() + '"'))
+        self.assertEqual([(r["id"], r["recipe"]) for r in self.done()], [("t:0", 3)])
         self.assertFalse((self.tmp / hz.FAILED).exists() and (self.tmp / hz.FAILED).read_text())
 
     def test_a_unit_that_fails_twice_is_recorded_as_failed_with_the_reasons_and_not_asked_again_unless_told_to(self):
@@ -502,14 +519,14 @@ class RunTest(unittest.TestCase):
         self.assertIn("at 0.3", by["t:1"]["reason"])
         self.assertIn("at 0.7", by["t:1"]["reason"])
         self.assertIn("list marker", by["t:2"]["reason"])
-        self.assertEqual((set(failed[0]), failed[0]["recipe"]), ({"id", "work", "reason", "recipe"}, 2))
+        self.assertEqual((set(failed[0]), failed[0]["recipe"]), ({"id", "work", "reason", "recipe"}, 3))
         self.assertEqual([r["id"] for r in self.done()], ["t:0"])
         with Llama(scripted) as again:
             code, said, _ = self.run_it(again)
             self.assertEqual((code, again.calls), (0, []))                          # nothing to do: the failed ones are skipped
             self.assertIn("2 failed (skipped; --retry-failed tries them again)", said)
             self.run_it(again, "--retry-failed")
-        self.assertEqual(len(again.calls), 4)                                       # the two failed ones, twice each
+        self.assertEqual(len(again.calls), 6)                                       # the two failed ones, three asks each
         self.assertEqual({c["original"].split()[0] for c in again.calls}, {"COPY", "LIST"})
         self.assertEqual(len(hz.read_rows(self.tmp / hz.FAILED)), 4)               # they failed again: recorded again, still failed
         self.assertEqual(len(rows), 3)
@@ -719,7 +736,7 @@ class CommandLineTest(unittest.TestCase):
                 hz.main(argv)
 
     def test_the_constants_the_runbook_names_are_module_level(self):
-        for name in ("PARAPHRASE_SYSTEM", "PARAPHRASE_ASK", "COPY_RETRY", "RECIPE", "UNIT_WORDS", "HELD_SHARE", "SPLIT_SEED", "RATIO", "RUN", "TEMPERATURE", "RETRY_TEMPERATURE", "TOKENS_PER_WORD",
+        for name in ("PARAPHRASE_SYSTEM", "PARAPHRASE_ASK", "COPY_RETRY", "RECIPE", "ASKS", "UNIT_WORDS", "HELD_SHARE", "SPLIT_SEED", "RATIO", "RUN", "TEMPERATURE", "RETRY_TEMPERATURE", "TOKENS_PER_WORD",
                      "PROGRESS_EVERY", "GATE_FAILED", "GATE_RATIO", "MARKUP"):
             self.assertTrue(hasattr(hz, name), name)
 
