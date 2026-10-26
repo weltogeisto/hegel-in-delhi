@@ -2675,14 +2675,21 @@ function countFans(){ fanRpc('fan_count').then(showFans).catch(() => showFans(nu
     });
   } catch (e){ console.warn(e); }
 })();
+const fanClose = () => fanDlg.close ? fanDlg.close() : fanDlg.removeAttribute('open');
+function fanDone(done){ fanJoin.hidden = done; $('fanCancel').textContent = done ? 'Close' : 'Not now'; }   // once a fan, there is nothing left to press but Close
 btnFan.addEventListener('click', () => {
-  fanMsg.textContent = ''; fanJoin.disabled = false;
+  fanMsg.textContent = ''; fanJoin.disabled = false; fanDone(false);
   const mine = fanStore.get();
-  if (mine){ fanMsg.textContent = 'You are already fan number ' + Number(mine).toLocaleString('en-IN') + '. Thank you.'; fanJoin.disabled = true; }
+  if (mine){ fanMsg.textContent = 'You are already fan number ' + Number(mine).toLocaleString('en-IN') + '. Thank you.'; fanDone(true); }
   if (fanDlg.showModal) fanDlg.showModal(); else fanDlg.setAttribute('open', '');
 });
 fanMeet.addEventListener('change', () => { fanMeetBox.hidden = !fanMeet.checked; if (fanMeet.checked) fanName.focus(); });
-$('fanCancel').addEventListener('click', () => fanDlg.close ? fanDlg.close() : fanDlg.removeAttribute('open'));
+$('fanCancel').addEventListener('click', fanClose);
+fanDlg.addEventListener('click', e => {                     // a tap on the dimmed page behind the window closes it
+  if (e.target !== fanDlg) return;
+  const r = fanDlg.getBoundingClientRect();
+  if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) fanClose();
+});
 fanForm.addEventListener('submit', async e => {
   e.preventDefault();
   const meet = fanMeet.checked, name = fanName.value.trim();
@@ -2690,7 +2697,7 @@ fanForm.addEventListener('submit', async e => {
   fanJoin.disabled = true; fanMsg.textContent = 'Joining…';
   try {
     const n = await fanRpc('join_fanclub', meet ? {p_meet: true, p_name: name, p_role: fanRole.value} : {p_meet: false});
-    fanStore.set(String(n)); showFans(n);
+    fanStore.set(String(n)); showFans(n); fanDone(true);
     fanMsg.textContent = 'Welcome. You are fan number ' + Number(n).toLocaleString('en-IN') + '.' + (meet ? ' Once your name is read, you may turn up on his rounds.' : '');
   } catch (err){ fanMsg.textContent = err.message; fanJoin.disabled = false; }
 });
