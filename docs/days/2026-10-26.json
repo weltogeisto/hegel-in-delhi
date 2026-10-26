@@ -547,6 +547,15 @@
    "mode": "inside",
    "at": "home",
    "now": "Writing at home."
+  },
+  {
+   "from": "22:13",
+   "to": "24:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Asleep. The owl is writing up the day.",
+   "asleep": true,
+   "owl": true
   }
  ],
  "entries": [
@@ -934,6 +943,21 @@
    "why": "stagnation",
    "topic": "the ranking of peoples",
    "t": "21:13"
+  },
+  {
+   "k": "diary",
+   "text": "The body, having satiated itself against the system's better judgment, now demands the sleep that is its proper negation. The brown haze outside is a veil that separates the dreamer from the world; I shall pass through it. To remain awake is to resist the necessity of rest, and resistance to necessity is merely the vanity of the finite.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Wars with the Persians"
+    }
+   ],
+   "t": "22:13"
   }
  ],
  "steps": [
@@ -2119,14 +2143,59 @@
      "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
     }
    ]
+  },
+  {
+   "t": "22:13",
+   "end": "24:00",
+   "event": "You are tired.",
+   "present": [],
+   "decision": {
+    "thought": "The body, having satiated itself against the system's better judgment, now demands the sleep that is its proper negation. The brown haze outside is a veil that separates the dreamer from the world; I shall pass through it. To remain awake is to resist the necessity of rest, and resistance to necessity is merely the vanity of the finite.",
+    "action": "sleep",
+    "place": "home",
+    "minutes": 240,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.0
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:479"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Wars with the Persians",
+     "id": "sibree-history:811"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "The second grade required him to keep his hands clasped together over his head for twelve years in succession. Already his nails had almost grown into his hands. The third grade is not always passed through in the same way; generally the Yogi has to spend a day between five fires, that is, between four tires occupying the four quarters of heaven, and the Sun."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Wars with the Persians",
+     "text": "The antagonism of Athens and Sparta now commences— a favourite theme for historical treatment. It may be asserted that it is an idle inquiry, which of these two states justly claims the superiority, and that the endeavour should rather be, to exhibit each as in its own department a necessary and worthy phase of the Greek Spirit."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-26T22:13+05:30",
-  "asleep": false,
+  "until": "2026-10-27T00:00+05:30",
+  "asleep": true,
   "imprest": 3251,
   "wearing": "kurta",
   "wardrobe": [
@@ -2203,7 +2272,8 @@
    "breakfast": true,
    "lunch": true,
    "tea": true,
-   "dinner": true
+   "dinner": true,
+   "tired": true
   },
   "account": {
    "advance": 15000,
