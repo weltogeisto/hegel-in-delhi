@@ -1,3 +1,13 @@
+# PC status —26October: shadow clock deployed and first natural tick succeeded
+
+T28DONE: genuine Pi mergea6a0e996 with realparentsd885896c+a66092d, forward shift300→1170, OWL override removed/default09:10, wake09:15/bed21:00/floor20. First natural postchange tick17:45:00.302634→17:45:17.762947UTC succeeded with mind available; prior enabled+active timer restored. All213Pi source/10originalCSV/prior rawday-state bytes were checked, oldpage kept/fanfiles excluded. PowerGuard-rule inspection skipped per6419119715; no power/awake.flag/publicswitch/Supabase action. Details:pc/T28-SHADOW-CLOCK-20261026.md/json and mind/results/t28-clock-20261026.
+
+T29outputs remainDONE: fresh24step/2epoch adapter,160held restyles+100controls, exact plainQwen restored. Blind judging now has one committed Claude sheet and an abstention on the repeated second sheet. An automatic quality criterion already misses; no success/adoption/retraining. Keys remain sealed pending Welt judging only the remaining sheet or declining; one optional question is pending, no answer assumed. Cumulative pilot charged upperbound7200.229527073/16200s,600reserve and independentPowerGuard unchanged; noGPUjobrunning or automaticpostclockrepause.
+
+T10stillOPEN: completed13thought day below20; nextday partial1thought+resume marker, diary exact. No auditor/share/topten/55decision. PublicworldPAUSED.
+
+## Previous status (historical current claims superseded above)
+
 # PC status —26October: fresh pilot trained and paired tests ready; T28 next
 
 T29 output work is DONE:24/24steps,2epochs,186train+20held/zero skips; both arms produced all160held restyles and100biography/contract controls. Exact plain Qwen/CUDA/argv/cwd/three16384slots and prior enabled+active Pi timer are restored; no adapter is serving production and no GPU job is running. Blinded option-only packets are in mind/results/t29-fresh-adapter-20261026. Keys and model mapping stay private until judgments are committed with their hashes; no voice/content gain is claimed. Details:pc/T29-FRESH-ADAPTER-20261026.md/json.

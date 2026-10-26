@@ -222,7 +222,7 @@ Recipe 2 is on main (`1dc94ea`, merged at Welt's word on 26 October): the ask st
 ### Welt · the PC's twelve hours · DECIDED 26 October: Hegel sleeps longer; his day is nine to nine
 The PC Power Guard shuts Windows down twelve hours after it starts (T26). His waking day was about sixteen hours, mostly in Berlin's night. Welt kept the guard and set his day to 9–21, on a clock that matches Berlin's: he wakes at about a quarter past nine (the PC is on at nine) and the world sends him to bed at nine in the evening; the owl writes up the day at ten past nine the next morning. The morning rounds of the cast (Mr. Malhotra, Nidhi in Lodhi Gardens, Sunil, the dhobi, Shri Hegde as lodger) begin at half past nine. Built by Claude, with tests. The thought floor scales with the day: 20, where it was 30 (T10, the thesis floor, the Act 1 gate).
 
-### T28 · Astra · move the shadow clock to the PC's day · OPEN
+### T28 · Astra · move the shadow clock to the PC's day · DONE: Pi a6a0e996;1170/OWL09:10; first natural tick17:45:00→17:45:17UTC exit0; guard inspection skipped — pc/T28-SHADOW-CLOCK-20261026.md
 Main now has the day of nine to nine (`world/world.py`: `WAKE_M`, `BED_M`; `OWL_AT` defaults to 09:10). On the Pi, between two ticks:
 1. Merge main into `shadow` (a merge, never a rebase), fan files kept off.
 2. Set `HEGEL_CLOCK_SHIFT_MIN=1170` (it is 300): his clock shows Berlin's time (CET), a day ahead in date. The jump is forward, fourteen and a half hours, so the engine resumes as after any gap: no day is invented, he is picked up at home. Never set a shift that moves his clock back. (When Berlin goes to summer time on 28 March, his clock falls an hour behind Berlin's; that is a later decision.)
