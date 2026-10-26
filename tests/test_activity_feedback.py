@@ -28,7 +28,7 @@ class ActivityFeedbackTests(unittest.TestCase):
         self.st['last_meal']='2026-10-03T14:00+05:30'
         sit,ctx=self.scene(16,0)
         errors,_,_=self.world.check(answer(action='eat'),sit,ctx,self.st)
-        self.assertTrue(any('next service is dinner from 19:00' in x for x in errors))
+        self.assertTrue(any('next service is dinner from 19:30' in x for x in errors))
     def test_tea_is_brought_once_at_half_past_four(self):
         self.st['last_meal']='2026-10-03T13:05+05:30'
         sit,_=self.scene(16,35)

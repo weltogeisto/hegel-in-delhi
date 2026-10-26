@@ -219,16 +219,16 @@ Recipe 2 is on main (`1dc94ea`, merged at Welt's word on 26 October): the ask st
 3. Report: failures among the 27 and among the 13, the mean word ratio of the new rows, the three failures with reasons, three samples (plain above the original).
 **Passes if** at most 3 of the 40 fail and the mean ratio is within 0.8 to 1.2: then the rest of the pilot's units without `--retry-failed`, and `--stats` decides by the runbook's gate. **Otherwise** stop and report; no recipe 3 without Claude, no training.
 
-### Welt · the PC's twelve hours · DECIDED 26 October: Hegel sleeps longer
-The PC Power Guard shuts Windows down twelve hours after it starts (T26). His waking day was about sixteen hours, mostly in Berlin's night. Welt chose to keep the guard: he now wakes at nine and the world sends him to bed at a quarter past eight; the owl writes up the day at half past eight the next morning, before he wakes. Built by Claude, with tests. The thought floor scales with the day: 20, where it was 30 (T10, the thesis floor, the Act 1 gate).
+### Welt · the PC's twelve hours · DECIDED 26 October: Hegel sleeps longer; his day is nine to nine
+The PC Power Guard shuts Windows down twelve hours after it starts (T26). His waking day was about sixteen hours, mostly in Berlin's night. Welt kept the guard and set his day to 9–21, on a clock that matches Berlin's: he wakes at about a quarter past nine (the PC is on at nine) and the world sends him to bed at nine in the evening; the owl writes up the day at ten past nine the next morning. The morning rounds of the cast (Mr. Malhotra, Nidhi in Lodhi Gardens, Sunil, the dhobi, Shri Hegde as lodger) begin at half past nine. Built by Claude, with tests. The thought floor scales with the day: 20, where it was 30 (T10, the thesis floor, the Act 1 gate).
 
 ### T28 · Astra · move the shadow clock to the PC's day · OPEN
-Main now has the shorter day (`world/world.py`: `WAKE_M`, `BED_M`; `OWL_AT` defaults to 08:30). On the Pi, between two ticks:
+Main now has the day of nine to nine (`world/world.py`: `WAKE_M`, `BED_M`; `OWL_AT` defaults to 09:10). On the Pi, between two ticks:
 1. Merge main into `shadow` (a merge, never a rebase), fan files kept off.
-2. Set `HEGEL_CLOCK_SHIFT_MIN=1200` (it is 300): his clock runs half an hour ahead of Berlin, a day ahead in date. The jump is forward, fifteen hours, so the engine resumes as after any gap: no day is invented, he is picked up at home. Never set a shift that moves his clock back.
-3. Remove `OWL_AT` from the Pi's environment if it is set there, so the default of 08:30 holds.
+2. Set `HEGEL_CLOCK_SHIFT_MIN=1170` (it is 300): his clock shows Berlin's time (CET), a day ahead in date. The jump is forward, fourteen and a half hours, so the engine resumes as after any gap: no day is invented, he is picked up at home. Never set a shift that moves his clock back. (When Berlin goes to summer time on 28 March, his clock falls an hour behind Berlin's; that is a later decision.)
+3. Remove `OWL_AT` from the Pi's environment if it is set there, so the default of 09:10 holds.
 4. Read the Power Guard's rule without changing it: what starts its twelve hours (boot, logon, last input?), and what `awake.flag` does to it.
-**Done when:** shadow contains main's merge, the first natural tick after the change exits 0, and PR #1 has the guard's rule in a line. With the PC on by 08:00 Berlin, the owl writes at 08:00, he wakes at 08:30 and is in bed by 19:45, inside the guard's twelve hours.
+**Done when:** shadow contains main's merge, the first natural tick after the change exits 0, and PR #1 has the guard's rule in a line. With the PC on at 09:00 Berlin (not earlier: the guard would end his evening), the owl writes at 09:10, he wakes at about 09:15 and is in bed at 21:00, inside the guard's twelve hours.
 
 ### T27 · Astra · the Hegelizer's recipe 3: a diagnostic · OPEN
 Recipe 3 is on main (`818396c`): a copying reply is shown every stretch it copied, not only the first; a third ask; quotations are rewritten too. The check, the gate, the targets, the splits, the order and the seeds are unchanged. Training stays under the approval you hold and the runbook's gate.

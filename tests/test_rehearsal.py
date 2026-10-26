@@ -88,6 +88,7 @@ class Rehearsal(unittest.TestCase):
             for e in day["entries"]:
                 cash += {"bag": -e.get("price", 0), "expense": -e.get("amount", 0)}.get(e["k"], 0)
                 cash += e["amount"] if e["k"] == "income" and not e.get("cheque") else 0
+                cash += e.get("drawn", 0)                                   # a cheque cleared at the State Bank, drawn in Khan Market
                 self.assertGreaterEqual(cash, 0, (day["date"], e))
             self.assertEqual(cash, day["state"]["imprest"], day["date"])
             self.assertEqual(set(day["opening"]), {"imprest", "wearing", "wardrobe", "cash", "account", "owed", "cheques"})
@@ -130,7 +131,7 @@ class Rehearsal(unittest.TestCase):
         answers = [e for _, e in self.entries() if e["k"] in ("world", "file") and e["text"].startswith(("He agrees", "He accepts", "He declines", "He keeps", "Shri Hegde carries", "Shri Hegde picks"))]
         self.assertEqual(len(self.calls["choice"]), len(answers))                       # one yes-or-no call for every offer and for the Hegde gate, none more
         lessons = [(d["date"], e) for d in self.days for e in d["entries"] if e["k"] == "income" and e["item"] == "German lesson"]
-        self.assertGreaterEqual(len(lessons), 3)
+        self.assertGreaterEqual(len(lessons), 2)                                        # since he sleeps till nine he meets Nidhi later: the offer on day 15
         attended = [(d["date"], b) for d in self.days for b in d["state"]["beats"] if b.startswith("tutoring_german@")]
         for day, b in {(d, b) for d, b in attended if d == b.split("@")[1]}:
             self.assertIn(day, [x for x, _ in lessons], b)                              # on the day of every lesson he attended

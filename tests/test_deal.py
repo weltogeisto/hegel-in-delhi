@@ -142,8 +142,13 @@ class SensitiveTest(unittest.TestCase):
         said = "A matter of caste, said the Brahmin to the Hindu, and the empire agreed."
 
         class Racist(StubMind):
+            wrote = False
+
             def decide(self, messages, sit):
                 d = json.loads(super().decide(messages, sit))
+                if not self.wrote and d["action"] in ("read", "rest", "stay") and d["place"] == "home":
+                    d.update(action="write", minutes=60)                            # one sitting, whatever the stand-in's dice say
+                    self.wrote = True
                 d["thought"] += " This is a matter of race and caste."
                 d["revision"] = "The Oriental world is the childhood of mankind."
                 if sit["present"]:
