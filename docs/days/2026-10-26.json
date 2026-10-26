@@ -512,6 +512,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Writing at home."
+  },
+  {
+   "from": "19:13",
+   "to": "19:43",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -765,6 +772,34 @@
    "words": 347,
    "mode": "chat",
    "t": "18:13"
+  },
+  {
+   "k": "diary",
+   "text": "The sun has long since dismissed itself, and the air is thick with the haze that settles over Delhi like a shroud. I am at home, and Ramesh stands before me, the particular servant to my universal authority, though the boundary between master and servant blurs in this heat. The Hegde file remains unresolved, a knot of administrative error that must be untied before the night consumes the day's work. I shall not move; the evening is for reflection and the quiet ordering of the household.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    }
+   ],
+   "t": "19:13"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, the tea is good. But the matter of Shri Hegde’s card still hangs in the air. The Directorate’s error is a particular that must be sublated into the universal order of the state. Do you have the file with you, or must I summon the clerk again? The night is young, but the work is not finished.",
+   "to": "Ramesh",
+   "t": "19:13"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, the file is in the drawer, but the clerk is the one who handles the Directorate's errors, not me. I can make you a fresh plate of omelette and toast if you are still hungry, otherwise I will keep the tea warm.",
+   "t": "19:13"
   }
  ],
  "steps": [
@@ -1696,13 +1731,65 @@
      "text": "Addition. — The particular person is really a subordinate, who must devote his life to the service of the ethical fabric; when the state demands his life, he must yield it up. But should the man take his own life? Suicide may at first glance be looked upon as bravery, although it be the poor bravery of tailors and maid-servants."
     }
    ]
+  },
+  {
+   "t": "19:13",
+   "end": "19:43",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The sun has long since dismissed itself, and the air is thick with the haze that settles over Delhi like a shroud. I am at home, and Ramesh stands before me, the particular servant to my universal authority, though the boundary between master and servant blurs in this heat. The Hegde file remains unresolved, a knot of administrative error that must be untied before the night consumes the day's work. I shall not move; the evening is for reflection and the quiet ordering of the household.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 30,
+    "says": "Ramesh, the tea is good. But the matter of Shri Hegde’s card still hangs in the air. The Directorate’s error is a particular that must be sublated into the universal order of the state. Do you have the file with you, or must I summon the clerk again? The night is young, but the work is not finished.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Sir, the file is in the drawer, but the clerk is the one who handles the Directorate's errors, not me. I can make you a fresh plate of omelette and toast if you are still hungry, otherwise I will keep the tea warm.",
+    "does": "He glances at the drawer, then gestures towards the kitchen counter."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.5
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:130"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:746"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "Addition. — ^When we speak of right, we mean not only civil right, which is the usual significance of the word, but also morality, ethical observance and world-history. These belong to this -realm, because the conception taking them in their truth, brings them all together."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "The public service requires the sacrifice of independent self-satisfaction at one's pleasiire, and grants the right of finding satisfaction in the performance of duty, but nowhere else. Here is found the conjunction of universal and particular interests, a union which constitutes the conception and the internal stability of the state (§ 260)."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-26T19:13+05:30",
+  "until": "2026-10-26T19:43+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
