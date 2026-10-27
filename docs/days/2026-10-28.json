@@ -337,6 +337,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Shri G. Hegde at home."
+  },
+  {
+   "from": "09:59",
+   "to": "10:14",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -419,6 +426,34 @@
    "to": "Hegel",
    "text": "Salaam. The morning is fine, though the traffic on Tughlak Road was a nightmare this morning. Please, sit down; the tea is finally ready. We can certainly sort out the file, but let us not rush the formality before the clerk arrives to witness it.",
    "t": "09:44"
+  },
+  {
+   "k": "diary",
+   "text": "The man is courteous, but the formality is the point. I must separate the error in the allotment from the error in the household; if the state has made a mistake, it must be corrected with the same precision it applied in making it. I will sit, but I will not let the tea delay the logic.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§351"
+    }
+   ],
+   "t": "09:59"
+  },
+  {
+   "k": "said",
+   "text": "Salaam, Shri Hegde. Please, sit. The traffic is a matter of civil society's friction, which I expect here. As for the file, I am ready to draft the reply now. We need only the clerk's presence to witness the transfer of the keys and the correction of the record. Let us not allow the comfort of the hour to obscure the necessity of the correction.",
+   "to": "Shri G. Hegde",
+   "t": "09:59"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "You speak in circles, sir. I am here to take possession of the bungalow, not to draft your philosophical replies. Please, just get the clerk; I have a long drive back to the office after this.",
+   "t": "09:59"
   }
  ],
  "steps": [
@@ -518,13 +553,65 @@
      "text": "The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence. So also it is not a matter merely external and particular, the performance of which is intrusted to him."
     }
    ]
+  },
+  {
+   "t": "09:59",
+   "end": "10:14",
+   "event": "Shri G. Hegde says: “Salaam. The morning is fine, though the traffic on Tughlak Road was a nightmare this morning. Please, sit down; the tea is finally ready. We can certainly sort out the file, but let us not rush the formality before the clerk arrives to witness it.”",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The man is courteous, but the formality is the point. I must separate the error in the allotment from the error in the household; if the state has made a mistake, it must be corrected with the same precision it applied in making it. I will sit, but I will not let the tea delay the logic.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Salaam, Shri Hegde. Please, sit. The traffic is a matter of civil society's friction, which I expect here. As for the file, I am ready to draft the reply now. We need only the clerk's presence to witness the transfer of the keys and the correction of the record. Let us not allow the comfort of the hour to obscure the necessity of the correction.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "You speak in circles, sir. I am here to take possession of the bungalow, not to draft your philosophical replies. Please, just get the clerk; I have a long drive back to the office after this.",
+    "does": "Sips the tea and checks his phone."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.1
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "id": "haldane-1:832"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§351",
+     "id": "dyde-right:849"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "text": "Socrates explains this in the following way: “It appears to me to be as if some one were to say that Socrates performs all his actions with understanding, and then in going on to give the reasons for each of my actions, were to say that I sit here because my body consists of bones and muscles; the bones are fixed and have joints that divide them (διαφυὰς)…"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§351",
+     "text": "It is this feature of them which is significant in world-history. The concrete ideas, which embody the national minds or - Spirits, h as its truth in the concrete idea i n its absolute, jiniversality. This is the spirit of the world, around whose throne stand the other spirits as perfecters of its actuality, and witnesses and ornaments of its splendour.\""
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-28T09:59+05:30",
+  "until": "2026-10-28T10:14+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
