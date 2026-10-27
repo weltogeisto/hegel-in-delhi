@@ -470,6 +470,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "14:06",
+   "to": "14:16",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -1081,6 +1088,34 @@
    "to": "Hegel",
    "text": "Typo or no typo, sir, the computer doesn't know your file if you don't have the ID in hand. I can't let you past this gate just for the 'spirit'. Go to the office, get the correction done, and then come back with the paper.",
    "t": "13:56"
+  },
+  {
+   "k": "diary",
+   "text": "The guard is the mechanism of the state made flesh: he does not judge the error, he executes the rule. My spirit is trapped in the bureaucracy of a name that is not mine, a perfect illustration of how the ethical idea requires the external form of law to be actual. I must submit to the form to retrieve the content.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289"
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810"
+    }
+   ],
+   "t": "14:06"
+  },
+  {
+   "k": "said",
+   "text": "You are right. The law is the law. I will go to the office to rectify the record.",
+   "to": "the guard at the library and the programme officer",
+   "t": "14:06"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "That is the only way, sir. Office closes at five, so don't dawdle. Have a good evening.",
+   "t": "14:06"
   }
  ],
  "steps": [
@@ -2175,13 +2210,66 @@
      "text": "Aber an und für sich ist die Korporation keine geschlossene Zunft, sie ist vielmehr die Versittlichung des einzeln stehenden Gewerbes und sein Hinaufnehmen in einen Kreis, in dem es Stärke und Ehre gewinnt. (Die Idee des Staates.)"
     }
    ]
+  },
+  {
+   "t": "14:06",
+   "end": "14:16",
+   "event": "The guard at the library says: “Typo or no typo, sir, the computer doesn't know your file if you don't have the ID in hand. I can't let you past this gate just for the 'spirit'. Go to the office, get the correction done, and then come back with the paper.” He waves his pen dismissively and looks down at the logbook to avoid eye contact.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard is the mechanism of the state made flesh: he does not judge the error, he executes the rule. My spirit is trapped in the bureaucracy of a name that is not mine, a perfect illustration of how the ethical idea requires the external form of law to be actual. I must submit to the form to retrieve the content.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 10,
+    "says": "You are right. The law is the law. I will go to the office to rectify the record.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "That is the only way, sir. Office closes at five, so don't dawdle. Have a good evening.",
+    "does": "He closes the logbook and turns back to his desk."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.9
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "id": "dyde-right:737"
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810",
+     "id": "reden:58"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "text": "These subordinates are on one side executive ofiicers and on the other a college of advisers. These two meet together in the highest offices of all, which ai'e in contact with the monarch. Note. — The civic community is, as we saw, the arena for the contest of the private interests of all against all."
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810",
+     "text": "Studienanstalten sind Theils Institute des Unterrichts, nicht unmittelbar der Erziehung, Theils fangen sie nicht von den ersten Elementen der Bildung, weder der Erkenntniß, noch der Sitten, an."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-10-28T14:06+05:30",
+  "until": "2026-10-28T14:16+05:30",
   "asleep": false,
   "imprest": 3201,
   "wearing": "bandhgala",
