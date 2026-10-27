@@ -547,6 +547,13 @@
    "mode": "stand",
    "at": "safdarjung",
    "now": "Shopping at Safdarjung's Tomb."
+  },
+  {
+   "from": "17:36",
+   "to": "17:40",
+   "mode": "stand",
+   "at": "safdarjung",
+   "now": "At Safdarjung's Tomb."
   }
  ],
  "entries": [
@@ -1438,6 +1445,34 @@
    "item": "Entry ticket, foreign visitors",
    "price": 300,
    "t": "17:26"
+  },
+  {
+   "k": "diary",
+   "text": "Fourteen minutes. The spirit is impatient, but the body is bound by the clock. I shall walk quickly to the cenotaph, for the dome is the only thing in this country that speaks of permanence amidst the dust, and then I must retreat before the gate falls.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "First Division, Spinoza"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19"
+    }
+   ],
+   "t": "17:36"
+  },
+  {
+   "k": "said",
+   "text": "Fourteen minutes, then? I shall make them count. The stone does not care for your hurry, but I must respect the boundary of your institution.",
+   "to": "the ticket clerk",
+   "t": "17:36"
+  },
+  {
+   "k": "said",
+   "by": "The ticket clerk",
+   "to": "Hegel",
+   "text": "Fourteen minutes is plenty for a photo, sir. Just keep your phone ready and don't get lost in the philosophy, the lock doesn't care about your spirit.",
+   "t": "17:36"
   }
  ],
  "steps": [
@@ -3055,13 +3090,68 @@
      "text": "Die abstrakte allgemeine Persönlichkeit war noch nicht vorhanden, denn der Geist mußte sich erst zu dieser Form der abstrakten Allgemeinheit bilden, welche die harte Zucht über die Menschen ausgeübt hat. a KR Ve ARTEN ne N NY, RR ARTEN ER 662 Philosophie der Geschichte."
     }
    ]
+  },
+  {
+   "t": "17:36",
+   "end": "17:40",
+   "event": "The ticket clerk says: “Three hundred rupees, please. Don't think I'm going to let you wander around in there, the gate locks in fourteen minutes and there's no food inside, just stones.” Slides the ticket and change across the counter. Safdarjung's Tomb closes at 17:40.",
+   "present": [
+    "the ticket clerk"
+   ],
+   "decision": {
+    "thought": "Fourteen minutes. The spirit is impatient, but the body is bound by the clock. I shall walk quickly to the cenotaph, for the dome is the only thing in this country that speaks of permanence amidst the dust, and then I must retreat before the gate falls.",
+    "action": "stay",
+    "place": "safdarjung",
+    "minutes": 10,
+    "says": "Fourteen minutes, then? I shall make them count. The stone does not care for your hurry, but I must respect the boundary of your institution.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The ticket clerk",
+    "says": "Fourteen minutes is plenty for a photo, sir. Just keep your phone ready and don't get lost in the philosophy, the lock doesn't care about your spirit.",
+    "does": "She taps the counter and turns to face the next person in line."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.8,
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "First Division, Spinoza",
+     "id": "haldane-3:609"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "id": "wallace-logic:71"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "First Division, Spinoza",
+     "text": "The cause of his death was consumption, from which he had long been a sufferer; this was in harmony with his system of philosophy, according to which all particularity and individuality pass away in the one substance."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "text": "A slothful mind finds it natural to say: 'Don't let it be supposed that we mean to be in earnest with our philosophy. We shall be glad inter alia to study Logic: but Logic must be sure to leave us as we were before.' People have a feeling that, if thinking passes the ordinary range of our ideas and impressions, it cannot but be on the evil road."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "safdarjung",
-  "until": "2026-10-28T17:36+05:30",
+  "until": "2026-10-28T17:40+05:30",
   "asleep": false,
   "imprest": 2801,
   "wearing": "kurta",
