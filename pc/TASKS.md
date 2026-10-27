@@ -262,7 +262,7 @@ Phase B needs the card to itself for about 7 hours. He sleeps from 21:00 to 09:0
 ### T32 · Astra · code: the new test · DONE: built by Astra (`fb7eb80`), reviewed and merged to main by Claude with two fixes (tau recorded, not filtered; scan misreadings by spread)
 `tools/hegel_test.py`: the voice part of `pc/HEGELIZER-2.md` (KPIs 1 to 5): the 40 thoughts by the fixed rule, two arms, pairs in random order split into two sheets (Welt's 20, Claude's 20), Delta, the meaning check by plain Qwen, 12-word runs against the whole shelf, the bake-off with the restyle in place; and recall beyond input for the reconstruction diagnostic. Plus the runtime guard in `world/restyle.py`. Tests without a GPU.
 
-### T33 · Astra · phase 0: the pilot adapter on the new test · OPEN
+### T33 · Astra · phase 0: the pilot adapter on the new test · MOVED to the start of phase B's night: the live server carries no adapter, and his days stay whole during Act 1; phases 0, B and C together within the 10-hour cap
 Scales 1.0, 0.8 and 0.6. If the live server can carry the adapter at scale 0 with a per-request scale, without slowing his steps, run it in the spare slot during his day; otherwise wait for a window. Report the KPI table.
 
 ### T34 · Astra · phase A: the plain versions, round two · OPEN: about 14,700 versions, some 25 hours in the spare slot, so three days or so
