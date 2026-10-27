@@ -519,6 +519,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Shopping in Lodhi Gardens."
+  },
+  {
+   "from": "16:49",
+   "to": "16:59",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Walking the paths of Lodhi Gardens."
   }
  ],
  "entries": [
@@ -1277,6 +1284,34 @@
    "item": "Chai from the stall at the Lodhi Road gate",
    "price": 20,
    "t": "16:34"
+  },
+  {
+   "k": "diary",
+   "text": "She treats me as a fixture of the landscape, a lamppost, rather than a spirit in motion. But the chai is there, and the path is hers to keep clear; I will yield to the flow of the crowd. It is a small obedience, but it maintains the social fabric, even if it is merely a stall at the gate.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206"
+    }
+   ],
+   "t": "16:49"
+  },
+  {
+   "k": "said",
+   "text": "Yes, the path is yours. I shall follow the current.",
+   "to": "Mrs. Kapoor",
+   "t": "16:49"
+  },
+  {
+   "k": "said",
+   "by": "Mrs. Kapoor",
+   "to": "Hegel",
+   "text": "The current? Don't start with your poetry, beta. Just order your corn and stop blocking the footpath like a lamppost.",
+   "t": "16:49"
   }
  ],
  "steps": [
@@ -2668,13 +2703,68 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "16:49",
+   "end": "16:59",
+   "event": "Mrs. Kapoor says: “See? That is much better. Sit down, don't stand there blocking the path like a lamppost.” Mrs. Kapoor gestures toward the chai stall and continues walking toward it.",
+   "present": [
+    "Mrs. Kapoor, a retired schoolteacher"
+   ],
+   "decision": {
+    "thought": "She treats me as a fixture of the landscape, a lamppost, rather than a spirit in motion. But the chai is there, and the path is hers to keep clear; I will yield to the flow of the crowd. It is a small obedience, but it maintains the social fabric, even if it is merely a stall at the gate.",
+    "action": "stay",
+    "place": "lodhi",
+    "minutes": 10,
+    "says": "Yes, the path is yours. I shall follow the current.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Mrs. Kapoor",
+    "says": "The current? Don't start with your poetry, beta. Just order your corn and stop blocking the footpath like a lamppost.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.8,
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:643"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206",
+     "id": "dyde-right:491"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "The civil rights implied in it give rise to a feeling of self-respect, the sense of counting as a lawful person in the civic community. This feeling of being infinite and free from all Others is the root out of which springs the needed balance of the various kinds of thought and sentiment. The isolation with which the Jews have been blamed it is better to preserve."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206",
+     "text": "The recognition of the claim that whatever in the civic community and the state is rationally necessary should occur through subjective free choice is a fuller definition of the popular idea of freedom (§ 121). The particularity of the individual becomes definitely and actually realized, only by his limiting himself exclusively to one of the particular spheres of want."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-10-28T16:49+05:30",
+  "until": "2026-10-28T16:59+05:30",
   "asleep": false,
   "imprest": 3181,
   "wearing": "kurta",
