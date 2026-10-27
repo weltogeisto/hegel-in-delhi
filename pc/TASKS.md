@@ -250,7 +250,7 @@ Day 25 had 20 of 29 steps without a mind: from Sunday 21:18 UTC (his 08:03) to a
 
 Welt's go: improve the adapter and adjust the bar. The plan, the new KPIs and the order of work are in `pc/HEGELIZER-2.md`. Astra builds on its branch with tests; Claude reviews and merges to main.
 
-### Welt · the night and the cap for round two · OPEN
+### Welt · the night and the cap for round two · DECIDED 27 October, in Claude's chat: yes to both. Background work in the spare slot during his days, as long as his steps stay as fast as now; up to 10 hours (36,000 s) with the card to itself; one night with the Power Guard set later for phase B
 Phase B needs the card to itself for about 7 hours. He sleeps from 21:00 to 09:00, but the Power Guard turns the PC off at 21:00. One night with the guard set later (or off) costs him nothing; the alternative is to pause him for a day, which breaks Act 1's seven in a row. And the GPU cap for round two: about 10 hours with the card to itself, plus the spare slot during his days for phase A.
 
 ### T30 · Astra · code: the data, round two · DONE: built by Astra (`fb7eb80`), reviewed and merged to main by Claude with two fixes (tau recorded, not filtered; scan misreadings by spread)
@@ -268,7 +268,7 @@ Scales 1.0, 0.8 and 0.6. If the live server can carry the adapter at scale 0 wit
 ### T34 · Astra · phase A: the plain versions, round two · OPEN: about 14,700 versions, some 25 hours in the spare slot, so three days or so
 Recipe 4 over the whole corpus in the spare slot during his days, two workers at most, his step latency watched. The gate: failed under 10% of the units, mean ratio 0.8 to 1.2.
 
-### T35 · Astra · phase B and C: train, test, sheets · OPEN after T31, T34 and Welt's night
+### T35 · Astra · phase B and C: train, test, sheets · OPEN after T34. Tell Welt a day ahead which night; the Power Guard is set later for that night only and back to twelve hours the next morning (by Welt, unless you have found where it lives)
 Train in the night Welt grants; keep the best checkpoint by machine numbers; run the new test for it and for the control; send the two sheets (Welt's, Claude's) without the key. Restore plain Qwen before 09:00.
 
 ### Act 1 gate · seven full days in a row
