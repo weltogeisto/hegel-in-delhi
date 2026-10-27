@@ -575,6 +575,13 @@
    "mode": "walk",
    "a": "khan",
    "b": "home"
+  },
+  {
+   "from": "18:50",
+   "to": "19:50",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1575,6 +1582,21 @@
     }
    ],
    "t": "18:23"
+  },
+  {
+   "k": "diary",
+   "text": "The body complains of its own limitations, a concrete fact that resists the universal claim of the spirit. I have walked far enough for today; the dust of Delhi settles in the lungs and the feet. It is time to withdraw from the system of needs and the public gaze into the private sphere, where the individual will can rest. The bungalow offers the only refuge from the hazy, oppressive air.",
+   "shelf": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Methods of Science"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33"
+    }
+   ],
+   "t": "18:50"
   }
  ],
  "steps": [
@@ -3403,13 +3425,58 @@
      "text": "The civic community contains three elements: A. The recasting of want, and the satisfaction of the individual through his work, through the work of all others, and through the satisfaction of their wants. This is a system of wants. B. Actualization of the general freedom required for this, i.e., the protection of property by the administration of justice."
     }
    ]
+  },
+  {
+   "t": "18:50",
+   "end": "19:50",
+   "event": "You are tired.",
+   "present": [],
+   "decision": {
+    "thought": "The body complains of its own limitations, a concrete fact that resists the universal claim of the spirit. I have walked far enough for today; the dust of Delhi settles in the lungs and the feet. It is time to withdraw from the system of needs and the public gaze into the private sphere, where the individual will can rest. The bungalow offers the only refuge from the hazy, oppressive air.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 60,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.8
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Methods of Science",
+     "id": "bosanquet-art:73"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "id": "rechts:121"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Methods of Science",
+     "text": "We must understand this idea more profoundly and more in the concrete, for the emptiness of content which characterizes the Platonic idea is no longer satisfactory to the fuller philosophical wants of the mind of to-day."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-28T18:50+05:30",
+  "until": "2026-10-28T19:50+05:30",
   "asleep": false,
   "imprest": 2801,
   "wearing": "kurta",
@@ -3505,7 +3572,8 @@
    "hunger": 2,
    "tickets": [
     "safdarjung"
-   ]
+   ],
+   "tired": true
   },
   "account": {
    "advance": 15000,
