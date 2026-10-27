@@ -610,6 +610,13 @@
    "mode": "walk",
    "a": "khan",
    "b": "home"
+  },
+  {
+   "from": "20:57",
+   "to": "21:00",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -1702,6 +1709,34 @@
     }
    ],
    "t": "20:30"
+  },
+  {
+   "k": "diary",
+   "text": "Shri Hegde’s presence is an intrusion of the particular into the universal, a living contradiction of the clerical error that placed me here. He is a public servant, bound by duty and the state’s machinery, yet he is also a man with a wife and a car that smells of old files. His impatience is the friction between his private life and his public role, a tension that mirrors the broader struggle of the state to actualize the ethical idea in a land where the particular often overwhelms the universal. I must speak to him, not as a philosopher, but as a man who has been displaced by a mistake, and in doing so, I must navigate the delicate balance between asserting my own identity and acknowledging the reality of his position.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§256"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    }
+   ],
+   "t": "20:57"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, your presence here is a most curious coincidence, or rather, a clerical error of some magnitude. I am Hegel, not Hegde, though the similarity in our names has led to this most inconvenient mix-up. I understand you have a meeting, and I do not wish to cause you further distress. However, I must ask you to consider the implications of this error. The state, in its bureaucracy, has mistaken me for you, and in doing so, has placed me in a position that is both philosophically and practically challenging. I am here to understand this land, and your presence, however brief, offers a glimpse into the workings of the state that I am trying to comprehend. Perhaps we could exchange a few words, or perhaps you would prefer to depart without further delay. I am at your service, though I am not the man you seek.",
+   "to": "Shri G. Hegde",
+   "t": "20:57"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "I don't care about your philosophy, I care about my pension. I am Shri Hegde, this is my bungalow, and you are in my way. Call the Directorate's emergency line right now and get yourself out of here, I have a meeting in ten minutes.",
+   "t": "20:57"
   }
  ],
  "steps": [
@@ -3762,13 +3797,68 @@
      "text": "‘Auch daß es sich früh auf die Meerfahrt gelegt hat, ist schon erwähnt worden; die wesentliche Richtung dieses Staates ging auf das Meer, und damit verbunden auf Gewerbe und Handel. Doch war dies alles auf das andere Element der bürgerlichen Gesellschaft, den Ackerbau, gegründet; Ackerbau und Grundbesitz bildeten die Basis der Subsistenz."
     }
    ]
+  },
+  {
+   "t": "20:57",
+   "end": "21:00",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Shri Hegde’s presence is an intrusion of the particular into the universal, a living contradiction of the clerical error that placed me here. He is a public servant, bound by duty and the state’s machinery, yet he is also a man with a wife and a car that smells of old files. His impatience is the friction between his private life and his public role, a tension that mirrors the broader struggle of the state to actualize the ethical idea in a land where the particular often overwhelms the universal. I must speak to him, not as a philosopher, but as a man who has been displaced by a mistake, and in doing so, I must navigate the delicate balance between asserting my own identity and acknowledging the reality of his position.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Shri Hegde, your presence here is a most curious coincidence, or rather, a clerical error of some magnitude. I am Hegel, not Hegde, though the similarity in our names has led to this most inconvenient mix-up. I understand you have a meeting, and I do not wish to cause you further distress. However, I must ask you to consider the implications of this error. The state, in its bureaucracy, has mistaken me for you, and in doing so, has placed me in a position that is both philosophically and practically challenging. I am here to understand this land, and your presence, however brief, offers a glimpse into the workings of the state that I am trying to comprehend. Perhaps we could exchange a few words, or perhaps you would prefer to depart without further delay. I am at your service, though I am not the man you seek.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "I don't care about your philosophy, I care about my pension. I am Shri Hegde, this is my bungalow, and you are in my way. Call the Directorate's emergency line right now and get yourself out of here, I have a meeting in ten minutes.",
+    "does": "Shri Hegde checks his watch and looks pointedly at the door."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 13.9,
+    "warnings": [
+     "thought is very long"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§256",
+     "id": "dyde-right:578"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§256",
+     "text": "The country is the seat of the ethical, which rests upon nature. The one comprises the individuals, who gain their livelihood by virtue of their relation to other persons possessed of rights. The other comprises the family. The state is the true meaning and ground of both."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence. So also it is not a matter merely external and particular, the performance of which is intrusted to him."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-28T20:57+05:30",
+  "until": "2026-10-28T21:00+05:30",
   "asleep": false,
   "imprest": 2756,
   "wearing": "kurta",
