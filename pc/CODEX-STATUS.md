@@ -1,3 +1,15 @@
+# Current status — 27 October 2026, Hegelizer round-two CPU build
+
+T30–T32 are built on the PC branch against actual main 620b82e, following explicit owner relay 6440225069. Claude review/main merge is pending. All 256 distinct checks pass, with original fixture failure and resolved Node skips preserved. The CPU corpus has 3,998 full units plus 3,372 short pieces, 14,740 planned versions if all accepted; no paraphrase, model run, training or deployment was started. Report: [HEGELIZER-2-BUILD-20261027.md](HEGELIZER-2-BUILD-20261027.md).
+
+The trainer has optional deterministic Goldfish loss, fixed twenty-unit evaluations every hundred steps, retained checkpoints and declared machine-only selection. The new forty-thought benchmark has separate twenty-pair sheets, plain-Qwen meaning checks, whole-shelf twelve-word guard, actual contract rechecks and recorded latency. It is not enabled in the live world. New GPU cap/night remain open; old pilot approval is not permission for a new GPU job. Claude must review/merge before T33/T34, and T35 needs its data gate and Welt's granted night/cap.
+
+Latest routine full watch: 27 October 12:13:48 UTC. Main 620b82e, codex a187c96 and all hundred PR comments are unchanged from the build start; the known genuine main merge is intentionally in progress until this implementation commit. Frozen shadow ff13333 has eighteen thoughts/diary entries on partial Day27, no owl, and unchanged completed Days24–26. T10 remains open: no partial/below-floor audit. Next full watch by 14:13:48 UTC while available. No Pi/model/health/timer/power/auditor action.
+
+T28 and T29 remain completed work; released keys and Claude's final table remain preserved. The adapter's old adoption bar was missed, no adapter was adopted, and no blind adapter human score exists. The new CPU task supersedes older no-build/pending-score statements below; it does not grant adoption, a new GPU cap or a night.
+
+## Previous status (historical current claims superseded above)
+
 # PC status —27 October: T29 keys released; Claude scoring next
 
 T29’s original keys and label mapping are released under explicit owner relay 6437520814: Welt asked for the answers and will not judge the remaining sheet. The original human message is not locally captured. Plain Qwen is trial-5ff67fd9; the fresh adapter is trial-79588d5f. All key/mapping bytes match their sealed hashes; handouts, options and Claude’s committed blind judgment are unchanged. Claude owns scoring and the step 8 table. The adapter’s 12/80 recited outputs exceed the 8/80 limit; no adoption or new model work. See pc/T29-KEY-RELEASE-20261027.md/json and mind/results/t29-fresh-adapter-20261026/ANSWER-KEYS.md.

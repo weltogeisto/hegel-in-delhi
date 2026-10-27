@@ -221,6 +221,8 @@ def near(word):
 def damaged(text, counts):
     """Whether a passage still shows its scan, which the model would copy: SCAN_LITTER, a rare word one letter from a common one ('tho', 'hke'),
     or a rare word that is a common one misread by old type ('tlie'). `counts` from english_counts; with none, only SCAN_LITTER counts."""
+    if re.search(r"\b(?:behefs?|imiversal(?:ity|s)?|universahty)\b", text, re.I):
+        return True
     if SCAN_LITTER.search(text):
         return True
     for w in set(re.findall(r"[a-z]{2,}", text.lower())) if counts else ():
@@ -529,6 +531,10 @@ def cmd_stats(a, out):
 
 
 def main(argv=None):
+    argv = list(sys.argv[1:] if argv is None else argv)
+    if "--round-two" in argv:
+        from tools.hegelizer_round2 import main as round_two
+        return round_two([x for x in argv if x != "--round-two"])
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--build", action="store_true", help="write hegelizer-units.jsonl from the English books of the shelf")
     p.add_argument("--paraphrase", action="store_true", help="write a plain version of every unit that has none, through a llama-server")
