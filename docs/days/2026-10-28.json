@@ -568,6 +568,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with Masterji and Sunil at Khan Market."
+  },
+  {
+   "from": "18:23",
+   "to": "18:50",
+   "mode": "walk",
+   "a": "khan",
+   "b": "home"
   }
  ],
  "entries": [
@@ -1553,6 +1560,21 @@
    "to": "Hegel",
    "text": "The coat is in Sunder Nagar, not here. He wants twelve thousand cash, no bargaining. As for books? Go to the stationery shop next door. I cut cloth, I do not write philosophy.",
    "t": "18:08"
+  },
+  {
+   "k": "diary",
+   "text": "Masterji’s refusal is a boundary of the system: he deals in cloth, not in the universal. The coat at twelve thousand rupees is a particular want I cannot satisfy with my current cash, and the books are merely particular objects, not the movement of the spirit itself. I have spent the day walking and observing; the body is tired, and the air is thick with dust and the closing of markets. It is time to return to the particular that is my home and let the day rest.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188"
+    }
+   ],
+   "t": "18:23"
   }
  ],
  "steps": [
@@ -3332,13 +3354,62 @@
     }
    ],
    "beat": "sell_frock_again"
+  },
+  {
+   "t": "18:23",
+   "end": "18:50",
+   "event": "Masterji says: “The coat is in Sunder Nagar, not here. He wants twelve thousand cash, no bargaining. As for books? Go to the stationery shop next door. I cut cloth, I do not write philosophy.” Masterji taps his measuring tape against the counter and looks away.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Masterji’s refusal is a boundary of the system: he deals in cloth, not in the universal. The coat at twelve thousand rupees is a particular want I cannot satisfy with my current cash, and the books are merely particular objects, not the movement of the spirit itself. I have spent the day walking and observing; the body is tired, and the air is thick with dust and the closing of markets. It is time to return to the particular that is my home and let the day rest.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 6.5
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1189"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "id": "dyde-right:464"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "Anything further is meaningless, and is left to chance and to opinion; in modern times, for instance, old-fashioned clothing had a meaning in relation to patriotism. The cut of my coat is decided by fashion, and the tailor sees to this; it is not my business to invent it, for mercifully others have done so for me."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "text": "The civic community contains three elements: A. The recasting of want, and the satisfaction of the individual through his work, through the work of all others, and through the satisfaction of their wants. This is a system of wants. B. Actualization of the general freedom required for this, i.e., the protection of property by the administration of justice."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-10-28T18:23+05:30",
+  "place": "home",
+  "until": "2026-10-28T18:50+05:30",
   "asleep": false,
   "imprest": 2801,
   "wearing": "kurta",
@@ -3429,8 +3500,8 @@
      "clerk"
     ]
    },
-   "walked": 9375,
-   "strain": 9375,
+   "walked": 11400,
+   "strain": 11400,
    "hunger": 2,
    "tickets": [
     "safdarjung"
