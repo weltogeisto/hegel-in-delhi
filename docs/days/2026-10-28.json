@@ -36,7 +36,7 @@
     "aqi": 187
    },
    {
-    "temp": 19,
+    "temp": 18,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 188
@@ -73,7 +73,13 @@
    },
    {
     "temp": 25,
-    "sky": "clear, hazy",
+    "sky": "partly cloudy, hazy",
+    "rain": 0,
+    "aqi": 188
+   },
+   {
+    "temp": 26,
+    "sky": "mostly clear, hazy",
     "rain": 0,
     "aqi": 188
    },
@@ -90,20 +96,14 @@
     "aqi": 188
    },
    {
-    "temp": 29,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 188
-   },
-   {
-    "temp": 29,
+    "temp": 28,
     "sky": "mostly clear, hazy",
     "rain": 0,
     "aqi": 187
    },
    {
-    "temp": 29,
-    "sky": "clear, hazy",
+    "temp": 28,
+    "sky": "mostly clear, hazy",
     "rain": 0,
     "aqi": 186
    },
@@ -126,31 +126,31 @@
     "aqi": 182
    },
    {
-    "temp": 25,
+    "temp": 24,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 180
    },
    {
     "temp": 24,
-    "sky": "partly cloudy, hazy",
+    "sky": "clear, hazy",
     "rain": 0,
     "aqi": 182
    },
    {
     "temp": 23,
-    "sky": "clear, hazy",
+    "sky": "partly cloudy, hazy",
     "rain": 0,
     "aqi": 186
    },
    {
-    "temp": 22,
+    "temp": 23,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 188
    },
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 188
@@ -323,16 +323,122 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "09:19",
+   "to": "09:44",
+   "mode": "inside",
+   "at": "home",
+   "now": "Reading at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Prabhu Deva, Simran reunite for ‘Kamal Sridevi’, produced by Soundarya Rajinikanth” · “Cyclone Arnab Tracker Live Updates: Odisha, Andhra Pradesh shut schools, ban fishing as storm approaches eastern coast” · “Counting of votes begins for North-East Teachers’ constituency in Karnataka Council elections”",
+   "t": "09:19"
+  },
+  {
+   "k": "plan",
+   "items": [
+    {
+     "time": "09:25",
+     "intention": "Read the newspapers on the step to gauge the state of the world and the local storm."
+    },
+    {
+     "time": "09:45",
+     "intention": "Draft a formal reply to Shri Hegde regarding the clerical error in the allotment file."
+    },
+    {
+     "time": "10:15",
+     "intention": "Walk to the Indian Institute of Culture to observe the spiritual dimension of this land."
+    },
+    {
+     "time": "12:30",
+     "intention": "Return home to rest and reflect on the tension between caste and statehood."
+    },
+    {
+     "time": "16:00",
+     "intention": "Visit Lodhi Gardens to sit among the tombs and contemplate the transience of rule."
+    }
+   ],
+   "sensitive": true,
+   "why": "caste",
+   "topic": "caste",
+   "t": "09:19"
+  },
+  {
+   "k": "diary",
+   "text": "The air is thick with dust, a physical manifestation of the stagnation I observe in the social order. The headlines speak of a storm and a reunion, but the true turbulence is in the file on my desk: Shri Hegde's card is a small, concrete object that anchors the abstract error of the state. I must address it before the day's heat forces a retreat into the abstract.",
+   "sensitive": true,
+   "why": "stagnation",
+   "topic": "the ranking of peoples",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, Egypt"
+    }
+   ],
+   "t": "09:19"
+  }
+ ],
+ "steps": [
+  {
+   "t": "09:19",
+   "end": "09:44",
+   "event": "You wake. Clear, hazy, 23 °C. The papers lie on the step where the hawker threw them. Headlines: Prabhu Deva, Simran reunite for ‘Kamal Sridevi’, produced by Soundarya Rajinikanth; Cyclone Arnab Tracker Live Updates: Odisha, Andhra Pradesh shut schools, ban fishing as storm approaches eastern coast; Counting of votes begins for North-East Teachers’ constituency in Karnataka Council elections.",
+   "present": [],
+   "decision": {
+    "thought": "The air is thick with dust, a physical manifestation of the stagnation I observe in the social order. The headlines speak of a storm and a reunion, but the true turbulence is in the file on my desk: Shri Hegde's card is a small, concrete object that anchors the abstract error of the state. I must address it before the day's heat forces a retreat into the abstract.",
+    "action": "read",
+    "place": "home",
+    "minutes": 25,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 13.1
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "id": "sibree-history:278"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, Egypt",
+     "id": "sibree-history:654"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "text": "Bather, these two divisions are most decidedly distinct from each other: North America shews us on approaching it, along its eastern shore a wide border of level coast, behind which is stretched a chain of mountains — the blue mountains or Apalachians; further north the Alleghanies."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, Egypt",
+     "text": "These two are strictly connected,— the position of the Sun and that of the Nile; and to the Egyptian this is all in all. The Nile is that which essentially determines the boundaries of the country; beyond the Nile-valley begins the desert; on the north, Egypt is shut in by the sea, and on the south by torrid heat."
+    }
+   ]
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-28T09:19+05:30",
-  "asleep": true,
+  "until": "2026-10-28T09:44+05:30",
+  "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
   "wardrobe": [
@@ -398,7 +504,12 @@
    }
   ],
   "depesche_n": 1,
-  "today": {},
+  "today": {
+   "woke": "09:19",
+   "seen": {
+    "home": []
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -521,7 +632,8 @@
     "2026-10-24",
     "2026-10-25",
     "2026-10-26",
-    "2026-10-27"
+    "2026-10-27",
+    "2026-10-28"
    ],
    "lodhi": [
     "2026-10-02",
@@ -637,5 +749,30 @@
    "hegde_call"
   ],
   "commissions": []
+ },
+ "plan": {
+  "written": "09:19",
+  "items": [
+   {
+    "time": "09:25",
+    "intention": "Read the newspapers on the step to gauge the state of the world and the local storm."
+   },
+   {
+    "time": "09:45",
+    "intention": "Draft a formal reply to Shri Hegde regarding the clerical error in the allotment file."
+   },
+   {
+    "time": "10:15",
+    "intention": "Walk to the Indian Institute of Culture to observe the spiritual dimension of this land."
+   },
+   {
+    "time": "12:30",
+    "intention": "Return home to rest and reflect on the tension between caste and statehood."
+   },
+   {
+    "time": "16:00",
+    "intention": "Visit Lodhi Gardens to sit among the tombs and contemplate the transience of rule."
+   }
+  ]
  }
 }
