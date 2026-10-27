@@ -603,6 +603,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "20:30",
+   "to": "20:57",
+   "mode": "walk",
+   "a": "khan",
+   "b": "home"
   }
  ],
  "entries": [
@@ -1680,6 +1687,21 @@
    "item": "Budget document",
    "price": 45,
    "t": "20:27"
+  },
+  {
+   "k": "diary",
+   "text": "The bookseller is right to call it skin; the budget is the body, the newspaper the face, and I have bought the face to read the expression. The market is closing, the shutters falling, and with them the civil society’s day ends. I must return to the bungalow, where the state’s error waits in the file like a stone in a shoe.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§533"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die griechische Welt, Athen"
+    }
+   ],
+   "t": "20:30"
   }
  ],
  "steps": [
@@ -3695,13 +3717,58 @@
      "text": "c. The unity and truth of these two abstract elements. The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance."
     }
    ]
+  },
+  {
+   "t": "20:30",
+   "end": "20:57",
+   "event": "The bookseller says: “Budget document? That's not a book, bhai, it's just a PDF on my phone. You want a newspaper for forty-five? Fine, here's one, but don't say I didn't warn you it's just skin.” He slides a folded newspaper across the counter and starts gathering the loose change from the register. Khan Market is closing. You must leave.",
+   "present": [],
+   "decision": {
+    "thought": "The bookseller is right to call it skin; the budget is the body, the newspaper the face, and I have bought the face to read the expression. The market is closing, the shutters falling, and with them the civil society’s day ends. I must return to the bungalow, where the state’s error waits in the file like a stone in a shoe.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.0
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§533",
+     "id": "wallace-mind:288"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die griechische Welt, Athen",
+     "id": "welt-3:251"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§533",
+     "text": "In civil society the sole end is to satisfy want—and that, because it is man’s want, in a uniform general way, so as to secure this satisfaction. But the machinery of social necessity leaves in many ways a casualness about this satisfaction. This is due to the variability of the wants themselves, in which opinion and subjective good-pleasure play a great part."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die griechische Welt, Athen",
+     "text": "‘Auch daß es sich früh auf die Meerfahrt gelegt hat, ist schon erwähnt worden; die wesentliche Richtung dieses Staates ging auf das Meer, und damit verbunden auf Gewerbe und Handel. Doch war dies alles auf das andere Element der bürgerlichen Gesellschaft, den Ackerbau, gegründet; Ackerbau und Grundbesitz bildeten die Basis der Subsistenz."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-10-28T20:30+05:30",
+  "place": "home",
+  "until": "2026-10-28T20:57+05:30",
   "asleep": false,
   "imprest": 2756,
   "wearing": "kurta",
@@ -3792,8 +3859,8 @@
      "clerk"
     ]
    },
-   "walked": 13425,
-   "strain": 13425,
+   "walked": 15450,
+   "strain": 15450,
    "hunger": 2,
    "tickets": [
     "safdarjung"
