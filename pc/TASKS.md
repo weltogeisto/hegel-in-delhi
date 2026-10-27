@@ -253,21 +253,19 @@ Welt's go: improve the adapter and adjust the bar. The plan, the new KPIs and th
 ### Welt · the night and the cap for round two · OPEN
 Phase B needs the card to itself for about 7 hours. He sleeps from 21:00 to 09:00, but the Power Guard turns the PC off at 21:00. One night with the guard set later (or off) costs him nothing; the alternative is to pause him for a day, which breaks Act 1's seven in a row. And the GPU cap for round two: about 10 hours with the card to itself, plus the spare slot during his days for phase A.
 
-### T30 · Astra · code: the data, round two · BUILT — Claude review/main pending
+### T30 · Astra · code: the data, round two · DONE: built by Astra (`fb7eb80`), reviewed and merged to main by Claude with two fixes (tau recorded, not filtered; scan misreadings by spread)
 `tools/hegelizer.py`: `damaged()` catches h-for-li misreadings ("behef", "imiversal", "universahty"); recipe 4 = recipe 3 + the diversity filter (word overlap with the original at most 60%, Kendall's tau of the shared words at most 0.5) + two plain versions per unit + short pieces (a third of the units also cut into 1–3 sentences, 40–120 words). New file names for round two; the pilot's files stay as they are. Tests without a GPU.
 
-### T31 · Astra · code: the trainer, round two · BUILT — Claude review/main pending
+### T31 · Astra · code: the trainer, round two · DONE: built by Astra (`fb7eb80`), reviewed and merged to main by Claude with two fixes (tau recorded, not filtered; scan misreadings by spread)
 `pc/train_hegel.py --phase restyle`: the goldfish loss as an option (k=4, the left-out quarter chosen by a hash of the preceding 13 tokens); an evaluation every 100 steps on 20 held-out units (loss, Delta, recall beyond input) and the best checkpoint kept by those numbers; effective batch 8. Tests without a GPU.
 
-### T32 · Astra · code: the new test · BUILT — Claude review/main pending
+### T32 · Astra · code: the new test · DONE: built by Astra (`fb7eb80`), reviewed and merged to main by Claude with two fixes (tau recorded, not filtered; scan misreadings by spread)
 `tools/hegel_test.py`: the voice part of `pc/HEGELIZER-2.md` (KPIs 1 to 5): the 40 thoughts by the fixed rule, two arms, pairs in random order split into two sheets (Welt's 20, Claude's 20), Delta, the meaning check by plain Qwen, 12-word runs against the whole shelf, the bake-off with the restyle in place; and recall beyond input for the reconstruction diagnostic. Plus the runtime guard in `world/restyle.py`. Tests without a GPU.
 
-CPU build report: [HEGELIZER-2-BUILD-20261027.md](HEGELIZER-2-BUILD-20261027.md). All 256 distinct focused/compatibility checks pass; no model phase has started. The rebuilt full plus short corpus has 7,370 units (14,740 planned versions), so review workload/cap before phase A. T30–T32 await Claude review and merge; phase gates below remain in force.
-
-### T33 · Astra · phase 0: the pilot adapter on the new test · OPEN after T32 is on main
+### T33 · Astra · phase 0: the pilot adapter on the new test · OPEN
 Scales 1.0, 0.8 and 0.6. If the live server can carry the adapter at scale 0 with a per-request scale, without slowing his steps, run it in the spare slot during his day; otherwise wait for a window. Report the KPI table.
 
-### T34 · Astra · phase A: the plain versions, round two · OPEN after T30 is on main
+### T34 · Astra · phase A: the plain versions, round two · OPEN: about 14,700 versions, some 25 hours in the spare slot, so three days or so
 Recipe 4 over the whole corpus in the spare slot during his days, two workers at most, his step latency watched. The gate: failed under 10% of the units, mean ratio 0.8 to 1.2.
 
 ### T35 · Astra · phase B and C: train, test, sheets · OPEN after T31, T34 and Welt's night

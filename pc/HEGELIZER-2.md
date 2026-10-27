@@ -38,14 +38,14 @@ The 40 thoughts are picked by a fixed rule, not by anyone's taste: the first 40 
 
 **A. Data: all of it, cleaned, varied, and the right length.**
 - All units of the ten books, not 220: about 3,900 for training once the held-out and blind passages are set aside.
-- Scan damage out: `damaged()` misses misreadings like "behef", "imiversal" and "universahty" (h for li). Catch them, and rebuild the units.
-- Two plain versions per unit, from different seeds and temperatures: about 7,800 pairs.
-- A diversity filter like STRAP's, on top of the eight-word rule: a plain version whose words overlap the original by more than 60%, or that keeps more than half of the shared words in their original order (Kendall's tau above 0.5), is asked again.
+- Scan damage out: `damaged()` misses misreadings like "behef", "imiversal" and "universahty" (h for li). They are common in Baillie's Phenomenology ("behef" 92 times, "hfe" 129), so a test of rarity cannot see them; `misreadings()` finds them by their spread instead (in at most three books, while the true word is in four more). It drops about 170 units, nearly all Baillie's.
+- Two plain versions per unit, from different seeds and temperatures. With the short pieces that makes about 7,400 units and 14,700 versions (T30's build: 3,998 full units and 3,372 short pieces, before the scan clean-up below), twice what this plan first counted.
+- A diversity filter like STRAP's, on top of the eight-word rule: a plain version whose words overlap the original by more than 60% is asked again. *Corrected in review:* this plan also capped the shared words' order (Kendall's tau at 0.5), but across a whole passage the kept order of the argument holds tau high; on round one's 206 accepted pairs the median is 0.61 and only 24 would pass. STRAP measured single sentences. Tau is recorded, not filtered; the overlap cap passes 178 of the 206 and pushes on the closest ones.
 - Short pieces: about a third of the units also cut into pieces of one to three sentences (40 to 120 words), because his thoughts are that long and the pilot never saw an input so short.
 
 **B. A guard against learning the targets by heart.** The goldfish loss (Hans et al., NeurIPS 2024): a fixed quarter of each target's tokens, chosen by a hash of the words before them, is left out of the loss, so no passage can be learned verbatim. It costs a little loss and, in the paper, nothing on benchmarks.
 
-**C. Steps, not epochs.** One epoch over about 7,800 pairs is about 490 optimizer steps at an effective batch of 16, against the pilot's 24. Evaluate every 100 steps on 20 held-out units (loss, Delta, recall beyond input), and keep the best checkpoint by those machine numbers alone.
+**C. Steps, not epochs.** One epoch over about 14,700 pairs is about 1,800 optimizer steps at an effective batch of 8, against the pilot's 24. That is more than a night holds, so the run is capped (`--max-steps-restyle`) at what the dry run's projection fits into seven hours, evaluations included; the steps seen are a random part of the epoch. Evaluate every 100 steps on 20 held-out units (loss, Delta, recall beyond input), and keep the best checkpoint by those machine numbers alone.
 
 **D. Settings.** Keep rank 16, α 32, 2e-4 and all layers. Effective batch 8 instead of 16, since LoRA does better with moderate batches (Thinking Machines). One optional second arm at rank 32 if the first run's projection leaves time.
 
@@ -58,7 +58,7 @@ The 40 thoughts are picked by a fixed rule, not by anyone's taste: the first 40 
 | Phase | What | GPU | When |
 |---|---|---|---|
 | 0 | The pilot adapter on the new test, at scales 1.0, 0.8 and 0.6 | about 1 hour | if the live server can carry the adapter at scale 0 with a per-request scale, during his day in the spare slot; otherwise in a window |
-| A | About 7,800 plain versions with recipe 4 | about 15 hours in one slot | in the spare slot during his days, two or three days, provided his steps stay as fast as now |
+| A | About 14,700 plain versions with recipe 4 | about 25 hours in one slot (short pieces are quick) | in the spare slot during his days, three days or so, provided his steps stay as fast as now |
 | B | The training run, with its evaluations | about 7 hours, the card to itself | **one night**: he sleeps from 21:00 to 09:00, but the Power Guard turns the PC off at 21:00 |
 | C | The new test for the best checkpoint and the control; the sheets for Welt and Claude | about 2 hours | as phase 0 |
 

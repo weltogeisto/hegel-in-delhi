@@ -1,3 +1,13 @@
+# Current status — 27 October 2026, reviewed T30 corpus rebuild
+
+Claude reviewed and merged T30–T32 to actual main e13f27e (PR review 6442304679), with tau recorded rather than filtered and scan misreadings detected by spread across books. Those canonical source files are integrated with real parents; the new CPU rebuild has 3,747 full + 3,180 short units, 6,927 total and 13,854 planned versions. Every retained full target is exact; all 26 affected checks pass. Report: [T30-REVIEWED-REBUILD-20261027.md](T30-REVIEWED-REBUILD-20261027.md).
+
+The earlier 7,370-unit corpus and all pilot/raw/CSV/result evidence remain preserved. The new round-two GPU cap/night are still open with Welt. No paraphrase, model evaluation, training, deployment or power action has started. T33/T34's code/main gate is satisfied; actual cap/window, zero-scale routing and natural-step latency conditions still apply. Phase B must fit its measured dry-run projection into seven hours including evaluations. No old approval, controller or cleanup is reused.
+
+Latest full raw-day snapshot remains 12:13:48 UTC, shadow ff13333: Day27 is partial with eighteen exact thoughts/diary entries and no owl; T10 remains open. The 13:19 owner/main read is a review read and does not reset the full-watch deadline of 14:13:48 UTC while available. No status-only acknowledgment or publication is needed after this material rebuild.
+
+## Previous status (historical current claims superseded above)
+
 # Current status — 27 October 2026, Hegelizer round-two CPU build
 
 T30–T32 are built on the PC branch against actual main 620b82e, following explicit owner relay 6440225069. Claude review/main merge is pending. All 256 distinct checks pass, with original fixture failure and resolved Node skips preserved. The CPU corpus has 3,998 full units plus 3,372 short pieces, 14,740 planned versions if all accepted; no paraphrase, model run, training or deployment was started. Report: [HEGELIZER-2-BUILD-20261027.md](HEGELIZER-2-BUILD-20261027.md).

@@ -46,7 +46,8 @@ class DiversityTest(unittest.TestCase):
 
     def test_filters_are_independent_and_boundaries_inclusive(self):
         self.assertIn("word overlap above 0.60", r2.diversity("a b c d", "d c b a")["problems"])
-        self.assertIn("shared-word Kendall tau above 0.50", r2.diversity("a b c d", "a b x y")["problems"])
+        kept = r2.diversity("a b c d e f g h i j", "a b c d k l m n o p")                     # order kept, half the words new
+        self.assertEqual((kept["kendall_tau"], kept["problems"]), (1.0, []))              # tau is recorded, not a reason to ask again
         self.assertEqual(r2.diversity(original(), version())["problems"], [])
 
     def test_exact_overlap_and_tau_boundaries_pass(self):

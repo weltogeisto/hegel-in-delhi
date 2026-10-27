@@ -68,8 +68,8 @@ def diversity(original, plain):
     problems = []
     if overlap > 0.60:
         problems.append("word overlap above 0.60")
-    if tau > 0.50:
-        problems.append("shared-word Kendall tau above 0.50")
+    # tau is recorded, not filtered: across a whole passage the kept order of the argument holds it high (round one's 206 pairs: median 0.61,
+    # only 24 at or below 0.50), so a cap would reject faithful versions. STRAP measured single sentences. Claude, reviewing T30.
     return {"unigram_f1": overlap, "kendall_tau": tau, "problems": problems}
 
 
