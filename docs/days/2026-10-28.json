@@ -330,6 +330,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Reading at home."
+  },
+  {
+   "from": "09:44",
+   "to": "09:59",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -384,6 +391,34 @@
     }
    ],
    "t": "09:19"
+  },
+  {
+   "k": "diary",
+   "text": "Shri Hegde stands in the doorway, the man to whom this bungalow rightfully belongs. The clerical error is no longer an abstraction; it is a living presence demanding its correction. I must address him with the courtesy due to a fellow subject of the state, acknowledging the confusion while asserting my own dignity, for the state is the actuality of the ethical idea, and its servants must act with precision.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Roman World"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    }
+   ],
+   "t": "09:44"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, I trust the morning has treated you well. I have reviewed the file you left, and I see the discrepancy in the names. It appears a simple clerical error has displaced me into your allotted residence. I am prepared to discuss the transfer of this property to its rightful owner at your earliest convenience, provided we can do so with the due formality that the State requires.",
+   "to": "Shri G. Hegde",
+   "t": "09:44"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Salaam. The morning is fine, though the traffic on Tughlak Road was a nightmare this morning. Please, sit down; the tea is finally ready. We can certainly sort out the file, but let us not rush the formality before the clerk arrives to witness it.",
+   "t": "09:44"
   }
  ],
  "steps": [
@@ -431,13 +466,65 @@
      "text": "These two are strictly connected,— the position of the Sun and that of the Nile; and to the Egyptian this is all in all. The Nile is that which essentially determines the boundaries of the country; beyond the Nile-valley begins the desert; on the north, Egypt is shut in by the sea, and on the south by torrid heat."
     }
    ]
+  },
+  {
+   "t": "09:44",
+   "end": "09:59",
+   "event": "Shri G. Hegde is here.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Shri Hegde stands in the doorway, the man to whom this bungalow rightfully belongs. The clerical error is no longer an abstraction; it is a living presence demanding its correction. I must address him with the courtesy due to a fellow subject of the state, acknowledging the confusion while asserting my own dignity, for the state is the actuality of the ethical idea, and its servants must act with precision.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Shri Hegde, I trust the morning has treated you well. I have reviewed the file you left, and I see the discrepancy in the names. It appears a simple clerical error has displaced me into your allotted residence. I am prepared to discuss the transfer of this property to its rightful owner at your earliest convenience, provided we can do so with the due formality that the State requires.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Salaam. The morning is fine, though the traffic on Tughlak Road was a nightmare this morning. Please, sit down; the tea is finally ready. We can certainly sort out the file, but let us not rush the formality before the clerk arrives to witness it.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.4
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Roman World",
+     "id": "sibree-history:871"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Roman World",
+     "text": "In considering the Roman World, we have not to do with a concretely spiritual life, rich in itself; but the world-historical element in it is the abstractum of Universality, and the object which is pursued with soulless and heartless severity, is mere dominion, in order to enforce that abstractum."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence. So also it is not a matter merely external and particular, the performance of which is intrusted to him."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-28T09:44+05:30",
+  "until": "2026-10-28T09:59+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
@@ -507,7 +594,9 @@
   "today": {
    "woke": "09:19",
    "seen": {
-    "home": []
+    "home": [
+     "hegde"
+    ]
    }
   },
   "account": {
@@ -711,7 +800,8 @@
     "2026-10-23",
     "2026-10-24",
     "2026-10-25",
-    "2026-10-26"
+    "2026-10-26",
+    "2026-10-28"
    ]
   },
   "refused": {},
