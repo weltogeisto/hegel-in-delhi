@@ -421,6 +421,13 @@
    "mode": "walk",
    "a": "khan",
    "b": "iic"
+  },
+  {
+   "from": "12:56",
+   "to": "13:06",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -826,6 +833,44 @@
    "status": "Worn from 12:46.",
    "sprite": "bandhgala",
    "t": "12:46"
+  },
+  {
+   "k": "world",
+   "text": "The programme officer tells him that the Yamuna Review, a Delhi magazine, would pay ₹6,000 in cash for an essay.",
+   "t": "12:56"
+  },
+  {
+   "k": "world",
+   "text": "He declines: the pages are not for sale.",
+   "t": "12:56"
+  },
+  {
+   "k": "diary",
+   "text": "The officer speaks of a payment for my thoughts. It is a contradiction to sell the spirit for the coin of civil society, yet the spirit must have a body to speak with, and my body is hungry after eighteen hours of fasting. I shall sit and write, if only to see what this 'Yamuna Review' thinks of the dialectic, and perhaps to secure the means to sustain this accidental existence.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§523"
+    }
+   ],
+   "t": "12:56"
+  },
+  {
+   "k": "said",
+   "text": "Tell me more of this editor. Does he expect me to speak of the lotus or the river, or does he wish to know how the state actualizes itself in the midst of such heat? I am open to the negotiation, provided the air here does not turn to poison before I have finished my first paragraph.",
+   "to": "the guard at the library and the programme officer",
+   "t": "12:56"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Bhai, I am just the guard, I do not know the editor's mind. But the AC is running full blast, so the heat is not a problem inside. Please show your ID at the counter first.",
+   "t": "12:56"
   }
  ],
  "steps": [
@@ -1545,13 +1590,67 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "12:56",
+   "end": "13:06",
+   "event": "You arrive at India International Centre. It closes at 21:30. The programme officer has heard about your pages. An editor at the Yamuna Review, a Delhi magazine, would pay ₹6,000 in cash for an essay of yours, on your next sitting of at least three hundred words.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The officer speaks of a payment for my thoughts. It is a contradiction to sell the spirit for the coin of civil society, yet the spirit must have a body to speak with, and my body is hungry after eighteen hours of fasting. I shall sit and write, if only to see what this 'Yamuna Review' thinks of the dialectic, and perhaps to secure the means to sustain this accidental existence.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 10,
+    "says": "Tell me more of this editor. Does he expect me to speak of the lotus or the river, or does he wish to know how the state actualizes itself in the midst of such heat? I am open to the negotiation, provided the air here does not turn to poison before I have finished my first paragraph.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Bhai, I am just the guard, I do not know the editor's mind. But the AC is running full blast, so the heat is not a problem inside. Please show your ID at the counter first.",
+    "does": "Points a thumb towards the security desk."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.4
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution",
+     "id": "sibree-history:1383"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§523",
+     "id": "wallace-mind:272"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution",
+     "text": "On these principles private rights were on the one hand despotically contravened, but on the other hand such contravention was the instrument of carrying out the general objects of the State in opposition to mere positive or pre- scriptive claims."
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§523",
+     "text": "The possibility of satisfying these wants is here laid on the social fabric, the general stock from which all derive their satisfaction. In the condition of things in which this method of satisfaction by indirect adjustment is realised, immediate seizure (§ 488) of external objects as means thereto exists barely or not at all: the objects are already property."
+    }
+   ],
+   "beat": "essay_fee"
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-10-28T12:56+05:30",
+  "until": "2026-10-28T13:06+05:30",
   "asleep": false,
   "imprest": 3201,
   "wearing": "bandhgala",
@@ -1598,7 +1697,8 @@
    "bandhgala_ready",
    "sell_frock",
    "hegde_gate",
-   "hegde_card"
+   "hegde_card",
+   "essay_fee"
   ],
   "flags": {
    "bandhgala": "collected",
@@ -1628,6 +1728,10 @@
      "bookseller",
      "masterji",
      "sunil"
+    ],
+    "iic": [
+     "guard",
+     "officer"
     ]
    },
    "walked": 2775,
@@ -1788,6 +1892,9 @@
    ],
    "gym": [
     "2026-10-02"
+   ],
+   "iic": [
+    "2026-10-28"
    ]
   },
   "owed": [],
