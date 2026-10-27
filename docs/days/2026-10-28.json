@@ -449,6 +449,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "13:31",
+   "to": "13:41",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -976,6 +983,34 @@
    "to": "Hegel",
    "text": "Sir, the library is the big white building right there, not this gate. Go to the main entrance and ask for the reference section. I can't just let you wander in without your entry pass.",
    "t": "13:21"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s obstruction is the form of the state made visible in its most trivial aspect: a gate, a book, a pen. I am not a subject to be counted, but a spirit seeking the universal in its local manifestation. I shall comply with the procedure, for the procedure is the reality of the ethical idea, however small.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Second Division"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    }
+   ],
+   "t": "13:31"
+  },
+  {
+   "k": "said",
+   "text": "I understand, sir. The distinction between the gate and the house is one of form, but I accept the necessity of the form. I shall proceed to the main entrance as indicated. Thank you for your diligence.",
+   "to": "the guard at the library and the programme officer",
+   "t": "13:31"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Chalo, no time for philosophy, sir. Just get your pass sorted at the desk and don't loiter near the gate.",
+   "t": "13:31"
   }
  ],
  "steps": [
@@ -1911,13 +1946,66 @@
      "text": "A slothful mind finds it natural to say: 'Don't let it be supposed that we mean to be in earnest with our philosophy. We shall be glad inter alia to study Logic: but Logic must be sure to leave us as we were before.' People have a feeling that, if thinking passes the ordinary range of our ideas and impressions, it cannot but be on the evil road."
     }
    ]
+  },
+  {
+   "t": "13:31",
+   "end": "13:41",
+   "event": "The guard at the library says: “Sir, the library is the big white building right there, not this gate. Go to the main entrance and ask for the reference section. I can't just let you wander in without your entry pass.” He points a pen towards the main entrance and scribbles something in his logbook.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s obstruction is the form of the state made visible in its most trivial aspect: a gate, a book, a pen. I am not a subject to be counted, but a spirit seeking the universal in its local manifestation. I shall comply with the procedure, for the procedure is the reality of the ethical idea, however small.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 10,
+    "says": "I understand, sir. The distinction between the gate and the house is one of form, but I accept the necessity of the form. I shall proceed to the main entrance as indicated. Thank you for your diligence.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Chalo, no time for philosophy, sir. Just get your pass sorted at the desk and don't loiter near the gate.",
+    "does": "He waves his pen dismissively and turns back to his logbook."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.3
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Second Division",
+     "id": "haldane-3:730"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:650"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Second Division",
+     "text": "Idea here signifies both the ordinary conception and thought; we understand something quite different by the word idea. “It is in the first place then to be inquired, how he comes by them” (these ideas)? Innate ideas have already been refuted. “Let us then suppose the mind to be, as we say, white paper, void of all characters, without any ideas; how comes it to be furnished?..."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "That which is peculiarly ethical falls beyond its reach. Now it is a matter of history that there have been barbaric times and circumstances, in which all high spiritual matters had their seat in the church, and the state was only a worldly rule of for6e, lawlessness, and passion. Abstract opposition was then the main principle of actuality (§ 358)."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-10-28T13:31+05:30",
+  "until": "2026-10-28T13:41+05:30",
   "asleep": false,
   "imprest": 3201,
   "wearing": "bandhgala",
