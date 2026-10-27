@@ -491,6 +491,20 @@
    "mode": "walk",
    "a": "lodhi",
    "b": "home"
+  },
+  {
+   "from": "14:44",
+   "to": "15:04",
+   "mode": "walk",
+   "a": "home",
+   "b": "lodhi"
+  },
+  {
+   "from": "15:04",
+   "to": "16:04",
+   "mode": "stand",
+   "at": "lodhi",
+   "now": "Resting in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -1165,6 +1179,21 @@
    "status": "Worn from 14:16.",
    "sprite": "kurta",
    "t": "14:16"
+  },
+  {
+   "k": "diary",
+   "text": "The haze is a philosophical condition: the particular obscured by the universal, or perhaps the universal reduced to a particular grime. I am at Lodhi, the destination of my 16:00 plan, but it is only 14:44. The tombs of the Sayyids and Lodis are static; they do not move. I am a man who moves, and my body is tired from the walk and the heat. I will sit on a bench near the entrance and let the afternoon pass before I commit to the contemplation of transience.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§552"
+    }
+   ],
+   "t": "14:44"
   }
  ],
  "steps": [
@@ -2402,13 +2431,58 @@
      ]
     ]
    }
+  },
+  {
+   "t": "14:44",
+   "end": "16:04",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [],
+   "decision": {
+    "thought": "The haze is a philosophical condition: the particular obscured by the universal, or perhaps the universal reduced to a particular grime. I am at Lodhi, the destination of my 16:00 plan, but it is only 14:44. The tombs of the Sayyids and Lodis are static; they do not move. I am a man who moves, and my body is tired from the walk and the heat. I will sit on a bench near the entrance and let the afternoon pass before I commit to the contemplation of transience.",
+    "action": "rest",
+    "place": "lodhi",
+    "minutes": 60,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.1
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273",
+     "id": "dyde-right:681"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§552",
+     "id": "wallace-mind:358"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273",
+     "text": "Note. — The perfecting of the state into a constitutional monarchy is the work of the modern world, in which the substantive idea has attained the infinite form."
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§552",
+     "text": "But if the truly moral life is to be a sequel of religion, then perforce religion must have the genuine content; i.e. the idea of God it knows must be the true and real. The ethical life is the divine spirit as indwelling in self-consciousness, as it is actually present in a nation and its individual members."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-10-28T14:44+05:30",
+  "place": "lodhi",
+  "until": "2026-10-28T16:04+05:30",
   "asleep": false,
   "imprest": 3201,
   "wearing": "kurta",
@@ -2493,8 +2567,8 @@
     ],
     "lodhi": []
    },
-   "walked": 4875,
-   "strain": 4875,
+   "walked": 6375,
+   "strain": 6375,
    "hunger": 1
   },
   "account": {
