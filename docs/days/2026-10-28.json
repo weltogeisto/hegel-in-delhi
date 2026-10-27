@@ -540,6 +540,13 @@
    "mode": "walk",
    "a": "lodhi",
    "b": "safdarjung"
+  },
+  {
+   "from": "17:26",
+   "to": "17:36",
+   "mode": "stand",
+   "at": "safdarjung",
+   "now": "Shopping at Safdarjung's Tomb."
   }
  ],
  "entries": [
@@ -1396,6 +1403,40 @@
    "k": "bag",
    "item": "Roasted corn on the cob",
    "price": 40,
+   "t": "17:26"
+  },
+  {
+   "k": "diary",
+   "text": "The gate closes in fourteen minutes, and the spirit must not be shut out with the body. I am a foreign visitor in the eyes of the state, so the ticket is three hundred rupees, a small price to pay for the particularity of a Mughal tomb. The corn is finished; the hunger remains, but the curiosity is sharper.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die römische Welt"
+    }
+   ],
+   "t": "17:26"
+  },
+  {
+   "k": "said",
+   "text": "I shall take the entry ticket, foreign visitor rate, if you please. The corn is gone; the hunger, however, is a matter of the body, not the spirit.",
+   "to": "the ticket clerk",
+   "t": "17:26"
+  },
+  {
+   "k": "said",
+   "by": "The ticket clerk",
+   "to": "Hegel",
+   "text": "Three hundred rupees, please. Don't think I'm going to let you wander around in there, the gate locks in fourteen minutes and there's no food inside, just stones.",
+   "t": "17:26"
+  },
+  {
+   "k": "bag",
+   "item": "Entry ticket, foreign visitors",
+   "price": 300,
    "t": "17:26"
   }
  ],
@@ -2957,15 +2998,72 @@
      "text": "The fault of all these modes of thought and systems is that they stop short of defining substance as subject and as mind. These systems and modes of pictorial conception originate from the one need common to all philosophies and all religions of getting an idea of God, and, secondly, of the relationship of God and the world."
     }
    ]
+  },
+  {
+   "t": "17:26",
+   "end": "17:36",
+   "event": "Mrs. Kapoor says: “Less philosophy, more chewing. If you finish that corn in one bite, I might believe you've moved on.” You arrive at Safdarjung's Tomb. It closes at 17:40. You are very hungry.",
+   "present": [
+    "the ticket clerk"
+   ],
+   "decision": {
+    "thought": "The gate closes in fourteen minutes, and the spirit must not be shut out with the body. I am a foreign visitor in the eyes of the state, so the ticket is three hundred rupees, a small price to pay for the particularity of a Mughal tomb. The corn is finished; the hunger remains, but the curiosity is sharper.",
+    "action": "buy",
+    "place": "safdarjung",
+    "minutes": 10,
+    "says": "I shall take the entry ticket, foreign visitor rate, if you please. The corn is gone; the hunger, however, is a matter of the body, not the spirit.",
+    "buys": [
+     {
+      "item": "Entry ticket, foreign visitors",
+      "price_inr": 300
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The ticket clerk",
+    "says": "Three hundred rupees, please. Don't think I'm going to let you wander around in there, the gate locks in fourteen minutes and there's no food inside, just stones.",
+    "does": "Slides the ticket and change across the counter."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.2
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "id": "haldane-3:1108"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die römische Welt",
+     "id": "welt-3:342"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "text": "There is no man so foolish as that philosophy; when a man feels hungry, he does not call up the imagination of food, but sets about satisfying his hunger. All activity is a conception which does not yet exist, but whose subjectivity is abrogated."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die römische Welt",
+     "text": "Die abstrakte allgemeine Persönlichkeit war noch nicht vorhanden, denn der Geist mußte sich erst zu dieser Form der abstrakten Allgemeinheit bilden, welche die harte Zucht über die Menschen ausgeübt hat. a KR Ve ARTEN ne N NY, RR ARTEN ER 662 Philosophie der Geschichte."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "safdarjung",
-  "until": "2026-10-28T17:26+05:30",
+  "until": "2026-10-28T17:36+05:30",
   "asleep": false,
-  "imprest": 3101,
+  "imprest": 2801,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -3049,11 +3147,17 @@
     ],
     "lodhi": [
      "kapoor"
+    ],
+    "safdarjung": [
+     "clerk"
     ]
    },
    "walked": 7275,
    "strain": 7275,
-   "hunger": 1
+   "hunger": 2,
+   "tickets": [
+    "safdarjung"
+   ]
   },
   "account": {
    "advance": 15000,
@@ -3190,6 +3294,13 @@
      "item": "Roasted corn on the cob",
      "price": 40,
      "office": false
+    },
+    {
+     "date": "2026-10-28",
+     "t": "17:26",
+     "item": "Entry ticket, foreign visitors",
+     "price": 300,
+     "office": false
     }
    ],
    "admitted": 0,
@@ -3234,6 +3345,9 @@
     "2026-10-02"
    ],
    "iic": [
+    "2026-10-28"
+   ],
+   "safdarjung": [
     "2026-10-28"
    ]
   },
