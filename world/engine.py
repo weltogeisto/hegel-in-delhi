@@ -12,7 +12,7 @@ import random
 import time
 from datetime import date, datetime, timedelta
 
-from . import contract, lookup, owl, shelf, voices, works
+from . import contract, lookup, owl, report, shelf, voices, works
 from .clock import day_number, fmt, hm, long_date, minute_of, sun
 from .memory import Memory, encountered_text
 from .money import ADVANCE
@@ -25,6 +25,9 @@ log = logging.getLogger("world")
 MAX_DECISIONS = 8
 SHELF_MEMORY = 6                # steps of the day in which a passage of the shelf is not offered again
 CHOICE_SCHEMA = {"type": "object", "properties": {"answer": {"type": "string", "enum": ["yes", "no"]}}, "required": ["answer"]}
+
+
+ECHO_LINE = "Already said today, more than once: {phrases}. Find other words, or another thought."
 
 
 class Days:
@@ -165,6 +168,10 @@ class Engine:
         sit, ctx = self.world.situation(t, st, day, prev)
         if not getattr(self.cfg, "thesis_reminders", True):
             sit["on_mind"] = [line for line in sit.get("on_mind", []) if not line.startswith("Your theses: ")]
+        if getattr(self.cfg, "echo_guard", False):        # T36, arm B: what he has said too often today, shown back to him
+            said = report.echoes([s["decision"]["thought"] for s in day["steps"] if "decision" in s and s["decision"].get("thought")])
+            if said:
+                sit.setdefault("on_mind", []).append(ECHO_LINE.format(phrases=", ".join(f"“{p}”" for p in said)))
         remember = self.memory.recall(sit, ctx, day)
         if remember:
             sit["remember"] = remember
