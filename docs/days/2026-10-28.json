@@ -428,6 +428,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "13:06",
+   "to": "13:16",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -871,6 +878,34 @@
    "to": "Hegel",
    "text": "Bhai, I am just the guard, I do not know the editor's mind. But the AC is running full blast, so the heat is not a problem inside. Please show your ID at the counter first.",
    "t": "12:56"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s refusal to engage with the spirit of the place, reducing it to a mechanical exchange of paper for passage, is the petty particularity that clogs the universal. I must submit to this minor friction to access the library, for the heat outside is a particular sensation that distracts from the universal truth of the text. I will present my credentials, though I find the whole apparatus of bureaucracy here to be a strange, inverted dialectic where the state watches the individual rather than the individual embodying the state.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§257"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    }
+   ],
+   "t": "13:06"
+  },
+  {
+   "k": "said",
+   "text": "Please, take my identity card. I am not a thief, but a philosopher seeking the silence of the books. Where is the counter?",
+   "to": "the guard at the library and the programme officer",
+   "t": "13:06"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Counter is right there, straight ahead by the entrance, bhai. Don't worry, we just scan it, no big deal. Just hand it over and wait for the code.",
+   "t": "13:06"
   }
  ],
  "steps": [
@@ -1644,13 +1679,66 @@
     }
    ],
    "beat": "essay_fee"
+  },
+  {
+   "t": "13:06",
+   "end": "13:16",
+   "event": "The guard at the library says: “Bhai, I am just the guard, I do not know the editor's mind. But the AC is running full blast, so the heat is not a problem inside. Please show your ID at the counter first.” Points a thumb towards the security desk.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s refusal to engage with the spirit of the place, reducing it to a mechanical exchange of paper for passage, is the petty particularity that clogs the universal. I must submit to this minor friction to access the library, for the heat outside is a particular sensation that distracts from the universal truth of the text. I will present my credentials, though I find the whole apparatus of bureaucracy here to be a strange, inverted dialectic where the state watches the individual rather than the individual embodying the state.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 10,
+    "says": "Please, take my identity card. I am not a thief, but a philosopher seeking the silence of the books. Where is the counter?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Counter is right there, straight ahead by the entrance, bhai. Don't worry, we just scan it, no big deal. Just hand it over and wait for the code.",
+    "does": "Points his chin towards the security desk near the main doors."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.0
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§257",
+     "id": "dyde-right:582"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:34"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§257",
+     "text": "It is the objective spirit, and he has his truth, real existence, and ethical status only in teing a member of it. Union, as such, is itself the true content and end, since the individual is intended to pass a universal life. His particular satisfactions, activities, and way of life have in this authenticated substantive principle their origin and result."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "In this hate bitterness of mind finds the greatest pleasure, as it can in no other way attain to a feeling of self-esteem. This treatise, in so far as it contains a political science, is nothing more than an attempt to conceive of and present the state as in itself rational. As a philosophic writing it must be on its guard against constructing a state as it ought to be."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-10-28T13:06+05:30",
+  "until": "2026-10-28T13:16+05:30",
   "asleep": false,
   "imprest": 3201,
   "wearing": "bandhgala",
