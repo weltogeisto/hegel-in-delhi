@@ -442,6 +442,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "At the IIC."
+  },
+  {
+   "from": "13:21",
+   "to": "13:31",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -941,6 +948,34 @@
    "to": "Hegel",
    "text": "Requisite formality, ha. Okay, go ahead, don't make me shout from the gate.",
    "t": "13:16"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s dismissal is the friction of the mechanical against the spiritual; he sees a code, I see a threshold. I must pass through this outer shell to reach the inner substance, which is the only place where the Idea can be grasped. The hazy air is thick with the dust of unexamined life, but the library offers a space where thought can clear itself.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19"
+    }
+   ],
+   "t": "13:21"
+  },
+  {
+   "k": "said",
+   "text": "I am here to observe the spiritual dimension of the land. Please direct me to the library.",
+   "to": "the guard at the library and the programme officer",
+   "t": "13:21"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Sir, the library is the big white building right there, not this gate. Go to the main entrance and ask for the reference section. I can't just let you wander in without your entry pass.",
+   "t": "13:21"
   }
  ],
  "steps": [
@@ -1823,13 +1858,66 @@
      "text": "Note. — It is a very distorted account of the matter when the state, in demanding sacrifices from the citizens, is taken to be simply the civic community, whose object is merely the security of life and property. Security cannot possibly be obtained by the sacrifice of what is to be secured."
     }
    ]
+  },
+  {
+   "t": "13:21",
+   "end": "13:31",
+   "event": "The guard at the library says: “Requisite formality, ha. Okay, go ahead, don't make me shout from the gate.” He gestures vaguely towards the security desk and turns back to his logbook.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s dismissal is the friction of the mechanical against the spiritual; he sees a code, I see a threshold. I must pass through this outer shell to reach the inner substance, which is the only place where the Idea can be grasped. The hazy air is thick with the dust of unexamined life, but the library offers a space where thought can clear itself.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 10,
+    "says": "I am here to observe the spiritual dimension of the land. Please direct me to the library.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Sir, the library is the big white building right there, not this gate. Go to the main entrance and ask for the reference section. I can't just let you wander in without your entry pass.",
+    "does": "He points a pen towards the main entrance and scribbles something in his logbook."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.3
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "id": "wallace-logic:71"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "c. The unity and truth of these two abstract elements. The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "text": "A slothful mind finds it natural to say: 'Don't let it be supposed that we mean to be in earnest with our philosophy. We shall be glad inter alia to study Logic: but Logic must be sure to leave us as we were before.' People have a feeling that, if thinking passes the ordinary range of our ideas and impressions, it cannot but be on the evil road."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-10-28T13:21+05:30",
+  "until": "2026-10-28T13:31+05:30",
   "asleep": false,
   "imprest": 3201,
   "wearing": "bandhgala",
