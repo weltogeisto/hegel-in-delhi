@@ -561,6 +561,13 @@
    "mode": "walk",
    "a": "safdarjung",
    "b": "khan"
+  },
+  {
+   "from": "18:08",
+   "to": "18:23",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Talking with Masterji and Sunil at Khan Market."
   }
  ],
  "entries": [
@@ -1508,6 +1515,44 @@
    "to": "Hegel",
    "text": "Good evening, sir. Hurry up, the gate is locking and I have to close the window.",
    "t": "17:40"
+  },
+  {
+   "k": "world",
+   "text": "Masterji says the dealer in Sunder Nagar still asks after the frock coat: ₹12,000 in cash.",
+   "t": "18:08"
+  },
+  {
+   "k": "world",
+   "text": "He keeps the coat.",
+   "t": "18:08"
+  },
+  {
+   "k": "diary",
+   "text": "The gate is closing, and with it the possibility of contemplation in the tombs; I must turn to the system of needs. Masterji has the coat, a particular necessity that stands in the way of my universal dignity, and the bookseller may offer a text to combat the haze. I shall speak to the tailor first, for a man is what he wears, and I intend to be a philosopher in full regalia.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "18:08"
+  },
+  {
+   "k": "said",
+   "text": "Masterji, you have the coat? I require it for the evening. And the bookseller, do you have anything on the nature of the state that is not merely a pamphlet?",
+   "to": "Masterji and Sunil",
+   "t": "18:08"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "The coat is in Sunder Nagar, not here. He wants twelve thousand cash, no bargaining. As for books? Go to the stationery shop next door. I cut cloth, I do not write philosophy.",
+   "t": "18:08"
   }
  ],
  "steps": [
@@ -3232,13 +3277,68 @@
      "text": "The family is the first basis of the state, and classes or estates are the second. This second is of con- sequence because private persons, through self-seeking, are compelled to turn themselves out towards others. This is the linkhy which self-seeking is joined to the universal or the state, whose care it must be to keep the connection strong and steadfast."
     }
    ]
+  },
+  {
+   "t": "18:08",
+   "end": "18:23",
+   "event": "The ticket clerk says: “Good evening, sir. Hurry up, the gate is locking and I have to close the window.” She points a pen at the closing time on the board. You arrive at Khan Market. It closes at 20:30. Masterji has not forgotten the frock coat. The dealer in Sunder Nagar still asks after it: ₹12,000, in cash.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The gate is closing, and with it the possibility of contemplation in the tombs; I must turn to the system of needs. Masterji has the coat, a particular necessity that stands in the way of my universal dignity, and the bookseller may offer a text to combat the haze. I shall speak to the tailor first, for a man is what he wears, and I intend to be a philosopher in full regalia.",
+    "action": "talk",
+    "place": "khan",
+    "minutes": 15,
+    "says": "Masterji, you have the coat? I require it for the evening. And the bookseller, do you have anything on the nature of the state that is not merely a pamphlet?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Masterji",
+    "says": "The coat is in Sunder Nagar, not here. He wants twelve thousand cash, no bargaining. As for books? Go to the stationery shop next door. I cut cloth, I do not write philosophy.",
+    "does": "Masterji taps his measuring tape against the counter and looks away."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 12.6
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ],
+   "beat": "sell_frock_again"
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-10-28T18:08+05:30",
+  "until": "2026-10-28T18:23+05:30",
   "asleep": false,
   "imprest": 2801,
   "wearing": "kurta",
@@ -3596,7 +3696,9 @@
     "2026-10-28"
    ]
   },
-  "refused": {},
+  "refused": {
+   "sell_frock_again": "2026-10-28"
+  },
   "tech": {
    "phone": false,
    "sim": false
