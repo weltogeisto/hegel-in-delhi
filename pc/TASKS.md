@@ -271,6 +271,18 @@ Recipe 4 over the whole corpus in the spare slot during his days, two workers at
 ### T35 · Astra · phase B and C: train, test, sheets · OPEN after T34. Tell Welt a day ahead which night; the Power Guard is set later for that night only and back to twelve hours the next morning (by Welt, unless you have found where it lives)
 Train in the night Welt grants; keep the best checkpoint by machine numbers; run the new test for it and for the control; send the two sheets (Welt's, Claude's) without the key. Restore plain Qwen before 09:00.
 
+## Wednesday 28 October (his clock): repetition
+
+Day 27, his first full day on the new hours, was strong (39 thoughts, 39 of 41 waking steps with the mind, eight people met) and still missed Act 1 on a loop: at 14:24 the mind wrote the same thought three times, and the world refused it each time. T10 measured his repetition for the first time: 26 of 39 thoughts reuse a phrase from earlier that day (67%; Day 12 had 69%), most of all "the friction of" and "the system of needs". Above T10's 55%, so T9's variant comes now, with a second one beside it. Welt's go, 27 October.
+
+### T36 · Astra · repetition: a fixed-day A/B of two switches · OPEN
+Main has two switches, both off (`c29db5e`): **B**, the echo guard (`HEGEL_ECHO_GUARD=1`): the phrases he has used more than once today, by T9's rule (`report.echoes`), shown back to him as "Already said today". **C**, the DRY sampler (`HEGEL_DECISION_DRY=0.8`): llama.cpp penalises continuing a run of words already in the context, on the decision call only (base 1.75, runs of three tokens free).
+1. First check that the server applies DRY on the chat endpoint: one request with it, and its generation settings (or a `/completion` echo) must show the multiplier. If the server ignores it, report and run A and B only.
+2. Frozen inputs, named before running: Day 12 and Day 27, plus T9's two rehearsal days; each replayed step by step from its saved situations, as in T3, three seeds, the same seeds for every arm. Arm A is main with both switches off.
+3. Per arm, per day and pooled: the **echo share** (new thoughts that reuse a phrase, by `report.grams`, from the earlier thoughts in their own prompt); the repetition refusals; the truth audit as in T3 (contradictions and statements as fact per 100 sentences); and 20 thoughts per arm, shuffled and unlabelled, for Claude's blind scores (argument and voice, 1 to 5, committed with their hash before the key).
+**Passes, for B and for C against A:** the echo share falls by at least a third; contradictions at most 0.3 and statements as fact at most 0.5 per 100 sentences above A; argument and voice at most 0.25 below A. If both pass, B and C together on Day 27 with three seeds, against the better one. The winner goes on the Pi's environment; nothing goes live that has not passed.
+**GPU:** the spare slot during his days, within Welt's background allowance, his steps as fast as now; alongside phase A or after it.
+
 ### Act 1 gate · seven full days in a row
 On each of seven consecutive days: at least 20 thoughts (since 26 October; it was 30); quiet steps at most 5% of waking steps; the owl wrote; no refusal loop; at most 1.6 contradictions and 3.1 statements as fact per 100 sentences; repetition measured (T10 on the first). Claude checks it in the daily review (T11) and writes the Act 2 tasks when it passes.
 

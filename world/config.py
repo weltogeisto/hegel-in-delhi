@@ -75,6 +75,10 @@ class Config:
         if not 0 <= self.owl_reasoning_tokens <= 2048:
             raise ValueError("HEGEL_OWL_REASONING_TOKENS must be from 0 to 2048")
         self.thesis_reminders = v.get("HEGEL_THESIS_REMINDERS", "1") not in ("0", "no", "false", "")
+        self.echo_guard = v.get("HEGEL_ECHO_GUARD", "0").strip().lower() in ("1", "yes", "true")       # T36 arm B; off until it passes the ratchet
+        self.decision_dry = float(v.get("HEGEL_DECISION_DRY", "0") or 0)                                # T36 arm C: the DRY sampler's multiplier, 0 off
+        if not 0 <= self.decision_dry <= 2:
+            raise ValueError("HEGEL_DECISION_DRY must be from 0 to 2")
         self.write_mode = "plain" if v.get("HEGEL_WRITE_MODE", "chat").strip().lower() == "plain" else "chat"      # his writings: the chat call (default), or a plain-text completion
 
     def get(self, key, default=None):
