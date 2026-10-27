@@ -351,6 +351,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Shri G. Hegde at home."
+  },
+  {
+   "from": "10:24",
+   "to": "10:34",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -489,6 +496,34 @@
    "to": "Hegel",
    "text": "Save it for your file, sir. I don't need a lecture on machinery, I need the keys and the signed papers before the office starts calling. Get the clerk.",
    "t": "10:14"
+  },
+  {
+   "k": "diary",
+   "text": "The man is practical to the point of vulgarity, mistaking the administrative act for the ethical substance. I shall not debate the machinery with a man who only wants the handle to the lock. The clerk will come; the file will be signed; the state will assert its right through the document.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316"
+    }
+   ],
+   "t": "10:24"
+  },
+  {
+   "k": "said",
+   "text": "You are correct, Shri Hegde. The abstract must become concrete. I shall send for the clerk to rectify the record and issue the keys. The machinery follows the law; it does not precede it.",
+   "to": "Shri G. Hegde",
+   "t": "10:24"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Whatever it is, just send the boy. I've got a two-hour drive to Dwarka before the traffic chokes completely.",
+   "t": "10:24"
   }
  ],
  "steps": [
@@ -692,13 +727,65 @@
      "text": "Die Feudalherrschaft ist eine Polyarchie: es sind lauter Herren und Knechte. In der Monarchie dagegen ist einer Herr und keiner Knecht, denn die Knechtschaft ist durch sie gebrochen, und in ihr gilt das Recht und das Gesetz; aus ihr geht die reelle Freiheit hervor. ‚Die Dynasten werden Staatsbeamte und bilden ein Staatswesen, das einen Zusammenhang in sich hat."
     }
    ]
+  },
+  {
+   "t": "10:24",
+   "end": "10:34",
+   "event": "Shri G. Hegde says: “Save it for your file, sir. I don't need a lecture on machinery, I need the keys and the signed papers before the office starts calling. Get the clerk.” Sets the teacup down on the saucer with a sharp clink.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The man is practical to the point of vulgarity, mistaking the administrative act for the ethical substance. I shall not debate the machinery with a man who only wants the handle to the lock. The clerk will come; the file will be signed; the state will assert its right through the document.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "You are correct, Shri Hegde. The abstract must become concrete. I shall send for the clerk to rectify the record and issue the keys. The machinery follows the law; it does not precede it.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Whatever it is, just send the boy. I've got a two-hour drive to Dwarka before the traffic chokes completely.",
+    "does": "Checks the time on his phone."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.7
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics",
+     "id": "haldane-2:595"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316",
+     "id": "rechts:1044"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics",
+     "text": "Then Zeno also visited Stilpo, a Megaric, whom we already know about (Vol. I. p. 464), and with whom he studied dialectic for ten years. Philosophy was considered as the business of his life, and of his whole life, and not studied as it is by a student who hurries through his lectures on Philosophy in order to hasten on to something else."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316",
+     "text": "Was sich wirklich im Staate geltend macht, muß sich freilich auf organische Weise betätigen, und dies ist in der Verfassung der Fall. Aber zu allen Zeiten war die öffentliche Meinung eine große Macht und ist es besonders in unserer Zeit, wo das Prinzip der subjektiven Freiheit diese Wichtigkeit und Bedeutung hat."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-28T10:24+05:30",
+  "until": "2026-10-28T10:34+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
