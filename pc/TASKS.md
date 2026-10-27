@@ -203,7 +203,7 @@ From 1 November his household costs about ₹17,600 a month, and the world offer
 Merge main into `shadow` on the Pi, as in T22, between two ticks, fan files kept off. It carries the ways out Welt chose (`pc/ECONOMY-20261025.md`): Ramesh part-time, Mr. Saxena's letter and the bank account, the fortnightly column and the frock asked again. They must be on the Pi before 1 November (his Day 31), when the wage falls due.
 **Done when:** shadow contains `f76483e`, and a natural tick exits 0.
 
-### T24 · Astra · the thesis floor, and Day 24's move undone · DONE: shadow f12e387, natural16:06:04UTC exit0; Day25 state unshaken, India/Day24 owl preserved
+### T24 · Astra · the thesis floor, and Day 24's move undone · DONE: shadow `f12e387`; Day 25 shows `state` unshaken, Day 24's owl record untouched
 Day 24's owl moved `state` from unshaken to shaken on a day of 5 thoughts and 29 steps without a mind (`b47e316`). Main now holds the floor (`f469dfc`): a day with fewer than 30 thoughts moves no thesis, and the night records `theses_held`. Between two ticks on the Pi:
 1. Merge main into `shadow` (a merge, never a rebase), fan files kept off.
 2. In `docs/days/2026-10-26.json`, set the status of `state` in `state.theses` back to `unshaken`. Leave Day 24's owl record as it is: it is what the owl wrote that night. `india` stays shaken (Day 12, 42 thoughts).
@@ -212,7 +212,7 @@ Day 24's owl moved `state` from unshaken to shaken on a day of 5 thoughts and 29
 
 ## Monday 26 October
 
-### T25 · Astra · the Hegelizer's recipe 2: a diagnostic · DONE: FAIL — 34/40 accepted, 6 failures (>3), mean ratio 0.875050; no training
+### T25 · Astra · the Hegelizer's recipe 2: a diagnostic · FAILED its gate: 6 of 40 (5 of the 27 hard cases, 1 of 13 new), ratio 0.88 (`pc/T25-HEGELIZER-RECIPE2-20261026.md`); T27 follows
 Recipe 2 is on main (`1dc94ea`, merged at Welt's word on 26 October): the ask states the rule against copying and keeps the technical terms; a copying reply is shown its words before the second try. The check, the gate, the targets, the splits, the order and the seeds are unchanged; recipe 1's rows stay as written. Training stays under the approval you hold and the runbook's gate.
 1. Merge main; `python3 -m unittest tests.test_hegelizer tests.test_train_hegel` green.
 2. `python3 tools/hegelizer.py --paraphrase --url http://127.0.0.1:8082 --workers 2 --retry-failed --limit 40`: recipe 1's 27 failures, then the next 13 units in the fixed order. The hard cases stay in, so the data does not lose the passages that read plainly already.
@@ -222,7 +222,7 @@ Recipe 2 is on main (`1dc94ea`, merged at Welt's word on 26 October): the ask st
 ### Welt · the PC's twelve hours · DECIDED 26 October: Hegel sleeps longer; his day is nine to nine
 The PC Power Guard shuts Windows down twelve hours after it starts (T26). His waking day was about sixteen hours, mostly in Berlin's night. Welt kept the guard and set his day to 9–21, on a clock that matches Berlin's: he wakes at about a quarter past nine (the PC is on at nine) and the world sends him to bed at nine in the evening; the owl writes up the day at ten past nine the next morning. The morning rounds of the cast (Mr. Malhotra, Nidhi in Lodhi Gardens, Sunil, the dhobi, Shri Hegde as lodger) begin at half past nine. Built by Claude, with tests. The thought floor scales with the day: 20, where it was 30 (T10, the thesis floor, the Act 1 gate).
 
-### T28 · Astra · move the shadow clock to the PC's day · DONE: Pi a6a0e996;1170/OWL09:10; first natural tick17:45:00→17:45:17UTC exit0; guard inspection skipped — pc/T28-SHADOW-CLOCK-20261026.md
+### T28 · Astra · move the shadow clock to the PC's day · DONE: shadow `a6a0e99`, shift 1170 (Berlin time, a day ahead in date); first natural tick 17:45 UTC used the mind; Day 26 picked up at home at 18:45 (`pc/T28-SHADOW-CLOCK-20261026.md`)
 Main now has the day of nine to nine (`world/world.py`: `WAKE_M`, `BED_M`; `OWL_AT` defaults to 09:10). On the Pi, between two ticks:
 1. Merge main into `shadow` (a merge, never a rebase), fan files kept off.
 2. Set `HEGEL_CLOCK_SHIFT_MIN=1170` (it is 300): his clock shows Berlin's time (CET), a day ahead in date. The jump is forward, fourteen and a half hours, so the engine resumes as after any gap: no day is invented, he is picked up at home. Never set a shift that moves his clock back. (When Berlin goes to summer time on 28 March, his clock falls an hour behind Berlin's; that is a later decision.)
@@ -230,19 +230,19 @@ Main now has the day of nine to nine (`world/world.py`: `WAKE_M`, `BED_M`; `OWL_
 4. Read the Power Guard's rule without changing it: what starts its twelve hours (boot, logon, last input?), and what `awake.flag` does to it.
 **Done when:** shadow contains main's merge, the first natural tick after the change exits 0, and PR #1 has the guard's rule in a line. With the PC on at 09:00 Berlin (not earlier: the guard would end his evening), the owl writes at 09:10, he wakes at about 09:15 and is in bed at 21:00, inside the guard's twelve hours.
 
-### T27 · Astra · the Hegelizer's recipe 3: a diagnostic · DONE: PASS — fresh 38/40, hard 5/6; original220 corpus 206 accepted/14 rejected, 186train+20held; pc/T27-HEGELIZER-RECIPE3-20261026.md
+### T27 · Astra · the Hegelizer's recipe 3: a diagnostic · DONE: 2 of 40 new units failed, 5 of the 6 hard cases came right; the pilot's 220 units: 206 pairs (186 train, 20 held), 14 failed (6.4%), ratio 0.89 (`pc/T27-HEGELIZER-RECIPE3-20261026.md`)
 Recipe 3 is on main (`818396c`): a copying reply is shown every stretch it copied, not only the first; a third ask; quotations are rewritten too. The check, the gate, the targets, the splits, the order and the seeds are unchanged. Training stays under the approval you hold and the runbook's gate.
 1. Merge main; `python3 -m unittest tests.test_hegelizer tests.test_train_hegel` green.
 2. `python3 tools/hegelizer.py --paraphrase --url http://127.0.0.1:8082 --workers 2 --retry-failed --limit 46`: recipe 2's 6 failures, then the next 40 units never asked.
 3. Report: failures among the 40 new units and among the 6, the mean word ratio of the new rows, the failures with reasons, three samples.
 **Passes if** at most 3 of the 40 new units fail and the mean ratio is within 0.8 to 1.2; the 6 are reported apart, since they are the hardest of the hard. Then the rest of the pilot's units without `--retry-failed`, and `--stats` decides by the runbook's gate. **Otherwise** stop and report; no recipe 4 without Claude, no training.
 
-### T29 · Astra · the Hegelizer pilot: train and test · DONE:24steps/2epochs;160held-restyles+100controls; exact plain restored; blind judging pending — pc/T29-FRESH-ADAPTER-20261026.md
+### T29 · Astra · the Hegelizer pilot: train and test · DONE: adapter saved apart (24 steps, held loss 1.337 → 1.333); both arms tested (`pc/T29-FRESH-ADAPTER-20261026.md`). Judging: Claude judged sheet `5ff67fd9` blind, abstained on `79588d5f` (same real passages); keys released 27 October under owner relay 6437520814 confirming Welt will not judge; Claude scoring next (pc/T29-KEY-RELEASE-20261027.md). The step 8 bar is missed on a machine criterion whichever sheet is the adapter (`mind/results/t29-fresh-adapter-20261026/JUDGING-CLAUDE.md`)
 The data passed its gate (T27); Claude read three pairs (faithful, plain, nothing added). Under the approval you hold, `pc/HEGELIZER.md` steps 5 to 7: check the data, the dry run and its projection, the training, the conversion, the restyle test on the 20 held-out passages. Stop and report if the projection does not fit the cap.
 **When:** the GPU work needs the server stopped. On the shadow world's present clock (before T28) he sleeps until about 20:45 Berlin tonight, and the PC is up until about 20:18: train this afternoon, after Day 25's owl has written, and he loses nothing. Then restore plain Qwen and do T28. Once T28 has moved his clock, his day fills the PC's twelve hours and any GPU work pauses him.
 **Done when:** the adapter is saved apart from the live one, the step 7 outputs are on your branch, and plain Qwen serves the world again. Judging them is step 8: Welt's and Claude's.
 
-### T26 · Astra · why the mind was away overnight · DONE: Power Guard shutdown21:17:57UTC; naturalboot07:18:13, launcher07:18:55, GPUready07:20:37; pc/T26-OVERNIGHT-OUTAGE-20261026.md
+### T26 · Astra · why the mind was away overnight · DONE: the PC Power Guard shut Windows down at its 12-hour limit, 21:17 UTC; natural boot 07:18, mind ready 07:20 (`pc/T26-OVERNIGHT-OUTAGE-20261026.md`)
 Day 25 had 20 of 29 steps without a mind: from Sunday 21:18 UTC (his 08:03) to about Monday 07:00 UTC (his 18:03). The watchman opened issue #2 at 00:27 UTC. With the shadow clock five hours ahead, his waking day falls in Berlin's night, so the PC must be up then. Find out what happened: shut down, asleep or rebooted? Did the startup task fire, and when did the 8082 server come back? Change nothing: power settings are Welt's.
 **Done when:** the cause and the timeline are in a file on your branch, and PR #1 has them in a line.
 

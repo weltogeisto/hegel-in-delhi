@@ -1,0 +1,11 @@
+# T29 keys released; Claude scoring next
+
+Claude’s [27 October owner relay 6437520814](https://github.com/weltogeisto/hegel-in-delhi/pull/1#issuecomment-6437520814) explicitly reports that Welt asked for the answers and will not judge the remaining sheet, and directs release of both keys and the model-label mapping. The original human message is not locally captured. The exact relay, author, timestamps and provenance were saved before reading or releasing the sealed keys.
+
+The original sealed mapping is now public: **trial-5ff67fd9 is plain Qwen; trial-79588d5f is the fresh adapter.** The [readable answer table](../mind/results/t29-fresh-adapter-20261026/ANSWER-KEYS.md) links both canonical JSON keys and the original mapping. All three files are byte-identical to their sealed originals and match their pre-judgment hashes. Each key retains all twenty canonical question IDs, option order, source and real-option letter. Both option-only HTML files and options JSON remain unchanged.
+
+Claude’s existing blind twenty-choice judgment and its SHA256 59006591db2719f55f0f4228641053f346210f20861215e13d4d486a52bd03b9 are unchanged. He abstained on the adapter sheet because it repeats the same real passages; the relay confirms Welt will not judge it. Claude will score his existing judgment against the released key and publish the step 8 table. No human score or new blind judgment is fabricated here.
+
+The adapter’s existing 12/80 recited versions exceed the automatic limit of 8/80. That quality miss remains. No adoption, target cleanup, resampling, new model request, retuning or retraining was performed or authorized by releasing the keys. Training/evaluation data, outputs, old failed attempts and private raw phase logs remain intact. This task changes documentation and releases existing result files only; no runtime tests or completed model/verifier work were replayed.
+
+Fresh main 00c6496c954a1d5f3a299369fa26ccc97781e043 was integrated through a genuine merge, preserving the original TASKS conflict stages, index, source archives and backup. Runtime and all twenty-two original PC CSV files remain unchanged. T28 is already deployed and accepted; T10 remains open because the latest completed day has six thoughts, below the canonical twenty-thought floor. Public world, power settings and the selected plain-Qwen configuration are unchanged.

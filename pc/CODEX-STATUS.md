@@ -1,3 +1,11 @@
+# PC status —27 October: T29 keys released; Claude scoring next
+
+T29’s original keys and label mapping are released under explicit owner relay 6437520814: Welt asked for the answers and will not judge the remaining sheet. The original human message is not locally captured. Plain Qwen is trial-5ff67fd9; the fresh adapter is trial-79588d5f. All key/mapping bytes match their sealed hashes; handouts, options and Claude’s committed blind judgment are unchanged. Claude owns scoring and the step 8 table. The adapter’s 12/80 recited outputs exceed the 8/80 limit; no adoption or new model work. See pc/T29-KEY-RELEASE-20261027.md/json and mind/results/t29-fresh-adapter-20261026/ANSWER-KEYS.md.
+
+T28 remains DONE and accepted. The latest completed 27 October day has six thoughts, an exact six-entry diary and a natural 09:10 owl that held all theses at floor 20. T10 remains OPEN; the next day is partial. No auditor, Pi/model/health/power action or repeated deployment/test was performed.
+
+## Previous status (historical current claims superseded above)
+
 # PC status —26October: shadow clock deployed and first natural tick succeeded
 
 T28DONE: genuine Pi mergea6a0e996 with realparentsd885896c+a66092d, forward shift300→1170, OWL override removed/default09:10, wake09:15/bed21:00/floor20. First natural postchange tick17:45:00.302634→17:45:17.762947UTC succeeded with mind available; prior enabled+active timer restored. All213Pi source/10originalCSV/prior rawday-state bytes were checked, oldpage kept/fanfiles excluded. PowerGuard-rule inspection skipped per6419119715; no power/awake.flag/publicswitch/Supabase action. Details:pc/T28-SHADOW-CLOCK-20261026.md/json and mind/results/t28-clock-20261026.
