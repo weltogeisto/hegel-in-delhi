@@ -12,7 +12,7 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 20,
+    "temp": 21,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 170
@@ -24,7 +24,7 @@
     "aqi": 168
    },
    {
-    "temp": 19,
+    "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 167
@@ -60,7 +60,7 @@
     "aqi": 164
    },
    {
-    "temp": 20,
+    "temp": 21,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 163
@@ -73,13 +73,7 @@
    },
    {
     "temp": 25,
-    "sky": "partly cloudy, hazy",
-    "rain": 0,
-    "aqi": 163
-   },
-   {
-    "temp": 26,
-    "sky": "mostly clear, hazy",
+    "sky": "clear, hazy",
     "rain": 0,
     "aqi": 163
    },
@@ -97,19 +91,25 @@
    },
    {
     "temp": 28,
-    "sky": "mostly clear, hazy",
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 163
+   },
+   {
+    "temp": 29,
+    "sky": "clear, hazy",
     "rain": 0,
     "aqi": 162
    },
    {
     "temp": 28,
-    "sky": "mostly clear, hazy",
+    "sky": "clear, hazy",
     "rain": 0,
     "aqi": 161
    },
    {
     "temp": 28,
-    "sky": "partly cloudy, hazy",
+    "sky": "clear, hazy",
     "rain": 0,
     "aqi": 160
    },
@@ -139,13 +139,13 @@
    },
    {
     "temp": 23,
-    "sky": "partly cloudy, hazy",
+    "sky": "mostly clear, hazy",
     "rain": 0,
     "aqi": 169
    },
    {
     "temp": 23,
-    "sky": "clear, hazy",
+    "sky": "mostly clear, hazy",
     "rain": 0,
     "aqi": 176
    },
@@ -505,6 +505,13 @@
    "mode": "stand",
    "at": "lodhi",
    "now": "Resting in Lodhi Gardens."
+  },
+  {
+   "from": "16:04",
+   "to": "16:34",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Talking with Mrs. Kapoor in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -1194,6 +1201,41 @@
     }
    ],
    "t": "14:44"
+  },
+  {
+   "k": "people",
+   "name": "Mrs. Kapoor",
+   "role": "retired schoolteacher",
+   "text": "Taught history for thirty-one years at a girls' school in Lodhi Colony. Walks the gardens in the late afternoon and reads every plaque twice, once for the facts and once for the mistakes.",
+   "t": "16:04"
+  },
+  {
+   "k": "diary",
+   "text": "A retired schoolteacher is the natural interlocutor for a man who has spent his life in the gymnasium and the university. I shall test the ground: does she speak of the state as a family, or as a mechanism? The air is thick, but conversation is a clearer element than the dust.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, Egypt"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "General Standpoint of the Scholastics"
+    }
+   ],
+   "t": "16:04"
+  },
+  {
+   "k": "said",
+   "text": "Mrs. Kapoor, I observe you in a place of rest. In my experience, the retired teacher is the only citizen who truly understands the architecture of the state, for he has lived within its smallest cells. How do you view the relationship between the individual and the government in this city? Is it one of love, as in the family, or of law, as in the state?",
+   "to": "Mrs. Kapoor",
+   "t": "16:04"
+  },
+  {
+   "k": "said",
+   "by": "Mrs. Kapoor",
+   "to": "Hegel",
+   "text": "Beta, I am here to look at the trees, not to debate political philosophy with a stranger in a kurta. If you are looking for a debate, try the park bench near the gate; if you are just lonely, I suggest you buy yourself some chai from the stall for twenty rupees.",
+   "t": "16:04"
   }
  ],
  "steps": [
@@ -2476,13 +2518,65 @@
      "text": "But if the truly moral life is to be a sequel of religion, then perforce religion must have the genuine content; i.e. the idea of God it knows must be the true and real. The ethical life is the divine spirit as indwelling in self-consciousness, as it is actually present in a nation and its individual members."
     }
    ]
+  },
+  {
+   "t": "16:04",
+   "end": "16:34",
+   "event": "Mrs. Kapoor, a retired schoolteacher is here; you have not met.",
+   "present": [
+    "Mrs. Kapoor, a retired schoolteacher"
+   ],
+   "decision": {
+    "thought": "A retired schoolteacher is the natural interlocutor for a man who has spent his life in the gymnasium and the university. I shall test the ground: does she speak of the state as a family, or as a mechanism? The air is thick, but conversation is a clearer element than the dust.",
+    "action": "talk",
+    "place": "lodhi",
+    "minutes": 30,
+    "says": "Mrs. Kapoor, I observe you in a place of rest. In my experience, the retired teacher is the only citizen who truly understands the architecture of the state, for he has lived within its smallest cells. How do you view the relationship between the individual and the government in this city? Is it one of love, as in the family, or of law, as in the state?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Mrs. Kapoor",
+    "says": "Beta, I am here to look at the trees, not to debate political philosophy with a stranger in a kurta. If you are looking for a debate, try the park bench near the gate; if you are just lonely, I suggest you buy yourself some chai from the stall for twenty rupees.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.0
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, Egypt",
+     "id": "sibree-history:679"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "General Standpoint of the Scholastics",
+     "id": "haldane-3:238"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, Egypt",
+     "text": "Of these works I will mention no others than those devoted to the dead, and which especially attract our attention."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "General Standpoint of the Scholastics",
+     "text": "In the supersensuous world there was no reality of the thinking, universal, rational self-consciousness to be met with: in the immediate world of sensuous nature, on the other hand, there was no divinity, because nature was but the grave of God, in the same way that God was outside of nature."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-10-28T16:04+05:30",
+  "until": "2026-10-28T16:34+05:30",
   "asleep": false,
   "imprest": 3201,
   "wearing": "kurta",
@@ -2519,7 +2613,8 @@
    "masterji",
    "nidhi",
    "sunil",
-   "hegde"
+   "hegde",
+   "kapoor"
   ],
   "file": "Shri Hegde called at ten and found no one at home. He left his card.",
   "beats": [
@@ -2565,7 +2660,9 @@
      "guard",
      "officer"
     ],
-    "lodhi": []
+    "lodhi": [
+     "kapoor"
+    ]
    },
    "walked": 6375,
    "strain": 6375,
@@ -2794,6 +2891,9 @@
     "2026-10-24",
     "2026-10-25",
     "2026-10-26",
+    "2026-10-28"
+   ],
+   "kapoor": [
     "2026-10-28"
    ]
   },
