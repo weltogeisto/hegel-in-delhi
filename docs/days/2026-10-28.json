@@ -589,6 +589,13 @@
    "mode": "walk",
    "a": "home",
    "b": "khan"
+  },
+  {
+   "from": "20:17",
+   "to": "20:27",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Talking with the bookseller at Khan Market."
   }
  ],
  "entries": [
@@ -1604,6 +1611,34 @@
     }
    ],
    "t": "18:50"
+  },
+  {
+   "k": "diary",
+   "text": "The market is closing, its shutters drawing across the needs of the civil society like a curtain falling on a play. I have no need for goods, only for the silence that comes after the noise, but the air quality is poor and the hour late. I shall take the bookseller's measure before he locks his domain, for a man who sells words is a man who sells the spirit of the age, and I must know what spirit it is that is for sale here.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "20:17"
+  },
+  {
+   "k": "said",
+   "text": "Shopkeeper, before you close, tell me: what is the best book on the state of the world in this country? Not the newspapers, which are the ephemeral skin of the day, but a book that claims to understand the bones.",
+   "to": "the bookseller",
+   "t": "20:17"
+  },
+  {
+   "k": "said",
+   "by": "The bookseller",
+   "to": "Hegel",
+   "text": "Arre bhai, you want philosophy at 8:17 when I'm trying to lock up? For 'bones' of the country, take this—Chetan Bhagat is skin, but look at the political science shelf, second row. Maybe something by S. Jaitly or a good history of the Constitution, but honestly? Read the budget document, that's the only truth left.",
+   "t": "20:17"
   }
  ],
  "steps": [
@@ -3505,13 +3540,65 @@
      ]
     ]
    }
+  },
+  {
+   "t": "20:17",
+   "end": "20:27",
+   "event": "You arrive at Khan Market. It closes at 20:30.",
+   "present": [
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The market is closing, its shutters drawing across the needs of the civil society like a curtain falling on a play. I have no need for goods, only for the silence that comes after the noise, but the air quality is poor and the hour late. I shall take the bookseller's measure before he locks his domain, for a man who sells words is a man who sells the spirit of the age, and I must know what spirit it is that is for sale here.",
+    "action": "talk",
+    "place": "khan",
+    "minutes": 10,
+    "says": "Shopkeeper, before you close, tell me: what is the best book on the state of the world in this country? Not the newspapers, which are the ephemeral skin of the day, but a book that claims to understand the bones.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The bookseller",
+    "says": "Arre bhai, you want philosophy at 8:17 when I'm trying to lock up? For 'bones' of the country, take this—Chetan Bhagat is skin, but look at the political science shelf, second row. Maybe something by S. Jaitly or a good history of the Constitution, but honestly? Read the budget document, that's the only truth left.",
+    "does": "He gestures vaguely toward the back shelves with a tired wave of his hand."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 13.1
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206",
+     "id": "dyde-right:491"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206",
+     "text": "The recognition of the claim that whatever in the civic community and the state is rationally necessary should occur through subjective free choice is a fuller definition of the popular idea of freedom (§ 121). The particularity of the individual becomes definitely and actually realized, only by his limiting himself exclusively to one of the particular spheres of want."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-10-28T20:17+05:30",
+  "until": "2026-10-28T20:27+05:30",
   "asleep": false,
   "imprest": 2801,
   "wearing": "kurta",
