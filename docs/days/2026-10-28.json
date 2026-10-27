@@ -554,6 +554,13 @@
    "mode": "stand",
    "at": "safdarjung",
    "now": "At Safdarjung's Tomb."
+  },
+  {
+   "from": "17:40",
+   "to": "18:08",
+   "mode": "walk",
+   "a": "safdarjung",
+   "b": "khan"
   }
  ],
  "entries": [
@@ -1473,6 +1480,34 @@
    "to": "Hegel",
    "text": "Fourteen minutes is plenty for a photo, sir. Just keep your phone ready and don't get lost in the philosophy, the lock doesn't care about your spirit.",
    "t": "17:36"
+  },
+  {
+   "k": "diary",
+   "text": "She speaks with the flatness of a woman who has counted the seconds of a thousand sunsets and found them insufficient for anyone's soul. The lock is the actuality of the ethical idea in its most rigid form; it admits no exceptions for the spirit's delay. I must withdraw, for the tomb is a monument to a fixed nature, and I am a movement that cannot be pinned down by a gate.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§201"
+    }
+   ],
+   "t": "17:40"
+  },
+  {
+   "k": "said",
+   "text": "The spirit is patient, madam, but the body is not. Good evening.",
+   "to": "the ticket clerk",
+   "t": "17:40"
+  },
+  {
+   "k": "said",
+   "by": "The ticket clerk",
+   "to": "Hegel",
+   "text": "Good evening, sir. Hurry up, the gate is locking and I have to close the window.",
+   "t": "17:40"
   }
  ],
  "steps": [
@@ -3145,13 +3180,65 @@
      "text": "A slothful mind finds it natural to say: 'Don't let it be supposed that we mean to be in earnest with our philosophy. We shall be glad inter alia to study Logic: but Logic must be sure to leave us as we were before.' People have a feeling that, if thinking passes the ordinary range of our ideas and impressions, it cannot but be on the evil road."
     }
    ]
+  },
+  {
+   "t": "17:40",
+   "end": "18:08",
+   "event": "The ticket clerk says: “Fourteen minutes is plenty for a photo, sir. Just keep your phone ready and don't get lost in the philosophy, the lock doesn't care about your spirit.” She taps the counter and turns to face the next person in line. Safdarjung's Tomb is closing. You must leave.",
+   "present": [
+    "the ticket clerk"
+   ],
+   "decision": {
+    "thought": "She speaks with the flatness of a woman who has counted the seconds of a thousand sunsets and found them insufficient for anyone's soul. The lock is the actuality of the ethical idea in its most rigid form; it admits no exceptions for the spirit's delay. I must withdraw, for the tomb is a monument to a fixed nature, and I am a movement that cannot be pinned down by a gate.",
+    "action": "walk",
+    "place": "khan",
+    "minutes": 15,
+    "says": "The spirit is patient, madam, but the body is not. Good evening.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "khan",
+   "voice": {
+    "by": "The ticket clerk",
+    "says": "Good evening, sir. Hurry up, the gate is locking and I have to close the window.",
+    "does": "She points a pen at the closing time on the board."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.1
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:23"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§201",
+     "id": "dyde-right:482"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "Nor can it be taken ill, if honest men become impatient, when the subject is broached. Still less is it a surprise that the government has at last turned its attention to this false philosophizing. With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§201",
+     "text": "The family is the first basis of the state, and classes or estates are the second. This second is of con- sequence because private persons, through self-seeking, are compelled to turn themselves out towards others. This is the linkhy which self-seeking is joined to the universal or the state, whose care it must be to keep the connection strong and steadfast."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "safdarjung",
-  "until": "2026-10-28T17:40+05:30",
+  "place": "khan",
+  "until": "2026-10-28T18:08+05:30",
   "asleep": false,
   "imprest": 2801,
   "wearing": "kurta",
@@ -3242,8 +3329,8 @@
      "clerk"
     ]
    },
-   "walked": 7275,
-   "strain": 7275,
+   "walked": 9375,
+   "strain": 9375,
    "hunger": 2,
    "tickets": [
     "safdarjung"
