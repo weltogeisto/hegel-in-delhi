@@ -477,6 +477,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "14:16",
+   "to": "14:24",
+   "mode": "walk",
+   "a": "iic",
+   "b": "lodhi"
   }
  ],
  "entries": [
@@ -1116,6 +1123,41 @@
    "to": "Hegel",
    "text": "That is the only way, sir. Office closes at five, so don't dawdle. Have a good evening.",
    "t": "14:06"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s dismissal is a finality; he closes the logbook as one closes a book of accounts. I have my fill of this institutional silence. It is time to leave the hazy interior of the IIC and move towards the open air of Lodhi Gardens, where the tombs of the Sayyids and Lodis stand in the sun.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§327"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    }
+   ],
+   "t": "14:16"
+  },
+  {
+   "k": "said",
+   "text": "Good evening, sir.",
+   "to": "the guard at the library and the programme officer",
+   "t": "14:16"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Good evening, sir. See you in the office.",
+   "t": "14:16"
+  },
+  {
+   "k": "wear",
+   "item": "White cotton kurta",
+   "status": "Worn from 14:16.",
+   "sprite": "kurta",
+   "t": "14:16"
   }
  ],
  "steps": [
@@ -2263,16 +2305,74 @@
      "text": "Studienanstalten sind Theils Institute des Unterrichts, nicht unmittelbar der Erziehung, Theils fangen sie nicht von den ersten Elementen der Bildung, weder der Erkenntniß, noch der Sitten, an."
     }
    ]
+  },
+  {
+   "t": "14:16",
+   "end": "14:24",
+   "event": "The guard at the library says: “That is the only way, sir. Office closes at five, so don't dawdle. Have a good evening.” He closes the logbook and turns back to his desk.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s dismissal is a finality; he closes the logbook as one closes a book of accounts. I have my fill of this institutional silence. It is time to leave the hazy interior of the IIC and move towards the open air of Lodhi Gardens, where the tombs of the Sayyids and Lodis stand in the sun.",
+    "action": "walk",
+    "place": "lodhi",
+    "minutes": 45,
+    "says": "Good evening, sir.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "lodhi",
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Good evening, sir. See you in the office.",
+    "does": "I nod briefly and turn back to my logbook."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 10.7,
+    "refused": [
+     [
+      "this repeats what you thought at 13:21; think something new"
+     ]
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§327",
+     "id": "dyde-right:826"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:464"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§327",
+     "text": "Not personal fearlessness, but the tating of one's place in a universal cause, is the valuable feature of it. In India five hundred men conquered twenty thousand, who were by no means cowardly but lacked the sense of co-operation. The content of bravery as a sentiment is found in the true absolute final end, the sovereignty of the state."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "An organic life requires in, the first place One Soul, and in the second place, a divergence into differences, which become organic members, and in their several offices develop themselves to a complete system; in such a way, however, that their activity reconstitutes that one soul. This freedom of separation is wanting in China."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "iic",
-  "until": "2026-10-28T14:16+05:30",
+  "place": "lodhi",
+  "until": "2026-10-28T14:24+05:30",
   "asleep": false,
   "imprest": 3201,
-  "wearing": "bandhgala",
+  "wearing": "kurta",
   "wardrobe": [
    {
     "id": "frock",
@@ -2292,7 +2392,7 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "His daily wear."
+    "status": "Worn from 14:16."
    },
    {
     "id": "bandhgala",
@@ -2353,8 +2453,8 @@
      "officer"
     ]
    },
-   "walked": 2775,
-   "strain": 2775
+   "walked": 3375,
+   "strain": 3375
   },
   "account": {
    "advance": 15000,
