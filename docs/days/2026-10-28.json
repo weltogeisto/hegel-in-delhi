@@ -15,145 +15,145 @@
     "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 184
+    "aqi": 170
    },
    {
     "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 184
+    "aqi": 168
    },
    {
     "temp": 19,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 185
+    "aqi": 167
    },
    {
     "temp": 19,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 187
+    "aqi": 167
    },
    {
     "temp": 18,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 188
+    "aqi": 167
    },
    {
     "temp": 18,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 190
+    "aqi": 166
    },
    {
     "temp": 18,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 190
+    "aqi": 165
    },
    {
     "temp": 19,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 190
+    "aqi": 164
    },
    {
     "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 189
+    "aqi": 163
    },
    {
     "temp": 23,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 188
+    "aqi": 162
    },
    {
     "temp": 25,
     "sky": "partly cloudy, hazy",
     "rain": 0,
-    "aqi": 188
+    "aqi": 163
    },
    {
     "temp": 26,
     "sky": "mostly clear, hazy",
     "rain": 0,
-    "aqi": 188
+    "aqi": 163
    },
    {
     "temp": 27,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 188
+    "aqi": 163
    },
    {
     "temp": 28,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 188
+    "aqi": 163
    },
    {
     "temp": 28,
     "sky": "mostly clear, hazy",
     "rain": 0,
-    "aqi": 187
+    "aqi": 162
    },
    {
     "temp": 28,
     "sky": "mostly clear, hazy",
     "rain": 0,
-    "aqi": 186
+    "aqi": 161
    },
    {
     "temp": 28,
     "sky": "partly cloudy, hazy",
     "rain": 0,
-    "aqi": 185
+    "aqi": 160
    },
    {
     "temp": 26,
     "sky": "mostly clear, hazy",
     "rain": 0,
-    "aqi": 184
+    "aqi": 158
    },
    {
     "temp": 25,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 182
+    "aqi": 158
    },
    {
     "temp": 24,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 180
+    "aqi": 160
    },
    {
     "temp": 24,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 182
+    "aqi": 164
    },
    {
     "temp": 23,
     "sky": "partly cloudy, hazy",
     "rain": 0,
-    "aqi": 186
+    "aqi": 169
    },
    {
     "temp": 23,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 188
+    "aqi": 176
    },
    {
     "temp": 22,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 188
+    "aqi": 184
    }
   ]
  },
@@ -407,6 +407,13 @@
    "mode": "walk",
    "a": "home",
    "b": "khan"
+  },
+  {
+   "from": "12:31",
+   "to": "12:46",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -743,6 +750,53 @@
     }
    ],
    "t": "12:04"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "You are here. The shop closes at 20:30. What do you need?",
+   "t": "12:31"
+  },
+  {
+   "k": "diary",
+   "text": "The heat presses down, and the body demands sustenance before the spirit can contemplate the ethical substance of the state. I am eighteen hours without a meal; the system of needs is immediate, and I shall not starve for the sake of abstraction. A samosa and tea will serve as a provisional bridge between the hunger and the work at hand.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§256"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "12:31"
+  },
+  {
+   "k": "said",
+   "text": "Sunil, a cup of chai. And a samosa. I am in no condition for deep thought on an empty stomach.",
+   "to": "Masterji and Sunil",
+   "t": "12:31"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Aaj aapke bhi pet ki baat aayi, theek hai. Chai ho rahi hai, samosa garam hai. ₹50, Masterji, aapke paas se uthao.",
+   "t": "12:31"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "12:31"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "12:31"
   }
  ],
  "steps": [
@@ -1350,15 +1404,78 @@
      "text": "With the Stoics, however, this basis remained as substance only, and thus took on the form of Pantheism, for that is the first idea that we light on when we determine the universal to be the true. Pantheism is the beginning of the elevation of spirit, in that it conceives everything in the world to be a life of the Idea."
     }
    ]
+  },
+  {
+   "t": "12:31",
+   "end": "12:46",
+   "event": "You arrive at Khan Market. It closes at 20:30. Masterji is here. Sunil is here. Masterji says: “You are here. The shop closes at 20:30. What do you need?” Masterji looks up from his measuring tape.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The heat presses down, and the body demands sustenance before the spirit can contemplate the ethical substance of the state. I am eighteen hours without a meal; the system of needs is immediate, and I shall not starve for the sake of abstraction. A samosa and tea will serve as a provisional bridge between the hunger and the work at hand.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 15,
+    "says": "Sunil, a cup of chai. And a samosa. I am in no condition for deep thought on an empty stomach.",
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     },
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Aaj aapke bhi pet ki baat aayi, theek hai. Chai ho rahi hai, samosa garam hai. ₹50, Masterji, aapke paas se uthao.",
+    "does": "He slides the steaming cup and a paper parcel of samosa across the counter while tapping the stove lid with a tongs."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 12.8
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§256",
+     "id": "dyde-right:578"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§256",
+     "text": "Note. — City and country are the two as yet ideal constituents, out of which the state proceeds. The city is the seat of the civic society, and of the reflection which goes into itself and causes separation. The country is the seat of the ethical, which rests upon nature."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-10-28T12:31+05:30",
+  "until": "2026-10-28T12:46+05:30",
   "asleep": false,
-  "imprest": 3251,
+  "imprest": 3201,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1428,6 +1545,11 @@
    "seen": {
     "home": [
      "hegde"
+    ],
+    "khan": [
+     "bookseller",
+     "masterji",
+     "sunil"
     ]
    },
    "walked": 2025,
@@ -1533,6 +1655,20 @@
      "item": "Chai from the stall at the Lodhi Road gate",
      "price": 20,
      "office": false
+    },
+    {
+     "date": "2026-10-28",
+     "t": "12:31",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-10-28",
+     "t": "12:31",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
     }
    ],
    "admitted": 0,
@@ -1569,7 +1705,8 @@
    ],
    "khan": [
     "2026-10-02",
-    "2026-10-13"
+    "2026-10-13",
+    "2026-10-28"
    ],
    "gym": [
     "2026-10-02"
@@ -1610,7 +1747,8 @@
    ],
    "masterji": [
     "2026-10-02",
-    "2026-10-13"
+    "2026-10-13",
+    "2026-10-28"
    ],
    "nidhi": [
     "2026-10-02"
@@ -1618,7 +1756,8 @@
    "sunil": [
     "2026-10-13",
     "2026-10-14",
-    "2026-10-15"
+    "2026-10-15",
+    "2026-10-28"
    ],
    "hegde": [
     "2026-10-02",
@@ -1644,7 +1783,7 @@
    "sim": false
   },
   "last_meal": "2026-10-27T18:45+05:30",
-  "snacks": 0,
+  "snacks": 1,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
