@@ -414,6 +414,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "12:46",
+   "to": "12:56",
+   "mode": "walk",
+   "a": "khan",
+   "b": "iic"
   }
  ],
  "entries": [
@@ -797,6 +804,28 @@
    "item": "Samosa",
    "price": 30,
    "t": "12:31"
+  },
+  {
+   "k": "diary",
+   "text": "The body is a particular that demands satisfaction before the universal can be thought; I have already paid for this sustenance, so Sunil’s arithmetic is merely a social formality I must not repeat. The haze at 163 obscures the spirit as much as the sun, and I am already late for the IIC, where I intend to confront the dream of this land with the reality of its institutions. I will leave the coin on the counter as a gesture of civil exchange, not as a debt, and proceed to my walk.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "12:46"
+  },
+  {
+   "k": "wear",
+   "item": "Bandhgala, charcoal",
+   "status": "Worn from 12:46.",
+   "sprite": "bandhgala",
+   "t": "12:46"
   }
  ],
  "steps": [
@@ -1467,16 +1496,65 @@
      "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
     }
    ]
+  },
+  {
+   "t": "12:46",
+   "end": "12:56",
+   "event": "Sunil says: “Aaj aapke bhi pet ki baat aayi, theek hai. Chai ho rahi hai, samosa garam hai. ₹50, Masterji, aapke paas se uthao.” He slides the steaming cup and a paper parcel of samosa across the counter while tapping the stove lid with a tongs.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The body is a particular that demands satisfaction before the universal can be thought; I have already paid for this sustenance, so Sunil’s arithmetic is merely a social formality I must not repeat. The haze at 163 obscures the spirit as much as the sun, and I am already late for the IIC, where I intend to confront the dream of this land with the reality of its institutions. I will leave the coin on the counter as a gesture of civil exchange, not as a debt, and proceed to my walk.",
+    "action": "walk",
+    "place": "iic",
+    "minutes": 45,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "iic",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 6.7
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251",
+     "id": "dyde-right:570"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251",
+     "text": "The work of the civic community spreads in different directions in obedience to the nature of its particularity. Since the implicit equality, contained in particularity, is here realized as the common purpose of an association, the particular and self-seeking end becomes something actively universal."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-10-28T12:46+05:30",
+  "place": "iic",
+  "until": "2026-10-28T12:56+05:30",
   "asleep": false,
   "imprest": 3201,
-  "wearing": "kurta",
+  "wearing": "bandhgala",
   "wardrobe": [
    {
     "id": "frock",
@@ -1501,7 +1579,7 @@
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Collected from Masterji."
+    "status": "Worn from 12:46."
    }
   ],
   "people": [
@@ -1552,8 +1630,8 @@
      "sunil"
     ]
    },
-   "walked": 2025,
-   "strain": 2025
+   "walked": 2775,
+   "strain": 2775
   },
   "account": {
    "advance": 15000,
