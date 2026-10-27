@@ -918,7 +918,17 @@ class StubLlama(BaseHTTPRequestHandler):
         self.wfile.write(data)
 
 
-def main():
+def recall_beyond_input(text, original, plain):
+    """Eight-word source recall that the plain input did not already carry."""
+    return bool((shingles(text) & shingles(original)) - shingles(plain))
+
+
+def main(argv=None):
+    argv = list(sys.argv[1:] if argv is None else argv)
+    if "--round-two" in argv:
+        from tools.hegel_test_round2 import main as round_two_main
+        argv.remove("--round-two")
+        return round_two_main(argv)
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--url", help="llama-server base URL, e.g. http://192.168.178.50:8081")
     p.add_argument("--label", help="name of this run: bonsai, bonsai-shelf, qwen ...")
@@ -932,7 +942,7 @@ def main():
     p.add_argument("--compare", nargs="+", metavar="LABEL", help="write mind/results/hegeltest.md for these runs")
     p.add_argument("--export-ppl", metavar="DIR", help="write DIR/heldout.txt and DIR/seen.txt for llama-perplexity and print the commands")
     p.add_argument("--serve-stub", type=int, metavar="PORT", help="serve a stand-in llama-server on this port")
-    a = p.parse_args()
+    a = p.parse_args(argv)
     if a.serve_stub:
         print(f"stub llama-server on http://127.0.0.1:{a.serve_stub}")
         HTTPServer(("127.0.0.1", a.serve_stub), StubLlama).serve_forever()

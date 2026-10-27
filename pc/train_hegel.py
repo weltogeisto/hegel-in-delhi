@@ -449,6 +449,9 @@ def encode_restyle(tok, rows, seq):
 
 
 def train(args):
+    if getattr(args, "round_two", False):
+        from pc.restyle_round2 import train as round_two_train
+        return round_two_train(args, sys.modules[__name__])
     out = Path(args.out) if args.out else default_out(args.phase, args.dry_run)
     work, report = out / "work", out / "training.json"
     if args.dry_run and out.exists():
@@ -524,6 +527,7 @@ def train(args):
 
 
 def main(argv=None):
+    argv = list(sys.argv[1:] if argv is None else argv)
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--base", help="the Hugging Face model id of the base, the same Qwen as the installed GGUF (Codex fills it in)")
     p.add_argument("--data", default=str(DATA), help="the folder of corpus.jsonl, decisions.jsonl, ... (default mind/train)")
@@ -552,10 +556,45 @@ def main(argv=None):
     p.add_argument("--epochs-restyle", type=int, default=2)
     p.add_argument("--save-steps", type=int, default=25, help="a checkpoint every this many optimizer steps (default 25)")
     p.add_argument("--seed", type=int, default=3407)
+    p.add_argument("--round-two", action="store_true", help="round-two restyle data, step evaluations and a NEW output directory")
+    p.add_argument("--goldfish", action="store_true", help="round two: deterministic target-token loss masking")
+    p.add_argument("--goldfish-k", type=int, default=4)
+    p.add_argument("--goldfish-context", type=int, default=13)
+    p.add_argument("--eval-steps", type=int, default=100)
+    p.add_argument("--max-steps-restyle", type=int)
     args = p.parse_args(argv)
+    supplied = lambda flag: any(x.split("=", 1)[0] == flag for x in argv)
+    if args.round_two:
+        if args.phase != "restyle":
+            p.error("--round-two requires --phase restyle")
+        if not supplied("--rank"):
+            args.rank = 16
+        if args.batch < 1:
+            p.error("--batch must be positive")
+        if not supplied("--accum"):
+            if 8 % args.batch:
+                p.error("round two requires an effective batch of eight")
+            args.accum = 8 // args.batch
+        if not supplied("--epochs-restyle"):
+            args.epochs_restyle = 1
+        if args.batch < 1 or args.accum < 1 or args.batch * args.accum != 8:
+            p.error("round two requires an effective batch of eight")
+        if args.rank not in (16, 32) or args.alpha != 32 or args.lr_restyle != 2e-4:
+            p.error("round two keeps rank16 (optional32), alpha32 and learning rate2e-4")
+        if args.epochs_restyle < 1 or args.seq_restyle < 1:
+            p.error("round two requires positive epochs and sequence length")
+        if args.dry_run and args.resume:
+            p.error("a dry run cannot resume or replace an earlier output")
+    elif args.goldfish:
+        p.error("--goldfish requires explicit --round-two restyle mode")
+    if args.goldfish_k < 2 or args.goldfish_context < 1 or args.eval_steps < 1 or (args.max_steps_restyle is not None and args.max_steps_restyle < 1):
+        p.error("positive evaluation/step/context limits and goldfish k>=2 are required")
     if args.loss_target_gib is not None and (not math.isfinite(args.loss_target_gib) or args.loss_target_gib <= 0):
         p.error("--loss-target-gib must be a finite positive number")
     if args.check_data:
+        if args.round_two:
+            from pc.restyle_round2 import check_data as check_round_two
+            return 0 if check_round_two(args.data, args.seq_restyle) else 1
         ok, _ = check_data(args.data, args.seq_corpus, args.seq_format, strict=args.strict, phase=args.phase, seq_restyle=args.seq_restyle)
         return 0 if ok else 1
     if not args.base:

@@ -218,9 +218,31 @@ def near(word):
             | {word[:i] + c + word[i:] for i in range(len(word) + 1) for c in abc}) - {word}
 
 
+def misreadings(books):
+    """Words a scan misread throughout one book, which the frequency checks of damaged() miss because they are common there ('behef' 92 times,
+    'hfe' 129 in Baillie's Phenomenology): a word found in at most three English works whose reading with 'li' for one 'h', or 'un' for a leading
+    'im', is found in at least four works more, twenty times or more. Cached on the shelf."""
+    bad = getattr(books, "misreadings", None)
+    if bad is None:
+        from collections import Counter
+        texts, spread, counts = getattr(books, "data", {}).get("texts", []), Counter(), english_counts(books)
+        for w in getattr(books, "works", []):
+            if w["lang"] == "en":
+                spread.update({x for text in texts[w["start"]:w["start"] + w["n"]] for x in re.findall(r"[a-z]{2,}", text.lower())})
+
+        def readings(word):
+            out = [word[:m.start()] + "li" + word[m.start() + 1:] for m in re.finditer("h", word)]
+            return out + (["un" + word[2:]] if word.startswith("im") else [])
+        bad = {x for x in spread if spread[x] <= 3 and any(spread[r] >= spread[x] + 4 and counts[r] >= 20 for r in readings(x))}
+        books.misreadings = bad
+    return bad
+
+
 def damaged(text, counts):
     """Whether a passage still shows its scan, which the model would copy: SCAN_LITTER, a rare word one letter from a common one ('tho', 'hke'),
     or a rare word that is a common one misread by old type ('tlie'). `counts` from english_counts; with none, only SCAN_LITTER counts."""
+    if re.search(r"\b(?:behefs?|imiversal(?:ity|s)?|universahty)\b", text, re.I):
+        return True
     if SCAN_LITTER.search(text):
         return True
     for w in set(re.findall(r"[a-z]{2,}", text.lower())) if counts else ():
@@ -271,7 +293,7 @@ def build_units(books, seed=SPLIT_SEED, questions=BLIND):
     sentence ("apparatus") or as fragments ("lost"). The passages lose their editor's apparatus first (apparatus()). Ids are 'work:k' for the
     k-th unit made (before the drops), so they stay while the shelf does."""
     runs, shingles, run = blind_runs(questions)
-    counts = english_counts(books)
+    counts, misread = english_counts(books), misreadings(books)
     units, report = [], {}
     for w in books.works:
         if w["lang"] != "en":
@@ -282,7 +304,7 @@ def build_units(books, seed=SPLIT_SEED, questions=BLIND):
         for k, (ref, text) in enumerate(made):
             if runs & shingles(text, run):
                 rep["overlap"] += 1
-            elif damaged(text, counts):
+            elif damaged(text, counts) or misread & set(re.findall(r"[a-z]{2,}", text.lower())):
                 rep["damaged"] += 1
             elif "§" in text:
                 rep["apparatus"] += 1
@@ -529,6 +551,10 @@ def cmd_stats(a, out):
 
 
 def main(argv=None):
+    argv = list(sys.argv[1:] if argv is None else argv)
+    if "--round-two" in argv:
+        from tools.hegelizer_round2 import main as round_two
+        return round_two([x for x in argv if x != "--round-two"])
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--build", action="store_true", help="write hegelizer-units.jsonl from the English books of the shelf")
     p.add_argument("--paraphrase", action="store_true", help="write a plain version of every unit that has none, through a llama-server")
