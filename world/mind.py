@@ -19,6 +19,7 @@ class MindAway(Exception):
 
 
 DRY_BASE, DRY_ALLOWED = 1.75, 3           # the sampler's defaults, but runs of up to three tokens (names, "the state") repeat freely
+DRY_LAST_N = 4096                           # tokens looked back over: the whole decision prompt (about a thousand) and more; b11429 refuses -1
 
 
 class HTTPMind:
@@ -129,7 +130,7 @@ class HTTPMind:
         if adapter_scale is not None:
             payload["lora"] = [{"id": 0, "scale": adapter_scale}]
         if dry:                     # llama.cpp's DRY sampler: continuing a run of words already in the context costs more the longer it gets
-            payload.update(dry_multiplier=dry, dry_base=DRY_BASE, dry_allowed_length=DRY_ALLOWED, dry_penalty_last_n=-1)
+            payload.update(dry_multiplier=dry, dry_base=DRY_BASE, dry_allowed_length=DRY_ALLOWED, dry_penalty_last_n=DRY_LAST_N)
         if schema:
             payload["response_format"] = {"type": "json_schema", "json_schema": {"name": "answer", "schema": schema}}
         for constrained in ((True, False) if schema else (False,)):

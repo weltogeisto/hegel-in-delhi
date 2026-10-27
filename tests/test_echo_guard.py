@@ -17,7 +17,7 @@ from test_world import FakeLlama, Sandbox  # noqa: E402
 from world import report  # noqa: E402
 from world.config import Config  # noqa: E402
 from world.engine import ECHO_LINE  # noqa: E402
-from world.mind import DRY_ALLOWED, DRY_BASE, HTTPMind, StubMind  # noqa: E402
+from world.mind import DRY_ALLOWED, DRY_BASE, DRY_LAST_N, HTTPMind, StubMind  # noqa: E402
 
 SAT = date(2026, 10, 3)
 
@@ -98,7 +98,8 @@ class DrySamplerTest(unittest.TestCase):
         self.assertFalse([k for k in FakeLlama.calls[-1] if k.startswith("dry_")])
         HTTPMind(self.url, decision_dry=0.8).decide(self.messages, {})
         body = FakeLlama.calls[-1]
-        self.assertEqual((body["dry_multiplier"], body["dry_base"], body["dry_allowed_length"], body["dry_penalty_last_n"]), (0.8, DRY_BASE, DRY_ALLOWED, -1))
+        self.assertEqual((body["dry_multiplier"], body["dry_base"], body["dry_allowed_length"], body["dry_penalty_last_n"]), (0.8, DRY_BASE, DRY_ALLOWED, DRY_LAST_N))
+        self.assertGreater(body["dry_penalty_last_n"], 0)                                   # b11429 refuses -1, and 0 turns the scan off
         self.assertEqual(body["response_format"]["type"], "json_schema")                    # the contract is unchanged
 
     def test_his_writings_and_the_voices_of_others_are_not_touched(self):
