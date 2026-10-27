@@ -617,6 +617,15 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Shri G. Hegde at home."
+  },
+  {
+   "from": "21:00",
+   "to": "24:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Asleep.",
+   "asleep": true,
+   "owl": true
   }
  ],
  "entries": [
@@ -3852,14 +3861,37 @@
      "text": "The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence. So also it is not a matter merely external and particular, the performance of which is intrusted to him."
     }
    ]
+  },
+  {
+   "t": "21:00",
+   "end": "24:00",
+   "event": "Shri G. Hegde says: “I don't care about your philosophy, I care about my pension. I am Shri Hegde, this is my bungalow, and you are in my way. Call the Directorate's emergency line right now and get yourself out of here, I have a meeting in ten minutes.” Shri Hegde checks his watch and looks pointedly at the door.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "sleep",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "bedtime",
+    "attempts": 0,
+    "latency_s": 0.0
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-28T21:00+05:30",
-  "asleep": false,
+  "until": "2026-10-29T00:00+05:30",
+  "asleep": true,
   "imprest": 2756,
   "wearing": "kurta",
   "wardrobe": [
