@@ -533,6 +533,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Shopping in Lodhi Gardens."
+  },
+  {
+   "from": "17:14",
+   "to": "17:26",
+   "mode": "walk",
+   "a": "lodhi",
+   "b": "safdarjung"
   }
  ],
  "entries": [
@@ -1353,6 +1360,43 @@
    "item": "Roasted corn on the cob",
    "price": 40,
    "t": "16:59"
+  },
+  {
+   "k": "diary",
+   "text": "She treats my contemplation as a physical obstruction, a blockage in the system of needs rather than a moment of spirit. I accept the corn as a concession to the body’s claim, for the hazy air and the long day demand sustenance, but I note that her impatience is the friction of the empirical against the universal. I will not argue with a retired schoolteacher about the dust; I will simply pass, as the world-spirit passes through history, leaving the particular behind.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§573"
+    }
+   ],
+   "t": "17:14"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Mrs. Kapoor. You are right to demand movement; the spirit must not stagnate in the particular.",
+   "to": "Mrs. Kapoor",
+   "sensitive": true,
+   "why": "stagnate",
+   "topic": "the ranking of peoples",
+   "t": "17:14"
+  },
+  {
+   "k": "said",
+   "by": "Mrs. Kapoor",
+   "to": "Hegel",
+   "text": "Less philosophy, more chewing. If you finish that corn in one bite, I might believe you've moved on.",
+   "t": "17:14"
+  },
+  {
+   "k": "bag",
+   "item": "Roasted corn on the cob",
+   "price": 40,
+   "t": "17:26"
   }
  ],
  "steps": [
@@ -2856,15 +2900,72 @@
      "text": "Eeligious Feeling is extraneous to History, and has no History; for History is rather the Empire of Spirit recognizing itself in its Subjective Freedom, as the economy of social morality [sittliches Reich] in the State. In the Middle Ages that embodying of the Divine in actual life was wanting; the antithesis was not harmonized."
     }
    ]
+  },
+  {
+   "t": "17:14",
+   "end": "17:26",
+   "event": "Mrs. Kapoor says: “Dust is just dust, beta, stop making a philosophy of it. Here, take your corn, and actually move this time.” She hands him the roasted corn and steps aside to let him pass.",
+   "present": [
+    "Mrs. Kapoor, a retired schoolteacher"
+   ],
+   "decision": {
+    "thought": "She treats my contemplation as a physical obstruction, a blockage in the system of needs rather than a moment of spirit. I accept the corn as a concession to the body’s claim, for the hazy air and the long day demand sustenance, but I note that her impatience is the friction of the empirical against the universal. I will not argue with a retired schoolteacher about the dust; I will simply pass, as the world-spirit passes through history, leaving the particular behind.",
+    "action": "walk",
+    "place": "safdarjung",
+    "minutes": 20,
+    "says": "Thank you, Mrs. Kapoor. You are right to demand movement; the spirit must not stagnate in the particular.",
+    "buys": [
+     {
+      "item": "Roasted corn on the cob",
+      "price_inr": 40
+     }
+    ],
+    "revision": null
+   },
+   "arrived": "safdarjung",
+   "voice": {
+    "by": "Mrs. Kapoor",
+    "says": "Less philosophy, more chewing. If you finish that corn in one bite, I might believe you've moved on.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.1
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§573",
+     "id": "wallace-mind:438"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "This actual and organic spirit (a) is the spirit of a nation, (fi) is found in the relation to one another of national spirits, and (y) passing through and beyond this relation is actualized and revealed in world history as the universal world-spirit, whose right is the highest."
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§573",
+     "text": "The fault of all these modes of thought and systems is that they stop short of defining substance as subject and as mind. These systems and modes of pictorial conception originate from the one need common to all philosophies and all religions of getting an idea of God, and, secondly, of the relationship of God and the world."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "lodhi",
-  "until": "2026-10-28T17:14+05:30",
+  "place": "safdarjung",
+  "until": "2026-10-28T17:26+05:30",
   "asleep": false,
-  "imprest": 3141,
+  "imprest": 3101,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -2950,8 +3051,8 @@
      "kapoor"
     ]
    },
-   "walked": 6375,
-   "strain": 6375,
+   "walked": 7275,
+   "strain": 7275,
    "hunger": 1
   },
   "account": {
@@ -3079,6 +3180,13 @@
     {
      "date": "2026-10-28",
      "t": "16:59",
+     "item": "Roasted corn on the cob",
+     "price": 40,
+     "office": false
+    },
+    {
+     "date": "2026-10-28",
+     "t": "17:26",
      "item": "Roasted corn on the cob",
      "price": 40,
      "office": false
