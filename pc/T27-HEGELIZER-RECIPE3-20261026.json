@@ -1,0 +1,83 @@
+{
+  "utc": "2026-10-26T14:17:51.229411+00:00",
+  "status": "T27_DONE_DIAGNOSTIC_AND_ORIGINAL220_CORPUS_PASS_NOT_TRAINED",
+  "source_tree_tested": "0d0281dd0a86b0b54edb32b230f0397dfd1bb99e",
+  "source_main": "4da5c8c3af8edadfe757d070bb7c4e987f52b184",
+  "diagnostic": {
+    "fresh_40": {
+      "accepted": 38,
+      "failed": 2,
+      "mean_accepted_word_ratio": 0.8727787667661489
+    },
+    "hard_6": {
+      "accepted": 5,
+      "failed": 1
+    },
+    "all_46": {
+      "accepted": 43,
+      "failed": 3,
+      "mean_accepted_word_ratio": 0.8744691814550162
+    },
+    "generation_requests": 64,
+    "ordinary_readiness_requests": 1,
+    "all_upstream_HTTP200": true,
+    "controller_exit": 0,
+    "controller_wall_seconds": 436.4095300750014
+  },
+  "corpus": {
+    "total_targets": 220,
+    "accounted": 220,
+    "accepted": 206,
+    "failed": 14,
+    "accepted_train": 186,
+    "accepted_held": 20,
+    "failed_share": 0.06363636363636363,
+    "mean_word_ratio": 0.8854028309717837,
+    "canonical_10_percent_pass": true,
+    "canonical_stats_exit": 0,
+    "human_strict_failed_share_maximum": 0.15,
+    "CPU_trainer_check_exit": 0,
+    "pass": true,
+    "scope": "Original220 corpus only; not a style score, trained adapter or adoption result"
+  },
+  "corpus_new_case_generation_requests": 173,
+  "corpus_new_cases": 125,
+  "corpus_ordinary_readiness_requests": 1,
+  "corpus_all_upstream_HTTP200": true,
+  "corpus_controller_wall_seconds": 1161.3848259000006,
+  "verification": {
+    "source_Git_archive_native_primary_files": 492,
+    "original_PC_CSV": 22,
+    "diagnostic_raw_HTTP_files": 195,
+    "corpus_raw_HTTP_files": 522,
+    "diagnostic_native_mirror_files": 218,
+    "corpus_native_mirror_files": 550,
+    "all_original_targets_and_prefixes_preserved": true,
+    "five_matching_complete_recipe2_cache_lines_preserved": true,
+    "original_10_percent_gate_pass": true,
+    "human_strict_15_percent_gate_pass": true,
+    "CPU_trainer_check_exit": 0
+  },
+  "calibration": {
+    "status": "DEFERRED_ACTIVE_NATURAL_SERVICE",
+    "guard_only": true,
+    "server_timer_model_training_changes": 0,
+    "controller_exit": 2,
+    "controller_wall_seconds": 2.260849549998966
+  },
+  "budget": {
+    "cumulative_charged_upper_bound_seconds": 3630.3532645330015,
+    "remaining_GPU_work_seconds_minimum": 3569.6467354669985,
+    "restoration_reserve_seconds": 600,
+    "absolute_deadline_utc": null,
+    "maximum_total_GPU_work_seconds": 7200,
+    "ending_input_generation_offset": 492,
+    "next_input_seed": 121019467,
+    "training_seed": 3407
+  },
+  "training_started": false,
+  "adapter_created": false,
+  "Pi_deployment_or_world_day_config_change": false,
+  "outside_git_originals": "C:/hegel/handover/codex-tasks-20261026/T27-recipe3-diagnostic-20261026-123200",
+  "fresh_main_after_frozen_job": "f384e2373afbeb5de8406f4d707ffd53281ad409 contains separate T28. Preserved frozen T27 genuine merge of4da5c8c; T28 not deployed by this result."
+}

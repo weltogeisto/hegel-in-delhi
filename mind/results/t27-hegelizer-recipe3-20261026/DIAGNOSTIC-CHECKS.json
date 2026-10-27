@@ -1,0 +1,43 @@
+{
+  "utc": "2026-10-26T13:02:21.652998+00:00",
+  "status": "T27_DIAGNOSTIC_VERIFIED_PASS_NOT_FULL_CORPUS_OR_TRAINING_PASS",
+  "source_raw_Git_archive_native_primary_exact": 492,
+  "original_PC_CSV_exact": 22,
+  "byte_exact_export_files": 218,
+  "original220targets_and_prior44accepted33failed_byteprefixes_exact": true,
+  "exact_cases": 46,
+  "globally_new_cases": 40,
+  "previous_hard_cases": 6,
+  "generation_requests_verified": 64,
+  "readiness_requests_verified": 1,
+  "all65upstream_HTTP200": true,
+  "rawHTTPfiles_verified": 195,
+  "canonical_recipe3_all_copied_runs_feedback_and_three_asks_exact": true,
+  "slot1_seedstream_verified": true,
+  "controller_exit": 0,
+  "gate": {
+    "total": 46,
+    "accepted": 43,
+    "failed": 3,
+    "fresh40_failed": 2,
+    "previous6_failed": 1,
+    "mean_new_rows_ratio_all46": 0.8744691814550162,
+    "mean_fresh40_ratio": 0.8727787667661489,
+    "maximum_fresh40_failures": 3,
+    "pass": true,
+    "ratio_gate_interpretation": "mean accepted new recipe3 rows across all46; fresh40 mean also reported separately",
+    "no_training_release": true
+  },
+  "usage": {
+    "prior_charged_upper_bound_seconds": 2030.2980590080006,
+    "T27_controller_actual_wall_seconds": 436.4095300750014,
+    "T27_child_wall_seconds_not_added_again": 436.34299390999877,
+    "cumulative_charged_upper_bound_seconds": 2466.707589083002,
+    "remaining_GPU_work_seconds_minimum": 4733.292410916998,
+    "restoration_reserve_seconds": 600,
+    "absolute_deadline_utc": null,
+    "ending_generation_offset": 319,
+    "next_seed": 119288256
+  },
+  "no_training_or_adapter_server_timer_power_change": true
+}

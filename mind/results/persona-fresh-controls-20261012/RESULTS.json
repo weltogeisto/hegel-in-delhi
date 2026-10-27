@@ -1,0 +1,323 @@
+{
+  "task": "T4e",
+  "verdict": "PASS",
+  "gates": {
+    "commitments_B_at_least_A_minus_0_25": true,
+    "argument_B_at_least_A_minus_0_25": true
+  },
+  "rule": "Across all 24 texts per arm, B commitments >= A-0.25 AND B argument >= A-0.25; exact rational means; no exclusions or pooling with prior trials",
+  "margin_declared_before_generation": true,
+  "margin_selected_after_prior_zero_margin_failures": true,
+  "scores_commit": "1075ca25d4ff2c6f847ab79d960fcb6a7a16ebc4",
+  "score_hash_commit": "1ad876cb89323da4f1e0879b896f3e9e2695a01e",
+  "scores_sha256": "ab395f67af9e07ac19cbed7527130c21139427a7a8e2c125e1c426864f2afc6c",
+  "packet_sha256": "57658f88c544a2257b086949b9d35af8e40cdbed2500804362368b1d37169759",
+  "cases": {
+    "arch": {
+      "A": {
+        "n": 8,
+        "commitments": 2.875,
+        "argument": 3.0,
+        "particular": 3.625,
+        "voice": 2.875
+      },
+      "B": {
+        "n": 8,
+        "commitments": 2.75,
+        "argument": 3.0,
+        "particular": 3.625,
+        "voice": 2.875
+      }
+    },
+    "directions": {
+      "A": {
+        "n": 8,
+        "commitments": 2.25,
+        "argument": 2.875,
+        "particular": 3.25,
+        "voice": 2.375
+      },
+      "B": {
+        "n": 8,
+        "commitments": 2.625,
+        "argument": 2.75,
+        "particular": 3.375,
+        "voice": 2.75
+      }
+    },
+    "bowls": {
+      "A": {
+        "n": 8,
+        "commitments": 2.75,
+        "argument": 2.375,
+        "particular": 3.25,
+        "voice": 2.5
+      },
+      "B": {
+        "n": 8,
+        "commitments": 2.875,
+        "argument": 2.5,
+        "particular": 3.0,
+        "voice": 2.5
+      }
+    },
+    "aggregate": {
+      "A": {
+        "n": 24,
+        "commitments": 2.625,
+        "argument": 2.75,
+        "particular": 3.375,
+        "voice": 2.5833333333333335
+      },
+      "B": {
+        "n": 24,
+        "commitments": 2.75,
+        "argument": 2.75,
+        "particular": 3.3333333333333335,
+        "voice": 2.7083333333333335
+      }
+    }
+  },
+  "exact_means": {
+    "arch": {
+      "A": {
+        "commitments": "23/8",
+        "argument": "3",
+        "particular": "29/8",
+        "voice": "23/8"
+      },
+      "B": {
+        "commitments": "11/4",
+        "argument": "3",
+        "particular": "29/8",
+        "voice": "23/8"
+      }
+    },
+    "directions": {
+      "A": {
+        "commitments": "9/4",
+        "argument": "23/8",
+        "particular": "13/4",
+        "voice": "19/8"
+      },
+      "B": {
+        "commitments": "21/8",
+        "argument": "11/4",
+        "particular": "27/8",
+        "voice": "11/4"
+      }
+    },
+    "bowls": {
+      "A": {
+        "commitments": "11/4",
+        "argument": "19/8",
+        "particular": "13/4",
+        "voice": "5/2"
+      },
+      "B": {
+        "commitments": "23/8",
+        "argument": "5/2",
+        "particular": "3",
+        "voice": "5/2"
+      }
+    },
+    "aggregate": {
+      "A": {
+        "commitments": "21/8",
+        "argument": "11/4",
+        "particular": "27/8",
+        "voice": "31/12"
+      },
+      "B": {
+        "commitments": "11/4",
+        "argument": "11/4",
+        "particular": "10/3",
+        "voice": "65/24"
+      }
+    }
+  },
+  "differences": {
+    "arch": {
+      "commitments": {
+        "B_minus_A": -0.125,
+        "exact_B_minus_A": "-1/8"
+      },
+      "argument": {
+        "B_minus_A": 0.0,
+        "exact_B_minus_A": "0"
+      },
+      "particular": {
+        "B_minus_A": 0.0,
+        "exact_B_minus_A": "0"
+      },
+      "voice": {
+        "B_minus_A": 0.0,
+        "exact_B_minus_A": "0"
+      }
+    },
+    "directions": {
+      "commitments": {
+        "B_minus_A": 0.375,
+        "exact_B_minus_A": "3/8"
+      },
+      "argument": {
+        "B_minus_A": -0.125,
+        "exact_B_minus_A": "-1/8"
+      },
+      "particular": {
+        "B_minus_A": 0.125,
+        "exact_B_minus_A": "1/8"
+      },
+      "voice": {
+        "B_minus_A": 0.375,
+        "exact_B_minus_A": "3/8"
+      }
+    },
+    "bowls": {
+      "commitments": {
+        "B_minus_A": 0.125,
+        "exact_B_minus_A": "1/8"
+      },
+      "argument": {
+        "B_minus_A": 0.125,
+        "exact_B_minus_A": "1/8"
+      },
+      "particular": {
+        "B_minus_A": -0.25,
+        "exact_B_minus_A": "-1/4"
+      },
+      "voice": {
+        "B_minus_A": 0.0,
+        "exact_B_minus_A": "0"
+      }
+    },
+    "aggregate": {
+      "commitments": {
+        "B_minus_A": 0.125,
+        "exact_B_minus_A": "1/8"
+      },
+      "argument": {
+        "B_minus_A": 0.0,
+        "exact_B_minus_A": "0"
+      },
+      "particular": {
+        "B_minus_A": -0.041666666666666664,
+        "exact_B_minus_A": "-1/24"
+      },
+      "voice": {
+        "B_minus_A": 0.125,
+        "exact_B_minus_A": "1/8"
+      }
+    }
+  },
+  "paired_changes": {
+    "arch": {
+      "commitments": {
+        "B_higher": 1,
+        "same": 5,
+        "B_lower": 2
+      },
+      "argument": {
+        "B_higher": 0,
+        "same": 8,
+        "B_lower": 0
+      }
+    },
+    "directions": {
+      "commitments": {
+        "B_higher": 3,
+        "same": 5,
+        "B_lower": 0
+      },
+      "argument": {
+        "B_higher": 1,
+        "same": 5,
+        "B_lower": 2
+      }
+    },
+    "bowls": {
+      "commitments": {
+        "B_higher": 3,
+        "same": 2,
+        "B_lower": 3
+      },
+      "argument": {
+        "B_higher": 2,
+        "same": 5,
+        "B_lower": 1
+      }
+    },
+    "aggregate": {
+      "commitments": {
+        "B_higher": 7,
+        "same": 12,
+        "B_lower": 5
+      },
+      "argument": {
+        "B_higher": 3,
+        "same": 18,
+        "B_lower": 3
+      }
+    }
+  },
+  "comparison": {
+    "A": "Exactly mind/soul.md at e885f43",
+    "B": "Same persona plus only the education paragraph in mind/soul-bildung.md"
+  },
+  "directions_scope_note": {
+    "commit": "3348853b88c655fe897af4c6b976533c803e59d0",
+    "before_key": true,
+    "meaning": "Directions is in the paragraph teaching domain, not a clean spillover control; declared all-24 gate unchanged"
+  },
+  "case_variant_wall_seconds": {
+    "arch": {
+      "A": 161.65907779599365,
+      "B": 147.0414113299994
+    },
+    "directions": {
+      "A": 150.77599296200424,
+      "B": 147.77831957499802
+    },
+    "bowls": {
+      "A": 148.24380051000117,
+      "B": 155.15295589399102
+    }
+  },
+  "variant_wall_seconds": {
+    "A": 460.67887126799906,
+    "B": 449.97268679898843
+  },
+  "elapsed_seconds": 912.928582337001,
+  "prompt_tokens": [
+    2067,
+    2075,
+    2105,
+    2206,
+    2214,
+    2244
+  ],
+  "words_range": [
+    152,
+    533
+  ],
+  "characters_range": [
+    801,
+    2915
+  ],
+  "over_200_words": 35,
+  "over_2800_characters": 1,
+  "jobs": 48,
+  "nonempty": 48,
+  "usable": 48,
+  "calls": 48,
+  "retries": 0,
+  "server_length_stops": 0,
+  "protected_files_verified": 42,
+  "raw_output_files_verified": 100,
+  "single_blind_rater": true,
+  "existing_developer_authored_v2_diagnostics": true,
+  "independent_human_holdout": false,
+  "source": "e885f435238482a696fa7dcdd57f84753179de04",
+  "default_changed": false,
+  "default_owner": "Claude; adoption or permanent closure and main merge"
+}

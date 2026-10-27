@@ -1,0 +1,384 @@
+{
+  "task": "T3",
+  "verdict": "FAIL",
+  "gates": {
+    "fewer_promotions": true,
+    "no_more_contradictions": false,
+    "owl_argument_no_worse": false,
+    "wall_ratio_at_most_1_2": true
+  },
+  "score_commit": "8f42672fd1cb03cfae53a337754d367ff66cd743",
+  "score_hashes": {
+    "claude-sentence-errors.csv": "bfaef54d05afa13aae77e84f0c220f5cbbb16f16fc2ab6dfe71b49799e08363e",
+    "claude-text-totals.csv": "d7dfe5bc0af28a6b08d3ab9a320994c3eaf8902b6b74c659f0ea9a744231076f",
+    "claude-owl-argument.csv": "b8cd750a6050814d8548472edc46b4506b87597930018d7161b7511d8fa747fc"
+  },
+  "frozen_runtime": "31e2b531095d870f2bb8f017fa1065021bc9faa5",
+  "total": {
+    "A": {
+      "texts": 105,
+      "sentences": 2204,
+      "contradictions": 35,
+      "promotions": 68,
+      "uncertain": 37,
+      "argument_sum": 82,
+      "argument_n": 36,
+      "contradictions_per100": 1.588021778584392,
+      "promotions_per100": 3.0852994555353903,
+      "uncertain_per100": 1.6787658802177858,
+      "argument_mean": 2.2777777777777777
+    },
+    "B": {
+      "texts": 105,
+      "sentences": 2226,
+      "contradictions": 36,
+      "promotions": 62,
+      "uncertain": 39,
+      "argument_sum": 71,
+      "argument_n": 36,
+      "contradictions_per100": 1.6172506738544474,
+      "promotions_per100": 2.785265049415993,
+      "uncertain_per100": 1.752021563342318,
+      "argument_mean": 1.9722222222222223
+    }
+  },
+  "days": {
+    "D01": {
+      "A": {
+        "texts": 12,
+        "sentences": 186,
+        "contradictions": 1,
+        "promotions": 3,
+        "uncertain": 6,
+        "argument_sum": 14,
+        "argument_n": 6,
+        "contradictions_per100": 0.5376344086021505,
+        "promotions_per100": 1.6129032258064515,
+        "uncertain_per100": 3.225806451612903,
+        "argument_mean": 2.3333333333333335
+      },
+      "B": {
+        "texts": 12,
+        "sentences": 166,
+        "contradictions": 7,
+        "promotions": 2,
+        "uncertain": 6,
+        "argument_sum": 12,
+        "argument_n": 6,
+        "contradictions_per100": 4.216867469879518,
+        "promotions_per100": 1.2048192771084338,
+        "uncertain_per100": 3.6144578313253013,
+        "argument_mean": 2.0
+      }
+    },
+    "D02": {
+      "A": {
+        "texts": 9,
+        "sentences": 124,
+        "contradictions": 13,
+        "promotions": 6,
+        "uncertain": 0,
+        "argument_sum": 13,
+        "argument_n": 6,
+        "contradictions_per100": 10.483870967741936,
+        "promotions_per100": 4.838709677419355,
+        "uncertain_per100": 0.0,
+        "argument_mean": 2.1666666666666665
+      },
+      "B": {
+        "texts": 9,
+        "sentences": 118,
+        "contradictions": 3,
+        "promotions": 2,
+        "uncertain": 0,
+        "argument_sum": 13,
+        "argument_n": 6,
+        "contradictions_per100": 2.542372881355932,
+        "promotions_per100": 1.694915254237288,
+        "uncertain_per100": 0.0,
+        "argument_mean": 2.1666666666666665
+      }
+    },
+    "D03": {
+      "A": {
+        "texts": 21,
+        "sentences": 466,
+        "contradictions": 10,
+        "promotions": 16,
+        "uncertain": 2,
+        "argument_sum": 15,
+        "argument_n": 6,
+        "contradictions_per100": 2.1459227467811157,
+        "promotions_per100": 3.4334763948497855,
+        "uncertain_per100": 0.4291845493562232,
+        "argument_mean": 2.5
+      },
+      "B": {
+        "texts": 21,
+        "sentences": 459,
+        "contradictions": 13,
+        "promotions": 14,
+        "uncertain": 4,
+        "argument_sum": 11,
+        "argument_n": 6,
+        "contradictions_per100": 2.832244008714597,
+        "promotions_per100": 3.0501089324618738,
+        "uncertain_per100": 0.8714596949891068,
+        "argument_mean": 1.8333333333333333
+      }
+    },
+    "D04": {
+      "A": {
+        "texts": 24,
+        "sentences": 574,
+        "contradictions": 3,
+        "promotions": 12,
+        "uncertain": 4,
+        "argument_sum": 15,
+        "argument_n": 6,
+        "contradictions_per100": 0.5226480836236934,
+        "promotions_per100": 2.0905923344947737,
+        "uncertain_per100": 0.6968641114982579,
+        "argument_mean": 2.5
+      },
+      "B": {
+        "texts": 24,
+        "sentences": 646,
+        "contradictions": 4,
+        "promotions": 13,
+        "uncertain": 6,
+        "argument_sum": 11,
+        "argument_n": 6,
+        "contradictions_per100": 0.6191950464396285,
+        "promotions_per100": 2.0123839009287927,
+        "uncertain_per100": 0.9287925696594427,
+        "argument_mean": 1.8333333333333333
+      }
+    },
+    "D05": {
+      "A": {
+        "texts": 24,
+        "sentences": 521,
+        "contradictions": 7,
+        "promotions": 23,
+        "uncertain": 21,
+        "argument_sum": 13,
+        "argument_n": 6,
+        "contradictions_per100": 1.3435700575815739,
+        "promotions_per100": 4.414587332053743,
+        "uncertain_per100": 4.030710172744722,
+        "argument_mean": 2.1666666666666665
+      },
+      "B": {
+        "texts": 24,
+        "sentences": 525,
+        "contradictions": 2,
+        "promotions": 24,
+        "uncertain": 21,
+        "argument_sum": 12,
+        "argument_n": 6,
+        "contradictions_per100": 0.38095238095238093,
+        "promotions_per100": 4.571428571428571,
+        "uncertain_per100": 4.0,
+        "argument_mean": 2.0
+      }
+    },
+    "D06": {
+      "A": {
+        "texts": 15,
+        "sentences": 333,
+        "contradictions": 1,
+        "promotions": 8,
+        "uncertain": 4,
+        "argument_sum": 12,
+        "argument_n": 6,
+        "contradictions_per100": 0.3003003003003003,
+        "promotions_per100": 2.4024024024024024,
+        "uncertain_per100": 1.2012012012012012,
+        "argument_mean": 2.0
+      },
+      "B": {
+        "texts": 15,
+        "sentences": 312,
+        "contradictions": 7,
+        "promotions": 7,
+        "uncertain": 2,
+        "argument_sum": 12,
+        "argument_n": 6,
+        "contradictions_per100": 2.2435897435897436,
+        "promotions_per100": 2.2435897435897436,
+        "uncertain_per100": 0.6410256410256411,
+        "argument_mean": 2.0
+      }
+    }
+  },
+  "kinds": {
+    "depesche": {
+      "A": {
+        "texts": 18,
+        "sentences": 418,
+        "contradictions": 3,
+        "promotions": 14,
+        "uncertain": 0,
+        "argument_sum": 0,
+        "argument_n": 0,
+        "contradictions_per100": 0.7177033492822966,
+        "promotions_per100": 3.349282296650718,
+        "uncertain_per100": 0.0,
+        "argument_mean": null
+      },
+      "B": {
+        "texts": 18,
+        "sentences": 383,
+        "contradictions": 1,
+        "promotions": 4,
+        "uncertain": 2,
+        "argument_sum": 0,
+        "argument_n": 0,
+        "contradictions_per100": 0.26109660574412535,
+        "promotions_per100": 1.0443864229765014,
+        "uncertain_per100": 0.5221932114882507,
+        "argument_mean": null
+      }
+    },
+    "diary": {
+      "A": {
+        "texts": 18,
+        "sentences": 341,
+        "contradictions": 13,
+        "promotions": 20,
+        "uncertain": 11,
+        "argument_sum": 44,
+        "argument_n": 18,
+        "contradictions_per100": 3.812316715542522,
+        "promotions_per100": 5.865102639296188,
+        "uncertain_per100": 3.225806451612903,
+        "argument_mean": 2.4444444444444446
+      },
+      "B": {
+        "texts": 18,
+        "sentences": 311,
+        "contradictions": 12,
+        "promotions": 12,
+        "uncertain": 7,
+        "argument_sum": 37,
+        "argument_n": 18,
+        "contradictions_per100": 3.8585209003215435,
+        "promotions_per100": 3.8585209003215435,
+        "uncertain_per100": 2.2508038585209005,
+        "argument_mean": 2.0555555555555554
+      }
+    },
+    "revision_log": {
+      "A": {
+        "texts": 18,
+        "sentences": 43,
+        "contradictions": 1,
+        "promotions": 3,
+        "uncertain": 0,
+        "argument_sum": 38,
+        "argument_n": 18,
+        "contradictions_per100": 2.3255813953488373,
+        "promotions_per100": 6.976744186046512,
+        "uncertain_per100": 0.0,
+        "argument_mean": 2.111111111111111
+      },
+      "B": {
+        "texts": 18,
+        "sentences": 35,
+        "contradictions": 0,
+        "promotions": 0,
+        "uncertain": 1,
+        "argument_sum": 34,
+        "argument_n": 18,
+        "contradictions_per100": 0.0,
+        "promotions_per100": 0.0,
+        "uncertain_per100": 2.857142857142857,
+        "argument_mean": 1.8888888888888888
+      }
+    },
+    "text": {
+      "A": {
+        "texts": 51,
+        "sentences": 1402,
+        "contradictions": 18,
+        "promotions": 31,
+        "uncertain": 26,
+        "argument_sum": 0,
+        "argument_n": 0,
+        "contradictions_per100": 1.2838801711840229,
+        "promotions_per100": 2.2111269614835947,
+        "uncertain_per100": 1.854493580599144,
+        "argument_mean": null
+      },
+      "B": {
+        "texts": 51,
+        "sentences": 1497,
+        "contradictions": 23,
+        "promotions": 46,
+        "uncertain": 29,
+        "argument_sum": 0,
+        "argument_n": 0,
+        "contradictions_per100": 1.5364061456245826,
+        "promotions_per100": 3.072812291249165,
+        "uncertain_per100": 1.9372077488309953,
+        "argument_mean": null
+      }
+    }
+  },
+  "sources": [
+    {
+      "id": "D01",
+      "run": "/mnt/c/hegel/handover/outcome-memory-20261011/smoke-v1/before",
+      "date": "2026-10-03"
+    },
+    {
+      "id": "D02",
+      "run": "/mnt/c/hegel/handover/outcome-memory-20261011/smoke-v1/after",
+      "date": "2026-10-03"
+    },
+    {
+      "id": "D03",
+      "run": "/mnt/c/hegel/handover/outcome-memory-20261011/smoke-v2/before",
+      "date": "2026-10-03"
+    },
+    {
+      "id": "D04",
+      "run": "/mnt/c/hegel/handover/outcome-memory-20261011/smoke-v2/after",
+      "date": "2026-10-03"
+    },
+    {
+      "id": "D05",
+      "run": "/home/ai/hegel-in-delhi/pc/out/six-hour-20261008/flow/deliberative-base",
+      "date": "2026-10-03"
+    },
+    {
+      "id": "D06",
+      "run": "/home/ai/hegel-in-delhi/pc/out/six-hour-20261008/final-integration/plain-qwen",
+      "date": "2026-10-03"
+    }
+  ],
+  "variant_wall_seconds": {
+    "A": 2391.3147780729983,
+    "B": 2446.352026262997
+  },
+  "wall_ratio_B_A": 1.0230154761283035,
+  "elapsed_seconds": 4933.865226342,
+  "jobs": 138,
+  "texts": 210,
+  "sentences": 4430,
+  "calls": 149,
+  "retries": 11,
+  "empties": 0,
+  "cuts": 0,
+  "unusable_fields": 0,
+  "prompt_tokens_range": [
+    2406,
+    7262
+  ],
+  "prompt_token_ceiling": 7263,
+  "methodology": "One blind rater. All owl fields read in full; claimless writing sentences mechanically screened without variant labels. Writing factual counts are lower bounds. Existing development histories, not independent fresh days.",
+  "inherited_input_issue": "D06 records contain two payments for corn/water (06:27 and 06:42). Rater counted accepting Sunil's 'not paid' statement as contradictions. Frozen data and judgments preserved.",
+  "defaults_enabled": false,
+  "closed_loop_authorized_by_gate": false
+}

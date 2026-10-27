@@ -3,7 +3,8 @@ import logging
 import re
 
 from .contract import extract_json
-from .report import FLOOR as THESIS_FLOOR       # a day with fewer of his own thoughts than T10 measures moves no thesis
+from .report import FLOOR as THESIS_FLOOR       # same floor as canonical main; PC extensions retained
+from . import records, prompt_budget
 
 log = logging.getLogger("world")
 STATUSES = ["unshaken", "shaken", "revised", "abandoned"]
@@ -180,23 +181,54 @@ def revise(day, theses, answer):
     return changes
 
 
-def write(cfg, day, state, mind, depesche_n=None, problems=None, flag=None, topic=None):
+def write(cfg, day, state, mind, depesche_n=None, problems=None, flag=None, topic=None, claim_guard=None):
     system = (cfg.repo / "mind/owl.md").read_text(encoding="utf-8")
     theses = state.get("theses", [])
-    thoughts = sum(1 for e in day.get("entries", []) if e.get("k") == "diary")
-    ask = (f"{record(day)}\n\nYour theses: " + "; ".join(f"{t['id']}: {t['text']} ({t['status']})" for t in theses) + ".\n\n")
-    if thoughts < THESIS_FLOOR:
-        ask += (f"Today he had {thoughts} thoughts of his own, fewer than {THESIS_FLOOR}: tonight no thesis changes its status. "
+    thesis_thoughts = sum(1 for e in day.get("entries", []) if e.get("k") == "diary")
+    typed=getattr(cfg,'outcome_memory',False)
+    view=getattr(cfg,'evidence_view','full')
+    evidence=records.relevant(records.project(day),view=view) if typed else record(day)
+    shown=evidence
+    interpretations=''
+    if typed:
+        thoughts=[f"{e['t']} [interpretation, not event evidence]: {e['text']}"
+                  for e in day.get('entries',[]) if e.get('k')=='diary']
+        selected=[];remaining=1950
+        for thought in reversed(thoughts):
+            excerpt=thought[:min(500,remaining)]
+            if len(excerpt)<len(thought):
+                excerpt=excerpt[:max(0,len(excerpt)-12)]+'… [excerpt]'
+            if len(excerpt)<75:
+                break
+            selected.insert(0,excerpt);remaining-=len(excerpt)+1
+        interpretations='\n'.join(selected)
+        if len(selected)<len(thoughts):
+            interpretations+='\n[Earlier interpretations omitted.]'
+        if interpretations:
+            shown=records.relevant(records.project(day),limit=24000-len(interpretations)-2,view=view)+'\n\n'+interpretations
+    ask = (f"{shown}\n\nYour theses: " + "; ".join(f"{t['id']}: {t['text']} ({t['status']})" for t in theses) + ".\n\n")
+    if thesis_thoughts < THESIS_FLOOR:
+        ask += (f"Today he had {thesis_thoughts} thoughts of his own, fewer than {THESIS_FLOOR}: tonight no thesis changes its status. "
                 "Give each thesis its present status.\n\n")
     if depesche_n is not None:
         ask += f"Tonight is also the night of the weekly Depesche, number {depesche_n}.\n\n"
     ask += "Write the diary, the revision log and the theses (each with its evidence times)" + (", and the Depesche" if depesche_n is not None else "") + ". Answer with the JSON object only."
     messages = [{"role": "system", "content": system}, {"role": "user", "content": ask}]
+    if typed and view == 'compact':
+        suffix = ask[len(shown):]
+        messages = prompt_budget.fit(mind, lambda room: [dict(role='system', content=system),
+            dict(role='user', content=records.compact(records.project(day), limit=room)
+                 + ('\n\n' + interpretations if interpretations else '') + suffix)],
+            records.COMPACT_CHARS, thinking=bool(getattr(cfg, 'owl_reasoning_tokens', 0)))
     for attempt in range(2):
         budget = getattr(cfg, "owl_reasoning_tokens", 0)
         kwargs = {"max_tokens": (2200 if depesche_n is not None else 1200) + budget, "temperature": 0.8}
         if budget:
             kwargs["reasoning_budget"] = budget
+        if typed and view == 'compact' and callable(getattr(mind, 'prompt_tokens', None)):
+            size = mind.prompt_tokens(messages, thinking=bool(budget))
+            if size > prompt_budget.MAX_TOKENS:
+                raise prompt_budget.PromptBudgetError(f'Owl retry has {size} tokens, above {prompt_budget.MAX_TOKENS}')
         raw = mind.chat(messages, schema(depesche_n is not None), **kwargs)
         out = extract_json(raw)
         if not isinstance(out, dict) or not isinstance(out.get("diary"), str) or len(out["diary"].strip()) < 80:
@@ -209,15 +241,34 @@ def write(cfg, day, state, mind, depesche_n=None, problems=None, flag=None, topi
             raise OwlError("the owl wrote what he could not know in 1831: " + "; ".join(wrong))
         messages += [{"role": "assistant", "content": raw},
                      {"role": "user", "content": "Write it again without " + "; ".join(wrong) + ". Answer with the JSON object only."}]
-    if thoughts >= THESIS_FLOOR:
+    if claim_guard:
+        compact=records.relevant(records.project(day),limit=9000)
+        for field in ('diary','revision_log','depesche'):
+            if not isinstance(out.get(field),str) or not out[field].strip():
+                continue
+            original=out[field]
+            def regenerate(bad):
+                request=(f"Rewrite only the {field}, preserving its argument. Remove or qualify unsupported claims. "
+                         "Do not invent events.\n"+compact+"\nUnsupported: "+str(bad)+"\nOriginal: "+original)
+                answer=extract_json(mind.chat([dict(role='system',content=system),dict(role='user',content=request)],
+                    {'type':'object','properties':{'text':{'type':'string'}},'required':['text']},max_tokens=1200))
+                if not isinstance(answer,dict) or not isinstance(answer.get('text'),str):
+                    raise OwlError('Owl prose regeneration returned unusable JSON')
+                return answer['text']
+            out[field]=claim_guard.protect(original,evidence,regenerate,label=f"{day.get('date')} owl {field}")
+        wrong=sorted(set(problems('\n'.join(out[k] for k in ('diary','revision_log','depesche')
+                    if isinstance(out.get(k),str))))) if problems else []
+        if wrong:
+            raise OwlError('Regenerated owl prose failed the knowledge check: '+'; '.join(wrong))
+    if thesis_thoughts >= THESIS_FLOOR:
         changes = revise(day, theses, out.get("theses"))
     else:
         changes = []
-        if revise(day, [dict(t) for t in theses], out.get("theses")):                  # tried on copies: the state stays
-            log.warning("owl: a day of %d thoughts moves no thesis (the floor is %d); the statuses stay", thoughts, THESIS_FLOOR)
+        if revise(day, [dict(t) for t in theses], out.get("theses")):
+            log.warning("owl: a day of %d thoughts moves no thesis (the floor is %d); the statuses stay", thesis_thoughts, THESIS_FLOOR)
     written = {"diary": out["diary"].strip(), "revision_log": (out.get("revision_log") or "").strip() or None, "theses": changes}
-    if thoughts < THESIS_FLOOR:
-        written["theses_held"] = {"thoughts": thoughts, "floor": THESIS_FLOOR}
+    if thesis_thoughts < THESIS_FLOOR:
+        written["theses_held"] = {"thoughts": thesis_thoughts, "floor": THESIS_FLOOR}
     if depesche_n is not None and isinstance(out.get("depesche"), str) and out["depesche"].strip():
         written["depesche"] = {"n": depesche_n, "title": f"Depesche aus Delhi, Nr. {depesche_n}", "text": out["depesche"].strip()}
     texts = {"diary": written["diary"], "revision_log": written["revision_log"], "depesche": (written.get("depesche") or {}).get("text")}

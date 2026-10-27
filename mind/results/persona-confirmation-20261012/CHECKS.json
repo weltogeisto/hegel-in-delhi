@@ -1,0 +1,84 @@
+{
+  "at": "2026-10-12T11:07:51.579067+00:00",
+  "candidate": "d41480b51368b67c4c6914c7041de61d074ed5cc",
+  "source_tree": "704593e94c6d835662da3270c6d27a283eae830a",
+  "protocol_candidate": "d41480b51368b67c4c6914c7041de61d074ed5cc",
+  "protected_files": 41,
+  "source_inputs_verified": true,
+  "wrapper_exit": 0,
+  "runner_exit": 0,
+  "jobs": 52,
+  "nonempty": 52,
+  "usable": 52,
+  "calls": 52,
+  "extra_calls": 0,
+  "invalid_json_calls": 0,
+  "length_stops": 0,
+  "B_paragraph_shown": 26,
+  "A_paragraph_shown": 0,
+  "paired_offers_identical": true,
+  "paired_requests_differ_only_persona": true,
+  "prompt_tokens": [
+    2052,
+    2075,
+    2077,
+    2191,
+    2214,
+    2216
+  ],
+  "words_range": [
+    155,
+    451
+  ],
+  "over_200_words": 18,
+  "under_120_words": 0,
+  "over_2800_characters": 0,
+  "wall_seconds": 987.8406562,
+  "variant_wall_seconds": {
+    "A": 490.9975112549928,
+    "B": 494.2881347079965
+  },
+  "case_variant_wall_seconds": {
+    "karl": {
+      "A": 108.75812914299786,
+      "B": 115.54681980699934
+    },
+    "fare": {
+      "A": 185.3026309809975,
+      "B": 188.25523408499976
+    },
+    "columns": {
+      "A": 196.93675113099744,
+      "B": 190.4860808159974
+    }
+  },
+  "cleanup": {
+    "frozen_inputs_unchanged": true,
+    "shared_server_untouched": true,
+    "original_days_unchanged": true,
+    "training": false,
+    "rollout": false
+  },
+  "protocol_sha256": "4944190a8a4479b35ffd020deb031174b4cc519d166d43ab2f1695bbe5c326cf",
+  "helper_hashes_verified": true,
+  "archive_hash_verified": true,
+  "fresh_declared_schedule_verified": true,
+  "original_case_fields_preserved": true,
+  "packet_hashes_verified": true,
+  "all_text_fingerprints_and_raw_equality_verified": true,
+  "all_sealed_outputs_verified": 108,
+  "key_outside_git": true,
+  "full_suite": {
+    "candidate": "d41480b51368b67c4c6914c7041de61d074ed5cc",
+    "tree": "704593e94c6d835662da3270c6d27a283eae830a",
+    "tests": 887,
+    "seconds": 705.296,
+    "skipped": 19,
+    "wrapper_exit": 0,
+    "unittest_exit": 0,
+    "archive_sha256": "e52f5e4f4279cc000c161be3c266e9e437dcbe60a5b41f6187c7b46564f386fa",
+    "all_tracked_files_verified_against_git_and_snapshot": 257,
+    "log_sha256": "e56eaf404af99d7216f0551871201da28d5fa6986a9d399e0fd8c859e5ead951",
+    "final_result": "OK (skipped=19)"
+  }
+}

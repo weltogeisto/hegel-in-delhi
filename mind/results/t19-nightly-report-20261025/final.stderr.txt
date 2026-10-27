@@ -1,0 +1,23 @@
+test_atomic_replace_failure_preserves_prior_ledger (tests.test_nightly_report.NightlyReportTest.test_atomic_replace_failure_preserves_prior_ledger) ... ok
+test_command_failure_preserves_ledger_and_day (tests.test_nightly_report.NightlyReportTest.test_command_failure_preserves_ledger_and_day) ... ok
+test_commit_failure_retries_saved_row_without_rerunning_report (tests.test_nightly_report.NightlyReportTest.test_commit_failure_retries_saved_row_without_rerunning_report) ... ok
+test_duplicate_or_corrupt_ledger_is_preserved (tests.test_nightly_report.NightlyReportTest.test_duplicate_or_corrupt_ledger_is_preserved) ... ok
+test_duplicate_preserves_every_existing_byte_and_no_second_cli (tests.test_nightly_report.NightlyReportTest.test_duplicate_preserves_every_existing_byte_and_no_second_cli) ... ok
+test_normal_tick_appends_real_cli_row_after_owl (tests.test_nightly_report.NightlyReportTest.test_normal_tick_appends_real_cli_row_after_owl) ... /home/ai/hegel-eval/codex-tasks-20261025/T19-main-target-20261025-114336/tests/test_nightly_report.py:81: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/hegel-nightly-report-m2z5coa7/state/tick.lock' mode='w' encoding='UTF-8'>
+  self.assertEqual(cmd_tick(self.cfg, args), 0)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_only_yesterday_is_considered_no_gap_backfill (tests.test_nightly_report.NightlyReportTest.test_only_yesterday_is_considered_no_gap_backfill) ... ok
+test_report_failure_makes_tick_fail_without_repeating_natural_work (tests.test_nightly_report.NightlyReportTest.test_report_failure_makes_tick_fail_without_repeating_natural_work) ... nightly report failed; will retry next tick: injected failure
+ok
+test_sync_can_supply_row_without_duplicate_command (tests.test_nightly_report.NightlyReportTest.test_sync_can_supply_row_without_duplicate_command) ... ok
+test_unfinished_or_without_owl_never_runs_command (tests.test_nightly_report.NightlyReportTest.test_unfinished_or_without_owl_never_runs_command) ... /usr/lib/python3.12/unittest/mock.py:2188: ResourceWarning: unclosed file <_io.FileIO name='/tmp/hegel-nightly-report-v7xe_obt/state/tick.lock' mode='wb' closefd=True>
+  def __init__(self, name, parent):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_wrong_row_is_rejected_before_writing (tests.test_nightly_report.NightlyReportTest.test_wrong_row_is_rejected_before_writing) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.495s
+
+OK

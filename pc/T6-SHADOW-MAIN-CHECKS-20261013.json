@@ -1,0 +1,490 @@
+{
+  "task": "T6",
+  "pi_success": {
+    "started_utc": "2026-10-13T17:21:59.056604+00:00",
+    "finished_utc": "2026-10-13T17:22:06.164856+00:00",
+    "ssh_exit": 0,
+    "stdout": "{\"started_utc\": \"2026-10-13T17:21:59.516936+00:00\", \"events\": [{\"command\": [\"git\", \"rev-parse\", \"HEAD\"], \"exit\": 0, \"stdout\": \"5b52d7fc7ef1104860c9ef1b113afb0a811ee9f5\\n\", \"stderr\": \"\"}, {\"command\": [\"git\", \"branch\", \"--show-current\"], \"exit\": 0, \"stdout\": \"shadow\\n\", \"stderr\": \"\"}, {\"command\": [\"git\", \"status\", \"--porcelain=v1\"], \"exit\": 0, \"stdout\": \"\", \"stderr\": \"\"}, {\"command\": [\"git\", \"ls-remote\", \"--refs\", \"origin\", \"refs/heads/shadow\"], \"exit\": 0, \"stdout\": \"5b52d7fc7ef1104860c9ef1b113afb0a811ee9f5\\trefs/heads/shadow\\n\", \"stderr\": \"\"}, {\"command\": [\"git\", \"fetch\", \"origin\", \"main\", \"shadow\"], \"exit\": 0, \"stdout\": \"\", \"stderr\": \"From github-hegel:weltogeisto/hegel-in-delhi\\n * branch            main       -> FETCH_HEAD\\n * branch            shadow     -> FETCH_HEAD\\n   1953bd9..61accbd  main       -> origin/main\\n\"}, {\"command\": [\"git\", \"rev-parse\", \"origin/main\"], \"exit\": 0, \"stdout\": \"61accbdab85d78f14379d2d711205541d2b634c1\\n\", \"stderr\": \"\"}, {\"command\": [\"git\", \"rev-parse\", \"origin/shadow\"], \"exit\": 0, \"stdout\": \"5b52d7fc7ef1104860c9ef1b113afb0a811ee9f5\\n\", \"stderr\": \"\"}, {\"command\": [\"git\", \"merge-base\", \"--is-ancestor\", \"f933bd69a574398bc50f20ad623359f2fafa717b\", \"origin/main\"], \"exit\": 0, \"stdout\": \"\", \"stderr\": \"\"}, {\"command\": [\"git\", \"update-ref\", \"refs/heads/codex/shadow-before-main-20261013-1723\", \"5b52d7fc7ef1104860c9ef1b113afb0a811ee9f5\"], \"exit\": 0, \"stdout\": \"\", \"stderr\": \"\"}, {\"command\": [\"git\", \"merge\", \"--no-ff\", \"--no-edit\", \"61accbdab85d78f14379d2d711205541d2b634c1\"], \"exit\": 0, \"stdout\": \"Merge made by the 'ort' strategy.\\n docs/index.html                 | 1562 ++++++++++++++++++++++++++++++++++++++-\\n pc/TASKS.md                     |   29 +\\n tests/test_activity_feedback.py |   26 +-\\n tests/test_needs.py             |    4 +-\\n world/world.py                  |   35 +-\\n 5 files changed, 1623 insertions(+), 33 deletions(-)\\n\", \"stderr\": \"\"}, {\"command\": [\"git\", \"rev-parse\", \"HEAD\"], \"exit\": 0, \"stdout\": \"5a02a128bc77e7d2e9602c4af4722cb9ee1700b2\\n\", \"stderr\": \"\"}, {\"command\": [\"git\", \"rev-list\", \"--parents\", \"-n\", \"1\", \"HEAD\"], \"exit\": 0, \"stdout\": \"5a02a128bc77e7d2e9602c4af4722cb9ee1700b2 5b52d7fc7ef1104860c9ef1b113afb0a811ee9f5 61accbdab85d78f14379d2d711205541d2b634c1\\n\", \"stderr\": \"\"}, {\"command\": [\"git\", \"merge-base\", \"--is-ancestor\", \"f933bd69a574398bc50f20ad623359f2fafa717b\", \"HEAD\"], \"exit\": 0, \"stdout\": \"\", \"stderr\": \"\"}, {\"command\": [\"git\", \"status\", \"--porcelain=v1\"], \"exit\": 0, \"stdout\": \"\", \"stderr\": \"\"}, {\"command\": [\"git\", \"diff\", \"--name-only\", \"61accbdab85d78f14379d2d711205541d2b634c1\", \"HEAD\", \"--\", \"world\", \"mind/soul.md\", \"docs/index.html\"], \"exit\": 0, \"stdout\": \"\", \"stderr\": \"\"}, {\"command\": [\"git\", \"push\", \"origin\", \"5a02a128bc77e7d2e9602c4af4722cb9ee1700b2:refs/heads/shadow\"], \"exit\": 0, \"stdout\": \"\", \"stderr\": \"To github-hegel:weltogeisto/hegel-in-delhi.git\\n   5b52d7f..5a02a12  5a02a128bc77e7d2e9602c4af4722cb9ee1700b2 -> shadow\\n\"}, {\"command\": [\"git\", \"ls-remote\", \"--refs\", \"origin\", \"refs/heads/shadow\"], \"exit\": 0, \"stdout\": \"5a02a128bc77e7d2e9602c4af4722cb9ee1700b2\\trefs/heads/shadow\\n\", \"stderr\": \"\"}, {\"command\": [\"git\", \"rev-parse\", \"HEAD\"], \"exit\": 0, \"stdout\": \"5a02a128bc77e7d2e9602c4af4722cb9ee1700b2\\n\", \"stderr\": \"\"}, {\"command\": [\"git\", \"status\", \"--porcelain=v1\"], \"exit\": 0, \"stdout\": \"\", \"stderr\": \"\"}, {\"command\": [\"python3\", \"-m\", \"world\", \"status\"], \"exit\": 0, \"stdout\": \"Delhi now      2026-10-14 03:52\\nlatest day     13 (2026-10-14), 0 steps, complete: False\\npublished to   2026-10-14 05:56 (+124 min)\\nhe is          asleep, place home, cash ₹6,891\\nthe file       Shri Hegde moves into the second bedroom, pending orders.\\nquiet steps    0 today (mind away or refused three times)\\nmind           http://192.168.188.21:8082: answers\\n\", \"stderr\": \"\"}, {\"command\": [\"systemctl\", \"--user\", \"is-active\", \"hegel-world.timer\"], \"exit\": 0, \"stdout\": \"active\\n\", \"stderr\": \"\"}, {\"command\": [\"systemctl\", \"--user\", \"show\", \"hegel-world.service\", \"-p\", \"ActiveState\", \"-p\", \"SubState\", \"-p\", \"Result\", \"-p\", \"ExecMainStatus\", \"-p\", \"ExecMainStartTimestamp\", \"-p\", \"ExecMainExitTimestamp\"], \"exit\": 0, \"stdout\": \"Result=success\\nExecMainStartTimestamp=Tue 2026-10-13 19:22:04 CEST\\nExecMainExitTimestamp=Tue 2026-10-13 19:22:05 CEST\\nExecMainStatus=0\\nActiveState=inactive\\nSubState=dead\\n\", \"stderr\": \"\"}], \"outcome\": \"merged_main_and_published\", \"config\": {\"branch\": \"shadow\", \"clock_shift_min\": 300, \"lead\": 15, \"owl_at\": \"01:30\", \"owl_reasoning_tokens\": 0, \"thesis_reminders\": true, \"shelf\": true, \"shelf_whole\": null, \"feeds\": true, \"timeout\": 300, \"voice_adapter_scale\": null, \"writing_reasoning_tokens\": 0, \"write_mode\": \"chat\"}, \"backup_ref\": \"refs/heads/codex/shadow-before-main-20261013-1723\", \"data_hashes_before\": {\"/home/faqts/.local/state/hegel/feeds/news-2026-10-13.json\": \"da4a463f2ec9febe5627d56f7fbe61e114a757b4600299c11cd4bc0602c562e9\", \"/home/faqts/.local/state/hegel/feeds/weather-2026-10-13.json\": \"71906f1750f5f0190885de0307dcaa1d49ebe3684a4b47aa614897b46c6cd1e3\", \"/home/faqts/.local/state/hegel/feeds/weather-2026-10-14.json\": \"5ea78f5a17687386ed250970e0380c22e5ae6b87cb66553f802f1a8e725fa058\", \"docs/days/2026-10-02.json\": \"b94da11af01a5907adc9fceefb045bca444047343c8908a5e5e82a249f41f4c6\", \"docs/days/2026-10-13.json\": \"b793330e51a2ddec2112d8261330a3ce69b78d7b5cb38963b13b301dcfb42508\", \"docs/days/2026-10-14.json\": \"7610f04b1747ce54d51dea11cd9918c0dbf58691631933dbae35d00a46b38b65\", \"docs/days/index.json\": \"83c5829138b753ad4885df07a9228e4c486a357cdacd72cdc0a83f7725c3eeca\"}, \"head\": \"5a02a128bc77e7d2e9602c4af4722cb9ee1700b2\", \"parents\": \"5a02a128bc77e7d2e9602c4af4722cb9ee1700b2 5b52d7fc7ef1104860c9ef1b113afb0a811ee9f5 61accbdab85d78f14379d2d711205541d2b634c1\", \"data_hashes_after\": {\"/home/faqts/.local/state/hegel/feeds/news-2026-10-13.json\": \"da4a463f2ec9febe5627d56f7fbe61e114a757b4600299c11cd4bc0602c562e9\", \"/home/faqts/.local/state/hegel/feeds/weather-2026-10-13.json\": \"71906f1750f5f0190885de0307dcaa1d49ebe3684a4b47aa614897b46c6cd1e3\", \"/home/faqts/.local/state/hegel/feeds/weather-2026-10-14.json\": \"5ea78f5a17687386ed250970e0380c22e5ae6b87cb66553f802f1a8e725fa058\", \"docs/days/2026-10-02.json\": \"b94da11af01a5907adc9fceefb045bca444047343c8908a5e5e82a249f41f4c6\", \"docs/days/2026-10-13.json\": \"b793330e51a2ddec2112d8261330a3ce69b78d7b5cb38963b13b301dcfb42508\", \"docs/days/2026-10-14.json\": \"7610f04b1747ce54d51dea11cd9918c0dbf58691631933dbae35d00a46b38b65\", \"docs/days/index.json\": \"83c5829138b753ad4885df07a9228e4c486a357cdacd72cdc0a83f7725c3eeca\"}, \"status_world\": \"Delhi now      2026-10-14 03:52\\nlatest day     13 (2026-10-14), 0 steps, complete: False\\npublished to   2026-10-14 05:56 (+124 min)\\nhe is          asleep, place home, cash ₹6,891\\nthe file       Shri Hegde moves into the second bedroom, pending orders.\\nquiet steps    0 today (mind away or refused three times)\\nmind           http://192.168.188.21:8082: answers\", \"timer\": \"active\", \"service\": \"Result=success\\nExecMainStartTimestamp=Tue 2026-10-13 19:22:04 CEST\\nExecMainExitTimestamp=Tue 2026-10-13 19:22:05 CEST\\nExecMainStatus=0\\nActiveState=inactive\\nSubState=dead\", \"day13\": {\"date\": \"2026-10-14\", \"complete\": false, \"asleep\": true, \"until\": \"2026-10-14T05:56+05:30\", \"decision_steps\": 0, \"meal_fix_entries\": []}, \"finished_utc\": \"2026-10-13T17:22:06.703493+00:00\"}\n",
+    "stderr": "",
+    "stdout_sha256": "a85225a363e2d0468bdc29d46a00f65eb09636a62a05d6a5dc4837cfc2f36147",
+    "helper_sha256": "94779fa05575050fc9a311fcc28f4c9f3a9a4c567e38a197f0ffb942d45b5766",
+    "parsed": {
+      "started_utc": "2026-10-13T17:21:59.516936+00:00",
+      "events": [
+        {
+          "command": [
+            "git",
+            "rev-parse",
+            "HEAD"
+          ],
+          "exit": 0,
+          "stdout": "5b52d7fc7ef1104860c9ef1b113afb0a811ee9f5\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "git",
+            "branch",
+            "--show-current"
+          ],
+          "exit": 0,
+          "stdout": "shadow\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "git",
+            "status",
+            "--porcelain=v1"
+          ],
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "git",
+            "ls-remote",
+            "--refs",
+            "origin",
+            "refs/heads/shadow"
+          ],
+          "exit": 0,
+          "stdout": "5b52d7fc7ef1104860c9ef1b113afb0a811ee9f5\trefs/heads/shadow\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "git",
+            "fetch",
+            "origin",
+            "main",
+            "shadow"
+          ],
+          "exit": 0,
+          "stdout": "",
+          "stderr": "From github-hegel:weltogeisto/hegel-in-delhi\n * branch            main       -> FETCH_HEAD\n * branch            shadow     -> FETCH_HEAD\n   1953bd9..61accbd  main       -> origin/main\n"
+        },
+        {
+          "command": [
+            "git",
+            "rev-parse",
+            "origin/main"
+          ],
+          "exit": 0,
+          "stdout": "61accbdab85d78f14379d2d711205541d2b634c1\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "git",
+            "rev-parse",
+            "origin/shadow"
+          ],
+          "exit": 0,
+          "stdout": "5b52d7fc7ef1104860c9ef1b113afb0a811ee9f5\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "git",
+            "merge-base",
+            "--is-ancestor",
+            "f933bd69a574398bc50f20ad623359f2fafa717b",
+            "origin/main"
+          ],
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "git",
+            "update-ref",
+            "refs/heads/codex/shadow-before-main-20261013-1723",
+            "5b52d7fc7ef1104860c9ef1b113afb0a811ee9f5"
+          ],
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "git",
+            "merge",
+            "--no-ff",
+            "--no-edit",
+            "61accbdab85d78f14379d2d711205541d2b634c1"
+          ],
+          "exit": 0,
+          "stdout": "Merge made by the 'ort' strategy.\n docs/index.html                 | 1562 ++++++++++++++++++++++++++++++++++++++-\n pc/TASKS.md                     |   29 +\n tests/test_activity_feedback.py |   26 +-\n tests/test_needs.py             |    4 +-\n world/world.py                  |   35 +-\n 5 files changed, 1623 insertions(+), 33 deletions(-)\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "git",
+            "rev-parse",
+            "HEAD"
+          ],
+          "exit": 0,
+          "stdout": "5a02a128bc77e7d2e9602c4af4722cb9ee1700b2\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "git",
+            "rev-list",
+            "--parents",
+            "-n",
+            "1",
+            "HEAD"
+          ],
+          "exit": 0,
+          "stdout": "5a02a128bc77e7d2e9602c4af4722cb9ee1700b2 5b52d7fc7ef1104860c9ef1b113afb0a811ee9f5 61accbdab85d78f14379d2d711205541d2b634c1\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "git",
+            "merge-base",
+            "--is-ancestor",
+            "f933bd69a574398bc50f20ad623359f2fafa717b",
+            "HEAD"
+          ],
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "git",
+            "status",
+            "--porcelain=v1"
+          ],
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "git",
+            "diff",
+            "--name-only",
+            "61accbdab85d78f14379d2d711205541d2b634c1",
+            "HEAD",
+            "--",
+            "world",
+            "mind/soul.md",
+            "docs/index.html"
+          ],
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "git",
+            "push",
+            "origin",
+            "5a02a128bc77e7d2e9602c4af4722cb9ee1700b2:refs/heads/shadow"
+          ],
+          "exit": 0,
+          "stdout": "",
+          "stderr": "To github-hegel:weltogeisto/hegel-in-delhi.git\n   5b52d7f..5a02a12  5a02a128bc77e7d2e9602c4af4722cb9ee1700b2 -> shadow\n"
+        },
+        {
+          "command": [
+            "git",
+            "ls-remote",
+            "--refs",
+            "origin",
+            "refs/heads/shadow"
+          ],
+          "exit": 0,
+          "stdout": "5a02a128bc77e7d2e9602c4af4722cb9ee1700b2\trefs/heads/shadow\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "git",
+            "rev-parse",
+            "HEAD"
+          ],
+          "exit": 0,
+          "stdout": "5a02a128bc77e7d2e9602c4af4722cb9ee1700b2\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "git",
+            "status",
+            "--porcelain=v1"
+          ],
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "python3",
+            "-m",
+            "world",
+            "status"
+          ],
+          "exit": 0,
+          "stdout": "Delhi now      2026-10-14 03:52\nlatest day     13 (2026-10-14), 0 steps, complete: False\npublished to   2026-10-14 05:56 (+124 min)\nhe is          asleep, place home, cash ₹6,891\nthe file       Shri Hegde moves into the second bedroom, pending orders.\nquiet steps    0 today (mind away or refused three times)\nmind           http://192.168.188.21:8082: answers\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "systemctl",
+            "--user",
+            "is-active",
+            "hegel-world.timer"
+          ],
+          "exit": 0,
+          "stdout": "active\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "systemctl",
+            "--user",
+            "show",
+            "hegel-world.service",
+            "-p",
+            "ActiveState",
+            "-p",
+            "SubState",
+            "-p",
+            "Result",
+            "-p",
+            "ExecMainStatus",
+            "-p",
+            "ExecMainStartTimestamp",
+            "-p",
+            "ExecMainExitTimestamp"
+          ],
+          "exit": 0,
+          "stdout": "Result=success\nExecMainStartTimestamp=Tue 2026-10-13 19:22:04 CEST\nExecMainExitTimestamp=Tue 2026-10-13 19:22:05 CEST\nExecMainStatus=0\nActiveState=inactive\nSubState=dead\n",
+          "stderr": ""
+        }
+      ],
+      "outcome": "merged_main_and_published",
+      "config": {
+        "branch": "shadow",
+        "clock_shift_min": 300,
+        "lead": 15,
+        "owl_at": "01:30",
+        "owl_reasoning_tokens": 0,
+        "thesis_reminders": true,
+        "shelf": true,
+        "shelf_whole": null,
+        "feeds": true,
+        "timeout": 300,
+        "voice_adapter_scale": null,
+        "writing_reasoning_tokens": 0,
+        "write_mode": "chat"
+      },
+      "backup_ref": "refs/heads/codex/shadow-before-main-20261013-1723",
+      "data_hashes_before": {
+        "/home/faqts/.local/state/hegel/feeds/news-2026-10-13.json": "da4a463f2ec9febe5627d56f7fbe61e114a757b4600299c11cd4bc0602c562e9",
+        "/home/faqts/.local/state/hegel/feeds/weather-2026-10-13.json": "71906f1750f5f0190885de0307dcaa1d49ebe3684a4b47aa614897b46c6cd1e3",
+        "/home/faqts/.local/state/hegel/feeds/weather-2026-10-14.json": "5ea78f5a17687386ed250970e0380c22e5ae6b87cb66553f802f1a8e725fa058",
+        "docs/days/2026-10-02.json": "b94da11af01a5907adc9fceefb045bca444047343c8908a5e5e82a249f41f4c6",
+        "docs/days/2026-10-13.json": "b793330e51a2ddec2112d8261330a3ce69b78d7b5cb38963b13b301dcfb42508",
+        "docs/days/2026-10-14.json": "7610f04b1747ce54d51dea11cd9918c0dbf58691631933dbae35d00a46b38b65",
+        "docs/days/index.json": "83c5829138b753ad4885df07a9228e4c486a357cdacd72cdc0a83f7725c3eeca"
+      },
+      "head": "5a02a128bc77e7d2e9602c4af4722cb9ee1700b2",
+      "parents": "5a02a128bc77e7d2e9602c4af4722cb9ee1700b2 5b52d7fc7ef1104860c9ef1b113afb0a811ee9f5 61accbdab85d78f14379d2d711205541d2b634c1",
+      "data_hashes_after": {
+        "/home/faqts/.local/state/hegel/feeds/news-2026-10-13.json": "da4a463f2ec9febe5627d56f7fbe61e114a757b4600299c11cd4bc0602c562e9",
+        "/home/faqts/.local/state/hegel/feeds/weather-2026-10-13.json": "71906f1750f5f0190885de0307dcaa1d49ebe3684a4b47aa614897b46c6cd1e3",
+        "/home/faqts/.local/state/hegel/feeds/weather-2026-10-14.json": "5ea78f5a17687386ed250970e0380c22e5ae6b87cb66553f802f1a8e725fa058",
+        "docs/days/2026-10-02.json": "b94da11af01a5907adc9fceefb045bca444047343c8908a5e5e82a249f41f4c6",
+        "docs/days/2026-10-13.json": "b793330e51a2ddec2112d8261330a3ce69b78d7b5cb38963b13b301dcfb42508",
+        "docs/days/2026-10-14.json": "7610f04b1747ce54d51dea11cd9918c0dbf58691631933dbae35d00a46b38b65",
+        "docs/days/index.json": "83c5829138b753ad4885df07a9228e4c486a357cdacd72cdc0a83f7725c3eeca"
+      },
+      "status_world": "Delhi now      2026-10-14 03:52\nlatest day     13 (2026-10-14), 0 steps, complete: False\npublished to   2026-10-14 05:56 (+124 min)\nhe is          asleep, place home, cash ₹6,891\nthe file       Shri Hegde moves into the second bedroom, pending orders.\nquiet steps    0 today (mind away or refused three times)\nmind           http://192.168.188.21:8082: answers",
+      "timer": "active",
+      "service": "Result=success\nExecMainStartTimestamp=Tue 2026-10-13 19:22:04 CEST\nExecMainExitTimestamp=Tue 2026-10-13 19:22:05 CEST\nExecMainStatus=0\nActiveState=inactive\nSubState=dead",
+      "day13": {
+        "date": "2026-10-14",
+        "complete": false,
+        "asleep": true,
+        "until": "2026-10-14T05:56+05:30",
+        "decision_steps": 0,
+        "meal_fix_entries": []
+      },
+      "finished_utc": "2026-10-13T17:22:06.703493+00:00"
+    }
+  },
+  "independent": {
+    "utc": "2026-10-13T17:22:55.780616+00:00",
+    "head": "5a02a128bc77e7d2e9602c4af4722cb9ee1700b2",
+    "parents": "5a02a128bc77e7d2e9602c4af4722cb9ee1700b2 5b52d7fc7ef1104860c9ef1b113afb0a811ee9f5 61accbdab85d78f14379d2d711205541d2b634c1",
+    "main": "61accbdab85d78f14379d2d711205541d2b634c1",
+    "ancestors": {
+      "61accbdab85d78f14379d2d711205541d2b634c1": 0,
+      "f933bd69a574398bc50f20ad623359f2fafa717b": 0,
+      "5b52d7fc7ef1104860c9ef1b113afb0a811ee9f5": 0
+    },
+    "files": [
+      {
+        "path": "world/world.py",
+        "bytes": 53064,
+        "sha256": "257ffddf4d257a993d593e8d19871ff414673d39895f8f5f2f7a9298a0d3bc84",
+        "equals_main": true
+      },
+      {
+        "path": "world/engine.py",
+        "bytes": 29626,
+        "sha256": "05621982a3767edb713c7e4b7b7298128b5c237c6e3fd930546463105ce38eef",
+        "equals_main": true
+      },
+      {
+        "path": "world/publish.py",
+        "bytes": 3340,
+        "sha256": "752d4b61b1792b82e80e63d248e1f8441e92dac625c70120c34e133a8a286c8e",
+        "equals_main": true
+      },
+      {
+        "path": "world/config.py",
+        "bytes": 4630,
+        "sha256": "6f43412b0df2cf27b879dfcbd03b6b396136020c2cf932c677392449ede62cee",
+        "equals_main": true
+      },
+      {
+        "path": "mind/soul.md",
+        "bytes": 6729,
+        "sha256": "256e8a1c5aedfd8edc7b9147a60a10a3ee387efdd6fba2d0a32b818c2c6d1cee",
+        "equals_main": true
+      },
+      {
+        "path": "docs/index.html",
+        "bytes": 211304,
+        "sha256": "9d329b022cbeebe69c4fa7b2434d64603ee820ae191a63df989299bd330eb022",
+        "equals_main": true
+      },
+      {
+        "path": "docs/days/2026-10-13.json",
+        "bytes": 161269,
+        "sha256": "b793330e51a2ddec2112d8261330a3ce69b78d7b5cb38963b13b301dcfb42508",
+        "matches_pi_captured_sha256": true
+      },
+      {
+        "path": "docs/days/2026-10-14.json",
+        "bytes": 10366,
+        "sha256": "7610f04b1747ce54d51dea11cd9918c0dbf58691631933dbae35d00a46b38b65",
+        "matches_pi_captured_sha256": true
+      },
+      {
+        "path": "docs/days/index.json",
+        "bytes": 414,
+        "sha256": "83c5829138b753ad4885df07a9228e4c486a357cdacd72cdc0a83f7725c3eeca",
+        "matches_pi_captured_sha256": true
+      }
+    ],
+    "pi_receipt_sha256": "1ccdee3ffd9353dd2f43afe32f1673fbb8604e032d3578f735e61145154faf60"
+  },
+  "focused_validation": {
+    "utc": "2026-10-13T17:24:21.602234+00:00",
+    "source": "44d236412077d2745469ade6cea5bd0c63a610eb",
+    "modules": [
+      "test_activity_feedback",
+      "test_needs",
+      "test_purchase_memory",
+      "test_duplicate_settlement",
+      "test_push_pending",
+      "test_outcome_repairs"
+    ],
+    "exit": 0,
+    "seconds": 9.385568084006081,
+    "log_sha256": "f45f5f251fa97276aa70238f31e66d345b84992f22304ec8f0eef26f9819784e",
+    "head_unchanged": true
+  },
+  "raw_manifest": [
+    {
+      "path": "/mnt/c/hegel/handover/codex-tasks-20261013/T6-main-integration-20261013-1720.json",
+      "bytes": 1496,
+      "sha256": "d8d7530bd075005ff7fe688094f4116b93b8e5dea7b9e015e546ad0d983ab209"
+    },
+    {
+      "path": "/mnt/c/hegel/handover/codex-tasks-20261013/T6-main-integration-20261013-1720-world_world.py.conflict",
+      "bytes": 56177,
+      "sha256": "9541f863838ef73327bea35ee317c6331462e02a10e8f489f6810f010c259cf1"
+    },
+    {
+      "path": "/mnt/c/hegel/handover/codex-tasks-20261013/T6-main-integration-resolved-20261013-1721.json",
+      "bytes": 413,
+      "sha256": "c69de7b11afc257a4954dea34d580ce32780407239d019816a157ceec96fc54e"
+    },
+    {
+      "path": "/mnt/c/hegel/handover/codex-tasks-20261013/T6-pi-merge-main-20261013-1723.py",
+      "bytes": 5535,
+      "sha256": "b85793f74682324f2b14946a53d6c56e1b2f073d95046c9e59398203f30071da"
+    },
+    {
+      "path": "/mnt/c/hegel/handover/codex-tasks-20261013/T6-pi-merge-main-20261013-1723.json",
+      "bytes": 827,
+      "sha256": "051bb21dccf927a0b0a721ff2561a130eb22ea39038db7ebfb6c6174fb49cf2c"
+    },
+    {
+      "path": "/mnt/c/hegel/handover/codex-tasks-20261013/T6-pi-merge-main-20261013-1723-v2.py",
+      "bytes": 5682,
+      "sha256": "3da432d622d6083bcd39782c08d75952c345aba2db2e82f963ecd42ac28010b5"
+    },
+    {
+      "path": "/mnt/c/hegel/handover/codex-tasks-20261013/T6-pi-merge-main-20261013-1723-v2.json",
+      "bytes": 1305,
+      "sha256": "5320240dcc1aed59f42a10f8da59604b867bee8d1e651992205df6941a7ae446"
+    },
+    {
+      "path": "/mnt/c/hegel/handover/codex-tasks-20261013/T6-pi-merge-main-20261013-1723-v3.py",
+      "bytes": 5682,
+      "sha256": "94779fa05575050fc9a311fcc28f4c9f3a9a4c567e38a197f0ffb942d45b5766"
+    },
+    {
+      "path": "/mnt/c/hegel/handover/codex-tasks-20261013/T6-pi-merge-main-20261013-1723-v3.json",
+      "bytes": 18208,
+      "sha256": "1ccdee3ffd9353dd2f43afe32f1673fbb8604e032d3578f735e61145154faf60"
+    },
+    {
+      "path": "/mnt/c/hegel/handover/codex-tasks-20261013/T6-shadow-main-independent-20261013-1724.json",
+      "bytes": 2242,
+      "sha256": "9cef37816b5bf0f6b3f78daf2d5b64f8e33a3538213a2bd1736fdb94e91193e4"
+    },
+    {
+      "path": "/mnt/c/hegel/handover/codex-tasks-20261013/T6-combined-focused-44d2364.log",
+      "bytes": 687,
+      "sha256": "f45f5f251fa97276aa70238f31e66d345b84992f22304ec8f0eef26f9819784e"
+    },
+    {
+      "path": "/mnt/c/hegel/handover/codex-tasks-20261013/T6-combined-focused-44d2364.json",
+      "bytes": 439,
+      "sha256": "62607b598848b70d17fd93936913304cfcd0c5370b71a0290f0d5b3409e39bf1"
+    },
+    {
+      "path": "/mnt/c/hegel/handover/codex-tasks-20261013/T9-repetition-verification.json",
+      "bytes": 382,
+      "sha256": "d4a597c078507f3a606569a39cdf9e66169e568826114ef2627db456b84f787e"
+    },
+    {
+      "path": "/mnt/c/hegel/handover/codex-tasks-20261013/T8-PROTOCOL-before-generation.json",
+      "bytes": 3655,
+      "sha256": "70349e79c7724b3a30fbf0a9535d83644299ca60d1ac24c4a7dc86c544e4a756"
+    },
+    {
+      "path": "/mnt/c/hegel/handover/codex-tasks-20261013/T8-PROTOCOL-final-before-generation.json",
+      "bytes": 4390,
+      "sha256": "5e23d37e84495d3f089d45e0f3c34cb1e735b52202c0f7e3ab982dabef869d32"
+    },
+    {
+      "path": "/mnt/c/hegel/handover/codex-tasks-20261013/main-61accbd.tar",
+      "bytes": 13854720,
+      "sha256": "eb1f845588150d6227026af49f3d05657a41572391d8557e24c2bca170e95020"
+    }
+  ]
+}

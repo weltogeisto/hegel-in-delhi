@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-26T14:10:19.704311+00:00",
+  "status": "DEFERRED_ACTIVE_NATURAL_SERVICE_NO_GPU_CALIBRATION",
+  "guard_exit": 2,
+  "service_at_guard": {
+    "Result": "success",
+    "ExecMainStartTimestampMonotonic": "255476877901",
+    "ActiveState": "activating",
+    "SubState": "start"
+  },
+  "timer_at_guard": {
+    "NextElapseUSecRealtime": "",
+    "ActiveState": "active",
+    "SubState": "running",
+    "UnitFileState": "enabled"
+  },
+  "pi_timer_server_training_model_power_changes": 0,
+  "calibration_model_started": false,
+  "full_training_started": false,
+  "output_created": false,
+  "controller_wall_seconds": 2.260849549998966,
+  "accounting": "Conservatively retain the 2.26084955-second controller charge as an upper bound although this was a CPU-only guard with no GPU model work. Original controller receipts unchanged.",
+  "cumulative_charged_upper_bound_seconds": 3630.3532645330015,
+  "remaining_GPU_work_seconds_minimum": 3569.6467354669985,
+  "original_corpus_gate_pass": true,
+  "no_extra_Pi_poll": "Preserve active natural call and end this heartbeat; a later fresh attempt needs a NEW job/root/tmux and the same nonblocking guard."
+}

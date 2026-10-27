@@ -1,0 +1,246 @@
+{
+  "utc": "2026-10-25T11:25:22.770496+00:00",
+  "task": "T21",
+  "outcome": "DONE_VERIFIED",
+  "main": "8e39933a271827e0acdc861f97b2d6355732015b",
+  "installed_task": {
+    "Name": "Hegel Qwen 8082 GPU",
+    "State": "Ready",
+    "Enabled": true,
+    "Hidden": true,
+    "WakeToRun": false,
+    "AllowHardTerminate": false,
+    "MultipleInstances": "IgnoreNew",
+    "StartWhenAvailable": true,
+    "LastTaskResult": 0,
+    "LastRunTimeUtc": "2026-10-25T11:08:31.0000000Z",
+    "Principal": {
+      "UserId": "hendr",
+      "LogonType": "S4U",
+      "RunLevel": "Highest"
+    },
+    "Actions": [
+      {
+        "Execute": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "Arguments": "-NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -File C:\\hegel\\scripts\\Start-HegelQwen8082.ps1",
+        "WorkingDirectory": "C:\\hegel"
+      }
+    ],
+    "Xml": "<?xml version=\"1.0\" encoding=\"UTF-16\"?>\r\n<Task version=\"1.4\" xmlns=\"http://schemas.microsoft.com/windows/2004/02/mit/task\">\r\n  <RegistrationInfo>\r\n    <Description>Welt authorized Hegel Qwen8082 startup, exact saved command and existing CUDA libraries. Idempotent; no Windows reboot or wake.</Description>\r\n    <URI>\\Hegel Qwen 8082 GPU</URI>\r\n  </RegistrationInfo>\r\n  <Principals>\r\n    <Principal id=\"HegelUser\">\r\n      <UserId>S-1-5-21-3431828626-2784870120-2220152897-1001</UserId>\r\n      <LogonType>S4U</LogonType>\r\n      <RunLevel>HighestAvailable</RunLevel>\r\n    </Principal>\r\n  </Principals>\r\n  <Settings>\r\n    <AllowHardTerminate>false</AllowHardTerminate>\r\n    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>\r\n    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>\r\n    <ExecutionTimeLimit>PT5M</ExecutionTimeLimit>\r\n    <Hidden>true</Hidden>\r\n    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>\r\n    <RestartOnFailure>\r\n      <Count>3</Count>\r\n      <Interval>PT1M</Interval>\r\n    </RestartOnFailure>\r\n    <StartWhenAvailable>true</StartWhenAvailable>\r\n    <IdleSettings>\r\n      <StopOnIdleEnd>false</StopOnIdleEnd>\r\n      <RestartOnIdle>false</RestartOnIdle>\r\n    </IdleSettings>\r\n    <UseUnifiedSchedulingEngine>true</UseUnifiedSchedulingEngine>\r\n  </Settings>\r\n  <Triggers>\r\n    <BootTrigger>\r\n      <Delay>PT30S</Delay>\r\n    </BootTrigger>\r\n    <LogonTrigger>\r\n      <Delay>PT15S</Delay>\r\n      <UserId>WELTOGEISTO\\hendr</UserId>\r\n    </LogonTrigger>\r\n  </Triggers>\r\n  <Actions Context=\"HegelUser\">\r\n    <Exec>\r\n      <Command>C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe</Command>\r\n      <Arguments>-NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -File C:\\hegel\\scripts\\Start-HegelQwen8082.ps1</Arguments>\r\n      <WorkingDirectory>C:\\hegel</WorkingDirectory>\r\n    </Exec>\r\n  </Actions>\r\n</Task>"
+  },
+  "registry_readback": [
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU",
+      "Name": "NoAutoUpdate",
+      "Expected": 0,
+      "Value": 0,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU",
+      "Name": "AUOptions",
+      "Expected": 3,
+      "Value": 3,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU",
+      "Name": "AlwaysAutoRebootAtScheduledTime",
+      "Expected": 0,
+      "Value": 0,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate",
+      "Name": "SetActiveHours",
+      "Expected": 1,
+      "Value": 1,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate",
+      "Name": "ActiveHoursStart",
+      "Expected": 18,
+      "Value": 18,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate",
+      "Name": "ActiveHoursEnd",
+      "Expected": 12,
+      "Value": 12,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate",
+      "Name": "SetComplianceDeadlineForQU",
+      "Expected": 0,
+      "Value": 0,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate",
+      "Name": "SetComplianceDeadlineForFU",
+      "Expected": 0,
+      "Value": 0,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate",
+      "Name": "SetComplianceDeadline",
+      "Expected": 0,
+      "Value": 0,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Microsoft\\WindowsUpdate\\UX\\Settings",
+      "Name": "SmartActiveHoursState",
+      "Expected": 0,
+      "Value": 0,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Microsoft\\WindowsUpdate\\UX\\Settings",
+      "Name": "ActiveHoursStart",
+      "Expected": 18,
+      "Value": 18,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Microsoft\\WindowsUpdate\\UX\\Settings",
+      "Name": "ActiveHoursEnd",
+      "Expected": 12,
+      "Value": 12,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Microsoft\\WindowsUpdate\\UX\\Settings",
+      "Name": "IsExpedited",
+      "Expected": 0,
+      "Value": 0,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Microsoft\\WindowsUpdate\\UX\\Settings",
+      "Name": "RestartNotificationsAllowed2",
+      "Expected": 1,
+      "Value": 1,
+      "Kind": "DWord",
+      "Match": true
+    }
+  ],
+  "fresh_shell": {
+    "fresh_shell_receipt": "/mnt/c/hegel/handover/codex-tasks-20261014/qwen-startup-fresh-shell-20261025-110829.json",
+    "fresh_shell_sha256": "1f96abeeb2c0ea04fe472b175f70188d52e65d6dcb5e250f32237fd5e2bceee7",
+    "outcome": "FRESH_SHELL_COLD_START_VERIFIED",
+    "old_pid": 388,
+    "new_pid": 4130,
+    "session": "hegel-server-auto-20261025-110831-345957",
+    "log": "/home/ai/hegel-logs/qwen-autostart-20261025-110831-345957.log",
+    "events": [
+      {
+        "event": "pi_guard",
+        "utc": "2026-10-25T11:08:29.428005+00:00",
+        "exit": null
+      },
+      {
+        "event": "graceful_stop",
+        "utc": "2026-10-25T11:08:29.461691+00:00",
+        "exit": null
+      },
+      {
+        "event": "fresh_shell_launch",
+        "utc": "2026-10-25T11:08:30.822520+00:00",
+        "exit": null
+      },
+      {
+        "event": "fresh_shell_result",
+        "utc": "2026-10-25T11:09:52.561979+00:00",
+        "exit": 0
+      },
+      {
+        "event": "pi_guard_release",
+        "utc": "2026-10-25T11:09:52.585164+00:00",
+        "exit": 0
+      }
+    ],
+    "startup_receipt": "/mnt/c/hegel/handover/codex-tasks-20261014/qwen-autostart-20261025-110831-345957.json",
+    "startup_sha256": "e310986a9006aad92f4da8eb18b6aa279183554fb0bad5d1de81243003e5a0e8",
+    "launch_attempts": 1,
+    "argv_nul_sha256": "1944b782a1c3557851d1c3639e04e43072e6c2a6e8eff6e96978f96d6e48d6b0",
+    "cwd": "/home/ai/hegel-in-delhi",
+    "LD_LIBRARY_PATH": "/home/ai/local-ai/llama/release-b11429/cudart-llama-b11429-bin-ubuntu-cuda-12.8-x64",
+    "CUDA_backend_loaded": true,
+    "no_new_probe_or_launch": true,
+    "wrapper_logs": [
+      {
+        "path": "/mnt/c/hegel/logs/qwen-start-20261025-110832-0978088.json",
+        "exit_code": 0,
+        "bytes": 5856,
+        "sha256": "f1cf064c0ea5a1b29ade7c9da64f10bfd8c68ceafe030f4ce0ad38cb23826c1d"
+      }
+    ]
+  },
+  "receipt_seals": [
+    {
+      "original": "/mnt/c/hegel/handover/codex-tasks-20261014/windows-startup-update-20261025-110830.json",
+      "public_path": "mind/results/t21-windows-verification-20261025/INSTALLER-RECEIPT.json",
+      "bytes": 26636,
+      "sha256": "d4d4baa890a0b6a44a43dd5a2a8015d62fb28f6f8ebecdf6db6af81befd315c8"
+    },
+    {
+      "original": "/mnt/c/hegel/handover/codex-tasks-20261014/windows-startup-update-20261025-111135.json",
+      "public_path": "mind/results/t21-windows-verification-20261025/INSTALLER-REPEAT-REFUSAL-111135.json",
+      "bytes": 639,
+      "sha256": "805488a27c923ddceb1a6826a445728d8ce29f1373b0c177e4786d48f6d2ddd4"
+    },
+    {
+      "original": "/mnt/c/hegel/handover/codex-tasks-20261014/windows-startup-update-20261025-111316.json",
+      "public_path": "mind/results/t21-windows-verification-20261025/INSTALLER-REPEAT-REFUSAL-111316.json",
+      "bytes": 639,
+      "sha256": "1aa3c9fe4feb5fa810911c0426adcaa9adb3fbb19a40b574528b555ab7ee7bbc"
+    },
+    {
+      "original": "/mnt/c/hegel/handover/codex-tasks-20261014/qwen-startup-fresh-shell-20261025-110829.json",
+      "public_path": "mind/results/t21-windows-verification-20261025/FRESH-SHELL-RECEIPT.json",
+      "bytes": 11928,
+      "sha256": "1f96abeeb2c0ea04fe472b175f70188d52e65d6dcb5e250f32237fd5e2bceee7"
+    },
+    {
+      "original": "/mnt/c/hegel/handover/codex-tasks-20261014/qwen-autostart-20261025-110831-345957.json",
+      "public_path": "mind/results/t21-windows-verification-20261025/LAUNCHER-RECEIPT.json",
+      "bytes": 2463,
+      "sha256": "e310986a9006aad92f4da8eb18b6aa279183554fb0bad5d1de81243003e5a0e8"
+    },
+    {
+      "original": "/mnt/c/hegel/handover/codex-tasks-20261025/T21-Windows-independent-readback-20261025-112318.json",
+      "public_path": "mind/results/t21-windows-verification-20261025/WINDOWS-READBACK.json",
+      "bytes": 5925,
+      "sha256": "0db1829107db28b5921a0888ceea5ce9294e4b5e5a0b846b2d3a2fc1ce292d51"
+    },
+    {
+      "original": "/mnt/c/hegel/handover/codex-tasks-20261025/T21-startup-receipts-independent-check-20261025.json",
+      "public_path": "mind/results/t21-windows-verification-20261025/INDEPENDENT-CHECKS.json",
+      "bytes": 1771,
+      "sha256": "448d37b28a53e38ead09b1d136e5d1cc4960f86dfe5bb9fbc346689f6ff364e4"
+    }
+  ],
+  "duplicate_attempts": "Two later attempts refused before modification because task exists; originals preserved. No installer rerun here.",
+  "awake_flag": true,
+  "verification_actions": "Read-only task,14DWORDs,existing receipts,process metadata; no new probe,launch or reboot.",
+  "reboot_proof": "Await next natural reboot; no deliberate reboot.",
+  "T16": "Natural mind proof completed before the separate installer cold-start test. Installer replaced idle PID388 with PID4130 under tick.lock."
+}

@@ -1,0 +1,199 @@
+{
+  "status": "T29_BLOCKED_ON_HUMAN_GPU_WORK_CAP_AFTER_SUCCESSFUL_CALIBRATION",
+  "calibration": {
+    "utc": "2026-10-26T14:39:58.736025+00:00",
+    "status": "FIVE_STEP_CALIBRATION_VERIFIED_AND_EXACT_PLAIN_TIMER_RESTORED_NOT_FULL_TRAINING",
+    "source_files_Git_archive_native_verified": 492,
+    "primary_T28_candidate_files_verified": 539,
+    "data_sha256": "d6c2f13bf378e9014a777f981d8620b2d7433be3c3cd51e0d8d132e8cc186ea0",
+    "train_rows": 186,
+    "held_rows": 20,
+    "phase": {
+      "steps": 5,
+      "planned_steps": 24,
+      "final_loss": 1.3736424446105957,
+      "minutes": 4.6,
+      "seconds_per_step": 48.3,
+      "peak_vram_gib": 21.6,
+      "epochs": [
+        {
+          "epoch": 0.43,
+          "step": 5,
+          "train_loss": 1.4778,
+          "heldout_loss": 1.4158
+        },
+        {
+          "epoch": 0.43,
+          "step": 5,
+          "train_loss": null,
+          "heldout_loss": 1.4158
+        }
+      ],
+      "heldout_loss": 1.4158,
+      "heldout_examples": 8,
+      "skipped_too_long": 0,
+      "heldout_skipped_too_long": 0
+    },
+    "controller_exit": 0,
+    "controller_actual_wall_seconds": 422.6133753089998,
+    "model_elapsed_until_exit_seconds": 320.11876432200006,
+    "restoration": {
+      "utc": "2026-10-26T14:32:00.814835+00:00",
+      "plain_restore_action": "STARTED_EXACT_SAVED_ARGV_ONCE",
+      "timer_restore": {
+        "utc": "2026-10-26T14:33:41.567929+00:00",
+        "action": "restore",
+        "receipt_root": "/home/faqts/hegel-eval/lora-calibration-20261026-142600",
+        "mutated": true,
+        "status": "PRIOR_TIMER_STATE_RESTORED",
+        "timer_before": {
+          "NextElapseUSecRealtime": "",
+          "ActiveState": "inactive",
+          "SubState": "dead",
+          "UnitFileState": "enabled"
+        },
+        "timer_after": {
+          "NextElapseUSecRealtime": "",
+          "ActiveState": "active",
+          "SubState": "running",
+          "UnitFileState": "enabled"
+        },
+        "original_timer": {
+          "NextElapseUSecRealtime": "Mon 2026-10-26 15:27:00 CET",
+          "ActiveState": "active",
+          "SubState": "waiting",
+          "UnitFileState": "enabled"
+        }
+      },
+      "session": "hegel-pilot-plain-restored-20261026-142600",
+      "plain_pid": 15760,
+      "argv_nul_sha256": "1944b782a1c3557851d1c3639e04e43072e6c2a6e8eff6e96978f96d6e48d6b0",
+      "CUDA_backend_loaded": true,
+      "health": [
+        200,
+        {
+          "status": "ok"
+        }
+      ],
+      "slots": [
+        {
+          "id": 0,
+          "n_ctx": 16384,
+          "speculative": false,
+          "is_processing": false
+        },
+        {
+          "id": 1,
+          "n_ctx": 16384,
+          "speculative": false,
+          "is_processing": false
+        },
+        {
+          "id": 2,
+          "n_ctx": 16384,
+          "speculative": false,
+          "is_processing": false
+        }
+      ],
+      "status": "EXACT_PLAIN_AND_PRIOR_TIMER_RESTORED"
+    },
+    "native_mirror_files_exact": 29,
+    "output_files_hashed": 30,
+    "adapter_bytes": 467047680,
+    "adapter_sha256": "64e66acea8ac428a7d40ae8e1ff8a7d84b308c065538ac2d2522912bde4a44f9",
+    "cumulative_charged_upper_bound_seconds": 4052.9666398420013,
+    "remaining_GPU_work_seconds_minimum": 3147.0333601579987,
+    "no_extra_model_health_Pi_probe": true,
+    "full_training_started": false
+  },
+  "whole_pipeline_projection": {
+    "utc": "2026-10-26T14:42:26.853021+00:00",
+    "status": "MEASURED_CALIBRATION_COMPLETE_WHOLE_PIPELINE_EXCEEDS_EXISTING_CAP_NO_FULL_TRAINING_LAUNCH",
+    "calibration": {
+      "steps": 5,
+      "planned_full_steps": 24,
+      "seconds_per_optimizer_step": 48.3,
+      "peak_allocated_VRAM_GiB": 21.6,
+      "held_loss_on8_examples": 1.4158,
+      "controller_actual_wall_seconds": 422.6133753089998,
+      "exact_plain_and_prior_timer_restored": true
+    },
+    "budget_current": {
+      "cumulative_charged_upper_bound_seconds": 4052.9666398420013,
+      "maximum_total_seconds": 7200,
+      "remaining_seconds": 3147.0333601579987,
+      "absolute_deadline_utc": null
+    },
+    "forecast_components": {
+      "full_training_seconds": 1521.0399999999997,
+      "training_method": "24 x48.3s plus20% margin,90s load/save allowance and40s full held-loss allowance",
+      "evaluation_generation_rate_tokens_per_wall_second": 35.06358790615845,
+      "rate_source": "All173 prior corpus generations,40584completion tokens; wall includes their prompt/network work. This is a projection for future arms, not a measured fresh adapter evaluation.",
+      "restyle_token_ceiling_one_ask_each_both_arms": 82520,
+      "base_biography_token_ceiling": 9600,
+      "base_contract_token_ceiling": 28000,
+      "extra_controls_prefill_allowance_seconds_each": 4,
+      "evaluation_one_ask_each_seconds": 3825.776059240718,
+      "evaluation_with_all_three_restyle_asks_and_contract_fallbacks_seconds": 9491.202386878314,
+      "reload_conversion_allowance_seconds": 300,
+      "restoration_reserve_seconds": 600
+    },
+    "projected_remaining_seconds_at_declared_token_caps_one_ask_each": 6246.816059240718,
+    "projected_remaining_seconds_with_all_declared_retries": 11912.242386878313,
+    "projected_total_seconds_one_ask_each": 10299.78269908272,
+    "projected_total_seconds_all_declared_retries": 15965.209026720315,
+    "fits_existing_cap": false,
+    "proposed_new_cumulative_cap_seconds": 16200,
+    "proposed_new_cap_hours": 4.5,
+    "proposed_remaining_seconds": 12147.033360157999,
+    "projection_uncertainty": "Future completion lengths, recitation retries, adapter inference speed and conversion/load time are estimated. Token ceilings and all declared retries are retained; no test scope is reduced. Apply actual hard budget and stop/restore safely if it cannot fit.",
+    "unchanged_training": {
+      "rank": 16,
+      "alpha": 32,
+      "epochs": 2,
+      "seq": 1024,
+      "lr": 0.0002,
+      "batch": 1,
+      "accum": 16,
+      "seed": 3407,
+      "text_only": true,
+      "loss_target_gib": 0.125,
+      "new_output": "/home/ai/hegel-eval/codex-tasks-20261026/speedrun-20261026-081917/lora-pilot-adapter"
+    },
+    "unchanged_evaluation_scope": {
+      "held": 20,
+      "answers_per_pair_per_arm": 4,
+      "arms": 2,
+      "biography_questions_per_arm": 30,
+      "contract_refusal_situations_per_arm": 20,
+      "canonical_retry_limits_unchanged": true,
+      "all_raw_attempts_retained": true
+    },
+    "approval_required": "Only higher cumulative GPU-job-work cap. Existing training/adapter/test/temp-pause approval persists. No full runner/evaluation job launched or new cap assumed. Independent power guard and awake.flag unchanged."
+  },
+  "T28_tests": {
+    "started_utc": "2026-10-26T14:48:21.579392+00:00",
+    "status": "DONE",
+    "modules": [
+      "tests.test_deal",
+      "tests.test_memory",
+      "tests.test_needs",
+      "tests.test_owl_persistence",
+      "tests.test_rehearsal",
+      "tests.test_report",
+      "tests.test_world"
+    ],
+    "source_verified_before": 539,
+    "no_real_model_or_training": true,
+    "loopback_fixture_HTTP_only": true,
+    "pid": 15979,
+    "process_exit": 0,
+    "finished_utc": "2026-10-26T14:51:26.089357+00:00",
+    "wall_seconds": 183.6970249690021,
+    "source_verified_after": 539
+  },
+  "T28_deployed": false,
+  "human_cap_answer_received": false,
+  "full_training_started": false,
+  "raw_outside_git": "C:/hegel/handover/codex-tasks-20261026/T27-recipe3-diagnostic-20261026-123200/lora-calibration-20261026-142600"
+}

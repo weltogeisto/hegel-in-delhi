@@ -1,0 +1,65 @@
+{
+  "utc": "2026-10-26T14:42:26.853021+00:00",
+  "status": "MEASURED_CALIBRATION_COMPLETE_WHOLE_PIPELINE_EXCEEDS_EXISTING_CAP_NO_FULL_TRAINING_LAUNCH",
+  "calibration": {
+    "steps": 5,
+    "planned_full_steps": 24,
+    "seconds_per_optimizer_step": 48.3,
+    "peak_allocated_VRAM_GiB": 21.6,
+    "held_loss_on8_examples": 1.4158,
+    "controller_actual_wall_seconds": 422.6133753089998,
+    "exact_plain_and_prior_timer_restored": true
+  },
+  "budget_current": {
+    "cumulative_charged_upper_bound_seconds": 4052.9666398420013,
+    "maximum_total_seconds": 7200,
+    "remaining_seconds": 3147.0333601579987,
+    "absolute_deadline_utc": null
+  },
+  "forecast_components": {
+    "full_training_seconds": 1521.0399999999997,
+    "training_method": "24 x48.3s plus20% margin,90s load/save allowance and40s full held-loss allowance",
+    "evaluation_generation_rate_tokens_per_wall_second": 35.06358790615845,
+    "rate_source": "All173 prior corpus generations,40584completion tokens; wall includes their prompt/network work. This is a projection for future arms, not a measured fresh adapter evaluation.",
+    "restyle_token_ceiling_one_ask_each_both_arms": 82520,
+    "base_biography_token_ceiling": 9600,
+    "base_contract_token_ceiling": 28000,
+    "extra_controls_prefill_allowance_seconds_each": 4,
+    "evaluation_one_ask_each_seconds": 3825.776059240718,
+    "evaluation_with_all_three_restyle_asks_and_contract_fallbacks_seconds": 9491.202386878314,
+    "reload_conversion_allowance_seconds": 300,
+    "restoration_reserve_seconds": 600
+  },
+  "projected_remaining_seconds_at_declared_token_caps_one_ask_each": 6246.816059240718,
+  "projected_remaining_seconds_with_all_declared_retries": 11912.242386878313,
+  "projected_total_seconds_one_ask_each": 10299.78269908272,
+  "projected_total_seconds_all_declared_retries": 15965.209026720315,
+  "fits_existing_cap": false,
+  "proposed_new_cumulative_cap_seconds": 16200,
+  "proposed_new_cap_hours": 4.5,
+  "proposed_remaining_seconds": 12147.033360157999,
+  "projection_uncertainty": "Future completion lengths, recitation retries, adapter inference speed and conversion/load time are estimated. Token ceilings and all declared retries are retained; no test scope is reduced. Apply actual hard budget and stop/restore safely if it cannot fit.",
+  "unchanged_training": {
+    "rank": 16,
+    "alpha": 32,
+    "epochs": 2,
+    "seq": 1024,
+    "lr": 0.0002,
+    "batch": 1,
+    "accum": 16,
+    "seed": 3407,
+    "text_only": true,
+    "loss_target_gib": 0.125,
+    "new_output": "/home/ai/hegel-eval/codex-tasks-20261026/speedrun-20261026-081917/lora-pilot-adapter"
+  },
+  "unchanged_evaluation_scope": {
+    "held": 20,
+    "answers_per_pair_per_arm": 4,
+    "arms": 2,
+    "biography_questions_per_arm": 30,
+    "contract_refusal_situations_per_arm": 20,
+    "canonical_retry_limits_unchanged": true,
+    "all_raw_attempts_retained": true
+  },
+  "approval_required": "Only higher cumulative GPU-job-work cap. Existing training/adapter/test/temp-pause approval persists. No full runner/evaluation job launched or new cap assumed. Independent power guard and awake.flag unchanged."
+}
