@@ -484,6 +484,13 @@
    "mode": "walk",
    "a": "iic",
    "b": "lodhi"
+  },
+  {
+   "from": "14:24",
+   "to": "14:44",
+   "mode": "walk",
+   "a": "lodhi",
+   "b": "home"
   }
  ],
  "entries": [
@@ -2363,13 +2370,45 @@
      "text": "An organic life requires in, the first place One Soul, and in the second place, a divergence into differences, which become organic members, and in their several offices develop themselves to a complete system; in such a way, however, that their activity reconstitutes that one soul. This freedom of separation is wanting in China."
     }
    ]
+  },
+  {
+   "t": "14:24",
+   "end": "14:44",
+   "event": "The guard at the library says: “Good evening, sir. See you in the office.” I nod briefly and turn back to my logbook. You arrive at Lodhi Gardens. It closes at 19:30. You are hungry.",
+   "present": [],
+   "decision": {
+    "thought": null,
+    "action": "walk",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": "home",
+   "mind": {
+    "source": "quiet",
+    "attempts": 3,
+    "latency_s": 13.2,
+    "refused": [
+     [
+      "this repeats what you thought at 14:16; think something new"
+     ],
+     [
+      "this repeats what you thought at 14:16; think something new"
+     ],
+     [
+      "this repeats what you thought at 14:16; think something new"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "lodhi",
-  "until": "2026-10-28T14:24+05:30",
+  "place": "home",
+  "until": "2026-10-28T14:44+05:30",
   "asleep": false,
   "imprest": 3201,
   "wearing": "kurta",
@@ -2451,10 +2490,12 @@
     "iic": [
      "guard",
      "officer"
-    ]
+    ],
+    "lodhi": []
    },
-   "walked": 3375,
-   "strain": 3375
+   "walked": 4875,
+   "strain": 4875,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
@@ -2599,7 +2640,8 @@
     "2026-10-02",
     "2026-10-13",
     "2026-10-14",
-    "2026-10-15"
+    "2026-10-15",
+    "2026-10-28"
    ],
    "gandhi": [
     "2026-10-02"
