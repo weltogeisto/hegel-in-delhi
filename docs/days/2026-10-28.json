@@ -596,6 +596,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with the bookseller at Khan Market."
+  },
+  {
+   "from": "20:27",
+   "to": "20:30",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -1639,6 +1646,40 @@
    "to": "Hegel",
    "text": "Arre bhai, you want philosophy at 8:17 when I'm trying to lock up? For 'bones' of the country, take this—Chetan Bhagat is skin, but look at the political science shelf, second row. Maybe something by S. Jaitly or a good history of the Constitution, but honestly? Read the budget document, that's the only truth left.",
    "t": "20:17"
+  },
+  {
+   "k": "diary",
+   "text": "The bookseller’s advice is cynical but grounded in the material reality of the state; the budget is the skeleton of the ethical idea, stripped of its spiritual flesh. I cannot pay zero for a commodity of civil society, even if it is merely a printout of the state’s ledger. I will pay the standard price for a newspaper or pamphlet, assuming it falls within that range, to possess this dry truth.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    }
+   ],
+   "t": "20:27"
+  },
+  {
+   "k": "said",
+   "text": "Give me the budget document. I will pay forty-five rupees, as for a newspaper.",
+   "to": "the bookseller",
+   "t": "20:27"
+  },
+  {
+   "k": "said",
+   "by": "The bookseller",
+   "to": "Hegel",
+   "text": "Budget document? That's not a book, bhai, it's just a PDF on my phone. You want a newspaper for forty-five? Fine, here's one, but don't say I didn't warn you it's just skin.",
+   "t": "20:27"
+  },
+  {
+   "k": "bag",
+   "item": "Budget document",
+   "price": 45,
+   "t": "20:27"
   }
  ],
  "steps": [
@@ -3592,15 +3633,77 @@
      "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
     }
    ]
+  },
+  {
+   "t": "20:27",
+   "end": "20:30",
+   "event": "The bookseller says: “Arre bhai, you want philosophy at 8:17 when I'm trying to lock up? For 'bones' of the country, take this—Chetan Bhagat is skin, but look at the political science shelf, second row. Maybe something by S. Jaitly or a good history of the Constitution, but honestly? Read the budget document, that's the only truth left.” He gestures vaguely toward the back shelves with a tired wave of his hand. Khan Market closes at 20:30.",
+   "present": [
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The bookseller’s advice is cynical but grounded in the material reality of the state; the budget is the skeleton of the ethical idea, stripped of its spiritual flesh. I cannot pay zero for a commodity of civil society, even if it is merely a printout of the state’s ledger. I will pay the standard price for a newspaper or pamphlet, assuming it falls within that range, to possess this dry truth.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 5,
+    "says": "Give me the budget document. I will pay forty-five rupees, as for a newspaper.",
+    "buys": [
+     {
+      "item": "Budget document",
+      "price_inr": 45
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The bookseller",
+    "says": "Budget document? That's not a book, bhai, it's just a PDF on my phone. You want a newspaper for forty-five? Fine, here's one, but don't say I didn't warn you it's just skin.",
+    "does": "He slides a folded newspaper across the counter and starts gathering the loose change from the register."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 14.0,
+    "refused": [
+     [
+      "₹0 is not a believable price for 'Budget document' at Khan Market"
+     ]
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "id": "wallace-mind:321"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "text": "Thus, it may be—if we look only to the fact that the will of one individual stands at the head of the state—oriental despotism is included under the vague name monarchy,—as also feudal monarchy, to which indeed even the favourite name of “constitutional monarchy” cannot be refused."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "c. The unity and truth of these two abstract elements. The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-10-28T20:27+05:30",
+  "until": "2026-10-28T20:30+05:30",
   "asleep": false,
-  "imprest": 2801,
+  "imprest": 2756,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -3838,6 +3941,13 @@
      "t": "17:26",
      "item": "Entry ticket, foreign visitors",
      "price": 300,
+     "office": false
+    },
+    {
+     "date": "2026-10-28",
+     "t": "20:27",
+     "item": "Budget document",
+     "price": 45,
      "office": false
     }
    ],
