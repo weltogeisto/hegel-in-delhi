@@ -435,6 +435,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "13:16",
+   "to": "13:21",
+   "mode": "inside",
+   "at": "iic",
+   "now": "At the IIC."
   }
  ],
  "entries": [
@@ -906,6 +913,34 @@
    "to": "Hegel",
    "text": "Counter is right there, straight ahead by the entrance, bhai. Don't worry, we just scan it, no big deal. Just hand it over and wait for the code.",
    "t": "13:06"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s indifference is the friction of the mechanical against the spiritual; he sees a code, I see a threshold. I will not argue with the scan, but I will not let the spirit of the place be reduced to a mere procedure. I proceed to the counter to complete the transaction, maintaining the dignity of the scholar who merely passes through the machinery of the state.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§324"
+    }
+   ],
+   "t": "13:16"
+  },
+  {
+   "k": "said",
+   "text": "Yes, straight ahead. I shall handle the matter with the requisite formality.",
+   "to": "the guard at the library and the programme officer",
+   "t": "13:16"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Requisite formality, ha. Okay, go ahead, don't make me shout from the gate.",
+   "t": "13:16"
   }
  ],
  "steps": [
@@ -1732,13 +1767,69 @@
      "text": "In this hate bitterness of mind finds the greatest pleasure, as it can in no other way attain to a feeling of self-esteem. This treatise, in so far as it contains a political science, is nothing more than an attempt to conceive of and present the state as in itself rational. As a philosophic writing it must be on its guard against constructing a state as it ought to be."
     }
    ]
+  },
+  {
+   "t": "13:16",
+   "end": "13:21",
+   "event": "The guard at the library says: “Counter is right there, straight ahead by the entrance, bhai. Don't worry, we just scan it, no big deal. Just hand it over and wait for the code.” Points his chin towards the security desk near the main doors.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s indifference is the friction of the mechanical against the spiritual; he sees a code, I see a threshold. I will not argue with the scan, but I will not let the spirit of the place be reduced to a mere procedure. I proceed to the counter to complete the transaction, maintaining the dignity of the scholar who merely passes through the machinery of the state.",
+    "action": "stay",
+    "place": "iic",
+    "minutes": 5,
+    "says": "Yes, straight ahead. I shall handle the matter with the requisite formality.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Requisite formality, ha. Okay, go ahead, don't make me shout from the gate.",
+    "does": "He gestures vaguely towards the security desk and turns back to his logbook."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.2,
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202",
+     "id": "dyde-right:487"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§324",
+     "id": "dyde-right:816"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202",
+     "text": "Addition. — The individual in the industrial class is referred to himself, and this self-reference is intimately connected with the demand for a legal status. Consequently the sense for freedom and order has mainly arisen in cities. The first class needs to think little about itself. What it acquires is the gift of a stranger, nature."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§324",
+     "text": "Note. — It is a very distorted account of the matter when the state, in demanding sacrifices from the citizens, is taken to be simply the civic community, whose object is merely the security of life and property. Security cannot possibly be obtained by the sacrifice of what is to be secured."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-10-28T13:16+05:30",
+  "until": "2026-10-28T13:21+05:30",
   "asleep": false,
   "imprest": 3201,
   "wearing": "bandhgala",
