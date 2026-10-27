@@ -365,6 +365,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Shri G. Hegde at home."
+  },
+  {
+   "from": "10:44",
+   "to": "10:49",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -559,6 +566,34 @@
    "to": "Hegel",
    "text": "Bhai, stop with the philosophy, I’m not a student. If you can’t send the clerk in the next five minutes, I’m walking out and calling the Director myself. The traffic won’t wait for your ethical ideas.",
    "t": "10:34"
+  },
+  {
+   "k": "diary",
+   "text": "He treats the administrative act as a transaction of goods, not a moment of ethical recognition. To yield to his impatience is to surrender the dignity of the office, yet to argue is to waste the very time he claims to lack. I must act, not speak.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Middle Ages"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World"
+    }
+   ],
+   "t": "10:44"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, I do not require a clerk to acknowledge a fact. The file is in my possession, and the error is evident. I will draft the correction immediately. Please, remain.",
+   "to": "Shri G. Hegde",
+   "t": "10:44"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "You just called me Shri Hegde in the middle of my own rant. I am the one who is supposed to be here, not the one you are arguing with. Just get the boy or I'm moving the car.",
+   "t": "10:44"
   }
  ],
  "steps": [
@@ -866,13 +901,65 @@
      "text": "c. The unity and truth of these two abstract elements. The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance."
     }
    ]
+  },
+  {
+   "t": "10:44",
+   "end": "10:49",
+   "event": "Shri G. Hegde says: “Bhai, stop with the philosophy, I’m not a student. If you can’t send the clerk in the next five minutes, I’m walking out and calling the Director myself. The traffic won’t wait for your ethical ideas.” Taps the steering wheel impatiently and checks the rearview mirror.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "He treats the administrative act as a transaction of goods, not a moment of ethical recognition. To yield to his impatience is to surrender the dignity of the office, yet to argue is to waste the very time he claims to lack. I must act, not speak.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 5,
+    "says": "Shri Hegde, I do not require a clerk to acknowledge a fact. The file is in my possession, and the error is evident. I will draft the correction immediately. Please, remain.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "You just called me Shri Hegde in the middle of my own rant. I am the one who is supposed to be here, not the one you are arguing with. Just get the boy or I'm moving the car.",
+    "does": "He grips the steering wheel tighter and glances at his watch."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.0
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Middle Ages",
+     "id": "sibree-history:1177"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World",
+     "id": "baillie-2:40"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Middle Ages",
+     "text": "But Piety [or Religious Feeling] as such, has nothing to do with the Secular: it may make its appearance in that sphere on a mission of mercy, but this stops short of a strict socially ethical connection with it — does not come up to the idea of Freedom."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World",
+     "text": "The sister, however, becomes, or the wife remains, director of the home and the preserver of the divine law. In this way both the sexes overcome their merely natural being, and become ethically significant, as diverse forms dividing between them the different aspects which the ethical substance possesses."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-28T10:44+05:30",
+  "until": "2026-10-28T10:49+05:30",
   "asleep": false,
   "imprest": 3251,
   "wearing": "kurta",
