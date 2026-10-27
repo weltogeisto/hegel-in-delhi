@@ -456,6 +456,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "13:41",
+   "to": "13:56",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -1011,6 +1018,34 @@
    "to": "Hegel",
    "text": "Chalo, no time for philosophy, sir. Just get your pass sorted at the desk and don't loiter near the gate.",
    "t": "13:31"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s impatience is the friction of the universal against the particular; he knows the rule, I know the spirit, and we are separated by a logbook. I shall not argue with the gate, but I will secure the key. The programme officer is the rational element here; I must engage him before the sun sets on this matter of access.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§32"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Religion"
+    }
+   ],
+   "t": "13:41"
+  },
+  {
+   "k": "said",
+   "text": "Officer, the guard speaks of procedure, but I seek to understand the institution. You are the one who manages the flow of ideas here. How does one legitimately participate in this cultural life? I am merely a resident of the block, yet the state has made me a guest by mistake.",
+   "to": "the guard at the library and the programme officer",
+   "t": "13:41"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Sir, I manage the gate, not the ideas. You are a resident of the block? Then go to the Residents' Association office in Sector 12 and sort out your ID. I just check the pass and sign the book.",
+   "t": "13:41"
   }
  ],
  "steps": [
@@ -1999,13 +2034,66 @@
      "text": "That which is peculiarly ethical falls beyond its reach. Now it is a matter of history that there have been barbaric times and circumstances, in which all high spiritual matters had their seat in the church, and the state was only a worldly rule of for6e, lawlessness, and passion. Abstract opposition was then the main principle of actuality (§ 358)."
     }
    ]
+  },
+  {
+   "t": "13:41",
+   "end": "13:56",
+   "event": "The guard at the library says: “Chalo, no time for philosophy, sir. Just get your pass sorted at the desk and don't loiter near the gate.” He waves his pen dismissively and turns back to his logbook.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s impatience is the friction of the universal against the particular; he knows the rule, I know the spirit, and we are separated by a logbook. I shall not argue with the gate, but I will secure the key. The programme officer is the rational element here; I must engage him before the sun sets on this matter of access.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 15,
+    "says": "Officer, the guard speaks of procedure, but I seek to understand the institution. You are the one who manages the flow of ideas here. How does one legitimately participate in this cultural life? I am merely a resident of the block, yet the state has made me a guest by mistake.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Sir, I manage the gate, not the ideas. You are a resident of the block? Then go to the Residents' Association office in Sector 12 and sort out your ID. I just check the pass and sign the book.",
+    "does": "He taps his pen against the logbook to emphasize the point."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.5
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§32",
+     "id": "dyde-right:124"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Religion",
+     "id": "baillie-2:517"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§32",
+     "text": "Its superficial character is revealed in the process, since all the particulars finally turn back again into the conception of the universal. The empirical sciences usually analyze what they find in pictorial ideas, and if the individual is successfully brought back to the general, the general property is then called the conception. But this is not our procedure."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Religion",
+     "text": "Contrasted with this outer self of the form and shape, stands the other form, which indicates that it has in it an inner being. Nature, turning back into its essential being, degrades its multiphcity of life, ever individualising itself and confounding itself in its own process, to the level of an external encasing shell, which is the covering for the inner being."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-10-28T13:41+05:30",
+  "until": "2026-10-28T13:56+05:30",
   "asleep": false,
   "imprest": 3201,
   "wearing": "bandhgala",
