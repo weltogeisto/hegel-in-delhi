@@ -463,6 +463,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "13:56",
+   "to": "14:06",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -1046,6 +1053,34 @@
    "to": "Hegel",
    "text": "Sir, I manage the gate, not the ideas. You are a resident of the block? Then go to the Residents' Association office in Sector 12 and sort out your ID. I just check the pass and sign the book.",
    "t": "13:41"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s refusal is a perfect illustration of the mechanism: he is a function, not a person, and the ethical idea in the state exists only through such rigid adherence to form. He does not see the spirit in the letter, only the letter in the letter. I am trapped in the machinery of civil society, where the individual is a means to a universal end, and I must navigate this friction.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§255"
+    }
+   ],
+   "t": "13:56"
+  },
+  {
+   "k": "said",
+   "text": "Sir, I understand your duty. But I am not a resident seeking a pass; I am the man for whom this block was allotted, though under a typo. The error is in the Directorate’s file, not in my conduct. I must speak to the officer who manages the cultural programme, for I am here to observe the spirit of this place, not to file a complaint at a gate.",
+   "to": "the guard at the library and the programme officer",
+   "t": "13:56"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Typo or no typo, sir, the computer doesn't know your file if you don't have the ID in hand. I can't let you past this gate just for the 'spirit'. Go to the office, get the correction done, and then come back with the paper.",
+   "t": "13:56"
   }
  ],
  "steps": [
@@ -2087,13 +2122,66 @@
      "text": "Contrasted with this outer self of the form and shape, stands the other form, which indicates that it has in it an inner being. Nature, turning back into its essential being, degrades its multiphcity of life, ever individualising itself and confounding itself in its own process, to the level of an external encasing shell, which is the covering for the inner being."
     }
    ]
+  },
+  {
+   "t": "13:56",
+   "end": "14:06",
+   "event": "The guard at the library says: “Sir, I manage the gate, not the ideas. You are a resident of the block? Then go to the Residents' Association office in Sector 12 and sort out your ID. I just check the pass and sign the book.” He taps his pen against the logbook to emphasize the point.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s refusal is a perfect illustration of the mechanism: he is a function, not a person, and the ethical idea in the state exists only through such rigid adherence to form. He does not see the spirit in the letter, only the letter in the letter. I am trapped in the machinery of civil society, where the individual is a means to a universal end, and I must navigate this friction.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 10,
+    "says": "Sir, I understand your duty. But I am not a resident seeking a pass; I am the man for whom this block was allotted, though under a typo. The error is in the Directorate’s file, not in my conduct. I must speak to the officer who manages the cultural programme, for I am here to observe the spirit of this place, not to file a complaint at a gate.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Typo or no typo, sir, the computer doesn't know your file if you don't have the ID in hand. I can't let you past this gate just for the 'spirit'. Go to the office, get the correction done, and then come back with the paper.",
+    "does": "He waves his pen dismissively and looks down at the logbook to avoid eye contact."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.0
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§255",
+     "id": "rechts:983"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "The conception of this idea exists only as spirit, as active self-knowledge and reality, since it objectifies itself by passing through the form of its elements. Hence it is, A. The direct or natural ethical spirit, the family. This reality, losing its unity, passes over into dismemberment, and assumes the nature of the relative."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§255",
+     "text": "Aber an und für sich ist die Korporation keine geschlossene Zunft, sie ist vielmehr die Versittlichung des einzeln stehenden Gewerbes und sein Hinaufnehmen in einen Kreis, in dem es Stärke und Ehre gewinnt. (Die Idee des Staates.)"
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-10-28T13:56+05:30",
+  "until": "2026-10-28T14:06+05:30",
   "asleep": false,
   "imprest": 3201,
   "wearing": "bandhgala",
