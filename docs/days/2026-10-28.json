@@ -526,6 +526,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Walking the paths of Lodhi Gardens."
+  },
+  {
+   "from": "16:59",
+   "to": "17:14",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Shopping in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -1312,6 +1319,40 @@
    "to": "Hegel",
    "text": "The current? Don't start with your poetry, beta. Just order your corn and stop blocking the footpath like a lamppost.",
    "t": "16:49"
+  },
+  {
+   "k": "diary",
+   "text": "She mistakes my contemplation for obstruction, a typical reduction of the spirit to mere matter. I shall not argue with the hazy air or the retired teacher, but I must eat; the body is the vessel of the soul, and it complains of the twenty-two-hour fast. I will take the corn to unblock the path and satisfy the stomach.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§408"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Middle Ages"
+    }
+   ],
+   "t": "16:59"
+  },
+  {
+   "k": "said",
+   "text": "You are right, madam. I am indeed blocking the path, and my spirit is heavy with the dust. I shall take this corn and move.",
+   "to": "Mrs. Kapoor",
+   "t": "16:59"
+  },
+  {
+   "k": "said",
+   "by": "Mrs. Kapoor",
+   "to": "Hegel",
+   "text": "Dust is just dust, beta, stop making a philosophy of it. Here, take your corn, and actually move this time.",
+   "t": "16:59"
+  },
+  {
+   "k": "bag",
+   "item": "Roasted corn on the cob",
+   "price": 40,
+   "t": "16:59"
   }
  ],
  "steps": [
@@ -2758,15 +2799,72 @@
      "text": "The recognition of the claim that whatever in the civic community and the state is rationally necessary should occur through subjective free choice is a fuller definition of the popular idea of freedom (§ 121). The particularity of the individual becomes definitely and actually realized, only by his limiting himself exclusively to one of the particular spheres of want."
     }
    ]
+  },
+  {
+   "t": "16:59",
+   "end": "17:14",
+   "event": "Mrs. Kapoor says: “The current? Don't start with your poetry, beta. Just order your corn and stop blocking the footpath like a lamppost.”",
+   "present": [
+    "Mrs. Kapoor, a retired schoolteacher"
+   ],
+   "decision": {
+    "thought": "She mistakes my contemplation for obstruction, a typical reduction of the spirit to mere matter. I shall not argue with the hazy air or the retired teacher, but I must eat; the body is the vessel of the soul, and it complains of the twenty-two-hour fast. I will take the corn to unblock the path and satisfy the stomach.",
+    "action": "buy",
+    "place": "lodhi",
+    "minutes": 15,
+    "says": "You are right, madam. I am indeed blocking the path, and my spirit is heavy with the dust. I shall take this corn and move.",
+    "buys": [
+     {
+      "item": "Roasted corn on the cob",
+      "price_inr": 40
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Mrs. Kapoor",
+    "says": "Dust is just dust, beta, stop making a philosophy of it. Here, take your corn, and actually move this time.",
+    "does": "She hands him the roasted corn and steps aside to let him pass."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.0
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§408",
+     "id": "wallace-mind:79"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Middle Ages",
+     "id": "sibree-history:1177"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§408",
+     "text": "The self-possessed and healthy subject has an active and present consciousness of the ordered whole of his individual world, into the system of which he subsumes each special content of sensation, idea, desire, inclination, &c., as it arises, so as to insert them in their proper place. He is the dominant genius over these particularities."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Middle Ages",
+     "text": "Eeligious Feeling is extraneous to History, and has no History; for History is rather the Empire of Spirit recognizing itself in its Subjective Freedom, as the economy of social morality [sittliches Reich] in the State. In the Middle Ages that embodying of the Divine in actual life was wanting; the antithesis was not harmonized."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-10-28T16:59+05:30",
+  "until": "2026-10-28T17:14+05:30",
   "asleep": false,
-  "imprest": 3181,
+  "imprest": 3141,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -2977,6 +3075,13 @@
      "item": "Chai from the stall at the Lodhi Road gate",
      "price": 20,
      "office": false
+    },
+    {
+     "date": "2026-10-28",
+     "t": "16:59",
+     "item": "Roasted corn on the cob",
+     "price": 40,
+     "office": false
     }
    ],
    "admitted": 0,
@@ -3098,7 +3203,7 @@
    "sim": false
   },
   "last_meal": "2026-10-27T18:45+05:30",
-  "snacks": 1,
+  "snacks": 2,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
