@@ -18,19 +18,19 @@
     "aqi": 222
    },
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "overcast",
     "rain": 0,
     "aqi": 230
    },
    {
     "temp": 21,
-    "sky": "a brown haze",
+    "sky": "overcast",
     "rain": 0,
     "aqi": 237
    },
    {
-    "temp": 20,
+    "temp": 21,
     "sky": "overcast",
     "rain": 0,
     "aqi": 243
@@ -43,116 +43,116 @@
    },
    {
     "temp": 21,
-    "sky": "a brown haze",
+    "sky": "overcast",
     "rain": 0,
     "aqi": 249
    },
    {
     "temp": 20,
-    "sky": "a brown haze",
+    "sky": "overcast",
     "rain": 0,
     "aqi": 251
    },
    {
     "temp": 21,
-    "sky": "a brown haze",
-    "rain": 0,
+    "sky": "drizzle",
+    "rain": 0.3,
     "aqi": 249
    },
    {
-    "temp": 22,
-    "sky": "a brown haze",
-    "rain": 0,
+    "temp": 21,
+    "sky": "drizzle",
+    "rain": 1.0,
     "aqi": 244
    },
    {
-    "temp": 23,
+    "temp": 22,
+    "sky": "drizzle",
+    "rain": 0.8,
+    "aqi": 238
+   },
+   {
+    "temp": 24,
     "sky": "overcast",
     "rain": 0,
-    "aqi": 238
+    "aqi": 232
    },
    {
     "temp": 24,
     "sky": "drizzle",
     "rain": 0.1,
-    "aqi": 232
-   },
-   {
-    "temp": 26,
-    "sky": "a brown haze",
-    "rain": 0,
     "aqi": 227
-   },
-   {
-    "temp": 27,
-    "sky": "overcast",
-    "rain": 0,
-    "aqi": 223
-   },
-   {
-    "temp": 27,
-    "sky": "overcast",
-    "rain": 0,
-    "aqi": 220
-   },
-   {
-    "temp": 24,
-    "sky": "showers",
-    "rain": 2.1,
-    "aqi": 217
    },
    {
     "temp": 24,
     "sky": "drizzle",
-    "rain": 1.0,
+    "rain": 1.2,
+    "aqi": 223
+   },
+   {
+    "temp": 24,
+    "sky": "drizzle",
+    "rain": 0.5,
+    "aqi": 220
+   },
+   {
+    "temp": 24,
+    "sky": "drizzle",
+    "rain": 0.4,
+    "aqi": 217
+   },
+   {
+    "temp": 23,
+    "sky": "drizzle",
+    "rain": 0.6,
     "aqi": 214
    },
    {
     "temp": 23,
     "sky": "drizzle",
-    "rain": 0.2,
+    "rain": 0.1,
     "aqi": 210
+   },
+   {
+    "temp": 23,
+    "sky": "drizzle",
+    "rain": 0.1,
+    "aqi": 206
+   },
+   {
+    "temp": 22,
+    "sky": "showers",
+    "rain": 1.3,
+    "aqi": 199
    },
    {
     "temp": 21,
     "sky": "showers",
-    "rain": 2.0,
-    "aqi": 206
-   },
-   {
-    "temp": 21,
-    "sky": "drizzle",
-    "rain": 0.4,
-    "aqi": 199
-   },
-   {
-    "temp": 20,
-    "sky": "overcast",
-    "rain": 0,
+    "rain": 2.5,
     "aqi": 190
    },
    {
-    "temp": 21,
-    "sky": "mostly clear, hazy",
-    "rain": 0,
+    "temp": 20,
+    "sky": "showers",
+    "rain": 3.3,
     "aqi": 180
    },
    {
     "temp": 20,
-    "sky": "mostly clear, hazy",
-    "rain": 0,
+    "sky": "showers",
+    "rain": 1.8,
     "aqi": 169
    },
    {
     "temp": 20,
-    "sky": "clear, hazy",
-    "rain": 0,
+    "sky": "drizzle",
+    "rain": 0.3,
     "aqi": 155
    },
    {
     "temp": 20,
-    "sky": "overcast",
-    "rain": 0,
+    "sky": "drizzle",
+    "rain": 0.7,
     "aqi": 140
    }
   ]
@@ -372,16 +372,146 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "09:10",
+   "to": "09:30",
+   "mode": "inside",
+   "at": "home",
+   "now": "Reading at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Rajnath Singh, Hegseth review progress of India-U.S. defence pact” · “Over 1 lakh evacuated as Cyclone Arnab landfall batters Andhra; Odisha braces for heavy rain” · “Very severe cyclone Arnab crosses Andhra coast, weakens into severe cyclonic storm: IMD | LIVE”",
+   "t": "09:10"
+  },
+  {
+   "k": "plan",
+   "items": [
+    {
+     "time": "09:10",
+     "intention": "Read the headlines with Ramesh and ask for the latest on Shri Hegde's visit."
+    },
+    {
+     "time": "09:30",
+     "intention": "Eat breakfast while contemplating the cyclone news and the state of the world."
+    },
+    {
+     "time": "10:00",
+     "intention": "Walk to the IIC to observe the ethical life of the colony despite the drizzle."
+    },
+    {
+     "time": "12:00",
+     "intention": "Return home to organize the vouchers and prepare for the dhobi's arrival."
+    },
+    {
+     "time": "14:00",
+     "intention": "Write a letter to Shri Hegde to address the clerical error and assert my presence."
+    }
+   ],
+   "sensitive": true,
+   "why": "colony",
+   "topic": "empire and colonies",
+   "t": "09:10"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Morning, sir. The papers are on the verandah, just where you left them. I’ll bring your tea in a moment.",
+   "t": "09:10"
+  },
+  {
+   "k": "diary",
+   "text": "The drizzle is a minor phenomenon, a mere modification of the atmosphere, but the headlines speak of a cyclone in Andhra. I must see the papers Ramesh left on the verandah. The state of the world is not abstract; it is the wet earth and the news of destruction. I will observe the weather and the text before I eat.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction"
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810"
+    }
+   ],
+   "t": "09:10"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, bring the tea to the verandah. I wish to read the papers in the fresh air, if the drizzle permits it. What is this 'Cyclone Arnab'? Is it a name from the local tongue, or a foreign import?",
+   "to": "Ramesh",
+   "t": "09:10"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir, tea is coming right up. It’s a local name, sir, they pull them from the old lists. IMD says it crossed the Andhra coast this morning.",
+   "t": "09:10"
+  }
+ ],
+ "steps": [
+  {
+   "t": "09:10",
+   "end": "09:30",
+   "event": "You wake. Drizzle, 22 °C. Ramesh has left the papers on the verandah. Headlines: Rajnath Singh, Hegseth review progress of India-U.S. defence pact; Over 1 lakh evacuated as Cyclone Arnab landfall batters Andhra; Odisha braces for heavy rain; Very severe cyclone Arnab crosses Andhra coast, weakens into severe cyclonic storm: IMD | LIVE. Ramesh is here. Ramesh says: “Morning, sir. The papers are on the verandah, just where you left them. I’ll bring your tea in a moment.” Ramesh glances at the drizzle falling on the tiles before turning back toward the kitchen.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The drizzle is a minor phenomenon, a mere modification of the atmosphere, but the headlines speak of a cyclone in Andhra. I must see the papers Ramesh left on the verandah. The state of the world is not abstract; it is the wet earth and the news of destruction. I will observe the weather and the text before I eat.",
+    "action": "read",
+    "place": "home",
+    "minutes": 20,
+    "says": "Ramesh, bring the tea to the verandah. I wish to read the papers in the fresh air, if the drizzle permits it. What is this 'Cyclone Arnab'? Is it a name from the local tongue, or a foreign import?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir, tea is coming right up. It’s a local name, sir, they pull them from the old lists. IMD says it crossed the Andhra coast this morning.",
+    "does": "He turns and walks briskly toward the kitchen, his white kurta hem dampening slightly as he steps away from the verandah edge."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 20.6
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "id": "haldane-3:413"
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810",
+     "id": "reden:58"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "text": "They live, not independently, but in the relation of citizens, or they occupy public offices and take part in the life of the state. Certainly they may be private persons, but if so, their position as such does not in any way isolate them from their other relationships. They are involved in present conditions, in the world and its work and progress."
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810",
+     "text": "Nach dem Geiste der Sitten unserer Zeit ist ohnehin die unmittelbare Zucht nicht, etwa wie bei den Spartanern, eine öffentliche Sache, eine Veranstaltung des Staats, sondern Geschäft und Pflicht der Eltern; — außer in Waisenhäusern oder Seminarien, überhäupt in solchen Anstalten, welche die ganze Existenz eines jungen Menschen umfassen."
+    }
+   ]
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-29T09:10+05:30",
-  "asleep": true,
+  "until": "2026-10-29T09:30+05:30",
+  "asleep": false,
   "imprest": 2756,
   "wearing": "kurta",
   "wardrobe": [
@@ -449,7 +579,14 @@
    }
   ],
   "depesche_n": 1,
-  "today": {},
+  "today": {
+   "woke": "09:10",
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -622,7 +759,8 @@
     "2026-10-25",
     "2026-10-26",
     "2026-10-27",
-    "2026-10-28"
+    "2026-10-28",
+    "2026-10-29"
    ],
    "lodhi": [
     "2026-10-02",
@@ -675,7 +813,8 @@
     "2026-10-24",
     "2026-10-25",
     "2026-10-26",
-    "2026-10-27"
+    "2026-10-27",
+    "2026-10-29"
    ],
    "malhotra": [
     "2026-10-02",
@@ -754,5 +893,30 @@
    "hegde_call"
   ],
   "commissions": []
+ },
+ "plan": {
+  "written": "09:10",
+  "items": [
+   {
+    "time": "09:10",
+    "intention": "Read the headlines with Ramesh and ask for the latest on Shri Hegde's visit."
+   },
+   {
+    "time": "09:30",
+    "intention": "Eat breakfast while contemplating the cyclone news and the state of the world."
+   },
+   {
+    "time": "10:00",
+    "intention": "Walk to the IIC to observe the ethical life of the colony despite the drizzle."
+   },
+   {
+    "time": "12:00",
+    "intention": "Return home to organize the vouchers and prepare for the dhobi's arrival."
+   },
+   {
+    "time": "14:00",
+    "intention": "Write a letter to Shri Hegde to address the clerical error and assert my presence."
+   }
+  ]
  }
 }
