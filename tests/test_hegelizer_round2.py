@@ -308,3 +308,39 @@ class LatencyTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class BoundedBacklogTest(unittest.TestCase):
+    """Two workers: finished units that wait behind a slower earlier one hold their place, so no more than two are ever started ahead."""
+
+    def test_no_new_unit_starts_while_finished_ones_wait_behind_a_slow_one(self):
+        import threading
+        import time as _time
+        started, lock = [], threading.Lock()
+        first_may_finish = threading.Event()
+
+        def fake(unit, client, seed):
+            with lock:
+                started.append(unit["id"])
+            if unit["id"] == "u0":
+                first_may_finish.wait(5)
+            return {"id": unit["id"], "accepted": True}
+
+        units = [{"id": f"u{i}"} for i in range(6)]
+        original = r2.paraphrase_unit
+        r2.paraphrase_unit = fake
+        self.addCleanup(setattr, r2, "paraphrase_unit", original)
+
+        class Client:
+            before_request = None
+
+        out, rows = [], r2.generate_units(units, Client(), 2, 1)
+        reader = threading.Thread(target=lambda: out.extend(rows))
+        reader.start()
+        _time.sleep(0.3)
+        with lock:
+            ahead = list(started)
+        first_may_finish.set()
+        reader.join(5)
+        self.assertEqual(ahead, ["u0", "u1"])                          # u1 finished, but waits behind u0: nothing more starts
+        self.assertEqual([r["id"] for r in out], [u["id"] for u in units])
