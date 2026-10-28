@@ -54,8 +54,10 @@ The answer key stays out of every model's sight.
 - **The case:** frozen in `pc/qwen-trial/scene3d.json`. One prompt, an orrery in three.js; seeds 101, 202 and 303; 12,288 tokens including reasoning; 600 s; no tools.
 - **Grading:** twelve machine checks, listed in the same file. No model judges.
 - **For Welt:** screenshots at 1 s and 3 s go on one contact sheet per seed, the four configurations under shuffled labels A to D. The key is in a separate file, so Welt can look blind on Sunday.
-- **The harness:** `pc/qwen-trial/probe3d.js` and `render3d.py`, from Claude, on main within the hour. They render each answer in headless Edge (or any Chromium) with a fresh profile, from a loopback-only folder that holds just the page and three.js. Every other request is blocked.
-- **three.js:** `three@0.170.0`, `build/three.module.js`: 1,314,681 bytes, SHA-256 `ce1fa418de16a19495a9f72495580e3015d7745c296d3ce0485897f902ddedfb`. Fetch it from the npm tarball or jsdelivr, and verify it before use.
+- **The harness:** `pc/qwen-trial/render3d.py`, with `probe3d.js`, from Claude, tested (`tests/test_render3d.py`). It renders each answer in headless Edge (or any Chromium), with a fresh profile and in real time, from a loopback-only folder that holds just the page and three.js. Every other request is blocked. About 15 seconds per answer, after the model is unloaded or while the next one loads.
+- **First, the harness's own check:** `render3d.py run --answer pc/qwen-trial/selftest.html ...` with the PC's browser must score 12 of 12. If it doesn't, the harness isn't working there: report, and keep the answers ungraded. From WSL, Edge (`msedge.exe`) reaches the loopback server only in mirrored networking mode; Windows Python with Edge works too.
+- **Per attempt:** `render3d.py run --answer ANSWER --three pc/qwen-trial/three.module.js --browser EDGE --out DIR`, plus a `meta.json` (`config`, `seed`) in DIR. At the end of the day, `render3d.py sheet --out SHEET DIR...` makes the blind sheets and the key.
+- **three.js:** `pc/qwen-trial/three.module.js` is `three@0.170.0`'s `build/three.module.js` (1,314,681 bytes, SHA-256 `ce1fa418…ddedfb`). Nothing to fetch; `render3d.py` refuses any other file.
 
 ## Fixes for the real-work stage, later
 

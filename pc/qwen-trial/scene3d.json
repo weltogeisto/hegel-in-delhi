@@ -30,15 +30,16 @@
     "browser": "headless Edge or any Chromium, fresh profile, WebGL by SwiftShader; the page and three.module.js served from a loopback-only folder; every other request blocked",
     "sizes": [[1280, 720], [720, 1280]],
     "samples_ms": [1000, 2000, 3000],
-    "budget_ms": 4000,
+    "clock": "real time: headless frames do not run on a virtual clock. The browser dumps or shoots at the load event, which the probe holds open with an image the loopback server sends late.",
+    "probe_load_held_ms": 3900,
     "screenshots_ms": [1000, 3000],
     "screenshot_size": [1280, 720]
   },
   "checks": {
     "loads": "No uncaught error, rejected promise or console error; window.scene is a Scene, window.camera a Camera; all five named objects found.",
-    "renders": "At 1 s, at least 1% of the canvas differs from its most common colour.",
-    "animates": "The canvas at 1 s and 3 s differs, and at least one planet has moved.",
-    "orbits": "Each planet's distance from the sun stays within 5% across the three samples, and planet1 < planet2 < planet3 in distance.",
+    "renders": "At 1 s, at least 0.1% of the canvas differs from its most common colour (a blank canvas has none).",
+    "animates": "The canvas at 3 s differs from the one at 1 s in at least 50 pixels, and at least one planet has moved.",
+    "orbits": "Each planet turns at least 5 degrees around the sun from the first to the last sample, its distance from the sun stays within 5%, and planet1 < planet2 < planet3 in distance.",
     "order": "Angular speed around the sun: planet1 > planet2 > planet3.",
     "periods": "Each planet's period, from its mean angular speed, lies between 3.6 and 22 seconds (4 to 20, with 10% leeway).",
     "moon": "The moon's distance from planet2 stays within 5%, is under half of planet2's distance from the sun, and its direction from planet2 turns at least 30 degrees between consecutive samples.",
@@ -48,6 +49,6 @@
     "camera": "The camera moves around the sun between the first and last sample, keeps the sun within the central 30% of the view (|x| and |y| at most 0.3 in device coordinates) at every sample, and looks from 10 to 80 degrees above the inner orbital plane.",
     "fills": "At both window sizes the canvas covers the window (within 2 pixels) and the camera's aspect matches the window's (within 2%)."
   },
-  "score": "Checks passed out of 12 per attempt. A truncated, empty or unparseable answer scores 0. Per configuration: the mean over the three seeds, and the per-check pass counts.",
+  "score": "Checks passed out of 12 per attempt; each check needs only its own objects, so a misnamed object costs loads and the checks that use it. A truncated, empty or unparseable answer scores 0. Per configuration: the mean over the three seeds, and the per-check pass counts.",
   "for_welt": "Screenshots at 1 s and 3 s for every attempt, on one contact sheet per seed with the four configurations under shuffled labels A to D; the key in a separate file, so Welt can look blind on Sunday before he reads it."
 }
