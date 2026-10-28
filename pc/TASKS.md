@@ -295,7 +295,7 @@ Welt, 28 October, in Claude's chat: the Hegel work waits until he is back; meanw
 
 Today becomes a cut day: no owl, no count, nothing rewritten. When the timer runs again, the engine resumes him at home on that day; no days are invented in between (`test_resume_after_a_gap`). The watchman will open one issue, "the world has stopped publishing"; that is expected. **Resume only on Welt's word,** Sunday or later.
 
-### T38 · Astra · the Qwen replacement trial, day one · OPEN, after T37
+### T38 · Astra · the Qwen replacement trial, day one · PAUSED by the shutdown on 28 October. **First thing when the PC is on again:** push everything to `codex/qwen-trial` (STATE.md, results.jsonl, `answers/<config>/C1–C3.txt`, the 3D results) and post one line on PR #1. Nothing was pushed on the 28th, and no comment came after 10:37 UTC.
 All in `pc/QWEN-TRIAL.md`: Welt's approvals, the bundle and its hashes, standalone runs, today's order, Welt's 3D test (`pc/qwen-trial/scene3d.json`) and the report.
 
 ### Act 1 gate · seven full days in a row
