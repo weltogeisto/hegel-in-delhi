@@ -46,7 +46,7 @@ The answer key stays out of every model's sight.
    - the 12 screening cases with the manifest's settings (16,384 context; 4,096 tokens including reasoning; 180 s; at most 3 tools; temperature 0.6, top-p 0.95; every other sampler field logged);
    - then the 3D test, three seeds;
    - then the next model, as its file verifies.
-6. **Code from C1 to C3** is graded only inside the safe space. That is WSL with `unshare`: no network, the Windows drives and the home folder hidden, time and memory caps, a fresh temporary folder. If it can't be built from what is there, the code stays ungraded until Sunday. C3's JavaScript may instead run in headless Edge, the way the 3D harness does.
+6. **Code from C1 to C3 never runs on the PC.** Push the raw answers (`answers/<config>/C1.txt`, C2, C3, reasoning removed) to `codex/qwen-trial`. Claude grades them in a disposable cloud container with `pc/qwen-trial/codegrade.py` (tested in `tests/test_codegrade.py`): no network, no secrets, nothing outlives the sandbox, even if its supervisor crashes.
 7. **Not today:** the four real-work tasks. If CPU time is left, draft them with the fixes below; run nothing.
 
 ## The 3D test: Welt's ask, for all four
