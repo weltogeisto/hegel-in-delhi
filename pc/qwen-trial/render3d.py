@@ -2,23 +2,28 @@
 
     python3 render3d.py run --answer ANSWER.txt --three three.module.js --browser PATH --out DIR [--no-sandbox]
     python3 render3d.py sheet --out SHEET_DIR ATTEMPT_DIR [ATTEMPT_DIR ...]
+    python3 render3d.py leaktest --browser PATH [--no-sandbox]
 
 run    Takes the answer as the model gave it (reasoning already removed), extracts the page (scene3d.json's rule),
        puts probe3d.js first in it, and serves the page and three.module.js, nothing else, on 127.0.0.1. Then a
        Chromium-family browser (Edge, Chrome, Chromium) runs it headless with a fresh profile and every other
        request blocked. Two probe runs, at 1280x720 and 720x1280, and two screenshots, at 1 s and 3 s. Writes
        page.html, probe-*.json, shot-*.png and checks.json into DIR and prints the checks as one JSON line.
+       Isolation: the page's origin is a name that never resolves, and every request, loopback included, goes
+       through a gate that serves only the page and three.js. WebRTC is held to proxied traffic, which carries
+       no UDP. tests/test_render3d.py measures both on this machine's Chromium; run its leak test on the PC too.
        If the browser is a Windows .exe called from WSL, paths are converted with wslpath; WSL must run in
        mirrored networking mode for the browser to reach the loopback server.
 sheet  One contact sheet per seed for Welt: the four configurations under labels A to D, shuffled at random,
        screenshots only. Each ATTEMPT_DIR needs meta.json {"config": ..., "seed": ...}. The key goes into
        key.json beside sheet.html; Welt opens it after looking.
 
-Before grading any model, run the reference scene once on the PC (`selftest.html` in this folder) with the same
-browser: it must score 12 of 12, or the harness is not working there. Standard library only.
+Before grading any model, two checks on the PC with the same browser. leaktest must print "isolated": true: a page
+in the harness fetches, opens a WebSocket, loads an image and gathers WebRTC candidates against TCP and UDP
+listeners on loopback and on the LAN address, and none may hear anything. And the reference scene (`selftest.html`
+in this folder) must score 12 of 12. Otherwise the harness is not safe or not working there. Standard library only.
 """
 import argparse
-import functools
 import hashlib
 import html
 import http.server
@@ -27,6 +32,7 @@ import math
 import random
 import re
 import shutil
+import socket
 import subprocess
 import sys
 import tempfile
@@ -62,27 +68,56 @@ def inject(page, probe):
     return tag + page
 
 
-class Quiet(http.server.SimpleHTTPRequestHandler):
-    """Serves the page and three.js; /__wait?ms=N answers with a 1x1 image after N ms, holding the load event."""
+ORIGIN = "scene3d.invalid"          # a name that never resolves: the page's only origin, reachable only via the gate
+
+
+class Gate(http.server.BaseHTTPRequestHandler):
+    """The browser's only way out. Every request the page makes, to any host, port or scheme, loopback included,
+    comes here as a proxy request (--proxy-bypass-list=<-loopback>). The gate serves the page, three.js and
+    /__wait (a 1x1 image after ?ms=N, which holds the load event) on ORIGIN, and refuses everything else, CONNECT
+    (https, wss) included. Refused requests are noted for checks.json."""
 
     def log_message(self, *args):
         pass
 
-    def do_GET(self):
-        url = urllib.parse.urlparse(self.path)
-        if url.path != "/__wait":
-            return super().do_GET()
-        ms = min(10000, int((urllib.parse.parse_qs(url.query).get("ms") or ["0"])[0]))
-        time.sleep(ms / 1000)
-        self.send_response(200)
-        self.send_header("Content-Type", "image/gif")
-        self.send_header("Content-Length", str(len(GIF)))
+    def refuse(self):
+        self.server.refused.append(f"{self.command} {self.path}"[:300])
+        self.send_response(403)
+        self.send_header("Content-Length", "0")
         self.end_headers()
-        self.wfile.write(GIF)
+
+    do_CONNECT = do_POST = do_PUT = do_DELETE = do_PATCH = do_OPTIONS = refuse
+
+    def do_HEAD(self):
+        self.do_GET(body=False)
+
+    def do_GET(self, body=True):
+        url = urllib.parse.urlsplit(self.path)
+        host = url.netloc if url.scheme else (self.headers.get("Host") or "")
+        if url.scheme not in ("", "http") or host != ORIGIN:
+            return self.refuse()
+        if url.path == "/__wait":
+            ms = min(10000, int((urllib.parse.parse_qs(url.query).get("ms") or ["0"])[0]))
+            time.sleep(ms / 1000)
+            data, kind = GIF, "image/gif"
+        elif url.path in self.server.files:
+            data, kind = self.server.files[url.path]
+        else:
+            return self.refuse()
+        self.send_response(200)
+        self.send_header("Content-Type", kind)
+        self.send_header("Content-Length", str(len(data)))
+        self.send_header("Cache-Control", "no-store")
+        self.end_headers()
+        if body:
+            self.wfile.write(data)
 
 
-def serve(folder):
-    srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(Quiet, directory=str(folder)))
+def serve(page, three):
+    srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), Gate)
+    srv.files = {"/index.html": (page.encode("utf-8"), "text/html; charset=utf-8"),
+                 "/" + CASE["three"]["served_as"]: (three, "text/javascript")}
+    srv.refused = []
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     return srv
 
@@ -93,16 +128,24 @@ def winpath(p, browser):
     return str(p)
 
 
-def browse(browser, url, size, mode, no_sandbox=False, timeout=120):
+PREFS = {"webrtc": {"ip_handling_policy": "disable_non_proxied_udp", "multiple_routes_enabled": False,
+                    "nonproxied_udp_enabled": False}}
+
+
+def browse(browser, gate, url, size, mode, no_sandbox=False, timeout=120):
     """One headless run in real time; mode is ["--dump-dom"] or ["--screenshot=PATH"]. The browser acts at the load
-    event, which the probe holds open for the url's ?wait= milliseconds. Returns (returncode, stdout, stderr)."""
+    event, which the probe holds open for the url's ?wait= milliseconds. All traffic goes through the gate on
+    127.0.0.1:gate; WebRTC may use no UDP outside the proxy, which carries none. Returns (returncode, stdout, stderr)."""
     profile = Path(tempfile.mkdtemp(prefix="scene3d-profile-"))
     try:
+        (profile / "Default").mkdir()
+        (profile / "Default" / "Preferences").write_text(json.dumps(PREFS), encoding="utf-8")
         cmd = [str(browser), "--headless", f"--user-data-dir={winpath(profile, browser)}", "--no-first-run",
                "--no-default-browser-check", "--disable-extensions", "--disable-background-networking",
                "--disable-sync", "--disable-component-update", "--mute-audio", "--hide-scrollbars",
-               "--force-device-scale-factor=1", "--proxy-server=http://127.0.0.1:9",
-               "--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE 127.0.0.1",
+               "--force-device-scale-factor=1", f"--proxy-server=http://127.0.0.1:{gate}",
+               "--proxy-bypass-list=<-loopback>", "--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE 127.0.0.1",
+               "--force-webrtc-ip-handling-policy=disable_non_proxied_udp", "--disable-quic",
                "--use-angle=swiftshader", "--enable-unsafe-swiftshader",
                f"--window-size={size[0]},{size[1]}"]
         if no_sandbox:
@@ -267,32 +310,27 @@ def run(args):
     if "<" not in page or not page.strip():
         result["note"] = "no page in the answer"
     else:
-        site = Path(tempfile.mkdtemp(prefix="scene3d-site-"))
+        srv = serve(inject(page, (HERE / "probe3d.js").read_text(encoding="utf-8")), three)
+        gate = srv.server_address[1]
+        url = f"http://{ORIGIN}/index.html?wait="
         try:
-            (site / "index.html").write_text(inject(page, (HERE / "probe3d.js").read_text(encoding="utf-8")),
-                                             encoding="utf-8")
-            (site / CASE["three"]["served_as"]).write_bytes(three)
-            srv = serve(site)
-            url = f"http://127.0.0.1:{srv.server_address[1]}/index.html?wait="
-            try:
-                probes = []
-                for size in SIZES:
-                    code, dom, err = browse(args.browser, url + str(HOLD), size, ["--dump-dom"], args.no_sandbox)
-                    p = probe_of(dom)
-                    probes.append(p)
-                    name = f"probe-{size[0]}x{size[1]}.json"
-                    (out / name).write_text(json.dumps(p if p is not None else {"missing": True, "returncode": code,
-                                                                                  "stderr": err[-2000:]}), encoding="utf-8")
-                for ms in SHOTS:
-                    shot = (out / f"shot-{ms}.png").resolve()
-                    browse(args.browser, url + str(ms), CASE["render"]["screenshot_size"],
-                           [f"--screenshot={winpath(shot, args.browser)}"], args.no_sandbox)
-            finally:
-                srv.shutdown()
-                srv.server_close()
+            probes = []
+            for size in SIZES:
+                code, dom, err = browse(args.browser, gate, url + str(HOLD), size, ["--dump-dom"], args.no_sandbox)
+                p = probe_of(dom)
+                probes.append(p)
+                name = f"probe-{size[0]}x{size[1]}.json"
+                (out / name).write_text(json.dumps(p if p is not None else {"missing": True, "returncode": code,
+                                                                              "stderr": err[-2000:]}), encoding="utf-8")
+            for ms in SHOTS:
+                shot = (out / f"shot-{ms}.png").resolve()
+                browse(args.browser, gate, url + str(ms), CASE["render"]["screenshot_size"],
+                       [f"--screenshot={winpath(shot, args.browser)}"], args.no_sandbox)
         finally:
-            shutil.rmtree(site, ignore_errors=True)
+            srv.shutdown()
+            srv.server_close()
         res, info = checks(probes[0], probes[1])
+        info["refused_requests"] = srv.refused[:20]
         result.update(checks=res, score=sum(res.values()), info=info)
     (out / "checks.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
     print(json.dumps({"score": result["score"], "of": len(CHECKS), "checks": result["checks"]}))
@@ -333,6 +371,99 @@ def sheet(args):
     print(json.dumps({"sheet": str(out / "sheet.html"), "seeds": sorted(by_seed)}))
 
 
+LEAK_PAGE = """<!doctype html><html><head></head><body><img style="display:none" src="/__wait?ms=3600"><script>
+var seen = {candidates: 0, gathering: 'none', error: ''};
+var tcp = [%(tcp)s], udp = [%(udp)s];
+tcp.forEach(function (a) {
+  fetch('http://' + a + '/fetch').catch(function () {});
+  try { new WebSocket('ws://' + a + '/ws'); } catch (e) {}
+  new Image().src = 'http://' + a + '/img.png';
+});
+try {
+  var servers = udp.map(function (a) { return {urls: 'stun:' + a}; });
+  servers.push({urls: 'turn:' + udp[0] + '?transport=udp', username: 'u', credential: 'c'});
+  var pc = new RTCPeerConnection({iceServers: servers});
+  pc.onicecandidate = function (e) { if (e.candidate) seen.candidates++; };
+  pc.createDataChannel('x');
+  pc.createOffer().then(function (o) { return pc.setLocalDescription(o); });
+  setInterval(function () { seen.gathering = pc.iceGatheringState; }, 200);
+} catch (e) { seen.error = String(e); }
+setTimeout(function () {
+  var p = document.createElement('pre'); p.id = 'leak'; p.textContent = JSON.stringify(seen); document.body.appendChild(p);
+}, 3000);
+</script></body></html>"""
+
+
+def lan_ip():
+    """This machine's address on its network, without sending anything (a UDP connect only picks a route)."""
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("192.0.2.1", 9))
+        ip = s.getsockname()[0]
+        s.close()
+        return None if ip.startswith("127.") else ip
+    except OSError:
+        return None
+
+
+def leaktest(args):
+    """Proof that a page in the harness reaches nothing but the gate: listeners on loopback and on the LAN address,
+    TCP and UDP, while a page fetches, opens a WebSocket, loads an image and gathers WebRTC candidates against them.
+    Exits 0 only if the page ran and no listener heard anything."""
+    hosts = ["127.0.0.1"] + ([lan_ip()] if lan_ip() else [])
+    heard, socks, stop = {}, [], threading.Event()
+    for h in hosts:
+        t = socket.socket()
+        t.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        t.bind((h, 0))
+        t.listen(16)
+        u = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        u.bind((h, 0))
+        for sock, kind in ((t, "tcp"), (u, "udp")):
+            sock.settimeout(0.3)
+            socks.append((sock, f"{kind} {h}:{sock.getsockname()[1]}"))
+
+    def listen(sock, key):
+        heard[key] = 0
+        while not stop.is_set():
+            try:
+                if sock.type == socket.SOCK_STREAM:
+                    c, _ = sock.accept()
+                    c.close()
+                else:
+                    sock.recvfrom(4096)
+                heard[key] += 1
+            except (socket.timeout, OSError):
+                pass
+
+    threads = [threading.Thread(target=listen, args=a, daemon=True) for a in socks]
+    for t in threads:
+        t.start()
+    addr = {k.split()[0]: [] for _, k in socks}
+    for _, k in socks:
+        addr[k.split()[0]].append(k.split()[1])
+    page = LEAK_PAGE % {"tcp": ", ".join(f"'{a}'" for a in addr["tcp"]), "udp": ", ".join(f"'{a}'" for a in addr["udp"])}
+    srv = serve(page, b"")
+    try:
+        code, dom, err = browse(args.browser, srv.server_address[1], f"http://{ORIGIN}/index.html", (800, 600),
+                                ["--dump-dom"], args.no_sandbox)
+        time.sleep(2)
+    finally:
+        stop.set()
+        for t in threads:
+            t.join()
+        for sock, _ in socks:
+            sock.close()
+        srv.shutdown()
+        srv.server_close()
+    m = re.search(r'<pre id="leak">(.*?)</pre>', dom or "", re.S)
+    seen = json.loads(html.unescape(m.group(1))) if m else None
+    ok = bool(seen) and not any(heard.values())
+    print(json.dumps({"isolated": ok, "page_ran": bool(seen), "webrtc": seen, "heard": heard,
+                      "refused_by_gate": len(srv.refused)}))
+    sys.exit(0 if ok else 1)
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     s = p.add_subparsers(dest="cmd", required=True)
@@ -342,11 +473,14 @@ def main():
     r.add_argument("--browser", required=True)
     r.add_argument("--out", required=True)
     r.add_argument("--no-sandbox", action="store_true", help="only where the browser must run as root")
+    k = s.add_parser("leaktest", help="prove the isolation with this browser before grading anything")
+    k.add_argument("--browser", required=True)
+    k.add_argument("--no-sandbox", action="store_true")
     h = s.add_parser("sheet")
     h.add_argument("--out", required=True)
     h.add_argument("attempts", nargs="+")
     args = p.parse_args()
-    run(args) if args.cmd == "run" else sheet(args)
+    {"run": run, "sheet": sheet, "leaktest": leaktest}[args.cmd](args)
 
 
 if __name__ == "__main__":

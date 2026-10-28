@@ -139,6 +139,40 @@ class SheetTest(unittest.TestCase):
         self.assertIn("seed101-A-1000.png", page)
 
 
+class GateTest(unittest.TestCase):
+    """The browser's only way out serves the page and three.js on the made-up origin, and refuses everything else."""
+
+    def ask(self, raw):
+        import socket
+        srv = render3d.serve("<p>page</p>", b"three")
+        self.addCleanup(srv.server_close)
+        self.addCleanup(srv.shutdown)
+        with socket.create_connection(srv.server_address) as c:
+            c.sendall(raw.encode())
+            got = b""
+            while chunk := c.recv(4096):
+                got += chunk
+        return got.decode(errors="replace"), srv.refused
+
+    def test_the_page_and_three_on_the_origin(self):
+        got, refused = self.ask(f"GET http://{render3d.ORIGIN}/index.html HTTP/1.0\r\n\r\n")
+        self.assertIn(" 200 ", got.splitlines()[0])
+        self.assertTrue(got.endswith("<p>page</p>"))
+        got, _ = self.ask(f"GET http://{render3d.ORIGIN}/three.module.js HTTP/1.0\r\n\r\n")
+        self.assertIn("text/javascript", got)
+        self.assertEqual(refused, [])
+
+    def test_everything_else_is_refused_and_noted(self):
+        for raw in ("GET http://127.0.0.1:8090/completion HTTP/1.0\r\n\r\n",
+                    "CONNECT 127.0.0.1:8090 HTTP/1.0\r\n\r\n",
+                    f"POST http://{render3d.ORIGIN}/index.html HTTP/1.0\r\nContent-Length: 0\r\n\r\n",
+                    f"GET http://{render3d.ORIGIN}/../../secret HTTP/1.0\r\n\r\n",
+                    "GET https://example.com/ HTTP/1.0\r\n\r\n"):
+            got, refused = self.ask(raw)
+            self.assertIn(" 403 ", got.splitlines()[0], raw)
+            self.assertEqual(len(refused), 1, raw)
+
+
 def chromium():
     for c in (os.environ.get("SCENE3D_BROWSER"), "/opt/pw-browsers/chromium-1194/chrome-linux/chrome",
               shutil.which("chromium"), shutil.which("google-chrome")):
@@ -169,6 +203,16 @@ class HarnessTest(unittest.TestCase):
         self.assertEqual(got["score"], 0, got)
         self.assertTrue(got["fenced"])
         self.assertTrue(any("SyntaxError" in e for e in got["info"]["errors"]))
+
+    def test_a_page_reaches_nothing_but_the_gate(self):
+        cmd = [sys.executable, str(TRIAL / "render3d.py"), "leaktest", "--browser", chromium()]
+        if hasattr(os, "geteuid") and os.geteuid() == 0:
+            cmd.append("--no-sandbox")
+        r = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+        got = json.loads(r.stdout)
+        self.assertEqual(r.returncode, 0, got)
+        self.assertTrue(got["page_ran"] and got["isolated"], got)
+        self.assertEqual(got["webrtc"]["candidates"], 0, got)
 
 
 if __name__ == "__main__":
