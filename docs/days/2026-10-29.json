@@ -379,6 +379,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Reading at home."
+  },
+  {
+   "from": "09:30",
+   "to": "09:45",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -450,6 +457,34 @@
    "to": "Hegel",
    "text": "Yes sir, tea is coming right up. It’s a local name, sir, they pull them from the old lists. IMD says it crossed the Andhra coast this morning.",
    "t": "09:10"
+  },
+  {
+   "k": "diary",
+   "text": "The drizzle persists, a minor atmospheric modification, but the presence of Shri Hegde is a violent intrusion of the particular into the universal. He claims this bungalow as his own, a living contradiction to the clerical error that placed me here, yet he is merely a functionary, a moment in the state's machinery. I must eat, for the body is the vessel of the spirit, and then I must address this friction before it consumes the day.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness"
+    }
+   ],
+   "t": "09:30"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, you are pressing a point I cannot accept. The Directorate's error is a matter of administrative logic, not of personal right. You are a servant of the state, and the state is the ethical idea; you do not own the form, you merely fill it. I am here, and until the universal order corrects itself, I remain. Please, sit. The tea is coming.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "09:30"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Sit? I'll sit when the Director General personally apologizes to me. You talk about 'ethical ideas' while sitting in my chair in my clothes. Just wait for the tea, and keep your philosophy in your mouth.",
+   "t": "09:30"
   }
  ],
  "steps": [
@@ -504,13 +539,66 @@
      "text": "Nach dem Geiste der Sitten unserer Zeit ist ohnehin die unmittelbare Zucht nicht, etwa wie bei den Spartanern, eine öffentliche Sache, eine Veranstaltung des Staats, sondern Geschäft und Pflicht der Eltern; — außer in Waisenhäusern oder Seminarien, überhäupt in solchen Anstalten, welche die ganze Existenz eines jungen Menschen umfassen."
     }
    ]
+  },
+  {
+   "t": "09:30",
+   "end": "09:45",
+   "event": "Ramesh says: “Yes sir, tea is coming right up. It’s a local name, sir, they pull them from the old lists. IMD says it crossed the Andhra coast this morning.” He turns and walks briskly toward the kitchen, his white kurta hem dampening slightly as he steps away from the verandah edge. Ramesh has laid out breakfast: toast, butter and a plate of cut papaya. Shri G. Hegde is here.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The drizzle persists, a minor atmospheric modification, but the presence of Shri Hegde is a violent intrusion of the particular into the universal. He claims this bungalow as his own, a living contradiction to the clerical error that placed me here, yet he is merely a functionary, a moment in the state's machinery. I must eat, for the body is the vessel of the spirit, and then I must address this friction before it consumes the day.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Shri Hegde, you are pressing a point I cannot accept. The Directorate's error is a matter of administrative logic, not of personal right. You are a servant of the state, and the state is the ethical idea; you do not own the form, you merely fill it. I am here, and until the universal order corrects itself, I remain. Please, sit. The tea is coming.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Sit? I'll sit when the Director General personally apologizes to me. You talk about 'ethical ideas' while sitting in my chair in my clothes. Just wait for the tea, and keep your philosophy in your mouth.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.8
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1189"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "id": "baillie-1:223"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "Anything further is meaningless, and is left to chance and to opinion; in modern times, for instance, old-fashioned clothing had a meaning in relation to patriotism. The cut of my coat is decided by fashion, and the tailor sees to this; it is not my business to invent it, for mercifully others have done so for me."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "text": "Through work and labour, however, this consciousness of the bondsman comes to itself. In the moment which corresponds to desire in the case of the master's consciousness, the aspect of the non-essential relation to the thing seemed to fall to the lot of the servant, since the thing there retained its independence."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-10-29T09:30+05:30",
+  "until": "2026-10-29T09:45+05:30",
   "asleep": false,
   "imprest": 2756,
   "wearing": "kurta",
@@ -583,9 +671,11 @@
    "woke": "09:10",
    "seen": {
     "home": [
+     "hegde",
      "ramesh"
     ]
-   }
+   },
+   "breakfast": true
   },
   "account": {
    "advance": 15000,
@@ -850,7 +940,8 @@
     "2026-10-24",
     "2026-10-25",
     "2026-10-26",
-    "2026-10-28"
+    "2026-10-28",
+    "2026-10-29"
    ],
    "kapoor": [
     "2026-10-28"
