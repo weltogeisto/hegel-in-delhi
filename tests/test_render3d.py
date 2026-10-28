@@ -213,6 +213,7 @@ class HarnessTest(unittest.TestCase):
         self.assertEqual(r.returncode, 0, got)
         self.assertTrue(got["page_ran"] and got["isolated"], got)
         self.assertEqual(got["webrtc"]["candidates"], 0, got)
+        self.assertGreaterEqual(got["page_open_ms"], 5000, got)
 
 
 if __name__ == "__main__":

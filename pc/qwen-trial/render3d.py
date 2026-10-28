@@ -96,9 +96,10 @@ class Gate(http.server.BaseHTTPRequestHandler):
         host = url.netloc if url.scheme else (self.headers.get("Host") or "")
         if url.scheme not in ("", "http") or host != ORIGIN:
             return self.refuse()
+        held = None
         if url.path == "/__wait":
-            ms = min(10000, int((urllib.parse.parse_qs(url.query).get("ms") or ["0"])[0]))
-            time.sleep(ms / 1000)
+            held = min(10000, int((urllib.parse.parse_qs(url.query).get("ms") or ["0"])[0]))
+            time.sleep(held / 1000)
             data, kind = GIF, "image/gif"
         elif url.path in self.server.files:
             data, kind = self.server.files[url.path]
@@ -109,15 +110,20 @@ class Gate(http.server.BaseHTTPRequestHandler):
         self.send_header("Content-Length", str(len(data)))
         self.send_header("Cache-Control", "no-store")
         self.end_headers()
-        if body:
-            self.wfile.write(data)
+        try:
+            if body:
+                self.wfile.write(data)
+        except (BrokenPipeError, ConnectionResetError):
+            return
+        if held is not None:
+            self.server.held.append(held)        # the page stayed open this long: the browser took the answer
 
 
 def serve(page, three):
     srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), Gate)
     srv.files = {"/index.html": (page.encode("utf-8"), "text/html; charset=utf-8"),
                  "/" + CASE["three"]["served_as"]: (three, "text/javascript")}
-    srv.refused = []
+    srv.refused, srv.held = [], []
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     return srv
 
@@ -331,6 +337,7 @@ def run(args):
             srv.server_close()
         res, info = checks(probes[0], probes[1])
         info["refused_requests"] = srv.refused[:20]
+        info["page_open_ms"] = srv.held
         result.update(checks=res, score=sum(res.values()), info=info)
     (out / "checks.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
     print(json.dumps({"score": result["score"], "of": len(CHECKS), "checks": result["checks"]}))
@@ -371,8 +378,14 @@ def sheet(args):
     print(json.dumps({"sheet": str(out / "sheet.html"), "seeds": sorted(by_seed)}))
 
 
-LEAK_PAGE = """<!doctype html><html><head></head><body><img style="display:none" src="/__wait?ms=3600"><script>
+LEAK_PAGE = """<!doctype html><html><head></head><body><img style="display:none" src="/__wait?ms=5000"><script>
+// Writes what it has seen at once and on every WebRTC event, never on a timer: headless Edge may delay timers.
 var seen = {candidates: 0, gathering: 'none', error: ''};
+function show() {
+  var p = document.getElementById('leak');
+  if (!p) { p = document.createElement('pre'); p.id = 'leak'; document.body.appendChild(p); }
+  p.textContent = JSON.stringify(seen);
+}
 var tcp = [%(tcp)s], udp = [%(udp)s];
 tcp.forEach(function (a) {
   fetch('http://' + a + '/fetch').catch(function () {});
@@ -383,14 +396,12 @@ try {
   var servers = udp.map(function (a) { return {urls: 'stun:' + a}; });
   servers.push({urls: 'turn:' + udp[0] + '?transport=udp', username: 'u', credential: 'c'});
   var pc = new RTCPeerConnection({iceServers: servers});
-  pc.onicecandidate = function (e) { if (e.candidate) seen.candidates++; };
+  pc.onicecandidate = function (e) { if (e.candidate) seen.candidates++; show(); };
+  pc.onicegatheringstatechange = function () { seen.gathering = pc.iceGatheringState; show(); };
   pc.createDataChannel('x');
-  pc.createOffer().then(function (o) { return pc.setLocalDescription(o); });
-  setInterval(function () { seen.gathering = pc.iceGatheringState; }, 200);
+  pc.createOffer().then(function (o) { return pc.setLocalDescription(o); }).catch(function (e) { seen.error = String(e); show(); });
 } catch (e) { seen.error = String(e); }
-setTimeout(function () {
-  var p = document.createElement('pre'); p.id = 'leak'; p.textContent = JSON.stringify(seen); document.body.appendChild(p);
-}, 3000);
+show();
 </script></body></html>"""
 
 
@@ -409,7 +420,8 @@ def lan_ip():
 def leaktest(args):
     """Proof that a page in the harness reaches nothing but the gate: listeners on loopback and on the LAN address,
     TCP and UDP, while a page fetches, opens a WebSocket, loads an image and gathers WebRTC candidates against them.
-    Exits 0 only if the page ran and no listener heard anything."""
+    Exits 0 only if the page ran, stayed open 5 s (the gate answered its held image), WebRTC raised no error, and
+    no listener heard anything."""
     hosts = ["127.0.0.1"] + ([lan_ip()] if lan_ip() else [])
     heard, socks, stop = {}, [], threading.Event()
     for h in hosts:
@@ -458,8 +470,9 @@ def leaktest(args):
         srv.server_close()
     m = re.search(r'<pre id="leak">(.*?)</pre>', dom or "", re.S)
     seen = json.loads(html.unescape(m.group(1))) if m else None
-    ok = bool(seen) and not any(heard.values())
-    print(json.dumps({"isolated": ok, "page_ran": bool(seen), "webrtc": seen, "heard": heard,
+    held = max(srv.held, default=0)
+    ok = bool(seen) and held >= 5000 and not seen.get("error") and not any(heard.values())
+    print(json.dumps({"isolated": ok, "page_ran": bool(seen), "page_open_ms": held, "webrtc": seen, "heard": heard,
                       "refused_by_gate": len(srv.refused)}))
     sys.exit(0 if ok else 1)
 
