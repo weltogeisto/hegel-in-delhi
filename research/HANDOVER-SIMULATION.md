@@ -53,7 +53,7 @@ Gates with numbers open each act. **Act 1** asks for seven days in a row with:
 1. **Repetition.** On Day 12, 69% of his thoughts reused a phrase of his own from earlier that day, against 48% in rehearsals. On Day 27, a strong day (39 thoughts, eight people met), the mind wrote the same thought three times in a row and the day failed its gate. Two remedies are built and waiting for a blind test:
    - an **echo guard** that shows him the phrases he has already used today;
    - llama.cpp's **DRY sampler** on decisions.
-2. **Convictions move too easily.** The `state` thesis changes status on about half of all nights (T8). A conviction should change only for reasons the record shows.
+2. **Convictions may move too easily.** In T8's seeded reruns of three fixed nights, the `state` thesis changed status in 5, 4 and 6 of 10 draws; a sensitivity test, not a rate over real nights (corrected 29 October). A conviction should change only for reasons the record shows.
 3. **Commitments are weak.** In blind review, the positions he takes score 2.0–2.8 out of 5; real Hegel passages score 4.65. Writing his convictions into the persona raised one measure from 2.00 to 2.83, the strongest lever so far.
 4. **Voice.** The first adapter (supervised fine-tuning on his books plus the model's best decisions) did not beat plain Qwen. The **Hegelizer** restyles plain English in his translators' manner: it learns the reverse of a paraphrase (Qwen's plain version as input, his real passage as target). Its pilot moved in the right direction without passing. Round two (`pc/HEGELIZER-2.md`) sets five bars:
    - blind pairwise preference, 28 of 40;
@@ -61,7 +61,7 @@ Gates with numbers open each act. **Act 1** asks for seven days in a row with:
    - meaning kept in 36 of 40, judged by plain Qwen, never by Claude;
    - no 12-word copies from the shelf;
    - fit for the live JSON contract.
-5. **Truth and grounding.** Characters invent things the record doesn't support: a tailor's order "ready" before it is, a visit that never happened. This happens even with the facts in their prompt. Structured records helped the Depesche, where statements-as-fact fell from 14 to 4 per 100 sentences (T3).
+5. **Truth and grounding.** Characters invent things the record doesn't support: a tailor's order "ready" before it is, a visit that never happened. This happens even with the facts in their prompt. Structured records cut the Depesche's statements-as-fact from 14 to 4 (raw counts, 3.35 to 1.04 per 100 sentences), but T3 as a whole failed its gate: contradictions and the owl's argument got worse (corrected 29 October).
 6. **Reliability and scale.** Days were lost to Windows restarts. A small model and a 16K context per call limit what memory can carry.
 
 The numbers come from `pc/TASKS.md` (task log, T1–T38) and `mind/results/`. The day files on the `shadow` branch (`docs/days/`) hold every step, thought, refusal and owl report: read some. Day 12 and Day 27 are the best ones.
