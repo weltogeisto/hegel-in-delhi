@@ -298,6 +298,31 @@ Today becomes a cut day: no owl, no count, nothing rewritten. When the timer run
 ### T38 · Astra · the Qwen replacement trial, day one · PAUSED by the shutdown on 28 October. **First thing when the PC is on again:** push everything to `codex/qwen-trial` (STATE.md, results.jsonl, `answers/<config>/C1–C3.txt`, the 3D results) and post one line on PR #1. Nothing was pushed on the 28th, and no comment came after 10:37 UTC.
 All in `pc/QWEN-TRIAL.md`: Welt's approvals, the bundle and its hashes, standalone runs, today's order, Welt's 3D test (`pc/qwen-trial/scene3d.json`) and the report.
 
+## From the research report (GPT 6 Pro, 28 October): the next experiments · ALL WAIT for Welt's word
+
+`research/REPORT-GPT6PRO-2026-10-28.pdf`, page numbers below. Its thesis: make his accumulated life trustworthy (who did what, whether it happened, what follows) before a stronger voice or a larger model. Claude checked its repository claims (T3 and T8 figures, memory limits, the owl's timestamp check, the schema fallback, the 39+1 voice cohort, the Day 27 examples, Qwen3.8's 16 attention layers) and a sample of its sources: all hold. Shared protocol (p. 15): Claude freezes each manifest (case IDs, expected facts, seeds 1831/2718/3141, the key apart) before any generation; Astra logs model and adapter hashes, effective samplers, schema fallbacks, retries, tokens, time and peak memory. Fixtures rebuilt from day files are labelled reconstructed; no closing state leaks into an earlier decision. About 10 to 24 GPU hours in all, which compete with his days on a 12-hour PC: Welt decides the windows.
+
+### T39 · Astra · T36 as declared, first when Hegel resumes (report p. 16)
+Unchanged: arms A, B (echo), C (DRY); Days 12 and 27 and T9's two rehearsal days; three seeds; the full truth audit. About 5 to 9 GPU hours.
+
+### T40 · Claude, then Astra · typed facts for the people he meets (report p. 15–16)
+Only the NPC's facts block changes, to typed form: actor, object, direction of the offer, status, source, time. 40 contexts (24 known-answer, 8 unknown, 8 ordinary), three seeds, two arms. Pass: scene success +0.20, unsupported closed-state claims halved, no new reversals in clean controls, voice and argument at most −0.25. About 1 to 2.5 GPU hours.
+
+### T41 · Claude, then Astra · outcome memory at the same budget (report p. 17)
+Recall by entity and time: dated, source-linked outcomes and open obligations, in the same 850 characters. First 40 retrieval questions without a GPU (pass: 36/40, at least 8 better than today, nothing superseded given as current); then 20 decision contexts, three seeds. About 1 to 2.5 GPU hours.
+
+### T42 · Welt and Claude, then Astra · an evidence gate for the owl's thesis changes (report p. 17–18)
+Today a cited time only has to exist. The gate resolves source IDs and asks plain Qwen whether the evidence bears on that proposition. 40 fixed proposals, labelled admissible or not by Welt and Claude independently before any output. Pass: at least 18/20 admissible accepted on every seed, at most 1/20 inadmissible on any. About 0.5 to 1.5 GPU hours.
+
+### T43 · Claude, then Astra · one sourced commitment paragraph on new scenes (report p. 18)
+One public-domain-sourced paragraph in the persona; 20 relevant and 20 unrelated new scene families, three seeds. Pass: commitment application +0.5, no slogans or misplaced doctrine in the controls, voice within −0.25. Welt settles historical ambiguity. About 1.5 to 3.5 GPU hours.
+
+### T44 · Claude · no GPU: log the schema fallback (report p. 13)
+`HTTPMind.chat` retries some schema errors without `response_format`. Record when that happens, with finish reasons and retries, so a parse is never taken for constrained decoding.
+
+### T45 · Claude · no GPU: a day-stratified voice confirmation (report p. 3, 9)
+The round-two selector takes days in order and stops at 40: 39 thoughts from Day 12, one from Day 24. Keep that legacy cohort for its gate; after tuning, seal a new confirmation drawn across days, scenes and people.
+
 ### Act 1 gate · seven full days in a row
 On each of seven consecutive days: at least 20 thoughts (since 26 October; it was 30); quiet steps at most 5% of waking steps; the owl wrote; no refusal loop; at most 1.6 contradictions and 3.1 statements as fact per 100 sentences; repetition measured (T10 on the first). Claude checks it in the daily review (T11) and writes the Act 2 tasks when it passes.
 
