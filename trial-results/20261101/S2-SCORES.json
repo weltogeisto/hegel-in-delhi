@@ -1,0 +1,40 @@
+{
+  "grader_sha256": "515163bcb936d539cc95efb606438bd540051243d7cdd04c790981c31139ebad",
+  "key_sha256": "85ad3e7be47c9e798c73da85a1b6313d4d933045f1bd9766b85e3fd0e7b24576",
+  "scores": [
+    {
+      "profile": "trial-qwen",
+      "case": "S2",
+      "status": "completed",
+      "parse": "valid_json",
+      "passed": true,
+      "result_sha256": "00cd0910d6d5e441dde1dff7aa0fd73d987bb1102fe99c4609c3103c6ea733e2"
+    },
+    {
+      "profile": "trial-arex",
+      "case": "S2",
+      "status": "truncated",
+      "passed": null,
+      "quality": "inconclusive_budget",
+      "parse": "not_attempted",
+      "result_sha256": "4c318052d2d7657de8de704ea63caea6cba0b11f5a3b23b2aeffb6c4eb72459e"
+    },
+    {
+      "profile": "trial-swift",
+      "case": "S2",
+      "status": "completed",
+      "parse": "valid_json",
+      "passed": true,
+      "result_sha256": "f7255adae089b1082344963022540f002f244bcad966311a58f4be56530aef61"
+    },
+    {
+      "profile": "trial-nanbeige",
+      "case": "S2",
+      "status": "completed",
+      "parse": "invalid_json",
+      "passed": false,
+      "result_sha256": "edf188e2d90ded20235f020af95d759e0f86f9382d559fc8c843ce4b96579bbc"
+    }
+  ],
+  "scope": "S2 only; no generated code executed; budget failures inconclusive"
+}

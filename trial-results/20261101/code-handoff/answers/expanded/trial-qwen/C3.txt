@@ -1,0 +1,22 @@
+function advance(position, target, speed, dt) {
+  if (speed < 0 || dt < 0) {
+    throw new RangeError('speed and dt must be non-negative');
+  }
+
+  const dx = target.x - position.x;
+  const dy = target.y - position.y;
+  const dz = target.z - position.z;
+  const distance = Math.hypot(dx, dy, dz);
+  const step = speed * dt;
+
+  if (distance === 0 || step >= distance) {
+    return { x: target.x, y: target.y, z: target.z };
+  }
+
+  const scale = step / distance;
+  return {
+    x: position.x + dx * scale,
+    y: position.y + dy * scale,
+    z: position.z + dz * scale
+  };
+}

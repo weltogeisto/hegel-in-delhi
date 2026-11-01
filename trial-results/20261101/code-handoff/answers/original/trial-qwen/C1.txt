@@ -1,0 +1,11 @@
+def dedupe_latest(events):
+    best = {}
+    order = []
+    for event in events:
+        event_id = event["id"]
+        if event_id not in best:
+            best[event_id] = event
+            order.append(event_id)
+        elif event["revision"] >= best[event_id]["revision"]:
+            best[event_id] = event
+    return [best[event_id] for event_id in order]

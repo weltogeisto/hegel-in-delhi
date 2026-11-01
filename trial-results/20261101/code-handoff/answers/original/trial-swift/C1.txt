@@ -1,0 +1,14 @@
+def dedupe_latest(events):
+    result = []
+    positions = {}
+
+    for event in events:
+        event_id = event["id"]
+
+        if event_id not in positions:
+            positions[event_id] = len(result)
+            result.append(event)
+        elif event["revision"] >= result[positions[event_id]]["revision"]:
+            result[positions[event_id]] = event
+
+    return result

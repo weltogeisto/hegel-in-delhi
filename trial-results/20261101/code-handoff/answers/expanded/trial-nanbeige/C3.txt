@@ -1,0 +1,37 @@
+function advance(position, target, speed, dt) {
+  if (typeof speed !== 'number' || !isFinite(speed)) {
+    throw new RangeError('speed must be a finite number');
+  }
+  if (typeof dt !== 'number' || !isFinite(dt)) {
+    throw new RangeError('dt must be a finite number');
+  }
+  if (speed < 0) {
+    throw new RangeError('speed must be non-negative');
+  }
+  if (dt < 0) {
+    throw new RangeError('dt must be non-negative');
+  }
+
+  const dx = target.x - position.x;
+  const dy = target.y - position.y;
+  const dz = target.z - position.z;
+
+  const distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
+  const maxMove = speed * dt;
+
+  if (distance === 0) {
+    return { x: position.x, y: position.y, z: position.z };
+  }
+
+  if (maxMove >= distance) {
+    return { x: target.x, y: target.y, z: target.z };
+  }
+
+  const ratio = maxMove / distance;
+
+  return {
+    x: position.x + dx * ratio,
+    y: position.y + dy * ratio,
+    z: position.z + dz * ratio
+  };
+}

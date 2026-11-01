@@ -1,0 +1,9 @@
+```python
+def retry_delay(status, attempt, retry_after=None):
+    """Return the delay in seconds for a permitted retry, or None."""
+    if status not in (429, 500, 502, 503, 504):
+        return None
+    if attempt not in (0, 1, 2):
+        return None
+    return min(60, max(2 ** attempt, retry_after or 0))
+```

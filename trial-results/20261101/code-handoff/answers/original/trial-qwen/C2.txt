@@ -1,0 +1,6 @@
+def retry_delay(status, attempt, retry_after=None):
+    if status not in (429, 500, 502, 503, 504):
+        return None
+    if not 0 <= attempt <= 2:
+        return None
+    return min(60, max(2 ** attempt, retry_after or 0))

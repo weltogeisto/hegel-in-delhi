@@ -1,0 +1,21 @@
+```python
+def retry_delay(status, attempt, retry_after=None):
+    """
+    Return the delay (in seconds) before a retry is allowed, or None if
+    retrying is not permitted for the given status/attempt.
+
+    Retry only HTTP 429, 500, 502, 503 and 504, with at most three retries
+    (attempt 0, 1, 2). For a permitted retry the delay is
+    min(60, max(2**attempt, retry_after or 0)).
+    """
+    permitted_statuses = (429, 500, 502, 503, 504)
+
+    if status not in permitted_statuses:
+        return None
+
+    if attempt < 0 or attempt > 2:
+        return None
+
+    delay = max(2 ** attempt, retry_after or 0)
+    return min(60, delay)
+```

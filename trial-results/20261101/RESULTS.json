@@ -1,0 +1,131 @@
+{
+  "utc": "2026-11-01T19:43:56.706511+00:00",
+  "models": [
+    {
+      "profile": "trial-qwen",
+      "S2": {
+        "profile": "trial-qwen",
+        "case": "S2",
+        "status": "completed",
+        "parse": "valid_json",
+        "passed": true,
+        "result_sha256": "00cd0910d6d5e441dde1dff7aa0fd73d987bb1102fe99c4609c3103c6ea733e2"
+      },
+      "3d": [
+        {
+          "seed": 101,
+          "score": 12,
+          "checks_sha256": "98706dc70fe00830020dd6a6625a99de4c1dfb212e5c9cea3f793b0e01f7e0ba"
+        },
+        {
+          "seed": 202,
+          "score": 12,
+          "checks_sha256": "9fc3b36e6a7bdf58d8bd41b2154239898dd81d2ad1c82514c3d1fe20cf0952b4"
+        },
+        {
+          "seed": 303,
+          "score": 12,
+          "checks_sha256": "7bcd613ac962b734a4ad286c81c110cc50f0f629c9ba9df8a9a48939bd86b290"
+        }
+      ],
+      "generation_seconds": 1092.262638453,
+      "completion_tokens": 41680,
+      "coding": "awaiting external grading"
+    },
+    {
+      "profile": "trial-arex",
+      "S2": {
+        "profile": "trial-arex",
+        "case": "S2",
+        "status": "truncated",
+        "passed": null,
+        "quality": "inconclusive_budget",
+        "parse": "not_attempted",
+        "result_sha256": "4c318052d2d7657de8de704ea63caea6cba0b11f5a3b23b2aeffb6c4eb72459e"
+      },
+      "3d": [
+        {
+          "seed": 101,
+          "score": 12,
+          "checks_sha256": "74c798cfa3c1fa9e221dc57acb2ccc29f19beb721daaaf42be0abb9537b658b8"
+        },
+        {
+          "seed": 202,
+          "score": 12,
+          "checks_sha256": "7e009b983cbfb91c1e1d7c3ec7fc4c87b9d72e903d5ab57240dabe64692eb108"
+        },
+        {
+          "seed": 303,
+          "score": 12,
+          "checks_sha256": "d1ba6876803d484d110ff04a3db30fd96c44456921b26fd2c94184e0664f6692"
+        }
+      ],
+      "generation_seconds": 1320.3259360450002,
+      "completion_tokens": 47405,
+      "coding": "awaiting external grading"
+    },
+    {
+      "profile": "trial-swift",
+      "S2": {
+        "profile": "trial-swift",
+        "case": "S2",
+        "status": "completed",
+        "parse": "valid_json",
+        "passed": true,
+        "result_sha256": "f7255adae089b1082344963022540f002f244bcad966311a58f4be56530aef61"
+      },
+      "3d": [
+        {
+          "seed": 101,
+          "score": 12,
+          "checks_sha256": "33500c7cf25b82ada0dec9d5e78be6321abb67b9303288e3012f441960eef56a"
+        },
+        {
+          "seed": 202,
+          "score": 12,
+          "checks_sha256": "ee57421ef97132f49a70225e60bd3a9acc62c415177e7387f26fac382daca08c"
+        },
+        {
+          "seed": 303,
+          "score": 12,
+          "checks_sha256": "7f3f1538f9e343592c00df1d416f8ea9cfe8637d8350335fba0bbc6bd814571a"
+        }
+      ],
+      "generation_seconds": 875.4135954239996,
+      "completion_tokens": 32233,
+      "coding": "awaiting external grading"
+    },
+    {
+      "profile": "trial-nanbeige",
+      "S2": {
+        "profile": "trial-nanbeige",
+        "case": "S2",
+        "status": "completed",
+        "parse": "invalid_json",
+        "passed": false,
+        "result_sha256": "edf188e2d90ded20235f020af95d759e0f86f9382d559fc8c843ce4b96579bbc"
+      },
+      "3d": [
+        {
+          "seed": 101,
+          "score": null,
+          "checks_sha256": "1430a7a4b6ea4d048ed83116b389d977ff57952d691e16b30617ed123a86c14f"
+        },
+        {
+          "seed": 202,
+          "score": null,
+          "checks_sha256": "1430a7a4b6ea4d048ed83116b389d977ff57952d691e16b30617ed123a86c14f"
+        },
+        {
+          "seed": 303,
+          "score": 2,
+          "checks_sha256": "941c0710407b49819b83a5ca7e30ba52405491d327b703afec9dbb19e7babe4b"
+        }
+      ],
+      "generation_seconds": 3217.9245037670007,
+      "completion_tokens": 83354,
+      "coding": "awaiting external grading"
+    }
+  ],
+  "grading_scope": "expanded S2 and 3D only; code pending"
+}
