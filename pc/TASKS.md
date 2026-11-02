@@ -327,6 +327,8 @@ The round-two selector takes days in order and stops at 40: 39 thoughts from Day
 
 **Welt, 2 November:** Training 1 goes (T46); Hegel stays paused, so the card is free all day; one night with the Power Guard set later for phase B; Trainings 2 and 3 are decided after the screens, which run on his word. Handover to Codex: `pc/CODEX-HANDOVER-20261102.md`.
 
+**Welt, later on 2 November: Hegel resumes when phase A is done** (T37 ends then: restart his 8082 server, re-enable the Pi's timer, confirm the first tick uses the mind). Phase B then runs on a night while he sleeps.
+
 `pc/TRAINING-3.md`: the research turned into training. Train only what a cheap fix leaves; build the test before the data; label the data with the world's own checks; one adapter per job. The data rule stays: his texts, the local model's outputs chosen by the world's checks, or Welt's judgement.
 
 ### T46 · Astra · Training 1, the Hegelizer round two, with the report's six additions · GO (Welt, 2 November)
