@@ -325,15 +325,17 @@ The round-two selector takes days in order and stops at 40: 39 thoughts from Day
 
 ## Training, round three (2 November) · EACH RUN WAITS for Welt's go
 
+**Welt, 2 November:** Training 1 goes (T46); Hegel stays paused, so the card is free all day; one night with the Power Guard set later for phase B; Trainings 2 and 3 are decided after the screens, which run on his word. Handover to Codex: `pc/CODEX-HANDOVER-20261102.md`.
+
 `pc/TRAINING-3.md`: the research turned into training. Train only what a cheap fix leaves; build the test before the data; label the data with the world's own checks; one adapter per job. The data rule stays: his texts, the local model's outputs chosen by the world's checks, or Welt's judgement.
 
-### T46 · Astra · Training 1, the Hegelizer round two, with the report's six additions · after Welt's go
+### T46 · Astra · Training 1, the Hegelizer round two, with the report's six additions · GO (Welt, 2 November)
 T34 and T35 as filed, plus: splits by chapter (short units stay with their parent), a matched run without goldfish if KPI 4 fails, the voice dashboard, the legacy 39+1 gate unchanged, then T45's fresh confirmation before any shadow week. Phase A with four workers while the card is free.
 
-### T47 · Claude, then Astra · Training 2, grounded voices · after T40 and G8, only if they leave a gap
+### T47 · Claude, then Astra · Training 2, grounded voices · decided after the screens T40 and G8 (Welt, 2 November)
 About 500 speaking moments outside T40's test families, four answers each from plain Qwen, labelled by the world's claim check (clean, false state, reversal, evasive). Preference training (DPO or ORPO), its own LoRA for the voices. Test: T40's locked contexts against T40/G8's best arm.
 
-### T48 · Claude, then Astra · Training 3, decisions without refusals · after T39 and G7, only if they leave a gap
+### T48 · Claude, then Astra · Training 3, decisions without refusals · decided after the screens T39 and G7 (Welt, 2 November)
 Four decisions per frozen situation outside T39's test days; chosen = accepted, non-repeating, no unmet knowledge; rejected = refused or repeating; pairs matched in length. Its own LoRA. Test: T39's days and measures against T39's better arm.
 
 ### Act 1 gate · seven full days in a row
