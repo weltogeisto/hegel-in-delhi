@@ -329,6 +329,23 @@ On each of seven consecutive days: at least 20 thoughts (since 26 October; it wa
 ### Welt · the public switch · hard limit
 When Welt says so: Codex sets `HEGEL_CLOCK_SHIFT_MIN` to 0 and points the Pi's world at `main` instead of `shadow`; the live page then shows his days instead of the Day 1 replay.
 
+## From the literature gaps (2 November): proposed experiments · ALL WAIT for Welt's word
+
+`research/LITERATURE-GAPS.md`, section 4. Four gaps beside GPT 6 Pro's report: projects like ours, what he may know, summer-2026 work on our open problems, and an architecture from his own account of mind (`research/NOTE-COGNITIVE-ARCHITECTURE-2026-11-02.pdf`). Each proposal amends T39–T45 or tests what they do not; T39–T45's shared protocol applies. Fixtures written by Claude are evaluation, never training data.
+
+- **G1 · Claude · no GPU:** how often the owl launders a claim into a fact. Trace every event sentence of the archived owls to its source. Before T41 and T42.
+- **G7 · Claude or Astra · no GPU:** do refusals, echoes and quiet steps grow through his day? If they rise, T41 goes first; if flat, T39.
+- **G2 · Claude · no GPU first:** a third arm in T41's retrieval stage, BM25 over the unmodified day files, plus eight questions on when, reported apart.
+- **G9 · Claude · no GPU first:** does each named part of his mind (plan, gist, theses, shelf, Body line, recall) reach his decisions? A static audit, then one-at-a-time ablations on Days 12 and 27, about 1 to 2 GPU hours.
+- **G3 · Astra · about 0.3 GPU hours:** can plain Qwen tell a relevant reason from an irrelevant one? 20 pairs from T42's labelled bundles, both orders. Before T42.
+- **G4 · Claude, then Astra · about 0.5 to 1 GPU hour:** a drift probe, 18 questions across four memory packages; Welt judges 18 pairs.
+- **G5 · Claude, then Astra · about 0.3 GPU hours:** what he can know, 30 questions, awareness against compliance, as in CHARM.
+- **G8 · Claude, then Astra · about 0.5 to 1 GPU hour on top of T40:** the world checks what the voices claim, a third arm for T40.
+- **G6 · Claude, then Astra · after T39:** different plans, not different words (verbalized sampling in the morning plan).
+
+### The literature watch · Claude · STANDING, Fridays 10:17 Berlin
+`tools/arxiv_watch.py` lists the week's new arXiv papers; Claude keeps what matters, writes `research/watch/<date>.md`, and tells Welt in one line (`research/watch/README.md`).
+
 ## Parked
 - A local cybersecurity model for Welt (his wish, 28 October), after the Qwen trial: the best open security model and abliterated variants, run through the same sealed harness on security tasks (CTF-style challenges in the sandbox, code audit, log analysis), measuring skill, refusals, and what abliteration costs in quality. It would follow injected orders more readily (T3), so it gets tools only inside a sandbox, never Hermes's or the PC's.
 - Fans on his rounds (after the public switch; the fan club itself is on branch `claude/fanclub`, Supabase project `hegel-in-delhi`): the world reads fans with `meet` and `approved` through a read-only database role, places at most one on about one day in six at a place from their part's `at` list (`world/data/visitors.json`), and lets the voice speak for them from `who` alone. It needs a read key on the Pi, which is a secret: Welt installs it.
