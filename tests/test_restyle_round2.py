@@ -201,6 +201,8 @@ class SamplerTest(unittest.TestCase):
 
 class OptionsTest(unittest.TestCase):
     def parse(self, *flags):
+        if "--round-two" in flags:
+            flags = (*flags, "--chapter-splits", "fixture-splits.json", "--confirmation-seal", "fixture-seal.json")
         seen = {}
         with mock.patch.object(th, "train", side_effect=lambda a: seen.update(vars(a))):
             th.main(["--base", "local", *flags])
@@ -281,9 +283,11 @@ class TrainingWiringTest(unittest.TestCase):
             args = argparse.Namespace(data=folder, out=out, dry_run=False, resume=False, base="fixture",
                 rank=16, alpha=32, batch=1, accum=8, lr_restyle=2e-4, epochs_restyle=1,
                 seq_restyle=4096, seed=3407, goldfish=True, goldfish_k=4, goldfish_context=13,
-                eval_steps=100, max_steps_restyle=200)
+                eval_steps=100, max_steps_restyle=200, chapter_splits=folder / "splits.json", confirmation_seal=folder / "seal.json")
             fetch = mock.Mock(return_value=version("answer"))
-            with mock.patch.object(th, "load_model", return_value=(model, tok)), contextlib.redirect_stdout(io.StringIO()):
+            from tools import chapter_splits, voice_confirmation
+            assignments = {u["id"]: {"split": u["split"], "group": u["parent_id"]} for u in data2.strict_rows(folder / data2.UNITS)}
+            with mock.patch.object(chapter_splits, "load_manifest", return_value=({"assignments": assignments}, "a" * 64)), mock.patch.object(voice_confirmation, "verify_seal", return_value=({}, "b" * 64)), mock.patch.object(th, "load_model", return_value=(model, tok)), contextlib.redirect_stdout(io.StringIO()):
                 report = r2.train(args, th, engine=engine, generate=fetch,
                                   delta_fn=lambda text: 0.34 if model.step == 100 else 0.35)
             self.assertEqual(report["selection"]["step"], 100)

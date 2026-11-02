@@ -1,0 +1,2175 @@
+{
+  "verified_utc": "2026-10-13T18:00:10.091276+00:00",
+  "source": "61accbdab85d78f14379d2d711205541d2b634c1",
+  "source_files_verified_after_completion": [
+    {
+      "path": ".gitignore",
+      "bytes": 176,
+      "sha256": "da084037a86cc9f452fe61174bfb046c78b37a0764191a17b254b15250249c98"
+    },
+    {
+      "path": "COLLABORATION.md",
+      "bytes": 3705,
+      "sha256": "64ee0a0b6779958726e985f4beb5d5fa356b644a6e3066ef77f005a135a29740"
+    },
+    {
+      "path": "DECISIONS.md",
+      "bytes": 3975,
+      "sha256": "e5193f44221aa099b847e26b3c50a3f86b0e7c5f2db698cba17f516806dcaee2"
+    },
+    {
+      "path": "HERMES.md",
+      "bytes": 13434,
+      "sha256": "eb7fdc7762e6dc32289f1c0fc77add248e05fa998f9207451b30f957b7bc7897"
+    },
+    {
+      "path": "README.md",
+      "bytes": 14532,
+      "sha256": "bc24df928cee395e8145dc62d619eb7e78baaf7c92a825968a5e9d32c352f5bf"
+    },
+    {
+      "path": "docs/.nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/days/2026-10-02.json",
+      "bytes": 16391,
+      "sha256": "cf7a480104e051a2d1be3dbcabed4381a58ef96ec30bdc6002134b76cbd995c8"
+    },
+    {
+      "path": "docs/days/index.json",
+      "bytes": 161,
+      "sha256": "88b0dedaeccd98338a907bef05dbaf6d6e08583402cf06a20a523d2f23c0e954"
+    },
+    {
+      "path": "docs/index.html",
+      "bytes": 211304,
+      "sha256": "9d329b022cbeebe69c4fa7b2434d64603ee820ae191a63df989299bd330eb022"
+    },
+    {
+      "path": "docs/map/README.md",
+      "bytes": 4956,
+      "sha256": "bd39462780d18c63c7ecfb5232d452a1ce3cb8a2144c71a0da0c5b9a06f85160"
+    },
+    {
+      "path": "docs/map/lutyens.json",
+      "bytes": 345457,
+      "sha256": "0adfcb004f3d0f2d489151ddf5ca4b73d5e9b39ecd334322ab83dd41c2b64071"
+    },
+    {
+      "path": "mind/bakeoff.py",
+      "bytes": 6744,
+      "sha256": "399415a7b0f1eb022f292bc264aaaffe2be5df1fb629e9d91b2abb0de91be657"
+    },
+    {
+      "path": "mind/hegeltest/biography.json",
+      "bytes": 6844,
+      "sha256": "50996f3da09b5e7e9bfb17535e1b8a7dd71362fbdf55b7fbf48bb195eda615e7"
+    },
+    {
+      "path": "mind/hegeltest/questions.json",
+      "bytes": 33681,
+      "sha256": "e7859dd7db21fe225abe3e84d077797e03c7dd6b2fb099f32b2ecea6ea34638a"
+    },
+    {
+      "path": "mind/owl.md",
+      "bytes": 2366,
+      "sha256": "a998e4ae815d7744900730809472f7d6a96b7deae788dd0168af0bc4077ca21d"
+    },
+    {
+      "path": "mind/results/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "mind/results/blind-review-v2/RESULTS.md",
+      "bytes": 3001,
+      "sha256": "5ffc5bf9d6f233dcccf07ff81ba28f41b2fb389bde9f5a9869e3bfe9c9b33498"
+    },
+    {
+      "path": "mind/results/blind-review-v2/claude-packet-a.csv",
+      "bytes": 19091,
+      "sha256": "60dd2c75ca5a57950c7f126d68cbe185be2ec4de51e93b91cf6055860979c681"
+    },
+    {
+      "path": "mind/results/blind-review-v2/grok-packet-a.csv",
+      "bytes": 22877,
+      "sha256": "494956ce26523795011cbab21e09c8371d2b704c17c0c6db28e7604f2edfb4be"
+    },
+    {
+      "path": "mind/results/fixed-day-writers-20261012/claude-owl-argument.csv",
+      "bytes": 6113,
+      "sha256": "b8cd750a6050814d8548472edc46b4506b87597930018d7161b7511d8fa747fc"
+    },
+    {
+      "path": "mind/results/fixed-day-writers-20261012/claude-sentence-errors.csv",
+      "bytes": 31904,
+      "sha256": "bfaef54d05afa13aae77e84f0c220f5cbbb16f16fc2ab6dfe71b49799e08363e"
+    },
+    {
+      "path": "mind/results/fixed-day-writers-20261012/claude-text-totals.csv",
+      "bytes": 4844,
+      "sha256": "d7dfe5bc0af28a6b08d3ab9a320994c3eaf8902b6b74c659f0ea9a744231076f"
+    },
+    {
+      "path": "mind/results/hegeltest-qwen-cont-key.json",
+      "bytes": 3759,
+      "sha256": "1b0a0d98dda927ccc0ac14888564190d0695c2a556a4fe9575530469d798c568"
+    },
+    {
+      "path": "mind/results/hegeltest-qwen-cont.html",
+      "bytes": 46015,
+      "sha256": "0e3a5fd441f10f1fa0a5054fe838805e9ece22eca24a46ddf10148caadc29b2e"
+    },
+    {
+      "path": "mind/results/hegeltest-qwen-hegel-cont-key.json",
+      "bytes": 3765,
+      "sha256": "5bb987915700c80b3090f948ff330ef0596bfd8839981820f0fca9ea78046bd1"
+    },
+    {
+      "path": "mind/results/hegeltest-qwen-hegel-cont.html",
+      "bytes": 44787,
+      "sha256": "b84af87c24e613f8b34f908667d33f478558498954c74158505afa488e58735a"
+    },
+    {
+      "path": "mind/results/hegeltest-qwen-hegel-judged-claude.json",
+      "bytes": 483,
+      "sha256": "6690468ed69b6521e8697522114b5ff710daf7fdbfab5c8e8bb130395a2f7844"
+    },
+    {
+      "path": "mind/results/hegeltest-qwen-hegel-key.json",
+      "bytes": 3760,
+      "sha256": "24946e9e51a31a06aeb3317a0cd39c59e4a89cf6609a53930a7f39421f1b9d05"
+    },
+    {
+      "path": "mind/results/hegeltest-qwen-hegel-shelf-judged-claude.json",
+      "bytes": 489,
+      "sha256": "8597457dba3dc4cc608cb38d09bb044914b0b5e9b03b23b0bd4f3f906e5dab7f"
+    },
+    {
+      "path": "mind/results/hegeltest-qwen-hegel-shelf-key.json",
+      "bytes": 3766,
+      "sha256": "591b6ab0ebce028d5e9ad668442de630596bb2fc0dafb0c138b1a995c6ca846c"
+    },
+    {
+      "path": "mind/results/hegeltest-qwen-hegel-shelf.html",
+      "bytes": 82410,
+      "sha256": "c7b8a75075ea16a1eee17571bd787cbaa6892a1e6c669a871332945660619ffc"
+    },
+    {
+      "path": "mind/results/hegeltest-qwen-hegel-shelf.json",
+      "bytes": 77653,
+      "sha256": "90f5883b514fb53c40f3052882ac289be7f2b5c15ddeec841c8ad82bcba1f23a"
+    },
+    {
+      "path": "mind/results/hegeltest-qwen-hegel.html",
+      "bytes": 81092,
+      "sha256": "068a3f3204790741e1b430f0f6c0904e1c63d2c274f8b8e1f32ec46c1fa36627"
+    },
+    {
+      "path": "mind/results/hegeltest-qwen-hegel.json",
+      "bytes": 113963,
+      "sha256": "20958da083f73e5aa4c4dd8028f252e6a02bb0619dbdc13699cb2747f4b0ea9e"
+    },
+    {
+      "path": "mind/results/hegeltest-qwen-judged-claude.json",
+      "bytes": 477,
+      "sha256": "7f45e1c2c2d6d69d71136963b09aa2a05acbf2f79cf090dec876ba9206abad3b"
+    },
+    {
+      "path": "mind/results/hegeltest-qwen-key.json",
+      "bytes": 3754,
+      "sha256": "1799169ae41f85c90deef5872af822af8603a1763788143632e78213a6053536"
+    },
+    {
+      "path": "mind/results/hegeltest-qwen-shelf-judged-claude.json",
+      "bytes": 483,
+      "sha256": "6d52a533e13ccbe140eac9e17178ef6293849f2481e20949dea4e92b152ccd73"
+    },
+    {
+      "path": "mind/results/hegeltest-qwen-shelf-key.json",
+      "bytes": 3760,
+      "sha256": "30fbe4363f9be9caec730d7e5717d77f064f86821f8c14f9422cb6f2e507c5e4"
+    },
+    {
+      "path": "mind/results/hegeltest-qwen-shelf.html",
+      "bytes": 82400,
+      "sha256": "e47b34e6840aeae44a6e9ef4f2ff91eed2fcd007b8d3d7d51a85c419a2182d50"
+    },
+    {
+      "path": "mind/results/hegeltest-qwen-shelf.json",
+      "bytes": 77129,
+      "sha256": "64d4dd020e46a146a3f3576f839ac1f368757b266567264e4aac3c15d1740361"
+    },
+    {
+      "path": "mind/results/hegeltest-qwen.html",
+      "bytes": 82823,
+      "sha256": "6d07cc0d40cf6498f85c873b3cc1ff14cd7139fdf662be26adbd1e4fa5534078"
+    },
+    {
+      "path": "mind/results/hegeltest-qwen.json",
+      "bytes": 116041,
+      "sha256": "01f5c648590c8d32e128d5ebffb84d710360ae8a59da42404be15f3b5f186f7f"
+    },
+    {
+      "path": "mind/results/hegeltest.md",
+      "bytes": 9156,
+      "sha256": "39df2a7e08a9c9fad72bda95d442f2a46d457b3cdb6a88c93e0e04e88628e60d"
+    },
+    {
+      "path": "mind/results/perplexity.md",
+      "bytes": 858,
+      "sha256": "c8602962c2fc9bef718a43473aaf2fa088b4fe8a17b5b9db4386bfa9040dccf0"
+    },
+    {
+      "path": "mind/results/persona-bildung-20261012/claude-scores.csv",
+      "bytes": 7783,
+      "sha256": "90b6648e9e95da30873cb062d444c071a38be6895e20e38240acccf6d182384f"
+    },
+    {
+      "path": "mind/results/persona-confirmation-20261012/claude-scores.csv",
+      "bytes": 11719,
+      "sha256": "a4dbf8343f9ef91bd256adec8ea129b90f527fd701aa857446db6e3acbe565cf"
+    },
+    {
+      "path": "mind/results/persona-fresh-controls-20261012/claude-scores.csv",
+      "bytes": 8836,
+      "sha256": "ab395f67af9e07ac19cbed7527130c21139427a7a8e2c125e1c426864f2afc6c"
+    },
+    {
+      "path": "mind/results/persona-fresh-controls-20261012/claude-scores.csv.sha256",
+      "bytes": 84,
+      "sha256": "696bc61ef25335375f32da75eff5e5ed12bb6554f7591779dabb5d321d42cd2c"
+    },
+    {
+      "path": "mind/results/ppl/heldout.txt",
+      "bytes": 14184,
+      "sha256": "b79b537fa5ecea8a5c8bee31ccb5ea1530da6f1fb81bbae5d6b46ec580d6f8ce"
+    },
+    {
+      "path": "mind/results/ppl/seen.txt",
+      "bytes": 14994,
+      "sha256": "5566d249875db240557df064e7ff4df98bee07a3a6f11b236b83c4ada63d4d9d"
+    },
+    {
+      "path": "mind/results/shelf-reden-20261012/claude-scores.csv",
+      "bytes": 6024,
+      "sha256": "2792c1458715f3f7ead3a5002cffe008fbbc8366634d64ae7e83ddab5bad8da0"
+    },
+    {
+      "path": "mind/results/shelf-whole-20261012/claude-scores.csv",
+      "bytes": 5043,
+      "sha256": "f45be5cb161983f43aa2656c75a24f379a7155cda7f234a1e20ce1d8da53f4fa"
+    },
+    {
+      "path": "mind/shelf/MANIFEST.md",
+      "bytes": 20014,
+      "sha256": "c1ab23248855f69c40333e2270ec82c3101dd93a300b7efaaeffee8bb43610cd"
+    },
+    {
+      "path": "mind/shelf/baillie-1.txt.gz",
+      "bytes": 154720,
+      "sha256": "0b6d307141f9dc8f0dc50329a89ea68394ac57096bcf37139705be97518f87b6"
+    },
+    {
+      "path": "mind/shelf/baillie-2.txt.gz",
+      "bytes": 167338,
+      "sha256": "b04b7422b3fe607af438c6a9291822a51b93d3577c4e354ee0ccf37d67b01fea"
+    },
+    {
+      "path": "mind/shelf/bosanquet-art.txt.gz",
+      "bytes": 73855,
+      "sha256": "3596048db6bed7931ef81954e66d4b5c425ee2dcf2e81314275946fddb0d5153"
+    },
+    {
+      "path": "mind/shelf/briefe-1.txt.gz",
+      "bytes": 253227,
+      "sha256": "e2806b0cf5bd2083146b6f8b7455f3dca9996fd407239e01f281aa8aee972382"
+    },
+    {
+      "path": "mind/shelf/briefe-2.txt.gz",
+      "bytes": 232661,
+      "sha256": "026caf8366ac969b31dd78a940cdb0b078145fdad721ba801513b6cf269f359c"
+    },
+    {
+      "path": "mind/shelf/caird.txt.gz",
+      "bytes": 63746,
+      "sha256": "d0b5f425ea5e7a54f60ac96596b6b408d013123c0dde9f839f865c7ddba12ebc"
+    },
+    {
+      "path": "mind/shelf/dyde-right.txt.gz",
+      "bytes": 236635,
+      "sha256": "34a92cc1204472262b655c4dd4f042c37a39b0e483567eb4220318d6ade2a130"
+    },
+    {
+      "path": "mind/shelf/enzyklopaedie.txt.gz",
+      "bytes": 327783,
+      "sha256": "a9d76d9358f7e741a3ca071b9455ec44fa9246306e13aad53111ec575fedc9d7"
+    },
+    {
+      "path": "mind/shelf/gita.txt.gz",
+      "bytes": 53443,
+      "sha256": "8bbb5bddb75bcc9dfe487c6732516a09ec4cce007cd344e8081b89411d530e55"
+    },
+    {
+      "path": "mind/shelf/haldane-1.txt.gz",
+      "bytes": 322531,
+      "sha256": "ea1429f476ea281327257ff7731217d756d0f153a69ca0b781b9b8156e6e419d"
+    },
+    {
+      "path": "mind/shelf/haldane-2.txt.gz",
+      "bytes": 293110,
+      "sha256": "34c5b92779c79ac5e9edf5943351bc8431aad753ee3930e3972b2c893bd41509"
+    },
+    {
+      "path": "mind/shelf/haldane-3.txt.gz",
+      "bytes": 337655,
+      "sha256": "7fb2b7bedb0e6f7d40b174129a251d52ec001146957bef17cc326649a8d69400"
+    },
+    {
+      "path": "mind/shelf/index.json.gz",
+      "bytes": 5454443,
+      "sha256": "53a93383d81301c9826ab8cdf22f6ea551fce011f7d907a3f0959414e8c56e62"
+    },
+    {
+      "path": "mind/shelf/phaen.txt.gz",
+      "bytes": 341510,
+      "sha256": "6a74561ef3bf5b4d52bcf40d42b0bff34043a5d65f318396642383c9a3325dce"
+    },
+    {
+      "path": "mind/shelf/rechts.txt.gz",
+      "bytes": 258386,
+      "sha256": "e65ba9c2b7bb3ef669fb04b89c7ed180c9fd09d3ab1484e7765dd2b8f77343cf"
+    },
+    {
+      "path": "mind/shelf/reden.txt.gz",
+      "bytes": 44685,
+      "sha256": "3fa7e8ea12f44a8a4afc85c9d78b85e417544642a18a9f3c4b1f10c17a7b4d32"
+    },
+    {
+      "path": "mind/shelf/rosenkranz-leben.txt.gz",
+      "bytes": 349897,
+      "sha256": "1c3e0eb647f419298b5ddd705051d9a2c23265a05f2d3c772ece6a5bc4b0951b"
+    },
+    {
+      "path": "mind/shelf/rosenkranz-urkunden.txt.gz",
+      "bytes": 126526,
+      "sha256": "540e41e64a21ed81de5f7a623ee734a65fd489ca8a662f3ea2dca5b01f119fe1"
+    },
+    {
+      "path": "mind/shelf/sibree-history.txt.gz",
+      "bytes": 385960,
+      "sha256": "1d67217a3ee65675bd53db2418d414dd1debf55948ac854715e8f49acf30b3a2"
+    },
+    {
+      "path": "mind/shelf/wallace-logic.txt.gz",
+      "bytes": 238687,
+      "sha256": "0bfa5a9cab80721568320fa74d6f7a63651695a5afd490846da2323a523d7046"
+    },
+    {
+      "path": "mind/shelf/wallace-mind.txt.gz",
+      "bytes": 110744,
+      "sha256": "2d6c86999fbf7ffa3dbc381738585ea8a5f1edaf23de6bb73ab711872e163697"
+    },
+    {
+      "path": "mind/shelf/welt-1.txt.gz",
+      "bytes": 179916,
+      "sha256": "99278f078dadd4c64a0677846586f9d85d9f3d9be3aa2182de57a58daa288769"
+    },
+    {
+      "path": "mind/shelf/welt-2.txt.gz",
+      "bytes": 199946,
+      "sha256": "08777a950ad8fdb1fce9bda0cacc32abab7d7aa2b03199fa941dc8f7a26be629"
+    },
+    {
+      "path": "mind/shelf/welt-3.txt.gz",
+      "bytes": 170626,
+      "sha256": "bebd096a2d2c91cca6e9d7a0b587a0a2e79992e35cf44aa81742e8913f1d959e"
+    },
+    {
+      "path": "mind/shelf/welt-4.txt.gz",
+      "bytes": 148653,
+      "sha256": "f23a274c8dcc2d9934042095cd6a81a887a7db91393f900fd92870e0a79a3594"
+    },
+    {
+      "path": "mind/situations.json",
+      "bytes": 8848,
+      "sha256": "ff996cd9920a53b5f17568a60d845ea83275f4f8e6f560232ab7d0605ef0e935"
+    },
+    {
+      "path": "mind/soul-bildung.md",
+      "bytes": 6729,
+      "sha256": "256e8a1c5aedfd8edc7b9147a60a10a3ee387efdd6fba2d0a32b818c2c6d1cee"
+    },
+    {
+      "path": "mind/soul-v2.md",
+      "bytes": 6503,
+      "sha256": "a1a10f7eaf8946865bd26e72327000d198874ebdfc7db5e109886d88bbc110b3"
+    },
+    {
+      "path": "mind/soul.md",
+      "bytes": 6729,
+      "sha256": "256e8a1c5aedfd8edc7b9147a60a10a3ee387efdd6fba2d0a32b818c2c6d1cee"
+    },
+    {
+      "path": "mind/train/README.md",
+      "bytes": 9223,
+      "sha256": "797891a46cc7b9ed837dcf354ccf8c3e184cc59f491115043736f233b4830156"
+    },
+    {
+      "path": "mind/voices.md",
+      "bytes": 1682,
+      "sha256": "192966e628cca73dcfaf9c74d9751602a0f401b3508c2c7fee90cec399b449c2"
+    },
+    {
+      "path": "pc/CODEX-HANDOVER.md",
+      "bytes": 9361,
+      "sha256": "b82762d0052864fa0a4ac27095bc8a2a030e31c1cc5d3b936eac597b159ab6c9"
+    },
+    {
+      "path": "pc/CODEX.md",
+      "bytes": 5290,
+      "sha256": "375cf8ca6b69c9460076c06a6820192ac8ec0ab05fcbbbc86d1299f549bf67eb"
+    },
+    {
+      "path": "pc/HEGELIZER.md",
+      "bytes": 13147,
+      "sha256": "eaff606483dfd68b32a111ef508ddf618a82866a35b268e87c718338580ae298"
+    },
+    {
+      "path": "pc/SCOREBOARD.md",
+      "bytes": 3066,
+      "sha256": "de5c2f651ccc35b386b6ed8ffa341e4d1d9c83f768cfcf59bb4a5b4cbc049e33"
+    },
+    {
+      "path": "pc/TASKS.md",
+      "bytes": 15797,
+      "sha256": "d1e5eaf2d7a3bb4a693bdcf73d1317d97e31514e5014ceff8e538a1e96707f68"
+    },
+    {
+      "path": "pc/TRAINING.md",
+      "bytes": 22395,
+      "sha256": "7d8b4852e5b1e9f3e0c8893d967ad2d1bbe7bdfe9986ebe1dacdecd3b8062a13"
+    },
+    {
+      "path": "pc/check_backend_parity.py",
+      "bytes": 20672,
+      "sha256": "d6e3df4771dacdc0f71b2668a949f1d7a0b5aab6865ec21561b6dfa220800225"
+    },
+    {
+      "path": "pc/idle-reporter.ps1",
+      "bytes": 934,
+      "sha256": "ea10970d50b5519eba56d0cc93ab950d44a5c06455c933f186a0e6bf1d3ef006"
+    },
+    {
+      "path": "pc/open-hegel-port.ps1",
+      "bytes": 4032,
+      "sha256": "d8deff67ff4e32b84633ff8bb2be56b1fb4af25b8501dbd0505e28b4ea6d2d88"
+    },
+    {
+      "path": "pc/sleep-watchdog.ps1",
+      "bytes": 2502,
+      "sha256": "420ad31f44ca57c822c93087355b7c17cb01f2e9af2728c01e06e729bc7f5419"
+    },
+    {
+      "path": "pc/start-hegel.ps1",
+      "bytes": 1580,
+      "sha256": "f3c70e76980297e922c87cf3d08d610c27044f55ea285f7756ab23209fa2f293"
+    },
+    {
+      "path": "pc/start-mind.ps1",
+      "bytes": 689,
+      "sha256": "56c18846f1ab0b074ddcafbfdf5e9d7c9974be18a1f47f60d6d4a53afeaf18ed"
+    },
+    {
+      "path": "pc/train_hegel.py",
+      "bytes": 36443,
+      "sha256": "aa76568f4786514198d6c7c13da98d1200e2f4b488942b542c53cc7cfc2124bb"
+    },
+    {
+      "path": "pc/train_phase2.py",
+      "bytes": 14939,
+      "sha256": "8fbf5fdd66b9d5b1df1514b02b71bd5ede9be2a3a2d82c1f9da1f7cf82b7d91c"
+    },
+    {
+      "path": "scripts/hegel-world.service",
+      "bytes": 316,
+      "sha256": "7918b12aee69f14555335e607e55926ce4cbc7e9cf5b3e2fc7081e2c5cb0ee8d"
+    },
+    {
+      "path": "scripts/hegel-world.timer",
+      "bytes": 239,
+      "sha256": "881726a3196c654c179d536792851b34dadfeb7aaa4a1abaa4e5c603e49594cb"
+    },
+    {
+      "path": "scripts/hegel.env.example",
+      "bytes": 1349,
+      "sha256": "2bce49fb43899cb1c6b89439a2089b527c8b8a476e75c8c873276c5816c52564"
+    },
+    {
+      "path": "scripts/wake_cycle_test.sh",
+      "bytes": 1203,
+      "sha256": "ba022448d383c2e9fc5f0af3cbffcfa0e03f4fc2e910bdaf06ca21e66869664e"
+    },
+    {
+      "path": "scripts/wake_pc.sh",
+      "bytes": 757,
+      "sha256": "25e1e2ecb42a0e20ca76560fc025b903084a9182e68a314ffece26b3133aeb9f"
+    },
+    {
+      "path": "tests/test_activity_feedback.py",
+      "bytes": 4432,
+      "sha256": "22cb596079e4814b62d939089805c7dc69119b9e1cdccc077101c48a732a6040"
+    },
+    {
+      "path": "tests/test_backend_parity.py",
+      "bytes": 2752,
+      "sha256": "4fc9306508db4e507bba5c3c05f6352aa95aec1fc606325b81ef75a98d5688c2"
+    },
+    {
+      "path": "tests/test_cli_status.py",
+      "bytes": 2827,
+      "sha256": "5999e7abc7e405720fa85f7c177c8121c57e5d47b024f4a8ba90845e76975a5f"
+    },
+    {
+      "path": "tests/test_clock_shift.py",
+      "bytes": 2170,
+      "sha256": "f3714be1097a6411e4c74a5cb1ec9a67b8c5d5446493ddfe96f11a36a1e4d35f"
+    },
+    {
+      "path": "tests/test_continuation_target.py",
+      "bytes": 3441,
+      "sha256": "46247b89c1b17ff5cfcf3cd08f7a77ac598c8c13fd45c8d144b9f24e6064a19c"
+    },
+    {
+      "path": "tests/test_deal.py",
+      "bytes": 130653,
+      "sha256": "4764ff4c009801e32e96593dc790ce0c29b2d58b1a3b8450bdc221b2a540d981"
+    },
+    {
+      "path": "tests/test_duplicate_settlement.py",
+      "bytes": 2705,
+      "sha256": "d5fda046c1fa500dd6ddc4177fb2f575836a53142a012a4feaaea1add8891fd0"
+    },
+    {
+      "path": "tests/test_economy.py",
+      "bytes": 71182,
+      "sha256": "ecc9d343dc6d40dad919519835d5e2857b668d4deb9c627350587b6ada60c4c2"
+    },
+    {
+      "path": "tests/test_evidence_memory.py",
+      "bytes": 3094,
+      "sha256": "9dc2b79bcd86300cd902c0bf974ff4c48d9a6931de37e610b7256ed3f2491b29"
+    },
+    {
+      "path": "tests/test_grounded_writing.py",
+      "bytes": 1285,
+      "sha256": "58848689e7bcfea008938ed40421afe5da9d56e4ed75b7c5923545889a75517a"
+    },
+    {
+      "path": "tests/test_hegelizer.py",
+      "bytes": 38973,
+      "sha256": "51803d42d5e58531789858795709e6ed268a59889d198e1c4b401cbfc795b8af"
+    },
+    {
+      "path": "tests/test_hegeltest.py",
+      "bytes": 69780,
+      "sha256": "76c5fbb0ef6c68ce2efecf046781824e44189767d6406c8659b461755b197700"
+    },
+    {
+      "path": "tests/test_lookup.py",
+      "bytes": 15794,
+      "sha256": "260f37a50194426adec9563ba5f89f177a89bb82f4d4b8e2e33875f5c9b8868f"
+    },
+    {
+      "path": "tests/test_manuscript_context.py",
+      "bytes": 4562,
+      "sha256": "2e8ea01c97b095c2e76538e5e8b23707859e65c08fdeb57249afe866bbb7e941"
+    },
+    {
+      "path": "tests/test_memory.py",
+      "bytes": 20787,
+      "sha256": "61d84e4c76050b52b0e5f7773245cecfc45eefd4d68bf62add1ec85c767e931f"
+    },
+    {
+      "path": "tests/test_memory_locations.py",
+      "bytes": 3780,
+      "sha256": "c7ad52aae4249a478c20d3be7b3fc3f31cc9111bb8f81450497f80218da0282c"
+    },
+    {
+      "path": "tests/test_needs.py",
+      "bytes": 31000,
+      "sha256": "0af2f705703020db597b41b63241fd24627494adc0792de084ad0fe936ba365b"
+    },
+    {
+      "path": "tests/test_ocr.py",
+      "bytes": 3874,
+      "sha256": "70ad6675b2510fee6b8dfc8e318e72996fb3240121749019ab5e4cd1bf9936c2"
+    },
+    {
+      "path": "tests/test_osm_map.py",
+      "bytes": 14446,
+      "sha256": "6b67afe50bfa3aedffccdf12fa00cf48f92f1350cae7fe278d9002cb76ff2d1d"
+    },
+    {
+      "path": "tests/test_owl_chronology.py",
+      "bytes": 3421,
+      "sha256": "3aa7ffca0c2880cb6c857b3b32c82fa20d3f83366f30a75e49d922b6860c69a0"
+    },
+    {
+      "path": "tests/test_owl_meals.py",
+      "bytes": 2258,
+      "sha256": "0c77fba7328a07132992bea5bc0d136e88740db9a8cf994af78fc8d2e874ac5f"
+    },
+    {
+      "path": "tests/test_owl_persistence.py",
+      "bytes": 3698,
+      "sha256": "36f682c31def732d10f5cad1e7d14c041a3647b3ef5d8fc9eb58511a8eaa875f"
+    },
+    {
+      "path": "tests/test_phase2_data.py",
+      "bytes": 3212,
+      "sha256": "2fac5e877de24bbc464b21f4000813d1abb95fcb80df78767ade2f8416e166bd"
+    },
+    {
+      "path": "tests/test_purchase_memory.py",
+      "bytes": 3958,
+      "sha256": "b4a31bb1176e00e6a44694e7ca556ef4b0545e5a06ccf08c5c32092a037062c3"
+    },
+    {
+      "path": "tests/test_push_pending.py",
+      "bytes": 3139,
+      "sha256": "d0a2ed5694f2ee0d0e28a5662b799dbe204b9fd4df0e148cfe0f8277dd96c2e0"
+    },
+    {
+      "path": "tests/test_recent_attribution.py",
+      "bytes": 2398,
+      "sha256": "282ec46a3bdbb10b5df49f0477e9324e0f42973b80a1e23f3b4936e407aaec50"
+    },
+    {
+      "path": "tests/test_rehearsal.py",
+      "bytes": 19801,
+      "sha256": "be7691084df218082a4485b8fa83478b1a2673ee29677be01a33be192507a73d"
+    },
+    {
+      "path": "tests/test_shelf.py",
+      "bytes": 32265,
+      "sha256": "5bd73455679ec6a0b748a8f511a35a8e8d5163827796fa4d46fa37eb3f146f13"
+    },
+    {
+      "path": "tests/test_speech_recipient.py",
+      "bytes": 6027,
+      "sha256": "886824d0e54d76dcd01f295619dc5f8c4f2ca78bf53ff73e22c9c03e954a8c65"
+    },
+    {
+      "path": "tests/test_task_prompt.py",
+      "bytes": 5922,
+      "sha256": "c3390512c9b6a4839ca6f1e98714d2eca0b8480e258c6563b437fffe265f8352"
+    },
+    {
+      "path": "tests/test_train_data.py",
+      "bytes": 40829,
+      "sha256": "fd50020f3dbfcdeaf30637659847d14f81bb28c6d8d66f4225a791a74af9525f"
+    },
+    {
+      "path": "tests/test_train_hegel.py",
+      "bytes": 31416,
+      "sha256": "ccef0b170c33b4db562efb7ed911c87f31e931b3143e5ebba257168594334fd8"
+    },
+    {
+      "path": "tests/test_train_phase2.py",
+      "bytes": 5151,
+      "sha256": "0ef0f0b9f90a07524cebc2ffdfe583940be6d7b73feb0d5ac988cb64e392649f"
+    },
+    {
+      "path": "tests/test_voice_adapter.py",
+      "bytes": 4497,
+      "sha256": "e64dbb66f0f89b10dba8a3091997e7f993bad4f34e8ad11e63832df5baed3005"
+    },
+    {
+      "path": "tests/test_voice_context.py",
+      "bytes": 4759,
+      "sha256": "533f822fe7ab4d0f333192832d4792ea4c968daea6b024db46c86ae3498a1343"
+    },
+    {
+      "path": "tests/test_voice_transactions.py",
+      "bytes": 2825,
+      "sha256": "5611e32f981065512cd26bd1fa90a792a7a2759c93bd2f45812b61e5b1bb9f3e"
+    },
+    {
+      "path": "tests/test_voice_world_facts.py",
+      "bytes": 5329,
+      "sha256": "345b3e92d3cc6d8d684303274269c50a8ee3819b62b4f6d8fb681b255c57c7ac"
+    },
+    {
+      "path": "tests/test_world.py",
+      "bytes": 21923,
+      "sha256": "2deee99e0b9b7b7c4e8fdb9180a0a9e455f266bbe00c87e539a762d63dd6702f"
+    },
+    {
+      "path": "tests/test_writing_inference.py",
+      "bytes": 11544,
+      "sha256": "b2d523ed2dd9d0b8adeda7b1b83371c3bbd70f9c8be5db708348245df5808c08"
+    },
+    {
+      "path": "tests/test_writing_sample.py",
+      "bytes": 10477,
+      "sha256": "829dd35a895c6d030591a8fe0168176941ffcea68bdb86ea29a9409ef5246451"
+    },
+    {
+      "path": "tests/test_writing_targets.py",
+      "bytes": 6010,
+      "sha256": "54123d0a286b164e02f38760e00d49cbba8bcbc1ae4e6d0e581396a83e4afcdf"
+    },
+    {
+      "path": "tools/corpus.py",
+      "bytes": 85039,
+      "sha256": "9fd66d17850ab3de641e16c2b20e199b267fbae73b0dc17d359b8fb29de409a2"
+    },
+    {
+      "path": "tools/hegel_test.py",
+      "bytes": 65127,
+      "sha256": "f5d586b01d181272426073c1d37422371e9883554efcf55dd36687e55def031c"
+    },
+    {
+      "path": "tools/hegelizer.py",
+      "bytes": 30674,
+      "sha256": "90d2131fdf202c23d9d45df11b50ad267648352352fbc3a8fbfc381acc05bf0a"
+    },
+    {
+      "path": "tools/ocr.py",
+      "bytes": 10375,
+      "sha256": "faa12801d299d4bcba61486625c94d1208bf124178e0425ef61674dad1dd3410"
+    },
+    {
+      "path": "tools/osm_map.py",
+      "bytes": 60266,
+      "sha256": "3d555aaa652c9ac6f0daa323a760d53a7f4d57d31045750593518743f2deac62"
+    },
+    {
+      "path": "tools/phase2_data.py",
+      "bytes": 18097,
+      "sha256": "5613ec9e373cb02e99c0bec9c5f57e58faccb09eec3f27aadba69782ed734bc5"
+    },
+    {
+      "path": "tools/shots.js",
+      "bytes": 2750,
+      "sha256": "6b653ecda61da265302a84f6432d1282dd78eb0718b2a7f5bb8cda0cd2d2eb39"
+    },
+    {
+      "path": "tools/train_data.py",
+      "bytes": 48670,
+      "sha256": "a63d6f9a9bffe1ddab910e83bfbf8cf4f08995cbf70c7c75e98e945b370f300a"
+    },
+    {
+      "path": "tools/writing_sample.py",
+      "bytes": 4539,
+      "sha256": "94d76b0454a1f2cd6eb054f6c31bb7c18b2ad7e52e904bb9b09d510be371f17c"
+    },
+    {
+      "path": "tools/writing_targets.py",
+      "bytes": 22441,
+      "sha256": "d48ae40de3e49ff22b2605222d3218acb4a903e5399aa7bb372f873b0f92f2cd"
+    },
+    {
+      "path": "world/__init__.py",
+      "bytes": 85,
+      "sha256": "ec5e9b02815451ead291f45e1735d154fdc8061bd7cebc92ecda3c22a86d8c0c"
+    },
+    {
+      "path": "world/__main__.py",
+      "bytes": 16042,
+      "sha256": "2a2a1d8a0d4eeb305a358b454f58fd5500ee893149e4816848c2cb4ae6cdc652"
+    },
+    {
+      "path": "world/clock.py",
+      "bytes": 2942,
+      "sha256": "aed1e70c766cc6a4287e4604c6d880a41d15a23b9bae2d81b43d52eb0c9b207c"
+    },
+    {
+      "path": "world/config.py",
+      "bytes": 4630,
+      "sha256": "6f43412b0df2cf27b879dfcbd03b6b396136020c2cf932c677392449ede62cee"
+    },
+    {
+      "path": "world/contract.py",
+      "bytes": 8427,
+      "sha256": "a5e888e887643146e29429b43aa9b81ded9a47bd939dcac42aa4165c79cf1d69"
+    },
+    {
+      "path": "world/data/after_1831.txt",
+      "bytes": 995,
+      "sha256": "018744b97bbbfc1aa0f99f1390faf7a4ef146cbb84328bbf0b3d244a0ddbc953"
+    },
+    {
+      "path": "world/data/cast.json",
+      "bytes": 5738,
+      "sha256": "05cc28f45738bd07e3d51973f6f7f7cb5b3410dad8214744577d1f23fc93068a"
+    },
+    {
+      "path": "world/data/costs.json",
+      "bytes": 1622,
+      "sha256": "23567e025d78b6dd327033764c12cc90ff9b3438c77ee0eba543fed0a39ab174"
+    },
+    {
+      "path": "world/data/holidays.json",
+      "bytes": 534,
+      "sha256": "820e8e7b61a0f8fb174154c55bff244a18a523a5ad79c7066c8763c8d1d4ef6f"
+    },
+    {
+      "path": "world/data/offers.json",
+      "bytes": 7636,
+      "sha256": "ddc57f6f998d82cde1471747f83b18b360b9abe36d36c9bbc06eb54f06f0cd57"
+    },
+    {
+      "path": "world/data/places.json",
+      "bytes": 5770,
+      "sha256": "804862f117deba26d9903557c331bfc1a7efe1e69588c9761dad128e3078c0cd"
+    },
+    {
+      "path": "world/data/plot.json",
+      "bytes": 5483,
+      "sha256": "6c926a0ec15ff3a0a11948dc0bec479b336a0cf8e80f9b9d94b17943c8219232"
+    },
+    {
+      "path": "world/data/sensitive.txt",
+      "bytes": 1329,
+      "sha256": "086e1698052ad6e52e23441bdc972ffde9718caad5cf505c4501eee7e583b79f"
+    },
+    {
+      "path": "world/data/shelf_terms.json",
+      "bytes": 14490,
+      "sha256": "102588b572ba52342b9ced0ad402d8064944dcb55b6f2814adc47228d7ae6628"
+    },
+    {
+      "path": "world/engine.py",
+      "bytes": 29626,
+      "sha256": "05621982a3767edb713c7e4b7b7298128b5c237c6e3fd930546463105ce38eef"
+    },
+    {
+      "path": "world/feeds.py",
+      "bytes": 9091,
+      "sha256": "7febf777e9b6b7de39f1a5ae2892c1d07134ec15843e83b6f977874f6b453952"
+    },
+    {
+      "path": "world/lookup.py",
+      "bytes": 2985,
+      "sha256": "367f6d76f7b95791320365b1e0e3103c720d592ebd10c572a4de233ab1d63f04"
+    },
+    {
+      "path": "world/memory.py",
+      "bytes": 12988,
+      "sha256": "a60ee37aa11c7325bfbbe7e3931dfab329b86fa10ebac760dad654895deb3e26"
+    },
+    {
+      "path": "world/mind.py",
+      "bytes": 20535,
+      "sha256": "f994c78e5d02b00a80db4e359d0ea51d176ae98f8ea8b58b6929cb8621b35d8e"
+    },
+    {
+      "path": "world/money.py",
+      "bytes": 22284,
+      "sha256": "63c4bc48a6bf0a96709e8b0dfe1b18df679f1f8d3c4249d9e27d713332c17ef6"
+    },
+    {
+      "path": "world/owl.py",
+      "bytes": 11145,
+      "sha256": "9c9bf37dfecca916ab33b30b2a4dc58f1cd9ebbf2ebbfd64cec4c8add043a61d"
+    },
+    {
+      "path": "world/publish.py",
+      "bytes": 3340,
+      "sha256": "752d4b61b1792b82e80e63d248e1f8441e92dac625c70120c34e133a8a286c8e"
+    },
+    {
+      "path": "world/restyle.py",
+      "bytes": 895,
+      "sha256": "ad2c4696b8324f1c7d1fae3cbdde6a55f3b645b48e33f4184b2394110dd11574"
+    },
+    {
+      "path": "world/shelf.py",
+      "bytes": 21240,
+      "sha256": "b05f85173d7ab64954e50686685498861000a338e3748d44f8a998b105a80a69"
+    },
+    {
+      "path": "world/task_prompt.py",
+      "bytes": 2297,
+      "sha256": "db99fa0f03ef30d1ac84c73d031653c33370ee053f8313695399855143a2abef"
+    },
+    {
+      "path": "world/voices.py",
+      "bytes": 7328,
+      "sha256": "8dfeb2b948a2614483b7870ea9188dcfd500641531bffefae4ba0530fd987cb0"
+    },
+    {
+      "path": "world/works.py",
+      "bytes": 18813,
+      "sha256": "80b30db0032f5d833888ffcd530af9284fd4de63544e5dab30f9accc83396f9f"
+    },
+    {
+      "path": "world/world.py",
+      "bytes": 53064,
+      "sha256": "257ffddf4d257a993d593e8d19871ff414673d39895f8f5f2f7a9298a0d3bc84"
+    }
+  ],
+  "protocol_sha256": "5e23d37e84495d3f089d45e0f3c34cb1e735b52202c0f7e3ab982dabef869d32",
+  "runner_sha256": "8eaeca1272b50da83bf46edcac3b7b7d57ee00e11d38adbbbc08c11a2477cf76",
+  "jobs": [
+    {
+      "day": "day12",
+      "label": "shadow 5b52d7f, Day 12 / 2026-10-13",
+      "seed": 2026101380,
+      "changes": [],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "unshaken"
+        }
+      ],
+      "seconds": 20.801271382006234,
+      "calls": 1,
+      "prompt_tokens": [
+        7182
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "control-file",
+      "label": "8 October final-integration/plain-qwen rehearsal, Day 2 / 2026-10-03",
+      "seed": 2026101380,
+      "changes": [],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "unshaken"
+        }
+      ],
+      "seconds": 28.574860146996798,
+      "calls": 1,
+      "prompt_tokens": [
+        6465
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "control-vouchers",
+      "label": "8 October continuation-v2/focused-next-day rehearsal, Day 3 / 2026-10-04",
+      "seed": 2026101380,
+      "changes": [
+        {
+          "id": "state",
+          "from": "shaken",
+          "to": "revised",
+          "evidence": [
+            {
+              "t": "09:40",
+              "text": "Ramesh has closed the practical question: the estate office gives no answer on Sunday, so the file must be faced as a contradiction in the Notion, not as a…"
+            },
+            {
+              "t": "16:30",
+              "text": "Ramesh's nod closes the small errand, and the voucher book now lies before me as the state's own sign-system, where the Hegde/Hegel difference is no longer a…"
+            },
+            {
+              "t": "18:30",
+              "text": "The contradiction has now moved from my ledger to a second written note, and that is where it must remain: the state’s money cannot be settled by either man’s…"
+            }
+          ]
+        }
+      ],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "revised"
+        }
+      ],
+      "seconds": 18.155213085992727,
+      "calls": 1,
+      "prompt_tokens": [
+        7183
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "day12",
+      "label": "shadow 5b52d7f, Day 12 / 2026-10-13",
+      "seed": 2026101381,
+      "changes": [
+        {
+          "id": "india",
+          "from": "unshaken",
+          "to": "shaken",
+          "evidence": [
+            {
+              "t": "08:49",
+              "text": "Idli. I do not know the word, nor the taste, but the steam rises with a dignity that suggests a system of needs well-ordered. Ramesh stands by with the tray,…"
+            },
+            {
+              "t": "12:28",
+              "text": "The sambar is likely cold by now, and the heat is making the tight collar of the new Bandhgala feel like a vice. I have walked seven kilometres today; the…"
+            },
+            {
+              "t": "17:30",
+              "text": "Shri Hegde stands at the gate with his luggage, a man displaced by a clerical error, asking for the shelter of a second room. It is a small, immediate act of…"
+            }
+          ]
+        }
+      ],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "shaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "unshaken"
+        }
+      ],
+      "seconds": 11.541508923008223,
+      "calls": 1,
+      "prompt_tokens": [
+        7182
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "control-file",
+      "label": "8 October final-integration/plain-qwen rehearsal, Day 2 / 2026-10-03",
+      "seed": 2026101381,
+      "changes": [
+        {
+          "id": "state",
+          "from": "unshaken",
+          "to": "shaken",
+          "evidence": [
+            {
+              "t": "06:40",
+              "text": "The Directorate has withdrawn the papers behind its own weekend, and the first movement of property cannot be completed by argument alone. I will let the…"
+            },
+            {
+              "t": "09:20",
+              "text": "I am back at the desk and the file's knot is this: the Directorate identifies a person by a name in a record, and the name is the universal that stands in for…"
+            }
+          ]
+        }
+      ],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "shaken"
+        }
+      ],
+      "seconds": 20.352742340997793,
+      "calls": 1,
+      "prompt_tokens": [
+        6465
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "control-vouchers",
+      "label": "8 October continuation-v2/focused-next-day rehearsal, Day 3 / 2026-10-04",
+      "seed": 2026101381,
+      "changes": [
+        {
+          "id": "state",
+          "from": "shaken",
+          "to": "revised",
+          "evidence": [
+            {
+              "t": "09:40",
+              "text": "Ramesh has closed the practical question: the estate office gives no answer on Sunday, so the file must be faced as a contradiction in the Notion, not as a…"
+            },
+            {
+              "t": "16:30",
+              "text": "Ramesh's nod closes the small errand, and the voucher book now lies before me as the state's own sign-system, where the Hegde/Hegel difference is no longer a…"
+            },
+            {
+              "t": "18:30",
+              "text": "The contradiction has now moved from my ledger to a second written note, and that is where it must remain: the state’s money cannot be settled by either man’s…"
+            }
+          ]
+        }
+      ],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "revised"
+        }
+      ],
+      "seconds": 11.421265416996903,
+      "calls": 1,
+      "prompt_tokens": [
+        7183
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "day12",
+      "label": "shadow 5b52d7f, Day 12 / 2026-10-13",
+      "seed": 2026101382,
+      "changes": [],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "unshaken"
+        }
+      ],
+      "seconds": 13.360317333994317,
+      "calls": 1,
+      "prompt_tokens": [
+        7182
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "control-file",
+      "label": "8 October final-integration/plain-qwen rehearsal, Day 2 / 2026-10-03",
+      "seed": 2026101382,
+      "changes": [
+        {
+          "id": "state",
+          "from": "unshaken",
+          "to": "shaken",
+          "evidence": [
+            {
+              "t": "17:20",
+              "text": "She is right, and she says it with the authority of habit itself. I have held in the Philosophy of Right that habit is not the opposite of freedom but its…"
+            },
+            {
+              "t": "17:45",
+              "text": "Her objection is sharper than my labels: the walk does not give me a philosophical peace, but a repeated order against mental clutter. I will accept the bench…"
+            }
+          ]
+        }
+      ],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "shaken"
+        }
+      ],
+      "seconds": 23.098046003011405,
+      "calls": 1,
+      "prompt_tokens": [
+        6465
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "control-vouchers",
+      "label": "8 October continuation-v2/focused-next-day rehearsal, Day 3 / 2026-10-04",
+      "seed": 2026101382,
+      "changes": [],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "shaken"
+        }
+      ],
+      "seconds": 12.244428763005999,
+      "calls": 1,
+      "prompt_tokens": [
+        7183
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "day12",
+      "label": "shadow 5b52d7f, Day 12 / 2026-10-13",
+      "seed": 2026101383,
+      "changes": [],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "unshaken"
+        }
+      ],
+      "seconds": 14.98911643899919,
+      "calls": 1,
+      "prompt_tokens": [
+        7182
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "control-file",
+      "label": "8 October final-integration/plain-qwen rehearsal, Day 2 / 2026-10-03",
+      "seed": 2026101383,
+      "changes": [],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "unshaken"
+        }
+      ],
+      "seconds": 21.614156384996022,
+      "calls": 1,
+      "prompt_tokens": [
+        6465
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "control-vouchers",
+      "label": "8 October continuation-v2/focused-next-day rehearsal, Day 3 / 2026-10-04",
+      "seed": 2026101383,
+      "changes": [],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "shaken"
+        }
+      ],
+      "seconds": 13.292245642995113,
+      "calls": 1,
+      "prompt_tokens": [
+        7183
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "day12",
+      "label": "shadow 5b52d7f, Day 12 / 2026-10-13",
+      "seed": 2026101384,
+      "changes": [
+        {
+          "id": "state",
+          "from": "unshaken",
+          "to": "shaken",
+          "evidence": [
+            {
+              "t": "08:04",
+              "text": "Mr. Malhotra stands before me, a man who has served the state for thirty-four years, yet here he is, retired, walking the loop where the tombs of the Lodis…"
+            },
+            {
+              "t": "15:33",
+              "text": "The file is before me, and the cash in my pocket must be reconciled with the state's money in my keeping. The dhobi is due on Saturday, and I must ensure the…"
+            }
+          ]
+        }
+      ],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "shaken"
+        }
+      ],
+      "seconds": 12.366154129005736,
+      "calls": 1,
+      "prompt_tokens": [
+        7182
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "control-file",
+      "label": "8 October final-integration/plain-qwen rehearsal, Day 2 / 2026-10-03",
+      "seed": 2026101384,
+      "changes": [
+        {
+          "id": "india",
+          "from": "unshaken",
+          "to": "shaken",
+          "evidence": [
+            {
+              "t": "09:20",
+              "text": "I am back at the desk and the file's knot is this: the Directorate identifies a person by a name in a record, and the name is the universal that stands in for…"
+            },
+            {
+              "t": "17:20",
+              "text": "She is right, and she says it with the authority of habit itself. I have held in the Philosophy of Right that habit is not the opposite of freedom but its…"
+            }
+          ]
+        },
+        {
+          "id": "state",
+          "from": "unshaken",
+          "to": "shaken",
+          "evidence": [
+            {
+              "t": "06:40",
+              "text": "The Directorate has withdrawn the papers behind its own weekend, and the first movement of property cannot be completed by argument alone. I will let the…"
+            },
+            {
+              "t": "10:10",
+              "text": "So the man himself is coming. Hegde does not go to the Directorate — he comes to the bungalow, at ten on Monday, to settle it with me, and that is a wiser…"
+            }
+          ]
+        }
+      ],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "shaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "shaken"
+        }
+      ],
+      "seconds": 22.39677338200272,
+      "calls": 1,
+      "prompt_tokens": [
+        6465
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "control-vouchers",
+      "label": "8 October continuation-v2/focused-next-day rehearsal, Day 3 / 2026-10-04",
+      "seed": 2026101384,
+      "changes": [],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "shaken"
+        }
+      ],
+      "seconds": 12.051024929998675,
+      "calls": 1,
+      "prompt_tokens": [
+        7183
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "day12",
+      "label": "shadow 5b52d7f, Day 12 / 2026-10-13",
+      "seed": 2026101385,
+      "changes": [
+        {
+          "id": "state",
+          "from": "unshaken",
+          "to": "shaken",
+          "evidence": [
+            {
+              "t": "08:04",
+              "text": "Mr. Malhotra stands before me, a man who has served the state for thirty-four years, yet here he is, retired, walking the loop where the tombs of the Lodis…"
+            },
+            {
+              "t": "08:19",
+              "text": "Mr. Malhotra speaks the language of the bureaucracy, which is the language of the external. He sees the state as a machine that must be pushed, whereas I see…"
+            }
+          ]
+        }
+      ],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "shaken"
+        }
+      ],
+      "seconds": 15.373785217001569,
+      "calls": 1,
+      "prompt_tokens": [
+        7182
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "control-file",
+      "label": "8 October final-integration/plain-qwen rehearsal, Day 2 / 2026-10-03",
+      "seed": 2026101385,
+      "changes": [],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "unshaken"
+        }
+      ],
+      "seconds": 21.98320606800553,
+      "calls": 1,
+      "prompt_tokens": [
+        6465
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "control-vouchers",
+      "label": "8 October continuation-v2/focused-next-day rehearsal, Day 3 / 2026-10-04",
+      "seed": 2026101385,
+      "changes": [
+        {
+          "id": "state",
+          "from": "shaken",
+          "to": "revised",
+          "evidence": [
+            {
+              "t": "09:40",
+              "text": "Ramesh has closed the practical question: the estate office gives no answer on Sunday, so the file must be faced as a contradiction in the Notion, not as a…"
+            },
+            {
+              "t": "16:30",
+              "text": "Ramesh's nod closes the small errand, and the voucher book now lies before me as the state's own sign-system, where the Hegde/Hegel difference is no longer a…"
+            },
+            {
+              "t": "18:30",
+              "text": "The contradiction has now moved from my ledger to a second written note, and that is where it must remain: the state’s money cannot be settled by either man’s…"
+            }
+          ]
+        }
+      ],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "revised"
+        }
+      ],
+      "seconds": 12.154490025990526,
+      "calls": 1,
+      "prompt_tokens": [
+        7183
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "day12",
+      "label": "shadow 5b52d7f, Day 12 / 2026-10-13",
+      "seed": 2026101386,
+      "changes": [],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "unshaken"
+        }
+      ],
+      "seconds": 14.47570511700178,
+      "calls": 1,
+      "prompt_tokens": [
+        7182
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "control-file",
+      "label": "8 October final-integration/plain-qwen rehearsal, Day 2 / 2026-10-03",
+      "seed": 2026101386,
+      "changes": [
+        {
+          "id": "state",
+          "from": "unshaken",
+          "to": "shaken",
+          "evidence": [
+            {
+              "t": "10:10",
+              "text": "So the man himself is coming. Hegde does not go to the Directorate — he comes to the bungalow, at ten on Monday, to settle it with me, and that is a wiser…"
+            },
+            {
+              "t": "18:47",
+              "text": "Masterji's verdict releases the knot I have been carrying since the morning; the collar is finished, it only needs to settle, and a man who 'does not lie…"
+            }
+          ]
+        }
+      ],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "shaken"
+        }
+      ],
+      "seconds": 21.182757610004046,
+      "calls": 1,
+      "prompt_tokens": [
+        6465
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "control-vouchers",
+      "label": "8 October continuation-v2/focused-next-day rehearsal, Day 3 / 2026-10-04",
+      "seed": 2026101386,
+      "changes": [
+        {
+          "id": "state",
+          "from": "shaken",
+          "to": "revised",
+          "evidence": [
+            {
+              "t": "09:10",
+              "text": "I will take the long way back through the gardens toward Tughlak Road. The question is not whether the clerk's hand slipped, but whether a slip that the state…"
+            },
+            {
+              "t": "16:30",
+              "text": "Ramesh's nod closes the small errand, and the voucher book now lies before me as the state's own sign-system, where the Hegde/Hegel difference is no longer a…"
+            },
+            {
+              "t": "18:30",
+              "text": "The contradiction has now moved from my ledger to a second written note, and that is where it must remain: the state’s money cannot be settled by either man’s…"
+            }
+          ]
+        }
+      ],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "revised"
+        }
+      ],
+      "seconds": 12.484224732004805,
+      "calls": 1,
+      "prompt_tokens": [
+        7183
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "day12",
+      "label": "shadow 5b52d7f, Day 12 / 2026-10-13",
+      "seed": 2026101387,
+      "changes": [
+        {
+          "id": "state",
+          "from": "unshaken",
+          "to": "shaken",
+          "evidence": [
+            {
+              "t": "08:04",
+              "text": "Mr. Malhotra stands before me, a man who has served the state for thirty-four years, yet here he is, retired, walking the loop where the tombs of the Lodis…"
+            },
+            {
+              "t": "17:30",
+              "text": "Shri Hegde stands at the gate with his luggage, a man displaced by a clerical error, asking for the shelter of a second room. It is a small, immediate act of…"
+            }
+          ]
+        }
+      ],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "shaken"
+        }
+      ],
+      "seconds": 15.460814891004702,
+      "calls": 1,
+      "prompt_tokens": [
+        7182
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "control-file",
+      "label": "8 October final-integration/plain-qwen rehearsal, Day 2 / 2026-10-03",
+      "seed": 2026101387,
+      "changes": [],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "unshaken"
+        }
+      ],
+      "seconds": 20.10887214000104,
+      "calls": 1,
+      "prompt_tokens": [
+        6465
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "control-vouchers",
+      "label": "8 October continuation-v2/focused-next-day rehearsal, Day 3 / 2026-10-04",
+      "seed": 2026101387,
+      "changes": [
+        {
+          "id": "state",
+          "from": "shaken",
+          "to": "revised",
+          "evidence": [
+            {
+              "t": "09:40",
+              "text": "Ramesh has closed the practical question: the estate office gives no answer on Sunday, so the file must be faced as a contradiction in the Notion, not as a…"
+            },
+            {
+              "t": "16:30",
+              "text": "Ramesh's nod closes the small errand, and the voucher book now lies before me as the state's own sign-system, where the Hegde/Hegel difference is no longer a…"
+            },
+            {
+              "t": "18:30",
+              "text": "The contradiction has now moved from my ledger to a second written note, and that is where it must remain: the state’s money cannot be settled by either man’s…"
+            }
+          ]
+        }
+      ],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "revised"
+        }
+      ],
+      "seconds": 14.034348533008597,
+      "calls": 1,
+      "prompt_tokens": [
+        7183
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "day12",
+      "label": "shadow 5b52d7f, Day 12 / 2026-10-13",
+      "seed": 2026101388,
+      "changes": [
+        {
+          "id": "state",
+          "from": "unshaken",
+          "to": "shaken",
+          "evidence": [
+            {
+              "t": "08:04",
+              "text": "Mr. Malhotra stands before me, a man who has served the state for thirty-four years, yet here he is, retired, walking the loop where the tombs of the Lodis…"
+            },
+            {
+              "t": "08:19",
+              "text": "Mr. Malhotra speaks the language of the bureaucracy, which is the language of the external. He sees the state as a machine that must be pushed, whereas I see…"
+            }
+          ]
+        }
+      ],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "shaken"
+        }
+      ],
+      "seconds": 14.26416361000156,
+      "calls": 1,
+      "prompt_tokens": [
+        7182
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "control-file",
+      "label": "8 October final-integration/plain-qwen rehearsal, Day 2 / 2026-10-03",
+      "seed": 2026101388,
+      "changes": [],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "unshaken"
+        }
+      ],
+      "seconds": 23.528519958999823,
+      "calls": 1,
+      "prompt_tokens": [
+        6465
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "control-vouchers",
+      "label": "8 October continuation-v2/focused-next-day rehearsal, Day 3 / 2026-10-04",
+      "seed": 2026101388,
+      "changes": [],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "shaken"
+        }
+      ],
+      "seconds": 11.900669918002677,
+      "calls": 1,
+      "prompt_tokens": [
+        7183
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "day12",
+      "label": "shadow 5b52d7f, Day 12 / 2026-10-13",
+      "seed": 2026101389,
+      "changes": [
+        {
+          "id": "state",
+          "from": "unshaken",
+          "to": "shaken",
+          "evidence": [
+            {
+              "t": "08:04",
+              "text": "Mr. Malhotra stands before me, a man who has served the state for thirty-four years, yet here he is, retired, walking the loop where the tombs of the Lodis…"
+            },
+            {
+              "t": "08:19",
+              "text": "Mr. Malhotra speaks the language of the bureaucracy, which is the language of the external. He sees the state as a machine that must be pushed, whereas I see…"
+            }
+          ]
+        }
+      ],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "shaken"
+        }
+      ],
+      "seconds": 14.447417092989781,
+      "calls": 1,
+      "prompt_tokens": [
+        7182
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "control-file",
+      "label": "8 October final-integration/plain-qwen rehearsal, Day 2 / 2026-10-03",
+      "seed": 2026101389,
+      "changes": [],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "unshaken"
+        }
+      ],
+      "seconds": 23.761801891989307,
+      "calls": 1,
+      "prompt_tokens": [
+        6465
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "day": "control-vouchers",
+      "label": "8 October continuation-v2/focused-next-day rehearsal, Day 3 / 2026-10-04",
+      "seed": 2026101389,
+      "changes": [
+        {
+          "id": "state",
+          "from": "shaken",
+          "to": "revised",
+          "evidence": [
+            {
+              "t": "08:45",
+              "text": "The rim is warm, and the file's contradiction has cooled no less than the glass would. A name in the register is a sign, but if the state's business proceeds…"
+            },
+            {
+              "t": "18:30",
+              "text": "The contradiction has now moved from my ledger to a second written note, and that is where it must remain: the state’s money cannot be settled by either man’s…"
+            },
+            {
+              "t": "20:35",
+              "text": "The house is quiet and the kurta is cool against the evening air. Ramesh has gone to his room, and the file's contradiction sits on the desk like a guest who…"
+            }
+          ]
+        }
+      ],
+      "after": [
+        {
+          "id": "india",
+          "text": "India stands outside world history",
+          "status": "unshaken"
+        },
+        {
+          "id": "state",
+          "text": "The state is the actuality of the ethical idea",
+          "status": "revised"
+        }
+      ],
+      "seconds": 15.11509742900671,
+      "calls": 1,
+      "prompt_tokens": [
+        7183
+      ],
+      "finish_reasons": [
+        "stop"
+      ]
+    }
+  ],
+  "summary": [
+    {
+      "day": "day12",
+      "label": "shadow 5b52d7f, Day 12 / 2026-10-13",
+      "seeds": 10,
+      "any_thesis_moves": 6,
+      "india_moves": 1,
+      "wall_seconds": 147.0802541350131
+    },
+    {
+      "day": "control-file",
+      "label": "8 October final-integration/plain-qwen rehearsal, Day 2 / 2026-10-03",
+      "seeds": 10,
+      "any_thesis_moves": 4,
+      "india_moves": 1,
+      "wall_seconds": 226.60173592700448
+    },
+    {
+      "day": "control-vouchers",
+      "label": "8 October continuation-v2/focused-next-day rehearsal, Day 3 / 2026-10-04",
+      "seeds": 10,
+      "any_thesis_moves": 6,
+      "india_moves": 0,
+      "wall_seconds": 132.85300847700273
+    }
+  ],
+  "calls": 30,
+  "finish_reasons": {
+    "stop": 30
+  },
+  "first_request_fingerprints_without_seed_routing": {
+    "day12": "222d3f60d6ef7c3447615c9801adecc66acb663d8e3eb3394c474e77e398d095",
+    "control-file": "4501a30ad39c1428cfcd9c002cfd2df57cfd2e63d390b95dd63f770349f8aa9d",
+    "control-vouchers": "f6884cd089a88166f3e7a2b208c88a1ac3867d9263cb6f78112df7e0ebd5ecca"
+  },
+  "elapsed_seconds": 508.35568853700534,
+  "started_utc": "2026-10-13T17:48:11.738265+00:00",
+  "finished_utc": "2026-10-13T17:57:00.982012+00:00",
+  "server_command_sha256": "1944b782a1c3557851d1c3639e04e43072e6c2a6e8eff6e96978f96d6e48d6b0",
+  "server_healthy": true,
+  "server_adapters": [],
+  "raw_files_sha256": {
+    "T8-results-v1/complete.json": "e0315f19df4d5d04cb0a1b055f7a94f8fe9b72e5d05221028812e2c9490ee8c4",
+    "T8-results-v1/control-file-2026101380/call-01.meta.json": "a690d83a63443a6a1706f384f123ac5d0fcd74df8419fd7c7acdfcf09cfc02c6",
+    "T8-results-v1/control-file-2026101380/call-01.request.json": "19496d73ab834ca999324b0c4e487158349db77978073dbfc31f414bf0d16835",
+    "T8-results-v1/control-file-2026101380/call-01.response.json": "710003c99a99f29e94556665c20422c8f39f9b65377d54866626ff99d7a6570f",
+    "T8-results-v1/control-file-2026101380/result.json": "5bbe7d12f13eb3c960470e910b9f50278704fcea6f19b13b42f9566075f1b223",
+    "T8-results-v1/control-file-2026101381/call-01.meta.json": "ec549b9ad5f9ac34373b1fba1983e40cc11276a8392c8517ecdb88b267be9abb",
+    "T8-results-v1/control-file-2026101381/call-01.request.json": "cbe2407ab89513789a5cadc33bd5ef25446c6db971ea07cbf2e05c3fc0b828a5",
+    "T8-results-v1/control-file-2026101381/call-01.response.json": "aa686a133efbedf3b8d62e8d72a9582d6ddd97fb85b0854931be603c5ecd2c8a",
+    "T8-results-v1/control-file-2026101381/result.json": "1a627a91fed3b8854e902a8c4aa4c789ebf94dcae238c90e28621984398ded76",
+    "T8-results-v1/control-file-2026101382/call-01.meta.json": "9b93abe0f11eed6dc75ef70eb1dce0312811b1fbba1dcbff1488a3ce1dae2e66",
+    "T8-results-v1/control-file-2026101382/call-01.request.json": "8d8afc588895c6a683170931baa14203cb3e25fa75e8ae2f6e27acee93ed2260",
+    "T8-results-v1/control-file-2026101382/call-01.response.json": "2e3c37aecb02ad661283176a25075b360c7e51dadce2a6105f16501cca52829c",
+    "T8-results-v1/control-file-2026101382/result.json": "bd1892b48075b67580fc8186cc5d6a3106f7694e5d8367574578e05ed4af77f8",
+    "T8-results-v1/control-file-2026101383/call-01.meta.json": "ee5e88e8551eba839c30a2abe86c7222980b2e69050afadb1dc6febf8399d83d",
+    "T8-results-v1/control-file-2026101383/call-01.request.json": "71c1870f0c1b68a247b929a151b1b60c588d1e7e1dd45e8ae11b045d8db4bcfc",
+    "T8-results-v1/control-file-2026101383/call-01.response.json": "0f0fc861a6a3f23feb8846a2b052342669aa7bb184ace35ff10e34af01de5b9e",
+    "T8-results-v1/control-file-2026101383/result.json": "8b47b728c73c32328bc88ddb2e6beb20b3a7a949c42d40b15b65a67a8544eae9",
+    "T8-results-v1/control-file-2026101384/call-01.meta.json": "18b220e0f5396297b587f0a95a805f600a91b231118d080470458284da56ac57",
+    "T8-results-v1/control-file-2026101384/call-01.request.json": "11df9b29f9f745b2bb8033ce6f794eebe77b1541c0152132a4b3b06c62e9d484",
+    "T8-results-v1/control-file-2026101384/call-01.response.json": "ad76a384903c5a823c1d3d1936f4d122c31593542a80ed2f01d55d08252746b0",
+    "T8-results-v1/control-file-2026101384/result.json": "24fec7e23b66c1a74679cc8315a5304c757aba4066b86ced51815167e1e0ba95",
+    "T8-results-v1/control-file-2026101385/call-01.meta.json": "7675b5b890493826176109bf86bb19b33497d68ef19625a6e77150773523ba43",
+    "T8-results-v1/control-file-2026101385/call-01.request.json": "c939fc8dd8c5ccd2a7991e34be8a66d39346b1c98cb4f8e120f187d987054398",
+    "T8-results-v1/control-file-2026101385/call-01.response.json": "dce4c159bf6cf424f96127012cbab54baa5a7af16d0b674640b7553313804ca4",
+    "T8-results-v1/control-file-2026101385/result.json": "10885cced7aa8f332b56c984b5c7a0298f3ac885c3633942aef818945bdb1413",
+    "T8-results-v1/control-file-2026101386/call-01.meta.json": "e6cb10902c46ab341f32ab1be0f4638b5c9835365626ce62e21749d20e9331ac",
+    "T8-results-v1/control-file-2026101386/call-01.request.json": "6f4c57ce4a1cd8f05c47cf07f7f1cf8b903f7c5dc116b59e0d11501e41aa04a6",
+    "T8-results-v1/control-file-2026101386/call-01.response.json": "89c85be38480abbae4a79ef2dbaa81cc3a157c2e6bd254d9305c5965fbaea1b4",
+    "T8-results-v1/control-file-2026101386/result.json": "e0b9ac8893954e8aee0e95914c965463902598afc7496625c218de0d4211d2bd",
+    "T8-results-v1/control-file-2026101387/call-01.meta.json": "e6faa9f432437b976b6c026acfdb59087072250098353278800e48cecc90ae56",
+    "T8-results-v1/control-file-2026101387/call-01.request.json": "372407cf85552ea8d16602b84de28b505d59984257ebe56d24343e5f760b63b2",
+    "T8-results-v1/control-file-2026101387/call-01.response.json": "2fe1a4d128f237509b885e025dc2175f7b365c52029de27cb52c890c4da5eb03",
+    "T8-results-v1/control-file-2026101387/result.json": "92b896a92b06988bd285c429074b9baa57063a2bf0771f49e7edb2ad15bc7d3d",
+    "T8-results-v1/control-file-2026101388/call-01.meta.json": "2b05a338a96c5a11ba9d87a42b1a6a316dddb6bff0216bf5d898ba7b5632e97d",
+    "T8-results-v1/control-file-2026101388/call-01.request.json": "be5f56de73400a0e50b75f1ba1c3a6699533aa916a448ebdd5e689a3151ca88c",
+    "T8-results-v1/control-file-2026101388/call-01.response.json": "ac11b0568a12ad59df8a418aaea2dedc4cd5cb6e6be64c6023f1a9319719f3d5",
+    "T8-results-v1/control-file-2026101388/result.json": "10dd953ddb7fd25c9b41f98816ccd62bc45cdf606894ec5d216ad1dd7c966e29",
+    "T8-results-v1/control-file-2026101389/call-01.meta.json": "0861018c8d7d91e09f2bbdb888dcf3433aa4345173b5e4f7afd81bf9db75c830",
+    "T8-results-v1/control-file-2026101389/call-01.request.json": "2a3498bca0b95072f1548cc782f5c0023353c7d4b2c34b8eea7b19a142836d36",
+    "T8-results-v1/control-file-2026101389/call-01.response.json": "f153cae1ad851fcf48c82f118edf78a06df759cb4c84eed936ff8a5e33bb828f",
+    "T8-results-v1/control-file-2026101389/result.json": "95709a3ecccd6909a5329d17c716075ac4019bd0bad20416c6c2a9e6f1b710ba",
+    "T8-results-v1/control-vouchers-2026101380/call-01.meta.json": "081d861432e6481918962fc92fe0635618f01521eb5a8735858b3fb1fdccaa0a",
+    "T8-results-v1/control-vouchers-2026101380/call-01.request.json": "69ef9fb55456b9f372326b7b04babfef8265735b194a41dac8e55f2095b040e3",
+    "T8-results-v1/control-vouchers-2026101380/call-01.response.json": "1d767e4f7792d2400b8750f3eac54ef4f7ca587e2224486b54fae9559f3a7c7d",
+    "T8-results-v1/control-vouchers-2026101380/result.json": "f93e2d31fd0491fc7b1a13490a8eef9f497b76081143132d903038a06cd9368b",
+    "T8-results-v1/control-vouchers-2026101381/call-01.meta.json": "973f7fd61e3a413098428c70ee3c736cd48621be299381fbf0aff326cb8eca5a",
+    "T8-results-v1/control-vouchers-2026101381/call-01.request.json": "2ad2f4e4b7ae4cd01a6b03cd288a6b8464612848a541bd578c6c96ffb4f83712",
+    "T8-results-v1/control-vouchers-2026101381/call-01.response.json": "d9a455ec70c72eff0e561473a2871f9a96656770e6fc783e32b92bc27336fd49",
+    "T8-results-v1/control-vouchers-2026101381/result.json": "05d05283c460a7fcc6bd43a5476a0c1abf15a8545174e7e086c200892f90e032",
+    "T8-results-v1/control-vouchers-2026101382/call-01.meta.json": "620b0364fed7d821b4b00d534e7864fa2e50f71d119acab8a63764a52ef8f4be",
+    "T8-results-v1/control-vouchers-2026101382/call-01.request.json": "214e5049a7b62c53b3582bdc16e400fe3a2c323a49dcc0f7d1f8c6a6bc5e6d4d",
+    "T8-results-v1/control-vouchers-2026101382/call-01.response.json": "f9ee0900d6927e64c896024e4602065550fe1d99c9a4b440de1e3cb2490ebae9",
+    "T8-results-v1/control-vouchers-2026101382/result.json": "d56a7c0c7251b74b0ea5852c2ad9da1f4c0223bf5402596ecd0b2656c070de35",
+    "T8-results-v1/control-vouchers-2026101383/call-01.meta.json": "7c7f4c19f1e1acd4c1659bb30cd0cc0fb31201434584ad9be15bbf8dbc323a67",
+    "T8-results-v1/control-vouchers-2026101383/call-01.request.json": "256bd2e088a98a96e0a204e5d9f57143442159e382eb05dac13757bed6ba3a5c",
+    "T8-results-v1/control-vouchers-2026101383/call-01.response.json": "34ff5ae31dbb58fa4198b04e52ffe7b1559397b80a68038b7bd4ada370da749a",
+    "T8-results-v1/control-vouchers-2026101383/result.json": "4045016a46c79f8eac00378d22f7407080ecb95a3c224767c0ca49735fafcbe4",
+    "T8-results-v1/control-vouchers-2026101384/call-01.meta.json": "dcc6327c56c6ac323d5dffb398e5aee5e2c8a8d6eb207fed5afeddd8129598be",
+    "T8-results-v1/control-vouchers-2026101384/call-01.request.json": "19f22338307d0d1a9c197584f502624ec7cf9da6e2a4dbe6c630eee34df2dd29",
+    "T8-results-v1/control-vouchers-2026101384/call-01.response.json": "a38c3c48a06798e0ff10344b4e21a9577c72af6d10bd6e13ebeae87591806ab1",
+    "T8-results-v1/control-vouchers-2026101384/result.json": "34dd2e9d03bb97b7460eb6e605e3b01fcd5b6235e817308b050d0f2d0baf9d27",
+    "T8-results-v1/control-vouchers-2026101385/call-01.meta.json": "e9e7cbad9e6ad3e315a03d6d1ce97fdbf443500932dcc68caae6795144171ea8",
+    "T8-results-v1/control-vouchers-2026101385/call-01.request.json": "5a1602577632e362d74e6e3976cc9e45067a201d23f1d12bbef8381121b8bff2",
+    "T8-results-v1/control-vouchers-2026101385/call-01.response.json": "915515d9d1b2d473a58893a3ae586ec2bb6f606e8f673f57a66b3f3316d7c2c0",
+    "T8-results-v1/control-vouchers-2026101385/result.json": "803e7f5ae8456f1f0bab7d3d75992fd14a2554551bba85987d5a7feaf9662f3e",
+    "T8-results-v1/control-vouchers-2026101386/call-01.meta.json": "a9df05516fe024924069c9d4dc5598fb400f3ba6ddf237547dfeb2f59b7b9d85",
+    "T8-results-v1/control-vouchers-2026101386/call-01.request.json": "8fd52983cbbebe31994ff90e8d6fd64fb33122c5b252dcb6df55147194a27ebd",
+    "T8-results-v1/control-vouchers-2026101386/call-01.response.json": "04ef0c83f2b85d8eb30880b20539419c73ad713fc22c221cbfe45df988de93b7",
+    "T8-results-v1/control-vouchers-2026101386/result.json": "6abbdb12c37fb82cfc519b0a18bb17915eee31dd9ff0eb0327780b1cb34ffc6e",
+    "T8-results-v1/control-vouchers-2026101387/call-01.meta.json": "3616ec885619d7c8e05581995b0676f863edc9e3d388f089ff17fe77758876d1",
+    "T8-results-v1/control-vouchers-2026101387/call-01.request.json": "1f4ad00dcdfed1e5b160d7da0642fdf7734ba5bebc3b8eaf7321874b82d94c4e",
+    "T8-results-v1/control-vouchers-2026101387/call-01.response.json": "c60eabba4a34ffd1a8e20b76f467a271b914323c2a5aba574d9e0ef6ab45d639",
+    "T8-results-v1/control-vouchers-2026101387/result.json": "3d0d9215a6bbb9aab0a94687cfd82c36f115465f6ba89ec535a9dbcf6e411060",
+    "T8-results-v1/control-vouchers-2026101388/call-01.meta.json": "4456fe3b18692e8044984ca25556107220cb02773005f5c8e75ecf0583154768",
+    "T8-results-v1/control-vouchers-2026101388/call-01.request.json": "5864b466f26764876487c3f353fbe7fef5482301456fc719d96e9fa97c1b92e4",
+    "T8-results-v1/control-vouchers-2026101388/call-01.response.json": "254b66bf5556cbebc33602dbb14149ee15a71d98c62aeab30047d09925cff04f",
+    "T8-results-v1/control-vouchers-2026101388/result.json": "08b2797737602946e5b0f345829c23fc591c908017b607e680c78e975f43bd7c",
+    "T8-results-v1/control-vouchers-2026101389/call-01.meta.json": "36e9a06fb9ea951d0342d1f8d30a7ebb784e034df346cb48ca9d956059dc01cf",
+    "T8-results-v1/control-vouchers-2026101389/call-01.request.json": "9e1f29568eedfcf0a30a2074dec56ed1f3f10749a64516c841dee7de84526bb8",
+    "T8-results-v1/control-vouchers-2026101389/call-01.response.json": "8467db4ae38dfbecc89ced49508426136e7c109185f31cad06835afb798c3a7e",
+    "T8-results-v1/control-vouchers-2026101389/result.json": "8901ec336c93f82083d07c6ffd8ff09086026c196f0e08930c7bd7bd09d3bd77",
+    "T8-results-v1/day12-2026101380/call-01.meta.json": "bdd557fe624b67d4452490eac1fd3fdb9ab7b1f53efac99547683d8a72b63e38",
+    "T8-results-v1/day12-2026101380/call-01.request.json": "9b2f48e67fa51749574e7bcc763011ea399812fc9551ab9d69a5b4bf18334bbd",
+    "T8-results-v1/day12-2026101380/call-01.response.json": "66884bd15d942e95daf401d44029a96539bef40bc4f9e66082c3a818ae65b863",
+    "T8-results-v1/day12-2026101380/result.json": "7ae4eb46a45d3256de8959ba19a0a1c96be10d6f5af6c12d75c01f6b2a85afb1",
+    "T8-results-v1/day12-2026101381/call-01.meta.json": "3cf509b8ed9ea90328a959e0ec9afb40d4a24441b3ece4a58fca1eb67e8a4d67",
+    "T8-results-v1/day12-2026101381/call-01.request.json": "a1f85605807b917837bbe2c549cbe3f53e016eed2b5433b98bd020bfd272afb8",
+    "T8-results-v1/day12-2026101381/call-01.response.json": "e78a24729dda4414989bb935721f4db9d7e21c9491631a0f1b0c48eab388f16a",
+    "T8-results-v1/day12-2026101381/result.json": "54ccad0e1c99fd5c92b5b2a95a413ac0fa4fcf430a344f2c76e6abe1516d180a",
+    "T8-results-v1/day12-2026101382/call-01.meta.json": "77e5015947df8e91bdcc97689e7699b58ff628109cbbf425d6a995b6cfd40892",
+    "T8-results-v1/day12-2026101382/call-01.request.json": "fceb9da45a259a86fcbeb5f573f892035cf761db131cdd09d87a4ae8783eef0f",
+    "T8-results-v1/day12-2026101382/call-01.response.json": "0a9d1a3fb5fedd295a2e1f9d1e444e258cdc8fe403946b90aaafcc2a02a006c2",
+    "T8-results-v1/day12-2026101382/result.json": "4c064717cd5e115788de8f2fa1647e05d40202dd60a0ef5f64472d72f15a09bf",
+    "T8-results-v1/day12-2026101383/call-01.meta.json": "924ad638960195fbda4a452d61b9c7f661b802166bba5455cd9a9f77cba1eeed",
+    "T8-results-v1/day12-2026101383/call-01.request.json": "331c18889a1c48eff88f5175851f649c7c018a46aa9a7ec9d6310646424e3054",
+    "T8-results-v1/day12-2026101383/call-01.response.json": "eca67d346290f17f5117ae1b5c227061e8b863b03b1cc6e52340ebc18476c153",
+    "T8-results-v1/day12-2026101383/result.json": "03ff0d0398b6dd4c5237f8402156562bc2455cc621c4e3dc79da0da9e99940c4",
+    "T8-results-v1/day12-2026101384/call-01.meta.json": "8f0b9daa744ca1405ddeccd7b398ea404e6b7c99a1fc14e2428ad004ab218f02",
+    "T8-results-v1/day12-2026101384/call-01.request.json": "5904a7b58fcbb90ff1f8b7bd7ecf231d6d35e8c8278b3674275d6eef18d3368f",
+    "T8-results-v1/day12-2026101384/call-01.response.json": "134d70c0c6b4f46f76219d23798f18019f1719351d8b41a607694e3c9f3665f9",
+    "T8-results-v1/day12-2026101384/result.json": "4de7d2d8efb5d93278ec4dce35de6b061384ca13732e607399e5c79d7417f392",
+    "T8-results-v1/day12-2026101385/call-01.meta.json": "db83f73e40b714f6320d46e5bc90218995289f5b27a94e0ef928d3c9195e8da3",
+    "T8-results-v1/day12-2026101385/call-01.request.json": "f6c47e963e41c75f229280132335831f6fc66b9e32e3080c1f22dc0af56b1e8d",
+    "T8-results-v1/day12-2026101385/call-01.response.json": "4653a84506a14fad8393e2b1ff0371856b6c2bbee2037c419bde5533439975a0",
+    "T8-results-v1/day12-2026101385/result.json": "e752fa024e265e23aee7b2a4529b20cc855bcfe39a3fe8b1f9d549dd1a8dac7d",
+    "T8-results-v1/day12-2026101386/call-01.meta.json": "e8f43d867cb0d74c5103a14dab32beeb52cc3bc3c2da35a54a731f0d0619eca9",
+    "T8-results-v1/day12-2026101386/call-01.request.json": "69facb65426fd9248f6c7e9cb9778bc6be28ca560338bcd149cb3d0c900317dd",
+    "T8-results-v1/day12-2026101386/call-01.response.json": "806e48fc7663feba4ff9f4e883d63cee2ecafe06d4a609f1690f0b25a386d7b4",
+    "T8-results-v1/day12-2026101386/result.json": "ad6d2c99ce39051884c660287111336956db895fbff0ac7049c395fd0cdaaa6e",
+    "T8-results-v1/day12-2026101387/call-01.meta.json": "fc0b05e17845ab697d36ced64b968a9815211f3b0dbb3543ad97eaee67e23e76",
+    "T8-results-v1/day12-2026101387/call-01.request.json": "ab15c244a004ffc8624c5bf6af1de1e6a4d2917fd87a2cfa8a44110cc9962ea3",
+    "T8-results-v1/day12-2026101387/call-01.response.json": "3e5b26929460401451c7be227ec97fe6b4b0e3b5b10646a9f341bc0e25315885",
+    "T8-results-v1/day12-2026101387/result.json": "f7fd881c39bcfa5ab4777c97b4da7e6e9d839285ae052d44d476dc2ba311ddb8",
+    "T8-results-v1/day12-2026101388/call-01.meta.json": "717e94d65460a4a2a65dd694aaaf75222039ceb18dabfba330bfc926bce42a96",
+    "T8-results-v1/day12-2026101388/call-01.request.json": "fd5a1aa5b401741d1c70a8d8db0ef50faa808bf8b52b14083e47bd961509003c",
+    "T8-results-v1/day12-2026101388/call-01.response.json": "50d5566551f13ddc216fe8d9d65303c95de7fe460c686f07c7f31e407cc9dfef",
+    "T8-results-v1/day12-2026101388/result.json": "0d72d6723ee6429bf3e715d99d17c1fc7c6b36a91caf9648b60075131ffbc95d",
+    "T8-results-v1/day12-2026101389/call-01.meta.json": "3e6ed316c2142fdc17fc12830261f96b07df71233079ac2fb198ae44ae364de5",
+    "T8-results-v1/day12-2026101389/call-01.request.json": "e247e8222768dfe08c33b9b23f070e96f3057e12d183d3506bf9e48ae21f6d21",
+    "T8-results-v1/day12-2026101389/call-01.response.json": "7cad301276b3ada05e372cca94821d54822f57928ea39babff46476c3ef35b8e",
+    "T8-results-v1/day12-2026101389/result.json": "4f1a2558a85160afe0ee79b6cd0423d4f33d89bcee9553d5ddd331f8126cee3b",
+    "T8-results-v1/frozen-files.json": "5fb63683eaa9d02becdfc70f75b537bf921a51cbeb893908b97781d2b0a06ea9",
+    "T8-owl-job.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "T8-owl-job.log": "ef18733e54834bc1bcf6865e0bd916284b1913221606f2f74a76642ca9e2545d",
+    "T8-PROTOCOL-before-generation.json": "70349e79c7724b3a30fbf0a9535d83644299ca60d1ac24c4a7dc86c544e4a756",
+    "T8-PROTOCOL-final-before-generation.json": "5e23d37e84495d3f089d45e0f3c34cb1e735b52202c0f7e3ab982dabef869d32",
+    "T8-and-combined-suite-frozen-launch-plan.json": "1ce55a026ae1023db1e90bef3ded7cb7d71496d41869d0a65996694ff9749db3",
+    "T8-and-combined-suite-launch.json": "ae9e894fba47c209ec4433d617383690e9179ca3d1161d6da795657023ac12b8"
+  },
+  "result_replayed_from_each_original_response": true,
+  "wrapper_exit": 0,
+  "CPU_suite_overlap_disclosed": true,
+  "stricter_rule_condition_triggered": false,
+  "verifier_sha256": "30df066cac27de6cd19e7edde918af0b776bc236e389c263fadae6fe3a787b03"
+}

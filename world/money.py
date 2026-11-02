@@ -1,8 +1,10 @@
 """The simulated economy of his days: cash, the imprest account and its vouchers, debts, cheques, the costs that recur
 and the offers that bring money in. Everything here is simulated; nothing is bought for real. World inherits it."""
 from datetime import date, timedelta
+import logging
 
 from .clock import DAY_ONE, DAYNAMES, WEEKDAYS, at_dt, day_number, days_match, fmt, hm, minute_of
+from .records import charge_id
 
 ADVANCE = 15000                 # the imprest advance he must account for
 SESSION_WAIT = 30               # minutes a person waits for him at a standing engagement
@@ -21,12 +23,25 @@ def nice(d):
 
 
 class Economy:
+    def new_charge(self, st):
+        used=set(st.get('settled_charges',[]))
+        used.update(x.get('charge_id') for key in ('owed','receipts') for x in st.get(key,[]))
+        while True:
+            st['charge_seq']=st.get('charge_seq',0)+1
+            cid=f"charge:{st['charge_seq']}"
+            if cid not in used:
+                return cid
+
     # ── the books ───────────────────────────────────────────────────
     def ledger(self, st):
         """The money keys a state may lack (day 1's does), with their defaults, so that older states carry on."""
         st.setdefault("account", {"advance": ADVANCE, "vouchers": [], "admitted": 0, "queried": 0})
         for k in ("owed", "cheques", "receipts", "engagements", "commissions"):
             st.setdefault(k, [])
+        st.setdefault('settled_charges',[])
+        for o in st['owed']:
+            if not o.get('charge_id'):
+                o['charge_id']=charge_id(o) or self.new_charge(st)
         for k in ("costs", "met_days", "visits", "refused"):
             st.setdefault(k, {})
         st.setdefault("tech", {"phone": False, "sim": False})
@@ -132,6 +147,7 @@ class Economy:
             if due and due.isoformat() > last:
                 st["costs"][c["id"]] = due.isoformat()
                 o = {"to": c["to"], "amount": c["amount"], "why": c["why"], "since": due.isoformat(), "cost": c["id"], "item": c["item"]}
+                o['charge_id']=charge_id(o)
                 o.update({k: c[k] for k in ("at", "with") if c.get(k)})
                 st["owed"].append(o)
                 fresh.append(o)
@@ -145,13 +161,22 @@ class Economy:
         """Pay what he owes wherever its creditor can be reached and he has the cash. Returns (event lines, entries)."""
         lines, entries, now = [], [], t.date().isoformat()
         for o in list(st["owed"]):
+            cid=o.get('charge_id') or charge_id(o) or self.new_charge(st)
+            o['charge_id']=cid
+            settled=st.setdefault('settled_charges',[])
+            if cid in settled:
+                st['owed'].remove(o)
+                logging.getLogger('world').warning('duplicate charge suppressed: %s',cid)
+                continue
             if o.get("after", "") > now or not self.reachable(o, pid, present):
                 continue
             if o["amount"] <= st["imprest"]:
                 st["imprest"] -= o["amount"]
                 st["owed"].remove(o)
+                settled.append(cid)
                 entries.append({"k": "expense", "item": o.get("item") or cap(o["why"]), "amount": o["amount"], "to": o["to"], "why": o["why"],
-                                "settles": True, "text": f"Paid to {o['to']}."})
+                                "settles": True, "text": f"Paid to {o['to']}.",
+                                **{k: o[k] for k in ("charge_id", "cost", "since") if k in o}})
                 lines.append(f"You pay {o['to']} ₹{o['amount']:,} for {o['why']}.")
             elif f"{o['to']}|{o['why']}" not in today.setdefault("pressed", []):
                 today["pressed"].append(f"{o['to']}|{o['why']}")
@@ -179,7 +204,8 @@ class Economy:
             st["receipts"].append(self.cleared(r["from"], n, r["item"], t))
             return {"k": "income", "item": r["item"], "amount": n, "from": r["from"], "cheque": True, "banked": True,
                     "text": f"{cap(r['from'])} hands you a cheque for ₹{n:,}. You pay it in at the State Bank; it clears in {CLEAR_DAYS} days."}
-        e = {"k": "income", "item": r["item"], "amount": n, "from": r["from"]}
+        e = {"k": "income", "item": r["item"], "amount": n, "from": r["from"],
+             "charge_id": r.get('charge_id') or self.new_charge(st)}
         if cheque:
             st["cheques"].append({"from": r["from"], "amount": n, "since": t.date().isoformat()})
             e["cheque"] = True
@@ -197,6 +223,7 @@ class Economy:
         """Money promised to him. At once, or when its time comes, where `at` says, or at his next sitting of `write` words."""
         r = {"from": spec["from"], "amount": spec["amount"], "item": spec["item"], "cheque": cheque,
              "after": (t + timedelta(minutes=spec.get("after_min", 0))).isoformat(timespec="minutes")}
+        r['charge_id']=self.new_charge(st)
         r.update({k: spec[k] for k in ("at", "write", "flag", "commission") if spec.get(k)})
         if r["after"] == t.isoformat(timespec="minutes") and not (r.get("at") or r.get("write")):
             return [self.pay(st, r, t)]
@@ -279,13 +306,15 @@ class Economy:
         entries = []
         if admitted:
             entries.append({"k": "income", "item": "Imprest refilled against vouchers", "amount": admitted, "from": "the Directorate of Estates",
-                            "text": "Admitted by Mr. Saxena: stationery, notebooks, ink, newspapers."})
+                            "text": "Admitted by Mr. Saxena: stationery, notebooks, ink, newspapers.",
+                            "charge_id": self.new_charge(st)})
         if queried:
             o = {"to": "the Directorate of Estates", "amount": queried, "why": "queried vouchers", "since": t.date().isoformat(),
                  "at": "estates", "with": "saxena", "after": (t.date() + timedelta(days=1)).isoformat()}
+            o['charge_id']=self.new_charge(st)
             st["owed"].append(o)
             entries.append({"k": "file", "text": f"Mr. Saxena queries ₹{queried:,} of personal expenditure on the imprest: recovery from the allottee.",
-                            "owe": {k: o[k] for k in ("to", "amount", "why", "since")}})
+                            "owe": {k: o[k] for k in ("to", "amount", "why", "since", "charge_id")}})
         entries[0]["recoup"] = {"admitted": admitted, "queried": queried}
         return [f"Mr. Saxena goes through your vouchers: {'; '.join(said)}."], entries
 
@@ -304,7 +333,7 @@ class Economy:
         for o in fresh:
             if any(o is x for x in st["owed"]):                       # not paid at once: it stands
                 entries.append({"k": "world", "text": f"{cap(o['why'])}: ₹{o['amount']:,} falls due to {o['to']}.",
-                                "owe": {k: o[k] for k in ("to", "amount", "why", "since")}})
+                                "owe": {k: o[k] for k in ("to", "amount", "why", "since", "charge_id", "cost") if k in o}})
         got = self.recoup(t, st, pid, present, today)
         return lines + got[0], entries + got[1]
 
@@ -344,11 +373,13 @@ class Economy:
             out += self.sell(st, spec["sell"], t)
         if spec.get("owe"):
             o = dict(spec["owe"], since=t.date().isoformat())
+            if not o.get('charge_id'):
+                o['charge_id']=self.new_charge(st)
             if o.get("after_days"):
                 o["after"] = (t.date() + timedelta(days=o.pop("after_days"))).isoformat()
             st["owed"].append(o)
             out.append({"k": "world", "text": f"You owe {o['to']} ₹{o['amount']:,}: {o['why']}.",
-                        "owe": {k: o[k] for k in ("to", "amount", "why", "since")}})
+                        "owe": {k: o[k] for k in ("to", "amount", "why", "since", "charge_id")}})
         if spec.get("schedule"):
             self.schedule(st, spec["schedule"], t)
         if spec.get("reprice"):

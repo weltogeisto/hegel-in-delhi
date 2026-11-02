@@ -21,6 +21,7 @@ REPO = Path(__file__).resolve().parent.parent
 INDEX, TERMS = REPO / "mind/shelf/index.json.gz", REPO / "world/data/shelf_terms.json"
 MIN_CHARS, TARGET, MAX_CHARS = 500, 700, 900     # a passage: pieces are closed at TARGET and never run past MAX_CHARS
 LIMIT, MAX_SECTION, REF_CHARS = 380, 850, 48     # characters of one excerpt; of the whole "From your shelf" section; of a reference
+WHOLE_SECTION = 1900                              # the section when whole passages are shown (HEGEL_SHELF_WHOLE): two passages of up to MAX_CHARS
 K1, B, FORMAT = 1.2, 0.75, 1
 EXPANDED, RELATIVE, FLOOR = 0.6, 0.45, 14.0      # weight of a table term; how strong the other language must be; the weakest hit worth showing (precision over coverage: a loose passage distracts a small model)
 PHRASE, PHRASE_POOL = 6.0, 40                    # bonus for a phrase of the table found in a passage; passages looked at again for it
@@ -336,10 +337,11 @@ class Shelf:
         weights, phrases = self.weights(parts)
         return [self.hit(d, s) for d, s in self.ranked(weights, phrases, skip)[:n]]
 
-    def pick(self, parts, avoid=(), hold=(), k=2):
+    def pick(self, parts, avoid=(), hold=(), k=2, whole=False):
         """The k passages to show for the query parts, each cut to an excerpt: the best German and the best English one if both
         are strong (RELATIVE of the best score), else the best two. Passages in `avoid` (ids) and works in `hold` (work ids) are
-        left out, and so is a passage right next to one already chosen. [] when even the best is weaker than FLOOR."""
+        left out, and so is a passage right next to one already chosen. [] when even the best is weaker than FLOOR.
+        With `whole`, each passage is shown whole, within WHOLE_SECTION, so a point is not cut away from its sentence."""
         held, avoided = set(hold), set(avoid)
         weights, phrases = self.weights(parts)
         hits = [self.hit(d, s) for d, s in self.ranked(weights, phrases, lambda d: self.work_of(d)["id"] in held or self.ident(d) in avoided)]
@@ -355,7 +357,8 @@ class Shelf:
             if len(chosen) < k and all(h["id"] != c["id"] and not (self.work_of(h["doc"]) is self.work_of(c["doc"]) and abs(h["doc"] - c["doc"]) <= 1)
                                        for c in chosen):
                 chosen.append(h)
-        return fit([{**{a: b for a, b in h.items() if a != "doc"}} for h in chosen], weights, self)
+        items = [{**{a: b for a, b in h.items() if a != "doc"}} for h in chosen]
+        return fit(items, weights, self, MAX_CHARS, WHOLE_SECTION) if whole else fit(items, weights, self)
 
 
 def excerpt(text, weights, limit=LIMIT):
@@ -400,13 +403,14 @@ def shown(item, text):
     return item
 
 
-def fit(items, weights, shelf, limit=LIMIT):
-    """items with their texts cut to excerpts, then shortened until the whole section is at most MAX_SECTION characters."""
+def fit(items, weights, shelf, limit=LIMIT, section=None):
+    """items with their texts cut to excerpts, then shortened until the whole section is at most `section` (MAX_SECTION) characters."""
+    section = section or MAX_SECTION
     full = {x["id"]: x["text"] for x in items}
     while True:
         for x in items:
             shown(x, excerpt(full[x["id"]], weights, limit))
-        if section_size(items) <= MAX_SECTION or limit <= 120:
+        if section_size(items) <= section or limit <= 120:
             return items
         limit -= 20
 

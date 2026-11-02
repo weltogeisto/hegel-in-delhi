@@ -61,6 +61,30 @@ def recorded_facts(world, cid, state):
     return facts
 
 
+def recorded_receipts(day, place, limit=240):
+    """Selected actual receipts here; dialogue cannot create a financial record.
+
+    The place is known; the identity of the person paid is not inferred from
+    bystanders. This view never establishes the absence of other transactions.
+    """
+    rows = []
+    for e in reversed(day.get('entries', [])):
+        if e.get('place') != place:
+            continue
+        amount = e.get('price') if e.get('k') == 'bag' else (
+            e.get('amount') if e.get('k') == 'expense' and e.get('settles') is True else None)
+        if type(amount) not in (int, float) or e.get('cheque'):
+            continue
+        row = f"{e.get('t', '?')} {e.get('charge_id') or 'legacy ID unknown'}: {e.get('item', '')} ₹{amount:,}, settled"
+        if sum(len(x)+2 for x in rows)+len(row) <= limit:
+            rows.append(row)
+        if len(rows) == 4:
+            break
+    return (["Recorded settled receipts at this place (selected): " + '; '.join(reversed(rows)) +
+             ". Do not deny these payments or treat speech as a new debt. A further sale must be a new purchase."]
+            if rows else [])
+
+
 def paid_here(place, entries, limit=6):
     """His settled purchases earlier today at this place, from the day's records, so a seller does not ask twice.
 

@@ -1,0 +1,135 @@
+{
+  "utc": "2026-10-25T11:06:48.131771+00:00",
+  "T16_status": "DONE",
+  "T15_status": "SUPERSEDED by T16 on fresh main",
+  "T14_status": "NOT DONE; actual gap retained per Claude latest TASKS/PLAN",
+  "captured_clean_Pi_head": "50125670adccb35f7d7597e24ae91633e0f1313d",
+  "independent_actual_remote_read": "/mnt/c/hegel/handover/codex-tasks-20261025/T15-natural-fresh-read-20261025-110058-7f0e6e.json",
+  "head_equal_actual_fetched_remote_at_capture": true,
+  "file_hashes_lengths_blobs_verified": {
+    "world/engine.py": {
+      "matches": true,
+      "bytes": 31199,
+      "sha256": "aa1f137ebe4e6d675b69b059f932fe4b9a3ceba0a10cb3ec64a583c142bc307b",
+      "blob": "c50a6e22602f691f2379bcc478bdf0eb86a4fefd"
+    },
+    "world/publish.py": {
+      "matches": true,
+      "bytes": 3340,
+      "sha256": "752d4b61b1792b82e80e63d248e1f8441e92dac625c70120c34e133a8a286c8e",
+      "blob": "11ffc0ce6c5cc3063f0b2e71f320eef30e32f4f5"
+    },
+    "world/__main__.py": {
+      "matches": true,
+      "bytes": 17004,
+      "sha256": "2fc5397004a0d4fca1e66743fbfe5186fb5141ee4227c31001908a639df95d8e",
+      "blob": "d3c222592a78838936edf565510c958bedd317ab"
+    },
+    "world/config.py": {
+      "matches": true,
+      "bytes": 4630,
+      "sha256": "6f43412b0df2cf27b879dfcbd03b6b396136020c2cf932c677392449ede62cee",
+      "blob": "4efc8315ba14a27130d02a46604a5365b90b5ed8"
+    },
+    "mind/soul.md": {
+      "matches": true,
+      "bytes": 6729,
+      "sha256": "256e8a1c5aedfd8edc7b9147a60a10a3ee387efdd6fba2d0a32b818c2c6d1cee",
+      "blob": "2198e24f5f997ea6e9d3ceae974e980e48eb066d"
+    },
+    "docs/index.html": {
+      "matches": true,
+      "bytes": 211304,
+      "sha256": "9d329b022cbeebe69c4fa7b2434d64603ee820ae191a63df989299bd330eb022",
+      "blob": "59cb7ff09334857a1900fbc4f869c0f373acb1b2"
+    },
+    "docs/days/index.json": {
+      "matches": true,
+      "bytes": 1608,
+      "sha256": "5bc0bbd48a3390122348ae8b9b4823f16afcb1993dc5cfa782b9c8f973ad57fd",
+      "blob": "cded8edd2acd5e566ddca726a3c2a571cbbd9fda"
+    },
+    "docs/days/2026-10-24.json": {
+      "matches": true,
+      "bytes": 40362,
+      "sha256": "976d19c962177b9abd5840f718907e6be5030f6d76953a6e89edf7ef3ca11467",
+      "blob": "d9c33323bebfe2ad00bc178913b46737356557d2"
+    },
+    "docs/days/2026-10-25.json": {
+      "matches": true,
+      "bytes": 40740,
+      "sha256": "62a538b631f17bee96baeab725f32925b29f06fa843db676ecff92cde19eeac9",
+      "blob": "1b2c7f3aed2601e126bdf4ab01cce6b088ee7c5b"
+    }
+  },
+  "hash_count": 9,
+  "capture_is_hashes_not_raw": true,
+  "service": {
+    "Result": "success",
+    "ExecMainStartTimestamp": "Sun 2026-10-25 12:03:04 CET",
+    "ExecMainExitTimestamp": "Sun 2026-10-25 12:03:04 CET",
+    "ExecMainStatus": "0",
+    "ActiveState": "inactive",
+    "SubState": "dead"
+  },
+  "timer": {
+    "NextElapseUSecRealtime": "Sun 2026-10-25 12:04:00 CET",
+    "ActiveState": "active",
+    "UnitFileState": "enabled"
+  },
+  "first_natural_model_utc": "2026-10-25T09:58:16Z",
+  "first_natural_service_completed_utc": "2026-10-25T09:58:18Z",
+  "natural_model_steps": [
+    {
+      "t": "20:43",
+      "end": "21:43",
+      "action": "rest",
+      "place": "home",
+      "mind": {
+        "source": "mind",
+        "attempts": 1,
+        "latency_s": 9.9
+      }
+    },
+    {
+      "t": "21:43",
+      "end": "21:53",
+      "action": "stay",
+      "place": "home",
+      "mind": {
+        "source": "mind",
+        "attempts": 1,
+        "latency_s": 8.3,
+        "warnings": [
+          "walks to where he already is; treated as stay"
+        ]
+      }
+    }
+  ],
+  "original_29_away_objects_unchanged": true,
+  "original_entries_unchanged": true,
+  "all_previous_gap_steps_and_entries_unchanged": [
+    "docs/days/2026-10-15.json",
+    "docs/days/2026-10-16.json",
+    "docs/days/2026-10-17.json",
+    "docs/days/2026-10-18.json",
+    "docs/days/2026-10-19.json",
+    "docs/days/2026-10-20.json",
+    "docs/days/2026-10-21.json",
+    "docs/days/2026-10-22.json",
+    "docs/days/2026-10-23.json",
+    "docs/days/2026-10-24.json"
+  ],
+  "Day14_raw_unchanged": true,
+  "Day23_natural_owl_written_utc": "2026-10-25T10:08:29Z",
+  "Day23_thoughts": 0,
+  "Day23_owl_theses": [],
+  "actual_thesis_status_changed": false,
+  "shadow_commits_since_pause": [
+    "40d7bbec8812fbe74119f09ae22570912a21d49e 187e5f415d34a388f50f9c8c7691d63427c169ea 2026-10-25T10:58:16+01:00 Day 24, 20:43: rest (home)",
+    "1531d01795ccfb32eb15c7c44048e14217757c4e 40d7bbec8812fbe74119f09ae22570912a21d49e 2026-10-25T11:08:29+01:00 the owl writes up day 23",
+    "50125670adccb35f7d7597e24ae91633e0f1313d 1531d01795ccfb32eb15c7c44048e14217757c4e 2026-10-25T11:58:14+01:00 Day 24, 21:43: stay (home)"
+  ],
+  "speed_check_RUN": "/mnt/c/hegel/handover/codex-tasks-20261025/T15-GPU-speed-20261025-093325-63942d.RUN.json",
+  "no_new_model_test_auditor_or_source_tests": true
+}

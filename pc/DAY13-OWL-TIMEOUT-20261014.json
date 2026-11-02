@@ -1,0 +1,720 @@
+{
+  "utc": "2026-10-14T15:22:03.928086+00:00",
+  "status": "natural owl attempt FAILED; no owl published; server change BLOCKED by standing no-reconfiguration instruction",
+  "attempt_utc": "2026-10-14T15:00:04Z",
+  "failure_utc": "2026-10-14T15:05:06Z",
+  "error": "owl failed: mind request failed: timed out",
+  "failures_today": 1,
+  "ssh_receipt_sha256": "2b01b1770bdd20a4df040e814f696c0dc439635b99e6c97d2f5693ce61ae93d4",
+  "pi_capture": {
+    "started_utc": "2026-10-14T15:11:28.590203+00:00",
+    "finished_utc": "2026-10-14T15:11:28.784255+00:00",
+    "capture_kind": "read-only hashes, lengths and Git blob IDs; raw file bytes are not captured",
+    "checks": {
+      "head": {
+        "command": [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exit": 0,
+        "stdout": "2cd38d3d7d3eca0fc7acc3472183a7ba6ef8756d\n",
+        "stderr": ""
+      },
+      "branch": {
+        "command": [
+          "git",
+          "branch",
+          "--show-current"
+        ],
+        "exit": 0,
+        "stdout": "shadow\n",
+        "stderr": ""
+      },
+      "status": {
+        "command": [
+          "git",
+          "status",
+          "--porcelain=v1"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "status_world": {
+        "command": [
+          "python3",
+          "-m",
+          "world",
+          "status"
+        ],
+        "exit": 0,
+        "stdout": "Delhi now      2026-10-15 01:41\nlatest day     14 (2026-10-15), 0 steps, complete: False\npublished to   2026-10-15 05:57 (+256 min)\nhe is          asleep, place home, cash ₹6,891\nthe file       Shri Hegde moves into the second bedroom, pending orders.\nquiet steps    0 today (mind away or refused three times)\nmind           http://192.168.188.21:8082: answers\n",
+        "stderr": ""
+      },
+      "journal": {
+        "command": [
+          "journalctl",
+          "--user",
+          "--utc",
+          "-u",
+          "hegel-world",
+          "-n",
+          "30",
+          "--no-pager"
+        ],
+        "exit": 0,
+        "stdout": "Oct 14 14:54:04 Gondolin systemd[1142]: Starting hegel-world.service - Hegel in Delhi: one tick of the world...\nOct 14 14:54:05 Gondolin systemd[1142]: Finished hegel-world.service - Hegel in Delhi: one tick of the world.\nOct 14 14:55:04 Gondolin systemd[1142]: Starting hegel-world.service - Hegel in Delhi: one tick of the world...\nOct 14 14:55:05 Gondolin systemd[1142]: Finished hegel-world.service - Hegel in Delhi: one tick of the world.\nOct 14 14:56:04 Gondolin systemd[1142]: Starting hegel-world.service - Hegel in Delhi: one tick of the world...\nOct 14 14:56:05 Gondolin systemd[1142]: Finished hegel-world.service - Hegel in Delhi: one tick of the world.\nOct 14 14:57:04 Gondolin systemd[1142]: Starting hegel-world.service - Hegel in Delhi: one tick of the world...\nOct 14 14:57:05 Gondolin systemd[1142]: Finished hegel-world.service - Hegel in Delhi: one tick of the world.\nOct 14 14:58:04 Gondolin systemd[1142]: Starting hegel-world.service - Hegel in Delhi: one tick of the world...\nOct 14 14:58:05 Gondolin systemd[1142]: Finished hegel-world.service - Hegel in Delhi: one tick of the world.\nOct 14 14:59:04 Gondolin systemd[1142]: Starting hegel-world.service - Hegel in Delhi: one tick of the world...\nOct 14 14:59:05 Gondolin systemd[1142]: Finished hegel-world.service - Hegel in Delhi: one tick of the world.\nOct 14 15:00:04 Gondolin systemd[1142]: Starting hegel-world.service - Hegel in Delhi: one tick of the world...\nOct 14 15:00:06 Gondolin python3[340539]: INFO mind awake after 0s\nOct 14 15:05:06 Gondolin python3[340539]: WARNING owl failed: mind request failed: timed out\nOct 14 15:05:06 Gondolin systemd[1142]: Finished hegel-world.service - Hegel in Delhi: one tick of the world.\nOct 14 15:05:06 Gondolin systemd[1142]: Starting hegel-world.service - Hegel in Delhi: one tick of the world...\nOct 14 15:05:07 Gondolin systemd[1142]: Finished hegel-world.service - Hegel in Delhi: one tick of the world.\nOct 14 15:06:04 Gondolin systemd[1142]: Starting hegel-world.service - Hegel in Delhi: one tick of the world...\nOct 14 15:06:05 Gondolin systemd[1142]: Finished hegel-world.service - Hegel in Delhi: one tick of the world.\nOct 14 15:07:04 Gondolin systemd[1142]: Starting hegel-world.service - Hegel in Delhi: one tick of the world...\nOct 14 15:07:05 Gondolin systemd[1142]: Finished hegel-world.service - Hegel in Delhi: one tick of the world.\nOct 14 15:08:04 Gondolin systemd[1142]: Starting hegel-world.service - Hegel in Delhi: one tick of the world...\nOct 14 15:08:05 Gondolin systemd[1142]: Finished hegel-world.service - Hegel in Delhi: one tick of the world.\nOct 14 15:09:04 Gondolin systemd[1142]: Starting hegel-world.service - Hegel in Delhi: one tick of the world...\nOct 14 15:09:05 Gondolin systemd[1142]: Finished hegel-world.service - Hegel in Delhi: one tick of the world.\nOct 14 15:10:04 Gondolin systemd[1142]: Starting hegel-world.service - Hegel in Delhi: one tick of the world...\nOct 14 15:10:05 Gondolin systemd[1142]: Finished hegel-world.service - Hegel in Delhi: one tick of the world.\nOct 14 15:11:04 Gondolin systemd[1142]: Starting hegel-world.service - Hegel in Delhi: one tick of the world...\nOct 14 15:11:05 Gondolin systemd[1142]: Finished hegel-world.service - Hegel in Delhi: one tick of the world.\n",
+        "stderr": ""
+      },
+      "service": {
+        "command": [
+          "systemctl",
+          "--user",
+          "show",
+          "hegel-world.service",
+          "-p",
+          "ActiveState",
+          "-p",
+          "SubState",
+          "-p",
+          "Result",
+          "-p",
+          "ExecMainStatus",
+          "-p",
+          "ExecMainStartTimestamp",
+          "-p",
+          "ExecMainExitTimestamp"
+        ],
+        "exit": 0,
+        "stdout": "Result=success\nExecMainStartTimestamp=Wed 2026-10-14 17:11:04 CEST\nExecMainExitTimestamp=Wed 2026-10-14 17:11:05 CEST\nExecMainStatus=0\nActiveState=inactive\nSubState=dead\n",
+        "stderr": ""
+      },
+      "timer_active": {
+        "command": [
+          "systemctl",
+          "--user",
+          "is-active",
+          "hegel-world.timer"
+        ],
+        "exit": 0,
+        "stdout": "active\n",
+        "stderr": ""
+      },
+      "timer_enabled": {
+        "command": [
+          "systemctl",
+          "--user",
+          "is-enabled",
+          "hegel-world.timer"
+        ],
+        "exit": 0,
+        "stdout": "enabled\n",
+        "stderr": ""
+      },
+      "main61_ancestor": {
+        "command": [
+          "git",
+          "merge-base",
+          "--is-ancestor",
+          "61accbdab85d78f14379d2d711205541d2b634c1",
+          "HEAD"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "meal_fix_ancestor": {
+        "command": [
+          "git",
+          "merge-base",
+          "--is-ancestor",
+          "f933bd69a574398bc50f20ad623359f2fafa717b",
+          "HEAD"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "adopted_ancestor": {
+        "command": [
+          "git",
+          "merge-base",
+          "--is-ancestor",
+          "ad1270c13a9f7ced413f9f91cf02417b2019ab87",
+          "HEAD"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "clock_ancestor": {
+        "command": [
+          "git",
+          "merge-base",
+          "--is-ancestor",
+          "1d7c123e2ba3aef7d400d4ead6bb91d73c78cff7",
+          "HEAD"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "retry_ancestor": {
+        "command": [
+          "git",
+          "merge-base",
+          "--is-ancestor",
+          "cfa65245f31bbf70de02834cf36cdaec48033ad3",
+          "HEAD"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "head_after": {
+        "command": [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exit": 0,
+        "stdout": "2cd38d3d7d3eca0fc7acc3472183a7ba6ef8756d\n",
+        "stderr": ""
+      },
+      "status_after": {
+        "command": [
+          "git",
+          "status",
+          "--porcelain=v1"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    "config": {
+      "branch": "shadow",
+      "clock_shift_min": 300,
+      "lead": 15,
+      "owl_at": "01:30"
+    },
+    "index": {
+      "clock_shift_min": 300,
+      "day_row": [
+        {
+          "date": "2026-10-14",
+          "n": 13,
+          "title": "Wednesday, 14 October 2026",
+          "holiday": null
+        }
+      ]
+    },
+    "day": {
+      "date": "2026-10-14",
+      "n": 13,
+      "complete": true,
+      "asleep": true,
+      "state_until": "2026-10-15T00:00+05:30",
+      "owl_present": false,
+      "decision_steps": 35,
+      "quiet_steps": 31,
+      "steps": [
+        {
+          "t": "05:56",
+          "end": "06:26",
+          "action": "read",
+          "place": "home",
+          "mind": {
+            "source": "mind",
+            "attempts": 1,
+            "latency_s": 12.3
+          }
+        },
+        {
+          "t": "06:26",
+          "end": "06:56",
+          "action": "read",
+          "place": "home",
+          "mind": {
+            "source": "mind",
+            "attempts": 1,
+            "latency_s": 4.2
+          }
+        },
+        {
+          "t": "06:56",
+          "end": "07:11",
+          "action": "talk",
+          "place": "home",
+          "mind": {
+            "source": "mind",
+            "attempts": 1,
+            "latency_s": 8.9
+          }
+        },
+        {
+          "t": "07:11",
+          "end": "07:41",
+          "action": "rest",
+          "place": "home",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 1.0
+          }
+        },
+        {
+          "t": "07:41",
+          "end": "08:11",
+          "action": "rest",
+          "place": "home",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.1
+          }
+        },
+        {
+          "t": "08:11",
+          "end": "08:31",
+          "action": "walk",
+          "place": "lodhi",
+          "mind": {
+            "source": "mind",
+            "attempts": 1,
+            "latency_s": 257.1
+          }
+        },
+        {
+          "t": "08:31",
+          "end": "09:01",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.1
+          }
+        },
+        {
+          "t": "09:01",
+          "end": "09:31",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        },
+        {
+          "t": "09:31",
+          "end": "10:01",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        },
+        {
+          "t": "10:01",
+          "end": "10:31",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        },
+        {
+          "t": "10:31",
+          "end": "11:01",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        },
+        {
+          "t": "11:01",
+          "end": "11:31",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        },
+        {
+          "t": "11:31",
+          "end": "12:01",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        },
+        {
+          "t": "12:01",
+          "end": "12:31",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        },
+        {
+          "t": "12:31",
+          "end": "13:01",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        },
+        {
+          "t": "13:01",
+          "end": "13:31",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        },
+        {
+          "t": "13:31",
+          "end": "14:01",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.1
+          }
+        },
+        {
+          "t": "14:01",
+          "end": "14:31",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        },
+        {
+          "t": "14:31",
+          "end": "15:01",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        },
+        {
+          "t": "15:01",
+          "end": "15:31",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        },
+        {
+          "t": "15:31",
+          "end": "16:01",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        },
+        {
+          "t": "16:01",
+          "end": "16:31",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.1
+          }
+        },
+        {
+          "t": "16:31",
+          "end": "17:01",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        },
+        {
+          "t": "17:01",
+          "end": "17:31",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        },
+        {
+          "t": "17:31",
+          "end": "18:01",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.1
+          }
+        },
+        {
+          "t": "18:01",
+          "end": "18:31",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        },
+        {
+          "t": "18:31",
+          "end": "19:01",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        },
+        {
+          "t": "19:01",
+          "end": "19:30",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        },
+        {
+          "t": "19:30",
+          "end": "19:50",
+          "action": "walk",
+          "place": "home",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.1
+          }
+        },
+        {
+          "t": "19:50",
+          "end": "20:20",
+          "action": "rest",
+          "place": "home",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        },
+        {
+          "t": "20:20",
+          "end": "20:50",
+          "action": "rest",
+          "place": "home",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        },
+        {
+          "t": "20:50",
+          "end": "21:20",
+          "action": "rest",
+          "place": "home",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        },
+        {
+          "t": "21:20",
+          "end": "21:50",
+          "action": "rest",
+          "place": "home",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.1
+          }
+        },
+        {
+          "t": "21:50",
+          "end": "22:20",
+          "action": "rest",
+          "place": "home",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.1
+          }
+        },
+        {
+          "t": "22:20",
+          "end": "24:00",
+          "action": "sleep",
+          "place": "home",
+          "mind": {
+            "source": "away",
+            "attempts": 1,
+            "latency_s": 3.0
+          }
+        }
+      ],
+      "new_meal_rule_entries": []
+    },
+    "file_checks": [
+      {
+        "path": "world/engine.py",
+        "bytes": 29626,
+        "blob": "7ab996aee6bc59ca6f6a603b906aa708dc0599b1",
+        "git_blob": "7ab996aee6bc59ca6f6a603b906aa708dc0599b1",
+        "matches_head": true,
+        "sha256": "05621982a3767edb713c7e4b7b7298128b5c237c6e3fd930546463105ce38eef"
+      },
+      {
+        "path": "world/publish.py",
+        "bytes": 3340,
+        "blob": "11ffc0ce6c5cc3063f0b2e71f320eef30e32f4f5",
+        "git_blob": "11ffc0ce6c5cc3063f0b2e71f320eef30e32f4f5",
+        "matches_head": true,
+        "sha256": "752d4b61b1792b82e80e63d248e1f8441e92dac625c70120c34e133a8a286c8e"
+      },
+      {
+        "path": "world/config.py",
+        "bytes": 4630,
+        "blob": "4efc8315ba14a27130d02a46604a5365b90b5ed8",
+        "git_blob": "4efc8315ba14a27130d02a46604a5365b90b5ed8",
+        "matches_head": true,
+        "sha256": "6f43412b0df2cf27b879dfcbd03b6b396136020c2cf932c677392449ede62cee"
+      },
+      {
+        "path": "world/world.py",
+        "bytes": 53064,
+        "blob": "cfd022d9e63af862e415af530148933d3db18ae3",
+        "git_blob": "cfd022d9e63af862e415af530148933d3db18ae3",
+        "matches_head": true,
+        "sha256": "257ffddf4d257a993d593e8d19871ff414673d39895f8f5f2f7a9298a0d3bc84"
+      },
+      {
+        "path": "mind/soul.md",
+        "bytes": 6729,
+        "blob": "2198e24f5f997ea6e9d3ceae974e980e48eb066d",
+        "git_blob": "2198e24f5f997ea6e9d3ceae974e980e48eb066d",
+        "matches_head": true,
+        "sha256": "256e8a1c5aedfd8edc7b9147a60a10a3ee387efdd6fba2d0a32b818c2c6d1cee"
+      },
+      {
+        "path": "docs/index.html",
+        "bytes": 211304,
+        "blob": "59cb7ff09334857a1900fbc4f869c0f373acb1b2",
+        "git_blob": "59cb7ff09334857a1900fbc4f869c0f373acb1b2",
+        "matches_head": true,
+        "sha256": "9d329b022cbeebe69c4fa7b2434d64603ee820ae191a63df989299bd330eb022"
+      },
+      {
+        "path": "docs/days/index.json",
+        "bytes": 520,
+        "blob": "98cde18ece3c8bbf563c111e989aaf3453c47992",
+        "git_blob": "98cde18ece3c8bbf563c111e989aaf3453c47992",
+        "matches_head": true,
+        "sha256": "f6db31646dd3554092219ccac78011bb7392c59f9e1b6f5c6708075ce02dcf69"
+      },
+      {
+        "path": "docs/days/2026-10-14.json",
+        "bytes": 44243,
+        "blob": "2491a694adb89ae0207e841f8c6f16447d46642f",
+        "git_blob": "2491a694adb89ae0207e841f8c6f16447d46642f",
+        "matches_head": true,
+        "sha256": "39f649efc628a9169a2e26fdecd12a7320777320a3eee972b267a99c1cb911cd"
+      }
+    ]
+  },
+  "all_eight_file_hashes_lengths_blobs_equal_actual_fetched_git": true,
+  "server": {
+    "pid": 390,
+    "argv_nul_sha256": "1944b782a1c3557851d1c3639e04e43072e6c2a6e8eff6e96978f96d6e48d6b0",
+    "cwd": "/home/ai/hegel-in-delhi",
+    "mapped_backend_paths": [
+      "/home/ai/local-ai/llama/release-b11429/llama-b11429/libggml-base.so.0.26.0",
+      "/home/ai/local-ai/llama/release-b11429/llama-b11429/libggml-cpu-haswell.so",
+      "/home/ai/local-ai/llama/release-b11429/llama-b11429/libggml-rpc.so",
+      "/home/ai/local-ai/llama/release-b11429/llama-b11429/libggml.so.0.26.0"
+    ],
+    "gpu_status": {
+      "exit": 0,
+      "stdout": "NVIDIA GeForce RTX 3090, 568 MiB, 0 %\n",
+      "stderr": ""
+    },
+    "generated_tokens_before_cancel": 454,
+    "generation_tokens_per_s": 1.95,
+    "client_timeout_s": 300,
+    "server_log_bytes": 17526,
+    "server_log_sha256": "de3d41b93ec494021ec826fc418ccb446e888a4fb3743b1138e24fcdb12fd76d",
+    "cuda_dependency_failure": "\tlinux-vdso.so.1 (0x0000704795d4d000)\n\tlibggml-base.so.0 => /home/ai/local-ai/llama/release-b11429/llama-b11429/libggml-base.so.0 (0x0000704795c6e000)\n\tlibcudart.so.12 => not found\n\tlibcublas.so.12 => not found\n\tlibcuda.so.1 => /usr/lib/wsl/lib/libcuda.so.1 (0x000070478b5d1000)\n\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x000070478b200000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x000070478b4e8000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x000070478b4ba000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000070478ae00000)\n\tlibgomp.so.1 => /lib/x86_64-linux-gnu/libgomp.so.1 (0x000070478b1aa000)\n\tlibdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x0000704795c5e000)\n\tlibpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x0000704795c57000)\n\t/lib64/ld-linux-x86-64.so.2 (0x0000704795d4f000)\n",
+    "prepared_dependency_check": {
+      "exit": 0,
+      "stdout": "\tlinux-vdso.so.1 (0x000077bd4f26e000)\n\tlibggml-base.so.0 => /home/ai/local-ai/llama/release-b11429/llama-b11429/libggml-base.so.0 (0x000077bd44b29000)\n\tlibcudart.so.12 => /home/ai/local-ai/llama/release-b11429/cudart-llama-b11429-bin-ubuntu-cuda-12.8-x64/libcudart.so.12 (0x000077bd44800000)\n\tlibcublas.so.12 => /home/ai/local-ai/llama/release-b11429/cudart-llama-b11429-bin-ubuntu-cuda-12.8-x64/libcublas.so.12 (0x000077bd3d600000)\n\tlibcuda.so.1 => /usr/lib/wsl/lib/libcuda.so.1 (0x000077bd44afa000)\n\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x000077bd3d200000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x000077bd44717000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x000077bd44acc000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000077bd3ce00000)\n\tlibgomp.so.1 => /lib/x86_64-linux-gnu/libgomp.so.1 (0x000077bd3d5aa000)\n\t/lib64/ld-linux-x86-64.so.2 (0x000077bd4f270000)\n\tlibdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x000077bd4f256000)\n\tlibpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x000077bd4f24f000)\n\tlibrt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x000077bd4f24a000)\n\tlibcublasLt.so.12 => /home/ai/local-ai/llama/release-b11429/cudart-llama-b11429-bin-ubuntu-cuda-12.8-x64/libcublasLt.so.12 (0x000077bd0aa00000)\n",
+      "stderr": "",
+      "scope": "temporary environment only for ldd, never applied to the server"
+    }
+  },
+  "natural_retry": "owl_ready suppresses tries for 3600 seconds after the 15:00 attempt mark; next eligible approximately 16:00 UTC, not a completion promise",
+  "interventions": {
+    "ssh_captures": 1,
+    "forced_tick_or_owl": false,
+    "model_probe": false,
+    "server_stop_restart_reconfigure": false,
+    "packages_or_power_changes": false
+  },
+  "exact_need": "Welt explicit exception to replace the idle CPU-only shared server using the same saved argv and existing paired CUDA-library directory; all other settings unchanged",
+  "restoration_plan": "/mnt/c/hegel/handover/codex-tasks-20261014/qwen-existing-CUDA-restoration-plan-20261014-1520.json",
+  "restoration_plan_sha256": "68b3d4d002b9a754bd9ca89b64e6fa6f0ed9415cd04fc8a51ee84723e1e2b77c",
+  "pi_runtime": "old main61; newer PC CLI/fan-club code not deployed; no flagged refusal line printed",
+  "public_world": "paused, shift300"
+}

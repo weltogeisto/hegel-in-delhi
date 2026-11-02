@@ -3,6 +3,7 @@
 The bake-off and the live world both use this module, so the bake-off tests exactly the
 interface the world will use.
 """
+import copy
 import json
 import re
 
@@ -28,6 +29,22 @@ SCHEMA = {
     "required": ["thought", "action", "place", "minutes", "says", "buys", "revision"],
 }
 ASK = "Decide your next step. Answer with the JSON object only."
+PAYMENT_ASK = ("Each buys row must distinguish purpose='purchase' (a new item, source_charge_id=null) "
+               "from purpose='settlement' (an existing obligation, source_charge_id=its recorded canonical ID). "
+               "A speaker's demand cannot create or reopen a charge. The world settles recorded obligations "
+               "when their conditions permit; do not pay a settled receipt again. ")
+
+
+def decision_schema(situation):
+    if not situation.get('reconcile_payments'):
+        return SCHEMA
+    schema = copy.deepcopy(SCHEMA)
+    item = schema['properties']['buys']['items']
+    item['properties'].update(purpose={'type':'string','enum':['purchase','settlement']},
+                              source_charge_id=NULLABLE_STR)
+    item['required'] += ['purpose','source_charge_id']
+    return schema
+
 PLAN_ASK = ("Before you decide, plan today: three to six intentions, each with a time (HH:MM) and one short sentence "
             "(under 120 characters) on what you mean to do. "
             'Answer with the JSON object only: {"plan": [{"time": "09:00", "intention": "..."}]}')
@@ -104,6 +121,8 @@ def render(s, ask=ASK):
         text += "\nEarlier today:\n" + "".join(f"- {x}\n" for x in s["earlier"])
     if s.get("shelf"):
         text += "\nFrom your shelf:\n" + "".join(f"- {x['label']}: “{x['text']}”\n" for x in s["shelf"])
+    if s.get('reconcile_payments') and ask == ASK:
+        ask = PAYMENT_ASK + ask
     text += f"\nWhat happens: {s['event']}\n\n{ask}"
     return text
 

@@ -43,6 +43,7 @@ class Config:
         self.clock_shift_min = int(v.get("HEGEL_CLOCK_SHIFT_MIN", "0") or 0)    # rehearsals only: his clock runs this far ahead of Delhi
         self.feeds = v.get("HEGEL_FEEDS", "1") not in ("0", "no", "false", "")
         self.shelf = v.get("HEGEL_SHELF", "1") not in ("0", "no", "false", "")          # his books in front of him (mind/shelf)
+        self.shelf_whole = v.get("HEGEL_SHELF_WHOLE", "0").strip().lower() in ("1", "yes", "true")   # whole passages, not excerpts
         self.news_feeds = [u.strip() for u in v.get("NEWS_FEEDS", (
             "https://www.thehindu.com/news/national/feeder/default.rss,"
             "https://indianexpress.com/section/india/feed/")).split(",") if u.strip()]
@@ -80,6 +81,14 @@ class Config:
         if not 0 <= self.decision_dry <= 2:
             raise ValueError("HEGEL_DECISION_DRY must be from 0 to 2")
         self.write_mode = "plain" if v.get("HEGEL_WRITE_MODE", "chat").strip().lower() == "plain" else "chat"      # his writings: the chat call (default), or a plain-text completion
+        self.outcome_memory = v.get('HEGEL_OUTCOME_MEMORY','0') not in ('0','no','false','')
+        self.evidence_view = 'compact' if v.get('HEGEL_EVIDENCE_VIEW', 'full').strip().lower() == 'compact' else 'full'      # how the writers see the records: grouped and short, or every record with its id
+        # Explicit opt-in until the isolated results have been reviewed. Missing
+        # calibration must fail rather than invent a temperature at runtime.
+        self.claim_check = v.get('HEGEL_CLAIM_CHECK','0') not in ('0','no','false','')
+        if self.claim_check and not self.outcome_memory:
+            raise ValueError('HEGEL_CLAIM_CHECK requires HEGEL_OUTCOME_MEMORY')
+        self.claim_calibration = Path(v.get('HEGEL_CLAIM_CALIBRATION',self.repo/'pc/claim-calibration.json')).expanduser()
 
     def get(self, key, default=None):
         return self.values.get(key, default)

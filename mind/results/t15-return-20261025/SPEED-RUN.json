@@ -1,0 +1,33 @@
+{
+  "started_utc": "2026-10-25T09:33:25.973243+00:00",
+  "task": "T15 authorized return GPU speed check, identical request to14October, one call only",
+  "pid": 388,
+  "old_request": "/mnt/c/hegel/handover/codex-tasks-20261014/qwen-GPU-authorized-test-20261014-162609.request.json",
+  "request": "/mnt/c/hegel/handover/codex-tasks-20261025/T15-GPU-speed-20261025-093325-63942d.request.json",
+  "request_sha256": "d8ce5cbd6322dc889d3dad926508097151c0faa1f606aabdd9de9450801b59be",
+  "old_bytes_exact": true,
+  "slot": 1,
+  "pre_slots_idle": true,
+  "attempts": 1,
+  "http_status": 200,
+  "wall_s": 3.508240039000043,
+  "completion_tokens": 110,
+  "tokens_per_s": 31.354753032051196,
+  "response": "/mnt/c/hegel/handover/codex-tasks-20261025/T15-GPU-speed-20261025-093325-63942d.response.json",
+  "response_sha256": "b695177be0d7e711edb334187ca7e195e5f511f1beae9daff0abb987d65faf52",
+  "finish_reason": "stop",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 30,
+    "prompt_ms": 673.316,
+    "prompt_per_token_ms": 22.44386666666667,
+    "prompt_per_second": 44.55560242144847,
+    "predicted_n": 110,
+    "predicted_ms": 2831.883,
+    "predicted_per_token_ms": 25.980577981651376,
+    "predicted_per_second": 38.490290735881395
+  },
+  "outcome": "GPU_READY_AND_NORMAL_SPEED",
+  "finished_utc": "2026-10-25T09:33:29.092143+00:00",
+  "process_exit": 0
+}

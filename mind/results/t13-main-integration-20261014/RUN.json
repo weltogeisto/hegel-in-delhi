@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-10-14T16:48:28.216740+00:00",
+  "source_snapshot": "/home/ai/hegel-eval/codex-tasks-20261014/T13-main-f82-20261014-161835",
+  "archive": "/mnt/c/hegel/handover/codex-tasks-20261014/T13-PC-focused-source-20261014-161835.tar",
+  "archive_sha256": "4ae1a8ad105723be4b0a030e1048c15fb87c1b81701640c05109a1fcb148c401",
+  "test_argv": [
+    "/usr/bin/python3",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.test_world.MindlessDayTest"
+  ],
+  "timeout_s": 600,
+  "reason_for_retry": "Prior45s timeout was too short: unchanged HTTPMind closed-port9 health takes3.0349s per unavailable-mind check. This retry changes no test/source/model and preserves original failure.",
+  "model_calls": 0,
+  "frozen_files": 372,
+  "test_exit": 0,
+  "after_source_mismatches": [],
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "16fd3c4333a8842b6712cc88a25484570ab23244c73e9acad5f65c406e6c74cc",
+  "outcome": "FOUR_FOCUSED_TESTS_PASSED",
+  "wall_s": 103.65821037999922,
+  "finished_utc": "2026-10-14T16:50:08.027314+00:00",
+  "wrapper_exit": 0
+}

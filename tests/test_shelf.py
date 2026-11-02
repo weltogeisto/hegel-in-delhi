@@ -505,5 +505,36 @@ class RealShelfTest(unittest.TestCase):
         self.assertIn("Lordship and Bondage", by["baillie-1"])
 
 
+class WholePassageTest(unittest.TestCase):
+    """HEGEL_SHELF_WHOLE: the passages whole, so the point is not cut away (the Karl letter's slate lesson, 12 October)."""
+    EVENT = ("At a small outdoor lesson today, a boy wrote a calculation on a slate. The teacher crossed out the result without "
+             "giving a reason.\nThe boy erased it, copied the teacher's number and asked whether he could now leave.")
+
+    @classmethod
+    def setUpClass(cls):
+        shelf._loaded.clear()
+        cls.shelf = shelf.load()
+        cls.parts = shelf.query_parts(cls.EVENT, "home", [], [], [])
+
+    def test_whole_keeps_the_obedience_sentence_that_the_excerpt_cuts(self):
+        cut = {x["id"]: x["text"] for x in self.shelf.pick(self.parts)}
+        whole = {x["id"]: x["text"] for x in self.shelf.pick(self.parts, whole=True)}
+        self.assertEqual(set(cut), set(whole))                                    # the same passages, only shown whole
+        self.assertIn("reden:58", whole)
+        self.assertNotIn("Gehorsams gegen die Lehrer", cut["reden:58"])
+        self.assertIn("Gehorsams gegen die Lehrer", whole["reden:58"])
+        self.assertLessEqual(shelf.section_size(self.shelf.pick(self.parts, whole=True)), shelf.WHOLE_SECTION)
+
+    def test_the_default_is_unchanged(self):
+        got = self.shelf.pick(self.parts)
+        self.assertLessEqual(shelf.section_size(got), shelf.MAX_SECTION)
+        self.assertTrue(all(len(x["text"]) <= shelf.LIMIT for x in got))
+
+    def test_the_flag(self):
+        from world.config import Config
+        self.assertFalse(Config({}).shelf_whole)
+        self.assertTrue(Config({"HEGEL_SHELF_WHOLE": "1"}).shelf_whole)
+
+
 if __name__ == "__main__":
     unittest.main()

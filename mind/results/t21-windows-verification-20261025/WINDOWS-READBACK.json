@@ -1,0 +1,144 @@
+{
+  "Utc": "2026-10-25T11:23:18.9207216Z",
+  "ReadOnly": true,
+  "Task": {
+    "Name": "Hegel Qwen 8082 GPU",
+    "State": "Ready",
+    "Enabled": true,
+    "Hidden": true,
+    "WakeToRun": false,
+    "AllowHardTerminate": false,
+    "MultipleInstances": "IgnoreNew",
+    "StartWhenAvailable": true,
+    "LastTaskResult": 0,
+    "LastRunTimeUtc": "2026-10-25T11:08:31.0000000Z",
+    "Principal": {
+      "UserId": "hendr",
+      "LogonType": "S4U",
+      "RunLevel": "Highest"
+    },
+    "Actions": [
+      {
+        "Execute": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "Arguments": "-NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -File C:\\hegel\\scripts\\Start-HegelQwen8082.ps1",
+        "WorkingDirectory": "C:\\hegel"
+      }
+    ],
+    "Xml": "<?xml version=\"1.0\" encoding=\"UTF-16\"?>\r\n<Task version=\"1.4\" xmlns=\"http://schemas.microsoft.com/windows/2004/02/mit/task\">\r\n  <RegistrationInfo>\r\n    <Description>Welt authorized Hegel Qwen8082 startup, exact saved command and existing CUDA libraries. Idempotent; no Windows reboot or wake.</Description>\r\n    <URI>\\Hegel Qwen 8082 GPU</URI>\r\n  </RegistrationInfo>\r\n  <Principals>\r\n    <Principal id=\"HegelUser\">\r\n      <UserId>S-1-5-21-3431828626-2784870120-2220152897-1001</UserId>\r\n      <LogonType>S4U</LogonType>\r\n      <RunLevel>HighestAvailable</RunLevel>\r\n    </Principal>\r\n  </Principals>\r\n  <Settings>\r\n    <AllowHardTerminate>false</AllowHardTerminate>\r\n    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>\r\n    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>\r\n    <ExecutionTimeLimit>PT5M</ExecutionTimeLimit>\r\n    <Hidden>true</Hidden>\r\n    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>\r\n    <RestartOnFailure>\r\n      <Count>3</Count>\r\n      <Interval>PT1M</Interval>\r\n    </RestartOnFailure>\r\n    <StartWhenAvailable>true</StartWhenAvailable>\r\n    <IdleSettings>\r\n      <StopOnIdleEnd>false</StopOnIdleEnd>\r\n      <RestartOnIdle>false</RestartOnIdle>\r\n    </IdleSettings>\r\n    <UseUnifiedSchedulingEngine>true</UseUnifiedSchedulingEngine>\r\n  </Settings>\r\n  <Triggers>\r\n    <BootTrigger>\r\n      <Delay>PT30S</Delay>\r\n    </BootTrigger>\r\n    <LogonTrigger>\r\n      <Delay>PT15S</Delay>\r\n      <UserId>WELTOGEISTO\\hendr</UserId>\r\n    </LogonTrigger>\r\n  </Triggers>\r\n  <Actions Context=\"HegelUser\">\r\n    <Exec>\r\n      <Command>C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe</Command>\r\n      <Arguments>-NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -File C:\\hegel\\scripts\\Start-HegelQwen8082.ps1</Arguments>\r\n      <WorkingDirectory>C:\\hegel</WorkingDirectory>\r\n    </Exec>\r\n  </Actions>\r\n</Task>"
+  },
+  "UpdateValues": [
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU",
+      "Name": "NoAutoUpdate",
+      "Expected": 0,
+      "Value": 0,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU",
+      "Name": "AUOptions",
+      "Expected": 3,
+      "Value": 3,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU",
+      "Name": "AlwaysAutoRebootAtScheduledTime",
+      "Expected": 0,
+      "Value": 0,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate",
+      "Name": "SetActiveHours",
+      "Expected": 1,
+      "Value": 1,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate",
+      "Name": "ActiveHoursStart",
+      "Expected": 18,
+      "Value": 18,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate",
+      "Name": "ActiveHoursEnd",
+      "Expected": 12,
+      "Value": 12,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate",
+      "Name": "SetComplianceDeadlineForQU",
+      "Expected": 0,
+      "Value": 0,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate",
+      "Name": "SetComplianceDeadlineForFU",
+      "Expected": 0,
+      "Value": 0,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate",
+      "Name": "SetComplianceDeadline",
+      "Expected": 0,
+      "Value": 0,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Microsoft\\WindowsUpdate\\UX\\Settings",
+      "Name": "SmartActiveHoursState",
+      "Expected": 0,
+      "Value": 0,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Microsoft\\WindowsUpdate\\UX\\Settings",
+      "Name": "ActiveHoursStart",
+      "Expected": 18,
+      "Value": 18,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Microsoft\\WindowsUpdate\\UX\\Settings",
+      "Name": "ActiveHoursEnd",
+      "Expected": 12,
+      "Value": 12,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Microsoft\\WindowsUpdate\\UX\\Settings",
+      "Name": "IsExpedited",
+      "Expected": 0,
+      "Value": 0,
+      "Kind": "DWord",
+      "Match": true
+    },
+    {
+      "Path": "HKLM:\\SOFTWARE\\Microsoft\\WindowsUpdate\\UX\\Settings",
+      "Name": "RestartNotificationsAllowed2",
+      "Expected": 1,
+      "Value": 1,
+      "Kind": "DWord",
+      "Match": true
+    }
+  ],
+  "AwakeFlag": true
+}

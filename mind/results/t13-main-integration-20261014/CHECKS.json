@@ -1,0 +1,94 @@
+{
+  "independent_checks": {
+    "utc": "2026-10-14T16:59:55.516194+00:00",
+    "T13_DONE": true,
+    "shadow": "39148aeb991480186783129076877473e24a143e",
+    "main": "f82ffed526495f9c2ef7853d8fba8d2ae4c35b9a",
+    "T12": "c61daf3616285f3e2895b060a877717588994f2c",
+    "capture_hashes_not_raw_bytes": true,
+    "captured_files": [
+      {
+        "path": "world/engine.py",
+        "matches": true
+      },
+      {
+        "path": "world/publish.py",
+        "matches": true
+      },
+      {
+        "path": "world/__main__.py",
+        "matches": true
+      },
+      {
+        "path": "world/config.py",
+        "matches": true
+      },
+      {
+        "path": "mind/soul.md",
+        "matches": true
+      },
+      {
+        "path": "docs/index.html",
+        "matches": true
+      },
+      {
+        "path": "docs/days/2026-10-14.json",
+        "matches": true
+      },
+      {
+        "path": "docs/days/2026-10-15.json",
+        "matches": true
+      }
+    ],
+    "service_completed": true,
+    "first_natural_tick_after_merge_finished_utc": "2026-10-14T16:56:05Z",
+    "latest_captured_tick_finished_utc": "2026-10-14T16:58:05Z",
+    "actual_remote_equal": true,
+    "day14_asleep_zero_decisions": true,
+    "live_T12_quiet_stretch": "none yet; asleep zero steps",
+    "frozen_archive_sha256": "4ae1a8ad105723be4b0a030e1048c15fb87c1b81701640c05109a1fcb148c401",
+    "frozen_source_snapshot_and_native_files_after_completion": 372,
+    "source_mismatches": [],
+    "actual_flagged_refusal_line": null,
+    "focused_run": {
+      "started_utc": "2026-10-14T16:48:28.216740+00:00",
+      "source_snapshot": "/home/ai/hegel-eval/codex-tasks-20261014/T13-main-f82-20261014-161835",
+      "archive": "/mnt/c/hegel/handover/codex-tasks-20261014/T13-PC-focused-source-20261014-161835.tar",
+      "archive_sha256": "4ae1a8ad105723be4b0a030e1048c15fb87c1b81701640c05109a1fcb148c401",
+      "test_argv": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "-v",
+        "tests.test_world.MindlessDayTest"
+      ],
+      "timeout_s": 600,
+      "reason_for_retry": "Prior45s timeout was too short: unchanged HTTPMind closed-port9 health takes3.0349s per unavailable-mind check. This retry changes no test/source/model and preserves original failure.",
+      "model_calls": 0,
+      "frozen_files": 372,
+      "test_exit": 0,
+      "after_source_mismatches": [],
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "16fd3c4333a8842b6712cc88a25484570ab23244c73e9acad5f65c406e6c74cc",
+      "outcome": "FOUR_FOCUSED_TESTS_PASSED",
+      "wall_s": 103.65821037999922,
+      "finished_utc": "2026-10-14T16:50:08.027314+00:00",
+      "wrapper_exit": 0
+    },
+    "Windows_UAC_launch": {
+      "outcome": "OS_REPORTED_CANCELLED",
+      "process_id": null,
+      "message": "Der Vorgang wurde durch den Benutzer abgebrochen.",
+      "machine_task_or_policy_applied": false,
+      "duplicate_UAC_prompt_issued": false,
+      "awake_flag_present": true
+    }
+  },
+  "original_log_hashes": {
+    "RUN.json": "7ec722a14062d24b4b5089cc33743da43cae088ee781f008c21a56bdc1384d07",
+    "stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr.log": "16fd3c4333a8842b6712cc88a25484570ab23244c73e9acad5f65c406e6c74cc"
+  },
+  "no_new_model_call": true,
+  "no_source_or_test_change_for_retry": true
+}

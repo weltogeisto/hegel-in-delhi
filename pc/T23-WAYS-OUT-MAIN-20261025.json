@@ -1,0 +1,317 @@
+{
+  "utc": "2026-10-25T14:21:29.151088+00:00",
+  "T23": "DONE",
+  "chosen_direction": "All of option2, exits not gifts; recorded by Welt/Claude on fresh main, not inferred from silence.",
+  "main": "e5dc1040db60495cdc78d677d3099da332f6e0a9",
+  "feature": "f76483e6b9fad9ccb531064864595c3b5d8262fd",
+  "deployment": {
+    "utc": "2026-10-25T14:18:24.853748+00:00",
+    "deployment": "d4bc5ff159944c9729717eedf52177c186f6e90c",
+    "parents": [
+      "3c0a3e21a4fbf85bcc8480deb0bb23ebe2c73e77",
+      "e5dc1040db60495cdc78d677d3099da332f6e0a9"
+    ],
+    "actual_fetched_shadow": "d4bc5ff159944c9729717eedf52177c186f6e90c",
+    "tree": "c19b607ffc0f9b37c8a3b8c0ba17a2d34eb37541",
+    "all_raw_files": 208,
+    "original_Pi_CSV": 10,
+    "JSON_unchanged_during_guard": true,
+    "T19_hook_CLI_ledger_unchanged": true,
+    "chosen_main_feature_bytes_exact": true,
+    "old_page_and_fan_exclusions_preserved": true,
+    "no_PC_only_money_extension_on_Pi": true
+  },
+  "natural_proof": {
+    "utc": "2026-10-25T14:19:20.318214+00:00",
+    "T23": "DONE",
+    "capture": "/mnt/c/hegel/handover/codex-tasks-20261025/T23-natural-Pi-capture-20261025-141843.json",
+    "capture_sha256": "8ca4a0899477cbb16e2af0dfe81a5b6a50086432b114cb3028c9c56ce105c754",
+    "HEAD": "d4bc5ff159944c9729717eedf52177c186f6e90c",
+    "actual_fetched_shadow": "d4bc5ff159944c9729717eedf52177c186f6e90c",
+    "clean_stable_HEAD": true,
+    "service": {
+      "Result": "success",
+      "ExecMainStartTimestamp": "Sun 2026-10-25 15:18:04 CET",
+      "ExecMainExitTimestamp": "Sun 2026-10-25 15:18:04 CET",
+      "ExecMainStatus": "0",
+      "ActiveState": "inactive",
+      "SubState": "dead",
+      "InactiveEnterTimestamp": "Sun 2026-10-25 15:18:04 CET",
+      "InvocationID": "079691057ce042179957910cf695b89d"
+    },
+    "timer": {
+      "NextElapseUSecRealtime": "Sun 2026-10-25 15:19:00 CET",
+      "ActiveState": "active",
+      "UnitFileState": "enabled"
+    },
+    "natural_service_exit_UTC": "2026-10-25T14:18:04Z",
+    "contains_feature": "f76483e6b9fad9ccb531064864595c3b5d8262fd",
+    "all_17_hash_length_blobIDs_match": {
+      "world/engine.py": {
+        "bytes": 33411,
+        "sha256": "d90dc352a5035c948bfc817f2d316e2ff9de1c18cfa06130f544720267bee885",
+        "blob": "f1c66aa743a12ac6a1e87aa989eda426a9b0c73c"
+      },
+      "world/__main__.py": {
+        "bytes": 18998,
+        "sha256": "5b1110a48aec6863866b210b3f5a9d2997e414b029bd17f35037c49f7966c181",
+        "blob": "ac33edcd4b5e11c9eeaa80fd5d915fc79b4f8784"
+      },
+      "world/publish.py": {
+        "bytes": 3340,
+        "sha256": "752d4b61b1792b82e80e63d248e1f8441e92dac625c70120c34e133a8a286c8e",
+        "blob": "11ffc0ce6c5cc3063f0b2e71f320eef30e32f4f5"
+      },
+      "world/config.py": {
+        "bytes": 4630,
+        "sha256": "6f43412b0df2cf27b879dfcbd03b6b396136020c2cf932c677392449ede62cee",
+        "blob": "4efc8315ba14a27130d02a46604a5365b90b5ed8"
+      },
+      "world/report.py": {
+        "bytes": 7644,
+        "sha256": "1ee1380d3f0110472b5f62a1e26fb6169866364664cc932a1271e5d5d4d00e43",
+        "blob": "64e81573e7c7cf2e3c482e4aee26b56e226b68e0"
+      },
+      "world/nightly_report.py": {
+        "bytes": 3742,
+        "sha256": "b3858dd97f3ea8cf87f1a571943b3d82ceafdc12a42f678d9ab09b638e418544",
+        "blob": "911386a0c4fd8aab6db4bad8d460255f29305a67"
+      },
+      "world/money.py": {
+        "bytes": 27077,
+        "sha256": "a062bfdeba061c5951071240fad7fa1bf8aa4a2da2d4279230b2fb29235622bd",
+        "blob": "5600b6d95cf09e5c331d40dfa1896f7b341855ce"
+      },
+      "world/world.py": {
+        "bytes": 53356,
+        "sha256": "ff154bdf56477a89365899795b16fb08aa0b211ff4444c5e37eabb615a6cf2e6",
+        "blob": "98cc8172781827fb8cdf7008c1315dc2968b2f5f"
+      },
+      "world/data/cast.json": {
+        "bytes": 6295,
+        "sha256": "40db695b590a514fbf7b724238096ac090408e682c0b62aa1f847729a6531fd5",
+        "blob": "b90a2e9dab2f9b4d324d32be0a05672970667058"
+      },
+      "world/data/costs.json": {
+        "bytes": 2001,
+        "sha256": "45de0e92bf2a1a1bcd6e58c671d3fe475789fbbddb92aba0c5d3351ba9715b18",
+        "blob": "7834678e4f99c46ee6632be2da3146ae5eed0910"
+      },
+      "world/data/offers.json": {
+        "bytes": 13540,
+        "sha256": "84f1b8c2a2856fcda897720a73fe9e53b30936be84e6d66ec41068a35a20d06e",
+        "blob": "700f7c92889ab4d2670e5d4a828df37d9732b72c"
+      },
+      "mind/soul.md": {
+        "bytes": 6729,
+        "sha256": "256e8a1c5aedfd8edc7b9147a60a10a3ee387efdd6fba2d0a32b818c2c6d1cee",
+        "blob": "2198e24f5f997ea6e9d3ceae974e980e48eb066d"
+      },
+      "docs/index.html": {
+        "bytes": 211304,
+        "sha256": "9d329b022cbeebe69c4fa7b2434d64603ee820ae191a63df989299bd330eb022",
+        "blob": "59cb7ff09334857a1900fbc4f869c0f373acb1b2"
+      },
+      "docs/days/index.json": {
+        "bytes": 1712,
+        "sha256": "bbf0d572d2ae255d7899be508a2258e21c0a21a0e45e923201b579283b4a3430",
+        "blob": "a8b14a35f8d436b0b5023d9dc41bddfcbf67c5ac"
+      },
+      "docs/days/reports.jsonl": {
+        "bytes": 384,
+        "sha256": "512c3b72f522f2b4de946a97574850cc5aad7d4d17f2974553d343cf690d67c2",
+        "blob": "74500809112d8cde44689cd41b2b002787be888e"
+      },
+      "docs/days/2026-10-25.json": {
+        "bytes": 49667,
+        "sha256": "9b3f705d5514c62e846f41a27ed12ce157792aa2d7c9bd2a7a1a6b4b9b0d5577",
+        "blob": "6316c4dd338babc6f11a6d9b4a6e4c212abee52e"
+      },
+      "docs/days/2026-10-26.json": {
+        "bytes": 11508,
+        "sha256": "07dd3df29b1dbe53785f4b1a33eaa056484e62a324ac643499ef95de8f2ff1bc",
+        "blob": "b1c2f32b73ae35133072abc0b5348f1abcff1861"
+      }
+    },
+    "raw_Git_bytes_separately_frozen": [
+      {
+        "path": "docs/days/2026-10-25.json",
+        "raw_file": "/mnt/c/hegel/handover/codex-tasks-20261025/T23-raw-2026-10-25.json",
+        "bytes": 49667,
+        "sha256": "9b3f705d5514c62e846f41a27ed12ce157792aa2d7c9bd2a7a1a6b4b9b0d5577",
+        "blob": "6316c4dd338babc6f11a6d9b4a6e4c212abee52e"
+      },
+      {
+        "path": "docs/days/2026-10-26.json",
+        "raw_file": "/mnt/c/hegel/handover/codex-tasks-20261025/T23-raw-2026-10-26.json",
+        "bytes": 11508,
+        "sha256": "07dd3df29b1dbe53785f4b1a33eaa056484e62a324ac643499ef95de8f2ff1bc",
+        "blob": "b1c2f32b73ae35133072abc0b5348f1abcff1861"
+      },
+      {
+        "path": "docs/days/reports.jsonl",
+        "raw_file": "/mnt/c/hegel/handover/codex-tasks-20261025/T23-raw-reports.jsonl",
+        "bytes": 384,
+        "sha256": "512c3b72f522f2b4de946a97574850cc5aad7d4d17f2974553d343cf690d67c2",
+        "blob": "74500809112d8cde44689cd41b2b002787be888e"
+      }
+    ],
+    "config": {
+      "branch": "shadow",
+      "shift": 300,
+      "lead": 15,
+      "owl_at": "01:30"
+    },
+    "fan_files_absent": {
+      "supabase/fanclub.sql": true,
+      "tests/test_fanclub.py": true,
+      "world/data/visitors.json": true,
+      ".github/workflows/fanclub-keepalive.yml": true
+    },
+    "actual_day_metadata": [
+      {
+        "path": "docs/days/2026-10-25.json",
+        "n": 24,
+        "date": "2026-10-25",
+        "complete": true,
+        "until": "2026-10-26T00:00+05:30",
+        "asleep": true,
+        "owl": false,
+        "decisions": 34,
+        "thoughts": 5,
+        "sources": {
+          "away": 29,
+          "mind": 5
+        },
+        "last_steps": [
+          {
+            "t": "22:08",
+            "end": "23:08",
+            "mind": {
+              "source": "mind",
+              "attempts": 1,
+              "latency_s": 5.4,
+              "warnings": [
+                "talks although nobody is present"
+              ]
+            }
+          },
+          {
+            "t": "23:08",
+            "end": "24:00",
+            "mind": {
+              "source": "mind",
+              "attempts": 1,
+              "latency_s": 4.7
+            }
+          }
+        ]
+      },
+      {
+        "path": "docs/days/2026-10-26.json",
+        "n": 25,
+        "date": "2026-10-26",
+        "complete": false,
+        "until": "2026-10-26T06:08+05:30",
+        "asleep": true,
+        "owl": false,
+        "decisions": 0,
+        "thoughts": 0,
+        "sources": {},
+        "last_steps": []
+      }
+    ],
+    "one_read_only_verification_capture": true,
+    "no_model_health_forced_tick_owl_or_runtime_change": true
+  },
+  "focused_checks": {
+    "unchanged_Claude_WaysOutTest": true,
+    "PC_tests": 9,
+    "Pi_tests": 9,
+    "unittest_s_each": 0.035,
+    "exits_each": 0,
+    "files_PC": 430,
+    "files_Pi": 208,
+    "all_frozen_archive_native_snapshot_bytes_unchanged": true,
+    "full_RUN": "mind/results/t23-ways-out-main-20261025/RUN.json",
+    "no_economy_simulation_full_suite_or_model_test": true
+  },
+  "PC_merge_conflicts": "TASKS/money originals preserved. Fresh specs retained with verified T19/T22DONE blocks. Claude flag/bank/commission rules and PC normal-income/receive charge IDs retained. New bank branches unchanged; PC-only charge metadata is not on Pi.",
+  "expected_deferral": "First14:10guard saw active service and exited before source mutation. Original receipt retained; next heartbeat reused the same reviewed helper/hash under a fresh receipt and succeeded. No busy poll or interrupted call.",
+  "no_unrelated_changes": "Day/state JSON, T19hook/CLI/ledger, old page, timer/config/clock and all original PiCSV unchanged through integration. Approved cast/costs/offers and money/world source changed to fresh main. No server/model/adapter/package/health/wake/power action.",
+  "evidence_seals": [
+    {
+      "original": "/mnt/c/hegel/handover/codex-tasks-20261025/T23-focused-checks-20261025-140554/RUN.json",
+      "public_path": "mind/results/t23-ways-out-main-20261025/RUN.json",
+      "bytes": 2526,
+      "sha256": "d91a0318e1ab84af18ab784161d0533bc26c70a289d3819599280ab38df4a2d0"
+    },
+    {
+      "original": "/mnt/c/hegel/handover/codex-tasks-20261025/T23-focused-checks-20261025-140554/CHECKS.json",
+      "public_path": "mind/results/t23-ways-out-main-20261025/CHECKS.json",
+      "bytes": 728,
+      "sha256": "ee8ea087e1435ba2b87ecdaaeb15c5eac400a63ce5f38223cf43b3cd24748f33"
+    },
+    {
+      "original": "/mnt/c/hegel/handover/codex-tasks-20261025/T23-focused-checks-20261025-140554/PC.stdout.log",
+      "public_path": "mind/results/t23-ways-out-main-20261025/PC.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "/mnt/c/hegel/handover/codex-tasks-20261025/T23-focused-checks-20261025-140554/PC.stderr.log",
+      "public_path": "mind/results/t23-ways-out-main-20261025/PC.stderr.txt",
+      "bytes": 1422,
+      "sha256": "85ae8092313e8a10aabb84af7744689f378a24bd4f969a6a3bf916475c7bc797"
+    },
+    {
+      "original": "/mnt/c/hegel/handover/codex-tasks-20261025/T23-focused-checks-20261025-140554/Pi.stdout.log",
+      "public_path": "mind/results/t23-ways-out-main-20261025/Pi.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "/mnt/c/hegel/handover/codex-tasks-20261025/T23-focused-checks-20261025-140554/Pi.stderr.log",
+      "public_path": "mind/results/t23-ways-out-main-20261025/Pi.stderr.txt",
+      "bytes": 1422,
+      "sha256": "85ae8092313e8a10aabb84af7744689f378a24bd4f969a6a3bf916475c7bc797"
+    },
+    {
+      "original": "/mnt/c/hegel/handover/codex-tasks-20261025/T23-Pi-main-result-20261025-141640.json",
+      "public_path": "mind/results/t23-ways-out-main-20261025/DEPLOYMENT-RECEIPT.json",
+      "bytes": 124423,
+      "sha256": "d1d0058f66e1e7aed3a8c1c5e1f9bbd8efebe6f710e790e73fc0431f2a83c3f0"
+    },
+    {
+      "original": "/mnt/c/hegel/handover/codex-tasks-20261025/T23-independent-deployment-verification-20261025.json",
+      "public_path": "mind/results/t23-ways-out-main-20261025/DEPLOYMENT-CHECKS.json",
+      "bytes": 613,
+      "sha256": "79e994fd17157f725a51a75d8e9d6a02787ddf674a56068a9523d737d0abe24e"
+    },
+    {
+      "original": "/mnt/c/hegel/handover/codex-tasks-20261025/T23-natural-Pi-capture-20261025-141843.json",
+      "public_path": "mind/results/t23-ways-out-main-20261025/NATURAL-CAPTURE.json",
+      "bytes": 6135,
+      "sha256": "8ca4a0899477cbb16e2af0dfe81a5b6a50086432b114cb3028c9c56ce105c754"
+    },
+    {
+      "original": "/mnt/c/hegel/handover/codex-tasks-20261025/T23-natural-independent-verification-20261025.json",
+      "public_path": "mind/results/t23-ways-out-main-20261025/NATURAL-CHECKS.json",
+      "bytes": 6930,
+      "sha256": "e07a7fadbea75ab46a6a56a461be4b9bbadb55ceebed05a9329160ba3b3bbd62"
+    },
+    {
+      "original": "/mnt/c/hegel/handover/codex-tasks-20261025/T23-Pi-main-result-20261025-140955.json",
+      "public_path": "mind/results/t23-ways-out-main-20261025/DEFERRED-GUARD.json",
+      "bytes": 871,
+      "sha256": "ad2b2ea0a8553c943fde869fc3f39e737c3d4952718e1c73be2a12404afcef04"
+    },
+    {
+      "original": "/mnt/c/hegel/handover/codex-tasks-20261025/T23-conflict-resolution-20261025-140417.json",
+      "public_path": "mind/results/t23-ways-out-main-20261025/PC-MERGE-RESOLUTION.json",
+      "bytes": 549,
+      "sha256": "b4b1a3c4601543834728de23263c1b0f8ff8fd64403fb0df37c6cd591c5d995f"
+    }
+  ],
+  "standing_watch": "T10 waits for first FULL actual completed post-return day>=30thoughts; Day14excluded,25Oct not full. No original auditor invocation. Real boot proof awaits next natural reboot."
+}

@@ -1,0 +1,151 @@
+{
+  "task": "T4b",
+  "verdict": "FAIL",
+  "score_verification": {
+    "score_commit": "570042a79b4bef1c941efb68fc357628fc138a39",
+    "score_sha256": "f45be5cb161983f43aa2656c75a24f379a7155cda7f234a1e20ce1d8da53f4fa",
+    "packet_sha256": "a19a3ac636efd6732a8d37d428cdd51f69eec5ba836202b2a0ab63bca359985e",
+    "texts": 20,
+    "unique_ids_verified": true,
+    "all_text_fingerprints_verified": true,
+    "score_ranges_verified": true,
+    "hash_in_commit_message": true,
+    "key_not_yet_copied": true
+  },
+  "source_candidate": "2f2096eae362da0031f848d4fee680fa4bc68bac",
+  "means": {
+    "A": {
+      "argument": 2.0,
+      "commitments": 1.8,
+      "particular": 2.8,
+      "voice": 2.4
+    },
+    "B": {
+      "argument": 2.1,
+      "commitments": 1.9,
+      "particular": 3.2,
+      "voice": 2.4
+    }
+  },
+  "paired_differences": [
+    {
+      "seed": 2026101220,
+      "ids": {
+        "A": "DB6C1B54EA75",
+        "B": "8E45BD01DBC6"
+      },
+      "argument": 0,
+      "commitments": 0,
+      "particular": 0,
+      "voice": 0
+    },
+    {
+      "seed": 2026101221,
+      "ids": {
+        "A": "4B515D175FE1",
+        "B": "8B05C57FFDCB"
+      },
+      "argument": 0,
+      "commitments": 0,
+      "particular": 0,
+      "voice": -1
+    },
+    {
+      "seed": 2026101222,
+      "ids": {
+        "A": "7B0A7D6448D8",
+        "B": "06676B1B9768"
+      },
+      "argument": 0,
+      "commitments": -1,
+      "particular": 0,
+      "voice": -1
+    },
+    {
+      "seed": 2026101223,
+      "ids": {
+        "A": "7C95A2F180F0",
+        "B": "2CC298816514"
+      },
+      "argument": 0,
+      "commitments": 0,
+      "particular": 1,
+      "voice": -1
+    },
+    {
+      "seed": 2026101224,
+      "ids": {
+        "A": "5185B141FE0B",
+        "B": "A6F140D01FAB"
+      },
+      "argument": 0,
+      "commitments": 1,
+      "particular": 1,
+      "voice": 1
+    },
+    {
+      "seed": 2026101225,
+      "ids": {
+        "A": "F01ED0CBDF3A",
+        "B": "AED0FC8995D1"
+      },
+      "argument": 0,
+      "commitments": 1,
+      "particular": 2,
+      "voice": 1
+    },
+    {
+      "seed": 2026101226,
+      "ids": {
+        "A": "F5A961C96721",
+        "B": "CD831AB202F6"
+      },
+      "argument": 0,
+      "commitments": -1,
+      "particular": 0,
+      "voice": 0
+    },
+    {
+      "seed": 2026101227,
+      "ids": {
+        "A": "0011D9EA298E",
+        "B": "BBC14EF30A74"
+      },
+      "argument": 0,
+      "commitments": 0,
+      "particular": 0,
+      "voice": 0
+    },
+    {
+      "seed": 2026101228,
+      "ids": {
+        "A": "071EA5BE404A",
+        "B": "2DD7C9BF50A5"
+      },
+      "argument": 1,
+      "commitments": 1,
+      "particular": 0,
+      "voice": 0
+    },
+    {
+      "seed": 2026101229,
+      "ids": {
+        "A": "CB92ECC1AEDE",
+        "B": "95CE8FF1D07E"
+      },
+      "argument": 0,
+      "commitments": 0,
+      "particular": 0,
+      "voice": 1
+    }
+  ],
+  "checks": {
+    "commitments_gain": 0.09999999999999987,
+    "required_commitments_gain": 0.5,
+    "argument_delta": 0.10000000000000009
+  },
+  "judge": "Claude",
+  "raters": 1,
+  "outputs_excluded": 0,
+  "defaults_changed": false
+}

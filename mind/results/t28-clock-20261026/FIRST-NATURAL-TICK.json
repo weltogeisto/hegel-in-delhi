@@ -1,0 +1,86 @@
+{
+  "utc": "2026-10-26T17:56:35.210060+00:00",
+  "status": "PASS_FIRST_NATURAL_POSTCHANGE_TICK",
+  "first_start_utc": "2026-10-26T17:45:00.302634+00:00",
+  "first_finished_utc": "2026-10-26T17:45:17.762947+00:00",
+  "first_job_result": "done",
+  "first_exit0_proof": "First natural oneshot invocation after the locked inactive handoff finished with systemd JOB_RESULT=done; no custom SuccessExitStatus. Intended world tick logged the new clock, natural gap resumption and a mind-driven eat. No failed invocation preceded it. Latest ExecMainCode1/Status0 is separate evidence, not substituted for the first invocation.",
+  "timer_restoration_receipt_written_after_natural_start": "2026-10-26T17:45:00.311201+00:00",
+  "latest_service": {
+    "SuccessExitStatus": "",
+    "Result": "success",
+    "ExecMainStartTimestamp": "Mon 2026-10-26 18:53:04 CET",
+    "ExecMainStartTimestampMonotonic": "268918198810",
+    "ExecMainExitTimestamp": "Mon 2026-10-26 18:53:04 CET",
+    "ExecMainCode": "1",
+    "ExecMainStatus": "0",
+    "ActiveState": "inactive",
+    "SubState": "dead"
+  },
+  "timer": {
+    "ActiveState": "active",
+    "SubState": "waiting",
+    "UnitFileState": "enabled"
+  },
+  "forward_gap_resumed_naturally": true,
+  "mind_available": true,
+  "new_world_time": "2026-10-27T18:45+05:30",
+  "frozen_shadow_head": "70c8f4883329f4dfca3a2814c75a91bf55f0c93e",
+  "raw_days": {
+    "2026-10-25.json": {
+      "bytes": 52091,
+      "sha256": "d74be942cd2808fe0e9ee7162285ed9819eb55e7cd108541f00452d82c811cb8",
+      "n": 24,
+      "complete": true,
+      "all_step_rows": 34,
+      "actual_decision_rows": 34,
+      "resume_marker_rows": 0,
+      "non_null_thoughts": 5,
+      "null_thoughts": 29,
+      "null_sources": {
+        "away": 29
+      },
+      "diary_entries": 5,
+      "diary_exactly_equals_non_null_thoughts": true,
+      "owl_written": "01:30"
+    },
+    "2026-10-26.json": {
+      "bytes": 86381,
+      "sha256": "f42cf7260fa5b6141907d8ccc1e523caaeaa231bb14abdb2c8331f21357c18bb",
+      "n": 25,
+      "complete": true,
+      "all_step_rows": 33,
+      "actual_decision_rows": 33,
+      "resume_marker_rows": 0,
+      "non_null_thoughts": 13,
+      "null_thoughts": 20,
+      "null_sources": {
+        "away": 20
+      },
+      "diary_entries": 13,
+      "diary_exactly_equals_non_null_thoughts": true,
+      "owl_written": "01:30"
+    },
+    "2026-10-27.json": {
+      "bytes": 17528,
+      "sha256": "2e5017bd7cddb1e402594c30a1ec0468765b4f31eff8814d8ce13d75e343e06e",
+      "n": 26,
+      "complete": false,
+      "all_step_rows": 2,
+      "actual_decision_rows": 1,
+      "resume_marker_rows": 1,
+      "non_null_thoughts": 1,
+      "null_thoughts": 0,
+      "null_sources": {},
+      "diary_entries": 1,
+      "diary_exactly_equals_non_null_thoughts": true,
+      "owl_written": null
+    }
+  },
+  "T10_auditor_not_invoked_partial_and_completed_day_below20": true,
+  "single_Pi_readonly_capture_this_heartbeat": true,
+  "model_health_calls_forced_tick_owl_state_power_changes": false,
+  "utc_final_counts": "2026-10-26T17:57:30.013126+00:00",
+  "original_checks_and_failed_count_lookup_preserved": true,
+  "counting_field": "step.decision.thought; diary entries k=diary; resume markers excluded from decision denominator"
+}

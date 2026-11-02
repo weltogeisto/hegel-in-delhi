@@ -1,0 +1,138 @@
+{
+  "utc": "2026-10-25T11:53:55.727665+00:00",
+  "T19": "DONE_AUTOMATIC_ROW_VERIFIED",
+  "T22": "DEPLOYED_NOT_YET_DONE: scheduled natural service exit0 capture pending",
+  "main": "6d291f522798ed94249dc9e7118f687eea862539",
+  "contains_T20": "80376327be1e76db6ffc6649e7ae673736e11dd2",
+  "implementation": "Normal cmd_tick calls the report CLI after engine.tick while existing tick.lock remains held. Yesterday must be complete and have an owl; append one atomic JSONL row, preserve all previous bytes, retry saved row on commit failure without rerunning the CLI. No historical backfill or owl/tick forcing.",
+  "tests": {
+    "started_utc": "2026-10-25T11:43:48.652929+00:00",
+    "command": [
+      "/usr/bin/python3",
+      "-m",
+      "unittest",
+      "-v",
+      "tests.test_nightly_report"
+    ],
+    "cwd": "/home/ai/hegel-eval/codex-tasks-20261025/T19-main-target-20261025-114336",
+    "source_tree": "a87094bd2b75c864a6d9cfda6a2bd29e52a95b54",
+    "main": "6d291f522798ed94249dc9e7118f687eea862539",
+    "session": "hegel-t19-unit-20261025-114336",
+    "before": {
+      "Pi_target_files": 193,
+      "PC_archive_native_files": 415,
+      "mismatches": []
+    },
+    "model_calls": 0,
+    "finished_utc": "2026-10-25T11:43:49.323395+00:00",
+    "elapsed_s": 0.6670871829992393,
+    "test_exit": 0
+  },
+  "frozen_checks": {
+    "before": {
+      "Pi_target_files": 193,
+      "PC_archive_native_files": 415,
+      "mismatches": []
+    },
+    "after": {
+      "Pi_target_files": 193,
+      "PC_archive_native_files": 415,
+      "mismatches": []
+    },
+    "test_exit": 0,
+    "original_inputs_unchanged": true
+  },
+  "reason_for_second_run": "Fresh main6d changed CLI/engine/money after the initial11checks; same T19 test source on the newly frozen deployment source. No T20 economy runs or old full/focused suites repeated.",
+  "original_warnings_retained": "Existing cmd_tick file-handle lifetime emits ResourceWarning in unittest; all11pass. Injected disk/commit/command errors are deliberate isolated tests. Original stderr retained.",
+  "deployment": {
+    "utc": "2026-10-25T11:50:45.591103+00:00",
+    "deployment": "324b85967be551849b20e9edd2cb5ec022fe32a2",
+    "actual_fetched_shadow": "5a6c54a65afe4a1313c3a04f9d68f3b346213739",
+    "deployment_tree": "6cc4bb6663f516d5ac6c9acc4354b9ec5147f636",
+    "real_parents": [
+      "505a7a9a7aea0d3a618ae9ba7d63ff4384f43994",
+      "6d291f522798ed94249dc9e7118f687eea862539"
+    ],
+    "all_raw_files_verified": 206,
+    "Pi_original_CSV_verified": 10,
+    "PC_original_CSV_scope": 22,
+    "JSON_unchanged_through_merge": true,
+    "contains_T20_8037632": true,
+    "fan_files_absent": [
+      "supabase/fanclub.sql",
+      "tests/test_fanclub.py",
+      "world/data/visitors.json",
+      ".github/workflows/fanclub-keepalive.yml"
+    ],
+    "no_second_Pi_status_poll": true
+  },
+  "automatic_proof": {
+    "utc": "2026-10-25T11:52:46.095043+00:00",
+    "task": "T19",
+    "outcome": "DONE_AUTOMATIC",
+    "deployment": "324b85967be551849b20e9edd2cb5ec022fe32a2",
+    "automatic_commit": "5a6c54a65afe4a1313c3a04f9d68f3b346213739",
+    "automatic_actual_parent": [
+      "324b85967be551849b20e9edd2cb5ec022fe32a2"
+    ],
+    "automatic_commit_UTC": "2026-10-25T12:50:06+01:00",
+    "deployment_guard_finished_UTC": "2026-10-25T11:49:29.209301+00:00",
+    "only_changed_path": "docs/days/reports.jsonl",
+    "ledger_absent_at_deployment_release": true,
+    "manual_report_invocation_on_Pi": false,
+    "row": {
+      "n": 23,
+      "date": "2026-10-24",
+      "complete": true,
+      "decisions": 33,
+      "thoughts": 0,
+      "sources": {
+        "away": 33
+      },
+      "waking": 32,
+      "quiet": 32,
+      "quiet_share": 1.0,
+      "refusals": 0,
+      "top_refusal": null,
+      "top_refusal_n": 0,
+      "loop": false,
+      "repetition": null,
+      "repeated": null,
+      "phrases": [],
+      "meals": 3,
+      "cash_open": 5051,
+      "cash": 4751,
+      "places": [
+        "home"
+      ],
+      "people": [],
+      "theses": [],
+      "owl": true
+    },
+    "raw_report": {
+      "bytes": 384,
+      "blob": "74500809112d8cde44689cd41b2b002787be888e",
+      "sha256": "512c3b72f522f2b4de946a97574850cc5aad7d4d17f2974553d343cf690d67c2"
+    },
+    "exact_input_day": {
+      "bytes": 40362,
+      "blob": "d9c33323bebfe2ad00bc178913b46737356557d2",
+      "sha256": "976d19c962177b9abd5840f718907e6be5030f6d76953a6e89edf7ef3ca11467",
+      "unchanged_by_report_commit": true
+    },
+    "no_auditor_or_model_call_for_report": true,
+    "T22": "DEPLOYED; scheduled service exit0 capture pending; not claimed DONE."
+  },
+  "Pi_guard_finished": "2026-10-25T11:49:29.209301+00:00",
+  "Pi_backup_ref": "codex/shadow-before-main-T19-20261025-114925",
+  "two_original_guard_failures": "CSV guard initially used PC22 instead of sealed Pi10; then git restore received already-absent fan paths. First failed before mutation; second saved failed merge evidence and aborted only its own uncommitted merge. Fixed guards changed no runtime/test/model inputs. Both originals, patches and rollback receipt remain.",
+  "CSV_scope_correction": "Pi has10 original CSV files, as sealed T13 JSON records. PC has22. The earlier prompt/Markdown22-on-Pi claim is superseded by raw evidence; no files were added or discarded to make a count pass.",
+  "source_archives": [
+    "T19-PC-source-20261025-113455.tar",
+    "T19-main-original-20261025-113455.tar",
+    "T19-PC-source-20261025-114336.tar",
+    "T19-main-original-20261025-114336.tar"
+  ],
+  "audit": "Day23 zero thoughts: repetition/repeated null, phrases empty; no original auditor invocation. T10 first full post-return complete day>=30 thoughts, Day14excluded.",
+  "new_human_decision": "Fresh TASKS asks Welt to choose economy direction before1November: leave it, exits not gifts (Claude recommendation), or stipend. No choice inferred or implemented here."
+}
