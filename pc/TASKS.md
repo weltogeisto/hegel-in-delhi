@@ -250,7 +250,7 @@ Day 25 had 20 of 29 steps without a mind: from Sunday 21:18 UTC (his 08:03) to a
 
 Welt's go: improve the adapter and adjust the bar. The plan, the new KPIs and the order of work are in `pc/HEGELIZER-2.md`. Astra builds on its branch with tests; Claude reviews and merges to main.
 
-### Welt · the night and the cap for round two · OPEN
+### Welt · the night and the cap for round two · DECIDED 27 October, in Claude's chat: yes to both. Background work in the spare slot during his days, as long as his steps stay as fast as now; up to 10 hours (36,000 s) with the card to itself; one night with the Power Guard set later for phase B
 Phase B needs the card to itself for about 7 hours. He sleeps from 21:00 to 09:00, but the Power Guard turns the PC off at 21:00. One night with the guard set later (or off) costs him nothing; the alternative is to pause him for a day, which breaks Act 1's seven in a row. And the GPU cap for round two: about 10 hours with the card to itself, plus the spare slot during his days for phase A.
 
 ### T30 · Astra · code: the data, round two · DONE: built by Astra (`fb7eb80`), reviewed and merged to main by Claude with two fixes (tau recorded, not filtered; scan misreadings by spread)
@@ -262,14 +262,26 @@ Phase B needs the card to itself for about 7 hours. He sleeps from 21:00 to 09:0
 ### T32 · Astra · code: the new test · DONE: built by Astra (`fb7eb80`), reviewed and merged to main by Claude with two fixes (tau recorded, not filtered; scan misreadings by spread)
 `tools/hegel_test.py`: the voice part of `pc/HEGELIZER-2.md` (KPIs 1 to 5): the 40 thoughts by the fixed rule, two arms, pairs in random order split into two sheets (Welt's 20, Claude's 20), Delta, the meaning check by plain Qwen, 12-word runs against the whole shelf, the bake-off with the restyle in place; and recall beyond input for the reconstruction diagnostic. Plus the runtime guard in `world/restyle.py`. Tests without a GPU.
 
-### T33 · Astra · phase 0: the pilot adapter on the new test · OPEN
+### T33 · Astra · phase 0: the pilot adapter on the new test · MOVED to the start of phase B's night: the live server carries no adapter, and his days stay whole during Act 1; phases 0, B and C together within the 10-hour cap
 Scales 1.0, 0.8 and 0.6. If the live server can carry the adapter at scale 0 with a per-request scale, without slowing his steps, run it in the spare slot during his day; otherwise wait for a window. Report the KPI table.
 
 ### T34 · Astra · phase A: the plain versions, round two · OPEN: about 14,700 versions, some 25 hours in the spare slot, so three days or so
 Recipe 4 over the whole corpus in the spare slot during his days, two workers at most, his step latency watched. The gate: failed under 10% of the units, mean ratio 0.8 to 1.2.
 
-### T35 · Astra · phase B and C: train, test, sheets · OPEN after T31, T34 and Welt's night
+### T35 · Astra · phase B and C: train, test, sheets · OPEN after T34. Tell Welt a day ahead which night; the Power Guard is set later for that night only and back to twelve hours the next morning (by Welt, unless you have found where it lives)
 Train in the night Welt grants; keep the best checkpoint by machine numbers; run the new test for it and for the control; send the two sheets (Welt's, Claude's) without the key. Restore plain Qwen before 09:00.
+
+## Wednesday 28 October (his clock): repetition
+
+Day 27, his first full day on the new hours, was strong (39 thoughts, 39 of 41 waking steps with the mind, eight people met) and still missed Act 1 on a loop: at 14:24 the mind wrote the same thought three times, and the world refused it each time. T10 measured his repetition for the first time: 26 of 39 thoughts reuse a phrase from earlier that day (67%; Day 12 had 69%), most of all "the friction of" and "the system of needs". Above T10's 55%, so T9's variant comes now, with a second one beside it. Welt's go, 27 October.
+
+### T36 · Astra · repetition: a fixed-day A/B of two switches · OPEN
+Main has two switches, both off (`dbe9f02`): **B**, the echo guard (`HEGEL_ECHO_GUARD=1`): the phrases he has used more than once today, by T9's rule (`report.echoes`), shown back to him as "Already said today". **C**, the DRY sampler (`HEGEL_DECISION_DRY=0.8`): llama.cpp penalises continuing a run of words already in the context, on the decision call only (base 1.75, runs of three tokens free).
+1. First check that the server applies DRY on the chat endpoint: one request with it, and its generation settings (or a `/completion` echo) must show the multiplier. If the server ignores it, report and run A and B only.
+2. Frozen inputs, named before running: Day 12 and Day 27, plus T9's two rehearsal days; each replayed step by step from its saved situations, as in T3, three seeds, the same seeds for every arm. Arm A is main with both switches off.
+3. Per arm, per day and pooled: the **echo share** (new thoughts that reuse a phrase, by `report.grams`, from the earlier thoughts in their own prompt); the repetition refusals; the truth audit as in T3 (contradictions and statements as fact per 100 sentences); and 20 thoughts per arm, shuffled and unlabelled, for Claude's blind scores (argument and voice, 1 to 5, committed with their hash before the key).
+**Passes, for B and for C against A:** the echo share falls by at least a third; contradictions at most 0.3 and statements as fact at most 0.5 per 100 sentences above A; argument and voice at most 0.25 below A. If both pass, B and C together on Day 27 with three seeds, against the better one. The winner goes on the Pi's environment; nothing goes live that has not passed.
+**GPU:** the spare slot during his days, within Welt's background allowance, his steps as fast as now; alongside phase A or after it.
 
 ### Act 1 gate · seven full days in a row
 On each of seven consecutive days: at least 20 thoughts (since 26 October; it was 30); quiet steps at most 5% of waking steps; the owl wrote; no refusal loop; at most 1.6 contradictions and 3.1 statements as fact per 100 sentences; repetition measured (T10 on the first). Claude checks it in the daily review (T11) and writes the Act 2 tasks when it passes.

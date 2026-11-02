@@ -202,7 +202,7 @@ def generate_units(todo, client, workers, seed):
             stop.set()
     try:
         while True:
-            while not stop.is_set() and len(pending) < workers:
+            while not stop.is_set() and len(pending) + len(ready) < workers:     # finished results waiting behind a slower unit count too
                 item = next(queue, None)
                 if item is None:
                     break
