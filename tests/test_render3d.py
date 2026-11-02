@@ -174,8 +174,15 @@ class GateTest(unittest.TestCase):
 
 
 def chromium():
-    for c in (os.environ.get("SCENE3D_BROWSER"), "/opt/pw-browsers/chromium-1194/chrome-linux/chrome",
-              shutil.which("chromium"), shutil.which("google-chrome")):
+    """A Chromium that prints the DOM headless: the headless shell first (the full browser's new headless mode may
+    never return from --dump-dom), then any full Chromium."""
+    import glob
+    found = [os.environ.get("SCENE3D_BROWSER")]
+    found += sorted(glob.glob("/opt/pw-browsers/chromium_headless_shell-*/*/chrome-headless-shell"), reverse=True)
+    found += sorted(glob.glob("/opt/pw-browsers/chromium_headless_shell-*/*/headless_shell"), reverse=True)
+    found += sorted(glob.glob("/opt/pw-browsers/chromium-*/chrome-linux*/chrome"), reverse=True)
+    found += [shutil.which("chromium"), shutil.which("google-chrome")]
+    for c in found:
         if c and Path(c).exists():
             return c
     return None
