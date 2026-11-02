@@ -1,0 +1,79 @@
+<!doctype html>
+<!-- The harness's own check (render3d.py): a scene that meets every line of scene3d.json's prompt, so it must
+     score 12 of 12 wherever the harness works. Written by Claude for the harness only; never shown to a model. -->
+<html>
+<head>
+<meta charset="utf-8">
+<title>Orrery: harness self-test</title>
+<style>html, body { margin: 0; height: 100%; overflow: hidden; background: #000; } canvas { display: block; }</style>
+</head>
+<body>
+<script type="module">
+import * as THREE from './three.module.js';
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x05060a);
+const camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(innerWidth, innerHeight);
+document.body.appendChild(renderer.domElement);
+window.scene = scene;
+window.camera = camera;
+
+const sun = new THREE.Mesh(new THREE.SphereGeometry(3, 32, 16), new THREE.MeshBasicMaterial({ color: 0xffcc33 }));
+sun.name = 'sun';
+scene.add(sun);
+const light = new THREE.PointLight(0xffffff, 600, 0, 2);
+sun.add(light);
+scene.add(new THREE.AmbientLight(0xffffff, 0.08));
+
+function planet(name, radius, color) {
+  const m = new THREE.Mesh(new THREE.SphereGeometry(radius, 24, 12), new THREE.MeshStandardMaterial({ color }));
+  m.name = name;
+  return m;
+}
+const orbits = [
+  { mesh: planet('planet1', 0.8, 0x4fa3ff), r: 8, period: 6, pivot: scene },
+  { mesh: planet('planet2', 1.2, 0x5fd16a), r: 13, period: 10, pivot: scene },
+  { mesh: planet('planet3', 1.7, 0xe0603a), r: 19, period: 16, pivot: new THREE.Group() },
+];
+orbits[2].pivot.rotation.x = THREE.MathUtils.degToRad(20);
+scene.add(orbits[2].pivot);
+for (const o of orbits) o.pivot.add(o.mesh);
+
+const moon = new THREE.Mesh(new THREE.SphereGeometry(0.35, 16, 8), new THREE.MeshStandardMaterial({ color: 0xcccccc }));
+moon.name = 'moon';
+orbits[1].mesh.add(moon);
+
+const stars = new Float32Array(400 * 3);
+for (let i = 0; i < 400; i++) {
+  const v = new THREE.Vector3().randomDirection().multiplyScalar(150 + Math.random() * 50);
+  stars.set([v.x, v.y, v.z], i * 3);
+}
+const starGeo = new THREE.BufferGeometry();
+starGeo.setAttribute('position', new THREE.BufferAttribute(stars, 3));
+scene.add(new THREE.Points(starGeo, new THREE.PointsMaterial({ color: 0xffffff, size: 1.2 })));
+
+addEventListener('resize', () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
+
+const clock = new THREE.Clock();
+renderer.setAnimationLoop(() => {
+  const t = clock.getElapsedTime();
+  for (const o of orbits) {
+    const a = (t / o.period) * Math.PI * 2;
+    o.mesh.position.set(o.r * Math.cos(a), 0, o.r * Math.sin(a));
+  }
+  const m = (t / 3) * Math.PI * 2;
+  moon.position.set(2.4 * Math.cos(m), 0, 2.4 * Math.sin(m));
+  const c = t * 0.05;
+  camera.position.set(40 * Math.cos(c), 25, 40 * Math.sin(c));
+  camera.lookAt(0, 0, 0);
+  renderer.render(scene, camera);
+});
+</script>
+</body>
+</html>

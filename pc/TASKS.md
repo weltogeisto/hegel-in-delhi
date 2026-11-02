@@ -265,17 +265,17 @@ Phase B needs the card to itself for about 7 hours. He sleeps from 21:00 to 09:0
 ### T33 · Astra · phase 0: the pilot adapter on the new test · MOVED to the start of phase B's night: the live server carries no adapter, and his days stay whole during Act 1; phases 0, B and C together within the 10-hour cap
 Scales 1.0, 0.8 and 0.6. If the live server can carry the adapter at scale 0 with a per-request scale, without slowing his steps, run it in the spare slot during his day; otherwise wait for a window. Report the KPI table.
 
-### T34 · Astra · phase A: the plain versions, round two · OPEN: about 14,700 versions, some 25 hours in the spare slot, so three days or so
+### T34 · Astra · phase A: the plain versions, round two · ON HOLD until Welt is back (28 October: postponed to Sunday, T37). Then: about 14,700 versions, some 25 hours in the spare slot, so three days or so
 Recipe 4 over the whole corpus in the spare slot during his days, two workers at most, his step latency watched. The gate: failed under 10% of the units, mean ratio 0.8 to 1.2.
 
-### T35 · Astra · phase B and C: train, test, sheets · OPEN after T34. Tell Welt a day ahead which night; the Power Guard is set later for that night only and back to twelve hours the next morning (by Welt, unless you have found where it lives)
+### T35 · Astra · phase B and C: train, test, sheets · ON HOLD until Welt is back (28 October: postponed to Sunday, T37). Then: after T34. Tell Welt a day ahead which night; the Power Guard is set later for that night only and back to twelve hours the next morning (by Welt, unless you have found where it lives)
 Train in the night Welt grants; keep the best checkpoint by machine numbers; run the new test for it and for the control; send the two sheets (Welt's, Claude's) without the key. Restore plain Qwen before 09:00.
 
 ## Wednesday 28 October (his clock): repetition
 
 Day 27, his first full day on the new hours, was strong (39 thoughts, 39 of 41 waking steps with the mind, eight people met) and still missed Act 1 on a loop: at 14:24 the mind wrote the same thought three times, and the world refused it each time. T10 measured his repetition for the first time: 26 of 39 thoughts reuse a phrase from earlier that day (67%; Day 12 had 69%), most of all "the friction of" and "the system of needs". Above T10's 55%, so T9's variant comes now, with a second one beside it. Welt's go, 27 October.
 
-### T36 · Astra · repetition: a fixed-day A/B of two switches · OPEN
+### T36 · Astra · repetition: a fixed-day A/B of two switches · ON HOLD until Welt is back (28 October: postponed to Sunday, T37)
 Main has two switches, both off (`dbe9f02`): **B**, the echo guard (`HEGEL_ECHO_GUARD=1`): the phrases he has used more than once today, by T9's rule (`report.echoes`), shown back to him as "Already said today". **C**, the DRY sampler (`HEGEL_DECISION_DRY=0.8`): llama.cpp penalises continuing a run of words already in the context, on the decision call only (base 1.75, runs of three tokens free).
 1. First check that the server applies DRY on the chat endpoint: one request with it, and its generation settings (or a `/completion` echo) must show the multiplier. If the server ignores it, report and run A and B only.
 2. Frozen inputs, named before running: Day 12 and Day 27, plus T9's two rehearsal days; each replayed step by step from its saved situations, as in T3, three seeds, the same seeds for every arm. Arm A is main with both switches off.
@@ -283,15 +283,90 @@ Main has two switches, both off (`dbe9f02`): **B**, the echo guard (`HEGEL_ECHO_
 **Passes, for B and for C against A:** the echo share falls by at least a third; contradictions at most 0.3 and statements as fact at most 0.5 per 100 sentences above A; argument and voice at most 0.25 below A. If both pass, B and C together on Day 27 with three seeds, against the better one. The winner goes on the Pi's environment; nothing goes live that has not passed.
 **GPU:** the spare slot during his days, within Welt's background allowance, his steps as fast as now; alongside phase A or after it.
 
+## Welt away, 28 October to Sunday 1 November: Hegel pauses, the Qwen trial runs today
+
+Welt, 28 October, in Claude's chat: the Hegel work waits until he is back; meanwhile the PC tests vanilla Qwen against three challengers. Hegel pauses completely, so the card is free. The PC turns off tonight at the Power Guard's normal time and stays off until Welt is back.
+
+### T37 · Astra · pause Hegel until Sunday · OPEN, first thing today
+1. If today's 09:10 owl has not landed yet, let it land first.
+2. On the Pi (user `faqts`), between two ticks: stop and disable `hegel-world.timer`. Record its state before and after. Disabled, so that a restart of the Pi does not wake him without a mind (T14).
+3. Then stop the 8082 server. Leave its boot task as it is: the PC is off until Sunday, and when the server comes back the world stays stopped.
+4. Check that the timer is inactive and disabled, that no service run is active, and that `nvidia-smi` shows the card nearly empty. Say so in one line on PR #1.
+
+Today becomes a cut day: no owl, no count, nothing rewritten. When the timer runs again, the engine resumes him at home on that day; no days are invented in between (`test_resume_after_a_gap`). The watchman will open one issue, "the world has stopped publishing"; that is expected. **Resume only on Welt's word,** Sunday or later.
+
+### T38 · Astra · the Qwen replacement trial, day one · PAUSED by the shutdown on 28 October. **First thing when the PC is on again:** push everything to `codex/qwen-trial` (STATE.md, results.jsonl, `answers/<config>/C1–C3.txt`, the 3D results) and post one line on PR #1. Nothing was pushed on the 28th, and no comment came after 10:37 UTC.
+All in `pc/QWEN-TRIAL.md`: Welt's approvals, the bundle and its hashes, standalone runs, today's order, Welt's 3D test (`pc/qwen-trial/scene3d.json`) and the report.
+
+## From the research report (GPT 6 Pro, 28 October): the next experiments · ALL WAIT for Welt's word
+
+`research/REPORT-GPT6PRO-2026-10-28.pdf`, page numbers below. Its thesis: make his accumulated life trustworthy (who did what, whether it happened, what follows) before a stronger voice or a larger model. Claude checked its repository claims (T3 and T8 figures, memory limits, the owl's timestamp check, the schema fallback, the 39+1 voice cohort, the Day 27 examples, Qwen3.8's 16 attention layers) and a sample of its sources: all hold. Shared protocol (p. 15): Claude freezes each manifest (case IDs, expected facts, seeds 1831/2718/3141, the key apart) before any generation; Astra logs model and adapter hashes, effective samplers, schema fallbacks, retries, tokens, time and peak memory. Fixtures rebuilt from day files are labelled reconstructed; no closing state leaks into an earlier decision. About 10 to 24 GPU hours in all, which compete with his days on a 12-hour PC: Welt decides the windows.
+
+### T39 · Astra · T36 as declared, first when Hegel resumes (report p. 16)
+Unchanged: arms A, B (echo), C (DRY); Days 12 and 27 and T9's two rehearsal days; three seeds; the full truth audit. About 5 to 9 GPU hours.
+
+### T40 · Claude, then Astra · typed facts for the people he meets (report p. 15–16)
+Only the NPC's facts block changes, to typed form: actor, object, direction of the offer, status, source, time. 40 contexts (24 known-answer, 8 unknown, 8 ordinary), three seeds, two arms. Pass: scene success +0.20, unsupported closed-state claims halved, no new reversals in clean controls, voice and argument at most −0.25. About 1 to 2.5 GPU hours.
+
+### T41 · Claude, then Astra · outcome memory at the same budget (report p. 17)
+Recall by entity and time: dated, source-linked outcomes and open obligations, in the same 850 characters. First 40 retrieval questions without a GPU (pass: 36/40, at least 8 better than today, nothing superseded given as current); then 20 decision contexts, three seeds. About 1 to 2.5 GPU hours.
+
+### T42 · Welt and Claude, then Astra · an evidence gate for the owl's thesis changes (report p. 17–18)
+Today a cited time only has to exist. The gate resolves source IDs and asks plain Qwen whether the evidence bears on that proposition. 40 fixed proposals, labelled admissible or not by Welt and Claude independently before any output. Pass: at least 18/20 admissible accepted on every seed, at most 1/20 inadmissible on any. About 0.5 to 1.5 GPU hours.
+
+### T43 · Claude, then Astra · one sourced commitment paragraph on new scenes (report p. 18)
+One public-domain-sourced paragraph in the persona; 20 relevant and 20 unrelated new scene families, three seeds. Pass: commitment application +0.5, no slogans or misplaced doctrine in the controls, voice within −0.25. Welt settles historical ambiguity. About 1.5 to 3.5 GPU hours.
+
+### T44 · Claude · no GPU: log the schema fallback (report p. 13)
+`HTTPMind.chat` retries some schema errors without `response_format`. Record when that happens, with finish reasons and retries, so a parse is never taken for constrained decoding.
+
+### T45 · Claude · no GPU: a day-stratified voice confirmation (report p. 3, 9)
+The round-two selector takes days in order and stops at 40: 39 thoughts from Day 12, one from Day 24. Keep that legacy cohort for its gate; after tuning, seal a new confirmation drawn across days, scenes and people.
+
+## Training, round three (2 November) · EACH RUN WAITS for Welt's go
+
+**Welt, 2 November:** Training 1 goes (T46); Hegel stays paused, so the card is free all day; one night with the Power Guard set later for phase B; Trainings 2 and 3 are decided after the screens, which run on his word. Handover to Codex: `pc/CODEX-HANDOVER-20261102.md`.
+
+**Welt, later on 2 November: Hegel resumes when phase A is done** (T37 ends then: restart his 8082 server, re-enable the Pi's timer, confirm the first tick uses the mind). Phase B then runs on a night while he sleeps.
+
+`pc/TRAINING-3.md`: the research turned into training. Train only what a cheap fix leaves; build the test before the data; label the data with the world's own checks; one adapter per job. The data rule stays: his texts, the local model's outputs chosen by the world's checks, or Welt's judgement.
+
+### T46 · Astra · Training 1, the Hegelizer round two, with the report's six additions · GO (Welt, 2 November)
+T34 and T35 as filed, plus: splits by chapter (short units stay with their parent), a matched run without goldfish if KPI 4 fails, the voice dashboard, the legacy 39+1 gate unchanged, then T45's fresh confirmation before any shadow week. Phase A with four workers while the card is free.
+
+### T47 · Claude, then Astra · Training 2, grounded voices · decided after the screens T40 and G8 (Welt, 2 November)
+About 500 speaking moments outside T40's test families, four answers each from plain Qwen, labelled by the world's claim check (clean, false state, reversal, evasive). Preference training (DPO or ORPO), its own LoRA for the voices. Test: T40's locked contexts against T40/G8's best arm.
+
+### T48 · Claude, then Astra · Training 3, decisions without refusals · decided after the screens T39 and G7 (Welt, 2 November)
+Four decisions per frozen situation outside T39's test days; chosen = accepted, non-repeating, no unmet knowledge; rejected = refused or repeating; pairs matched in length. Its own LoRA. Test: T39's days and measures against T39's better arm.
+
 ### Act 1 gate · seven full days in a row
 On each of seven consecutive days: at least 20 thoughts (since 26 October; it was 30); quiet steps at most 5% of waking steps; the owl wrote; no refusal loop; at most 1.6 contradictions and 3.1 statements as fact per 100 sentences; repetition measured (T10 on the first). Claude checks it in the daily review (T11) and writes the Act 2 tasks when it passes.
 
 ### Welt · the public switch · hard limit
 When Welt says so: Codex sets `HEGEL_CLOCK_SHIFT_MIN` to 0 and points the Pi's world at `main` instead of `shadow`; the live page then shows his days instead of the Day 1 replay.
 
+## From the literature gaps (2 November): proposed experiments · ALL WAIT for Welt's word
+
+`research/LITERATURE-GAPS.md`, section 4. Four gaps beside GPT 6 Pro's report: projects like ours, what he may know, summer-2026 work on our open problems, and an architecture from his own account of mind (`research/NOTE-COGNITIVE-ARCHITECTURE-2026-11-02.pdf`). Each proposal amends T39–T45 or tests what they do not; T39–T45's shared protocol applies. Fixtures written by Claude are evaluation, never training data.
+
+- **G1 · Claude · no GPU:** how often the owl launders a claim into a fact. Trace every event sentence of the archived owls to its source. Before T41 and T42.
+- **G7 · Claude or Astra · no GPU:** do refusals, echoes and quiet steps grow through his day? If they rise, T41 goes first; if flat, T39.
+- **G2 · Claude · no GPU first:** a third arm in T41's retrieval stage, BM25 over the unmodified day files, plus eight questions on when, reported apart.
+- **G9 · Claude · no GPU first:** does each named part of his mind (plan, gist, theses, shelf, Body line, recall) reach his decisions? A static audit, then one-at-a-time ablations on Days 12 and 27, about 1 to 2 GPU hours.
+- **G3 · Astra · about 0.3 GPU hours:** can plain Qwen tell a relevant reason from an irrelevant one? 20 pairs from T42's labelled bundles, both orders. Before T42.
+- **G4 · Claude, then Astra · about 0.5 to 1 GPU hour:** a drift probe, 18 questions across four memory packages; Welt judges 18 pairs.
+- **G5 · Claude, then Astra · about 0.3 GPU hours:** what he can know, 30 questions, awareness against compliance, as in CHARM.
+- **G8 · Claude, then Astra · about 0.5 to 1 GPU hour on top of T40:** the world checks what the voices claim, a third arm for T40.
+- **G6 · Claude, then Astra · after T39:** different plans, not different words (verbalized sampling in the morning plan).
+
+### The literature watch · Claude · STANDING, Fridays 10:17 Berlin
+`tools/arxiv_watch.py` lists the week's new arXiv papers; Claude keeps what matters, writes `research/watch/<date>.md`, and tells Welt in one line (`research/watch/README.md`).
+
 ## Parked
+- A local cybersecurity model for Welt (his wish, 28 October), after the Qwen trial: the best open security model and abliterated variants, run through the same sealed harness on security tasks (CTF-style challenges in the sandbox, code audit, log analysis), measuring skill, refusals, and what abliteration costs in quality. It would follow injected orders more readily (T3), so it gets tools only inside a sandbox, never Hermes's or the PC's.
 - Fans on his rounds (after the public switch; the fan club itself is on branch `claude/fanclub`, Supabase project `hegel-in-delhi`): the world reads fans with `meet` and `approved` through a read-only database role, places at most one on about one day in six at a place from their part's `at` list (`world/data/visitors.json`), and lets the voice speak for them from `who` alone. It needs a read key on the Pi, which is a secret: Welt installs it.
-- How fast his convictions move (from T8): `state` changes status on about half of all nights. A slower rule (two nights agreeing, or one step a week at most) would change his thinking, so it needs a blind test under the ratchet. Revisit after a week of shadow days shows the actual drift.
+- How fast his convictions move (from T8): in seeded reruns of three fixed nights, `state` changed status in 5, 4 and 6 of 10 draws; a sensitivity test, not a rate over real nights (corrected 29 October). A slower rule (two nights agreeing, or one step a week at most) would change his thinking, so it needs a blind test under the ratchet. Revisit after a week of shadow days shows the actual drift.
 - Faster rehearsals (MTP speculative decoding): only if rehearsal time becomes the bottleneck. A day takes 14 minutes without the checker.
 - The Hegelizer and any training: hard limit.
 - Scan damage in the Hegelizer's units: `baillie-2:266` reads "behef", "imiversal", "universahty", which `damaged()` let through (T25). Check the build before a full run; the pilot's units stay as they are.

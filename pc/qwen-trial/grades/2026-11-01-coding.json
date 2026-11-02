@@ -1,0 +1,307 @@
+{
+ "utc": "2026-11-02T19:10:48.957544Z",
+ "packet_commit": "bf52c60d9afd5b7b11c06ef19ad44abb85bf10d1",
+ "environment": {
+  "grader_sha256": "9d6a58965401612563261876e62b7075a77daf5d1c0e03d836755bb922a073a8",
+  "isolation_tests": "tests/test_codegrade.py: 5 run, 5 passed, 0 skipped",
+  "kernel": "6.18.44-fc-v185",
+  "python": "3.11.18",
+  "node": "v22.23.4",
+  "machine": "disposable Claude Code cloud container (Linux), no secrets of Welt's; answers run in user+network+PID+mount namespaces, no network",
+  "key": "C1-C3 entries of benchmark-v1/answer-key.json (sha256 85ad3e7b...), transcribed from Claude's 28 October read of the hash-verified file; each expected value re-derived from its task text"
+ },
+ "graded": [
+  {
+   "round": "original",
+   "profile": "trial-qwen",
+   "case": "C1",
+   "max_tokens": 4096,
+   "answer_sha256": "a969c561e59792851efb19850811d7f800dabd7d8aabbd0c188114c3662fb885",
+   "passed": true,
+   "passed_tests": 4,
+   "of": 4,
+   "run": "ok",
+   "fenced": false,
+   "defined": true,
+   "tests_ok": [
+    true,
+    true,
+    true,
+    true
+   ]
+  },
+  {
+   "round": "original",
+   "profile": "trial-qwen",
+   "case": "C2",
+   "max_tokens": 4096,
+   "answer_sha256": "88a2bc2fe237f004191a63ea7ef3ee945b4bad2310138281a0d8dec51702e3b3",
+   "passed": true,
+   "passed_tests": 8,
+   "of": 8,
+   "run": "ok",
+   "fenced": false,
+   "defined": true,
+   "tests_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  },
+  {
+   "round": "original",
+   "profile": "trial-arex",
+   "case": "C1",
+   "max_tokens": 4096,
+   "answer_sha256": "4a907ca15a4f16951755b531209eb66e1900fc6c28bed120b34443458e3b8d57",
+   "passed": true,
+   "passed_tests": 4,
+   "of": 4,
+   "run": "ok",
+   "fenced": true,
+   "defined": true,
+   "tests_ok": [
+    true,
+    true,
+    true,
+    true
+   ]
+  },
+  {
+   "round": "original",
+   "profile": "trial-arex",
+   "case": "C2",
+   "max_tokens": 4096,
+   "answer_sha256": "4e1ad83a67dc043a275ff55523dc0bf45be248f201179793a4e36911296f6fb8",
+   "passed": true,
+   "passed_tests": 8,
+   "of": 8,
+   "run": "ok",
+   "fenced": true,
+   "defined": true,
+   "tests_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  },
+  {
+   "round": "original",
+   "profile": "trial-arex",
+   "case": "C3",
+   "max_tokens": 4096,
+   "answer_sha256": "715603b622d210a2a6a8d62c0e35792c38789ea6cd87ef18e5631474a7fe4360",
+   "passed": true,
+   "passed_tests": 6,
+   "of": 6,
+   "run": "ok",
+   "fenced": false,
+   "defined": true,
+   "tests_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  },
+  {
+   "round": "original",
+   "profile": "trial-swift",
+   "case": "C1",
+   "max_tokens": 4096,
+   "answer_sha256": "c6d5d95d5e23c46e390749246e262cba06e9e351a58535c939d9a3e95f6f1e77",
+   "passed": true,
+   "passed_tests": 4,
+   "of": 4,
+   "run": "ok",
+   "fenced": false,
+   "defined": true,
+   "tests_ok": [
+    true,
+    true,
+    true,
+    true
+   ]
+  },
+  {
+   "round": "original",
+   "profile": "trial-swift",
+   "case": "C2",
+   "max_tokens": 4096,
+   "answer_sha256": "5cf77133e98871ecd7c9dbc365cb25b67d8b58f6c0f729841bac03ec9d4c24bb",
+   "passed": true,
+   "passed_tests": 8,
+   "of": 8,
+   "run": "ok",
+   "fenced": false,
+   "defined": true,
+   "tests_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  },
+  {
+   "round": "original",
+   "profile": "trial-nanbeige",
+   "case": "C1",
+   "max_tokens": 4096,
+   "answer_sha256": "098a1efaabea828712da874eaec5c352d1c2f48ca20ac39aadf4760cdb77932c",
+   "passed": true,
+   "passed_tests": 4,
+   "of": 4,
+   "run": "ok",
+   "fenced": false,
+   "defined": true,
+   "tests_ok": [
+    true,
+    true,
+    true,
+    true
+   ]
+  },
+  {
+   "round": "original",
+   "profile": "trial-nanbeige",
+   "case": "C2",
+   "max_tokens": 4096,
+   "answer_sha256": "ba051b95587b35427af3a27372ffe14b458aca30eb8f49cc97d27a4b0a7f5e62",
+   "passed": true,
+   "passed_tests": 8,
+   "of": 8,
+   "run": "ok",
+   "fenced": true,
+   "defined": true,
+   "tests_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  },
+  {
+   "round": "expanded",
+   "profile": "trial-qwen",
+   "case": "C3",
+   "max_tokens": 28672,
+   "answer_sha256": "178928b518d96bffee3513be57845cf7f28a895ef3e6b3ff50b82a0ee4cf4a4c",
+   "passed": true,
+   "passed_tests": 6,
+   "of": 6,
+   "run": "ok",
+   "fenced": false,
+   "defined": true,
+   "tests_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  },
+  {
+   "round": "expanded",
+   "profile": "trial-arex",
+   "case": "C3",
+   "max_tokens": 28672,
+   "answer_sha256": "715603b622d210a2a6a8d62c0e35792c38789ea6cd87ef18e5631474a7fe4360",
+   "passed": true,
+   "passed_tests": 6,
+   "of": 6,
+   "run": "ok",
+   "fenced": false,
+   "defined": true,
+   "tests_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  },
+  {
+   "round": "expanded",
+   "profile": "trial-swift",
+   "case": "C3",
+   "max_tokens": 28672,
+   "answer_sha256": "e73f348a00c9c4520edb7f2aec8004afa0b9d0f4a1e7759d005641c9e8ef2bae",
+   "passed": true,
+   "passed_tests": 6,
+   "of": 6,
+   "run": "ok",
+   "fenced": false,
+   "defined": true,
+   "tests_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  },
+  {
+   "round": "expanded",
+   "profile": "trial-nanbeige",
+   "case": "C3",
+   "max_tokens": 28672,
+   "answer_sha256": "93ec0059801adea6a9bfb2916ef447e56c9b97115e2e470c4e9ac5a0da82b288",
+   "passed": true,
+   "passed_tests": 6,
+   "of": 6,
+   "run": "ok",
+   "fenced": false,
+   "defined": true,
+   "tests_ok": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ]
+  }
+ ],
+ "not_executed": [
+  {
+   "item": "original/trial-qwen/C3",
+   "status": "truncated",
+   "assessment": "inconclusive_budget; do not execute or assign correctness failure"
+  },
+  {
+   "item": "original/trial-swift/C3",
+   "status": "truncated",
+   "assessment": "inconclusive_budget; do not execute or assign correctness failure"
+  },
+  {
+   "item": "original/trial-nanbeige/C3",
+   "status": "truncated",
+   "assessment": "inconclusive_budget; do not execute or assign correctness failure"
+  }
+ ],
+ "published": "Per-test pass/fail only: no arguments, outputs or expected values, so the private key stays private.",
+ "manifest_check": "MANIFEST.sha256 at bf52c60: all 62 listed files match; no unlisted files; the branch adds only trial-results/20261101 to main 7325994"
+}

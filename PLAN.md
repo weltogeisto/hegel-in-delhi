@@ -13,7 +13,7 @@ Think of it as a theatre run. The shadow world is the rehearsal. The public swit
 - **What is thin.** Since the shadow began, exactly one day ran complete with a working mind: Day 12. Everything we know about quality rests on that day and on rehearsals.
 - **Known gaps.**
   - Repetition: 69% of Day 12's thoughts reuse an earlier phrase, against 48% in rehearsals.
-  - Convictions move too easily: `state` changed status on about half of all nights (T8).
+  - Convictions may move too easily: in T8's seeded reruns of three fixed nights, `state` changed status in 5, 4 and 6 of 10 draws. That is a sensitivity test, not a rate over real nights; the real rate is still to be counted. (Corrected 29 October, after GPT 6 Pro's review.)
   - Commitments, his own positions, score far below the real Hegel in blind review: 2.0–2.8, against 4.65 for his own passages.
   - The first adapter did not beat plain Qwen.
 - **The economy.** He has no income yet. ₹3,251 in cash lasts about two weeks at ₹1,800 a week (groceries and the dhobi). On Ramesh's day off, a Hegel without a mind goes hungry (Day 20).
@@ -44,7 +44,7 @@ Think of it as a theatre run. The shadow world is the rehearsal. The public swit
 **Work:**
 - **Repetition (T10).** Measure the first full day. Above 55%, Claude writes the variant: his recurring phrases of the day, shown back to him as already said. Astra runs it blind, and the ratchet decides.
 - **Economy (T20).** Claude runs 21 days with the stand-in mind to show where the money comes from and where it goes. It checks that the offers that bring money in (lessons, a talk, a commission) actually reach him. The world must make earning possible, never force it. The fallback also learns Ramesh's day off: he eats at Khan Market.
-- **Convictions.** After the week, count the status changes. If `state` still flips on about half the nights, Claude writes the slower rule (two nights agreeing) and Astra runs it blind.
+- **Convictions.** After the week, count the status changes. If `state` changes on many of the real nights, Claude writes the slower rule (two nights agreeing) and Astra runs it blind.
 - **Every night:** the report runs after the owl (T19), and Claude's review (T11) follows before the next waking day.
 
 ## Act 2 · Opening night (target: early November, once Act 1's gate passes)
