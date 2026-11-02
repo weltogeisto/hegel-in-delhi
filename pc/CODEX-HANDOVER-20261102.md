@@ -27,7 +27,7 @@ Claude hands the running work to you at Welt's request. This file is enough to g
 ## Rules that still hold
 
 - **The data rule:** training data comes only from his own texts, the local model's own outputs chosen by fixed rules, or Welt's judgement. Never text written or chosen by Claude, GPT or you.
-- **Not without Welt:** no resuming Hegel, no public switch, no new ML packages, no power, firewall or network changes, no spending, no deleting data or history.
+- **Not without Welt:** no resuming Hegel before phase A is done, no public switch, no new ML packages, no power, firewall or network changes, no spending, no deleting data or history.
 - **Code to `main` through a pull request** from a `codex/` branch with its tests. Welt merges; a Claude session reviews when one is available.
 - **PR #1 comments:** only for done, blocked or a question, one short message each.
 
