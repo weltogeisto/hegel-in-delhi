@@ -323,6 +323,19 @@ One public-domain-sourced paragraph in the persona; 20 relevant and 20 unrelated
 ### T45 · Claude · no GPU: a day-stratified voice confirmation (report p. 3, 9)
 The round-two selector takes days in order and stops at 40: 39 thoughts from Day 12, one from Day 24. Keep that legacy cohort for its gate; after tuning, seal a new confirmation drawn across days, scenes and people.
 
+## Training, round three (2 November) · EACH RUN WAITS for Welt's go
+
+`pc/TRAINING-3.md`: the research turned into training. Train only what a cheap fix leaves; build the test before the data; label the data with the world's own checks; one adapter per job. The data rule stays: his texts, the local model's outputs chosen by the world's checks, or Welt's judgement.
+
+### T46 · Astra · Training 1, the Hegelizer round two, with the report's six additions · after Welt's go
+T34 and T35 as filed, plus: splits by chapter (short units stay with their parent), a matched run without goldfish if KPI 4 fails, the voice dashboard, the legacy 39+1 gate unchanged, then T45's fresh confirmation before any shadow week. Phase A with four workers while the card is free.
+
+### T47 · Claude, then Astra · Training 2, grounded voices · after T40 and G8, only if they leave a gap
+About 500 speaking moments outside T40's test families, four answers each from plain Qwen, labelled by the world's claim check (clean, false state, reversal, evasive). Preference training (DPO or ORPO), its own LoRA for the voices. Test: T40's locked contexts against T40/G8's best arm.
+
+### T48 · Claude, then Astra · Training 3, decisions without refusals · after T39 and G7, only if they leave a gap
+Four decisions per frozen situation outside T39's test days; chosen = accepted, non-repeating, no unmet knowledge; rejected = refused or repeating; pairs matched in length. Its own LoRA. Test: T39's days and measures against T39's better arm.
+
 ### Act 1 gate · seven full days in a row
 On each of seven consecutive days: at least 20 thoughts (since 26 October; it was 30); quiet steps at most 5% of waking steps; the owl wrote; no refusal loop; at most 1.6 contradictions and 3.1 statements as fact per 100 sentences; repetition measured (T10 on the first). Claude checks it in the daily review (T11) and writes the Act 2 tasks when it passes.
 
