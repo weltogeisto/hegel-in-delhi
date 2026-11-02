@@ -7,7 +7,7 @@ Written by Claude at Welt's request. Welt asked whether we have a good grasp of 
 1. **The projects most like ours.** Worlds that referee their characters, and single agents that run a household or a business for months.
 2. **What he may know.** A body of work measures characters who know what their moment could not.
 3. **Summer 2026.** A run of preprints aims straight at our open problems: the owl's gist, claims that harden into facts, convictions that move too easily, repetition.
-4. **An architecture drawn from his own account of mind.** The research note Welt shared on 2 November opens this question (section 3b). The cognitive-architecture literature it needs is cited nowhere in the repository.
+4. **An architecture drawn from his own account of mind.** The research note Welt shared on 2 November (`NOTE-COGNITIVE-ARCHITECTURE-2026-11-02.pdf`) opens this question (section 3b). The cognitive-architecture literature it needs is cited nowhere in the repository.
 
 **How this was found.** On 2 November: arXiv keyword searches sorted by date, the generic "agent simulation" listing Welt sent, and works Claude knew from before. Only abstracts were read, not full papers. The 2026 preprints are unreplicated. The labels follow the report: **Established**, **Promising**, **Judgment** (ours, not the paper's).
 
@@ -114,7 +114,7 @@ Grouped by the handover's questions (`HANDOVER-SIMULATION.md`, section 5).
 
 ## 3b. A fourth gap: an architecture from his own account of mind
 
-*Hegel Cognitive Architecture: First Reconstruction*, a nine-page research note dated 2 November 2026, was shared by Welt that day. It is not in the repository.
+*Hegel Cognitive Architecture: First Reconstruction*, a nine-page research note dated 2 November 2026, was shared by Welt that day. It is filed as `research/NOTE-COGNITIVE-ARCHITECTURE-2026-11-02.pdf`.
 
 **What the note does.** Everything above borrows an agent architecture and fits Hegel into it. The note works the other way round: it derives constraints on the architecture from Hegel's own account of mind. Its sources are the Encyclopaedia §§377–468, the Phenomenology's introduction and the Philosophy of Right §§5–7. Its themes are habit, active attention, image and name, knowing and willing, recognition, and experience that revises its own criteria. It gives fourteen attributable records, two families of formalisation and six test designs for Hegel in Delhi.
 

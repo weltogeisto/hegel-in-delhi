@@ -50,7 +50,7 @@ The living are invented, the dead are on his shelf, the news is real: everyone h
 | `scripts/` | Pi scripts: wake the PC, test wake and sleep, the world's timer |
 | `tests/` | `python3 -m unittest discover -s tests` |
 | `tools/` | `osm_map.py` rebuilds the map and the walking times from OpenStreetMap; run it only when the map should change. `corpus.py` fetches and cleans the shelf's texts and builds its index (`--index`); `hegel_test.py` is the Hegel test; `writing_sample.py` prints the prompt and the text that a writing plan makes through the world's plain-text path; `train_data.py` makes the training data from his books, his lives and Qwen's own best decisions; `hegelizer.py` makes the Hegelizer's pairs from his translations (a plain version by Qwen as the input, his real passage as the target); `ocr.py` reads a scan afresh with Tesseract where archive.org's text is too damaged (the Fraktur of Rosenkranz); `arxiv_watch.py` lists new arXiv papers on what the project does, for the weekly literature watch |
-| `research/` | The research handover, GPT 6 Pro's report, the literature gaps (`LITERATURE-GAPS.md`) and the weekly literature watch (`watch/`, its runbook and digests) |
+| `research/` | The research handover, GPT 6 Pro's report, the research note on Hegel's own account of mind as a cognitive architecture, the literature gaps (`LITERATURE-GAPS.md`) and the weekly literature watch (`watch/`, its runbook and digests) |
 | `HERMES.md` | The runbook Hermes follows |
 
 `python3 -m world simulate --date 2026-10-03` rehearses a whole day offline with a stand-in mind whose thoughts are marked `(rehearsal)`. Add `--mind http://PC:8081` to rehearse with the real one. Nothing is pushed.
