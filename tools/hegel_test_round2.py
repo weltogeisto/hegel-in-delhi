@@ -246,13 +246,17 @@ def run_arm(out, arm, profile, restyle_client, judge_client, base_client, guard)
     if not _plain_client(judge_client) or not _plain_client(base_client) or arm == "control" and not _plain_client(restyle_client):
         raise ValueError("the judge, base mind and control must stay plain Qwen")
     plan = load_plan(out)
+    confirmation_release = None
+    if plan.get("purpose") == "t45-confirmation":
+        from tools.voice_confirmation import verify_release
+        confirmation_release = verify_release(out, arm, profile, restyle_client)
     root = Path(out) / "private"
     client_info = lambda c: {"url": c.url, "model": c.model, "lora": c.lora, "slot": c.slot}
     run_plan = {"cohort_sha256": plan["cohort_sha256"], "key_commitment": plan["key_commitment"],
-                "arm": arm, "profile": profile, "restyle": client_info(restyle_client),
+                "arm": arm, "profile": profile, "confirmation_release_sha256": confirmation_release, "restyle": client_info(restyle_client),
                 "judge": client_info(judge_client), "base": client_info(base_client), "guard": guard.fingerprint,
                 "source_sha256": {name: digest((REPO / name).read_bytes()) for name in
-                    ["tools/hegel_test_round2.py", "tools/hegel_test.py", "tools/recorded_llama.py", "world/restyle.py", "world/contract.py"]}}
+                    ["tools/hegel_test_round2.py", "tools/voice_dashboard.py", "tools/voice_confirmation.py", "tools/hegel_test.py", "tools/recorded_llama.py", "world/restyle.py", "world/contract.py"]}}
     freeze_plan(root / ("RUN-" + arm + "-" + profile + ".json"), run_plan)
     run_hash = digest(json_bytes(run_plan))
     selected = root / "selected" / (arm + "-" + profile)
@@ -262,7 +266,10 @@ def run_arm(out, arm, profile, restyle_client, judge_client, base_client, guard)
             rewritten = run_restyle(restyle_client, guard, thought["plain"], "voice/" + thought["id"], plan["seed"] + 17 * i)
             meaning = meaning_check(judge_client, thought["plain"], rewritten["text"],
                                     "meaning/" + arm + "/" + profile + "/" + thought["id"], plan["seed"] + i)
-            return {"id": thought["id"], "plain": thought["plain"], "restyle": rewritten, "meaning": meaning,
+            from tools.voice_dashboard import meaning_propositions
+            details = meaning_propositions(judge_client, thought["plain"], rewritten["text"],
+                "meaning-propositions/" + arm + "/" + profile + "/" + thought["id"], plan["seed"] + i)
+            return {"id": thought["id"], "plain": thought["plain"], "restyle": rewritten, "meaning": meaning, "meaning_propositions": details,
                     "copied12": bool(guard.matches(rewritten["text"]))}
         voices.append(case_result(selected / ("voice-" + str(i) + ".json"), {"run": run_hash, "thought": thought}, build))
     later = wordlist("after_1831.txt", "s?")
@@ -468,6 +475,7 @@ def main(argv=None):
     action.add_argument("--prepare", action="store_true")
     action.add_argument("--run", action="store_true")
     action.add_argument("--sheets", action="store_true")
+    action.add_argument("--dashboard", action="store_true", help="private diagnostics from both saved arms; no model calls")
     action.add_argument("--diagnostic", type=Path, help="saved step7 JSON only; never generates outputs")
     p.add_argument("--out", type=Path, required=True)
     p.add_argument("--days-dir", type=Path)
@@ -498,6 +506,21 @@ def main(argv=None):
         metrics = reconstruction_diagnostic(rows)
         freeze_plan(a.out / "private/RECONSTRUCTION-DIAGNOSTIC.json", metrics)
         print(json.dumps(metrics))
+    elif a.dashboard:
+        if not a.control_result or not a.adapter_result:
+            p.error("--dashboard needs both saved result files")
+        from tools.voice_dashboard import dashboard, render_html
+        plan = load_plan(a.out)
+        if digest(Path(plan["shelf_path"]).read_bytes()) != plan["source_sha256"]["shelf"]:
+            p.error("frozen shelf changed")
+        cast_bytes = (a.out / "private/inputs/cast.json").read_bytes()
+        if digest(cast_bytes) != plan["source_sha256"].get("cast", plan["source_sha256"].get("cast.json")):
+            p.error("frozen cast changed")
+        guard = restyle.ShelfGuard.from_shelf(shelf.load(plan["shelf_path"]))
+        report = dashboard(plan, json.loads(a.control_result.read_bytes()), json.loads(a.adapter_result.read_bytes()), guard, json.loads(cast_bytes))
+        write_new(a.out / "private/VOICE-DASHBOARD.json", json_bytes(report))
+        write_new(a.out / "private/VOICE-DASHBOARD.html", render_html(report).encode())
+        print(json.dumps({"gating": False, "n": report["n"], "saved_private": True}))
     elif a.run:
         if not all([a.url, a.judge_url, a.arm, a.latency_observation, a.latency_limit]) or not math.isfinite(a.latency_limit) or a.latency_limit <= 0:
             p.error("shared-day --run requires URLs, arm and a fresh frozen latency observation/limit")
