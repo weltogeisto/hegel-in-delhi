@@ -557,6 +557,8 @@ def main(argv=None):
     p.add_argument("--save-steps", type=int, default=25, help="a checkpoint every this many optimizer steps (default 25)")
     p.add_argument("--seed", type=int, default=3407)
     p.add_argument("--round-two", action="store_true", help="round-two restyle data, step evaluations and a NEW output directory")
+    p.add_argument("--chapter-splits", type=Path, help="immutable Training 1 chapter split manifest")
+    p.add_argument("--confirmation-seal", type=Path, help="T45 seal frozen before Phase B")
     p.add_argument("--goldfish", action="store_true", help="round two: deterministic target-token loss masking")
     p.add_argument("--goldfish-k", type=int, default=4)
     p.add_argument("--goldfish-context", type=int, default=13)
@@ -567,6 +569,8 @@ def main(argv=None):
     if args.round_two:
         if args.phase != "restyle":
             p.error("--round-two requires --phase restyle")
+        if not args.chapter_splits or not args.confirmation_seal:
+            p.error("--round-two requires --chapter-splits and --confirmation-seal")
         if not supplied("--rank"):
             args.rank = 16
         if args.batch < 1:
@@ -594,7 +598,9 @@ def main(argv=None):
     if args.check_data:
         if args.round_two:
             from pc.restyle_round2 import check_data as check_round_two
-            return 0 if check_round_two(args.data, args.seq_restyle) else 1
+            from tools.voice_confirmation import verify_seal
+            verify_seal(args.confirmation_seal)
+            return 0 if check_round_two(args.data, args.seq_restyle, chapter_splits=args.chapter_splits) else 1
         ok, _ = check_data(args.data, args.seq_corpus, args.seq_format, strict=args.strict, phase=args.phase, seq_restyle=args.seq_restyle)
         return 0 if ok else 1
     if not args.base:

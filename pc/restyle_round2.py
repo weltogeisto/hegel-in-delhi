@@ -44,7 +44,7 @@ def mask_rows(rows, k=4, context=13):
     return [dict(row, labels=goldfish_labels(row["input_ids"], row["labels"], k, context)) for row in rows]
 
 
-def load_data(folder):
+def load_data(folder, chapter_splits=None):
     """Expand two accepted versions only after the whole fixed-unit gate has passed."""
     folder = Path(folder)
     units = data2.strict_rows(folder / data2.UNITS)
@@ -52,6 +52,12 @@ def load_data(folder):
     gate = data2.gate(units, good, failed)
     if not gate["passed"]:
         raise ValueError("round-two corpus is incomplete or failed its strict unit/ratio gate: " + json.dumps(gate))
+    assignments = None
+    if chapter_splits is not None:
+        from tools.chapter_splits import load_manifest
+        manifest, checksum = load_manifest(chapter_splits, folder / data2.UNITS)
+        assignments = manifest["assignments"]
+        gate = dict(gate, chapter_splits_sha256=checksum)
     by_id, parent_splits = {u["id"]: u for u in units}, {}
     for unit in units:
         parent = by_id.get(unit.get("parent_id"))
@@ -72,6 +78,9 @@ def load_data(folder):
             if not plain or data2.diversity(unit["original"], plain)["problems"]:
                 raise ValueError("saved plain version fails recipe4's fixed checks")
             row = {k: unit[k] for k in ("work", "ref", "split", "original", "kind", "parent_id")}
+            if assignments is not None:
+                assignment = assignments[unit["id"]]
+                row.update(original_split=row["split"], split=assignment["split"], chapter_group=assignment["group"])
             row.update(id=unit["id"] + "/v" + str(version["variant"]), unit_id=unit["id"],
                        variant=version["variant"], plain=plain, recipe=4)
             rows[row["split"]].append(row)
@@ -101,9 +110,9 @@ def held_units(rows, count=20):
     return selected
 
 
-def check_data(folder, seq, say=print):
+def check_data(folder, seq, say=print, chapter_splits=None):
     try:
-        rows, gate = load_data(folder)
+        rows, gate = load_data(folder, chapter_splits)
         held = held_units(rows["held"])
         from pc import train_hegel
         long_rows = sum(train_hegel.restyle_tokens(r) > seq for r in rows["train"] + held)
@@ -252,7 +261,11 @@ def runtime():
 
 
 def train(args, api, engine=None, generate=None, delta_fn=None):
-    rows, gate = load_data(args.data)
+    if not getattr(args, "chapter_splits", None) or not getattr(args, "confirmation_seal", None):
+        raise SystemExit("Training 1 needs --chapter-splits and --confirmation-seal before model loading")
+    from tools.voice_confirmation import verify_seal
+    _, confirmation_hash = verify_seal(args.confirmation_seal)
+    rows, gate = load_data(args.data, args.chapter_splits)
     held = held_units(rows["held"])
     out = Path(args.out) if args.out else api.OUT / ("hegelizer2-lora-dryrun" if args.dry_run else "hegelizer2-lora")
     if (out / "adapter_model.safetensors").exists():
@@ -260,10 +273,12 @@ def train(args, api, engine=None, generate=None, delta_fn=None):
     if out.exists() and any(out.iterdir()) and not args.resume:
         raise SystemExit("round-two output already exists; preserve it and use --resume or a NEW output")
     out.mkdir(parents=True, exist_ok=True)
-    source_names = ["pc/train_hegel.py", "pc/restyle_round2.py", "tools/hegelizer.py", "tools/hegelizer_round2.py", "tools/hegel_test.py", "world/restyle.py"]
+    source_names = ["tools/chapter_splits.py", "tools/voice_confirmation.py", "pc/train_hegel.py", "pc/restyle_round2.py", "tools/hegelizer.py", "tools/hegelizer_round2.py", "tools/hegel_test.py", "world/restyle.py"]
     source_hashes = {name: hashlib.sha256((api.REPO / name).read_bytes()).hexdigest() for name in source_names}
     plan = {"base": args.base, "source_sha256": source_hashes, "versions": api.versions(), "dry_run": args.dry_run, "data_sha256": hashlib.sha256((Path(args.data) / data2.DONE).read_bytes()).hexdigest(),
             "units_sha256": hashlib.sha256((Path(args.data) / data2.UNITS).read_bytes()).hexdigest(),
+            "chapter_splits_sha256": gate["chapter_splits_sha256"],
+            "confirmation_seal_sha256": confirmation_hash,
             "held_ids": [r["id"] for r in held], "rank": args.rank, "alpha": args.alpha,
             "batch": args.batch, "accum": args.accum, "lr": args.lr_restyle, "epochs": args.epochs_restyle,
             "seq": args.seq_restyle, "seed": args.seed, "goldfish": args.goldfish,
