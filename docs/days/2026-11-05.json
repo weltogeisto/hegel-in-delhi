@@ -589,6 +589,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "18:39",
+   "to": "19:06",
+   "mode": "walk",
+   "a": "home",
+   "b": "khan"
   }
  ],
  "entries": [
@@ -1296,6 +1303,21 @@
    "to": "Hegel",
    "text": "Sir, I am not the state. If you have the money, keep it for your own tea. I am at the gatehouse.",
    "t": "18:29"
+  },
+  {
+   "k": "diary",
+   "text": "He has walked away, leaving the ethical idea hanging in the air like the brown haze outside. I am alone with my hunger and my cash, the particular service withdrawn because the universal payment is withheld. I must go out into the civil society of needs to satisfy the immediate urge, for the body does not wait for the state to resolve its contradictions.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§201"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    }
+   ],
+   "t": "18:39"
   }
  ],
  "steps": [
@@ -2678,13 +2700,60 @@
      "text": "Anecdotes are told, not so much about the circumstances of his life as about the sceptical manner in which he conducted himself, and in them his behaviour is made to look ridiculous; in this the universal of Scepticism is set against a particular case, so that what is absurd shoots up as of itself into relationships which appear to be consistent."
     }
    ]
+  },
+  {
+   "t": "18:39",
+   "end": "19:06",
+   "event": "Ramesh says: “Sir, I am not the state. If you have the money, keep it for your own tea. I am at the gatehouse.” He turns his back completely and walks away towards the gatehouse, leaving Hegel standing in the empty room.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "He has walked away, leaving the ethical idea hanging in the air like the brown haze outside. I am alone with my hunger and my cash, the particular service withdrawn because the universal payment is withheld. I must go out into the civil society of needs to satisfy the immediate urge, for the body does not wait for the state to resolve its contradictions.",
+    "action": "walk",
+    "place": "khan",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "khan",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.8
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§201",
+     "id": "dyde-right:482"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:23"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§201",
+     "text": "The family is the first basis of the state, and classes or estates are the second. This second is of con- sequence because private persons, through self-seeking, are compelled to turn themselves out towards others. This is the linkhy which self-seeking is joined to the universal or the state, whose care it must be to keep the connection strong and steadfast."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state. The government has, up till now, shown such confidence in the scholars in this department as to leave the subject matter of philosophy wholly in their hands."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-05T18:39+05:30",
+  "place": "khan",
+  "until": "2026-11-05T19:06+05:30",
   "asleep": false,
   "imprest": 1336,
   "wearing": "kurta",
@@ -2783,8 +2852,8 @@
    },
    "no_meals": true,
    "bad_air": true,
-   "walked": 6975,
-   "strain": 6975,
+   "walked": 9000,
+   "strain": 9000,
    "hunger": 2
   },
   "account": {
