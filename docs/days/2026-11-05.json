@@ -484,6 +484,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "At the Directorate of Estates."
+  },
+  {
+   "from": "14:07",
+   "to": "14:47",
+   "mode": "walk",
+   "a": "estates",
+   "b": "khan"
   }
  ],
  "entries": [
@@ -721,6 +728,28 @@
    "to": "Hegel",
    "text": "Yes, they will know what to do. Good afternoon, Sir.",
    "t": "13:57"
+  },
+  {
+   "k": "diary",
+   "text": "The clerk’s dismissal is the final stroke of the bureaucratic machine; he treats my presence as an administrative error to be corrected, not a man to be addressed. I am merely a file moving through the apparatus, my identity reduced to a clerical typo. The state, in this instance, is not the ethical idea but the dull repetition of form. I must retreat from this counter and let the afternoon pass, for there is no reason to linger where I am treated as a nuisance.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§219"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§281"
+    }
+   ],
+   "t": "14:07"
+  },
+  {
+   "k": "wear",
+   "item": "White cotton kurta",
+   "status": "Worn from 14:07.",
+   "sprite": "kurta",
+   "t": "14:07"
   }
  ],
  "steps": [
@@ -1240,16 +1269,63 @@
      "text": "By virtue of this participation subjective liberty and conceit, with their general opinion, can show themselves palpably efficacious and enjoy the satisfaction of feeling themselves to count for something."
     }
    ]
+  },
+  {
+   "t": "14:07",
+   "end": "14:47",
+   "event": "Mr. Saxena says: “Yes, they will know what to do. Good afternoon, Sir.” Mr. Saxena returns his gaze to the stack of files and picks up his pen.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The clerk’s dismissal is the final stroke of the bureaucratic machine; he treats my presence as an administrative error to be corrected, not a man to be addressed. I am merely a file moving through the apparatus, my identity reduced to a clerical typo. The state, in this instance, is not the ethical idea but the dull repetition of form. I must retreat from this counter and let the afternoon pass, for there is no reason to linger where I am treated as a nuisance.",
+    "action": "walk",
+    "place": "khan",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "khan",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.2
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§219",
+     "id": "dyde-right:527"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§281",
+     "id": "dyde-right:724"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§219",
+     "text": "Eight, having entered reality in the form of law, and having become an actual fact, stands in independent opposition to the particular will and opinion of right, and has to vindicate itself as a tmiversal. The recognition and realization of right in each special case without the subjective instigation of private interests, is the office of a public power, the court of justice."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§281",
+     "text": "This view, as well as the idea that the monarch is chief-officer of state, and also the idea of a contract between him and the people, proceed from the will of the multitude, in the form of inclination, opinion, and caprice. These views, as we long ago remarked, first make themselves good, or rather seek to do so, in the civic community."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "estates",
-  "until": "2026-11-05T14:07+05:30",
+  "place": "khan",
+  "until": "2026-11-05T14:47+05:30",
   "asleep": false,
   "imprest": 1596,
-  "wearing": "bandhgala",
+  "wearing": "kurta",
   "wardrobe": [
    {
     "id": "frock",
@@ -1269,7 +1345,7 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Worn from 14:16."
+    "status": "Worn from 14:07."
    },
    {
     "id": "bandhgala",
@@ -1340,8 +1416,8 @@
    },
    "no_meals": true,
    "bad_air": true,
-   "walked": 1950,
-   "strain": 1950,
+   "walked": 4950,
+   "strain": 4950,
    "recouped": true
   },
   "account": {
