@@ -456,6 +456,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "13:06",
+   "to": "13:32",
+   "mode": "walk",
+   "a": "home",
+   "b": "estates"
   }
  ],
  "entries": [
@@ -539,6 +546,41 @@
    "to": "Hegel",
    "text": "I don't sit for the heat, sir. I have the keys, but the kettle stays cold until the money is real. You can wait for your office man; I will be in the gatehouse.",
    "t": "12:56"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh has made the abstract right concrete by withdrawing his labour. The kettle is cold because the ethical substance is suspended by the absence of the economic mechanism. I am starving, and my pride is a luxury I cannot afford to feed. I must go to the Directorate; the state is the actuality of the ethical idea, and only there can the universal will restore the particular to its place.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    }
+   ],
+   "t": "13:06"
+  },
+  {
+   "k": "said",
+   "text": "Go, Ramesh. The universal will assert itself where it is owed.",
+   "to": "Ramesh",
+   "t": "13:06"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Universal, particular, whatever. Just keep your keys in your pocket and don't touch the gate latch.",
+   "t": "13:06"
+  },
+  {
+   "k": "wear",
+   "item": "Bandhgala, charcoal",
+   "status": "Worn from 13:06.",
+   "sprite": "bandhgala",
+   "t": "13:06"
   }
  ],
  "steps": [
@@ -846,16 +888,68 @@
      "text": "It requires but little reflection to see that the services performed by the classes in behalf of the general well-being and public liberty cannot be traced to an insight special to these classes. The highest state of&cials have necessarily deeper and more comprehensive insight into the workings and needs of the state, and also greater skill and wider practical experience."
     }
    ]
+  },
+  {
+   "t": "13:06",
+   "end": "13:32",
+   "event": "Ramesh says: “I don't sit for the heat, sir. I have the keys, but the kettle stays cold until the money is real. You can wait for your office man; I will be in the gatehouse.” He turns on his heel and walks out towards the gatehouse, leaving the door open.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh has made the abstract right concrete by withdrawing his labour. The kettle is cold because the ethical substance is suspended by the absence of the economic mechanism. I am starving, and my pride is a luxury I cannot afford to feed. I must go to the Directorate; the state is the actuality of the ethical idea, and only there can the universal will restore the particular to its place.",
+    "action": "walk",
+    "place": "estates",
+    "minutes": 30,
+    "says": "Go, Ramesh. The universal will assert itself where it is owed.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "estates",
+   "voice": {
+    "by": "Ramesh",
+    "says": "Universal, particular, whatever. Just keep your keys in your pocket and don't touch the gate latch.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.1
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-05T13:06+05:30",
+  "place": "estates",
+  "until": "2026-11-05T13:32+05:30",
   "asleep": false,
   "imprest": 956,
-  "wearing": "kurta",
+  "wearing": "bandhgala",
   "wardrobe": [
    {
     "id": "frock",
@@ -880,7 +974,7 @@
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Worn from 12:46."
+    "status": "Worn from 13:06."
    }
   ],
   "people": [
@@ -933,7 +1027,9 @@
     ]
    },
    "no_meals": true,
-   "bad_air": true
+   "bad_air": true,
+   "walked": 1950,
+   "strain": 1950
   },
   "account": {
    "advance": 15000,
