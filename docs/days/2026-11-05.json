@@ -470,6 +470,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "13:47",
+   "to": "13:57",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -651,6 +658,34 @@
    "to": "Hegel",
    "text": "Sir, I am a section officer, not a philosopher, and I cannot expedite what has gone up for orders. The file is with the competent authority, so I suggest you collect your refund and return after fifteen days.",
    "t": "13:32"
+  },
+  {
+   "k": "diary",
+   "text": "The state reveals itself here not as the ethical idea in its full actuality, but as the mechanical apparatus of the clerk. I accept the envelope, for the cash is mine and the query sheet is the state’s way of admitting its own confusion. I will not argue with the machinery; I will simply wait for the fifteen days to pass, as one waits for a sun to rise.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§80"
+    }
+   ],
+   "t": "13:47"
+  },
+  {
+   "k": "said",
+   "text": "I see. I shall collect the refund and return when the competent authority has spoken. Thank you, Mr. Saxena.",
+   "to": "Mr. Saxena",
+   "t": "13:47"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Please. The counter is on the left, just show them the query sheet. I suggest you return after fifteen days, as I mentioned.",
+   "t": "13:47"
   }
  ],
  "steps": [
@@ -1063,13 +1098,65 @@
     }
    ],
    "beat": "saxena_file"
+  },
+  {
+   "t": "13:47",
+   "end": "13:57",
+   "event": "Mr. Saxena says: “Sir, I am a section officer, not a philosopher, and I cannot expedite what has gone up for orders. The file is with the competent authority, so I suggest you collect your refund and return after fifteen days.” Mr. Saxena pushes the cash envelope and the query sheet across the desk without looking up.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The state reveals itself here not as the ethical idea in its full actuality, but as the mechanical apparatus of the clerk. I accept the envelope, for the cash is mine and the query sheet is the state’s way of admitting its own confusion. I will not argue with the machinery; I will simply wait for the fifteen days to pass, as one waits for a sun to rise.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 10,
+    "says": "I see. I shall collect the refund and return when the competent authority has spoken. Thank you, Mr. Saxena.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Please. The counter is on the left, just show them the query sheet. I suggest you return after fifteen days, as I mentioned.",
+    "does": "Mr. Saxena glances up briefly to point towards the left side of the office before looking back down at his papers."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.4
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "id": "wallace-mind:321"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§80",
+     "id": "dyde-right:221"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "text": "Thus, it may be—if we look only to the fact that the will of one individual stands at the head of the state—oriental despotism is included under the vague name monarchy,—as also feudal monarchy, to which indeed even the favourite name of “constitutional monarchy” cannot be refused."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§80",
+     "text": "In exchange, purchase, or gift, I may have become owner, without being as yet in actual possession. Indeed, in every contract, except such as are directly on a cash basis, this separation is to be found. Security or pledge is concerned with an object which I give up, or an object which is to be mine."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-05T13:47+05:30",
+  "until": "2026-11-05T13:57+05:30",
   "asleep": false,
   "imprest": 1596,
   "wearing": "bandhgala",
