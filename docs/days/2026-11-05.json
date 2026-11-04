@@ -449,6 +449,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "12:56",
+   "to": "13:06",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -504,6 +511,34 @@
    "to": "Hegel",
    "text": "Sir, you speak in circles like the wind in the trees. The state owes me, not the house. I will stay until the money is in my hand, but I will not cook or wash for empty promises.",
    "t": "12:41"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh has reduced the ethical relation to the mechanism of civil society: the master is dependent on the servant's labour, and the servant holds the power of the negative. The state, which I claim as the actuality of the ethical idea, cannot pay him directly; it is mediated through the Directorate, which is currently absent. I am trapped in the contradiction of my own position: a man of the universal spirit who cannot even secure a meal without the particular consent of a man who sees only the state's debt. I must accept this humiliation as the friction of the spirit in the material world.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301"
+    }
+   ],
+   "t": "12:56"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, you are right. The state's duty is mediated, and I am the intermediary. I do not have the cash; I have only the promise of the Directorate. You have the right to refuse. I will not ask you to cook today. Sit, and let us wait for the heat to pass, or for the man from the office to return. Your labour is the condition of my existence here; I acknowledge that.",
+   "to": "Ramesh",
+   "t": "12:56"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "I don't sit for the heat, sir. I have the keys, but the kettle stays cold until the money is real. You can wait for your office man; I will be in the gatehouse.",
+   "t": "12:56"
   }
  ],
  "steps": [
@@ -759,13 +794,65 @@
     }
    ],
    "beat": "ramesh_parttime"
+  },
+  {
+   "t": "12:56",
+   "end": "13:06",
+   "event": "Ramesh says: “Sir, you speak in circles like the wind in the trees. The state owes me, not the house. I will stay until the money is in my hand, but I will not cook or wash for empty promises.” He folds his hands behind his back and waits, looking at the dusty floor.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh has reduced the ethical relation to the mechanism of civil society: the master is dependent on the servant's labour, and the servant holds the power of the negative. The state, which I claim as the actuality of the ethical idea, cannot pay him directly; it is mediated through the Directorate, which is currently absent. I am trapped in the contradiction of my own position: a man of the universal spirit who cannot even secure a meal without the particular consent of a man who sees only the state's debt. I must accept this humiliation as the friction of the spirit in the material world.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Ramesh, you are right. The state's duty is mediated, and I am the intermediary. I do not have the cash; I have only the promise of the Directorate. You have the right to refuse. I will not ask you to cook today. Sit, and let us wait for the heat to pass, or for the man from the office to return. Your labour is the condition of my existence here; I acknowledge that.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "I don't sit for the heat, sir. I have the keys, but the kettle stays cold until the money is real. You can wait for your office man; I will be in the gatehouse.",
+    "does": "He turns on his heel and walks out towards the gatehouse, leaving the door open."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 12.9
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction",
+     "id": "sibree-history:97"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301",
+     "id": "dyde-right:763"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction",
+     "text": "If we go on to cast a look at the fate of these World-Historical persons, whose vocation it was to be the agents of the World-Spirit, — we shall find it to have been no happy one. They attained no calm enjoyment; their whole life was labour and trouble; their whole nature was nought else but their master-passion."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301",
+     "text": "It requires but little reflection to see that the services performed by the classes in behalf of the general well-being and public liberty cannot be traced to an insight special to these classes. The highest state of&cials have necessarily deeper and more comprehensive insight into the workings and needs of the state, and also greater skill and wider practical experience."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-05T12:56+05:30",
+  "until": "2026-11-05T13:06+05:30",
   "asleep": false,
   "imprest": 956,
   "wearing": "kurta",
