@@ -477,6 +477,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "13:57",
+   "to": "14:07",
+   "mode": "inside",
+   "at": "estates",
+   "now": "At the Directorate of Estates."
   }
  ],
  "entries": [
@@ -686,6 +693,34 @@
    "to": "Hegel",
    "text": "Please. The counter is on the left, just show them the query sheet. I suggest you return after fifteen days, as I mentioned.",
    "t": "13:47"
+  },
+  {
+   "k": "diary",
+   "text": "The state speaks through the pointing finger of a clerk, directing me to the counter as if I were a petitioner in a court of justice, rather than a member of the ethical community. I am to wait fifteen days, a period of suspension where the mechanical apparatus of the bureaucracy operates independently of the spirit. I shall go to the counter to present the query sheet, for even in this mechanical repetition, the form of law must be observed.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544"
+    }
+   ],
+   "t": "13:57"
+  },
+  {
+   "k": "said",
+   "text": "Very well, I shall present the query sheet at the counter.",
+   "to": "Mr. Saxena",
+   "t": "13:57"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Yes, they will know what to do. Good afternoon, Sir.",
+   "t": "13:57"
   }
  ],
  "steps": [
@@ -1150,13 +1185,68 @@
      "text": "In exchange, purchase, or gift, I may have become owner, without being as yet in actual possession. Indeed, in every contract, except such as are directly on a cash basis, this separation is to be found. Security or pledge is concerned with an object which I give up, or an object which is to be mine."
     }
    ]
+  },
+  {
+   "t": "13:57",
+   "end": "14:07",
+   "event": "Mr. Saxena says: “Please. The counter is on the left, just show them the query sheet. I suggest you return after fifteen days, as I mentioned.” Mr. Saxena glances up briefly to point towards the left side of the office before looking back down at his papers.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The state speaks through the pointing finger of a clerk, directing me to the counter as if I were a petitioner in a court of justice, rather than a member of the ethical community. I am to wait fifteen days, a period of suspension where the mechanical apparatus of the bureaucracy operates independently of the spirit. I shall go to the counter to present the query sheet, for even in this mechanical repetition, the form of law must be observed.",
+    "action": "stay",
+    "place": "estates",
+    "minutes": 10,
+    "says": "Very well, I shall present the query sheet at the counter.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Yes, they will know what to do. Good afternoon, Sir.",
+    "does": "Mr. Saxena returns his gaze to the stack of files and picks up his pen."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.8,
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "id": "dyde-right:205"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "id": "wallace-mind:319"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "text": "Addition. — The particular person is really a subordinate, who must devote his life to the service of the ethical fabric; when the state demands his life, he must yield it up. But should the man take his own life? Suicide may at first glance be looked upon as bravery, although it be the poor bravery of tailors and maid-servants."
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "text": "By virtue of this participation subjective liberty and conceit, with their general opinion, can show themselves palpably efficacious and enjoy the satisfaction of feeling themselves to count for something."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-05T13:57+05:30",
+  "until": "2026-11-05T14:07+05:30",
   "asleep": false,
   "imprest": 1596,
   "wearing": "bandhgala",
