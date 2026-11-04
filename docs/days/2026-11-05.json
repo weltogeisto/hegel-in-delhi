@@ -442,6 +442,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "12:41",
+   "to": "12:56",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -459,6 +466,44 @@
    "settles": true,
    "text": "Paid to Ramesh.",
    "t": "09:11"
+  },
+  {
+   "k": "world",
+   "text": "Ramesh offers to come three days a week, Mondays, Thursdays and Saturdays, for ₹4,000 a month instead of ₹8,000.",
+   "t": "12:41"
+  },
+  {
+   "k": "world",
+   "text": "He keeps Ramesh on as before. The wage stands owed.",
+   "t": "12:41"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s offer is a practical negation of my position. I cannot pay eight thousand rupees when I possess less than a thousand, and his proposed schedule of three days a month is a retreat into a particularity that starves the universal household. I must not capitulate to the immediate necessity of his limited availability; instead, I must assert the ethical demand of the domestic sphere, which requires his presence and my solvency. I will refuse his terms, not out of malice, but because the master-servant relation here is being distorted by a lack of mutual recognition of the whole.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction"
+    }
+   ],
+   "t": "12:41"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, your proposal is a retreat into the particular at the expense of the ethical life of the household. I cannot accept a reduction in service that leaves the house in a state of incompletion. The wage is a debt of the state’s error, not a personal indulgence. You will continue your duties as before. I will not pay the full sum today, as my purse is empty, but I will not accept a new, diminished arrangement. We are in a suspension, not a dissolution.",
+   "to": "Ramesh",
+   "t": "12:41"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, you speak in circles like the wind in the trees. The state owes me, not the house. I will stay until the money is in my hand, but I will not cook or wash for empty promises.",
+   "t": "12:41"
   }
  ],
  "steps": [
@@ -661,13 +706,66 @@
      ]
     ]
    }
+  },
+  {
+   "t": "12:41",
+   "end": "12:56",
+   "event": "Ramesh knows the wage is more than the purse holds, he says, without looking at it. He could come on Mondays, Thursdays and Saturdays only, for ₹4,000 a month.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh’s offer is a practical negation of my position. I cannot pay eight thousand rupees when I possess less than a thousand, and his proposed schedule of three days a month is a retreat into a particularity that starves the universal household. I must not capitulate to the immediate necessity of his limited availability; instead, I must assert the ethical demand of the domestic sphere, which requires his presence and my solvency. I will refuse his terms, not out of malice, but because the master-servant relation here is being distorted by a lack of mutual recognition of the whole.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, your proposal is a retreat into the particular at the expense of the ethical life of the household. I cannot accept a reduction in service that leaves the house in a state of incompletion. The wage is a debt of the state’s error, not a personal indulgence. You will continue your duties as before. I will not pay the full sum today, as my purse is empty, but I will not accept a new, diminished arrangement. We are in a suspension, not a dissolution.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Sir, you speak in circles like the wind in the trees. The state owes me, not the house. I will stay until the money is in my hand, but I will not cook or wash for empty promises.",
+    "does": "He folds his hands behind his back and waits, looking at the dusty floor."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 15.9
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "id": "haldane-3:37"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "text": "Christ says: “If I depart, I will send the Comforter, the Holy Ghost.... He will guide you into all truth,” He—and not Christ’s earthly presence nor His spoken words. It was only to be after Him, and after His teaching through the text, that the Spirit was to come into the Apostles, and that they were to become full of the Spirit."
+    }
+   ],
+   "beat": "ramesh_parttime"
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-05T12:41+05:30",
+  "until": "2026-11-05T12:56+05:30",
   "asleep": false,
   "imprest": 956,
   "wearing": "kurta",
@@ -1036,7 +1134,8 @@
    ]
   },
   "refused": {
-   "sell_frock_again": "2026-10-28"
+   "sell_frock_again": "2026-10-28",
+   "ramesh_parttime": "2026-11-05"
   },
   "tech": {
    "phone": false,
