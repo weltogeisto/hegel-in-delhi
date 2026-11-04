@@ -617,6 +617,13 @@
    "mode": "walk",
    "a": "khan",
    "b": "home"
+  },
+  {
+   "from": "20:03",
+   "to": "21:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1422,6 +1429,21 @@
     }
    ],
    "t": "19:36"
+  },
+  {
+   "k": "diary",
+   "text": "The body is exhausted, a mere mechanism worn down by the friction of the day, and the presence of Shri Hegde is a sharp reminder that my occupation is still a legal fiction, a particular error that the universal bureaucracy has not yet corrected. I have walked eleven kilometers and eaten only what the market offered, but sleep is the only discipline the body obeys without resistance. I will rest; the file will wait until Friday, and the spirit must be preserved for the struggle of the coming week.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33"
+    }
+   ],
+   "t": "20:03"
   }
  ],
  "steps": [
@@ -3019,13 +3041,61 @@
      "text": "Spirit's oneness with itself contains this opposition of individuahty and imiversahty. Since the aspects of the work produced become closer by performance of it, there comes about thereby at the same time the other fact, that the work gets nearer to the self-consciousness performing it, and that the latter attains in the work knowledge of itself as it truly is."
     }
    ]
+  },
+  {
+   "t": "20:03",
+   "end": "21:00",
+   "event": "You are tired.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The body is exhausted, a mere mechanism worn down by the friction of the day, and the presence of Shri Hegde is a sharp reminder that my occupation is still a legal fiction, a particular error that the universal bureaucracy has not yet corrected. I have walked eleven kilometers and eaten only what the market offered, but sleep is the only discipline the body obeys without resistance. I will rest; the file will wait until Friday, and the spirit must be preserved for the struggle of the coming week.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 60,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.1
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "id": "rechts:121"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-05T20:03+05:30",
+  "until": "2026-11-05T21:00+05:30",
   "asleep": false,
   "imprest": 1286,
   "wearing": "kurta",
@@ -3126,7 +3196,8 @@
    "bad_air": true,
    "walked": 11025,
    "strain": 11025,
-   "hunger": 2
+   "hunger": 2,
+   "tired": true
   },
   "account": {
    "advance": 15000,
