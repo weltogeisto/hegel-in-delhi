@@ -19,6 +19,9 @@ def words(text):
     return re.findall(r"[^\W_]+(?:['’][^\W_]+)?", text)
 
 def strict_object(raw):
+    # Match the legacy judge's wrapper handling without losing duplicate fields.
+    raw = re.sub(r"<think>.*?</think>", "", raw or "", flags=re.S).strip()
+    raw = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw).strip()
     def pairs(items):
         result = {}
         for key, value in items:

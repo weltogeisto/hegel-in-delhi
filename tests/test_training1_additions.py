@@ -207,7 +207,11 @@ class DashboardTest(unittest.TestCase):
         self.assertTrue(got['format_valid'])
         self.assertEqual(client.chat.call_args.args[2], 0.0)
         for raw, finish in [('{"added":[],"added":[],"omitted":[]}', 'stop'),
-                            ('{"added":[],"omitted":[]}', 'length'), ('{"added":true,"omitted":[]}', 'stop')]:
+                            ('{"added":[],"omitted":[]}', 'length'), ('{"added":true,"omitted":[]}', 'stop'),
+                            ('```' + 'json\n{"added":[],"added":[],"omitted":[]}\n' + '```', 'stop'),
+                            ('<think>reasoning</think>\n' + '```' + 'json\n{"added":[],"added":[],"omitted":[]}\n' + '```', 'stop'),
+                            ('```' + 'json\n{"added":[],"omitted":[]}\n' + '```', 'length'),
+                            ('```' + 'json\n{"added":[],"omitted":\n' + '```', 'stop')]:
             client.chat.return_value = (raw, finish)
             value = dash.meaning_propositions(client, 'input', 'output', 'id', 1831)
             self.assertFalse(value['format_valid'])
@@ -215,6 +219,36 @@ class DashboardTest(unittest.TestCase):
         client.lora = [{'id': 0, 'scale': 1}]
         with self.assertRaises(ValueError):
             dash.meaning_propositions(client, 'input', 'output', 'id', 1831)
+
+    def test_wrapped_propositions_keep_dashboard_totals_available(self):
+        payload = '{"added":["a new claim"],"omitted":["a missing claim"]}'
+        wrappers = [
+            '```' + 'json\n' + payload + '\n' + '```',
+            '```' + '\n' + payload + '\n' + '```',
+            '<think>Reasoning\nabout the texts.</think>\n' + payload,
+            ' \n<think>Reasoning\nabout the texts.</think>\n' + '```' + 'json\n' + payload + '\n' + '```' + '\n ',
+        ]
+        client = SimpleNamespace(model='qwen', lora=None, chat=mock.Mock())
+        with tempfile.TemporaryDirectory() as td:
+            _, plan = prepared(Path(td))
+            for raw in wrappers:
+                with self.subTest(raw=raw):
+                    client.chat.return_value = (raw, 'stop')
+                    detail = dash.meaning_propositions(client, 'input', 'output', 'id', 1831)
+                    self.assertTrue(detail['format_valid'])
+                    self.assertEqual(detail['added'], ['a new claim'])
+                    self.assertEqual(detail['omitted'], ['a missing claim'])
+                    self.assertEqual(detail['raw'], raw)
+                    self.assertFalse(detail['gating'])
+                    control, adapter = result(plan, 'control'), result(plan)
+                    for row in control['voice'] + adapter['voice']:
+                        row['meaning_propositions'] = {'format_valid': True, 'added': [], 'omitted': []}
+                    adapter['voice'][0]['meaning_propositions'] = detail
+                    report = dash.dashboard(plan, control, adapter, restyle.ShelfGuard([COPY]), CAST, lambda text: 0.34)
+                    self.assertEqual(report['summary']['adapter']['propositions_valid_cases'], 40)
+                    self.assertEqual(report['summary']['adapter']['propositions_added'], 1)
+                    self.assertEqual(report['summary']['adapter']['propositions_omitted'], 1)
+                    self.assertNotIn('unavailable', dash.render_html(report))
 
     def test_guard_before_after_fallback_and_equal_length_delta_preserve_outputs(self):
         with tempfile.TemporaryDirectory() as td:
