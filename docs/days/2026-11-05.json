@@ -596,6 +596,13 @@
    "mode": "walk",
    "a": "home",
    "b": "khan"
+  },
+  {
+   "from": "19:06",
+   "to": "19:21",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -1318,6 +1325,46 @@
     }
    ],
    "t": "18:39"
+  },
+  {
+   "k": "diary",
+   "text": "The brown haze chokes the air, a brown smog that seems to settle on the spirit as well as the lungs. I have eaten nothing substantial since yesterday, and the body’s demand for samosas is a particular need that must be satisfied before the universal mind can think clearly. The bookseller is still there, and Masterji’s warning to not block the counter is a practical wisdom I shall heed, though I have no intention of lingering in the line.",
+   "shelf": [
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    }
+   ],
+   "t": "19:06"
+  },
+  {
+   "k": "said",
+   "text": "Masterji, I take the samosas and the chai. The system of needs is not to be ignored, even if it is merely a system of needs.",
+   "to": "Masterji",
+   "t": "19:06"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Samosa, chai. Put it on the counter. You eat, I work.",
+   "t": "19:06"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "19:06"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "19:06"
   }
  ],
  "steps": [
@@ -2747,15 +2794,77 @@
      "text": "With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state. The government has, up till now, shown such confidence in the scholars in this department as to leave the subject matter of philosophy wholly in their hands."
     }
    ]
+  },
+  {
+   "t": "19:06",
+   "end": "19:21",
+   "event": "You arrive at Khan Market. It closes at 20:30.",
+   "present": [
+    "Masterji, the tailor",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The brown haze chokes the air, a brown smog that seems to settle on the spirit as well as the lungs. I have eaten nothing substantial since yesterday, and the body’s demand for samosas is a particular need that must be satisfied before the universal mind can think clearly. The bookseller is still there, and Masterji’s warning to not block the counter is a practical wisdom I shall heed, though I have no intention of lingering in the line.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 15,
+    "says": "Masterji, I take the samosas and the chai. The system of needs is not to be ignored, even if it is merely a system of needs.",
+    "buys": [
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     },
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Masterji",
+    "says": "Samosa, chai. Put it on the counter. You eat, I work.",
+    "does": "Masterji slides the plate and cup across the counter without looking up from his stitching."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.0
+   },
+   "shelf": [
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:133"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "Here the family falls asunder, and the members become independent one of another, being now held together merely by the bond of mutual need. This is the stage of the civic community, which has frequently been taken for the state."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-05T19:06+05:30",
+  "until": "2026-11-05T19:21+05:30",
   "asleep": false,
-  "imprest": 1336,
+  "imprest": 1286,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -2921,6 +3030,20 @@
      "item": "Samosa",
      "price": 30,
      "office": false
+    },
+    {
+     "date": "2026-11-05",
+     "t": "19:06",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-05",
+     "t": "19:06",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
     }
    ],
    "admitted": 640,
@@ -3084,7 +3207,7 @@
    "sim": false
   },
   "last_meal": "2026-10-27T18:45+05:30",
-  "snacks": 5,
+  "snacks": 6,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
