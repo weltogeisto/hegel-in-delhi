@@ -519,6 +519,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "16:17",
+   "to": "16:27",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -915,6 +922,40 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "16:07"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil’s jest cuts through the haze: the body is the first substance, the hungry belly that must be filled before the spirit can rise. I have walked five kilometres and eaten only a samosa; the particular demands satisfaction now. The air is thick with dust, but the need for food is thicker. I will take a cup of chai to sustain the movement.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§181"
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§198"
+    }
+   ],
+   "t": "16:17"
+  },
+  {
+   "k": "said",
+   "text": "The belly is indeed the foundation; without it, the mind is merely a ghost. One cup, then.",
+   "to": "Masterji and Sunil",
+   "t": "16:17"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Ghusta hai, bas. Bhookh toh sabse pehle aati hai. Lo, chai. ₹20.",
+   "t": "16:17"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "16:17"
   }
  ],
  "steps": [
@@ -1716,15 +1757,74 @@
      "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
     }
    ]
+  },
+  {
+   "t": "16:17",
+   "end": "16:27",
+   "event": "Sunil says: “Haan, aapka dimag bhi heavy ho gaya hai na? Ghar mein wala pet hi sabse zyada bhukha hota hai, baaki sab philosophy se bharta hai.”",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil’s jest cuts through the haze: the body is the first substance, the hungry belly that must be filled before the spirit can rise. I have walked five kilometres and eaten only a samosa; the particular demands satisfaction now. The air is thick with dust, but the need for food is thicker. I will take a cup of chai to sustain the movement.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 10,
+    "says": "The belly is indeed the foundation; without it, the mind is merely a ghost. One cup, then.",
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Masterji",
+    "says": "Ghusta hai, bas. Bhookh toh sabse pehle aati hai. Lo, chai. ₹20.",
+    "does": "He slides the cup of chai across the counter and taps the price on the calculator."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.7
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§181",
+     "id": "dyde-right:446"
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§198",
+     "id": "enzyklopaedie:513"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§181",
+     "text": "The Civic Commtjnitt. I82J The concrete person^ho as particular is an end to himself, is a totality of - wanta -and a mixture of necessity and caprice. As such he is one of the principles of the civic community. But the particular person is essentially connected with others."
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§198",
+     "text": "Wie das Sonnensystem, so ist z. B. im Praktischen der Staat ein System von drei Schlüssen. 1) Der Einzelne (die Person) schliesst sich durch seine Besonderheit (die physischen und geistigen Bedürfnisse, was weiter für sich ausgebildet die bürgerliche Gesellschaft giebt) mit dem Allgemeinen (der Gesellschaft, dem Rechte, Gesetz, Regierung) zusammen. 2) Ist der Wille…"
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-05T16:17+05:30",
+  "until": "2026-11-05T16:27+05:30",
   "asleep": false,
-  "imprest": 1481,
+  "imprest": 1461,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1852,6 +1952,13 @@
     {
      "date": "2026-11-05",
      "t": "16:07",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-05",
+     "t": "16:17",
      "item": "Chai, a cup",
      "price": 20,
      "office": false
