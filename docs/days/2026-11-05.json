@@ -554,6 +554,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with Masterji and Sunil at Khan Market."
+  },
+  {
+   "from": "17:12",
+   "to": "17:32",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -1115,6 +1122,40 @@
    "to": "Hegel",
    "text": "The paper won't read itself, and you're holding up the line. Sit where you want, but don't block the counter.",
    "t": "16:57"
+  },
+  {
+   "k": "diary",
+   "text": "The body is the first ethical substance I possess; to starve is to deny the particular for the universal, which is a contradiction I cannot abide. Masterji is right that the paper will not read itself, but the stomach will not wait for the dialectic to resolve. I must eat to continue the work of the spirit.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "17:12"
+  },
+  {
+   "k": "said",
+   "text": "Sunil, the samosa again. The spirit requires fuel, and the line must not stop.",
+   "to": "Masterji and Sunil",
+   "t": "17:12"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Bhai, you are not a machine, you need to chew properly. The samosa is already paid for, so just eat it quietly and let the others pass.",
+   "t": "17:12"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "17:12"
   }
  ],
  "steps": [
@@ -2213,15 +2254,74 @@
      "text": "Note. — The justification of the right of the author or inventor cannot be sought in his arbitrarily making it a condition, when he disposes of a copy, that the possibility of bringing out other copies shall not belong to the purchaser, but shall remain in his own hands."
     }
    ]
+  },
+  {
+   "t": "17:12",
+   "end": "17:32",
+   "event": "Masterji says: “The paper won't read itself, and you're holding up the line. Sit where you want, but don't block the counter.” Masterji gestures vaguely toward the corner chairs and goes back to folding a collar. You are very hungry.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The body is the first ethical substance I possess; to starve is to deny the particular for the universal, which is a contradiction I cannot abide. Masterji is right that the paper will not read itself, but the stomach will not wait for the dialectic to resolve. I must eat to continue the work of the spirit.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 20,
+    "says": "Sunil, the samosa again. The spirit requires fuel, and the line must not stop.",
+    "buys": [
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Bhai, you are not a machine, you need to chew properly. The samosa is already paid for, so just eat it quietly and let the others pass.",
+    "does": "He slides the fresh samosa across the counter and wipes his hands on his apron."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.1
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "id": "wallace-mind:321"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "text": "Thus, it may be—if we look only to the fact that the will of one individual stands at the head of the state—oriental despotism is included under the vague name monarchy,—as also feudal monarchy, to which indeed even the favourite name of “constitutional monarchy” cannot be refused."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-05T17:12+05:30",
+  "until": "2026-11-05T17:32+05:30",
   "asleep": false,
-  "imprest": 1366,
+  "imprest": 1336,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -2320,7 +2420,7 @@
    "bad_air": true,
    "walked": 4950,
    "strain": 4950,
-   "hunger": 1
+   "hunger": 2
   },
   "account": {
    "advance": 15000,
@@ -2380,6 +2480,13 @@
      "item": "Newspapers",
      "price": 45,
      "office": true
+    },
+    {
+     "date": "2026-11-05",
+     "t": "17:12",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
     }
    ],
    "admitted": 640,
@@ -2543,7 +2650,7 @@
    "sim": false
   },
   "last_meal": "2026-10-27T18:45+05:30",
-  "snacks": 4,
+  "snacks": 5,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
