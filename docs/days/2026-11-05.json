@@ -582,6 +582,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "18:29",
+   "to": "18:39",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -1261,6 +1268,34 @@
    "to": "Hegel",
    "text": "Sir, the state doesn't need to explain itself to a man with a cold kettle. I told you at noon, I am at the gatehouse until the wage clears.",
    "t": "18:14"
+  },
+  {
+   "k": "diary",
+   "text": "The dialectic of the kettle is absolute: the ethical idea, in its highest manifestation, requires the particular service of the cook. I have abstracted the state into a concept, but my stomach remains a particular organ that demands bread. To remain in the house with a cold kettle is to remain in the abstract; to go to the gatehouse is to enter the realm of actuality, where the wage is the bond between us. I must descend from the universal to the particular, and pay the debt.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Scepticism"
+    }
+   ],
+   "t": "18:29"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, wait. The universal has returned to the particular. I shall fetch the cash.",
+   "to": "Ramesh",
+   "t": "18:29"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, I am not the state. If you have the money, keep it for your own tea. I am at the gatehouse.",
+   "t": "18:29"
   }
  ],
  "steps": [
@@ -2588,13 +2623,68 @@
      "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
     }
    ]
+  },
+  {
+   "t": "18:29",
+   "end": "18:39",
+   "event": "Ramesh says: “Sir, the state doesn't need to explain itself to a man with a cold kettle. I told you at noon, I am at the gatehouse until the wage clears.” He turns his back and walks toward the gatehouse without looking at the keys in Hegel's pocket.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The dialectic of the kettle is absolute: the ethical idea, in its highest manifestation, requires the particular service of the cook. I have abstracted the state into a concept, but my stomach remains a particular organ that demands bread. To remain in the house with a cold kettle is to remain in the abstract; to go to the gatehouse is to enter the realm of actuality, where the wage is the bond between us. I must descend from the universal to the particular, and pay the debt.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 10,
+    "says": "Ramesh, wait. The universal has returned to the particular. I shall fetch the cash.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Sir, I am not the state. If you have the money, keep it for your own tea. I am at the gatehouse.",
+    "does": "He turns his back completely and walks away towards the gatehouse, leaving Hegel standing in the empty room."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.3,
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301",
+     "id": "dyde-right:763"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Scepticism",
+     "id": "haldane-2:849"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301",
+     "text": "It requires but little reflection to see that the services performed by the classes in behalf of the general well-being and public liberty cannot be traced to an insight special to these classes. The highest state of&cials have necessarily deeper and more comprehensive insight into the workings and needs of the state, and also greater skill and wider practical experience."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Scepticism",
+     "text": "Anecdotes are told, not so much about the circumstances of his life as about the sceptical manner in which he conducted himself, and in them his behaviour is made to look ridiculous; in this the universal of Scepticism is set against a particular case, so that what is absurd shoots up as of itself into relationships which appear to be consistent."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-05T18:29+05:30",
+  "until": "2026-11-05T18:39+05:30",
   "asleep": false,
   "imprest": 1336,
   "wearing": "kurta",
