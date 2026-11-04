@@ -603,6 +603,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "19:21",
+   "to": "19:36",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -1365,6 +1372,34 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "19:06"
+  },
+  {
+   "k": "diary",
+   "text": "Masterji treats the body as a machine to be fueled, not a spirit to be fed. He slides the samosa and chai as if offering oil to a piston. I accept, for the particular must be satisfied before the universal can assert itself. The hunger is a contradiction I must resolve to continue my work.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§531"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "19:21"
+  },
+  {
+   "k": "said",
+   "text": "The spirit requires fuel, and the line must not stop. You have my thanks for the efficiency.",
+   "to": "Masterji",
+   "t": "19:21"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Fuel. Hmph. Just eat the samosa before it gets cold.",
+   "t": "19:21"
   }
  ],
  "steps": [
@@ -2856,13 +2891,66 @@
      "text": "Here the family falls asunder, and the members become independent one of another, being now held together merely by the bond of mutual need. This is the stage of the civic community, which has frequently been taken for the state."
     }
    ]
+  },
+  {
+   "t": "19:21",
+   "end": "19:36",
+   "event": "Masterji says: “Samosa, chai. Put it on the counter. You eat, I work.” Masterji slides the plate and cup across the counter without looking up from his stitching.",
+   "present": [
+    "Masterji, the tailor",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Masterji treats the body as a machine to be fueled, not a spirit to be fed. He slides the samosa and chai as if offering oil to a piston. I accept, for the particular must be satisfied before the universal can assert itself. The hunger is a contradiction I must resolve to continue my work.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 15,
+    "says": "The spirit requires fuel, and the line must not stop. You have my thanks for the efficiency.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Masterji",
+    "says": "Fuel. Hmph. Just eat the samosa before it gets cold.",
+    "does": "He nudges the plate slightly closer to him and returns to his stitching."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.1
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§531",
+     "id": "wallace-mind:287"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§531",
+     "text": "But this actualisation rests at first on the particular subjectivity of the judge, since here as yet there is not found the necessary unity of it with right in the abstract. Conversely, the blind necessity of the system of wants is not lifted up into the consciousness of the universal, and worked from that period of view. c. Police and Corporation(166)."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-05T19:21+05:30",
+  "until": "2026-11-05T19:36+05:30",
   "asleep": false,
   "imprest": 1286,
   "wearing": "kurta",
