@@ -498,6 +498,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "15:07",
+   "to": "15:52",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Reading at Khan Market."
   }
  ],
  "entries": [
@@ -798,6 +805,34 @@
    "price": 45,
    "office": true,
    "t": "14:47"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil speaks the truth of the body: the stomach must be filled before the mind can grasp the universal. I have just consumed the samosa, so the particular need is satisfied, and now I turn to the newspaper to see how the state has moved itself in my absence. The air is thick, but the paper is thin enough to hold the news.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§527"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316"
+    }
+   ],
+   "t": "15:07"
+  },
+  {
+   "k": "said",
+   "text": "The state acts, and we read its deeds. It is a good thing that the paper is here; otherwise, I would be guessing at the world's movement.",
+   "to": "Masterji and Sunil",
+   "t": "15:07"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Paper hai, lo. State kya kiya, padhke dekhoge. Mujhe bas itna pata hai ki aaj hawa mein dhool hai, na ki philosophy.",
+   "t": "15:07"
   }
  ],
  "steps": [
@@ -1427,13 +1462,67 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "15:07",
+   "end": "15:52",
+   "event": "Sunil says: “Samosa ho gaya, ₹30. Paper ₹45, le lo. State ne aaj kya kiya, bas padh lo, mujhe nahi pata. Pet bhara hai toh sochne ka mann hai, theek hai.” He slides a warm samosa and a folded newspaper across the counter.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil speaks the truth of the body: the stomach must be filled before the mind can grasp the universal. I have just consumed the samosa, so the particular need is satisfied, and now I turn to the newspaper to see how the state has moved itself in my absence. The air is thick, but the paper is thin enough to hold the news.",
+    "action": "read",
+    "place": "khan",
+    "minutes": 45,
+    "says": "The state acts, and we read its deeds. It is a good thing that the paper is here; otherwise, I would be guessing at the world's movement.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Masterji",
+    "says": "Paper hai, lo. State kya kiya, padhke dekhoge. Mujhe bas itna pata hai ki aaj hawa mein dhool hai, na ki philosophy.",
+    "does": "He pushes the folded newspaper slightly forward with a calloused finger."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.9
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§527",
+     "id": "wallace-mind:275"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316",
+     "id": "rechts:1044"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§527",
+     "text": "Where civil society, and with it the State, exists, there arise the several estates in their difference: for the universal substance, as vital, exists only so far as it organically particularises itself."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316",
+     "text": "Was sich wirklich im Staate geltend macht, muß sich freilich auf organische Weise betätigen, und dies ist in der Verfassung der Fall. Aber zu allen Zeiten war die öffentliche Meinung eine große Macht und ist es besonders in unserer Zeit, wo das Prinzip der subjektiven Freiheit diese Wichtigkeit und Bedeutung hat."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-05T15:07+05:30",
+  "until": "2026-11-05T15:52+05:30",
   "asleep": false,
   "imprest": 1521,
   "wearing": "kurta",
