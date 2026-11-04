@@ -575,6 +575,13 @@
    "mode": "walk",
    "a": "khan",
    "b": "home"
+  },
+  {
+   "from": "18:14",
+   "to": "18:29",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -1226,6 +1233,34 @@
    "to": "Hegel",
    "text": "Good. Now go find a corner where you won't scare off the regulars with your mouth full.",
    "t": "17:47"
+  },
+  {
+   "k": "diary",
+   "text": "The walk back was a return of the particular into the universal, but now I am alone in the bungalow, and the silence presses in. Ramesh is here, standing in the doorway, and the tension between our obligations is palpable; I have no food, only the abstract right to a meal that he refuses to prepare. I must speak to him, not as a philosopher, but as a man who is hungry and owes him a debt that I cannot yet pay.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    }
+   ],
+   "t": "18:14"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, the state is the actuality of the ethical idea, but it requires the cooperation of its members. You hold my sustenance hostage to a wage I cannot yet disburse. Let us find a way to bridge this gap, for the ethical life cannot subsist on empty bellies.",
+   "to": "Ramesh",
+   "t": "18:14"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, the state doesn't need to explain itself to a man with a cold kettle. I told you at noon, I am at the gatehouse until the wage clears.",
+   "t": "18:14"
   }
  ],
  "steps": [
@@ -2496,13 +2531,70 @@
      "text": "' In this -work Mr. Hugo says (5th edition § 53) that \" Cicero praises the twelve tables with a side glance at philosophy,\" \" but the philosopher Phavorinus treats them exactly as many a great philosopher since has treated positive right.\""
     }
    ]
+  },
+  {
+   "t": "18:14",
+   "end": "18:29",
+   "event": "Sunil says: “Good. Now go find a corner where you won't scare off the regulars with your mouth full.” Sunil wipes down the counter with a damp cloth.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The walk back was a return of the particular into the universal, but now I am alone in the bungalow, and the silence presses in. Ramesh is here, standing in the doorway, and the tension between our obligations is palpable; I have no food, only the abstract right to a meal that he refuses to prepare. I must speak to him, not as a philosopher, but as a man who is hungry and owes him a debt that I cannot yet pay.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, the state is the actuality of the ethical idea, but it requires the cooperation of its members. You hold my sustenance hostage to a wage I cannot yet disburse. Let us find a way to bridge this gap, for the ethical life cannot subsist on empty bellies.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Sir, the state doesn't need to explain itself to a man with a cold kettle. I told you at noon, I am at the gatehouse until the wage clears.",
+    "does": "He turns his back and walks toward the gatehouse without looking at the keys in Hegel's pocket."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 14.5,
+    "refused": [
+     [
+      "this repeats what you thought at 17:47; think something new"
+     ]
+    ]
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1189"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "For “when Antisthenes turned outside a hole in his cloak, Socrates said to him, I see thy vanity through the hole in thy cloak.” Clothing is not a thing of rational import, but is regulated through needs that arise of themselves. In the North the clothing must be different from that in Central Africa; and in winter we do not wear cotton garments."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-05T18:14+05:30",
+  "until": "2026-11-05T18:29+05:30",
   "asleep": false,
   "imprest": 1336,
   "wearing": "kurta",
