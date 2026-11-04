@@ -491,6 +491,13 @@
    "mode": "walk",
    "a": "estates",
    "b": "khan"
+  },
+  {
+   "from": "14:47",
+   "to": "15:07",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -750,6 +757,47 @@
    "status": "Worn from 14:07.",
    "sprite": "kurta",
    "t": "14:07"
+  },
+  {
+   "k": "diary",
+   "text": "The hunger is a particular that interrupts the universal; I cannot think the state on an empty stomach, and the body demands its due before the mind can ascend. Sunil’s stall offers the simplest satisfaction: a samosa is a small ethical act, a recognition of need met by provision. I shall eat, and perhaps buy a newspaper to see if the world has moved while I was in the Estates office.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "14:47"
+  },
+  {
+   "k": "said",
+   "text": "Sunil, one samosa, please. And the bookseller, do you have the newspaper of the day? I wish to see what the state has done with itself today.",
+   "to": "Masterji and Sunil",
+   "t": "14:47"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Samosa ho gaya, ₹30. Paper ₹45, le lo. State ne aaj kya kiya, bas padh lo, mujhe nahi pata. Pet bhara hai toh sochne ka mann hai, theek hai.",
+   "t": "14:47"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "14:47"
+  },
+  {
+   "k": "bag",
+   "item": "Newspapers",
+   "price": 45,
+   "office": true,
+   "t": "14:47"
   }
  ],
  "steps": [
@@ -1316,15 +1364,78 @@
      "text": "This view, as well as the idea that the monarch is chief-officer of state, and also the idea of a contract between him and the people, proceed from the will of the multitude, in the form of inclination, opinion, and caprice. These views, as we long ago remarked, first make themselves good, or rather seek to do so, in the civic community."
     }
    ]
+  },
+  {
+   "t": "14:47",
+   "end": "15:07",
+   "event": "You arrive at Khan Market. It closes at 20:30. Masterji is here. Sunil is here. You are hungry.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The hunger is a particular that interrupts the universal; I cannot think the state on an empty stomach, and the body demands its due before the mind can ascend. Sunil’s stall offers the simplest satisfaction: a samosa is a small ethical act, a recognition of need met by provision. I shall eat, and perhaps buy a newspaper to see if the world has moved while I was in the Estates office.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 20,
+    "says": "Sunil, one samosa, please. And the bookseller, do you have the newspaper of the day? I wish to see what the state has done with itself today.",
+    "buys": [
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     },
+     {
+      "item": "Newspapers",
+      "price_inr": 45
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Samosa ho gaya, ₹30. Paper ₹45, le lo. State ne aaj kya kiya, bas padh lo, mujhe nahi pata. Pet bhara hai toh sochne ka mann hai, theek hai.",
+    "does": "He slides a warm samosa and a folded newspaper across the counter."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.4
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "id": "dyde-right:542"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "text": "To right as such, happiness is something external. Tet in the system of wants well-being is an essential element. The universal, which is at first only right, has to spread itself over the whole field of particularity. Justice, it is true, is a large factor in the civic community. The state will flourish, if it has good laws, of which free property is the fundamental condition."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-05T14:47+05:30",
+  "until": "2026-11-05T15:07+05:30",
   "asleep": false,
-  "imprest": 1596,
+  "imprest": 1521,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1412,17 +1523,37 @@
     ],
     "estates": [
      "saxena"
+    ],
+    "khan": [
+     "bookseller",
+     "masterji",
+     "sunil"
     ]
    },
    "no_meals": true,
    "bad_air": true,
    "walked": 4950,
    "strain": 4950,
-   "recouped": true
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
-   "vouchers": [],
+   "vouchers": [
+    {
+     "date": "2026-11-05",
+     "t": "14:47",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-05",
+     "t": "14:47",
+     "item": "Newspapers",
+     "price": 45,
+     "office": true
+    }
+   ],
    "admitted": 640,
    "queried": 8004
   },
@@ -1462,7 +1593,8 @@
    "khan": [
     "2026-10-02",
     "2026-10-13",
-    "2026-10-28"
+    "2026-10-28",
+    "2026-11-05"
    ],
    "gym": [
     "2026-10-02"
@@ -1535,7 +1667,8 @@
    "masterji": [
     "2026-10-02",
     "2026-10-13",
-    "2026-10-28"
+    "2026-10-28",
+    "2026-11-05"
    ],
    "nidhi": [
     "2026-10-02"
@@ -1544,7 +1677,8 @@
     "2026-10-13",
     "2026-10-14",
     "2026-10-15",
-    "2026-10-28"
+    "2026-10-28",
+    "2026-11-05"
    ],
    "hegde": [
     "2026-10-02",
@@ -1581,7 +1715,7 @@
    "sim": false
   },
   "last_meal": "2026-10-27T18:45+05:30",
-  "snacks": 2,
+  "snacks": 3,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
