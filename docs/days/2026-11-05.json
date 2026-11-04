@@ -463,6 +463,13 @@
    "mode": "walk",
    "a": "home",
    "b": "estates"
+  },
+  {
+   "from": "13:32",
+   "to": "13:47",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -581,6 +588,69 @@
    "status": "Worn from 13:06.",
    "sprite": "bandhgala",
    "t": "13:06"
+  },
+  {
+   "k": "income",
+   "item": "Imprest refilled against vouchers",
+   "amount": 640,
+   "from": "the Directorate of Estates",
+   "text": "Admitted by Mr. Saxena: stationery, notebooks, ink, newspapers.",
+   "recoup": {
+    "admitted": 640,
+    "queried": 8004
+   },
+   "t": "13:32"
+  },
+  {
+   "k": "file",
+   "text": "Mr. Saxena queries ₹8,004 of personal expenditure on the imprest: recovery from the allottee.",
+   "owe": {
+    "to": "the Directorate of Estates",
+    "amount": 8004,
+    "why": "queried vouchers",
+    "since": "2026-11-05"
+   },
+   "t": "13:32"
+  },
+  {
+   "k": "file",
+   "text": "At the Directorate, Mr. Saxena finds the file. It has gone up for orders. “Come after fifteen days,” he says. “Meanwhile, your occupation is irregular.”",
+   "t": "13:32"
+  },
+  {
+   "k": "people",
+   "name": "Mr. Saxena",
+   "role": "section officer, Directorate of Estates",
+   "text": "Keeper of the file. Tea in a steel tumbler, three telephones on the desk, and a patience that has outlasted several ministers.",
+   "t": "13:32"
+  },
+  {
+   "k": "diary",
+   "text": "The state has spoken, and its voice is that of a clerk. My occupation is 'irregular,' a category of civil society applied to a man who is, in fact, the substance of the state itself. The file has gone up for orders, a suspension of the actuality of the ethical idea, pending the bureaucratic digestion of a name that is not mine. I must endure this particularity, for the universal does not yield to the impatience of the individual.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§306"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299"
+    }
+   ],
+   "t": "13:32"
+  },
+  {
+   "k": "said",
+   "text": "Mr. Saxena, the distinction between the personal and the state's property is clear to me, and I accept the recovery of the sum queried. However, the matter of my allotment is not a matter of personal gain, but of administrative error. I ask only that the file be expedited, for a philosopher cannot remain in a state of 'irregularity' indefinitely while the spirit of the state waits for its orders.",
+   "to": "Mr. Saxena",
+   "t": "13:32"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Sir, I am a section officer, not a philosopher, and I cannot expedite what has gone up for orders. The file is with the competent authority, so I suggest you collect your refund and return after fifteen days.",
+   "t": "13:32"
   }
  ],
  "steps": [
@@ -940,15 +1010,68 @@
      "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
     }
    ]
+  },
+  {
+   "t": "13:32",
+   "end": "13:47",
+   "event": "Ramesh says: “Universal, particular, whatever. Just keep your keys in your pocket and don't touch the gate latch.” You arrive at Directorate of Estates, Nirman Bhawan. It closes at 17:30. Mr. Saxena finds the file. It has gone up for orders. 'Come after fifteen days,' he says. 'Meanwhile, your occupation is irregular.' Mr. Saxena goes through your vouchers: ₹640 is admitted and refilled to you in cash; ₹8,004 is queried as personal and will be recovered from you. Mr. Saxena, a section officer is here; you have not met.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The state has spoken, and its voice is that of a clerk. My occupation is 'irregular,' a category of civil society applied to a man who is, in fact, the substance of the state itself. The file has gone up for orders, a suspension of the actuality of the ethical idea, pending the bureaucratic digestion of a name that is not mine. I must endure this particularity, for the universal does not yield to the impatience of the individual.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 15,
+    "says": "Mr. Saxena, the distinction between the personal and the state's property is clear to me, and I accept the recovery of the sum queried. However, the matter of my allotment is not a matter of personal gain, but of administrative error. I ask only that the file be expedited, for a philosopher cannot remain in a state of 'irregularity' indefinitely while the spirit of the state waits for its orders.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Sir, I am a section officer, not a philosopher, and I cannot expedite what has gone up for orders. The file is with the competent authority, so I suggest you collect your refund and return after fifteen days.",
+    "does": "Mr. Saxena pushes the cash envelope and the query sheet across the desk without looking up."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.7
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§306",
+     "id": "dyde-right:776"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299",
+     "id": "dyde-right:757"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§306",
+     "text": "In its political position and significance this class becomes more clearly defined, when its means are made as independent of the wealth of the state as they are of the uncertainty of trade, the desire for gain, and the fluctuations of property. It is secure from the favour at once of the executive and of the multitude."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299",
+     "text": "Money is, in fact, not a special kind of wealth, but the universal element in all kinds, in so far as they in production are given such an external reality as can be apprehended as an object."
+    }
+   ],
+   "beat": "saxena_file"
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-05T13:32+05:30",
+  "until": "2026-11-05T13:47+05:30",
   "asleep": false,
-  "imprest": 956,
+  "imprest": 1596,
   "wearing": "bandhgala",
   "wardrobe": [
    {
@@ -984,9 +1107,10 @@
    "nidhi",
    "sunil",
    "hegde",
-   "kapoor"
+   "kapoor",
+   "saxena"
   ],
-  "file": "Shri Hegde called at ten and found no one at home. He left his card.",
+  "file": "Gone up for orders. Mr. Saxena: come after fifteen days. Occupation irregular.",
   "beats": [
    "allotment",
    "hegde_guesthouse",
@@ -995,13 +1119,21 @@
    "sell_frock",
    "hegde_gate",
    "hegde_card",
-   "essay_fee"
+   "essay_fee",
+   "saxena_file"
   ],
   "flags": {
    "bandhgala": "collected",
    "hegde_lodger": true
   },
-  "appointments": [],
+  "appointments": [
+   {
+    "date": "2026-11-20",
+    "t": null,
+    "what": "the file is due back from orders",
+    "beat": "saxena_query"
+   }
+  ],
   "theses": [
    {
     "id": "india",
@@ -1024,166 +1156,22 @@
     "home": [
      "hegde",
      "ramesh"
+    ],
+    "estates": [
+     "saxena"
     ]
    },
    "no_meals": true,
    "bad_air": true,
    "walked": 1950,
-   "strain": 1950
+   "strain": 1950,
+   "recouped": true
   },
   "account": {
    "advance": 15000,
-   "vouchers": [
-    {
-     "date": "2026-10-02",
-     "t": "12:55",
-     "item": "Fountain pen and a bound notebook",
-     "price": 640,
-     "office": true
-    },
-    {
-     "date": "2026-10-02",
-     "t": "13:10",
-     "item": "White cotton kurta, ready-made",
-     "price": 1250,
-     "office": false
-    },
-    {
-     "date": "2026-10-02",
-     "t": "13:25",
-     "item": "Advance on the bandhgala",
-     "price": 2000,
-     "office": false
-    },
-    {
-     "date": "2026-10-02",
-     "t": "13:45",
-     "item": "Ambedkar, Annihilation of Caste, paperback",
-     "price": 199,
-     "office": false
-    },
-    {
-     "date": "2026-10-02",
-     "t": "13:45",
-     "item": "Hindi primer",
-     "price": 180,
-     "office": false
-    },
-    {
-     "date": "2026-10-02",
-     "t": "13:55",
-     "item": "Assam tea, 250 g",
-     "price": 220,
-     "office": false
-    },
-    {
-     "date": "2026-10-02",
-     "t": "13:55",
-     "item": "Glucose biscuits",
-     "price": 10,
-     "office": false
-    },
-    {
-     "date": "2026-10-13",
-     "t": "11:26",
-     "item": "Bandhgala, balance on collection",
-     "price": 3500,
-     "office": false
-    },
-    {
-     "date": "2026-10-13",
-     "t": "14:03",
-     "item": "Roasted corn on the cob",
-     "price": 40,
-     "office": false
-    },
-    {
-     "date": "2026-10-13",
-     "t": "19:22",
-     "item": "Samosa",
-     "price": 30,
-     "office": false
-    },
-    {
-     "date": "2026-10-13",
-     "t": "19:37",
-     "item": "Chai, a cup",
-     "price": 20,
-     "office": false
-    },
-    {
-     "date": "2026-10-13",
-     "t": "19:52",
-     "item": "Chai, a cup",
-     "price": 20,
-     "office": false
-    },
-    {
-     "date": "2026-10-15",
-     "t": "08:07",
-     "item": "Chai from the stall at the Lodhi Road gate",
-     "price": 20,
-     "office": false
-    },
-    {
-     "date": "2026-10-15",
-     "t": "08:27",
-     "item": "Chai from the stall at the Lodhi Road gate",
-     "price": 20,
-     "office": false
-    },
-    {
-     "date": "2026-10-28",
-     "t": "12:31",
-     "item": "Chai, a cup",
-     "price": 20,
-     "office": false
-    },
-    {
-     "date": "2026-10-28",
-     "t": "12:31",
-     "item": "Samosa",
-     "price": 30,
-     "office": false
-    },
-    {
-     "date": "2026-10-28",
-     "t": "16:34",
-     "item": "Chai from the stall at the Lodhi Road gate",
-     "price": 20,
-     "office": false
-    },
-    {
-     "date": "2026-10-28",
-     "t": "16:59",
-     "item": "Roasted corn on the cob",
-     "price": 40,
-     "office": false
-    },
-    {
-     "date": "2026-10-28",
-     "t": "17:26",
-     "item": "Roasted corn on the cob",
-     "price": 40,
-     "office": false
-    },
-    {
-     "date": "2026-10-28",
-     "t": "17:26",
-     "item": "Entry ticket, foreign visitors",
-     "price": 300,
-     "office": false
-    },
-    {
-     "date": "2026-10-28",
-     "t": "20:27",
-     "item": "Budget document",
-     "price": 45,
-     "office": false
-    }
-   ],
-   "admitted": 0,
-   "queried": 0
+   "vouchers": [],
+   "admitted": 640,
+   "queried": 8004
   },
   "visits": {
    "home": [
@@ -1231,6 +1219,9 @@
    ],
    "safdarjung": [
     "2026-10-28"
+   ],
+   "estates": [
+    "2026-11-05"
    ]
   },
   "owed": [
@@ -1243,6 +1234,15 @@
     "item": "Ramesh's wage for cooking",
     "at": "home",
     "with": "ramesh"
+   },
+   {
+    "to": "the Directorate of Estates",
+    "amount": 8004,
+    "why": "queried vouchers",
+    "since": "2026-11-05",
+    "at": "estates",
+    "with": "saxena",
+    "after": "2026-11-06"
    }
   ],
   "cheques": [],
@@ -1314,6 +1314,9 @@
    ],
    "kapoor": [
     "2026-10-28"
+   ],
+   "saxena": [
+    "2026-11-05"
    ]
   },
   "refused": {
