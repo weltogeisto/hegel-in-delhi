@@ -540,6 +540,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with Masterji and Sunil at Khan Market."
+  },
+  {
+   "from": "16:42",
+   "to": "16:57",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Talking with Masterji and Sunil at Khan Market."
   }
  ],
  "entries": [
@@ -1032,6 +1039,47 @@
    "to": "Hegel",
    "text": "Books won't fill your stomach, foreigner. You're talking about books again? Go find them yourself, I'm a tailor, not a bookseller.",
    "t": "16:32"
+  },
+  {
+   "k": "diary",
+   "text": "Masterji’s gesture is the finality of the particular over the universal; he is a tailor, not a philosopher, and his rag knows no dialectic. I am hungry, for I have eaten nothing substantial in a day, and the chai has only sharpened the void in my stomach. The bookseller stands nearby, and the newspaper is the face of the state today; I shall look at that expression before I address my body's needs.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§531"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33"
+    }
+   ],
+   "t": "16:42"
+  },
+  {
+   "k": "said",
+   "text": "The bookseller, do you have the newspaper of the day? I wish to see what the state has done with itself today. And Sunil, one samosa, please. The chai has cleared the mind, but the body still requires its substance.",
+   "to": "Masterji and Sunil",
+   "t": "16:42"
+  },
+  {
+   "k": "said",
+   "by": "The bookseller",
+   "to": "Hegel",
+   "text": "Here, take the paper, it's fresh off the press. And yes, Sunil is making your samosa right now, just give him a minute, don't rush the body.",
+   "t": "16:42"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "16:42"
+  },
+  {
+   "k": "bag",
+   "item": "Newspapers",
+   "price": 45,
+   "office": true,
+   "t": "16:42"
   }
  ],
  "steps": [
@@ -2005,15 +2053,86 @@
      "text": "Cynicism adopted a simple wardrobe—a thick stick of wild olive, a ragged double mantle without any under garment, which served as bed by night, a beggar’s sack for the food that was required, and a cup with which to draw water. This was the costume with which these Cynics used to distinguish themselves."
     }
    ]
+  },
+  {
+   "t": "16:42",
+   "end": "16:57",
+   "event": "Masterji says: “Books won't fill your stomach, foreigner. You're talking about books again? Go find them yourself, I'm a tailor, not a bookseller.” He gestures dismissively toward the exit with his rag.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Masterji’s gesture is the finality of the particular over the universal; he is a tailor, not a philosopher, and his rag knows no dialectic. I am hungry, for I have eaten nothing substantial in a day, and the chai has only sharpened the void in my stomach. The bookseller stands nearby, and the newspaper is the face of the state today; I shall look at that expression before I address my body's needs.",
+    "action": "talk",
+    "place": "khan",
+    "minutes": 15,
+    "says": "The bookseller, do you have the newspaper of the day? I wish to see what the state has done with itself today. And Sunil, one samosa, please. The chai has cleared the mind, but the body still requires its substance.",
+    "buys": [
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     },
+     {
+      "item": "Newspapers",
+      "price_inr": 45
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The bookseller",
+    "says": "Here, take the paper, it's fresh off the press. And yes, Sunil is making your samosa right now, just give him a minute, don't rush the body.",
+    "does": "Slides a copy of the Times of India across the counter and taps the glass to signal the counter."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 3,
+    "latency_s": 26.1,
+    "refused": [
+     [
+      "this repeats what you thought at 16:32; think something new"
+     ],
+     [
+      "this repeats what you thought at 16:32; think something new"
+     ]
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§531",
+     "id": "wallace-mind:287"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "id": "rechts:121"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§531",
+     "text": "But this actualisation rests at first on the particular subjectivity of the judge, since here as yet there is not found the necessary unity of it with right in the abstract. Conversely, the blind necessity of the system of wants is not lifted up into the consciousness of the universal, and worked from that period of view. c. Police and Corporation(166)."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-05T16:42+05:30",
+  "until": "2026-11-05T16:57+05:30",
   "asleep": false,
-  "imprest": 1441,
+  "imprest": 1366,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -2158,6 +2277,20 @@
      "item": "Chai, a cup",
      "price": 20,
      "office": false
+    },
+    {
+     "date": "2026-11-05",
+     "t": "16:42",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-05",
+     "t": "16:42",
+     "item": "Newspapers",
+     "price": 45,
+     "office": true
     }
    ],
    "admitted": 640,
@@ -2321,7 +2454,7 @@
    "sim": false
   },
   "last_meal": "2026-10-27T18:45+05:30",
-  "snacks": 3,
+  "snacks": 4,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
