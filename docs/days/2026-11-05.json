@@ -526,6 +526,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "16:27",
+   "to": "16:32",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -956,6 +963,40 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "16:17"
+  },
+  {
+   "k": "diary",
+   "text": "The body asserts its priority with the blunt logic of hunger; it is the first substance that must be satisfied before the spirit can rise to its own dignity. I accept this particular necessity not as a defeat of reason, but as the condition under which reason continues its work. The dust in the lungs and the emptiness in the stomach are the same material resistance to the movement of the mind.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§243"
+    }
+   ],
+   "t": "16:27"
+  },
+  {
+   "k": "said",
+   "text": "Aapka dhanyavaad. The body is a demanding master, but it must be paid its due.",
+   "to": "Masterji and Sunil",
+   "t": "16:27"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Masterji. Masterji. Body eats, body lives. Simple. You talk too much for a man who just drank one cup.",
+   "t": "16:27"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "16:27"
   }
  ],
  "steps": [
@@ -1816,15 +1857,74 @@
      "text": "Wie das Sonnensystem, so ist z. B. im Praktischen der Staat ein System von drei Schlüssen. 1) Der Einzelne (die Person) schliesst sich durch seine Besonderheit (die physischen und geistigen Bedürfnisse, was weiter für sich ausgebildet die bürgerliche Gesellschaft giebt) mit dem Allgemeinen (der Gesellschaft, dem Rechte, Gesetz, Regierung) zusammen. 2) Ist der Wille…"
     }
    ]
+  },
+  {
+   "t": "16:27",
+   "end": "16:32",
+   "event": "Masterji says: “Ghusta hai, bas. Bhookh toh sabse pehle aati hai. Lo, chai. ₹20.” He slides the cup of chai across the counter and taps the price on the calculator.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The body asserts its priority with the blunt logic of hunger; it is the first substance that must be satisfied before the spirit can rise to its own dignity. I accept this particular necessity not as a defeat of reason, but as the condition under which reason continues its work. The dust in the lungs and the emptiness in the stomach are the same material resistance to the movement of the mind.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 5,
+    "says": "Aapka dhanyavaad. The body is a demanding master, but it must be paid its due.",
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Masterji",
+    "says": "Masterji. Masterji. Body eats, body lives. Simple. You talk too much for a man who just drank one cup.",
+    "does": "He wipes a speck of dust off the counter with a rag, ignoring the foreigner's philosophy."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.5
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:643"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§243",
+     "id": "rechts:514"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "The civil rights implied in it give rise to a feeling of self-respect, the sense of counting as a lawful person in the civic community. This feeling of being infinite and free from all Others is the root out of which springs the needed balance of the various kinds of thought and sentiment. The isolation with which the Jews have been blamed it is better to preserve."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§243",
+     "text": ""
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-05T16:27+05:30",
+  "until": "2026-11-05T16:32+05:30",
   "asleep": false,
-  "imprest": 1461,
+  "imprest": 1441,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1959,6 +2059,13 @@
     {
      "date": "2026-11-05",
      "t": "16:17",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-05",
+     "t": "16:27",
      "item": "Chai, a cup",
      "price": 20,
      "office": false
