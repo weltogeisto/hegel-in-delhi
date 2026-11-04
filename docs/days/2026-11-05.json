@@ -18,7 +18,7 @@
     "aqi": 311
    },
    {
-    "temp": 21,
+    "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 311
@@ -60,7 +60,7 @@
     "aqi": 308
    },
    {
-    "temp": 21,
+    "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 307
@@ -505,6 +505,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Reading at Khan Market."
+  },
+  {
+   "from": "15:52",
+   "to": "16:07",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -833,6 +840,40 @@
    "to": "Hegel",
    "text": "Paper hai, lo. State kya kiya, padhke dekhoge. Mujhe bas itna pata hai ki aaj hawa mein dhool hai, na ki philosophy.",
    "t": "15:07"
+  },
+  {
+   "k": "diary",
+   "text": "Masterji offers the newspaper, but the dust in the air is a particular that chokes the universal. I have already bought my face for the day; the body is still hollow, having eaten nothing but a samosa hours ago. I must satisfy the need for sustenance before I can digest the news of the state.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§533"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "15:52"
+  },
+  {
+   "k": "said",
+   "text": "Sunil, one more cup. The dust makes the air thick, and the stomach is thin.",
+   "to": "Masterji and Sunil",
+   "t": "15:52"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Haan, dhool hai aaj, pet toh bhi bhatak raha hai. Chai ₹20 hai, ghar ka rate. Lo, garam hai.",
+   "t": "15:52"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "15:52"
   }
  ],
  "steps": [
@@ -1516,15 +1557,74 @@
      "text": "Was sich wirklich im Staate geltend macht, muß sich freilich auf organische Weise betätigen, und dies ist in der Verfassung der Fall. Aber zu allen Zeiten war die öffentliche Meinung eine große Macht und ist es besonders in unserer Zeit, wo das Prinzip der subjektiven Freiheit diese Wichtigkeit und Bedeutung hat."
     }
    ]
+  },
+  {
+   "t": "15:52",
+   "end": "16:07",
+   "event": "Masterji says: “Paper hai, lo. State kya kiya, padhke dekhoge. Mujhe bas itna pata hai ki aaj hawa mein dhool hai, na ki philosophy.” He pushes the folded newspaper slightly forward with a calloused finger.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Masterji offers the newspaper, but the dust in the air is a particular that chokes the universal. I have already bought my face for the day; the body is still hollow, having eaten nothing but a samosa hours ago. I must satisfy the need for sustenance before I can digest the news of the state.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 15,
+    "says": "Sunil, one more cup. The dust makes the air thick, and the stomach is thin.",
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Haan, dhool hai aaj, pet toh bhi bhatak raha hai. Chai ₹20 hai, ghar ka rate. Lo, garam hai.",
+    "does": "He pours a fresh cup from the steel kettle into a small glass."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.4
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§533",
+     "id": "wallace-mind:288"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§533",
+     "text": "In civil society the sole end is to satisfy want—and that, because it is man’s want, in a uniform general way, so as to secure this satisfaction. But the machinery of social necessity leaves in many ways a casualness about this satisfaction. This is due to the variability of the wants themselves, in which opinion and subjective good-pleasure play a great part."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-05T15:52+05:30",
+  "until": "2026-11-05T16:07+05:30",
   "asleep": false,
-  "imprest": 1521,
+  "imprest": 1501,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1641,6 +1741,13 @@
      "item": "Newspapers",
      "price": 45,
      "office": true
+    },
+    {
+     "date": "2026-11-05",
+     "t": "15:52",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
     }
    ],
    "admitted": 640,
