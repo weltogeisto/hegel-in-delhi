@@ -610,6 +610,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "19:36",
+   "to": "20:03",
+   "mode": "walk",
+   "a": "khan",
+   "b": "home"
   }
  ],
  "entries": [
@@ -1400,6 +1407,21 @@
    "to": "Hegel",
    "text": "Fuel. Hmph. Just eat the samosa before it gets cold.",
    "t": "19:21"
+  },
+  {
+   "k": "diary",
+   "text": "Masterji’s indifference is a form of practical reason that has outgrown the need for justification; he simply acts. I will cease my pedagogical attempts and simply obey the necessity of the moment. I have no cash left for books, so I will walk home to digest this samosa and the day’s events.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Religion"
+    }
+   ],
+   "t": "19:36"
   }
  ],
  "steps": [
@@ -2944,13 +2966,66 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "19:36",
+   "end": "20:03",
+   "event": "Masterji says: “Fuel. Hmph. Just eat the samosa before it gets cold.” He nudges the plate slightly closer to him and returns to his stitching.",
+   "present": [
+    "Masterji, the tailor",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Masterji’s indifference is a form of practical reason that has outgrown the need for justification; he simply acts. I will cease my pedagogical attempts and simply obey the necessity of the moment. I have no cash left for books, so I will walk home to digest this samosa and the day’s events.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 10.7,
+    "refused": [
+     [
+      "this repeats what you thought at 19:21; think something new"
+     ]
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202",
+     "id": "dyde-right:483"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Religion",
+     "id": "baillie-2:513"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202",
+     "text": "Since the returns of labour depend on the seasons, and harvests are influenced by variable weather and other natural conditions, provision for wants must take account of the future. However, owing to the natural conditions, this way of life involves but little reflection, and is but slightly modified by subjective volition."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Religion",
+     "text": "Spirit's oneness with itself contains this opposition of individuahty and imiversahty. Since the aspects of the work produced become closer by performance of it, there comes about thereby at the same time the other fact, that the work gets nearer to the self-consciousness performing it, and that the latter attains in the work knowledge of itself as it truly is."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-11-05T19:36+05:30",
+  "place": "home",
+  "until": "2026-11-05T20:03+05:30",
   "asleep": false,
   "imprest": 1286,
   "wearing": "kurta",
@@ -3049,8 +3124,8 @@
    },
    "no_meals": true,
    "bad_air": true,
-   "walked": 9000,
-   "strain": 9000,
+   "walked": 11025,
+   "strain": 11025,
    "hunger": 2
   },
   "account": {
