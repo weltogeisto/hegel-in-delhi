@@ -568,6 +568,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "17:47",
+   "to": "18:14",
+   "mode": "walk",
+   "a": "khan",
+   "b": "home"
   }
  ],
  "entries": [
@@ -1191,6 +1198,34 @@
    "to": "Hegel",
    "text": "Bhai, keep your philosophy in your pocket, it doesn't help the pastry. Just chew, don't lecture the samosa.",
    "t": "17:32"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil’s dismissal is the practical negation of my abstraction: the samosa is not a concept to be lectured upon, but a particular to be consumed. I must accept the discipline of the body, which does not care for my dialectic. The haze is thick, and the day is nearly done; it is time to return to the bungalow before the dark settles completely.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§3"
+    }
+   ],
+   "t": "17:47"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Sunil. The particular resists the universal. I will chew without commentary.",
+   "to": "Masterji and Sunil",
+   "t": "17:47"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Good. Now go find a corner where you won't scare off the regulars with your mouth full.",
+   "t": "17:47"
   }
  ],
  "steps": [
@@ -2407,13 +2442,67 @@
      "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
     }
    ]
+  },
+  {
+   "t": "17:47",
+   "end": "18:14",
+   "event": "Sunil says: “Bhai, keep your philosophy in your pocket, it doesn't help the pastry. Just chew, don't lecture the samosa.” He waves a dismissive hand at the counter and turns back to wipe the stove.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil’s dismissal is the practical negation of my abstraction: the samosa is not a concept to be lectured upon, but a particular to be consumed. I must accept the discipline of the body, which does not care for my dialectic. The haze is thick, and the day is nearly done; it is time to return to the bungalow before the dark settles completely.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 45,
+    "says": "You are right, Sunil. The particular resists the universal. I will chew without commentary.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "voice": {
+    "by": "Sunil",
+    "says": "Good. Now go find a corner where you won't scare off the regulars with your mouth full.",
+    "does": "Sunil wipes down the counter with a damp cloth."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.9
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics",
+     "id": "haldane-2:595"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§3",
+     "id": "dyde-right:57"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics",
+     "text": "Then Zeno also visited Stilpo, a Megaric, whom we already know about (Vol. I. p. 464), and with whom he studied dialectic for ten years. Philosophy was considered as the business of his life, and of his whole life, and not studied as it is by a student who hurries through his lectures on Philosophy in order to hasten on to something else."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§3",
+     "text": "' In this -work Mr. Hugo says (5th edition § 53) that \" Cicero praises the twelve tables with a side glance at philosophy,\" \" but the philosopher Phavorinus treats them exactly as many a great philosopher since has treated positive right.\""
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-11-05T17:47+05:30",
+  "place": "home",
+  "until": "2026-11-05T18:14+05:30",
   "asleep": false,
   "imprest": 1336,
   "wearing": "kurta",
@@ -2512,8 +2601,8 @@
    },
    "no_meals": true,
    "bad_air": true,
-   "walked": 4950,
-   "strain": 4950,
+   "walked": 6975,
+   "strain": 6975,
    "hunger": 2
   },
   "account": {
