@@ -533,6 +533,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "16:32",
+   "to": "16:42",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Talking with Masterji and Sunil at Khan Market."
   }
  ],
  "entries": [
@@ -997,6 +1004,34 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "16:27"
+  },
+  {
+   "k": "diary",
+   "text": "Masterji’s dismissal is the blunt edge of the particular: the body must eat, the counter must be clean, and my philosophy is a speck of dust to be wiped away. I have drunk four cups of chai in twenty minutes, a rhythm that mirrors the absurdity of my own consumption. The hunger remains, but the spirit is weary of such rapid repetitions; it is time to seek the universal in the written word rather than the particular in the tea stall.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Revealed Religion"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    }
+   ],
+   "t": "16:32"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Masterji. The body is the first substance. But the spirit requires a different kind of food. The bookseller has a stock; I intend to feed the mind before I feed the belly again.",
+   "to": "Masterji and Sunil",
+   "t": "16:32"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Books won't fill your stomach, foreigner. You're talking about books again? Go find them yourself, I'm a tailor, not a bookseller.",
+   "t": "16:32"
   }
  ],
  "steps": [
@@ -1916,13 +1951,67 @@
      "text": ""
     }
    ]
+  },
+  {
+   "t": "16:32",
+   "end": "16:42",
+   "event": "Masterji says: “Masterji. Masterji. Body eats, body lives. Simple. You talk too much for a man who just drank one cup.” He wipes a speck of dust off the counter with a rag, ignoring the foreigner's philosophy.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Masterji’s dismissal is the blunt edge of the particular: the body must eat, the counter must be clean, and my philosophy is a speck of dust to be wiped away. I have drunk four cups of chai in twenty minutes, a rhythm that mirrors the absurdity of my own consumption. The hunger remains, but the spirit is weary of such rapid repetitions; it is time to seek the universal in the written word rather than the particular in the tea stall.",
+    "action": "talk",
+    "place": "khan",
+    "minutes": 10,
+    "says": "You are right, Masterji. The body is the first substance. But the spirit requires a different kind of food. The bookseller has a stock; I intend to feed the mind before I feed the belly again.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Masterji",
+    "says": "Books won't fill your stomach, foreigner. You're talking about books again? Go find them yourself, I'm a tailor, not a bookseller.",
+    "does": "He gestures dismissively toward the exit with his rag."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.2
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Revealed Religion",
+     "id": "baillie-2:619"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1188"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Revealed Religion",
+     "text": "Our action, therefore, when we enjoy them is not that of worship, through which our conscious life might attaia its complete truth and be satisfied to the full: our action is external; it consists in wiping off some drop of rain or speck of dust from these fruits, and in place of the inner elements composing the reality of the ethical life, a reahty that environed…"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "Cynicism adopted a simple wardrobe—a thick stick of wild olive, a ragged double mantle without any under garment, which served as bed by night, a beggar’s sack for the food that was required, and a cup with which to draw water. This was the costume with which these Cynics used to distinguish themselves."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-05T16:32+05:30",
+  "until": "2026-11-05T16:42+05:30",
   "asleep": false,
   "imprest": 1441,
   "wearing": "kurta",
