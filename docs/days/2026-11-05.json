@@ -547,6 +547,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with Masterji and Sunil at Khan Market."
+  },
+  {
+   "from": "16:57",
+   "to": "17:12",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Talking with Masterji and Sunil at Khan Market."
   }
  ],
  "entries": [
@@ -1080,6 +1087,34 @@
    "price": 45,
    "office": true,
    "t": "16:42"
+  },
+  {
+   "k": "diary",
+   "text": "The bookseller’s gesture is a small dialectic: he offers the universal (the newspaper) before the particular (the food) has fully settled in the stomach, yet he rightly warns against rushing the body. I will accept the paper, for the mind must have its fuel, but I will sit with the haze and the wait, allowing the samosa to arrive as the necessary negation of my hunger.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§69"
+    }
+   ],
+   "t": "16:57"
+  },
+  {
+   "k": "said",
+   "text": "The universal must wait for the particular to digest. I shall sit; the samosa will come when the body is ready, and the paper will read itself in the meantime.",
+   "to": "Masterji and Sunil",
+   "t": "16:57"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "The paper won't read itself, and you're holding up the line. Sit where you want, but don't block the counter.",
+   "t": "16:57"
   }
  ],
  "steps": [
@@ -2124,13 +2159,67 @@
      "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
     }
    ]
+  },
+  {
+   "t": "16:57",
+   "end": "17:12",
+   "event": "The bookseller says: “Here, take the paper, it's fresh off the press. And yes, Sunil is making your samosa right now, just give him a minute, don't rush the body.” Slides a copy of the Times of India across the counter and taps the glass to signal the counter.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The bookseller’s gesture is a small dialectic: he offers the universal (the newspaper) before the particular (the food) has fully settled in the stomach, yet he rightly warns against rushing the body. I will accept the paper, for the mind must have its fuel, but I will sit with the haze and the wait, allowing the samosa to arrive as the necessary negation of my hunger.",
+    "action": "talk",
+    "place": "khan",
+    "minutes": 15,
+    "says": "The universal must wait for the particular to digest. I shall sit; the samosa will come when the body is ready, and the paper will read itself in the meantime.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Masterji",
+    "says": "The paper won't read itself, and you're holding up the line. Sit where you want, but don't block the counter.",
+    "does": "Masterji gestures vaguely toward the corner chairs and goes back to folding a collar."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.1
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251",
+     "id": "dyde-right:571"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§69",
+     "id": "dyde-right:197"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251",
+     "text": "In general it must stand to its members as a second family, a position which remains more indefinite than the family relation, because the general civic community is at a farther remove from indi viduals and their special needs."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§69",
+     "text": "Note. — The justification of the right of the author or inventor cannot be sought in his arbitrarily making it a condition, when he disposes of a copy, that the possibility of bringing out other copies shall not belong to the purchaser, but shall remain in his own hands."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-05T16:57+05:30",
+  "until": "2026-11-05T17:12+05:30",
   "asleep": false,
   "imprest": 1366,
   "wearing": "kurta",
