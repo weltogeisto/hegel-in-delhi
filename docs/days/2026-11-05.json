@@ -512,6 +512,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "16:07",
+   "to": "16:17",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -874,6 +881,40 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "15:52"
+  },
+  {
+   "k": "diary",
+   "text": "The dust is thick, a brown haze that turns the air into a substance, choking the lungs before they can breathe the spirit. My stomach has been empty for over a day; the body is a particular that demands satisfaction before the universal can be thought, and Sunil’s chai is the immediate remedy. I will take the cup, not for the warmth, but to quiet the revolt of the organs so that I may think of the file and the state.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "16:07"
+  },
+  {
+   "k": "said",
+   "text": "Eines, Sunil. Guter Tee. Die Luft ist schwer, aber der Magen ist schwerer.",
+   "to": "Masterji and Sunil",
+   "t": "16:07"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Haan, aapka dimag bhi heavy ho gaya hai na? Ghar mein wala pet hi sabse zyada bhukha hota hai, baaki sab philosophy se bharta hai.",
+   "t": "16:07"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "16:07"
   }
  ],
  "steps": [
@@ -1616,15 +1657,74 @@
      "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
     }
    ]
+  },
+  {
+   "t": "16:07",
+   "end": "16:17",
+   "event": "Sunil says: “Haan, dhool hai aaj, pet toh bhi bhatak raha hai. Chai ₹20 hai, ghar ka rate. Lo, garam hai.” He pours a fresh cup from the steel kettle into a small glass.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The dust is thick, a brown haze that turns the air into a substance, choking the lungs before they can breathe the spirit. My stomach has been empty for over a day; the body is a particular that demands satisfaction before the universal can be thought, and Sunil’s chai is the immediate remedy. I will take the cup, not for the warmth, but to quiet the revolt of the organs so that I may think of the file and the state.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 10,
+    "says": "Eines, Sunil. Guter Tee. Die Luft ist schwer, aber der Magen ist schwerer.",
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Haan, aapka dimag bhi heavy ho gaya hai na? Ghar mein wala pet hi sabse zyada bhukha hota hai, baaki sab philosophy se bharta hai.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.2
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "c. The unity and truth of these two abstract elements. The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-05T16:07+05:30",
+  "until": "2026-11-05T16:17+05:30",
   "asleep": false,
-  "imprest": 1501,
+  "imprest": 1481,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1745,6 +1845,13 @@
     {
      "date": "2026-11-05",
      "t": "15:52",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-05",
+     "t": "16:07",
      "item": "Chai, a cup",
      "price": 20,
      "office": false
