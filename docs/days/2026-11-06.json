@@ -434,6 +434,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "18:26",
+   "to": "18:41",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -821,6 +828,34 @@
    "to": "Hegel",
    "text": "The machinery turns, sir, but it doesn't turn my rice cooker. I don't need your philosophy, I need the account balance. Keep your promises in your pocket until the money is in mine.",
    "t": "17:56"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh speaks with the blunt force of necessity, stripping away the ethical veil to reveal the bare fact of hunger. He is right that the machinery of the state does not feed the individual until the voucher is cleared, and my pride must bow to the arithmetic of survival. I cannot argue with a man who has not eaten, for the body is the first fact of consciousness, and its silence is louder than any dialectic. I will not offer another promise, which is only a deferred lie, but I will offer the only thing I possess that is immediately real: my own labor and presence.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Peloponnesian War"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19"
+    }
+   ],
+   "t": "18:26"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Ramesh. The state is a mechanism, and you are the gear that has worn down. I have no cash to give you now, and I will not insult you with a promise I cannot keep. But I am a man of words, and I am tired. I will sit with you while you eat, if you can make something, and I will not speak of philosophy, but of the road, and the wind, and whatever else is real. Let us see if the conversation can bridge the gap until the money comes.",
+   "to": "Ramesh",
+   "t": "18:26"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "I haven't cooked, sir. No wage, no rice. Sit there if you like, but don't expect a meal.",
+   "t": "18:26"
   }
  ],
  "steps": [
@@ -1551,13 +1586,65 @@
      "text": "Dies Bewußtsein ist somit negativ gegen das Verhältnis der Herrschaft und Knechtschaft; sein Tun ist, in der Herrschaft nicht seine Wahrheit an dem Knechte zu haben, noch als Knecht seine Wahrheit an dem Willen des Herrn und an seinem Dienen, sondern wie auf dem Throne so in den Fesseln, in aller Abhängigkeit seines einzelnen Daseins frei zu sein…"
     }
    ]
+  },
+  {
+   "t": "18:26",
+   "end": "18:41",
+   "event": "Ramesh says: “The machinery turns, sir, but it doesn't turn my rice cooker. I don't need your philosophy, I need the account balance. Keep your promises in your pocket until the money is in mine.”",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh speaks with the blunt force of necessity, stripping away the ethical veil to reveal the bare fact of hunger. He is right that the machinery of the state does not feed the individual until the voucher is cleared, and my pride must bow to the arithmetic of survival. I cannot argue with a man who has not eaten, for the body is the first fact of consciousness, and its silence is louder than any dialectic. I will not offer another promise, which is only a deferred lie, but I will offer the only thing I possess that is immediately real: my own labor and presence.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "You are right, Ramesh. The state is a mechanism, and you are the gear that has worn down. I have no cash to give you now, and I will not insult you with a promise I cannot keep. But I am a man of words, and I am tired. I will sit with you while you eat, if you can make something, and I will not speak of philosophy, but of the road, and the wind, and whatever else is real. Let us see if the conversation can bridge the gap until the money comes.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "I haven't cooked, sir. No wage, no rice. Sit there if you like, but don't expect a meal.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.0
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Peloponnesian War",
+     "id": "sibree-history:835"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "id": "wallace-logic:71"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Peloponnesian War",
+     "text": "Xenophon says: \" Who does not stand in need of Athens? Is she not indispensable to all lands that are rich in corn and herds, in oil and wine — to all who wish to traffic either in money or in mind? — to craftsmen, sophists, philosophers, poets, and all who desire what is worth seeing or hearing in sacred and public matters?\""
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "text": "A slothful mind finds it natural to say: 'Don't let it be supposed that we mean to be in earnest with our philosophy. We shall be glad inter alia to study Logic: but Logic must be sure to leave us as we were before.' People have a feeling that, if thinking passes the ordinary range of our ideas and impressions, it cannot but be on the evil road."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-06T18:26+05:30",
+  "until": "2026-11-06T18:41+05:30",
   "asleep": false,
   "imprest": 1376,
   "wearing": "kurta",
