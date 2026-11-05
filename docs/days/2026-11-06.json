@@ -18,7 +18,7 @@
     "aqi": 313
    },
    {
-    "temp": 20,
+    "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 312
@@ -36,7 +36,7 @@
     "aqi": 309
    },
    {
-    "temp": 19,
+    "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 307
@@ -66,7 +66,7 @@
     "aqi": 298
    },
    {
-    "temp": 22,
+    "temp": 23,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 290
@@ -78,7 +78,7 @@
     "aqi": 282
    },
    {
-    "temp": 26,
+    "temp": 27,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 277
@@ -96,7 +96,7 @@
     "aqi": 268
    },
    {
-    "temp": 28,
+    "temp": 29,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 265
@@ -114,7 +114,7 @@
     "aqi": 260
    },
    {
-    "temp": 24,
+    "temp": 25,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 257
@@ -132,7 +132,7 @@
     "aqi": 248
    },
    {
-    "temp": 22,
+    "temp": 23,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 243
@@ -504,6 +504,22 @@
    "mode": "walk",
    "a": "home",
    "b": "iic"
+  },
+  {
+   "from": "21:17",
+   "to": "21:39",
+   "mode": "walk",
+   "a": "iic",
+   "b": "home"
+  },
+  {
+   "from": "21:39",
+   "to": "24:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Asleep.",
+   "asleep": true,
+   "owl": true
   }
  ],
  "entries": [
@@ -1214,6 +1230,13 @@
    "status": "Worn from 20:55.",
    "sprite": "bandhgala",
    "t": "20:55"
+  },
+  {
+   "k": "wear",
+   "item": "White cotton kurta",
+   "status": "Worn from 21:17.",
+   "sprite": "kurta",
+   "t": "21:17"
   }
  ],
  "steps": [
@@ -2502,16 +2525,39 @@
      "text": "But classification and objective system attain self consciousness only by destroying negative freedom. Negative freedom is actuated by a mere solitary abstract idea, whose realization is nothing but the fury of desolation."
     }
    ]
+  },
+  {
+   "t": "21:17",
+   "end": "24:00",
+   "event": "Shri G. Hegde says: “You can go to your International Centre, but the electricity meter is in my name, so I expect the bill by Monday. And you are taking that kurta with you, so please wash it before you leave.” She points a finger at the kurta on his chest to emphasize the point. You arrive at India International Centre. It closes at 21:30. You are tired.",
+   "present": [
+    "the guard at the library"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "sleep",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "bedtime",
+    "attempts": 0,
+    "latency_s": 0.0
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "iic",
-  "until": "2026-11-06T21:17+05:30",
-  "asleep": false,
+  "place": "home",
+  "until": "2026-11-07T00:00+05:30",
+  "asleep": true,
   "imprest": 1226,
-  "wearing": "bandhgala",
+  "wearing": "kurta",
   "wardrobe": [
    {
     "id": "frock",
@@ -2531,7 +2577,7 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Worn from 17:30."
+    "status": "Worn from 21:17."
    },
    {
     "id": "bandhgala",
@@ -2603,12 +2649,16 @@
     "khan": [
      "bookseller",
      "masterji"
+    ],
+    "iic": [
+     "guard"
     ]
    },
    "no_meals": true,
-   "walked": 11625,
-   "strain": 11625,
-   "hunger": 1
+   "walked": 13275,
+   "strain": 13275,
+   "hunger": 1,
+   "tired": true
   },
   "account": {
    "advance": 15000,
@@ -2704,7 +2754,8 @@
     "2026-10-02"
    ],
    "iic": [
-    "2026-10-28"
+    "2026-10-28",
+    "2026-11-06"
    ],
    "safdarjung": [
     "2026-10-28"
