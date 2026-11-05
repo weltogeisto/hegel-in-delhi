@@ -357,6 +357,27 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "15:21",
+   "to": "15:31",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "15:31",
+   "to": "15:46",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "15:46",
+   "to": "16:12",
+   "mode": "walk",
+   "a": "home",
+   "b": "estates"
   }
  ],
  "entries": [
@@ -407,6 +428,97 @@
    "to": "Hegel",
    "text": "Sir, the heat is the same at the gatehouse. I am not sitting here to discuss arithmetic or philosophy. If you want the washing done Saturday, you know where to find me.",
    "t": "14:21"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh is the concrete particular, and his refusal to engage in abstract arithmetic is the assertion of his own freedom over my universal claims. I have no food, no money for the dhobi, and a body that has not eaten in a day; the heat outside is a brown haze that makes the air itself thick with the impurity of the city. I must settle the debt of the washing before it festers into a larger dispute, for the household must function as an organism, not a collection of grievances.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Ionic Philosophy"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Pythagoras and the Pythagoreans"
+    }
+   ],
+   "t": "15:21"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, you are right to demand the concrete. I shall give you the three hundred rupees for the washing now, so that the particular is satisfied. But you must understand that I am not a man who pays for nothing; the state expects vouchers, and I expect order. If you will not cook, you will not be paid the wage for cooking. Let us be precise about what is owed, so that we do not drift into the chaos of mere opinion.",
+   "to": "Ramesh",
+   "t": "15:21"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, you are talking about my salary like it is a ledger entry. I am not cooking because I have not been paid for months, not because I am drifting into chaos. If you want to be precise, stop talking and give me the cooking wage, or tell me the Directorate has stopped paying me.",
+   "t": "15:21"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s refusal is not chaos but the assertion of a particular will that has exhausted its patience with my universal abstractions. I hold only ₹1,286, a fragment against the ₹8,000 debt, and to promise the rest is to lie, which the ethical spirit cannot countenance. I must acknowledge the failure of my household management, which relies on a state that has not yet recognized my right to exist here.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates"
+    }
+   ],
+   "t": "15:31"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, you are right. The particular demands satisfaction, and I cannot give you the whole sum today. I have only this in my pocket. I will give you what I can now, and the rest is a debt I cannot discharge until the file returns. Do not mistake my philosophy for evasion; I am merely poor and delayed. Take this as part payment, and I will find the balance.",
+   "to": "Ramesh",
+   "t": "15:31"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, I don't need your pocket money or your promises. I need the Directorate's cheque. Go find the accountant, not me.",
+   "t": "15:31"
+  },
+  {
+   "k": "diary",
+   "text": "The particular will of Ramesh has hardened into a wall; he demands the universal form of payment, the state's cheque, rather than the particular cash I carry. This is the friction between the individual's need and the state's bureaucracy, a tension that defines my current existence here. I must turn to the source of the universal, the Directorate, to resolve this deadlock, but the sun is already declining and the haze thickens the air, making the prospect of an administrative errand feel like a march through fog. I will attempt to reach the Estates office before it closes, for the state must be the actuality of the ethical idea, and my occupation is its latest, most absurd instantiation.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§169"
+    }
+   ],
+   "t": "15:46"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, you are right to demand the form of the state. I go to the source.",
+   "to": "Ramesh",
+   "t": "15:46"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Then go. I will stay here and wait for the money to actually land in the account, not just your footsteps.",
+   "t": "15:46"
+  },
+  {
+   "k": "wear",
+   "item": "Bandhgala, charcoal",
+   "status": "Worn from 15:46.",
+   "sprite": "bandhgala",
+   "t": "15:46"
   }
  ],
  "steps": [
@@ -569,16 +681,172 @@
      "text": "Note. — In contrast with freedom of business and trade in the civic community stands the other extreme of the establishment and direction of the work of all by means of official regulation. Under this head comes perhaps the construction of the pyramids and other monstrous Egyptian and Asiatic works."
     }
    ]
+  },
+  {
+   "t": "15:21",
+   "end": "15:31",
+   "event": "Ramesh says: “Sir, the heat is the same at the gatehouse. I am not sitting here to discuss arithmetic or philosophy. If you want the washing done Saturday, you know where to find me.”",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh is the concrete particular, and his refusal to engage in abstract arithmetic is the assertion of his own freedom over my universal claims. I have no food, no money for the dhobi, and a body that has not eaten in a day; the heat outside is a brown haze that makes the air itself thick with the impurity of the city. I must settle the debt of the washing before it festers into a larger dispute, for the household must function as an organism, not a collection of grievances.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Ramesh, you are right to demand the concrete. I shall give you the three hundred rupees for the washing now, so that the particular is satisfied. But you must understand that I am not a man who pays for nothing; the state expects vouchers, and I expect order. If you will not cook, you will not be paid the wage for cooking. Let us be precise about what is owed, so that we do not drift into the chaos of mere opinion.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Sir, you are talking about my salary like it is a ledger entry. I am not cooking because I have not been paid for months, not because I am drifting into chaos. If you want to be precise, stop talking and give me the cooking wage, or tell me the Directorate has stopped paying me.",
+    "does": "Ramesh folds his arms and stares at Hegel, unmoved by the philosophy."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 13.0
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Ionic Philosophy",
+     "id": "haldane-1:455"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Pythagoras and the Pythagoreans",
+     "id": "haldane-1:533"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Ionic Philosophy",
+     "text": "Thus if it is the case that a number of his other reflections have been lost, they cannot have had any particular speculative value; and his philosophy does not show itself to be an imperfect system from want of information about it, but because the first philosophy cannot be a system."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Pythagoras and the Pythagoreans",
+     "text": "The Greeks are above having particular clothing, maintaining special customs of washing, rising, practising music, and distinguishing between pure and impure foods. This, they say, is partly the affair of the particular individual and of his personal freedom, and has no common end in view, and partly it is a general custom and usage for everybody alike."
+    }
+   ]
+  },
+  {
+   "t": "15:31",
+   "end": "15:46",
+   "event": "Ramesh says: “Sir, you are talking about my salary like it is a ledger entry. I am not cooking because I have not been paid for months, not because I am drifting into chaos. If you want to be precise, stop talking and give me the cooking wage, or tell me the Directorate has stopped paying me.” Ramesh folds his arms and stares at Hegel, unmoved by the philosophy.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh’s refusal is not chaos but the assertion of a particular will that has exhausted its patience with my universal abstractions. I hold only ₹1,286, a fragment against the ₹8,000 debt, and to promise the rest is to lie, which the ethical spirit cannot countenance. I must acknowledge the failure of my household management, which relies on a state that has not yet recognized my right to exist here.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, you are right. The particular demands satisfaction, and I cannot give you the whole sum today. I have only this in my pocket. I will give you what I can now, and the rest is a debt I cannot discharge until the file returns. Do not mistake my philosophy for evasion; I am merely poor and delayed. Take this as part payment, and I will find the balance.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Sir, I don't need your pocket money or your promises. I need the Directorate's cheque. Go find the accountant, not me.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.2
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "id": "haldane-1:113"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "id": "haldane-1:967"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "text": "As the best of what is in the world is that which Thought produces, it is unreasonable to believe that reason only is in Nature, and not in Mind. That man who believes that what, like the philosophies, belongs to the region of mind must be merely contingent, is insincere in his belief in divine rule, and what he says of it is but empty talk."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "text": "This is not a moderation which exists in the least possible enjoyment, no aimless abstemiousness and self-mortification, but a power belonging to consciousness, which keeps its self-possession in bodily excess. We see from this that we have not to think of Socrates throughout after the fashion of the litany of moral virtues."
+    }
+   ]
+  },
+  {
+   "t": "15:46",
+   "end": "16:12",
+   "event": "Ramesh says: “Sir, I don't need your pocket money or your promises. I need the Directorate's cheque. Go find the accountant, not me.”",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The particular will of Ramesh has hardened into a wall; he demands the universal form of payment, the state's cheque, rather than the particular cash I carry. This is the friction between the individual's need and the state's bureaucracy, a tension that defines my current existence here. I must turn to the source of the universal, the Directorate, to resolve this deadlock, but the sun is already declining and the haze thickens the air, making the prospect of an administrative errand feel like a march through fog. I will attempt to reach the Estates office before it closes, for the state must be the actuality of the ethical idea, and my occupation is its latest, most absurd instantiation.",
+    "action": "walk",
+    "place": "estates",
+    "minutes": 30,
+    "says": "Ramesh, you are right to demand the form of the state. I go to the source.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "estates",
+   "voice": {
+    "by": "Ramesh",
+    "says": "Then go. I will stay here and wait for the money to actually land in the account, not just your footsteps.",
+    "does": "He turns away and walks towards the main gate, leaving Ramesh standing by the kitchen door."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.2
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299",
+     "id": "dyde-right:759"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§169",
+     "id": "rechts:395"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299",
+     "text": "Addition. — The two aspects of the constitution refer to the rights and the services of individuals. The services are now almost all reduced to money. Military duty is perhaps the only remaining personal service. In former times claim was made to the concrete individual, who was summoned to work in accordance with his skill. Now the state buys what it needs."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§169",
+     "text": "B. Das Vermögen der Familie. Die Familie hat nicht nur Eigentum, sondern für sie als allgemeine und fortdauernde Person tritt das Bedürfnis und die Bestimmungeines bleib enden und sicheren Besitzes, eines Vermögens ein."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-06T15:21+05:30",
+  "place": "estates",
+  "until": "2026-11-06T16:12+05:30",
   "asleep": false,
   "imprest": 1286,
-  "wearing": "kurta",
+  "wearing": "bandhgala",
   "wardrobe": [
    {
     "id": "frock",
@@ -603,7 +871,7 @@
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Worn from 13:06."
+    "status": "Worn from 15:46."
    }
   ],
   "people": [
@@ -664,8 +932,8 @@
     ]
    },
    "no_meals": true,
-   "walked": 2025,
-   "strain": 2025
+   "walked": 3975,
+   "strain": 3975
   },
   "account": {
    "advance": 15000,
