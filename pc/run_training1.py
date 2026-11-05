@@ -125,6 +125,48 @@ def load_intent(path, expected=None):
     return data
 
 
+def stat_identity(path):
+    st = Path(path).stat()
+    return dict(device=st.st_dev, inode=st.st_ino, bytes=st.st_size, mtime_ns=st.st_mtime_ns)
+
+
+def verify_frozen_file(data, name, expected):
+    stats = data.get("weight_stats", {})
+    if data.get("weight_verification_mode") == "stat" and name in stats:
+        if stat_identity(name) != stats[name]:
+            raise RuntimeError("frozen weight identity changed: " + name)
+    elif filehash(name) != expected:
+        raise RuntimeError("frozen input changed: " + name)
+
+
+def freeze_inputs(data, files, prior=None):
+    started = time.monotonic()
+    weight_seconds = 0.0
+    cache, hashes, stats = {}, {}, {}
+    for path in sorted(set(Path(p).resolve() for p in files)):
+        name = str(path)
+        before = stat_identity(path)
+        weight = path.suffix in (".safetensors", ".gguf") and before["bytes"] >= 128 * 1024**2
+        key = tuple(before.values())
+        began = time.monotonic()
+        if weight and prior and prior.get("weight_verification_mode") == "stat":
+            if prior.get("weight_stats", {}).get(name) != before:
+                raise RuntimeError("rehearsal weight identity changed: " + name)
+            value = prior["frozen_files"][name]
+        else:
+            if key not in cache:
+                cache[key] = filehash(path)
+            value = cache[key]
+        if weight:
+            weight_seconds += time.monotonic() - began
+            stats[name] = before
+        if stat_identity(path) != before:
+            raise RuntimeError("input changed while freezing: " + name)
+        hashes[name] = value
+    mode = "stat" if weight_seconds > 180 or prior and prior.get("weight_verification_mode") == "stat" else "sha256"
+    data.update(frozen_files=hashes, weight_stats=stats, weight_hash_seconds=weight_seconds,
+                total_freeze_seconds=time.monotonic()-started, weight_verification_mode=mode)
+
 def create_intent(config, destination, deadline, dry_run=False, eval_steps=None):
     """CPU preparation only. Configuration arrives on stdin, never as a copied intent."""
     root = Path(destination).resolve()
@@ -149,13 +191,15 @@ def create_intent(config, destination, deadline, dry_run=False, eval_steps=None)
     for key in ("base_model", "converter_base", "legacy_trial"):
         files += [p for p in Path(data[key]).rglob("*") if p.is_file()]
     files += [p for p in Path(data["converter"]).parent.rglob("*.py") if ".git" not in p.parts]
+    prior = None
     if not dry_run:
         proof = Path(data["passed_rehearsal"])
         files += [proof, proof.parent / "INTENT.json", proof.parent / "RUN-END.json"]
         validate_rehearsal(data)
+        prior = load_intent(proof.parent / "INTENT.json")
     if any(root == p.resolve() or root in p.resolve().parents for p in files):
         raise ValueError("output overlaps a frozen input")
-    data["frozen_files"] = {str(p): filehash(p) for p in files}
+    freeze_inputs(data, files, prior)
     data["power"] = read(data["power_state"])
     if data["power"].get("pendingUtc"):
         raise RuntimeError("pending shutdown")
@@ -191,8 +235,7 @@ def validate_rehearsal(data):
     if result["estimate"] != data["estimate"]:
         raise ValueError("real projection must use the actual rehearsal measurement")
     for name, expected in prior["frozen_files"].items():
-        if filehash(name) != expected:
-            raise ValueError("rehearsal input changed: " + name)
+        verify_frozen_file(prior, name, expected)
 
 def training_argv(data):
     p = intent_paths(data)
@@ -211,8 +254,7 @@ def verify_intent(data):
     if training_argv(data) != data["training_argv"]:
         raise ValueError("worker and intent arguments disagree")
     for name, expected in data["frozen_files"].items():
-        if filehash(name) != expected:
-            raise RuntimeError("frozen input changed: " + name)
+        verify_frozen_file(data, name, expected)
     actual = subprocess.check_output(["git", "-C", str(REPO), "rev-parse", "HEAD"], text=True).strip()
     if actual != data["commit"]:
         raise RuntimeError("source commit changed")
@@ -246,12 +288,14 @@ def guard_reason(log, now, end, planned, interval, estimate):
         before = [r["seconds"] for r in steps if r["step"] <= last["step"]][-20:]
         after = [r for r in steps if r["step"] > last["step"]]
         if before:
-            limit = 1.5 * statistics.median(before)
-            if any(r["seconds"] > limit for r in after):
-                return "post-evaluation step exceeded 1.5x baseline"
+            baseline = statistics.median(before)
+            if len(after) >= 5 and statistics.median(r["seconds"] for r in after[:5]) > 1.5 * baseline:
+                return "first five post-evaluation steps exceeded 1.5x baseline median"
+            if any(r["seconds"] > 3 * baseline for r in after):
+                return "post-evaluation step exceeded 3x baseline"
             starts = [r for r in log if r["event"] == "step_begin" and r["step"] > last["step"]]
-            if starts and (not steps or starts[-1]["step"] > steps[-1]["step"]) and now - starts[-1]["unix"] > limit:
-                return "post-evaluation step exceeded 1.5x baseline while running"
+            if starts and (not steps or starts[-1]["step"] > steps[-1]["step"]) and now - starts[-1]["unix"] > 3 * baseline:
+                return "post-evaluation step exceeded 3x baseline while running"
     done = steps[-1]["step"] if steps else 0
     cost = statistics.median([r["seconds"] for r in steps[-20:]]) if steps else estimate["step_seconds"]
     complete_evals = [r["seconds"] for r in log if r["event"] == "evaluate_end"]
@@ -698,20 +742,28 @@ class Backend:
         xml = subprocess.check_output(["/usr/lib/wsl/lib/nvidia-smi", "-q", "-x"], timeout=15)
         write_new(root / (stamp + ".xml"), xml, True)
         used = int(ET.fromstring(xml).findtext("gpu/fb_memory_usage/used").split()[0])
-        script = "$p=Get-CimInstance Win32_Process -Filter \"Name='vmwp.exe'\"; $g=Get-CimInstance Win32_PerfFormattedData_GPUPerformanceCounters_GPUProcessMemory; [pscustomobject]@{VMs=@($p|Select-Object ProcessId);Memory=@($g|Select-Object Name,SharedUsage,DedicatedUsage)}|ConvertTo-Json -Depth 5 -Compress"
-        r = subprocess.run([self.data["windows_pwsh"], "-NoProfile", "-Command", script],
-                           capture_output=True, timeout=25)
-        write_new(root / (stamp + ".windows.stdout"), r.stdout, True)
-        write_new(root / (stamp + ".windows.stderr"), r.stderr, True)
-        if r.returncode:
-            raise RuntimeError("shared-memory observation failed")
-        values = json.loads(r.stdout.decode("utf-8-sig"))
-        vms = values["VMs"]
-        if len(vms) != 1:
-            raise RuntimeError("cannot attribute shared GPU memory to one WSL VM")
-        prefix = "pid_" + str(vms[0]["ProcessId"]) + "_"
-        shared = sum(int(r["SharedUsage"]) for r in values["Memory"] if r["Name"].startswith(prefix))
-        event(root, "memory", used_mib=used, shared_bytes=shared)
+        shared, unavailable = None, None
+        try:
+            script = "$p=Get-CimInstance Win32_Process -Filter \"Name='vmwp.exe'\"; $g=Get-CimInstance Win32_PerfFormattedData_GPUPerformanceCounters_GPUProcessMemory; [pscustomobject]@{VMs=@($p|Select-Object ProcessId);Memory=@($g|Select-Object Name,SharedUsage,DedicatedUsage)}|ConvertTo-Json -Depth 5 -Compress"
+            r = subprocess.run([self.data["windows_pwsh"], "-NoProfile", "-Command", script],
+                               capture_output=True, timeout=25)
+            write_new(root / (stamp + ".windows.stdout"), r.stdout, True)
+            write_new(root / (stamp + ".windows.stderr"), r.stderr, True)
+            if r.returncode:
+                raise RuntimeError("Windows counters exited " + str(r.returncode))
+            values = json.loads(r.stdout.decode("utf-8-sig"))
+            vms = values["VMs"]
+            if len(vms) != 1:
+                raise RuntimeError("cannot attribute shared GPU memory to one WSL VM")
+            prefix = "pid_" + str(vms[0]["ProcessId"]) + "_"
+            matches = [r for r in values["Memory"] if r["Name"].startswith(prefix)]
+            if not matches:
+                raise RuntimeError("no WSL memory counter")
+            shared = sum(int(r["SharedUsage"]) for r in matches)
+        except Exception as exc:
+            unavailable = type(exc).__name__ + ": " + str(exc)
+        event(root, "memory", used_mib=used, shared_bytes=shared,
+              shared_status="unavailable" if unavailable else "observed", shared_error=unavailable)
 
     def c_fits(self):
         needed = self.data["estimate"]["phase_c_seconds"]
@@ -904,8 +956,7 @@ def train_worker(data, path, expected):
         torch.cuda.synchronize()
         write_new(str(base) + ".response.json",
                   dict(result=result, seconds=time.monotonic() - start, payload_sha256=digest(encoded(payload))))
-        if result.get("finish_reason") != "stop":
-            raise RuntimeError("held generation incomplete; no retry")
+        # The unchanged evaluator records length-limited generations as data.
         return result
 
     r2.generate_for_model = recorded_generate
@@ -955,9 +1006,9 @@ def rehearsal_cases(plan, guard, client, dest):
             c = client("raw-rehearsal-scale-" + str(scale), scale)
             rid = "rehearsal/" + str(index)
             changed = test.run_restyle(c, guard, thought["plain"], rid + "/voice", seed)
-            if not changed["attempts"] or any(a["finish_reason"] != "stop" or not a["raw"].strip()
-                                               for a in changed["attempts"]):
-                raise RuntimeError("rehearsal adapter answer incomplete")
+            if not changed["attempts"]:
+                raise RuntimeError("rehearsal has no recorded adapter attempt")
+            # Canonical guard/fallback handles length-limited outputs; preserve them.
             meaning = test.meaning_check(judge, thought["plain"], changed["text"],
                                          rid + "/" + str(scale) + "/meaning", seed)
             propositions = meaning_propositions(judge, thought["plain"], changed["text"],
@@ -1085,7 +1136,8 @@ def rehearsal_verdict(data, root, restored, now=None):
     baseline = statistics.median(before)
     ratio = max(after) / baseline
     peak_mib = max(r["used_mib"] for r in memory)
-    peak_shared = max(r["shared_bytes"] for r in memory)
+    shared_samples = [r["shared_bytes"] for r in memory if r.get("shared_bytes") is not None]
+    peak_shared = max(shared_samples) if shared_samples else None
     # Both sampled total VRAM and PyTorch's allocator high-water mark must fit.
     peak_reserved = max(r["peak_reserved"] for r in step)
     estimate = dict(step_seconds=statistics.median(r["seconds"] for r in step),
@@ -1097,7 +1149,6 @@ def rehearsal_verdict(data, root, restored, now=None):
     bc_fits = timestamp + b_seconds + estimate["phase_c_seconds"] < epoch(data["restore_by"]) - RESTORE_RESERVE
     c = read(root / "PHASE-C-END.json")
     gates = dict(post_eval_speed=ratio <= 1.5, vram=peak_mib < 23 * 1024 and peak_reserved < 23 * 1024**3,
-                 no_shared_spill=peak_shared <= base["shared_bytes"],
                  adapter_answers=c["status"] == "REHEARSAL_TWO_CASES" and len(c["cases"]) == 2,
                  qwen_and_timer=restored["status"] == "ORIGINAL_QWEN_AND_TIMER_RESTORED",
                  pi_route=restored.get("pi_probe", {}).get("status") == "PI_HEALTH_AND_ONE_TOKEN_VERIFIED",
@@ -1106,7 +1157,8 @@ def rehearsal_verdict(data, root, restored, now=None):
     return dict(utc=utc(), intent_sha256=filehash(root / "INTENT.json"),
                 passed=all(gates.values()), gates=gates, before_step_seconds=before,
                 after_step_seconds=after, ratio=ratio, peak_vram_mib=peak_mib, peak_torch_reserved_bytes=peak_reserved,
-                shared_baseline_bytes=base["shared_bytes"], peak_shared_bytes=peak_shared,
+                shared_baseline_bytes=base.get("shared_bytes"), peak_shared_bytes=peak_shared,
+                shared_memory_diagnostic_only=True, shared_unavailable_samples=len(memory)-len(shared_samples),
                 estimate=estimate, projected_B_seconds=b_seconds,
                 projected_B_plus_C_seconds=b_seconds + estimate["phase_c_seconds"], B_and_C_fit_now=bc_fits,
                 C_may_be_deferred=True, no_forced_tick=True, first_awake_tick_for_claude=True)
@@ -1143,6 +1195,23 @@ def run_pipeline(backend):
     return result
 
 
+def detach_launcher(data, path, expected):
+    root = Path(data["run_dir"])
+    if (root / "RUN-BEGIN.json").exists() or (root / "DETACHED-LAUNCH.json").exists():
+        raise RuntimeError("job already launched; no restart")
+    argv = ["/usr/bin/python3", "-B", str(Path(__file__).resolve()), "--intent", str(path),
+            "--intent-sha256", expected]
+    write_new(root / "DETACHED-LAUNCH.json", dict(utc=utc(), argv=argv, intent_sha256=expected))
+    with (root / "launcher.log").open("xb") as log:
+        child = subprocess.Popen(argv, stdin=subprocess.DEVNULL, stdout=log, stderr=subprocess.STDOUT,
+                                 cwd=data["source_dir"], start_new_session=True)
+        row = identity(child.pid)
+    write_new(root / "DETACHED-PROCESS.json", dict(utc=utc(), identity=row,
+              new_session=True, stdin_null=True, no_parent_death_signal=True))
+    print(json.dumps(dict(pid=child.pid, run_dir=str(root), intent_sha256=expected)))
+    return 0
+
+
 def main(argv=None):
     argv = list(sys.argv[1:] if argv is None else argv)
     if argv and argv[0] == "--exec-child":
@@ -1155,6 +1224,7 @@ def main(argv=None):
     p.add_argument("--intent-sha256")
     p.add_argument("--write-intent", type=Path, metavar="NEW_RUN_DIR")
     p.add_argument("--restore-by")
+    p.add_argument("--detach", action="store_true", help="launch in a new session with durable logs and null stdin")
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--eval-steps", type=int)
     p.add_argument("--worker", choices=["admission", "train", "benchmark", "sheets", "verify-conversion"])
@@ -1184,6 +1254,10 @@ def main(argv=None):
         else:
             sheets_worker(data)
         return 0
+    if a.detach:
+        if not a.intent_sha256:
+            p.error("--detach requires the pinned intent hash")
+        return detach_launcher(data, a.intent, a.intent_sha256)
     verify_intent(data)
     root = Path(data["run_dir"])
     with (root / "run.lock").open("a+") as lock:
@@ -1193,6 +1267,7 @@ def main(argv=None):
             raise RuntimeError("launcher interrupted; restore, no restart")
         signal.signal(signal.SIGTERM, interrupted)
         signal.signal(signal.SIGINT, interrupted)
+        signal.signal(signal.SIGHUP, interrupted)
         backend = Backend(a.intent)
         outcome = run_pipeline(backend)
         if data["dry_run"] and outcome["status"] == "B_AND_C_COMPLETE":

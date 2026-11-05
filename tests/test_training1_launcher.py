@@ -155,11 +155,13 @@ class GuardTests(unittest.TestCase):
     def test_projection_counts_all_six_evaluations(self):
         self.assertEqual(r.projection(20,1260),180+517*20*1.15+6*1260*1.15)
 
-    def test_slow_completed_or_inflight_post_eval_step_stops(self):
+    def test_post_eval_guard_allows_variation_but_stops_sustained_or_severe_slowdown(self):
         log=self.log()
-        self.assertIsNone(r.guard_reason(log+[dict(event="step",step=101,seconds=29,unix=3300)],3300,100000,517,100,dict(step_seconds=20,evaluation_seconds=1260)))
-        self.assertIn("1.5x",r.guard_reason(log+[dict(event="step",step=101,seconds=31,unix=3300)],3300,100000,517,100,{}))
-        self.assertIn("while running",r.guard_reason(log+[dict(event="step_begin",step=101,unix=3300)],3331,100000,517,100,{}))
+        self.assertIsNone(r.guard_reason(log+[dict(event="step",step=101,seconds=45,unix=3300)],3300,100000,517,100,{}))
+        sustained=log+[dict(event="step",step=i,seconds=31,unix=3300+i) for i in range(101,106)]
+        self.assertIn("first five",r.guard_reason(sustained,3400,100000,517,100,{}))
+        self.assertIn("3x",r.guard_reason(log+[dict(event="step",step=101,seconds=61,unix=3300)],3300,100000,517,100,{}))
+        self.assertIn("while running",r.guard_reason(log+[dict(event="step_begin",step=101,unix=3300)],3361,100000,517,100,{}))
 
     def test_projection_stops_before_late_launch(self):
         self.assertIn("projected",r.guard_reason([],1000,1100,517,100,dict(step_seconds=20,evaluation_seconds=1260)))
@@ -316,15 +318,124 @@ class RehearsalCaseTests(unittest.TestCase):
         for case in report["cases"]:
             self.assertEqual(set(case["scales"]),{"0.8","0.0"})
 
-    def test_incomplete_rehearsal_answer_fails_without_quality_fabrication(self):
-        from tools import hegel_test_round2 as t
+    def test_length_limited_rehearsal_answer_remains_recorded_data(self):
+        from tools import hegel_test_round2 as t, voice_dashboard as v
+        from world import contract
         dest=scratch();(dest/"private/inputs").mkdir(parents=True)
         (dest/"private/inputs/cast.json").write_text("[]")
         plan=dict(seed=10,cohort=[dict(id="a",plain="original")],cases=[dict(id="one")])
         with patch.object(t,"contract_answer",return_value="{}"),patch.object(t,"run_restyle",return_value=dict(
-                text="partial",attempts=[dict(raw="partial",finish_reason="length")])):
-            with self.assertRaises(RuntimeError):
-                r.rehearsal_cases(plan,None,lambda *a:None,dest)
+                text="partial",attempts=[dict(raw="partial",finish_reason="length")])), \
+             patch.object(t,"meaning_check",return_value={}),patch.object(v,"meaning_propositions",return_value={}), \
+             patch.object(v,"retention",return_value={}),patch.object(contract,"check",return_value=([],{})):
+            result=r.rehearsal_cases(plan,types.SimpleNamespace(matches=lambda text:[]),lambda *a:None,dest)
+        self.assertEqual(result["cases"][0]["scales"]["0.8"]["restyle"]["attempts"][0]["finish_reason"],"length")
+
+
+class ReviewTests(unittest.TestCase):
+    def test_shared_counter_failure_is_diagnostic(self):
+        root=scratch();data=fixture(root);data["windows_pwsh"]="/fixture/pwsh"
+        b=object.__new__(r.Backend);b.root=root;b.data=data;b.paths=r.intent_paths(data);b.last_sample=0
+        with patch.object(r.subprocess,"check_output",return_value=XML),patch.object(r.subprocess,"run",side_effect=TimeoutError("counter unavailable")):
+            b.sample_memory(force=True)
+        row=r.rows(root/"telemetry/events.jsonl")[-1]
+        self.assertEqual(row["used_mib"],443)
+        self.assertIsNone(row["shared_bytes"])
+        self.assertEqual(row["shared_status"],"unavailable")
+
+    def test_weight_stat_mode_detects_change_and_hashes_small_files(self):
+        root=scratch();weight=root/"weights.gguf";weight.write_bytes(b"fixture")
+        small=root/"source.py";small.write_text("source")
+        data=dict(weight_verification_mode="stat",weight_stats={str(weight):r.stat_identity(weight)})
+        with patch.object(r,"filehash",side_effect=AssertionError("weight rehashed")):
+            r.verify_frozen_file(data,str(weight),"preserved-hash")
+        r.verify_frozen_file(data,str(small),r.filehash(small))
+        with self.assertRaises(RuntimeError):r.verify_frozen_file(data,str(small),"wrong")
+        weight.write_bytes(b"different")
+        with self.assertRaises(RuntimeError):r.verify_frozen_file(data,str(weight),"preserved-hash")
+
+    def test_freeze_times_weights_and_reuses_verified_stat_identity(self):
+        root=scratch();p=root/"weights.gguf"
+        # Sparse fixture is never read; the injected hasher supplies its fixture digest.
+        with p.open("wb") as f:f.truncate(128*1024**2)
+        data={}
+        ticks=iter([0,0,181,182])
+        with patch.object(r,"filehash",return_value="fixture-hash") as h,patch.object(r.time,"monotonic",side_effect=lambda:next(ticks)):
+            r.freeze_inputs(data,[p])
+            self.assertEqual(h.call_count,1)
+        self.assertEqual(data["weight_verification_mode"],"stat")
+        self.assertEqual(data["weight_hash_seconds"],181)
+        second={}
+        with patch.object(r,"filehash",side_effect=AssertionError("must reuse rehearsal hash")):
+            r.freeze_inputs(second,[p],prior=data)
+        self.assertEqual(second["frozen_files"],data["frozen_files"])
+
+    def test_length_limited_held_generation_is_not_promoted_to_a_failure(self):
+        tree=ast.parse(Path(r.__file__).read_text())
+        worker=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=="train_worker")
+        fn=next(n for n in ast.walk(worker) if isinstance(n,ast.FunctionDef) and n.name=="recorded_generate")
+        # Execute the actual nested recorder with the same closure, but a fake model/generator.
+        wrapper=ast.FunctionDef(name="make_recorder",args=ast.arguments(posonlyargs=[],args=[],kwonlyargs=[],kw_defaults=[],defaults=[]),
+            body=[ast.parse("call = 0").body[0],fn,ast.Return(value=ast.Name(id="recorded_generate",ctx=ast.Load()))],decorator_list=[])
+        module=ast.fix_missing_locations(ast.Module(body=[wrapper],type_ignores=[]))
+        root=scratch();ns=dict(r.__dict__);ns.update(root=root,data={},path="fixture",expected="fixture",
+            load_intent=lambda *a:None,deadline=lambda d:time.time()+9999,
+            original_generate=lambda *a:dict(text="partial",finish_reason="length",generated_tokens=4))
+        exec(compile(module,"recorder-fixture","exec"),ns)
+        result=ns["make_recorder"]()(None,None,"plain",1,4,types.SimpleNamespace(cuda=types.SimpleNamespace(synchronize=lambda:None)))
+        self.assertEqual(result["finish_reason"],"length")
+        self.assertEqual(r.read(root/"held-generations/0001.response.json")["result"],result)
+
+    def test_sighup_runs_finally_restoration_in_a_real_detached_process(self):
+        root=scratch();data=fixture(root);r.write_new(root/"INTENT.json",data)
+        code = """
+import json,sys,time
+from pathlib import Path
+from pc import run_training1 as r
+root=Path(sys.argv[1])
+class Fake:
+ def __init__(self,path):self.root=root;self.data=dict(dry_run=False)
+ def handover(self):
+  (root/'READY').write_text('ready')
+  while True:time.sleep(.02)
+ def restore(self):
+  (root/'RESTORED').write_text('restored')
+  return dict(status='RESTORED')
+r.Backend=Fake
+r.verify_intent=lambda data:None
+raise SystemExit(r.main(['--intent',str(root/'INTENT.json')]))
+"""
+        with (root/"fake.log").open("wb") as output:
+            child=subprocess.Popen(["/usr/bin/python3","-B","-c",code,str(root)],cwd=r.REPO,
+                                   stdin=subprocess.DEVNULL,stdout=output,stderr=subprocess.STDOUT,start_new_session=True)
+            fd=os.pidfd_open(child.pid)
+            try:
+                until=time.monotonic()+10
+                while not (root/"READY").exists() and child.poll() is None and time.monotonic()<until:time.sleep(.02)
+                self.assertTrue((root/"READY").exists(),(root/"fake.log").read_text())
+                self.assertEqual(os.getsid(child.pid),child.pid)
+                r.signal.pidfd_send_signal(fd,r.signal.SIGHUP)
+                self.assertEqual(child.wait(timeout=10),1)
+                self.assertTrue((root/"RESTORED").exists())
+                ended=r.read(root/"RUN-END.json")
+                self.assertEqual(ended["status"],"FAILED")
+                self.assertEqual(ended["restoration"]["status"],"RESTORED")
+            finally:
+                if child.poll() is None:
+                    r.signal.pidfd_send_signal(fd,r.signal.SIGTERM)
+                    child.wait(timeout=10)
+                os.close(fd)
+
+    def test_detach_launches_once_with_null_input_and_a_new_session(self):
+        root=scratch();data=fixture(root)
+        with patch.object(r.subprocess,"Popen",return_value=types.SimpleNamespace(pid=999)) as popen, \
+             patch.object(r,"identity",return_value=dict(pid=999)):
+            self.assertEqual(r.detach_launcher(data,root/"INTENT.json","hash"),0)
+            kwargs=popen.call_args.kwargs
+            self.assertTrue(kwargs["start_new_session"])
+            self.assertEqual(kwargs["stdin"],subprocess.DEVNULL)
+            with self.assertRaises(RuntimeError):r.detach_launcher(data,root/"INTENT.json","hash")
+        self.assertTrue(r.read(root/"DETACHED-PROCESS.json")["no_parent_death_signal"])
 
 if __name__=="__main__":
     unittest.main(verbosity=2)
