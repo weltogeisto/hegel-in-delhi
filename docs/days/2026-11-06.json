@@ -399,6 +399,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "16:52",
+   "to": "17:02",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -647,6 +654,34 @@
    "to": "Hegel",
    "text": "Stop with the philosophy, sir. Just sign on the dotted line and hand it over. I have a file on my desk that is forty years old and it is not going to close itself.",
    "t": "16:37"
+  },
+  {
+   "k": "diary",
+   "text": "The bureaucratic machine does not care for the spirit of the act, only its completion. To delay the signature is to oppose the form itself, and I have no cause to oppose the form. I shall sign, for the state demands the actuality of the ethical idea, even if that actuality is currently a carbon-copy slip in a brown haze.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle"
+    }
+   ],
+   "t": "16:52"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Mr. Saxena. The form must be fulfilled. I sign.",
+   "to": "Mr. Saxena",
+   "t": "16:52"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Good. That is all I needed to hear. Next, please step over to the far left, the window with the queue, and do not come back here until you have your stamp.",
+   "t": "16:52"
   }
  ],
  "steps": [
@@ -1121,13 +1156,65 @@
      "text": "It is the outcome of the third sphere of the spiritual world, and may be shortly contrasted with the two former types of self. The totality or actuahty which is revealed as the final result of the ethical world, the world of the social order, is the self of a Person, ethical personality: its existence Kes in its being recognised and acknowledged."
     }
    ]
+  },
+  {
+   "t": "16:52",
+   "end": "17:02",
+   "event": "Mr. Saxena says: “Stop with the philosophy, sir. Just sign on the dotted line and hand it over. I have a file on my desk that is forty years old and it is not going to close itself.” He taps the carbon-copy slip with two fingers, emphasizing the deadline.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The bureaucratic machine does not care for the spirit of the act, only its completion. To delay the signature is to oppose the form itself, and I have no cause to oppose the form. I shall sign, for the state demands the actuality of the ethical idea, even if that actuality is currently a carbon-copy slip in a brown haze.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 10,
+    "says": "You are right, Mr. Saxena. The form must be fulfilled. I sign.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Good. That is all I needed to hear. Next, please step over to the far left, the window with the queue, and do not come back here until you have your stamp.",
+    "does": "Saxena picks up the carbon-copy slip, checks the signature, and slides it into the forty-year-old file without a glance."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.0
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle",
+     "id": "haldane-2:311"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle",
+     "text": "the old enemy of Indian religion, in order to take revenge upon it for all the violence exercised through Darius on the Buddhists and their co-religionists.” This is an ingenious theory, formed from a thorough investigation of the connection which exists between Oriental and European ideas from the higher point of view in history."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-06T16:52+05:30",
+  "until": "2026-11-06T17:02+05:30",
   "asleep": false,
   "imprest": 1376,
   "wearing": "bandhgala",
