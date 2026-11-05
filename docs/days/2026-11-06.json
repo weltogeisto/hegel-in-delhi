@@ -448,6 +448,13 @@
    "mode": "walk",
    "a": "home",
    "b": "khan"
+  },
+  {
+   "from": "19:08",
+   "to": "19:23",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Talking with Masterji at Khan Market."
   }
  ],
  "entries": [
@@ -891,6 +898,34 @@
    "to": "Hegel",
    "text": "Chalo, sir. Don't wait up. The gate latch sticks a bit, so just push it hard.",
    "t": "18:41"
+  },
+  {
+   "k": "diary",
+   "text": "The hunger is a stubborn fact, but my stomach is not a political body that I must satisfy before I can think. The air is thick with smoke and dust, a brown haze that chokes the lungs as much as the mind. I see the bookseller’s stall still open; it is time to see what universal knowledge they are peddling in this particular corner of the world.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "19:08"
+  },
+  {
+   "k": "said",
+   "text": "Bookseller, what have you on the shelf? I am looking for something on the nature of the state, or perhaps the history of the East. Do you have anything that is not merely a collection of recipes?",
+   "to": "Masterji",
+   "t": "19:08"
+  },
+  {
+   "k": "said",
+   "by": "The bookseller",
+   "to": "Hegel",
+   "text": "Haha, sir, you are a funny man. I have Ambedkar, I have Marx, I have a few UPSC guides, but 'history of the East' is a bit big for this shelf. Maybe try the big bookshop on the other side, they have the whole world in there.",
+   "t": "19:08"
   }
  ],
  "steps": [
@@ -1725,13 +1760,66 @@
      "text": "The universal so penetrates the particular by its dialectic movement, that the individual, while acquiring, producing, and enjoying for himself, at the same time produces and acquires for the enjoyment of others. This is a necessity, and in this necessity arising out of mutual dependence is contained the fact of a general and permanent wealth (§ 170)."
     }
    ]
+  },
+  {
+   "t": "19:08",
+   "end": "19:23",
+   "event": "Ramesh says: “Chalo, sir. Don't wait up. The gate latch sticks a bit, so just push it hard.” You arrive at Khan Market. It closes at 20:30. Masterji is here.",
+   "present": [
+    "Masterji, the tailor",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The hunger is a stubborn fact, but my stomach is not a political body that I must satisfy before I can think. The air is thick with smoke and dust, a brown haze that chokes the lungs as much as the mind. I see the bookseller’s stall still open; it is time to see what universal knowledge they are peddling in this particular corner of the world.",
+    "action": "talk",
+    "place": "khan",
+    "minutes": 15,
+    "says": "Bookseller, what have you on the shelf? I am looking for something on the nature of the state, or perhaps the history of the East. Do you have anything that is not merely a collection of recipes?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The bookseller",
+    "says": "Haha, sir, you are a funny man. I have Ambedkar, I have Marx, I have a few UPSC guides, but 'history of the East' is a bit big for this shelf. Maybe try the big bookshop on the other side, they have the whole world in there.",
+    "does": "Wipes down the counter with a rag."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.2
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-06T19:08+05:30",
+  "until": "2026-11-06T19:23+05:30",
   "asleep": false,
   "imprest": 1376,
   "wearing": "kurta",
@@ -1821,6 +1909,10 @@
     ],
     "estates": [
      "saxena"
+    ],
+    "khan": [
+     "bookseller",
+     "masterji"
     ]
    },
    "no_meals": true,
@@ -1871,7 +1963,8 @@
     "2026-10-02",
     "2026-10-13",
     "2026-10-28",
-    "2026-11-05"
+    "2026-11-05",
+    "2026-11-06"
    ],
    "gym": [
     "2026-10-02"
@@ -1956,7 +2049,8 @@
     "2026-10-02",
     "2026-10-13",
     "2026-10-28",
-    "2026-11-05"
+    "2026-11-05",
+    "2026-11-06"
    ],
    "nidhi": [
     "2026-10-02"
