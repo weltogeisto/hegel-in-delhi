@@ -406,6 +406,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "17:02",
+   "to": "17:17",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -682,6 +689,34 @@
    "to": "Hegel",
    "text": "Good. That is all I needed to hear. Next, please step over to the far left, the window with the queue, and do not come back here until you have your stamp.",
    "t": "16:52"
+  },
+  {
+   "k": "diary",
+   "text": "The window with the queue is the mechanism through which the state mediates its authority to the individual; it is where the abstract right becomes a stamped document. I have not eaten in over a day, and the sun is still high, but the stamp is the only thing that matters now. The bureaucracy demands the form of time, not the substance of it, and I must endure the waiting to secure my standing.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§527"
+    }
+   ],
+   "t": "17:02"
+  },
+  {
+   "k": "said",
+   "text": "I shall proceed to the window. Do not expect me here again until the file returns from orders.",
+   "to": "Mr. Saxena",
+   "t": "17:02"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Orders will take their time, sir. The tea is still hot, but the clock is not.",
+   "t": "17:02"
   }
  ],
  "steps": [
@@ -1208,13 +1243,65 @@
      "text": "the old enemy of Indian religion, in order to take revenge upon it for all the violence exercised through Darius on the Buddhists and their co-religionists.” This is an ingenious theory, formed from a thorough investigation of the connection which exists between Oriental and European ideas from the higher point of view in history."
     }
    ]
+  },
+  {
+   "t": "17:02",
+   "end": "17:17",
+   "event": "Mr. Saxena says: “Good. That is all I needed to hear. Next, please step over to the far left, the window with the queue, and do not come back here until you have your stamp.” Saxena picks up the carbon-copy slip, checks the signature, and slides it into the forty-year-old file without a glance. Directorate of Estates, Nirman Bhawan closes at 17:30.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The window with the queue is the mechanism through which the state mediates its authority to the individual; it is where the abstract right becomes a stamped document. I have not eaten in over a day, and the sun is still high, but the stamp is the only thing that matters now. The bureaucracy demands the form of time, not the substance of it, and I must endure the waiting to secure my standing.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 15,
+    "says": "I shall proceed to the window. Do not expect me here again until the file returns from orders.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Orders will take their time, sir. The tea is still hot, but the clock is not.",
+    "does": "He lifts the steel tumbler to his lips and takes a slow sip."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.8
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "id": "haldane-1:93"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§527",
+     "id": "wallace-mind:275"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "text": "All the parts represented in it, and their systematization, emanate from the one Idea; all these particulars are but the mirrors and copies of this one life, and have their actuality only in this unity. Their differences and their various qualities are only the expression of the Idea and the form contained within it."
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§527",
+     "text": "Where civil society, and with it the State, exists, there arise the several estates in their difference: for the universal substance, as vital, exists only so far as it organically particularises itself."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-06T17:02+05:30",
+  "until": "2026-11-06T17:17+05:30",
   "asleep": false,
   "imprest": 1376,
   "wearing": "bandhgala",
