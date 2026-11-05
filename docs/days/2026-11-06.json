@@ -378,6 +378,13 @@
    "mode": "walk",
    "a": "home",
    "b": "estates"
+  },
+  {
+   "from": "16:12",
+   "to": "16:27",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -519,6 +526,57 @@
    "status": "Worn from 15:46.",
    "sprite": "bandhgala",
    "t": "15:46"
+  },
+  {
+   "k": "income",
+   "item": "Imprest refilled against vouchers",
+   "amount": 90,
+   "from": "the Directorate of Estates",
+   "text": "Admitted by Mr. Saxena: stationery, notebooks, ink, newspapers.",
+   "recoup": {
+    "admitted": 90,
+    "queried": 220
+   },
+   "t": "16:12"
+  },
+  {
+   "k": "file",
+   "text": "Mr. Saxena queries ₹220 of personal expenditure on the imprest: recovery from the allottee.",
+   "owe": {
+    "to": "the Directorate of Estates",
+    "amount": 220,
+    "why": "queried vouchers",
+    "since": "2026-11-06"
+   },
+   "t": "16:12"
+  },
+  {
+   "k": "diary",
+   "text": "Saxena’s ledger is the only language this office understands; my cash is the particular, his query the universal. I cannot fight the state with its own currency, nor can I leave owing what I cannot pay. I must accept the correction of my error, for in the ethical life, the state’s claim precedes the individual’s comfort.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    }
+   ],
+   "t": "16:12"
+  },
+  {
+   "k": "said",
+   "text": "Mr. Saxena, you are correct. The ₹220 is personal, and I shall bear the loss. Please deduct it from my cash, admit the ₹90 as valid, and record that I have settled the personal portion. I have only ₹1,286 on me; I cannot pay the full ₹8,004 balance today, but I acknowledge the debt.",
+   "to": "Mr. Saxena",
+   "t": "16:12"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "The debt is noted in the file, but the balance remains outstanding until paid in full. Take this slip, sign here, and return before the office closes at 17:30; we do not keep accounts open on Fridays.",
+   "t": "16:12"
   }
  ],
  "steps": [
@@ -837,15 +895,67 @@
      "text": "B. Das Vermögen der Familie. Die Familie hat nicht nur Eigentum, sondern für sie als allgemeine und fortdauernde Person tritt das Bedürfnis und die Bestimmungeines bleib enden und sicheren Besitzes, eines Vermögens ein."
     }
    ]
+  },
+  {
+   "t": "16:12",
+   "end": "16:27",
+   "event": "Ramesh says: “Then go. I will stay here and wait for the money to actually land in the account, not just your footsteps.” He turns away and walks towards the main gate, leaving Ramesh standing by the kitchen door. You arrive at Directorate of Estates, Nirman Bhawan. It closes at 17:30. The Directorate of Estates asks for ₹8,004 (queried vouchers), and you have only ₹1,286. Mr. Saxena goes through your vouchers: ₹90 is admitted and refilled to you in cash; ₹220 is queried as personal and will be recovered from you. Mr. Saxena is here.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "Saxena’s ledger is the only language this office understands; my cash is the particular, his query the universal. I cannot fight the state with its own currency, nor can I leave owing what I cannot pay. I must accept the correction of my error, for in the ethical life, the state’s claim precedes the individual’s comfort.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 15,
+    "says": "Mr. Saxena, you are correct. The ₹220 is personal, and I shall bear the loss. Please deduct it from my cash, admit the ₹90 as valid, and record that I have settled the personal portion. I have only ₹1,286 on me; I cannot pay the full ₹8,004 balance today, but I acknowledge the debt.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "The debt is noted in the file, but the balance remains outstanding until paid in full. Take this slip, sign here, and return before the office closes at 17:30; we do not keep accounts open on Fridays.",
+    "does": "He slides a carbon-copy slip and a pen across the desk toward Hegel."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.6
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299",
+     "id": "dyde-right:757"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:639"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299",
+     "text": "This would be detrimental to their character as laws. The organic unity of the functions of state implies that one single spirit both fixes the nature of the universal and also carries it out to its definite reality."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "In so far as religion is of a true sort, not displaying a negative and hostile spirit towards the state, but rather recognizing and supporting it, it has its own special place and station."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-06T16:12+05:30",
+  "until": "2026-11-06T16:27+05:30",
   "asleep": false,
-  "imprest": 1286,
+  "imprest": 1376,
   "wearing": "bandhgala",
   "wardrobe": [
    {
@@ -924,100 +1034,27 @@
   "today": {
    "woke": "14:21",
    "pressed": [
-    "Ramesh|the wage for cooking"
+    "Ramesh|the wage for cooking",
+    "the Directorate of Estates|queried vouchers"
    ],
    "seen": {
     "home": [
      "ramesh"
+    ],
+    "estates": [
+     "saxena"
     ]
    },
    "no_meals": true,
    "walked": 3975,
-   "strain": 3975
+   "strain": 3975,
+   "recouped": true
   },
   "account": {
    "advance": 15000,
-   "vouchers": [
-    {
-     "date": "2026-11-05",
-     "t": "14:47",
-     "item": "Samosa",
-     "price": 30,
-     "office": false
-    },
-    {
-     "date": "2026-11-05",
-     "t": "14:47",
-     "item": "Newspapers",
-     "price": 45,
-     "office": true
-    },
-    {
-     "date": "2026-11-05",
-     "t": "15:52",
-     "item": "Chai, a cup",
-     "price": 20,
-     "office": false
-    },
-    {
-     "date": "2026-11-05",
-     "t": "16:07",
-     "item": "Chai, a cup",
-     "price": 20,
-     "office": false
-    },
-    {
-     "date": "2026-11-05",
-     "t": "16:17",
-     "item": "Chai, a cup",
-     "price": 20,
-     "office": false
-    },
-    {
-     "date": "2026-11-05",
-     "t": "16:27",
-     "item": "Chai, a cup",
-     "price": 20,
-     "office": false
-    },
-    {
-     "date": "2026-11-05",
-     "t": "16:42",
-     "item": "Samosa",
-     "price": 30,
-     "office": false
-    },
-    {
-     "date": "2026-11-05",
-     "t": "16:42",
-     "item": "Newspapers",
-     "price": 45,
-     "office": true
-    },
-    {
-     "date": "2026-11-05",
-     "t": "17:12",
-     "item": "Samosa",
-     "price": 30,
-     "office": false
-    },
-    {
-     "date": "2026-11-05",
-     "t": "19:06",
-     "item": "Samosa",
-     "price": 30,
-     "office": false
-    },
-    {
-     "date": "2026-11-05",
-     "t": "19:06",
-     "item": "Chai, a cup",
-     "price": 20,
-     "office": false
-    }
-   ],
-   "admitted": 640,
-   "queried": 8004
+   "vouchers": [],
+   "admitted": 730,
+   "queried": 8224
   },
   "visits": {
    "home": [
@@ -1069,7 +1106,8 @@
     "2026-10-28"
    ],
    "estates": [
-    "2026-11-05"
+    "2026-11-05",
+    "2026-11-06"
    ]
   },
   "owed": [
@@ -1091,6 +1129,15 @@
     "at": "estates",
     "with": "saxena",
     "after": "2026-11-06"
+   },
+   {
+    "to": "the Directorate of Estates",
+    "amount": 220,
+    "why": "queried vouchers",
+    "since": "2026-11-06",
+    "at": "estates",
+    "with": "saxena",
+    "after": "2026-11-07"
    }
   ],
   "cheques": [],
@@ -1167,7 +1214,8 @@
     "2026-10-28"
    ],
    "saxena": [
-    "2026-11-05"
+    "2026-11-05",
+    "2026-11-06"
    ]
   },
   "refused": {
