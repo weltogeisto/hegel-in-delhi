@@ -4,6 +4,9 @@ Heavy training imports are deferred. Existing pilot training and output director
 never opened for writing by this module. Selection order is recall count, Delta, loss,
 then earlier step; every measured checkpoint and raw held reply is retained.
 """
+import contextlib
+import gc
+import os
 from datetime import datetime, timezone
 import hashlib
 import json
@@ -226,27 +229,105 @@ class MachineEvaluator:
         return rows
 
 
+@contextlib.contextmanager
+def _preserve_generation_state(model, tok):
+    """Restore training settings that Unsloth's generate changes beyond .training."""
+    modules = tuple(model.modules()) if hasattr(model, "modules") else (model,)
+    missing = object()
+    training = [(module, getattr(module, "training", missing)) for module in modules]
+    settings, seen = [], set()
+
+    def remember(obj, name, *, owned=False):
+        key = (id(obj), name)
+        if key not in seen:
+            seen.add(key)
+            value = vars(obj).get(name, missing) if owned else getattr(obj, name, missing)
+            settings.append((obj, name, value))
+
+    for module in modules:
+        remember(module, "gradient_checkpointing")
+        remember(module, "_flag_for_generation", owned=True)
+        # These are inference caches, not parameters, gradients or optimizer state.
+        for name in ("_cache", "_flex_attention_cache",
+                     "paged_attention", "paged_attention_K", "paged_attention_V"):
+            remember(module, name, owned=True)
+        config = getattr(module, "config", None)
+        if config is not None:
+            remember(config, "use_cache")
+            text_config = getattr(config, "text_config", None)
+            if text_config is not None:
+                remember(text_config, "use_cache")
+        saved_tok = getattr(module, "_saved_temp_tokenizer", None)
+        if saved_tok is not None:
+            remember(saved_tok, "padding_side")
+    remember(tok, "padding_side")
+    env = {name: os.environ.get(name) for name in
+           ("UNSLOTH_RETURN_LOGITS", "UNSLOTH_RETURN_HIDDEN_STATES")}
+    checkpointing = next((value for _, name, value in settings
+                          if name == "gradient_checkpointing"
+                          and value is not missing and value), False)
+    was_training = model.training
+    try:
+        yield
+    finally:
+        try:
+            restore = getattr(model, "for_training", None)
+            if callable(restore):
+                # Preserve the actual mode, including the string "unsloth".
+                restore(use_gradient_checkpointing=checkpointing)
+        finally:
+            model.train(was_training)
+            for module, value in training:
+                if value is not missing:
+                    module.training = value
+            for obj, name, value in settings:
+                if value is missing:
+                    # PEFT delegates attribute reads; delete only locally owned state.
+                    if name in vars(obj):
+                        delattr(obj, name)
+                else:
+                    setattr(obj, name, value)
+            for name, value in env.items():
+                if value is None:
+                    os.environ.pop(name, None)
+                else:
+                    os.environ[name] = value
+
+
+def _release_generation_memory(torch, device):
+    """Called only after temporary tensors and newly created caches lose their refs."""
+    gc.collect()
+    if device.type == "cuda":
+        torch.cuda.synchronize(device)
+        with torch.cuda.device(device):
+            torch.cuda.empty_cache()
+
+
 def generate_for_model(model, tok, plain, seed, tokens, torch):
-    """Use the live restyle prompt; restore model mode and training RNG afterwards."""
+    """Generate held text, then restore training state and release unused CUDA memory."""
     from world import restyle
     prompt = tok.apply_chat_template(restyle.messages(plain), tokenize=False,
                                      add_generation_prompt=True, enable_thinking=False)
-    inputs = tok(prompt, return_tensors="pt", add_special_tokens=False)
     device = next(model.parameters()).device
-    inputs = {k: v.to(device) for k, v in inputs.items()}
-    was_training = model.training
     cuda_devices = [device.index or 0] if device.type == "cuda" else []
+    inputs, answer, ids = {}, None, None
     try:
-        model.eval()
-        with torch.random.fork_rng(devices=cuda_devices), torch.inference_mode():
-            torch.manual_seed(seed)
-            answer = model.generate(**inputs, max_new_tokens=tokens, temperature=0.9, do_sample=True,
-                                    pad_token_id=tok.eos_token_id, use_cache=True)
-        ids = answer[0, inputs["input_ids"].shape[1]:]
-        return {"text": tok.decode(ids, skip_special_tokens=True), "generated_tokens": len(ids),
-                "finish_reason": "stop" if len(ids) and int(ids[-1]) == tok.eos_token_id else "length"}
+        inputs = tok(prompt, return_tensors="pt", add_special_tokens=False)
+        inputs = {k: v.to(device) for k, v in inputs.items()}
+        with torch.random.fork_rng(devices=cuda_devices), _preserve_generation_state(model, tok):
+            model.eval()
+            with torch.inference_mode():
+                torch.manual_seed(seed)
+                answer = model.generate(**inputs, max_new_tokens=tokens, temperature=0.9, do_sample=True,
+                                        pad_token_id=tok.eos_token_id, use_cache=True, disable_compile=True)
+            ids = answer[0, inputs["input_ids"].shape[1]:]
+            return {"text": tok.decode(ids, skip_special_tokens=True), "generated_tokens": len(ids),
+                    "finish_reason": "stop" if len(ids) and int(ids[-1]) == tok.eos_token_id else "length"}
     finally:
-        model.train(was_training)
+        # empty_cache alone cannot free tensors still referenced by these locals.
+        ids = answer = None
+        inputs.clear()
+        _release_generation_memory(torch, device)
 
 
 def runtime():
