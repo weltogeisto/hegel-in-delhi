@@ -392,6 +392,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "16:37",
+   "to": "16:52",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -612,6 +619,34 @@
    "to": "Hegel",
    "text": "Do not say 'immediately' in this office. Take your time, sign it, and be at the counter before 17:30 sharp.",
    "t": "16:27"
+  },
+  {
+   "k": "diary",
+   "text": "The bureaucracy demands the form of time, not the substance of it. I must sign this carbon copy, for in the ethical sphere, the particular act of writing is the actuality of the universal rule. I have forty-three minutes to perform this ritual before the office closes, and the air is thick with the dust of the city, a haze that mirrors the obscurity of my own status here.",
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§194"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Conscience: the Beautiful Soul"
+    }
+   ],
+   "t": "16:37"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Mr. Saxena. The word 'immediately' is a word of passion, and this office requires the calm of reason. I shall sign the slip now. It is a small thing, but the form must be perfect.",
+   "to": "Mr. Saxena",
+   "t": "16:37"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Stop with the philosophy, sir. Just sign on the dotted line and hand it over. I have a file on my desk that is forty years old and it is not going to close itself.",
+   "t": "16:37"
   }
  ],
  "steps": [
@@ -1034,13 +1069,65 @@
      "text": "Addition. — The particular person is really a subordinate, who must devote his life to the service of the ethical fabric; when the state demands his life, he must yield it up. But should the man take his own life? Suicide may at first glance be looked upon as bravery, although it be the poor bravery of tailors and maid-servants."
     }
    ]
+  },
+  {
+   "t": "16:37",
+   "end": "16:52",
+   "event": "Mr. Saxena says: “Do not say 'immediately' in this office. Take your time, sign it, and be at the counter before 17:30 sharp.” He taps the carbon-copy slip with two fingers, emphasizing the deadline.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The bureaucracy demands the form of time, not the substance of it. I must sign this carbon copy, for in the ethical sphere, the particular act of writing is the actuality of the universal rule. I have forty-three minutes to perform this ritual before the office closes, and the air is thick with the dust of the city, a haze that mirrors the obscurity of my own status here.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 15,
+    "says": "You are right, Mr. Saxena. The word 'immediately' is a word of passion, and this office requires the calm of reason. I shall sign the slip now. It is a small thing, but the form must be perfect.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Stop with the philosophy, sir. Just sign on the dotted line and hand it over. I have a file on my desk that is forty years old and it is not going to close itself.",
+    "does": "He taps the carbon-copy slip with two fingers, emphasizing the deadline."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.3
+   },
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§194",
+     "id": "wallace-logic:869"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Conscience: the Beautiful Soul",
+     "id": "baillie-2:386"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§194",
+     "text": "Any one who, from want of familiarity with the categories of subjectivity and objectivity, seeks to retain them in their abstraction, will find that the isolated categories slip through his fingers before he is aware, and that he says the exact contrary of what he wanted to say."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Conscience: the Beautiful Soul",
+     "text": "It is the outcome of the third sphere of the spiritual world, and may be shortly contrasted with the two former types of self. The totality or actuahty which is revealed as the final result of the ethical world, the world of the social order, is the self of a Person, ethical personality: its existence Kes in its being recognised and acknowledged."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-06T16:37+05:30",
+  "until": "2026-11-06T16:52+05:30",
   "asleep": false,
   "imprest": 1376,
   "wearing": "bandhgala",
