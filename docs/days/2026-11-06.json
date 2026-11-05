@@ -441,6 +441,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "18:41",
+   "to": "19:08",
+   "mode": "walk",
+   "a": "home",
+   "b": "khan"
   }
  ],
  "entries": [
@@ -856,6 +863,34 @@
    "to": "Hegel",
    "text": "I haven't cooked, sir. No wage, no rice. Sit there if you like, but don't expect a meal.",
    "t": "18:26"
+  },
+  {
+   "k": "diary",
+   "text": "The hunger in my belly is a physical fact that mocks the ethical spirit I profess. Ramesh is right: without the particular wage, the universal bond of the household dissolves into mere abstraction. I cannot command a meal I cannot pay for; the body demands the coin, not the argument. I must find sustenance elsewhere, for the state's money is locked in a file that will not move today, and my own pocket is light.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Struggle of Enlightenment with Superstition"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§199"
+    }
+   ],
+   "t": "18:41"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Ramesh. The demand for the wage is just. I will return when the money is in my hand. Do not wait up for me.",
+   "to": "Ramesh",
+   "t": "18:41"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Chalo, sir. Don't wait up. The gate latch sticks a bit, so just push it hard.",
+   "t": "18:41"
   }
  ],
  "steps": [
@@ -1638,13 +1673,65 @@
      "text": "A slothful mind finds it natural to say: 'Don't let it be supposed that we mean to be in earnest with our philosophy. We shall be glad inter alia to study Logic: but Logic must be sure to leave us as we were before.' People have a feeling that, if thinking passes the ordinary range of our ideas and impressions, it cannot but be on the evil road."
     }
    ]
+  },
+  {
+   "t": "18:41",
+   "end": "19:08",
+   "event": "Ramesh says: “I haven't cooked, sir. No wage, no rice. Sit there if you like, but don't expect a meal.”",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The hunger in my belly is a physical fact that mocks the ethical spirit I profess. Ramesh is right: without the particular wage, the universal bond of the household dissolves into mere abstraction. I cannot command a meal I cannot pay for; the body demands the coin, not the argument. I must find sustenance elsewhere, for the state's money is locked in a file that will not move today, and my own pocket is light.",
+    "action": "walk",
+    "place": "khan",
+    "minutes": 20,
+    "says": "You are right, Ramesh. The demand for the wage is just. I will return when the money is in my hand. Do not wait up for me.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "khan",
+   "voice": {
+    "by": "Ramesh",
+    "says": "Chalo, sir. Don't wait up. The gate latch sticks a bit, so just push it hard.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.0
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Struggle of Enlightenment with Superstition",
+     "id": "baillie-2:241"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§199",
+     "id": "dyde-right:478"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Struggle of Enlightenment with Superstition",
+     "text": "As pure insight it further maintains the necessity of rising above the condition of nature, above covetousness and its ways; it only finds it foolish and wrong that this supremacy should have to be demonstrated by action."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§199",
+     "text": "The universal so penetrates the particular by its dialectic movement, that the individual, while acquiring, producing, and enjoying for himself, at the same time produces and acquires for the enjoyment of others. This is a necessity, and in this necessity arising out of mutual dependence is contained the fact of a general and permanent wealth (§ 170)."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-06T18:41+05:30",
+  "place": "khan",
+  "until": "2026-11-06T19:08+05:30",
   "asleep": false,
   "imprest": 1376,
   "wearing": "kurta",
@@ -1737,8 +1824,8 @@
     ]
    },
    "no_meals": true,
-   "walked": 5925,
-   "strain": 5925
+   "walked": 7950,
+   "strain": 7950
   },
   "account": {
    "advance": 15000,
