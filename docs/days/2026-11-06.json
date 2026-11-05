@@ -490,6 +490,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh and Shri G. Hegde at home."
+  },
+  {
+   "from": "20:40",
+   "to": "20:55",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -1137,6 +1144,34 @@
    "to": "Hegel",
    "text": "Reason? I am the resident and you are the one sitting in my chair. I will discuss the file when the DG calls me, not while you are still wearing my kurta.",
    "t": "20:25"
+  },
+  {
+   "k": "diary",
+   "text": "The man speaks with the arrogance of one who mistakes possession for right, yet his refusal to move is a blockage in the very mechanism of my existence. I am exhausted, the body failing, and yet I must maintain the dignity of the concept even as the particular man stands in my doorway. I will not yield the space, for to yield is to admit that the accident of the name outweighs the reality of the inhabitant, but I must first tend to the failing flesh that houses this spirit.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810"
+    }
+   ],
+   "t": "20:40"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, you mistake the vessel for the wine. I do not wear your kurta; I am the man who woke in this house, and the Directorate's error is a matter for the file, not for the door. I am too weary to argue the ontology of residence tonight, but I will not be pushed aside by a man who has not even read the Phenomenology. Step aside, or I shall sit on the floor and wait until the DG calls you, for I have nowhere else to go and no strength to walk.",
+   "to": "Shri G. Hegde",
+   "t": "20:40"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Ontology? You haven't read the file, let alone the book, and you're still wearing my kurta. If you want to sit on the floor, do it, but don't expect me to move for a man who thinks a white cotton shirt is a philosophical argument.",
+   "t": "20:40"
   }
  ],
  "steps": [
@@ -2321,13 +2356,65 @@
      "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
     }
    ]
+  },
+  {
+   "t": "20:40",
+   "end": "20:55",
+   "event": "Shri G. Hegde says: “Reason? I am the resident and you are the one sitting in my chair. I will discuss the file when the DG calls me, not while you are still wearing my kurta.” He crosses his arms and leans against the doorframe, refusing to move aside.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The man speaks with the arrogance of one who mistakes possession for right, yet his refusal to move is a blockage in the very mechanism of my existence. I am exhausted, the body failing, and yet I must maintain the dignity of the concept even as the particular man stands in my doorway. I will not yield the space, for to yield is to admit that the accident of the name outweighs the reality of the inhabitant, but I must first tend to the failing flesh that houses this spirit.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Shri Hegde, you mistake the vessel for the wine. I do not wear your kurta; I am the man who woke in this house, and the Directorate's error is a matter for the file, not for the door. I am too weary to argue the ontology of residence tonight, but I will not be pushed aside by a man who has not even read the Phenomenology. Step aside, or I shall sit on the floor and wait until the DG calls you, for I have nowhere else to go and no strength to walk.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Ontology? You haven't read the file, let alone the book, and you're still wearing my kurta. If you want to sit on the floor, do it, but don't expect me to move for a man who thinks a white cotton shirt is a philosophical argument.",
+    "does": "Shri G. Hegde uncrosses his arms and steps back into the shadow of the doorframe, refusing to budge further."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 12.0
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1189"
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810",
+     "id": "reden:58"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "For “when Antisthenes turned outside a hole in his cloak, Socrates said to him, I see thy vanity through the hole in thy cloak.” Clothing is not a thing of rational import, but is regulated through needs that arise of themselves. In the North the clothing must be different from that in Central Africa; and in winter we do not wear cotton garments."
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810",
+     "text": "Studienanstalten sind Theils Institute des Unterrichts, nicht unmittelbar der Erziehung, Theils fangen sie nicht von den ersten Elementen der Bildung, weder der Erkenntniß, noch der Sitten, an."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-06T20:40+05:30",
+  "until": "2026-11-06T20:55+05:30",
   "asleep": false,
   "imprest": 1226,
   "wearing": "kurta",
