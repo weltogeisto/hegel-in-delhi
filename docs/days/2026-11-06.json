@@ -476,6 +476,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "19:58",
+   "to": "20:25",
+   "mode": "walk",
+   "a": "khan",
+   "b": "home"
   }
  ],
  "entries": [
@@ -1067,6 +1074,34 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "19:43"
+  },
+  {
+   "k": "diary",
+   "text": "Masterji is right; I have been turning a samosa into a syllogism while my stomach remained empty. The shop closes in ten minutes, and the air outside is thick with the haze that seems to strangle the city's lungs. I will take this as a sign to retreat to my bungalow and let the day’s friction settle.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188"
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§198"
+    }
+   ],
+   "t": "19:58"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Masterji. Action is chewing. I will go.",
+   "to": "Masterji",
+   "t": "19:58"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Good. Door is on your left. Next time bring your own chai, I am not making another cup.",
+   "t": "19:58"
   }
  ],
  "steps": [
@@ -2145,13 +2180,66 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "19:58",
+   "end": "20:25",
+   "event": "Masterji says: “Action is chewing. Don't make it a philosophy lesson. I'm closing the shop in ten minutes.” He turns away to start sweeping the floor near the counter.",
+   "present": [
+    "Masterji, the tailor",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Masterji is right; I have been turning a samosa into a syllogism while my stomach remained empty. The shop closes in ten minutes, and the air outside is thick with the haze that seems to strangle the city's lungs. I will take this as a sign to retreat to my bungalow and let the day’s friction settle.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 25,
+    "says": "You are right, Masterji. Action is chewing. I will go.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "voice": {
+    "by": "Masterji",
+    "says": "Good. Door is on your left. Next time bring your own chai, I am not making another cup.",
+    "does": "Masterji leans on the broom and watches him walk away."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.0
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "id": "dyde-right:464"
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§198",
+     "id": "enzyklopaedie:513"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "text": "The civic community contains three elements: A. The recasting of want, and the satisfaction of the individual through his work, through the work of all others, and through the satisfaction of their wants. This is a system of wants. B. Actualization of the general freedom required for this, i.e., the protection of property by the administration of justice."
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§198",
+     "text": "Wie das Sonnensystem, so ist z. B. im Praktischen der Staat ein System von drei Schlüssen. 1) Der Einzelne (die Person) schliesst sich durch seine Besonderheit (die physischen und geistigen Bedürfnisse, was weiter für sich ausgebildet die bürgerliche Gesellschaft giebt) mit dem Allgemeinen (der Gesellschaft, dem Rechte, Gesetz, Regierung) zusammen. 2) Ist der Wille…"
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-11-06T19:58+05:30",
+  "place": "home",
+  "until": "2026-11-06T20:25+05:30",
   "asleep": false,
   "imprest": 1226,
   "wearing": "kurta",
@@ -2248,8 +2336,8 @@
     ]
    },
    "no_meals": true,
-   "walked": 7950,
-   "strain": 7950,
+   "walked": 9975,
+   "strain": 9975,
    "hunger": 1
   },
   "account": {
