@@ -18,7 +18,7 @@
     "aqi": 306
    },
    {
-    "temp": 21,
+    "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 304
@@ -36,7 +36,7 @@
     "aqi": 298
    },
    {
-    "temp": 20,
+    "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 289
@@ -48,7 +48,7 @@
     "aqi": 280
    },
    {
-    "temp": 19,
+    "temp": 18,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 270
@@ -60,7 +60,7 @@
     "aqi": 260
    },
    {
-    "temp": 21,
+    "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 250
@@ -108,19 +108,19 @@
     "aqi": 216
    },
    {
-    "temp": 27,
+    "temp": 26,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 214
    },
    {
-    "temp": 25,
+    "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 211
    },
    {
-    "temp": 24,
+    "temp": 23,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 208
@@ -322,16 +322,58 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "09:10",
+   "to": "09:40",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Supreme Court bars illegal detention as lawyers cite Emergency” · “EC orders voter roll revision in 6 more states, union territories, including Odisha, Arunachal” · “Cyclone Murasu: Heavy rains wreak havoc in Aswaropet, Dammapeta and other mandals of Bhadradri Kothagudem”",
+   "t": "09:10"
+  }
+ ],
+ "steps": [
+  {
+   "t": "09:10",
+   "end": "09:40",
+   "event": "You wake. A brown haze, 22 °C. Ramesh has left the papers on the verandah. Headlines: Supreme Court bars illegal detention as lawyers cite Emergency; EC orders voter roll revision in 6 more states, union territories, including Odisha, Arunachal; Cyclone Murasu: Heavy rains wreak havoc in Aswaropet, Dammapeta and other mandals of Bhadradri Kothagudem. Ramesh asks for ₹8,000 (the wage for cooking), and you have only ₹1,286. Ramesh is here.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 0,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "the PC did not wake for the morning plan"
+     ]
+    ]
+   }
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-06T09:10+05:30",
-  "asleep": true,
+  "until": "2026-11-06T09:40+05:30",
+  "asleep": false,
   "imprest": 1286,
   "wearing": "kurta",
   "wardrobe": [
@@ -408,7 +450,17 @@
    }
   ],
   "depesche_n": 1,
-  "today": {},
+  "today": {
+   "woke": "09:10",
+   "pressed": [
+    "Ramesh|the wage for cooking"
+   ],
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -514,7 +566,8 @@
     "2026-10-28",
     "2026-10-29",
     "2026-11-04",
-    "2026-11-05"
+    "2026-11-05",
+    "2026-11-06"
    ],
    "lodhi": [
     "2026-10-02",
@@ -593,7 +646,8 @@
     "2026-10-26",
     "2026-10-27",
     "2026-10-29",
-    "2026-11-05"
+    "2026-11-05",
+    "2026-11-06"
    ],
    "malhotra": [
     "2026-10-02",
