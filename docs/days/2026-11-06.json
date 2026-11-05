@@ -329,6 +329,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "09:40",
+   "to": "10:10",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -366,13 +373,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "09:40",
+   "end": "10:10",
+   "event": "Nothing is cooked at home: Ramesh has not been paid his wage for cooking.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.1,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-06T09:40+05:30",
+  "until": "2026-11-06T10:10+05:30",
   "asleep": false,
   "imprest": 1286,
   "wearing": "kurta",
@@ -459,7 +494,8 @@
     "home": [
      "ramesh"
     ]
-   }
+   },
+   "no_meals": true
   },
   "account": {
    "advance": 15000,
