@@ -1136,6 +1136,8 @@ def run_pipeline(backend):
     finally:
         try:
             result["restoration"] = backend.restore()
+            if result["restoration"].get("before_deadline") is False:
+                result.update(status="FAILED", error="plain Qwen was restored after the required deadline")
         except BaseException as exc:
             result.update(status="RESTORATION_FAILED", restoration_error=type(exc).__name__ + ": " + str(exc))
     return result

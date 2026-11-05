@@ -201,6 +201,13 @@ class FailureTests(unittest.TestCase):
         self.assertEqual(r.run_pipeline(b)["status"],"B_COMPLETE_C_DEFERRED")
         self.assertEqual(calls,["handover","admission","phase_b","c_fits","restore"])
 
+    def test_late_restoration_never_claims_success(self):
+        b,calls=self.backend()
+        b.restore=lambda:dict(status="RESTORED",before_deadline=False)
+        result=r.run_pipeline(b)
+        self.assertEqual(result["status"],"FAILED")
+        self.assertIn("deadline",result["error"])
+
     def test_restoration_failure_never_claims_completion(self):
         b,calls=self.backend("restore")
         self.assertEqual(r.run_pipeline(b)["status"],"RESTORATION_FAILED")
