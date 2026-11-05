@@ -462,6 +462,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "19:28",
+   "to": "19:43",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -973,6 +980,46 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "19:23"
+  },
+  {
+   "k": "diary",
+   "text": "Masterji’s command to sit is a practical imperative; it resolves the tension between my bodily need and the social space I occupy. The samosa is not merely food but a moment of recognition where the particular (my hunger) is satisfied by the universal (the market’s provision). I accept the correction of my pride and take the glass.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§248"
+    }
+   ],
+   "t": "19:28"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Masterji. The samosa is a universal good, and the chai a necessary particular.",
+   "to": "Masterji",
+   "t": "19:28"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Samosa is samosa. Chai is chai. You talk like the shop is a university lecture hall. Eat it before the filling gets cold.",
+   "t": "19:28"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "19:28"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "19:28"
   }
  ],
  "steps": [
@@ -1922,15 +1969,82 @@
      "text": "First it maintains them as persons, thus making right a necessary actuality, then it promotes their welfare, which each originally takes care of for himself, but which has a thoroughly general side; it protects the family and guides civil society."
     }
    ]
+  },
+  {
+   "t": "19:28",
+   "end": "19:43",
+   "event": "Masterji says: “Samosa and chai. You eat like a king, asking for history like a beggar. Sit, don't block the door.” He turns to the stove and begins to pour tea into a small glass cup.",
+   "present": [
+    "Masterji, the tailor",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Masterji’s command to sit is a practical imperative; it resolves the tension between my bodily need and the social space I occupy. The samosa is not merely food but a moment of recognition where the particular (my hunger) is satisfied by the universal (the market’s provision). I accept the correction of my pride and take the glass.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 15,
+    "says": "You are right, Masterji. The samosa is a universal good, and the chai a necessary particular.",
+    "buys": [
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     },
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Masterji",
+    "says": "Samosa is samosa. Chai is chai. You talk like the shop is a university lecture hall. Eat it before the filling gets cold.",
+    "does": "He slides the plate of samosa and the glass of chai across the counter, then wipes his hands on his apron."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 15.8,
+    "refused": [
+     [
+      "this repeats what you thought at 19:08; think something new"
+     ]
+    ]
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1188"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§248",
+     "id": "rechts:979"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "Cynicism adopted a simple wardrobe—a thick stick of wild olive, a ragged double mantle without any under garment, which served as bed by night, a beggar’s sack for the food that was required, and a cup with which to draw water. This was the costume with which these Cynics used to distinguish themselves."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§248",
+     "text": "(Kolonialpolitik.) Die bürgerliche Gesellschaft wird dazu getrieben, Kolonien anzulegen. Die Zunahme der Bevölkerung hat schon für sich diese Wirkung; besonders aber entsteht eine Menge, die die Befriedigung ihrer Bedürfnisse nicht durch ihre Arbeit gewinnen kann, wenn die Produktion das Bedürfnis - der Konsumtion übersteigt."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-06T19:28+05:30",
+  "until": "2026-11-06T19:43+05:30",
   "asleep": false,
-  "imprest": 1326,
+  "imprest": 1276,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -2042,6 +2156,20 @@
     {
      "date": "2026-11-06",
      "t": "19:23",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-06",
+     "t": "19:28",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-06",
+     "t": "19:28",
      "item": "Chai, a cup",
      "price": 20,
      "office": false
@@ -2223,7 +2351,7 @@
    "sim": false
   },
   "last_meal": "2026-10-27T18:45+05:30",
-  "snacks": 7,
+  "snacks": 8,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
