@@ -413,6 +413,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "17:17",
+   "to": "17:30",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -717,6 +724,34 @@
    "to": "Hegel",
    "text": "Orders will take their time, sir. The tea is still hot, but the clock is not.",
    "t": "17:02"
+  },
+  {
+   "k": "diary",
+   "text": "The clock is not my enemy, but my master; I must yield to its rhythm to preserve the dignity of the state. The file is gone, the tea is hot, and the haze is thick, so I shall accept the hospitality and let the moment settle before I retreat. The delay is not a failure of will, but the necessary friction of the universal unfolding through the particular.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Transition from Feudalism to Monarchy"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289"
+    }
+   ],
+   "t": "17:17"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Mr. Saxena. The tea is a truce. I shall drink it and wait for the day to close its accounts.",
+   "to": "Mr. Saxena",
+   "t": "17:17"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "You have a way with words, sir, though the file does not care for poetry. Finish your tea quietly; the lights go out at the half-hour and I have no keys to let you out after.",
+   "t": "17:17"
   }
  ],
  "steps": [
@@ -1295,13 +1330,65 @@
      "text": "Where civil society, and with it the State, exists, there arise the several estates in their difference: for the universal substance, as vital, exists only so far as it organically particularises itself."
     }
    ]
+  },
+  {
+   "t": "17:17",
+   "end": "17:30",
+   "event": "Mr. Saxena says: “Orders will take their time, sir. The tea is still hot, but the clock is not.” He lifts the steel tumbler to his lips and takes a slow sip. Directorate of Estates, Nirman Bhawan closes at 17:30.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The clock is not my enemy, but my master; I must yield to its rhythm to preserve the dignity of the state. The file is gone, the tea is hot, and the haze is thick, so I shall accept the hospitality and let the moment settle before I retreat. The delay is not a failure of will, but the necessary friction of the universal unfolding through the particular.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 15,
+    "says": "You are right, Mr. Saxena. The tea is a truce. I shall drink it and wait for the day to close its accounts.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "You have a way with words, sir, though the file does not care for poetry. Finish your tea quietly; the lights go out at the half-hour and I have no keys to let you out after.",
+    "does": "He sets the tumbler down and checks the digital clock on the wall."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.4
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Transition from Feudalism to Monarchy",
+     "id": "sibree-history:1249"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "id": "dyde-right:740"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Transition from Feudalism to Monarchy",
+     "text": "Individuals quit their isolated capacity and become members of Estates [or Orders of the llealm] and Corporations; the vassals are powerful only by combination as an Order; in contraposition to them the cities constitute Powers in virtue of their communal existence."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "text": "The lower concrete civil life must be governed from below in a concrete way. And yet the work must be divided into its abstract branches, specially officered by middlemen, whose activity in connection with those below them must from the lowest to the highest executive offices take the form of a continuous concrete oversight."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-06T17:17+05:30",
+  "until": "2026-11-06T17:30+05:30",
   "asleep": false,
   "imprest": 1376,
   "wearing": "bandhgala",
