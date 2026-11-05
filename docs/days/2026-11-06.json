@@ -385,6 +385,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "16:27",
+   "to": "16:37",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -577,6 +584,34 @@
    "to": "Hegel",
    "text": "The debt is noted in the file, but the balance remains outstanding until paid in full. Take this slip, sign here, and return before the office closes at 17:30; we do not keep accounts open on Fridays.",
    "t": "16:12"
+  },
+  {
+   "k": "diary",
+   "text": "The particular debt of ₹8,224 is a shadow that refuses to lift until the universal form of payment is satisfied. To sign this slip is to acknowledge the state's claim over my person, a moment of obedience that precedes the exercise of freedom. I must ensure the record is perfect, for error in the ledger is a sin against the ethical order.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70"
+    }
+   ],
+   "t": "16:27"
+  },
+  {
+   "k": "said",
+   "text": "I see the necessity of closing the account. I shall sign and return the slip immediately.",
+   "to": "Mr. Saxena",
+   "t": "16:27"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Do not say 'immediately' in this office. Take your time, sign it, and be at the counter before 17:30 sharp.",
+   "t": "16:27"
   }
  ],
  "steps": [
@@ -947,13 +982,65 @@
      "text": "In so far as religion is of a true sort, not displaying a negative and hostile spirit towards the state, but rather recognizing and supporting it, it has its own special place and station."
     }
    ]
+  },
+  {
+   "t": "16:27",
+   "end": "16:37",
+   "event": "Mr. Saxena says: “The debt is noted in the file, but the balance remains outstanding until paid in full. Take this slip, sign here, and return before the office closes at 17:30; we do not keep accounts open on Fridays.” He slides a carbon-copy slip and a pen across the desk toward Hegel.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The particular debt of ₹8,224 is a shadow that refuses to lift until the universal form of payment is satisfied. To sign this slip is to acknowledge the state's claim over my person, a moment of obedience that precedes the exercise of freedom. I must ensure the record is perfect, for error in the ledger is a sin against the ethical order.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 10,
+    "says": "I see the necessity of closing the account. I shall sign and return the slip immediately.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Do not say 'immediately' in this office. Take your time, sign it, and be at the counter before 17:30 sharp.",
+    "does": "He taps the carbon-copy slip with two fingers, emphasizing the deadline."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.9
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202",
+     "id": "dyde-right:483"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "id": "dyde-right:205"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202",
+     "text": "Since the returns of labour depend on the seasons, and harvests are influenced by variable weather and other natural conditions, provision for wants must take account of the future. However, owing to the natural conditions, this way of life involves but little reflection, and is but slightly modified by subjective volition."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "text": "Addition. — The particular person is really a subordinate, who must devote his life to the service of the ethical fabric; when the state demands his life, he must yield it up. But should the man take his own life? Suicide may at first glance be looked upon as bravery, although it be the poor bravery of tailors and maid-servants."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-06T16:27+05:30",
+  "until": "2026-11-06T16:37+05:30",
   "asleep": false,
   "imprest": 1376,
   "wearing": "bandhgala",
