@@ -420,6 +420,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "17:30",
+   "to": "17:56",
+   "mode": "walk",
+   "a": "estates",
+   "b": "home"
   }
  ],
  "entries": [
@@ -752,6 +759,33 @@
    "to": "Hegel",
    "text": "You have a way with words, sir, though the file does not care for poetry. Finish your tea quietly; the lights go out at the half-hour and I have no keys to let you out after.",
    "t": "17:17"
+  },
+  {
+   "k": "diary",
+   "text": "The clerk’s warning is the friction between my need for order and the state’s indifference to my person. I have no keys, no authority, and the lights are the new sovereign here. I must yield to the rhythm of the building, even if it feels like a prison, to preserve what dignity remains.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Religion"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544"
+    }
+   ],
+   "t": "17:30"
+  },
+  {
+   "k": "said",
+   "text": "I will finish my tea, Sir. The state does not break its own locks.",
+   "t": "17:30"
+  },
+  {
+   "k": "wear",
+   "item": "White cotton kurta",
+   "status": "Worn from 17:30.",
+   "sprite": "kurta",
+   "t": "17:30"
   }
  ],
  "steps": [
@@ -1382,16 +1416,64 @@
      "text": "The lower concrete civil life must be governed from below in a concrete way. And yet the work must be divided into its abstract branches, specially officered by middlemen, whose activity in connection with those below them must from the lowest to the highest executive offices take the form of a continuous concrete oversight."
     }
    ]
+  },
+  {
+   "t": "17:30",
+   "end": "17:56",
+   "event": "Mr. Saxena says: “You have a way with words, sir, though the file does not care for poetry. Finish your tea quietly; the lights go out at the half-hour and I have no keys to let you out after.” He sets the tumbler down and checks the digital clock on the wall. Directorate of Estates, Nirman Bhawan is closing. You must leave.",
+   "present": [],
+   "decision": {
+    "thought": "The clerk’s warning is the friction between my need for order and the state’s indifference to my person. I have no keys, no authority, and the lights are the new sovereign here. I must yield to the rhythm of the building, even if it feels like a prison, to preserve what dignity remains.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 25,
+    "says": "I will finish my tea, Sir. The state does not break its own locks.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.0,
+    "warnings": [
+     "talks although nobody is present"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Religion",
+     "id": "baillie-2:524"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "id": "wallace-mind:330"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Religion",
+     "text": "For the reahty of the ethical substance rests partly on its quiet unchangeableness as contrasted with the absolute process of self-consciousness; and consequently on the fact that this self-consciousness has not yet left its serene life of customary convention and its confident security therein, and gone into itself."
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "text": "But the importance attached to the power of from time to time granting “supply,” on the ground that the assembly of estates possesses in it a check on the government, and thus a guarantee against injustice and violence,—this importance is in one way rather plausible than real."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "estates",
-  "until": "2026-11-06T17:30+05:30",
+  "place": "home",
+  "until": "2026-11-06T17:56+05:30",
   "asleep": false,
   "imprest": 1376,
-  "wearing": "bandhgala",
+  "wearing": "kurta",
   "wardrobe": [
    {
     "id": "frock",
@@ -1411,7 +1493,7 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Worn from 14:07."
+    "status": "Worn from 17:30."
    },
    {
     "id": "bandhgala",
@@ -1481,8 +1563,8 @@
     ]
    },
    "no_meals": true,
-   "walked": 3975,
-   "strain": 3975,
+   "walked": 5925,
+   "strain": 5925,
    "recouped": true
   },
   "account": {
