@@ -483,6 +483,13 @@
    "mode": "walk",
    "a": "khan",
    "b": "home"
+  },
+  {
+   "from": "20:25",
+   "to": "20:40",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -1102,6 +1109,34 @@
    "to": "Hegel",
    "text": "Good. Door is on your left. Next time bring your own chai, I am not making another cup.",
    "t": "19:58"
+  },
+  {
+   "k": "diary",
+   "text": "The irony is sharp enough to cut glass: I am being ejected from my own domicile by the man whose name I bear, while the true Hegde stands witness to the absurdity. My body is a machine out of oil, having walked ten kilometers on an empty stomach, and the air is thick with the dust of a city that does not know its own history. I must address the man who is, legally speaking, the owner of this bungalow.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "20:25"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, please. There is a confusion here that requires the intervention of reason, not just brooms. I am the resident. You are the Joint Secretary. Let us sit and discuss the matter of the file, and perhaps your chai, before Masterji decides to lock the door on both of us.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "20:25"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Reason? I am the resident and you are the one sitting in my chair. I will discuss the file when the DG calls me, not while you are still wearing my kurta.",
+   "t": "20:25"
   }
  ],
  "steps": [
@@ -2233,13 +2268,66 @@
      "text": "Wie das Sonnensystem, so ist z. B. im Praktischen der Staat ein System von drei Schlüssen. 1) Der Einzelne (die Person) schliesst sich durch seine Besonderheit (die physischen und geistigen Bedürfnisse, was weiter für sich ausgebildet die bürgerliche Gesellschaft giebt) mit dem Allgemeinen (der Gesellschaft, dem Rechte, Gesetz, Regierung) zusammen. 2) Ist der Wille…"
     }
    ]
+  },
+  {
+   "t": "20:25",
+   "end": "20:40",
+   "event": "Masterji says: “Good. Door is on your left. Next time bring your own chai, I am not making another cup.” Masterji leans on the broom and watches him walk away. Shri G. Hegde is here.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The irony is sharp enough to cut glass: I am being ejected from my own domicile by the man whose name I bear, while the true Hegde stands witness to the absurdity. My body is a machine out of oil, having walked ten kilometers on an empty stomach, and the air is thick with the dust of a city that does not know its own history. I must address the man who is, legally speaking, the owner of this bungalow.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Shri Hegde, please. There is a confusion here that requires the intervention of reason, not just brooms. I am the resident. You are the Joint Secretary. Let us sit and discuss the matter of the file, and perhaps your chai, before Masterji decides to lock the door on both of us.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Reason? I am the resident and you are the one sitting in my chair. I will discuss the file when the DG calls me, not while you are still wearing my kurta.",
+    "does": "He crosses his arms and leans against the doorframe, refusing to move aside."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.9
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "id": "dyde-right:542"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "text": "To right as such, happiness is something external. Tet in the system of wants well-being is an essential element. The universal, which is at first only right, has to spread itself over the whole field of particularity. Justice, it is true, is a large factor in the civic community. The state will flourish, if it has good laws, of which free property is the fundamental condition."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-06T20:25+05:30",
+  "until": "2026-11-06T20:40+05:30",
   "asleep": false,
   "imprest": 1226,
   "wearing": "kurta",
@@ -2325,6 +2413,7 @@
    ],
    "seen": {
     "home": [
+     "hegde",
      "ramesh"
     ],
     "estates": [
@@ -2543,7 +2632,8 @@
     "2026-10-26",
     "2026-10-28",
     "2026-10-29",
-    "2026-11-05"
+    "2026-11-05",
+    "2026-11-06"
    ],
    "kapoor": [
     "2026-10-28"
