@@ -469,6 +469,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "19:43",
+   "to": "19:58",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -1020,6 +1027,46 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "19:28"
+  },
+  {
+   "k": "diary",
+   "text": "Masterji treats the samosa as a fact, not a thesis. He is correct; my hunger is a particular need that demands immediate satisfaction, and I have spent enough energy on abstract distinctions for one evening. I will obey the command of the stomach, which is the only universal law that does not require a dialectic to be understood.",
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "19:43"
+  },
+  {
+   "k": "said",
+   "text": "You are right. The filling is indeed cold enough to require action.",
+   "to": "Masterji",
+   "t": "19:43"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Action is chewing. Don't make it a philosophy lesson. I'm closing the shop in ten minutes.",
+   "t": "19:43"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "19:43"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "19:43"
   }
  ],
  "steps": [
@@ -2036,15 +2083,77 @@
      "text": "(Kolonialpolitik.) Die bürgerliche Gesellschaft wird dazu getrieben, Kolonien anzulegen. Die Zunahme der Bevölkerung hat schon für sich diese Wirkung; besonders aber entsteht eine Menge, die die Befriedigung ihrer Bedürfnisse nicht durch ihre Arbeit gewinnen kann, wenn die Produktion das Bedürfnis - der Konsumtion übersteigt."
     }
    ]
+  },
+  {
+   "t": "19:43",
+   "end": "19:58",
+   "event": "Masterji says: “Samosa is samosa. Chai is chai. You talk like the shop is a university lecture hall. Eat it before the filling gets cold.” He slides the plate of samosa and the glass of chai across the counter, then wipes his hands on his apron.",
+   "present": [
+    "Masterji, the tailor",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Masterji treats the samosa as a fact, not a thesis. He is correct; my hunger is a particular need that demands immediate satisfaction, and I have spent enough energy on abstract distinctions for one evening. I will obey the command of the stomach, which is the only universal law that does not require a dialectic to be understood.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 15,
+    "says": "You are right. The filling is indeed cold enough to require action.",
+    "buys": [
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     },
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Masterji",
+    "says": "Action is chewing. Don't make it a philosophy lesson. I'm closing the shop in ten minutes.",
+    "does": "He turns away to start sweeping the floor near the counter."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.2
+   },
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "id": "wallace-logic:882"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "text": "Like the solar system, so for example in the practical sphere the state is a system of three syllogisms. (1) The Individual or person, through his particularity or physical or mental needs (which when carried out to their full development give civil society), is coupled with the universal, i.e. with society, law, right, government."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-06T19:43+05:30",
+  "until": "2026-11-06T19:58+05:30",
   "asleep": false,
-  "imprest": 1276,
+  "imprest": 1226,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -2170,6 +2279,20 @@
     {
      "date": "2026-11-06",
      "t": "19:28",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-06",
+     "t": "19:43",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-06",
+     "t": "19:43",
      "item": "Chai, a cup",
      "price": 20,
      "office": false
@@ -2351,7 +2474,7 @@
    "sim": false
   },
   "last_meal": "2026-10-27T18:45+05:30",
-  "snacks": 8,
+  "snacks": 9,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
