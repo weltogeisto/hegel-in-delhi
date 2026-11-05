@@ -427,6 +427,13 @@
    "mode": "walk",
    "a": "estates",
    "b": "home"
+  },
+  {
+   "from": "17:56",
+   "to": "18:26",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -786,6 +793,34 @@
    "status": "Worn from 17:30.",
    "sprite": "kurta",
    "t": "17:30"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh stands in the doorway, his silence a heavier weight than any argument. I have no cash to settle the debt of his labour, and my body is a mere mechanism, worn down by the friction of the day and the hunger that gnaws at it. The state has failed to mediate between my need and his right; I am left with the bare fact of our mutual dependence. I must sit and think, for the evening is long and the mind requires its own sustenance.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…"
+    }
+   ],
+   "t": "17:56"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, I am aware of the delay. The state’s machinery is slow, but it turns. I will find the means to settle this before the week is done.",
+   "to": "Ramesh",
+   "t": "17:56"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "The machinery turns, sir, but it doesn't turn my rice cooker. I don't need your philosophy, I need the account balance. Keep your promises in your pocket until the money is in mine.",
+   "t": "17:56"
   }
  ],
  "steps": [
@@ -1464,13 +1499,65 @@
      "text": "But the importance attached to the power of from time to time granting “supply,” on the ground that the assembly of estates possesses in it a check on the government, and thus a guarantee against injustice and violence,—this importance is in one way rather plausible than real."
     }
    ]
+  },
+  {
+   "t": "17:56",
+   "end": "18:26",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh stands in the doorway, his silence a heavier weight than any argument. I have no cash to settle the debt of his labour, and my body is a mere mechanism, worn down by the friction of the day and the hunger that gnaws at it. The state has failed to mediate between my need and his right; I am left with the bare fact of our mutual dependence. I must sit and think, for the evening is long and the mind requires its own sustenance.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": "Ramesh, I am aware of the delay. The state’s machinery is slow, but it turns. I will find the means to settle this before the week is done.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "The machinery turns, sir, but it doesn't turn my rice cooker. I don't need your philosophy, I need the account balance. Keep your promises in your pocket until the money is in mine.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.5
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "id": "baillie-1:223"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "id": "phaen:385"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "text": "The feeling of absolute power, however, reahsed both in general and in the particular form of service, is only dissolution implicitly, and albeit the fear of his lord is the beginning of wisdom, consciousness is not therein aware of being self-existent. Through work and labour, however, this consciousness of the bondsman comes to itself."
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "text": "Dies Bewußtsein ist somit negativ gegen das Verhältnis der Herrschaft und Knechtschaft; sein Tun ist, in der Herrschaft nicht seine Wahrheit an dem Knechte zu haben, noch als Knecht seine Wahrheit an dem Willen des Herrn und an seinem Dienen, sondern wie auf dem Throne so in den Fesseln, in aller Abhängigkeit seines einzelnen Daseins frei zu sein…"
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-06T17:56+05:30",
+  "until": "2026-11-06T18:26+05:30",
   "asleep": false,
   "imprest": 1376,
   "wearing": "kurta",
@@ -1564,8 +1651,7 @@
    },
    "no_meals": true,
    "walked": 5925,
-   "strain": 5925,
-   "recouped": true
+   "strain": 5925
   },
   "account": {
    "advance": 15000,
