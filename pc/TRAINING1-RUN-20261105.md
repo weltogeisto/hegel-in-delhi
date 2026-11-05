@@ -46,17 +46,17 @@ The tests cover the order of the steps, the admission check on saved snapshots (
 
 Run the launcher in rehearsal mode: `--dry-run --eval-steps 2`, a new output directory, and phase C on the dry run's adapter with only 2 of the 40 test cases.
 
-1. Interrupt it during step 3, after the step-2 evaluation and checkpoint. Start it again with `--resume`: it must continue from checkpoint 2 and reuse the saved evaluation.
-2. The converted dry-run adapter must load in llama-server and answer one restyle at scale 0.8 and one at 0.
-3. Restore. Hegel's next natural tick must have `mind.source` = `mind`.
+1. The converted dry-run adapter must load in llama-server and answer one restyle at scale 0.8 and one at 0.
+2. Restore. By day, Hegel's next natural tick must have `mind.source` = `mind`. By night, when his ticks make no model calls, `curl` from the Pi to `http://192.168.188.21:8082/health` must answer, and so must one 1-token chat request from the Pi with the saved model name; Claude checks his first awake tick in the morning. Never force a tick.
+
+Resume isn't rehearsed: a real-mode `--resume` already ran live on 5 November (checkpoint 100 to 200), and this run has no restarts. `pc/train_hegel.py` stays unchanged.
 
 **It passes when all of these hold, posted with their numbers:**
 - the steps after the evaluation run within 1.5 times the steps before it;
 - peak VRAM stays below 23 GiB, with no shared-memory spill;
-- the resume works;
 - the adapter loads and answers;
 - Qwen answers on 8082;
-- his next tick uses `mind`;
+- the restore check passes (his next tick by day, the Pi's health and 1-token checks by night);
 - the time projection for 517 steps plus phase C fits in one night.
 
 ## Stage 3 · The night
