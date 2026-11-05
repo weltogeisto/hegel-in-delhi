@@ -455,6 +455,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with Masterji at Khan Market."
+  },
+  {
+   "from": "19:23",
+   "to": "19:28",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -926,6 +933,46 @@
    "to": "Hegel",
    "text": "Haha, sir, you are a funny man. I have Ambedkar, I have Marx, I have a few UPSC guides, but 'history of the East' is a bit big for this shelf. Maybe try the big bookshop on the other side, they have the whole world in there.",
    "t": "19:08"
+  },
+  {
+   "k": "diary",
+   "text": "The bookseller's shop is a microcosm of civil society's needs, but it lacks the universal scope of my inquiries. My body, however, insists on its particular demands; the hunger is a fact that cannot be dialectically resolved, only consumed. I shall attend to the physical need before the spiritual one.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§537"
+    }
+   ],
+   "t": "19:23"
+  },
+  {
+   "k": "said",
+   "text": "A samosa, please. And perhaps a cup of chai to wash it down.",
+   "to": "Masterji",
+   "t": "19:23"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Samosa and chai. You eat like a king, asking for history like a beggar. Sit, don't block the door.",
+   "t": "19:23"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "19:23"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "19:23"
   }
  ],
  "steps": [
@@ -1813,15 +1860,77 @@
      "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
     }
    ]
+  },
+  {
+   "t": "19:23",
+   "end": "19:28",
+   "event": "The bookseller says: “Haha, sir, you are a funny man. I have Ambedkar, I have Marx, I have a few UPSC guides, but 'history of the East' is a bit big for this shelf. Maybe try the big bookshop on the other side, they have the whole world in there.” Wipes down the counter with a rag. You are hungry.",
+   "present": [
+    "Masterji, the tailor",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The bookseller's shop is a microcosm of civil society's needs, but it lacks the universal scope of my inquiries. My body, however, insists on its particular demands; the hunger is a fact that cannot be dialectically resolved, only consumed. I shall attend to the physical need before the spiritual one.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 5,
+    "says": "A samosa, please. And perhaps a cup of chai to wash it down.",
+    "buys": [
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     },
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Masterji",
+    "says": "Samosa and chai. You eat like a king, asking for history like a beggar. Sit, don't block the door.",
+    "does": "He turns to the stove and begins to pour tea into a small glass cup."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.9
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "id": "sibree-history:330"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§537",
+     "id": "wallace-mind:293"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "text": "What we properly understand by Africa, is the Unhistorical, Undeveloped Spirit, still involved in the conditions of mere nature, and which had to be presented here only as on the threshold of the World's History. Having eliminated this introductory element, we find ourselves for the first time on the real theatre of History."
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§537",
+     "text": "First it maintains them as persons, thus making right a necessary actuality, then it promotes their welfare, which each originally takes care of for himself, but which has a thoroughly general side; it protects the family and guides civil society."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-06T19:23+05:30",
+  "until": "2026-11-06T19:28+05:30",
   "asleep": false,
-  "imprest": 1376,
+  "imprest": 1326,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1917,11 +2026,27 @@
    },
    "no_meals": true,
    "walked": 7950,
-   "strain": 7950
+   "strain": 7950,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
-   "vouchers": [],
+   "vouchers": [
+    {
+     "date": "2026-11-06",
+     "t": "19:23",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-06",
+     "t": "19:23",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    }
+   ],
    "admitted": 730,
    "queried": 8224
   },
@@ -2098,7 +2223,7 @@
    "sim": false
   },
   "last_meal": "2026-10-27T18:45+05:30",
-  "snacks": 6,
+  "snacks": 7,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
