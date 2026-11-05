@@ -497,6 +497,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Shri G. Hegde at home."
+  },
+  {
+   "from": "20:55",
+   "to": "21:17",
+   "mode": "walk",
+   "a": "home",
+   "b": "iic"
   }
  ],
  "entries": [
@@ -1172,6 +1179,41 @@
    "to": "Hegel",
    "text": "Ontology? You haven't read the file, let alone the book, and you're still wearing my kurta. If you want to sit on the floor, do it, but don't expect me to move for a man who thinks a white cotton shirt is a philosophical argument.",
    "t": "20:40"
+  },
+  {
+   "k": "diary",
+   "text": "He mistakes the fabric of my skin for a philosophical proposition, and in doing so, he reveals the poverty of his own spirit. He clings to the particular, to the kurta and the floor, while I hold the universal, the right of the state and the self. To argue with a man who has reduced himself to a piece of furniture is to descend to his level; I must rise above it, or at least, remove myself from the obstruction of his shadow. I will not sit on the floor to prove a point; I will walk to prove a distance.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§21"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§6"
+    }
+   ],
+   "t": "20:55"
+  },
+  {
+   "k": "said",
+   "text": "The kurta is cotton, Shri Hegde, not a syllogism. I find the air in this bungalow has become too thick with your particularity for my lungs. I shall seek the company of the International Centre, where the air is, at least, international.",
+   "to": "Shri G. Hegde",
+   "t": "20:55"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "You can go to your International Centre, but the electricity meter is in my name, so I expect the bill by Monday. And you are taking that kurta with you, so please wash it before you leave.",
+   "t": "20:55"
+  },
+  {
+   "k": "wear",
+   "item": "Bandhgala, charcoal",
+   "status": "Worn from 20:55.",
+   "sprite": "bandhgala",
+   "t": "20:55"
   }
  ],
  "steps": [
@@ -2408,16 +2450,68 @@
      "text": "Studienanstalten sind Theils Institute des Unterrichts, nicht unmittelbar der Erziehung, Theils fangen sie nicht von den ersten Elementen der Bildung, weder der Erkenntniß, noch der Sitten, an."
     }
    ]
+  },
+  {
+   "t": "20:55",
+   "end": "21:17",
+   "event": "Shri G. Hegde says: “Ontology? You haven't read the file, let alone the book, and you're still wearing my kurta. If you want to sit on the floor, do it, but don't expect me to move for a man who thinks a white cotton shirt is a philosophical argument.” Shri G. Hegde uncrosses his arms and steps back into the shadow of the doorframe, refusing to budge further.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "He mistakes the fabric of my skin for a philosophical proposition, and in doing so, he reveals the poverty of his own spirit. He clings to the particular, to the kurta and the floor, while I hold the universal, the right of the state and the self. To argue with a man who has reduced himself to a piece of furniture is to descend to his level; I must rise above it, or at least, remove myself from the obstruction of his shadow. I will not sit on the floor to prove a point; I will walk to prove a distance.",
+    "action": "walk",
+    "place": "iic",
+    "minutes": 15,
+    "says": "The kurta is cotton, Shri Hegde, not a syllogism. I find the air in this bungalow has become too thick with your particularity for my lungs. I shall seek the company of the International Centre, where the air is, at least, international.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "iic",
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "You can go to your International Centre, but the electricity meter is in my name, so I expect the bill by Monday. And you are taking that kurta with you, so please wash it before you leave.",
+    "does": "She points a finger at the kurta on his chest to emphasize the point."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.9
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§21",
+     "id": "dyde-right:105"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§6",
+     "id": "dyde-right:72"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§21",
+     "text": "A body is the reality, and soul is the conception. Soul and body should be adequate to each other. A dead man is still an existence, but no longer a true existence; it is a reality void of conception. For that reason the dead body decays. So with the true will; that which it wills, namely, its content, is identical with it, and so freedom wills freedom."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§6",
+     "text": "But classification and objective system attain self consciousness only by destroying negative freedom. Negative freedom is actuated by a mere solitary abstract idea, whose realization is nothing but the fury of desolation."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-06T20:55+05:30",
+  "place": "iic",
+  "until": "2026-11-06T21:17+05:30",
   "asleep": false,
   "imprest": 1226,
-  "wearing": "kurta",
+  "wearing": "bandhgala",
   "wardrobe": [
    {
     "id": "frock",
@@ -2442,7 +2536,7 @@
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Worn from 15:46."
+    "status": "Worn from 20:55."
    }
   ],
   "people": [
@@ -2512,8 +2606,8 @@
     ]
    },
    "no_meals": true,
-   "walked": 9975,
-   "strain": 9975,
+   "walked": 11625,
+   "strain": 11625,
    "hunger": 1
   },
   "account": {
