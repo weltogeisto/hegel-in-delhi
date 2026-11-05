@@ -336,6 +336,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "10:10",
+   "to": "10:37",
+   "mode": "walk",
+   "a": "home",
+   "b": "khan"
   }
  ],
  "entries": [
@@ -343,6 +350,21 @@
    "k": "world",
    "text": "Morning papers: “Supreme Court bars illegal detention as lawyers cite Emergency” · “EC orders voter roll revision in 6 more states, union territories, including Odisha, Arunachal” · “Cyclone Murasu: Heavy rains wreak havoc in Aswaropet, Dammapeta and other mandals of Bhadradri Kothagudem”",
    "t": "09:10"
+  },
+  {
+   "k": "diary",
+   "text": "The body is a mechanism that has run its course, and the kitchen is a void where Ramesh’s labor should have materialized. I am owed eight thousand rupees, a sum that represents the ethical bond between employer and servant, yet my pocket holds only a fraction of that. To eat is to sustain the particular individual; to pay is to honor the universal duty. I shall not starve the body while the spirit debates the state, so I must feed the mechanism first, even if the payment must wait.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "10:10"
   }
  ],
  "steps": [
@@ -401,13 +423,60 @@
      ]
     ]
    }
+  },
+  {
+   "t": "10:10",
+   "end": "10:37",
+   "event": "Nothing in particular happens. The morning goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The body is a mechanism that has run its course, and the kitchen is a void where Ramesh’s labor should have materialized. I am owed eight thousand rupees, a sum that represents the ethical bond between employer and servant, yet my pocket holds only a fraction of that. To eat is to sustain the particular individual; to pay is to honor the universal duty. I shall not starve the body while the spirit debates the state, so I must feed the mechanism first, even if the payment must wait.",
+    "action": "walk",
+    "place": "khan",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "khan",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 6.4
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-06T10:10+05:30",
+  "place": "khan",
+  "until": "2026-11-06T10:37+05:30",
   "asleep": false,
   "imprest": 1286,
   "wearing": "kurta",
@@ -495,7 +564,9 @@
      "ramesh"
     ]
    },
-   "no_meals": true
+   "no_meals": true,
+   "walked": 2025,
+   "strain": 2025
   },
   "account": {
    "advance": 15000,
