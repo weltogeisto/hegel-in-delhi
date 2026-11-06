@@ -415,6 +415,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "18:54",
+   "to": "19:14",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -852,6 +859,34 @@
    "item": "Samosa",
    "price": 30,
    "t": "18:39"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil reduces my philosophical dignity to the mechanics of digestion, a reminder that the body is the immediate medium through which spirit must negotiate with the world. I accept the correction regarding the fork; to fight over cutlery is to fight over the form when the content is hunger. I will eat, for the stomach is the first state to which I owe obedience.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History"
+    }
+   ],
+   "t": "18:54"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Sunil. The fork is a foreign abstraction here. I will return to the hand.",
+   "to": "Masterji and Sunil",
+   "t": "18:54"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Ab theek hai. Eat it before the oil cools, otherwise the crust gets soggy and it tastes like regret.",
+   "t": "18:54"
   }
  ],
  "steps": [
@@ -1682,13 +1717,67 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "18:54",
+   "end": "19:14",
+   "event": "Sunil says: “Fifty rupees, sir. The oil is hot, but your 'due' is going to make you choke on that samosa like everything else. Here, eat with your hands, not that fork you keep digging into the dough with.” Slides the steel cup and a paper cone of samosas across the counter.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil reduces my philosophical dignity to the mechanics of digestion, a reminder that the body is the immediate medium through which spirit must negotiate with the world. I accept the correction regarding the fork; to fight over cutlery is to fight over the form when the content is hunger. I will eat, for the stomach is the first state to which I owe obedience.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 20,
+    "says": "You are right, Sunil. The fork is a foreign abstraction here. I will return to the hand.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Ab theek hai. Eat it before the oil cools, otherwise the crust gets soggy and it tastes like regret.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.6
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "id": "haldane-3:468"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "id": "sibree-history:288"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "text": "To call him an enthusiast signifies nothing at all. For if we will, all philosophers may be so termed, even the Epicureans and Bacon; for they all have held that man finds his truth in something else than eating and drinking, or in the common-sense every-day life of wood-cutting, tailoring, trading, or other business, private or official."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "text": "Only when, as in Europe, the direct increase of agriculturists is checked, •will the inhabitants, instead of pressing outwards to occupy the fields, press inwards upon each other, — pursuing town occupations, and trading with their fellow citizens; and so form a compact system of civil society, and require an organized state."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-07T18:54+05:30",
+  "until": "2026-11-07T19:14+05:30",
   "asleep": false,
   "imprest": 836,
   "wearing": "kurta",
