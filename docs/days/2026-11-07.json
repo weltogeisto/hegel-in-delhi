@@ -387,6 +387,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "17:52",
+   "to": "18:07",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -700,6 +707,34 @@
    "to": "Hegel",
    "text": "Sir, I told you, I am not the cook. My duty is the lock and the keys, not the kitchen. Please do not make me a liar when I am only trying to keep my job.",
    "t": "17:37"
+  },
+  {
+   "k": "diary",
+   "text": "He speaks the truth with the stubbornness of a fact, and in doing so, he forces me to confront the absurdity of my own position. I am the philosopher of the state, yet I cannot command the most basic element of my household because I have confused the universal idea with the particular wage. The hunger in my belly is not a metaphysical abstraction; it is a demand that the state's machinery, which has failed to provide, must now be met by my own dwindling pocket.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Pythagoras and the Pythagoreans"
+    }
+   ],
+   "t": "17:52"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, you are right. I have mistaken the office for the man. I do not ask you to cook, only to tell me where I might find a meal that does not require me to explain my philosophy to the waiter. The wage is owed, but the hunger is immediate. Will you point me to a place in Khan Market that is still open and does not require a reservation?",
+   "to": "Ramesh",
+   "t": "17:52"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Khan Market is too far and too fancy for this time, sir. Go to the dhaba at the end of Tughlak Road, near the petrol pump. They serve plain dal and roti until midnight, and they don't ask questions.",
+   "t": "17:52"
   }
  ],
  "steps": [
@@ -1311,13 +1346,65 @@
      "text": "Although morality and ethics have the same meaning according to their etymology, yet these different words may be used for different conceptions. Addition. — ^When we speak of right, we mean not only civil right, which is the usual significance of the word, but also morality, ethical observance and world-history."
     }
    ]
+  },
+  {
+   "t": "17:52",
+   "end": "18:07",
+   "event": "Ramesh says: “Sir, I told you, I am not the cook. My duty is the lock and the keys, not the kitchen. Please do not make me a liar when I am only trying to keep my job.” He turns his back and walks slowly toward the gate.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "He speaks the truth with the stubbornness of a fact, and in doing so, he forces me to confront the absurdity of my own position. I am the philosopher of the state, yet I cannot command the most basic element of my household because I have confused the universal idea with the particular wage. The hunger in my belly is not a metaphysical abstraction; it is a demand that the state's machinery, which has failed to provide, must now be met by my own dwindling pocket.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, you are right. I have mistaken the office for the man. I do not ask you to cook, only to tell me where I might find a meal that does not require me to explain my philosophy to the waiter. The wage is owed, but the hunger is immediate. Will you point me to a place in Khan Market that is still open and does not require a reservation?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Khan Market is too far and too fancy for this time, sir. Go to the dhaba at the end of Tughlak Road, near the petrol pump. They serve plain dal and roti until midnight, and they don't ask questions.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.5
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "id": "haldane-3:1037"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Pythagoras and the Pythagoreans",
+     "id": "haldane-1:607"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "text": "But however much freedom may be in itself concrete, it was as undeveloped and in its abstraction that it was there applied to actuality; and to make abstractions hold good in actuality means to destroy actuality. The fanaticism which characterized the freedom which was put into the hands of the people was frightful."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Pythagoras and the Pythagoreans",
+     "text": "Nowadays men try to keep education free from the spirit of the times, but they cannot withdraw themselves from this supreme power, the State, for even if they try to separate themselves, they unconsciously remain beneath this universal."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-07T17:52+05:30",
+  "until": "2026-11-07T18:07+05:30",
   "asleep": false,
   "imprest": 886,
   "wearing": "kurta",
