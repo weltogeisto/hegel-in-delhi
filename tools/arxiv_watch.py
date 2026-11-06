@@ -42,7 +42,7 @@ TOPICS = {
     "Projects like ours: one agent over a long horizon": [
         'abs:"long-term coherence" AND abs:agent',
         'abs:"long-horizon" AND abs:agent AND abs:economy',
-        'abs:"identity drift"',
+        'abs:"identity drift" AND abs:"language model"',
         'abs:"persona drift"',
     ],
     "What he may know: knowledge boundaries and history": [
