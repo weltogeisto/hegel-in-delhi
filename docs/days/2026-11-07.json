@@ -394,6 +394,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "18:07",
+   "to": "18:12",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -735,6 +742,34 @@
    "to": "Hegel",
    "text": "Khan Market is too far and too fancy for this time, sir. Go to the dhaba at the end of Tughlak Road, near the petrol pump. They serve plain dal and roti until midnight, and they don't ask questions.",
    "t": "17:52"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh speaks the practical truth, the particular need that overrides my aesthetic preference for the 'civil society' of Khan Market. I am too tired and the air too thick for a grand gesture; the dhal and roti are the universal medium that will sustain me. I must accept the reduction to mechanics, for the body is the first fact of philosophy.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§248"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33"
+    }
+   ],
+   "t": "18:07"
+  },
+  {
+   "k": "said",
+   "text": "Very well, Ramesh. The dhaba it is. The particular must yield to the necessity of the body.",
+   "to": "Ramesh",
+   "t": "18:07"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "The body knows best, sir. Just don't come back smelling of cumin; the office papers get sensitive.",
+   "t": "18:07"
   }
  ],
  "steps": [
@@ -1398,13 +1433,65 @@
      "text": "Nowadays men try to keep education free from the spirit of the times, but they cannot withdraw themselves from this supreme power, the State, for even if they try to separate themselves, they unconsciously remain beneath this universal."
     }
    ]
+  },
+  {
+   "t": "18:07",
+   "end": "18:12",
+   "event": "Ramesh says: “Khan Market is too far and too fancy for this time, sir. Go to the dhaba at the end of Tughlak Road, near the petrol pump. They serve plain dal and roti until midnight, and they don't ask questions.”",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh speaks the practical truth, the particular need that overrides my aesthetic preference for the 'civil society' of Khan Market. I am too tired and the air too thick for a grand gesture; the dhal and roti are the universal medium that will sustain me. I must accept the reduction to mechanics, for the body is the first fact of philosophy.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 5,
+    "says": "Very well, Ramesh. The dhaba it is. The particular must yield to the necessity of the body.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "The body knows best, sir. Just don't come back smelling of cumin; the office papers get sensitive.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.5
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§248",
+     "id": "dyde-right:567"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "id": "rechts:121"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§248",
+     "text": "The wider connection due to the sea becomes al means for colonization, to which, be it sporadic or systematic, the full-grown civic community finds itself impelled. Thus for a part of its population it provides on a new soil a return to the family principle, and also procures for itself at the same time a new incentive and field for work."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-07T18:07+05:30",
+  "until": "2026-11-07T18:12+05:30",
   "asleep": false,
   "imprest": 886,
   "wearing": "kurta",
