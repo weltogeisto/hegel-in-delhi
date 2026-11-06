@@ -303,6 +303,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "09:48",
+   "to": "10:03",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -320,6 +327,41 @@
    "settles": true,
    "text": "Paid to the dhobi.",
    "t": "09:18"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Don't stand there staring like a ghost. I haven't even had my chai yet, and Ramesh is still sulking about that wage. If you're here to collect the meter bill, just sign the paper and leave.",
+   "t": "09:48"
+  },
+  {
+   "k": "diary",
+   "text": "Hegde is treating me as a ghost in his own house, a spectral tenant haunting the meter he controls. He demands signature and departure, but I am the resident; the confusion is his, not mine. To sign would be to accept the particular fact of his name on the meter as the universal truth of my non-existence. I must assert the ethical life of this space, which belongs to the state, not to his private impatience. I will not leave, nor will I sign yet.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "09:48"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, I am not here to collect a bill; I am here to reside. The meter bears your name, yes, a particular fact, but the house is allotted to me by the Directorate. I will not sign a paper that confirms my absence while I stand in it. Ramesh’s wage is a debt of the household, not a sulk. If you wish to eat, ask him. If you wish to discuss the meter, we can do so after I have asserted my right to be here.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "09:48"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "You think this is a seminar? The Directorate can send a telegram, but it can’t cook my daal. I’m not asking you to sign anything about your 'residence'; I’m asking you to tell Ramesh to stop crying in the corridor and start the fire, or I’ll go find him myself.",
+   "t": "09:48"
   }
  ],
  "steps": [
@@ -350,13 +392,67 @@
      ]
     ]
    }
+  },
+  {
+   "t": "09:48",
+   "end": "10:03",
+   "event": "Nothing is cooked at home: Ramesh has not been paid his wage for cooking. Shri G. Hegde is here. Shri G. Hegde says: “Don't stand there staring like a ghost. I haven't even had my chai yet, and Ramesh is still sulking about that wage. If you're here to collect the meter bill, just sign the paper and leave.” He gestures vaguely toward the kitchen area without turning around.",
+   "present": [
+    "Ramesh, the caretaker",
+    "the dhobi",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Hegde is treating me as a ghost in his own house, a spectral tenant haunting the meter he controls. He demands signature and departure, but I am the resident; the confusion is his, not mine. To sign would be to accept the particular fact of his name on the meter as the universal truth of my non-existence. I must assert the ethical life of this space, which belongs to the state, not to his private impatience. I will not leave, nor will I sign yet.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Shri Hegde, I am not here to collect a bill; I am here to reside. The meter bears your name, yes, a particular fact, but the house is allotted to me by the Directorate. I will not sign a paper that confirms my absence while I stand in it. Ramesh’s wage is a debt of the household, not a sulk. If you wish to eat, ask him. If you wish to discuss the meter, we can do so after I have asserted my right to be here.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "You think this is a seminar? The Directorate can send a telegram, but it can’t cook my daal. I’m not asking you to sign anything about your 'residence'; I’m asking you to tell Ramesh to stop crying in the corridor and start the fire, or I’ll go find him myself.",
+    "does": "Shri Hegde pinches the bridge of his nose, looking exhausted by the philosophical posturing."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 16.6
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "id": "wallace-mind:321"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "text": "Thus, it may be—if we look only to the fact that the will of one individual stands at the head of the state—oriental despotism is included under the vague name monarchy,—as also feudal monarchy, to which indeed even the favourite name of “constitutional monarchy” cannot be refused."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-07T09:48+05:30",
+  "until": "2026-11-07T10:03+05:30",
   "asleep": false,
   "imprest": 926,
   "wearing": "kurta",
@@ -441,9 +537,12 @@
    ],
    "seen": {
     "home": [
+     "dhobi",
+     "hegde",
      "ramesh"
     ]
-   }
+   },
+   "no_meals": true
   },
   "account": {
    "advance": 15000,
@@ -652,7 +751,8 @@
     "2026-10-28",
     "2026-10-29",
     "2026-11-05",
-    "2026-11-06"
+    "2026-11-06",
+    "2026-11-07"
    ],
    "kapoor": [
     "2026-10-28"
