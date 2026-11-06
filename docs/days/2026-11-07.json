@@ -464,6 +464,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Shri G. Hegde at home."
+  },
+  {
+   "from": "20:56",
+   "to": "21:00",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -1084,6 +1091,34 @@
    "to": "Hegel",
    "text": "Don't quote me back at me, ji. Here, use this pen, and let’s get this over with before the power cuts again.",
    "t": "20:41"
+  },
+  {
+   "k": "diary",
+   "text": "The body demands its due, and the file demands its signature; I cannot have both, but the body is the condition of the file's existence. Jacobi is right: a man who feels hungry does not imagine food, he eats it. I will sign, but I will not stay for the conversation that follows, for my spirit is too empty to sustain his particularities.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Opposition Between Realism and Nominalism"
+    }
+   ],
+   "t": "20:56"
+  },
+  {
+   "k": "said",
+   "text": "The signature is the act; the rest is noise. I must go to the IIC; my stomach is an argument I cannot refute.",
+   "to": "Shri G. Hegde",
+   "t": "20:56"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "IIC? At this hour? Just sign and go, ji. I need to get to the tiffen shop before they close, my stomach is making its own arguments too.",
+   "t": "20:56"
   }
  ],
  "steps": [
@@ -2279,13 +2314,65 @@
      "text": "To refute a Philosophy is to exhibit the dialectical movement in its principle, and thus reduce it to a constituent member of a higher concrete form of the? Idea. Even Becoming however, taken at its best on its own ground, is an extremely poor term: it needs to grow in depth and weight of meaning. Such deepened force we find e.g. in Life."
     }
    ]
+  },
+  {
+   "t": "20:56",
+   "end": "21:00",
+   "event": "Shri G. Hegde says: “Don't quote me back at me, ji. Here, use this pen, and let’s get this over with before the power cuts again.” You slide the pen across the table and point to the signature line. You are hungry.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The body demands its due, and the file demands its signature; I cannot have both, but the body is the condition of the file's existence. Jacobi is right: a man who feels hungry does not imagine food, he eats it. I will sign, but I will not stay for the conversation that follows, for my spirit is too empty to sustain his particularities.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "The signature is the act; the rest is noise. I must go to the IIC; my stomach is an argument I cannot refute.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "IIC? At this hour? Just sign and go, ji. I need to get to the tiffen shop before they close, my stomach is making its own arguments too.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.7
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "id": "haldane-3:1108"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Opposition Between Realism and Nominalism",
+     "id": "haldane-3:209"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "text": "There is no man so foolish as that philosophy; when a man feels hungry, he does not call up the imagination of food, but sets about satisfying his hunger. All activity is a conception which does not yet exist, but whose subjectivity is abrogated."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Opposition Between Realism and Nominalism",
+     "text": "Among the words of William to the Emperor were these, “Do thou defend me with the sword, and I will defend thee with the pen.” Interdicts of the Paris University and Papal bulls were issued against Occam. The Paris University forbade his doctrines to be taught or his works quoted."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-07T20:56+05:30",
+  "until": "2026-11-07T21:00+05:30",
   "asleep": false,
   "imprest": 836,
   "wearing": "kurta",
@@ -2385,7 +2472,8 @@
    },
    "no_meals": true,
    "walked": 5550,
-   "strain": 5550
+   "strain": 5550,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
