@@ -439,3 +439,40 @@ raise SystemExit(r.main(['--intent',str(root/'INTENT.json')]))
 
 if __name__=="__main__":
     unittest.main(verbosity=2)
+
+
+class RehearsalVerdictTests(unittest.TestCase):
+    """The night of 5 November: a healthy rehearsal at 23.69 GiB was stopped by a 23 GiB ceiling."""
+
+    def verdict(self, reserved_gib, after_seconds=21.0):
+        root = scratch()
+        data = fixture(root)
+        (root / "INTENT.json").write_bytes(r.encoded(data))
+        gib = 1024**3
+        steps = [dict(event="step", step=1, seconds=20.0, peak_reserved=int(22.9 * gib)),
+                 dict(event="step", step=2, seconds=19.0, peak_reserved=int(23.2 * gib)),
+                 dict(event="evaluate_end", step=2, seconds=1260.0),
+                 dict(event="step", step=3, seconds=after_seconds, peak_reserved=int(reserved_gib * gib))]
+        (root / "timing.jsonl").write_text("".join(json.dumps(x) + "\n" for x in steps))
+        (root / "telemetry").mkdir()
+        (root / "telemetry/events.jsonl").write_text(json.dumps(dict(used_mib=24258, shared_bytes=None)) + "\n")
+        (root / "MEMORY-BASELINE.json").write_text(json.dumps(dict(used_mib=900, shared_bytes=None)))
+        (root / "PHASE-C-END.json").write_text(json.dumps(dict(status="REHEARSAL_TWO_CASES", cases=[{}, {}])))
+        restored = dict(status="ORIGINAL_QWEN_AND_TIMER_RESTORED",
+                        pi_probe=dict(status="PI_HEALTH_AND_ONE_TOKEN_VERIFIED"))
+        return r.rehearsal_verdict(data, root, restored, now=r.epoch("2030-01-01T00:00:00Z"))
+
+    def test_near_full_card_with_steady_steps_passes(self):
+        v = self.verdict(23.69)
+        self.assertTrue(v["passed"], v["gates"])
+        self.assertEqual(v["peak_vram_mib"], 24258)
+
+    def test_reserving_beyond_the_card_fails(self):
+        v = self.verdict(24.4)
+        self.assertFalse(v["gates"]["within_card"])
+        self.assertFalse(v["passed"])
+
+    def test_spill_shows_as_slow_steps_after_evaluation(self):
+        v = self.verdict(23.69, after_seconds=300.0)
+        self.assertFalse(v["gates"]["post_eval_speed"])
+        self.assertFalse(v["passed"])

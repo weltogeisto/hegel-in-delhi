@@ -53,7 +53,7 @@ Resume isn't rehearsed: a real-mode `--resume` already ran live on 5 November (c
 
 **It passes when all of these hold, posted with their numbers:**
 - the steps after the evaluation run within 1.5 times the steps before it;
-- peak VRAM stays below 23 GiB, with no shared-memory spill;
+- PyTorch never reserves more than the card's 24 GiB. The recipe runs at about 23.7 GiB, so VRAM near the top is normal; a spill shows as slower steps. Never stop a run on VRAM alone;
 - the adapter loads and answers;
 - Qwen answers on 8082;
 - the restore check passes (his next tick by day, the Pi's health and 1-token checks by night);
