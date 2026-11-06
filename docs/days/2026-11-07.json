@@ -422,6 +422,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "19:14",
+   "to": "19:19",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Talking with Masterji at Khan Market."
   }
  ],
  "entries": [
@@ -887,6 +894,34 @@
    "to": "Hegel",
    "text": "Ab theek hai. Eat it before the oil cools, otherwise the crust gets soggy and it tastes like regret.",
    "t": "18:54"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil’s comparison of soggy pastry to regret is a crude but apt metaphor for the decay of the immediate. I have consumed the samosa; the body is temporarily satisfied, but the spirit remains hungry for the universal. The shop closes soon, and the air outside is thick with the day's heat. I must conclude this encounter before the light fails entirely.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§247"
+    }
+   ],
+   "t": "19:14"
+  },
+  {
+   "k": "said",
+   "text": "The crust is indeed a fragile medium for truth. Farewell, Sunil. I must go; the evening air is too thick for further digestion, whether of food or of thought.",
+   "to": "Masterji",
+   "t": "19:14"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Theek hai, jaao. Door is open.",
+   "t": "19:14"
   }
  ],
  "steps": [
@@ -1771,13 +1806,66 @@
      "text": "Only when, as in Europe, the direct increase of agriculturists is checked, •will the inhabitants, instead of pressing outwards to occupy the fields, press inwards upon each other, — pursuing town occupations, and trading with their fellow citizens; and so form a compact system of civil society, and require an organized state."
     }
    ]
+  },
+  {
+   "t": "19:14",
+   "end": "19:19",
+   "event": "Sunil says: “Ab theek hai. Eat it before the oil cools, otherwise the crust gets soggy and it tastes like regret.”",
+   "present": [
+    "Masterji, the tailor",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil’s comparison of soggy pastry to regret is a crude but apt metaphor for the decay of the immediate. I have consumed the samosa; the body is temporarily satisfied, but the spirit remains hungry for the universal. The shop closes soon, and the air outside is thick with the day's heat. I must conclude this encounter before the light fails entirely.",
+    "action": "talk",
+    "place": "khan",
+    "minutes": 5,
+    "says": "The crust is indeed a fragile medium for truth. Farewell, Sunil. I must go; the evening air is too thick for further digestion, whether of food or of thought.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Masterji",
+    "says": "Theek hai, jaao. Door is open.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.2
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "id": "wallace-mind:324"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§247",
+     "id": "dyde-right:565"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "text": "The members of civil society as such are rather people who find their nearest duty in their private interest and (as especially in the feudal society) in the interest of their privileged corporation. Take the case of England which, because private persons have a predominant share in public affairs, has been regarded as having the freest of all constitutions."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§247",
+     "text": "■ soil, and for the limited round of appetites and enjoyments embraced within the civic life, of the fluid element of danger and destruction, the passion for gain is transformed. By means of the sea, the greatest medium of communication, the desire for wealth brings distant lands into an intercourse, which leads to commercial exchange."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-07T19:14+05:30",
+  "until": "2026-11-07T19:19+05:30",
   "asleep": false,
   "imprest": 836,
   "wearing": "kurta",
