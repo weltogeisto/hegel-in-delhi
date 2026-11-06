@@ -373,6 +373,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "16:37",
+   "to": "17:37",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -640,6 +647,21 @@
     }
    ],
    "t": "16:07"
+  },
+  {
+   "k": "diary",
+   "text": "The sun has set, and the haze remains, a grey veil over the city that refuses to clear. I am still here, in this bungalow that is not mine, waiting for a file that does not exist in the order it should. Ramesh stands before me, silent, a particular man who holds the universal right to his wage, yet I lack the means to satisfy it. The ethical idea is not actualized here; it is suspended in the air, like the smoke from the empty cylinder.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Modern Time, The Reformation"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§169"
+    }
+   ],
+   "t": "16:37"
   }
  ],
  "steps": [
@@ -1152,13 +1174,60 @@
      "text": "Public worship consists in acts and doctrine; it needs possessions and property, and likewise individuals devoted to the service of the congregation. ■ Out of this arises between church and state a relation, which it is not difficult to define."
     }
    ]
+  },
+  {
+   "t": "16:37",
+   "end": "17:37",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The sun has set, and the haze remains, a grey veil over the city that refuses to clear. I am still here, in this bungalow that is not mine, waiting for a file that does not exist in the order it should. Ramesh stands before me, silent, a particular man who holds the universal right to his wage, yet I lack the means to satisfy it. The ethical idea is not actualized here; it is suspended in the air, like the smoke from the empty cylinder.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 60,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.4
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Modern Time, The Reformation",
+     "id": "sibree-history:1340"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§169",
+     "id": "rechts:395"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Modern Time, The Reformation",
+     "text": "Equally important, and connected with that just noticed, is the change of executive powers, functions, duties and rights, which naturally belong to the State, but which had become private property and private contracts or obligations— into possession conferred by the State."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§169",
+     "text": "Das im abstrakten Eigentum willkürliche Moment des besonderen Bedürfnisses des bloß Einzelnen und die Eigensucht der Begierde verändert sich hier in die Sorge und den Erwerb für ein Gemeinsames, in ein Sittliches."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-07T16:37+05:30",
+  "until": "2026-11-07T17:37+05:30",
   "asleep": false,
   "imprest": 886,
   "wearing": "kurta",
