@@ -271,6 +271,18 @@ Recipe 4 over the whole corpus in the spare slot during his days, two workers at
 ### T35 · Astra · phase B and C: train, test, sheets · ON HOLD until Welt is back (28 October: postponed to Sunday, T37). Then: after T34. Tell Welt a day ahead which night; the Power Guard is set later for that night only and back to twelve hours the next morning (by Welt, unless you have found where it lives)
 Train in the night Welt grants; keep the best checkpoint by machine numbers; run the new test for it and for the control; send the two sheets (Welt's, Claude's) without the key. Restore plain Qwen before 09:00.
 
+**DONE 6 November, by day (Welt: no more night runs).** It took four attempts: the night of 4 November (the GPU check counted the trainer itself), 5 November (checkpointing left off after an evaluation, fixed by PR #8; a restart supervisor read the wrong folder), and the night of 5 November (Claude's 23 GiB rehearsal ceiling stopped a healthy run). Launcher PR #9 with Claude's ceiling fix `ef0e53f`: the rehearsal passed at 10:42, and the real run did all 517 steps and six evaluations. Phase C tested checkpoint 400. Plain Qwen and the timer were back at 15:42, and his next decision used `mind`.
+
+| KPI | Bar | Adapter | Prompted Qwen | Verdict |
+|---|---|---|---|---|
+| 1 · voice, blind pairs | 28/40, at least 12/20 per judge | pending | | moot: 2 and 3 failed |
+| 2 · Delta | ≤ 0.38 | 0.7644 | 0.7600 | missed |
+| 3 · meaning | ≥ 36/40 | 23/40 | 34/40 | missed, and worse than the control |
+| 4 · nothing copied | ≤ 1 | 0/40 | | passed (goldfish worked) |
+| 5 · contract | 20/20, 0 leaks, ≤ 8 s | 20/20, 0, 4.31 s | | passed |
+
+**Verdict: the round-two adapter doesn't go live.** It is no closer to his voice than prompted Qwen, and it loses meaning that Qwen keeps. That makes two rounds without beating plain Qwen, as the research warned (`pc/TRAINING-3.md`, rule 1). Hegel stays on plain prompted Qwen. The voice adapter waits until a screen shows what training would add.
+
 ## Wednesday 28 October (his clock): repetition
 
 Day 27, his first full day on the new hours, was strong (39 thoughts, 39 of 41 waking steps with the mind, eight people met) and still missed Act 1 on a loop: at 14:24 the mind wrote the same thought three times, and the world refused it each time. T10 measured his repetition for the first time: 26 of 39 thoughts reuse a phrase from earlier that day (67%; Day 12 had 69%), most of all "the friction of" and "the system of needs". Above T10's 55%, so T9's variant comes now, with a second one beside it. Welt's go, 27 October.
