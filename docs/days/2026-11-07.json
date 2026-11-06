@@ -471,6 +471,15 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Shri G. Hegde at home."
+  },
+  {
+   "from": "21:00",
+   "to": "24:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Asleep.",
+   "asleep": true,
+   "owl": true
   }
  ],
  "entries": [
@@ -2366,14 +2375,37 @@
      "text": "Among the words of William to the Emperor were these, “Do thou defend me with the sword, and I will defend thee with the pen.” Interdicts of the Paris University and Papal bulls were issued against Occam. The Paris University forbade his doctrines to be taught or his works quoted."
     }
    ]
+  },
+  {
+   "t": "21:00",
+   "end": "24:00",
+   "event": "Shri G. Hegde says: “IIC? At this hour? Just sign and go, ji. I need to get to the tiffen shop before they close, my stomach is making its own arguments too.”",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "sleep",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "bedtime",
+    "attempts": 0,
+    "latency_s": 0.0
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-07T21:00+05:30",
-  "asleep": false,
+  "until": "2026-11-08T00:00+05:30",
+  "asleep": true,
   "imprest": 836,
   "wearing": "kurta",
   "wardrobe": [
