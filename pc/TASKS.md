@@ -314,7 +314,7 @@ All in `pc/QWEN-TRIAL.md`: Welt's approvals, the bundle and its hashes, standalo
 
 `research/REPORT-GPT6PRO-2026-10-28.pdf`, page numbers below. Its thesis: make his accumulated life trustworthy (who did what, whether it happened, what follows) before a stronger voice or a larger model. Claude checked its repository claims (T3 and T8 figures, memory limits, the owl's timestamp check, the schema fallback, the 39+1 voice cohort, the Day 27 examples, Qwen3.8's 16 attention layers) and a sample of its sources: all hold. Shared protocol (p. 15): Claude freezes each manifest (case IDs, expected facts, seeds 1831/2718/3141, the key apart) before any generation; Astra logs model and adapter hashes, effective samplers, schema fallbacks, retries, tokens, time and peak memory. Fixtures rebuilt from day files are labelled reconstructed; no closing state leaks into an earlier decision. About 10 to 24 GPU hours in all, which compete with his days on a 12-hour PC: Welt decides the windows.
 
-### T39 · Astra · T36 as declared, first when Hegel resumes (report p. 16)
+### T39 · Astra · T36 as declared, first when Hegel resumes (report p. 16) · GO, Welt 6 November, 16:00: spare slot beside Hegel, no pause
 Unchanged: arms A, B (echo), C (DRY); Days 12 and 27 and T9's two rehearsal days; three seeds; the full truth audit. About 5 to 9 GPU hours.
 
 ### T40 · Claude, then Astra · typed facts for the people he meets (report p. 15–16)
