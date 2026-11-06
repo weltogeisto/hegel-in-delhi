@@ -318,9 +318,6 @@ All in `pc/QWEN-TRIAL.md`: Welt's approvals, the bundle and its hashes, standalo
 Unchanged: arms A, B (echo), C (DRY); Days 12 and 27 and T9's two rehearsal days; three seeds; the full truth audit. About 5 to 9 GPU hours.
 **Frozen 6 November by Claude, before any comparative output:** case manifest `1c7105a26f8604b62bac9d84d0861f4f9fb769ad2db48b573e6277e8281dfd3a` (157 cases: 156 decisions and one bedtime marker), with seeds 1831, 2718 and 3141 for every arm. The truth reference is each case's attributed evidence (the records available before the step, as in T3); there is no separate expected-facts manifest. DRY 0.8 is confirmed on the chat endpoint, live in slot 1.
 
-### T48 · Training 3, his decisions · GO, Welt 6 November, by day after T39 · `pc/TRAINING3-RUN-20261106.md`; labeller `tools/decision_pairs.py` (Claude, on main)
-Astra builds the sampler and the DPO trainer as `codex/` PRs while T39 runs; sampling starts when T39 is done.
-
 ### T40 · Claude, then Astra · typed facts for the people he meets (report p. 15–16)
 Only the NPC's facts block changes, to typed form: actor, object, direction of the offer, status, source, time. 40 contexts (24 known-answer, 8 unknown, 8 ordinary), three seeds, two arms. Pass: scene success +0.20, unsupported closed-state claims halved, no new reversals in clean controls, voice and argument at most −0.25. About 1 to 2.5 GPU hours.
 
@@ -353,7 +350,7 @@ T34 and T35 as filed, plus: splits by chapter (short units stay with their paren
 ### T47 · Claude, then Astra · Training 2, grounded voices · decided after the screens T40 and G8 (Welt, 2 November)
 About 500 speaking moments outside T40's test families, four answers each from plain Qwen, labelled by the world's claim check (clean, false state, reversal, evasive). Preference training (DPO or ORPO), its own LoRA for the voices. Test: T40's locked contexts against T40/G8's best arm.
 
-### T48 · Claude, then Astra · Training 3, decisions without refusals · decided after the screens T39 and G7 (Welt, 2 November)
+### T48 · Claude, then Astra · Training 3, decisions without refusals · decided after the screens T39 and G7 (Welt, 2 November) · GO, Welt 6 November, by day after T39: `pc/TRAINING3-RUN-20261106.md`, labeller `tools/decision_pairs.py` (Claude, on main); Astra builds the sampler and the DPO trainer as `codex/` PRs while T39 runs. GPT 6 Pro asked the same day to review the training approach (`research/HANDOVER-TRAINING-GPT6PRO-20261106.md`)
 Four decisions per frozen situation outside T39's test days; chosen = accepted, non-repeating, no unmet knowledge; rejected = refused or repeating; pairs matched in length. Its own LoRA. Test: T39's days and measures against T39's better arm.
 
 ### Act 1 gate · seven full days in a row
