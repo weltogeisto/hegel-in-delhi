@@ -310,6 +310,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh and Shri G. Hegde at home."
+  },
+  {
+   "from": "10:03",
+   "to": "10:18",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -362,6 +369,34 @@
    "to": "Hegel",
    "text": "You think this is a seminar? The Directorate can send a telegram, but it can’t cook my daal. I’m not asking you to sign anything about your 'residence'; I’m asking you to tell Ramesh to stop crying in the corridor and start the fire, or I’ll go find him myself.",
    "t": "09:48"
+  },
+  {
+   "k": "diary",
+   "text": "He mistakes my silence for posturing and my presence for a philosophical obstruction. The daal is not an ethical idea; it is a material need that cannot be reasoned away by a Joint Secretary. Hegde’s exhaustion is the friction of two universals colliding in a particular kitchen, and the only way to resolve it is to let the particular servant act, not to debate his wage in the corridor.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    }
+   ],
+   "t": "10:03"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, the fire does not require a telegram, nor does the daal require a constitution. It requires Ramesh. I will speak to him. You may return to your office; the corridor is yours for silence, not for philosophy.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "10:03"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Don't be so grand about it. If Ramesh is cooking, he’s cooking; if he’s crying, he’s crying. Just make sure the smoke doesn't get into my files, that’s all I ask.",
+   "t": "10:03"
   }
  ],
  "steps": [
@@ -446,13 +481,67 @@
      "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
     }
    ]
+  },
+  {
+   "t": "10:03",
+   "end": "10:18",
+   "event": "Shri G. Hegde says: “You think this is a seminar? The Directorate can send a telegram, but it can’t cook my daal. I’m not asking you to sign anything about your 'residence'; I’m asking you to tell Ramesh to stop crying in the corridor and start the fire, or I’ll go find him myself.” Shri Hegde pinches the bridge of his nose, looking exhausted by the philosophical posturing.",
+   "present": [
+    "Ramesh, the caretaker",
+    "the dhobi",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "He mistakes my silence for posturing and my presence for a philosophical obstruction. The daal is not an ethical idea; it is a material need that cannot be reasoned away by a Joint Secretary. Hegde’s exhaustion is the friction of two universals colliding in a particular kitchen, and the only way to resolve it is to let the particular servant act, not to debate his wage in the corridor.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Shri Hegde, the fire does not require a telegram, nor does the daal require a constitution. It requires Ramesh. I will speak to him. You may return to your office; the corridor is yours for silence, not for philosophy.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Don't be so grand about it. If Ramesh is cooking, he’s cooking; if he’s crying, he’s crying. Just make sure the smoke doesn't get into my files, that’s all I ask.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 16.1
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "id": "dyde-right:205"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "text": "Addition. — The particular person is really a subordinate, who must devote his life to the service of the ethical fabric; when the state demands his life, he must yield it up. But should the man take his own life? Suicide may at first glance be looked upon as bravery, although it be the poor bravery of tailors and maid-servants."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-07T10:03+05:30",
+  "until": "2026-11-07T10:18+05:30",
   "asleep": false,
   "imprest": 926,
   "wearing": "kurta",
