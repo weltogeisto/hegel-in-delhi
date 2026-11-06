@@ -408,6 +408,13 @@
    "mode": "walk",
    "a": "home",
    "b": "khan"
+  },
+  {
+   "from": "18:39",
+   "to": "18:54",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -805,6 +812,46 @@
    "to": "Hegel",
    "text": "The office endures a lot, sir. You better go before the chai gets cold.",
    "t": "18:12"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s warning is the call of the immediate need; I cannot let the body starve to prove a philosophical point about the state. Sunil’s cynicism about the landlord’s debt is the friction of civil society, where private interests grind against one another. I will take the chai and a samosa, for the stomach is the first citizen, and then I must decide whether to seek Masterji’s needle or return to the bungalow before the file’s shadow lengthens too far.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "18:39"
+  },
+  {
+   "k": "said",
+   "text": "Sunil, one chai. And a samosa, if the oil is not yet cold. The body requires its due before the mind can proceed.",
+   "to": "Masterji and Sunil",
+   "t": "18:39"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Fifty rupees, sir. The oil is hot, but your 'due' is going to make you choke on that samosa like everything else. Here, eat with your hands, not that fork you keep digging into the dough with.",
+   "t": "18:39"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "18:39"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "18:39"
   }
  ],
  "steps": [
@@ -1572,15 +1619,78 @@
      "text": "Was sich wirklich im Staate geltend macht, muß sich freilich auf organische Weise betätigen, und dies ist in der Verfassung der Fall. Aber zu allen Zeiten war die öffentliche Meinung eine große Macht und ist es besonders in unserer Zeit, wo das Prinzip der subjektiven Freiheit diese Wichtigkeit und Bedeutung hat."
     }
    ]
+  },
+  {
+   "t": "18:39",
+   "end": "18:54",
+   "event": "Ramesh says: “The office endures a lot, sir. You better go before the chai gets cold.” He turns back to the ledger, tapping a pen against the page. You arrive at Khan Market. It closes at 20:30. Masterji is here. Sunil is here.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Ramesh’s warning is the call of the immediate need; I cannot let the body starve to prove a philosophical point about the state. Sunil’s cynicism about the landlord’s debt is the friction of civil society, where private interests grind against one another. I will take the chai and a samosa, for the stomach is the first citizen, and then I must decide whether to seek Masterji’s needle or return to the bungalow before the file’s shadow lengthens too far.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 15,
+    "says": "Sunil, one chai. And a samosa, if the oil is not yet cold. The body requires its due before the mind can proceed.",
+    "buys": [
+     {
+      "item": "Chai",
+      "price_inr": 20
+     },
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Fifty rupees, sir. The oil is hot, but your 'due' is going to make you choke on that samosa like everything else. Here, eat with your hands, not that fork you keep digging into the dough with.",
+    "does": "Slides the steel cup and a paper cone of samosas across the counter."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.8
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "id": "dyde-right:737"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "text": "These subordinates are on one side executive ofiicers and on the other a college of advisers. These two meet together in the highest offices of all, which ai'e in contact with the monarch. Note. — The civic community is, as we saw, the arena for the contest of the private interests of all against all."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-07T18:39+05:30",
+  "until": "2026-11-07T18:54+05:30",
   "asleep": false,
-  "imprest": 886,
+  "imprest": 836,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1669,6 +1779,11 @@
     ],
     "lodhi": [
      "sunil"
+    ],
+    "khan": [
+     "bookseller",
+     "masterji",
+     "sunil"
     ]
    },
    "no_meals": true,
@@ -1733,6 +1848,20 @@
      "item": "Chai from the stall at the Lodhi Road gate",
      "price": 20,
      "office": false
+    },
+    {
+     "date": "2026-11-07",
+     "t": "18:39",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-07",
+     "t": "18:39",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
     }
    ],
    "admitted": 730,
@@ -1779,7 +1908,8 @@
     "2026-10-13",
     "2026-10-28",
     "2026-11-05",
-    "2026-11-06"
+    "2026-11-06",
+    "2026-11-07"
    ],
    "gym": [
     "2026-10-02"
@@ -1867,7 +1997,8 @@
     "2026-10-13",
     "2026-10-28",
     "2026-11-05",
-    "2026-11-06"
+    "2026-11-06",
+    "2026-11-07"
    ],
    "nidhi": [
     "2026-10-02"
@@ -1918,7 +2049,7 @@
    "sim": false
   },
   "last_meal": "2026-10-27T18:45+05:30",
-  "snacks": 9,
+  "snacks": 10,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
