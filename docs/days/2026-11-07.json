@@ -366,6 +366,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "16:07",
+   "to": "16:37",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -618,6 +625,21 @@
    "to": "Hegel",
    "text": "The door is already closed, sir. Please mind the lock.",
    "t": "15:52"
+  },
+  {
+   "k": "diary",
+   "text": "He treats my existence as a security risk to be managed, not a resident to be hosted. The lock is the ultimate expression of his refusal to cook; it is a border I cannot cross without a visa I do not possess. I am awake, hungry, and the sun has already dismissed the day. I shall remain in this empty room and let the silence teach me what the state cannot provide.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§351"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    }
+   ],
+   "t": "16:07"
   }
  ],
  "steps": [
@@ -1083,13 +1105,60 @@
      "text": "Amongst the poor the public power takes the place of the family in regard to their immediate need, dislike of work, bad disposition, and other vices, which spring out of poverty and the sense of wrong. § 242."
     }
    ]
+  },
+  {
+   "t": "16:07",
+   "end": "16:37",
+   "event": "Ramesh says: “The door is already closed, sir. Please mind the lock.” Ramesh does not turn around and keeps walking toward the service door, pulling it shut behind him.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "He treats my existence as a security risk to be managed, not a resident to be hosted. The lock is the ultimate expression of his refusal to cook; it is a border I cannot cross without a visa I do not possess. I am awake, hungry, and the sun has already dismissed the day. I shall remain in this empty room and let the silence teach me what the state cannot provide.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.1
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§351",
+     "id": "dyde-right:849"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:639"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§351",
+     "text": "It is this feature of them which is significant in world-history. The concrete ideas, which embody the national minds or - Spirits, h as its truth in the concrete idea i n its absolute, jiniversality. This is the spirit of the world, around whose throne stand the other spirits as perfecters of its actuality, and witnesses and ornaments of its splendour.\""
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "Public worship consists in acts and doctrine; it needs possessions and property, and likewise individuals devoted to the service of the congregation. ■ Out of this arises between church and state a relation, which it is not difficult to define."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-07T16:07+05:30",
+  "until": "2026-11-07T16:37+05:30",
   "asleep": false,
   "imprest": 886,
   "wearing": "kurta",
