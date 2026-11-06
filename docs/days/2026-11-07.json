@@ -317,6 +317,27 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh and Shri G. Hegde at home."
+  },
+  {
+   "from": "10:18",
+   "to": "10:28",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
+  },
+  {
+   "from": "10:28",
+   "to": "10:48",
+   "mode": "walk",
+   "a": "home",
+   "b": "lodhi"
+  },
+  {
+   "from": "10:48",
+   "to": "11:03",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Talking with Sunil in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -397,6 +418,96 @@
    "to": "Hegel",
    "text": "Don't be so grand about it. If Ramesh is cooking, he’s cooking; if he’s crying, he’s crying. Just make sure the smoke doesn't get into my files, that’s all I ask.",
    "t": "10:03"
+  },
+  {
+   "k": "diary",
+   "text": "He reduces the ethical conflict of the household to a matter of ventilation, as if the smoke were merely an impurity in the air rather than a sign of the disordered spirit within the house. The state, he suggests, is a file cabinet, not an ethical idea, and my presence is an obstruction to the filing of papers. I am starving, yet he speaks of smoke; the particular needs of the body are ignored in favor of the abstract convenience of the office.",
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…"
+    }
+   ],
+   "t": "10:18"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, the smoke is the product of a kitchen that is not functioning because the cook has not been paid. You ask for the removal of the effect while ignoring the cause. I am the resident here, and the irregularity of my occupation is a matter for the Directorate, not a nuisance for your files. I suggest you look at the matter as a whole, not just the dust it settles on your papers.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "10:18"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Stop turning a burnt daal into a constitutional crisis. I am the Joint Secretary, not the cook's bank manager. I just want to read my memos without choking on smoke.",
+   "t": "10:18"
+  },
+  {
+   "k": "diary",
+   "text": "He treats the ethical conflict of the household as a mere ventilation issue, reducing the state's presence to a Joint Secretary who cannot even cook his own daal without choking. The smoke is the particular resisting the universal order he pretends to embody. I will not argue with the air; I will leave the room and the room to its confusion.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273"
+    }
+   ],
+   "t": "10:28"
+  },
+  {
+   "k": "said",
+   "text": "The smoke is the particular refusing to be sublated. I will walk where the air is not yet a political weapon.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "10:28"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, the smoke is not a political weapon, it is simply smoke because the gas cylinder is empty and the cook has not been paid. I will refill the cylinder if you arrange the payment, otherwise the daal will remain burnt.",
+   "t": "10:28"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s smoke is not a political weapon but a material necessity, a reduction of the ethical household to the mechanics of payment. I stand in the haze of Lodhi Gardens, where the air itself seems to resist the clear distinction between the universal and the particular. The body, having fasted, demands its own right now, not the state's.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "10:48"
+  },
+  {
+   "k": "said",
+   "text": "Sunil, one chai. I will sit and contemplate the necessity of the empty cylinder.",
+   "to": "Sunil",
+   "t": "10:48"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Twenty rupees, sir. The cylinder's empty because the landlord hasn't paid the electricity bill, not because of any 'necessity.' You better not sit on the bench with that big mouth open, you'll scare off the aunties.",
+   "t": "10:48"
+  },
+  {
+   "k": "bag",
+   "item": "Chai from the stall at the Lodhi Road gate",
+   "price": 20,
+   "t": "10:48"
   }
  ],
  "steps": [
@@ -535,15 +646,180 @@
      "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
     }
    ]
+  },
+  {
+   "t": "10:18",
+   "end": "10:28",
+   "event": "Shri G. Hegde says: “Don't be so grand about it. If Ramesh is cooking, he’s cooking; if he’s crying, he’s crying. Just make sure the smoke doesn't get into my files, that’s all I ask.”",
+   "present": [
+    "Ramesh, the caretaker",
+    "the dhobi",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "He reduces the ethical conflict of the household to a matter of ventilation, as if the smoke were merely an impurity in the air rather than a sign of the disordered spirit within the house. The state, he suggests, is a file cabinet, not an ethical idea, and my presence is an obstruction to the filing of papers. I am starving, yet he speaks of smoke; the particular needs of the body are ignored in favor of the abstract convenience of the office.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Shri Hegde, the smoke is the product of a kitchen that is not functioning because the cook has not been paid. You ask for the removal of the effect while ignoring the cause. I am the resident here, and the irregularity of my occupation is a matter for the Directorate, not a nuisance for your files. I suggest you look at the matter as a whole, not just the dust it settles on your papers.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Stop turning a burnt daal into a constitutional crisis. I am the Joint Secretary, not the cook's bank manager. I just want to read my memos without choking on smoke.",
+    "does": "Waves a hand dismissively to clear the air."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.8
+   },
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "id": "wallace-logic:71"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "id": "phaen:385"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "text": "A slothful mind finds it natural to say: 'Don't let it be supposed that we mean to be in earnest with our philosophy. We shall be glad inter alia to study Logic: but Logic must be sure to leave us as we were before.' People have a feeling that, if thinking passes the ordinary range of our ideas and impressions, it cannot but be on the evil road."
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "text": "Nicht der Unterschied, welcher sich als bestimmtes Ding, oder als Bewußtsein eines bestimmten natürlichen Daseins, als ein Gefühl, oder als Begierde und Zweck für dieselbe, ob er durch das eigene oder durch ein fremdes Bewußtsein gesetzt sei, hat mehr Wesenheit, sondern allein der Unterschied, der ein gedachter, oder unmittelbar nicht von Mir unterschieden ist."
+    }
+   ]
+  },
+  {
+   "t": "10:28",
+   "end": "10:48",
+   "event": "Shri G. Hegde says: “Stop turning a burnt daal into a constitutional crisis. I am the Joint Secretary, not the cook's bank manager. I just want to read my memos without choking on smoke.” Waves a hand dismissively to clear the air.",
+   "present": [
+    "Ramesh, the caretaker",
+    "the dhobi",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "He treats the ethical conflict of the household as a mere ventilation issue, reducing the state's presence to a Joint Secretary who cannot even cook his own daal without choking. The smoke is the particular resisting the universal order he pretends to embody. I will not argue with the air; I will leave the room and the room to its confusion.",
+    "action": "walk",
+    "place": "lodhi",
+    "minutes": 45,
+    "says": "The smoke is the particular refusing to be sublated. I will walk where the air is not yet a political weapon.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "lodhi",
+   "voice": {
+    "by": "Ramesh",
+    "says": "Sir, the smoke is not a political weapon, it is simply smoke because the gas cylinder is empty and the cook has not been paid. I will refill the cylinder if you arrange the payment, otherwise the daal will remain burnt.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.4
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution",
+     "id": "sibree-history:1411"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273",
+     "id": "dyde-right:681"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution",
+     "text": "The first Constitutional form of Government in France was one which recognized Royalty; the monarch was to stand at the head of the State, and on him in conjunction with his Mimisters was to devolve the executive power; the legislative body on the other hand were to make the laws."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273",
+     "text": "Note. — The perfecting of the state into a constitutional monarchy is the work of the modern world, in which the substantive idea has attained the infinite form."
+    }
+   ]
+  },
+  {
+   "t": "10:48",
+   "end": "11:03",
+   "event": "Ramesh says: “Sir, the smoke is not a political weapon, it is simply smoke because the gas cylinder is empty and the cook has not been paid. I will refill the cylinder if you arrange the payment, otherwise the daal will remain burnt.” You arrive at Lodhi Gardens. It closes at 19:30. Sunil is here.",
+   "present": [
+    "Sunil, who sells chai"
+   ],
+   "decision": {
+    "thought": "Ramesh’s smoke is not a political weapon but a material necessity, a reduction of the ethical household to the mechanics of payment. I stand in the haze of Lodhi Gardens, where the air itself seems to resist the clear distinction between the universal and the particular. The body, having fasted, demands its own right now, not the state's.",
+    "action": "talk",
+    "place": "lodhi",
+    "minutes": 15,
+    "says": "Sunil, one chai. I will sit and contemplate the necessity of the empty cylinder.",
+    "buys": [
+     {
+      "item": "Chai from the stall at the Lodhi Road gate",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Twenty rupees, sir. The cylinder's empty because the landlord hasn't paid the electricity bill, not because of any 'necessity.' You better not sit on the bench with that big mouth open, you'll scare off the aunties.",
+    "does": "He pours the chai into a small glass and slides it across the counter with a clink."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.5
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6. The civic community, or spirit in its dual existence and mere appearance, free self-dependence of the particular will is also universajl and objective."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-07T10:18+05:30",
+  "place": "lodhi",
+  "until": "2026-11-07T11:03+05:30",
   "asleep": false,
-  "imprest": 926,
+  "imprest": 906,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -629,9 +905,14 @@
      "dhobi",
      "hegde",
      "ramesh"
+    ],
+    "lodhi": [
+     "sunil"
     ]
    },
-   "no_meals": true
+   "no_meals": true,
+   "walked": 1500,
+   "strain": 1500
   },
   "account": {
    "advance": 15000,
@@ -677,6 +958,13 @@
      "item": "Chai, a cup",
      "price": 20,
      "office": false
+    },
+    {
+     "date": "2026-11-07",
+     "t": "10:48",
+     "item": "Chai from the stall at the Lodhi Road gate",
+     "price": 20,
+     "office": false
     }
    ],
    "admitted": 730,
@@ -712,7 +1000,8 @@
     "2026-10-13",
     "2026-10-14",
     "2026-10-15",
-    "2026-10-28"
+    "2026-10-28",
+    "2026-11-07"
    ],
    "gandhi": [
     "2026-10-02"
@@ -820,7 +1109,8 @@
     "2026-10-14",
     "2026-10-15",
     "2026-10-28",
-    "2026-11-05"
+    "2026-11-05",
+    "2026-11-07"
    ],
    "hegde": [
     "2026-10-02",
