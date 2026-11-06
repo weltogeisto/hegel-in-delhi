@@ -401,6 +401,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "18:12",
+   "to": "18:39",
+   "mode": "walk",
+   "a": "home",
+   "b": "khan"
   }
  ],
  "entries": [
@@ -770,6 +777,34 @@
    "to": "Hegel",
    "text": "The body knows best, sir. Just don't come back smelling of cumin; the office papers get sensitive.",
    "t": "18:07"
+  },
+  {
+   "k": "diary",
+   "text": "The body is the immediate truth, the fact of my existence before the abstraction of the state. I have not eaten in a day, and the air is thick with the dust of a city that does not care for my digestion. I will go to Khan Market; the system of needs must be satisfied before I can return to the system of needs I am supposed to regulate.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316"
+    }
+   ],
+   "t": "18:12"
+  },
+  {
+   "k": "said",
+   "text": "Noted, Ramesh. The office will have to endure the spice for a few hours.",
+   "to": "Ramesh",
+   "t": "18:12"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "The office endures a lot, sir. You better go before the chai gets cold.",
+   "t": "18:12"
   }
  ],
  "steps": [
@@ -1485,13 +1520,65 @@
      "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
     }
    ]
+  },
+  {
+   "t": "18:12",
+   "end": "18:39",
+   "event": "Ramesh says: “The body knows best, sir. Just don't come back smelling of cumin; the office papers get sensitive.”",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The body is the immediate truth, the fact of my existence before the abstraction of the state. I have not eaten in a day, and the air is thick with the dust of a city that does not care for my digestion. I will go to Khan Market; the system of needs must be satisfied before I can return to the system of needs I am supposed to regulate.",
+    "action": "walk",
+    "place": "khan",
+    "minutes": 20,
+    "says": "Noted, Ramesh. The office will have to endure the spice for a few hours.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "khan",
+   "voice": {
+    "by": "Ramesh",
+    "says": "The office endures a lot, sir. You better go before the chai gets cold.",
+    "does": "He turns back to the ledger, tapping a pen against the page."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.6
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316",
+     "id": "rechts:1044"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316",
+     "text": "Was sich wirklich im Staate geltend macht, muß sich freilich auf organische Weise betätigen, und dies ist in der Verfassung der Fall. Aber zu allen Zeiten war die öffentliche Meinung eine große Macht und ist es besonders in unserer Zeit, wo das Prinzip der subjektiven Freiheit diese Wichtigkeit und Bedeutung hat."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-07T18:12+05:30",
+  "place": "khan",
+  "until": "2026-11-07T18:39+05:30",
   "asleep": false,
   "imprest": 886,
   "wearing": "kurta",
@@ -1585,8 +1672,8 @@
     ]
    },
    "no_meals": true,
-   "walked": 1500,
-   "strain": 1500
+   "walked": 3525,
+   "strain": 3525
   },
   "account": {
    "advance": 15000,
