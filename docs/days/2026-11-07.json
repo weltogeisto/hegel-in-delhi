@@ -338,6 +338,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Talking with Sunil in Lodhi Gardens."
+  },
+  {
+   "from": "11:03",
+   "to": "11:13",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Shopping in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -508,6 +515,32 @@
    "item": "Chai from the stall at the Lodhi Road gate",
    "price": 20,
    "t": "10:48"
+  },
+  {
+   "k": "diary",
+   "text": "The cylinder is empty not by the necessity of nature, but by the failure of the landlord to fulfill his duty in the system of needs. I am to be banished from the bench for the offense of my mouth, a mere physical obstruction in their economy of comfort. The universal right to rest is subsumed under the particular inconvenience of the 'aunties.'",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§157"
+    }
+   ],
+   "t": "11:03"
+  },
+  {
+   "k": "said",
+   "text": "The landlord’s neglect is a failure of the ethical order, yet you reduce my contemplation to a scarecrow. I accept the glass; the necessity is material, even if the cause is bureaucratic.",
+   "t": "11:03"
+  },
+  {
+   "k": "bag",
+   "item": "Chai from the stall at the Lodhi Road gate",
+   "price": 20,
+   "t": "11:03"
   }
  ],
  "steps": [
@@ -811,15 +844,68 @@
      "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
     }
    ]
+  },
+  {
+   "t": "11:03",
+   "end": "11:13",
+   "event": "Sunil says: “Twenty rupees, sir. The cylinder's empty because the landlord hasn't paid the electricity bill, not because of any 'necessity.' You better not sit on the bench with that big mouth open, you'll scare off the aunties.” He pours the chai into a small glass and slides it across the counter with a clink.",
+   "present": [],
+   "decision": {
+    "thought": "The cylinder is empty not by the necessity of nature, but by the failure of the landlord to fulfill his duty in the system of needs. I am to be banished from the bench for the offense of my mouth, a mere physical obstruction in their economy of comfort. The universal right to rest is subsumed under the particular inconvenience of the 'aunties.'",
+    "action": "buy",
+    "place": "lodhi",
+    "minutes": 10,
+    "says": "The landlord’s neglect is a failure of the ethical order, yet you reduce my contemplation to a scarecrow. I accept the glass; the necessity is material, even if the cause is bureaucratic.",
+    "buys": [
+     {
+      "item": "Chai from the stall at the Lodhi Road gate",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.2,
+    "warnings": [
+     "talks although nobody is present"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:643"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§157",
+     "id": "rechts:374"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "The civil rights implied in it give rise to a feeling of self-respect, the sense of counting as a lawful person in the civic community. This feeling of being infinite and free from all Others is the root out of which springs the needed balance of the various kinds of thought and sentiment. The isolation with which the Jews have been blamed it is better to preserve."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§157",
+     "text": "Erster Abschnitt. Die Familie."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-11-07T11:03+05:30",
+  "until": "2026-11-07T11:13+05:30",
   "asleep": false,
-  "imprest": 906,
+  "imprest": 886,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -962,6 +1048,13 @@
     {
      "date": "2026-11-07",
      "t": "10:48",
+     "item": "Chai from the stall at the Lodhi Road gate",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-07",
+     "t": "11:03",
      "item": "Chai from the stall at the Lodhi Road gate",
      "price": 20,
      "office": false
