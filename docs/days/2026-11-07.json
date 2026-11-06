@@ -429,6 +429,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with Masterji at Khan Market."
+  },
+  {
+   "from": "19:19",
+   "to": "19:46",
+   "mode": "walk",
+   "a": "khan",
+   "b": "home"
   }
  ],
  "entries": [
@@ -922,6 +929,21 @@
    "to": "Hegel",
    "text": "Theek hai, jaao. Door is open.",
    "t": "19:14"
+  },
+  {
+   "k": "diary",
+   "text": "Masterji’s dismissal is the necessary boundary of our exchange; he has served his function as the particular agent of my needs, and I must now withdraw into the universal order of the street. The air is hazy, a visible sign of the chaos that civil society generates before the state can sublate it into law and order. I have a little time before the shops close completely, and the walk back to the bungalow will serve to digest both the food and the friction of the day.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "19:19"
   }
  ],
  "steps": [
@@ -1859,13 +1881,61 @@
      "text": "■ soil, and for the limited round of appetites and enjoyments embraced within the civic life, of the fluid element of danger and destruction, the passion for gain is transformed. By means of the sea, the greatest medium of communication, the desire for wealth brings distant lands into an intercourse, which leads to commercial exchange."
     }
    ]
+  },
+  {
+   "t": "19:19",
+   "end": "19:46",
+   "event": "Masterji says: “Theek hai, jaao. Door is open.”",
+   "present": [
+    "Masterji, the tailor",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Masterji’s dismissal is the necessary boundary of our exchange; he has served his function as the particular agent of my needs, and I must now withdraw into the universal order of the street. The air is hazy, a visible sign of the chaos that civil society generates before the state can sublate it into law and order. I have a little time before the shops close completely, and the walk back to the bungalow will serve to digest both the food and the friction of the day.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 6.2
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-11-07T19:19+05:30",
+  "place": "home",
+  "until": "2026-11-07T19:46+05:30",
   "asleep": false,
   "imprest": 836,
   "wearing": "kurta",
@@ -1964,8 +2034,8 @@
     ]
    },
    "no_meals": true,
-   "walked": 3525,
-   "strain": 3525
+   "walked": 5550,
+   "strain": 5550
   },
   "account": {
    "advance": 15000,
