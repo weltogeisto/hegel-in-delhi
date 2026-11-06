@@ -108,7 +108,7 @@
     "aqi": 179
    },
    {
-    "temp": 26,
+    "temp": 27,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 173
@@ -120,7 +120,7 @@
     "aqi": 168
    },
    {
-    "temp": 24,
+    "temp": 23,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 163
@@ -132,7 +132,7 @@
     "aqi": 160
    },
    {
-    "temp": 23,
+    "temp": 22,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 157
@@ -144,7 +144,7 @@
     "aqi": 154
    },
    {
-    "temp": 22,
+    "temp": 21,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 152
@@ -296,17 +296,69 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "09:18",
+   "to": "09:48",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “No split in party, genuine issues will be addressed in steps: NC president Dr. Farooq Abdullah” · “Silver Rate Today, 6 November: Rates fall over 2% in India on Dhanteras; check city-wise prices” · “From fictitious Chief Minister to Naladiyar as ‘poet’: Tamil writer Perumal Murgan flags ‘literary scam’ in Periyar Arivulagam”",
+   "t": "09:18"
+  },
+  {
+   "k": "expense",
+   "item": "The dhobi",
+   "amount": 300,
+   "to": "the dhobi",
+   "why": "the washing",
+   "settles": true,
+   "text": "Paid to the dhobi.",
+   "t": "09:18"
+  }
+ ],
+ "steps": [
+  {
+   "t": "09:18",
+   "end": "09:48",
+   "event": "You wake. A brown haze, 22 °C. Ramesh has left the papers on the verandah. Headlines: No split in party, genuine issues will be addressed in steps: NC president Dr. Farooq Abdullah; Silver Rate Today, 6 November: Rates fall over 2% in India on Dhanteras; check city-wise prices; From fictitious Chief Minister to Naladiyar as ‘poet’: Tamil writer Perumal Murgan flags ‘literary scam’ in Periyar Arivulagam. Ramesh asks for ₹8,000 (the wage for cooking), and you have only ₹1,226. You pay the dhobi ₹300 for the washing. Ramesh is here.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 0,
+    "latency_s": 3.1,
+    "refused": [
+     [
+      "the PC did not wake for the morning plan"
+     ]
+    ]
+   }
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-07T09:18+05:30",
-  "asleep": true,
-  "imprest": 1226,
+  "until": "2026-11-07T09:48+05:30",
+  "asleep": false,
+  "imprest": 926,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -382,7 +434,17 @@
    }
   ],
   "depesche_n": 1,
-  "today": {},
+  "today": {
+   "woke": "09:18",
+   "pressed": [
+    "Ramesh|the wage for cooking"
+   ],
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -454,7 +516,8 @@
     "2026-10-29",
     "2026-11-04",
     "2026-11-05",
-    "2026-11-06"
+    "2026-11-06",
+    "2026-11-07"
    ],
    "lodhi": [
     "2026-10-02",
@@ -524,7 +587,7 @@
   "costs": {
    "wage": "2026-11-01",
    "groceries": "2026-11-01",
-   "dhobi": "2026-10-31",
+   "dhobi": "2026-11-07",
    "electricity": "2026-10-12",
    "data": "2026-10-12"
   },
@@ -546,7 +609,8 @@
     "2026-10-27",
     "2026-10-29",
     "2026-11-05",
-    "2026-11-06"
+    "2026-11-06",
+    "2026-11-07"
    ],
    "malhotra": [
     "2026-10-02",
