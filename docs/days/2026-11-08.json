@@ -331,6 +331,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "09:46",
+   "to": "10:01",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -349,6 +356,39 @@
     "since": "2026-11-08"
    },
    "t": "09:16"
+  },
+  {
+   "k": "world",
+   "text": "Diwali morning: Ramesh and the dhobi wait for their bakshish.",
+   "t": "09:46"
+  },
+  {
+   "k": "diary",
+   "text": "The holiday of lights demands a recognition of the other, even in the servant, but my pockets are empty of the means to perform this ethical act. Ramesh waits, and his hunger is the immediate reality that my abstraction cannot satisfy. I must acknowledge the tension: the social bond is suspended because the material substrate is missing.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§79"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    }
+   ],
+   "t": "09:46"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, the day is one of light, but my purse is dark. I cannot give the bakshish that custom demands, nor the wage that your hunger demands. Shri Hegde, I ask your presence here not for company, but for the gravity of the moment: a man who cannot feed his servant in the festival of lights is in a state of ethical contradiction that I must resolve before the day proceeds.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "09:46"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, the office endures a lot, but it does not starve. I will keep the tea warm and the papers dry; the rest is between you and the day.",
+   "t": "09:46"
   }
  ],
  "steps": [
@@ -380,13 +420,68 @@
      ]
     ]
    }
+  },
+  {
+   "t": "09:46",
+   "end": "10:01",
+   "event": "It is Diwali. Ramesh, and the dhobi who has come by with the washing, wait with the patience of men who expect bakshish: at Diwali one gives something to those who serve the house. Nothing is cooked at home: Ramesh has not been paid his wage for cooking. Shri G. Hegde is here.",
+   "present": [
+    "Ramesh, the caretaker",
+    "the dhobi",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The holiday of lights demands a recognition of the other, even in the servant, but my pockets are empty of the means to perform this ethical act. Ramesh waits, and his hunger is the immediate reality that my abstraction cannot satisfy. I must acknowledge the tension: the social bond is suspended because the material substrate is missing.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, the day is one of light, but my purse is dark. I cannot give the bakshish that custom demands, nor the wage that your hunger demands. Shri Hegde, I ask your presence here not for company, but for the gravity of the moment: a man who cannot feed his servant in the festival of lights is in a state of ethical contradiction that I must resolve before the day proceeds.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Sir, the office endures a lot, but it does not starve. I will keep the tea warm and the papers dry; the rest is between you and the day.",
+    "does": "He bows his head slightly and steps back toward the kitchen doorway."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.8
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§79",
+     "id": "dyde-right:216"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§79",
+     "text": "As stipulation involves the will, it contains, from the standpoint of right, the substance of contract. In contrast with this substantive contract the possession, which remains till the contract is fully carried out, has no reality outside of the agreement. I have given up a possession and my private control over it, and it has already become the property of another."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    }
+   ],
+   "beat": "diwali_bakshish"
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-08T09:46+05:30",
+  "until": "2026-11-08T10:01+05:30",
   "asleep": false,
   "imprest": 836,
   "wearing": "kurta",
@@ -437,7 +532,8 @@
    "hegde_gate",
    "hegde_card",
    "essay_fee",
-   "saxena_file"
+   "saxena_file",
+   "diwali_bakshish"
   ],
   "flags": {
    "bandhgala": "collected",
@@ -473,9 +569,11 @@
    "seen": {
     "home": [
      "dhobi",
+     "hegde",
      "ramesh"
     ]
-   }
+   },
+   "no_meals": true
   },
   "account": {
    "advance": 15000,
@@ -729,7 +827,8 @@
     "2026-10-29",
     "2026-11-05",
     "2026-11-06",
-    "2026-11-07"
+    "2026-11-07",
+    "2026-11-08"
    ],
    "kapoor": [
     "2026-10-28"
