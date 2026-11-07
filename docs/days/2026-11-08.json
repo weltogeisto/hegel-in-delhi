@@ -548,6 +548,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "20:29",
+   "to": "20:59",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1405,6 +1412,34 @@
    "to": "Hegel",
    "text": "Sir, you talk too much for a man who hasn't eaten in hours. I will be in the kitchen; please, do not make me bring the paratha to your study.",
    "t": "20:14"
+  },
+  {
+   "k": "diary",
+   "text": "The market is shut, and the kitchen is silent; the system of needs has failed to meet the organism's demand. I must retreat to the study, where the only fuel remaining is the mind itself, though it burns with an empty, aching intensity. I will attempt to write, or at least to sit in the dark, acknowledging that the body's rebellion is the final check on the philosopher's pride.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Epicurus, Ethics"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics"
+    }
+   ],
+   "t": "20:29"
+  },
+  {
+   "k": "said",
+   "text": "Very well. I will sit in the study. Do not wait up.",
+   "to": "Ramesh",
+   "t": "20:29"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Bhagwan. I'll be done in ten minutes.",
+   "t": "20:29"
   }
  ],
  "steps": [
@@ -3072,13 +3107,73 @@
      "text": "A slothful mind finds it natural to say: 'Don't let it be supposed that we mean to be in earnest with our philosophy. We shall be glad inter alia to study Logic: but Logic must be sure to leave us as we were before.' People have a feeling that, if thinking passes the ordinary range of our ideas and impressions, it cannot but be on the evil road."
     }
    ]
+  },
+  {
+   "t": "20:29",
+   "end": "20:59",
+   "event": "Ramesh says: “Sir, you talk too much for a man who hasn't eaten in hours. I will be in the kitchen; please, do not make me bring the paratha to your study.” You are hungry.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The market is shut, and the kitchen is silent; the system of needs has failed to meet the organism's demand. I must retreat to the study, where the only fuel remaining is the mind itself, though it burns with an empty, aching intensity. I will attempt to write, or at least to sit in the dark, acknowledging that the body's rebellion is the final check on the philosopher's pride.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": "Very well. I will sit in the study. Do not wait up.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Bhagwan. I'll be done in ten minutes.",
+    "does": "Ramesh turns his back on the study and walks toward the kitchen door."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 3,
+    "latency_s": 18.1,
+    "refused": [
+     [
+      "Nothing is cooked at home: Ramesh has not been paid his wage for cooking. Choose an available activity; a request for food is not a completed meal."
+     ],
+     [
+      "Khan Market is closed when you would arrive (20:56)"
+     ]
+    ]
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Epicurus, Ethics",
+     "id": "haldane-2:776"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics",
+     "id": "haldane-2:598"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Epicurus, Ethics",
+     "text": "Simple dishes afford just as much enjoyment as costly banquets, if they appease hunger. Therefore when we make pleasure our aim, it is not the enjoyments of the gourmand, as is often falsely thought, but freedom from both pain of body and uneasiness of mind."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics",
+     "text": "He then proved that at night he carried water for a gardener, and by means of this occupation, earned as much as he required in order in the day to be in Zeno’s company—as to which the only point which is not quite comprehensible to us is how, even in such a way, philosophy, of all things, could be studied."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-08T20:29+05:30",
+  "until": "2026-11-08T20:59+05:30",
   "asleep": false,
   "imprest": 346,
   "wearing": "kurta",
@@ -3176,7 +3271,8 @@
    },
    "no_meals": true,
    "walked": 8100,
-   "strain": 8100
+   "strain": 8100,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
