@@ -345,6 +345,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "10:26",
+   "to": "10:41",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -424,6 +431,34 @@
    "to": "Hegel",
    "text": "Shutters rise at ten, Sir. The chai will be ready by then, and I won't ask you to pay for it before you have eaten.",
    "t": "10:01"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s offer of chai is a gesture of ethical recognition, but the kitchen is empty because the wage is withheld. I cannot eat what does not exist, and I cannot pay the nine thousand five hundred rupees I do not have. The body remains a site of tension, demanding what the spirit cannot yet provide.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "10:26"
+  },
+  {
+   "k": "said",
+   "text": "The chai will suffice for now, Ramesh. The wage is not a debt of gratitude but of right, and I am bound to it.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "10:26"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Right is right, Sir. I will not argue with a man who knows the difference. The chai is on the stove.",
+   "t": "10:26"
   }
  ],
  "steps": [
@@ -569,13 +604,72 @@
      "text": "Hence the thought expressed in such an utterance reveals the fact that it is dead understanding; for it is only death which fasts and yet rests satisfied. But neither physical life nor intellectual remains content with mere abstention; as desire it presses on through hunger and through thirst towards Truth, towards knowledge itself."
     }
    ]
+  },
+  {
+   "t": "10:26",
+   "end": "10:41",
+   "event": "Ramesh says: “Shutters rise at ten, Sir. The chai will be ready by then, and I won't ask you to pay for it before you have eaten.” He turns back toward the kitchen doorway, leaving the bungalow behind him.",
+   "present": [
+    "Ramesh, the caretaker",
+    "the dhobi",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Ramesh’s offer of chai is a gesture of ethical recognition, but the kitchen is empty because the wage is withheld. I cannot eat what does not exist, and I cannot pay the nine thousand five hundred rupees I do not have. The body remains a site of tension, demanding what the spirit cannot yet provide.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": "The chai will suffice for now, Ramesh. The wage is not a debt of gratitude but of right, and I am bound to it.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Right is right, Sir. I will not argue with a man who knows the difference. The chai is on the stove.",
+    "does": "He nods once and turns back toward the kitchen doorway."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 12.6,
+    "refused": [
+     [
+      "Nothing is cooked at home: Ramesh has not been paid his wage for cooking. Choose an available activity; a request for food is not a completed meal."
+     ]
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-08T10:26+05:30",
+  "until": "2026-11-08T10:41+05:30",
   "asleep": false,
   "imprest": 836,
   "wearing": "kurta",
@@ -653,7 +747,7 @@
     "status": "shaken"
    }
   ],
-  "depesche_n": 1,
+  "depesche_n": 2,
   "today": {
    "woke": "09:16",
    "pressed": [
