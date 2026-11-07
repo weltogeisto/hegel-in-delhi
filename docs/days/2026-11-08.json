@@ -352,6 +352,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "10:41",
+   "to": "10:51",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -459,6 +466,34 @@
    "to": "Hegel",
    "text": "Right is right, Sir. I will not argue with a man who knows the difference. The chai is on the stove.",
    "t": "10:26"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s concession is the necessary mediation. The chai is not merely a drink; it is the first moment of ethical substance re-entering the house, a small act of recognition that bridges the gap between the universal claim of the state and the particular need of the body. I must accept it without making a scene, for the spirit of the household is too fragile for my pride.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "10:41"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, your prudence is noted. The substance requires its form, and the form requires the substance. Bring the cup.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "10:41"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes, Sir. Coming right up.",
+   "t": "10:41"
   }
  ],
  "steps": [
@@ -663,13 +698,67 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "10:41",
+   "end": "10:51",
+   "event": "Ramesh says: “Right is right, Sir. I will not argue with a man who knows the difference. The chai is on the stove.” He nods once and turns back toward the kitchen doorway.",
+   "present": [
+    "Ramesh, the caretaker",
+    "the dhobi",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Ramesh’s concession is the necessary mediation. The chai is not merely a drink; it is the first moment of ethical substance re-entering the house, a small act of recognition that bridges the gap between the universal claim of the state and the particular need of the body. I must accept it without making a scene, for the spirit of the household is too fragile for my pride.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Ramesh, your prudence is noted. The substance requires its form, and the form requires the substance. Bring the cup.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes, Sir. Coming right up.",
+    "does": "He turns and walks back toward the kitchen to fetch the cup."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.7
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-08T10:41+05:30",
+  "until": "2026-11-08T10:51+05:30",
   "asleep": false,
   "imprest": 836,
   "wearing": "kurta",
