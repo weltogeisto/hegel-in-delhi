@@ -124,6 +124,10 @@ class DataTest(unittest.TestCase):
         p.write_bytes(p.read_bytes()+b" ")
         with self.assertRaisesRegex(ValueError,"digest"):
             dpo.validated_pairs(c,p,p.with_suffix(".stats.json"))
+        legacy = root/"legacy.jsonl"
+        self.assertEqual(decision_pairs.main(["--candidates",str(c),"--out",str(legacy),"--view","legacy"]),0)
+        with self.assertRaisesRegex(ValueError,"revised labels only"):
+            dpo.validated_pairs(c,legacy,legacy.with_suffix(".stats.json"))
 
 
 if __name__ == "__main__":
