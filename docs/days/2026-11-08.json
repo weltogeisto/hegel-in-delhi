@@ -387,6 +387,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "11:58",
+   "to": "12:43",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -632,6 +639,46 @@
    "item": "Samosa",
    "price": 30,
    "t": "11:43"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil’s interruption is the necessary negation of my abstract speculation; he reduces the universal claim of reason to the particular demand of a hot pastry. He is right in the immediate: the body is a fact, and the fact resists the concept. I will accept the meal, for to deny the need is to deny the reality of the subject, but I will do so with the dignity of one who knows that satisfaction is only a moment in the process of self-consciousness.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§326"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics"
+    }
+   ],
+   "t": "11:58"
+  },
+  {
+   "k": "said",
+   "text": "You are correct, Sunil. The concept must descend into the sensuous, or it remains empty. I accept the samosa as the truth of the hunger.",
+   "to": "Sunil",
+   "t": "11:58"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Aaj aap aise hi baatein karo, main chai banata hoon. Samosa kha lo, Diwali hai, khana thanda mat hone do.",
+   "t": "11:58"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "11:58"
+  },
+  {
+   "k": "work",
+   "title": "Revision log",
+   "text": "null",
+   "t": "11:58"
   }
  ],
  "steps": [
@@ -1112,15 +1159,77 @@
      "text": ""
     }
    ]
+  },
+  {
+   "t": "11:58",
+   "end": "12:43",
+   "event": "Sunil says: “Reason resolves, I suppose, but it doesn't pay the bill. Eat your samosa before it gets cold, yaar, and stop trying to turn lunch into a philosophy lecture.” He wipes a smudge of oil off the counter with a rag.",
+   "present": [
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil’s interruption is the necessary negation of my abstract speculation; he reduces the universal claim of reason to the particular demand of a hot pastry. He is right in the immediate: the body is a fact, and the fact resists the concept. I will accept the meal, for to deny the need is to deny the reality of the subject, but I will do so with the dignity of one who knows that satisfaction is only a moment in the process of self-consciousness.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 45,
+    "says": "You are correct, Sunil. The concept must descend into the sensuous, or it remains empty. I accept the samosa as the truth of the hunger.",
+    "buys": [
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     }
+    ],
+    "revision": "null",
+    "looks_up": "null"
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Aaj aap aise hi baatein karo, main chai banata hoon. Samosa kha lo, Diwali hai, khana thanda mat hone do.",
+    "does": "He wipes the counter again with the rag."
+   },
+   "read": {
+    "note": "You have nothing to look it up on."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.3
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§326",
+     "id": "dyde-right:824"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics",
+     "id": "haldane-2:595"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§326",
+     "text": "Mere opinion decides against an army, because the conception of the matter is harder to understand than are separate and external sides. Another reason is that the interests and aims of particularity, expenses, consequent higher taxation, etc., are counted of greater concern by the civic community than is the absolutely necessary."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics",
+     "text": "Then Zeno also visited Stilpo, a Megaric, whom we already know about (Vol. I. p. 464), and with whom he studied dialectic for ten years. Philosophy was considered as the business of his life, and of his whole life, and not studied as it is by a student who hurries through his lectures on Philosophy in order to hasten on to something else."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-08T11:58+05:30",
+  "until": "2026-11-08T12:43+05:30",
   "asleep": false,
-  "imprest": 736,
+  "imprest": 706,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1315,6 +1424,13 @@
     {
      "date": "2026-11-08",
      "t": "11:43",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-08",
+     "t": "11:58",
      "item": "Samosa",
      "price": 30,
      "office": false
@@ -1520,7 +1636,7 @@
    "sim": false
   },
   "last_meal": "2026-10-27T18:45+05:30",
-  "snacks": 12,
+  "snacks": 13,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
