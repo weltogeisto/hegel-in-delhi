@@ -401,6 +401,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with Sunil at Khan Market."
+  },
+  {
+   "from": "12:58",
+   "to": "13:13",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -714,6 +721,40 @@
    "to": "Hegel",
    "text": "Arey, chup karke khao na. Samosa ka 'negation' mat karo, bas kha lo. Diwali hai, thanda mat hone do.",
    "t": "12:43"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil’s command to cease speculation and eat is the most pragmatic application of the dialectic I have yet encountered; he reduces the infinite regression of thought to the finite satisfaction of the stomach. The samosa is the particular, the hunger the universal, and the act of eating is their unity. I will obey, for the body is the immediate reality that resists the abstraction of the mind.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology"
+    }
+   ],
+   "t": "12:58"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Sunil. The immediate must be consumed before it decays into regret.",
+   "to": "Sunil",
+   "t": "12:58"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Bas, bas, ab philosophical regret mat karo. Diwali hai, khana khaao aur thanda mat hone do.",
+   "t": "12:58"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "12:58"
   }
  ],
  "steps": [
@@ -1309,15 +1350,73 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "12:58",
+   "end": "13:13",
+   "event": "Sunil says: “Arey, chup karke khao na. Samosa ka 'negation' mat karo, bas kha lo. Diwali hai, thanda mat hone do.”",
+   "present": [
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil’s command to cease speculation and eat is the most pragmatic application of the dialectic I have yet encountered; he reduces the infinite regression of thought to the finite satisfaction of the stomach. The samosa is the particular, the hunger the universal, and the act of eating is their unity. I will obey, for the body is the immediate reality that resists the abstraction of the mind.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 15,
+    "says": "You are right, Sunil. The immediate must be consumed before it decays into regret.",
+    "buys": [
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Bas, bas, ab philosophical regret mat karo. Diwali hai, khana khaao aur thanda mat hone do.",
+    "does": "Waves the ladle dismissively while looking at the stove."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.3
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology",
+     "id": "baillie-1:487"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "c. The unity and truth of these two abstract elements. The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology",
+     "text": "Since this unity means happiness, the individual is thus sent forth into the world by his own spirit to seek his happiness. If, then, we for our part find the truth of this rational self-consciousness to be ethical substance, that self-consciousness on its part finds here the beginning of its moral experience of the world."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-08T12:58+05:30",
+  "until": "2026-11-08T13:13+05:30",
   "asleep": false,
-  "imprest": 706,
+  "imprest": 676,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1519,6 +1618,13 @@
     {
      "date": "2026-11-08",
      "t": "11:58",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-08",
+     "t": "12:58",
      "item": "Samosa",
      "price": 30,
      "office": false
@@ -1724,7 +1830,7 @@
    "sim": false
   },
   "last_meal": "2026-10-27T18:45+05:30",
-  "snacks": 13,
+  "snacks": 14,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
