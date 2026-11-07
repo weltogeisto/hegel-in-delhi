@@ -492,6 +492,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with Sunil at Khan Market."
+  },
+  {
+   "from": "16:23",
+   "to": "16:50",
+   "mode": "walk",
+   "a": "khan",
+   "b": "home"
   }
  ],
  "entries": [
@@ -1186,6 +1193,34 @@
    "to": "Hegel",
    "text": "The steam is just the samosa, sir. I have Marx, I have Ambedkar, I have a few UPSC guides, but 'history of the East' is a bit big for this shelf. Maybe try the big bookshop on the…",
    "t": "16:13"
+  },
+  {
+   "k": "diary",
+   "text": "The bookseller’s suggestion is a refusal of my inquiry, a boundary that reveals the limits of this particular shelf. He points to a 'big bookshop,' but the world engine tells me I am confined to these grounds, and the haze thickens as I stand here. I cannot chase a ghost in the market; I must withdraw to the home of my allotment, where the silence of the bungalow may offer the only universal available to me this evening.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Westasien, Die syrische Religion"
+    }
+   ],
+   "t": "16:23"
+  },
+  {
+   "k": "said",
+   "text": "I shall have to look further, sir. But perhaps the steam is enough for now.",
+   "to": "Sunil",
+   "t": "16:23"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Steam is just steam, sir. If you're done wandering, I've got a fresh pot of masala chai, or a hot samosa if you're still hungry. Your call.",
+   "t": "16:23"
   }
  ],
  "steps": [
@@ -2493,13 +2528,66 @@
      "text": "Our action, therefore, when we enjoy them is not that of worship, through which our conscious life might attaia its complete truth and be satisfied to the full: our action is external; it consists in wiping off some drop of rain or speck of dust from these fruits, and in place of the inner elements composing the reality of the ethical life, a reahty that environed…"
     }
    ]
+  },
+  {
+   "t": "16:23",
+   "end": "16:50",
+   "event": "The bookseller says: “The steam is just the samosa, sir. I have Marx, I have Ambedkar, I have a few UPSC guides, but 'history of the East' is a bit big for this shelf. Maybe try the big bookshop on the…”",
+   "present": [
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The bookseller’s suggestion is a refusal of my inquiry, a boundary that reveals the limits of this particular shelf. He points to a 'big bookshop,' but the world engine tells me I am confined to these grounds, and the haze thickens as I stand here. I cannot chase a ghost in the market; I must withdraw to the home of my allotment, where the silence of the bungalow may offer the only universal available to me this evening.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 20,
+    "says": "I shall have to look further, sir. But perhaps the steam is enough for now.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "voice": {
+    "by": "Sunil",
+    "says": "Steam is just steam, sir. If you're done wandering, I've got a fresh pot of masala chai, or a hot samosa if you're still hungry. Your call.",
+    "does": "Sunil wipes the counter with a rag and nods towards the stove."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.8
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "id": "sibree-history:330"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Westasien, Die syrische Religion",
+     "id": "welt-2:464"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "text": "Having eliminated this introductory element, we find ourselves for the first time on the real theatre of History. It now only remains for us to give a prefatory sketch of the Geographical basis of the Asiatic and European world. Asia is, characteristically, the Orient quarter of the globe, — the region of origination."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Westasien, Die syrische Religion",
+     "text": "Dies ist der hohe Punkt, eine Spitze, die einerseits noch dem Orient angehört, anderseits über die Grenzen des Orientalischen hinausgeht; wir beobachten hier das Umschlagen N des morgenländischen Prinzips. Der Morgenländer erklärt die 5 k Natur für das Erste; bei den Juden steht umgekehrt das; 2 Geistige zuerst."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-11-08T16:23+05:30",
+  "place": "home",
+  "until": "2026-11-08T16:50+05:30",
   "asleep": false,
   "imprest": 366,
   "wearing": "kurta",
@@ -2596,8 +2684,8 @@
     ]
    },
    "no_meals": true,
-   "walked": 2025,
-   "strain": 2025
+   "walked": 4050,
+   "strain": 4050
   },
   "account": {
    "advance": 15000,
