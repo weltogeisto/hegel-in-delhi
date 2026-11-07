@@ -471,6 +471,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with Sunil at Khan Market."
+  },
+  {
+   "from": "15:28",
+   "to": "15:58",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -1100,6 +1107,12 @@
    "to": "Hegel",
    "text": "Arre, matter, subject, bas samosa kha lo pehle. Kal subah Lodhi Road pe milte hain, tab tak thanda na hone do. Diwali mubarak, jaao ab.",
    "t": "15:13"
+  },
+  {
+   "k": "bag",
+   "item": "Chole bhature at a dhaba",
+   "price": 180,
+   "t": "15:28"
   }
  ],
  "steps": [
@@ -2258,15 +2271,55 @@
      "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
     }
    ]
+  },
+  {
+   "t": "15:28",
+   "end": "15:58",
+   "event": "Sunil says: “Arre, matter, subject, bas samosa kha lo pehle. Kal subah Lodhi Road pe milte hain, tab tak thanda na hone do. Diwali mubarak, jaao ab.” He wipes his hands on the apron and gestures him away.",
+   "present": [
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "eat",
+    "place": "khan",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": [
+     {
+      "item": "Chole bhature at a dhaba",
+      "price_inr": 180
+     }
+    ]
+   },
+   "arrived": null,
+   "mind": {
+    "source": "quiet",
+    "attempts": 3,
+    "latency_s": 13.5,
+    "refused": [
+     [
+      "this repeats what you thought at 15:03; think something new"
+     ],
+     [
+      "this repeats what you thought at 15:03; think something new"
+     ],
+     [
+      "this repeats what you thought at 15:03; think something new"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-08T15:28+05:30",
+  "until": "2026-11-08T15:58+05:30",
   "asleep": false,
-  "imprest": 546,
+  "imprest": 366,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -2514,6 +2567,13 @@
      "item": "Chai, a cup",
      "price": 20,
      "office": false
+    },
+    {
+     "date": "2026-11-08",
+     "t": "15:28",
+     "item": "Chole bhature at a dhaba",
+     "price": 180,
+     "office": false
     }
    ],
    "admitted": 730,
@@ -2715,8 +2775,8 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-10-27T18:45+05:30",
-  "snacks": 17,
+  "last_meal": "2026-11-08T15:28+05:30",
+  "snacks": 0,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
