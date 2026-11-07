@@ -8,7 +8,7 @@ The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). W
 
 | Packet | Owner | State | Next artifact |
 |---|---|---|---|
-| T39 · repetition screen | Astra | RUNNING, continues by day | DONE with the table and the blind sheet; Claude scores it |
+| T39 · repetition screen | Astra | RUNNING by day; latency stop at 15:13 Berlin on 7 November, 1,261 of 1,404 decisions saved; resumes under the per-call rule below | DONE with the table and the blind sheet; Claude scores it |
 | M5 · Training 3 sampler | Astra, reviewed by Claude | DONE, PR #10 merged (`4b86952`): 109 shadow + 391 rehearsal situations | sampling in the spare slot after T39 |
 | M5 · Training 3 DPO path | Astra, fixes by Claude | DONE, PR #11 merged with Claude's fixes in #13 (`c5c0893`) | the rehearsal by day, after sampling and labels |
 | M5 · Training 3 labels | Claude | DONE, the revised labels (`tools/decision_pairs.py`, rule `training3-labels-2`); the trainer takes no other | both yields, revised and legacy, on PR #1 once the candidates exist |
@@ -333,6 +333,13 @@ All in `pc/QWEN-TRIAL.md`: Welt's approvals, the bundle and its hashes, standalo
 ### T39 · Astra · T36 as declared, first when Hegel resumes (report p. 16) · GO, Welt 6 November, 16:00: spare slot beside Hegel, no pause
 Unchanged: arms A, B (echo), C (DRY); Days 12 and 27 and T9's two rehearsal days; three seeds; the full truth audit. About 5 to 9 GPU hours.
 **Frozen 6 November by Claude, before any comparative output:** case manifest `1c7105a26f8604b62bac9d84d0861f4f9fb769ad2db48b573e6277e8281dfd3a` (157 cases: 156 decisions and one bedtime marker), with seeds 1831, 2718 and 3141 for every arm. The truth reference is each case's attributed evidence (the records available before the step, as in T3); there is no separate expected-facts manifest. DRY 0.8 is confirmed on the chat endpoint, live in slot 1.
+
+**Latency stop and the recovery rule, 7 November (Claude, at Astra's request).** The guard stopped T39 at 15:13 Berlin: Hegel's step at 15:28 his time took 13.5 s against the frozen 13.2 s. That step made three decision calls (three repetition refusals, `source=quiet`), 4.5 s each, against his median of 9.6 s for a one-call step that day. The limit was measured on single calls, so from now on it applies per call:
+1. A natural step passes when `latency_s / attempts` is at most 13.2 s. The limit itself is unchanged, and total step time is still recorded.
+2. After a stop, T39 resumes only after two consecutive natural steps pass; it resumes at the saved point (`t9-vouchers/024`, seed 1831, arm B) and regenerates nothing already saved.
+3. A second stop on the same day ends T39's work for that day, with a report.
+4. The stop, the resume and this rule go into the result packet. This is a guard amendment, not a protocol change: arms, cases, seeds and measures stay frozen.
+The same per-call rule applies to Training 3's sampling, which still waits for T39.
 
 ### T40 · Claude, then Astra · typed facts for the people he meets (report p. 15–16)
 Only the NPC's facts block changes, to typed form: actor, object, direction of the offer, status, source, time. 40 contexts (24 known-answer, 8 unknown, 8 ordinary), three seeds, two arms. Pass: scene success +0.20, unsupported closed-state claims halved, no new reversals in clean controls, voice and argument at most −0.25. About 1 to 2.5 GPU hours.
