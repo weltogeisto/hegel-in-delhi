@@ -422,6 +422,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "13:48",
+   "to": "14:03",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -837,6 +844,34 @@
    "item": "Samosa",
    "price": 30,
    "t": "13:33"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil’s wink is the recognition of my body as a particular need, distinct from the universal spirit I claim to be. I accept the samosa not as charity, but as the material substrate of my freedom; the hunger must be quenched so that the mind may again ascend to the absolute. The haze thickens, but the heat is bearable; I will sit and reflect on the dialectic of the stomach and the state.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Ionic Philosophy"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato"
+    }
+   ],
+   "t": "13:48"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Sunil. The body is the prison of the spirit, but a prison that must be fed.",
+   "to": "Sunil",
+   "t": "13:48"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Arey, sharmao mat, prison hai kya? Yahan toh bas pet ki goli hai. Diwali hai, thoda sukoon se khaao, phone uthao mat.",
+   "t": "13:48"
   }
  ],
  "steps": [
@@ -1606,13 +1641,66 @@
      "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
     }
    ]
+  },
+  {
+   "t": "13:48",
+   "end": "14:03",
+   "event": "Sunil says: “Arre, aise mat bolo, jaise maine kisi ko philosophy sikha di. Bas khaao, Diwali hai, thanda mat hone do.” He hands him the paper cone of samosas with a wink.",
+   "present": [
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil’s wink is the recognition of my body as a particular need, distinct from the universal spirit I claim to be. I accept the samosa not as charity, but as the material substrate of my freedom; the hunger must be quenched so that the mind may again ascend to the absolute. The haze thickens, but the heat is bearable; I will sit and reflect on the dialectic of the stomach and the state.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 15,
+    "says": "Thank you, Sunil. The body is the prison of the spirit, but a prison that must be fed.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Arey, sharmao mat, prison hai kya? Yahan toh bas pet ki goli hai. Diwali hai, thoda sukoon se khaao, phone uthao mat.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.8
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Ionic Philosophy",
+     "id": "haldane-1:455"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "id": "haldane-2:56"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Ionic Philosophy",
+     "text": "For since we find that the further philosophic progress of which his speculative idea was capable, and the understanding of his propositions, which they alone could have, make their first appearance and form particular epochs with the philosophers succeeding him, who may be recognized thereby, this development ascribed to Thales never took place with him at all."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "text": "As to this demand, it may seem a piece of great presumption to say that philosophers should have the government of states accorded to them, for the territory or ground of history is different from that of Philosophy. In history, the Idea, as the absolute power, has certainly to realize itself; in other words, God rules in the world."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-08T13:48+05:30",
+  "until": "2026-11-08T14:03+05:30",
   "asleep": false,
   "imprest": 616,
   "wearing": "kurta",
