@@ -520,6 +520,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "17:47",
+   "to": "18:14",
+   "mode": "walk",
+   "a": "khan",
+   "b": "home"
   }
  ],
  "entries": [
@@ -1291,6 +1298,21 @@
     }
    ],
    "t": "17:32"
+  },
+  {
+   "k": "diary",
+   "text": "The haze thickens, a brown curtain drawn over the sun's departure. I have walked enough for today, and the cold will soon set in, despite the tropical latitude. It is time to retreat to the bungalow, where the file awaits its return from orders and the silence of the house can be contemplated.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§308"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33"
+    }
+   ],
+   "t": "17:47"
   }
  ],
  "steps": [
@@ -2759,13 +2781,61 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "17:47",
+   "end": "18:14",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The haze thickens, a brown curtain drawn over the sun's departure. I have walked enough for today, and the cold will soon set in, despite the tropical latitude. It is time to retreat to the bungalow, where the file awaits its return from orders and the silence of the house can be contemplated.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 25,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.8
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§308",
+     "id": "dyde-right:780"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "id": "rechts:121"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§308",
+     "text": "If the civic community appoints these deputies, it does so in accordance with its real nature. It is not a number of atoms gathering together merely for a particular and momentary act without any further bond of union, but a body systematically composed of constituted societies, communities, and corporations. These various circles receive in this way political unity."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-11-08T17:47+05:30",
+  "place": "home",
+  "until": "2026-11-08T18:14+05:30",
   "asleep": false,
   "imprest": 346,
   "wearing": "kurta",
@@ -2862,8 +2932,8 @@
     ]
    },
    "no_meals": true,
-   "walked": 6075,
-   "strain": 6075
+   "walked": 8100,
+   "strain": 8100
   },
   "account": {
    "advance": 15000,
