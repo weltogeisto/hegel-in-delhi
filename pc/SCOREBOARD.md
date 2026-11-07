@@ -2,6 +2,15 @@
 
 A change to his prose or thinking lands on main only if its number on the same frozen inputs is not worse (`COLLABORATION.md`). The newest result goes at the top of each table.
 
+## Rewrites: fidelity under the rubric of 7 November
+
+A rewrite keeps the thought's conclusion and recorded facts; its reasoning may change (`DECISIONS.md` 17). Defects are changed or invented facts (E) and changed conclusions or certainty (C). Delta is a diagnostic only (decision 22); the old meaning judge's scores stay as recorded beside these.
+
+| Date | Set | n | No defect | E | C | Old meaning pass | Blind? |
+|---|---|---:|---:|---:|---:|---:|---|
+| 7 Nov | Training 1 round two, adapter checkpoint 400 (`pc/exports/training1-20261106/new-rubric/`) | 40 | 25 | 12 | 3 | 23 | yes, one case seen |
+| 7 Nov | Training 1 round two, prompted Qwen control | 40 | 39 | 1 | 0 | 34 | yes, one case seen |
+
 ## Truth: errors in his prose against the record
 
 Counts per simulated day, from an audit of every prose field against steps, situations and records.

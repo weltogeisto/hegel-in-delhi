@@ -12,7 +12,8 @@ The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). W
 | M5 · Training 3 sampler | Astra, reviewed by Claude | DONE, PR #10 merged (`4b86952`): 109 shadow + 391 rehearsal situations | sampling in the spare slot after T39 |
 | M5 · Training 3 DPO path | Astra, fixes by Claude | DONE, PR #11 merged with Claude's fixes in #13 (`c5c0893`) | the rehearsal by day, after sampling and labels |
 | M5 · Training 3 labels | Claude | DONE, the revised labels (`tools/decision_pairs.py`, rule `training3-labels-2`); the trainer takes no other | both yields, revised and legacy, on PR #1 once the candidates exist |
-| M0 · baseline receipt | Astra | OPEN | actual PC/Pi revisions and effective settings, once; the 6 November forty-case export (manual §14.2) |
+| M0 · baseline receipt | Astra | DONE, PR #15 merged (`5a347ab`): runtime at 12:18 UTC, plain Qwen, no adapter; the forty-case export | – |
+| M1 · forty-case re-audit | Claude | DONE: prompted Qwen keeps 39/40 rewrites intact, the adapter 25/40 (12 changed facts, 3 changed conclusions); the adapter stays off (`pc/exports/training1-20261106/new-rubric/REPORT.md`) | – |
 | M1 · ordinary life and rewrites | Claude, then Astra | OPEN | soul and restyle instruction changes, the new rubric, the 144-call screen |
 
 Gates stay as declared: nothing goes live without its matched comparison and Claude's confirmed pass, and Training 3 runs by day only, under Welt's go of 6 November.
