@@ -8,8 +8,8 @@ The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). W
 
 | Packet | Owner | State | Next artifact |
 |---|---|---|---|
-| T39 · repetition screen | Astra | RUNNING by day; latency stop at 15:13 Berlin on 7 November, 1,261 of 1,404 decisions saved; resumes under the per-call rule below | DONE with the table and the blind sheet; Claude scores it |
-| M5 · Training 3 sampler | Astra, reviewed by Claude | DONE, PR #10 merged (`4b86952`); split rule `training3-split-1` added by Claude: 71 shadow + 429 rehearsal situations that recall neither held day | sampling in the spare slot after T39 |
+| T39 · repetition screen | Astra, verdict by Claude | DONE: FAIL. Pooled echo share A 16.49%, B 19.65%, C 11.54% (−30%, bar −33%); nothing goes live (`pc/T39-RESULT-20261107.md`) | – |
+| M5 · Training 3 sampler | Astra, reviewed by Claude | READY: PR #10 (`4b86952`), split rule `training3-split-1` (#18): 71 shadow + 429 rehearsal situations | sampling now, in the spare slot by day; its comparator is T39's arm A |
 | M5 · Training 3 DPO path | Astra, fixes by Claude | DONE, PR #11 merged with Claude's fixes in #13 (`c5c0893`) | the rehearsal by day, after sampling and labels |
 | M5 · Training 3 labels | Claude | DONE, the revised labels (`tools/decision_pairs.py`, rule `training3-labels-2`); the trainer takes no other | both yields, revised and legacy, on PR #1 once the candidates exist |
 | M0 · baseline receipt | Astra | DONE, PR #15 merged (`5a347ab`): runtime at 12:18 UTC, plain Qwen, no adapter; the forty-case export | – |
@@ -340,6 +340,8 @@ Unchanged: arms A, B (echo), C (DRY); Days 12 and 27 and T9's two rehearsal days
 3. A second stop on the same day ends T39's work for that day, with a report.
 4. The stop, the resume and this rule go into the result packet. This is a guard amendment, not a protocol change: arms, cases, seeds and measures stay frozen.
 The same per-call rule applies to Training 3's sampling, which still waits for T39.
+
+**DONE: FAIL, 7 November (Claude).** Pooled echo share A 16.49%, B 19.65% (+19%), C 11.54% (−30%), against a bar of −33%; repetition refusals 19, 34, 10. Neither switch goes live. The truth audit and the blind scores are moot, since the first measure already failed for both. Training 3 compares against arm A. Verdict in `pc/T39-RESULT-20261107.md`.
 
 ### T40 · Claude, then Astra · typed facts for the people he meets (report p. 15–16)
 Only the NPC's facts block changes, to typed form: actor, object, direction of the offer, status, source, time. 40 contexts (24 known-answer, 8 unknown, 8 ordinary), three seeds, two arms. Pass: scene success +0.20, unsupported closed-state claims halved, no new reversals in clean controls, voice and argument at most −0.25. About 1 to 2.5 GPU hours.
