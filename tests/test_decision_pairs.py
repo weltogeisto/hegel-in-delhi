@@ -164,7 +164,11 @@ class BuildTest(unittest.TestCase):
         reparsed["candidates"][0]["answer"]["thought"] = "a repaired thought the reply never contained"
         one_message = row([cand(1831, LONG)])
         one_message["messages"] = one_message["messages"][1:]
-        for r, why in ((bad_seeds, "frozen seeds"), (disagree, "disagree"), (reparsed, "parsed raw"), (one_message, "two-message")):
+        from tests.test_decision_split import HELD
+        held = row([cand(1831, LONG)])
+        held["messages"][1]["content"] += "\nYou remember: " + HELD
+        for r, why in ((bad_seeds, "frozen seeds"), (disagree, "disagree"), (reparsed, "parsed raw"), (one_message, "two-message"),
+                       (held, "held-related")):
             with self.subTest(why=why):
                 with self.assertRaisesRegex(ValueError, why):
                     dp.build([r])

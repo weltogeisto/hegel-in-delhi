@@ -1,9 +1,23 @@
 # Training 3 candidate sampler
 
-The sampler records 500 situations: the **109 shadow situations with an exact
-parent state**, followed by **391 new rehearsal situations dated 10 November
-2026 or later**. The provenance rule was approved before sampling in
+The sampler records 500 situations: the **71 shadow situations** of the 109 with
+an exact parent state that pass the split rule, followed by **429 new rehearsal
+situations dated 10 November 2026 or later** that pass it too. The provenance
+rule was approved before sampling in
 [Claude's answer](https://github.com/weltogeisto/hegel-in-delhi/pull/1#issuecomment-6704597355).
+
+**The split rule, `training3-split-1`** (`tools/decision_split.py`, 7 November,
+before any candidate). A situation is held-related, and never trains, when its
+prompt's user message shares a run of 12 words with anything recorded on T39's
+held shadow days 12 and 27 (entries and the owl's texts; the 8,946 frozen runs in
+`pc/training3-held-runs.json`). His memory quotes earlier days word for word, so
+38 of the 109 shadow prompts carry Day 12 or 27 (all of Days 13, 14 and 28, 15
+of Day 35 and one of Day 37; `pc/training3-held-related-shadow-ids.json`). They
+are not sampled. A held-related rehearsal situation is advanced with one recorded
+seed-1831 call under `held-related/` and does not count toward the 429. The
+labeller refuses any held-related row. T9's rehearsal days cannot be recalled by
+shadow or new rehearsals: they were separate runs. Any later evaluation of the
+Training 3 adapter must likewise leave out the days this roster trains on.
 
 The ordered shadow IDs are in `pc/training3-shadow-ids.json`. Their SHA256 is
 `a7f6c59b8038d4fbf38f7e57aea6ddb6e5458f6db256ec82b1c7f872b407e264`.

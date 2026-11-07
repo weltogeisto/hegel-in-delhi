@@ -10,9 +10,10 @@ from datetime import date, timedelta
 from pathlib import Path
 
 from tools.decision_sampler import (
-    CandidateMind, CandidateWorld, DatasetComplete, REHEARSAL_SITUATIONS,
+    CandidateMind, CandidateWorld, DatasetComplete, REHEARSAL_SITUATIONS, TOTAL_SITUATIONS,
     Sampler, checked, digest, export_rows, json_bytes, save, write_new,
 )
+from tools.decision_split import frozen_shadow_exclusions, held_related
 from world.engine import Days, Engine, until_of
 from world.feeds import Feeds
 from world.memory import Memory
@@ -22,6 +23,7 @@ ROSTER_SHA256 = "a7f6c59b8038d4fbf38f7e57aea6ddb6e5458f6db256ec82b1c7f872b407e26
 
 
 def sample_shadow(freeze, sampler):
+    """The approved 109, less the held-related ones (training3-split-1), which are never sampled."""
     freeze = Path(freeze)
     manifest = checked(freeze / "MANIFEST.json")
     ids_raw = (freeze / "SHADOW-IDS.json").read_bytes()
@@ -29,7 +31,7 @@ def sample_shadow(freeze, sampler):
         raise ValueError("the owner-approved 109-row roster changed")
     if manifest["situations"] != 109 or len(manifest["rows"]) != 109:
         raise ValueError("expected the approved 109 shadow situations")
-    ids = []
+    ids, eligible, held = [], [], []
     for ref in manifest["rows"]:
         path = (freeze / ref["path"]).resolve()
         if freeze.resolve() not in path.parents or digest(path.read_bytes()) != ref["sha256"]:
@@ -37,11 +39,17 @@ def sample_shadow(freeze, sampler):
         row = checked(path)
         if row["id"] != ref["id"] or row["source"] != "shadow":
             raise ValueError("shadow identity changed")
-        sampler.sample(row)
         ids.append(row["id"])
+        if held_related(row["messages"][1]["content"]):
+            held.append(row["id"])
+            continue
+        sampler.sample(row)
+        eligible.append(row["id"])
     if json_bytes(ids) != ids_raw:
         raise ValueError("shadow roster order differs")
-    return ids
+    if tuple(held) != frozen_shadow_exclusions():
+        raise ValueError("held-related shadow situations differ from the frozen training3-split-1 list")
+    return eligible
 
 
 class PreservedDays(Days):
@@ -96,7 +104,7 @@ class Auxiliary:
 
 
 def rehearse(cfg, sampler_root, post, start=date(2026, 11, 10), max_days=30,
-             engine_type=Engine, world_type=CandidateWorld):
+             engine_type=Engine, world_type=CandidateWorld, target=None):
     """The --distill five-minute advance loop, confined to the provided scratch.
 
     cfg.docs must already contain a frozen copy of preceding published days,
@@ -110,11 +118,12 @@ def rehearse(cfg, sampler_root, post, start=date(2026, 11, 10), max_days=30,
         raise ValueError("fresh dates from 10 November required")
     if getattr(cfg, "echo_guard", False) or getattr(cfg, "decision_dry", 0):
         raise ValueError("candidate generation is plain Qwen, without a T39 arm")
+    target = REHEARSAL_SITUATIONS if target is None else target
     cfg.write_mode = "chat"
     world = world_type(Feeds(cfg))
     sampler = Sampler(sampler_root, world, post)
-    mind = CandidateMind(sampler, world, Auxiliary(world, post))
-    if len(mind.completed_ids) == REHEARSAL_SITUATIONS:
+    mind = CandidateMind(sampler, world, Auxiliary(world, post), limit=target)
+    if len(mind.completed_ids) == target:
         return sorted(mind.completed_ids, key=lambda x: tuple(map(int, x.split(":")[1:])))
     engine = engine_type(cfg, world, mind, git=None)
     engine.days = PreservedDays(docs)
@@ -133,7 +142,7 @@ def rehearse(cfg, sampler_root, post, start=date(2026, 11, 10), max_days=30,
                 now = max(now, until_of(day) - timedelta(minutes=cfg.lead))
             while now < end:
                 engine.advance(now)
-                if len(mind.completed_ids) == REHEARSAL_SITUATIONS:
+                if len(mind.completed_ids) == target:
                     raise DatasetComplete()
                 now += timedelta(minutes=5)
             day = engine.days.load(d)
@@ -144,13 +153,14 @@ def rehearse(cfg, sampler_root, post, start=date(2026, 11, 10), max_days=30,
                 engine.run_owl(day, at_dt(d + timedelta(days=1), 90))
     except DatasetComplete:
         pass
-    if len(mind.completed_ids) != REHEARSAL_SITUATIONS:
-        raise RuntimeError("fresh rehearsal stopped before 391 situations; preserve it")
+    if len(mind.completed_ids) != target:
+        raise RuntimeError(f"fresh rehearsal stopped before {target} situations; preserve it")
     return sorted(mind.completed_ids, key=lambda x: tuple(map(int, x.split(":")[1:])))
 
 
 def run_dataset(freeze, sampler_root, cfg, post, output):
-    """Produce exactly 109 + 391 rows; interruption leaves all receipts reusable."""
+    """Produce 500 rows: the eligible shadow (71 of 109) and fresh rehearsal for the rest.
+    Interruption leaves all receipts reusable."""
     shadow = sample_shadow(freeze, Sampler(sampler_root, CandidateWorld(), post))
-    fresh = rehearse(cfg, sampler_root, post)
+    fresh = rehearse(cfg, sampler_root, post, target=TOTAL_SITUATIONS - len(shadow))
     return export_rows(sampler_root, shadow + fresh, output)

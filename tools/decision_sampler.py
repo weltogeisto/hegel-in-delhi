@@ -16,14 +16,18 @@ from pathlib import Path
 from world import contract
 from world.mind import HTTPMind
 from tools.decision_pairs import check_row
+from tools.decision_split import RULE as SPLIT_RULE, held_related
 from tools.train_data import RecordingWorld
 
 SEEDS = (1831, 2718, 3141, 4271)
-REHEARSAL_SITUATIONS = 391
+TOTAL_SITUATIONS = 500
+# 500 less the 71 shadow situations that pass training3-split-1 (of the approved 109). run_dataset computes the
+# target from the shadow it actually sampled; this is only the default.
+REHEARSAL_SITUATIONS = 429
 
 
 class DatasetComplete(Exception):
-    """The frozen fresh-rehearsal count is filled; stop before another decision call."""
+    """The fresh-rehearsal target is filled; stop before another decision call."""
 
 LIVE_TEMPERATURE = 0.7
 FIRST_REHEARSAL_DATE = date(2026, 11, 10)
@@ -203,6 +207,8 @@ class CandidateMind:
     The first accepted seed advances a new rehearsal. No preference score or model
     critic picks the trajectory. If all four are refused, returning the same first
     reply to Engine's refusal loop adds no candidates and no requests.
+    A held-related situation (training3-split-1) never trains: one plain call with
+    the first seed advances it, recorded apart, and it does not count.
     """
     source = "mind"
     ready = True
@@ -232,8 +238,12 @@ class CandidateMind:
             if old_digest != prompt_digest:
                 raise ValueError("rehearsal retry changed its original prompt/history")
             return raw
+        if held_related(messages[1]["content"]):
+            raw = self.advance_held(ident, messages[:2], sit)
+            self.decisions[ident] = (prompt_digest, raw)
+            return raw
         if ident not in self.completed_ids and len(self.completed_ids) >= self.limit:
-            raise DatasetComplete("391 fresh situations filled; no further call")
+            raise DatasetComplete(f"{self.limit} fresh situations filled; no further call")
         row = situation_record(
             "rehearsal", day["n"], len(day["steps"]), day["date"],
             messages[:2], earlier, sit, ctx, state,
@@ -244,6 +254,25 @@ class CandidateMind:
         self.decisions[ident] = (prompt_digest, chosen["raw"])
         self.completed_ids.add(ident)
         return chosen["raw"]
+
+    def advance_held(self, ident, messages, sit):
+        """One recorded call (seed 1831) moves a held-related rehearsal on; it is never a candidate row."""
+        path = self.sampler.root / "held-related" / (digest(ident.encode()) + ".json")
+        payload = decision_payload(messages, sit, SEEDS[0])
+        if path.exists():
+            saved = checked(path)
+            if saved["id"] != ident or saved["payload_sha256"] != digest(json_bytes(payload)):
+                raise ValueError("held-related situation changed; do not reinterpret a reply")
+            return saved["raw"]
+        answer, receipt = self.sampler.post(f"held/{ident}/{SEEDS[0]}", payload)
+        if not isinstance(receipt, dict) or not receipt.get("response_sha256"):
+            raise ValueError("durable response receipt required")
+        raw = answer["choices"][0]["message"].get("content")
+        if not isinstance(raw, str):
+            raise ValueError("response has no text; preserve its chain")
+        save(path, dict(id=ident, rule=SPLIT_RULE, raw=raw, receipt=receipt,
+                        payload_sha256=digest(json_bytes(payload)), training_eligible=False))
+        return raw
 
     def chat(self, messages, schema=None, max_tokens=700, temperature=None, **kwargs):
         # The runtime records plans, voices, writings and owl calls separately;

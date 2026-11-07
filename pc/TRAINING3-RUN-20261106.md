@@ -7,8 +7,8 @@ The discipline of Training 1's last run holds: a reviewed launcher, a rehearsal 
 ## 1 · The sampler (Astra, a `codex/` PR, no GPU to build)
 
 **Situations,** about 500:
-- **Shadow (118):** every decision with `mind.source` = `mind` on shadow days other than 12 and 27, replayed from its saved situation as T39 does.
-- **Rehearsal (the rest):** new days from `tools/train_data.py --distill`'s machinery, on dates from 10 November onwards, never T9's.
+- **Shadow (118):** every decision with `mind.source` = `mind` on shadow days other than 12 and 27, replayed from its saved situation as T39 does. *7 November:* 109 have an exact before-state, and 71 of those pass the split rule `training3-split-1`; the other 38 recall Day 12 or 27 word for word (`pc/TRAINING3-SAMPLER.md`).
+- **Rehearsal (the rest):** new days from `tools/train_data.py --distill`'s machinery, on dates from 10 November onwards, never T9's. *7 November:* 429 that pass the split rule, so 500 in all.
 
 **Candidates:**
 - four per situation from plain Qwen on the live decision schema, with seeds 1831, 2718, 3141 and 4271 and the live temperature;

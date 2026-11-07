@@ -48,6 +48,7 @@ from collections import Counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from tools.decision_split import RULE as SPLIT_RULE, held_related  # noqa: E402
 from world import contract  # noqa: E402
 from world.report import grams  # noqa: E402
 
@@ -208,6 +209,8 @@ def check_row(row, seen_ids):
         raise ValueError("a rehearsal before 10 November (T9's days) may not train: " + row["id"])
     if [m.get("role") for m in row["messages"]] != ["system", "user"]:
         raise ValueError("the one original two-message prompt is required: " + row["id"])
+    if held_related(row["messages"][1]["content"]):
+        raise ValueError(f"a held-related situation may not train ({SPLIT_RULE}): " + row["id"])
     seeds = [c["seed"] for c in row["candidates"]]
     if len(seeds) != len(set(seeds)) or not seeds:
         raise ValueError("candidates need distinct seeds: " + row["id"])
@@ -254,7 +257,7 @@ def build(rows, view="revised"):
     stats = {"situations": len(seen), "pairs": len(pairs), "labels": dict(counts),
              "pairs_by_source_and_reason": {f"{s}/{r}": n for (s, r), n in sorted(by.items())},
              "view": view, "rule_version": RULE_VERSION[view], "rule": RULE[view],
-             "test_days_excluded": sorted(TEST_DAYS)}
+             "test_days_excluded": sorted(TEST_DAYS), "split_rule": SPLIT_RULE}
     if view == "revised":
         stats.update(diagnostics=dict(overlap), refusal_kinds=dict(sorted(reasons.items())),
                      legacy_view={"pairs": legacy_pairs, "rule_version": RULE_VERSION["legacy"],

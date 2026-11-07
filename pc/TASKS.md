@@ -9,7 +9,7 @@ The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). W
 | Packet | Owner | State | Next artifact |
 |---|---|---|---|
 | T39 · repetition screen | Astra | RUNNING by day; latency stop at 15:13 Berlin on 7 November, 1,261 of 1,404 decisions saved; resumes under the per-call rule below | DONE with the table and the blind sheet; Claude scores it |
-| M5 · Training 3 sampler | Astra, reviewed by Claude | DONE, PR #10 merged (`4b86952`): 109 shadow + 391 rehearsal situations | sampling in the spare slot after T39 |
+| M5 · Training 3 sampler | Astra, reviewed by Claude | DONE, PR #10 merged (`4b86952`); split rule `training3-split-1` added by Claude: 71 shadow + 429 rehearsal situations that recall neither held day | sampling in the spare slot after T39 |
 | M5 · Training 3 DPO path | Astra, fixes by Claude | DONE, PR #11 merged with Claude's fixes in #13 (`c5c0893`) | the rehearsal by day, after sampling and labels |
 | M5 · Training 3 labels | Claude | DONE, the revised labels (`tools/decision_pairs.py`, rule `training3-labels-2`); the trainer takes no other | both yields, revised and legacy, on PR #1 once the candidates exist |
 | M0 · baseline receipt | Astra | DONE, PR #15 merged (`5a347ab`): runtime at 12:18 UTC, plain Qwen, no adapter; the forty-case export | – |
