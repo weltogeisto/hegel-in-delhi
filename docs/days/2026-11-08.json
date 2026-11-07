@@ -380,6 +380,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "11:43",
+   "to": "11:58",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -585,6 +592,46 @@
    "item": "Samosa",
    "price": 30,
    "t": "11:28"
+  },
+  {
+   "k": "diary",
+   "text": "The samosa is hot, a sharp particular against the dull heat of the day. Sunil’s remark about ghosts is a crude intuition of the dialectic: the spirit is indeed in motion, but here it has no body to inhabit. I must eat to sustain the machinery of thought, though the air quality of 237 suggests the atmosphere itself is resisting clarity.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§243"
+    }
+   ],
+   "t": "11:43"
+  },
+  {
+   "k": "said",
+   "text": "The ghosts are merely the forms of reason, Sunil. They do not argue; they resolve. And this samosa is a resolution of the hunger I carried from the bungalow.",
+   "to": "Sunil",
+   "t": "11:43"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Reason resolves, I suppose, but it doesn't pay the bill. Eat your samosa before it gets cold, yaar, and stop trying to turn lunch into a philosophy lecture.",
+   "t": "11:43"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "11:43"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "11:43"
   }
  ],
  "steps": [
@@ -1003,15 +1050,77 @@
      "text": "Wie das Sonnensystem, so ist z. B. im Praktischen der Staat ein System von drei Schlüssen. 1) Der Einzelne (die Person) schliesst sich durch seine Besonderheit (die physischen und geistigen Bedürfnisse, was weiter für sich ausgebildet die bürgerliche Gesellschaft giebt) mit dem Allgemeinen (der Gesellschaft, dem Rechte, Gesetz, Regierung) zusammen. 2) Ist der Wille…"
     }
    ]
+  },
+  {
+   "t": "11:43",
+   "end": "11:58",
+   "event": "Sunil says: “Twenty for the chai, thirty for the samosa, sir. Same as always, no discounts for the heat. You look like you've been arguing with ghosts again—here, eat up.” He pours the chai into a small glass and slides the samosa across the counter.",
+   "present": [
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The samosa is hot, a sharp particular against the dull heat of the day. Sunil’s remark about ghosts is a crude intuition of the dialectic: the spirit is indeed in motion, but here it has no body to inhabit. I must eat to sustain the machinery of thought, though the air quality of 237 suggests the atmosphere itself is resisting clarity.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 15,
+    "says": "The ghosts are merely the forms of reason, Sunil. They do not argue; they resolve. And this samosa is a resolution of the hunger I carried from the bungalow.",
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     },
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Reason resolves, I suppose, but it doesn't pay the bill. Eat your samosa before it gets cold, yaar, and stop trying to turn lunch into a philosophy lecture.",
+    "does": "He wipes a smudge of oil off the counter with a rag."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.9
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:643"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§243",
+     "id": "rechts:514"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "The civil rights implied in it give rise to a feeling of self-respect, the sense of counting as a lawful person in the civic community. This feeling of being infinite and free from all Others is the root out of which springs the needed balance of the various kinds of thought and sentiment. The isolation with which the Jews have been blamed it is better to preserve."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§243",
+     "text": ""
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-08T11:43+05:30",
+  "until": "2026-11-08T11:58+05:30",
   "asleep": false,
-  "imprest": 786,
+  "imprest": 736,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1192,6 +1301,20 @@
     {
      "date": "2026-11-08",
      "t": "11:28",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-08",
+     "t": "11:43",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-08",
+     "t": "11:43",
      "item": "Samosa",
      "price": 30,
      "office": false
@@ -1397,7 +1520,7 @@
    "sim": false
   },
   "last_meal": "2026-10-27T18:45+05:30",
-  "snacks": 11,
+  "snacks": 12,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
