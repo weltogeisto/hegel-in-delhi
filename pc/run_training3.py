@@ -84,6 +84,28 @@ def validate_rehearsal(config):
 
 
 
+REHEARSED_FILES = ("candidates", "pairs", "pair_stats", "converter", "base_gguf")
+REHEARSED_TREES = ("base_model", "converter_base")
+
+
+def rehearsed_inputs(data):
+    """The frozen hashes of what the rehearsal exercised: its data, model, tokenizer and converter."""
+    files = {str(Path(data[k]).resolve()) for k in REHEARSED_FILES} | {str(Path(data["original"]["launcher"]).resolve())}
+    trees = [Path(data[k]).resolve() for k in REHEARSED_TREES] + [Path(data["converter"]).resolve().parent]
+    return {name: value for name, value in data["frozen_files"].items()
+            if name in files or any(tree in Path(name).parents for tree in trees)}
+
+
+def same_as_rehearsal(previous, data):
+    """A real run accepts its rehearsal only for the same bytes, not merely the same paths."""
+    if data["pair_provenance"] != previous["pair_provenance"]:
+        raise ValueError("candidate or pair data changed since the rehearsal; rehearse again")
+    then, now = rehearsed_inputs(previous), rehearsed_inputs(data)
+    changed = sorted(name for name in then.keys() | now.keys() if then.get(name) != now.get(name))
+    if changed:
+        raise ValueError("rehearsal inputs changed at the same paths: " + ", ".join(changed[:5]))
+
+
 def shadow_head(repo):
     argv = ["git", "-C", str(repo)]
     head = subprocess.check_output(argv + ["ls-remote", "--exit-code", "origin", "refs/heads/shadow"],
@@ -158,6 +180,8 @@ def create(config, root, restore_by, rehearsal):
             raise ValueError("bounded rehearsal estimates required")
     else:
         previous, verdict, roster = validate_rehearsal(config)
+        if data["pair_provenance"] != previous["pair_provenance"]:
+            raise ValueError("candidate or pair data changed since the rehearsal; rehearse again")
         restored = lifecycle.read(Path(data["passed_rehearsal"]).parent/"RESTORATION.json")
         data["natural_recovery"] = natural_restoration(data["shadow_repo"], previous["shadow_anchor"], restored["utc"])
         data["shadow_anchor"] = data["natural_recovery"]["head"]
@@ -189,6 +213,8 @@ def create(config, root, restore_by, rehearsal):
         if root == base.resolve() or base.resolve() in root.parents:
             raise ValueError("job output is inside a source/model input directory")
     lifecycle.freeze_inputs(data, paths, previous)
+    if previous:
+        same_as_rehearsal(previous, data)
     data["power"] = lifecycle.read(data["power_state"])
     receipt = lifecycle.read(data["power_receipt"])
     if (data["power"].get("pendingUtc") or receipt.get("status") != "VERIFIED"

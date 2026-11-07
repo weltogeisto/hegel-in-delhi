@@ -49,7 +49,16 @@ serves one actual decision at adapter scale 1 and one at scale 0, and restores.
 The memory and post-evaluation speed gates use the actual measurements.
 Conversion/serve duration is also measured and retained. A real intent requires
 the complete passed rehearsal, unchanged inputs/source, verified restoration,
-and a subsequent natural published `mind` decision.
+and a subsequent natural published `mind` decision. "Unchanged" means the same
+bytes, not only the same paths: the candidates, pairs, pair statistics, base
+model and tokenizer files, converter and server launcher must hash as they did
+in the rehearsal, or the real intent is refused and the rehearsal is run again.
+
+Before the first step, a tokenizer check confirms that the EOS TRL appends to
+each completion is the token the chat template writes at the end of an
+assistant turn, and that the training prompt is the template's own boundary
+before an answer. The adapter is saved before the step count is checked, so a
+miscount keeps the trained adapter, unaccepted, with `SCHEDULE-MISMATCH.json`.
 
 The real run uses one epoch over all eligible pairs when the measured budget
 fits. Otherwise the largest fitting subset of at least 200 pairs is selected

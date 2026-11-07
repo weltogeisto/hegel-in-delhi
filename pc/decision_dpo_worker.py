@@ -147,18 +147,23 @@ def train(data, verify, check_time, engine_factory=runtime):
     trainer.train()
     steps = trainer.state.global_step
     expected_steps = 3 if data["dry_run"] else data_api.step_count(len(rows))
+    # Save before any check or evaluation: a miscounted schedule or a failed evaluation
+    # must never discard a day's training. A mismatch keeps the adapter, unaccepted.
+    trainer.save_model(str(out))
+    processor.save_pretrained(str(out))
+    adapter_sha256 = filehash(out / "adapter_model.safetensors")
     if steps != expected_steps:
-        raise RuntimeError("trainer did not complete its frozen schedule")
+        write_new(root / "SCHEDULE-MISMATCH.json", dict(steps=steps, expected_steps=expected_steps, pairs=len(rows),
+                                                      adapter_sha256=adapter_sha256, accepted=False))
+        raise RuntimeError("trainer did not complete its frozen schedule; the adapter is saved, not accepted")
     if not data["dry_run"]:
         # One terminal diagnostic loss; no human or held-test set is used.
         trainer.evaluate()
-    trainer.save_model(str(out))
-    processor.save_pretrained(str(out))
     result = dict(status="DPO_TRAINING_COMPLETE", steps=steps, pairs=len(rows),
                   source_pairs=len(pairs), recipe=data_api.RECIPE, epochs=trainer.state.epoch,
                   loaded_seconds=loaded_seconds, reference_seconds=reference_seconds,
                   seconds=time.monotonic()-start, diagnostic_eval_ids=eval_ids,
                   diagnostic_eval_not_quality=True, all_checkpoints_retained=True,
-                  adapter_sha256=filehash(out / "adapter_model.safetensors"))
+                  adapter_sha256=adapter_sha256)
     write_new(out / "training.json", result)
     return result

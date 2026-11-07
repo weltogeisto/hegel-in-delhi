@@ -114,6 +114,18 @@ class WorkerTest(unittest.TestCase):
         self.assertTrue(report["diagnostic_eval_not_quality"])
         self.assertEqual(len(json.loads((root/"REFERENCE-train.json").read_bytes())["probabilities"]),200)
 
+    def test_schedule_mismatch_keeps_the_adapter_unaccepted(self):
+        root = self.root()
+        config = dict(self.config(root), dry_run=False)           # 200 pairs need 25 steps; the fake runs 3
+        with patch.object(worker.data_api, "validated_pairs",
+                          return_value=([pair(i) for i in range(200)], {})):
+            with self.assertRaisesRegex(RuntimeError, "saved, not accepted"):
+                worker.train(config, lambda: None, lambda: None, self.engine)
+        self.assertTrue((root/"training/adapter_model.safetensors").exists())
+        mismatch = json.loads((root/"SCHEDULE-MISMATCH.json").read_bytes())
+        self.assertEqual((mismatch["steps"], mismatch["expected_steps"], mismatch["accepted"]), (3, 25, False))
+        self.assertFalse((root/"training/training.json").exists())
+
     def test_missing_reference_table_stops_before_optimizer(self):
         root = self.root()
         with patch.object(worker.data_api, "validated_pairs",

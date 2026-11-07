@@ -9,14 +9,20 @@ from tools import decision_pairs
 
 
 class Tokenizer:
-    eos_token_id = 999
+    eos_token, eos_token_id = "<END>", 999
+    turn_end = "<END>"          # what the template writes after an assistant answer
 
     def apply_chat_template(self, messages, **kw):
-        assert kw == dict(tokenize=False, add_generation_prompt=True, enable_thinking=False)
-        return "SYS:" + messages[0]["content"] + "|USER:" + messages[1]["content"] + "|ASSISTANT:"
+        head = "SYS:" + messages[0]["content"] + "|USER:" + messages[1]["content"] + "|ASSISTANT:"
+        if kw == dict(tokenize=False, add_generation_prompt=True, enable_thinking=False):
+            return head
+        assert kw == dict(tokenize=False, enable_thinking=False) and messages[-1]["role"] == "assistant"
+        return head + messages[-1]["content"] + self.turn_end + "\n"
 
     def __call__(self, text, add_special_tokens=False):
         assert add_special_tokens is False
+        if text == self.eos_token:
+            return {"input_ids": [self.eos_token_id]}
         return {"input_ids": list(text.encode())}
 
 
@@ -46,6 +52,19 @@ class DataTest(unittest.TestCase):
         self.assertEqual(report["excluded_whole_pair_ids"], [b["id"]])
         self.assertEqual(report["prompts_truncated"], 0)
         self.assertEqual(set(report["lengths"]), {a["id"], b["id"]})
+
+    def test_completions_end_with_the_templates_turn_end(self):
+        rows, report = dpo.fit_pairs([pair()], Tokenizer(), 1000)
+        self.assertEqual(report["completion_end_token"], "<END>")
+        other = Tokenizer()
+        other.turn_end = "<TURN>"               # the server would stop at a token the adapter never learned
+        with self.assertRaisesRegex(ValueError, "other than the EOS"):
+            dpo.fit_pairs([pair()], other, 1000)
+        class Split(Tokenizer):                   # the EOS text encodes as plain bytes, not the EOS id
+            def __call__(self, text, add_special_tokens=False):
+                return {"input_ids": list(text.encode())}
+        with self.assertRaisesRegex(ValueError, "one special token"):
+            dpo.fit_pairs([pair()], Split(), 1000)
 
     def test_no_subset_if_full_roster_fits(self):
         rows = [pair(i) for i in range(250)]

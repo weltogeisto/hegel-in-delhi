@@ -123,6 +123,54 @@ class LauncherTest(unittest.TestCase):
         self.assertFalse(run.verdict(data,result)["passed"])
 
 
+class RehearsedInputsTest(unittest.TestCase):
+    """A real run may reuse a rehearsal only for the same bytes at the same paths."""
+
+    def setUp(self):
+        self.dir = Path(tempfile.mkdtemp(prefix="training3-rehearsed-"))
+        files = dict(candidates="candidates.jsonl", pairs="pairs.jsonl", pair_stats="pairs.stats.json",
+                     converter="convert/convert_lora.py", base_gguf="base.gguf")
+        self.config = {key: str(self.dir / name) for key, name in files.items()}
+        self.config.update(base_model=str(self.dir / "base"), converter_base=str(self.dir / "converter-base"),
+                           original=dict(launcher=str(self.dir / "serve.sh")))
+        for name in list(files.values()) + ["serve.sh", "base/tokenizer_config.json", "converter-base/config.json"]:
+            path = self.dir / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text("original " + name)
+
+    def frozen(self):
+        data = dict(self.config)
+        paths = [Path(self.config[k]) for k in run.REHEARSED_FILES] + [Path(self.config["original"]["launcher"])]
+        for key in run.REHEARSED_TREES:
+            paths += [p for p in Path(self.config[key]).rglob("*") if p.is_file()]
+        lifecycle.freeze_inputs(data, paths)
+        data["pair_provenance"] = dict(candidates_sha256=lifecycle.filehash(self.config["candidates"]),
+                                       pairs_sha256=lifecycle.filehash(self.config["pairs"]))
+        return data
+
+    def test_unchanged_bytes_are_accepted(self):
+        rehearsal = self.frozen()
+        run.same_as_rehearsal(rehearsal, self.frozen())
+
+    def test_changed_candidate_or_pair_data_at_unchanged_paths_is_refused(self):
+        for key in ("candidates", "pairs", "pair_stats"):
+            with self.subTest(key=key):
+                self.setUp()
+                rehearsal = self.frozen()
+                Path(self.config[key]).write_text("rewritten in place")       # same path, new bytes
+                with self.assertRaisesRegex(ValueError, "changed"):
+                    run.same_as_rehearsal(rehearsal, self.frozen())
+
+    def test_changed_tokenizer_or_converter_is_refused(self):
+        for name in ("base/tokenizer_config.json", "convert/convert_lora.py"):
+            with self.subTest(name=name):
+                self.setUp()
+                rehearsal = self.frozen()
+                (self.dir / name).write_text("a different template")
+                with self.assertRaisesRegex(ValueError, "same paths"):
+                    run.same_as_rehearsal(rehearsal, self.frozen())
+
+
 class NaturalRestorationTest(unittest.TestCase):
     def evidence(self, source="mind", stamp=100, mutate=False):
         before={"steps":[{"t":"09:00","decision":{"thought":"old"},"mind":{"source":"away"}}]}

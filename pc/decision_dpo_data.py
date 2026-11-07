@@ -76,9 +76,32 @@ def render_pair(pair, tokenizer, cap):
     return (dict(id=pair["id"], **text) if fits else None), counts
 
 
+TURN_PROBE = "TURN-END-PROBE-1831"
+
+
+def check_turn_end(tokenizer, messages):
+    """The EOS that TRL appends to each completion must be the token that ends an assistant
+    turn in the chat template, the one the server stops at; otherwise the adapter learns to
+    end its answers with the wrong token. The training prompt must also be exactly the part of
+    a rendered turn that comes before the answer."""
+    eos = tokenizer.eos_token
+    if not isinstance(eos, str) or not eos or tokenizer(eos, add_special_tokens=False)["input_ids"] != [tokenizer.eos_token_id]:
+        raise ValueError("the EOS must be one special token")
+    prompt = tokenizer.apply_chat_template(messages, tokenize=False,
+                                           add_generation_prompt=True, enable_thinking=False)
+    full = tokenizer.apply_chat_template(list(messages) + [dict(role="assistant", content=TURN_PROBE)],
+                                         tokenize=False, enable_thinking=False)
+    if not isinstance(full, str) or full.count(TURN_PROBE) != 1 or not full.startswith(prompt + TURN_PROBE):
+        raise ValueError("the training prompt is not the template's own boundary before an answer")
+    if not full[len(prompt) + len(TURN_PROBE):].startswith(eos):
+        raise ValueError(f"the chat template ends an assistant turn with something other than the EOS {eos!r}")
+    return eos
+
+
 def fit_pairs(pairs, tokenizer, cap):
     kept, removed, lengths = [], [], {}
     seen = set()
+    turn_end = check_turn_end(tokenizer, pairs[0]["prompt"]) if pairs else None
     for pair in pairs:
         if pair["id"] in seen:
             raise ValueError("duplicate pair")
@@ -89,7 +112,7 @@ def fit_pairs(pairs, tokenizer, cap):
             removed.append(pair["id"])
         else:
             kept.append(row)
-    report = dict(length_cap=cap, original_pairs=len(pairs), admitted_pairs=len(kept),
+    report = dict(length_cap=cap, completion_end_token=turn_end, original_pairs=len(pairs), admitted_pairs=len(kept),
                   excluded_whole_pair_ids=removed, lengths=lengths,
                   prompts_truncated=0, completions_truncated=0)
     # Return the exclusion report even on a failed size gate. The launcher writes
