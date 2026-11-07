@@ -12,7 +12,7 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 185
@@ -24,49 +24,49 @@
     "aqi": 186
    },
    {
-    "temp": 20,
+    "temp": 21,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 187
    },
    {
-    "temp": 20,
+    "temp": 21,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 188
    },
    {
-    "temp": 19,
+    "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 190
    },
    {
-    "temp": 19,
+    "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 192
    },
    {
-    "temp": 18,
+    "temp": 19,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 196
    },
    {
-    "temp": 19,
+    "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 202
    },
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 205
    },
    {
-    "temp": 23,
+    "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 207
@@ -78,13 +78,13 @@
     "aqi": 209
    },
    {
-    "temp": 26,
+    "temp": 27,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 210
    },
    {
-    "temp": 27,
+    "temp": 28,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 212
@@ -126,7 +126,7 @@
     "aqi": 218
    },
    {
-    "temp": 23,
+    "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 214
@@ -478,6 +478,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "15:58",
+   "to": "16:13",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Going from shop to shop in Khan Market."
   }
  ],
  "entries": [
@@ -1113,6 +1120,37 @@
    "item": "Chole bhature at a dhaba",
    "price": 180,
    "t": "15:28"
+  },
+  {
+   "k": "diary",
+   "text": "The air is thick with smoke and the brown haze, a sensory negation that mirrors the spiritual stagnation I perceive here. I have eaten the chole bhature, satisfying the particular need of the stomach, and now I must attend to the universal need of the mind. The bookseller’s shop is the only refuge from the noise of the market, a space where the system of needs yields to the system of knowledge. I shall enter and browse, seeking a text that might clarify the dialectic of this festival.",
+   "sensitive": true,
+   "why": "stagnation",
+   "topic": "the ranking of peoples",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "15:58"
+  },
+  {
+   "k": "said",
+   "text": "Excuse me, I wish to look at your books. The smoke is too thick for the open air.",
+   "to": "Sunil",
+   "t": "15:58"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Books? I sell chai and samosas, not philosophy. Go ask the bookstore inside Khan Market, they have AC too.",
+   "t": "15:58"
   }
  ],
  "steps": [
@@ -2311,13 +2349,69 @@
      ]
     ]
    }
+  },
+  {
+   "t": "15:58",
+   "end": "16:13",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The air is thick with smoke and the brown haze, a sensory negation that mirrors the spiritual stagnation I perceive here. I have eaten the chole bhature, satisfying the particular need of the stomach, and now I must attend to the universal need of the mind. The bookseller’s shop is the only refuge from the noise of the market, a space where the system of needs yields to the system of knowledge. I shall enter and browse, seeking a text that might clarify the dialectic of this festival.",
+    "action": "stay",
+    "place": "khan",
+    "minutes": 15,
+    "says": "Excuse me, I wish to look at your books. The smoke is too thick for the open air.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Books? I sell chai and samosas, not philosophy. Go ask the bookstore inside Khan Market, they have AC too.",
+    "does": "He wipes the counter with a rag, ignoring the request."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.3,
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-08T15:58+05:30",
+  "until": "2026-11-08T16:13+05:30",
   "asleep": false,
   "imprest": 366,
   "wearing": "kurta",
@@ -2415,8 +2509,7 @@
    },
    "no_meals": true,
    "walked": 2025,
-   "strain": 2025,
-   "hunger": 1
+   "strain": 2025
   },
   "account": {
    "advance": 15000,
