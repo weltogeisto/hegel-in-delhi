@@ -408,6 +408,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "13:13",
+   "to": "13:33",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -755,6 +762,40 @@
    "item": "Samosa",
    "price": 30,
    "t": "12:58"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil’s command is the ethical imperative stripped of its metaphysical scaffolding; he does not ask for my freedom, only for my stomach. The samosas are cold, but the body is a substance that must be preserved, and I have already paid enough in samosas to know the price of neglect. I will eat, for the sake of the spirit that requires a vessel.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "13:13"
+  },
+  {
+   "k": "said",
+   "text": "You are right. The body is the immediate reality; I will not let it dissolve into abstraction.",
+   "to": "Sunil",
+   "t": "13:13"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Arre, body wala gyaan chhodo. Samosa kha lo, Diwali hai. Thanda ho gaya toh kya karoge, phir 'regret' ki kahani shuru kar denge?",
+   "t": "13:13"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "13:13"
   }
  ],
  "steps": [
@@ -1408,15 +1449,73 @@
      "text": "Since this unity means happiness, the individual is thus sent forth into the world by his own spirit to seek his happiness. If, then, we for our part find the truth of this rational self-consciousness to be ethical substance, that self-consciousness on its part finds here the beginning of its moral experience of the world."
     }
    ]
+  },
+  {
+   "t": "13:13",
+   "end": "13:33",
+   "event": "Sunil says: “Bas, bas, ab philosophical regret mat karo. Diwali hai, khana khaao aur thanda mat hone do.” Waves the ladle dismissively while looking at the stove.",
+   "present": [
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil’s command is the ethical imperative stripped of its metaphysical scaffolding; he does not ask for my freedom, only for my stomach. The samosas are cold, but the body is a substance that must be preserved, and I have already paid enough in samosas to know the price of neglect. I will eat, for the sake of the spirit that requires a vessel.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 20,
+    "says": "You are right. The body is the immediate reality; I will not let it dissolve into abstraction.",
+    "buys": [
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Arre, body wala gyaan chhodo. Samosa kha lo, Diwali hai. Thanda ho gaya toh kya karoge, phir 'regret' ki kahani shuru kar denge?",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.6
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251",
+     "id": "dyde-right:571"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251",
+     "text": "In general it must stand to its members as a second family, a position which remains more indefinite than the family relation, because the general civic community is at a farther remove from indi viduals and their special needs."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Hence it is, A. The direct or natural ethical spirit, the family. This reality, losing its unity, passes over into dismemberment, and assumes the nature of the relative. It thus becomes B. The civic community, an association of members or independent individuals in a formal universality."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-08T13:13+05:30",
+  "until": "2026-11-08T13:33+05:30",
   "asleep": false,
-  "imprest": 676,
+  "imprest": 646,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1628,6 +1727,13 @@
      "item": "Samosa",
      "price": 30,
      "office": false
+    },
+    {
+     "date": "2026-11-08",
+     "t": "13:13",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
     }
    ],
    "admitted": 730,
@@ -1830,7 +1936,7 @@
    "sim": false
   },
   "last_meal": "2026-10-27T18:45+05:30",
-  "snacks": 14,
+  "snacks": 15,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
