@@ -148,7 +148,8 @@ class Sampler:
         frozen = json_bytes(situation)
         path = folder / "SITUATION.json"
         if path.exists():
-            if path.read_bytes() != frozen or checked(path) != situation:
+            # Compare the frozen JSON representation: recent thoughts can contain tuples.
+            if path.read_bytes() != frozen or json_bytes(checked(path)) != frozen:
                 raise ValueError("saved situation differs; do not reinterpret a reply")
         else:
             if folder.exists():
