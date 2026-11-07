@@ -373,6 +373,13 @@
    "mode": "walk",
    "a": "home",
    "b": "khan"
+  },
+  {
+   "from": "11:28",
+   "to": "11:43",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -538,6 +545,46 @@
     }
    ],
    "t": "11:01"
+  },
+  {
+   "k": "diary",
+   "text": "The air is thick with the brown haze, a physical manifestation of the particular obscuring the universal. I am hungry; the body demands its due before the spirit can contemplate the system of needs. Sunil stands at his stall, the mediator between my need and the market's offer.",
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198"
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§198"
+    }
+   ],
+   "t": "11:28"
+  },
+  {
+   "k": "said",
+   "text": "Sunil, give me a cup of chai and a samosa. The heat is oppressive, and the body must be satisfied before the mind can work.",
+   "to": "Sunil",
+   "t": "11:28"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Twenty for the chai, thirty for the samosa, sir. Same as always, no discounts for the heat. You look like you've been arguing with ghosts again—here, eat up.",
+   "t": "11:28"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "11:28"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "11:28"
   }
  ],
  "steps": [
@@ -894,15 +941,77 @@
      "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
     }
    ]
+  },
+  {
+   "t": "11:28",
+   "end": "11:43",
+   "event": "You arrive at Khan Market. It closes at 20:30. Sunil is here.",
+   "present": [
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The air is thick with the brown haze, a physical manifestation of the particular obscuring the universal. I am hungry; the body demands its due before the spirit can contemplate the system of needs. Sunil stands at his stall, the mediator between my need and the market's offer.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 15,
+    "says": "Sunil, give me a cup of chai and a samosa. The heat is oppressive, and the body must be satisfied before the mind can work.",
+    "buys": [
+     {
+      "item": "Chai",
+      "price_inr": 20
+     },
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Twenty for the chai, thirty for the samosa, sir. Same as always, no discounts for the heat. You look like you've been arguing with ghosts again—here, eat up.",
+    "does": "He pours the chai into a small glass and slides the samosa across the counter."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.1
+   },
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "id": "wallace-logic:882"
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§198",
+     "id": "enzyklopaedie:513"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "text": "Like the solar system, so for example in the practical sphere the state is a system of three syllogisms. (1) The Individual or person, through his particularity or physical or mental needs (which when carried out to their full development give civil society), is coupled with the universal, i.e. with society, law, right, government."
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§198",
+     "text": "Wie das Sonnensystem, so ist z. B. im Praktischen der Staat ein System von drei Schlüssen. 1) Der Einzelne (die Person) schliesst sich durch seine Besonderheit (die physischen und geistigen Bedürfnisse, was weiter für sich ausgebildet die bürgerliche Gesellschaft giebt) mit dem Allgemeinen (der Gesellschaft, dem Rechte, Gesetz, Regierung) zusammen. 2) Ist der Wille…"
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-08T11:28+05:30",
+  "until": "2026-11-08T11:43+05:30",
   "asleep": false,
-  "imprest": 836,
+  "imprest": 786,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -990,6 +1099,10 @@
      "dhobi",
      "hegde",
      "ramesh"
+    ],
+    "khan": [
+     "bookseller",
+     "sunil"
     ]
    },
    "no_meals": true,
@@ -1068,6 +1181,20 @@
      "item": "Samosa",
      "price": 30,
      "office": false
+    },
+    {
+     "date": "2026-11-08",
+     "t": "11:28",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-08",
+     "t": "11:28",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
     }
    ],
    "admitted": 730,
@@ -1116,7 +1243,8 @@
     "2026-10-28",
     "2026-11-05",
     "2026-11-06",
-    "2026-11-07"
+    "2026-11-07",
+    "2026-11-08"
    ],
    "gym": [
     "2026-10-02"
@@ -1227,7 +1355,8 @@
     "2026-10-15",
     "2026-10-28",
     "2026-11-05",
-    "2026-11-07"
+    "2026-11-07",
+    "2026-11-08"
    ],
    "hegde": [
     "2026-10-02",
@@ -1268,7 +1397,7 @@
    "sim": false
   },
   "last_meal": "2026-10-27T18:45+05:30",
-  "snacks": 10,
+  "snacks": 11,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
