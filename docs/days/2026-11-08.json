@@ -541,6 +541,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "20:14",
+   "to": "20:29",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -1370,6 +1377,34 @@
    "to": "Hegel",
    "text": "No need to worry, Sir. I’ve got some left from my own home, I’ll just make a quick paratha. Please, don’t let the bad air get you down.",
    "t": "19:14"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh offers paratha from his own stores, a small act of grace that cuts through the bureaucratic silence. The body, which has been neglected by the state, is now fed by the particular, the servant who knows I am a man and not merely a file. I must accept this, for the universal cannot digest itself without the concrete.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19"
+    }
+   ],
+   "t": "20:14"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, you are kind. I will accept. It is the particular that sustains the universal, even in my own house. Sit, let us speak while it is made.",
+   "to": "Ramesh",
+   "t": "20:14"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, you talk too much for a man who hasn't eaten in hours. I will be in the kitchen; please, do not make me bring the paratha to your study.",
+   "t": "20:14"
   }
  ],
  "steps": [
@@ -2985,13 +3020,65 @@
      "text": "It requires but little reflection to see that the services performed by the classes in behalf of the general well-being and public liberty cannot be traced to an insight special to these classes. The highest state of&cials have necessarily deeper and more comprehensive insight into the workings and needs of the state, and also greater skill and wider practical experience."
     }
    ]
+  },
+  {
+   "t": "20:14",
+   "end": "20:29",
+   "event": "Ramesh says: “No need to worry, Sir. I’ve got some left from my own home, I’ll just make a quick paratha. Please, don’t let the bad air get you down.”",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh offers paratha from his own stores, a small act of grace that cuts through the bureaucratic silence. The body, which has been neglected by the state, is now fed by the particular, the servant who knows I am a man and not merely a file. I must accept this, for the universal cannot digest itself without the concrete.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, you are kind. I will accept. It is the particular that sustains the universal, even in my own house. Sit, let us speak while it is made.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Sir, you talk too much for a man who hasn't eaten in hours. I will be in the kitchen; please, do not make me bring the paratha to your study.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.0
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "id": "haldane-2:422"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "id": "wallace-logic:71"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "text": "This point of view is quite correct, and it is mainly directed against a number of conceptions that prevail in our physics. The conception of equal movement of the heavy and the light, as that of pure weight, pure matter, is an abstraction, being taken as though they were inherently like, only differing through the accidental resistance of the air."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "text": "A slothful mind finds it natural to say: 'Don't let it be supposed that we mean to be in earnest with our philosophy. We shall be glad inter alia to study Logic: but Logic must be sure to leave us as we were before.' People have a feeling that, if thinking passes the ordinary range of our ideas and impressions, it cannot but be on the evil road."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-08T20:14+05:30",
+  "until": "2026-11-08T20:29+05:30",
   "asleep": false,
   "imprest": 346,
   "wearing": "kurta",
