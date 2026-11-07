@@ -429,6 +429,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "14:03",
+   "to": "14:23",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -872,6 +879,40 @@
    "to": "Hegel",
    "text": "Arey, sharmao mat, prison hai kya? Yahan toh bas pet ki goli hai. Diwali hai, thoda sukoon se khaao, phone uthao mat.",
    "t": "13:48"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil insists on the immediate satisfaction of the body, dismissing the reflective distance I maintain. He treats the holiday as a suspension of the universal order, a moment of mere feeling rather than ethical duty. I will comply with the immediate need for nourishment, for the body is the medium through which the spirit acts, and I have not eaten since yesterday.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§531"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "14:03"
+  },
+  {
+   "k": "said",
+   "text": "You mistake the suspension of work for the suspension of necessity. I eat, but I do not stop thinking.",
+   "to": "Sunil",
+   "t": "14:03"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Suno, aadmi, Diwali hai toh dimag bhi chhutti par ho. Sochna kal ka kaam hai, aaj samose khana hai. Aur haan, chai abhi bhi garam hai, lo.",
+   "t": "14:03"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "14:03"
   }
  ],
  "steps": [
@@ -1694,15 +1735,73 @@
      "text": "As to this demand, it may seem a piece of great presumption to say that philosophers should have the government of states accorded to them, for the territory or ground of history is different from that of Philosophy. In history, the Idea, as the absolute power, has certainly to realize itself; in other words, God rules in the world."
     }
    ]
+  },
+  {
+   "t": "14:03",
+   "end": "14:23",
+   "event": "Sunil says: “Arey, sharmao mat, prison hai kya? Yahan toh bas pet ki goli hai. Diwali hai, thoda sukoon se khaao, phone uthao mat.”",
+   "present": [
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil insists on the immediate satisfaction of the body, dismissing the reflective distance I maintain. He treats the holiday as a suspension of the universal order, a moment of mere feeling rather than ethical duty. I will comply with the immediate need for nourishment, for the body is the medium through which the spirit acts, and I have not eaten since yesterday.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 20,
+    "says": "You mistake the suspension of work for the suspension of necessity. I eat, but I do not stop thinking.",
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Suno, aadmi, Diwali hai toh dimag bhi chhutti par ho. Sochna kal ka kaam hai, aaj samose khana hai. Aur haan, chai abhi bhi garam hai, lo.",
+    "does": "He slides the cup of chai across the counter without looking up."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.0
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§531",
+     "id": "wallace-mind:287"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§531",
+     "text": "Materially the principle involves the difference of objective probation according as it goes with or without the factor of absolute certification which lies in confession. The function of judicial administration is only to actualise to necessity the abstract side of personal liberty in civil society."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-08T14:03+05:30",
+  "until": "2026-11-08T14:23+05:30",
   "asleep": false,
-  "imprest": 616,
+  "imprest": 596,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1927,6 +2026,13 @@
      "t": "13:33",
      "item": "Samosa",
      "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-08",
+     "t": "14:03",
+     "item": "Chai, a cup",
+     "price": 20,
      "office": false
     }
    ],
