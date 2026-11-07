@@ -366,6 +366,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "11:01",
+   "to": "11:28",
+   "mode": "walk",
+   "a": "home",
+   "b": "khan"
   }
  ],
  "entries": [
@@ -516,6 +523,21 @@
     }
    ],
    "t": "10:51"
+  },
+  {
+   "k": "diary",
+   "text": "The morning stretches out like a rope that has nowhere to go. Hegde is gone, Ramesh waits with the silence of a man who has not been paid, and the haze outside chokes the light. My body is a hollow drum; I must fill it before I can fill the file. I will walk to Khan Market, where the system of needs is always open, even on Diwali.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33"
+    }
+   ],
+   "t": "11:01"
   }
  ],
  "steps": [
@@ -823,13 +845,62 @@
      "text": "First it maintains them as persons, thus making right a necessary actuality, then it promotes their welfare, which each originally takes care of for himself, but which has a thoroughly general side; it protects the family and guides civil society."
     }
    ]
+  },
+  {
+   "t": "11:01",
+   "end": "11:28",
+   "event": "Nothing in particular happens. The morning goes on.",
+   "present": [
+    "Ramesh, the caretaker",
+    "the dhobi",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The morning stretches out like a rope that has nowhere to go. Hegde is gone, Ramesh waits with the silence of a man who has not been paid, and the haze outside chokes the light. My body is a hollow drum; I must fill it before I can fill the file. I will walk to Khan Market, where the system of needs is always open, even on Diwali.",
+    "action": "walk",
+    "place": "khan",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "khan",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.5
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "id": "dyde-right:549"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "id": "rechts:121"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "text": "Note. — In contrast with freedom of business and trade in the civic community stands the other extreme of the establishment and direction of the work of all by means of official regulation. Under this head comes perhaps the construction of the pyramids and other monstrous Egyptian and Asiatic works."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-08T11:01+05:30",
+  "place": "khan",
+  "until": "2026-11-08T11:28+05:30",
   "asleep": false,
   "imprest": 836,
   "wearing": "kurta",
@@ -921,7 +992,9 @@
      "ramesh"
     ]
    },
-   "no_meals": true
+   "no_meals": true,
+   "walked": 2025,
+   "strain": 2025
   },
   "account": {
    "advance": 15000,
