@@ -534,6 +534,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "19:14",
+   "to": "20:14",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1335,6 +1342,34 @@
     }
    ],
    "t": "18:14"
+  },
+  {
+   "k": "diary",
+   "text": "The haze outside is a brown suffocation, matching the silence within. Ramesh stands there, a figure of pure need, unpaid and therefore unproductive in the ethical sense; his hunger is a private matter that the state, in its current form, has failed to mediate. I am tired, the body heavy with the day's walks and the indigestion of chole bhature, but the mind refuses rest until the tension of his presence is resolved, even if only by the admission of its own impotence.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301"
+    }
+   ],
+   "t": "19:14"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, sit. The day is over, and the air is bad. I shall not ask you to cook what I cannot pay for. We shall both wait for the morning, when the bureaucracy wakes and perhaps the money moves.",
+   "to": "Ramesh",
+   "t": "19:14"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "No need to worry, Sir. I’ve got some left from my own home, I’ll just make a quick paratha. Please, don’t let the bad air get you down.",
+   "t": "19:14"
   }
  ],
  "steps": [
@@ -2898,13 +2933,65 @@
      "text": "And again, the matter of a small body and a large is the same, because at one time a greater proceeds from a smaller, and at another time a smaller from a greater."
     }
    ]
+  },
+  {
+   "t": "19:14",
+   "end": "20:14",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The haze outside is a brown suffocation, matching the silence within. Ramesh stands there, a figure of pure need, unpaid and therefore unproductive in the ethical sense; his hunger is a private matter that the state, in its current form, has failed to mediate. I am tired, the body heavy with the day's walks and the indigestion of chole bhature, but the mind refuses rest until the tension of his presence is resolved, even if only by the admission of its own impotence.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 60,
+    "says": "Ramesh, sit. The day is over, and the air is bad. I shall not ask you to cook what I cannot pay for. We shall both wait for the morning, when the bureaucracy wakes and perhaps the money moves.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "No need to worry, Sir. I’ve got some left from my own home, I’ll just make a quick paratha. Please, don’t let the bad air get you down.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.5
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "id": "dyde-right:205"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301",
+     "id": "dyde-right:763"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "text": "Addition. — The particular person is really a subordinate, who must devote his life to the service of the ethical fabric; when the state demands his life, he must yield it up. But should the man take his own life? Suicide may at first glance be looked upon as bravery, although it be the poor bravery of tailors and maid-servants."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301",
+     "text": "It requires but little reflection to see that the services performed by the classes in behalf of the general well-being and public liberty cannot be traced to an insight special to these classes. The highest state of&cials have necessarily deeper and more comprehensive insight into the workings and needs of the state, and also greater skill and wider practical experience."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-08T19:14+05:30",
+  "until": "2026-11-08T20:14+05:30",
   "asleep": false,
   "imprest": 346,
   "wearing": "kurta",
