@@ -513,6 +513,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "17:32",
+   "to": "17:47",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -1269,6 +1276,21 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "17:17"
+  },
+  {
+   "k": "diary",
+   "text": "The chai is here, a small warmth against the brown haze and the bureaucratic cold. I will drink it, for the body must be sustained even as the spirit debates its place in this city. The bookseller watches; perhaps he will speak of something universal, or perhaps he will merely sell.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§263"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "17:32"
   }
  ],
  "steps": [
@@ -2689,13 +2711,61 @@
      "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
     }
    ]
+  },
+  {
+   "t": "17:32",
+   "end": "17:47",
+   "event": "Ramesh says: “Yes, Sir. Here is your chai, just as you like it.” Ramesh places the steaming cup on the counter and steps back.",
+   "present": [
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The chai is here, a small warmth against the brown haze and the bureaucratic cold. I will drink it, for the body must be sustained even as the spirit debates its place in this city. The bookseller watches; perhaps he will speak of something universal, or perhaps he will merely sell.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.2
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§263",
+     "id": "dyde-right:615"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§263",
+     "text": "These two form a system of their own, and there are lower orders of animals, in which this system alone is developed, being without that unity of feeling which marks the complete soul. If we compare these facts of nature with the facts of spirit, we may place together family and sensibility on the one side, civic community and irritability on the other."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-08T17:32+05:30",
+  "until": "2026-11-08T17:47+05:30",
   "asleep": false,
   "imprest": 346,
   "wearing": "kurta",
