@@ -18,25 +18,25 @@
     "aqi": 190
    },
    {
-    "temp": 22,
+    "temp": 21,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 194
    },
    {
-    "temp": 21,
+    "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 197
    },
    {
-    "temp": 21,
+    "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 202
    },
    {
-    "temp": 20,
+    "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 206
@@ -48,43 +48,43 @@
     "aqi": 212
    },
    {
-    "temp": 19,
+    "temp": 18,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 218
    },
    {
-    "temp": 20,
+    "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 225
    },
    {
-    "temp": 22,
+    "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 229
    },
    {
-    "temp": 24,
+    "temp": 23,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 232
    },
    {
-    "temp": 26,
+    "temp": 25,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 235
    },
    {
-    "temp": 27,
+    "temp": 26,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 237
    },
    {
-    "temp": 28,
+    "temp": 27,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 239
@@ -114,7 +114,7 @@
     "aqi": 243
    },
    {
-    "temp": 26,
+    "temp": 25,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 242
@@ -324,16 +324,70 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "09:16",
+   "to": "09:46",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Assam CM encouraging protests against Judges in Zubeen Garg death case: Akhil Gogoi” · “BJP keeps promise, Mormugao MLA Amonkar is now Goa cabinet minister” · “Sonia Gandhi’s memoir to revisit love, loss and her decision to decline India’s top job”",
+   "t": "09:16"
+  },
+  {
+   "k": "world",
+   "text": "Groceries: ₹1,500 falls due to Ramesh.",
+   "owe": {
+    "to": "Ramesh",
+    "amount": 1500,
+    "why": "groceries",
+    "since": "2026-11-08"
+   },
+   "t": "09:16"
+  }
+ ],
+ "steps": [
+  {
+   "t": "09:16",
+   "end": "09:46",
+   "event": "You wake. A brown haze, 23 °C. Today is Diwali, a national holiday. A dry day: no alcohol is sold. Ramesh has left the papers on the verandah. Headlines: Assam CM encouraging protests against Judges in Zubeen Garg death case: Akhil Gogoi; BJP keeps promise, Mormugao MLA Amonkar is now Goa cabinet minister; Sonia Gandhi’s memoir to revisit love, loss and her decision to decline India’s top job. It is Diwali. Ramesh, and the dhobi who has come by with the washing, wait with the patience of men who expect bakshish: at Diwali one gives something to those who serve the house. Ramesh asks for ₹8,000 (the wage for cooking), and you have only ₹836. Ramesh asks for ₹1,500 (groceries), and you have only ₹836. Ramesh is here.",
+   "present": [
+    "Ramesh, the caretaker",
+    "the dhobi"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 0,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "the PC did not wake for the morning plan"
+     ]
+    ]
+   }
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-08T09:16+05:30",
-  "asleep": true,
+  "until": "2026-11-08T09:46+05:30",
+  "asleep": false,
   "imprest": 836,
   "wearing": "kurta",
   "wardrobe": [
@@ -410,7 +464,19 @@
    }
   ],
   "depesche_n": 1,
-  "today": {},
+  "today": {
+   "woke": "09:16",
+   "pressed": [
+    "Ramesh|the wage for cooking",
+    "Ramesh|groceries"
+   ],
+   "seen": {
+    "home": [
+     "dhobi",
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -511,7 +577,8 @@
     "2026-11-04",
     "2026-11-05",
     "2026-11-06",
-    "2026-11-07"
+    "2026-11-07",
+    "2026-11-08"
    ],
    "lodhi": [
     "2026-10-02",
@@ -575,6 +642,16 @@
     "at": "estates",
     "with": "saxena",
     "after": "2026-11-07"
+   },
+   {
+    "to": "Ramesh",
+    "amount": 1500,
+    "why": "groceries",
+    "since": "2026-11-08",
+    "cost": "groceries",
+    "item": "Groceries for Ramesh's kitchen",
+    "at": "home",
+    "with": "ramesh"
    }
   ],
   "cheques": [],
@@ -582,7 +659,7 @@
   "engagements": [],
   "costs": {
    "wage": "2026-11-01",
-   "groceries": "2026-11-01",
+   "groceries": "2026-11-08",
    "dhobi": "2026-11-07",
    "electricity": "2026-10-12",
    "data": "2026-10-12"
@@ -606,7 +683,8 @@
     "2026-10-29",
     "2026-11-05",
     "2026-11-06",
-    "2026-11-07"
+    "2026-11-07",
+    "2026-11-08"
    ],
    "malhotra": [
     "2026-10-02",
