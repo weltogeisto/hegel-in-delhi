@@ -338,6 +338,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh and Shri G. Hegde at home."
+  },
+  {
+   "from": "10:01",
+   "to": "10:26",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -389,6 +396,34 @@
    "to": "Hegel",
    "text": "Sir, the office endures a lot, but it does not starve. I will keep the tea warm and the papers dry; the rest is between you and the day.",
    "t": "09:46"
+  },
+  {
+   "k": "diary",
+   "text": "The world refuses my motion toward Khan Market, closing the door before I reach it. The system of needs is not a continuous flow but a series of discrete moments, and I am trapped in the interval between them. I must remain in the bungalow, enduring the tension between my hunger and the closed shutters, for the dialectic cannot be rushed.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Common Ideas Regarding the History of Philosophy"
+    }
+   ],
+   "t": "10:01"
+  },
+  {
+   "k": "said",
+   "text": "The shop is closed. The system of needs does not bend to the hunger of one philosopher, even a mistaken one. I shall wait for the shutters to rise.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "10:01"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Shutters rise at ten, Sir. The chai will be ready by then, and I won't ask you to pay for it before you have eaten.",
+   "t": "10:01"
   }
  ],
  "steps": [
@@ -475,13 +510,72 @@
     }
    ],
    "beat": "diwali_bakshish"
+  },
+  {
+   "t": "10:01",
+   "end": "10:26",
+   "event": "Ramesh says: “Sir, the office endures a lot, but it does not starve. I will keep the tea warm and the papers dry; the rest is between you and the day.” He bows his head slightly and steps back toward the kitchen doorway.",
+   "present": [
+    "Ramesh, the caretaker",
+    "the dhobi",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The world refuses my motion toward Khan Market, closing the door before I reach it. The system of needs is not a continuous flow but a series of discrete moments, and I am trapped in the interval between them. I must remain in the bungalow, enduring the tension between my hunger and the closed shutters, for the dialectic cannot be rushed.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 25,
+    "says": "The shop is closed. The system of needs does not bend to the hunger of one philosopher, even a mistaken one. I shall wait for the shutters to rise.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Shutters rise at ten, Sir. The chai will be ready by then, and I won't ask you to pay for it before you have eaten.",
+    "does": "He turns back toward the kitchen doorway, leaving the bungalow behind him."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 14.7,
+    "refused": [
+     [
+      "Khan Market opens at 10:30; walking there you would arrive at 10:28"
+     ]
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "id": "baillie-1:223"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Common Ideas Regarding the History of Philosophy",
+     "id": "haldane-1:63"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "text": "Through work and labour, however, this consciousness of the bondsman comes to itself. In the moment which corresponds to desire in the case of the master's consciousness, the aspect of the non-essential relation to the thing seemed to fall to the lot of the servant, since the thing there retained its independence."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Common Ideas Regarding the History of Philosophy",
+     "text": "Hence the thought expressed in such an utterance reveals the fact that it is dead understanding; for it is only death which fasts and yet rests satisfied. But neither physical life nor intellectual remains content with mere abstention; as desire it presses on through hunger and through thirst towards Truth, towards knowledge itself."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-08T10:01+05:30",
+  "until": "2026-11-08T10:26+05:30",
   "asleep": false,
   "imprest": 836,
   "wearing": "kurta",
