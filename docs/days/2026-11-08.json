@@ -450,6 +450,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "14:53",
+   "to": "15:03",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Talking with Sunil at Khan Market."
   }
  ],
  "entries": [
@@ -995,6 +1002,34 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "14:38"
+  },
+  {
+   "k": "diary",
+   "text": "The body, having asserted its particularity through the samosa, now demands the sweetener; the universal spirit must yield to the immediate need for sustenance. Sunil’s insistence on the 'negation of the samosa' is a humorous recognition that my philosophical abstractions are irrelevant to the biological imperative of the holiday. I accept the sugar, not as a concession to vanity, but as a necessary mediation between the abstract self and the concrete, sweet reality of the moment.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§253"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206"
+    }
+   ],
+   "t": "14:53"
+  },
+  {
+   "k": "said",
+   "text": "Sunil, your 'negation of the samosa' is a dialectic I can no longer refute. The body is the truth of the moment. I accept the sugar. Thank you.",
+   "to": "Sunil",
+   "t": "14:53"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Achha, 'dialectic' samjhe, matlab sugar ka bill tumhare paas hai. Diwali hai, shubh raho aur jaldi utho kal, traffic mein phanso mat.",
+   "t": "14:53"
   }
  ],
  "steps": [
@@ -1991,13 +2026,66 @@
      "text": "Die sittliche Gesinnung in diesem Systeme ist daher die Rechtschaffenheit, und die Standesehre, sich und zwar aus eigener Bestimmung durch seine Tätigkeit, Fleiß und Geschicklichkeit zum Gliede eines der Momente der bürgerlichen Gesellschaft zu machen und als solches zu erhalten, und nur durch diese Vermittelung mit dem Allgemeinen für sich zu sorgen…"
     }
    ]
+  },
+  {
+   "t": "14:53",
+   "end": "15:03",
+   "event": "Sunil says: “Arre, 'negation of the samosa' kya bala hai aajkal? Kha lo sharam na karo, Diwali hai toh pet bhi Diwali manayega. Thoda meetha kar raha hoon, tension chhod ke.” He adds a spoonful of sugar to the cup and stirs it vigorously.",
+   "present": [
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The body, having asserted its particularity through the samosa, now demands the sweetener; the universal spirit must yield to the immediate need for sustenance. Sunil’s insistence on the 'negation of the samosa' is a humorous recognition that my philosophical abstractions are irrelevant to the biological imperative of the holiday. I accept the sugar, not as a concession to vanity, but as a necessary mediation between the abstract self and the concrete, sweet reality of the moment.",
+    "action": "talk",
+    "place": "khan",
+    "minutes": 10,
+    "says": "Sunil, your 'negation of the samosa' is a dialectic I can no longer refute. The body is the truth of the moment. I accept the sugar. Thank you.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Achha, 'dialectic' samjhe, matlab sugar ka bill tumhare paas hai. Diwali hai, shubh raho aur jaldi utho kal, traffic mein phanso mat.",
+    "does": "He wipes the counter with a rag and pushes the cup towards him."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.6
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§253",
+     "id": "dyde-right:574"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206",
+     "id": "dyde-right:491"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§253",
+     "text": "He perhaps seeks, in that case, to obtain recognition by displaying his success in his trade; but his display has no limit, because he has no desire to live in a way becoming his class. Indeed, he has no class at all, since only what is of general purport really exists in a civic community, and can be established and recognized."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206",
+     "text": "The recognition of the claim that whatever in the civic community and the state is rationally necessary should occur through subjective free choice is a fuller definition of the popular idea of freedom (§ 121). The particularity of the individual becomes definitely and actually realized, only by his limiting himself exclusively to one of the particular spheres of want."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-08T14:53+05:30",
+  "until": "2026-11-08T15:03+05:30",
   "asleep": false,
   "imprest": 546,
   "wearing": "kurta",
