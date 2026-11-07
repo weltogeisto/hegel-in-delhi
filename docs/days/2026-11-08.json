@@ -485,6 +485,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Going from shop to shop in Khan Market."
+  },
+  {
+   "from": "16:13",
+   "to": "16:23",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Talking with Sunil at Khan Market."
   }
  ],
  "entries": [
@@ -1151,6 +1158,34 @@
    "to": "Hegel",
    "text": "Books? I sell chai and samosas, not philosophy. Go ask the bookstore inside Khan Market, they have AC too.",
    "t": "15:58"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil’s refusal is a boundary; I cannot extract universals from a man whose vocation is the particular heat of the samosa. He points to the bookstore, a place of cooler air and ordered knowledge, where the dialectic of mind might find a more suitable interlocutor. I will move to the bookseller, who is present here, to engage with the written word rather than the steam.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§341"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Revealed Religion"
+    }
+   ],
+   "t": "16:13"
+  },
+  {
+   "k": "said",
+   "text": "You are right, my good man. The steam obscures the view. I shall turn my attention to the bookseller, who deals in the more enduring substance of the spirit.",
+   "to": "Sunil",
+   "t": "16:13"
+  },
+  {
+   "k": "said",
+   "by": "The bookseller",
+   "to": "Hegel",
+   "text": "The steam is just the samosa, sir. I have Marx, I have Ambedkar, I have a few UPSC guides, but 'history of the East' is a bit big for this shelf. Maybe try the big bookshop on the…",
+   "t": "16:13"
   }
  ],
  "steps": [
@@ -2405,13 +2440,66 @@
      "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
     }
    ]
+  },
+  {
+   "t": "16:13",
+   "end": "16:23",
+   "event": "Sunil says: “Books? I sell chai and samosas, not philosophy. Go ask the bookstore inside Khan Market, they have AC too.” He wipes the counter with a rag, ignoring the request.",
+   "present": [
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil’s refusal is a boundary; I cannot extract universals from a man whose vocation is the particular heat of the samosa. He points to the bookstore, a place of cooler air and ordered knowledge, where the dialectic of mind might find a more suitable interlocutor. I will move to the bookseller, who is present here, to engage with the written word rather than the steam.",
+    "action": "talk",
+    "place": "khan",
+    "minutes": 10,
+    "says": "You are right, my good man. The steam obscures the view. I shall turn my attention to the bookseller, who deals in the more enduring substance of the spirit.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The bookseller",
+    "says": "The steam is just the samosa, sir. I have Marx, I have Ambedkar, I have a few UPSC guides, but 'history of the East' is a bit big for this shelf. Maybe try the big bookshop on the…",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.9
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§341",
+     "id": "dyde-right:844"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Revealed Religion",
+     "id": "baillie-2:619"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§341",
+     "text": "(In world-history this concrete existence of spirit is the spiritual actuality in the -total range of its internality and externality. It is a court of judgment because in its absolute universality the particular, namely, the Penates, the civic community, and the national spirit in their many-coloured reality are all merely ideal."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Revealed Religion",
+     "text": "Our action, therefore, when we enjoy them is not that of worship, through which our conscious life might attaia its complete truth and be satisfied to the full: our action is external; it consists in wiping off some drop of rain or speck of dust from these fruits, and in place of the inner elements composing the reality of the ethical life, a reahty that environed…"
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-08T16:13+05:30",
+  "until": "2026-11-08T16:23+05:30",
   "asleep": false,
   "imprest": 366,
   "wearing": "kurta",
