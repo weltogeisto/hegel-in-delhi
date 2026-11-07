@@ -562,6 +562,15 @@
    "mode": "inside",
    "at": "home",
    "now": "Reading at home."
+  },
+  {
+   "from": "21:00",
+   "to": "24:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Asleep.",
+   "asleep": true,
+   "owl": true
   }
  ],
  "entries": [
@@ -3234,14 +3243,35 @@
      "text": "Socrates alone did not agree with this decision, declaring himself more emphatically against the people than against the rulers. To-day he fares badly who says anything against the people. “The people have excellent intelligence, understand everything, and have only the most excellent intentions.”"
     }
    ]
+  },
+  {
+   "t": "21:00",
+   "end": "24:00",
+   "event": "Nothing in particular happens. The night goes on.",
+   "present": [],
+   "decision": {
+    "thought": null,
+    "action": "sleep",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "bedtime",
+    "attempts": 0,
+    "latency_s": 0.0
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-08T21:00+05:30",
-  "asleep": false,
+  "until": "2026-11-09T00:00+05:30",
+  "asleep": true,
   "imprest": 346,
   "wearing": "kurta",
   "wardrobe": [
