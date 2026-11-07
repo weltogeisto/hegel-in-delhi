@@ -53,11 +53,45 @@ class SupportAndHistoryTest(unittest.TestCase):
             value=api.run_dataset("freeze","records",object(),lambda *a:None,"out")
             self.assertEqual(value,{"situations":500})
             self.assertEqual(export.call_args.args[1],["shadow:1:1","rehearsal:41:1"])
+            self.assertEqual(b.call_args.kwargs["target"],499)          # 500 less the eligible shadow
         with patch.object(api,"sample_shadow",side_effect=RuntimeError("partial")), \
              patch.object(api,"rehearse") as b:
             with self.assertRaisesRegex(RuntimeError,"partial"):
                 api.run_dataset("freeze","records",object(),lambda *a:None,"out")
             b.assert_not_called()
+
+class HeldShadowTest(unittest.TestCase):
+    def freeze(self, held_at):
+        from tests.test_decision_split import HELD
+        from tools.decision_sampler import save
+        root = Path(tempfile.mkdtemp(prefix="held-shadow-test-"))
+        ids, rows = [], []
+        for i in range(109):
+            ident = f"shadow:35:{i}"
+            user = ("You remember: " + HELD) if i in held_at else f"Situation {i}, nothing remembered."
+            row = dict(id=ident, source="shadow", messages=[dict(role="system",content="soul"),dict(role="user",content=user)])
+            name = digest(ident.encode()) + ".json"
+            save(root/"situations"/name, row)
+            ids.append(ident)
+            rows.append(dict(id=ident, path="situations/"+name, sha256=digest(json_bytes(row))))
+        (root/"SHADOW-IDS.json").write_bytes(json_bytes(ids))
+        roster = digest(json_bytes(ids))
+        save(root/"MANIFEST.json", dict(situations=109, roster_sha256=roster, rows=rows))
+        return root, roster, [ids[i] for i in sorted(held_at)]
+
+    def test_held_related_shadow_is_never_sampled_and_must_match_the_frozen_list(self):
+        root, roster, held = self.freeze({3, 50})
+        sampled = []
+        sampler = SimpleNamespace(sample=lambda row: sampled.append(row["id"]))
+        with patch.object(api,"ROSTER_SHA256",roster), patch.object(api,"frozen_shadow_exclusions",return_value=tuple(held)):
+            eligible = api.sample_shadow(root, sampler)
+        self.assertEqual(len(eligible), 107)
+        self.assertEqual(sampled, eligible)
+        self.assertFalse(set(held) & set(sampled))
+        with patch.object(api,"ROSTER_SHA256",roster), patch.object(api,"frozen_shadow_exclusions",return_value=(held[0],)):
+            with self.assertRaisesRegex(ValueError,"frozen training3-split-1"):
+                api.sample_shadow(root, SimpleNamespace(sample=lambda row: None))
+
 
 class ActualRehearsalLoopTest(unittest.TestCase):
     def test_real_engine_with_fake_guard_preserves_prefix_and_four_seeds(self):

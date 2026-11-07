@@ -185,6 +185,29 @@ class RehearsalAdapterTest(unittest.TestCase):
             mind.decide(frozen["messages"],sit)
         self.assertEqual(len(transport.calls),4)
 
+    def test_held_related_rehearsal_advances_with_one_recorded_call(self):
+        from types import SimpleNamespace
+        from tests.test_decision_split import HELD
+        root = Path(tempfile.mkdtemp(prefix="decision-held-test-"))
+        transport = Transport()
+        sampler = ds.Sampler(root,CheckWorld(),transport)
+        frozen = context(source="rehearsal",day=40,step=0,when="2026-11-10")
+        sit,ctx,state = ds.restored_context(frozen["check"])
+        world = SimpleNamespace(current_day=dict(n=40,date="2026-11-10",steps=[]),current=(sit,ctx,state))
+        messages = [frozen["messages"][0], dict(role="user",content="You remember:\n- Day 12, you thought: " + HELD + " and more.")]
+        mind = ds.CandidateMind(sampler,world,lambda *a,**k: None,limit=1)
+        raw = mind.decide(messages,sit)
+        self.assertEqual([k for k,_ in transport.calls],["held/rehearsal:40:0/1831"])
+        self.assertEqual(mind.completed_ids,set())
+        self.assertFalse(list(root.glob("*/ROW.json")))
+        record = ds.checked(next((root/"held-related").glob("*.json")))
+        self.assertEqual((record["id"],record["training_eligible"],record["raw"]),("rehearsal:40:0",False,raw))
+        again = messages + [dict(role="assistant",content=raw),dict(role="user",content="world refuses")]
+        self.assertEqual(mind.decide(again,sit),raw)
+        restarted = ds.CandidateMind(sampler,world,lambda *a,**k: None,limit=1)
+        self.assertEqual(restarted.decide(messages,sit),raw)
+        self.assertEqual(len(transport.calls),1)
+
     def test_published_roster_is_the_fixed_provenance_selection(self):
         from tools.decision_situations import PROVENANCE_EXCLUSIONS
         path = Path(ds.__file__).resolve().parents[1] / "pc/training3-shadow-ids.json"
