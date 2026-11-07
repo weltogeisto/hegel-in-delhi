@@ -436,6 +436,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "14:23",
+   "to": "14:38",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -913,6 +920,40 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "14:03"
+  },
+  {
+   "k": "diary",
+   "text": "The body asserts its particularity against the universal spirit; I am hungry, and the samosa is the immediate object of my will. Sunil treats the intellect as a luxury, but the stomach is a necessity that must be satisfied before any further reflection is possible. I accept the cup, for it is Diwali, and the system of needs must be maintained.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§198"
+    }
+   ],
+   "t": "14:23"
+  },
+  {
+   "k": "said",
+   "text": "The intellect may rest, but the body must be fed. Here, take the chai; it is warm.",
+   "to": "Sunil",
+   "t": "14:23"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Arre, bas bas, philosophy band karo. Chai garam hai, samosa bhi garam hai, bas pet bharna hai aaj. Diwali hai, dimag theek hai toh pet bhi theek rakhna.",
+   "t": "14:23"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "14:23"
   }
  ],
  "steps": [
@@ -1793,15 +1834,73 @@
      "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
     }
    ]
+  },
+  {
+   "t": "14:23",
+   "end": "14:38",
+   "event": "Sunil says: “Suno, aadmi, Diwali hai toh dimag bhi chhutti par ho. Sochna kal ka kaam hai, aaj samose khana hai. Aur haan, chai abhi bhi garam hai, lo.” He slides the cup of chai across the counter without looking up. You are hungry.",
+   "present": [
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The body asserts its particularity against the universal spirit; I am hungry, and the samosa is the immediate object of my will. Sunil treats the intellect as a luxury, but the stomach is a necessity that must be satisfied before any further reflection is possible. I accept the cup, for it is Diwali, and the system of needs must be maintained.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 15,
+    "says": "The intellect may rest, but the body must be fed. Here, take the chai; it is warm.",
+    "buys": [
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Arre, bas bas, philosophy band karo. Chai garam hai, samosa bhi garam hai, bas pet bharna hai aaj. Diwali hai, dimag theek hai toh pet bhi theek rakhna.",
+    "does": "Pushes the cup of chai firmly across the counter towards him."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.8
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:643"
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§198",
+     "id": "enzyklopaedie:513"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "The civil rights implied in it give rise to a feeling of self-respect, the sense of counting as a lawful person in the civic community. This feeling of being infinite and free from all Others is the root out of which springs the needed balance of the various kinds of thought and sentiment. The isolation with which the Jews have been blamed it is better to preserve."
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§198",
+     "text": "Wie das Sonnensystem, so ist z. B. im Praktischen der Staat ein System von drei Schlüssen. 1) Der Einzelne (die Person) schliesst sich durch seine Besonderheit (die physischen und geistigen Bedürfnisse, was weiter für sich ausgebildet die bürgerliche Gesellschaft giebt) mit dem Allgemeinen (der Gesellschaft, dem Rechte, Gesetz, Regierung) zusammen. 2) Ist der Wille…"
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-08T14:23+05:30",
+  "until": "2026-11-08T14:38+05:30",
   "asleep": false,
-  "imprest": 596,
+  "imprest": 566,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1897,7 +1996,8 @@
    },
    "no_meals": true,
    "walked": 2025,
-   "strain": 2025
+   "strain": 2025,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
@@ -2033,6 +2133,13 @@
      "t": "14:03",
      "item": "Chai, a cup",
      "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-08",
+     "t": "14:23",
+     "item": "Samosa",
+     "price": 30,
      "office": false
     }
    ],
@@ -2236,7 +2343,7 @@
    "sim": false
   },
   "last_meal": "2026-10-27T18:45+05:30",
-  "snacks": 16,
+  "snacks": 17,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
