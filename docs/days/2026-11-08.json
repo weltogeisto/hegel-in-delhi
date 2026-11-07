@@ -555,6 +555,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "20:59",
+   "to": "21:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Reading at home."
   }
  ],
  "entries": [
@@ -1440,6 +1447,21 @@
    "to": "Hegel",
    "text": "Bhagwan. I'll be done in ten minutes.",
    "t": "20:29"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh retreats to the kitchen, the only engine still running in this house. I am left alone in the study with the brown haze pressing against the glass and the silence of the unfiled orders. The body is fed, for now; the mind must turn to the tension between the state’s claim and the individual’s reality, a tension that feels sharper here than in Berlin.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates"
+    }
+   ],
+   "t": "20:59"
   }
  ],
  "steps": [
@@ -3167,13 +3189,58 @@
      "text": "He then proved that at night he carried water for a gardener, and by means of this occupation, earned as much as he required in order in the day to be in Zeno’s company—as to which the only point which is not quite comprehensible to us is how, even in such a way, philosophy, of all things, could be studied."
     }
    ]
+  },
+  {
+   "t": "20:59",
+   "end": "21:00",
+   "event": "Ramesh says: “Bhagwan. I'll be done in ten minutes.” Ramesh turns his back on the study and walks toward the kitchen door.",
+   "present": [],
+   "decision": {
+    "thought": "Ramesh retreats to the kitchen, the only engine still running in this house. I am left alone in the study with the brown haze pressing against the glass and the silence of the unfiled orders. The body is fed, for now; the mind must turn to the tension between the state’s claim and the individual’s reality, a tension that feels sharper here than in Berlin.",
+    "action": "read",
+    "place": "home",
+    "minutes": 45,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.9
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "id": "haldane-1:958"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "text": "Socrates alone did not agree with this decision, declaring himself more emphatically against the people than against the rulers. To-day he fares badly who says anything against the people. “The people have excellent intelligence, understand everything, and have only the most excellent intentions.”"
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-08T20:59+05:30",
+  "until": "2026-11-08T21:00+05:30",
   "asleep": false,
   "imprest": 346,
   "wearing": "kurta",
