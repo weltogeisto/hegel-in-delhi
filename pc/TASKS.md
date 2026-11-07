@@ -2,6 +2,21 @@
 
 Rules: `COLLABORATION.md`. PR #1 comments only for done, blocked or a question, at most six lines. The top open task for each owner comes first. Status is one of `OPEN`, `RUNNING`, `DONE` (with commit and numbers) or `BLOCKED` (with what is needed).
 
+## Current, 7 November 2026
+
+The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). Welt confirmed its six decisions the same day; they are `DECISIONS.md` 16–22, with Delta kept only as a diagnostic. The 48-hour delivery target runs from 7 November. The T-history below is kept; the M-packets are the manual's §10.
+
+| Packet | Owner | State | Next artifact |
+|---|---|---|---|
+| T39 · repetition screen | Astra | RUNNING, continues by day | DONE with the table and the blind sheet; Claude scores it |
+| M5 · Training 3 sampler | Astra, reviewed by Claude | DONE, PR #10 merged (`4b86952`): 109 shadow + 391 rehearsal situations | sampling in the spare slot after T39 |
+| M5 · Training 3 DPO path | Astra, fixes by Claude | IN REVIEW, PR #11 | save-before-check, the tokenizer's turn end, frozen-input checks; then merge |
+| M5 · Training 3 labels | Claude | OPEN | the manual's corrections (§7.3–7.5) on main before any pair trains; both yields reported |
+| M0 · baseline receipt | Astra | OPEN | actual PC/Pi revisions and effective settings, once; the 6 November forty-case export (manual §14.2) |
+| M1 · ordinary life and rewrites | Claude, then Astra | OPEN | soul and restyle instruction changes, the new rubric, the 144-call screen |
+
+Gates stay as declared: nothing goes live without its matched comparison and Claude's confirmed pass, and Training 3 runs by day only, under Welt's go of 6 November.
+
 ## Monday 12 October
 
 The goal for today is that Hegel lives his first real day tonight. Delhi midnight is 18:30 UTC (20:30 Berlin). Everything that passes the ratchet today is on main by then.
