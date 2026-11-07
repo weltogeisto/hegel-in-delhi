@@ -527,6 +527,13 @@
    "mode": "walk",
    "a": "khan",
    "b": "home"
+  },
+  {
+   "from": "18:14",
+   "to": "19:14",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1313,6 +1320,21 @@
     }
    ],
    "t": "17:47"
+  },
+  {
+   "k": "diary",
+   "text": "The evening settles into a brown silence, the haze pressing against the glass like a veil over a dream. Ramesh stands there, a silent dialectic of need and neglect, his unpaid wages a knot in the household's fabric that I have no means to untangle. I am too tired to argue with the air, and too poor to feed the man who keeps the house alive. I shall sit in the dark and let the day dissolve into the night.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature"
+    }
+   ],
+   "t": "18:14"
   }
  ],
  "steps": [
@@ -2829,13 +2851,60 @@
      "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
     }
    ]
+  },
+  {
+   "t": "18:14",
+   "end": "19:14",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The evening settles into a brown silence, the haze pressing against the glass like a veil over a dream. Ramesh stands there, a silent dialectic of need and neglect, his unpaid wages a knot in the household's fabric that I have no means to untangle. I am too tired to argue with the air, and too poor to feed the man who keeps the house alive. I shall sit in the dark and let the day dissolve into the night.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 60,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.6
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "id": "haldane-2:425"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "text": "And again, the matter of a small body and a large is the same, because at one time a greater proceeds from a smaller, and at another time a smaller from a greater."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-08T18:14+05:30",
+  "until": "2026-11-08T19:14+05:30",
   "asleep": false,
   "imprest": 346,
   "wearing": "kurta",
