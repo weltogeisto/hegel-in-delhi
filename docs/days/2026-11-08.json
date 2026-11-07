@@ -457,6 +457,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with Sunil at Khan Market."
+  },
+  {
+   "from": "15:03",
+   "to": "15:13",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Going from shop to shop in Khan Market."
   }
  ],
  "entries": [
@@ -1030,6 +1037,34 @@
    "to": "Hegel",
    "text": "Achha, 'dialectic' samjhe, matlab sugar ka bill tumhare paas hai. Diwali hai, shubh raho aur jaldi utho kal, traffic mein phanso mat.",
    "t": "14:53"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil’s dismissal is the necessary boundary of our exchange; he has served his function as the particular agent of my needs, and I must now withdraw into the universal. The haze thickens as the afternoon wanes, a brown veil over the city that refuses to let me see the stars that should be there. I have eaten the samosa and drunk the chai; the body is sated, but the spirit requires a different nourishment. I shall seek the bookseller, for in the system of needs, the mind is the highest need.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "15:03"
+  },
+  {
+   "k": "said",
+   "text": "Shubh Diwali, Sunil. Keep your rag to yourself; I am not so dirty.",
+   "to": "Sunil",
+   "t": "15:03"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Arre, matlab main hoon ganda, samosa nahi? Chai garam hai, thanda na hone do. Kal subah Lodhi Road pe milte hain, tab tak.",
+   "t": "15:03"
   }
  ],
  "steps": [
@@ -2079,13 +2114,69 @@
      "text": "The recognition of the claim that whatever in the civic community and the state is rationally necessary should occur through subjective free choice is a fuller definition of the popular idea of freedom (§ 121). The particularity of the individual becomes definitely and actually realized, only by his limiting himself exclusively to one of the particular spheres of want."
     }
    ]
+  },
+  {
+   "t": "15:03",
+   "end": "15:13",
+   "event": "Sunil says: “Achha, 'dialectic' samjhe, matlab sugar ka bill tumhare paas hai. Diwali hai, shubh raho aur jaldi utho kal, traffic mein phanso mat.” He wipes the counter with a rag and pushes the cup towards him.",
+   "present": [
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil’s dismissal is the necessary boundary of our exchange; he has served his function as the particular agent of my needs, and I must now withdraw into the universal. The haze thickens as the afternoon wanes, a brown veil over the city that refuses to let me see the stars that should be there. I have eaten the samosa and drunk the chai; the body is sated, but the spirit requires a different nourishment. I shall seek the bookseller, for in the system of needs, the mind is the highest need.",
+    "action": "stay",
+    "place": "khan",
+    "minutes": 10,
+    "says": "Shubh Diwali, Sunil. Keep your rag to yourself; I am not so dirty.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Arre, matlab main hoon ganda, samosa nahi? Chai garam hai, thanda na hone do. Kal subah Lodhi Road pe milte hain, tab tak.",
+    "does": "Sunil scrubs the counter harder and slides the cup closer."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.7,
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-08T15:03+05:30",
+  "until": "2026-11-08T15:13+05:30",
   "asleep": false,
   "imprest": 546,
   "wearing": "kurta",
