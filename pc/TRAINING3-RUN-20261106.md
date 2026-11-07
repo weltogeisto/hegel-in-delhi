@@ -25,9 +25,16 @@ The discipline of Training 1's last run holds: a reviewed launcher, a rehearsal 
 python3 tools/decision_pairs.py --candidates SAMPLER.jsonl --out PAIRS.jsonl
 ```
 
-- **Chosen:** accepted by the world, with no four-word phrase shared with the day's earlier thoughts (T9's rule).
-- **Rejected:** refused by the world, or repeating.
-- **Matching:** one pair per situation, length-matched within 20%, in seed order.
+**Revised 7 November** (Welt's decisions, `DECISIONS.md` 16–22; the manual §7.3–7.5). The labels judge only what the exact prompt shows him, and Training 3 trains on these alone:
+- **Chosen:** accepted by the world, complete, and no loop. A phrase he has used before is no fault in itself.
+- **Rejected:**
+  - a loop: where nothing new happens, the thought shares a four-word phrase with a thought shown under "Earlier today" and repeats that step's action at that step's place;
+  - or a refusal the prompt shows how to avoid: the contract, the 1831 gate, money, tickets, or repeating a thought that is shown.
+- **Never paired:** refusals for what the prompt doesn't show (a place closed on arrival, a repeat of a thought no longer shown), truncated replies, unparsable ones.
+- **Matching:** one pair per situation, length-matched within 20%, in seed order; every chosen candidate gets its turn.
+- **Checks:** the four frozen seeds, `accepted` agreeing with the errors, each answer equal to its parsed raw reply, two-message prompts, and no rehearsal before 10 November.
+
+The rule of 6 November stays as `--view legacy`, for comparison only; the revised stats report its yield beside their own, with whole-day phrase overlap as a diagnostic. The trainer refuses legacy pairs.
 
 No model's taste picks anything. Post the stats file on PR #1. If there are fewer than 200 pairs, stop and report.
 

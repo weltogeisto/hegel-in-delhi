@@ -10,8 +10,8 @@ The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). W
 |---|---|---|---|
 | T39 · repetition screen | Astra | RUNNING, continues by day | DONE with the table and the blind sheet; Claude scores it |
 | M5 · Training 3 sampler | Astra, reviewed by Claude | DONE, PR #10 merged (`4b86952`): 109 shadow + 391 rehearsal situations | sampling in the spare slot after T39 |
-| M5 · Training 3 DPO path | Astra, fixes by Claude | IN REVIEW, PR #11 | save-before-check, the tokenizer's turn end, frozen-input checks; then merge |
-| M5 · Training 3 labels | Claude | OPEN | the manual's corrections (§7.3–7.5) on main before any pair trains; both yields reported |
+| M5 · Training 3 DPO path | Astra, fixes by Claude | DONE, PR #11 merged with Claude's fixes in #13 (`c5c0893`) | the rehearsal by day, after sampling and labels |
+| M5 · Training 3 labels | Claude | DONE, the revised labels (`tools/decision_pairs.py`, rule `training3-labels-2`); the trainer takes no other | both yields, revised and legacy, on PR #1 once the candidates exist |
 | M0 · baseline receipt | Astra | OPEN | actual PC/Pi revisions and effective settings, once; the 6 November forty-case export (manual §14.2) |
 | M1 · ordinary life and rewrites | Claude, then Astra | OPEN | soul and restyle instruction changes, the new rubric, the 144-call screen |
 

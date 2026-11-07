@@ -34,6 +34,8 @@ def validated_pairs(candidate_path, pairs_path, stats_path):
     stats = json.loads(Path(stats_path).read_bytes())
     if stats["candidates_sha256"] != sha(candidate_raw) or stats["pairs_sha256"] != sha(pair_raw):
         raise ValueError("pair or candidate digest differs")
+    if stats.get("view") != "revised":
+        raise ValueError("Training 3 trains on the revised labels only (Welt, 7 November); the legacy view is for comparison")
     candidates, pairs = read_rows(candidate_raw), read_rows(pair_raw)
     for row in candidates:
         if row["source"] == "rehearsal" and date.fromisoformat(row["date"]) < date(2026, 11, 10):
@@ -43,7 +45,7 @@ def validated_pairs(candidate_path, pairs_path, stats_path):
         messages = row["messages"]
         if [m.get("role") for m in messages] != ["system", "user"]:
             raise ValueError("decision pairs require the original two-message prompt")
-    expected, rebuilt = decision_pairs.build(candidates)
+    expected, rebuilt = decision_pairs.build(candidates, view="revised")
     if pairs != expected or any(stats.get(k) != v for k, v in rebuilt.items()):
         raise ValueError("label output does not match the reviewed deterministic labeller")
     if len(pairs) < MIN_PAIRS:
