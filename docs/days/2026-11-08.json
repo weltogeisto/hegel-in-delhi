@@ -464,6 +464,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Going from shop to shop in Khan Market."
+  },
+  {
+   "from": "15:13",
+   "to": "15:28",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Talking with Sunil at Khan Market."
   }
  ],
  "entries": [
@@ -1065,6 +1072,34 @@
    "to": "Hegel",
    "text": "Arre, matlab main hoon ganda, samosa nahi? Chai garam hai, thanda na hone do. Kal subah Lodhi Road pe milte hain, tab tak.",
    "t": "15:03"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil’s joke is the dialectic of the particular refusing to be subsumed by the universal: I am the dirty one, not the samosa, yet the tea is hot and the city is full of light. He bids me at Lodhi Road tomorrow, a concrete appointment that binds my wandering spirit to a place and a time. I will accept the hospitality of the moment and the warmth of the cup, for even the Absolute must drink its chai.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33"
+    }
+   ],
+   "t": "15:13"
+  },
+  {
+   "k": "said",
+   "text": "The samosa is pure matter, Sunil; it cannot be dirty, only consumed. But you, as a subject, can be. I will meet you at Lodhi Road tomorrow morning. For now, let the tea warm the hand.",
+   "to": "Sunil",
+   "t": "15:13"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Arre, matter, subject, bas samosa kha lo pehle. Kal subah Lodhi Road pe milte hain, tab tak thanda na hone do. Diwali mubarak, jaao ab.",
+   "t": "15:13"
   }
  ],
  "steps": [
@@ -2170,13 +2205,66 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "15:13",
+   "end": "15:28",
+   "event": "Sunil says: “Arre, matlab main hoon ganda, samosa nahi? Chai garam hai, thanda na hone do. Kal subah Lodhi Road pe milte hain, tab tak.” Sunil scrubs the counter harder and slides the cup closer.",
+   "present": [
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil’s joke is the dialectic of the particular refusing to be subsumed by the universal: I am the dirty one, not the samosa, yet the tea is hot and the city is full of light. He bids me at Lodhi Road tomorrow, a concrete appointment that binds my wandering spirit to a place and a time. I will accept the hospitality of the moment and the warmth of the cup, for even the Absolute must drink its chai.",
+    "action": "talk",
+    "place": "khan",
+    "minutes": 15,
+    "says": "The samosa is pure matter, Sunil; it cannot be dirty, only consumed. But you, as a subject, can be. I will meet you at Lodhi Road tomorrow morning. For now, let the tea warm the hand.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Arre, matter, subject, bas samosa kha lo pehle. Kal subah Lodhi Road pe milte hain, tab tak thanda na hone do. Diwali mubarak, jaao ab.",
+    "does": "He wipes his hands on the apron and gestures him away."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.2
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:133"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "id": "rechts:121"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "This is the stage of the civic community, which has frequently been taken for the state. But the state does not arise until we reach the third stage. that stage of ethical observance or spirit, in whicli both individual independence and universal substantivity are found in gigantic union. The right of the state is, therefore, higher than that of the other stages."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-08T15:13+05:30",
+  "until": "2026-11-08T15:28+05:30",
   "asleep": false,
   "imprest": 546,
   "wearing": "kurta",
