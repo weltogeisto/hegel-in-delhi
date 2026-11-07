@@ -443,6 +443,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "14:38",
+   "to": "14:53",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -954,6 +961,40 @@
    "item": "Samosa",
    "price": 30,
    "t": "14:23"
+  },
+  {
+   "k": "diary",
+   "text": "The body, in its immediate need, rejects the speculative distance I maintain; it demands the concrete, the warm, the present. Sunil’s insistence on the samosa is the triumph of the particular over the universal, a necessary moment in the dialectic of my own existence. I accept the cup not as a concession, but as the recognition that the spirit must inhabit the flesh to act in the world.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§207"
+    }
+   ],
+   "t": "14:38"
+  },
+  {
+   "k": "said",
+   "text": "The cup is accepted. The negation of the samosa is suspended for the sake of the stomach.",
+   "to": "Sunil",
+   "t": "14:38"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Arre, 'negation of the samosa' kya bala hai aajkal? Kha lo sharam na karo, Diwali hai toh pet bhi Diwali manayega. Thoda meetha kar raha hoon, tension chhod ke.",
+   "t": "14:38"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "14:38"
   }
  ],
  "steps": [
@@ -1892,15 +1933,73 @@
      "text": "Wie das Sonnensystem, so ist z. B. im Praktischen der Staat ein System von drei Schlüssen. 1) Der Einzelne (die Person) schliesst sich durch seine Besonderheit (die physischen und geistigen Bedürfnisse, was weiter für sich ausgebildet die bürgerliche Gesellschaft giebt) mit dem Allgemeinen (der Gesellschaft, dem Rechte, Gesetz, Regierung) zusammen. 2) Ist der Wille…"
     }
    ]
+  },
+  {
+   "t": "14:38",
+   "end": "14:53",
+   "event": "Sunil says: “Arre, bas bas, philosophy band karo. Chai garam hai, samosa bhi garam hai, bas pet bharna hai aaj. Diwali hai, dimag theek hai toh pet bhi theek rakhna.” Pushes the cup of chai firmly across the counter towards him.",
+   "present": [
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The body, in its immediate need, rejects the speculative distance I maintain; it demands the concrete, the warm, the present. Sunil’s insistence on the samosa is the triumph of the particular over the universal, a necessary moment in the dialectic of my own existence. I accept the cup not as a concession, but as the recognition that the spirit must inhabit the flesh to act in the world.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 15,
+    "says": "The cup is accepted. The negation of the samosa is suspended for the sake of the stomach.",
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Arre, 'negation of the samosa' kya bala hai aajkal? Kha lo sharam na karo, Diwali hai toh pet bhi Diwali manayega. Thoda meetha kar raha hoon, tension chhod ke.",
+    "does": "He adds a spoonful of sugar to the cup and stirs it vigorously."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.6
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "id": "dyde-right:542"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§207",
+     "id": "rechts:459"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "text": "But the sphere of this right is limited, and refers merely to the protection of what I have. To right as such, happiness is something external. Tet in the system of wants well-being is an essential element. The universal, which is at first only right, has to spread itself over the whole field of particularity. Justice, it is true, is a large factor in the civic community."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§207",
+     "text": "Die sittliche Gesinnung in diesem Systeme ist daher die Rechtschaffenheit, und die Standesehre, sich und zwar aus eigener Bestimmung durch seine Tätigkeit, Fleiß und Geschicklichkeit zum Gliede eines der Momente der bürgerlichen Gesellschaft zu machen und als solches zu erhalten, und nur durch diese Vermittelung mit dem Allgemeinen für sich zu sorgen…"
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-08T14:38+05:30",
+  "until": "2026-11-08T14:53+05:30",
   "asleep": false,
-  "imprest": 566,
+  "imprest": 546,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -2140,6 +2239,13 @@
      "t": "14:23",
      "item": "Samosa",
      "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-08",
+     "t": "14:38",
+     "item": "Chai, a cup",
+     "price": 20,
      "office": false
     }
    ],
