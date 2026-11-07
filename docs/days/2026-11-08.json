@@ -499,6 +499,20 @@
    "mode": "walk",
    "a": "khan",
    "b": "home"
+  },
+  {
+   "from": "16:50",
+   "to": "17:17",
+   "mode": "walk",
+   "a": "home",
+   "b": "khan"
+  },
+  {
+   "from": "17:17",
+   "to": "17:32",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -1221,6 +1235,40 @@
    "to": "Hegel",
    "text": "Steam is just steam, sir. If you're done wandering, I've got a fresh pot of masala chai, or a hot samosa if you're still hungry. Your call.",
    "t": "16:23"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil’s offer is a small act of civility in a system of needs that has otherwise treated me as an anomaly. I am not hungry; the samosa at the dhaba sat heavy, and the body is now in a state of digestion rather than demand. But the haze outside is thickening, and the air quality is a physical weight on the lungs. A cup of chai, taken slowly, is a pause that allows the mind to settle before the evening’s walk. It is a cheap commodity, and I have the means to acquire it without touching the state’s imprest.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    }
+   ],
+   "t": "16:50"
+  },
+  {
+   "k": "said",
+   "text": "A cup of chai, then. The steam is a good thing; it clears the head.",
+   "to": "Ramesh",
+   "t": "16:50"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes, Sir. Here is your chai, just as you like it.",
+   "t": "16:50"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "17:17"
   }
  ],
  "steps": [
@@ -2581,15 +2629,75 @@
      "text": "Dies ist der hohe Punkt, eine Spitze, die einerseits noch dem Orient angehört, anderseits über die Grenzen des Orientalischen hinausgeht; wir beobachten hier das Umschlagen N des morgenländischen Prinzips. Der Morgenländer erklärt die 5 k Natur für das Erste; bei den Juden steht umgekehrt das; 2 Geistige zuerst."
     }
    ]
+  },
+  {
+   "t": "16:50",
+   "end": "17:32",
+   "event": "Sunil says: “Steam is just steam, sir. If you're done wandering, I've got a fresh pot of masala chai, or a hot samosa if you're still hungry. Your call.” Sunil wipes the counter with a rag and nods towards the stove.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Sunil’s offer is a small act of civility in a system of needs that has otherwise treated me as an anomaly. I am not hungry; the samosa at the dhaba sat heavy, and the body is now in a state of digestion rather than demand. But the haze outside is thickening, and the air quality is a physical weight on the lungs. A cup of chai, taken slowly, is a pause that allows the mind to settle before the evening’s walk. It is a cheap commodity, and I have the means to acquire it without touching the state’s imprest.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 15,
+    "says": "A cup of chai, then. The steam is a good thing; it clears the head.",
+    "buys": [
+     {
+      "item": "Masala chai",
+      "price_inr": 40
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes, Sir. Here is your chai, just as you like it.",
+    "does": "Ramesh places the steaming cup on the counter and steps back."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.9,
+    "warnings": [
+     "price of 'Masala chai' set to ₹20"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "id": "dyde-right:549"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "text": "Note. — In contrast with freedom of business and trade in the civic community stands the other extreme of the establishment and direction of the work of all by means of official regulation. Under this head comes perhaps the construction of the pyramids and other monstrous Egyptian and Asiatic works."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-08T16:50+05:30",
+  "place": "khan",
+  "until": "2026-11-08T17:32+05:30",
   "asleep": false,
-  "imprest": 366,
+  "imprest": 346,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -2684,8 +2792,8 @@
     ]
    },
    "no_meals": true,
-   "walked": 4050,
-   "strain": 4050
+   "walked": 6075,
+   "strain": 6075
   },
   "account": {
    "advance": 15000,
@@ -2842,6 +2950,13 @@
      "t": "15:28",
      "item": "Chole bhature at a dhaba",
      "price": 180,
+     "office": false
+    },
+    {
+     "date": "2026-11-08",
+     "t": "17:17",
+     "item": "Chai, a cup",
+     "price": 20,
      "office": false
     }
    ],
