@@ -495,6 +495,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "14:11",
+   "to": "14:38",
+   "mode": "walk",
+   "a": "khan",
+   "b": "home"
   }
  ],
  "entries": [
@@ -800,13 +807,42 @@
      ]
     ]
    }
+  },
+  {
+   "t": "14:11",
+   "end": "14:38",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [
+    "Masterji, the tailor",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "walk",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": "home",
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-11-09T14:11+05:30",
+  "place": "home",
+  "until": "2026-11-09T14:38+05:30",
   "asleep": false,
   "imprest": 166,
   "wearing": "kurta",
@@ -902,8 +938,8 @@
     ]
    },
    "no_meals": true,
-   "walked": 2025,
-   "strain": 2025
+   "walked": 4050,
+   "strain": 4050
   },
   "account": {
    "advance": 15000,
