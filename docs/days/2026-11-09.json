@@ -565,6 +565,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "19:08",
+   "to": "19:38",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1151,13 +1158,42 @@
      ]
     ]
    }
+  },
+  {
+   "t": "19:08",
+   "end": "19:38",
+   "event": "You are hungry.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.1,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-09T19:08+05:30",
+  "until": "2026-11-09T19:38+05:30",
   "asleep": false,
   "imprest": 166,
   "wearing": "kurta",
@@ -1254,7 +1290,8 @@
    },
    "no_meals": true,
    "walked": 4050,
-   "strain": 4050
+   "strain": 4050,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
