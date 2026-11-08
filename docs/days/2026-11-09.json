@@ -488,6 +488,13 @@
    "mode": "walk",
    "a": "home",
    "b": "khan"
+  },
+  {
+   "from": "13:41",
+   "to": "14:11",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -495,6 +502,12 @@
    "k": "world",
    "text": "Morning papers: “Congress donations fall nearly 75%, sharpest decline in a decade” · “‘Armed Naxals wiped out, need to save country from dimagi-Naxals’: PM Modi in Bastar” · “PM Modi to celebrate Deepavali with forces in Bastar that was once den of Maoists”",
    "t": "09:14"
+  },
+  {
+   "k": "bag",
+   "item": "Chole bhature at a dhaba",
+   "price": 180,
+   "t": "13:41"
   }
  ],
  "steps": [
@@ -753,15 +766,49 @@
      ]
     ]
    }
+  },
+  {
+   "t": "13:41",
+   "end": "14:11",
+   "event": "You arrive at Khan Market. It closes at 20:30. Masterji is here.",
+   "present": [
+    "Masterji, the tailor",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "eat",
+    "place": "khan",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": [
+     {
+      "item": "Chole bhature at a dhaba",
+      "price_inr": 180
+     }
+    ]
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-09T13:41+05:30",
+  "until": "2026-11-09T14:11+05:30",
   "asleep": false,
-  "imprest": 346,
+  "imprest": 166,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -848,6 +895,10 @@
     "home": [
      "hegde",
      "ramesh"
+    ],
+    "khan": [
+     "bookseller",
+     "masterji"
     ]
    },
    "no_meals": true,
@@ -1017,6 +1068,13 @@
      "item": "Chai, a cup",
      "price": 20,
      "office": false
+    },
+    {
+     "date": "2026-11-09",
+     "t": "13:41",
+     "item": "Chole bhature at a dhaba",
+     "price": 180,
+     "office": false
     }
    ],
    "admitted": 730,
@@ -1067,7 +1125,8 @@
     "2026-11-05",
     "2026-11-06",
     "2026-11-07",
-    "2026-11-08"
+    "2026-11-08",
+    "2026-11-09"
    ],
    "gym": [
     "2026-10-02"
@@ -1168,7 +1227,8 @@
     "2026-10-28",
     "2026-11-05",
     "2026-11-06",
-    "2026-11-07"
+    "2026-11-07",
+    "2026-11-09"
    ],
    "nidhi": [
     "2026-10-02"
@@ -1221,7 +1281,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-08T15:28+05:30",
+  "last_meal": "2026-11-09T13:41+05:30",
   "snacks": 0,
   "works": [
    {
