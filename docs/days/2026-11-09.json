@@ -432,6 +432,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "09:44",
+   "to": "10:14",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -469,13 +476,42 @@
      ]
     ]
    }
+  },
+  {
+   "t": "09:44",
+   "end": "10:14",
+   "event": "Nothing is cooked at home: Ramesh has not been paid his wage for cooking. Shri G. Hegde is here.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.1,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-09T09:44+05:30",
+  "until": "2026-11-09T10:14+05:30",
   "asleep": false,
   "imprest": 346,
   "wearing": "kurta",
@@ -562,9 +598,11 @@
    ],
    "seen": {
     "home": [
+     "hegde",
      "ramesh"
     ]
-   }
+   },
+   "no_meals": true
   },
   "account": {
    "advance": 15000,
@@ -914,7 +952,8 @@
     "2026-11-05",
     "2026-11-06",
     "2026-11-07",
-    "2026-11-08"
+    "2026-11-08",
+    "2026-11-09"
    ],
    "kapoor": [
     "2026-10-28"
