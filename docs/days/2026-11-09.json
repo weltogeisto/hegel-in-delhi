@@ -12,7 +12,7 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 21,
+    "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 202
@@ -24,7 +24,7 @@
     "aqi": 200
    },
    {
-    "temp": 20,
+    "temp": 19,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 199
@@ -36,13 +36,13 @@
     "aqi": 197
    },
    {
-    "temp": 19,
+    "temp": 18,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 196
    },
    {
-    "temp": 19,
+    "temp": 18,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 194
@@ -60,19 +60,19 @@
     "aqi": 188
    },
    {
-    "temp": 21,
+    "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 186
    },
    {
-    "temp": 23,
+    "temp": 22,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 184
    },
    {
-    "temp": 25,
+    "temp": 24,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 182
@@ -90,14 +90,8 @@
     "aqi": 180
    },
    {
-    "temp": 28,
+    "temp": 27,
     "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 181
-   },
-   {
-    "temp": 28,
-    "sky": "mostly clear, hazy",
     "rain": 0,
     "aqi": 181
    },
@@ -109,25 +103,31 @@
    },
    {
     "temp": 27,
-    "sky": "partly cloudy, hazy",
+    "sky": "mostly clear, hazy",
+    "rain": 0,
+    "aqi": 181
+   },
+   {
+    "temp": 26,
+    "sky": "mostly clear, hazy",
     "rain": 0,
     "aqi": 181
    },
    {
     "temp": 25,
-    "sky": "partly cloudy, hazy",
+    "sky": "overcast",
     "rain": 0,
     "aqi": 181
    },
    {
     "temp": 24,
-    "sky": "clear, hazy",
+    "sky": "overcast",
     "rain": 0,
     "aqi": 182
    },
    {
     "temp": 23,
-    "sky": "partly cloudy, hazy",
+    "sky": "overcast",
     "rain": 0,
     "aqi": 182
    },
@@ -145,13 +145,13 @@
    },
    {
     "temp": 21,
-    "sky": "partly cloudy, hazy",
+    "sky": "overcast",
     "rain": 0,
     "aqi": 188
    },
    {
     "temp": 21,
-    "sky": "clear, hazy",
+    "sky": "overcast",
     "rain": 0,
     "aqi": 191
    }
@@ -425,16 +425,58 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "09:14",
+   "to": "09:44",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Congress donations fall nearly 75%, sharpest decline in a decade” · “‘Armed Naxals wiped out, need to save country from dimagi-Naxals’: PM Modi in Bastar” · “PM Modi to celebrate Deepavali with forces in Bastar that was once den of Maoists”",
+   "t": "09:14"
+  }
+ ],
+ "steps": [
+  {
+   "t": "09:14",
+   "end": "09:44",
+   "event": "You wake. Clear, hazy, 22 °C. Ramesh has left the papers on the verandah. Headlines: Congress donations fall nearly 75%, sharpest decline in a decade; ‘Armed Naxals wiped out, need to save country from dimagi-Naxals’: PM Modi in Bastar; PM Modi to celebrate Deepavali with forces in Bastar that was once den of Maoists. Ramesh asks for ₹8,000 (the wage for cooking), and you have only ₹346. Ramesh asks for ₹1,500 (groceries), and you have only ₹346. Ramesh is here.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 0,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "the PC did not wake for the morning plan"
+     ]
+    ]
+   }
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-09T09:14+05:30",
-  "asleep": true,
+  "until": "2026-11-09T09:44+05:30",
+  "asleep": false,
   "imprest": 346,
   "wearing": "kurta",
   "wardrobe": [
@@ -512,7 +554,18 @@
    }
   ],
   "depesche_n": 2,
-  "today": {},
+  "today": {
+   "woke": "09:14",
+   "pressed": [
+    "Ramesh|the wage for cooking",
+    "Ramesh|groceries"
+   ],
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -705,7 +758,8 @@
     "2026-11-05",
     "2026-11-06",
     "2026-11-07",
-    "2026-11-08"
+    "2026-11-08",
+    "2026-11-09"
    ],
    "lodhi": [
     "2026-10-02",
@@ -812,7 +866,8 @@
     "2026-11-05",
     "2026-11-06",
     "2026-11-07",
-    "2026-11-08"
+    "2026-11-08",
+    "2026-11-09"
    ],
    "malhotra": [
     "2026-10-02",
