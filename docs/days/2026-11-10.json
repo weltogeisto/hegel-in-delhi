@@ -15,145 +15,145 @@
     "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 228
+    "aqi": 234
    },
    {
     "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 235
+    "aqi": 243
    },
    {
     "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 242
+    "aqi": 252
    },
    {
     "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 248
+    "aqi": 262
    },
    {
     "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 254
+    "aqi": 271
    },
    {
     "temp": 19,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 260
-   },
-   {
-    "temp": 18,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 266
-   },
-   {
-    "temp": 19,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 273
-   },
-   {
-    "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 278
    },
    {
+    "temp": 18,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 286
+   },
+   {
+    "temp": 19,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 295
+   },
+   {
+    "temp": 20,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 301
+   },
+   {
     "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 282
+    "aqi": 302
    },
    {
     "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 283
+    "aqi": 303
    },
    {
     "temp": 26,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 285
+    "aqi": 304
    },
    {
     "temp": 27,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 286
+    "aqi": 304
    },
    {
     "temp": 28,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 287
+    "aqi": 305
    },
    {
     "temp": 28,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 286
+    "aqi": 305
    },
    {
     "temp": 28,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 285
+    "aqi": 304
    },
    {
     "temp": 26,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 284
+    "aqi": 304
    },
    {
     "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 284
+    "aqi": 303
    },
    {
     "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 285
+    "aqi": 303
    },
    {
     "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 288
+    "aqi": 304
    },
    {
     "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 292
+    "aqi": 305
    },
    {
     "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 297
+    "aqi": 306
    },
    {
     "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 301
+    "aqi": 307
    },
    {
     "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 301
+    "aqi": 308
    }
   ]
  },
@@ -481,6 +481,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "12:44",
+   "to": "13:14",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -697,13 +704,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "12:44",
+   "end": "13:14",
+   "event": "The air is very poor today: the index stands at 304.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-10T12:44+05:30",
+  "until": "2026-11-10T13:14+05:30",
   "asleep": false,
   "imprest": 166,
   "wearing": "kurta",
@@ -794,7 +829,8 @@
      "ramesh"
     ]
    },
-   "no_meals": true
+   "no_meals": true,
+   "bad_air": true
   },
   "account": {
    "advance": 15000,
