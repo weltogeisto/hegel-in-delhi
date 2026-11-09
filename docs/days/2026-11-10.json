@@ -42,7 +42,7 @@
     "aqi": 254
    },
    {
-    "temp": 18,
+    "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 260
@@ -66,13 +66,13 @@
     "aqi": 278
    },
    {
-    "temp": 23,
+    "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 282
    },
    {
-    "temp": 25,
+    "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 283
@@ -432,16 +432,69 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "09:14",
+   "to": "09:44",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “At 1,152, Punjab records season’s biggest single-day jump in farm fires on Deepavali” · “After Karnataka’s excess ethanol claims, Kerala starts inspections, sample-testing of petrol” · “CM Suvendu defends encounter in Raiganj, says police entitled to retaliate in self-defence”",
+   "t": "09:14"
+  },
+  {
+   "k": "world",
+   "text": "Electricity: ₹1,800 falls due to the electricity company.",
+   "owe": {
+    "to": "the electricity company",
+    "amount": 1800,
+    "why": "electricity",
+    "since": "2026-11-10"
+   },
+   "t": "09:14"
+  }
+ ],
+ "steps": [
+  {
+   "t": "09:14",
+   "end": "09:44",
+   "event": "You wake. A brown haze, 22 °C. Ramesh has left the papers on the verandah. Headlines: At 1,152, Punjab records season’s biggest single-day jump in farm fires on Deepavali; After Karnataka’s excess ethanol claims, Kerala starts inspections, sample-testing of petrol; CM Suvendu defends encounter in Raiganj, says police entitled to retaliate in self-defence. Ramesh asks for ₹8,000 (the wage for cooking), and you have only ₹166. Ramesh asks for ₹1,500 (groceries), and you have only ₹166. The electricity company asks for ₹1,800 (electricity), and you have only ₹166. Ramesh is here.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 0,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "the PC did not wake for the morning plan"
+     ]
+    ]
+   }
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-10T09:14+05:30",
-  "asleep": true,
+  "until": "2026-11-10T09:44+05:30",
+  "asleep": false,
   "imprest": 166,
   "wearing": "kurta",
   "wardrobe": [
@@ -519,7 +572,19 @@
    }
   ],
   "depesche_n": 2,
-  "today": {},
+  "today": {
+   "woke": "09:14",
+   "pressed": [
+    "Ramesh|the wage for cooking",
+    "Ramesh|groceries",
+    "the electricity company|electricity"
+   ],
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -720,7 +785,8 @@
     "2026-11-06",
     "2026-11-07",
     "2026-11-08",
-    "2026-11-09"
+    "2026-11-09",
+    "2026-11-10"
    ],
    "lodhi": [
     "2026-10-02",
@@ -796,6 +862,15 @@
     "item": "Groceries for Ramesh's kitchen",
     "at": "home",
     "with": "ramesh"
+   },
+   {
+    "to": "the electricity company",
+    "amount": 1800,
+    "why": "electricity",
+    "since": "2026-11-10",
+    "cost": "electricity",
+    "item": "Electricity",
+    "at": "home"
    }
   ],
   "cheques": [],
@@ -805,7 +880,7 @@
    "wage": "2026-11-01",
    "groceries": "2026-11-08",
    "dhobi": "2026-11-07",
-   "electricity": "2026-10-12",
+   "electricity": "2026-11-10",
    "data": "2026-10-12"
   },
   "met_days": {
@@ -829,7 +904,8 @@
     "2026-11-06",
     "2026-11-07",
     "2026-11-08",
-    "2026-11-09"
+    "2026-11-09",
+    "2026-11-10"
    ],
    "malhotra": [
     "2026-10-02",
