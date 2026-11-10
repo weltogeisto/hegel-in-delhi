@@ -42,7 +42,7 @@
     "aqi": 317
    },
    {
-    "temp": 18,
+    "temp": 17,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 317
@@ -60,7 +60,7 @@
     "aqi": 316
    },
    {
-    "temp": 20,
+    "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 315
@@ -84,6 +84,18 @@
     "aqi": 314
    },
    {
+    "temp": 26,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 313
+   },
+   {
+    "temp": 27,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 313
+   },
+   {
     "temp": 27,
     "sky": "a brown haze",
     "rain": 0,
@@ -96,25 +108,13 @@
     "aqi": 313
    },
    {
-    "temp": 28,
+    "temp": 26,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 313
    },
    {
-    "temp": 28,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 313
-   },
-   {
-    "temp": 27,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 313
-   },
-   {
-    "temp": 25,
+    "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 314
@@ -138,7 +138,7 @@
     "aqi": 313
    },
    {
-    "temp": 22,
+    "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 311
@@ -441,16 +441,56 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "09:16",
+   "to": "09:46",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “PM Modi and Railway Minister likely to flag off Bengaluru–Mangaluru–Goa Vande Bharat Express on November 13” · “Mumbai vs Chennai air quality after Diwali: Why did Diwali leave one coastal city with ‘poor’ air?” · “HMWS&SB fines Akshayakalpa Farms ₹20,000 for wasting drinking water in Hyderabad’s Jubilee Hills”",
+   "t": "09:16"
+  }
+ ],
+ "steps": [
+  {
+   "t": "09:16",
+   "end": "09:46",
+   "event": "You wake. A brown haze, 22 °C. The papers lie on the step where the hawker threw them. Headlines: PM Modi and Railway Minister likely to flag off Bengaluru–Mangaluru–Goa Vande Bharat Express on November 13; Mumbai vs Chennai air quality after Diwali: Why did Diwali leave one coastal city with ‘poor’ air?; HMWS&SB fines Akshayakalpa Farms ₹20,000 for wasting drinking water in Hyderabad’s Jubilee Hills. The electricity company asks for ₹1,800 (electricity), and you have only ₹166.",
+   "present": [],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 0,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "the PC did not wake for the morning plan"
+     ]
+    ]
+   }
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-11T09:16+05:30",
-  "asleep": true,
+  "until": "2026-11-11T09:46+05:30",
+  "asleep": false,
   "imprest": 166,
   "wearing": "kurta",
   "wardrobe": [
@@ -528,7 +568,15 @@
    }
   ],
   "depesche_n": 2,
-  "today": {},
+  "today": {
+   "woke": "09:16",
+   "pressed": [
+    "the electricity company|electricity"
+   ],
+   "seen": {
+    "home": []
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -730,7 +778,8 @@
     "2026-11-07",
     "2026-11-08",
     "2026-11-09",
-    "2026-11-10"
+    "2026-11-10",
+    "2026-11-11"
    ],
    "lodhi": [
     "2026-10-02",
