@@ -448,6 +448,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "09:46",
+   "to": "10:16",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -483,13 +490,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "09:46",
+   "end": "10:16",
+   "event": "Nothing is cooked at home: Ramesh has not been paid his wage for cooking. The air is very poor today: the index stands at 314. Shri G. Hegde is here.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-11T09:46+05:30",
+  "until": "2026-11-11T10:16+05:30",
   "asleep": false,
   "imprest": 166,
   "wearing": "kurta",
@@ -574,8 +609,12 @@
     "the electricity company|electricity"
    ],
    "seen": {
-    "home": []
-   }
+    "home": [
+     "hegde"
+    ]
+   },
+   "no_meals": true,
+   "bad_air": true
   },
   "account": {
    "advance": 15000,
@@ -948,7 +987,8 @@
     "2026-11-07",
     "2026-11-08",
     "2026-11-09",
-    "2026-11-10"
+    "2026-11-10",
+    "2026-11-11"
    ],
    "kapoor": [
     "2026-10-28"
