@@ -588,6 +588,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "19:46",
+   "to": "20:16",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1190,13 +1197,42 @@
      ]
     ]
    }
+  },
+  {
+   "t": "19:46",
+   "end": "20:16",
+   "event": "Ramesh knows the wage is more than the purse holds, he says, without looking at it. He could come on Mondays, Thursdays and Saturdays only, for ₹4,000 a month.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-12T19:46+05:30",
+  "until": "2026-11-12T20:16+05:30",
   "asleep": false,
   "imprest": 166,
   "wearing": "kurta",
