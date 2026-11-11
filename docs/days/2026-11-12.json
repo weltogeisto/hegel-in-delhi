@@ -30,7 +30,7 @@
     "aqi": 305
    },
    {
-    "temp": 20,
+    "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 306
@@ -42,7 +42,7 @@
     "aqi": 307
    },
    {
-    "temp": 19,
+    "temp": 18,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 309
@@ -60,7 +60,7 @@
     "aqi": 313
    },
    {
-    "temp": 21,
+    "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 315
@@ -73,7 +73,7 @@
    },
    {
     "temp": 25,
-    "sky": "a brown haze",
+    "sky": "overcast",
     "rain": 0,
     "aqi": 319
    },
@@ -109,49 +109,49 @@
    },
    {
     "temp": 27,
-    "sky": "overcast",
+    "sky": "a brown haze",
     "rain": 0,
     "aqi": 326
    },
    {
-    "temp": 26,
-    "sky": "overcast",
+    "temp": 25,
+    "sky": "a brown haze",
     "rain": 0,
     "aqi": 327
    },
    {
-    "temp": 25,
+    "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 329
    },
    {
     "temp": 24,
-    "sky": "overcast",
+    "sky": "a brown haze",
     "rain": 0,
     "aqi": 330
    },
    {
     "temp": 24,
-    "sky": "overcast",
+    "sky": "a brown haze",
     "rain": 0,
     "aqi": 332
    },
    {
-    "temp": 24,
-    "sky": "overcast",
+    "temp": 23,
+    "sky": "a brown haze",
     "rain": 0,
     "aqi": 335
    },
    {
     "temp": 23,
-    "sky": "overcast",
+    "sky": "a brown haze",
     "rain": 0,
     "aqi": 337
    },
    {
-    "temp": 23,
-    "sky": "overcast",
+    "temp": 22,
+    "sky": "a brown haze",
     "rain": 0,
     "aqi": 340
    }
@@ -441,16 +441,58 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "09:16",
+   "to": "09:46",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Karnataka education officials asked to evaluate pros and cons of cluster kitchen system for midday meals” · “Sonia Gandhi recounts panic over Rahul’s security during Bharat Jodo Yatra” · “Illegal oocyte collection racket: 27 ART centres inspected across Telangana, notices issued to seven hospitals”",
+   "t": "09:16"
+  }
+ ],
+ "steps": [
+  {
+   "t": "09:16",
+   "end": "09:46",
+   "event": "You wake. A brown haze, 23 °C. Ramesh has left the papers on the verandah. Headlines: Karnataka education officials asked to evaluate pros and cons of cluster kitchen system for midday meals; Sonia Gandhi recounts panic over Rahul’s security during Bharat Jodo Yatra; Illegal oocyte collection racket: 27 ART centres inspected across Telangana, notices issued to seven hospitals. Ramesh knows the wage is more than the purse holds, he says, without looking at it. He could come on Mondays, Thursdays and Saturdays only, for ₹4,000 a month. Ramesh asks for ₹8,000 (the wage for cooking), and you have only ₹166. Ramesh asks for ₹1,500 (groceries), and you have only ₹166. The electricity company asks for ₹1,800 (electricity), and you have only ₹166. Ramesh is here.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 0,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "the PC did not wake for the morning plan"
+     ]
+    ]
+   }
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-12T09:16+05:30",
-  "asleep": true,
+  "until": "2026-11-12T09:46+05:30",
+  "asleep": false,
   "imprest": 166,
   "wearing": "kurta",
   "wardrobe": [
@@ -528,7 +570,19 @@
    }
   ],
   "depesche_n": 2,
-  "today": {},
+  "today": {
+   "woke": "09:16",
+   "pressed": [
+    "Ramesh|the wage for cooking",
+    "Ramesh|groceries",
+    "the electricity company|electricity"
+   ],
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -731,7 +785,8 @@
     "2026-11-08",
     "2026-11-09",
     "2026-11-10",
-    "2026-11-11"
+    "2026-11-11",
+    "2026-11-12"
    ],
    "lodhi": [
     "2026-10-02",
@@ -850,7 +905,8 @@
     "2026-11-07",
     "2026-11-08",
     "2026-11-09",
-    "2026-11-10"
+    "2026-11-10",
+    "2026-11-12"
    ],
    "malhotra": [
     "2026-10-02",
