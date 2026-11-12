@@ -15,112 +15,124 @@
     "temp": 21,
     "sky": "overcast",
     "rain": 0,
-    "aqi": 337
+    "aqi": 343
    },
    {
     "temp": 20,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 340
-   },
-   {
-    "temp": 20,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 342
-   },
-   {
-    "temp": 19,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 344
-   },
-   {
-    "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 346
    },
    {
-    "temp": 19,
+    "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 348
+   },
+   {
+    "temp": 19,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 351
+   },
+   {
+    "temp": 19,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 353
+   },
+   {
+    "temp": 19,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 355
    },
    {
     "temp": 18,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 349
+    "aqi": 358
    },
    {
     "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 350
+    "aqi": 360
    },
    {
     "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 351
+    "aqi": 361
    },
    {
     "temp": 23,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 351
+    "aqi": 362
    },
    {
     "temp": 25,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 351
+    "aqi": 362
    },
    {
     "temp": 26,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 350
+    "aqi": 362
    },
    {
     "temp": 28,
     "sky": "overcast",
     "rain": 0,
-    "aqi": 349
+    "aqi": 360
    },
    {
     "temp": 28,
     "sky": "overcast",
     "rain": 0,
-    "aqi": 348
+    "aqi": 359
    },
    {
     "temp": 29,
     "sky": "overcast",
     "rain": 0,
-    "aqi": 347
+    "aqi": 358
    },
    {
     "temp": 29,
     "sky": "overcast",
     "rain": 0,
-    "aqi": 346
+    "aqi": 356
    },
    {
     "temp": 27,
     "sky": "overcast",
     "rain": 0,
-    "aqi": 345
+    "aqi": 354
    },
    {
     "temp": 25,
     "sky": "overcast",
     "rain": 0,
-    "aqi": 344
+    "aqi": 352
    },
    {
     "temp": 25,
+    "sky": "overcast",
+    "rain": 0,
+    "aqi": 350
+   },
+   {
+    "temp": 24,
+    "sky": "overcast",
+    "rain": 0,
+    "aqi": 346
+   },
+   {
+    "temp": 24,
     "sky": "overcast",
     "rain": 0,
     "aqi": 342
@@ -129,31 +141,19 @@
     "temp": 24,
     "sky": "overcast",
     "rain": 0,
-    "aqi": 340
-   },
-   {
-    "temp": 24,
-    "sky": "overcast",
-    "rain": 0,
     "aqi": 337
-   },
-   {
-    "temp": 24,
-    "sky": "overcast",
-    "rain": 0,
-    "aqi": 333
    },
    {
     "temp": 23,
     "sky": "overcast",
     "rain": 0,
-    "aqi": 328
+    "aqi": 331
    },
    {
     "temp": 22,
     "sky": "overcast",
     "rain": 0,
-    "aqi": 323
+    "aqi": 326
    }
   ]
  },
@@ -490,6 +490,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "12:48",
+   "to": "13:18",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -695,13 +702,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "12:48",
+   "end": "13:18",
+   "event": "Ramesh knows the wage is more than the purse holds, he says, without looking at it. He could come on Mondays, Thursdays and Saturdays only, for ₹4,000 a month.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-13T12:48+05:30",
+  "until": "2026-11-13T13:18+05:30",
   "asleep": false,
   "imprest": 166,
   "wearing": "kurta",
