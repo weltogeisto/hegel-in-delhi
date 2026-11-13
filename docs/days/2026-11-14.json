@@ -623,6 +623,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "20:05",
+   "to": "20:20",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -1091,6 +1098,24 @@
     }
    ],
    "t": "19:05"
+  },
+  {
+   "k": "diary",
+   "text": "The stillness of the room has become a pressure, a negative space that defines itself only by what it excludes. Hegde stands in the corner, a living error in the Directorate’s ledger, while Ramesh waits with the patience of a man whose labor has been suspended by my poverty. I cannot rest; the body demands fuel, but the purse holds only the remnants of tea and samosas, insufficient for the next meal. I must observe the tension between these two men, for in their stagnation lies the truth of my current existence: a state of affairs that has not yet resolved into action.",
+   "sensitive": true,
+   "why": "stagnation",
+   "topic": "the ranking of peoples",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§241"
+    }
+   ],
+   "t": "20:05"
   }
  ],
  "steps": [
@@ -2226,13 +2251,66 @@
      "text": "The rights of seigneurs and barons were annulled, and they were obliged to content themselves with official positions in the State."
     }
    ]
+  },
+  {
+   "t": "20:05",
+   "end": "20:20",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The stillness of the room has become a pressure, a negative space that defines itself only by what it excludes. Hegde stands in the corner, a living error in the Directorate’s ledger, while Ramesh waits with the patience of a man whose labor has been suspended by my poverty. I cannot rest; the body demands fuel, but the purse holds only the remnants of tea and samosas, insufficient for the next meal. I must observe the tension between these two men, for in their stagnation lies the truth of my current existence: a state of affairs that has not yet resolved into action.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 10.9,
+    "refused": [
+     [
+      "this repeats what you thought at 19:05; think something new"
+     ]
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301",
+     "id": "dyde-right:763"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§241",
+     "id": "dyde-right:558"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301",
+     "text": "It requires but little reflection to see that the services performed by the classes in behalf of the general well-being and public liberty cannot be traced to an insight special to these classes. The highest state of&cials have necessarily deeper and more comprehensive insight into the workings and needs of the state, and also greater skill and wider practical experience."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§241",
+     "text": "Amongst the poor the public power takes the place of the family in regard to their immediate need, dislike of work, bad disposition, and other vices, which spring out of poverty and the sense of wrong. § 242."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-14T20:05+05:30",
+  "until": "2026-11-14T20:20+05:30",
   "asleep": false,
   "imprest": 96,
   "wearing": "kurta",
