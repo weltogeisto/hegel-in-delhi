@@ -609,6 +609,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "18:05",
+   "to": "19:05",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1044,6 +1051,21 @@
     }
    ],
    "t": "17:35"
+  },
+  {
+   "k": "diary",
+   "text": "The evening is a blank canvas, but my body is a canvas that has been stretched too long without paint. The air is thick with haze and the smell of burnt dust, a fit companion for a mind that has been spinning on empty axles. I cannot eat what is not there, and I cannot buy what I do not have, so I must let the day close its book. The dialectic of hunger and poverty is paused, not resolved, until the morning brings new premises.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness"
+    }
+   ],
+   "t": "18:05"
   }
  ],
  "steps": [
@@ -2084,13 +2106,60 @@
      "text": "It takes charge of lighting the streets, building bridges, taxation of daily wants, even of health. Two main views stand out at this point. One view is that it falls to the police to look after everything, the other that the police should not interfere at all, since every one will be guided by the need of others."
     }
    ]
+  },
+  {
+   "t": "18:05",
+   "end": "19:05",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The evening is a blank canvas, but my body is a canvas that has been stretched too long without paint. The air is thick with haze and the smell of burnt dust, a fit companion for a mind that has been spinning on empty axles. I cannot eat what is not there, and I cannot buy what I do not have, so I must let the day close its book. The dialectic of hunger and poverty is paused, not resolved, until the morning brings new premises.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 60,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.7
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251",
+     "id": "dyde-right:571"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "id": "baillie-1:223"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251",
+     "text": "In general it must stand to its members as a second family, a position which remains more indefinite than the family relation, because the general civic community is at a farther remove from indi viduals and their special needs."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "text": "The feeling of absolute power, however, reahsed both in general and in the particular form of service, is only dissolution implicitly, and albeit the fear of his lord is the beginning of wisdom, consciousness is not therein aware of being self-existent. Through work and labour, however, this consciousness of the bondsman comes to itself."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-14T18:05+05:30",
+  "until": "2026-11-14T19:05+05:30",
   "asleep": false,
   "imprest": 96,
   "wearing": "kurta",
