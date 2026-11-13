@@ -16,11 +16,17 @@ commit) and is rebuilt as Training 3 rebuilds its shadow situations. None of the
 Pass (manual §5.4): B preferred for practical appropriateness in at least 16 of the 24 contexts, seeds taken
 together, with no concrete consequential regression in B. A pass earns the fresh 24-context confirmation, not
 adoption.
+
+The confirmation (Welt's go, 13 November) is frozen with `freeze --from-day 44`: every complete shadow day from
+Day 44 on, once they hold 16 ordinary moments and 8 encounters. Its pass rule, m1-v2, is written into its manifest
+before any output: B preferred in at least 16 of 24, and B's flagged contexts at most A's plus one. The first
+screen's rule, m1-v1 (no flagged context that A doesn't share), failed either version against the other.
 """
 import argparse
 import copy
 import json
 import random
+import re
 import secrets
 import sys
 from pathlib import Path
@@ -37,14 +43,22 @@ SEEDS = (1831, 2718, 3141)
 ARMS = {"A": "mind/soul.md", "B": "mind/soul-ordinary.md"}
 SPEAKS = " says: “"
 PASS_AT = 16
+PASS_RULES = {"m1-v1": "B preferred in at least 16 of 24, and no context flagged for B that isn't flagged for A",
+              "m1-v2": "B preferred in at least 16 of 24, and B's flagged contexts at most A's plus one"}
+# Diagnostics only, fixed before the confirmation's outputs: the vocabulary of his lecture hall.
+DOCTRINE = re.compile(r"\b(dialectic\w*|universal\w*|particular\w*|spirit\w*|ethical|negat\w+|mediat\w+|sublat\w+|actuali\w+"
+                      r"|absolute|substance|abstract\w*|concept\w*|civil society|system of needs|the idea)\b", re.I)
 
 
 def kind(row):
     return "encounter" if SPEAKS in row["check"]["situation"].get("event", "") else "ordinary"
 
 
-def freeze(repo, head, out, souls=None):
-    """The 24 contexts and both arms' system prompts, before any output exists."""
+def freeze(repo, head, out, souls=None, first_day=None):
+    """The 24 contexts and both arms' system prompts, before any output exists.
+
+    Without first_day: the first screen's Days 13, 14, 28 and 38, under m1-v1. With it: every complete shadow day
+    from that day on, under m1-v2; it refuses until those days hold enough contexts."""
     from tools.decision_situations import SnapshotGit, project
     from world.world import World
     out, repo = Path(out), Path(repo)
@@ -53,11 +67,12 @@ def freeze(repo, head, out, souls=None):
     souls = souls or {arm: (repo / path).read_text(encoding="utf-8") for arm, path in ARMS.items()}
     git, world = SnapshotGit(repo, head), World()
     days = git.days(head)
-    pool = []
+    pool, used = [], []
     for date in sorted(days):
         day, raw, _ = days[date]
-        if day["n"] not in DAYS:
+        if (day["n"] not in DAYS) if first_day is None else (day["n"] < first_day or not day.get("complete")):
             continue
+        used.append(day["n"])
         before = git.before_steps(day)
         for i, step in enumerate(day.get("steps", [])):
             if (step.get("mind") or {}).get("source") != "mind" or i not in before:
@@ -81,7 +96,9 @@ def freeze(repo, head, out, souls=None):
         name = digest(r["id"].encode()) + ".json"
         save(out / "contexts" / name, dict(r, kind=kind(r)))
         rows.append({"id": r["id"], "kind": kind(r), "path": "contexts/" + name, "sha256": digest(json_bytes(dict(r, kind=kind(r))))})
-    manifest = {"screen": "M1 ordinary-life prompt screen", "shadow": head, "days": list(DAYS), "seeds": list(SEEDS),
+    rule = "m1-v1" if first_day is None else "m1-v2"
+    manifest = {"screen": "M1 ordinary-life prompt screen" + ("" if first_day is None else ", the confirmation"),
+                "shadow": head, "days": sorted(used), "seeds": list(SEEDS), "pass_rule": rule, "pass_rule_text": PASS_RULES[rule],
                 "arms": {a: {"path": ARMS[a], "sha256": digest(t.encode("utf-8"))} for a, t in souls.items()},
                 "pool": {"ordinary": len(ordinary), "encounters": len(encounters)}, "rows": rows, "training_eligible": False}
     save(out / "MANIFEST.json", manifest)
@@ -187,7 +204,7 @@ def diagnostics(folder):
     _, _, rows = contexts(folder)
     recs, out = records(folder), {}
     for arm in ARMS:
-        n = accepted = words = echo = 0
+        n = accepted = words = echo = terms = plain = spoken = 0
         for row in rows:
             seen = set().union(*(grams(first) for *_, first in shown(row["messages"])))
             for rec in recs[row["id"]][arm]:
@@ -197,14 +214,24 @@ def diagnostics(folder):
                 if isinstance(thought, str):
                     words += len(thought.split())
                     echo += bool(grams(thought) & seen)
+                    hits = len(DOCTRINE.findall(thought))
+                    terms += hits
+                    plain += hits == 0
+                says = (rec["answer"] or {}).get("says") if isinstance(rec["answer"], dict) else None
+                spoken += len(DOCTRINE.findall(says)) if isinstance(says, str) else 0
         out[arm] = {"replies": n, "accepted": accepted, "mean_thought_words": round(words / n, 1) if n else None,
-                    "echo_of_shown_thoughts": echo}
+                    "echo_of_shown_thoughts": echo, "doctrinal_terms_per_thought": round(terms / n, 2) if n else None,
+                    "thoughts_without_doctrinal_terms": plain, "doctrinal_terms_per_reply_in_speech": round(spoken / n, 2) if n else None}
     return out
 
 
-def verdict(folder, judgments, key):
-    """judgments: one row per context, {"id", "prefer": "X"|"Y"|"tie", "regression": {"X": bool, "Y": bool}, "reason"}."""
-    _, _, rows = contexts(folder)
+def verdict(folder, judgments, key, rule=None):
+    """judgments: one row per context, {"id", "prefer": "X"|"Y"|"tie", "regression": {"X": bool, "Y": bool}, "reason"}.
+    The pass rule is the one frozen in the manifest; a manifest without one is the first screen's (m1-v1)."""
+    manifest, _, rows = contexts(folder)
+    rule = rule or manifest.get("pass_rule", "m1-v1")
+    if rule not in PASS_RULES:
+        raise ValueError("unknown pass rule: " + str(rule))
     k = json.loads(Path(key).read_text())
     j = {r["id"]: r for r in (json.loads(x) for x in Path(judgments).read_text(encoding="utf-8").splitlines() if x.strip())}
     if set(j) != {r["id"] for r in rows}:
@@ -214,9 +241,47 @@ def verdict(folder, judgments, key):
     regress = {arm: sorted(i for i, r in j.items() for slot in ("X", "Y") if r["regression"].get(slot) and k[i][slot] == arm)
                for arm in ARMS}
     new_regressions = sorted(set(regress["B"]) - set(regress["A"]))
+    clean = not new_regressions if rule == "m1-v1" else len(regress["B"]) <= len(regress["A"]) + 1
     return {"prefer_B": prefer_b, "prefer_A": prefer_a, "ties": len(rows) - prefer_a - prefer_b,
-            "regressions": regress, "B_only_regressions": new_regressions,
-            "passed": prefer_b >= PASS_AT and not new_regressions, "diagnostics": diagnostics(folder)}
+            "regressions": regress, "B_only_regressions": new_regressions, "pass_rule": rule,
+            "passed": prefer_b >= PASS_AT and clean, "diagnostics": diagnostics(folder)}
+
+
+def welt_pairs(folder, out):
+    """Six of the contexts, drawn with seed 1831, and each arm's seed-1831 reply in a shuffled order, with the key at
+    the bottom: for Welt to read himself. Written only after the judgments are sealed."""
+    _, _, rows = contexts(folder)
+    recs, ids = records(folder), [r["id"] for r in rows]
+    rng = random.Random(1831)
+    picked = sorted(rng.sample(ids, 6), key=ids.index)
+    order = {cid: rng.sample(list(ARMS), 2) for cid in picked}
+    by_id = {r["id"]: r for r in rows}
+
+    def one(cid, arm):
+        rec = next(x for x in recs[cid][arm] if x["seed"] == SEEDS[0])
+        a = rec["answer"] if isinstance(rec["answer"], dict) else {}
+        text = (a.get("thought") or "(no usable reply)").strip()
+        if a.get("says"):
+            text += f"\n  *He says:* “{a['says'].strip()}”"
+        if not rec["accepted"]:
+            text += f"\n  *(The world refused this one: {'; '.join(rec['errors'])}.)*"
+        return text
+    lines = ["# Six pairs for Welt", "",
+             "Six of the 24 situations, drawn with seed 1831, and each version's first reply. The order within a pair is "
+             "shuffled; the key is at the bottom. Which of each pair sounds more like the Hegel you want on an ordinary day?", ""]
+    key = []
+    for n, cid in enumerate(picked, 1):
+        sit = by_id[cid]["messages"][1]["content"]
+        event = re.search(r"\nWhat happens: (.*)", sit)
+        lines += [f"## {n}. {sit.splitlines()[0]}", "", f"**What happens:** {event.group(1) if event else ''}", ""]
+        for label, arm in zip(("First", "Second"), order[cid]):
+            lines += [f"**{label}:** {one(cid, arm)}", ""]
+        names = {"A": "live", "B": "new"}
+        key.append(f"{n}. First = {names[order[cid][0]]} instructions, Second = {names[order[cid][1]]} instructions.")
+    lines += ["## Key", "", f"Live = `{ARMS['A']}`; new = `{ARMS['B']}`.", ""] + key + [""]
+    with Path(out).open("x", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+    return picked
 
 
 def main(argv=None):
@@ -226,6 +291,10 @@ def main(argv=None):
     f.add_argument("--repo", type=Path, required=True)
     f.add_argument("--shadow", required=True)
     f.add_argument("--out", type=Path, required=True)
+    f.add_argument("--from-day", type=int, help="the confirmation: every complete shadow day from this one on, under m1-v2")
+    w = sub.add_parser("pairs")
+    w.add_argument("--dir", type=Path, required=True)
+    w.add_argument("--out", type=Path, required=True)
     k = sub.add_parser("packet")
     k.add_argument("--dir", type=Path, required=True)
     k.add_argument("--sheet", type=Path, required=True)
@@ -236,8 +305,11 @@ def main(argv=None):
     v.add_argument("--key", type=Path, required=True)
     a = p.parse_args(argv)
     if a.cmd == "freeze":
-        m = freeze(a.repo, a.shadow, a.out)
-        print(json.dumps({"shadow": m["shadow"], "pool": m["pool"], "contexts": len(m["rows"]), "arms": m["arms"]}))
+        m = freeze(a.repo, a.shadow, a.out, first_day=a.from_day)
+        print(json.dumps({"shadow": m["shadow"], "days": m["days"], "pool": m["pool"], "contexts": len(m["rows"]),
+                          "pass_rule": m["pass_rule"], "arms": m["arms"]}))
+    elif a.cmd == "pairs":
+        print(json.dumps({"contexts": welt_pairs(a.dir, a.out)}))
     elif a.cmd == "packet":
         print(json.dumps({"key_sha256": packet(a.dir, a.sheet, a.key)}))
     else:
