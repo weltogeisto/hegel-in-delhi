@@ -14,7 +14,7 @@ The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). W
 | M5 · Training 3 labels | Claude | DONE, the revised labels (`tools/decision_pairs.py`, rule `training3-labels-2`); the trainer takes no other | both yields, revised and legacy, on PR #1 once the candidates exist |
 | M0 · baseline receipt | Astra | DONE, PR #15 merged (`5a347ab`): runtime at 12:18 UTC, plain Qwen, no adapter; the forty-case export | – |
 | M1 · forty-case re-audit | Claude | DONE: prompted Qwen keeps 39/40 rewrites intact, the adapter 25/40 (12 changed facts, 3 changed conclusions); the adapter stays off (`pc/exports/training1-20261106/new-rubric/REPORT.md`) | – |
-| M1 · ordinary life | Claude, then Astra | READY: `mind/soul-ordinary.md`, the rubric and 24 frozen contexts (`pc/M1-ORDINARY-LIFE-SCREEN.md`) | Astra runs the 144 calls (about 25 min, spare slot) before sampling resumes; Claude judges blind |
+| M1 · ordinary life | Claude, then Astra | SCREEN RUN: blind, B preferred in 19 of 24 (bar 16), but three B-only flags fail the regression clause, which A fails too. B stays off (`pc/exports/m1-screen-20261113/judgment/REPORT.md`) | Welt decides on one extension: the fresh confirmation with the clause corrected beforehand |
 | T49 · selection before training | Claude, then Astra | The first read met the go rule: echo 13/70 without selection, 1/70 with it, at 1.31 calls. The live switch `HEGEL_DECISION_DRAWS` is on main, off | Astra runs it as arm D of T39 after the M1 screen; T36's pass rules decide |
 
 Gates stay as declared: nothing goes live without its matched comparison and Claude's confirmed pass, and Training 3 runs by day only, under Welt's go of 6 November.
