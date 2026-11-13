@@ -19,7 +19,7 @@ The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). W
 
 Gates stay as declared: nothing goes live without its matched comparison and Claude's confirmed pass, and Training 3 runs by day only, under Welt's go of 6 November.
 
-**The gap, 8 to 13 November.** His mind was away from Sunday 8 November 08:59 to Friday 13 November 13:56 Berlin: the Pi got no answer from the PC's model server. Days 39 to 43 and the morning of Day 44 have no thoughts, and Day 38 has no owl. Nothing is backfilled and no tick is forced. The 48-hour target of 7 November lapsed on 9 November with its first day delivered; Training 3's sampling and the M1 screen wait where they stopped.
+**The gap, 8 to 13 November.** His mind was away from Sunday 8 November 08:59 to Friday 13 November 13:56 Berlin: the Pi got no answer from the PC's model server. Days 39 to 43 and the morning of Day 44 have no thoughts, and Day 38 has no owl. The watchman (T17) raised it each day, issues #23 to #28. Nothing is backfilled and no tick is forced. The 48-hour target of 7 November lapsed on 9 November with its first day delivered; Training 3's sampling and the M1 screen wait where they stopped.
 
 ## Monday 12 October
 
