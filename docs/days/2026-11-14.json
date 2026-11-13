@@ -567,6 +567,13 @@
    "mode": "walk",
    "a": "home",
    "b": "khan"
+  },
+  {
+   "from": "16:13",
+   "to": "16:28",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Talking with Masterji and Sunil at Khan Market."
   }
  ],
  "entries": [
@@ -819,6 +826,56 @@
    "to": "Hegel",
    "text": "Ji, strong it is. I will put the milk in when the water boils. You go, I am here.",
    "t": "15:46"
+  },
+  {
+   "k": "world",
+   "text": "Masterji says the dealer in Sunder Nagar still asks after the frock coat: ₹12,000 in cash.",
+   "t": "16:13"
+  },
+  {
+   "k": "world",
+   "text": "He keeps the coat.",
+   "t": "16:13"
+  },
+  {
+   "k": "diary",
+   "text": "The air is thick, a brown curtain drawn over the departing sun, and the system of needs here does not pause for the haze. I have walked enough to feel the day’s dismissal, and my body, having gone without proper sustenance for over a day, demands I engage with the particular agents of this market. Sunil stands by his stall, the steam from the chai rising into the smog, a small act of civility in this civil society.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "16:13"
+  },
+  {
+   "k": "said",
+   "text": "Sunil, the air is heavy today, like a spirit that cannot find its rest. I require a cup of chai to steady the pulse against the haze. And perhaps a samosa, for the body has been fasting.",
+   "to": "Masterji and Sunil",
+   "t": "16:13"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Aaj ka mausam sach mein bhari hai, sir. One chai, one samosa—total ₹50. Here, mind the steam, it burns.",
+   "t": "16:13"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "16:13"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "16:13"
   }
  ],
  "steps": [
@@ -1526,15 +1583,79 @@
      "text": "Quakers, Anabaptists, &c., who resist any demands made on them by the State, such as to defend the Fatherland, cannot be tolerated in a true State. This miserable freedom of thinking and believing what men will, is not permitted, nor any such retreat behind personal consciousness of duty."
     }
    ]
+  },
+  {
+   "t": "16:13",
+   "end": "16:28",
+   "event": "Ramesh says: “Ji, strong it is. I will put the milk in when the water boils. You go, I am here.” You arrive at Khan Market. It closes at 20:30. Masterji has not forgotten the frock coat. The dealer in Sunder Nagar still asks after it: ₹12,000, in cash. Masterji is here. Sunil is here.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The air is thick, a brown curtain drawn over the departing sun, and the system of needs here does not pause for the haze. I have walked enough to feel the day’s dismissal, and my body, having gone without proper sustenance for over a day, demands I engage with the particular agents of this market. Sunil stands by his stall, the steam from the chai rising into the smog, a small act of civility in this civil society.",
+    "action": "talk",
+    "place": "khan",
+    "minutes": 15,
+    "says": "Sunil, the air is heavy today, like a spirit that cannot find its rest. I require a cup of chai to steady the pulse against the haze. And perhaps a samosa, for the body has been fasting.",
+    "buys": [
+     {
+      "item": "Chai",
+      "price_inr": 20
+     },
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Aaj ka mausam sach mein bhari hai, sir. One chai, one samosa—total ₹50. Here, mind the steam, it burns.",
+    "does": "He pours the chai into a small glass and slides a hot samosa onto a paper plate."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 13.5
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "id": "dyde-right:464"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "text": "The civic community contains three elements: A. The recasting of want, and the satisfaction of the individual through his work, through the work of all others, and through the satisfaction of their wants. This is a system of wants. B. Actualization of the general freedom required for this, i.e., the protection of property by the administration of justice."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ],
+   "beat": "sell_frock_again"
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-14T16:13+05:30",
+  "until": "2026-11-14T16:28+05:30",
   "asleep": false,
-  "imprest": 166,
+  "imprest": 116,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1627,6 +1748,11 @@
      "dhobi",
      "hegde",
      "ramesh"
+    ],
+    "khan": [
+     "bookseller",
+     "masterji",
+     "sunil"
     ]
    },
    "no_meals": true,
@@ -1804,6 +1930,20 @@
      "item": "Chole bhature at a dhaba",
      "price": 180,
      "office": false
+    },
+    {
+     "date": "2026-11-14",
+     "t": "16:13",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-14",
+     "t": "16:13",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
     }
    ],
    "admitted": 730,
@@ -1860,7 +2000,8 @@
     "2026-11-06",
     "2026-11-07",
     "2026-11-08",
-    "2026-11-09"
+    "2026-11-09",
+    "2026-11-14"
    ],
    "gym": [
     "2026-10-02"
@@ -1984,7 +2125,8 @@
     "2026-11-05",
     "2026-11-06",
     "2026-11-07",
-    "2026-11-09"
+    "2026-11-09",
+    "2026-11-14"
    ],
    "nidhi": [
     "2026-10-02"
@@ -1996,7 +2138,8 @@
     "2026-10-28",
     "2026-11-05",
     "2026-11-07",
-    "2026-11-08"
+    "2026-11-08",
+    "2026-11-14"
    ],
    "hegde": [
     "2026-10-02",
@@ -2035,7 +2178,7 @@
    ]
   },
   "refused": {
-   "sell_frock_again": "2026-10-28",
+   "sell_frock_again": "2026-11-14",
    "ramesh_parttime": "2026-11-05"
   },
   "tech": {
@@ -2043,7 +2186,7 @@
    "sim": false
   },
   "last_meal": "2026-11-09T13:41+05:30",
-  "snacks": 0,
+  "snacks": 1,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
