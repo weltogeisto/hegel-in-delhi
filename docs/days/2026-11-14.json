@@ -588,6 +588,13 @@
    "mode": "walk",
    "a": "khan",
    "b": "home"
+  },
+  {
+   "from": "17:10",
+   "to": "17:25",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -952,6 +959,34 @@
    "to": "Hegel",
    "text": "Arey, spirit khana khaati hai ya kya? Keep it, I'll leave it there. Just don't let the oil go cold, it gets sticky. Take it easy, sir.",
    "t": "16:43"
+  },
+  {
+   "k": "diary",
+   "text": "The samosa waits on the counter, a particular object suspended in time, refusing to become waste or sustenance. Ramesh stands before me, the unpaid engine of this household, while I possess only ninety-six rupees and a body that has forgotten the rhythm of daily meals. The tension between my need for sustenance and my inability to pay the cook who provides it is the friction that grinds against the universal idea of the ethical family.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    }
+   ],
+   "t": "17:10"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, the samosa is still warm. You must eat. I cannot pay you for cooking, but I cannot let you starve while I sit in contemplation. Take it. I will settle the debt when the file returns.",
+   "to": "Ramesh",
+   "t": "17:10"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Samosa hai, khana nahi. Ghar mein toota hua pet hai, par aapke paas bhi paise nahi hain. Kya main aapko roti khilauun? Waise bhi aapki 'contemplation' se toh pet bharta nahi hai, sir.",
+   "t": "17:10"
   }
  ],
  "steps": [
@@ -1836,13 +1871,65 @@
      "text": "And again, the matter of a small body and a large is the same, because at one time a greater proceeds from a smaller, and at another time a smaller from a greater."
     }
    ]
+  },
+  {
+   "t": "17:10",
+   "end": "17:25",
+   "event": "Sunil says: “Arey, spirit khana khaati hai ya kya? Keep it, I'll leave it there. Just don't let the oil go cold, it gets sticky. Take it easy, sir.” He wipes the counter with a damp cloth and sets the untouched samosa aside on a stack of napkins.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The samosa waits on the counter, a particular object suspended in time, refusing to become waste or sustenance. Ramesh stands before me, the unpaid engine of this household, while I possess only ninety-six rupees and a body that has forgotten the rhythm of daily meals. The tension between my need for sustenance and my inability to pay the cook who provides it is the friction that grinds against the universal idea of the ethical family.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, the samosa is still warm. You must eat. I cannot pay you for cooking, but I cannot let you starve while I sit in contemplation. Take it. I will settle the debt when the file returns.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Samosa hai, khana nahi. Ghar mein toota hua pet hai, par aapke paas bhi paise nahi hain. Kya main aapko roti khilauun? Waise bhi aapki 'contemplation' se toh pet bharta nahi hai, sir.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.0
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1189"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "For “when Antisthenes turned outside a hole in his cloak, Socrates said to him, I see thy vanity through the hole in thy cloak.” Clothing is not a thing of rational import, but is regulated through needs that arise of themselves. In the North the clothing must be different from that in Central Africa; and in winter we do not wear cotton garments."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-14T17:10+05:30",
+  "until": "2026-11-14T17:25+05:30",
   "asleep": false,
   "imprest": 96,
   "wearing": "kurta",
