@@ -518,6 +518,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "14:26",
+   "to": "14:41",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -574,6 +581,34 @@
    "to": "Hegel",
    "text": "The house is already in order, sir. I will keep it that way, as I have always done.",
    "t": "14:11"
+  },
+  {
+   "k": "diary",
+   "text": "The arithmetic is cruel: my purse holds a hundred and sixty-six rupees, and the demand is four thousand. I am hungry, my body a vessel demanding what the spirit cannot yet provide. Ramesh turns to go, the engine of the house stalling for want of oil. I must address this tension before he leaves the room.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "French Philosophy, The Negative Aspect"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology"
+    }
+   ],
+   "t": "14:26"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, wait. I am in arrears, as you know. The Directorate has not yet settled my accounts, and my own purse is empty. I cannot give you the four thousand today. But I will go to the bazaar at once. I will buy what I can for my own sustenance, and I will return with whatever I can scrape together. Do not stop cooking for me; I will find a way to pay, but I need you to keep the house alive until the orders come.",
+   "to": "Ramesh",
+   "t": "14:26"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, the kettle is already boiling. I will make the chai, but you must understand that the rice is gone and I have no money to buy more. I cannot cook a meal from thin air.",
+   "t": "14:26"
   }
  ],
  "steps": [
@@ -917,13 +952,65 @@
     }
    ],
    "beat": "ramesh_parttime"
+  },
+  {
+   "t": "14:26",
+   "end": "14:41",
+   "event": "Ramesh says: “The house is already in order, sir. I will keep it that way, as I have always done.” He nods once and turns to walk away. Ramesh asks for ₹4,000 (the wage for cooking, three days a week), and you have only ₹166. You are hungry.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The arithmetic is cruel: my purse holds a hundred and sixty-six rupees, and the demand is four thousand. I am hungry, my body a vessel demanding what the spirit cannot yet provide. Ramesh turns to go, the engine of the house stalling for want of oil. I must address this tension before he leaves the room.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, wait. I am in arrears, as you know. The Directorate has not yet settled my accounts, and my own purse is empty. I cannot give you the four thousand today. But I will go to the bazaar at once. I will buy what I can for my own sustenance, and I will return with whatever I can scrape together. Do not stop cooking for me; I will find a way to pay, but I need you to keep the house alive until the orders come.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Sir, the kettle is already boiling. I will make the chai, but you must understand that the rice is gone and I have no money to buy more. I cannot cook a meal from thin air.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.9
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "French Philosophy, The Negative Aspect",
+     "id": "haldane-3:945"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology",
+     "id": "baillie-1:494"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "French Philosophy, The Negative Aspect",
+     "text": "Those who enforced these views were therefore agents of destruction against that alone which was in itself already destroyed. We place it to our credit when we reproach the French for their attacks upon religion and on the state."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology",
+     "text": "Instead of being the seemingly heavenborn spirit of universality in knowledge and action, wherein the feeling and enjoyment of being an individual are stilled, the earth-born spirit has made its way to this new level of self-consciousness, and holds that being alone as true reality which is the reality of individual consciousness."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-14T14:26+05:30",
+  "until": "2026-11-14T14:41+05:30",
   "asleep": false,
   "imprest": 166,
   "wearing": "kurta",
@@ -1010,7 +1097,8 @@
     "Ramesh|the wage for cooking",
     "Ramesh|groceries",
     "the electricity company|electricity",
-    "the dhobi|the washing"
+    "the dhobi|the washing",
+    "Ramesh|the wage for cooking, three days a week"
    ],
    "seen": {
     "home": [
@@ -1019,7 +1107,8 @@
      "ramesh"
     ]
    },
-   "no_meals": true
+   "no_meals": true,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
