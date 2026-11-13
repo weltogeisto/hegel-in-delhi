@@ -15,7 +15,7 @@ The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). W
 | M0 · baseline receipt | Astra | DONE, PR #15 merged (`5a347ab`): runtime at 12:18 UTC, plain Qwen, no adapter; the forty-case export | – |
 | M1 · forty-case re-audit | Claude | DONE: prompted Qwen keeps 39/40 rewrites intact, the adapter 25/40 (12 changed facts, 3 changed conclusions); the adapter stays off (`pc/exports/training1-20261106/new-rubric/REPORT.md`) | – |
 | M1 · ordinary life | Claude, then Astra | READY: `mind/soul-ordinary.md`, the rubric and 24 frozen contexts (`pc/M1-ORDINARY-LIFE-SCREEN.md`) | Astra runs the 144 calls (about 25 min, spare slot) before sampling resumes; Claude judges blind |
-| T49 · selection before training | Claude, then Astra | OPEN, Welt's OK of 13 November: the filter estimate is in the labeller's stats and in `tools/decision_filter.py` | Astra: the estimate from T39's saved arm-A answers, no GPU; then the M1 screen; then sampling resumes |
+| T49 · selection before training | Claude, then Astra | OPEN, Welt's OK of 13 November. T39's saved answers can't be used (each seed had its own prompts) | Astra: a first read on the 70 complete Training 3 situations, no GPU; a cut of a third sends the filter into T39 as arm D |
 
 Gates stay as declared: nothing goes live without its matched comparison and Claude's confirmed pass, and Training 3 runs by day only, under Welt's go of 6 November.
 
@@ -396,6 +396,11 @@ His mind uses the GPU for about ten seconds a step. Training 3's labels are a fi
 **Step 3 · only after a pass.** Claude builds the live switch, off by default, and a blind pair check: 20 cases, drawn with seed 1831, where the pick differs from seed 1831's answer. Argument and voice may be at most 0.25 below the replaced answer, with no new contradiction or statement as fact. Then a provisional shadow trial under the deployment policy; nothing goes live before that.
 
 **For Training 3.** Its comparator becomes the better of plain Qwen and plain Qwen with this filter. If the filter clears the bar on its own, Welt decides whether the training day is still worth spending. Sampling goes on either way: its candidate file answers both questions.
+
+**Amended 13 November, after Astra's input check (BLOCKED, PR #1).** T39 replayed each seed's own earlier thoughts, so 152 of the 156 arm-A cases have different prompts across the three seeds. Step 1's estimate from T39's saved answers is not valid and was not run. No number existed when this was written. Steps 1 to 3 above are replaced:
+1. **A first read, no GPU.** Run `tools/decision_filter.py` on the 70 complete Training 3 situations saved on 7 November: four answers to one prompt each. It is a read, not the bar: 70 real situations from the training roster, none of T39's days.
+2. **The go rule for the bar test, declared before the read.** If `no_echo_shown` cuts the echo share by at least a third against `first` on those 70, Claude builds the live switch (off by default) and Astra runs it as **arm D of T39**: the same frozen cases, seeds and measures, each seed replaying its own earlier thoughts as arms A to C did. If the 70 say no, the full candidate file gets a second and final say by the same rule when sampling is done.
+3. **The bar is T36's, unchanged, as for B and C.** Against arm A: the pooled echo share falls by at least a third (to at most 10.99%); contradictions at most 0.3 and statements as fact at most 0.5 per 100 sentences above A; argument and voice at most 0.25 below A, by Claude's blind scores of A and D together. The echo measure comes first, as it did for B and C. Only a full pass puts the filter on shadow, as a provisional trial.
 
 ### Act 1 gate · seven full days in a row
 On each of seven consecutive days: at least 20 thoughts (since 26 October; it was 30); quiet steps at most 5% of waking steps; the owl wrote; no refusal loop; at most 1.6 contradictions and 3.1 statements as fact per 100 sentences; repetition measured (T10 on the first). Claude checks it in the daily review (T11) and writes the Act 2 tasks when it passes.
