@@ -525,6 +525,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "14:41",
+   "to": "14:56",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -609,6 +616,34 @@
    "to": "Hegel",
    "text": "Sir, the kettle is already boiling. I will make the chai, but you must understand that the rice is gone and I have no money to buy more. I cannot cook a meal from thin air.",
    "t": "14:26"
+  },
+  {
+   "k": "diary",
+   "text": "The kettle sings, a thin, high voice of necessity. Ramesh offers the liquid, the steam, the warmth, but the solid grain is absent. I am reduced to the system of needs, where the need for bread has no satisfaction, only the satisfaction of thirst. It is a poor dialectic: the universal (the meal) is negated by the particular (the empty pot), and I am left with the moment of immediacy: the hot water. I will take the cup. It is better than nothing, and nothing is the void I have been contemplating.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "14:41"
+  },
+  {
+   "k": "said",
+   "text": "Bring the chai, Ramesh. The steam is a kind of presence. I will think with it. You may not have rice, but you have time, and I have a head.",
+   "to": "Ramesh",
+   "t": "14:41"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, time is cheap, but the tummy is not. I will put the chai on the table, but you will find it empty. The Directorate can settle its own head.",
+   "t": "14:41"
   }
  ],
  "steps": [
@@ -1004,13 +1039,65 @@
      "text": "Instead of being the seemingly heavenborn spirit of universality in knowledge and action, wherein the feeling and enjoyment of being an individual are stilled, the earth-born spirit has made its way to this new level of self-consciousness, and holds that being alone as true reality which is the reality of individual consciousness."
     }
    ]
+  },
+  {
+   "t": "14:41",
+   "end": "14:56",
+   "event": "Ramesh says: “Sir, the kettle is already boiling. I will make the chai, but you must understand that the rice is gone and I have no money to buy more. I cannot cook a meal from thin air.”",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The kettle sings, a thin, high voice of necessity. Ramesh offers the liquid, the steam, the warmth, but the solid grain is absent. I am reduced to the system of needs, where the need for bread has no satisfaction, only the satisfaction of thirst. It is a poor dialectic: the universal (the meal) is negated by the particular (the empty pot), and I am left with the moment of immediacy: the hot water. I will take the cup. It is better than nothing, and nothing is the void I have been contemplating.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Bring the chai, Ramesh. The steam is a kind of presence. I will think with it. You may not have rice, but you have time, and I have a head.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Sir, time is cheap, but the tummy is not. I will put the chai on the table, but you will find it empty. The Directorate can settle its own head.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.9
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "id": "dyde-right:549"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "text": "Note. — In contrast with freedom of business and trade in the civic community stands the other extreme of the establishment and direction of the work of all by means of official regulation. Under this head comes perhaps the construction of the pyramids and other monstrous Egyptian and Asiatic works."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-14T14:41+05:30",
+  "until": "2026-11-14T14:56+05:30",
   "asleep": false,
   "imprest": 166,
   "wearing": "kurta",
