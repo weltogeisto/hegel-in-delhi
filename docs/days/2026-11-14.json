@@ -539,6 +539,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "15:11",
+   "to": "15:26",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -679,6 +686,34 @@
    "to": "Hegel",
    "text": "Sir, the kettle is already half-cooled, so I am making it. You can contemplate the steam while it is hot. The cup will be on the table in a moment.",
    "t": "14:56"
+  },
+  {
+   "k": "diary",
+   "text": "The steam rises, a thin column of spirit escaping the material pot. It is a small, immediate negation of the heavy haze pressing against the windows, a breath of the universal in a particular cup. I will sit and let the moment be what it is, a pause in the motion of my debts and delays.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Reformation"
+    }
+   ],
+   "t": "15:11"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. Let it be.",
+   "to": "Ramesh",
+   "t": "15:11"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji sir. I will be in the back if you need anything else.",
+   "t": "15:11"
   }
  ],
  "steps": [
@@ -1178,13 +1213,65 @@
      "text": "(Kolonialpolitik.) Die bürgerliche Gesellschaft wird dazu getrieben, Kolonien anzulegen. Die Zunahme der Bevölkerung hat schon für sich diese Wirkung; besonders aber entsteht eine Menge, die die Befriedigung ihrer Bedürfnisse nicht durch ihre Arbeit gewinnen kann, wenn die Produktion das Bedürfnis - der Konsumtion übersteigt."
     }
    ]
+  },
+  {
+   "t": "15:11",
+   "end": "15:26",
+   "event": "Ramesh says: “Sir, the kettle is already half-cooled, so I am making it. You can contemplate the steam while it is hot. The cup will be on the table in a moment.” He turns back to the stove and pours water into the pot.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The steam rises, a thin column of spirit escaping the material pot. It is a small, immediate negation of the heavy haze pressing against the windows, a breath of the universal in a particular cup. I will sit and let the moment be what it is, a pause in the motion of my debts and delays.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 15,
+    "says": "Thank you, Ramesh. Let it be.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji sir. I will be in the back if you need anything else.",
+    "does": "Ramesh nods once and turns away to check the stove."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.3
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "id": "haldane-2:68"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Reformation",
+     "id": "haldane-3:363"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "text": "To Plato, accordingly, Philosophy is really the science of this implicitly universal, to which, as contrasted with the particular, he always continues to return. “When Plato spoke of tableness and cupness, Diogenes the Cynic said: ‘I see a table and a cup, to be sure, but not tableness and cupness.’"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Reformation",
+     "text": "The blind obedience by which human freedom was suppressed, was the third vow taken by the monks, as against which freedom, like marriage and property, was now also recognized as divine. Similarly on the side of knowledge man turned back into himself from the Beyond of authority; and reason was recognized as the absolutely universal, and hence as divine."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-14T15:11+05:30",
+  "until": "2026-11-14T15:26+05:30",
   "asleep": false,
   "imprest": 166,
   "wearing": "kurta",
