@@ -18,13 +18,13 @@
     "aqi": 328
    },
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 322
    },
    {
-    "temp": 21,
+    "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 316
@@ -36,13 +36,13 @@
     "aqi": 311
    },
    {
-    "temp": 20,
+    "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 305
    },
    {
-    "temp": 20,
+    "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 298
@@ -60,32 +60,32 @@
     "aqi": 253
    },
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 235
    },
    {
-    "temp": 23,
-    "sky": "overcast",
+    "temp": 24,
+    "sky": "a brown haze",
     "rain": 0,
     "aqi": 216
    },
    {
-    "temp": 25,
+    "temp": 26,
     "sky": "overcast",
     "rain": 0,
     "aqi": 201
    },
    {
-    "temp": 26,
+    "temp": 27,
     "sky": "mostly clear, hazy",
     "rain": 0,
     "aqi": 190
    },
    {
-    "temp": 27,
-    "sky": "clear, hazy",
+    "temp": 28,
+    "sky": "mostly clear, hazy",
     "rain": 0,
     "aqi": 183
    },
@@ -108,8 +108,8 @@
     "aqi": 172
    },
    {
-    "temp": 28,
-    "sky": "mostly clear, hazy",
+    "temp": 27,
+    "sky": "clear, hazy",
     "rain": 0,
     "aqi": 169
    },
@@ -120,38 +120,38 @@
     "aqi": 165
    },
    {
-    "temp": 24,
-    "sky": "partly cloudy, hazy",
+    "temp": 25,
+    "sky": "mostly clear, hazy",
     "rain": 0,
     "aqi": 160
    },
    {
     "temp": 24,
-    "sky": "overcast",
+    "sky": "mostly clear, hazy",
     "rain": 0,
     "aqi": 152
    },
    {
-    "temp": 24,
-    "sky": "overcast",
+    "temp": 23,
+    "sky": "mostly clear",
     "rain": 0,
     "aqi": 143
    },
    {
-    "temp": 24,
-    "sky": "overcast",
+    "temp": 23,
+    "sky": "clear",
     "rain": 0,
     "aqi": 135
    },
    {
-    "temp": 24,
+    "temp": 22,
     "sky": "mostly clear",
     "rain": 0,
     "aqi": 128
    },
    {
     "temp": 23,
-    "sky": "mostly clear",
+    "sky": "partly cloudy",
     "rain": 0,
     "aqi": 122
    }
@@ -441,16 +441,69 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "09:11",
+   "to": "09:41",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Modi in Bengaluru: PM flags off elevated stretch of Namma Metro Pink Line | LIVE” · “Bengaluru-Madgaon Vande Bharat launch: How Indian Railways electrified the challenging Western Ghats route” · “Central Railway to run four special Mumbai-Nagpur trains between November 13-15”",
+   "t": "09:11"
+  },
+  {
+   "k": "world",
+   "text": "The washing: ₹300 falls due to the dhobi.",
+   "owe": {
+    "to": "the dhobi",
+    "amount": 300,
+    "why": "the washing",
+    "since": "2026-11-14"
+   },
+   "t": "09:11"
+  }
+ ],
+ "steps": [
+  {
+   "t": "09:11",
+   "end": "09:41",
+   "event": "You wake. A brown haze, 24 °C. Ramesh has left the papers on the verandah. Headlines: Modi in Bengaluru: PM flags off elevated stretch of Namma Metro Pink Line | LIVE; Bengaluru-Madgaon Vande Bharat launch: How Indian Railways electrified the challenging Western Ghats route; Central Railway to run four special Mumbai-Nagpur trains between November 13-15. Ramesh knows the wage is more than the purse holds, he says, without looking at it. He could come on Mondays, Thursdays and Saturdays only, for ₹4,000 a month. Ramesh asks for ₹8,000 (the wage for cooking), and you have only ₹166. Ramesh asks for ₹1,500 (groceries), and you have only ₹166. The electricity company asks for ₹1,800 (electricity), and you have only ₹166. The dhobi asks for ₹300 (the washing), and you have only ₹166. Ramesh is here.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 0,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "the PC did not wake for the morning plan"
+     ]
+    ]
+   }
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-14T09:11+05:30",
-  "asleep": true,
+  "until": "2026-11-14T09:41+05:30",
+  "asleep": false,
   "imprest": 166,
   "wearing": "kurta",
   "wardrobe": [
@@ -528,7 +581,20 @@
    }
   ],
   "depesche_n": 2,
-  "today": {},
+  "today": {
+   "woke": "09:11",
+   "pressed": [
+    "Ramesh|the wage for cooking",
+    "Ramesh|groceries",
+    "the electricity company|electricity",
+    "the dhobi|the washing"
+   ],
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -733,7 +799,8 @@
     "2026-11-10",
     "2026-11-11",
     "2026-11-12",
-    "2026-11-13"
+    "2026-11-13",
+    "2026-11-14"
    ],
    "lodhi": [
     "2026-10-02",
@@ -818,6 +885,15 @@
     "cost": "electricity",
     "item": "Electricity",
     "at": "home"
+   },
+   {
+    "to": "the dhobi",
+    "amount": 300,
+    "why": "the washing",
+    "since": "2026-11-14",
+    "cost": "dhobi",
+    "item": "The dhobi",
+    "at": "home"
    }
   ],
   "cheques": [],
@@ -826,7 +902,7 @@
   "costs": {
    "wage": "2026-11-01",
    "groceries": "2026-11-08",
-   "dhobi": "2026-11-07",
+   "dhobi": "2026-11-14",
    "electricity": "2026-11-10",
    "data": "2026-10-12"
   },
@@ -854,7 +930,8 @@
     "2026-11-09",
     "2026-11-10",
     "2026-11-12",
-    "2026-11-13"
+    "2026-11-13",
+    "2026-11-14"
    ],
    "malhotra": [
     "2026-10-02",
