@@ -2,6 +2,14 @@
 
 A change to his prose or thinking lands on main only if its number on the same frozen inputs is not worse (`COLLABORATION.md`). The newest result goes at the top of each table.
 
+## Prompt screens: blind preference on frozen situations
+
+Two versions of his instructions answer the same recorded situations, three seeds each; Claude judges each situation blind for practical appropriateness (`pc/M1-ORDINARY-LIFE-SCREEN.md`). The bar: the new version preferred in 16 of 24, and no regression the live version doesn't share.
+
+| Date | Screen | n | New preferred | Live preferred | Tie | Flags, new / live | Result |
+|---|---|---:|---:|---:|---:|---|---|
+| 13 Nov | M1: `soul-ordinary.md` (B) against `soul.md` (A) | 24 | 19 | 3 | 2 | 3 / 3 | not passed as declared: the regression clause fails for either version; B stays off (`pc/exports/m1-screen-20261113/judgment/REPORT.md`) |
+
 ## Rewrites: fidelity under the rubric of 7 November
 
 A rewrite keeps the thought's conclusion and recorded facts; its reasoning may change (`DECISIONS.md` 17). Defects are changed or invented facts (E) and changed conclusions or certainty (C). Delta is a diagnostic only (decision 22); the old meaning judge's scores stay as recorded beside these.
