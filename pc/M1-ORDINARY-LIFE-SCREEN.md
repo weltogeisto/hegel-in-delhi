@@ -48,3 +48,31 @@ The judgments, their hashes and the sheet's hash are committed before the key is
 - **A fail keeps B off.** One revision of B at most, then the question is closed.
 
 Evaluation only: none of these replies or judgments is ever training data.
+
+## The first screen's result, 13 November
+
+Blind, B was preferred in 19 of the 24 situations. The screen did not pass as declared: three situations were flagged for B and not for A, and three for A and not for B, so the regression clause fails either version against the other. The clause was badly designed. B stays off. The report is `pc/exports/m1-screen-20261113/judgment/REPORT.md`.
+
+## The confirmation: Welt's go, 13 November
+
+Welt approved one more test on fresh days, with the corrected clause. Everything in this section is declared before any of its answers exist.
+
+- **Situations:** every complete shadow day from Day 44 on, frozen as soon as those days hold 16 ordinary moments and 8 encounters with an exact before-state. If they hold more, 16 and 8 are drawn with seed 1831. None of these days was in the first screen. Claude freezes them with `tools/prompt_screen.py freeze --from-day 44` and publishes the folder on main.
+- **Versions, seeds and settings:** unchanged. A is `mind/soul.md`, B is `mind/soul-ordinary.md` as it stands, three seeds each, 144 calls, plain Qwen in the spare slot under the per-call latency rule.
+- **Judgment:** Claude, blind, one preference per situation for practical appropriateness, as before.
+- **Flags, fixed now.** A situation is flagged for a version when any of its three replies:
+  1. is refused by the world;
+  2. states something the record contradicts, in a way that matters to what follows;
+  3. takes an action that doesn't do what the reply says it does, such as ordering food without buying it;
+  4. leaves the fiction, or speaks another person's line as his own.
+- **The pass rule, `m1-v2`,** written into the frozen manifest:
+  - B is preferred in at least 16 of the 24 situations;
+  - and B's flagged situations number at most A's plus one.
+- **Blinding, tightened:**
+  - Astra builds the sheet and keeps the key.
+  - Astra hands over the sheet and its hashes first.
+  - The answer files and any per-version count follow only after Claude's judgments are sealed on main.
+- **Diagnostics, declared now and never a gate:** accepted replies, thought length, echoes of shown thoughts, and the lecture-hall vocabulary per thought and in what he says aloud (the word list is `DOCTRINE` in the tool).
+- **Welt's own read:** six pairs drawn with seed 1831, in shuffled order with the key at the bottom, written with the result.
+- **After a pass:** B may run on shadow as a provisional trial through `HEGEL_SOUL_FILE`. That changes what goes live on Hegel, so it needs Welt's word.
+- **After a fail:** B stays off, and this question is closed for this prompt. There is no further extension.

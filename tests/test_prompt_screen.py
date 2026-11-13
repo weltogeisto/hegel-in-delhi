@@ -82,6 +82,53 @@ class ScreenTest(unittest.TestCase):
         self.assertFalse(judged(15)["passed"])
         self.assertFalse(judged(20, b_regression=True)["passed"])
 
+    def test_the_confirmation_rule_counts_flags_instead_of_matching_contexts(self):
+        folder = copy()
+        ps.run(folder, fake_post([]))
+        sheet, key = folder / "SHEET.jsonl", folder / "KEY.json"
+        ps.packet(folder, sheet, key)
+        rows = [json.loads(x) for x in sheet.read_text().splitlines()]
+        k = json.loads(key.read_text())
+
+        def judged(n_b, b_flags, a_flags, rule=None):
+            out = []
+            for i, r in enumerate(rows):
+                b_slot = "X" if k[r["id"]]["X"] == "B" else "Y"
+                a_slot = "Y" if b_slot == "X" else "X"
+                out.append({"id": r["id"], "prefer": b_slot if i < n_b else a_slot, "reason": "test",
+                            "regression": {b_slot: i < b_flags, a_slot: 23 - i < a_flags}})
+            path = folder / f"J-{n_b}-{b_flags}-{a_flags}.jsonl"
+            path.write_text("".join(json.dumps(x) + "\n" for x in out))
+            return ps.verdict(folder, path, key, rule=rule)
+        first = judged(19, 3, 3)                                  # the first screen's own result, by its frozen rule
+        self.assertEqual((first["pass_rule"], first["passed"]), ("m1-v1", False))
+        self.assertTrue(judged(19, 3, 3, rule="m1-v2")["passed"])
+        self.assertTrue(judged(16, 1, 0, rule="m1-v2")["passed"])            # one more flag than A is within the margin
+        self.assertFalse(judged(16, 2, 0, rule="m1-v2")["passed"])
+        self.assertFalse(judged(15, 0, 0, rule="m1-v2")["passed"])
+        with self.assertRaisesRegex(ValueError, "unknown pass rule"):
+            judged(16, 0, 0, rule="anything-goes")
+
+    def test_diagnostics_count_the_lecture_hall_vocabulary(self):
+        folder = copy()
+        ps.run(folder, fake_post([]))
+        d = ps.diagnostics(folder)["A"]
+        self.assertEqual((d["doctrinal_terms_per_thought"], d["thoughts_without_doctrinal_terms"]), (0.0, 72))
+        self.assertEqual(len(ps.DOCTRINE.findall("The dialectic of the particular and the universal Spirit is sublated.")), 5)
+        self.assertFalse(ps.DOCTRINE.findall("The tea is cold again, and I would rather walk than wait."))
+
+    def test_welt_pairs_are_six_shuffled_and_keyed(self):
+        folder = copy()
+        ps.run(folder, fake_post([]))
+        out = folder / "WELT-PAIRS.md"
+        picked = ps.welt_pairs(folder, out)
+        text = out.read_text()
+        self.assertEqual((len(picked), text.count("**First:**"), text.count("**Second:**")), (6, 6, 6))
+        self.assertIn("## Key", text)
+        self.assertEqual(picked, ps.welt_pairs(folder, folder / "again.md"))          # the same six every time
+        with self.assertRaises(FileExistsError):
+            ps.welt_pairs(folder, out)
+
 
 if __name__ == "__main__":
     unittest.main()
