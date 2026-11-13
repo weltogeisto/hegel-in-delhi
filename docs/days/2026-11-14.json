@@ -581,6 +581,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with Masterji and Sunil at Khan Market."
+  },
+  {
+   "from": "16:43",
+   "to": "17:10",
+   "mode": "walk",
+   "a": "khan",
+   "b": "home"
   }
  ],
  "entries": [
@@ -917,6 +924,34 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "16:28"
+  },
+  {
+   "k": "diary",
+   "text": "The particular act of charity dissolves the universal law of exchange; the samosa remains as a sign of the debt that cannot be quantified. I am weary, having walked two kilometres and sat in the haze for an hour, and the body, which is the first reality of the spirit, demands rest before it can contemplate the next contradiction.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature"
+    }
+   ],
+   "t": "16:43"
+  },
+  {
+   "k": "said",
+   "text": "Bahut dhanyavaad, Sunil. The cup is sufficient; the samosa remains for the spirit, which is hungrier than the stomach.",
+   "to": "Masterji and Sunil",
+   "t": "16:43"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Arey, spirit khana khaati hai ya kya? Keep it, I'll leave it there. Just don't let the oil go cold, it gets sticky. Take it easy, sir.",
+   "t": "16:43"
   }
  ],
  "steps": [
@@ -1747,13 +1782,67 @@
      "text": "But this actualisation rests at first on the particular subjectivity of the judge, since here as yet there is not found the necessary unity of it with right in the abstract. Conversely, the blind necessity of the system of wants is not lifted up into the consciousness of the universal, and worked from that period of view. c. Police and Corporation(166)."
     }
    ]
+  },
+  {
+   "t": "16:43",
+   "end": "17:10",
+   "event": "Sunil says: “Sahi hai, sir. Chai is already done, just the samosa was extra, so you're only paying for the cup. Drink slowly, it's still hot.” He slides the small glass of chai across the counter, leaving the plate with the samosa untouched.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The particular act of charity dissolves the universal law of exchange; the samosa remains as a sign of the debt that cannot be quantified. I am weary, having walked two kilometres and sat in the haze for an hour, and the body, which is the first reality of the spirit, demands rest before it can contemplate the next contradiction.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 20,
+    "says": "Bahut dhanyavaad, Sunil. The cup is sufficient; the samosa remains for the spirit, which is hungrier than the stomach.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "voice": {
+    "by": "Sunil",
+    "says": "Arey, spirit khana khaati hai ya kya? Keep it, I'll leave it there. Just don't let the oil go cold, it gets sticky. Take it easy, sir.",
+    "does": "He wipes the counter with a damp cloth and sets the untouched samosa aside on a stack of napkins."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.3
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:643"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "id": "haldane-2:425"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "The civil rights implied in it give rise to a feeling of self-respect, the sense of counting as a lawful person in the civic community. This feeling of being infinite and free from all Others is the root out of which springs the needed balance of the various kinds of thought and sentiment. The isolation with which the Jews have been blamed it is better to preserve."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "text": "And again, the matter of a small body and a large is the same, because at one time a greater proceeds from a smaller, and at another time a smaller from a greater."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-11-14T16:43+05:30",
+  "place": "home",
+  "until": "2026-11-14T17:10+05:30",
   "asleep": false,
   "imprest": 96,
   "wearing": "kurta",
@@ -1857,8 +1946,8 @@
    },
    "no_meals": true,
    "hunger": 1,
-   "walked": 2025,
-   "strain": 2025
+   "walked": 4050,
+   "strain": 4050
   },
   "account": {
    "advance": 15000,
