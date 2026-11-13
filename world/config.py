@@ -79,6 +79,9 @@ class Config:
         self.decision_dry = float(v.get("HEGEL_DECISION_DRY", "0") or 0)                                # T36 arm C: the DRY sampler's multiplier, 0 off
         if not 0 <= self.decision_dry <= 2:
             raise ValueError("HEGEL_DECISION_DRY must be from 0 to 2")
+        self.decision_draws = int(v.get("HEGEL_DECISION_DRAWS", "1") or 1)                              # T49: replies to choose among, 1 off
+        if not 1 <= self.decision_draws <= 6:
+            raise ValueError("HEGEL_DECISION_DRAWS must be from 1 to 6")
         self.write_mode = "plain" if v.get("HEGEL_WRITE_MODE", "chat").strip().lower() == "plain" else "chat"      # his writings: the chat call (default), or a plain-text completion
 
     def get(self, key, default=None):
