@@ -553,6 +553,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "15:36",
+   "to": "15:46",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -749,6 +756,34 @@
    "to": "Hegel",
    "text": "Ji sir, I am not leaving. I will settle the account when the tea is finished, but I cannot cook what I have not bought. The stove is hot, but the pot is empty.",
    "t": "15:26"
+  },
+  {
+   "k": "diary",
+   "text": "The pot is empty because the hand that feeds it is empty. I have been sitting here in my white kurta, drinking tea, while the material conditions of my own existence starve. It is a contradiction, yes, but it is the contradiction of the individual against his own means. I cannot conjure rice from the air, nor can I conjure the will to cook from a man who is not paid. I must speak plainly, for the dialectic of the kitchen does not tolerate vagueness.",
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§171"
+    }
+   ],
+   "t": "15:36"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, you stand at the threshold of a problem I have failed to solve. I have no money to give you for the food, and I am ashamed of that. But you say the stove is hot. Is there nothing in the house? No rice, no lentils, no oil? If there is truly nothing, then we must eat nothing, and I must walk out into the hazy city to find something that will sustain us both. Do not wait for the tea. Tell me what is in the pantry, if anything at all.",
+   "to": "Ramesh",
+   "t": "15:36"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, the cupboard is empty. No rice, no dal, no oil. You are asking me to cook air? I will make the tea, but I cannot feed you on promises.",
+   "t": "15:36"
   }
  ],
  "steps": [
@@ -1352,13 +1387,65 @@
      "text": "In the fact that the people could so long be kept in check is manifested its respect for legal order aud the sacra. But of necessity the plebeians at last secured their righteous demands, and their debts were often remitted. The severity of the patricians their creditors, the debts due to whom they had to discharge by slave-work, drove the plebs to revolts."
     }
    ]
+  },
+  {
+   "t": "15:36",
+   "end": "15:46",
+   "event": "Ramesh says: “Ji sir, I am not leaving. I will settle the account when the tea is finished, but I cannot cook what I have not bought. The stove is hot, but the pot is empty.” He stands still in the kitchen doorway, hands resting on the edge of the counter, and waits for the tea to be ready before answering.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The pot is empty because the hand that feeds it is empty. I have been sitting here in my white kurta, drinking tea, while the material conditions of my own existence starve. It is a contradiction, yes, but it is the contradiction of the individual against his own means. I cannot conjure rice from the air, nor can I conjure the will to cook from a man who is not paid. I must speak plainly, for the dialectic of the kitchen does not tolerate vagueness.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Ramesh, you stand at the threshold of a problem I have failed to solve. I have no money to give you for the food, and I am ashamed of that. But you say the stove is hot. Is there nothing in the house? No rice, no lentils, no oil? If there is truly nothing, then we must eat nothing, and I must walk out into the hazy city to find something that will sustain us both. Do not wait for the tea. Tell me what is in the pantry, if anything at all.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, the cupboard is empty. No rice, no dal, no oil. You are asking me to cook air? I will make the tea, but I cannot feed you on promises.",
+    "does": "He turns away from the counter and walks toward the kettle."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.0
+   },
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "id": "wallace-logic:71"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§171",
+     "id": "wallace-logic:782"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "text": "A slothful mind finds it natural to say: 'Don't let it be supposed that we mean to be in earnest with our philosophy. We shall be glad inter alia to study Logic: but Logic must be sure to leave us as we were before.' People have a feeling that, if thinking passes the ordinary range of our ideas and impressions, it cannot but be on the evil road."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§171",
+     "text": "Far from occupying the same level, and being of equal value, the different species of judgment form a series of steps, the difference of which rests upon the logical significance of the predicate. That judgments differ in value is evident even in our ordinary ways of thinking."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-14T15:36+05:30",
+  "until": "2026-11-14T15:46+05:30",
   "asleep": false,
   "imprest": 166,
   "wearing": "kurta",
