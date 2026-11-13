@@ -532,6 +532,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "14:56",
+   "to": "15:11",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -644,6 +651,34 @@
    "to": "Hegel",
    "text": "Sir, time is cheap, but the tummy is not. I will put the chai on the table, but you will find it empty. The Directorate can settle its own head.",
    "t": "14:41"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh speaks the truth of the situation with the blunt clarity of a man who has been ignored. The Directorate demands vouchers for every rupee of the state's money, yet my own body demands sustenance and they have not paid the man who cooks. It is a contradiction in the administration of the household, a private state failing in its ethical duties because the public state has failed in its bureaucratic ones. I have no money to pay him, and no food to eat, so I must accept the empty cup as a symbol of the void left by their neglect.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§248"
+    }
+   ],
+   "t": "14:56"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Ramesh. The tummy does not negotiate with the Directorate. I shall sit with the empty cup and contemplate the absurdity of a state that cannot feed its own servants, let alone its philosopher. Do not trouble yourself further; the silence is more instructive than the tea.",
+   "to": "Ramesh",
+   "t": "14:56"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, the kettle is already half-cooled, so I am making it. You can contemplate the steam while it is hot. The cup will be on the table in a moment.",
+   "t": "14:56"
   }
  ],
  "steps": [
@@ -1091,13 +1126,65 @@
      "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
     }
    ]
+  },
+  {
+   "t": "14:56",
+   "end": "15:11",
+   "event": "Ramesh says: “Sir, time is cheap, but the tummy is not. I will put the chai on the table, but you will find it empty. The Directorate can settle its own head.”",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh speaks the truth of the situation with the blunt clarity of a man who has been ignored. The Directorate demands vouchers for every rupee of the state's money, yet my own body demands sustenance and they have not paid the man who cooks. It is a contradiction in the administration of the household, a private state failing in its ethical duties because the public state has failed in its bureaucratic ones. I have no money to pay him, and no food to eat, so I must accept the empty cup as a symbol of the void left by their neglect.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "You are right, Ramesh. The tummy does not negotiate with the Directorate. I shall sit with the empty cup and contemplate the absurdity of a state that cannot feed its own servants, let alone its philosopher. Do not trouble yourself further; the silence is more instructive than the tea.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Sir, the kettle is already half-cooled, so I am making it. You can contemplate the steam while it is hot. The cup will be on the table in a moment.",
+    "does": "He turns back to the stove and pours water into the pot."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.9
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "id": "wallace-mind:324"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§248",
+     "id": "rechts:979"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "text": "The members of civil society as such are rather people who find their nearest duty in their private interest and (as especially in the feudal society) in the interest of their privileged corporation. Take the case of England which, because private persons have a predominant share in public affairs, has been regarded as having the freest of all constitutions."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§248",
+     "text": "(Kolonialpolitik.) Die bürgerliche Gesellschaft wird dazu getrieben, Kolonien anzulegen. Die Zunahme der Bevölkerung hat schon für sich diese Wirkung; besonders aber entsteht eine Menge, die die Befriedigung ihrer Bedürfnisse nicht durch ihre Arbeit gewinnen kann, wenn die Produktion das Bedürfnis - der Konsumtion übersteigt."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-14T14:56+05:30",
+  "until": "2026-11-14T15:11+05:30",
   "asleep": false,
   "imprest": 166,
   "wearing": "kurta",
