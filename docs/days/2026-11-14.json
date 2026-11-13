@@ -574,6 +574,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with Masterji and Sunil at Khan Market."
+  },
+  {
+   "from": "16:28",
+   "to": "16:43",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Talking with Masterji and Sunil at Khan Market."
   }
  ],
  "entries": [
@@ -876,6 +883,40 @@
    "item": "Samosa",
    "price": 30,
    "t": "16:13"
+  },
+  {
+   "k": "diary",
+   "text": "The steam rises like the spirit of the particular, fleeting and hot, demanding immediate consumption rather than contemplation. I have already eaten a samosa and paid for it; this second offering is a test of my discipline against the particular appetite. The body is weary, having walked two kilometres in the haze, but the spirit must not be enslaved to the next bite.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§249"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§531"
+    }
+   ],
+   "t": "16:28"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Sunil. I have already satisfied the need for the samosa; the chai alone will suffice to cool the throat. The haze is thick, but the glass is clear.",
+   "to": "Masterji and Sunil",
+   "t": "16:28"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Sahi hai, sir. Chai is already done, just the samosa was extra, so you're only paying for the cup. Drink slowly, it's still hot.",
+   "t": "16:28"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "16:28"
   }
  ],
  "steps": [
@@ -1647,15 +1688,74 @@
     }
    ],
    "beat": "sell_frock_again"
+  },
+  {
+   "t": "16:28",
+   "end": "16:43",
+   "event": "Sunil says: “Aaj ka mausam sach mein bhari hai, sir. One chai, one samosa—total ₹50. Here, mind the steam, it burns.” He pours the chai into a small glass and slides a hot samosa onto a paper plate.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The steam rises like the spirit of the particular, fleeting and hot, demanding immediate consumption rather than contemplation. I have already eaten a samosa and paid for it; this second offering is a test of my discipline against the particular appetite. The body is weary, having walked two kilometres in the haze, but the spirit must not be enslaved to the next bite.",
+    "action": "talk",
+    "place": "khan",
+    "minutes": 15,
+    "says": "Thank you, Sunil. I have already satisfied the need for the samosa; the chai alone will suffice to cool the throat. The haze is thick, but the glass is clear.",
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Sahi hai, sir. Chai is already done, just the samosa was extra, so you're only paying for the cup. Drink slowly, it's still hot.",
+    "does": "He slides the small glass of chai across the counter, leaving the plate with the samosa untouched."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.9
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§249",
+     "id": "dyde-right:570"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§531",
+     "id": "wallace-mind:287"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§249",
+     "text": "2-50. In its substantive family life and life of nature the agricultural class contains directly the concrete universal in which it Hves. The universal class, again, has this universal as an independent end of its activity, and as its ground and basis. The middle or commercial class is essentially engaged with the particular, and hence its peculiar province is the corporation."
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§531",
+     "text": "But this actualisation rests at first on the particular subjectivity of the judge, since here as yet there is not found the necessary unity of it with right in the abstract. Conversely, the blind necessity of the system of wants is not lifted up into the consciousness of the universal, and worked from that period of view. c. Police and Corporation(166)."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-14T16:28+05:30",
+  "until": "2026-11-14T16:43+05:30",
   "asleep": false,
-  "imprest": 116,
+  "imprest": 96,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1943,6 +2043,13 @@
      "t": "16:13",
      "item": "Samosa",
      "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-14",
+     "t": "16:28",
+     "item": "Chai, a cup",
+     "price": 20,
      "office": false
     }
    ],
