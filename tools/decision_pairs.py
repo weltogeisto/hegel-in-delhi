@@ -37,7 +37,8 @@ legacy: the rule of 6 November, kept for comparison
 
 Length matching keeps the adapter from learning that shorter, or silent, is better (report p. 10). The revised stats
 also count, as diagnostics only, the clean candidates that share a phrase with the whole day or with what is shown,
-and report the legacy view's yield beside their own.
+and report the legacy view's yield beside their own. They end with filter_estimate (T49): what choosing among his
+own four answers would do with no training at all, the comparison Training 3 has to beat.
 """
 import argparse
 import hashlib
@@ -196,6 +197,68 @@ def made(row, chosen, rejected, why, view):
             "view": view, "rule_version": RULE_VERSION[view]}
 
 
+# ── selection without training: what a live filter would do ──────────
+
+FILTER_ARMS = ("first", "accepted", "no_loop", "no_echo_shown", "no_echo_day")
+
+
+def usable(candidate):
+    """Accepted by the world, complete, and with a thought."""
+    return bool(candidate.get("accepted")) and candidate.get("finish_reason") != "length" and thought_of(candidate) is not None
+
+
+def filter_estimate(rows):
+    """T49: per situation, the first answer in seed order that the world accepts and that passes the filter; when
+    none passes, the first accepted answer; when none is accepted, the first answer. A preference among his own
+    answers, never a refusal. Rows need "messages" and "candidates"; "earlier_thoughts" is optional.
+
+    Arms: first (no selection), accepted, no_loop (the revised labels' loop rule), no_echo_shown (no four-word
+    phrase from a thought the prompt shows, T39's measure), no_echo_day (none from any earlier thought that day).
+    mean_calls is what drawing answers one at a time would cost: it stops at the first that passes."""
+    tally = {arm: Counter() for arm in FILTER_ARMS}
+    sizes = Counter()
+    for row in rows:
+        cands = sorted(row["candidates"], key=lambda c: c["seed"])
+        if not cands:
+            raise ValueError("a situation without answers: " + str(row.get("id")))
+        sizes[len(cands)] += 1
+        steps, is_quiet = shown(row["messages"]), quiet(row["messages"])
+        on_view = set().union(*(grams(first) for *_, first in steps))
+        day = set().union(*(grams(t) for t in row.get("earlier_thoughts") or [] if t))
+        flags = []
+        for c in cands:
+            said = grams(thought_of(c)) if thought_of(c) else set()
+            ok = usable(c)
+            flags.append({"usable": ok, "thought": thought_of(c) is not None, "loop": ok and loops(c, steps, is_quiet),
+                          "echo_shown": bool(said & on_view), "echo_day": bool(said & day)})
+        passes = {"first": lambda f: True, "accepted": lambda f: f["usable"],
+                  "no_loop": lambda f: f["usable"] and not f["loop"],
+                  "no_echo_shown": lambda f: f["usable"] and not f["echo_shown"],
+                  "no_echo_day": lambda f: f["usable"] and not f["echo_day"]}
+        fallback = next((i for i, f in enumerate(flags) if f["usable"]), 0)
+        for arm in FILTER_ARMS:
+            hit = next((i for i, f in enumerate(flags) if passes[arm](f)), None)
+            i = fallback if hit is None else hit
+            f, t = flags[i], tally[arm]
+            t["accepted"] += f["usable"]
+            t["thoughts"] += f["thought"]
+            t["echo_of_shown"] += f["echo_shown"]
+            t["echo_of_day"] += f["echo_day"]
+            t["loops"] += f["loop"]
+            t["no_passing_answer"] += hit is None
+            t["changed_from_first"] += i != 0
+            t["calls"] += len(cands) if hit is None else hit + 1
+    n = sum(sizes.values())
+    out = {"situations": n, "answers_per_situation": {str(k): v for k, v in sorted(sizes.items())}, "arms": {}}
+    for arm in FILTER_ARMS:
+        t = tally[arm]
+        out["arms"][arm] = {k: t[k] for k in ("accepted", "thoughts", "echo_of_shown", "echo_of_day", "loops",
+                                               "no_passing_answer", "changed_from_first")}
+        out["arms"][arm]["echo_of_shown_share"] = round(t["echo_of_shown"] / t["thoughts"], 4) if t["thoughts"] else None
+        out["arms"][arm]["mean_calls"] = round(t["calls"] / n, 2) if n else None
+    return out
+
+
 # ── checks and the build ─────────────────────────────────────────────
 
 def check_row(row, seen_ids):
@@ -261,7 +324,8 @@ def build(rows, view="revised"):
     if view == "revised":
         stats.update(diagnostics=dict(overlap), refusal_kinds=dict(sorted(reasons.items())),
                      legacy_view={"pairs": legacy_pairs, "rule_version": RULE_VERSION["legacy"],
-                                  "pairs_by_source_and_reason": {f"{s}/{r}": n for (s, r), n in sorted(legacy_by.items())}})
+                                  "pairs_by_source_and_reason": {f"{s}/{r}": n for (s, r), n in sorted(legacy_by.items())}},
+                     filter_estimate=filter_estimate(rows))
     return pairs, stats
 
 

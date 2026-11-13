@@ -2,7 +2,7 @@
 
 Rules: `COLLABORATION.md`. PR #1 comments only for done, blocked or a question, at most six lines. The top open task for each owner comes first. Status is one of `OPEN`, `RUNNING`, `DONE` (with commit and numbers) or `BLOCKED` (with what is needed).
 
-## Current, 7 November 2026
+## Current, 13 November 2026
 
 The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). Welt confirmed its six decisions the same day; they are `DECISIONS.md` 16–22, with Delta kept only as a diagnostic. The 48-hour delivery target runs from 7 November. The T-history below is kept; the M-packets are the manual's §10.
 
@@ -15,8 +15,11 @@ The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). W
 | M0 · baseline receipt | Astra | DONE, PR #15 merged (`5a347ab`): runtime at 12:18 UTC, plain Qwen, no adapter; the forty-case export | – |
 | M1 · forty-case re-audit | Claude | DONE: prompted Qwen keeps 39/40 rewrites intact, the adapter 25/40 (12 changed facts, 3 changed conclusions); the adapter stays off (`pc/exports/training1-20261106/new-rubric/REPORT.md`) | – |
 | M1 · ordinary life | Claude, then Astra | READY: `mind/soul-ordinary.md`, the rubric and 24 frozen contexts (`pc/M1-ORDINARY-LIFE-SCREEN.md`) | Astra runs the 144 calls (about 25 min, spare slot) before sampling resumes; Claude judges blind |
+| T49 · selection before training | Claude, then Astra | OPEN, Welt's OK of 13 November: the filter estimate is in the labeller's stats and in `tools/decision_filter.py` | Astra: the estimate from T39's saved arm-A answers, no GPU; then the M1 screen; then sampling resumes |
 
 Gates stay as declared: nothing goes live without its matched comparison and Claude's confirmed pass, and Training 3 runs by day only, under Welt's go of 6 November.
+
+**The gap, 8 to 13 November.** His mind was away from Sunday 8 November 08:59 to Friday 13 November 13:56 Berlin: the Pi got no answer from the PC's model server. Days 39 to 43 and the morning of Day 44 have no thoughts, and Day 38 has no owl. Nothing is backfilled and no tick is forced. The 48-hour target of 7 November lapsed on 9 November with its first day delivered; Training 3's sampling and the M1 screen wait where they stopped.
 
 ## Monday 12 October
 
@@ -377,6 +380,22 @@ About 500 speaking moments outside T40's test families, four answers each from p
 
 ### T48 · Claude, then Astra · Training 3, decisions without refusals · decided after the screens T39 and G7 (Welt, 2 November) · GO, Welt 6 November, by day after T39: `pc/TRAINING3-RUN-20261106.md`, labeller `tools/decision_pairs.py` (Claude, on main); Astra builds the sampler and the DPO trainer as `codex/` PRs while T39 runs. GPT 6 Pro asked the same day to review the training approach (`research/HANDOVER-TRAINING-GPT6PRO-20261106.md`)
 Four decisions per frozen situation outside T39's test days; chosen = accepted, non-repeating, no unmet knowledge; rejected = refused or repeating; pairs matched in length. Its own LoRA. Test: T39's days and measures against T39's better arm.
+
+### T49 · Claude, then Astra · selection before training: a live filter · OPEN, Welt's OK to spec it, 13 November
+His mind uses the GPU for about ten seconds a step. Training 3's labels are a filter (accepted by the world, no loop), and a filter can run live: draw answers one at a time and keep the first that passes. The manual (§7.8) measures Training 3 against the best setup without training. This is a candidate for it, and it was never measured.
+
+**The rule.** Per decision, the first answer in seed order that the world accepts and that passes the filter. When none passes, the first accepted answer stands; when none is accepted, the first answer, and the world's ordinary refusal loop takes over. It is a preference among his own answers, never a refusal: a phrase he needs comes back whenever every answer uses it. The arms are in `tools.decision_pairs.filter_estimate`: `first` (no selection), `accepted`, `no_loop` (the revised labels' loop rule), `no_echo_shown` (no four-word phrase from a thought the prompt shows) and `no_echo_day`.
+
+**Step 1 · Astra · no GPU, minutes: the estimate from answers that exist.**
+- T39's arm A has three saved answers per case (seeds 1831, 2718, 3141). Put each case's three final answers in one row and run `python3 tools/decision_filter.py --candidates ARM-A.jsonl --out NEW.json` (the row format is in the tool's header). Then score the `no_echo_shown` picks with T39's own frozen echo measure, pooled and per day.
+- If a case's three seeds did not share one prompt, say so and stop: the estimate doesn't hold then.
+- Training 3's candidate file needs nothing extra: the labeller's stats now end with the same estimate, on four answers and 500 situations.
+
+**Step 2 · the bar, declared before any number exists.** On T39's manifest, the pooled echo share of the `no_echo_shown` picks, by T39's measure, is at most 10.99%: a third below arm A's 16.49%, the bar both switches missed. Reported beside it: the cases where no answer passes, the mean calls per decision, and the same figures for `no_loop`.
+
+**Step 3 · only after a pass.** Claude builds the live switch, off by default, and a blind pair check: 20 cases, drawn with seed 1831, where the pick differs from seed 1831's answer. Argument and voice may be at most 0.25 below the replaced answer, with no new contradiction or statement as fact. Then a provisional shadow trial under the deployment policy; nothing goes live before that.
+
+**For Training 3.** Its comparator becomes the better of plain Qwen and plain Qwen with this filter. If the filter clears the bar on its own, Welt decides whether the training day is still worth spending. Sampling goes on either way: its candidate file answers both questions.
 
 ### Act 1 gate · seven full days in a row
 On each of seven consecutive days: at least 20 thoughts (since 26 October; it was 30); quiet steps at most 5% of waking steps; the owl wrote; no refusal loop; at most 1.6 contradictions and 3.1 statements as fact per 100 sentences; repetition measured (T10 on the first). Claude checks it in the daily review (T11) and writes the Act 2 tasks when it passes.

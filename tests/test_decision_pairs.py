@@ -145,6 +145,47 @@ class RevisedPairTest(unittest.TestCase):
         self.assertIsNone(p)
 
 
+class FilterEstimateTest(unittest.TestCase):
+    """T49: choosing among his own answers, with no training."""
+
+    def test_the_filter_prefers_a_fresh_answer_and_counts_its_calls(self):
+        shown_prompt = prompt([("09:00", "stay", "home", EARLIER)])
+        r = row([cand(1831, ECHO), cand(2718, LONG)], messages=shown_prompt, earlier=[EARLIER])
+        arms = dp.filter_estimate([r])["arms"]
+        self.assertEqual((arms["first"]["echo_of_shown"], arms["first"]["loops"], arms["first"]["mean_calls"]), (1, 1, 1.0))
+        for arm in ("no_echo_shown", "no_echo_day", "no_loop"):
+            self.assertEqual((arms[arm]["echo_of_shown"], arms[arm]["loops"], arms[arm]["changed_from_first"],
+                              arms[arm]["mean_calls"], arms[arm]["no_passing_answer"]), (0, 0, 1, 2.0, 0), arm)
+        self.assertEqual(arms["accepted"]["changed_from_first"], 0)          # the echo was accepted by the world
+
+    def test_when_every_answer_repeats_the_first_accepted_one_stands(self):
+        shown_prompt = prompt([("09:00", "stay", "home", EARLIER)])
+        r = row([cand(1831, LONG, accepted=False), cand(2718, ECHO), cand(3141, ECHO + " again")], messages=shown_prompt)
+        est = dp.filter_estimate([r])
+        arm = est["arms"]["no_echo_shown"]
+        self.assertEqual((arm["no_passing_answer"], arm["accepted"], arm["echo_of_shown"], arm["mean_calls"]), (1, 1, 1, 4.0))
+        self.assertEqual(est["arms"]["accepted"]["mean_calls"], 2.0)         # the refusal costs one more call
+        self.assertEqual(est["arms"]["first"]["accepted"], 0)
+
+    def test_any_number_of_answers_and_the_stats_carry_the_estimate(self):
+        three = {"id": "t39:1", "messages": prompt(), "candidates": [cand(1831, LONG), cand(2718, LONG), cand(3141, LONG)]}
+        est = dp.filter_estimate([three])
+        self.assertEqual((est["situations"], est["answers_per_situation"]), (1, {"3": 1}))
+        _, stats = dp.build([row([cand(1831, LONG)])])
+        self.assertEqual(stats["filter_estimate"]["answers_per_situation"], {"4": 1})
+        _, legacy = dp.build([row([cand(1831, LONG)])], view="legacy")
+        self.assertNotIn("filter_estimate", legacy)
+
+    def test_cli_reads_any_candidate_file(self):
+        from tools import decision_filter
+        folder = Path(tempfile.mkdtemp())
+        src = folder / "arm-a.jsonl"
+        src.write_text(json.dumps({"id": "t39:1", "messages": prompt(), "candidates": [cand(1831, LONG), cand(2718, LONG)]}) + "\n")
+        out = folder / "estimate.json"
+        self.assertEqual(decision_filter.main(["--candidates", str(src), "--out", str(out)]), 0)
+        self.assertEqual(json.loads(out.read_text())["situations"], 1)
+
+
 class BuildTest(unittest.TestCase):
     def test_test_days_duplicates_and_t9_rehearsals_refused(self):
         with self.assertRaisesRegex(ValueError, "test day"):
