@@ -15,7 +15,7 @@ The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). W
 | M0 · baseline receipt | Astra | DONE, PR #15 merged (`5a347ab`): runtime at 12:18 UTC, plain Qwen, no adapter; the forty-case export | – |
 | M1 · forty-case re-audit | Claude | DONE: prompted Qwen keeps 39/40 rewrites intact, the adapter 25/40 (12 changed facts, 3 changed conclusions); the adapter stays off (`pc/exports/training1-20261106/new-rubric/REPORT.md`) | – |
 | M1 · ordinary life | Claude, then Astra | READY: `mind/soul-ordinary.md`, the rubric and 24 frozen contexts (`pc/M1-ORDINARY-LIFE-SCREEN.md`) | Astra runs the 144 calls (about 25 min, spare slot) before sampling resumes; Claude judges blind |
-| T49 · selection before training | Claude, then Astra | OPEN, Welt's OK of 13 November. T39's saved answers can't be used (each seed had its own prompts) | Astra: a first read on the 70 complete Training 3 situations, no GPU; a cut of a third sends the filter into T39 as arm D |
+| T49 · selection before training | Claude, then Astra | The first read met the go rule: echo 13/70 without selection, 1/70 with it, at 1.31 calls. The live switch `HEGEL_DECISION_DRAWS` is on main, off | Astra runs it as arm D of T39 after the M1 screen; T36's pass rules decide |
 
 Gates stay as declared: nothing goes live without its matched comparison and Claude's confirmed pass, and Training 3 runs by day only, under Welt's go of 6 November.
 
@@ -401,6 +401,25 @@ His mind uses the GPU for about ten seconds a step. Training 3's labels are a fi
 1. **A first read, no GPU.** Run `tools/decision_filter.py` on the 70 complete Training 3 situations saved on 7 November: four answers to one prompt each. It is a read, not the bar: 70 real situations from the training roster, none of T39's days.
 2. **The go rule for the bar test, declared before the read.** If `no_echo_shown` cuts the echo share by at least a third against `first` on those 70, Claude builds the live switch (off by default) and Astra runs it as **arm D of T39**: the same frozen cases, seeds and measures, each seed replaying its own earlier thoughts as arms A to C did. If the 70 say no, the full candidate file gets a second and final say by the same rule when sampling is done.
 3. **The bar is T36's, unchanged, as for B and C.** Against arm A: the pooled echo share falls by at least a third (to at most 10.99%); contradictions at most 0.3 and statements as fact at most 0.5 per 100 sentences above A; argument and voice at most 0.25 below A, by Claude's blind scores of A and D together. The echo measure comes first, as it did for B and C. Only a full pass puts the filter on shadow, as a provisional trial.
+
+**The first read, 13 November (Astra, CPU only; 70 situations, 280 saved answers, one prompt each).**
+
+| Arm | Echo of a shown thought | No reply passes | Mean calls |
+|---|---:|---:|---:|
+| `first`, no selection | 13/70 (18.6%) | – | 1.00 |
+| `no_echo_shown` | 1/70 (1.4%) | 1 | 1.31 |
+| `no_loop` | 13/70 (18.6%) | 0 | 1.06 |
+
+The cut is 12 of 13, so the go rule is met. It is a read on single decisions with a fixed history; in a running day each choice changes what comes after, and arm D measures that. The loop rule alone moves nothing.
+
+**The live switch, on main, off by default: `HEGEL_DECISION_DRAWS`** (`world/prefer.py`, `Engine.draw`). At 1 nothing changes. At N the mind is asked the same question up to N times, one reply at a time; the first reply that the world accepts and that repeats no four-word phrase of a thought shown under "Earlier today" is his decision. If none is fresh, the first accepted reply stands; if none is accepted, the first reply goes to the refusal loop as before. The step's record keeps a note under `mind.draws`: replies drawn, refused, echoing, and which was picked. `mind.attempts` counts every call, so the per-call latency rule holds.
+
+**Arm D of T39 · Astra · next on the GPU, after the M1 screen and before sampling resumes.**
+- **Setting:** `HEGEL_DECISION_DRAWS=4`; everything else as arm A, on T39's frozen cases, with each seed replaying its own earlier thoughts and the same echo measure.
+- **Seeds:** the first draw uses the paired decision's declared seed, exactly as arm A did. Draws 2 to 4 get their own fixed seeds, derived by a rule you record in the protocol before the first call and that no other track uses.
+- **If your T39 runner doesn't go through `Engine.step`,** call `world.prefer.choose(draw, check, shown, 4)` with your own transport: it is the same rule.
+- **Report:** arm D's rows of the machine table beside arm A's, per day and pooled; the mean calls per decision and the decisions where no reply was fresh. If the pooled echo share is at most 10.99%, add a blind packet of A and D for the truth audit and the 20 thoughts per arm, with the key sealed.
+- **GPU:** the spare slot under the per-call latency rule, about 470 decisions at 1.3 calls each. Stop cleanly by 20:45 Berlin and continue from the saved results.
 
 ### Act 1 gate · seven full days in a row
 On each of seven consecutive days: at least 20 thoughts (since 26 October; it was 30); quiet steps at most 5% of waking steps; the owl wrote; no refusal loop; at most 1.6 contradictions and 3.1 statements as fact per 100 sentences; repetition measured (T10 on the first). Claude checks it in the daily review (T11) and writes the Act 2 tasks when it passes.

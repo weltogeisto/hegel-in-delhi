@@ -41,6 +41,12 @@ class SupportAndHistoryTest(unittest.TestCase):
             self.assertEqual((days.history/(digest(before)+".json")).read_bytes(),before)
             self.assertEqual((days.history/(digest(after)+".json")).read_bytes(),after)
 
+    def test_refuses_a_t39_arm_as_the_candidate_source(self):
+        for arm in (dict(echo_guard=True), dict(decision_dry=0.8), dict(decision_draws=4)):
+            cfg=SimpleNamespace(repo=Path("/repo"),docs=Path("/scratch/docs"),push=False,feeds=False,**arm)
+            with self.assertRaisesRegex(ValueError,"plain Qwen"):
+                api.rehearse(cfg,Path("/none"),lambda *a:self.fail("request"))
+
     def test_refuses_live_docs_before_engine_or_transport(self):
         cfg=SimpleNamespace(repo=Path("/repo"),docs=Path("/repo/docs"),push=False,feeds=False)
         with self.assertRaisesRegex(ValueError,"isolated"):

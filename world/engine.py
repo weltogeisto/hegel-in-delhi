@@ -12,7 +12,7 @@ import random
 import time
 from datetime import date, datetime, timedelta
 
-from . import contract, lookup, owl, report, shelf, voices, works
+from . import contract, lookup, owl, prefer, report, shelf, voices, works
 from .clock import day_number, fmt, hm, long_date, minute_of, sun
 from .memory import Memory, encountered_text
 from .money import ADVANCE
@@ -179,6 +179,7 @@ class Engine:
         m = minute_of(t)
         t_start = time.time()
         refused, warnings, raw, result, attempts, source = [], [], "", None, 0, self.mind.source
+        draws, drawn = getattr(self.cfg, "decision_draws", 1), None
         if (m >= BED_M or m < 240) and not st.get("asleep"):
             source = "bedtime"          # the world sends him to bed from a quarter past eight
         elif st.get("asleep") and not self.make_plan(day, t, sit, ctx) and not getattr(self.mind, "ready", True):
@@ -194,9 +195,13 @@ class Engine:
                 ctx["known_text"] += "\n" + "\n".join(x["text"] for x in sit["shelf"])         # what is open before him he has met
             messages = [{"role": "system", "content": self.soul}, {"role": "user", "content": contract.render(sit)}]
             try:
-                for _ in range(3):
-                    attempts += 1
-                    raw = self.mind.decide(messages, sit)
+                for turn in range(3):
+                    if turn == 0 and draws > 1:                    # T49: the first fresh reply among up to `draws`
+                        raw, drawn = self.draw(messages, sit, ctx, st, draws)
+                        attempts += drawn["n"]
+                    else:
+                        attempts += 1
+                        raw = self.mind.decide(messages, sit)
                     ans = contract.extract_json(raw)
                     errors, warnings, rep = self.world.check(ans, sit, ctx, st)
                     if not errors:
@@ -238,6 +243,8 @@ class Engine:
             step["shelf"] = [{"work": x["work"], "ref": x["ref"], "id": x["id"]} for x in ctx["shelf"]]
             # Save only the passage actually shown, not the model's interpretation.
             step["shelf_exposure"] = [{k: x[k] for k in ("work", "ref", "text")} for x in ctx["shelf"]]
+        if drawn:
+            step["mind"]["draws"] = drawn
         if refused:
             step["mind"]["refused"] = refused
         if warnings:
@@ -247,6 +254,16 @@ class Engine:
         day["steps"].append(step)
         log.info("%s %s %s → %s until %s (%s)", day["date"], step["t"], ans["action"], ans["place"], step["end"], source)
         return step
+
+    def draw(self, messages, sit, ctx, st, draws):
+        """T49 (world/prefer.py): up to `draws` replies to the same prompt; the first that the world accepts and that
+        repeats no phrase of a thought shown under "Earlier today". Returns (the reply, the note for the record).
+        World.check reads its inputs and changes none of them, so each reply is judged against the same state."""
+        def check(raw):
+            errors, _, rep = self.world.check(contract.extract_json(raw), sit, ctx, st)
+            return errors, None if errors else rep[0]["thought"]
+        return prefer.choose(lambda: self.mind.decide(messages, sit), check,
+                             prefer.shown_thoughts(sit.get("earlier")), draws, away=MindAway)
 
     def offer(self, day, sit, ctx, st):
         """The passages of his shelf for this decision: the two that fit the event, the place, the people present and their

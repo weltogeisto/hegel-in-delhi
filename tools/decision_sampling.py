@@ -116,7 +116,7 @@ def rehearse(cfg, sampler_root, post, start=date(2026, 11, 10), max_days=30,
         raise ValueError("isolated rehearsal docs, no push and feeds off required")
     if start < date(2026, 11, 10) or max_days < 1:
         raise ValueError("fresh dates from 10 November required")
-    if getattr(cfg, "echo_guard", False) or getattr(cfg, "decision_dry", 0):
+    if getattr(cfg, "echo_guard", False) or getattr(cfg, "decision_dry", 0) or getattr(cfg, "decision_draws", 1) > 1:
         raise ValueError("candidate generation is plain Qwen, without a T39 arm")
     target = REHEARSAL_SITUATIONS if target is None else target
     cfg.write_mode = "chat"
