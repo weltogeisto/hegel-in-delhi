@@ -595,6 +595,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "17:25",
+   "to": "17:35",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -987,6 +994,34 @@
    "to": "Hegel",
    "text": "Samosa hai, khana nahi. Ghar mein toota hua pet hai, par aapke paas bhi paise nahi hain. Kya main aapko roti khilauun? Waise bhi aapki 'contemplation' se toh pet bharta nahi hai, sir.",
    "t": "17:10"
+  },
+  {
+   "k": "diary",
+   "text": "The world engine is as rigid as the state; it does not permit the eating of what is not there. Ramesh’s offer of *roti* is a gesture of charity, not a transaction I can complete with my empty pockets. I must address the cause, not the symptom. I will ask him to make the simple flatbread he offered, using the last of his own resources or what I can scrape together, and I will pay him the small amount I have for the labour of making it, not cooking a full meal.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§169"
+    }
+   ],
+   "t": "17:25"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, make the roti. I have only ninety-six rupees. Give me twenty for the labour of the fire, and I will eat the samosa and the bread. Do not cook a meal I cannot pay for. Just the bread.",
+   "to": "Ramesh",
+   "t": "17:25"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ninety-six rupees? Sir, aapka hisaab hi theek nahi hai. Roti ka kharcha aur aapke paas ka paisa, dono hawa mein udd gaye. Main abhi chalta hoon, kal subah aakar dekho.",
+   "t": "17:25"
   }
  ],
  "steps": [
@@ -1923,13 +1958,70 @@
      "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
     }
    ]
+  },
+  {
+   "t": "17:25",
+   "end": "17:35",
+   "event": "Ramesh says: “Samosa hai, khana nahi. Ghar mein toota hua pet hai, par aapke paas bhi paise nahi hain. Kya main aapko roti khilauun? Waise bhi aapki 'contemplation' se toh pet bharta nahi hai, sir.” You are very hungry.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The world engine is as rigid as the state; it does not permit the eating of what is not there. Ramesh’s offer of *roti* is a gesture of charity, not a transaction I can complete with my empty pockets. I must address the cause, not the symptom. I will ask him to make the simple flatbread he offered, using the last of his own resources or what I can scrape together, and I will pay him the small amount I have for the labour of making it, not cooking a full meal.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Ramesh, make the roti. I have only ninety-six rupees. Give me twenty for the labour of the fire, and I will eat the samosa and the bread. Do not cook a meal I cannot pay for. Just the bread.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ninety-six rupees? Sir, aapka hisaab hi theek nahi hai. Roti ka kharcha aur aapke paas ka paisa, dono hawa mein udd gaye. Main abhi chalta hoon, kal subah aakar dekho.",
+    "does": "He picks up his chappal and walks towards the gate without looking back."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 15.5,
+    "refused": [
+     [
+      "Nothing is cooked at home: Ramesh has not been paid his wage for cooking. Choose an available activity; a request for food is not a completed meal."
+     ]
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§169",
+     "id": "rechts:395"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§169",
+     "text": "Das im abstrakten Eigentum willkürliche Moment des besonderen Bedürfnisses des bloß Einzelnen und die Eigensucht der Begierde verändert sich hier in die Sorge und den Erwerb für ein Gemeinsames, in ein Sittliches."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-14T17:25+05:30",
+  "until": "2026-11-14T17:35+05:30",
   "asleep": false,
   "imprest": 96,
   "wearing": "kurta",
@@ -2032,7 +2124,7 @@
     ]
    },
    "no_meals": true,
-   "hunger": 1,
+   "hunger": 2,
    "walked": 4050,
    "strain": 4050
   },
