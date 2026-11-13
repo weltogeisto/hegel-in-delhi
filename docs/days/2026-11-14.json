@@ -602,6 +602,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "17:35",
+   "to": "18:05",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1022,6 +1029,21 @@
    "to": "Hegel",
    "text": "Ninety-six rupees? Sir, aapka hisaab hi theek nahi hai. Roti ka kharcha aur aapke paas ka paisa, dono hawa mein udd gaye. Main abhi chalta hoon, kal subah aakar dekho.",
    "t": "17:25"
+  },
+  {
+   "k": "diary",
+   "text": "The arithmetic of survival is the most rigid dialectic of all; I hold the form (the need for bread) but lack the content (the substance of rupees), and the synthesis is starvation. Ramesh’s departure is not a moral failing but the necessary negation of my position: the servant withdraws when the master’s authority is reduced to a pocket of dust. I am alone in the house, and the house is empty, for without the universal provision of the state or the particular warmth of the family, the individual is nothing but a ghost in a white kurta.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: Classification of Historic Data"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236"
+    }
+   ],
+   "t": "17:35"
   }
  ],
  "steps": [
@@ -2015,13 +2037,60 @@
      "text": "Das im abstrakten Eigentum willkürliche Moment des besonderen Bedürfnisses des bloß Einzelnen und die Eigensucht der Begierde verändert sich hier in die Sorge und den Erwerb für ein Gemeinsames, in ein Sittliches."
     }
    ]
+  },
+  {
+   "t": "17:35",
+   "end": "18:05",
+   "event": "Ramesh says: “Ninety-six rupees? Sir, aapka hisaab hi theek nahi hai. Roti ka kharcha aur aapke paas ka paisa, dono hawa mein udd gaye. Main abhi chalta hoon, kal subah aakar dekho.” He picks up his chappal and walks towards the gate without looking back.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The arithmetic of survival is the most rigid dialectic of all; I hold the form (the need for bread) but lack the content (the substance of rupees), and the synthesis is starvation. Ramesh’s departure is not a moral failing but the necessary negation of my position: the servant withdraws when the master’s authority is reduced to a pocket of dust. I am alone in the house, and the house is empty, for without the universal provision of the state or the particular warmth of the family, the individual is nothing but a ghost in a white kurta.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 6.4
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: Classification of Historic Data",
+     "id": "sibree-history:346"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "id": "dyde-right:550"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: Classification of Historic Data",
+     "text": "All the elements of a complete State— even subjectivity — may be found there, but not yet harmonized with the grand substantial being. For outside the One Power — before which nothing can maintain an independent existence— there is only revolting caprice, which, beyond the limits of the central power, roves at will without purpose or result."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "text": "It takes charge of lighting the streets, building bridges, taxation of daily wants, even of health. Two main views stand out at this point. One view is that it falls to the police to look after everything, the other that the police should not interfere at all, since every one will be guided by the need of others."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-14T17:35+05:30",
+  "until": "2026-11-14T18:05+05:30",
   "asleep": false,
   "imprest": 96,
   "wearing": "kurta",
