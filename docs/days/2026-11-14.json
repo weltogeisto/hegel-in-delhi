@@ -511,6 +511,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "14:11",
+   "to": "14:26",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -529,6 +536,44 @@
     "since": "2026-11-14"
    },
    "t": "09:11"
+  },
+  {
+   "k": "world",
+   "text": "Ramesh offers to come three days a week, Mondays, Thursdays and Saturdays, for ₹4,000 a month instead of ₹8,000.",
+   "t": "14:11"
+  },
+  {
+   "k": "world",
+   "text": "He agrees. From now on Ramesh comes on Mondays, Thursdays and Saturdays, for ₹4,000 a month.",
+   "t": "14:11"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh stands before me with the arithmetic of my poverty laid bare: the wage is ₹9,500, my purse holds ₹166. He offers a reduction—Mondays, Thursdays, Saturdays for ₹4,000. It is a concession born of necessity, not charity, and it leaves the house half-empty of service. I must accept the form, for I cannot pay the sum, but the spirit of the arrangement is a degradation of the ethical bond between master and servant. The state, which should secure the person and property, has failed in its duty to me, leaving me to negotiate with my own cook like a beggar.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    }
+   ],
+   "t": "14:11"
+  },
+  {
+   "k": "said",
+   "text": "It is agreed. You will come on Mondays, Thursdays, and Saturdays. I understand the necessity, Ramesh. Do not let the other days slip into chaos, for a house without order is a body without a soul.",
+   "to": "Ramesh",
+   "t": "14:11"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "The house is already in order, sir. I will keep it that way, as I have always done.",
+   "t": "14:11"
   }
  ],
  "steps": [
@@ -819,13 +864,66 @@
      ]
     ]
    }
+  },
+  {
+   "t": "14:11",
+   "end": "14:26",
+   "event": "Ramesh knows the wage is more than the purse holds, he says, without looking at it. He could come on Mondays, Thursdays and Saturdays only, for ₹4,000 a month.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh stands before me with the arithmetic of my poverty laid bare: the wage is ₹9,500, my purse holds ₹166. He offers a reduction—Mondays, Thursdays, Saturdays for ₹4,000. It is a concession born of necessity, not charity, and it leaves the house half-empty of service. I must accept the form, for I cannot pay the sum, but the spirit of the arrangement is a degradation of the ethical bond between master and servant. The state, which should secure the person and property, has failed in its duty to me, leaving me to negotiate with my own cook like a beggar.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "It is agreed. You will come on Mondays, Thursdays, and Saturdays. I understand the necessity, Ramesh. Do not let the other days slip into chaos, for a house without order is a body without a soul.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "The house is already in order, sir. I will keep it that way, as I have always done.",
+    "does": "He nods once and turns to walk away."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 14.3
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    }
+   ],
+   "beat": "ramesh_parttime"
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-14T14:11+05:30",
+  "until": "2026-11-14T14:26+05:30",
   "asleep": false,
   "imprest": 166,
   "wearing": "kurta",
@@ -877,11 +975,13 @@
    "hegde_card",
    "essay_fee",
    "saxena_file",
-   "diwali_bakshish"
+   "diwali_bakshish",
+   "ramesh_parttime"
   ],
   "flags": {
    "bandhgala": "collected",
-   "hegde_lodger": true
+   "hegde_lodger": true,
+   "ramesh_parttime": true
   },
   "appointments": [
    {
@@ -1167,8 +1267,8 @@
   "owed": [
    {
     "to": "Ramesh",
-    "amount": 8000,
-    "why": "the wage for cooking",
+    "amount": 4000,
+    "why": "the wage for cooking, three days a week",
     "since": "2026-11-01",
     "cost": "wage",
     "item": "Ramesh's wage for cooking",
