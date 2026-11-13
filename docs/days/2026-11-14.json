@@ -546,6 +546,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "15:26",
+   "to": "15:36",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -714,6 +721,34 @@
    "to": "Hegel",
    "text": "Ji sir. I will be in the back if you need anything else.",
    "t": "15:11"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh retreats to the back, leaving me with the silence and the haze. I have not eaten in over a day, and the body is a stubborn fact that resists the spirit's indifference. I cannot think clearly on an empty stomach, nor can I continue to ignore the basic mechanics of my existence here.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Roman World, Rome to the Second Punic War"
+    }
+   ],
+   "t": "15:26"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, wait. We must settle the account. I have no food, and you have no wages. I will give you what I can for the cooking, and we must discuss the arrears. Do not leave the kitchen.",
+   "to": "Ramesh",
+   "t": "15:26"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji sir, I am not leaving. I will settle the account when the tea is finished, but I cannot cook what I have not bought. The stove is hot, but the pot is empty.",
+   "t": "15:26"
   }
  ],
  "steps": [
@@ -1265,13 +1300,65 @@
      "text": "The blind obedience by which human freedom was suppressed, was the third vow taken by the monks, as against which freedom, like marriage and property, was now also recognized as divine. Similarly on the side of knowledge man turned back into himself from the Beyond of authority; and reason was recognized as the absolutely universal, and hence as divine."
     }
    ]
+  },
+  {
+   "t": "15:26",
+   "end": "15:36",
+   "event": "Ramesh says: “Ji sir. I will be in the back if you need anything else.” Ramesh nods once and turns away to check the stove.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh retreats to the back, leaving me with the silence and the haze. I have not eaten in over a day, and the body is a stubborn fact that resists the spirit's indifference. I cannot think clearly on an empty stomach, nor can I continue to ignore the basic mechanics of my existence here.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Ramesh, wait. We must settle the account. I have no food, and you have no wages. I will give you what I can for the cooking, and we must discuss the arrears. Do not leave the kitchen.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji sir, I am not leaving. I will settle the account when the tea is finished, but I cannot cook what I have not bought. The stove is hot, but the pot is empty.",
+    "does": "He stands still in the kitchen doorway, hands resting on the edge of the counter, and waits for the tea to be ready before answering."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.6
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:748"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Roman World, Rome to the Second Punic War",
+     "id": "sibree-history:938"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "The assured satisfaction of particular want does away with external need. There is no occasion to seek the means for alleviating want at the cost of official activity and duty."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Roman World, Rome to the Second Punic War",
+     "text": "In the fact that the people could so long be kept in check is manifested its respect for legal order aud the sacra. But of necessity the plebeians at last secured their righteous demands, and their debts were often remitted. The severity of the patricians their creditors, the debts due to whom they had to discharge by slave-work, drove the plebs to revolts."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-14T15:26+05:30",
+  "until": "2026-11-14T15:36+05:30",
   "asleep": false,
   "imprest": 166,
   "wearing": "kurta",
