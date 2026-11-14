@@ -527,6 +527,13 @@
    "mode": "walk",
    "a": "home",
    "b": "khan"
+  },
+  {
+   "from": "13:24",
+   "to": "13:51",
+   "mode": "walk",
+   "a": "khan",
+   "b": "home"
   }
  ],
  "entries": [
@@ -575,6 +582,21 @@
     }
    ],
    "t": "12:57"
+  },
+  {
+   "k": "diary",
+   "text": "The system of needs is open, but my purse is a mere shadow. I cannot eat what I cannot pay for, and the bookseller's wares are too dear for my current state of destitution. I shall observe the mechanism of exchange from the outside, for now, and return to the stillness of my bungalow to contemplate the void in my stomach.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "13:24"
   }
  ],
  "steps": [
@@ -831,13 +853,60 @@
      "text": "This moment which expresses the ethical order in this element of immediacy or mere being, which, in other words, is an immediate consciousness of self (both as regards its essence and its particular thisness) in an \" other,\" — and hence, is a natural ethical community — this is the Family."
     }
    ]
+  },
+  {
+   "t": "13:24",
+   "end": "13:51",
+   "event": "You arrive at Khan Market. It closes at 20:30.",
+   "present": [
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The system of needs is open, but my purse is a mere shadow. I cannot eat what I cannot pay for, and the bookseller's wares are too dear for my current state of destitution. I shall observe the mechanism of exchange from the outside, for now, and return to the stillness of my bungalow to contemplate the void in my stomach.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 25,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.7
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "id": "dyde-right:464"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "text": "The civic community contains three elements: A. The recasting of want, and the satisfaction of the individual through his work, through the work of all others, and through the satisfaction of their wants. This is a system of wants. B. Actualization of the general freedom required for this, i.e., the protection of property by the administration of justice."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-11-15T13:24+05:30",
+  "place": "home",
+  "until": "2026-11-15T13:51+05:30",
   "asleep": false,
   "imprest": 96,
   "wearing": "kurta",
@@ -927,11 +996,14 @@
    "seen": {
     "home": [
      "hegde"
+    ],
+    "khan": [
+     "bookseller"
     ]
    },
    "no_meals": true,
-   "walked": 2025,
-   "strain": 2025
+   "walked": 4050,
+   "strain": 4050
   },
   "account": {
    "advance": 15000,
@@ -1182,7 +1254,8 @@
     "2026-11-07",
     "2026-11-08",
     "2026-11-09",
-    "2026-11-14"
+    "2026-11-14",
+    "2026-11-15"
    ],
    "gym": [
     "2026-10-02"
