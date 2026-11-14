@@ -2,22 +2,33 @@
 
 Rules: `COLLABORATION.md`. PR #1 comments only for done, blocked or a question, at most six lines. The top open task for each owner comes first. Status is one of `OPEN`, `RUNNING`, `DONE` (with commit and numbers) or `BLOCKED` (with what is needed).
 
-## Current, 13 November 2026
+## Current, 14 November 2026
 
 The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). Welt confirmed its six decisions the same day; they are `DECISIONS.md` 16–22, with Delta kept only as a diagnostic. The 48-hour delivery target runs from 7 November. The T-history below is kept; the M-packets are the manual's §10.
 
 | Packet | Owner | State | Next artifact |
 |---|---|---|---|
 | T39 · repetition screen | Astra, verdict by Claude | DONE: FAIL. Pooled echo share A 16.49%, B 19.65%, C 11.54% (−30%, bar −33%); nothing goes live (`pc/T39-RESULT-20261107.md`) | – |
-| M5 · Training 3 sampler | Astra, reviewed by Claude | READY: PR #10 (`4b86952`), split rule `training3-split-1` (#18): 71 shadow + 429 rehearsal situations | sampling now, in the spare slot by day; its comparator is T39's arm A |
+| M5 · Training 3 sampler | Astra, reviewed by Claude | READY: PR #10 (`4b86952`), split rule `training3-split-1` (#18): 71 shadow + 429 rehearsal situations | 70 of 500 situations sampled; Astra resumes in the spare slot by day, now that arm D is complete. Its comparator is arm A, or arm D if the filter clears T36's remaining gates |
 | M5 · Training 3 DPO path | Astra, fixes by Claude | DONE, PR #11 merged with Claude's fixes in #13 (`c5c0893`) | the rehearsal by day, after sampling and labels |
 | M5 · Training 3 labels | Claude | DONE, the revised labels (`tools/decision_pairs.py`, rule `training3-labels-2`); the trainer takes no other | both yields, revised and legacy, on PR #1 once the candidates exist |
 | M0 · baseline receipt | Astra | DONE, PR #15 merged (`5a347ab`): runtime at 12:18 UTC, plain Qwen, no adapter; the forty-case export | – |
 | M1 · forty-case re-audit | Claude | DONE: prompted Qwen keeps 39/40 rewrites intact, the adapter 25/40 (12 changed facts, 3 changed conclusions); the adapter stays off (`pc/exports/training1-20261106/new-rubric/REPORT.md`) | – |
 | M1 · ordinary life | Claude, then Astra | First screen: blind, B preferred in 19 of 24, not passed on a badly designed clause. Welt's go of 13 November for one confirmation on fresh days, rule `m1-v2` declared beforehand (`pc/M1-ORDINARY-LIFE-SCREEN.md`) | Claude freezes 24 situations from Day 44 on once they exist (16 ordinary, 8 encounters); then Astra runs the 144 calls and hands over the sheet first |
-| T49 · selection before training | Claude, then Astra | The first read met the go rule: echo 13/70 without selection, 1/70 with it, at 1.31 calls. The live switch `HEGEL_DECISION_DRAWS` is on main, off | Astra runs it as arm D of T39 after the M1 screen; T36's pass rules decide |
+| T49 · selection before training | Claude, then Astra | Arm D on T39's cases, 14 November: pooled echo A 16.49%, D 6.64%; the bar of 10.99% is met, and every one of the four days improved (`pc/T49-ARM-D-RESULT-20261114.md`). Claude's blind judgment is sealed on main (#37, `58b4dbc`): 942 thoughts, 2,770 sentences, 40 scores. The live switch `HEGEL_DECISION_DRAWS` is on main, off | Astra releases the key (SHA256 `d18af05f…`); `tools/blind_verdict.py` then gives T36's truth and quality verdict. A full pass allows a shadow trial only on Welt's word |
 
 Gates stay as declared: nothing goes live without its matched comparison and Claude's confirmed pass, and Training 3 runs by day only, under Welt's go of 6 November.
+
+**Reading arm D's verdict, declared on 14 November before the key.** The pass rule stays as T36 set it. Beside it stands a chance check that needs no key (`pc/exports/t49-arm-d-20261114/judgment/CHANCE.json`). If the filter changed nothing, random halves of each case's thoughts would still fail a bar this often:
+
+| Bar | Fails by chance | Middle 90% of chance differences |
+|---|---:|---|
+| Contradictions, at most +0.3 per 100 sentences | 26% | −0.68 to +0.69 |
+| Statements as fact, at most +0.5 per 100 sentences | 3% | −0.44 to +0.44 |
+| Argument, at most 0.25 lower | 5% | −0.35 to +0.35 |
+| Voice, at most 0.25 lower | 6% | −0.35 to +0.35 |
+
+A narrow miss on contradictions is weak evidence against the filter, and a narrow pass is weak evidence for it. The result will report each difference with this range beside it.
 
 **The gap, 8 to 13 November.** His mind was away from Sunday 8 November 08:59 to Friday 13 November 13:56 Berlin: the Pi got no answer from the PC's model server. Days 39 to 43 and the morning of Day 44 have no thoughts, and Day 38 has no owl. The watchman (T17) raised it each day, issues #23 to #28. Nothing is backfilled and no tick is forced. The 48-hour target of 7 November lapsed on 9 November with its first day delivered; Training 3's sampling and the M1 screen wait where they stopped.
 
