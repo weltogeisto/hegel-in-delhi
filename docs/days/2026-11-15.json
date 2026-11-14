@@ -541,6 +541,13 @@
    "mode": "walk",
    "a": "home",
    "b": "khan"
+  },
+  {
+   "from": "14:18",
+   "to": "14:28",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -622,6 +629,46 @@
     }
    ],
    "t": "13:51"
+  },
+  {
+   "k": "diary",
+   "text": "The bookseller looks at my empty stomach with the indifference of the market, which does not know my dialectic of hunger and spirit. I have ₹96, barely enough for the immediate negation of my physical needs. I shall take the cheapest substance available to sustain the subject, for the spirit requires a body that has not yet dissolved into pure abstraction.",
+   "shelf": [
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "14:18"
+  },
+  {
+   "k": "said",
+   "text": "One samosa, please. And a cup of chai. I have only so much coin, so make it count.",
+   "to": "the bookseller",
+   "t": "14:18"
+  },
+  {
+   "k": "said",
+   "by": "The bookseller",
+   "to": "Hegel",
+   "text": "Samosa and chai, fifty rupees total. Don't worry about the coin, I will wrap the samosa in paper so it stays hot. You look like you need it.",
+   "t": "14:18"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "14:18"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "14:18"
   }
  ],
  "steps": [
@@ -970,15 +1017,76 @@
      "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
     }
    ]
+  },
+  {
+   "t": "14:18",
+   "end": "14:28",
+   "event": "You arrive at Khan Market. It closes at 20:30. You are hungry.",
+   "present": [
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The bookseller looks at my empty stomach with the indifference of the market, which does not know my dialectic of hunger and spirit. I have ₹96, barely enough for the immediate negation of my physical needs. I shall take the cheapest substance available to sustain the subject, for the spirit requires a body that has not yet dissolved into pure abstraction.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 10,
+    "says": "One samosa, please. And a cup of chai. I have only so much coin, so make it count.",
+    "buys": [
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     },
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The bookseller",
+    "says": "Samosa and chai, fifty rupees total. Don't worry about the coin, I will wrap the samosa in paper so it stays hot. You look like you need it.",
+    "does": "He hands over a fresh samosa and a steaming cup of chai on a small cardboard coaster."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.8
+   },
+   "shelf": [
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Hence it is, A. The direct or natural ethical spirit, the family. This reality, losing its unity, passes over into dismemberment, and assumes the nature of the relative. It thus becomes B. The civic community, an association of members or independent individuals in a formal universality."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-15T14:18+05:30",
+  "until": "2026-11-15T14:28+05:30",
   "asleep": false,
-  "imprest": 96,
+  "imprest": 46,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1073,7 +1181,8 @@
    },
    "no_meals": true,
    "walked": 6075,
-   "strain": 6075
+   "strain": 6075,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
@@ -1263,6 +1372,20 @@
     {
      "date": "2026-11-14",
      "t": "16:28",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-15",
+     "t": "14:18",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-15",
+     "t": "14:18",
      "item": "Chai, a cup",
      "price": 20,
      "office": false
@@ -1521,7 +1644,7 @@
    "sim": false
   },
   "last_meal": "2026-11-09T13:41+05:30",
-  "snacks": 1,
+  "snacks": 2,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
