@@ -646,6 +646,13 @@
    "mode": "walk",
    "a": "khan",
    "b": "home"
+  },
+  {
+   "from": "18:23",
+   "to": "18:43",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -1119,6 +1126,26 @@
    "to": "Hegel",
    "text": "Yeah, yeah. The chai is the only thing that's ever been right about this place. Just move your bag, the queue is forming.",
    "t": "17:56"
+  },
+  {
+   "k": "diary",
+   "text": "The bookseller’s urgency is a form of civil society’s indifference; she treats my presence as an obstruction to the flow of needs. I have no money to participate in this exchange, only the dignity of my departure. The body is weak, but the spirit must not be reduced to a beggar in a market.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33"
+    }
+   ],
+   "t": "18:23"
+  },
+  {
+   "k": "said",
+   "text": "Leave it. I am finished here.",
+   "t": "18:23"
   }
  ],
  "steps": [
@@ -2253,13 +2280,68 @@
      "text": "But something very like this can be said in every-day life. If I have some goods brought to me in the market at some town, and say that they are certainly not perfect, but the best that are to be got, this is quite a good reason why I should content myself with them. But comprehension is a very different thing from this."
     }
    ]
+  },
+  {
+   "t": "18:23",
+   "end": "18:43",
+   "event": "The bookseller says: “Yeah, yeah. The chai is the only thing that's ever been right about this place. Just move your bag, the queue is forming.” She wipes the table with the rag.",
+   "present": [],
+   "decision": {
+    "thought": "The bookseller’s urgency is a form of civil society’s indifference; she treats my presence as an obstruction to the flow of needs. I have no money to participate in this exchange, only the dignity of my departure. The body is weak, but the spirit must not be reduced to a beggar in a market.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 20,
+    "says": "Leave it. I am finished here.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 10.5,
+    "refused": [
+     [
+      "that costs ₹50 and you have only ₹6 in cash",
+      "this repeats what you thought at 15:45; think something new"
+     ]
+    ],
+    "warnings": [
+     "walks to where he already is; treated as stay",
+     "talks although nobody is present"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "id": "rechts:121"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "This actual and organic spirit (a) is the spirit of a nation, (fi) is found in the relation to one another of national spirits, and (y) passing through and beyond this relation is actualized and revealed in world history as the universal world-spirit, whose right is the highest."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-15T18:23+05:30",
+  "until": "2026-11-15T18:43+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
