@@ -548,6 +548,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "14:28",
+   "to": "14:48",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -669,6 +676,34 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "14:18"
+  },
+  {
+   "k": "diary",
+   "text": "The market has performed its function: the need is met, the exchange is closed. I hold the warm cup, a small sun in my hand, and the samosa, a sphere of dough that contains the seed of the whole. The bookseller's kindness is a particular gesture, but it confirms the universal necessity of sustenance. I shall eat here, in the open, letting the body digest the material so the mind may digest the world.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198"
+    }
+   ],
+   "t": "14:28"
+  },
+  {
+   "k": "said",
+   "text": "Thank you. The system of needs is satisfied, for the moment.",
+   "to": "the bookseller",
+   "t": "14:28"
+  },
+  {
+   "k": "said",
+   "by": "The bookseller",
+   "to": "Hegel",
+   "text": "Arre, system? Just eat your samosa before it goes cold, sir. You talk too much for a man who is hungry.",
+   "t": "14:28"
   }
  ],
  "steps": [
@@ -1078,13 +1113,65 @@
      "text": "Hence it is, A. The direct or natural ethical spirit, the family. This reality, losing its unity, passes over into dismemberment, and assumes the nature of the relative. It thus becomes B. The civic community, an association of members or independent individuals in a formal universality."
     }
    ]
+  },
+  {
+   "t": "14:28",
+   "end": "14:48",
+   "event": "The bookseller says: “Samosa and chai, fifty rupees total. Don't worry about the coin, I will wrap the samosa in paper so it stays hot. You look like you need it.” He hands over a fresh samosa and a steaming cup of chai on a small cardboard coaster.",
+   "present": [
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The market has performed its function: the need is met, the exchange is closed. I hold the warm cup, a small sun in my hand, and the samosa, a sphere of dough that contains the seed of the whole. The bookseller's kindness is a particular gesture, but it confirms the universal necessity of sustenance. I shall eat here, in the open, letting the body digest the material so the mind may digest the world.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 20,
+    "says": "Thank you. The system of needs is satisfied, for the moment.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The bookseller",
+    "says": "Arre, system? Just eat your samosa before it goes cold, sir. You talk too much for a man who is hungry.",
+    "does": "She wipes a smudge off the counter with her thumb."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.3
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "id": "haldane-2:425"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "id": "wallace-logic:882"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "text": "And again, the matter of a small body and a large is the same, because at one time a greater proceeds from a smaller, and at another time a smaller from a greater."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "text": "Like the solar system, so for example in the practical sphere the state is a system of three syllogisms. (1) The Individual or person, through his particularity or physical or mental needs (which when carried out to their full development give civil society), is coupled with the universal, i.e. with society, law, right, government."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-15T14:28+05:30",
+  "until": "2026-11-15T14:48+05:30",
   "asleep": false,
   "imprest": 46,
   "wearing": "kurta",
