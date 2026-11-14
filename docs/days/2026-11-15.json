@@ -625,6 +625,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "17:41",
+   "to": "17:51",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -1008,6 +1015,40 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "17:31"
+  },
+  {
+   "k": "diary",
+   "text": "The bookseller’s gesture suspends the abstract law of exchange, replacing the universal demand of money with the particular act of care. I am reduced to a child receiving sustenance, a moment of ethical life where the state’s neglect is countered by civil society’s grace. I accept this tea, for the body must be sustained before the mind can continue its dialectic of hunger.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§169"
+    }
+   ],
+   "t": "17:41"
+  },
+  {
+   "k": "said",
+   "text": "Thank you. It is a kindness that exceeds the logic of the counter.",
+   "to": "the bookseller",
+   "t": "17:41"
+  },
+  {
+   "k": "said",
+   "by": "The bookseller",
+   "to": "Hegel",
+   "text": "Arre, stop with this 'logic' talk. It's just tea, not a philosophical debate. Drink it before it goes cold.",
+   "t": "17:41"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "17:41"
   }
  ],
  "steps": [
@@ -1976,15 +2017,72 @@
      "text": "Wie das Sonnensystem, so ist z. B. im Praktischen der Staat ein System von drei Schlüssen. 1) Der Einzelne (die Person) schliesst sich durch seine Besonderheit (die physischen und geistigen Bedürfnisse, was weiter für sich ausgebildet die bürgerliche Gesellschaft giebt) mit dem Allgemeinen (der Gesellschaft, dem Rechte, Gesetz, Regierung) zusammen. 2) Ist der Wille…"
     }
    ]
+  },
+  {
+   "t": "17:41",
+   "end": "17:51",
+   "event": "The bookseller says: “Twenty rupees, sir. You already paid for one earlier, but since you're this hungry, I'll make you another. Sit tight.” He pours hot water into a small cup and hands it over.",
+   "present": [
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The bookseller’s gesture suspends the abstract law of exchange, replacing the universal demand of money with the particular act of care. I am reduced to a child receiving sustenance, a moment of ethical life where the state’s neglect is countered by civil society’s grace. I accept this tea, for the body must be sustained before the mind can continue its dialectic of hunger.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 10,
+    "says": "Thank you. It is a kindness that exceeds the logic of the counter.",
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The bookseller",
+    "says": "Arre, stop with this 'logic' talk. It's just tea, not a philosophical debate. Drink it before it goes cold.",
+    "does": "Wipes a spill from the counter with a rag."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.8
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "id": "haldane-2:425"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§169",
+     "id": "rechts:395"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "text": "And again, the matter of a small body and a large is the same, because at one time a greater proceeds from a smaller, and at another time a smaller from a greater."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§169",
+     "text": "Das im abstrakten Eigentum willkürliche Moment des besonderen Bedürfnisses des bloß Einzelnen und die Eigensucht der Begierde verändert sich hier in die Sorge und den Erwerb für ein Gemeinsames, in ein Sittliches."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-15T17:41+05:30",
+  "until": "2026-11-15T17:51+05:30",
   "asleep": false,
-  "imprest": 26,
+  "imprest": 6,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -2293,6 +2391,13 @@
     {
      "date": "2026-11-15",
      "t": "17:31",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-15",
+     "t": "17:41",
      "item": "Chai, a cup",
      "price": 20,
      "office": false
