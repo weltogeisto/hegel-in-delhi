@@ -597,6 +597,13 @@
    "mode": "walk",
    "a": "home",
    "b": "gandhi"
+  },
+  {
+   "from": "16:11",
+   "to": "16:31",
+   "mode": "walk",
+   "a": "gandhi",
+   "b": "khan"
   }
  ],
  "entries": [
@@ -888,6 +895,21 @@
     }
    ],
    "t": "16:00"
+  },
+  {
+   "k": "diary",
+   "text": "I arrive at Gandhi Smriti with the sun still high, yet the gates close in forty-nine minutes. It is a small, concrete instance of the limit of the particular: the institution has its own time, indifferent to my hunger or my curiosity. To linger outside would be to stand in the negative freedom of mere refusal, so I must turn my back on the closed door and look for the next movement.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§6"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§5"
+    }
+   ],
+   "t": "16:11"
   }
  ],
  "steps": [
@@ -1650,13 +1672,58 @@
      "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
     }
    ]
+  },
+  {
+   "t": "16:11",
+   "end": "16:31",
+   "event": "You arrive at Gandhi Smriti. It closes at 17:00.",
+   "present": [],
+   "decision": {
+    "thought": "I arrive at Gandhi Smriti with the sun still high, yet the gates close in forty-nine minutes. It is a small, concrete instance of the limit of the particular: the institution has its own time, indifferent to my hunger or my curiosity. To linger outside would be to stand in the negative freedom of mere refusal, so I must turn my back on the closed door and look for the next movement.",
+    "action": "walk",
+    "place": "khan",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "khan",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.0
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§6",
+     "id": "dyde-right:72"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§5",
+     "id": "rechts:70"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§6",
+     "text": "But classification and objective system attain self consciousness only by destroying negative freedom. Negative freedom is actuated by a mere solitary abstract idea, whose realization is nothing but the fury of desolation."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§5",
+     "text": "So kann das, was sie zu wollen meint, für sich schon nur eine abstrakte Vorstellung, und die Verwirklichung derselben nur die Furie des Zerstörens sein."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "gandhi",
-  "until": "2026-11-15T16:11+05:30",
+  "place": "khan",
+  "until": "2026-11-15T16:31+05:30",
   "asleep": false,
   "imprest": 46,
   "wearing": "kurta",
@@ -1749,11 +1816,12 @@
     ],
     "khan": [
      "bookseller"
-    ]
+    ],
+    "gandhi": []
    },
    "no_meals": true,
-   "walked": 8925,
-   "strain": 8925,
+   "walked": 10425,
+   "strain": 10425,
    "hunger": 1
   },
   "account": {
@@ -2008,7 +2076,8 @@
     "2026-11-07"
    ],
    "gandhi": [
-    "2026-10-02"
+    "2026-10-02",
+    "2026-11-15"
    ],
    "khan": [
     "2026-10-02",
