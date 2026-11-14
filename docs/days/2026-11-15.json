@@ -583,6 +583,13 @@
    "mode": "walk",
    "a": "khan",
    "b": "home"
+  },
+  {
+   "from": "15:45",
+   "to": "16:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -844,6 +851,21 @@
    "to": "Hegel",
    "text": "Finally, some sense. Don't stand there looking like a ghost, just move. Next person, come forward.",
    "t": "15:18"
+  },
+  {
+   "k": "diary",
+   "text": "The bookseller's dismissal is a small victory for the universal order: I am no longer an obstacle, but a passing instance. The market does not pause for the philosopher, and I have no business lingering in the particular when the universal demands movement. I shall return to my bungalow, where the silence of the file awaits my return.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33"
+    }
+   ],
+   "t": "15:45"
   }
  ],
  "steps": [
@@ -1513,13 +1535,61 @@
      "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
     }
    ]
+  },
+  {
+   "t": "15:45",
+   "end": "16:00",
+   "event": "The bookseller says: “Finally, some sense. Don't stand there looking like a ghost, just move. Next person, come forward.” She steps aside and gestures sharply at the customer behind him to come up.",
+   "present": [],
+   "decision": {
+    "thought": "The bookseller's dismissal is a small victory for the universal order: I am no longer an obstacle, but a passing instance. The market does not pause for the philosopher, and I have no business lingering in the particular when the universal demands movement. I shall return to my bungalow, where the silence of the file awaits my return.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.0,
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:643"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "id": "rechts:121"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "The civil rights implied in it give rise to a feeling of self-respect, the sense of counting as a lawful person in the civic community. This feeling of being infinite and free from all Others is the root out of which springs the needed balance of the various kinds of thought and sentiment. The isolation with which the Jews have been blamed it is better to preserve."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-15T15:45+05:30",
+  "until": "2026-11-15T16:00+05:30",
   "asleep": false,
   "imprest": 46,
   "wearing": "kurta",
