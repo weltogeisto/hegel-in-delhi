@@ -618,6 +618,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Resting at Khan Market."
+  },
+  {
+   "from": "17:31",
+   "to": "17:41",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -967,6 +974,40 @@
     }
    ],
    "t": "17:01"
+  },
+  {
+   "k": "diary",
+   "text": "The particularity of my empty purse contradicts the universal demand of my hunger. I cannot afford both the samosa and the chai, for the arithmetic of civil society is absolute. I shall satisfy the most pressing need with the cheapest means and leave the rest to the next movement of the day.",
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198"
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§198"
+    }
+   ],
+   "t": "17:31"
+  },
+  {
+   "k": "said",
+   "text": "One cup of chai, please.",
+   "to": "the bookseller",
+   "t": "17:31"
+  },
+  {
+   "k": "said",
+   "by": "The bookseller",
+   "to": "Hegel",
+   "text": "Twenty rupees, sir. You already paid for one earlier, but since you're this hungry, I'll make you another. Sit tight.",
+   "t": "17:31"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "17:31"
   }
  ],
  "steps": [
@@ -1873,15 +1914,77 @@
      "text": "Materially the principle involves the difference of objective probation according as it goes with or without the factor of absolute certification which lies in confession. The function of judicial administration is only to actualise to necessity the abstract side of personal liberty in civil society."
     }
    ]
+  },
+  {
+   "t": "17:31",
+   "end": "17:41",
+   "event": "You are very hungry.",
+   "present": [
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The particularity of my empty purse contradicts the universal demand of my hunger. I cannot afford both the samosa and the chai, for the arithmetic of civil society is absolute. I shall satisfy the most pressing need with the cheapest means and leave the rest to the next movement of the day.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 10,
+    "says": "One cup of chai, please.",
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The bookseller",
+    "says": "Twenty rupees, sir. You already paid for one earlier, but since you're this hungry, I'll make you another. Sit tight.",
+    "does": "He pours hot water into a small cup and hands it over."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 13.8,
+    "refused": [
+     [
+      "that costs ₹50 and you have only ₹46 in cash"
+     ]
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "id": "wallace-logic:882"
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§198",
+     "id": "enzyklopaedie:513"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "text": "Like the solar system, so for example in the practical sphere the state is a system of three syllogisms. (1) The Individual or person, through his particularity or physical or mental needs (which when carried out to their full development give civil society), is coupled with the universal, i.e. with society, law, right, government."
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§198",
+     "text": "Wie das Sonnensystem, so ist z. B. im Praktischen der Staat ein System von drei Schlüssen. 1) Der Einzelne (die Person) schliesst sich durch seine Besonderheit (die physischen und geistigen Bedürfnisse, was weiter für sich ausgebildet die bürgerliche Gesellschaft giebt) mit dem Allgemeinen (der Gesellschaft, dem Rechte, Gesetz, Regierung) zusammen. 2) Ist der Wille…"
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-15T17:31+05:30",
+  "until": "2026-11-15T17:41+05:30",
   "asleep": false,
-  "imprest": 46,
+  "imprest": 26,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1978,7 +2081,7 @@
    "no_meals": true,
    "walked": 10425,
    "strain": 10425,
-   "hunger": 1,
+   "hunger": 2,
    "tired": true
   },
   "account": {
@@ -2183,6 +2286,13 @@
     {
      "date": "2026-11-15",
      "t": "14:18",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-15",
+     "t": "17:31",
      "item": "Chai, a cup",
      "price": 20,
      "office": false
