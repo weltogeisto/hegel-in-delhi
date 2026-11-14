@@ -653,6 +653,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "18:43",
+   "to": "19:03",
+   "mode": "walk",
+   "a": "home",
+   "b": "lodhi"
   }
  ],
  "entries": [
@@ -1146,6 +1153,21 @@
    "k": "said",
    "text": "Leave it. I am finished here.",
    "t": "18:23"
+  },
+  {
+   "k": "diary",
+   "text": "The body is a vessel of needs that has been neglected, and the spirit cannot rise while the stomach roars. I have walked far, yet I am still here, suspended in the silence of the bungalow. The air is clear, a rare mercy, and the hour is right for a walk that serves both the blood and the mind. I must move to let the day pass into night.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§341"
+    }
+   ],
+   "t": "18:43"
   }
  ],
  "steps": [
@@ -2335,13 +2357,58 @@
      "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
     }
    ]
+  },
+  {
+   "t": "18:43",
+   "end": "19:03",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [],
+   "decision": {
+    "thought": "The body is a vessel of needs that has been neglected, and the spirit cannot rise while the stomach roars. I have walked far, yet I am still here, suspended in the silence of the bungalow. The air is clear, a rare mercy, and the hour is right for a walk that serves both the blood and the mind. I must move to let the day pass into night.",
+    "action": "walk",
+    "place": "lodhi",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "lodhi",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.6
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§341",
+     "id": "dyde-right:844"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§341",
+     "text": "(In world-history this concrete existence of spirit is the spiritual actuality in the -total range of its internality and externality. It is a court of judgment because in its absolute universality the particular, namely, the Penates, the civic community, and the national spirit in their many-coloured reality are all merely ideal."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-15T18:43+05:30",
+  "place": "lodhi",
+  "until": "2026-11-15T19:03+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
@@ -2438,8 +2505,8 @@
     "gandhi": []
    },
    "no_meals": true,
-   "walked": 12450,
-   "strain": 12450,
+   "walked": 13950,
+   "strain": 13950,
    "hunger": 2,
    "tired": true
   },
