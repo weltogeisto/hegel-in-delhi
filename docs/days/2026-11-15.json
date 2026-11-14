@@ -15,19 +15,19 @@
     "temp": 21,
     "sky": "overcast",
     "rain": 0,
-    "aqi": 166
+    "aqi": 174
    },
    {
     "temp": 20,
     "sky": "overcast",
     "rain": 0,
-    "aqi": 166
+    "aqi": 171
    },
    {
     "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 167
+    "aqi": 169
    },
    {
     "temp": 19,
@@ -39,121 +39,121 @@
     "temp": 19,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 168
+    "aqi": 166
    },
    {
     "temp": 19,
     "sky": "mostly clear, hazy",
     "rain": 0,
-    "aqi": 168
+    "aqi": 158
    },
    {
     "temp": 19,
-    "sky": "partly cloudy, hazy",
+    "sky": "partly cloudy",
     "rain": 0,
-    "aqi": 166
+    "aqi": 149
    },
    {
     "temp": 20,
     "sky": "drizzle",
     "rain": 0.1,
-    "aqi": 163
+    "aqi": 138
    },
    {
     "temp": 21,
-    "sky": "mostly clear, hazy",
+    "sky": "mostly clear",
     "rain": 0,
-    "aqi": 162
+    "aqi": 127
    },
    {
     "temp": 22,
-    "sky": "partly cloudy, hazy",
+    "sky": "partly cloudy",
     "rain": 0,
-    "aqi": 159
+    "aqi": 119
    },
    {
     "temp": 22,
     "sky": "drizzle",
     "rain": 0.2,
-    "aqi": 156
+    "aqi": 114
    },
    {
     "temp": 24,
-    "sky": "mostly clear, hazy",
+    "sky": "mostly clear",
     "rain": 0,
-    "aqi": 153
-   },
-   {
-    "temp": 25,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 152
-   },
-   {
-    "temp": 25,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 150
+    "aqi": 112
    },
    {
     "temp": 25,
     "sky": "clear",
     "rain": 0,
-    "aqi": 148
+    "aqi": 109
    },
    {
     "temp": 25,
     "sky": "clear",
     "rain": 0,
-    "aqi": 146
+    "aqi": 106
    },
    {
     "temp": 25,
     "sky": "clear",
     "rain": 0,
-    "aqi": 143
+    "aqi": 103
+   },
+   {
+    "temp": 25,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 100
+   },
+   {
+    "temp": 25,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 98
    },
    {
     "temp": 23,
     "sky": "clear",
     "rain": 0,
-    "aqi": 140
+    "aqi": 97
    },
    {
     "temp": 22,
     "sky": "clear",
     "rain": 0,
-    "aqi": 140
+    "aqi": 97
    },
    {
     "temp": 22,
     "sky": "clear",
     "rain": 0,
-    "aqi": 142
+    "aqi": 99
    },
    {
     "temp": 21,
-    "sky": "clear, hazy",
+    "sky": "clear",
     "rain": 0,
-    "aqi": 150
+    "aqi": 105
    },
    {
     "temp": 21,
-    "sky": "clear, hazy",
+    "sky": "clear",
     "rain": 0,
-    "aqi": 161
+    "aqi": 115
    },
    {
     "temp": 20,
-    "sky": "clear, hazy",
+    "sky": "clear",
     "rain": 0,
-    "aqi": 174
+    "aqi": 124
    },
    {
     "temp": 19,
-    "sky": "clear, hazy",
+    "sky": "clear",
     "rain": 0,
-    "aqi": 184
+    "aqi": 132
    }
   ]
  },
@@ -520,6 +520,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "12:57",
+   "to": "13:24",
+   "mode": "walk",
+   "a": "home",
+   "b": "khan"
   }
  ],
  "entries": [
@@ -553,6 +560,21 @@
     }
    ],
    "t": "12:12"
+  },
+  {
+   "k": "diary",
+   "text": "The body is a dialectic of hunger and spirit, and the spirit has been silent since nine. I cannot contemplate the ethical substance of the state while my stomach rumbles with the particularity of need. I must go to Khan Market; the system of needs does not care for my philosophical suspensions, and I require sustenance to continue the work of thinking.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World"
+    }
+   ],
+   "t": "12:57"
   }
  ],
  "steps": [
@@ -764,13 +786,58 @@
      "text": "In so far as it has risen above the substance of ethical life and the quiescent state of thought, and attained its conscious independence, it has left behind the law of custom and of substantial existence, the kinds of knowledge acquired through observation, and the sphere of theory; these lie behind it as a gray shadow that is just vanishing."
     }
    ]
+  },
+  {
+   "t": "12:57",
+   "end": "13:24",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [],
+   "decision": {
+    "thought": "The body is a dialectic of hunger and spirit, and the spirit has been silent since nine. I cannot contemplate the ethical substance of the state while my stomach rumbles with the particularity of need. I must go to Khan Market; the system of needs does not care for my philosophical suspensions, and I require sustenance to continue the work of thinking.",
+    "action": "walk",
+    "place": "khan",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "khan",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.5
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World",
+     "id": "baillie-2:15"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World",
+     "text": "This moment which expresses the ethical order in this element of immediacy or mere being, which, in other words, is an immediate consciousness of self (both as regards its essence and its particular thisness) in an \" other,\" — and hence, is a natural ethical community — this is the Family."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-15T12:57+05:30",
+  "place": "khan",
+  "until": "2026-11-15T13:24+05:30",
   "asleep": false,
   "imprest": 96,
   "wearing": "kurta",
@@ -862,7 +929,9 @@
      "hegde"
     ]
    },
-   "no_meals": true
+   "no_meals": true,
+   "walked": 2025,
+   "strain": 2025
   },
   "account": {
    "advance": 15000,
