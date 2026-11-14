@@ -562,6 +562,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with the bookseller at Khan Market."
+  },
+  {
+   "from": "14:53",
+   "to": "15:08",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -739,6 +746,34 @@
    "to": "Hegel",
    "text": "The exchange is closed, the samosa is open. Finish it, sir, before the oil soaks into the paper and the truth of your hunger becomes a mess on my counter.",
    "t": "14:48"
+  },
+  {
+   "k": "diary",
+   "text": "She is right; the particular act of consumption must be completed before the universal form of the meal decays into mere stain. I shall finish this samosa with the gravity it deserves, for it is the last of my cash and the first of my sustenance in a long while. The oil is the element of danger, but here it is merely the medium of my need.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§247"
+    }
+   ],
+   "t": "14:53"
+  },
+  {
+   "k": "said",
+   "text": "You are correct, madam. The form must be consumed before it dissolves into matter.",
+   "to": "the bookseller",
+   "t": "14:53"
+  },
+  {
+   "k": "said",
+   "by": "The bookseller",
+   "to": "Hegel",
+   "text": "Eat it or throw it, sir, I don't care. You're blocking the queue and I have a stack of newspapers to sell.",
+   "t": "14:53"
   }
  ],
  "steps": [
@@ -1252,13 +1287,65 @@
      "text": "Materially the principle involves the difference of objective probation according as it goes with or without the factor of absolute certification which lies in confession. The function of judicial administration is only to actualise to necessity the abstract side of personal liberty in civil society."
     }
    ]
+  },
+  {
+   "t": "14:53",
+   "end": "15:08",
+   "event": "The bookseller says: “The exchange is closed, the samosa is open. Finish it, sir, before the oil soaks into the paper and the truth of your hunger becomes a mess on my counter.” She wipes a smudge off the counter with her thumb.",
+   "present": [
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "She is right; the particular act of consumption must be completed before the universal form of the meal decays into mere stain. I shall finish this samosa with the gravity it deserves, for it is the last of my cash and the first of my sustenance in a long while. The oil is the element of danger, but here it is merely the medium of my need.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 15,
+    "says": "You are correct, madam. The form must be consumed before it dissolves into matter.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The bookseller",
+    "says": "Eat it or throw it, sir, I don't care. You're blocking the queue and I have a stack of newspapers to sell.",
+    "does": "She gestures sharply at the line of customers behind him."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.2
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206",
+     "id": "dyde-right:491"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§247",
+     "id": "dyde-right:565"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206",
+     "text": "The recognition of the claim that whatever in the civic community and the state is rationally necessary should occur through subjective free choice is a fuller definition of the popular idea of freedom (§ 121). The particularity of the individual becomes definitely and actually realized, only by his limiting himself exclusively to one of the particular spheres of want."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§247",
+     "text": "■ soil, and for the limited round of appetites and enjoyments embraced within the civic life, of the fluid element of danger and destruction, the passion for gain is transformed. By means of the sea, the greatest medium of communication, the desire for wealth brings distant lands into an intercourse, which leads to commercial exchange."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-15T14:53+05:30",
+  "until": "2026-11-15T15:08+05:30",
   "asleep": false,
   "imprest": 46,
   "wearing": "kurta",
