@@ -1,0 +1,152 @@
+{
+ "arms": {
+  "A": {
+   "argument": 2.7,
+   "by_day": {
+    "2026-10-03": {
+     "contradictions": 5,
+     "contradictions_per_100": 1.724,
+     "empty": 0,
+     "sentences": 290,
+     "statements_as_fact": 2,
+     "statements_as_fact_per_100": 0.69,
+     "thoughts": 99,
+     "uncertain": 5
+    },
+    "2026-10-04": {
+     "contradictions": 8,
+     "contradictions_per_100": 2.192,
+     "empty": 0,
+     "sentences": 365,
+     "statements_as_fact": 9,
+     "statements_as_fact_per_100": 2.466,
+     "thoughts": 120,
+     "uncertain": 1
+    },
+    "2026-10-13": {
+     "contradictions": 2,
+     "contradictions_per_100": 0.531,
+     "empty": 0,
+     "sentences": 377,
+     "statements_as_fact": 0,
+     "statements_as_fact_per_100": 0.0,
+     "thoughts": 126,
+     "uncertain": 9
+    },
+    "2026-10-28": {
+     "contradictions": 7,
+     "contradictions_per_100": 1.913,
+     "empty": 4,
+     "sentences": 366,
+     "statements_as_fact": 2,
+     "statements_as_fact_per_100": 0.546,
+     "thoughts": 126,
+     "uncertain": 3
+    }
+   },
+   "contradictions": 22,
+   "contradictions_per_100": 1.574,
+   "empty": 4,
+   "scored_thoughts": 20,
+   "sentences": 1398,
+   "statements_as_fact": 13,
+   "statements_as_fact_per_100": 0.93,
+   "thoughts": 471,
+   "uncertain": 18,
+   "voice": 3.1
+  },
+  "D": {
+   "argument": 2.65,
+   "by_day": {
+    "2026-10-03": {
+     "contradictions": 6,
+     "contradictions_per_100": 2.105,
+     "empty": 0,
+     "sentences": 285,
+     "statements_as_fact": 0,
+     "statements_as_fact_per_100": 0.0,
+     "thoughts": 99,
+     "uncertain": 2
+    },
+    "2026-10-04": {
+     "contradictions": 5,
+     "contradictions_per_100": 1.441,
+     "empty": 0,
+     "sentences": 347,
+     "statements_as_fact": 5,
+     "statements_as_fact_per_100": 1.441,
+     "thoughts": 120,
+     "uncertain": 2
+    },
+    "2026-10-13": {
+     "contradictions": 3,
+     "contradictions_per_100": 0.794,
+     "empty": 0,
+     "sentences": 378,
+     "statements_as_fact": 2,
+     "statements_as_fact_per_100": 0.529,
+     "thoughts": 126,
+     "uncertain": 8
+    },
+    "2026-10-28": {
+     "contradictions": 5,
+     "contradictions_per_100": 1.381,
+     "empty": 4,
+     "sentences": 362,
+     "statements_as_fact": 2,
+     "statements_as_fact_per_100": 0.552,
+     "thoughts": 126,
+     "uncertain": 6
+    }
+   },
+   "contradictions": 19,
+   "contradictions_per_100": 1.385,
+   "empty": 4,
+   "scored_thoughts": 20,
+   "sentences": 1372,
+   "statements_as_fact": 9,
+   "statements_as_fact_per_100": 0.656,
+   "thoughts": 471,
+   "uncertain": 18,
+   "voice": 3.05
+  }
+ },
+ "baseline": "A",
+ "candidate": "D",
+ "gates": {
+  "argument": {
+   "baseline": 2.7,
+   "candidate": 2.65,
+   "difference": -0.05,
+   "limit": "at least -0.25",
+   "passed": true
+  },
+  "contradictions_per_100": {
+   "baseline": 1.574,
+   "candidate": 1.385,
+   "difference": -0.189,
+   "limit": "at most +0.3",
+   "passed": true
+  },
+  "statements_as_fact_per_100": {
+   "baseline": 0.93,
+   "candidate": 0.656,
+   "difference": -0.274,
+   "limit": "at most +0.5",
+   "passed": true
+  },
+  "voice": {
+   "baseline": 3.1,
+   "candidate": 3.05,
+   "difference": -0.05,
+   "limit": "at least -0.25",
+   "passed": true
+  }
+ },
+ "key_sha256": "d18af05fc2140b7ec3d880dc801fe5dadb2ba6784c687609e7276cfb24706cbc",
+ "passed": true,
+ "rule": "T36 truth and quality gates",
+ "sealed_sha256": "859bb6fb2cdcd300adfa6a97179a7c44bd5358702edfd6110725967bed6d383d",
+ "study": "T49 arm D (HEGEL_DECISION_DRAWS=4) against arm A on T39's frozen cases (pc/TASKS.md, T49)",
+ "training_eligible": false
+}

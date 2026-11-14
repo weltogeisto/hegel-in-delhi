@@ -60,7 +60,7 @@ Project the full run from the measurements. If it doesn't fit one day's window, 
 
 ## 5 · The real run and the test, by day
 
-Hegel pauses for the training and the test only. Then the test, on T39's frozen case manifest (`1c7105a…`, with the same seeds), against T39's better arm. *13 November:* neither switch passed T39, so the comparator is plain Qwen (arm A), or plain Qwen with T49's filter if that clears its bar (`pc/TASKS.md`, T49). The measures:
+Hegel pauses for the training and the test only. Then the test, on T39's frozen case manifest (`1c7105a…`, with the same seeds), against T39's better arm. *13 November:* neither switch passed T39, so the comparator is plain Qwen (arm A), or plain Qwen with T49's filter if that clears its bar (`pc/TASKS.md`, T49). *14 November:* the filter cleared it in full, so the comparator is arm D, plain Qwen with the filter at four draws (`pc/T49-ARM-D-RESULT-20261114.md`). Whether the training day is still worth spending is Welt's decision. The measures:
 - the echo share falls by at least a third;
 - contradictions and statements as fact per 100 sentences are no worse;
 - argument and voice are within 0.25, by Claude's blind scores.

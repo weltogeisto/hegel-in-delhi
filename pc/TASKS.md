@@ -9,13 +9,13 @@ The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). W
 | Packet | Owner | State | Next artifact |
 |---|---|---|---|
 | T39 · repetition screen | Astra, verdict by Claude | DONE: FAIL. Pooled echo share A 16.49%, B 19.65%, C 11.54% (−30%, bar −33%); nothing goes live (`pc/T39-RESULT-20261107.md`) | – |
-| M5 · Training 3 sampler | Astra, reviewed by Claude | READY: PR #10 (`4b86952`), split rule `training3-split-1` (#18): 71 shadow + 429 rehearsal situations | 70 of 500 situations sampled; Astra resumes in the spare slot by day, now that arm D is complete. Its comparator is arm A, or arm D if the filter clears T36's remaining gates |
+| M5 · Training 3 sampler | Astra, reviewed by Claude | READY: PR #10 (`4b86952`), split rule `training3-split-1` (#18): 71 shadow + 429 rehearsal situations | 70 of 500 situations sampled; Astra resumes in the spare slot by day, now that arm D is complete. Its comparator is arm D, plain Qwen with the filter, since 14 November |
 | M5 · Training 3 DPO path | Astra, fixes by Claude | DONE, PR #11 merged with Claude's fixes in #13 (`c5c0893`) | the rehearsal by day, after sampling and labels |
 | M5 · Training 3 labels | Claude | DONE, the revised labels (`tools/decision_pairs.py`, rule `training3-labels-2`); the trainer takes no other | both yields, revised and legacy, on PR #1 once the candidates exist |
 | M0 · baseline receipt | Astra | DONE, PR #15 merged (`5a347ab`): runtime at 12:18 UTC, plain Qwen, no adapter; the forty-case export | – |
 | M1 · forty-case re-audit | Claude | DONE: prompted Qwen keeps 39/40 rewrites intact, the adapter 25/40 (12 changed facts, 3 changed conclusions); the adapter stays off (`pc/exports/training1-20261106/new-rubric/REPORT.md`) | – |
 | M1 · ordinary life | Claude, then Astra | First screen: blind, B preferred in 19 of 24, not passed on a badly designed clause. Welt's go of 13 November for one confirmation on fresh days, rule `m1-v2` declared beforehand (`pc/M1-ORDINARY-LIFE-SCREEN.md`) | Claude freezes 24 situations from Day 44 on once they exist (16 ordinary, 8 encounters); then Astra runs the 144 calls and hands over the sheet first |
-| T49 · selection before training | Claude, then Astra | Arm D on T39's cases, 14 November: pooled echo A 16.49%, D 6.64%; the bar of 10.99% is met, and every one of the four days improved (`pc/T49-ARM-D-RESULT-20261114.md`). Claude's blind judgment is sealed on main (#37, `58b4dbc`): 942 thoughts, 2,770 sentences, 40 scores. The live switch `HEGEL_DECISION_DRAWS` is on main, off | Astra releases the key (SHA256 `d18af05f…`); `tools/blind_verdict.py` then gives T36's truth and quality verdict. A full pass allows a shadow trial only on Welt's word |
+| T49 · selection before training | Claude, then Astra | **DONE: PASS, all five bars.** Arm D on T39's cases: echo 16.49% → 6.64%; contradictions 1.57 → 1.39 and statements as fact 0.93 → 0.66 per 100 sentences; argument 2.70 → 2.65, voice 3.10 → 3.05; 1.27 calls per decision (`pc/T49-ARM-D-RESULT-20261114.md`). Judged blind and sealed before the key (#37, #38). The live switch `HEGEL_DECISION_DRAWS` is on main, off | Welt's word for a provisional shadow trial at 4 draws. Then Astra sets it on the Pi |
 
 Gates stay as declared: nothing goes live without its matched comparison and Claude's confirmed pass, and Training 3 runs by day only, under Welt's go of 6 November.
 
@@ -28,7 +28,7 @@ Gates stay as declared: nothing goes live without its matched comparison and Cla
 | Argument, at most 0.25 lower | 5% | −0.35 to +0.35 |
 | Voice, at most 0.25 lower | 6% | −0.35 to +0.35 |
 
-A narrow miss on contradictions is weak evidence against the filter, and a narrow pass is weak evidence for it. The result will report each difference with this range beside it.
+A narrow miss on contradictions is weak evidence against the filter, and a narrow pass is weak evidence for it. The result will report each difference with this range beside it. **The result:** every difference lies well inside the chance range. The filter cuts repetition and leaves truth and quality where they were.
 
 **The gap, 8 to 13 November.** His mind was away from Sunday 8 November 08:59 to Friday 13 November 13:56 Berlin: the Pi got no answer from the PC's model server. Days 39 to 43 and the morning of Day 44 have no thoughts, and Day 38 has no owl. The watchman (T17) raised it each day, issues #23 to #28. Nothing is backfilled and no tick is forced. The 48-hour target of 7 November lapsed on 9 November with its first day delivered; Training 3's sampling and the M1 screen wait where they stopped.
 
@@ -392,7 +392,7 @@ About 500 speaking moments outside T40's test families, four answers each from p
 ### T48 · Claude, then Astra · Training 3, decisions without refusals · decided after the screens T39 and G7 (Welt, 2 November) · GO, Welt 6 November, by day after T39: `pc/TRAINING3-RUN-20261106.md`, labeller `tools/decision_pairs.py` (Claude, on main); Astra builds the sampler and the DPO trainer as `codex/` PRs while T39 runs. GPT 6 Pro asked the same day to review the training approach (`research/HANDOVER-TRAINING-GPT6PRO-20261106.md`)
 Four decisions per frozen situation outside T39's test days; chosen = accepted, non-repeating, no unmet knowledge; rejected = refused or repeating; pairs matched in length. Its own LoRA. Test: T39's days and measures against T39's better arm.
 
-### T49 · Claude, then Astra · selection before training: a live filter · OPEN, Welt's OK to spec it, 13 November
+### T49 · Claude, then Astra · selection before training: a live filter · DONE: PASS on T36 in full, 14 November (`pc/T49-ARM-D-RESULT-20261114.md`); a shadow trial waits for Welt's word
 His mind uses the GPU for about ten seconds a step. Training 3's labels are a filter (accepted by the world, no loop), and a filter can run live: draw answers one at a time and keep the first that passes. The manual (§7.8) measures Training 3 against the best setup without training. This is a candidate for it, and it was never measured.
 
 **The rule.** Per decision, the first answer in seed order that the world accepts and that passes the filter. When none passes, the first accepted answer stands; when none is accepted, the first answer, and the world's ordinary refusal loop takes over. It is a preference among his own answers, never a refusal: a phrase he needs comes back whenever every answer uses it. The arms are in `tools.decision_pairs.filter_estimate`: `first` (no selection), `accepted`, `no_loop` (the revised labels' loop rule), `no_echo_shown` (no four-word phrase from a thought the prompt shows) and `no_echo_day`.
