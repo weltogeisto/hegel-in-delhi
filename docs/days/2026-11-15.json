@@ -569,6 +569,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "15:08",
+   "to": "15:18",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -774,6 +781,34 @@
    "to": "Hegel",
    "text": "Eat it or throw it, sir, I don't care. You're blocking the queue and I have a stack of newspapers to sell.",
    "t": "14:53"
+  },
+  {
+   "k": "diary",
+   "text": "The particular meal has served its function; to linger is to obstruct the universal flow of the market. I must yield the space, for the queue is a form of civil society in miniature, demanding its due. I will take my fill and withdraw, leaving the bookseller to his commerce.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§240"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§157"
+    }
+   ],
+   "t": "15:08"
+  },
+  {
+   "k": "said",
+   "text": "One moment, I am finishing. The form of the meal must be completed, not abandoned.",
+   "to": "the bookseller",
+   "t": "15:08"
+  },
+  {
+   "k": "said",
+   "by": "The bookseller",
+   "to": "Hegel",
+   "text": "The form of the meal, sir, is a five-minute thing. Move to the side or I am calling the police, because I have a queue to clear before the market closes.",
+   "t": "15:08"
   }
  ],
  "steps": [
@@ -1339,13 +1374,65 @@
      "text": "■ soil, and for the limited round of appetites and enjoyments embraced within the civic life, of the fluid element of danger and destruction, the passion for gain is transformed. By means of the sea, the greatest medium of communication, the desire for wealth brings distant lands into an intercourse, which leads to commercial exchange."
     }
    ]
+  },
+  {
+   "t": "15:08",
+   "end": "15:18",
+   "event": "The bookseller says: “Eat it or throw it, sir, I don't care. You're blocking the queue and I have a stack of newspapers to sell.” She gestures sharply at the line of customers behind him.",
+   "present": [
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The particular meal has served its function; to linger is to obstruct the universal flow of the market. I must yield the space, for the queue is a form of civil society in miniature, demanding its due. I will take my fill and withdraw, leaving the bookseller to his commerce.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 10,
+    "says": "One moment, I am finishing. The form of the meal must be completed, not abandoned.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The bookseller",
+    "says": "The form of the meal, sir, is a five-minute thing. Move to the side or I am calling the police, because I have a queue to clear before the market closes.",
+    "does": "She crosses her arms over her chest and glares at the line of customers behind him."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.5
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§240",
+     "id": "dyde-right:557"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§157",
+     "id": "rechts:374"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§240",
+     "text": "Since the civic community is obliged to support individuals, it has also the right to insist that individuals should care for its subsistence. Not the arbitrary will only, but accidental circumstances, which may be physical or external (§ 200), may bring the individual to poverty."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§157",
+     "text": "B. bürgerliche Gesellschaft, eine Verbindung der Glieder als selbständiger Einzelner in einer somit formellen Allgemeinheit, durch ihre Bedürfnisse, und durch die Rechtsverfassung als Mittel der Sicherheit der Personen und des Eigentums und durch eine äußerliche Ordnung für ihre besonderen und gemeinsamen Interessen…"
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-15T15:08+05:30",
+  "until": "2026-11-15T15:18+05:30",
   "asleep": false,
   "imprest": 46,
   "wearing": "kurta",
