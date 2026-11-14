@@ -555,6 +555,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "14:48",
+   "to": "14:53",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Talking with the bookseller at Khan Market."
   }
  ],
  "entries": [
@@ -704,6 +711,34 @@
    "to": "Hegel",
    "text": "Arre, system? Just eat your samosa before it goes cold, sir. You talk too much for a man who is hungry.",
    "t": "14:28"
+  },
+  {
+   "k": "diary",
+   "text": "She is right to be blunt; the market does not negotiate with the spirit, only with the stomach. I have eaten, the need is met, and the samosa is gone. I must not linger in this horseshoe of needs any longer, for my body is weary from the walk and the air is thick with the dust of the city.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§531"
+    }
+   ],
+   "t": "14:48"
+  },
+  {
+   "k": "said",
+   "text": "You are right. The market is the truth of civil society: it satisfies the particular, and I was a particular in need. I have paid, and the exchange is closed.",
+   "to": "the bookseller",
+   "t": "14:48"
+  },
+  {
+   "k": "said",
+   "by": "The bookseller",
+   "to": "Hegel",
+   "text": "The exchange is closed, the samosa is open. Finish it, sir, before the oil soaks into the paper and the truth of your hunger becomes a mess on my counter.",
+   "t": "14:48"
   }
  ],
  "steps": [
@@ -1165,13 +1200,65 @@
      "text": "Like the solar system, so for example in the practical sphere the state is a system of three syllogisms. (1) The Individual or person, through his particularity or physical or mental needs (which when carried out to their full development give civil society), is coupled with the universal, i.e. with society, law, right, government."
     }
    ]
+  },
+  {
+   "t": "14:48",
+   "end": "14:53",
+   "event": "The bookseller says: “Arre, system? Just eat your samosa before it goes cold, sir. You talk too much for a man who is hungry.” She wipes a smudge off the counter with her thumb.",
+   "present": [
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "She is right to be blunt; the market does not negotiate with the spirit, only with the stomach. I have eaten, the need is met, and the samosa is gone. I must not linger in this horseshoe of needs any longer, for my body is weary from the walk and the air is thick with the dust of the city.",
+    "action": "talk",
+    "place": "khan",
+    "minutes": 5,
+    "says": "You are right. The market is the truth of civil society: it satisfies the particular, and I was a particular in need. I have paid, and the exchange is closed.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The bookseller",
+    "says": "The exchange is closed, the samosa is open. Finish it, sir, before the oil soaks into the paper and the truth of your hunger becomes a mess on my counter.",
+    "does": "She wipes a smudge off the counter with her thumb."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.6
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "id": "dyde-right:542"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§531",
+     "id": "wallace-mind:287"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "text": "But the sphere of this right is limited, and refers merely to the protection of what I have. To right as such, happiness is something external. Tet in the system of wants well-being is an essential element. The universal, which is at first only right, has to spread itself over the whole field of particularity. Justice, it is true, is a large factor in the civic community."
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§531",
+     "text": "Materially the principle involves the difference of objective probation according as it goes with or without the factor of absolute certification which lies in confession. The function of judicial administration is only to actualise to necessity the abstract side of personal liberty in civil society."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-15T14:48+05:30",
+  "until": "2026-11-15T14:53+05:30",
   "asleep": false,
   "imprest": 46,
   "wearing": "kurta",
