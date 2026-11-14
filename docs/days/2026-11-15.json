@@ -632,6 +632,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "17:51",
+   "to": "17:56",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -1049,6 +1056,34 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "17:41"
+  },
+  {
+   "k": "diary",
+   "text": "The bookseller’s insistence on my drinking the tea reveals a contradiction: he offers the particular good to a universal subject who can no longer pay for it, yet my poverty is not yet total enough to refuse the gift. I accept the cup he has already poured, suspending the law of exchange for the sake of the immediate, warm reality in my hands. The spirit must sometimes drink before it can think.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§533"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "17:51"
+  },
+  {
+   "k": "said",
+   "text": "You are right. The logic is cold; the tea is warm. I drink it as a guest, not as a customer.",
+   "to": "the bookseller",
+   "t": "17:51"
+  },
+  {
+   "k": "said",
+   "by": "The bookseller",
+   "to": "Hegel",
+   "text": "Well, that’s the first sensible thing you’ve said all day. Drink up, and if you’re done, maybe let the next person sit down.",
+   "t": "17:51"
   }
  ],
  "steps": [
@@ -2074,13 +2109,70 @@
      "text": "Das im abstrakten Eigentum willkürliche Moment des besonderen Bedürfnisses des bloß Einzelnen und die Eigensucht der Begierde verändert sich hier in die Sorge und den Erwerb für ein Gemeinsames, in ein Sittliches."
     }
    ]
+  },
+  {
+   "t": "17:51",
+   "end": "17:56",
+   "event": "The bookseller says: “Arre, stop with this 'logic' talk. It's just tea, not a philosophical debate. Drink it before it goes cold.” Wipes a spill from the counter with a rag.",
+   "present": [
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The bookseller’s insistence on my drinking the tea reveals a contradiction: he offers the particular good to a universal subject who can no longer pay for it, yet my poverty is not yet total enough to refuse the gift. I accept the cup he has already poured, suspending the law of exchange for the sake of the immediate, warm reality in my hands. The spirit must sometimes drink before it can think.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 5,
+    "says": "You are right. The logic is cold; the tea is warm. I drink it as a guest, not as a customer.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The bookseller",
+    "says": "Well, that’s the first sensible thing you’ve said all day. Drink up, and if you’re done, maybe let the next person sit down.",
+    "does": "He gestures vaguely with the rag towards the empty chairs behind him."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 13.6,
+    "refused": [
+     [
+      "that costs ₹20 and you have only ₹6 in cash"
+     ]
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§533",
+     "id": "wallace-mind:288"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§533",
+     "text": "Judicial administration naturally has no concern with such part of actions and interests as belongs only to particularity, and leaves to chance not only the occurrence of crimes but also the care for public weal. In civil society the sole end is to satisfy want—and that, because it is man’s want, in a uniform general way, so as to secure this satisfaction."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-15T17:51+05:30",
+  "until": "2026-11-15T17:56+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
