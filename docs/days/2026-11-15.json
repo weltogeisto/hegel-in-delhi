@@ -513,6 +513,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "12:12",
+   "to": "12:57",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -531,6 +538,21 @@
     "since": "2026-11-15"
    },
    "t": "09:12"
+  },
+  {
+   "k": "diary",
+   "text": "The air is thick, a tangible medium in which the spirit must push its way. My body is a vessel of hunger, and the domestic sphere has failed in its duty to sustain me because I have failed to sustain the servant. It is a dialectic of neglect: I cannot demand the universal order of the state while my own particular household lies in disorder.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§552"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology"
+    }
+   ],
+   "t": "12:12"
   }
  ],
  "steps": [
@@ -697,13 +719,58 @@
      ]
     ]
    }
+  },
+  {
+   "t": "12:12",
+   "end": "12:57",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [],
+   "decision": {
+    "thought": "The air is thick, a tangible medium in which the spirit must push its way. My body is a vessel of hunger, and the domestic sphere has failed in its duty to sustain me because I have failed to sustain the servant. It is a dialectic of neglect: I cannot demand the universal order of the state while my own particular household lies in disorder.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 45,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.8
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§552",
+     "id": "wallace-mind:359"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology",
+     "id": "baillie-1:494"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§552",
+     "text": "But in point of form, i.e. for thought and knowledge—(and religion and ethical life belong to intelligence and are a thinking and knowing)—the body of religious truth, as the pure self-subsisting and therefore supreme truth, exercises a sanction over the moral life which lies in empirical actuality."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology",
+     "text": "In so far as it has risen above the substance of ethical life and the quiescent state of thought, and attained its conscious independence, it has left behind the law of custom and of substantial existence, the kinds of knowledge acquired through observation, and the sphere of theory; these lie behind it as a gray shadow that is just vanishing."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-15T12:12+05:30",
+  "until": "2026-11-15T12:57+05:30",
   "asleep": false,
   "imprest": 96,
   "wearing": "kurta",
