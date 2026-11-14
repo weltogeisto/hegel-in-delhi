@@ -688,6 +688,15 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "21:00",
+   "to": "24:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Asleep.",
+   "asleep": true,
+   "owl": true
   }
  ],
  "entries": [
@@ -2695,14 +2704,37 @@
      "text": "In a civilised state moreover legislation can only be a further modification of existing law, and so-called new laws can only deal with minutiae of detail and particularities (cf. § 529, note), the main drift of which has been already prepared or preliminarily settled by the practice of the law-courts."
     }
    ]
+  },
+  {
+   "t": "21:00",
+   "end": "24:00",
+   "event": "Shri G. Hegde says: “The air is just air, Shri Hegel. The file is with the Additional Secretary until Tuesday, so you might as well stop pacing. Your stomach is asking for food, not a predicate.” He gestures vaguely toward the kitchen and checks his watch.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "sleep",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "bedtime",
+    "attempts": 0,
+    "latency_s": 0.0
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-15T21:00+05:30",
-  "asleep": false,
+  "until": "2026-11-16T00:00+05:30",
+  "asleep": true,
   "imprest": 6,
   "wearing": "kurta",
   "wardrobe": [
