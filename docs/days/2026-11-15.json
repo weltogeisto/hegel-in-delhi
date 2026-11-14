@@ -604,6 +604,13 @@
    "mode": "walk",
    "a": "gandhi",
    "b": "khan"
+  },
+  {
+   "from": "16:31",
+   "to": "17:01",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Resting at Khan Market."
   }
  ],
  "entries": [
@@ -910,6 +917,34 @@
     }
    ],
    "t": "16:11"
+  },
+  {
+   "k": "diary",
+   "text": "The sun is still high, yet my legs are heavy and the pot is empty. I have walked ten kilometres in this heat; the body demands rest before it can serve the spirit. The bookseller watches me with that polite indifference of the shopkeeper who knows the customer is not a threat but a curiosity.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "16:31"
+  },
+  {
+   "k": "said",
+   "text": "A moment of respite. The dust of the road settles, and I shall sit while the air cools.",
+   "to": "the bookseller",
+   "t": "16:31"
+  },
+  {
+   "k": "said",
+   "by": "The bookseller",
+   "to": "Hegel",
+   "text": "Ma'am, I'm not a ghost, I'm the shopkeeper. If you want to sit, there's a plastic chair by the window, but don't block the door, I have to open for the last batch of customers.",
+   "t": "16:31"
   }
  ],
  "steps": [
@@ -1717,13 +1752,65 @@
      "text": "So kann das, was sie zu wollen meint, für sich schon nur eine abstrakte Vorstellung, und die Verwirklichung derselben nur die Furie des Zerstörens sein."
     }
    ]
+  },
+  {
+   "t": "16:31",
+   "end": "17:01",
+   "event": "You arrive at Khan Market. It closes at 20:30. You are tired.",
+   "present": [
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The sun is still high, yet my legs are heavy and the pot is empty. I have walked ten kilometres in this heat; the body demands rest before it can serve the spirit. The bookseller watches me with that polite indifference of the shopkeeper who knows the customer is not a threat but a curiosity.",
+    "action": "rest",
+    "place": "khan",
+    "minutes": 30,
+    "says": "A moment of respite. The dust of the road settles, and I shall sit while the air cools.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The bookseller",
+    "says": "Ma'am, I'm not a ghost, I'm the shopkeeper. If you want to sit, there's a plastic chair by the window, but don't block the door, I have to open for the last batch of customers.",
+    "does": "Gestures vaguely towards the corner chair without looking up from the register."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.0
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "id": "dyde-right:542"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "text": "Addition. — In the civic community universality is only necessity. In the relation of wants, right as such is the only steadfast principle. But the sphere of this right is limited, and refers merely to the protection of what I have. To right as such, happiness is something external. Tet in the system of wants well-being is an essential element."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-15T16:31+05:30",
+  "until": "2026-11-15T17:01+05:30",
   "asleep": false,
   "imprest": 46,
   "wearing": "kurta",
@@ -1822,7 +1909,8 @@
    "no_meals": true,
    "walked": 10425,
    "strain": 10425,
-   "hunger": 1
+   "hunger": 1,
+   "tired": true
   },
   "account": {
    "advance": 15000,
