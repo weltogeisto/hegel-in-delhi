@@ -478,6 +478,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "09:42",
+   "to": "10:12",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -524,13 +531,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "09:42",
+   "end": "10:12",
+   "event": "Nothing is cooked at home: Ramesh has not been paid his wage for cooking. Shri G. Hegde is here.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 1,
+    "latency_s": 3.1,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-15T09:42+05:30",
+  "until": "2026-11-15T10:12+05:30",
   "asleep": false,
   "imprest": 96,
   "wearing": "kurta",
@@ -618,8 +653,11 @@
     "the dhobi|the washing"
    ],
    "seen": {
-    "home": []
-   }
+    "home": [
+     "hegde"
+    ]
+   },
+   "no_meals": true
   },
   "account": {
    "advance": 15000,
@@ -1046,7 +1084,8 @@
     "2026-11-11",
     "2026-11-12",
     "2026-11-13",
-    "2026-11-14"
+    "2026-11-14",
+    "2026-11-15"
    ],
    "kapoor": [
     "2026-10-28"
