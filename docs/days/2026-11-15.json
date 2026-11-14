@@ -13,13 +13,13 @@
   "hours": [
    {
     "temp": 21,
-    "sky": "overcast",
+    "sky": "clear, hazy",
     "rain": 0,
     "aqi": 174
    },
    {
     "temp": 20,
-    "sky": "overcast",
+    "sky": "clear, hazy",
     "rain": 0,
     "aqi": 171
    },
@@ -30,13 +30,13 @@
     "aqi": 169
    },
    {
-    "temp": 19,
+    "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 168
    },
    {
-    "temp": 19,
+    "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 166
@@ -54,32 +54,32 @@
     "aqi": 149
    },
    {
-    "temp": 20,
-    "sky": "drizzle",
-    "rain": 0.1,
+    "temp": 19,
+    "sky": "overcast",
+    "rain": 0,
     "aqi": 138
    },
    {
-    "temp": 21,
-    "sky": "mostly clear",
-    "rain": 0,
+    "temp": 19,
+    "sky": "showers",
+    "rain": 2.0,
     "aqi": 127
    },
    {
-    "temp": 22,
-    "sky": "partly cloudy",
+    "temp": 20,
+    "sky": "mostly clear",
     "rain": 0,
     "aqi": 119
    },
    {
     "temp": 22,
-    "sky": "drizzle",
-    "rain": 0.2,
+    "sky": "mostly clear",
+    "rain": 0,
     "aqi": 114
    },
    {
     "temp": 24,
-    "sky": "mostly clear",
+    "sky": "clear",
     "rain": 0,
     "aqi": 112
    },
@@ -90,19 +90,19 @@
     "aqi": 109
    },
    {
-    "temp": 25,
+    "temp": 26,
     "sky": "clear",
     "rain": 0,
     "aqi": 106
    },
    {
-    "temp": 25,
+    "temp": 26,
     "sky": "clear",
     "rain": 0,
     "aqi": 103
    },
    {
-    "temp": 25,
+    "temp": 26,
     "sky": "clear",
     "rain": 0,
     "aqi": 100
@@ -114,13 +114,13 @@
     "aqi": 98
    },
    {
-    "temp": 23,
+    "temp": 24,
     "sky": "clear",
     "rain": 0,
     "aqi": 97
    },
    {
-    "temp": 22,
+    "temp": 23,
     "sky": "clear",
     "rain": 0,
     "aqi": 97
@@ -132,7 +132,7 @@
     "aqi": 99
    },
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "clear",
     "rain": 0,
     "aqi": 105
@@ -590,6 +590,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "16:00",
+   "to": "16:11",
+   "mode": "walk",
+   "a": "home",
+   "b": "gandhi"
   }
  ],
  "entries": [
@@ -866,6 +873,21 @@
     }
    ],
    "t": "15:45"
+  },
+  {
+   "k": "diary",
+   "text": "The pot is empty and the sun is still high, a contradiction that mocks the natural order. I cannot cook, for Ramesh waits on his wage, and I cannot eat, for my purse holds only the remnants of a samosa and a cup of tea. I must walk, not for pleasure, but to force the world to reveal its structure; the body’s hunger is a demand that thought must answer.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "16:00"
   }
  ],
  "steps": [
@@ -1583,13 +1605,58 @@
      "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
     }
    ]
+  },
+  {
+   "t": "16:00",
+   "end": "16:11",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [],
+   "decision": {
+    "thought": "The pot is empty and the sun is still high, a contradiction that mocks the natural order. I cannot cook, for Ramesh waits on his wage, and I cannot eat, for my purse holds only the remnants of a samosa and a cup of tea. I must walk, not for pleasure, but to force the world to reveal its structure; the body’s hunger is a demand that thought must answer.",
+    "action": "walk",
+    "place": "gandhi",
+    "minutes": 45,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "gandhi",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.8
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-15T16:00+05:30",
+  "place": "gandhi",
+  "until": "2026-11-15T16:11+05:30",
   "asleep": false,
   "imprest": 46,
   "wearing": "kurta",
@@ -1685,8 +1752,8 @@
     ]
    },
    "no_meals": true,
-   "walked": 8100,
-   "strain": 8100,
+   "walked": 8925,
+   "strain": 8925,
    "hunger": 1
   },
   "account": {
