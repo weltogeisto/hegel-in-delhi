@@ -576,6 +576,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "15:18",
+   "to": "15:45",
+   "mode": "walk",
+   "a": "khan",
+   "b": "home"
   }
  ],
  "entries": [
@@ -809,6 +816,34 @@
    "to": "Hegel",
    "text": "The form of the meal, sir, is a five-minute thing. Move to the side or I am calling the police, because I have a queue to clear before the market closes.",
    "t": "15:08"
+  },
+  {
+   "k": "diary",
+   "text": "The shopkeeper’s impatience is the universal law of the market asserting itself against my particular need for contemplation. I have eaten, and the universal flow of commerce cannot be obstructed by a man who has finished his samosa but not his thoughts. I must yield to the necessity of the queue, for even the spirit of freedom must learn to stand in line.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "15:18"
+  },
+  {
+   "k": "said",
+   "text": "You are correct, madam. The system of needs proceeds without me. I withdraw to let the universal business continue.",
+   "to": "the bookseller",
+   "t": "15:18"
+  },
+  {
+   "k": "said",
+   "by": "The bookseller",
+   "to": "Hegel",
+   "text": "Finally, some sense. Don't stand there looking like a ghost, just move. Next person, come forward.",
+   "t": "15:18"
   }
  ],
  "steps": [
@@ -1426,13 +1461,65 @@
      "text": "B. bürgerliche Gesellschaft, eine Verbindung der Glieder als selbständiger Einzelner in einer somit formellen Allgemeinheit, durch ihre Bedürfnisse, und durch die Rechtsverfassung als Mittel der Sicherheit der Personen und des Eigentums und durch eine äußerliche Ordnung für ihre besonderen und gemeinsamen Interessen…"
     }
    ]
+  },
+  {
+   "t": "15:18",
+   "end": "15:45",
+   "event": "The bookseller says: “The form of the meal, sir, is a five-minute thing. Move to the side or I am calling the police, because I have a queue to clear before the market closes.” She crosses her arms over her chest and glares at the line of customers behind him.",
+   "present": [
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The shopkeeper’s impatience is the universal law of the market asserting itself against my particular need for contemplation. I have eaten, and the universal flow of commerce cannot be obstructed by a man who has finished his samosa but not his thoughts. I must yield to the necessity of the queue, for even the spirit of freedom must learn to stand in line.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 45,
+    "says": "You are correct, madam. The system of needs proceeds without me. I withdraw to let the universal business continue.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "voice": {
+    "by": "The bookseller",
+    "says": "Finally, some sense. Don't stand there looking like a ghost, just move. Next person, come forward.",
+    "does": "She steps aside and gestures sharply at the customer behind him to come up."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.7
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "id": "dyde-right:464"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "text": "The civic community contains three elements: A. The recasting of want, and the satisfaction of the individual through his work, through the work of all others, and through the satisfaction of their wants. This is a system of wants. B. Actualization of the general freedom required for this, i.e., the protection of property by the administration of justice."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-11-15T15:18+05:30",
+  "place": "home",
+  "until": "2026-11-15T15:45+05:30",
   "asleep": false,
   "imprest": 46,
   "wearing": "kurta",
@@ -1528,8 +1615,8 @@
     ]
    },
    "no_meals": true,
-   "walked": 6075,
-   "strain": 6075,
+   "walked": 8100,
+   "strain": 8100,
    "hunger": 1
   },
   "account": {
