@@ -12,14 +12,14 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 20,
-    "sky": "clear, hazy",
+    "temp": 21,
+    "sky": "overcast",
     "rain": 0,
     "aqi": 166
    },
    {
     "temp": 20,
-    "sky": "mostly clear, hazy",
+    "sky": "overcast",
     "rain": 0,
     "aqi": 166
    },
@@ -48,70 +48,76 @@
     "aqi": 168
    },
    {
-    "temp": 18,
-    "sky": "clear, hazy",
+    "temp": 19,
+    "sky": "partly cloudy, hazy",
     "rain": 0,
     "aqi": 166
    },
    {
-    "temp": 19,
-    "sky": "clear, hazy",
-    "rain": 0,
+    "temp": 20,
+    "sky": "drizzle",
+    "rain": 0.1,
     "aqi": 163
    },
    {
-    "temp": 20,
-    "sky": "clear, hazy",
+    "temp": 21,
+    "sky": "mostly clear, hazy",
     "rain": 0,
     "aqi": 162
    },
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "partly cloudy, hazy",
     "rain": 0,
     "aqi": 159
    },
    {
     "temp": 22,
-    "sky": "mostly clear, hazy",
-    "rain": 0,
+    "sky": "drizzle",
+    "rain": 0.2,
     "aqi": 156
    },
    {
-    "temp": 23,
-    "sky": "clear, hazy",
+    "temp": 24,
+    "sky": "mostly clear, hazy",
     "rain": 0,
     "aqi": 153
    },
    {
-    "temp": 24,
+    "temp": 25,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 152
    },
    {
-    "temp": 24,
+    "temp": 25,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 150
    },
    {
-    "temp": 24,
+    "temp": 25,
     "sky": "clear",
     "rain": 0,
     "aqi": 148
    },
    {
-    "temp": 24,
+    "temp": 25,
     "sky": "clear",
     "rain": 0,
     "aqi": 146
    },
    {
-    "temp": 24,
+    "temp": 25,
     "sky": "clear",
     "rain": 0,
     "aqi": 143
+   },
+   {
+    "temp": 23,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 140
    },
    {
     "temp": 22,
@@ -120,13 +126,7 @@
     "aqi": 140
    },
    {
-    "temp": 21,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 140
-   },
-   {
-    "temp": 21,
+    "temp": 22,
     "sky": "clear",
     "rain": 0,
     "aqi": 142
@@ -138,7 +138,7 @@
     "aqi": 150
    },
    {
-    "temp": 20,
+    "temp": 21,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 161
@@ -471,16 +471,67 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "09:12",
+   "to": "09:42",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Media access order puts MG University on collision course with Minister” · “UP seafarer stranded on ship in Karachi for 7 months: India seeks consular access” · “V-Xpress building key logistics hubs in Karnataka (Pic saved)”",
+   "t": "09:12"
+  },
+  {
+   "k": "world",
+   "text": "Groceries: ₹900 falls due to Ramesh.",
+   "owe": {
+    "to": "Ramesh",
+    "amount": 900,
+    "why": "groceries",
+    "since": "2026-11-15"
+   },
+   "t": "09:12"
+  }
+ ],
+ "steps": [
+  {
+   "t": "09:12",
+   "end": "09:42",
+   "event": "You wake. Partly cloudy, hazy, 22 °C. The papers lie on the step where the hawker threw them. Headlines: Media access order puts MG University on collision course with Minister; UP seafarer stranded on ship in Karachi for 7 months: India seeks consular access; V-Xpress building key logistics hubs in Karnataka (Pic saved). The electricity company asks for ₹1,800 (electricity), and you have only ₹96. The dhobi asks for ₹300 (the washing), and you have only ₹96.",
+   "present": [],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "mind": {
+    "source": "away",
+    "attempts": 0,
+    "latency_s": 3.0,
+    "refused": [
+     [
+      "the PC did not wake for the morning plan"
+     ]
+    ]
+   }
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-15T09:12+05:30",
-  "asleep": true,
+  "until": "2026-11-15T09:42+05:30",
+  "asleep": false,
   "imprest": 96,
   "wearing": "kurta",
   "wardrobe": [
@@ -560,7 +611,16 @@
    }
   ],
   "depesche_n": 2,
-  "today": {},
+  "today": {
+   "woke": "09:12",
+   "pressed": [
+    "the electricity company|electricity",
+    "the dhobi|the washing"
+   ],
+   "seen": {
+    "home": []
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -787,7 +847,8 @@
     "2026-11-11",
     "2026-11-12",
     "2026-11-13",
-    "2026-11-14"
+    "2026-11-14",
+    "2026-11-15"
    ],
    "lodhi": [
     "2026-10-02",
@@ -882,6 +943,16 @@
     "cost": "dhobi",
     "item": "The dhobi",
     "at": "home"
+   },
+   {
+    "to": "Ramesh",
+    "amount": 900,
+    "why": "groceries",
+    "since": "2026-11-15",
+    "cost": "groceries",
+    "item": "Groceries for Ramesh's kitchen",
+    "at": "home",
+    "with": "ramesh"
    }
   ],
   "cheques": [],
@@ -889,7 +960,7 @@
   "engagements": [],
   "costs": {
    "wage": "2026-11-01",
-   "groceries": "2026-11-08",
+   "groceries": "2026-11-15",
    "dhobi": "2026-11-14",
    "electricity": "2026-11-10",
    "data": "2026-10-12"
