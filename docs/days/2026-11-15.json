@@ -667,6 +667,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Walking the paths of Lodhi Gardens."
+  },
+  {
+   "from": "19:28",
+   "to": "19:48",
+   "mode": "walk",
+   "a": "lodhi",
+   "b": "home"
   }
  ],
  "entries": [
@@ -1190,6 +1197,21 @@
     }
    ],
    "t": "19:03"
+  },
+  {
+   "k": "diary",
+   "text": "The gate closes in two minutes, and I possess six rupees, which is less than the price of the most humble water. I am banished not by the law, but by the arithmetic of my own poverty. The spirit is forced to retreat into the house to contemplate the emptiness of the pocket, for the body has had enough of the open air and requires the shelter of the walls.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die germanische Welt"
+    }
+   ],
+   "t": "19:28"
   }
  ],
  "steps": [
@@ -2472,13 +2494,58 @@
      "text": "Wir haben den Despotismus im Orient in glänzender Ausbildung als eine dem Morgenland entsprechende Gestaltung gesehen; nicht minder ist die demokratische Form in Griechenland die welthistorische Bestimmung."
     }
    ]
+  },
+  {
+   "t": "19:28",
+   "end": "19:48",
+   "event": "Lodhi Gardens closes at 19:30.",
+   "present": [],
+   "decision": {
+    "thought": "The gate closes in two minutes, and I possess six rupees, which is less than the price of the most humble water. I am banished not by the law, but by the arithmetic of my own poverty. The spirit is forced to retreat into the house to contemplate the emptiness of the pocket, for the body has had enough of the open air and requires the shelter of the walls.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.7
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics",
+     "id": "haldane-2:598"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die germanische Welt",
+     "id": "welt-4:89"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics",
+     "text": "He then proved that at night he carried water for a gardener, and by means of this occupation, earned as much as he required in order in the day to be in Zeno’s company—as to which the only point which is not quite comprehensible to us is how, even in such a way, philosophy, of all things, could be studied."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die germanische Welt",
+     "text": "Indessen das wirkliche Leben ist dennoch konkret und bringt besondere Zwecke herbei; es kommt durch die Eroberung zu Herrschaft und Reichtum, zu Rechten der Herrscherfamilie, zu einem Bande der Individuen."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "lodhi",
-  "until": "2026-11-15T19:28+05:30",
+  "place": "home",
+  "until": "2026-11-15T19:48+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
@@ -2576,8 +2643,8 @@
     "lodhi": []
    },
    "no_meals": true,
-   "walked": 13950,
-   "strain": 13950,
+   "walked": 15450,
+   "strain": 15450,
    "hunger": 2,
    "tired": true
   },
