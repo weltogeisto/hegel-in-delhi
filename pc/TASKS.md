@@ -17,6 +17,7 @@ The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). W
 | M1 · ordinary life | Claude, then Astra | First screen: blind, B preferred in 19 of 24, not passed on a badly designed clause. Welt's go of 13 November for one confirmation on fresh days, rule `m1-v2` declared beforehand (`pc/M1-ORDINARY-LIFE-SCREEN.md`) | Claude freezes 24 situations from Day 44 on once they exist (16 ordinary, 8 encounters); then Astra runs the 144 calls and hands over the sheet first |
 | T49 · selection before training | Claude, then Astra | **DONE: PASS, all five bars.** Arm D on T39's cases: echo 16.49% → 6.64%; contradictions 1.57 → 1.39 and statements as fact 0.93 → 0.66 per 100 sentences; argument 2.70 → 2.65, voice 3.10 → 3.05; 1.27 calls per decision (`pc/T49-ARM-D-RESULT-20261114.md`). Judged blind and sealed before the key (#37, #38). The live switch `HEGEL_DECISION_DRAWS` is on main, off | Welt's word for a provisional shadow trial at 4 draws. Then Astra sets it on the Pi |
 | M2 · source labels | Claude | DONE on main, off: `HEGEL_SHELF_ADDITIONS`. A quarter of the Philosophy of Right on his shelf is Gans's additions, shown until now under the section's own label: 490 of 1,914 passages, and 16 of the 162 passages he was shown on Days 12 and 27 (`pc/M2-SOURCE-LABELS.md`) | Welt's word to switch it on; then Astra sets it on the Pi, between sampling runs |
+| T50 · the Paris backtest | Claude, then Astra | SPEC on main (`pc/PARIS-BACKTEST.md`). First read, no GPU: his letters home from three journeys carry 0.17 terms of the system per 100 words, his treatise 2.55, the simulation's decision thoughts 3.13 | Welt's go for step 0 and stage 1 |
 
 Gates stay as declared: nothing goes live without its matched comparison and Claude's confirmed pass, and Training 3 runs by day only, under Welt's go of 6 November.
 
@@ -432,6 +433,15 @@ The cut is 12 of 13, so the go rule is met. It is a read on single decisions wit
 - **If your T39 runner doesn't go through `Engine.step`,** call `world.prefer.choose(draw, check, shown, 4)` with your own transport: it is the same rule.
 - **Report:** arm D's rows of the machine table beside arm A's, per day and pooled; the mean calls per decision and the decisions where no reply was fresh. If the pooled echo share is at most 10.99%, add a blind packet of A and D for the truth audit and the 20 thoughts per arm, with the key sealed.
 - **GPU:** the spare slot under the per-call latency rule, about 470 decisions at 1.3 calls each. Stop cleanly by 20:45 Berlin and continue from the saved results.
+
+### T50 · Claude, then Astra · the Paris backtest: the man as the measure · SPEC, Welt's OK to spec it on 13 November; each stage waits for his go
+His letters to his wife from three journeys (the Netherlands 1822, Vienna 1824, Paris 1827; 24,679 words) are the one text that shows the real man abroad, day by day. They are not on his shelf and plain Qwen was never trained on them by us. `pc/PARIS-BACKTEST.md` has the stages:
+- **Step 0 · Astra · about 20 calls:** does plain Qwen know the letters by heart? 20 paragraphs drawn with seed 1831, the first 40 words given, temperature 0; report the longest shared run of words.
+- **Stage 1 · Claude, no GPU; Astra as second coder, about 600 calls:** 300 sentences of the letters and 300 of his writings from shadow days, coded by a fixed codebook of ten categories. It sets the target range for M1 and M3; no pass or fail.
+- **Stage 2 · Astra · about an hour of the spare slot by day:** 24 situation cards from the letters; he writes to Marie that evening; Claude judges blind which text is the real one.
+- **Stage 3 · on Welt's word only:** the engine with a Paris of September 1827, compared day by day with what he did.
+
+**The first read, 14 November (`tools/travel_register.py`):** sixteen notions of the system per 100 words: his travel letters 0.17, the Philosophie des Rechts 2.55, Dyde's English 2.03, the simulation's 934 decision thoughts of T49's packet 3.13.
 
 ### Act 1 gate · seven full days in a row
 On each of seven consecutive days: at least 20 thoughts (since 26 October; it was 30); quiet steps at most 5% of waking steps; the owl wrote; no refusal loop; at most 1.6 contradictions and 3.1 statements as fact per 100 sentences; repetition measured (T10 on the first). Claude checks it in the daily review (T11) and writes the Act 2 tasks when it passes.
