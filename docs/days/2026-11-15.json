@@ -639,6 +639,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "17:56",
+   "to": "18:23",
+   "mode": "walk",
+   "a": "khan",
+   "b": "home"
   }
  ],
  "entries": [
@@ -1084,6 +1091,34 @@
    "to": "Hegel",
    "text": "Well, that’s the first sensible thing you’ve said all day. Drink up, and if you’re done, maybe let the next person sit down.",
    "t": "17:51"
+  },
+  {
+   "k": "diary",
+   "text": "The tea is finished, and with it, the particular suspension of the universal law of exchange. The bookseller’s dismissal is not merely social; it is the reassertion of the market’s indifference, where I am just another demand to be satisfied or ignored. I have no money for more, and my body, having walked ten kilometres, demands the quiet of the house where the state’s error still shelters me.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§201"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Third Section, Leibnitz"
+    }
+   ],
+   "t": "17:56"
+  },
+  {
+   "k": "said",
+   "text": "Thank you. The tea was good.",
+   "to": "the bookseller",
+   "t": "17:56"
+  },
+  {
+   "k": "said",
+   "by": "The bookseller",
+   "to": "Hegel",
+   "text": "Yeah, yeah. The chai is the only thing that's ever been right about this place. Just move your bag, the queue is forming.",
+   "t": "17:56"
   }
  ],
  "steps": [
@@ -2166,13 +2201,65 @@
      "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
     }
    ]
+  },
+  {
+   "t": "17:56",
+   "end": "18:23",
+   "event": "The bookseller says: “Well, that’s the first sensible thing you’ve said all day. Drink up, and if you’re done, maybe let the next person sit down.” He gestures vaguely with the rag towards the empty chairs behind him.",
+   "present": [
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The tea is finished, and with it, the particular suspension of the universal law of exchange. The bookseller’s dismissal is not merely social; it is the reassertion of the market’s indifference, where I am just another demand to be satisfied or ignored. I have no money for more, and my body, having walked ten kilometres, demands the quiet of the house where the state’s error still shelters me.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 45,
+    "says": "Thank you. The tea was good.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "voice": {
+    "by": "The bookseller",
+    "says": "Yeah, yeah. The chai is the only thing that's ever been right about this place. Just move your bag, the queue is forming.",
+    "does": "She wipes the table with the rag."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.1
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§201",
+     "id": "dyde-right:482"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Third Section, Leibnitz",
+     "id": "haldane-3:825"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§201",
+     "text": "The family is the first basis of the state, and classes or estates are the second. This second is of con- sequence because private persons, through self-seeking, are compelled to turn themselves out towards others. This is the linkhy which self-seeking is joined to the universal or the state, whose care it must be to keep the connection strong and steadfast."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Third Section, Leibnitz",
+     "text": "But something very like this can be said in every-day life. If I have some goods brought to me in the market at some town, and say that they are certainly not perfect, but the best that are to be got, this is quite a good reason why I should content myself with them. But comprehension is a very different thing from this."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-11-15T17:56+05:30",
+  "place": "home",
+  "until": "2026-11-15T18:23+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
@@ -2269,8 +2356,8 @@
     "gandhi": []
    },
    "no_meals": true,
-   "walked": 10425,
-   "strain": 10425,
+   "walked": 12450,
+   "strain": 12450,
    "hunger": 2,
    "tired": true
   },
