@@ -611,6 +611,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Resting at Khan Market."
+  },
+  {
+   "from": "17:01",
+   "to": "17:31",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Resting at Khan Market."
   }
  ],
  "entries": [
@@ -945,6 +952,21 @@
    "to": "Hegel",
    "text": "Ma'am, I'm not a ghost, I'm the shopkeeper. If you want to sit, there's a plastic chair by the window, but don't block the door, I have to open for the last batch of customers.",
    "t": "16:31"
+  },
+  {
+   "k": "diary",
+   "text": "The address 'Ma'am' strikes me with the force of a physical blow, a rupture in the category of person that I have not yet reconciled with my own reflection. I am a man, a philosopher, and yet this clerk sees only a woman, or perhaps a spirit, and I am too weary to correct the error with the dignity it deserves. I will sit and let the error stand; the body is exhausted, and the sun is beginning to dip.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§531"
+    }
+   ],
+   "t": "17:01"
   }
  ],
  "steps": [
@@ -1804,13 +1826,60 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "17:01",
+   "end": "17:31",
+   "event": "The bookseller says: “Ma'am, I'm not a ghost, I'm the shopkeeper. If you want to sit, there's a plastic chair by the window, but don't block the door, I have to open for the last batch of customers.” Gestures vaguely towards the corner chair without looking up from the register.",
+   "present": [
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The address 'Ma'am' strikes me with the force of a physical blow, a rupture in the category of person that I have not yet reconciled with my own reflection. I am a man, a philosopher, and yet this clerk sees only a woman, or perhaps a spirit, and I am too weary to correct the error with the dignity it deserves. I will sit and let the error stand; the body is exhausted, and the sun is beginning to dip.",
+    "action": "rest",
+    "place": "khan",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.9
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "id": "wallace-mind:321"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§531",
+     "id": "wallace-mind:287"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "text": "Thus, it may be—if we look only to the fact that the will of one individual stands at the head of the state—oriental despotism is included under the vague name monarchy,—as also feudal monarchy, to which indeed even the favourite name of “constitutional monarchy” cannot be refused."
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§531",
+     "text": "Materially the principle involves the difference of objective probation according as it goes with or without the factor of absolute certification which lies in confession. The function of judicial administration is only to actualise to necessity the abstract side of personal liberty in civil society."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-15T17:01+05:30",
+  "until": "2026-11-15T17:31+05:30",
   "asleep": false,
   "imprest": 46,
   "wearing": "kurta",
