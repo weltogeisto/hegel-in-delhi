@@ -660,6 +660,13 @@
    "mode": "walk",
    "a": "home",
    "b": "lodhi"
+  },
+  {
+   "from": "19:03",
+   "to": "19:28",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Walking the paths of Lodhi Gardens."
   }
  ],
  "entries": [
@@ -1168,6 +1175,21 @@
     }
    ],
    "t": "18:43"
+  },
+  {
+   "k": "diary",
+   "text": "The gardens close in twenty-seven minutes, and I have six rupees in my pocket, which will not buy the corn I covet nor the dignity of a proper meal. The body is a vessel of needs that has been neglected, and the spirit cannot rise while the stomach roars, but here the system of needs operates with a cruel indifference to my philosophical standing. I shall walk the perimeter once more, watching the last light fade from the domes, before the gate shuts me out.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die griechische Welt, Die besonderen Götter"
+    }
+   ],
+   "t": "19:03"
   }
  ],
  "steps": [
@@ -2402,13 +2424,61 @@
      "text": "(In world-history this concrete existence of spirit is the spiritual actuality in the -total range of its internality and externality. It is a court of judgment because in its absolute universality the particular, namely, the Penates, the civic community, and the national spirit in their many-coloured reality are all merely ideal."
     }
    ]
+  },
+  {
+   "t": "19:03",
+   "end": "19:28",
+   "event": "You arrive at Lodhi Gardens. It closes at 19:30.",
+   "present": [],
+   "decision": {
+    "thought": "The gardens close in twenty-seven minutes, and I have six rupees in my pocket, which will not buy the corn I covet nor the dignity of a proper meal. The body is a vessel of needs that has been neglected, and the spirit cannot rise while the stomach roars, but here the system of needs operates with a cruel indifference to my philosophical standing. I shall walk the perimeter once more, watching the last light fade from the domes, before the gate shuts me out.",
+    "action": "stay",
+    "place": "lodhi",
+    "minutes": 25,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.9,
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "id": "wallace-mind:321"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die griechische Welt, Die besonderen Götter",
+     "id": "welt-3:190"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "text": "Thus, it may be—if we look only to the fact that the will of one individual stands at the head of the state—oriental despotism is included under the vague name monarchy,—as also feudal monarchy, to which indeed even the favourite name of “constitutional monarchy” cannot be refused."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die griechische Welt, Die besonderen Götter",
+     "text": "Wir haben den Despotismus im Orient in glänzender Ausbildung als eine dem Morgenland entsprechende Gestaltung gesehen; nicht minder ist die demokratische Form in Griechenland die welthistorische Bestimmung."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-11-15T19:03+05:30",
+  "until": "2026-11-15T19:28+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
@@ -2502,7 +2572,8 @@
     "khan": [
      "bookseller"
     ],
-    "gandhi": []
+    "gandhi": [],
+    "lodhi": []
    },
    "no_meals": true,
    "walked": 13950,
@@ -2773,7 +2844,8 @@
     "2026-10-14",
     "2026-10-15",
     "2026-10-28",
-    "2026-11-07"
+    "2026-11-07",
+    "2026-11-15"
    ],
    "gandhi": [
     "2026-10-02",
