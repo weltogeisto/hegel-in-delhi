@@ -2407,6 +2407,7 @@ function line(e){
       + (e.to ? ` To ${esc(e.to)}.` : '') + (e.from ? ` From ${esc(e.from)}.` : '');
     case 'read': return `<b>${esc(e.title)}</b>, read on his phone.<br>${esc(e.text)}<br>${wiki(e.url)}`;
     case 'diary': return esc(e.text) + (e.shelf && e.shelf.length ? `<small class="src">${esc(shelfLine(e))}</small>` : '');
+    case 'letter': return `<b>Letter from ${esc(e.by)}${e.from ? ', ' + esc(e.from) : ''}</b>` + paras(e.text);
     default: return esc(e.text);
   }
 }

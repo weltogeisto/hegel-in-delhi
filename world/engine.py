@@ -12,7 +12,7 @@ import random
 import time
 from datetime import date, datetime, timedelta
 
-from . import contract, lookup, owl, prefer, report, shelf, voices, works
+from . import contract, lookup, owl, prefer, report, shelf, voices, works, post
 from .clock import day_number, fmt, hm, long_date, minute_of, sun
 from .memory import Memory, encountered_text
 from .money import ADVANCE
@@ -165,6 +165,8 @@ class Engine:
         if "account" not in st:
             self.migrate(day, st)               # a day file from before the economy: its books are made on first need
         prev = next((s for s in reversed(day["steps"]) if "decision" in s), None)
+        if getattr(self.cfg, "correspondent", False) and not st.get("asleep"):
+            self.post_round(t, st)                  # Niethammer's letters: the outbox to the post, and his answer if it is due
         sit, ctx = self.world.situation(t, st, day, prev)
         if not getattr(self.cfg, "thesis_reminders", True):
             sit["on_mind"] = [line for line in sit.get("on_mind", []) if not line.startswith("Your theses: ")]
@@ -234,10 +236,15 @@ class Engine:
                 ctx["reply"] = self.reply(day, sit, ctx, ans["says"], recipient=ans.get("speaks_to"))
             if ans["action"] == "write":
                 ctx["manuscripts"] = self.memory.manuscripts(day, before_time=fmt(minute_of(t)))
+                letter = post.last_letter(st, self.post_card()) if st.get("post") else None
+                if letter:
+                    ctx["manuscripts"] = ((ctx["manuscripts"] or "") + "\n\n" + letter).strip()
                 ctx["writing"] = self.write(messages, raw, ctx, st)
             if ans.get("looks_up"):
                 ctx["read"] = self.look(ans["looks_up"], st)
         step = self.world.apply(ans, plan, sit, ctx, st, day)
+        if ctx.get("writing") and st.get("post"):
+            post.written(st, ctx["writing"], t.date(), self.post_card())          # a letter to Niethammer goes to the post tomorrow
         step["mind"] = {"source": source, "attempts": attempts, "latency_s": round(time.time() - t_start, 1)}
         if ctx.get("shelf") and source in ("mind", "stub"):
             step["shelf"] = [{"work": x["work"], "ref": x["ref"], "id": x["id"]} for x in ctx["shelf"]]
@@ -254,6 +261,35 @@ class Engine:
         day["steps"].append(step)
         log.info("%s %s %s → %s until %s (%s)", day["date"], step["t"], ans["action"], ans["place"], step["end"], source)
         return step
+
+    def post_card(self):
+        if getattr(self, "_post_card", None) is None:
+            self._post_card = post.card()
+        return self._post_card
+
+    def post_round(self, t, st):
+        """HEGEL_CORRESPONDENT: yesterday's letters go to the post; while he is at home in the post's hours, Niethammer's
+        letter comes if one is due (one call). If the mind is away or the letter unusable, it comes on a later step."""
+        c, d, m = self.post_card(), t.date(), minute_of(t)
+        post.start(st, d)
+        post.to_post(st, d, c)
+        if st.get("place") != "home" or st["post"].get("deliver") or not hm(c["deliver_from"]) <= m < hm(c["deliver_to"]):
+            return
+        what = post.due(st, d, c)
+        if not what:
+            return
+        kind, answered = what
+        try:
+            raw = self.mind.chat(post.messages(st, kind, answered, d, c), post.LETTER_SCHEMA, max_tokens=900)
+        except MindAway as e:
+            log.warning("mind away for Niethammer's letter: %s", e)
+            return
+        text = post.clean(raw)
+        if text:
+            post.arrived(st, kind, answered, text, d, c)
+            log.info("a letter from %s (%s)", c["name"], kind)
+        else:
+            log.warning("Niethammer's letter was unusable; it comes on a later step")
 
     def draw(self, messages, sit, ctx, st, draws):
         """T49 (world/prefer.py): up to `draws` replies to the same prompt; the first that the world accepts and that

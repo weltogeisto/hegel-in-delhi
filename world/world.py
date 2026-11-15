@@ -7,7 +7,7 @@ import re
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
-from . import contract, voices, works
+from . import contract, voices, works, post
 from .clock import DAYNAMES, WEEKDAYS, at_dt, days_match, fmt, hm, minute_of, sun
 from .memory import names_of
 from .money import HOME_GIFT, Economy
@@ -308,6 +308,11 @@ class World(Economy):
         line = f"Body: {last}; walked {today.get('walked', 0) / 1000:.1f} km today"
         return line + (f"; awake since {today['woke']}." if woke else "."), felt
 
+    def post_card(self):
+        if getattr(self, "_post_card", None) is None:
+            self._post_card = post.card()
+        return self._post_card
+
     # ── museums, concerts and plays (HEGEL_CULTURE) ─────────────────
     def listings(self, d):
         """The morning's listings: what is on today, and when the museums open. None when nothing is on."""
@@ -582,6 +587,10 @@ class World(Economy):
 
         if beat:
             events.append((beat["prompt"], None))
+        if state.get("post"):                                 # HEGEL_CORRESPONDENT: a letter from Niethammer has come
+            letter = post.event(state, present, self.post_card())
+            if letter:
+                events.append(letter)
         lines, entries = self.upkeep(t, state, pid, present, today)
         events += [(x, None) for x in lines] + [("", e) for e in entries]
 
@@ -672,6 +681,8 @@ class World(Economy):
             when = datetime.fromisoformat(a["date"]).date()
             on_mind.append(f"{WEEKDAYS[when.weekday()]} {when.day} {when.strftime('%B')}{' ' + a['t'] if a.get('t') else ''}: {a['what']}.")
         on_mind += self.engagement_lines(t, state)
+        if state.get("post"):
+            on_mind += post.on_mind(state, self.post_card())
         flag = state["flags"].get("bandhgala")
         if flag == "ordered":
             on_mind.append("Your bandhgala is with Masterji at Khan Market, promised for Thursday 8 October.")
