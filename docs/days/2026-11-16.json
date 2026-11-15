@@ -600,6 +600,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "13:49",
+   "to": "14:04",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -939,6 +946,34 @@
    "to": "Hegel",
    "text": "Negation ho ya jaat, paani ubal raha hai. Aap sochiye, main sirf chai pakdaunga. Zyada der mat lagana, thanda ho jayega.",
    "t": "13:34"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s refusal to cook is a concrete negation of my will; he holds the material means of my sustenance in his hand, and I am reduced to the abstraction of a man who can only observe the boil. The tea is a minor concession, a truce in the war of needs, but it does not feed the body. I must accept this limit without anger, for anger is a particular passion, while the system of needs is universal and indifferent.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229"
+    }
+   ],
+   "t": "13:49"
+  },
+  {
+   "k": "said",
+   "text": "Bahut accha, Ramesh. The tea will suffice for now. I will not wait; the kettle is the master here, not the guest.",
+   "to": "Ramesh",
+   "t": "13:49"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Kettle master, theek hai. Chai aati hai, bas ek minute dijiye. Aapka sochna bilkul theek hai, bas ghar ka hisaab bhi sochna padta hai.",
+   "t": "13:49"
   }
  ],
  "steps": [
@@ -1587,13 +1622,65 @@
      "text": "Addition. — The two aspects of the constitution refer to the rights and the services of individuals. The services are now almost all reduced to money. Military duty is perhaps the only remaining personal service. In former times claim was made to the concrete individual, who was summoned to work in accordance with his skill. Now the state buys what it needs."
     }
    ]
+  },
+  {
+   "t": "13:49",
+   "end": "14:04",
+   "event": "Ramesh says: “Negation ho ya jaat, paani ubal raha hai. Aap sochiye, main sirf chai pakdaunga. Zyada der mat lagana, thanda ho jayega.” He taps the kettle's lid with his finger to check the boil.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh’s refusal to cook is a concrete negation of my will; he holds the material means of my sustenance in his hand, and I am reduced to the abstraction of a man who can only observe the boil. The tea is a minor concession, a truce in the war of needs, but it does not feed the body. I must accept this limit without anger, for anger is a particular passion, while the system of needs is universal and indifferent.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": "Bahut accha, Ramesh. The tea will suffice for now. I will not wait; the kettle is the master here, not the guest.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Kettle master, theek hai. Chai aati hai, bas ek minute dijiye. Aapka sochna bilkul theek hai, bas ghar ka hisaab bhi sochna padta hai.",
+    "does": "He pours the boiling water into the cup and places it on the table."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.9
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "id": "dyde-right:464"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "id": "dyde-right:542"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "text": "The civic community contains three elements: A. The recasting of want, and the satisfaction of the individual through his work, through the work of all others, and through the satisfaction of their wants. This is a system of wants. B. Actualization of the general freedom required for this, i.e., the protection of property by the administration of justice."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "text": "To right as such, happiness is something external. Tet in the system of wants well-being is an essential element. The universal, which is at first only right, has to spread itself over the whole field of particularity. Justice, it is true, is a large factor in the civic community. The state will flourish, if it has good laws, of which free property is the fundamental condition."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-16T13:49+05:30",
+  "until": "2026-11-16T14:04+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
