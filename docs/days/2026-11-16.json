@@ -607,6 +607,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "14:04",
+   "to": "14:34",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -974,6 +981,34 @@
    "to": "Hegel",
    "text": "Kettle master, theek hai. Chai aati hai, bas ek minute dijiye. Aapka sochna bilkul theek hai, bas ghar ka hisaab bhi sochna padta hai.",
    "t": "13:49"
+  },
+  {
+   "k": "diary",
+   "text": "The system rejects the act of eating; the pot is empty, and my philosophical hunger cannot be fed by steam alone. Ramesh’s gesture is a temporary truce, but the material reality of my starvation remains the dominant contradiction. I must sit with this discomfort, acknowledging that my freedom is currently limited by the absence of bread.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206"
+    }
+   ],
+   "t": "14:04"
+  },
+  {
+   "k": "said",
+   "text": "Theek hai, Ramesh. You may sit. I will drink the water, though it is not food.",
+   "to": "Ramesh",
+   "t": "14:04"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Aap baithiye, main kadam se kaam karta hoon. Paani peene se pet nahi bharta, bas gale mein thandak aati hai.",
+   "t": "14:04"
   }
  ],
  "steps": [
@@ -1674,13 +1709,70 @@
      "text": "To right as such, happiness is something external. Tet in the system of wants well-being is an essential element. The universal, which is at first only right, has to spread itself over the whole field of particularity. Justice, it is true, is a large factor in the civic community. The state will flourish, if it has good laws, of which free property is the fundamental condition."
     }
    ]
+  },
+  {
+   "t": "14:04",
+   "end": "14:34",
+   "event": "Ramesh says: “Kettle master, theek hai. Chai aati hai, bas ek minute dijiye. Aapka sochna bilkul theek hai, bas ghar ka hisaab bhi sochna padta hai.” He pours the boiling water into the cup and places it on the table.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The system rejects the act of eating; the pot is empty, and my philosophical hunger cannot be fed by steam alone. Ramesh’s gesture is a temporary truce, but the material reality of my starvation remains the dominant contradiction. I must sit with this discomfort, acknowledging that my freedom is currently limited by the absence of bread.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 30,
+    "says": "Theek hai, Ramesh. You may sit. I will drink the water, though it is not food.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Aap baithiye, main kadam se kaam karta hoon. Paani peene se pet nahi bharta, bas gale mein thandak aati hai.",
+    "does": "Ramesh steps back to the stove, keeping his hands busy with the kettle lid."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 13.5,
+    "refused": [
+     [
+      "Nothing is cooked at home: Ramesh has not been paid his wage for cooking. Choose an available activity; a request for food is not a completed meal."
+     ]
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "id": "baillie-1:223"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206",
+     "id": "dyde-right:491"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "text": "The feeling of absolute power, however, reahsed both in general and in the particular form of service, is only dissolution implicitly, and albeit the fear of his lord is the beginning of wisdom, consciousness is not therein aware of being self-existent. Through work and labour, however, this consciousness of the bondsman comes to itself."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206",
+     "text": "The recognition of the claim that whatever in the civic community and the state is rationally necessary should occur through subjective free choice is a fuller definition of the popular idea of freedom (§ 121). The particularity of the individual becomes definitely and actually realized, only by his limiting himself exclusively to one of the particular spheres of want."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-16T14:04+05:30",
+  "until": "2026-11-16T14:34+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
