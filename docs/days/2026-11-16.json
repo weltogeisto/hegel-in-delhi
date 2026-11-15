@@ -621,6 +621,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "14:49",
+   "to": "14:59",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -1044,6 +1051,34 @@
    "to": "Hegel",
    "text": "Sir, aapne paise nahi diye, toh maine khana banaya nahi. Abhi koi khana nahi hai. Agar aap chaahein, toh main thodi der mein kuch bana sakta hoon, lekin uska hisaab alag hoga.",
    "t": "14:34"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh offers to cook, but the condition is payment I do not possess. I am six rupees, a beggar in a bungalow, and the universal law of the market stands between me and the particular need of my stomach. To accept is to deepen the debt; to refuse is to starve. I must face the contradiction: the body demands, but the purse is empty.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "14:49"
+  },
+  {
+   "k": "said",
+   "text": "No, Ramesh. Do not cook. I cannot pay you for it, and I will not add to the debt. I will manage. Go about your work.",
+   "to": "Ramesh",
+   "t": "14:49"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, theek hai sir. Aap apne kaam mein lag jaiye, main bhi chalta hoon.",
+   "t": "14:49"
   }
  ],
  "steps": [
@@ -1853,13 +1888,71 @@
      "text": "The reason why that true Idea should not be the truth is therefore that the empty abstractions of an understanding which keeps itself in the abstract universal, and of a sensuous material of individuality standing in opposition to the same, are presupposed as the truth."
     }
    ]
+  },
+  {
+   "t": "14:49",
+   "end": "14:59",
+   "event": "Ramesh says: “Sir, aapne paise nahi diye, toh maine khana banaya nahi. Abhi koi khana nahi hai. Agar aap chaahein, toh main thodi der mein kuch bana sakta hoon, lekin uska hisaab alag hoga.”",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh offers to cook, but the condition is payment I do not possess. I am six rupees, a beggar in a bungalow, and the universal law of the market stands between me and the particular need of my stomach. To accept is to deepen the debt; to refuse is to starve. I must face the contradiction: the body demands, but the purse is empty.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "No, Ramesh. Do not cook. I cannot pay you for it, and I will not add to the debt. I will manage. Go about your work.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, theek hai sir. Aap apne kaam mein lag jaiye, main bhi chalta hoon.",
+    "does": "Ramesh turns away and walks towards the kitchen door, leaving the room without another word."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-16T14:49+05:30",
+  "until": "2026-11-16T14:59+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
