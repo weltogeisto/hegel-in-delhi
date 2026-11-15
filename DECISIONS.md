@@ -57,10 +57,18 @@ Welt's calls on the Paris profile, 15 November:
 28. **He gets someone to write to.** Who it is, and how the fiction holds it, is open below.
 29. **No personal contact in the code.** Download tools name the project's page, not a person.
 
+The night rule, narrowed (Welt, 15 November):
+
+30. **Training runs by day, watched. Work that trains nothing may use the night** while Hegel sleeps: sampling, prompt screens, coding and evaluation calls to plain Qwen.
+    - **What it may not do at night:** change weights, adapters or anything live on Hegel.
+    - **Guards:** the job uses the spare slot only, so the owl keeps its own. Its ledger reconciles every call. It stops cleanly by 08:30 Berlin and before the PC's twelve-hour shutdown.
+    - **Report:** one line on PR #1 in the morning.
+    - **Why:** the rule of 6 November came from three unwatched Training 1 nights that failed (`pc/CLAUDE-HANDOVER-20261106.md`). It was about training. This narrows the manual's general "no night runs".
+    - **The sampling run of 00:06–03:08 on 15 November** falls under this rule and stands.
+
 ## Still open
 
 - **His correspondent (28).** Niethammer, his closest friend and most frequent correspondent, who in the fiction also woke in 2026, in Munich (Claude's recommendation); or Marie, his wife. Letters about a week each way, answers voiced from a card.
-- **Night work on the GPU.** Astra ran Training 3's sampling from 00:06 to 03:08 on 15 November under a night go that no record shows. The rule of 6 November stands until Welt says otherwise: GPU work by day.
 
 ## Ideas, not yet decided
 
