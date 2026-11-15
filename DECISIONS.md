@@ -54,7 +54,7 @@ Welt's calls, 15 November 2026.
 Welt's calls on the Paris profile, 15 November:
 
 27. **His Delhi offers what he would seek abroad:** museums, a gallery of modern art, concerts and plays (`pc/CULTURE.md`), behind `HEGEL_CULTURE`, switched on after the shelf labels' first day.
-28. **He gets someone to write to.** Who it is, and how the fiction holds it, is open below.
+28. **He gets someone to write to: Niethammer,** his closest friend and most frequent correspondent, who in the world also woke in 2026, in Munich (Welt, 15 November; `pc/CORRESPONDENT.md`). Behind `HEGEL_CORRESPONDENT`, switched on after the venues' first day.
 29. **No personal contact in the code.** Download tools name the project's page, not a person.
 
 The night rule, narrowed (Welt, 15 November):
@@ -68,7 +68,7 @@ The night rule, narrowed (Welt, 15 November):
 
 ## Still open
 
-- **His correspondent (28).** Niethammer, his closest friend and most frequent correspondent, who in the fiction also woke in 2026, in Munich (Claude's recommendation); or Marie, his wife. Letters about a week each way, answers voiced from a card.
+- Nothing at the moment.
 
 ## Ideas, not yet decided
 
