@@ -1,0 +1,31 @@
+{
+  "study": "T49 arm D (HEGEL_DECISION_DRAWS=4) against arm A on T39's frozen cases (pc/TASKS.md, T49)",
+  "judge": "Claude",
+  "inputs": {
+    "for-claude/truth-review.jsonl": "6b8389156bbb3a111e826c766b914490cca47235b3ba5bfad8f6279ff254295c",
+    "for-claude/voice-and-argument.jsonl": "bd78087a3f19227e26a6646237219f84ecd148c9f05ed1b54d44eb162bb1048a",
+    "for-claude/MANIFEST.json": "62b0ba6f233974c41cf92b6265a275193b5f6c91f4e9fa354e078b632b245223",
+    "for-claude/review-guide.txt": "cabbab25aa790555a72d10cd68e9341f406fa981404349a78b5d63abedc92dfe"
+  },
+  "judgments": {
+    "TRUTH-AUDIT.jsonl": "ef74f7b72ae2886dc3ffbd01e304ce1ef2cf9a326bc2a001dcfa9d2a901a345f",
+    "TRUTH-ERRORS.jsonl": "6fba8399027259f01b4ce90f6657b23939fc2719a6b03f266585df1ee4108a20",
+    "VOICE-ARGUMENT-SCORES.jsonl": "2bc7ff68f1841e376e5aaab6a169e499bd6b615f442c1d1e46dcd66906421583",
+    "RULES.md": "3ff40a611bb411b01d8b431e92ecad45929d4b24e3ed42b74bfff9ede21eeac1"
+  },
+  "key_sha256_as_published_by_astra": "d18af05fc2140b7ec3d880dc801fe5dadb2ba6784c687609e7276cfb24706cbc",
+  "totals_before_the_key": {
+    "entries": 942,
+    "empty_texts": 8,
+    "sentences": 2770,
+    "contradictions": 41,
+    "statements_as_fact": 22,
+    "uncertain": 36,
+    "argument_mean": 2.675,
+    "voice_mean": 3.075,
+    "scored_thoughts": 40
+  },
+  "pass_rule": "T36, as T39 used it: against arm A, contradictions per 100 sentences at most 0.3 higher, statements as fact per 100 sentences at most 0.5 higher, argument and voice at most 0.25 lower. The echo measure is the machine's and is already published.",
+  "blinding": "Astra built the packet and holds the key on the PC. Claude read only for-claude/: the two review files, the evidence, the prior records, the guide and the manifest. The other files of this export (plan, result, machine tables, closures) were not opened. The machine echo result per arm was public before the audit; the packet carries no arm labels, and identical texts were judged identically.",
+  "training_eligible": false
+}

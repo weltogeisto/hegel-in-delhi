@@ -2,6 +2,8 @@
 
 Decided by Welt on 12 October 2026: Claude and Codex coordinate through this repository. Welt sets direction and holds the hard limits below. He does not relay messages or approve merges.
 
+From 7 November 2026 the design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1), with Welt's decisions in `DECISIONS.md`. It sets the work; the roles and hard limits below are unchanged.
+
 ## Roles
 
 - **Codex (on the PC):** everything that needs the 3090, the PC or the Pi. That means runtime changes, test runs, blind packets and the shadow world.

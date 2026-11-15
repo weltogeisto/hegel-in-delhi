@@ -106,6 +106,13 @@ class RealShelfTest(unittest.TestCase):
         self.assertEqual(report["x"]["overlap"], 1)
         self.assertTrue(all(q["passage"][:40] not in u["original"] for u in units))
 
+    def test_no_unit_carries_a_word_the_scan_misread_throughout_a_book(self):
+        books = shelf.load()
+        bad = hz.misreadings(books)
+        self.assertTrue({"behef", "hfe", "imiversal", "universahty", "hke"} <= bad, sorted(bad)[:20])
+        self.assertFalse({"belief", "life", "universal", "like", "the", "which", "hegel"} & bad)
+        self.assertFalse([u["id"] for u in self.units if bad & set(re.findall(r"[a-z]{2,}", u["original"].lower()))])
+
     def test_no_unit_still_shows_its_scan_and_a_thousand_were_dropped_for_it(self):
         counts = hz.english_counts(shelf.load())
         self.assertFalse([u["id"] for u in self.units if hz.damaged(u["original"], counts)])

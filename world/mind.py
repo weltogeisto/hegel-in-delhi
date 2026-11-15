@@ -8,7 +8,7 @@ import time
 import urllib.error
 import urllib.request
 
-from .contract import SCHEMA
+from .contract import SCHEMA, decision_schema
 
 log = logging.getLogger("world")
 REPEAT_PENALTY, REPEAT_LAST_N, DRY_MULTIPLIER = 1.1, 256, 0.8      # sampling for plain completions, against loops (llama-server's DRY sampler; a server that does not know a field ignores it)
@@ -18,13 +18,20 @@ class MindAway(Exception):
     """The PC did not wake or did not answer."""
 
 
+DRY_BASE, DRY_ALLOWED = 1.75, 3           # the sampler's defaults, but runs of up to three tokens (names, "the state") repeat freely
+DRY_LAST_N = 4096                           # tokens looked back over: the whole decision prompt (about a thousand) and more; b11429 refuses -1
+
+
 class HTTPMind:
     source = "mind"
 
     def __init__(self, url, wake=None, timeout=300, temperature=0.7, voice_adapter_scale=None,
                  writing_reasoning_tokens=0, writing_adapter_scale=None,
-                 decision_reasoning_tokens=0, decision_adapter_scale=None):
+                 decision_reasoning_tokens=0, decision_adapter_scale=None, decision_dry=0.0):
         self.url, self.wake, self.timeout, self.temperature = url.rstrip("/"), wake, timeout, temperature
+        if not 0 <= decision_dry <= 2:
+            raise ValueError("decision_dry must be from 0 to 2")
+        self.decision_dry = decision_dry
         if voice_adapter_scale not in (None, 0, 1):
             raise ValueError("voice_adapter_scale must be None, 0 or 1")
         if writing_adapter_scale not in (None, 0, 1):
@@ -86,11 +93,12 @@ class HTTPMind:
         Preserve legacy chat overrides when the profile is unset. NPCs, writing,
         and retrospective reports retain their own settings.
         """
+        dry = {"dry": self.decision_dry} if self.decision_dry else {}       # only when set: subclasses may keep the older chat()
         if not self.decision_reasoning_tokens and self.decision_adapter_scale is None:
-            return self.chat(messages, schema, max_tokens=max_tokens)
+            return self.chat(messages, schema, max_tokens=max_tokens, **dry)
         return self.chat(messages, schema, max_tokens=max_tokens + self.decision_reasoning_tokens,
                          reasoning_budget=self.decision_reasoning_tokens,
-                         adapter_scale=self.decision_adapter_scale)
+                         adapter_scale=self.decision_adapter_scale, **dry)
 
     def chat_writing(self, messages, schema=None, max_tokens=1100):
         """Optionally reserve bounded reasoning time for the manuscript call only.
@@ -107,7 +115,7 @@ class HTTPMind:
                          adapter_scale=self.writing_adapter_scale)
 
     def chat(self, messages, schema=None, max_tokens=700, temperature=None, *, adapter_scale=None,
-             reasoning_budget=0):
+             reasoning_budget=0, dry=0.0):
         if adapter_scale is None and self.voice_adapter_scale is not None:
             adapter_scale = 1
         if adapter_scale not in (None, 0, 1):
@@ -121,6 +129,8 @@ class HTTPMind:
             payload["reasoning_budget_tokens"] = reasoning_budget
         if adapter_scale is not None:
             payload["lora"] = [{"id": 0, "scale": adapter_scale}]
+        if dry:                     # llama.cpp's DRY sampler: continuing a run of words already in the context costs more the longer it gets
+            payload.update(dry_multiplier=dry, dry_base=DRY_BASE, dry_allowed_length=DRY_ALLOWED, dry_penalty_last_n=DRY_LAST_N)
         if schema:
             payload["response_format"] = {"type": "json_schema", "json_schema": {"name": "answer", "schema": schema}}
         for constrained in ((True, False) if schema else (False,)):
@@ -160,7 +170,7 @@ class HTTPMind:
             raise MindAway(f"mind request failed: {e}")
 
     def decide(self, messages, sit):
-        return self.chat_decision(messages, SCHEMA)
+        return self.chat_decision(messages, decision_schema(sit))
 
 
 THOUGHTS = [
@@ -317,6 +327,10 @@ class StubMind:
             else:
                 out["text"] = "(rehearsal) " + " ".join(r.sample(LINES, 3))
             return json.dumps(out)
+        if "letter" in props:       # the letter from Munich (world/post.py)
+            r = random.Random(messages[-1]["content"])
+            return json.dumps({"letter": "(rehearsal) A letter from Munich would go here: news of the city and the school, a question about Delhi, "
+                                         "advice on the file, and greetings. " + " ".join(r.sample(LINES, 3))})
         if "diary" in props:
             ask = messages[-1]["content"]
             times = re.findall(r"^(\d\d:\d\d) ", ask, re.M)

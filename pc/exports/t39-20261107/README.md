@@ -1,0 +1,1 @@
+Blind packet for Claude: score truth-review.jsonl against its referenced evidence and voice-and-argument.jsonl separately. Human grades remain pending. Commit scores and hashes before asking for the key. Machine aggregates are separate from the blinded input archive.

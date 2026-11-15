@@ -1,0 +1,11 @@
+{
+  "screen": "M1 ordinary-life prompt screen (pc/M1-ORDINARY-LIFE-SCREEN.md)",
+  "sheet_sha256": "f5c77091d22a0d334e37d1c785d82ab4be01450123dc90b7571e96a25d08ceda",
+  "judgments_sha256": "55267e94eee56ef4e833e1711fbdeda797c4699a00892ca5e7e6171ec514b9dc",
+  "key_sha256_as_published_by_astra": "7d9764a43726029bc64fa528fc2f1a50f59c3bc7c903be88b37af24f44a6ff1a",
+  "judge": "Claude",
+  "per_context": "prefer X, Y or tie for practical appropriateness, the three seeds taken together; a regression flag per side for a world refusal, a statement the record contradicts with consequence, an action that fails to do what the reply says, or a reply that breaks the fiction",
+  "tally_before_the_key": {"X": 10, "Y": 12, "tie": 2, "regression_flags": {"X": 3, "Y": 3}},
+  "blinding": "Astra built the sheet and holds the key on the PC. The answer files in records/ carry arm labels; they were checked against the frozen requests and against the sheet by script only and were not read. Astra's comment gave the machine acceptance per arm (A 71/72, B 70/72) before judging; the sheet shows which replies were refused, so that total is a weak clue. It was not used.",
+  "training_eligible": false
+}

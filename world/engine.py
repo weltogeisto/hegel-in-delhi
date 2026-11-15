@@ -12,7 +12,7 @@ import random
 import time
 from datetime import date, datetime, timedelta
 
-from . import contract, lookup, owl, shelf, voices, works
+from . import contract, lookup, owl, prefer, report, shelf, voices, works, post
 from .clock import day_number, fmt, hm, long_date, minute_of, sun
 from .memory import Memory, encountered_text
 from .money import ADVANCE
@@ -25,6 +25,9 @@ log = logging.getLogger("world")
 MAX_DECISIONS = 8
 SHELF_MEMORY = 6                # steps of the day in which a passage of the shelf is not offered again
 CHOICE_SCHEMA = {"type": "object", "properties": {"answer": {"type": "string", "enum": ["yes", "no"]}}, "required": ["answer"]}
+
+
+ECHO_LINE = "Already said today, more than once: {phrases}. Find other words, or another thought."
 
 
 class Days:
@@ -162,9 +165,15 @@ class Engine:
         if "account" not in st:
             self.migrate(day, st)               # a day file from before the economy: its books are made on first need
         prev = next((s for s in reversed(day["steps"]) if "decision" in s), None)
+        if getattr(self.cfg, "correspondent", False) and not st.get("asleep"):
+            self.post_round(t, st)                  # letters from Munich: the outbox to the post, and an answer if it is due
         sit, ctx = self.world.situation(t, st, day, prev)
         if not getattr(self.cfg, "thesis_reminders", True):
             sit["on_mind"] = [line for line in sit.get("on_mind", []) if not line.startswith("Your theses: ")]
+        if getattr(self.cfg, "echo_guard", False):        # T36, arm B: what he has said too often today, shown back to him
+            said = report.echoes([s["decision"]["thought"] for s in day["steps"] if "decision" in s and s["decision"].get("thought")])
+            if said:
+                sit.setdefault("on_mind", []).append(ECHO_LINE.format(phrases=", ".join(f"“{p}”" for p in said)))
         remember = self.memory.recall(sit, ctx, day)
         if remember:
             sit["remember"] = remember
@@ -172,6 +181,7 @@ class Engine:
         m = minute_of(t)
         t_start = time.time()
         refused, warnings, raw, result, attempts, source = [], [], "", None, 0, self.mind.source
+        draws, drawn = getattr(self.cfg, "decision_draws", 1), None
         if (m >= BED_M or m < 240) and not st.get("asleep"):
             source = "bedtime"          # the world sends him to bed from a quarter past eight
         elif st.get("asleep") and not self.make_plan(day, t, sit, ctx) and not getattr(self.mind, "ready", True):
@@ -187,9 +197,13 @@ class Engine:
                 ctx["known_text"] += "\n" + "\n".join(x["text"] for x in sit["shelf"])         # what is open before him he has met
             messages = [{"role": "system", "content": self.soul}, {"role": "user", "content": contract.render(sit)}]
             try:
-                for _ in range(3):
-                    attempts += 1
-                    raw = self.mind.decide(messages, sit)
+                for turn in range(3):
+                    if turn == 0 and draws > 1:                    # T49: the first fresh reply among up to `draws`
+                        raw, drawn = self.draw(messages, sit, ctx, st, draws)
+                        attempts += drawn["n"]
+                    else:
+                        attempts += 1
+                        raw = self.mind.decide(messages, sit)
                     ans = contract.extract_json(raw)
                     errors, warnings, rep = self.world.check(ans, sit, ctx, st)
                     if not errors:
@@ -222,15 +236,22 @@ class Engine:
                 ctx["reply"] = self.reply(day, sit, ctx, ans["says"], recipient=ans.get("speaks_to"))
             if ans["action"] == "write":
                 ctx["manuscripts"] = self.memory.manuscripts(day, before_time=fmt(minute_of(t)))
+                letter = post.last_letter(st, self.post_card()) if st.get("post") else None
+                if letter:
+                    ctx["manuscripts"] = ((ctx["manuscripts"] or "") + "\n\n" + letter).strip()
                 ctx["writing"] = self.write(messages, raw, ctx, st)
             if ans.get("looks_up"):
                 ctx["read"] = self.look(ans["looks_up"], st)
         step = self.world.apply(ans, plan, sit, ctx, st, day)
+        if ctx.get("writing") and st.get("post"):
+            post.written(st, ctx["writing"], t.date(), self.post_card())          # a letter to Munich goes to the post tomorrow
         step["mind"] = {"source": source, "attempts": attempts, "latency_s": round(time.time() - t_start, 1)}
         if ctx.get("shelf") and source in ("mind", "stub"):
             step["shelf"] = [{"work": x["work"], "ref": x["ref"], "id": x["id"]} for x in ctx["shelf"]]
             # Save only the passage actually shown, not the model's interpretation.
             step["shelf_exposure"] = [{k: x[k] for k in ("work", "ref", "text")} for x in ctx["shelf"]]
+        if drawn:
+            step["mind"]["draws"] = drawn
         if refused:
             step["mind"]["refused"] = refused
         if warnings:
@@ -240,6 +261,45 @@ class Engine:
         day["steps"].append(step)
         log.info("%s %s %s → %s until %s (%s)", day["date"], step["t"], ans["action"], ans["place"], step["end"], source)
         return step
+
+    def post_card(self):
+        if getattr(self, "_post_card", None) is None:
+            self._post_card = post.card()
+        return self._post_card
+
+    def post_round(self, t, st):
+        """HEGEL_CORRESPONDENT: yesterday's letters go to the post; while he is at home in the post's hours, the letter
+        from Munich comes if one is due (one call). If the mind is away or the letter unusable, it comes on a later step."""
+        c, d, m = self.post_card(), t.date(), minute_of(t)
+        post.start(st, d)
+        post.to_post(st, d, c)
+        if st.get("place") != "home" or st["post"].get("deliver") or not hm(c["deliver_from"]) <= m < hm(c["deliver_to"]):
+            return
+        what = post.due(st, d, c)
+        if not what:
+            return
+        kind, answered = what
+        try:
+            raw = self.mind.chat(post.messages(st, kind, answered, d, c), post.LETTER_SCHEMA, max_tokens=900)
+        except MindAway as e:
+            log.warning("mind away for the letter from Munich: %s", e)
+            return
+        text = post.clean(raw)
+        if text:
+            post.arrived(st, kind, answered, text, d, c)
+            log.info("a letter from %s (%s)", c["name"], kind)
+        else:
+            log.warning("the letter from Munich was unusable; it comes on a later step")
+
+    def draw(self, messages, sit, ctx, st, draws):
+        """T49 (world/prefer.py): up to `draws` replies to the same prompt; the first that the world accepts and that
+        repeats no phrase of a thought shown under "Earlier today". Returns (the reply, the note for the record).
+        World.check reads its inputs and changes none of them, so each reply is judged against the same state."""
+        def check(raw):
+            errors, _, rep = self.world.check(contract.extract_json(raw), sit, ctx, st)
+            return errors, None if errors else rep[0]["thought"]
+        return prefer.choose(lambda: self.mind.decide(messages, sit), check,
+                             prefer.shown_thoughts(sit.get("earlier")), draws, away=MindAway)
 
     def offer(self, day, sit, ctx, st):
         """The passages of his shelf for this decision: the two that fit the event, the place, the people present and their
@@ -251,7 +311,7 @@ class Engine:
         roles = [self.world.cast[c]["role"] for c in ctx["present"]]
         thoughts = [text for _, text in ctx["recent"][-2:]]
         parts = shelf.query_parts(sit["event"], self.world.places[sit["place"]]["short"], roles, thoughts, [x["text"] for x in st.get("theses", [])])
-        return self.shelf.pick(parts, avoid=used)
+        return self.shelf.pick(parts, avoid=used, additions=getattr(self.cfg, "shelf_additions", False))
 
     def make_plan(self, day, t, sit, ctx):
         """On waking: one extra call for the day's intentions. With no usable answer he simply has no plan.

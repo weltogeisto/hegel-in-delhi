@@ -55,7 +55,8 @@ def make_mind(cfg, which, wake=True):
         sys.exit("no mind configured: set PC_HOST (and MIND_PORT) in ~/.config/hegel/env, or pass --mind URL or --mind stub")
     return HTTPMind(url, wake=cfg.wake if wake else None, timeout=cfg.timeout, voice_adapter_scale=cfg.voice_adapter_scale,
                     writing_reasoning_tokens=cfg.writing_reasoning_tokens, writing_adapter_scale=cfg.writing_adapter_scale,
-                    decision_reasoning_tokens=cfg.decision_reasoning_tokens, decision_adapter_scale=cfg.decision_adapter_scale)
+                    decision_reasoning_tokens=cfg.decision_reasoning_tokens, decision_adapter_scale=cfg.decision_adapter_scale,
+                    decision_dry=getattr(cfg, "decision_dry", 0.0))
 
 
 def cmd_tick(cfg, args):
@@ -69,7 +70,7 @@ def cmd_tick(cfg, args):
     now = parse_now(args.now) if args.now else now_ist(getattr(cfg, "clock_shift_min", 0))
     mind = make_mind(cfg, args.mind)
     owl_mind = mind if args.mind == "stub" or not cfg.owl_url or cfg.owl_url == cfg.mind_url else HTTPMind(cfg.owl_url, wake=cfg.wake, timeout=cfg.timeout)
-    engine = Engine(cfg, World(Feeds(cfg)), mind, git=Git(cfg) if not args.no_git else None, owl_mind=owl_mind)
+    engine = Engine(cfg, World(Feeds(cfg), culture=getattr(cfg, "culture", False)), mind, git=Git(cfg) if not args.no_git else None, owl_mind=owl_mind)
     engine.tick(now)
     if engine.git:
         try:

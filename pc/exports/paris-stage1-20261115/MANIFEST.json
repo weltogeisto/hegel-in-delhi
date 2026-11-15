@@ -1,0 +1,73 @@
+{
+ "study": "Paris backtest, stage 1 (pc/PARIS-BACKTEST.md)",
+ "shadow": "99c17eebc3ebd74b5aee14c859355f3563294b9c",
+ "seed": 1831,
+ "sizes": {
+  "letters": 300,
+  "evening": 300,
+  "thoughts": 150
+ },
+ "pools": {
+  "letters": {
+   "Netherlands 1822": 165,
+   "Vienna 1824": 167,
+   "Paris 1827": 165
+  },
+  "evening": 366,
+  "thoughts": 915
+ },
+ "shadow_days": [
+  "2026-10-02",
+  "2026-10-13",
+  "2026-10-14",
+  "2026-10-15",
+  "2026-10-16",
+  "2026-10-17",
+  "2026-10-18",
+  "2026-10-19",
+  "2026-10-20",
+  "2026-10-21",
+  "2026-10-22",
+  "2026-10-23",
+  "2026-10-24",
+  "2026-10-25",
+  "2026-10-26",
+  "2026-10-27",
+  "2026-10-28",
+  "2026-11-04",
+  "2026-11-05",
+  "2026-11-06",
+  "2026-11-07",
+  "2026-11-08",
+  "2026-11-09",
+  "2026-11-10",
+  "2026-11-11",
+  "2026-11-12",
+  "2026-11-13",
+  "2026-11-14",
+  "2026-11-15"
+ ],
+ "codes": {
+  "1": "travel, logistics and errands",
+  "2": "money and prices",
+  "3": "food, drink and the body",
+  "4": "people met and what they said",
+  "5": "sights, art and the theatre",
+  "6": "comparison with home",
+  "7": "family and affection",
+  "8": "public affairs and history",
+  "9": "philosophy proper",
+  "10": "other"
+ },
+ "files": {
+  "SHEET.jsonl": "0364be19360b61429c4bba867be2329497d9537d6cafa6a52620e42b1c702bab",
+  "KEY.json": "b4e08f2a7ed9746af48a7613b188f859bb217f94323a3f8d237cceb565727d35",
+  "CODEBOOK.md": "ce5565ea6500f4459a9b1c935ebf99dee8143a204a9bdf2f64b585a87ff31321"
+ },
+ "coders": [
+  "Claude, by CODEBOOK.md, into CODES-CLAUDE.jsonl",
+  "plain Qwen, temperature 0, by the same codebook (requests)"
+ ],
+ "note": "German against English gives the letters away; the codebook, the second coder and the committed codes stand in for blinding.",
+ "training_eligible": false
+}
