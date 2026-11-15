@@ -1,11 +1,13 @@
-"""His correspondent (HEGEL_CORRESPONDENT, data/correspondent.json, pc/CORRESPONDENT.md): Niethammer writes from Munich.
+"""His correspondent (HEGEL_CORRESPONDENT, data/correspondent.json, pc/CORRESPONDENT.md): a descendant of Niethammer's
+family writes from Munich. Niethammer himself died in 1848 and stays dead.
 
 The state carries `post` only while the switch is on, so without it nothing here runs and nothing changes:
-  - outbox: letters to Niethammer he wrote and that go to the post the next morning;
+  - outbox: letters to her he wrote and that go to the post the next morning;
   - sent: letters on their way, each with the day its answer is due;
   - letters: the correspondence so far, both ways, newest last, a few kept in full;
-  - deliver: a letter from Niethammer that has come and is shown in the next situation.
-Niethammer's letters are one model call each, from his card and the correspondence. They are world content, never
+  - deliver: a letter from her that has come and is shown in the next situation.
+Her first letter comes with money: what he owes and `gift` rupees besides, paid into his purse; the world's
+own settling then pays his creditors where they can be reached. Her letters are one model call each, from his card and the correspondence. They are world content, never
 training data."""
 import json
 from datetime import date, timedelta
@@ -26,14 +28,14 @@ def is_to(w, c):
 
 
 def start(state, d):
-    """The post's state, on the first day the switch is on: Niethammer's first letter is due that day."""
+    """The post's state, on the first day the switch is on: her first letter is due that day."""
     if "post" not in state:
         state["post"] = {"outbox": [], "sent": [], "letters": [], "deliver": None, "first_due": d.isoformat()}
     return state["post"]
 
 
 def written(state, w, d, c):
-    """He wrote to Niethammer: the sitting goes into the outbox, for the post the next morning."""
+    """He wrote to her: the sitting goes into the outbox, for the post the next morning."""
     post = state.get("post")
     if post is None or not is_to(w, c):
         return False
@@ -58,7 +60,7 @@ def to_post(state, d, c):
 
 
 def due(state, d, c):
-    """What Niethammer writes now: 'first', 'reply' (with the letters he answers), 'nudge', or None."""
+    """What she writes now: 'first', 'reply' (with the letters she answers), 'nudge', or None."""
     post = state["post"]
     if post.get("first_due") and post["first_due"] <= d.isoformat():
         return ("first", [])
@@ -74,7 +76,7 @@ def due(state, d, c):
 
 
 def messages(state, kind, answered, d, c):
-    """The one call for Niethammer's letter: his card, the correspondence so far, and what this letter is."""
+    """The one call for her letter: her card, the correspondence so far, and what this letter is."""
     post = state["post"]
     lines = [f"Today is {d.strftime('%A')} {d.day} {d.strftime('%B %Y')}, in {c['city']}."]
     earlier = [x for x in post["letters"] if not any(x["text"] == a["text"] for a in answered)][-4:]
@@ -104,7 +106,7 @@ def clean(raw):
 
 
 def arrived(state, kind, answered, text, d, c):
-    """Niethammer's letter has come: it is recorded, the letters it answers are done, and it waits to be shown."""
+    """Her letter has come: it is recorded, the letters it answers are done, and it waits to be shown."""
     post = state["post"]
     if kind == "first":
         post["first_due"] = None
@@ -118,18 +120,29 @@ def arrived(state, kind, answered, text, d, c):
 
 
 def event(state, present, c):
-    """The situation's line and the record's entry for a letter that has come, once; or None."""
+    """The situation's lines and the record's entries for a letter that has come, once: [(line, entry)], or [].
+    With the first letter comes the money: what he owes now, and the gift besides, into his purse."""
     post = state.get("post") or {}
     letter = post.get("deliver")
     if not letter:
-        return None
+        return []
     post["deliver"] = None
     how = "Ramesh brings the post" if "ramesh" in present else "The post has come"
     if letter["kind"] == "first":
-        line = f"{how}: a letter from {c['city']}, addressed in a hand you know. It is from {c['full_name']}. It reads: “{letter['text']}”"
+        line = f"{how}: a registered letter from {c['city']}, from {c['full_name']}, whom you do not know. It reads: “{letter['text']}”"
     else:
         line = f"{how}: a letter from {c['name']} in {c['city']}. It reads: “{letter['text']}”"
-    return line, {"k": "letter", "by": c["name"], "from": c["city"], "to": "Hegel", "text": letter["text"]}
+    out = [(line, {"k": "letter", "by": c["full_name"], "from": c["city"], "to": "Hegel", "text": letter["text"]})]
+    if letter["kind"] == "first" and c.get("gift"):
+        owed = sum(o.get("amount", 0) for o in state.get("owed", []))
+        amount = owed + c["gift"]
+        state["imprest"] = state.get("imprest", 0) + amount
+        post["gift"] = {"date": letter["date"], "owed": owed, "amount": amount}
+        what = f"₹{amount:,}: what you owe, ₹{owed:,}, and ₹{c['gift']:,} besides" if owed else f"₹{amount:,}"
+        out.append((f"With the letter comes money sent from {c['city']} through a transfer office, paid out to you in cash: {what}.",
+                    {"k": "income", "item": f"Money from {c['city']}, with {c['full_name']}'s letter", "amount": amount, "from": c["full_name"],
+                     "text": f"{c['full_name']} sends ₹{amount:,} from {c['city']}."}))
+    return out
 
 
 def on_mind(state, c):
@@ -149,7 +162,7 @@ def on_mind(state, c):
 
 
 def last_letter(state, c):
-    """Niethammer's last letter, for the writing request when he sits down to write, or None."""
+    """Her last letter, for the writing request when he sits down to write, or None."""
     post = state.get("post") or {}
     last_in = next((x for x in reversed(post.get("letters", [])) if x["by"] != "Hegel"), None)
     if not last_in:

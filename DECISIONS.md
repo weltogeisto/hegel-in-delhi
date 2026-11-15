@@ -54,7 +54,7 @@ Welt's calls, 15 November 2026.
 Welt's calls on the Paris profile, 15 November:
 
 27. **His Delhi offers what he would seek abroad:** museums, a gallery of modern art, concerts and plays (`pc/CULTURE.md`), behind `HEGEL_CULTURE`, switched on after the shelf labels' first day.
-28. **He gets someone to write to: Niethammer,** his closest friend and most frequent correspondent, who in the world also woke in 2026, in Munich (Welt, 15 November; `pc/CORRESPONDENT.md`). Behind `HEGEL_CORRESPONDENT`, switched on after the venues' first day.
+28. **He gets someone to write to:** a descendant of Niethammer's family in Munich, his closest friend's. Niethammer died in 1848 and stays dead; the descendant, Dr. Clara Lindner, is invented. Her first letter settles his debts and leaves him ₹20,000 besides, a gift beyond decision 13 (Welt, 15 November; `pc/CORRESPONDENT.md`). Behind `HEGEL_CORRESPONDENT`, switched on after the venues' first day.
 29. **No personal contact in the code.** Download tools name the project's page, not a person.
 
 The night rule, narrowed (Welt, 15 November):
