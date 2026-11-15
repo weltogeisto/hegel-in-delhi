@@ -677,6 +677,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "18:01",
+   "to": "18:11",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -1326,6 +1333,34 @@
    "to": "Hegel",
    "text": "Ji sir, system ki baat aapko hi chalta hai. Aap apna kaam karo, bhookh ki tension mat lo. Main kuch bhar loon ga, paani ki chai banata hoon.",
    "t": "17:46"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh offers water and tea, a gesture that transforms the empty pot from a symbol of my deprivation into a site of minimal hospitality. He speaks of the system as if it were a living organism that merely requires me to align with its rhythm, a pragmatic resignation that contrasts sharply with my own philosophical struggle for recognition. I accept the offer, not out of need for the liquid, but because refusing the particular act of care in this moment would be a vanity incompatible with the dignity I must maintain.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "18:01"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, you are kind. The tension of hunger is not merely a physical state but a reflection of the friction between my position and the reality of this house. I will take the water. But do not mistake my patience for indifference to the file; the state must answer for its silence, even if I must wait for the tea.",
+   "to": "Ramesh",
+   "t": "18:01"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji sir, aapki baat samajh aati hai, lekin pet ki baat philosophy nahi chalti. Chai taiyaar ho gayi, aap utha lijiye.",
+   "t": "18:01"
   }
  ],
  "steps": [
@@ -2584,13 +2619,71 @@
      "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
     }
    ]
+  },
+  {
+   "t": "18:01",
+   "end": "18:11",
+   "event": "Ramesh says: “Ji sir, system ki baat aapko hi chalta hai. Aap apna kaam karo, bhookh ki tension mat lo. Main kuch bhar loon ga, paani ki chai banata hoon.”",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh offers water and tea, a gesture that transforms the empty pot from a symbol of my deprivation into a site of minimal hospitality. He speaks of the system as if it were a living organism that merely requires me to align with its rhythm, a pragmatic resignation that contrasts sharply with my own philosophical struggle for recognition. I accept the offer, not out of need for the liquid, but because refusing the particular act of care in this moment would be a vanity incompatible with the dignity I must maintain.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Ramesh, you are kind. The tension of hunger is not merely a physical state but a reflection of the friction between my position and the reality of this house. I will take the water. But do not mistake my patience for indifference to the file; the state must answer for its silence, even if I must wait for the tea.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji sir, aapki baat samajh aati hai, lekin pet ki baat philosophy nahi chalti. Chai taiyaar ho gayi, aap utha lijiye.",
+    "does": "He sets the steaming cup of chai on the table in front of him."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "id": "dyde-right:464"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "text": "The civic community contains three elements: A. The recasting of want, and the satisfaction of the individual through his work, through the work of all others, and through the satisfaction of their wants. This is a system of wants. B. Actualization of the general freedom required for this, i.e., the protection of property by the administration of justice."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-16T18:01+05:30",
+  "until": "2026-11-16T18:11+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
