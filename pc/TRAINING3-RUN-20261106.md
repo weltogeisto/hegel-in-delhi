@@ -66,3 +66,29 @@ Hegel pauses for the training and the test only. Then the test, on T39's frozen 
 - argument and voice are within 0.25, by Claude's blind scores.
 
 Only a pass puts the adapter on his decision calls. Voices, the owl and his writing keep scale 0.
+
+## The data gate, 15 November: not met, and Training 3 stops
+
+Sampling finished at 03:08 Berlin on 15 November (Astra, PR #1): 500 of 500 situations, 71 shadow and 429 rehearsal, four answers each, every request chain reconciled.
+
+| Labels | Pairs | Share of situations |
+|---|---:|---:|
+| Revised, `training3-labels-2`, the only ones the trainer takes | **86** | 17.2% |
+| Legacy, for comparison only | 245 | 49.0% |
+
+The bar was 200 revised pairs, declared before sampling. It is not met, so Training 3 stops as declared:
+
+- no relabelling, no more sampling and no legacy pairs, since each would change the rule after its result;
+- the 2,000 answers stay preserved on the PC; nothing is deleted.
+
+**Why this matters less than it might.** The labeller's `filter_estimate` on the same 500 situations shows the live filter doing at run time what Training 3 was to teach:
+
+| Rule | Accepted by the world | Echo of a shown thought | Calls per decision |
+|---|---:|---:|---:|
+| First answer, no selection | 463 (92.6%) | 86 (17.2%) | 1.00 |
+| `no_echo_shown`, the rule `HEGEL_DECISION_DRAWS` runs | 495 (99.0%) | 11 (2.2%) | 1.29 |
+
+T49 tested that rule in full on T39's frozen days (`pc/T49-ARM-D-RESULT-20261114.md`). A trained adapter would have had to beat it. On 86 pairs it would have had to match 2.2% echo and 99% acceptance at one call, a high bar for a small set.
+
+**What Welt decides.** Close Training 3, or name another question for it. It could be a different target, or a larger sample under a rule declared before any of its answers exist. Claude's recommendation is to close it and spend the GPU time on the filter's shadow trial and the M1 confirmation.
+

@@ -2,19 +2,19 @@
 
 Rules: `COLLABORATION.md`. PR #1 comments only for done, blocked or a question, at most six lines. The top open task for each owner comes first. Status is one of `OPEN`, `RUNNING`, `DONE` (with commit and numbers) or `BLOCKED` (with what is needed).
 
-## Current, 14 November 2026
+## Current, 15 November 2026
 
 The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). Welt confirmed its six decisions the same day; they are `DECISIONS.md` 16–22, with Delta kept only as a diagnostic. The 48-hour delivery target runs from 7 November. The T-history below is kept; the M-packets are the manual's §10.
 
 | Packet | Owner | State | Next artifact |
 |---|---|---|---|
 | T39 · repetition screen | Astra, verdict by Claude | DONE: FAIL. Pooled echo share A 16.49%, B 19.65%, C 11.54% (−30%, bar −33%); nothing goes live (`pc/T39-RESULT-20261107.md`) | – |
-| M5 · Training 3 sampler | Astra, reviewed by Claude | READY: PR #10 (`4b86952`), split rule `training3-split-1` (#18): 71 shadow + 429 rehearsal situations | 70 of 500 situations sampled; Astra resumes in the spare slot by day, now that arm D is complete. Its comparator is arm D, plain Qwen with the filter, since 14 November |
-| M5 · Training 3 DPO path | Astra, fixes by Claude | DONE, PR #11 merged with Claude's fixes in #13 (`c5c0893`) | the rehearsal by day, after sampling and labels |
-| M5 · Training 3 labels | Claude | DONE, the revised labels (`tools/decision_pairs.py`, rule `training3-labels-2`); the trainer takes no other | both yields, revised and legacy, on PR #1 once the candidates exist |
+| M5 · Training 3 sampler | Astra, reviewed by Claude | DONE, 15 November 03:08 Berlin: 500 of 500 situations (71 shadow, 429 rehearsal), 2,000 answers, every chain reconciled | – |
+| M5 · Training 3 DPO path | Astra, fixes by Claude | DONE, PR #11 merged with Claude's fixes in #13 (`c5c0893`). Not used: the data gate stopped Training 3 | – |
+| M5 · Training 3 labels | Claude | **STOPPED at the data gate:** 86 revised pairs (17.2%), the bar 200. Training 3 does not run, as declared on 6 November (`pc/TRAINING3-RUN-20261106.md`). The filter does its work without training: on the same 500 situations, echo of a shown thought 17.2% → 2.2% and accepted 92.6% → 99.0%, at 1.29 calls | Welt: close Training 3, or name another question for it |
 | M0 · baseline receipt | Astra | DONE, PR #15 merged (`5a347ab`): runtime at 12:18 UTC, plain Qwen, no adapter; the forty-case export | – |
 | M1 · forty-case re-audit | Claude | DONE: prompted Qwen keeps 39/40 rewrites intact, the adapter 25/40 (12 changed facts, 3 changed conclusions); the adapter stays off (`pc/exports/training1-20261106/new-rubric/REPORT.md`) | – |
-| M1 · ordinary life | Claude, then Astra | First screen: blind, B preferred in 19 of 24, not passed on a badly designed clause. Welt's go of 13 November for one confirmation on fresh days, rule `m1-v2` declared beforehand (`pc/M1-ORDINARY-LIFE-SCREEN.md`) | Claude freezes 24 situations from Day 44 on once they exist (16 ordinary, 8 encounters); then Astra runs the 144 calls and hands over the sheet first |
+| M1 · ordinary life | Claude, then Astra | First screen: blind, B preferred in 19 of 24, not passed on a badly designed clause. Welt's go of 13 November for one confirmation, rule `m1-v2`. **Frozen 15 November** from Days 44 and 45 (shadow `99c17ee`): 16 ordinary moments, 8 encounters (`pc/exports/m1-confirmation-20261115/`) | Astra runs the 144 calls by day and hands over the sheet and its hashes first |
 | T49 · selection before training | Claude, then Astra | **DONE: PASS, all five bars.** Arm D on T39's cases: echo 16.49% → 6.64%; contradictions 1.57 → 1.39 and statements as fact 0.93 → 0.66 per 100 sentences; argument 2.70 → 2.65, voice 3.10 → 3.05; 1.27 calls per decision (`pc/T49-ARM-D-RESULT-20261114.md`). Judged blind and sealed before the key (#37, #38). The live switch `HEGEL_DECISION_DRAWS` is on main, off | Welt's word for a provisional shadow trial at 4 draws. Then Astra sets it on the Pi |
 | M2 · source labels | Claude | DONE on main, off: `HEGEL_SHELF_ADDITIONS`. A quarter of the Philosophy of Right on his shelf is Gans's additions, shown until now under the section's own label: 490 of 1,914 passages, and 16 of the 162 passages he was shown on Days 12 and 27 (`pc/M2-SOURCE-LABELS.md`) | Welt's word to switch it on; then Astra sets it on the Pi, between sampling runs |
 | T50 · the Paris backtest | Claude, then Astra | SPEC on main (`pc/PARIS-BACKTEST.md`). First read, no GPU: his letters home from three journeys carry 0.17 terms of the system per 100 words, his treatise 2.55, the simulation's decision thoughts 3.13 | Welt's go for step 0 and stage 1 |

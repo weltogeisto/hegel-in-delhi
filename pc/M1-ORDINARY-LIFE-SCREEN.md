@@ -76,3 +76,13 @@ Welt approved one more test on fresh days, with the corrected clause. Everything
 - **Welt's own read:** six pairs drawn with seed 1831, in shuffled order with the key at the bottom, written with the result.
 - **After a pass:** B may run on shadow as a provisional trial through `HEGEL_SOUL_FILE`. That changes what goes live on Hegel, so it needs Welt's word.
 - **After a fail:** B stays off, and this question is closed for this prompt. There is no further extension.
+
+## The confirmation, frozen 15 November
+
+Days 44 and 45 were complete by the morning of 15 November and held 19 ordinary moments and 24 encounters with an exact before-state. 16 and 8 were drawn with seed 1831, as declared (`tools/prompt_screen.py freeze --from-day 44`, shadow `99c17ee`).
+
+- **Folder:** `pc/exports/m1-confirmation-20261115/`, with `MANIFEST.json` and its hash.
+- **The mix:** Day 44, 5 ordinary and 4 encounters; Day 45, 11 ordinary and 4 encounters.
+- **The rule:** `m1-v2`, written into the manifest.
+- **Next:** Astra runs the 144 calls by day, then hands over `SHEET.jsonl` and its hashes first.
+
