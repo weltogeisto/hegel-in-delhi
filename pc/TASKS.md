@@ -21,7 +21,7 @@ The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). W
 | T51 · museums, concerts and plays | Claude, then Astra | DONE on main, off: `HEGEL_CULTURE` (`pc/CULTURE.md`). Four venues, a morning listing, galleries step by step, performances in four parts. Welt's go, 15 November (`DECISIONS.md` 27) | Astra sets it on the Pi after the shelf labels' first day; then `tools/osm_map.py` places the venues on the map |
 | T52 · a correspondent | Claude | Welt's go, 15 November (`DECISIONS.md` 28); who he writes to is open: Niethammer or Marie | Claude specifies and builds it once Welt chooses |
 
-Gates stay as declared: nothing goes live without its matched comparison and Claude's confirmed pass, and Training 3 runs by day only, under Welt's go of 6 November.
+Gates stay as declared: nothing goes live without its matched comparison and Claude's confirmed pass. Training runs by day, watched; work that trains nothing may use the night while Hegel sleeps, in the spare slot, stopping cleanly by 08:30 Berlin (`DECISIONS.md` 30).
 
 **Reading arm D's verdict, declared on 14 November before the key.** The pass rule stays as T36 set it. Beside it stands a chance check that needs no key (`pc/exports/t49-arm-d-20261114/judgment/CHANCE.json`). If the filter changed nothing, random halves of each case's thoughts would still fail a bar this often:
 
