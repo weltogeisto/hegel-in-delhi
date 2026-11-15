@@ -85,7 +85,10 @@ Given the same day, does he write home the way the real one did?
 
 The world engine with a Paris of September 1827: places, prices and people, and the simulated Hegel living the same four weeks. Compared day by day with what he did: where he went, what he paid, his evenings, his illness, his verdicts. The builder of that world knows the letters, so the world is frozen and reviewed before any run. It is days of building, and it is the frontier piece: a simulated person backtested against the historical one. Not specified further here.
 
-## What Welt decides
+## What Welt decided, 15 November
+
+Go for step 0 and stage 1, and the three journeys stay a test set (`DECISIONS.md` 26). Stage 2 waits for his word after stage 1 is read. The questions as they were put:
+
 
 1. **The three journeys stay a test set.** From now on they stay off his shelf and out of any training. They are his own words and the data rule would allow them; a test needs them untouched.
 2. **Go for step 0 and stage 1.** No GPU for stage 1; minutes for step 0.
