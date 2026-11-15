@@ -51,9 +51,16 @@ Welt's calls, 15 November 2026.
 25. **The shelf names an editor's addition:** `HEGEL_SHELF_ADDITIONS=1`, switched on after the filter's first full day is reported, so each change can be read on its own (`pc/M2-SOURCE-LABELS.md`).
 26. **The Paris backtest goes ahead with step 0 and stage 1** (`pc/PARIS-BACKTEST.md`). His letters from the three journeys (the Netherlands 1822, Vienna 1824, Paris 1827) stay a test set: off his shelf and out of any training from now on.
 
+Welt's calls on the Paris profile, 15 November:
+
+27. **His Delhi offers what he would seek abroad:** museums, a gallery of modern art, concerts and plays (`pc/CULTURE.md`), behind `HEGEL_CULTURE`, switched on after the shelf labels' first day.
+28. **He gets someone to write to.** Who it is, and how the fiction holds it, is open below.
+29. **No personal contact in the code.** Download tools name the project's page, not a person.
+
 ## Still open
 
-- Nothing at the moment.
+- **His correspondent (28).** Niethammer, his closest friend and most frequent correspondent, who in the fiction also woke in 2026, in Munich (Claude's recommendation); or Marie, his wife. Letters about a week each way, answers voiced from a card.
+- **Night work on the GPU.** Astra ran Training 3's sampling from 00:06 to 03:08 on 15 November under a night go that no record shows. The rule of 6 November stands until Welt says otherwise: GPU work by day.
 
 ## Ideas, not yet decided
 

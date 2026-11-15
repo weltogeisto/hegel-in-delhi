@@ -92,9 +92,13 @@ def names(lst):
 
 
 class World(Economy):
-    def __init__(self, feeds=None):
+    def __init__(self, feeds=None, culture=False):
         p = load("places.json")
         self.places, self.walks = p["places"], p["walk"]
+        self.culture = bool(culture)                          # HEGEL_CULTURE: museums, concerts and plays (data/culture.json)
+        if self.culture:
+            c = load("culture.json")
+            self.places, self.walks = {**self.places, **c["places"]}, {**self.walks, **c["walk"]}
         self.cast = load("cast.json")["cast"]
         self.beats = load("plot.json")["beats"] + load("offers.json")["offers"]
         self.costs = load("costs.json")["costs"]
@@ -303,6 +307,54 @@ class World(Economy):
             f"last meal {when}{fmt(minute_of(meal))}, {hours_ago((t - meal).total_seconds() / 60)}{since}"
         line = f"Body: {last}; walked {today.get('walked', 0) / 1000:.1f} km today"
         return line + (f"; awake since {today['woke']}." if woke else "."), felt
+
+    # ── museums, concerts and plays (HEGEL_CULTURE) ─────────────────
+    def listings(self, d):
+        """The morning's listings: what is on today, and when the museums open. None when nothing is on."""
+        shows, opens = [], []
+        for pid, pl in self.places.items():
+            for e in pl.get("programme", []):
+                if days_match(e["days"], d):
+                    price = f"₹{e['price']}" if e.get("price") else "free"
+                    shows.append((hm(e["from"]), f"{e['from']} at {pl['short']}: {e['title']}, {price}"))
+            h = self.hours(pid, d) if pl.get("sights") and not pl.get("programme") else None
+            if isinstance(h, tuple):
+                opens.append(f"{pl['short']} {fmt(h[0])} to {fmt(h[1])}")
+        if not shows and not opens:
+            return None
+        line = "Today's listings: " + "; ".join(x for _, x in sorted(shows)) + "." if shows else ""
+        if opens:
+            line += (" " if line else "") + "Open today: " + "; ".join(opens) + "."
+        return line
+
+    def on_stage(self, pid, t, today):
+        """What is happening on stage at pid at t: the part of the performance for this moment, once, then that it goes
+        on; before a performance, that it begins soon. None when nothing is on."""
+        m = minute_of(t)
+        for e in self.places[pid].get("programme", []):
+            if not days_match(e["days"], t.date()):
+                continue
+            a, b = hm(e["from"]), hm(e["to"])
+            if a - 45 <= m < a:
+                return f"Tonight here: {e['title']}, at {e['from']}." if not e.get("price") else \
+                    f"Tonight here: {e['title']}, at {e['from']}. Tickets ₹{e['price']} at the counter."
+            if a <= m < b:
+                part = min(len(e["parts"]) - 1, (m - a) * len(e["parts"]) // max(1, b - a))
+                shown = today.setdefault("stage", {}).setdefault(pid, [])
+                if part in shown:
+                    return f"The performance goes on: {e['title']}."
+                shown.append(part)
+                return e["parts"][part]
+        return None
+
+    def sight(self, pid, d, today):
+        """The next thing to see at pid today, in an order fixed for the day; None once all have been seen."""
+        sights = self.places[pid].get("sights") or []
+        n = today.setdefault("sights", {}).get(pid, 0)
+        if n >= len(sights):
+            return None
+        today["sights"][pid] = n + 1
+        return random.Random(f"sights|{pid}|{d.isoformat()}").sample(sights, len(sights))[n]
 
     # ── the plan ────────────────────────────────────────────────────
     def unmet(self, text, known):
@@ -515,6 +567,9 @@ class World(Economy):
             if papers:
                 line += f" {where} Headlines: " + "; ".join(papers) + "."
             events.append((line, {"k": "world", "text": "Morning papers: " + " · ".join(f"“{x}”" for x in papers)} if papers else None))
+            listing = self.listings(d) if self.culture else None
+            if listing:
+                events.append((listing, {"k": "world", "text": listing}))
         elif m == 0:
             events.append(("Midnight. The house is dark and quiet.", None))
 
@@ -593,6 +648,14 @@ class World(Economy):
 
         body, felt = self.needs(t, state)
         events += [(x, None) for x in felt]
+        if self.culture and not state.get("asleep") and pid != "home":
+            stage = self.on_stage(pid, t, today)
+            if stage:
+                events.append((stage, None))
+            elif not any(p for p, _ in events):
+                seen_here = self.sight(pid, d, today)
+                if seen_here:
+                    events.append((seen_here, None))
         if not any(p for p, _ in events):
             part = "morning" if m < 720 else "afternoon" if m < 1020 else "evening" if m < 1260 else "night"
             events.append((f"Nothing in particular happens. The {part} goes on.", None))
@@ -676,6 +739,8 @@ class World(Economy):
             "for_sale": for_sale, "on_mind": on_mind, "earlier": earlier,
             "event": " ".join(p for p, _ in events if p),
         }
+        if self.culture:
+            sit["places"] = list(self.places)                 # the decision's place list widens with the venues
         self.show_plan(sit, day)
         ctx = {"t": t, "present": present, "beat": beat, "public": [e for _, e in events if e],
                "fresh": [c for c in new if c in known]}
@@ -684,7 +749,7 @@ class World(Economy):
     # ── the rules ───────────────────────────────────────────────────
     def check(self, ans, sit, ctx, state):
         """Errors (the mind must decide again), warnings, and the repaired decision with its plan."""
-        errors, warnings = contract.check_shape(ans)
+        errors, warnings = contract.check_shape(ans, list(self.places) if self.culture else None)
         if errors:
             return errors, warnings, None
         ans = copy.deepcopy(ans)

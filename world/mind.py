@@ -8,7 +8,7 @@ import time
 import urllib.error
 import urllib.request
 
-from .contract import SCHEMA
+from .contract import SCHEMA, decision_schema
 
 log = logging.getLogger("world")
 REPEAT_PENALTY, REPEAT_LAST_N, DRY_MULTIPLIER = 1.1, 256, 0.8      # sampling for plain completions, against loops (llama-server's DRY sampler; a server that does not know a field ignores it)
@@ -170,7 +170,7 @@ class HTTPMind:
             raise MindAway(f"mind request failed: {e}")
 
     def decide(self, messages, sit):
-        return self.chat_decision(messages, SCHEMA)
+        return self.chat_decision(messages, decision_schema(sit))
 
 
 THOUGHTS = [
