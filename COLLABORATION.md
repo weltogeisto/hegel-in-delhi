@@ -8,6 +8,7 @@ From 7 November 2026 the design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL
 
 - **Codex (on the PC):** everything that needs the 3090, the PC or the Pi. That means runtime changes, test runs, blind packets and the shadow world.
 - **Astra (on the PC), from 25 October 2026:** holds the seat Codex held, decided by Welt. Wherever this file says Codex, read Astra. Astra may continue on `codex/outcome-memory` and PR #1.
+- **Claude on the PC, from 15 November 2026:** holds the seat Astra held, decided by Welt. Its standing brief is `pc/PC-SESSION.md`.
 - **Claude (in the cloud):** specs, code that needs no GPU, reviews, blind scoring, the scoreboard and merges to main.
 - **Hermes (on the Pi):** only if Codex cannot reach the Pi.
 - **Welt:** direction and the hard limits. Nothing else waits on him.
