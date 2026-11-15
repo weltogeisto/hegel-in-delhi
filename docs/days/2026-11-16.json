@@ -572,6 +572,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "12:49",
+   "to": "13:04",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -799,6 +806,34 @@
     }
    ],
    "t": "11:59"
+  },
+  {
+   "k": "diary",
+   "text": "The clock marks twelve, but the pot is empty; Ramesh stands before me, a living contradiction between my moral obligation and my material impossibility. I have six rupees, a pittance that cannot buy bread, let alone freedom from the state's delay. I must speak plainly to the man who sustains this household, acknowledging the suspension of his wage with the gravity it deserves, even as the haze outside chokes the very air of the city.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "12:49"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, the file is with the Directorate, and the funds remain locked away. I cannot pay you today, nor can I promise when. The cooking wage is suspended until I receive my imprest. Do not take it as disrespect; it is the friction of the state's machinery, not my will.",
+   "to": "Ramesh",
+   "t": "12:49"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Friction, yaar. Aapne subah bhi yahi kaha tha. Main kal subah aata hoon, tab dekh lenge. Abhi chai bana loon?",
+   "t": "12:49"
   }
  ],
  "steps": [
@@ -1239,13 +1274,65 @@
      ]
     ]
    }
+  },
+  {
+   "t": "12:49",
+   "end": "13:04",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The clock marks twelve, but the pot is empty; Ramesh stands before me, a living contradiction between my moral obligation and my material impossibility. I have six rupees, a pittance that cannot buy bread, let alone freedom from the state's delay. I must speak plainly to the man who sustains this household, acknowledging the suspension of his wage with the gravity it deserves, even as the haze outside chokes the very air of the city.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, the file is with the Directorate, and the funds remain locked away. I cannot pay you today, nor can I promise when. The cooking wage is suspended until I receive my imprest. Do not take it as disrespect; it is the friction of the state's machinery, not my will.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Friction, yaar. Aapne subah bhi yahi kaha tha. Main kal subah aata hoon, tab dekh lenge. Abhi chai bana loon?",
+    "does": "He turns off the gas stove and wipes the counter with a dry rag."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.2
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-16T12:49+05:30",
+  "until": "2026-11-16T13:04+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
