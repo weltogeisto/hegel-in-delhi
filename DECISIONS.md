@@ -48,13 +48,13 @@ Welt's calls, 15 November 2026.
 
 23. **Training 3 is closed.** Its data gate was not met: 86 revised pairs against 200. Its 2,000 answers stay preserved. The live filter does its work without training (`pc/TRAINING3-RUN-20261106.md`).
 24. **The filter runs on shadow as a provisional trial:** `HEGEL_DECISION_DRAWS=4`. It is a choice among plain Qwen's own replies; no weights change and no adapter is used. It passed T36 in full (`pc/T49-ARM-D-RESULT-20261114.md`). Setting it back to 1 ends the trial.
-25. **The shelf names an editor's addition:** `HEGEL_SHELF_ADDITIONS=1`, switched on after the filter's first full day is reported, so each change can be read on its own (`pc/M2-SOURCE-LABELS.md`).
+25. **The shelf names an editor's addition:** `HEGEL_SHELF_ADDITIONS=1`, switched on third, so each change can be read on its own (decision 31) (`pc/M2-SOURCE-LABELS.md`).
 26. **The Paris backtest goes ahead with step 0 and stage 1** (`pc/PARIS-BACKTEST.md`). His letters from the three journeys (the Netherlands 1822, Vienna 1824, Paris 1827) stay a test set: off his shelf and out of any training from now on.
 
 Welt's calls on the Paris profile, 15 November:
 
-27. **His Delhi offers what he would seek abroad:** museums, a gallery of modern art, concerts and plays (`pc/CULTURE.md`), behind `HEGEL_CULTURE`, switched on after the shelf labels' first day.
-28. **He gets someone to write to:** a descendant of Niethammer's family in Munich, his closest friend's. Niethammer died in 1848 and stays dead; the descendant, Dr. Clara Lindner, is invented. Her first letter settles his debts and leaves him ₹20,000 besides, a gift beyond decision 13 (Welt, 15 November; `pc/CORRESPONDENT.md`). Behind `HEGEL_CORRESPONDENT`, switched on after the venues' first day.
+27. **His Delhi offers what he would seek abroad:** museums, a gallery of modern art, concerts and plays (`pc/CULTURE.md`), behind `HEGEL_CULTURE`, switched on fourth (decision 31).
+28. **He gets someone to write to:** a descendant of Niethammer's family in Munich, his closest friend's. Niethammer died in 1848 and stays dead; the descendant, Dr. Clara Lindner, is invented. Her first letter settles his debts and leaves him ₹20,000 besides, a gift beyond decision 13 (Welt, 15 November; `pc/CORRESPONDENT.md`). Behind `HEGEL_CORRESPONDENT`, switched on second (decision 31).
 29. **No personal contact in the code.** Download tools name the project's page, not a person.
 
 The night rule, narrowed (Welt, 15 November):
@@ -65,6 +65,18 @@ The night rule, narrowed (Welt, 15 November):
     - **Report:** one line on PR #1 in the morning.
     - **Why:** the rule of 6 November came from three unwatched Training 1 nights that failed (`pc/CLAUDE-HANDOVER-20261106.md`). It was about training. This narrows the manual's general "no night runs".
     - **The sampling run of 00:06–03:08 on 15 November** falls under this rule and stands.
+
+Welt's calls, the afternoon of 15 November:
+
+31. **The order of switching on, one change at a time,** each after the previous one's first full day is reported:
+    1. the filter (on since 14:28 on 15 November);
+    2. the letter from Munich, which pays what he owes, so he has money for what follows;
+    3. the shelf labels;
+    4. the museums, concerts and plays, whose tickets need that money.
+32. **His world pauses when the PC is away** (`pc/PAUSE.md`), behind `HEGEL_PAUSE_AWAY`.
+    - When the PC doesn't answer at his waking, the world holds at the start of that day.
+    - When the PC answers again, he lives the held day, and his calendar trails Delhi's by those whole days.
+    - It acts only when the PC is away, so it may go on at once, outside the order of 31.
 
 ## Still open
 

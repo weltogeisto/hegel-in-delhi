@@ -24,7 +24,7 @@
 ## Still to do
 
 - **The map on the page.** `tools/osm_map.py` should place the four buildings and measure the walks. Until then the page draws him at home while he is at a venue.
-- **When it goes on.** One change at a time: first the filter's first full day, then the shelf labels, then this. Astra sets `HEGEL_CULTURE=1` on the Pi after the shelf labels' first day.
+- **When it goes on.** Fourth and last in the order of `DECISIONS.md` 31: the filter, the letter from Munich (whose money pays for the tickets), the shelf labels, then this. Astra sets `HEGEL_CULTURE=1` on the Pi after the shelf labels' first full day.
 - **How to read it.** Stage 1's profile, run again on the days after it is on, is the measure. It says whether sights and art return to what he writes, and whether philosophy and hunger give way.
 
 Evaluation note: the venues' texts are world content, written for the simulation; they are not training data.
