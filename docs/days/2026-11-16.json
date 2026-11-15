@@ -516,6 +516,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "09:44",
+   "to": "09:59",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -581,6 +588,34 @@
    "to": "Hegel",
    "text": "Chau ka paisa? Aur bhaav-bhaan? File wapas aayegi toh pet bhi wapas aayega? Main abhi chalta hoon, kal subah aakar dekho.",
    "t": "09:14"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh leaves with the papers, his hunger a concrete demand my abstract poverty cannot answer. Hegde remains, the true owner of this house, watching my humiliation with the calm of a man who has no such debts. The tension is clear: the state, which should be the actuality of the ethical idea, has failed me, leaving me to the mercy of a caretaker's patience and a bureaucrat's indifference.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316"
+    }
+   ],
+   "t": "09:44"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, the file is gone for orders, and with it, my means of subsistence. Ramesh has left; there is no food, and no money to buy any. The system of needs operates with a cold logic that my philosophy cannot soothe. I am, for now, a body without resources in a house that is not mine.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "09:44"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Well, if you are that hungry, eat the biscuits from the cupboard, I will not stop you. But do not make a philosophy out of my empty fridge, Shri Hegel, just find a way to feed yourself or I am leaving.",
+   "t": "09:44"
   }
  ],
  "steps": [
@@ -635,13 +670,66 @@
      "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
     }
    ]
+  },
+  {
+   "t": "09:44",
+   "end": "09:59",
+   "event": "Ramesh says: “Chau ka paisa? Aur bhaav-bhaan? File wapas aayegi toh pet bhi wapas aayega? Main abhi chalta hoon, kal subah aakar dekho.” He picks up the papers from the verandah and turns to leave. Nothing is cooked at home: Ramesh has not been paid his wage for cooking. Shri G. Hegde is here.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Ramesh leaves with the papers, his hunger a concrete demand my abstract poverty cannot answer. Hegde remains, the true owner of this house, watching my humiliation with the calm of a man who has no such debts. The tension is clear: the state, which should be the actuality of the ethical idea, has failed me, leaving me to the mercy of a caretaker's patience and a bureaucrat's indifference.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Shri Hegde, the file is gone for orders, and with it, my means of subsistence. Ramesh has left; there is no food, and no money to buy any. The system of needs operates with a cold logic that my philosophy cannot soothe. I am, for now, a body without resources in a house that is not mine.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Well, if you are that hungry, eat the biscuits from the cupboard, I will not stop you. But do not make a philosophy out of my empty fridge, Shri Hegel, just find a way to feed yourself or I am leaving.",
+    "does": "Sighs and turns back to the stove to check the gas connection one last time."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.1
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316",
+     "id": "rechts:1044"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316",
+     "text": "Was sich wirklich im Staate geltend macht, muß sich freilich auf organische Weise betätigen, und dies ist in der Verfassung der Fall. Aber zu allen Zeiten war die öffentliche Meinung eine große Macht und ist es besonders in unserer Zeit, wo das Prinzip der subjektiven Freiheit diese Wichtigkeit und Bedeutung hat."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-16T09:44+05:30",
+  "until": "2026-11-16T09:59+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
@@ -732,9 +820,11 @@
    ],
    "seen": {
     "home": [
+     "hegde",
      "ramesh"
     ]
-   }
+   },
+   "no_meals": true
   },
   "account": {
    "advance": 15000,
@@ -1195,7 +1285,8 @@
     "2026-11-12",
     "2026-11-13",
     "2026-11-14",
-    "2026-11-15"
+    "2026-11-15",
+    "2026-11-16"
    ],
    "kapoor": [
     "2026-10-28"
