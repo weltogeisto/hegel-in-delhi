@@ -544,6 +544,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Talking with Sunil in Lodhi Gardens."
+  },
+  {
+   "from": "11:04",
+   "to": "11:14",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Talking to himself in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -721,6 +728,26 @@
    "to": "Hegel",
    "text": "Bhai, you talk like a philosophy professor, not a thirsty man. The air is just dirty because of the construction dust, nothing mystical about it. Sit, drink before it cools, and stop making it sound like the world is ending.",
    "t": "10:49"
+  },
+  {
+   "k": "diary",
+   "text": "The transaction collapses against the hard limit of my pocket; I cannot purchase the water Sunil offers, nor the tea I craved. I accept the cup he has already poured, a gift that bypasses the system of needs, and I watch him wipe the table, a gesture that cleans the surface but not the haze. My pride is dented, but my body is not, and I remain seated in the brown air, a spectator to my own impotence.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato, Dialectic"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§169"
+    }
+   ],
+   "t": "11:04"
+  },
+  {
+   "k": "said",
+   "text": "I see. The cup is a gift, not a purchase. I accept it with my thanks, and I shall drink it before it cools, as you advise. The dust is only dust, and my poverty is only arithmetic, but it is an arithmetic that keeps me here, watching.",
+   "t": "11:04"
   }
  ],
  "steps": [
@@ -990,13 +1017,66 @@
      "text": "Besides, poverty causes men to lose more or less the advantage of society, the opportunity to acquire skill or education, the benefit of the administration of justice, the care for health, even the consolation of religion."
     }
    ]
+  },
+  {
+   "t": "11:04",
+   "end": "11:14",
+   "event": "Sunil says: “Bhai, you talk like a philosophy professor, not a thirsty man. The air is just dirty because of the construction dust, nothing mystical about it. Sit, drink before it cools, and stop making it sound like the world is ending.” Waves a hand dismissively while wiping the metal table with a rag.",
+   "present": [],
+   "decision": {
+    "thought": "The transaction collapses against the hard limit of my pocket; I cannot purchase the water Sunil offers, nor the tea I craved. I accept the cup he has already poured, a gift that bypasses the system of needs, and I watch him wipe the table, a gesture that cleans the surface but not the haze. My pride is dented, but my body is not, and I remain seated in the brown air, a spectator to my own impotence.",
+    "action": "talk",
+    "place": "lodhi",
+    "minutes": 10,
+    "says": "I see. The cup is a gift, not a purchase. I accept it with my thanks, and I shall drink it before it cools, as you advise. The dust is only dust, and my poverty is only arithmetic, but it is an arithmetic that keeps me here, watching.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 12.2,
+    "refused": [
+     [
+      "that costs ₹20 and you have only ₹6 in cash"
+     ]
+    ],
+    "warnings": [
+     "talks although nobody is present"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato, Dialectic",
+     "id": "haldane-2:173"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§169",
+     "id": "rechts:395"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato, Dialectic",
+     "text": "The ancients in their pure Philosophy had not the same end in view as we—they had not the end of a metaphysical sequence placed before them like a problem. We, on the other hand, have something concrete before us, and desire to reduce it to settled order."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§169",
+     "text": "B. Das Vermögen der Familie. Die Familie hat nicht nur Eigentum, sondern für sie als allgemeine und fortdauernde Person tritt das Bedürfnis und die Bestimmungeines bleib enden und sicheren Besitzes, eines Vermögens ein."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-11-16T11:04+05:30",
+  "until": "2026-11-16T11:14+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
