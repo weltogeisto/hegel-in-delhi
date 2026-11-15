@@ -537,6 +537,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Walking the paths of Lodhi Gardens."
+  },
+  {
+   "from": "10:49",
+   "to": "11:04",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Talking with Sunil in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -686,6 +693,34 @@
    "to": "Hegel",
    "text": "Twenty rupees is twenty rupees, sir, but I won't leave you thirsty for a conversation. Sit, the kettle is just boiling anyway. The only news here is that the haze is so thick you can't see the gate from the road, and the contractor's men are arguing about the dust again.",
    "t": "10:19"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil offers the cup without waiting for the coin, a small act of grace that suspends the transaction of needs. I possess six rupees; the tea is twenty. I cannot pay, yet I am not turned away. This is the friction between the abstract right to property and the concrete humanity of the individual. I drink.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§240"
+    }
+   ],
+   "t": "10:49"
+  },
+  {
+   "k": "said",
+   "text": "The haze is thick, indeed. It seems the air itself is refusing to distinguish the sky from the earth. Thank you, Sunil. I will sit.",
+   "to": "Sunil",
+   "t": "10:49"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Bhai, you talk like a philosophy professor, not a thirsty man. The air is just dirty because of the construction dust, nothing mystical about it. Sit, drink before it cools, and stop making it sound like the world is ending.",
+   "t": "10:49"
   }
  ],
  "steps": [
@@ -903,13 +938,65 @@
      "text": "This is gift. Contract is real when each of the contractors performs both sides of the double agreement, and is and remains an owner. This is exchange. Addition. — Contract involves two agreements to two things; I both give up and acquire a property. Real contract occurs, when each yields up and acquires possession; in giving up he remains an owner."
     }
    ]
+  },
+  {
+   "t": "10:49",
+   "end": "11:04",
+   "event": "Sunil says: “Twenty rupees is twenty rupees, sir, but I won't leave you thirsty for a conversation. Sit, the kettle is just boiling anyway. The only news here is that the haze is so thick you can't see the gate from the road, and the contractor's men are arguing about the dust again.” Pours chai into a small cup without waiting for payment and slides it across the metal table.",
+   "present": [
+    "Sunil, who sells chai"
+   ],
+   "decision": {
+    "thought": "Sunil offers the cup without waiting for the coin, a small act of grace that suspends the transaction of needs. I possess six rupees; the tea is twenty. I cannot pay, yet I am not turned away. This is the friction between the abstract right to property and the concrete humanity of the individual. I drink.",
+    "action": "talk",
+    "place": "lodhi",
+    "minutes": 15,
+    "says": "The haze is thick, indeed. It seems the air itself is refusing to distinguish the sky from the earth. Thank you, Sunil. I will sit.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Bhai, you talk like a philosophy professor, not a thirsty man. The air is just dirty because of the construction dust, nothing mystical about it. Sit, drink before it cools, and stop making it sound like the world is ending.",
+    "does": "Waves a hand dismissively while wiping the metal table with a rag."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.6
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1188"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§240",
+     "id": "dyde-right:557"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "Cynicism adopted a simple wardrobe—a thick stick of wild olive, a ragged double mantle without any under garment, which served as bed by night, a beggar’s sack for the food that was required, and a cup with which to draw water. This was the costume with which these Cynics used to distinguish themselves."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§240",
+     "text": "Besides, poverty causes men to lose more or less the advantage of society, the opportunity to acquire skill or education, the benefit of the administration of justice, the care for health, even the consolation of religion."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-11-16T10:49+05:30",
+  "until": "2026-11-16T11:04+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
