@@ -712,6 +712,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "19:01",
+   "to": "19:16",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -1501,6 +1508,34 @@
    "to": "Hegel",
    "text": "Ji, aap jaise hi boliye. Main bas chai garam rakhta hoon, baaki aapka kaam hai.",
    "t": "18:46"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s compliance is the form of obedience I demand, yet it is purchased with my own poverty, which he does not fully see. Hegde remains in the room, a ghost of the correct name, while I consume the last biscuit of my stewardship. The file is gone up; the body is here, empty and waiting.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§248"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§243"
+    }
+   ],
+   "t": "19:01"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, you have my thanks. The chai is sufficient. Hegde, you may retire; I must now attend to the silence of the house.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "19:01"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, the kettle is off. The lights will be on until you call, but I am heading to my quarters now. Good night, sir.",
+   "t": "19:01"
   }
  ],
  "steps": [
@@ -3049,13 +3084,72 @@
      "text": "Wie das Sonnensystem, so ist z. B. im Praktischen der Staat ein System von drei Schlüssen. 1) Der Einzelne (die Person) schliesst sich durch seine Besonderheit (die physischen und geistigen Bedürfnisse, was weiter für sich ausgebildet die bürgerliche Gesellschaft giebt) mit dem Allgemeinen (der Gesellschaft, dem Rechte, Gesetz, Regierung) zusammen. 2) Ist der Wille…"
     }
    ]
+  },
+  {
+   "t": "19:01",
+   "end": "19:16",
+   "event": "Ramesh says: “Ji, aap jaise hi boliye. Main bas chai garam rakhta hoon, baaki aapka kaam hai.” He picks up a biscuit from the tin and places it on the saucer.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Ramesh’s compliance is the form of obedience I demand, yet it is purchased with my own poverty, which he does not fully see. Hegde remains in the room, a ghost of the correct name, while I consume the last biscuit of my stewardship. The file is gone up; the body is here, empty and waiting.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, you have my thanks. The chai is sufficient. Hegde, you may retire; I must now attend to the silence of the house.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, the kettle is off. The lights will be on until you call, but I am heading to my quarters now. Good night, sir.",
+    "does": "He nods once, turns off the gas stove, and walks out of the kitchen."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§248",
+     "id": "dyde-right:567"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§243",
+     "id": "rechts:514"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§248",
+     "text": "Addition. — The civic society is forced to found colonies, owing to the increase of population, but more especially because production oversteps the needs of consumption, and the growing numbers cannot satisfy their needs by their work."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§243",
+     "text": ""
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-16T19:01+05:30",
+  "until": "2026-11-16T19:16+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
