@@ -551,6 +551,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Talking to himself in Lodhi Gardens."
+  },
+  {
+   "from": "11:14",
+   "to": "11:59",
+   "mode": "stand",
+   "at": "lodhi",
+   "now": "Resting in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -748,6 +755,21 @@
    "k": "said",
    "text": "I see. The cup is a gift, not a purchase. I accept it with my thanks, and I shall drink it before it cools, as you advise. The dust is only dust, and my poverty is only arithmetic, but it is an arithmetic that keeps me here, watching.",
    "t": "11:04"
+  },
+  {
+   "k": "diary",
+   "text": "The haze sits upon the city like a veil that refuses to lift, obscuring the sun yet failing to obscure the dust of the world. I am at the gate of the gardens, possessing six rupees, which is a sum so pitiful it renders the concept of property itself a mere joke; I cannot even purchase the water to quench the thirst that the heat has drawn from me. I remain here, sitting on the stone, watching the traffic flow past like a river of iron that carries no meaning, only motion.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§79"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§46"
+    }
+   ],
+   "t": "11:14"
   }
  ],
  "steps": [
@@ -1070,13 +1092,58 @@
      "text": "B. Das Vermögen der Familie. Die Familie hat nicht nur Eigentum, sondern für sie als allgemeine und fortdauernde Person tritt das Bedürfnis und die Bestimmungeines bleib enden und sicheren Besitzes, eines Vermögens ein."
     }
    ]
+  },
+  {
+   "t": "11:14",
+   "end": "11:59",
+   "event": "Nothing in particular happens. The morning goes on.",
+   "present": [],
+   "decision": {
+    "thought": "The haze sits upon the city like a veil that refuses to lift, obscuring the sun yet failing to obscure the dust of the world. I am at the gate of the gardens, possessing six rupees, which is a sum so pitiful it renders the concept of property itself a mere joke; I cannot even purchase the water to quench the thirst that the heat has drawn from me. I remain here, sitting on the stone, watching the traffic flow past like a river of iron that carries no meaning, only motion.",
+    "action": "rest",
+    "place": "lodhi",
+    "minutes": 45,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.3
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§79",
+     "id": "dyde-right:216"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§46",
+     "id": "dyde-right:156"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§79",
+     "text": "As stipulation involves the will, it contains, from the standpoint of right, the substance of contract. In contrast with this substantive contract the possession, which remains till the contract is fully carried out, has no reality outside of the agreement. I have given up a possession and my private control over it, and it has already become the property of another."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§46",
+     "text": "On the other hand, common property, which may be possessed by a number of separate individuals, is a mark of a loosely joined company, in which a man may or may not allow his share to remain at his own choice. Note. — The elements of nature cannot become private property. — In the agrarian laws of Eome may be found a conflict between collective and private ownership of land."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-11-16T11:14+05:30",
+  "until": "2026-11-16T11:59+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
