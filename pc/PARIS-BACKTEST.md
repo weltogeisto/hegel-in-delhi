@@ -69,6 +69,20 @@ What share of his sentences is practical, personal, observational or philosophic
 - **Two coders:** Claude, and plain Qwen with the same codebook (Astra, about 600 calls). Their agreement is reported. German against English gives the source away, so blinding cannot protect this step; the codebook, the second coder and every coded sentence in the repo do.
 - **Result:** the two distributions, and the distance between them. No pass or fail. It sets the target range that M1 and M3 aim at.
 
+**Frozen 15 November, before any coding** (`pc/exports/paris-stage1-20261115/`, `tools/paris_profile.py`, shadow `99c17ee`):
+
+| Group | Drawn | From a pool of | Median words per sentence |
+|---|---:|---:|---:|
+| His letters: 100 from each journey | 300 | 165, 167 and 165 | 41 |
+| The simulation's evening texts: the owl's diary and his writings | 300 | 366 | 14 |
+| The simulation's decision thoughts | 150 | 915 | 22 |
+
+- **The sheet:** all 750 sentences in one shuffled order under opaque IDs. `KEY.json` holds the groups, the sheet holds none, and `CODEBOOK.md` gives the ten codes with their rules.
+- **Size:** the decision thoughts are fixed at 150 beside the main comparison of 300 and 300.
+- **Seen before coding:** during the draw's quality check I saw three sentences per group with their group named, nine in all.
+- **A caveat for the reading:** a letter sentence is three times as long as a simulated one and can hold more than one topic. The code goes by the main clause.
+- **The second coder:** Astra sends `python3 tools/paris_profile.py requests --sheet …` to plain Qwen at temperature 0, one call per sentence, and hands back `{"id", "reply"}` lines. `report` reads both coders and gives the profiles, the distances and the agreement.
+
 ### Stage 2 · matched letters · Astra, about an hour of the spare slot by day
 
 Given the same day, does he write home the way the real one did?
