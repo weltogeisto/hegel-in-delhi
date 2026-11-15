@@ -92,5 +92,5 @@ Days 44 and 45 were complete by the morning of 15 November and held 19 ordinary 
 
 **The caveat:** Days 44 and 45 were starvation days, with little ordinary life in them.
 
-**Next:** B may run on shadow as a provisional trial through `HEGEL_SOUL_FILE`, on Welt's word.
+**Welt's word, 15 November (`DECISIONS.md` 34):** B runs on shadow as a provisional trial, `HEGEL_SOUL_FILE=mind/soul-ordinary.md`, after the letter from Munich's first full day. Its days are read with stage 1's profile (`pc/PARIS-BACKTEST.md`), on days with money. Setting it back to `mind/soul.md` ends the trial.
 
