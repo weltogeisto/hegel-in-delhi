@@ -114,6 +114,19 @@ The distance between the profiles, from 0 for identical to 1 for disjoint: lette
 
 Stage 2 would test whether either brings him closer to his letters.
 
+**Step 0 and the second coder, 15 November** (Astra, #56; `pc/exports/paris-step0-20261115/`, `PROFILE-BOTH.json`):
+- **Step 0:** given the first 40 words of 20 passages, plain Qwen's longest run shared with the true continuation was 3 words, against a bar of 12. It doesn't know the letters by heart; no journey leaves stage 2.
+- **The second coder agrees on the picture.** Plain Qwen coded the 750 sentences blind to Claude's codes. Agreement with Claude: kappa 0.59 overall, 0.51 on the letters, 0.59 on the evening texts, 0.56 on the thoughts.
+
+| Topic | Letters, Claude / Qwen | Evening, Claude / Qwen | Thoughts, Claude / Qwen |
+|---|---:|---:|---:|
+| Sights, art, theatre and music | 40.0% / 42.0% | 1.3% / 2.0% | 5.3% / 4.0% |
+| Travel and errands | 24.3% / 35.7% | 14.0% / 13.3% | 16.0% / 5.3% |
+| Food and the body | 3.7% / 1.0% | 9.7% / 9.7% | 25.3% / 28.7% |
+| Philosophy proper | 2.0% / 0.7% | 30.3% / 27.7% | 17.3% / 28.7% |
+
+By Qwen's codes the distance is larger still: letters against evening 0.69, against thoughts 0.75.
+
 ### Stage 2 · matched letters · Astra, about an hour of the spare slot by day
 
 Given the same day, does he write home the way the real one did?
