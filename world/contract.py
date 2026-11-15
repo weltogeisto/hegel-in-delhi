@@ -3,6 +3,7 @@
 The bake-off and the live world both use this module, so the bake-off tests exactly the
 interface the world will use.
 """
+import copy
 import json
 import re
 
@@ -123,8 +124,20 @@ def extract_json(text):
     return None
 
 
-def check_shape(ans):
-    """Errors in the answer itself, before the world looks at it."""
+def decision_schema(sit=None):
+    """The decision schema for a situation: SCHEMA itself, unchanged, unless the situation lists more places than PLACES
+    (HEGEL_CULTURE), when its place list widens to them. It takes the situation, as the PC's runtime and
+    tools/decision_sampler.py expect."""
+    places = (sit or {}).get("places")
+    if not places or list(places) == PLACES:
+        return SCHEMA
+    schema = copy.deepcopy(SCHEMA)
+    schema["properties"]["place"] = dict(schema["properties"]["place"], enum=list(places))
+    return schema
+
+
+def check_shape(ans, places=None):
+    """Errors in the answer itself, before the world looks at it. `places`: the world's places, if more than PLACES."""
     errors, warnings = [], []
     if not isinstance(ans, dict):
         return ["answer is not a JSON object"], warnings
@@ -135,7 +148,7 @@ def check_shape(ans):
         return errors, warnings
     if ans["action"] not in ACTIONS:
         errors.append(f"unknown action '{ans['action']}'")
-    if ans["place"] not in PLACES:
+    if ans["place"] not in (places or PLACES):
         errors.append(f"unknown place '{ans['place']}'")
     if not isinstance(ans["minutes"], int) or isinstance(ans["minutes"], bool) or not 5 <= ans["minutes"] <= 240:
         errors.append(f"minutes out of range: {ans['minutes']}")

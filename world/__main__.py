@@ -70,7 +70,7 @@ def cmd_tick(cfg, args):
     now = parse_now(args.now) if args.now else now_ist(getattr(cfg, "clock_shift_min", 0))
     mind = make_mind(cfg, args.mind)
     owl_mind = mind if args.mind == "stub" or not cfg.owl_url or cfg.owl_url == cfg.mind_url else HTTPMind(cfg.owl_url, wake=cfg.wake, timeout=cfg.timeout)
-    engine = Engine(cfg, World(Feeds(cfg)), mind, git=Git(cfg) if not args.no_git else None, owl_mind=owl_mind)
+    engine = Engine(cfg, World(Feeds(cfg), culture=getattr(cfg, "culture", False)), mind, git=Git(cfg) if not args.no_git else None, owl_mind=owl_mind)
     engine.tick(now)
     return 0
 
