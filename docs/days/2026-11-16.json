@@ -558,6 +558,13 @@
    "mode": "stand",
    "at": "lodhi",
    "now": "Resting in Lodhi Gardens."
+  },
+  {
+   "from": "11:59",
+   "to": "12:19",
+   "mode": "walk",
+   "a": "lodhi",
+   "b": "home"
   }
  ],
  "entries": [
@@ -770,6 +777,21 @@
     }
    ],
    "t": "11:14"
+  },
+  {
+   "k": "diary",
+   "text": "The haze thickens, a brown shroud over the domes. I have six rupees, less than the price of water, and the gate is likely closing or the city is shutting down. I am banished from the garden not by law, but by the arithmetic of my own destitution. The tension between the dream of the East and the reality of the empty pocket resolves only in the return to the house of need.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§6"
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810"
+    }
+   ],
+   "t": "11:59"
   }
  ],
  "steps": [
@@ -1137,13 +1159,58 @@
      "text": "On the other hand, common property, which may be possessed by a number of separate individuals, is a mark of a loosely joined company, in which a man may or may not allow his share to remain at his own choice. Note. — The elements of nature cannot become private property. — In the agrarian laws of Eome may be found a conflict between collective and private ownership of land."
     }
    ]
+  },
+  {
+   "t": "11:59",
+   "end": "12:19",
+   "event": "Nothing in particular happens. The morning goes on.",
+   "present": [],
+   "decision": {
+    "thought": "The haze thickens, a brown shroud over the domes. I have six rupees, less than the price of water, and the gate is likely closing or the city is shutting down. I am banished from the garden not by law, but by the arithmetic of my own destitution. The tension between the dream of the East and the reality of the empty pocket resolves only in the return to the house of need.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.8
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§6",
+     "id": "dyde-right:72"
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810",
+     "id": "reden:58"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§6",
+     "text": "But classification and objective system attain self consciousness only by destroying negative freedom. Negative freedom is actuated by a mere solitary abstract idea, whose realization is nothing but the fury of desolation."
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810",
+     "text": "Studienanstalten sind Theils Institute des Unterrichts, nicht unmittelbar der Erziehung, Theils fangen sie nicht von den ersten Elementen der Bildung, weder der Erkenntniß, noch der Sitten, an."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "lodhi",
-  "until": "2026-11-16T11:59+05:30",
+  "place": "home",
+  "until": "2026-11-16T12:19+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
@@ -1242,8 +1309,8 @@
     ]
    },
    "no_meals": true,
-   "walked": 1500,
-   "strain": 1500
+   "walked": 3000,
+   "strain": 3000
   },
   "account": {
    "advance": 15000,
