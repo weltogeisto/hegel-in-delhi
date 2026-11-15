@@ -684,6 +684,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "18:11",
+   "to": "18:21",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -1361,6 +1368,34 @@
    "to": "Hegel",
    "text": "Ji sir, aapki baat samajh aati hai, lekin pet ki baat philosophy nahi chalti. Chai taiyaar ho gayi, aap utha lijiye.",
    "t": "18:01"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh serves the chai with a quiet defiance against my empty purse; the steam rises like a small, stubborn spirit that refuses to be dismissed by my lack of funds. I accept the cup, for to refuse it would be to let the particular need of the body override the universal bond of hospitality, even if that bond is currently one-way. The warmth in my hands is a temporary suspension of the friction between my philosophical freedom and my physical destitution.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§3"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "18:11"
+  },
+  {
+   "k": "said",
+   "text": "Dhanyavaad, Ramesh. The steam is a good sign. You have given me a moment's respite from the empty pot, and I will not forget that kindness when the file returns from orders.",
+   "to": "Ramesh",
+   "t": "18:11"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji sir, file ki tension mat lo, pehle chai piyo. Thanda ho jayegi warna.",
+   "t": "18:11"
   }
  ],
  "steps": [
@@ -2677,13 +2712,71 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "18:11",
+   "end": "18:21",
+   "event": "Ramesh says: “Ji sir, aapki baat samajh aati hai, lekin pet ki baat philosophy nahi chalti. Chai taiyaar ho gayi, aap utha lijiye.” He sets the steaming cup of chai on the table in front of him.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh serves the chai with a quiet defiance against my empty purse; the steam rises like a small, stubborn spirit that refuses to be dismissed by my lack of funds. I accept the cup, for to refuse it would be to let the particular need of the body override the universal bond of hospitality, even if that bond is currently one-way. The warmth in my hands is a temporary suspension of the friction between my philosophical freedom and my physical destitution.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Dhanyavaad, Ramesh. The steam is a good sign. You have given me a moment's respite from the empty pot, and I will not forget that kindness when the file returns from orders.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji sir, file ki tension mat lo, pehle chai piyo. Thanda ho jayegi warna.",
+    "does": "He adjusts the saucer slightly and steps back to wait."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 13.4,
+    "draws": {
+     "n": 2,
+     "refused": 1,
+     "echo": 0,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§3",
+     "id": "dyde-right:57"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§3",
+     "text": "' In this -work Mr. Hugo says (5th edition § 53) that \" Cicero praises the twelve tables with a side glance at philosophy,\" \" but the philosopher Phavorinus treats them exactly as many a great philosopher since has treated positive right.\""
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-16T18:11+05:30",
+  "until": "2026-11-16T18:21+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
