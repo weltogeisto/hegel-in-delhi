@@ -663,6 +663,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "17:20",
+   "to": "17:46",
+   "mode": "walk",
+   "a": "estates",
+   "b": "home"
   }
  ],
  "entries": [
@@ -1262,6 +1269,28 @@
    "to": "Hegel",
    "text": "The file is noted, sir. Please keep your receipt for the recovery; the system is not a suggestion. You may return in fifteen days, but do not expect the door to be open before the clock strikes nine.",
    "t": "17:10"
+  },
+  {
+   "k": "diary",
+   "text": "The system is not a suggestion; it is a wall. I have my receipt, which is a piece of paper that proves my poverty to the state, and my stomach, which proves my mortality to me. The clock strikes the limit of my freedom at 17:30, and I must walk out of this office before the light dies, carrying nothing but the weight of what I owe.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Roman World, Rome to the Second Punic War"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, Egypt"
+    }
+   ],
+   "t": "17:20"
+  },
+  {
+   "k": "wear",
+   "item": "White cotton kurta",
+   "status": "Worn from 17:20.",
+   "sprite": "kurta",
+   "t": "17:20"
   }
  ],
  "steps": [
@@ -2409,16 +2438,69 @@
      "text": "Das im abstrakten Eigentum willkürliche Moment des besonderen Bedürfnisses des bloß Einzelnen und die Eigensucht der Begierde verändert sich hier in die Sorge und den Erwerb für ein Gemeinsames, in ein Sittliches."
     }
    ]
+  },
+  {
+   "t": "17:20",
+   "end": "17:46",
+   "event": "Mr. Saxena says: “The file is noted, sir. Please keep your receipt for the recovery; the system is not a suggestion. You may return in fifteen days, but do not expect the door to be open before the clock strikes nine.” He signs the entry in the register and slides the slip of paper across the desk. Directorate of Estates, Nirman Bhawan closes at 17:30. You are very hungry.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The system is not a suggestion; it is a wall. I have my receipt, which is a piece of paper that proves my poverty to the state, and my stomach, which proves my mortality to me. The clock strikes the limit of my freedom at 17:30, and I must walk out of this office before the light dies, carrying nothing but the weight of what I owe.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 9.7,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Roman World, Rome to the Second Punic War",
+     "id": "sibree-history:925"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, Egypt",
+     "id": "sibree-history:650"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Roman World, Rome to the Second Punic War",
+     "text": "He divided the people into six classes, of which the first together with the knights formed 98 centuries, the inferior classes proportionately fewer. Thus, as they voted by centuries, the class first in rank had also the greatest weight in the State."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, Egypt",
+     "text": "The Egyptians are reported to have divided the year into twelve months, and each month into thirty days. At the end of the year they intercalated five additional days, and Herodotus says that their arrangement was better than that of the Greeks. The intelligence of the Egyptians especially strikes us in the department of mechanics."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "estates",
-  "until": "2026-11-16T17:20+05:30",
+  "place": "home",
+  "until": "2026-11-16T17:46+05:30",
   "asleep": false,
   "imprest": 6,
-  "wearing": "bandhgala",
+  "wearing": "kurta",
   "wardrobe": [
    {
     "id": "frock",
@@ -2438,7 +2520,7 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Worn from 21:17."
+    "status": "Worn from 17:20."
    },
    {
     "id": "bandhgala",
@@ -2518,9 +2600,9 @@
     ]
    },
    "no_meals": true,
-   "walked": 4950,
-   "strain": 4950,
-   "hunger": 1,
+   "walked": 6900,
+   "strain": 6900,
+   "hunger": 2,
    "recouped": true
   },
   "account": {
