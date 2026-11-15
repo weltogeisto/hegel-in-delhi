@@ -614,6 +614,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "14:34",
+   "to": "14:49",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -1009,6 +1016,34 @@
    "to": "Hegel",
    "text": "Aap baithiye, main kadam se kaam karta hoon. Paani peene se pet nahi bharta, bas gale mein thandak aati hai.",
    "t": "14:04"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s silence is a dialectical trap; he knows I cannot pay, so he offers me the water of the world-spirit without the bread of the body. I am five rupees short of a meal, yet the air is thick with the brown haze of a city that does not care for my Germanic ideals. I must not let the physical hunger dictate my philosophical posture, but I cannot ignore that the body is the medium through which the spirit acts.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, Sparta"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi"
+    }
+   ],
+   "t": "14:34"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, the water is a kindness, but it is not the wage. I have no cash to give you today. I will not borrow against my vouchers to feed myself. I am hungry, and I am aware of it. But I will not beg. Sit with me for a moment; the sun is still up, and the file is not yet back from orders.",
+   "to": "Ramesh",
+   "t": "14:34"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, aapne paise nahi diye, toh maine khana banaya nahi. Abhi koi khana nahi hai. Agar aap chaahein, toh main thodi der mein kuch bana sakta hoon, lekin uska hisaab alag hoga.",
+   "t": "14:34"
   }
  ],
  "steps": [
@@ -1766,13 +1801,65 @@
      "text": "The recognition of the claim that whatever in the civic community and the state is rationally necessary should occur through subjective free choice is a fuller definition of the popular idea of freedom (§ 121). The particularity of the individual becomes definitely and actually realized, only by his limiting himself exclusively to one of the particular spheres of want."
     }
    ]
+  },
+  {
+   "t": "14:34",
+   "end": "14:49",
+   "event": "Ramesh says: “Aap baithiye, main kadam se kaam karta hoon. Paani peene se pet nahi bharta, bas gale mein thandak aati hai.” Ramesh steps back to the stove, keeping his hands busy with the kettle lid. You are hungry.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh’s silence is a dialectical trap; he knows I cannot pay, so he offers me the water of the world-spirit without the bread of the body. I am five rupees short of a meal, yet the air is thick with the brown haze of a city that does not care for my Germanic ideals. I must not let the physical hunger dictate my philosophical posture, but I cannot ignore that the body is the medium through which the spirit acts.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, the water is a kindness, but it is not the wage. I have no cash to give you today. I will not borrow against my vouchers to feed myself. I am hungry, and I am aware of it. But I will not beg. Sit with me for a moment; the sun is still up, and the file is not yet back from orders.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Sir, aapne paise nahi diye, toh maine khana banaya nahi. Abhi koi khana nahi hai. Agar aap chaahein, toh main thodi der mein kuch bana sakta hoon, lekin uska hisaab alag hoga.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.7
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, Sparta",
+     "id": "sibree-history:821"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "id": "haldane-3:1158"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, Sparta",
+     "text": "HERE we witness on the other hand rigid abstract virtue, — a life devoted to the State, but in which the activity and freedom of individuality is put in the back-ground. The polity of Sparta is based on institutions which do full justice to the interest of the State, but whose object is a lifeless equality — not free movement."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "text": "The reason why that true Idea should not be the truth is therefore that the empty abstractions of an understanding which keeps itself in the abstract universal, and of a sensuous material of individuality standing in opposition to the same, are presupposed as the truth."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-16T14:34+05:30",
+  "until": "2026-11-16T14:49+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
@@ -1872,7 +1959,8 @@
    },
    "no_meals": true,
    "walked": 3000,
-   "strain": 3000
+   "strain": 3000,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
