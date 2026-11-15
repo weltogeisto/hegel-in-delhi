@@ -39,13 +39,13 @@ The record keeps each letter as an entry of kind `letter`, and the money as inco
 
 ## When it goes on
 
-One change at a time, each read on its own, in this order:
+Second, in the order of `DECISIONS.md` 31, each change read on its own:
 1. the filter;
-2. the shelf labels;
-3. the venues (`pc/CULTURE.md`);
-4. this.
+2. this;
+3. the shelf labels;
+4. the venues (`pc/CULTURE.md`).
 
-Astra sets `HEGEL_CORRESPONDENT=1` on the Pi after the venues' first day.
+It comes before the venues because his purse is empty, and their tickets need the money her first letter brings. Astra sets `HEGEL_CORRESPONDENT=1` on the Pi after the filter's first full day.
 
 **How to read it.** Stage 1's profile, run again on his writings after it is on, says whether the letters carry what the real ones carried.
 
