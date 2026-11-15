@@ -83,6 +83,37 @@ What share of his sentences is practical, personal, observational or philosophic
 - **A caveat for the reading:** a letter sentence is three times as long as a simulated one and can hold more than one topic. The code goes by the main clause.
 - **The second coder:** Astra sends `python3 tools/paris_profile.py requests --sheet …` to plain Qwen at temperature 0, one call per sentence, and hands back `{"id", "reply"}` lines. `report` reads both coders and gives the profiles, the distances and the agreement.
 
+**The first profile, 15 November: Claude's codes.** Qwen's second coding is pending; the codes were committed before any of its replies exist (`CODES-CLAUDE.jsonl`, `PROFILE-CLAUDE.json`).
+
+| Topic | His letters home | Simulated evening texts | Simulated decision thoughts |
+|---|---:|---:|---:|
+| Sights, art, theatre and music | **40.0%** | 1.3% | 5.3% |
+| Travel, logistics and errands | 24.3% | 14.0% | 16.0% |
+| People met | 10.7% | 14.3% | 16.0% |
+| Family and affection | 8.0% | 0.3% | 0.0% |
+| Food, drink and the body | 3.7% | 9.7% | 25.3% |
+| Money and prices | 0.0% | 6.7% | 3.3% |
+| Public affairs and history | 1.0% | 4.3% | 2.0% |
+| Comparison with home | 2.7% | 0.3% | 0.0% |
+| Philosophy proper | **2.0%** | **30.3%** | 17.3% |
+| Other | 7.7% | 18.7% | 14.7% |
+
+The distance between the profiles, from 0 for identical to 1 for disjoint: letters against evening 0.59, letters against thoughts 0.54. The three journeys agree with each other: sights 36%, 52% and 32%, travel 35%, 11% and 27%.
+
+**What it says.**
+- **Abroad, the real Hegel wrote about what he saw and heard:** galleries, churches, opera and theatre, every day. The simulated one almost never does. This is mostly the world, not the prompt. His Delhi offers tombs, a market and an institute's gate; it offers no gallery, concert or play for him to seek out.
+- **Philosophy proper is 2% of his letters,** against 30% of the simulation's evening texts. The M1 confirmation tests a prompt aimed at this.
+- **Money and hunger fill the simulated days.** The world's economy keeps him short and its "You are hungry" events keep him eating. The real traveller had money and barely mentions either.
+- **He has no one to write home to.** Family is 8% of the letters and absent from the simulation.
+
+**Limits.** One coder so far. A letter sentence is three times as long as a simulated one and is coded by its main clause. A letter is what he chose to tell his wife; an owl's diary is a nightly account written for no one.
+
+**For Welt, not decided:**
+- the world could offer what he would seek: museums, concerts and plays among its places and events;
+- he could have someone to write to.
+
+Stage 2 would test whether either brings him closer to his letters.
+
 ### Stage 2 · matched letters · Astra, about an hour of the spare slot by day
 
 Given the same day, does he write home the way the real one did?
