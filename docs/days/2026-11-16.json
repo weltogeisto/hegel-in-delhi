@@ -691,6 +691,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "18:21",
+   "to": "18:36",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -1396,6 +1403,34 @@
    "to": "Hegel",
    "text": "Ji sir, file ki tension mat lo, pehle chai piyo. Thanda ho jayegi warna.",
    "t": "18:11"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s gesture is a small ethical act: he sustains the relationship despite the suspension of wages, holding the particular bond against the universal abstraction of my debt. The file is gone to orders, a bureaucratic void, but here is a warm cup, a concrete presence that resists the cold logic of the state. I will drink, for the body must be fed even if the spirit is starved of certainty.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33"
+    }
+   ],
+   "t": "18:21"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, your hospitality is a form of freedom that my poverty cannot touch. I will drink this tea. The file will return in fifteen days; until then, we exist in the gap between the demand and the supply.",
+   "to": "Ramesh",
+   "t": "18:21"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, gap mein chai hoti hai. Piyiye, garam hai.",
+   "t": "18:21"
   }
  ],
  "steps": [
@@ -2770,13 +2805,71 @@
      "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
     }
    ]
+  },
+  {
+   "t": "18:21",
+   "end": "18:36",
+   "event": "Ramesh says: “Ji sir, file ki tension mat lo, pehle chai piyo. Thanda ho jayegi warna.” He adjusts the saucer slightly and steps back to wait.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh’s gesture is a small ethical act: he sustains the relationship despite the suspension of wages, holding the particular bond against the universal abstraction of my debt. The file is gone to orders, a bureaucratic void, but here is a warm cup, a concrete presence that resists the cold logic of the state. I will drink, for the body must be fed even if the spirit is starved of certainty.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, your hospitality is a form of freedom that my poverty cannot touch. I will drink this tea. The file will return in fifteen days; until then, we exist in the gap between the demand and the supply.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, gap mein chai hoti hai. Piyiye, garam hai.",
+    "does": "He taps the saucer lightly with one finger."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 13.7,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "id": "dyde-right:549"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "id": "rechts:121"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "text": "Note. — In contrast with freedom of business and trade in the civic community stands the other extreme of the establishment and direction of the work of all by means of official regulation. Under this head comes perhaps the construction of the pyramids and other monstrous Egyptian and Asiatic works."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-16T18:21+05:30",
+  "until": "2026-11-16T18:36+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
