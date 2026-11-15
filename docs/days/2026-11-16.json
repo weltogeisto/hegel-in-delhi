@@ -649,6 +649,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "16:44",
+   "to": "17:10",
+   "mode": "walk",
+   "a": "home",
+   "b": "estates"
   }
  ],
  "entries": [
@@ -1170,6 +1177,41 @@
     }
    ],
    "t": "16:29"
+  },
+  {
+   "k": "diary",
+   "text": "The tea is a small peace, but the silence after it is heavy with the weight of my unpaid debts and the empty kitchen. I am a philosopher of the Absolute, yet I cannot even command a pot of rice. The state is the actuality of the ethical idea, but here, in this bungalow, the idea is starving alongside me. I must go to the Directorate; the file is due back, and perhaps the release of funds will restore the ethical order, or confirm my exile from it.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§241"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§545"
+    }
+   ],
+   "t": "16:44"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, the chai was good. I must go to the Directorate now. The file is due, and I will press for the release of my funds. Do not expect dinner tonight; I have no money to cook.",
+   "to": "Ramesh",
+   "t": "16:44"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, theek hai sir. Aap jaaiye, file ke liye. Dinner ki tension mat lijiye, main kuch arrange kar lunga.",
+   "t": "16:44"
+  },
+  {
+   "k": "wear",
+   "item": "Bandhgala, charcoal",
+   "status": "Worn from 16:44.",
+   "sprite": "bandhgala",
+   "t": "16:44"
   }
  ],
  "steps": [
@@ -2201,16 +2243,74 @@
      "text": "Wie das Sonnensystem, so ist z. B. im Praktischen der Staat ein System von drei Schlüssen. 1) Der Einzelne (die Person) schliesst sich durch seine Besonderheit (die physischen und geistigen Bedürfnisse, was weiter für sich ausgebildet die bürgerliche Gesellschaft giebt) mit dem Allgemeinen (der Gesellschaft, dem Rechte, Gesetz, Regierung) zusammen. 2) Ist der Wille…"
     }
    ]
+  },
+  {
+   "t": "16:44",
+   "end": "17:10",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The tea is a small peace, but the silence after it is heavy with the weight of my unpaid debts and the empty kitchen. I am a philosopher of the Absolute, yet I cannot even command a pot of rice. The state is the actuality of the ethical idea, but here, in this bungalow, the idea is starving alongside me. I must go to the Directorate; the file is due back, and perhaps the release of funds will restore the ethical order, or confirm my exile from it.",
+    "action": "walk",
+    "place": "estates",
+    "minutes": 15,
+    "says": "Ramesh, the chai was good. I must go to the Directorate now. The file is due, and I will press for the release of my funds. Do not expect dinner tonight; I have no money to cook.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "estates",
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, theek hai sir. Aap jaaiye, file ke liye. Dinner ki tension mat lijiye, main kuch arrange kar lunga.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 14.2,
+    "draws": {
+     "n": 2,
+     "refused": 1,
+     "echo": 0,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§241",
+     "id": "dyde-right:558"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§545",
+     "id": "wallace-mind:333"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§241",
+     "text": "Amongst the poor the public power takes the place of the family in regard to their immediate need, dislike of work, bad disposition, and other vices, which spring out of poverty and the sense of wrong. § 242."
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§545",
+     "text": "This independence of a central authority reduces disputes between them to terms of mutual violence, a state of war, to meet which the general estate in the community assumes the particular function of maintaining the state’s independence against other states, and becomes the estate of bravery."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-16T16:44+05:30",
+  "place": "estates",
+  "until": "2026-11-16T17:10+05:30",
   "asleep": false,
   "imprest": 6,
-  "wearing": "kurta",
+  "wearing": "bandhgala",
   "wardrobe": [
    {
     "id": "frock",
@@ -2235,7 +2335,7 @@
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Worn from 20:55."
+    "status": "Worn from 16:44."
    }
   ],
   "people": [
@@ -2306,8 +2406,8 @@
     ]
    },
    "no_meals": true,
-   "walked": 3000,
-   "strain": 3000,
+   "walked": 4950,
+   "strain": 4950,
    "hunger": 1
   },
   "account": {
