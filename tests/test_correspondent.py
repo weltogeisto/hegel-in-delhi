@@ -1,4 +1,4 @@
-"""His correspondent, Niethammer (HEGEL_CORRESPONDENT, world/post.py, world/data/correspondent.json)."""
+"""His correspondent, a descendant of Niethammer's family (HEGEL_CORRESPONDENT, world/post.py, world/data/correspondent.json)."""
 import json
 import sys
 import unittest
@@ -17,7 +17,7 @@ from world.world import World  # noqa: E402
 
 C = post.card()
 D = date(2026, 11, 16)
-LETTER = "Dear friend, " + "the city is loud and the library is quiet, and I think of you there. " * 6 + "Your Niethammer"
+LETTER = "Dear Professor Hegel, " + "the city is loud and the school is quiet, and I think of you there. " * 6 + "Clara Lindner"
 
 
 class Pieces(unittest.TestCase):
@@ -27,11 +27,11 @@ class Pieces(unittest.TestCase):
 
     def test_a_letter_to_him_and_nothing_else_goes_to_the_post_the_next_morning(self):
         st = {}
-        self.assertFalse(post.written(st, {"kind": "letter", "to": "Niethammer", "text": "x"}, D, C))     # no post without the switch
+        self.assertFalse(post.written(st, {"kind": "letter", "to": "Dr. Lindner", "text": "x"}, D, C))     # no post without the switch
         post.start(st, D)
         self.assertFalse(post.written(st, {"kind": "essay", "to": None, "text": "x"}, D, C))
         self.assertFalse(post.written(st, {"kind": "letter", "to": "Karl", "text": "x"}, D, C))
-        self.assertTrue(post.written(st, {"kind": "letter", "to": "my friend Niethammer in Munich", "title": "To N.", "text": "Dear N."}, D, C))
+        self.assertTrue(post.written(st, {"kind": "letter", "to": "Clara Lindner in Munich", "title": "To Dr. L.", "text": "Dear N."}, D, C))
         self.assertIsNone(post.to_post(st, D, C))                                       # not the same day
         sent = post.to_post(st, D + timedelta(days=1), C)
         self.assertEqual((sent["text"], sent["due"]), ("Dear N.", (D + timedelta(days=11)).isoformat()))
@@ -46,7 +46,7 @@ class Pieces(unittest.TestCase):
         self.assertEqual(post.due(st, D + timedelta(days=21), C), ("nudge", []))
         post.arrived(st, "nudge", [], LETTER, D + timedelta(days=21), C)
         self.assertIsNone(post.due(st, D + timedelta(days=50), C))                          # one nudge, not a stream
-        post.written(st, {"kind": "letter", "to": "Niethammer", "text": "Dear N."}, D + timedelta(days=22), C)
+        post.written(st, {"kind": "letter", "to": "Dr. Lindner", "text": "Dear N."}, D + timedelta(days=22), C)
         sent = post.to_post(st, D + timedelta(days=23), C)
         self.assertIsNone(post.due(st, D + timedelta(days=32), C))
         self.assertEqual(post.due(st, D + timedelta(days=33), C), ("reply", [sent]))
@@ -55,10 +55,10 @@ class Pieces(unittest.TestCase):
         st = {}
         post.start(st, D)
         post.arrived(st, "first", [], LETTER, D, C)
-        post.written(st, {"kind": "letter", "to": "Niethammer", "text": "Yes, it is I. Bamberg, the newspaper."}, D, C)
+        post.written(st, {"kind": "letter", "to": "Dr. Lindner", "text": "Yes, it is I. Bamberg, the newspaper."}, D, C)
         sent = post.to_post(st, D + timedelta(days=1), C)
         msgs = post.messages(st, "reply", [sent], D + timedelta(days=11), C)
-        self.assertIn("Friedrich Immanuel Niethammer", msgs[0]["content"])
+        self.assertIn("Friedrich Immanuel Niethammer (1766–1848) is among your ancestors", msgs[0]["content"])
         self.assertIn("never invent his circumstances", msgs[0]["content"])
         self.assertIn("You wrote, 2026-11-16", msgs[1]["content"])
         self.assertIn("Hegel's letter you are answering:", msgs[1]["content"])
@@ -71,14 +71,30 @@ class Pieces(unittest.TestCase):
         st = {}
         post.start(st, D)
         post.arrived(st, "first", [], LETTER, D, C)
-        line, entry = post.event(st, ["ramesh"], C)
-        self.assertTrue(line.startswith("Ramesh brings the post: a letter from Munich, addressed in a hand you know."))
-        self.assertEqual((entry["k"], entry["by"], entry["text"]), ("letter", "Niethammer", LETTER))
-        self.assertIsNone(post.event(st, ["ramesh"], C))
-        self.assertEqual(post.on_mind(st, C), ["Niethammer's letter from Munich of 2026-11-16 awaits your answer."])
-        self.assertIn("Niethammer's last letter to you", post.last_letter(st, C))
-        post.written(st, {"kind": "letter", "to": "Niethammer", "text": "Dear N."}, D, C)
-        self.assertEqual(post.on_mind(st, C), ["Your letter to Niethammer goes to the post tomorrow morning."])
+        (line, entry), (money, income) = post.event(st, ["ramesh"], C)
+        self.assertTrue(line.startswith("Ramesh brings the post: a registered letter from Munich, from Dr. Clara Lindner, whom you do not know."))
+        self.assertEqual((entry["k"], entry["by"], entry["text"]), ("letter", "Dr. Clara Lindner", LETTER))
+        self.assertEqual(post.event(st, ["ramesh"], C), [])
+        self.assertEqual(post.on_mind(st, C), ["Dr. Lindner's letter from Munich of 2026-11-16 awaits your answer."])
+        self.assertIn("Dr. Lindner's last letter to you", post.last_letter(st, C))
+        post.written(st, {"kind": "letter", "to": "Dr. Lindner", "text": "Dear N."}, D, C)
+        self.assertEqual(post.on_mind(st, C), ["Your letter to Dr. Lindner goes to the post tomorrow morning."])
+
+    def test_her_first_letter_pays_what_he_owes_and_twenty_thousand_besides(self):
+        st = {"imprest": 300, "owed": [{"to": "Ramesh", "amount": 8000, "why": "his wages"}, {"to": "the grocer", "amount": 1200, "why": "groceries"}]}
+        post.start(st, D)
+        post.arrived(st, "first", [], LETTER, D, C)
+        (_, letter), (money, income) = post.event(st, [], C)
+        self.assertTrue(money.startswith("With the letter comes money sent from Munich"))
+        self.assertIn("₹29,200: what you owe, ₹9,200, and ₹20,000 besides", money)
+        self.assertEqual((income["k"], income["amount"], income["from"]), ("income", 29200, "Dr. Clara Lindner"))
+        self.assertEqual(st["imprest"], 29500)
+        self.assertEqual(st["post"]["gift"], {"date": "2026-11-16", "owed": 9200, "amount": 29200})
+        later = {"imprest": 0, "owed": []}
+        post.start(later, D)
+        post.arrived(later, "first", [], LETTER, D, C)
+        post.arrived(later, "reply", [], LETTER, D + timedelta(days=11), C)
+        self.assertEqual(len(post.event(later, [], C)), 1)                 # only the first letter brings money
 
     def test_an_unusable_letter_is_refused(self):
         self.assertIsNone(post.clean("not json"))
@@ -102,15 +118,15 @@ class Days(unittest.TestCase):
         class Writer(StubMind):
             def decide(self, messages, sit):
                 if sit["place"] == "home" and "awaits your answer" in " ".join(sit["on_mind"]) and "16:00" <= sit["time"] < "19:00":
-                    return json.dumps({"thought": "I owe Niethammer an answer, and I shall write it now, at the table.",
+                    return json.dumps({"thought": "I owe Dr. Lindner an answer, and I shall write it now, at the table.",
                                        "action": "write", "place": "home", "minutes": 45, "says": None, "buys": [], "revision": None})
                 return super().decide(messages, sit)
 
             def chat(self, messages, schema=None, max_tokens=700, temperature=None):
                 props = (schema or {}).get("properties", {})
                 if "continues" in props:
-                    out = {"title": "To Niethammer", "kind": "letter", "to": "Niethammer", "continues": False}
-                    out.update({"about": "(rehearsal) an answer"} if "about" in props else {"text": "(rehearsal) Dear Niethammer, it is I."})
+                    out = {"title": "To Dr. Lindner", "kind": "letter", "to": "Dr. Lindner", "continues": False}
+                    out.update({"about": "(rehearsal) an answer"} if "about" in props else {"text": "(rehearsal) Dear Dr. Lindner, it is I."})
                     return json.dumps(out)
                 return super().chat(messages, schema, max_tokens, temperature)
 
@@ -122,10 +138,11 @@ class Days(unittest.TestCase):
         letters = [(d["date"], e) for d in days for e in d["entries"] if e.get("k") == "letter"]
         self.assertGreaterEqual(len(letters), 2)
         self.assertEqual(letters[0][0], "2026-10-03")                   # the first letter comes on the first day
-        self.assertTrue(any(e.get("k") == "writing" and e.get("to") == "Niethammer" for d in days for e in d["entries"]))
-        self.assertGreater(letters[1][0], letters[0][0])                 # his answer went, and Niethammer's reply came
-        first_event = next(s["event"] for s in days[0]["steps"] if "addressed in a hand you know" in s.get("event", ""))
-        self.assertIn("Friedrich Immanuel Niethammer", first_event)
+        self.assertTrue(any(e.get("k") == "writing" and e.get("to") == "Dr. Lindner" for d in days for e in d["entries"]))
+        self.assertGreater(letters[1][0], letters[0][0])                 # his answer went, and her reply came
+        first_event = next(s["event"] for s in days[0]["steps"] if "a registered letter from Munich" in s.get("event", ""))
+        self.assertIn("With the letter comes money sent from Munich", first_event)
+        self.assertTrue(any(e.get("k") == "income" and e.get("from") == "Dr. Clara Lindner" for e in days[0]["entries"]))
 
 
 if __name__ == "__main__":

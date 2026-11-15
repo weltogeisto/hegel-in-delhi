@@ -166,7 +166,7 @@ class Engine:
             self.migrate(day, st)               # a day file from before the economy: its books are made on first need
         prev = next((s for s in reversed(day["steps"]) if "decision" in s), None)
         if getattr(self.cfg, "correspondent", False) and not st.get("asleep"):
-            self.post_round(t, st)                  # Niethammer's letters: the outbox to the post, and his answer if it is due
+            self.post_round(t, st)                  # letters from Munich: the outbox to the post, and an answer if it is due
         sit, ctx = self.world.situation(t, st, day, prev)
         if not getattr(self.cfg, "thesis_reminders", True):
             sit["on_mind"] = [line for line in sit.get("on_mind", []) if not line.startswith("Your theses: ")]
@@ -244,7 +244,7 @@ class Engine:
                 ctx["read"] = self.look(ans["looks_up"], st)
         step = self.world.apply(ans, plan, sit, ctx, st, day)
         if ctx.get("writing") and st.get("post"):
-            post.written(st, ctx["writing"], t.date(), self.post_card())          # a letter to Niethammer goes to the post tomorrow
+            post.written(st, ctx["writing"], t.date(), self.post_card())          # a letter to Munich goes to the post tomorrow
         step["mind"] = {"source": source, "attempts": attempts, "latency_s": round(time.time() - t_start, 1)}
         if ctx.get("shelf") and source in ("mind", "stub"):
             step["shelf"] = [{"work": x["work"], "ref": x["ref"], "id": x["id"]} for x in ctx["shelf"]]
@@ -268,8 +268,8 @@ class Engine:
         return self._post_card
 
     def post_round(self, t, st):
-        """HEGEL_CORRESPONDENT: yesterday's letters go to the post; while he is at home in the post's hours, Niethammer's
-        letter comes if one is due (one call). If the mind is away or the letter unusable, it comes on a later step."""
+        """HEGEL_CORRESPONDENT: yesterday's letters go to the post; while he is at home in the post's hours, the letter
+        from Munich comes if one is due (one call). If the mind is away or the letter unusable, it comes on a later step."""
         c, d, m = self.post_card(), t.date(), minute_of(t)
         post.start(st, d)
         post.to_post(st, d, c)
@@ -282,14 +282,14 @@ class Engine:
         try:
             raw = self.mind.chat(post.messages(st, kind, answered, d, c), post.LETTER_SCHEMA, max_tokens=900)
         except MindAway as e:
-            log.warning("mind away for Niethammer's letter: %s", e)
+            log.warning("mind away for the letter from Munich: %s", e)
             return
         text = post.clean(raw)
         if text:
             post.arrived(st, kind, answered, text, d, c)
             log.info("a letter from %s (%s)", c["name"], kind)
         else:
-            log.warning("Niethammer's letter was unusable; it comes on a later step")
+            log.warning("the letter from Munich was unusable; it comes on a later step")
 
     def draw(self, messages, sit, ctx, st, draws):
         """T49 (world/prefer.py): up to `draws` replies to the same prompt; the first that the world accepts and that

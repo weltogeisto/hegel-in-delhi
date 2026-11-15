@@ -587,10 +587,8 @@ class World(Economy):
 
         if beat:
             events.append((beat["prompt"], None))
-        if state.get("post"):                                 # HEGEL_CORRESPONDENT: a letter from Niethammer has come
-            letter = post.event(state, present, self.post_card())
-            if letter:
-                events.append(letter)
+        if state.get("post"):                                 # HEGEL_CORRESPONDENT: a letter from Munich has come
+            events += post.event(state, present, self.post_card())
         lines, entries = self.upkeep(t, state, pid, present, today)
         events += [(x, None) for x in lines] + [("", e) for e in entries]
 

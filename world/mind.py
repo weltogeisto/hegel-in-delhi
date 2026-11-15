@@ -327,9 +327,9 @@ class StubMind:
             else:
                 out["text"] = "(rehearsal) " + " ".join(r.sample(LINES, 3))
             return json.dumps(out)
-        if "letter" in props:       # Niethammer's letter from Munich (world/post.py)
+        if "letter" in props:       # the letter from Munich (world/post.py)
             r = random.Random(messages[-1]["content"])
-            return json.dumps({"letter": "(rehearsal) A letter from Niethammer would go here: news of Munich, a question about Delhi, "
+            return json.dumps({"letter": "(rehearsal) A letter from Munich would go here: news of the city and the school, a question about Delhi, "
                                          "advice on the file, and greetings. " + " ".join(r.sample(LINES, 3))})
         if "diary" in props:
             ask = messages[-1]["content"]
