@@ -698,6 +698,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "18:36",
+   "to": "18:46",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -1431,6 +1438,34 @@
    "to": "Hegel",
    "text": "Ji, gap mein chai hoti hai. Piyiye, garam hai.",
    "t": "18:21"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh offers the chai with a tap of the saucer, a small ritual of sustenance in the face of my financial ruin. I am five rupees short of a meal, yet he serves me warmth; this is the particular bond holding the universal law at bay, a friction I cannot resolve with logic alone. I must accept this grace, for my body demands it, and then I must write the letter to the Directorate, for the file is due back Friday and my existence here hangs on that paper trail.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    }
+   ],
+   "t": "18:36"
+  },
+  {
+   "k": "said",
+   "text": "Dhanyavaad, Ramesh. The steam is welcome.",
+   "to": "Ramesh",
+   "t": "18:36"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji. Steam se hi chai ka swaad aata hai. File ki tension mat lo, abhi toh gap hai.",
+   "t": "18:36"
   }
  ],
  "steps": [
@@ -2863,13 +2898,71 @@
      "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
     }
    ]
+  },
+  {
+   "t": "18:36",
+   "end": "18:46",
+   "event": "Ramesh says: “Ji, gap mein chai hoti hai. Piyiye, garam hai.” He taps the saucer lightly with one finger.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh offers the chai with a tap of the saucer, a small ritual of sustenance in the face of my financial ruin. I am five rupees short of a meal, yet he serves me warmth; this is the particular bond holding the universal law at bay, a friction I cannot resolve with logic alone. I must accept this grace, for my body demands it, and then I must write the letter to the Directorate, for the file is due back Friday and my existence here hangs on that paper trail.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Dhanyavaad, Ramesh. The steam is welcome.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji. Steam se hi chai ka swaad aata hai. File ki tension mat lo, abhi toh gap hai.",
+    "does": "He places a fresh tin of biscuits on the table beside the teacup."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 4,
+    "latency_s": 21.8,
+    "draws": {
+     "n": 4,
+     "refused": 1,
+     "echo": 3,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "id": "wallace-mind:321"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:133"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "text": "These principles are those expounded earlier, liberty of property, and above all personal liberty, civil society, with its industry and its communities, and the regulated efficiency of the particular bureaux in subordination to the laws."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "This is the stage of the civic community, which has frequently been taken for the state. But the state does not arise until we reach the third stage. that stage of ethical observance or spirit, in whicli both individual independence and universal substantivity are found in gigantic union. The right of the state is, therefore, higher than that of the other stages."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-16T18:36+05:30",
+  "until": "2026-11-16T18:46+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
