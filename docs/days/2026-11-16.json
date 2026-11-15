@@ -523,6 +523,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh and Shri G. Hegde at home."
+  },
+  {
+   "from": "09:59",
+   "to": "10:19",
+   "mode": "walk",
+   "a": "home",
+   "b": "lodhi"
   }
  ],
  "entries": [
@@ -616,6 +623,34 @@
    "to": "Hegel",
    "text": "Well, if you are that hungry, eat the biscuits from the cupboard, I will not stop you. But do not make a philosophy out of my empty fridge, Shri Hegel, just find a way to feed yourself or I am leaving.",
    "t": "09:44"
+  },
+  {
+   "k": "diary",
+   "text": "The world engine corrects me: biscuits are not a meal, and the kitchen is closed to me by the same logic that closed the wine shop yesterday. I must accept the negation. Hegde’s threat to leave is the final push; I cannot manage this household’s friction with my current capital. I must retreat to the only place where my thoughts can move without the immediate demand of the body: the garden. The hunger will follow me, but it will be a companion, not a master.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi"
+    }
+   ],
+   "t": "09:59"
+  },
+  {
+   "k": "said",
+   "text": "I accept your correction, Shri Hegde. I will take a walk to let the hunger settle into a manageable background noise. Do not worry about my empty stomach; it is a problem for the body, not the state.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "09:59"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Don't give me that 'background noise' nonsense. Take the biscuits, walk if you want, but come back before the gas guy arrives at noon. I am not explaining to the contractor that a foreigner is dying of hunger in my kitchen.",
+   "t": "09:59"
   }
  ],
  "steps": [
@@ -723,13 +758,71 @@
      "text": "Was sich wirklich im Staate geltend macht, muß sich freilich auf organische Weise betätigen, und dies ist in der Verfassung der Fall. Aber zu allen Zeiten war die öffentliche Meinung eine große Macht und ist es besonders in unserer Zeit, wo das Prinzip der subjektiven Freiheit diese Wichtigkeit und Bedeutung hat."
     }
    ]
+  },
+  {
+   "t": "09:59",
+   "end": "10:19",
+   "event": "Shri G. Hegde says: “Well, if you are that hungry, eat the biscuits from the cupboard, I will not stop you. But do not make a philosophy out of my empty fridge, Shri Hegel, just find a way to feed yourself or I am leaving.” Sighs and turns back to the stove to check the gas connection one last time.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The world engine corrects me: biscuits are not a meal, and the kitchen is closed to me by the same logic that closed the wine shop yesterday. I must accept the negation. Hegde’s threat to leave is the final push; I cannot manage this household’s friction with my current capital. I must retreat to the only place where my thoughts can move without the immediate demand of the body: the garden. The hunger will follow me, but it will be a companion, not a master.",
+    "action": "walk",
+    "place": "lodhi",
+    "minutes": 30,
+    "says": "I accept your correction, Shri Hegde. I will take a walk to let the hunger settle into a manageable background noise. Do not worry about my empty stomach; it is a problem for the body, not the state.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "lodhi",
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Don't give me that 'background noise' nonsense. Take the biscuits, walk if you want, but come back before the gas guy arrives at noon. I am not explaining to the contractor that a foreigner is dying of hunger in my kitchen.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 15.6,
+    "refused": [
+     [
+      "Nothing is cooked at home: Ramesh has not been paid his wage for cooking. Choose an available activity; a request for food is not a completed meal."
+     ]
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:23"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "id": "haldane-3:1108"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "Nor can it be taken ill, if honest men become impatient, when the subject is broached. Still less is it a surprise that the government has at last turned its attention to this false philosophizing. With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "text": "There is no man so foolish as that philosophy; when a man feels hungry, he does not call up the imagination of food, but sets about satisfying his hunger. All activity is a conception which does not yet exist, but whose subjectivity is abrogated."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-16T09:59+05:30",
+  "place": "lodhi",
+  "until": "2026-11-16T10:19+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
@@ -824,7 +917,9 @@
      "ramesh"
     ]
    },
-   "no_meals": true
+   "no_meals": true,
+   "walked": 1500,
+   "strain": 1500
   },
   "account": {
    "advance": 15000,
