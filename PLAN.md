@@ -86,6 +86,10 @@ Three loops, at three speeds.
 
 **Gate:** the scoreboard, for every loop.
 
+## The world, phase two
+
+Proposed on 15 November in `WORLD-2.md`, and waiting for Welt's go: a Delhi that holds what is said in it, offers more, remembers him and goes on without him. It runs inside Act 1.
+
 ## Later
 
 Fans on his rounds (needs a read key on the Pi, installed by Welt); the Saturday Depesche for fans who ask for it; the larger owl at night; the Hegelizer.
