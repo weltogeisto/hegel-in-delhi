@@ -12,19 +12,19 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 20,
+    "temp": 19,
     "sky": "clear",
     "rain": 0,
     "aqi": 126
    },
    {
-    "temp": 19,
+    "temp": 18,
     "sky": "clear",
     "rain": 0,
     "aqi": 134
    },
    {
-    "temp": 19,
+    "temp": 18,
     "sky": "clear",
     "rain": 0,
     "aqi": 142
@@ -48,7 +48,7 @@
     "aqi": 165
    },
    {
-    "temp": 16,
+    "temp": 17,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 174
@@ -60,7 +60,7 @@
     "aqi": 182
    },
    {
-    "temp": 18,
+    "temp": 19,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 190
@@ -150,7 +150,7 @@
     "aqi": 161
    },
    {
-    "temp": 17,
+    "temp": 18,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 150
@@ -509,16 +509,140 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "09:14",
+   "to": "09:44",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Rainfall expected in Tamil Nadu as depression to turn severe cyclonic storm over Bay of Bengal by November 17” · “2.5 kg gold, 1.6 kg silver, Rs 26 lakh seized from raids on Madhya Pradesh officer” · “Flight services on Imphal-Silchar route scheduled to commence on November 24”",
+   "t": "09:14"
+  },
+  {
+   "k": "plan",
+   "items": [
+    {
+     "time": "09:15",
+     "intention": "Address Ramesh regarding the arrears and the impossibility of immediate payment with my current cash."
+    },
+    {
+     "time": "09:30",
+     "intention": "Explain to Ramesh that the wage for cooking is suspended until funds are available, refusing to borrow against vouchers."
+    },
+    {
+     "time": "10:00",
+     "intention": "Walk to Lodhi Gardens to clear my head and observe the tension between the dream and the state."
+    },
+    {
+     "time": "12:00",
+     "intention": "Return home to face the empty pot, acknowledging the physical limit of my philosophical freedom."
+    },
+    {
+     "time": "14:00",
+     "intention": "Sit with the newspaper and reflect on the cyclone in the Bay of Bengal as a natural force indifferent to history."
+    },
+    {
+     "time": "17:00",
+     "intention": "Write a letter to the Directorate of Estates inquiring about the status of the file and the release of funds."
+    }
+   ],
+   "t": "09:14"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh stands before me, the embodiment of the immediate need that my universal poverty cannot meet. I hold six rupees against a debt of four thousand; the ethical idea of the state is suspended in the gap between my pen and his hunger. I must speak with the clarity of a man who understands that the particular will cannot be satisfied by the universal reason when the purse is empty, for the body does not wait for the dialectic to resolve itself.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    }
+   ],
+   "t": "09:14"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, I see you, and I see the weight of what you ask. But look at my hand: here are six rupees, the totality of my particular existence at this hour. The state's money is in the Directorate's keeping, and my own is in the future. I cannot cook, for I cannot pay you, and I cannot pay you, for I am a man of reason without the means of sense. The wage for cooking is suspended, as is the grocery, until the file returns on the twentieth. Do not wait for me; the pot remains empty, and so shall I, until the spirit of the treasury moves.",
+   "to": "Ramesh",
+   "t": "09:14"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Chau ka paisa? Aur bhaav-bhaan? File wapas aayegi toh pet bhi wapas aayega? Main abhi chalta hoon, kal subah aakar dekho.",
+   "t": "09:14"
+  }
+ ],
+ "steps": [
+  {
+   "t": "09:14",
+   "end": "09:44",
+   "event": "You wake. Clear, hazy, 21 °C. Ramesh has left the papers on the verandah. Headlines: Rainfall expected in Tamil Nadu as depression to turn severe cyclonic storm over Bay of Bengal by November 17; 2.5 kg gold, 1.6 kg silver, Rs 26 lakh seized from raids on Madhya Pradesh officer; Flight services on Imphal-Silchar route scheduled to commence on November 24. Ramesh asks for ₹4,000 (the wage for cooking, three days a week), and you have only ₹6. Ramesh asks for ₹1,500 (groceries), and you have only ₹6. The electricity company asks for ₹1,800 (electricity), and you have only ₹6. The dhobi asks for ₹300 (the washing), and you have only ₹6. Ramesh is here.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh stands before me, the embodiment of the immediate need that my universal poverty cannot meet. I hold six rupees against a debt of four thousand; the ethical idea of the state is suspended in the gap between my pen and his hunger. I must speak with the clarity of a man who understands that the particular will cannot be satisfied by the universal reason when the purse is empty, for the body does not wait for the dialectic to resolve itself.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 30,
+    "says": "Ramesh, I see you, and I see the weight of what you ask. But look at my hand: here are six rupees, the totality of my particular existence at this hour. The state's money is in the Directorate's keeping, and my own is in the future. I cannot cook, for I cannot pay you, and I cannot pay you, for I am a man of reason without the means of sense. The wage for cooking is suspended, as is the grocery, until the file returns on the twentieth. Do not wait for me; the pot remains empty, and so shall I, until the spirit of the treasury moves.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Chau ka paisa? Aur bhaav-bhaan? File wapas aayegi toh pet bhi wapas aayega? Main abhi chalta hoon, kal subah aakar dekho.",
+    "does": "He picks up the papers from the verandah and turns to leave."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 22.8
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology",
+     "id": "baillie-1:444"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology",
+     "text": "Bumps and hollows, there is room for selection! And again his murderous propensity can be referred to some bump or hollow or another, and this in turn to some mental quahty or another; for the murderer is neither this abstract of a murderer, nor does he have merely one protuberance and one depression."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    }
+   ]
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-16T09:14+05:30",
-  "asleep": true,
+  "until": "2026-11-16T09:44+05:30",
+  "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
   "wardrobe": [
@@ -598,7 +722,20 @@
    }
   ],
   "depesche_n": 3,
-  "today": {},
+  "today": {
+   "woke": "09:14",
+   "pressed": [
+    "Ramesh|the wage for cooking, three days a week",
+    "Ramesh|groceries",
+    "the electricity company|electricity",
+    "the dhobi|the washing"
+   ],
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -854,7 +991,8 @@
     "2026-11-12",
     "2026-11-13",
     "2026-11-14",
-    "2026-11-15"
+    "2026-11-15",
+    "2026-11-16"
    ],
    "lodhi": [
     "2026-10-02",
@@ -999,7 +1137,8 @@
     "2026-11-10",
     "2026-11-12",
     "2026-11-13",
-    "2026-11-14"
+    "2026-11-14",
+    "2026-11-16"
    ],
    "malhotra": [
     "2026-10-02",
@@ -1104,5 +1243,34 @@
    "hegde_call"
   ],
   "commissions": []
+ },
+ "plan": {
+  "written": "09:14",
+  "items": [
+   {
+    "time": "09:15",
+    "intention": "Address Ramesh regarding the arrears and the impossibility of immediate payment with my current cash."
+   },
+   {
+    "time": "09:30",
+    "intention": "Explain to Ramesh that the wage for cooking is suspended until funds are available, refusing to borrow against vouchers."
+   },
+   {
+    "time": "10:00",
+    "intention": "Walk to Lodhi Gardens to clear my head and observe the tension between the dream and the state."
+   },
+   {
+    "time": "12:00",
+    "intention": "Return home to face the empty pot, acknowledging the physical limit of my philosophical freedom."
+   },
+   {
+    "time": "14:00",
+    "intention": "Sit with the newspaper and reflect on the cyclone in the Bay of Bengal as a natural force indifferent to history."
+   },
+   {
+    "time": "17:00",
+    "intention": "Write a letter to the Directorate of Estates inquiring about the status of the file and the release of funds."
+   }
+  ]
  }
 }
