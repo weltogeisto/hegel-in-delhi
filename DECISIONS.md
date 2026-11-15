@@ -78,6 +78,17 @@ Welt's calls, the afternoon of 15 November:
     - When the PC answers again, he lives the held day, and his calendar trails Delhi's by those whole days.
     - It acts only when the PC is away, so it may go on at once, outside the order of 31.
 
+Welt's calls, the evening of 15 November:
+
+33. **The letter from Munich goes on now,** beside the filter, without waiting for the filter's first full day. His purse is empty, and every later reading needs days with money. The filter has passed its blind test, so the overlap costs little.
+34. **The new instructions run on shadow as a provisional trial:** `HEGEL_SOUL_FILE=mind/soul-ordinary.md`, after the letter's first full day. They passed the M1 confirmation (`pc/exports/m1-confirmation-20261115/judgment/REPORT.md`). Setting it back to `mind/soul.md` ends the trial. The order of 31 becomes:
+    1. the filter (on since 14:28 on 15 November);
+    2. the letter from Munich (now);
+    3. the new instructions;
+    4. the shelf labels;
+    5. the museums, concerts and plays.
+35. **An answer stays where it was given.** When he speaks as he leaves, the answer belongs to that step and its record. It no longer opens his next moment at the place he walked to (at 38:25 and 45:25 a bookseller's line reached him at home).
+
 ## Still open
 
 - Nothing at the moment.

@@ -558,8 +558,10 @@ class World(Economy):
         if read and prev_step.get("end") == fmt(m):                # what he looked up on his phone, as the step ends
             events.append((f"On your phone you read: {read['title']}. {read['text']}" if read.get("text") else read["note"], None))
         said = (prev_step or {}).get("voice")
-        if said and prev_step.get("end") == fmt(m):
+        if said and prev_step.get("end") == fmt(m) and not prev_step.get("left"):
             events.append((voices.heard(said), None))              # their answer to what he said, as the step ends
+        # A step that took him elsewhere ends where he went: the answer stays with that step, in the record, and
+        # does not follow him (a bookseller's line reached him at home at 38:25 and 45:25).
 
         if state.get("asleep"):
             today["woke"] = fmt(m)
@@ -1048,7 +1050,9 @@ class World(Economy):
         step = {"t": fmt(minute_of(t0)), "end": "24:00" if end >= midnight else fmt(minute_of(end)),
                 "event": sit["event"], "present": sit["present"], "decision": ans, "arrived": arrived}
         if ctx.get("reply"):
-            step["voice"] = ctx["reply"]            # opens the next situation
+            step["voice"] = ctx["reply"]            # opens the next situation, unless he left
+            if plan["moves"]:
+                step["left"] = cur                  # he spoke as he left: the answer was given there, not where he arrives
         if ctx.get("read"):
             step["read"] = ctx["read"]              # what he looked up: opens the next situation
         return step
