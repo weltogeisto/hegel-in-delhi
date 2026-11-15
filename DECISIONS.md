@@ -42,6 +42,15 @@ Implementation decision following the interview (Welt, 7 November):
 
 22. **Delta is no longer a pass/fail bar for ordinary thoughts.** It stays as a diagnostic, and every historical Delta result is kept as recorded.
 
+## After the tests of 14 and 15 November
+
+Welt's calls, 15 November 2026.
+
+23. **Training 3 is closed.** Its data gate was not met: 86 revised pairs against 200. Its 2,000 answers stay preserved. The live filter does its work without training (`pc/TRAINING3-RUN-20261106.md`).
+24. **The filter runs on shadow as a provisional trial:** `HEGEL_DECISION_DRAWS=4`. It is a choice among plain Qwen's own replies; no weights change and no adapter is used. It passed T36 in full (`pc/T49-ARM-D-RESULT-20261114.md`). Setting it back to 1 ends the trial.
+25. **The shelf names an editor's addition:** `HEGEL_SHELF_ADDITIONS=1`, switched on after the filter's first full day is reported, so each change can be read on its own (`pc/M2-SOURCE-LABELS.md`).
+26. **The Paris backtest goes ahead with step 0 and stage 1** (`pc/PARIS-BACKTEST.md`). His letters from the three journeys (the Netherlands 1822, Vienna 1824, Paris 1827) stay a test set: off his shelf and out of any training from now on.
+
 ## Still open
 
 - Nothing at the moment.

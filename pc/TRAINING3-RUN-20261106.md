@@ -92,3 +92,4 @@ T49 tested that rule in full on T39's frozen days (`pc/T49-ARM-D-RESULT-20261114
 
 **What Welt decides.** Close Training 3, or name another question for it. It could be a different target, or a larger sample under a rule declared before any of its answers exist. Claude's recommendation is to close it and spend the GPU time on the filter's shadow trial and the M1 confirmation.
 
+**Welt, 15 November: Training 3 is closed** (`DECISIONS.md` 23).
