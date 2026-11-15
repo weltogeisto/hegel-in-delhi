@@ -593,6 +593,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "13:34",
+   "to": "13:49",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -904,6 +911,34 @@
    "to": "Hegel",
    "text": "Haan, haan. The surface rubs, the money doesn't come, same story. Sit tight, kettle is boiling.",
    "t": "13:19"
+  },
+  {
+   "k": "diary",
+   "text": "The kettle sings, a domestic mechanism that knows nothing of the dialectic of spirit and matter, yet it produces the only reality I can currently grasp: the liquid in the cup. Ramesh’s 'sit tight' is the practical wisdom of the servant who knows the master’s impotence; I am not the state, I am merely the man who owes the state money. The brown haze outside mirrors the uncertainty within; the file is gone, the funds are stuck, and I am reduced to waiting for water to boil.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Modern Time, The Reformation"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299"
+    }
+   ],
+   "t": "13:34"
+  },
+  {
+   "k": "said",
+   "text": "The surface rubs, as you say. But the money, it seems, is in a state of negation that I cannot yet resolve. Please, do not rush the water; I have time to think on the nature of debt.",
+   "to": "Ramesh",
+   "t": "13:34"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Negation ho ya jaat, paani ubal raha hai. Aap sochiye, main sirf chai pakdaunga. Zyada der mat lagana, thanda ho jayega.",
+   "t": "13:34"
   }
  ],
  "steps": [
@@ -1500,13 +1535,65 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "13:34",
+   "end": "13:49",
+   "event": "Ramesh says: “Haan, haan. The surface rubs, the money doesn't come, same story. Sit tight, kettle is boiling.” Ramesh checks the gas flame and adjusts the kettle's position on the stove.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The kettle sings, a domestic mechanism that knows nothing of the dialectic of spirit and matter, yet it produces the only reality I can currently grasp: the liquid in the cup. Ramesh’s 'sit tight' is the practical wisdom of the servant who knows the master’s impotence; I am not the state, I am merely the man who owes the state money. The brown haze outside mirrors the uncertainty within; the file is gone, the funds are stuck, and I am reduced to waiting for water to boil.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": "The surface rubs, as you say. But the money, it seems, is in a state of negation that I cannot yet resolve. Please, do not rush the water; I have time to think on the nature of debt.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Negation ho ya jaat, paani ubal raha hai. Aap sochiye, main sirf chai pakdaunga. Zyada der mat lagana, thanda ho jayega.",
+    "does": "He taps the kettle's lid with his finger to check the boil."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.0
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Modern Time, The Reformation",
+     "id": "sibree-history:1340"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299",
+     "id": "dyde-right:759"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Modern Time, The Reformation",
+     "text": "Equally important, and connected with that just noticed, is the change of executive powers, functions, duties and rights, which naturally belong to the State, but which had become private property and private contracts or obligations— into possession conferred by the State."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299",
+     "text": "Addition. — The two aspects of the constitution refer to the rights and the services of individuals. The services are now almost all reduced to money. Military duty is perhaps the only remaining personal service. In former times claim was made to the concrete individual, who was summoned to work in accordance with his skill. Now the state buys what it needs."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-16T13:34+05:30",
+  "until": "2026-11-16T13:49+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
