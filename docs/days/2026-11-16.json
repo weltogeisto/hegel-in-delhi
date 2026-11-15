@@ -670,6 +670,13 @@
    "mode": "walk",
    "a": "estates",
    "b": "home"
+  },
+  {
+   "from": "17:46",
+   "to": "18:01",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -1291,6 +1298,34 @@
    "status": "Worn from 17:20.",
    "sprite": "kurta",
    "t": "17:20"
+  },
+  {
+   "k": "diary",
+   "text": "The file is gone up for orders, a suspension that mirrors the emptiness of my own stomach. I have walked the length of the city and returned to a house that offers no sustenance, only the quiet tyranny of unpaid debts. Ramesh stands before me, the mediator between my will and the material world, yet I possess only six rupees against a deficit that defies arithmetic. To speak to him now is to acknowledge that my freedom is currently bounded by the ledger, not the spirit.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "17:46"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, the matter of my file is with Mr. Saxena for fifteen days. I cannot produce the wages today, nor can I cook. The pot remains empty until the state releases what is owed. I am sorry for the delay, but the system moves at its own pace, indifferent to our hunger.",
+   "to": "Ramesh",
+   "t": "17:46"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji sir, system ki baat aapko hi chalta hai. Aap apna kaam karo, bhookh ki tension mat lo. Main kuch bhar loon ga, paani ki chai banata hoon.",
+   "t": "17:46"
   }
  ],
  "steps": [
@@ -2491,13 +2526,71 @@
      "text": "The Egyptians are reported to have divided the year into twelve months, and each month into thirty days. At the end of the year they intercalated five additional days, and Herodotus says that their arrangement was better than that of the Greeks. The intelligence of the Egyptians especially strikes us in the department of mechanics."
     }
    ]
+  },
+  {
+   "t": "17:46",
+   "end": "18:01",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The file is gone up for orders, a suspension that mirrors the emptiness of my own stomach. I have walked the length of the city and returned to a house that offers no sustenance, only the quiet tyranny of unpaid debts. Ramesh stands before me, the mediator between my will and the material world, yet I possess only six rupees against a deficit that defies arithmetic. To speak to him now is to acknowledge that my freedom is currently bounded by the ledger, not the spirit.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, the matter of my file is with Mr. Saxena for fifteen days. I cannot produce the wages today, nor can I cook. The pot remains empty until the state releases what is owed. I am sorry for the delay, but the system moves at its own pace, indifferent to our hunger.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji sir, system ki baat aapko hi chalta hai. Aap apna kaam karo, bhookh ki tension mat lo. Main kuch bhar loon ga, paani ki chai banata hoon.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-16T17:46+05:30",
+  "until": "2026-11-16T18:01+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
@@ -2602,8 +2695,7 @@
    "no_meals": true,
    "walked": 6900,
    "strain": 6900,
-   "hunger": 2,
-   "recouped": true
+   "hunger": 2
   },
   "account": {
    "advance": 15000,
