@@ -726,6 +726,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "20:01",
+   "to": "20:16",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1571,6 +1578,21 @@
    "to": "Hegel",
    "text": "Ji, good night. I will lock the gate before I leave.",
    "t": "19:16"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s nod is the finality of a transaction, not the warmth of a household. He locks the gate, sealing me inside with my debts and my hunger. The tea remains in the kitchen, a symbol of the care I cannot yet purchase. I am alone with the silence and the brown haze pressing against the glass.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§552"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Virtue and the Course of the World"
+    }
+   ],
+   "t": "20:01"
   }
  ],
  "steps": [
@@ -3237,13 +3259,67 @@
      "text": "It is pure form, because the individual in ethical obedience and service has so worked ofi every unconscious existence and every fixed determination, as the substance has itself become this fluid and undifferentiated entity. This form is the night in which the substance was betrayed, and made itself subject."
     }
    ]
+  },
+  {
+   "t": "20:01",
+   "end": "20:16",
+   "event": "Ramesh says: “Ji, good night. I will lock the gate before I leave.” He pauses at the kitchen door, tucks a loose strand of hair behind his ear, and gives a brief nod.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Ramesh’s nod is the finality of a transaction, not the warmth of a household. He locks the gate, sealing me inside with my debts and my hunger. The tea remains in the kitchen, a symbol of the care I cannot yet purchase. I am alone with the silence and the brown haze pressing against the glass.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§552",
+     "id": "wallace-mind:367"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Virtue and the Course of the World",
+     "id": "baillie-1:546"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§552",
+     "text": "Instead of the vow of poverty (muddled up into a contradiction of assigning merit to whosoever gives away goods to the poor, i.e. whosoever enriches them) is the precept of action to acquire goods through one’s own intelligence and industry,—of honesty in commercial dealing, and in the use of property,—in short moral life in the socio-economic sphere."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Virtue and the Course of the World",
+     "text": "This knight of valour cannot work himself loose from it as he might from a cloak thrown round him, and get free by leaving it behind; for it is to him the essential element which there is no getting rid of."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-16T20:01+05:30",
+  "until": "2026-11-16T20:16+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
