@@ -719,6 +719,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh and Shri G. Hegde at home."
+  },
+  {
+   "from": "19:16",
+   "to": "20:01",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1536,6 +1543,34 @@
    "to": "Hegel",
    "text": "Ji, the kettle is off. The lights will be on until you call, but I am heading to my quarters now. Good night, sir.",
    "t": "19:01"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh departs, leaving the silence of the house to settle over me like a heavy cloth. Hegde remains, a silent witness to the absurdity of my tenure, his presence a living contradiction to the file that has not yet cleared. The kettle is off, the stove cold; the domestic sphere has withdrawn its service, leaving only the bare fact of my existence and the hunger that gnaws at the abstract. I must sit with this tension, this gap between the ethical idea I preach and the material reality of a man who cannot afford the tea he is owed.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Religion"
+    }
+   ],
+   "t": "19:16"
+  },
+  {
+   "k": "said",
+   "text": "Good night, Ramesh. The silence is well-earned.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "19:16"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, good night. I will lock the gate before I leave.",
+   "t": "19:16"
   }
  ],
  "steps": [
@@ -3143,13 +3178,72 @@
      "text": ""
     }
    ]
+  },
+  {
+   "t": "19:16",
+   "end": "20:01",
+   "event": "Ramesh says: “Ji, the kettle is off. The lights will be on until you call, but I am heading to my quarters now. Good night, sir.” He nods once, turns off the gas stove, and walks out of the kitchen.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Ramesh departs, leaving the silence of the house to settle over me like a heavy cloth. Hegde remains, a silent witness to the absurdity of my tenure, his presence a living contradiction to the file that has not yet cleared. The kettle is off, the stove cold; the domestic sphere has withdrawn its service, leaving only the bare fact of my existence and the hunger that gnaws at the abstract. I must sit with this tension, this gap between the ethical idea I preach and the material reality of a man who cannot afford the tea he is owed.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 45,
+    "says": "Good night, Ramesh. The silence is well-earned.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, good night. I will lock the gate before I leave.",
+    "does": "He pauses at the kitchen door, tucks a loose strand of hair behind his ear, and gives a brief nod."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Religion",
+     "id": "baillie-2:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Religion",
+     "text": "It is pure form, because the individual in ethical obedience and service has so worked ofi every unconscious existence and every fixed determination, as the substance has itself become this fluid and undifferentiated entity. This form is the night in which the substance was betrayed, and made itself subject."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-16T19:16+05:30",
+  "until": "2026-11-16T20:01+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
