@@ -733,6 +733,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "20:16",
+   "to": "20:46",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1593,6 +1600,21 @@
     }
    ],
    "t": "20:01"
+  },
+  {
+   "k": "diary",
+   "text": "The haze outside is a thickening of the spirit, a brown shroud over the city. Hegde sits in the chair, a man who has not yet understood that he has been replaced by a ghost, and Ramesh stands with the silence of a servant who knows the master is broke. I am five rupees short of a meal and a thousand short of a conscience, yet the clock ticks on with the indifference of a mechanism that has no spirit.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    }
+   ],
+   "t": "20:16"
   }
  ],
  "steps": [
@@ -3313,13 +3335,67 @@
      "text": "This knight of valour cannot work himself loose from it as he might from a cloak thrown round him, and get free by leaving it behind; for it is to him the essential element which there is no getting rid of."
     }
    ]
+  },
+  {
+   "t": "20:16",
+   "end": "20:46",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The haze outside is a thickening of the spirit, a brown shroud over the city. Hegde sits in the chair, a man who has not yet understood that he has been replaced by a ghost, and Ramesh stands with the silence of a servant who knows the master is broke. I am five rupees short of a meal and a thousand short of a conscience, yet the clock ticks on with the indifference of a mechanism that has no spirit.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 9.1,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:130"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "These belong to this -realm, because the conception taking them in their truth, brings them all together. Free will, in order not to remain abstract, must in the first instance give itself reality; the sensible materials of this reality are objects, i.e., external things. This first phase of freedom we shall know as property."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-16T20:16+05:30",
+  "until": "2026-11-16T20:46+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
