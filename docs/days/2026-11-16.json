@@ -579,6 +579,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "13:04",
+   "to": "13:19",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -834,6 +841,34 @@
    "to": "Hegel",
    "text": "Friction, yaar. Aapne subah bhi yahi kaha tha. Main kal subah aata hoon, tab dekh lenge. Abhi chai bana loon?",
    "t": "12:49"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh offers tea, a small domesticity that mocks the grandeur of my ethical state. I have six rupees in my pocket and a debt of six thousand; the friction he speaks of is the grinding of necessity against my will. I will accept the tea, for I am a body, and the haze outside is too thick for a walk that ends in fainting.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§248"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "13:04"
+  },
+  {
+   "k": "said",
+   "text": "Yes, Ramesh. Make the tea. I will sit here and wait for the friction to resolve itself into a plan.",
+   "to": "Ramesh",
+   "t": "13:04"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Hogaya. Pehle aap baithiye, chai aati hai. Friction kya hota hai yaar, bas paise aate nahi hain toh sab kuch friction ban jaata hai.",
+   "t": "13:04"
   }
  ],
  "steps": [
@@ -1326,13 +1361,65 @@
      "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
     }
    ]
+  },
+  {
+   "t": "13:04",
+   "end": "13:19",
+   "event": "Ramesh says: “Friction, yaar. Aapne subah bhi yahi kaha tha. Main kal subah aata hoon, tab dekh lenge. Abhi chai bana loon?” He turns off the gas stove and wipes the counter with a dry rag.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh offers tea, a small domesticity that mocks the grandeur of my ethical state. I have six rupees in my pocket and a debt of six thousand; the friction he speaks of is the grinding of necessity against my will. I will accept the tea, for I am a body, and the haze outside is too thick for a walk that ends in fainting.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Yes, Ramesh. Make the tea. I will sit here and wait for the friction to resolve itself into a plan.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Hogaya. Pehle aap baithiye, chai aati hai. Friction kya hota hai yaar, bas paise aate nahi hain toh sab kuch friction ban jaata hai.",
+    "does": "Ramesh turns back to the stove, lights the gas, and places the kettle on top."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.4
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§248",
+     "id": "dyde-right:567"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§248",
+     "text": "Addition. — The civic society is forced to found colonies, owing to the increase of population, but more especially because production oversteps the needs of consumption, and the growing numbers cannot satisfy their needs by their work."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-16T13:04+05:30",
+  "until": "2026-11-16T13:19+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
