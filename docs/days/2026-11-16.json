@@ -18,7 +18,7 @@
     "aqi": 150
    },
    {
-    "temp": 18,
+    "temp": 19,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 161
@@ -42,37 +42,37 @@
     "aqi": 195
    },
    {
-    "temp": 17,
+    "temp": 16,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 203
    },
    {
-    "temp": 17,
+    "temp": 16,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 212
    },
    {
-    "temp": 17,
+    "temp": 16,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 221
    },
    {
-    "temp": 19,
+    "temp": 18,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 229
    },
    {
-    "temp": 21,
+    "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 236
    },
    {
-    "temp": 23,
+    "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 241
@@ -150,7 +150,7 @@
     "aqi": 202
    },
    {
-    "temp": 18,
+    "temp": 17,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 193
@@ -635,6 +635,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Writing at home."
+  },
+  {
+   "from": "15:59",
+   "to": "16:29",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -1113,6 +1120,34 @@
    "words": 509,
    "mode": "chat",
    "t": "14:59"
+  },
+  {
+   "k": "diary",
+   "text": "The kettle boils, a small universal mechanism indifferent to my particular poverty. Ramesh waits for the wage that does not exist; I wait for the file that does not come. The afternoon stretches like a brown haze, thick with the tension of a promise I cannot keep and a state that has not yet answered. I must sit still and let the steam rise.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "15:59"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, sit. The water is almost ready. We shall drink it together, though the cup is empty of sugar and my pocket of coin. The state delays, but the day does not.",
+   "to": "Ramesh",
+   "t": "15:59"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, main baith jata hoon. Chai ke bina bhi theek hai, sir. Aap apna kaam karte rahiyega, main yahan hi hoon.",
+   "t": "15:59"
   }
  ],
  "steps": [
@@ -2033,13 +2068,71 @@
      "text": "So far as the ecclesiastical body owns property, performs overt acts of worship, and maintains individuals for this service, it leaves the inner realm and enters that of the world. Hence it places itself directly under the jurisdiction of the state."
     }
    ]
+  },
+  {
+   "t": "15:59",
+   "end": "16:29",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The kettle boils, a small universal mechanism indifferent to my particular poverty. Ramesh waits for the wage that does not exist; I wait for the file that does not come. The afternoon stretches like a brown haze, thick with the tension of a promise I cannot keep and a state that has not yet answered. I must sit still and let the steam rise.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 30,
+    "says": "Ramesh, sit. The water is almost ready. We shall drink it together, though the cup is empty of sugar and my pocket of coin. The state delays, but the day does not.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, main baith jata hoon. Chai ke bina bhi theek hai, sir. Aap apna kaam karte rahiyega, main yahan hi hoon.",
+    "does": "Sits down on the low plastic chair near the door and rests his hands on his knees."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301",
+     "id": "dyde-right:763"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301",
+     "text": "It requires but little reflection to see that the services performed by the classes in behalf of the general well-being and public liberty cannot be traced to an insight special to these classes. The highest state of&cials have necessarily deeper and more comprehensive insight into the workings and needs of the state, and also greater skill and wider practical experience."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-16T15:59+05:30",
+  "until": "2026-11-16T16:29+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
