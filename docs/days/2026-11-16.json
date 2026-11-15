@@ -530,6 +530,13 @@
    "mode": "walk",
    "a": "home",
    "b": "lodhi"
+  },
+  {
+   "from": "10:19",
+   "to": "10:49",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Walking the paths of Lodhi Gardens."
   }
  ],
  "entries": [
@@ -651,6 +658,34 @@
    "to": "Hegel",
    "text": "Don't give me that 'background noise' nonsense. Take the biscuits, walk if you want, but come back before the gas guy arrives at noon. I am not explaining to the contractor that a foreigner is dying of hunger in my kitchen.",
    "t": "09:59"
+  },
+  {
+   "k": "diary",
+   "text": "I am banished by the arithmetic of my own poverty, not by any law of the state. Hegde speaks with the blunt force of a man who understands that a body that starves cannot perform its duties; he is right, for the state requires functional organs, even if it is not my state. I possess six rupees, less than the price of the humblest water, and so I must observe the world from the threshold, watching the tension between the dream of the East and the hunger of the West play out on this lawn.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Common Ideas Regarding the History of Philosophy"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§76"
+    }
+   ],
+   "t": "10:19"
+  },
+  {
+   "k": "said",
+   "text": "Sunil, the day is heavy with heat and the spirit is light with lack. I cannot buy your chai, for my pocket holds less than the price of the water. But sit with me a moment; tell me what the people say as they pass this gate. Is there any news of the state, or only of the weather?",
+   "to": "Sunil",
+   "t": "10:19"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Twenty rupees is twenty rupees, sir, but I won't leave you thirsty for a conversation. Sit, the kettle is just boiling anyway. The only news here is that the haze is so thick you can't see the gate from the road, and the contractor's men are arguing about the dust again.",
+   "t": "10:19"
   }
  ],
  "steps": [
@@ -816,13 +851,65 @@
      "text": "There is no man so foolish as that philosophy; when a man feels hungry, he does not call up the imagination of food, but sets about satisfying his hunger. All activity is a conception which does not yet exist, but whose subjectivity is abrogated."
     }
    ]
+  },
+  {
+   "t": "10:19",
+   "end": "10:49",
+   "event": "Shri G. Hegde says: “Don't give me that 'background noise' nonsense. Take the biscuits, walk if you want, but come back before the gas guy arrives at noon. I am not explaining to the contractor that a foreigner is dying of hunger in my kitchen.” You arrive at Lodhi Gardens. It closes at 19:30. Sunil is here.",
+   "present": [
+    "Sunil, who sells chai"
+   ],
+   "decision": {
+    "thought": "I am banished by the arithmetic of my own poverty, not by any law of the state. Hegde speaks with the blunt force of a man who understands that a body that starves cannot perform its duties; he is right, for the state requires functional organs, even if it is not my state. I possess six rupees, less than the price of the humblest water, and so I must observe the world from the threshold, watching the tension between the dream of the East and the hunger of the West play out on this lawn.",
+    "action": "stay",
+    "place": "lodhi",
+    "minutes": 30,
+    "says": "Sunil, the day is heavy with heat and the spirit is light with lack. I cannot buy your chai, for my pocket holds less than the price of the water. But sit with me a moment; tell me what the people say as they pass this gate. Is there any news of the state, or only of the weather?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Twenty rupees is twenty rupees, sir, but I won't leave you thirsty for a conversation. Sit, the kettle is just boiling anyway. The only news here is that the haze is so thick you can't see the gate from the road, and the contractor's men are arguing about the dust again.",
+    "does": "Pours chai into a small cup without waiting for payment and slides it across the metal table."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.6
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Common Ideas Regarding the History of Philosophy",
+     "id": "haldane-1:63"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§76",
+     "id": "dyde-right:212"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Common Ideas Regarding the History of Philosophy",
+     "text": "Hence the thought expressed in such an utterance reveals the fact that it is dead understanding; for it is only death which fasts and yet rests satisfied. But neither physical life nor intellectual remains content with mere abstention; as desire it presses on through hunger and through thirst towards Truth, towards knowledge itself."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§76",
+     "text": "This is gift. Contract is real when each of the contractors performs both sides of the double agreement, and is and remains an owner. This is exchange. Addition. — Contract involves two agreements to two things; I both give up and acquire a property. Real contract occurs, when each yields up and acquires possession; in giving up he remains an owner."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-11-16T10:19+05:30",
+  "until": "2026-11-16T10:49+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
@@ -915,6 +1002,9 @@
     "home": [
      "hegde",
      "ramesh"
+    ],
+    "lodhi": [
+     "sunil"
     ]
    },
    "no_meals": true,
@@ -1186,7 +1276,8 @@
     "2026-10-15",
     "2026-10-28",
     "2026-11-07",
-    "2026-11-15"
+    "2026-11-15",
+    "2026-11-16"
    ],
    "gandhi": [
     "2026-10-02",
@@ -1351,7 +1442,8 @@
     "2026-11-05",
     "2026-11-07",
     "2026-11-08",
-    "2026-11-14"
+    "2026-11-14",
+    "2026-11-16"
    ],
    "hegde": [
     "2026-10-02",
