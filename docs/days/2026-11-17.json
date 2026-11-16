@@ -412,6 +412,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "At the IIC."
+  },
+  {
+   "from": "13:39",
+   "to": "13:49",
+   "mode": "inside",
+   "at": "iic",
+   "now": "At the IIC."
   }
  ],
  "entries": [
@@ -936,6 +943,34 @@
    "to": "Hegel",
    "text": "No problem, sir. Just mind the step on the way in.",
    "t": "13:34"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s warning about the step is a minor friction, but the institution’s hospitality is the real movement here. I am hungry, and the body’s demand for sustenance is a universal right that this place recognizes. I will enter, for the meal is the immediate actuality of my need.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§145"
+    }
+   ],
+   "t": "13:39"
+  },
+  {
+   "k": "said",
+   "text": "Thank you. I shall be careful.",
+   "to": "the guard at the library and the programme officer",
+   "t": "13:39"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Aunty, careful with that step, it's a bit rough.",
+   "t": "13:39"
   }
  ],
  "steps": [
@@ -1885,13 +1920,75 @@
      "text": "Addition. — The particular person is really a subordinate, who must devote his life to the service of the ethical fabric; when the state demands his life, he must yield it up. But should the man take his own life? Suicide may at first glance be looked upon as bravery, although it be the poor bravery of tailors and maid-servants."
     }
    ]
+  },
+  {
+   "t": "13:39",
+   "end": "13:49",
+   "event": "The guard at the library says: “No problem, sir. Just mind the step on the way in.”",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s warning about the step is a minor friction, but the institution’s hospitality is the real movement here. I am hungry, and the body’s demand for sustenance is a universal right that this place recognizes. I will enter, for the meal is the immediate actuality of my need.",
+    "action": "stay",
+    "place": "iic",
+    "minutes": 10,
+    "says": "Thank you. I shall be careful.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Aunty, careful with that step, it's a bit rough.",
+    "does": "He nods politely and turns towards the entrance."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 6.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§145",
+     "id": "wallace-logic:678"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§145",
+     "text": "In respect of Mind and its works, just as in the case of Nature, we must guard against being so far misled by a well-meant endeavour after rational knowledge, as to try to exhibit the necessity of phenomena which are marked by a decided contingency, or, as the phrase is, to construe them a priori."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-17T13:39+05:30",
+  "until": "2026-11-17T13:49+05:30",
   "asleep": false,
   "imprest": 35700,
   "wearing": "bandhgala",
