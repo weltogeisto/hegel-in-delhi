@@ -510,6 +510,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "17:14",
+   "to": "17:24",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -1432,6 +1439,34 @@
    "to": "Hegel",
    "text": "Good. Eat while it is hot.",
    "t": "16:59"
+  },
+  {
+   "k": "diary",
+   "text": "Masterji’s command is the only ethical substance I have tasted today. The triangle of pastry is a concrete universal, binding my hunger to the moment. I must not let the abstraction of the file or the dream of India cloud this immediate satisfaction; the body is the first state.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "17:14"
+  },
+  {
+   "k": "said",
+   "text": "Bahut achha, Masterji. The spirit requires its material basis before it can ascend.",
+   "to": "Masterji and Sunil",
+   "t": "17:14"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "The samosa is not a spirit. It is potato and peas. Eat it or it gets cold.",
+   "t": "17:14"
   }
  ],
  "steps": [
@@ -3227,13 +3262,73 @@
      "text": "Das im abstrakten Eigentum willkürliche Moment des besonderen Bedürfnisses des bloß Einzelnen und die Eigensucht der Begierde verändert sich hier in die Sorge und den Erwerb für ein Gemeinsames, in ein Sittliches."
     }
    ]
+  },
+  {
+   "t": "17:14",
+   "end": "17:24",
+   "event": "Masterji says: “Good. Eat while it is hot.”",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Masterji’s command is the only ethical substance I have tasted today. The triangle of pastry is a concrete universal, binding my hunger to the moment. I must not let the abstraction of the file or the dream of India cloud this immediate satisfaction; the body is the first state.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 10,
+    "says": "Bahut achha, Masterji. The spirit requires its material basis before it can ascend.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Masterji",
+    "says": "The samosa is not a spirit. It is potato and peas. Eat it or it gets cold.",
+    "does": "He wipes his hands on a rag and turns back to the cutting table."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 11.5,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-17T17:14+05:30",
+  "until": "2026-11-17T17:24+05:30",
   "asleep": false,
   "imprest": 35620,
   "wearing": "kurta",
