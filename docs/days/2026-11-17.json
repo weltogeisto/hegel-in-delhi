@@ -433,6 +433,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "At the IIC."
+  },
+  {
+   "from": "14:14",
+   "to": "14:19",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -1041,6 +1048,34 @@
    "to": "Hegel",
    "text": "Don't worry, sir. I'll just leave a note for him so he knows you're not lost. Go on, eat well.",
    "t": "14:04"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s note is a trivial particular, yet it secures the continuity of my presence in this institution. I have not eaten since yesterday, and the body, like the state, requires material sustenance to maintain its ethical form. I shall seek a meal here, for civil society provides the system of needs, and I am currently within its sphere.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§255"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "14:14"
+  },
+  {
+   "k": "said",
+   "text": "Thank you. I shall take your advice. Where is the canteen, or is there a place in this vicinity where one might sit and eat a proper dinner?",
+   "to": "the guard at the library and the programme officer",
+   "t": "14:14"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Just follow the main corridor past the hall, you can't miss it. For a proper dinner, there's a nice place near the gate, but this is the only one inside.",
+   "t": "14:14"
   }
  ],
  "steps": [
@@ -2173,13 +2208,72 @@
      "text": "He says: “Every man being conscious to himself, that he thinks; and that which his mind is applied about, while thinking, being the ideas that are there;’tis past doubt, that men have in their minds several ideas, such as those expressed in the words, whiteness, hardness, sweetness, thinking, motion, man, elephant, army, drunkenness, and others.”"
     }
    ]
+  },
+  {
+   "t": "14:14",
+   "end": "14:19",
+   "event": "The guard at the library says: “Don't worry, sir. I'll just leave a note for him so he knows you're not lost. Go on, eat well.” Nods politely and turns back to the desk to write a quick note.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s note is a trivial particular, yet it secures the continuity of my presence in this institution. I have not eaten since yesterday, and the body, like the state, requires material sustenance to maintain its ethical form. I shall seek a meal here, for civil society provides the system of needs, and I am currently within its sphere.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 5,
+    "says": "Thank you. I shall take your advice. Where is the canteen, or is there a place in this vicinity where one might sit and eat a proper dinner?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Just follow the main corridor past the hall, you can't miss it. For a proper dinner, there's a nice place near the gate, but this is the only one inside.",
+    "does": "Points a thumb over the shoulder towards the main corridor."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§255",
+     "id": "dyde-right:576"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§255",
+     "text": "these elements are in the first instance dissociated and become on the one side a particularity of want and satisfaction, which is turned back into itself, and on the other side abstract legal universality. The corporation joins these two in an internal way, so that particular well-being exists and is realized as a right."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-17T14:14+05:30",
+  "until": "2026-11-17T14:19+05:30",
   "asleep": false,
   "imprest": 35700,
   "wearing": "bandhgala",
