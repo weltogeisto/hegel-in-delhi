@@ -143,15 +143,16 @@ def _switches(steps, key):
     return sum(1 for (i, a), (j, b) in zip(steps, steps[1:]) if j == i + 1 and a["decision"][key] != b["decision"][key])
 
 
-def row(day, doctrine=None):
-    """One day's read, or None when the day has fewer than FLOOR thoughts.
+def row(day, doctrine=None, floor=FLOOR):
+    """One day's read, or None when the day has fewer than `floor` thoughts (FLOOR, unless a rehearsal with a stand-in,
+    whose days are shorter, asks for less).
 
     `doctrine` is an optional compiled pattern; the row counts its matches in the thoughts as `doctrine`, and
     `doctrine` is None without one."""
     decided = [s for s in day.get("steps") or [] if "decision" in s]
     indexed = [(i, s) for i, s in enumerate(decided)
                if (s.get("mind") or {}).get("source") in MINDS and s["decision"].get("thought")]
-    if len(indexed) < FLOOR:
+    if len(indexed) < max(1, floor):
         return None
     steps = [(s, decided[i - 1] if i else None) for i, s in indexed]
     n = len(steps)

@@ -1,4 +1,5 @@
 """Talking to the mind on the PC (llama-server, OpenAI-compatible), and a stand-in for rehearsals."""
+import hashlib
 import json
 import logging
 import random
@@ -27,7 +28,7 @@ class HTTPMind:
 
     def __init__(self, url, wake=None, timeout=300, temperature=0.7, voice_adapter_scale=None,
                  writing_reasoning_tokens=0, writing_adapter_scale=None,
-                 decision_reasoning_tokens=0, decision_adapter_scale=None, decision_dry=0.0):
+                 decision_reasoning_tokens=0, decision_adapter_scale=None, decision_dry=0.0, seed=None):
         self.url, self.wake, self.timeout, self.temperature = url.rstrip("/"), wake, timeout, temperature
         if not 0 <= decision_dry <= 2:
             raise ValueError("decision_dry must be from 0 to 2")
@@ -46,6 +47,7 @@ class HTTPMind:
         self.writing_reasoning_tokens = writing_reasoning_tokens
         self.writing_adapter_scale = writing_adapter_scale
         self.ready = False
+        self.seed, self.calls = seed, 0          # a base seed (HEGEL_SEED, --seed) and the number of chat and complete calls so far
 
     def health(self, timeout=3):
         try:
@@ -82,6 +84,14 @@ class HTTPMind:
             return self.chat(messages, schema, max_tokens=max_tokens)
         return self.chat(messages, schema, max_tokens=max_tokens, adapter_scale=self.voice_adapter_scale)
 
+    def next_seed(self, own=None):
+        """The seed to send with the next call: its own if it was given one, else derived from the base seed and this call's running number
+        (a stable hash, not Python's randomised hash()), else None. Counts every call, so the same run asks the same questions in the same order."""
+        self.calls += 1
+        if own is not None or self.seed is None:
+            return own
+        return int.from_bytes(hashlib.sha256(f"{self.seed}:{self.calls}".encode()).digest()[:4], "big") & 0x7FFFFFFF
+
     @staticmethod
     def _check_reasoning_budget(tokens):
         if type(tokens) is not int or not 0 <= tokens <= 2048:
@@ -115,7 +125,8 @@ class HTTPMind:
                          adapter_scale=self.writing_adapter_scale)
 
     def chat(self, messages, schema=None, max_tokens=700, temperature=None, *, adapter_scale=None,
-             reasoning_budget=0, dry=0.0):
+             reasoning_budget=0, dry=0.0, seed=None):
+        seed = self.next_seed(seed)
         if adapter_scale is None and self.voice_adapter_scale is not None:
             adapter_scale = 1
         if adapter_scale not in (None, 0, 1):
@@ -129,6 +140,8 @@ class HTTPMind:
             payload["reasoning_budget_tokens"] = reasoning_budget
         if adapter_scale is not None:
             payload["lora"] = [{"id": 0, "scale": adapter_scale}]
+        if seed is not None:
+            payload["seed"] = seed
         if dry:                     # llama.cpp's DRY sampler: continuing a run of words already in the context costs more the longer it gets
             payload.update(dry_multiplier=dry, dry_base=DRY_BASE, dry_allowed_length=DRY_ALLOWED, dry_penalty_last_n=DRY_LAST_N)
         if schema:
@@ -154,6 +167,7 @@ class HTTPMind:
         """The text that continues prompt, from llama-server's /completion: the raw prompt, no chat template, no system prompt and no stop
         string (a model that opens with a blank line would stop before its first word), so the caller cleans up. It is sampled against loops
         (repeat penalty, DRY). MindAway as for chat()."""
+        seed = self.next_seed(seed)
         self.ensure_awake()
         payload = {"prompt": prompt, "n_predict": max_tokens, "temperature": self.temperature if temperature is None else temperature,
                    "cache_prompt": False, "repeat_penalty": REPEAT_PENALTY, "repeat_last_n": REPEAT_LAST_N, "dry_multiplier": DRY_MULTIPLIER}
@@ -340,3 +354,62 @@ class StubMind:
                                "depesche": "(rehearsal) A Depesche would go here." if "depesche" in props else None,
                                "theses": theses})
         return "{}"
+
+
+class StubNo(StubMind):
+    """The stand-in that declines every yes/no choice (an offer, an invitation, a ticket); everything else is the stub's."""
+
+    def chat(self, messages, schema=None, max_tokens=700, temperature=None):
+        if "answer" in (schema or {}).get("properties", {}):
+            return json.dumps({"answer": "no"})
+        return super().chat(messages, schema, max_tokens, temperature)
+
+
+class StubHome(StubMind):
+    """The stand-in that leaves home only for what he has booked: a lesson or a talk (the stub's own booking), the Directorate on the days
+    and hours the stub would go. Any other walk away from home becomes an hour or so of reading or rest at home; the rest is the stub's."""
+
+    def directorate(self, sit, now):
+        vouchers = next((int(v[2].replace(",", "")) for x in sit.get("on_mind", []) if (v := VOUCHERS.search(x))), 0)
+        return vouchers > 2000 and "estates" in sit["open_now"] and sit["place"] != "estates" and 570 <= now <= 16 * 60 and sit["day"][:3] in ("Mon", "Tue", "Wed", "Thu", "Fri")
+
+    def decide(self, messages, sit):
+        ans = json.loads(super().decide(messages, sit))
+        h, m = map(int, sit["time"].split(":"))
+        now = h * 60 + m
+        if ans["action"] == "walk" and ans["place"] != "home" and ans["place"] != sit["place"]:
+            booked = self.booked(sit, now)
+            if not ((booked and booked[0] == ans["place"]) or (ans["place"] == "estates" and self.directorate(sit, now))):
+                r = random.Random(f"{sit['id']}|home")
+                ans.update(action=r.choice(["read", "write", "rest"]), place=sit["place"], minutes=r.choice([30, 45, 60]), says=None, buys=[])
+                self.thought(ans, sit)
+        return json.dumps(ans)
+
+
+class StubWalker(StubMind):
+    """The stand-in that goes out whenever he is at home, free (no lesson under way, no talk booked, between five in the morning and eight in the evening)
+    and some place other than home is open: to the place he has been to least. 'Least' is a counter on this mind object (a place counts when he
+    arrives there, or when the walker sends him), ties broken by the place's name, so a fresh mind begins at zero everywhere. Away from home
+    it is the stub, whose coin-flip brings him back."""
+
+    def __init__(self):
+        self.seen = {}
+
+    def decide(self, messages, sit):
+        ans = json.loads(super().decide(messages, sit))
+        h, m = map(int, sit["time"].split(":"))
+        now, here = h * 60 + m, sit["place"]
+        if "arrive" in sit["event"]:
+            self.seen[here] = self.seen.get(here, 0) + 1
+        free = 5 * 60 <= now < 20 * 60 and not self.booked(sit, now) and not (self.lesson[0] == sit["day"] and now < self.lesson[1])
+        out = sorted(p for p in sit["open_now"] if p not in ("home", here))
+        refused = any("refuses" in x.get("content", "") for x in messages if x["role"] == "user")      # after a refusal the stub's walk home stands
+        if here == "home" and free and out and not refused and ans["action"] not in ("eat", "sleep") and not any(x in sit["event"] for x in ("laid out", "serves dinner")):
+            goal = min(out, key=lambda p: (self.seen.get(p, 0), p))
+            self.seen[goal] = self.seen.get(goal, 0) + 1
+            ans.update(action="walk", place=goal, minutes=30, says=None, buys=[])
+            self.thought(ans, sit)
+        return json.dumps(ans)
+
+
+STAND_INS = {"stub": StubMind, "stub:no": StubNo, "stub:home": StubHome, "stub:walker": StubWalker}

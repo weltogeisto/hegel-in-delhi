@@ -8,10 +8,10 @@ The plan is `WORLD-2.md`; week 0's packets are `pc/WORLD-2-WEEK0.md`. No GPU and
 
 | Task | Owner | State | Next |
 |---|---|---|---|
-| T54 · world health | Claude, then the PC seat | The module is built: `world/health.py`, read by `tools/world_health.py`. In work: the engine's `opened` field, the offer funnel, `world report --health` | The PC seat adds `--health` to the nightly report once this is on main |
-| T55 · the rehearsal | Claude, then the PC seat | In work: `simulate --days N`, `--set`, `--docs`, four stand-ins, seeds, `tools/fork_diff.py` | The PC seat measures the band of noise: two forks of one saved morning, nothing changed |
-| T56 · the file's next act | Claude drafts, Welt edits | Drafted: `pc/FILE-NEXT-ACT.md`. Not in `plot.json` | Welt's pen. Best before his 20 November; later does no harm |
-| T57 · what the voices say: the count | Claude | The sample is drawn: 100 of 230 recorded replies, seed 1831 (`pc/exports/voice-claims-20261116/`). Two readers are at work; Claude settles | The report sizes T57's arms |
+| T54 · world health | Claude, then the PC seat | Built: `world/health.py`, the step's `opened` field, the day's offer `funnel`, `python3 -m world report --health` | The PC seat adds `--health` to the nightly report once this is on main |
+| T55 · the rehearsal | Claude, then the PC seat | Built: `simulate --days N` (thirty stand-in days in 23 s), `--set`, `--docs` for forks, four stand-ins, `--seed`, `tools/fork_diff.py` | The PC seat measures the band of noise: two forks of one saved morning, nothing changed |
+| T56 · the file's next act | Claude drafts, Welt edits | Drafted and checked against the Act and the rules: `pc/FILE-NEXT-ACT.md`, `research/FILE-NEXT-ACT-CHECK.md`. Not in `plot.json` | Welt's pen. Best before his 20 November; later does no harm |
+| T57 · what the voices say: the count | Claude | DONE: of 100 recorded replies, 8 contradict the record and 26 to 38 carry a promise nobody wrote down; of 11 promises followed, 1 was kept (`pc/exports/voice-claims-20261116/REPORT.md`) | T57 does not shrink. Promises come first; recorded facts for Shri Hegde and each person's `he` or `she` are cheap and near |
 | T69 · what he wants | Claude, then the PC seat | The screen is declared: `pc/WANTS-SCREEN.md`. The switch `HEGEL_WANTS` follows the engine packet | Welt reads the sentence. Then the PC seat runs the screen |
 
 ## Current, 15 November 2026

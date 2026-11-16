@@ -86,6 +86,7 @@ class Config:
         self.decision_draws = int(v.get("HEGEL_DECISION_DRAWS", "1") or 1)                              # T49: replies to choose among, 1 off
         if not 1 <= self.decision_draws <= 6:
             raise ValueError("HEGEL_DECISION_DRAWS must be from 1 to 6")
+        self.seed = int(v["HEGEL_SEED"]) if v.get("HEGEL_SEED", "").strip() else None                    # a base seed: every call to the mind sends one derived from it (world/mind.py); unset, none is sent
         self.write_mode = "plain" if v.get("HEGEL_WRITE_MODE", "chat").strip().lower() == "plain" else "chat"      # his writings: the chat call (default), or a plain-text completion
 
     def get(self, key, default=None):

@@ -100,7 +100,9 @@ class World(Economy):
             c = load("culture.json")
             self.places, self.walks = {**self.places, **c["places"]}, {**self.walks, **c["walk"]}
         self.cast = load("cast.json")["cast"]
-        self.beats = load("plot.json")["beats"] + load("offers.json")["offers"]
+        offers = load("offers.json")["offers"]
+        self.beats = load("plot.json")["beats"] + offers
+        self.offer_ids = {o["id"] for o in offers}             # which beats come from offers.json: `opened` names them offer:<id>
         self.costs = load("costs.json")["costs"]
         self.holidays = load("holidays.json")["holidays"]
         self.sensitive = wordlist("sensitive.txt", "s?")
@@ -438,8 +440,9 @@ class World(Economy):
     def beat(self, bid):
         return next(b for b in self.beats if b["id"] == bid)
 
-    def eligible(self, b, t, state, pid=None, timed=True):
-        """Does beat b want to fire at time t with Hegel at pid? With timed=False the time window is ignored."""
+    def eligible(self, b, t, state, pid=None, timed=True, placed=True):
+        """Does beat b want to fire at time t with Hegel at pid? With timed=False the time window is ignored; with
+        placed=False so are his place and the people it needs. It changes nothing but makes the books on first need (ledger)."""
         d, m = t.date(), minute_of(t)
         if b["id"] in state["beats"] or b["id"] in state.get("missed", []):
             return None
@@ -461,6 +464,8 @@ class World(Economy):
                 return None
         if timed and b.get("window") and not hm(b["window"][0]) <= m < hm(b["window"][1]):
             return None
+        if not placed:
+            return b
         variant = dict(b)
         if b.get("variants"):
             if pid not in b["variants"]:
@@ -547,6 +552,11 @@ class World(Economy):
         wx = self.wx_at(t)
         present = self.present_ids(pid, t, state)
         events = []          # (prompt, public entry or None)
+        opened = []          # what opened the moment: one kind for each event that has words, each once, in order
+
+        def kind(k):
+            if k not in opened:
+                opened.append(k)
         self.ledger(state)
         self.track(state, d, pid, present)
         beat = self.due_beat(t, state, pid)
@@ -557,9 +567,11 @@ class World(Economy):
         read = (prev_step or {}).get("read")
         if read and prev_step.get("end") == fmt(m):                # what he looked up on his phone, as the step ends
             events.append((f"On your phone you read: {read['title']}. {read['text']}" if read.get("text") else read["note"], None))
+            kind("read")
         said = (prev_step or {}).get("voice")
         if said and prev_step.get("end") == fmt(m) and not prev_step.get("left"):
-            events.append((voices.heard(said), None))              # their answer to what he said, as the step ends
+            events.append((voices.heard(said), None))
+            kind("reply")                                          # their answer to what he said, as the step ends
         # A step that took him elsewhere ends where he went: the answer stays with that step, in the record, and
         # does not follow him (a bookseller's line reached him at home at 38:25 and 45:25).
 
@@ -574,11 +586,14 @@ class World(Economy):
             if papers:
                 line += f" {where} Headlines: " + "; ".join(papers) + "."
             events.append((line, {"k": "world", "text": "Morning papers: " + " · ".join(f"“{x}”" for x in papers)} if papers else None))
+            kind("papers" if papers else "wake")
             listing = self.listings(d) if self.culture else None
             if listing:
                 events.append((listing, {"k": "world", "text": listing}))
+                kind("listings")
         elif m == 0:
             events.append(("Midnight. The house is dark and quiet.", None))
+            kind("late")
 
         if prev_step and prev_step.get("arrived") == pid and pid != "home":
             close = self.closes(pid, t, state)
@@ -586,29 +601,43 @@ class World(Economy):
             if close:
                 line += f" It closes at {fmt(close)}."
             events.append((line, None))
+            kind("arrive")
 
         if beat:
             events.append((beat["prompt"], None))
+            if beat.get("session"):
+                kind("session:" + beat["session"])
+            else:
+                kind(("offer:" if beat["id"] in self.offer_ids else "beat:") + beat["id"])
         if state.get("post"):                                 # HEGEL_CORRESPONDENT: a letter from Munich has come
-            events += post.event(state, present, self.post_card())
+            letter = post.event(state, present, self.post_card())
+            events += letter
+            if any(p for p, _ in letter):
+                kind("post")
         lines, entries = self.upkeep(t, state, pid, present, today)
         events += [(x, None) for x in lines] + [("", e) for e in entries]
+        if any(lines):
+            kind("purse")
 
         if pid != "home" and not self.is_open(pid, t, state):
             events.append((f"{self.places[pid]['name']} is closing. You must leave.", None))
+            kind("closing")
         elif pid != "home":
             close = self.closes(pid, t, state)
             if close and 0 < close - m <= 30 and not (prev_step and prev_step.get("arrived") == pid):
                 events.append((f"{self.places[pid]['name']} closes at {fmt(close)}.", None))
+                kind("closes")
 
         if pid == "home" and not state.get("asleep"):
             meal, why = meal_at(m), self.kitchen(state)
             if why and meal and "no_meals" not in today:
                 today["no_meals"] = True
                 events.append((why, None))                         # said once a day: the kitchen is shut until it is paid
+                kind("kitchen")
             elif not why and meal == "breakfast" and "breakfast" not in today and "ramesh" in present:
                 today["breakfast"] = True
                 events.append((f"Ramesh has laid out breakfast: {random.Random(f'breakfast|{d}').choice(BREAKFAST)}.", None))
+                kind("meal")
             elif not why and meal == "lunch" and "lunch" not in today:
                 today["lunch"] = True
                 if "ramesh" in present:
@@ -618,14 +647,17 @@ class World(Economy):
                     events.append(("Ramesh comes only on Mondays, Thursdays and Saturdays now. There is no lunch at home today."
                                    if state.get("flags", {}).get("ramesh_parttime") else
                                    "Ramesh has his day off. There is no lunch at home today.", None))
+                kind("meal")
             elif not why and meal == "dinner" and "dinner" not in today and "ramesh" in present:
                 today["dinner"] = True
                 menu = random.Random(f"dinner|{d}").choice(DINNER)
                 events.append((f"Ramesh serves dinner before he goes home: {menu}.", None))
+                kind("meal")
             elif not why and TEA_WINDOW[0] <= m < TEA_WINDOW[1] and "tea" not in today and "ramesh" in present:
                 today["tea"] = True                                # tea is brought, not asked for: it holds hunger off two hours
                 self.feed(state, t, "snack")
                 events.append((f"Ramesh brings tea: {random.Random(f'tea|{d}').choice(TEA)}.", {"k": "world", "text": "Ramesh brings tea."}))
+                kind("tea")
             cut = random.Random(f"power|{d}")
             if cut.random() < 0.06:
                 at = cut.randint(1140, 1290)
@@ -633,9 +665,11 @@ class World(Economy):
                     today["power"] = True
                     light = "Ramesh lights two candles." if "ramesh" in present else "You find candles in the kitchen drawer."
                     events.append((f"The power goes. The fan stops. {light}", {"k": "world", "text": "A power cut. The fan stops."}))
+                    kind("power")
             if m >= 1380 and "late" not in today:
                 today["late"] = True
                 events.append(("It is late. The house is quiet.", None))
+                kind("late")
 
         outdoor = self.places[pid].get("outdoor")
         if outdoor and wx["rain"] >= 1 and today.get("rain_reported", -999) < m - 120:
@@ -643,9 +677,11 @@ class World(Economy):
             heavy = wx["rain"] >= 4
             events.append(("Heavy rain begins." if heavy else "It begins to rain.",
                            {"k": "world", "text": "Heavy rain." if heavy else "Rain."}))
+            kind("rain")
         if wx.get("aqi") and wx["aqi"] >= 300 and "bad_air" not in today and not state.get("asleep"):
             today["bad_air"] = True
             events.append((f"The air is very poor today: the index stands at {wx['aqi']}.", None))
+            kind("air")
 
         seen = set(today.get("seen", {}).get(pid, []))
         new = [c for c in present if c not in seen and not self.cast[c].get("background") and not (beat and c in beat.get("brings", []))]
@@ -653,18 +689,24 @@ class World(Economy):
         if new:
             bits = [f"{self.cast[c]['name']} is here." if c in known else f"{self.short(c)} is here; you have not met." for c in new]
             events.append((" ".join(bits), None))
+            for c in new:
+                kind("here" if c in known else f"stranger:{c}")
         today.setdefault("seen", {})[pid] = sorted(seen | set(present))
 
         body, felt = self.needs(t, state)
         events += [(x, None) for x in felt]
+        for x in felt:
+            kind("felt" if "tired" in x else "hunger")
         if self.culture and not state.get("asleep") and pid != "home":
             stage = self.on_stage(pid, t, today)
             if stage:
                 events.append((stage, None))
+                kind("listings" if stage.startswith("Tonight here: ") else "part")
             elif not any(p for p, _ in events):
                 seen_here = self.sight(pid, d, today)
                 if seen_here:
                     events.append((seen_here, None))
+                    kind("sight")
         if not any(p for p, _ in events):
             part = "morning" if m < 720 else "afternoon" if m < 1020 else "evening" if m < 1260 else "night"
             events.append((f"Nothing in particular happens. The {part} goes on.", None))
@@ -753,7 +795,7 @@ class World(Economy):
         if self.culture:
             sit["places"] = list(self.places)                 # the decision's place list widens with the venues
         self.show_plan(sit, day)
-        ctx = {"t": t, "present": present, "beat": beat, "public": [e for _, e in events if e],
+        ctx = {"t": t, "present": present, "beat": beat, "public": [e for _, e in events if e], "opened": opened,
                "fresh": [c for c in new if c in known]}
         return sit, ctx
 
@@ -1049,6 +1091,8 @@ class World(Economy):
         state["asleep"] = night
         step = {"t": fmt(minute_of(t0)), "end": "24:00" if end >= midnight else fmt(minute_of(end)),
                 "event": sit["event"], "present": sit["present"], "decision": ans, "arrived": arrived}
+        if "opened" in ctx:
+            step["opened"] = list(ctx["opened"])        # what opened this moment (the engine's own words for it, not the event's)
         if ctx.get("reply"):
             step["voice"] = ctx["reply"]            # opens the next situation, unless he left
             if plan["moves"]:
