@@ -46,6 +46,7 @@ class Config:
         self.shelf_additions = v.get("HEGEL_SHELF_ADDITIONS", "0").strip().lower() in ("1", "yes", "true")   # M2: a label names an editor's addition; off until Welt's word
         self.culture = v.get("HEGEL_CULTURE", "0").strip().lower() in ("1", "yes", "true")   # museums, concerts and plays (pc/CULTURE.md); off until switched on
         self.correspondent = v.get("HEGEL_CORRESPONDENT", "0").strip().lower() in ("1", "yes", "true")   # Niethammer writes from Munich (pc/CORRESPONDENT.md); off until switched on
+        self.pause_away = v.get("HEGEL_PAUSE_AWAY", "0").strip().lower() in ("1", "yes", "true")   # hold his world at waking while the PC is away (pc/PAUSE.md); off until switched on
         self.news_feeds = [u.strip() for u in v.get("NEWS_FEEDS", (
             "https://www.thehindu.com/news/national/feeder/default.rss,"
             "https://indianexpress.com/section/india/feed/")).split(",") if u.strip()]

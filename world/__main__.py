@@ -21,7 +21,7 @@ from collections import Counter
 from datetime import date, timedelta
 from pathlib import Path
 
-from . import nightly_report, report, shelf, works
+from . import nightly_report, pause, report, shelf, works
 from .clock import fmt, minute_of, now_ist, parse_now
 from .config import Config
 from .engine import Days, Engine, until_of
@@ -71,6 +71,10 @@ def cmd_tick(cfg, args):
     mind = make_mind(cfg, args.mind)
     owl_mind = mind if args.mind == "stub" or not cfg.owl_url or cfg.owl_url == cfg.mind_url else HTTPMind(cfg.owl_url, wake=cfg.wake, timeout=cfg.timeout)
     engine = Engine(cfg, World(Feeds(cfg), culture=getattr(cfg, "culture", False)), mind, git=Git(cfg) if not args.no_git else None, owl_mind=owl_mind)
+    if getattr(cfg, "pause_away", False) and not args.now:
+        now = pause.gate(cfg, engine, mind, now_ist(cfg.base_shift_min))       # None while his world is held
+        if now is None:
+            return 0
     engine.tick(now)
     if engine.git:
         try:
@@ -359,6 +363,8 @@ def main():
     r.add_argument("--json", action="store_true", help="one JSON object per day")
     args = p.parse_args()
     cfg = Config()
+    if getattr(cfg, "pause_away", False):
+        pause.apply(cfg)                        # his clock trails Delhi's by the days his world was held
     setup_logging(cfg, args.verbose)
     return {"tick": cmd_tick, "start": cmd_start, "status": cmd_status, "simulate": cmd_simulate, "owl": cmd_owl, "check": cmd_check,
             "report": cmd_report}[args.cmd](cfg, args)

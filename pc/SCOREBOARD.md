@@ -19,6 +19,7 @@ Two versions of his instructions answer the same recorded situations, three seed
 
 | Date | Screen | n | New preferred | Live preferred | Tie | Flags, new / live | Result |
 |---|---|---:|---:|---:|---:|---|---|
+| 15 Nov | M1 confirmation, Days 44–45, rule `m1-v2` | 24 | 16 | 4 | 4 | 11 / 12 | **passed**; starvation days, a caveat (`pc/exports/m1-confirmation-20261115/judgment/REPORT.md`) |
 | 13 Nov | M1: `soul-ordinary.md` (B) against `soul.md` (A) | 24 | 19 | 3 | 2 | 3 / 3 | not passed as declared: the regression clause fails for either version; B stays off (`pc/exports/m1-screen-20261113/judgment/REPORT.md`) |
 
 ## Rewrites: fidelity under the rubric of 7 November

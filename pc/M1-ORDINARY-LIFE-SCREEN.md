@@ -86,3 +86,11 @@ Days 44 and 45 were complete by the morning of 15 November and held 19 ordinary 
 - **The rule:** `m1-v2`, written into the manifest.
 - **Next:** Astra runs the 144 calls by day, then hands over `SHEET.jsonl` and its hashes first.
 
+## The confirmation's result, 15 November
+
+**Passed under `m1-v2`.** Blind, B was preferred in 16 of 24 situations (bar 16), A in 4, with 4 ties. B was flagged in 11 situations, A in 12 (bar: A's plus one). Lecture-hall terms per thought fell from 2.51 to 1.42. The report is `pc/exports/m1-confirmation-20261115/judgment/REPORT.md`, with Claude's correction of a mistaken note made before the key.
+
+**The caveat:** Days 44 and 45 were starvation days, with little ordinary life in them.
+
+**Welt's word, 15 November (`DECISIONS.md` 34):** B runs on shadow as a provisional trial, `HEGEL_SOUL_FILE=mind/soul-ordinary.md`, after the letter from Munich's first full day. Its days are read with stage 1's profile (`pc/PARIS-BACKTEST.md`), on days with money. Setting it back to `mind/soul.md` ends the trial.
+
