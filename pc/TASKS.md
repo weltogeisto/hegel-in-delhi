@@ -2,6 +2,18 @@
 
 Rules: `COLLABORATION.md`. PR #1 comments only for done, blocked or a question, at most six lines. The top open task for each owner comes first. Status is one of `OPEN`, `RUNNING`, `DONE` (with commit and numbers) or `BLOCKED` (with what is needed).
 
+## The world, phase two: week 0 · Welt's go, 16 November (`DECISIONS.md` 36)
+
+The plan is `WORLD-2.md`; week 0's packets are `pc/WORLD-2-WEEK0.md`. No GPU and nothing live until the PC seat's three steps at the end of that file. Weeks 1 and after wait for Welt's word.
+
+| Task | Owner | State | Next |
+|---|---|---|---|
+| T54 · world health | Claude, then the PC seat | The module is built: `world/health.py`, read by `tools/world_health.py`. In work: the engine's `opened` field, the offer funnel, `world report --health` | The PC seat adds `--health` to the nightly report once this is on main |
+| T55 · the rehearsal | Claude, then the PC seat | In work: `simulate --days N`, `--set`, `--docs`, four stand-ins, seeds, `tools/fork_diff.py` | The PC seat measures the band of noise: two forks of one saved morning, nothing changed |
+| T56 · the file's next act | Claude drafts, Welt edits | Drafted: `pc/FILE-NEXT-ACT.md`. Not in `plot.json` | Welt's pen. Best before his 20 November; later does no harm |
+| T57 · what the voices say: the count | Claude | The sample is drawn: 100 of 230 recorded replies, seed 1831 (`pc/exports/voice-claims-20261116/`). Two readers are at work; Claude settles | The report sizes T57's arms |
+| T69 · what he wants | Claude, then the PC seat | The screen is declared: `pc/WANTS-SCREEN.md`. The switch `HEGEL_WANTS` follows the engine packet | Welt reads the sentence. Then the PC seat runs the screen |
+
 ## Current, 15 November 2026
 
 The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). Welt confirmed its six decisions the same day; they are `DECISIONS.md` 16–22, with Delta kept only as a diagnostic. The 48-hour delivery target runs from 7 November. The T-history below is kept; the M-packets are the manual's §10.

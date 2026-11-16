@@ -89,9 +89,18 @@ Welt's calls, the evening of 15 November:
     5. the museums, concerts and plays.
 35. **An answer stays where it was given.** When he speaks as he leaves, the answer belongs to that step and its record. It no longer opens his next moment at the place he walked to (at 38:25 and 45:25 a bookseller's line reached him at home).
 
+Welt's calls, 16 November:
+
+36. **The world's second phase starts with week 0** of `WORLD-2.md`: the instrument (world health, the rehearsal, forks), the counts of rule 7, the file's next act in draft, and the `wants` line with its screen. No GPU and nothing live. The packets are in `pc/WORLD-2-WEEK0.md`.
+    - **What this go does not cover:** weeks 1 and after, and the ten calls under "What Welt decides" in `WORLD-2.md`. Each waits for his word.
+37. **He is to be freer to decide what he does in this world.** The plan gains its seventh chapter for it: he may name what is not offered, and his wishes are kept for Welt to read. A bicycle, with a shop that sells one, joins the second ring of places (T61).
+    - **Why:** all 39 intentions in his recorded morning plans stay inside the menu the world lists.
+38. **Who does which work in the cloud, and how sources are read:** planning stays with Claude in the cloud; reading, code and checks go to agents on Sonnet 5.5, briefed and checked. A paper that carries a decision is read in full (`COLLABORATION.md`, under Roles).
+
 ## Still open
 
-- Nothing at the moment.
+- The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.
+- Whether the two rules of 38 also bind the PC seat.
 
 ## Ideas, not yet decided
 
