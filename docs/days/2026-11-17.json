@@ -307,6 +307,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Reading at home."
+  },
+  {
+   "from": "09:47",
+   "to": "10:02",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -351,6 +358,41 @@
     }
    ],
    "t": "09:17"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Hegde ji, you're still here? Ramesh walked out yesterday saying his wage was missing, so there's no khichdi today. I'm going to have to make do with Maggi again.",
+   "t": "09:47"
+  },
+  {
+   "k": "diary",
+   "text": "The pot is empty because the particular interest of the cook was not satisfied; the universal order of the household cannot exist without the satisfaction of its particular members. I hold six rupees, which is a negligible quantity in the face of a four-day arrears, but it is the only concrete movement of spirit I possess. I must speak to Hegde, for the friction between our names and our circumstances is the only thing keeping this bungalow from dissolving into chaos.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    }
+   ],
+   "t": "09:47"
+  },
+  {
+   "k": "said",
+   "text": "Hegde ji, the state of our kitchen is a direct reflection of the state of our finances. I possess six rupees in cash, which is insufficient to settle Ramesh's wage of four thousand rupees. However, I can advance these six rupees to you for the Maggi, so that at least the body is not left to starve while we await the orders of the Directorate. The particular need for food must be met, even if the universal debt remains unpaid.",
+   "to": "Shri G. Hegde",
+   "t": "09:47"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "You're joking, aren't you? Six rupees won't even buy the Maggi, let alone settle Ramesh. Just call him, tell him to come back tomorrow, and I'll sort it out with the Directorate today.",
+   "t": "09:47"
   }
  ],
  "steps": [
@@ -404,13 +446,71 @@
      "text": "Was sich wirklich im Staate geltend macht, muß sich freilich auf organische Weise betätigen, und dies ist in der Verfassung der Fall. Aber zu allen Zeiten war die öffentliche Meinung eine große Macht und ist es besonders in unserer Zeit, wo das Prinzip der subjektiven Freiheit diese Wichtigkeit und Bedeutung hat."
     }
    ]
+  },
+  {
+   "t": "09:47",
+   "end": "10:02",
+   "event": "Nothing is cooked at home: Ramesh has not been paid his wage for cooking. Shri G. Hegde is here. Shri G. Hegde says: “Hegde ji, you're still here? Ramesh walked out yesterday saying his wage was missing, so there's no khichdi today. I'm going to have to make do with Maggi again.” Gestures vaguely towards the empty kitchen counter.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The pot is empty because the particular interest of the cook was not satisfied; the universal order of the household cannot exist without the satisfaction of its particular members. I hold six rupees, which is a negligible quantity in the face of a four-day arrears, but it is the only concrete movement of spirit I possess. I must speak to Hegde, for the friction between our names and our circumstances is the only thing keeping this bungalow from dissolving into chaos.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Hegde ji, the state of our kitchen is a direct reflection of the state of our finances. I possess six rupees in cash, which is insufficient to settle Ramesh's wage of four thousand rupees. However, I can advance these six rupees to you for the Maggi, so that at least the body is not left to starve while we await the orders of the Directorate. The particular need for food must be met, even if the universal debt remains unpaid.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "You're joking, aren't you? Six rupees won't even buy the Maggi, let alone settle Ramesh. Just call him, tell him to come back tomorrow, and I'll sort it out with the Directorate today.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 14.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "id": "haldane-1:832"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "text": "Socrates explains this in the following way: “It appears to me to be as if some one were to say that Socrates performs all his actions with understanding, and then in going on to give the reasons for each of my actions, were to say that I sit here because my body consists of bones and muscles; the bones are fixed and have joints that divide them (διαφυὰς)…"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-17T09:47+05:30",
+  "until": "2026-11-17T10:02+05:30",
   "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
@@ -498,8 +598,11 @@
     "the dhobi|the washing"
    ],
    "seen": {
-    "home": []
-   }
+    "home": [
+     "hegde"
+    ]
+   },
+   "no_meals": true
   },
   "account": {
    "advance": 15000,
@@ -756,7 +859,8 @@
     "2026-11-13",
     "2026-11-14",
     "2026-11-15",
-    "2026-11-16"
+    "2026-11-16",
+    "2026-11-17"
    ],
    "kapoor": [
     "2026-10-28"
@@ -804,7 +908,14 @@
   "missed": [
    "hegde_call"
   ],
-  "commissions": []
+  "commissions": [],
+  "post": {
+   "outbox": [],
+   "sent": [],
+   "letters": [],
+   "deliver": null,
+   "first_due": "2026-11-17"
+  }
  },
  "plan": {
   "written": "09:17",
