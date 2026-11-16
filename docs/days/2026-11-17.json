@@ -531,6 +531,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Going from shop to shop in Khan Market."
+  },
+  {
+   "from": "17:44",
+   "to": "17:59",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Talking with Masterji and Sunil at Khan Market."
   }
  ],
  "entries": [
@@ -1537,6 +1544,34 @@
    "to": "Hegel",
    "text": "It will. Cotton holds its shape better than these people do. Keep it warm.",
    "t": "17:39"
+  },
+  {
+   "k": "diary",
+   "text": "Masterji’s remark is a small dialectic: the material form of the garment outlasts the organic form of the body. Cotton holds its shape because it is dead matter, whereas the living subject is in constant flux. It is a grim comfort to think that my trousers will outlive my dignity.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    }
+   ],
+   "t": "17:44"
+  },
+  {
+   "k": "said",
+   "text": "A fine observation, Masterji. The inorganic persists where the organic dissolves. I shall ensure the cotton is not subjected to the friction of my movements, so that it may remain a monument to my existence long after I have departed the scene.",
+   "to": "Masterji and Sunil",
+   "t": "17:44"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Baba, I cut cloth, not philosophy. You want it to last, stop wringing your hands and stop talking so much.",
+   "t": "17:44"
   }
  ],
  "steps": [
@@ -3515,13 +3550,73 @@
      "text": "This looks like external teleology—that plants are eaten by animals, &c., in which their limitation as genus lies. The genus of the plant has the absolute totality of its realization in the animal, the animal in the conscious existence, just as the earth has it in the plant. This is the system of the whole in which each moment is transitory."
     }
    ]
+  },
+  {
+   "t": "17:44",
+   "end": "17:59",
+   "event": "Masterji says: “It will. Cotton holds its shape better than these people do. Keep it warm.”",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Masterji’s remark is a small dialectic: the material form of the garment outlasts the organic form of the body. Cotton holds its shape because it is dead matter, whereas the living subject is in constant flux. It is a grim comfort to think that my trousers will outlive my dignity.",
+    "action": "talk",
+    "place": "khan",
+    "minutes": 15,
+    "says": "A fine observation, Masterji. The inorganic persists where the organic dissolves. I shall ensure the cotton is not subjected to the friction of my movements, so that it may remain a monument to my existence long after I have departed the scene.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Masterji",
+    "says": "Baba, I cut cloth, not philosophy. You want it to last, stop wringing your hands and stop talking so much.",
+    "does": "He wipes his hands on his apron and turns back to the table."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:643"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1189"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "The civil rights implied in it give rise to a feeling of self-respect, the sense of counting as a lawful person in the civic community. This feeling of being infinite and free from all Others is the root out of which springs the needed balance of the various kinds of thought and sentiment. The isolation with which the Jews have been blamed it is better to preserve."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "For “when Antisthenes turned outside a hole in his cloak, Socrates said to him, I see thy vanity through the hole in thy cloak.” Clothing is not a thing of rational import, but is regulated through needs that arise of themselves. In the North the clothing must be different from that in Central Africa; and in winter we do not wear cotton garments."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-17T17:44+05:30",
+  "until": "2026-11-17T17:59+05:30",
   "asleep": false,
   "imprest": 35620,
   "wearing": "kurta",
