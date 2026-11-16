@@ -335,6 +335,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "10:54",
+   "to": "11:04",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -551,6 +558,34 @@
    "to": "Hegel",
    "text": "Sir, the cheque is the standard procedure for all our guest speakers, so I cannot change the terms myself. But since you are here, I can arrange a complimentary meal at the cafeteria for you today if you like.",
    "t": "10:39"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s offer is a small mercy from the machinery of the state, a recognition of my presence even if my file is in limbo. My body, which has not tasted food in over a day, demands this particular satisfaction before the spirit can contemplate the universal. I accept the meal as an immediate necessity, a suspension of the abstract in favor of the concrete.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato, Philosophy of Nature"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70"
+    }
+   ],
+   "t": "10:54"
+  },
+  {
+   "k": "said",
+   "text": "Guard, your kindness is noted. I accept the meal. The spirit requires nourishment to continue its work.",
+   "to": "the guard at the library and the programme officer",
+   "t": "10:54"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Right, I'll get the token sorted for you, sir. The cafeteria opens at twelve, so you can come down whenever. Please don't touch that book, it's for reference only.",
+   "t": "10:54"
   }
  ],
  "steps": [
@@ -839,13 +874,72 @@
     }
    ],
    "beat": "iic_talk"
+  },
+  {
+   "t": "10:54",
+   "end": "11:04",
+   "event": "The guard at the library says: “Sir, the cheque is the standard procedure for all our guest speakers, so I cannot change the terms myself. But since you are here, I can arrange a complimentary meal at the cafeteria for you today if you like.”",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s offer is a small mercy from the machinery of the state, a recognition of my presence even if my file is in limbo. My body, which has not tasted food in over a day, demands this particular satisfaction before the spirit can contemplate the universal. I accept the meal as an immediate necessity, a suspension of the abstract in favor of the concrete.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 10,
+    "says": "Guard, your kindness is noted. I accept the meal. The spirit requires nourishment to continue its work.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Right, I'll get the token sorted for you, sir. The cafeteria opens at twelve, so you can come down whenever. Please don't touch that book, it's for reference only.",
+    "does": "He writes something on a small notepad and tucks it into his breast pocket."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato, Philosophy of Nature",
+     "id": "haldane-2:205"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "id": "dyde-right:205"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato, Philosophy of Nature",
+     "text": "Time is ideal, like space, not sensuous, but the immediate mode in which mind comes forth in objective form, the sensuous non-sensuous. The real moments of the principle of absolute movement in what is temporal, are those in which changes appear."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "text": "Have I any right to kill myself? The answer is that I, as this individual am not lord over my life, since the comprehensive totality of one's activity, the life, falls within the direct and present personality. To speak of the right of a person over his life is a contradiction, since it implies a right of a person over himself. But no one can stand above and execute himself."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-17T10:54+05:30",
+  "until": "2026-11-17T11:04+05:30",
   "asleep": false,
   "imprest": 35700,
   "wearing": "bandhgala",
