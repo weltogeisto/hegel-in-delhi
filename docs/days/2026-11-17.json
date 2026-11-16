@@ -517,6 +517,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "17:24",
+   "to": "17:39",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -1467,6 +1474,34 @@
    "to": "Hegel",
    "text": "The samosa is not a spirit. It is potato and peas. Eat it or it gets cold.",
    "t": "17:14"
+  },
+  {
+   "k": "diary",
+   "text": "Masterji is right. The samosa is not a spirit; it is potato and peas, and my stomach is demanding the recognition of its own necessity. I shall eat, for the body is the immediate given in which spirit must first find its footing before it can rise.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "17:24"
+  },
+  {
+   "k": "said",
+   "text": "You are correct, Masterji. The particular must be satisfied before the universal can be considered. I accept the potato and peas.",
+   "to": "Masterji and Sunil",
+   "t": "17:24"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Good. Eat it before it tastes like nothing. I am cutting a collar.",
+   "t": "17:24"
   }
  ],
  "steps": [
@@ -3322,13 +3357,73 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "17:24",
+   "end": "17:39",
+   "event": "Masterji says: “The samosa is not a spirit. It is potato and peas. Eat it or it gets cold.” He wipes his hands on a rag and turns back to the cutting table. You are very hungry.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Masterji is right. The samosa is not a spirit; it is potato and peas, and my stomach is demanding the recognition of its own necessity. I shall eat, for the body is the immediate given in which spirit must first find its footing before it can rise.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 15,
+    "says": "You are correct, Masterji. The particular must be satisfied before the universal can be considered. I accept the potato and peas.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Masterji",
+    "says": "Good. Eat it before it tastes like nothing. I am cutting a collar.",
+    "does": "Turns back to the cutting table and picks up the shears."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "id": "haldane-3:468"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "text": "To call him an enthusiast signifies nothing at all. For if we will, all philosophers may be so termed, even the Epicureans and Bacon; for they all have held that man finds his truth in something else than eating and drinking, or in the common-sense every-day life of wood-cutting, tailoring, trading, or other business, private or official."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-17T17:24+05:30",
+  "until": "2026-11-17T17:39+05:30",
   "asleep": false,
   "imprest": 35620,
   "wearing": "kurta",
@@ -3439,7 +3534,7 @@
    "no_meals": true,
    "walked": 2400,
    "strain": 2400,
-   "hunger": 1
+   "hunger": 2
   },
   "account": {
    "advance": 15000,
