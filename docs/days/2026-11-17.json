@@ -503,6 +503,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "16:59",
+   "to": "17:14",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -1397,6 +1404,34 @@
    "item": "Samosa",
    "price": 30,
    "t": "16:44"
+  },
+  {
+   "k": "diary",
+   "text": "Masterji cuts through my abstractions with the blunt instrument of hunger. The samosa is not a symbol; it is fuel, and the filling is indeed hot. I will eat to restore the strength necessary for the evening's walk, for the body must be disciplined before the mind can wander.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§169"
+    }
+   ],
+   "t": "16:59"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Masterji. The filling is hot, and the need is immediate. I accept the sustenance.",
+   "to": "Masterji and Sunil",
+   "t": "16:59"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Good. Eat while it is hot.",
+   "t": "16:59"
   }
  ],
  "steps": [
@@ -3132,13 +3167,73 @@
      "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
     }
    ]
+  },
+  {
+   "t": "16:59",
+   "end": "17:14",
+   "event": "Masterji says: “Eat. The filling is hot, not a dialectic. Thirty rupees, already paid, so just eat before it gets cold.”",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Masterji cuts through my abstractions with the blunt instrument of hunger. The samosa is not a symbol; it is fuel, and the filling is indeed hot. I will eat to restore the strength necessary for the evening's walk, for the body must be disciplined before the mind can wander.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 15,
+    "says": "You are right, Masterji. The filling is hot, and the need is immediate. I accept the sustenance.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Masterji",
+    "says": "Good. Eat while it is hot.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "id": "dyde-right:542"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§169",
+     "id": "rechts:395"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "text": "To right as such, happiness is something external. Tet in the system of wants well-being is an essential element. The universal, which is at first only right, has to spread itself over the whole field of particularity. Justice, it is true, is a large factor in the civic community. The state will flourish, if it has good laws, of which free property is the fundamental condition."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§169",
+     "text": "Das im abstrakten Eigentum willkürliche Moment des besonderen Bedürfnisses des bloß Einzelnen und die Eigensucht der Begierde verändert sich hier in die Sorge und den Erwerb für ein Gemeinsames, in ein Sittliches."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-17T16:59+05:30",
+  "until": "2026-11-17T17:14+05:30",
   "asleep": false,
   "imprest": 35620,
   "wearing": "kurta",
