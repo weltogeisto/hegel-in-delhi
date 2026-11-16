@@ -545,6 +545,13 @@
    "mode": "walk",
    "a": "khan",
    "b": "home"
+  },
+  {
+   "from": "18:26",
+   "to": "18:48",
+   "mode": "walk",
+   "a": "home",
+   "b": "iic"
   }
  ],
  "entries": [
@@ -1607,6 +1614,28 @@
    "to": "Hegel",
    "text": "Good. Don't let the steam touch the shoulders.",
    "t": "17:59"
+  },
+  {
+   "k": "diary",
+   "text": "The body is a mechanism that has no spirit, yet it demands fuel with the indifference of a law. I have walked four kilometres and my stomach is a void that mocks my dialectics. The IIC is open, and it is the only place where I can sit among the living and perhaps find a meal that is not merely a samosa. I must move from the particular need of hunger to the universal comfort of a room.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§219"
+    }
+   ],
+   "t": "18:26"
+  },
+  {
+   "k": "wear",
+   "item": "Bandhgala, charcoal",
+   "status": "Worn from 18:26.",
+   "sprite": "bandhgala",
+   "t": "18:26"
   }
  ],
  "steps": [
@@ -3706,16 +3735,67 @@
      "text": "The power which perpetrates on the conscious individual this wrong of making him into a mere thing, is \" nature \"; it is the universahty not of the community, but the abstract universahty of mere existence. And the particular individual, in wiping out the wrong suffered, turns not against the community — for he has not suffered at its hands — but against the latter."
     }
    ]
+  },
+  {
+   "t": "18:26",
+   "end": "18:48",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [],
+   "decision": {
+    "thought": "The body is a mechanism that has no spirit, yet it demands fuel with the indifference of a law. I have walked four kilometres and my stomach is a void that mocks my dialectics. The IIC is open, and it is the only place where I can sit among the living and perhaps find a meal that is not merely a samosa. I must move from the particular need of hunger to the universal comfort of a room.",
+    "action": "walk",
+    "place": "iic",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "iic",
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 9.9,
+    "draws": {
+     "n": 2,
+     "refused": 1,
+     "echo": 0,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273",
+     "id": "dyde-right:681"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§219",
+     "id": "wallace-logic:934"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273",
+     "text": "The story of this true erection of the ethical life is the subject matter of universal world-history."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§219",
+     "text": "Thus in the other the living being only coalesces with itself. But when the soul has fled from the body, the elementary powers of objectivity begin their play. These powers are, as it were, continually on the spring, ready to begin their process in the organic body; and life is the constant battle against them."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-17T18:26+05:30",
+  "place": "iic",
+  "until": "2026-11-17T18:48+05:30",
   "asleep": false,
   "imprest": 35620,
-  "wearing": "kurta",
+  "wearing": "bandhgala",
   "wardrobe": [
    {
     "id": "frock",
@@ -3740,7 +3820,7 @@
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Worn from 10:17."
+    "status": "Worn from 18:26."
    }
   ],
   "people": [
@@ -3821,8 +3901,8 @@
     ]
    },
    "no_meals": true,
-   "walked": 4425,
-   "strain": 4425,
+   "walked": 6075,
+   "strain": 6075,
    "hunger": 2
   },
   "account": {
