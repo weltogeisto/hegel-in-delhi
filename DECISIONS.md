@@ -101,6 +101,8 @@ Welt's calls, 16 November:
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.
 - Whether the two rules of 38 also bind the PC seat.
+- **Whether an adapter gets a day of its own.** No adapter has run a day in his world: each stopped at its gate first (T29, the forty-case re-audit, Training 3's data gate). Since week 0 a fair day is possible: one saved morning, two forks, plain Qwen against the adapter, the same seeds, read by state and by text (`tools/fork_diff.py`, `world report --health`). It needs T67 first, because today an adapter that is set reaches the owl, the letters and the yes-or-no as well. Claude's advice, 16 November: not for the Training 1 adapter, which changed facts in 12 of 40 rewrites; make the fork day the entry test of the next adapter. Loading an adapter is a hard limit either way.
+- **The sentence for `wants`** (`pc/WANTS-SCREEN.md`) and **the file's next act** (`pc/FILE-NEXT-ACT.md`, seven calls) wait for Welt's pen.
 
 ## Ideas, not yet decided
 

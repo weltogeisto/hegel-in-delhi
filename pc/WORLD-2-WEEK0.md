@@ -74,7 +74,7 @@ Both are additive fields. Nothing he is told changes. `tests/test_rehearsal.py` 
 
 Behind `HEGEL_WANTS`, off. The decision gains an optional field, `wants`: one line, at most 160 characters, or null. The instructions gain one sentence when the switch is on: he may name something he wishes this city had or allowed, and nothing follows from naming it.
 
-- **No effect.** The world reads `wants` into the step and into a ledger under the state (`wishes`: date, time, place, the line). It changes nothing else. A wish is never answered, granted or refused by code in week 0.
+- **No effect.** The world reads `wants` into the step and into the day file's own list (`wishes`: time, place, the line). It changes nothing else, and reaches none of his later prompts. A wish is never answered, granted or refused by code in week 0.
 - **The ledger.** `python3 -m world wishes [--since DATE]` prints it for Welt, by day.
 - **The screen, for the PC seat.** The sentence changes his prompt, so it runs through the M1 procedure on frozen situations: the arm without it twice (the band of noise), the arm with it once. Bars are declared in `pc/WANTS-SCREEN.md` before the run: accepted answers, echo share, lecture-hall terms per thought, each within the band; and how many decisions carry a wish.
 
