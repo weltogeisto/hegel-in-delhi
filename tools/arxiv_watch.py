@@ -74,6 +74,12 @@ TOPICS = {
         'abs:"mode collapse" AND abs:diversity',
         'abs:repetition AND abs:"language model" AND abs:decoding',
     ],
+    "F. Grounding and truthfulness": [       # added 15 November: the watch had no topic for it and missed thirteen papers
+        'abs:ledger AND abs:agents AND abs:"language model"',
+        'abs:commitments AND abs:agents AND abs:"language model"',
+        'abs:NPC AND abs:"language model"',
+        'abs:"story worlds"',
+    ],
     "G. Evaluation with few judges": [
         'abs:"LLM-as-a-judge" AND abs:bias',
     ],

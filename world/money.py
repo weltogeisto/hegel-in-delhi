@@ -310,7 +310,9 @@ class Economy:
 
     # ── offers and their conditions ─────────────────────────────────
     def when_ok(self, w, t, st):
-        """The conditions of an offer: days met, visits, day count, cash, flags, a garment, a manuscript, a date, a cost owed
+        """The conditions of an offer: days met, visits, day count, cash, flags (each equal to a value;
+        flags_in: one of several values, null accepting the flag unset; flags_not: none of the values named, an unset flag
+        passing unless null is among them), a garment, a manuscript, a date, a cost owed
         that his cash cannot meet, cheques held, days of the week."""
         d, cash = t.date(), st["imprest"]
         net = cash - sum(o.get("amount", 0) for o in st.get("owed", []))      # a purse that cannot pay what is owed is thin too
@@ -323,6 +325,10 @@ class Economy:
         if any(len(st["visits"].get(p, [])) < n for p, n in w.get("visits", {}).items()):
             return False
         if any(c not in st.get("people", []) for c in w.get("known", [])) or any(st["flags"].get(k) != v for k, v in w.get("flags", {}).items()):
+            return False
+        if any(st["flags"].get(k) not in v for k, v in w.get("flags_in", {}).items()):
+            return False
+        if any(st["flags"].get(k) in (v if isinstance(v, list) else [v]) for k, v in w.get("flags_not", {}).items()):
             return False
         if w.get("wardrobe") and not self.garment(st, w["wardrobe"]):
             return False

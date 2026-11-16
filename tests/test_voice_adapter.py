@@ -29,12 +29,12 @@ class VoiceAdapterTests(unittest.TestCase):
         self.messages=[{'role':'system','content':'NPC role'},{'role':'user','content':'First encounter.'}]
     def tearDown(self):
         self.server.shutdown();self.thread.join();self.server.server_close()
-    def test_base_voice_does_not_disable_lora_on_the_next_character_call(self):
+    def test_a_call_that_is_not_a_voice_names_scale_zero_once_an_adapter_is_set(self):
         mind=HTTPMind(self.url,voice_adapter_scale=0)
         mind.chat_voice(self.messages,contract.VOICE_SCHEMA)
         mind.chat([{'role':'user','content':'Hegel decision'}],contract.SCHEMA)
         self.assertEqual(Recorder.calls[0][1]['lora'],[{'id':0,'scale':0}])
-        self.assertEqual(Recorder.calls[1][1]['lora'],[{'id':0,'scale':1}])
+        self.assertEqual(Recorder.calls[1][1]['lora'],[{'id':0,'scale':0}])      # P5: no longer the old default of 1
         self.assertEqual([p for p,_ in Recorder.calls],['/v1/chat/completions']*2)
         self.assertFalse(Recorder.calls[0][1]['chat_template_kwargs']['enable_thinking'])
     def test_schema_fallback_preserves_the_base_role_override(self):
