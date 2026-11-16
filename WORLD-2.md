@@ -62,7 +62,7 @@ The last line is why phase two is about the world.
 
 ## The rules of phase two
 
-1. **The world offers and never steers** (`DECISIONS.md` 2 and 8). So the world is gated on what it offers and what it records. What he does with it is read, and never gated. A target for his behaviour would be steering under another name.
+1. **The world offers and never steers** (`DECISIONS.md` 2 and 8). So the world is gated on what it offers and what it records. What he does with it is read, and never gated. A target for his behaviour would be steering under another name. And he may ask for what is not offered (chapter 7).
 2. **Claude may write the world, never the man.** Places, events and storylines are world content, as the venues of `pc/CULTURE.md` are. Everything said and thought inside it comes from the local model. No world text is ever a training target (`mind/train/README.md`).
 3. **One owner for every fact.** If a thing matters later (a gift, a promise, the state of an order), the engine holds it. Prose may describe it. Prose cannot create it.
 4. **Additive, behind switches, one at a time** (`DECISIONS.md` 31). Old day files stay readable, and a switch set back restores the old world byte for byte, as `HEGEL_CULTURE` does.
@@ -71,7 +71,7 @@ The last line is why phase two is about the world.
 7. **Measure the failure before building the cure.** Each chapter starts with a count on the record as it stands: how often a voice asserts what the world does not hold, how often a promise is broken, how often he folds when pressed.
 8. **Say what is shown and what is ours.** A design borrowed from a paper keeps the paper's setting beside it. A design of our own says so.
 
-## Six chapters
+## Seven chapters
 
 ### 1 · The instrument
 
@@ -134,6 +134,7 @@ The last line is why phase two is about the world.
 - **Reading returns something.** Today *read* is a posture. It becomes a text: the article behind a headline, a longer passage of the book he took down, a public-domain book he bought.
 - **A second ring of places,** chosen by the letters: what did he seek abroad, and where is its counterpart within a walk? A church and its music, a reading room with German papers, a collection of natural history or craft, a promenade with company, a table for cards, the post office his letters leave from. Candidates and walking times come from OpenStreetMap. Welt chooses.
 - **The season as Delhi keeps it:** fog, the wedding months, Christmas, the Republic Day rehearsals.
+- **A bicycle** (Welt, 16 November). A cycle shop in a market within his walk, with a second-hand roadster to buy or one to hire by the day. Riding takes about a third of the time on foot, so Kamani is some twenty minutes and not 65, and the old city comes within reach. It widens his map by his own legs, with no auto and no Metro. Drais showed his running machine at Mannheim in 1817, while Hegel taught at Heidelberg, twelve miles off. The pedals came after 1831, so the machine is news to him when he first sees one.
 
 **Shown.** Scenes built through checked operations ran 20 times in 25; scenes written as free text and checked afterwards, 0 in 50. The two arms used different models, so it is a pointer and not a measurement. Those checks were structural. No operation can check a sentence.
 
@@ -254,6 +255,30 @@ So phase two supplies the two things training lacked: labels a rule can verify (
 
 Each run still needs Welt's go, by day and watched. The data rule holds. One bounded run closes each question.
 
+### 7 · Freedom: what he may decide
+
+Added on 16 November, after Welt read the plan: "it still does not feel as if he himself is free enough to decide what to do in this world."
+
+**Why.** He is right, and the record shows it. Chapters 2 to 5 widen the menu. They leave it a menu. His answer has nine verbs and eight places, and his instructions say: "You can be at: home, lodhi, safdarjung, khan, gandhi, gym, iic, estates. Nowhere else yet." So he plans inside it. All 39 intentions of his recorded morning plans name a listed place or a thing the prompt had shown him: the tombs, the papers, a letter to the Directorate. The one time he reached past it, the world said no: he tried to buy the Budget document he had read about, and the price was "not believable". A man told his choices plans his choices.
+
+**What.**
+- **He may say what he wants.** His answer gains one free line, `wants`: what he would do now if he could, in his own words. A piano. A German newspaper. A wine merchant. Someone to play whist with. It costs him nothing and changes nothing by itself.
+- **The wish is answered in the world.** Where the world has it, he is told where. Where it does not, he is told what a stranger would be told: nobody here keeps one, or you do not know where; someone might. Never "that is not allowed".
+- **The world grows where he pushes.** Every wish goes into a ledger with its day and place. Welt reads it weekly and decides what the world gains. The bicycle and the second ring then come from him and not from our guesses about him.
+- **"Nowhere else yet" goes.** He may name any place. One he has never been to and nobody has told him of is a place he does not know the way to. He can ask.
+- **He may begin things.** An undertaking is a thread he starts himself: a course of lectures, Hindi with Ramesh, a whist table on Thursdays. The engine keeps its name, its people and its next date, and brings it back to him. He may drop it.
+- **He may buy what a market would have.** A thing he names at a plausible price is sold, as books already are.
+
+**Shown.** Nothing from a paper. The evidence is our own record, above.
+
+**Ours.** All of it. It is the plan's largest bet and its cheapest first step.
+
+**First, the count** (rule 7). One change only: the `wants` line, with no effect. A week of his days shows what he reaches for that the world lacks. It touches his prompt, so it goes through the ratchet as M1 did.
+
+**How we know.** Wishes a week, and how many the world could meet. Intentions in his morning plan that name something no prompt had listed: none in 39 so far. Undertakings begun, and continued a week later. Read, never gated: he is free to want nothing.
+
+**Cost.** Claude, a few days for the line, the ledger and the screen. About 150 calls for the screen.
+
 ## The order
 
 There are three ways to open phase two.
@@ -262,13 +287,13 @@ There are three ways to open phase two.
 2. **Breadth first.** The street and the second ring at once. Best if opening night is near. Every new person is also a new voice that can say what the world does not know.
 3. **The instrument first,** then truth and breadth side by side. Best when PC hours are scarce, because everything after it is tested in forks and costs him no days.
 
-**Recommended: the third.** Full days are the scarce thing, eight in thirty-five. One week of work with no GPU makes every later test cheaper and comparable.
+**Recommended: the third, with his wishes beside it.** Full days are the scarce thing, eight in thirty-five. One week of work with no GPU makes every later test cheaper and comparable. And the `wants` line of chapter 7 goes out first of all the live changes, because it tells us what to build.
 
 | When | Claude in the cloud | The PC seat | Welt |
 |---|---|---|---|
-| Week 0 | Chapter 1. The counts of rule 7. The file's next act, drafted | The order of `DECISIONS.md` 34, as decided. The band of noise on our server | The file's next act, before his 20 November |
-| Weeks 1–2 | Acts, slots, the audit and threads. The street, first batch | T57's screen by night. Forks | Reads the batch. Labels a packet. Chooses the second ring |
-| Weeks 3–4 | People's weeks, standing, a failed attempt, the notebook | Forks for each bundle. Switches go on, one at a time | Goes on each switch |
+| Week 0 | Chapter 1. The counts of rule 7. The file's next act, drafted. The `wants` line and its screen | The order of `DECISIONS.md` 34, as decided. The band of noise on our server | The file's next act, before his 20 November |
+| Weeks 1–2 | Acts, slots, the audit and threads. The street, first batch | T57's screen by night. Forks. The `wants` line on shadow | Reads the batch. Labels a packet. Reads his first wishes. Chooses the second ring |
+| Weeks 3–4 | People's weeks, standing, a failed attempt, the notebook. Any place named; undertakings; the bicycle | Forks for each bundle. Switches go on, one at a time | Goes on each switch. Reads the wish ledger weekly |
 | Week 5 | The paper city's first wave. The two tests of chapter 5 | Frozen moments. Paris stage 2 | Reads the profile, then Paris |
 | Week 6 | The read of phase two | Rung 0 | Rung 1 or 2, or neither. Opening night, when Act 1's gate passes |
 
@@ -279,12 +304,13 @@ The weeks assume the PC keeps its days. All of it is about 30 GPU hours in the s
 1. **Go for chapter 1.** No GPU, nothing live.
 2. **The file's next act.** Claude drafts, Welt edits. It has a date.
 3. **The street:** a first batch of 60 cards, for his reading.
-4. **The second ring,** and whether he may go further than he can walk (an auto, the Metro). That would widen the map beyond its two square kilometres.
+4. **The second ring,** and how far he may go. A bicycle is in the plan at Welt's word. An auto or the Metro would widen the map further still, beyond its two square kilometres.
 5. **Paris kept back** from every tuning loop.
 6. **The budget for forks:** about 30 GPU hours over six weeks.
 7. **Reading returns text,** starting with the papers.
 8. **His own labels:** 30 pairs a packet, drawn at random, for every blind test of phase two.
 9. **The ladder of chapter 6.** Rung 0 runs with the forks. Rung 1 waits for T57. Rung 2 costs about seven hours of his own judging, and is his to offer.
+10. **His freedom** (chapter 7). The `wants` line first, as a count. Then, on what it shows: any place named, undertakings, and a market that sells what he names. And the wish ledger, read by Welt each week.
 
 ## What phase two leaves alone
 
@@ -319,7 +345,7 @@ All wait for Welt's word. Numbers continue `pc/TASKS.md`.
 | T58 · threads | Claude | The registry; the tailor's order first, then the file, the lessons, the column, the loan, the letters | Every thread reaches an end in the paper city; no state without an exit |
 | T59 · the street | Claude writes, Welt reads | 60 cards, built by operations and read by the linter; `HEGEL_STREET` | Off by default; byte for byte the old world without it |
 | T60 · reading returns text | Claude | The papers first, then his shelf | A step of reading opens the next moment with what he read |
-| T61 · the second ring | Welt chooses, Claude builds | Candidates by the letters' profile, walks from OpenStreetMap | After culture's first week is read |
+| T61 · the second ring, and the bicycle | Welt chooses, Claude builds | Candidates by the letters' profile and by his own wishes, walks from OpenStreetMap; a cycle shop, and riding times beside walking times | After culture's first week is read |
 | T62 · people's weeks and standing | Claude | Agendas, cards with written dispositions, regard from recorded acts, word that gets round as the engine's fact | One line of "meanwhile" reaches a voice's card; a written refusal yields refusals; forks show him using a shared past |
 | T63 · an attempt may fail | Claude | One scene family: the closed door | Time is spent, the outcome is recorded, no loop |
 | T64 · the paper city, first wave | Claude | Tunables declared; 400 months; the settings ruled out; the protected rules named, frozen and probed | The surviving region and the funnel, in a file |
@@ -327,6 +353,8 @@ All wait for Welt's word. Numbers continue `pc/TASKS.md`.
 | T66 · rung 0 | Claude, then the PC seat | The sealed packet by scene family; the same arm twice; the examples arm; the test protocol checked by simulation | The band of noise is in a file, and every later gate cites it |
 | T67 · every call names its adapter | Claude, then the PC seat | `world/mind.py`: an adapter and a scale on every kind of call, `complete()` included; the PC seat tests what the server does with a call that names none | Before any adapter is served |
 | T68 · rungs 1 and 2 | Welt, then Claude and the PC seat | The voices' adapter, if T57 leaves a residue; his thoughts by Welt's hand, if he offers the hours | Decided after T57 and T66 |
+| T69 · what he wants | Claude, then the PC seat | The `wants` line with no effect, the ledger, and a screen as for M1 | The screen passes; a week of wishes is in a file for Welt |
+| T70 · what he may decide | Claude | The wish answered in the world; any place named; undertakings he starts; a market that sells what he names | After Welt has read the first week of wishes |
 
 ## Sources
 
