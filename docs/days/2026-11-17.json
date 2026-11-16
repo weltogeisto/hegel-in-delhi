@@ -426,6 +426,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "14:04",
+   "to": "14:14",
+   "mode": "inside",
+   "at": "iic",
+   "now": "At the IIC."
   }
  ],
  "entries": [
@@ -1006,6 +1013,34 @@
    "to": "Hegel",
    "text": "Sir, the canteen is just past the main hall, but you need to pay at the counter. I can't arrange food myself, I'm just the gatekeeper.",
    "t": "13:49"
+  },
+  {
+   "k": "diary",
+   "text": "The body is a particular that demands satisfaction, and I shall not let it interrupt the universal movement of my thought. I will walk to the canteen to procure sustenance, for a philosopher must maintain the instrument of his reasoning. The guard's helpfulness is a small instance of civil society's system of needs functioning as it should.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Second Division"
+    }
+   ],
+   "t": "14:04"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, sir. I shall find the counter. Please inform the officer I am momentarily absent for sustenance.",
+   "to": "the guard at the library and the programme officer",
+   "t": "14:04"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Don't worry, sir. I'll just leave a note for him so he knows you're not lost. Go on, eat well.",
+   "t": "14:04"
   }
  ],
  "steps": [
@@ -2076,13 +2111,75 @@
      "text": "But just as lordship showed its essential nature to be the reverse of what it wants to be, so, too, bondage will, when completed, pass into the opposite of what it immediately is: being a consciousness repressed within itself, it will enter into itself, and change round into real and true independence. We have seen what bondage is only in relation to lordship."
     }
    ]
+  },
+  {
+   "t": "14:04",
+   "end": "14:14",
+   "event": "The guard at the library says: “Sir, the canteen is just past the main hall, but you need to pay at the counter. I can't arrange food myself, I'm just the gatekeeper.” Points a thumb over the shoulder towards the corridor.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The body is a particular that demands satisfaction, and I shall not let it interrupt the universal movement of my thought. I will walk to the canteen to procure sustenance, for a philosopher must maintain the instrument of his reasoning. The guard's helpfulness is a small instance of civil society's system of needs functioning as it should.",
+    "action": "stay",
+    "place": "iic",
+    "minutes": 10,
+    "says": "Thank you, sir. I shall find the counter. Please inform the officer I am momentarily absent for sustenance.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Don't worry, sir. I'll just leave a note for him so he knows you're not lost. Go on, eat well.",
+    "does": "Nods politely and turns back to the desk to write a quick note."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1193"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Second Division",
+     "id": "haldane-3:729"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "But in culture the mind is also directed to the most manifold needs, and to the methods of satisfying these. In more recent times the needs have much increased, and hence a division of the general wants into many particular wants and modes of satisfaction has arisen; this is the function of the activity of the understanding, and in its application luxury has a place."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Second Division",
+     "text": "He says: “Every man being conscious to himself, that he thinks; and that which his mind is applied about, while thinking, being the ideas that are there;’tis past doubt, that men have in their minds several ideas, such as those expressed in the words, whiteness, hardness, sweetness, thinking, motion, man, elephant, army, drunkenness, and others.”"
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-17T14:04+05:30",
+  "until": "2026-11-17T14:14+05:30",
   "asleep": false,
   "imprest": 35700,
   "wearing": "bandhgala",
