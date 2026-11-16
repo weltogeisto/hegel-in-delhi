@@ -363,6 +363,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "At the IIC."
+  },
+  {
+   "from": "12:34",
+   "to": "12:49",
+   "mode": "inside",
+   "at": "iic",
+   "now": "At the IIC."
   }
  ],
  "entries": [
@@ -691,6 +698,34 @@
    "to": "Hegel",
    "text": "System of needs, huh. Well, the tiffah and paratha are ready, so go satisfy them before the crowd picks up.",
    "t": "12:19"
+  },
+  {
+   "k": "diary",
+   "text": "The guard perceives my hunger as a mere moment in the system of needs, a friction to be resolved by the elevator. He speaks the language of my own Philosophy of Right back to me, stripped of its ethical weight and reduced to logistics. I accept the negation of my abstraction; the body presses on toward satisfaction, and I shall follow it into the machinery of the state.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§183"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Common Ideas Regarding the History of Philosophy"
+    }
+   ],
+   "t": "12:34"
+  },
+  {
+   "k": "said",
+   "text": "The system of needs is indeed satisfied by the tiffah. I shall proceed to the lobby.",
+   "to": "the guard at the library and the programme officer",
+   "t": "12:34"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Lift is on the right, don't stare at the doors like you've never seen one before. And keep your voice down, sir.",
+   "t": "12:34"
   }
  ],
  "steps": [
@@ -1218,13 +1253,75 @@
      "text": "Protagoras was not, like other Sophists, merely a teacher of culture, but likewise a deep and solid thinker, a philosopher who reflected on fundamental determinations of an altogether universal kind. The main point in his system of knowledge he expressed thus: “Man is the measure of all things; of that which is, that it is; of that which is not, that it is not.”"
     }
    ]
+  },
+  {
+   "t": "12:34",
+   "end": "12:49",
+   "event": "The guard at the library says: “System of needs, huh. Well, the tiffah and paratha are ready, so go satisfy them before the crowd picks up.” He gestures vaguely towards the elevator lobby with a thick finger.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard perceives my hunger as a mere moment in the system of needs, a friction to be resolved by the elevator. He speaks the language of my own Philosophy of Right back to me, stripped of its ethical weight and reduced to logistics. I accept the negation of my abstraction; the body presses on toward satisfaction, and I shall follow it into the machinery of the state.",
+    "action": "stay",
+    "place": "iic",
+    "minutes": 15,
+    "says": "The system of needs is indeed satisfied by the tiffah. I shall proceed to the lobby.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Lift is on the right, don't stare at the doors like you've never seen one before. And keep your voice down, sir.",
+    "does": "He points a thick finger toward the elevator lobby."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§183",
+     "id": "dyde-right:448"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Common Ideas Regarding the History of Philosophy",
+     "id": "haldane-1:63"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§183",
+     "text": "The general right and well-being form the basis of the individual's right and well-being, which only by this connection receives actuality and security. This system we may in the first instance call the external state, the state which satisfies one's needs, and meets the requirements of the understanding."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Common Ideas Regarding the History of Philosophy",
+     "text": "But neither physical life nor intellectual remains content with mere abstention; as desire it presses on through hunger and through thirst towards Truth, towards knowledge itself. It presses on to satisfy this desire and does not allow itself to feast and find sufficiency in a reflection such as this."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-17T12:34+05:30",
+  "until": "2026-11-17T12:49+05:30",
   "asleep": false,
   "imprest": 35700,
   "wearing": "bandhgala",
