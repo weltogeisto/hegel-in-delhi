@@ -15,73 +15,97 @@
     "temp": 17,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 150
+    "aqi": 154
    },
    {
     "temp": 17,
     "sky": "clear",
     "rain": 0,
-    "aqi": 139
+    "aqi": 145
    },
    {
     "temp": 16,
     "sky": "clear",
     "rain": 0,
-    "aqi": 130
+    "aqi": 137
    },
    {
     "temp": 16,
     "sky": "clear",
     "rain": 0,
-    "aqi": 121
+    "aqi": 129
    },
    {
     "temp": 16,
     "sky": "clear",
     "rain": 0,
-    "aqi": 113
+    "aqi": 122
    },
    {
     "temp": 15,
     "sky": "clear",
     "rain": 0,
-    "aqi": 106
+    "aqi": 116
    },
    {
     "temp": 15,
     "sky": "clear",
     "rain": 0,
-    "aqi": 100
+    "aqi": 112
    },
    {
     "temp": 15,
     "sky": "clear",
     "rain": 0,
-    "aqi": 96
+    "aqi": 109
    },
    {
     "temp": 17,
     "sky": "clear",
     "rain": 0,
-    "aqi": 93
+    "aqi": 105
    },
    {
     "temp": 19,
     "sky": "clear",
     "rain": 0,
-    "aqi": 91
+    "aqi": 101
    },
    {
     "temp": 21,
     "sky": "clear",
     "rain": 0,
-    "aqi": 89
+    "aqi": 99
    },
    {
     "temp": 23,
     "sky": "clear",
     "rain": 0,
-    "aqi": 87
+    "aqi": 96
+   },
+   {
+    "temp": 24,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 94
+   },
+   {
+    "temp": 25,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 91
+   },
+   {
+    "temp": 25,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 88
+   },
+   {
+    "temp": 25,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 86
    },
    {
     "temp": 24,
@@ -90,70 +114,46 @@
     "aqi": 84
    },
    {
-    "temp": 25,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 82
-   },
-   {
-    "temp": 25,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 80
-   },
-   {
-    "temp": 25,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 78
-   },
-   {
-    "temp": 24,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 76
-   },
-   {
     "temp": 22,
     "sky": "clear",
     "rain": 0,
-    "aqi": 76
+    "aqi": 83
    },
    {
     "temp": 20,
     "sky": "clear",
     "rain": 0,
-    "aqi": 78
+    "aqi": 84
    },
    {
     "temp": 19,
     "sky": "clear",
     "rain": 0,
-    "aqi": 81
+    "aqi": 86
    },
    {
     "temp": 18,
     "sky": "clear",
     "rain": 0,
-    "aqi": 85
+    "aqi": 89
    },
    {
     "temp": 18,
     "sky": "clear",
     "rain": 0,
-    "aqi": 88
+    "aqi": 92
    },
    {
     "temp": 17,
     "sky": "clear",
     "rain": 0,
-    "aqi": 91
+    "aqi": 94
    },
    {
     "temp": 16,
     "sky": "clear",
     "rain": 0,
-    "aqi": 94
+    "aqi": 96
    }
   ]
  },
@@ -356,6 +356,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "12:19",
+   "to": "12:34",
+   "mode": "inside",
+   "at": "iic",
+   "now": "At the IIC."
   }
  ],
  "entries": [
@@ -656,6 +663,34 @@
    "to": "Hegel",
    "text": "Sir, I don't know what a philosopher is, but the cafeteria on the ground floor is open. Go down, eat, and keep your hands in your lap.",
    "t": "12:04"
+  },
+  {
+   "k": "diary",
+   "text": "The guard's instruction is a practical negation of my abstract hunger; he treats the body as a problem to be solved by location, not by reflection. I descend not merely to eat, but to observe how the system of needs operates in this institution, where the spirit is expected to keep its hands in its lap.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Sophists, Protagoras"
+    }
+   ],
+   "t": "12:19"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, sir. The system of needs indeed requires its satisfaction.",
+   "to": "the guard at the library and the programme officer",
+   "t": "12:19"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "System of needs, huh. Well, the tiffah and paratha are ready, so go satisfy them before the crowd picks up.",
+   "t": "12:19"
   }
  ],
  "steps": [
@@ -1121,13 +1156,75 @@
      "text": "Chrysippus, a celebrated Stoic, wrote six books on the subject, and another, Philetas of Cos, died in the decline which he contracted through over-study of these paradoxes. We have the same thing over again when, in modern times, we see men worn out by absorbing themselves in the squaring of the circle—a proposition which has well nigh become immortal."
     }
    ]
+  },
+  {
+   "t": "12:19",
+   "end": "12:34",
+   "event": "The guard at the library says: “Sir, I don't know what a philosopher is, but the cafeteria on the ground floor is open. Go down, eat, and keep your hands in your lap.” Points a thick finger towards the elevator lobby.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard's instruction is a practical negation of my abstract hunger; he treats the body as a problem to be solved by location, not by reflection. I descend not merely to eat, but to observe how the system of needs operates in this institution, where the spirit is expected to keep its hands in its lap.",
+    "action": "stay",
+    "place": "iic",
+    "minutes": 15,
+    "says": "Thank you, sir. The system of needs indeed requires its satisfaction.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "System of needs, huh. Well, the tiffah and paratha are ready, so go satisfy them before the crowd picks up.",
+    "does": "He gestures vaguely towards the elevator lobby with a thick finger."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.5,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "id": "haldane-2:56"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Sophists, Protagoras",
+     "id": "haldane-1:916"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "text": "As to this demand, it may seem a piece of great presumption to say that philosophers should have the government of states accorded to them, for the territory or ground of history is different from that of Philosophy. In history, the Idea, as the absolute power, has certainly to realize itself; in other words, God rules in the world."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Sophists, Protagoras",
+     "text": "Protagoras was not, like other Sophists, merely a teacher of culture, but likewise a deep and solid thinker, a philosopher who reflected on fundamental determinations of an altogether universal kind. The main point in his system of knowledge he expressed thus: “Man is the measure of all things; of that which is, that it is; of that which is not, that it is not.”"
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-17T12:19+05:30",
+  "until": "2026-11-17T12:34+05:30",
   "asleep": false,
   "imprest": 35700,
   "wearing": "bandhgala",
