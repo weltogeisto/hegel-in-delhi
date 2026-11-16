@@ -2,7 +2,56 @@
 
 Rules: `COLLABORATION.md`. PR #1 comments only for done, blocked or a question, at most six lines. The top open task for each owner comes first. Status is one of `OPEN`, `RUNNING`, `DONE` (with commit and numbers) or `BLOCKED` (with what is needed).
 
-## Current, 15 November 2026
+## The world, phase two: week 0 · Welt's go, 16 November (`DECISIONS.md` 36)
+
+The plan is `WORLD-2.md`; week 0's packets are `pc/WORLD-2-WEEK0.md`, and what they gave is `pc/WORLD-2-WEEK0-RESULT.md`. No GPU and nothing live until the PC seat's three steps at the end of that file. Weeks 1 and after wait for Welt's word.
+
+| Task | Owner | State | Next |
+|---|---|---|---|
+| T54 · world health | Claude, then the PC seat | Built: `world/health.py`, the step's `opened` field, the day's offer `funnel`, `python3 -m world report --health` | The PC seat adds `--health` to the nightly report once this is on main |
+| T55 · the rehearsal | Claude, then the PC seat | Built: `simulate --days N` (thirty stand-in days in 23 s), `--set`, `--docs` for forks, four stand-ins, `--seed`, `tools/fork_diff.py` | The PC seat measures the band of noise: two forks of one saved morning, nothing changed |
+| T56 · the file's next act | Claude drafts, Welt edits | Drafted and checked against the Act and the rules: `pc/FILE-NEXT-ACT.md`, `research/FILE-NEXT-ACT-CHECK.md`. Not in `plot.json` | Welt's pen. Best before his 20 November; later does no harm |
+| T57 · what the voices say: the count | Claude | DONE: of 100 recorded replies, 8 contradict the record and 26 to 38 carry a promise nobody wrote down; of 11 promises followed, 1 was kept (`pc/exports/voice-claims-20261116/REPORT.md`) | T57 does not shrink. Promises come first; recorded facts for Shri Hegde and each person's `he` or `she` are cheap and near |
+| T69 · what he wants | Claude, then the PC seat | Built, off: `HEGEL_WANTS`, `python3 -m world wishes`, `tools/wants_screen.py`. The screen is declared and not run: `pc/WANTS-SCREEN.md` | Welt reads the sentence. Then the PC seat runs the screen |
+
+## The world, phase two: weeks 1 and 2, first wave · Welt's go, 16 November (`DECISIONS.md` 39)
+
+Specs: `pc/WORLD-2-WEEK1.md`. Every switch is off. Each goes on only after its screen and Welt's word, at the end of the order of `DECISIONS.md` 34.
+
+| Task | Owner | State | Next |
+|---|---|---|---|
+| T57 · what a voice is told about itself | Claude, then the PC seat | Built, off: `HEGEL_VOICE_FACTS`. Shri Hegde and Mr. Saxena read their side of the record; every person is `he` or `she`; the one whose trade his words concern answers | An arm of T57's screen |
+| T57 · a promise is a record | Claude, then the PC seat | Built, off: `HEGEL_PROMISES`. Ramesh may promise tea or a plate; the engine refuses what it cannot keep, asks once more, records the promise and keeps it at its minute, or marks it lapsed or broken. Each side sees its own record | An arm of T57's screen (`pc/T57-SCREEN.md`), declared and not run; `tools/voice_screen.py` is still to write |
+| T59 · the street | Claude; Welt reads the batch | Built, off: `HEGEL_STREET`, sixty cards, a linter in `world check`. Measured with stand-ins: the walker's empty moments 31% → 22%, the stay-at-home's 56% → 53% (`pc/STREET-BATCH-1.md`) | Welt reads the batch. Home needs events, not more sights |
+| T58 · a wider condition for beats | Claude | Built: `flags_in`, `flags_not` in a beat's `when`. No beat uses them yet | The file's orders (`pc/FILE-NEXT-ACT.md`) |
+| T67 · every call names its adapter | Claude | Built: once any adapter is set, every call sends its own scale, and 0 where it has none. Nothing changes while none is set | An adapter's day by fork, if Welt wants one |
+
+## For the PC seat, from the world's second phase · OPEN, Welt's yes of 16 November (`DECISIONS.md` 40, 41)
+
+Three tasks, none of which changes anything live. They come after the order of `DECISIONS.md` 34 in priority and may use the night (`DECISIONS.md` 30).
+
+### W0 · PC seat · bring main into shadow · OPEN
+Main now holds the world's second phase, every switch off. The merge into shadow conflicts in two import lines of `world/__main__.py` and nowhere else (tried on 16 November against shadow's head). Resolve them to:
+`from . import health, nightly_report, pause, report, shelf, street, works`
+`from .mind import STAND_INS, HTTPMind, StubMind`
+`from .publish import Git, GitError`
+Then check the merge as `pc/PC-SESSION.md` says. With the new switches unset, his days are what they were, plus two fields in the record: `opened` on a step, `funnel` on a day.
+
+### W1 · PC seat · the health row in the nightly report · OPEN
+Beside the day's row, run `python3 -m world report --health` on shadow's days and put its line where the nightly row goes. From the first night on main's new code, each step carries `opened` and each day a `funnel`; the row reads them. Done when one night's row has arrived by itself.
+
+### W2 · PC seat · the band of noise · OPEN
+How much do two days differ when nothing was changed? Every later fork is read against this.
+1. Take the latest complete shadow day D. In a scratch folder, never in the repo: `python3 -m world simulate --docs <shadow's docs> --date D --days 1 --mind <the model server> --seed 1 --out <scratch>/s1a`, with `--set` for every switch shadow runs that day (the filter, the letters, the instructions file).
+2. The same three more times: `--seed 1` into `s1b`, `--seed 2` into `s2`, and no `--seed` into `s0`.
+3. For the pairs s1a/s1b (same seed), s1a/s2 (different seeds) and s1a/s0: `python3 tools/fork_diff.py A B`, and `python3 -m world report --health --docs <folder> D` for each folder.
+4. Push the four day files, the three diffs and the four rows to `pc/exports/noise-band-<date>/` with one page that says: is the same seed the same day on our server, and if not, at which moment do they part.
+Four rehearsed days: about an hour and a half of the card. By night, in the spare slot.
+
+### W3 · PC seat · the `wants` screen · OPEN
+Welt has accepted the sentence for the screen (`DECISIONS.md` 41). Run `pc/WANTS-SCREEN.md` as declared: `python3 tools/wants_screen.py freeze --repo <native> --shadow <sha> --out <dir> --from-day N` on the complete days after the letter from Munich paid his debts (Day 47 on), then `wants_screen.run(<dir>, post)` with the guarded transport as for M1 (216 calls), then push the records. Claude runs `measure` and writes the result. Nothing goes on shadow from this: a pass earns a trial only on Welt's word, at the end of the order.
+
+## Current, 16 November 2026
 
 The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). Welt confirmed its six decisions the same day; they are `DECISIONS.md` 16–22, with Delta kept only as a diagnostic. The 48-hour delivery target runs from 7 November. The T-history below is kept; the M-packets are the manual's §10.
 
@@ -14,14 +63,14 @@ The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). W
 | M5 · Training 3 labels | Claude | **CLOSED, Welt 15 November (`DECISIONS.md` 23):** 86 revised pairs (17.2%) against the bar of 200. The answers stay preserved. The filter does its work without training: on the same 500 situations, echo of a shown thought 17.2% → 2.2% and accepted 92.6% → 99.0%, at 1.29 calls | – |
 | M0 · baseline receipt | Astra | DONE, PR #15 merged (`5a347ab`): runtime at 12:18 UTC, plain Qwen, no adapter; the forty-case export | – |
 | M1 · forty-case re-audit | Claude | DONE: prompted Qwen keeps 39/40 rewrites intact, the adapter 25/40 (12 changed facts, 3 changed conclusions); the adapter stays off (`pc/exports/training1-20261106/new-rubric/REPORT.md`) | – |
-| M1 · ordinary life | Claude, then Astra | **The confirmation PASSED, 15 November:** blind, B preferred in 16 of 24 (bar 16), flags B 11 against A 12 (bar 13); lecture-hall terms per thought 2.51 → 1.42 (`pc/exports/m1-confirmation-20261115/judgment/REPORT.md`). The days were starvation days, a caveat | **GO, Welt 15 November (`DECISIONS.md` 34):** third in the order. Astra sets `HEGEL_SOUL_FILE=mind/soul-ordinary.md` on the Pi after the letter's first full day; Claude reads the trial's days with stage 1's profile |
-| T49 · selection before training | Claude, then Astra | DONE: PASS, all five bars (`pc/T49-ARM-D-RESULT-20261114.md`). **LIVE on shadow since 14:28 Berlin, 15 November,** `HEGEL_DECISION_DRAWS=4`, a provisional trial (`DECISIONS.md` 24) | Astra posts the first full day: echo share of shown thoughts, calls per decision, latency stops. Claude reads it against arm D |
+| M1 · ordinary life | Claude, then Claude on the PC | **The confirmation PASSED, 15 November:** blind, B preferred in 16 of 24 (bar 16), flags B 11 against A 12 (bar 13); lecture-hall terms per thought 2.51 → 1.42 (`pc/exports/m1-confirmation-20261115/judgment/REPORT.md`). **GO, Welt 15 November (`DECISIONS.md` 34)** | `HEGEL_SOUL_FILE=mind/soul-ordinary.md` once Day 47, the letter's first full day, is complete (the switch came at 09:18, one minute after his waking; a letter cannot come before 10:00). Claude reads the trial's days with stage 1's profile |
+| T49 · selection before training | Claude, then Claude on the PC | DONE: PASS, all five bars (`pc/T49-ARM-D-RESULT-20261114.md`). **LIVE on shadow since 14:28 Berlin, 15 November** (his 14:28 on Day 46), `HEGEL_DECISION_DRAWS=4`, a provisional trial (`DECISIONS.md` 24). **First read, Day 46's afternoon, 18 decisions:** 1 thought echoes a shown thought (5.6%; arm D 6.64%, bar 10.99%), 1.56 calls per decision (arm D 1.27), median 10.3 s, longest 25.7 s, no stop. Unfiltered, Days 44 to 46 morning: 10 of 58 (17.2%). The filter's own rule, with the prompt's "Earlier today" rebuilt from the day file | Day 47 is its first full day: Claude reads it against arm D |
 | M2 · source labels | Claude, then Astra | DONE on main (#41). **GO, Welt 15 November (`DECISIONS.md` 25):** `HEGEL_SHELF_ADDITIONS=1`, fourth in the order of `DECISIONS.md` 34. A quarter of the Philosophy of Right on his shelf is Gans's additions (`pc/M2-SOURCE-LABELS.md`) | Astra sets it after the new instructions' first full day |
 | T50 · the Paris backtest | Claude, then Astra | **Stage 1 DONE with two coders:** his letters home are 40–42% sights and art and 1–2% philosophy; the simulation's evening texts 1–2% and 28–30% (Claude and plain Qwen, kappa 0.59). Step 0: Qwen doesn't know the letters by heart (longest shared run 3 words) (`pc/PARIS-BACKTEST.md`) | Stage 2 waits for Welt's word, best after the letter and the venues are on |
 | T51 · museums, concerts and plays | Claude, then Astra | DONE on main, off: `HEGEL_CULTURE` (`pc/CULTURE.md`). Four venues, a morning listing, galleries step by step, performances in four parts. Welt's go, 15 November (`DECISIONS.md` 27) | Fifth in the order of `DECISIONS.md` 34: Astra sets it on the Pi after the shelf labels' first full day; `tools/osm_map.py` places the venues on the map |
-| T52 · a correspondent | Claude, then Astra | DONE on main, off: `HEGEL_CORRESPONDENT` (`pc/CORRESPONDENT.md`). Welt, 15 November (`DECISIONS.md` 28): a descendant of Niethammer's family writes from Munich; her first letter settles his debts and adds ₹20,000; his letters by post, her answers ten days later | **ON NOW, Welt 15 November (`DECISIONS.md` 33):** Astra sets `HEGEL_CORRESPONDENT=1` on the Pi with the next pull of main |
-| T53 · a pause when the PC is away | Claude, then Astra | DONE on main, off: `HEGEL_PAUSE_AWAY` (`pc/PAUSE.md`). Welt's go, 15 November (`DECISIONS.md` 32): held at waking while the PC is away, resumed on the held day, whole days of trail | Astra may switch it on now: it acts only when the PC is away |
-| World · an answer as he leaves | Claude, then Astra | DONE on main: when he speaks as he leaves, the answer stays with that step and no longer reaches him where he arrives (`DECISIONS.md` 35; `tests/test_reply_left.py`) | Goes live with Astra's next pull of main |
+| T52 · a correspondent | Claude, then Claude on the PC | **LIVE on shadow since 09:18 Berlin, 16 November** (`DECISIONS.md` 33; shadow `8e1a924` = shadow `8d0fd47` + main `2628c34`, merge checked with main's `docs/`). **Her first letter came on Day 47 at 10:02:** ₹37,794, his debts of ₹17,794 and ₹20,000 besides; the electricity and the dhobi were paid at once; Ramesh (₹6,400) and the Directorate (₹9,294) are paid where they can be reached. One slip in her letter: it puts him in Bamberg when he was poor; he was in Jena, and the card says it rightly | Stage 1's profile on his writings once he has answered her |
+| T53 · a pause when the PC is away | Claude, then Claude on the PC | **ON since 09:33 Berlin, 16 November** (`DECISIONS.md` 32): ticks clean, no hold | – |
+| World · an answer as he leaves | Claude | **LIVE** with shadow `8e1a924` (`DECISIONS.md` 35; `tests/test_reply_left.py`) | – |
 
 Gates stay as declared: nothing goes live without its matched comparison and Claude's confirmed pass. Training runs by day, watched; work that trains nothing may use the night while Hegel sleeps, in the spare slot, stopping cleanly by 08:30 Berlin (`DECISIONS.md` 30).
 

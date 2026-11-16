@@ -89,9 +89,30 @@ Welt's calls, the evening of 15 November:
     5. the museums, concerts and plays.
 35. **An answer stays where it was given.** When he speaks as he leaves, the answer belongs to that step and its record. It no longer opens his next moment at the place he walked to (at 38:25 and 45:25 a bookseller's line reached him at home).
 
+Welt's calls, 16 November:
+
+36. **The world's second phase starts with week 0** of `WORLD-2.md`: the instrument (world health, the rehearsal, forks), the counts of rule 7, the file's next act in draft, and the `wants` line with its screen. No GPU and nothing live. The packets are in `pc/WORLD-2-WEEK0.md`.
+    - **What this go does not cover:** weeks 1 and after, and the ten calls under "What Welt decides" in `WORLD-2.md`. Each waits for his word.
+37. **He is to be freer to decide what he does in this world.** The plan gains its seventh chapter for it: he may name what is not offered, and his wishes are kept for Welt to read. A bicycle, with a shop that sells one, joins the second ring of places (T61).
+    - **Why:** all 39 intentions in his recorded morning plans stay inside the menu the world lists.
+38. **Who does which work in the cloud, and how sources are read:** planning stays with Claude in the cloud; reading, code and checks go to agents on Sonnet 5.5, briefed and checked. A paper that carries a decision is read in full (`COLLABORATION.md`, under Roles).
+
+39. **Weeks 1 and 2 are built, first wave** (`pc/WORLD-2-WEEK1.md`): promises as records, what a voice is told about itself, the street, a wider condition for beats, and every call naming its adapter. Welt, 16 November: "ok, lets go". Read as a go to build. Every switch stays off.
+    - **Not read into it:** a pull request to main, the sentence for `wants`, and the file's next act going into `plot.json`. Claude asked again in plain terms; the answers are 40 to 42.
+
+Welt's answers, the evening of 16 November, to three questions put plainly:
+
+40. **The PC gets the new work: yes.** The branch of the world's second phase is joined to main. Every new switch is off, so nothing changes for him. The PC seat's three tasks are W1 to W3 in `pc/TASKS.md`.
+41. **The sentence for `wants` may be tested: yes,** as drafted in `pc/WANTS-SCREEN.md`. The PC seat runs the screen on frozen moments. The sentence goes into his live days only after the result and Welt's word again.
+42. **The file's next act: later.** `pc/FILE-NEXT-ACT.md` stays a draft and out of `plot.json`. After his 20 November the file is silent until Welt takes it up.
+
 ## Still open
 
-- Nothing at the moment.
+- The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.
+- Whether the two rules of 38 also bind the PC seat.
+- **Whether an adapter gets a day of its own.** No adapter has run a day in his world: each stopped at its gate first (T29, the forty-case re-audit, Training 3's data gate). Since week 0 a fair day is possible: one saved morning, two forks, plain Qwen against the adapter, the same seeds, read by state and by text (`tools/fork_diff.py`, `world report --health`). It needs T67 first, because today an adapter that is set reaches the owl, the letters and the yes-or-no as well. Claude's advice, 16 November: not for the Training 1 adapter, which changed facts in 12 of 40 rewrites; make the fork day the entry test of the next adapter. Loading an adapter is a hard limit either way.
+- **The file's next act** (`pc/FILE-NEXT-ACT.md`, seven calls) waits for Welt's pen (42).
+- **The street's first batch** (`pc/STREET-BATCH-1.md`): sixty cards for Welt to read before `HEGEL_STREET` goes on anywhere.
 
 ## Ideas, not yet decided
 

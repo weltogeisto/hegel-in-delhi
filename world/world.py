@@ -7,7 +7,7 @@ import re
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
-from . import contract, voices, works, post
+from . import contract, street, voices, works, post
 from .clock import DAYNAMES, WEEKDAYS, at_dt, days_match, fmt, hm, minute_of, sun
 from .memory import names_of
 from .money import HOME_GIFT, Economy
@@ -34,6 +34,7 @@ WALK_M, HOT_C = 75, 33                  # metres a minute; from this temperature
 NUMBERS = "zero one two three four five six seven eight nine ten eleven twelve".split()
 PLAN_TIME = re.compile(r"(\d{1,2}):(\d{2})$")
 RECENT_CHARS, PURCHASE_CHARS = 480, 240  # bounded current recall; full records stay on disk
+PROMISES_KEPT = 20      # the last resolved promises the state keeps; the open ones all
 GREET_P = 0.35          # a person he knows, seen for the first time that day at a place, speaks first with this chance
 
 
@@ -92,15 +93,21 @@ def names(lst):
 
 
 class World(Economy):
-    def __init__(self, feeds=None, culture=False):
+    def __init__(self, feeds=None, culture=False, street_on=False, street_file=None, promises=False):
         p = load("places.json")
         self.places, self.walks = p["places"], p["walk"]
         self.culture = bool(culture)                          # HEGEL_CULTURE: museums, concerts and plays (data/culture.json)
         if self.culture:
             c = load("culture.json")
             self.places, self.walks = {**self.places, **c["places"]}, {**self.walks, **c["walk"]}
+        self.street = bool(street_on)                         # HEGEL_STREET: a card from the street deck at an empty moment (data/street.json)
+        self.deck = street.load_deck(street_file) if self.street else []
+        self.promises = bool(promises)                        # HEGEL_PROMISES: a promise is a record (data/promises.json); nobody has a menu while it is off
+        self.menu = load("promises.json")["people"] if self.promises else {}
         self.cast = load("cast.json")["cast"]
-        self.beats = load("plot.json")["beats"] + load("offers.json")["offers"]
+        offers = load("offers.json")["offers"]
+        self.beats = load("plot.json")["beats"] + offers
+        self.offer_ids = {o["id"] for o in offers}             # which beats come from offers.json: `opened` names them offer:<id>
         self.costs = load("costs.json")["costs"]
         self.holidays = load("holidays.json")["holidays"]
         self.sensitive = wordlist("sensitive.txt", "s?")
@@ -250,6 +257,9 @@ class World(Economy):
         and the last meal was at least three hours ago. None otherwise."""
         if self.served(t, state) or self.kitchen(state) or "ramesh" not in self.present_ids("home", t, state):
             return None
+        laid = state.get("today", {}).get("laid")
+        if laid:
+            return laid["dish"]                              # HEGEL_PROMISES: the plate Ramesh promised and has set down, whatever the hour of the last meal
         if state.get("last_meal") and t - datetime.fromisoformat(state["last_meal"]) < timedelta(hours=PLATE_GAP_H):
             return None
         return random.Random(f"plate|{t.date()}|{minute_of(t) // 60}").choice(PLATE)
@@ -264,6 +274,8 @@ class World(Economy):
             return f"{name.capitalize()} is available now."
         later = [(name, a) for name, (a, _) in MEAL_WINDOWS.items() if a > minute_of(t)]
         nxt = f"the next service is {later[0][0]} from {fmt(later[0][1])}" if later else "today's meal services have ended"
+        if state.get("today", {}).get("laid") and (plate := self.plate(t, state)):
+            return f"No set meal now ({nxt}); Ramesh has set down a plate: {plate}."
         if plate := self.plate(t, state):
             return f"No set meal now ({nxt}); if you ask, Ramesh puts a plate together: {plate}."
         return f"No household meal is available now; {nxt}."
@@ -272,6 +284,7 @@ class World(Economy):
         """A meal starts the clock again; a snack pushes hunger back two hours."""
         if food == "meal":
             state["last_meal"], state["snacks"] = t.isoformat(timespec="minutes"), 0
+            state.get("today", {}).pop("laid", None)         # HEGEL_PROMISES: whatever he eats, the promised plate is not eaten twice
         else:
             state["snacks"] = state.get("snacks", 0) + 1
 
@@ -312,6 +325,86 @@ class World(Economy):
         if getattr(self, "_post_card", None) is None:
             self._post_card = post.card()
         return self._post_card
+
+    # ── promises (HEGEL_PROMISES) ───────────────────────────────────
+    def promise_problem(self, cid, act, t, pid, state):
+        """Why the world cannot keep this promise of `cid`'s, made at t where he is (pid): a short reason in plain words, or None."""
+        menu = self.menu.get(cid, {})
+        if not isinstance(act, dict) or act.get("kind") != "promise":
+            return 'an act is a promise of the form {"kind": "promise", "what": ..., "minutes": ...}'
+        what, minutes = act.get("what"), act.get("minutes")
+        entry = menu.get(what) if isinstance(what, str) else None
+        if not entry:
+            return "that is not on your list; you may promise only " + " or ".join(x["says"] for x in menu.values())
+        lo, hi = entry["minutes"]
+        if type(minutes) is not int or not lo <= minutes <= hi:
+            return f"the minutes for {entry['says']} are a whole number from {lo} to {hi}"
+        due = t + timedelta(minutes=minutes)
+        if any(p["by"] == cid and p["what"] == what and p["status"] == "open" for p in state.get("promises", [])):
+            return f"you have already promised him {entry['says']}, and it is still open"
+        if entry.get("kitchen") and self.kitchen(state):
+            return f"the kitchen is shut ({self.kitchen(state).rstrip('.')})"
+        if pid != entry["place"]:
+            return f"it can be kept only {self.places[entry['place']]['at']}"
+        if due.date() != t.date() or minute_of(due) >= BED_M:
+            return "a promise does not run past the day; it would fall due after bedtime"
+        if cid not in self.present_ids(entry["place"], due, state):
+            return f"you will have left by {fmt(minute_of(due))}"
+        return None
+
+    def promise_make(self, cid, act, says, t, pid, state):
+        """Write the promise down, open: state["promises"]. Returns its record."""
+        n = state["promise_seq"] = state.get("promise_seq", 0) + 1
+        p = {"id": f"p{n}", "by": cid, "what": act["what"], "said": says, "made": t.isoformat(timespec="minutes"),
+             "due": (t + timedelta(minutes=act["minutes"])).isoformat(timespec="minutes"), "place": pid, "status": "open"}
+        state.setdefault("promises", []).append(p)
+        return p
+
+    def promise_round(self, t, state, pid, opened):
+        """At a moment he decides: each open promise that has fallen due is kept, broken or lapsed (bedtime and midnight lapse what is still open).
+        Kept: he is at its place and the person is there, the kitchen open; the event line that joins the moment, with its public entry, and the
+        kinds that opened it. Broken (the kitchen shut meanwhile, the person gone) and lapsed (he was elsewhere) say nothing now: the record and the
+        person's facts do. `opened`: what has already opened this moment (the engine's own tea). Returns ([(prompt, public)], [kinds])."""
+        out, kinds, d, m = [], [], t.date(), minute_of(t)
+        for p in state["promises"]:
+            if p["status"] != "open":
+                continue
+            due = datetime.fromisoformat(p["due"])
+            if t < due and due.date() == d and m < BED_M:
+                continue
+            entry, name = self.menu[p["by"]][p["what"]], self.cast[p["by"]]["name"]
+            p["resolved"] = t.isoformat(timespec="minutes")
+            if t < due or due.date() < d:
+                p["status"] = "lapsed"                                          # a promise never crosses the night
+            elif entry.get("kitchen") and self.kitchen(state):
+                p["status"], p["why"] = "broken", "the kitchen was shut"
+            elif p["by"] not in self.present_ids(p["place"], t, state):
+                p["status"], p["why"] = "broken", f"{name} had left"
+            elif pid != p["place"]:
+                p["status"] = "lapsed"                                          # he was elsewhere
+            else:
+                p["status"] = "kept"
+                if entry["keeps"] == "tea":
+                    if "tea" in opened:
+                        text, public = entry["by_meal"], None                    # the engine's own tea is this moment's: it keeps the promise
+                    else:
+                        self.feed(state, t, "snack")                             # as the engine's own tea: a snack
+                        text = public = entry["event"]
+                else:
+                    meal = self.served(t, state)
+                    if meal:
+                        text = public = entry["by_meal"].format(meal=meal)       # the engine's own meal is laid out: it keeps the promise, none is served twice
+                    else:
+                        dish = random.Random(f"plate|{d}|{m // 60}").choice(PLATE)
+                        state.setdefault("today", {})["laid"] = {"dish": dish, "id": p["id"]}      # World.plate returns it: he may eat it as a laid-out meal
+                        text = public = entry["event"].format(dish=dish)
+                out.append((text, {"k": "world", "text": public} if public else None))
+                kinds.append("promise:" + p["what"])
+        resolved = [p for p in state["promises"] if p["status"] != "open"]
+        if len(resolved) > PROMISES_KEPT:
+            drop = {id(p) for p in resolved[:-PROMISES_KEPT]}
+            state["promises"] = [p for p in state["promises"] if id(p) not in drop]
+        return out, kinds
 
     # ── museums, concerts and plays (HEGEL_CULTURE) ─────────────────
     def listings(self, d):
@@ -438,8 +531,9 @@ class World(Economy):
     def beat(self, bid):
         return next(b for b in self.beats if b["id"] == bid)
 
-    def eligible(self, b, t, state, pid=None, timed=True):
-        """Does beat b want to fire at time t with Hegel at pid? With timed=False the time window is ignored."""
+    def eligible(self, b, t, state, pid=None, timed=True, placed=True):
+        """Does beat b want to fire at time t with Hegel at pid? With timed=False the time window is ignored; with
+        placed=False so are his place and the people it needs. It changes nothing but makes the books on first need (ledger)."""
         d, m = t.date(), minute_of(t)
         if b["id"] in state["beats"] or b["id"] in state.get("missed", []):
             return None
@@ -461,6 +555,8 @@ class World(Economy):
                 return None
         if timed and b.get("window") and not hm(b["window"][0]) <= m < hm(b["window"][1]):
             return None
+        if not placed:
+            return b
         variant = dict(b)
         if b.get("variants"):
             if pid not in b["variants"]:
@@ -547,6 +643,11 @@ class World(Economy):
         wx = self.wx_at(t)
         present = self.present_ids(pid, t, state)
         events = []          # (prompt, public entry or None)
+        opened = []          # what opened the moment: one kind for each event that has words, each once, in order
+
+        def kind(k):
+            if k not in opened:
+                opened.append(k)
         self.ledger(state)
         self.track(state, d, pid, present)
         beat = self.due_beat(t, state, pid)
@@ -557,9 +658,11 @@ class World(Economy):
         read = (prev_step or {}).get("read")
         if read and prev_step.get("end") == fmt(m):                # what he looked up on his phone, as the step ends
             events.append((f"On your phone you read: {read['title']}. {read['text']}" if read.get("text") else read["note"], None))
+            kind("read")
         said = (prev_step or {}).get("voice")
         if said and prev_step.get("end") == fmt(m) and not prev_step.get("left"):
-            events.append((voices.heard(said), None))              # their answer to what he said, as the step ends
+            events.append((voices.heard(said), None))
+            kind("reply")                                          # their answer to what he said, as the step ends
         # A step that took him elsewhere ends where he went: the answer stays with that step, in the record, and
         # does not follow him (a bookseller's line reached him at home at 38:25 and 45:25).
 
@@ -574,11 +677,14 @@ class World(Economy):
             if papers:
                 line += f" {where} Headlines: " + "; ".join(papers) + "."
             events.append((line, {"k": "world", "text": "Morning papers: " + " · ".join(f"“{x}”" for x in papers)} if papers else None))
+            kind("papers" if papers else "wake")
             listing = self.listings(d) if self.culture else None
             if listing:
                 events.append((listing, {"k": "world", "text": listing}))
+                kind("listings")
         elif m == 0:
             events.append(("Midnight. The house is dark and quiet.", None))
+            kind("late")
 
         if prev_step and prev_step.get("arrived") == pid and pid != "home":
             close = self.closes(pid, t, state)
@@ -586,29 +692,43 @@ class World(Economy):
             if close:
                 line += f" It closes at {fmt(close)}."
             events.append((line, None))
+            kind("arrive")
 
         if beat:
             events.append((beat["prompt"], None))
+            if beat.get("session"):
+                kind("session:" + beat["session"])
+            else:
+                kind(("offer:" if beat["id"] in self.offer_ids else "beat:") + beat["id"])
         if state.get("post"):                                 # HEGEL_CORRESPONDENT: a letter from Munich has come
-            events += post.event(state, present, self.post_card())
+            letter = post.event(state, present, self.post_card())
+            events += letter
+            if any(p for p, _ in letter):
+                kind("post")
         lines, entries = self.upkeep(t, state, pid, present, today)
         events += [(x, None) for x in lines] + [("", e) for e in entries]
+        if any(lines):
+            kind("purse")
 
         if pid != "home" and not self.is_open(pid, t, state):
             events.append((f"{self.places[pid]['name']} is closing. You must leave.", None))
+            kind("closing")
         elif pid != "home":
             close = self.closes(pid, t, state)
             if close and 0 < close - m <= 30 and not (prev_step and prev_step.get("arrived") == pid):
                 events.append((f"{self.places[pid]['name']} closes at {fmt(close)}.", None))
+                kind("closes")
 
         if pid == "home" and not state.get("asleep"):
             meal, why = meal_at(m), self.kitchen(state)
             if why and meal and "no_meals" not in today:
                 today["no_meals"] = True
                 events.append((why, None))                         # said once a day: the kitchen is shut until it is paid
+                kind("kitchen")
             elif not why and meal == "breakfast" and "breakfast" not in today and "ramesh" in present:
                 today["breakfast"] = True
                 events.append((f"Ramesh has laid out breakfast: {random.Random(f'breakfast|{d}').choice(BREAKFAST)}.", None))
+                kind("meal")
             elif not why and meal == "lunch" and "lunch" not in today:
                 today["lunch"] = True
                 if "ramesh" in present:
@@ -618,14 +738,17 @@ class World(Economy):
                     events.append(("Ramesh comes only on Mondays, Thursdays and Saturdays now. There is no lunch at home today."
                                    if state.get("flags", {}).get("ramesh_parttime") else
                                    "Ramesh has his day off. There is no lunch at home today.", None))
+                kind("meal")
             elif not why and meal == "dinner" and "dinner" not in today and "ramesh" in present:
                 today["dinner"] = True
                 menu = random.Random(f"dinner|{d}").choice(DINNER)
                 events.append((f"Ramesh serves dinner before he goes home: {menu}.", None))
+                kind("meal")
             elif not why and TEA_WINDOW[0] <= m < TEA_WINDOW[1] and "tea" not in today and "ramesh" in present:
                 today["tea"] = True                                # tea is brought, not asked for: it holds hunger off two hours
                 self.feed(state, t, "snack")
                 events.append((f"Ramesh brings tea: {random.Random(f'tea|{d}').choice(TEA)}.", {"k": "world", "text": "Ramesh brings tea."}))
+                kind("tea")
             cut = random.Random(f"power|{d}")
             if cut.random() < 0.06:
                 at = cut.randint(1140, 1290)
@@ -633,19 +756,28 @@ class World(Economy):
                     today["power"] = True
                     light = "Ramesh lights two candles." if "ramesh" in present else "You find candles in the kitchen drawer."
                     events.append((f"The power goes. The fan stops. {light}", {"k": "world", "text": "A power cut. The fan stops."}))
+                    kind("power")
             if m >= 1380 and "late" not in today:
                 today["late"] = True
                 events.append(("It is late. The house is quiet.", None))
+                kind("late")
 
+        if state.get("promises"):                             # HEGEL_PROMISES: what has fallen due is kept, broken or lapsed
+            kept, kinds = self.promise_round(t, state, pid, opened)
+            events += kept
+            for x in kinds:
+                kind(x)
         outdoor = self.places[pid].get("outdoor")
         if outdoor and wx["rain"] >= 1 and today.get("rain_reported", -999) < m - 120:
             today["rain_reported"] = m
             heavy = wx["rain"] >= 4
             events.append(("Heavy rain begins." if heavy else "It begins to rain.",
                            {"k": "world", "text": "Heavy rain." if heavy else "Rain."}))
+            kind("rain")
         if wx.get("aqi") and wx["aqi"] >= 300 and "bad_air" not in today and not state.get("asleep"):
             today["bad_air"] = True
             events.append((f"The air is very poor today: the index stands at {wx['aqi']}.", None))
+            kind("air")
 
         seen = set(today.get("seen", {}).get(pid, []))
         new = [c for c in present if c not in seen and not self.cast[c].get("background") and not (beat and c in beat.get("brings", []))]
@@ -653,21 +785,35 @@ class World(Economy):
         if new:
             bits = [f"{self.cast[c]['name']} is here." if c in known else f"{self.short(c)} is here; you have not met." for c in new]
             events.append((" ".join(bits), None))
+            for c in new:
+                kind("here" if c in known else f"stranger:{c}")
         today.setdefault("seen", {})[pid] = sorted(seen | set(present))
 
         body, felt = self.needs(t, state)
         events += [(x, None) for x in felt]
+        for x in felt:
+            kind("felt" if "tired" in x else "hunger")
         if self.culture and not state.get("asleep") and pid != "home":
             stage = self.on_stage(pid, t, today)
             if stage:
                 events.append((stage, None))
+                kind("listings" if stage.startswith("Tonight here: ") else "part")
             elif not any(p for p, _ in events):
                 seen_here = self.sight(pid, d, today)
                 if seen_here:
                     events.append((seen_here, None))
+                    kind("sight")
+        card = None
         if not any(p for p, _ in events):
             part = "morning" if m < 720 else "afternoon" if m < 1020 else "evening" if m < 1260 else "night"
-            events.append((f"Nothing in particular happens. The {part} goes on.", None))
+            nothing = f"Nothing in particular happens. The {part} goes on."
+            if self.street and self.deck and not state.get("asleep") and 240 <= m < BED_M:
+                card = street.draw(self.deck, state.get("street", {}), pid, d, m, wx)
+            if card:
+                events.append((card["text"], {"k": "world", "text": card["text"]}))
+                kind("street:" + card["id"])
+            else:
+                events.append((nothing, None))
 
         open_now = self.open_places(t, state)
         closes = {p: fmt(c) for p in open_now if (c := self.closes(p, t, state)) and c - m <= 180}
@@ -681,6 +827,8 @@ class World(Economy):
             when = datetime.fromisoformat(a["date"]).date()
             on_mind.append(f"{WEEKDAYS[when.weekday()]} {when.day} {when.strftime('%B')}{' ' + a['t'] if a.get('t') else ''}: {a['what']}.")
         on_mind += self.engagement_lines(t, state)
+        on_mind += [f"{self.cast[p['by']]['name']} has promised {self.menu[p['by']][p['what']]['says']} by {p['due'][11:16]}."
+                    for p in state.get("promises", []) if p["status"] == "open"]          # HEGEL_PROMISES: his side of the record
         if state.get("post"):
             on_mind += post.on_mind(state, self.post_card())
         flag = state["flags"].get("bandhgala")
@@ -753,17 +901,25 @@ class World(Economy):
         if self.culture:
             sit["places"] = list(self.places)                 # the decision's place list widens with the venues
         self.show_plan(sit, day)
-        ctx = {"t": t, "present": present, "beat": beat, "public": [e for _, e in events if e],
+        ctx = {"t": t, "present": present, "beat": beat, "public": [e for _, e in events if e], "opened": opened,
                "fresh": [c for c in new if c in known]}
+        if card:
+            ctx["street"] = {"id": card["id"], "text": card["text"], "empty": nothing}      # recorded in apply, and only if a mind decided
         return sit, ctx
 
     # ── the rules ───────────────────────────────────────────────────
     def check(self, ans, sit, ctx, state):
         """Errors (the mind must decide again), warnings, and the repaired decision with its plan."""
+        if isinstance(ans, dict) and "wants" in ans and not sit.get("wants"):
+            ans = {k: v for k, v in ans.items() if k != "wants"}      # HEGEL_WANTS off: a wish in an answer is ignored
         errors, warnings = contract.check_shape(ans, list(self.places) if self.culture else None)
         if errors:
             return errors, warnings, None
         ans = copy.deepcopy(ans)
+        if isinstance(ans.get("wants"), str):
+            ans["wants"] = " ".join(ans["wants"].split())
+        if not ans.get("wants"):
+            ans.pop("wants", None)                     # null and "" are no wish: the key stays out
         recipient = ans.get("speaks_to")
         if recipient is not None:
             if recipient not in self.cast or recipient not in ctx["present"]:
@@ -888,6 +1044,13 @@ class World(Economy):
         d = t0.date()
         midnight = at_dt(d, 1440)
         segs, entries = [], []
+        card = ctx.get("street")
+        if card and ans.get("thought"):
+            state.setdefault("street", {})[card["id"]] = d.isoformat()      # a card is spent when a mind has seen it
+        elif card:                                                            # a quiet or away step has no mind: the moment stays empty
+            ctx["public"] = [e for e in ctx["public"] if e.get("text") != card["text"]]
+            ctx["opened"] = [k for k in ctx["opened"] if k != "street:" + card["id"]]
+            sit["event"] = sit["event"].replace(card["text"], card["empty"])
 
         def entry(t, e):
             e = dict(e)
@@ -1011,7 +1174,8 @@ class World(Economy):
             if self.served(t, state):
                 self.feed(state, t, "meal")
             elif plate := self.plate(t, state):                      # between meals, asked for
-                entry(t, {"k": "world", "text": f"Ramesh puts a plate together: {plate}."})
+                if not state.get("today", {}).get("laid"):          # a promised plate was set down, and said so, when it was kept
+                    entry(t, {"k": "world", "text": f"Ramesh puts a plate together: {plate}."})
                 self.feed(state, t, "meal")
         for b in plan["buys"]:
             entry(t, dict({"k": "bag", "item": b["item"], "price": b["price"]}, **{k: b[k] for k in ("office", "note") if b.get(k)}))
@@ -1049,6 +1213,8 @@ class World(Economy):
         state["asleep"] = night
         step = {"t": fmt(minute_of(t0)), "end": "24:00" if end >= midnight else fmt(minute_of(end)),
                 "event": sit["event"], "present": sit["present"], "decision": ans, "arrived": arrived}
+        if "opened" in ctx:
+            step["opened"] = list(ctx["opened"])        # what opened this moment (the engine's own words for it, not the event's)
         if ctx.get("reply"):
             step["voice"] = ctx["reply"]            # opens the next situation, unless he left
             if plan["moves"]:

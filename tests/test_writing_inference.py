@@ -46,7 +46,7 @@ class WritingInferenceTests(unittest.TestCase):
         mind.chat_writing(self.messages,contract.WRITE_SCHEMA)
         mind.decide(self.messages,{})
         mind.chat_voice(self.messages,contract.VOICE_SCHEMA)
-        self.assertEqual([x['lora'][0]['scale'] for x in Recorder.calls],[0,1,0])
+        self.assertEqual([x['lora'][0]['scale'] for x in Recorder.calls],[0,0,0])      # P5: the decision call has no decision scale, so it names 0 (the old default sent 1)
         self.assertEqual([x['chat_template_kwargs']['enable_thinking'] for x in Recorder.calls],[True,False,False])
         self.assertNotIn('reasoning_budget_tokens',Recorder.calls[1])
     def test_schema_fallback_preserves_budget_and_adapter(self):
@@ -134,7 +134,7 @@ class WritingInferenceTests(unittest.TestCase):
         mind.chat_voice(self.messages,contract.VOICE_SCHEMA)
         mind.chat_writing(self.messages,contract.WRITE_SCHEMA)
         mind.chat(self.messages)
-        self.assertEqual([x['lora'][0]['scale'] for x in Recorder.calls],[0,0,1,1])
+        self.assertEqual([x['lora'][0]['scale'] for x in Recorder.calls],[0,0,0,0])      # P5: voice call 0; the writing and plain chat name 0, not the old default 1
         self.assertEqual([x['chat_template_kwargs']['enable_thinking'] for x in Recorder.calls],[True,False,False,False])
         self.assertEqual(Recorder.calls[0]['max_tokens'],1468)
         self.assertEqual(Recorder.calls[0]['reasoning_budget_tokens'],768)
