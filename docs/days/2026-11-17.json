@@ -321,6 +321,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Shri G. Hegde at home."
+  },
+  {
+   "from": "10:17",
+   "to": "10:39",
+   "mode": "walk",
+   "a": "home",
+   "b": "iic"
   }
  ],
  "entries": [
@@ -464,6 +471,41 @@
    "to": "Hegel",
    "text": "Beta, you talk about 'ethical substance' like it’s free, but my stomach is asking for Maggi, not philosophy. If this Munich letter actually has money in it, then fine, fix Ramesh, but don’t quote books at me while I’m holding a cold pan.",
    "t": "10:02"
+  },
+  {
+   "k": "diary",
+   "text": "Hegde is right to demand substance over abstraction; my empty stomach and his cold pan are the immediate ethical reality that my philosophy has neglected. I must act before I can think, for the will that is not embodied is merely opinion. I will go to the Indira International Centre to secure a meal and a place to sit, and perhaps a moment to address the file's irregularity with a mind not clouded by hunger.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Schelling"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    }
+   ],
+   "t": "10:17"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Shri. The idea must become actuality, and right now my actuality is hunger. I will go to the IIC for a meal. Do not wait up; I will return before the evening dismisses the day.",
+   "to": "Shri G. Hegde",
+   "t": "10:17"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Beta, I am not waiting up, I am going to sleep. Go eat your food, and if you don't return by seven, I will assume you have finally found your ethical substance in some café and stop worrying.",
+   "t": "10:17"
+  },
+  {
+   "k": "wear",
+   "item": "Bandhgala, charcoal",
+   "status": "Worn from 10:17.",
+   "sprite": "bandhgala",
+   "t": "10:17"
   }
  ],
  "steps": [
@@ -633,16 +675,75 @@
      "text": "Hence a community arises, which then becomes an external order, and thus, as we have seen (pp. 21, 22), expands into a church. In as far as spirit is its principle, it is, as spiritual, immediately universal, for isolation in feeling, opinion, &c., is unspiritual."
     }
    ]
+  },
+  {
+   "t": "10:17",
+   "end": "10:39",
+   "event": "Shri G. Hegde says: “Beta, you talk about 'ethical substance' like it’s free, but my stomach is asking for Maggi, not philosophy. If this Munich letter actually has money in it, then fine, fix Ramesh, but don’t quote books at me while I’m holding a cold pan.” Shri G. Hegde sighs deeply and rubs his temples.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Hegde is right to demand substance over abstraction; my empty stomach and his cold pan are the immediate ethical reality that my philosophy has neglected. I must act before I can think, for the will that is not embodied is merely opinion. I will go to the Indira International Centre to secure a meal and a place to sit, and perhaps a moment to address the file's irregularity with a mind not clouded by hunger.",
+    "action": "walk",
+    "place": "iic",
+    "minutes": 45,
+    "says": "You are right, Shri. The idea must become actuality, and right now my actuality is hunger. I will go to the IIC for a meal. Do not wait up; I will return before the evening dismisses the day.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "iic",
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Beta, I am not waiting up, I am going to sleep. Go eat your food, and if you don't return by seven, I will assume you have finally found your ethical substance in some café and stop worrying.",
+    "does": "She rolls her eyes and turns away to check the stove."
+   },
+   "left": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Schelling",
+     "id": "haldane-3:1259"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Schelling",
+     "text": "In the year 1807 he became secretary of the Academy of Science in Munich. We cannot with propriety deal fully with his life, for he is still living. Schelling worked out his philosophy in view of the public."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-17T10:17+05:30",
+  "place": "iic",
+  "until": "2026-11-17T10:39+05:30",
   "asleep": false,
   "imprest": 35700,
-  "wearing": "kurta",
+  "wearing": "bandhgala",
   "wardrobe": [
    {
     "id": "frock",
@@ -667,7 +768,7 @@
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Worn from 16:44."
+    "status": "Worn from 10:17."
    }
   ],
   "people": [
@@ -731,7 +832,9 @@
      "hegde"
     ]
    },
-   "no_meals": true
+   "no_meals": true,
+   "walked": 1650,
+   "strain": 1650
   },
   "account": {
    "advance": 15000,
