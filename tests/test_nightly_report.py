@@ -1,5 +1,6 @@
 """T19's automatic publication, crash retry and preservation contract; no model."""
 import json
+import subprocess
 import tempfile
 import unittest
 from datetime import datetime
@@ -186,6 +187,58 @@ class NightlyReportTest(unittest.TestCase):
                 patch("world.__main__.nightly_report.publish_yesterday", side_effect=OSError("injected failure")):
             self.assertEqual(cmd_tick(self.cfg, args), 1)
         engine.tick.assert_called_once_with(NOW)
+
+    # W1 (T54): the day's world-health line rides inside the day's row, and never decides whether the row is written.
+
+    def health_result(self, line=None, code=0, stdout=None):
+        line = line if line is not None else {"date": "2026-10-24", "n": 23, "thoughts": 33, "answered": 0.5}
+        out = stdout if stdout is not None else json.dumps(line) + "\n"
+        return SimpleNamespace(returncode=code, stdout=out, stderr="")
+
+    def run_with(self, health):
+        """publish() with the day report mocked as the row it prints and the health command as `health` (a result or an exception)."""
+        row = {"date": "2026-10-24", "n": 23, "complete": True, "owl": True, "thoughts": 33}
+        printed = json.dumps(row, ensure_ascii=False)
+        calls = []
+
+        def run(cmd, **kw):
+            calls.append(cmd)
+            if "--health" in cmd:
+                if isinstance(health, BaseException):
+                    raise health
+                return health
+            return SimpleNamespace(returncode=0, stdout=printed + "\n", stderr="")
+
+        with patch("world.nightly_report.subprocess.run", side_effect=run):
+            self.assertTrue(self.publish())
+        return printed, calls
+
+    def test_health_line_is_added_to_the_row_as_a_field(self):
+        printed, calls = self.run_with(self.health_result())
+        row = json.loads(self.path.read_text())
+        self.assertEqual(row["health"], {"date": "2026-10-24", "n": 23, "thoughts": 33, "answered": 0.5})
+        self.assertEqual({k: v for k, v in row.items() if k != "health"}, json.loads(printed))
+        self.assertEqual(len(self.path.read_text().splitlines()), 1)
+        health_cmd = [c for c in calls if "--health" in c][0]          # the day report's command, plus --health
+        self.assertEqual(health_cmd[1:], ["-m", "world", "report", "2026-10-24", "--health", "--docs", str(self.cfg.docs), "--json"])
+        self.assertEqual(len(calls), 2)
+
+    def test_any_health_failure_leaves_the_row_exactly_as_the_report_printed_it(self):
+        failures = {"no full day": self.health_result(stdout="no full day among them: a day counts from 20 thoughts\n"),
+                    "exit 1": self.health_result(code=1),
+                    "two lines": self.health_result(stdout='{"date":"2026-10-24"}\n{"date":"2026-10-24"}\n'),
+                    "not json": self.health_result(stdout="Traceback (most recent call last)\n"),
+                    "other day": self.health_result({"date": "2026-10-23"}),
+                    "not an object": self.health_result(stdout="[1, 2]\n"),
+                    "timeout": subprocess.TimeoutExpired("report", 120),
+                    "no python": OSError("exec failed")}
+        for name, health in failures.items():
+            with self.subTest(name):
+                self.path.unlink(missing_ok=True)
+                self.git.committed = None
+                printed, _ = self.run_with(health)
+                self.assertEqual(self.path.read_bytes(), printed.encode("utf-8") + b"\n")
+                self.assertNotIn("health", json.loads(self.path.read_text()))
 
 
 if __name__ == "__main__":

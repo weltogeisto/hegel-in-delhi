@@ -35,6 +35,31 @@ def _ledger(path):
     return raw, dates
 
 
+def _health(cfg, wanted):
+    """The day's world-health line (`python3 -m world report DATE --health --json`, world/health.py), or None.
+
+    It rides inside the day's row as `health` (T54, W1). A day below the thought floor, a failed command, a timeout or an
+    unreadable line each give None, and the row is then written exactly as the day report printed it: the day's row never
+    waits for, or fails on, its health line."""
+    try:
+        result = subprocess.run(
+            [sys.executable, "-m", "world", "report", wanted, "--health",
+             "--docs", str(cfg.docs), "--json"], cwd=cfg.repo,
+            capture_output=True, text=True, encoding="utf-8", timeout=120)
+    except (subprocess.TimeoutExpired, OSError) as exc:
+        log.warning("health line for %s skipped: %s", wanted, exc)
+        return None
+    lines = result.stdout.splitlines() if not result.returncode else []
+    try:
+        line = json.loads(lines[0]) if len(lines) == 1 else None
+    except ValueError:
+        line = None
+    if not isinstance(line, dict) or line.get("date") != wanted:
+        log.info("no health line for %s", wanted)
+        return None
+    return line
+
+
 def publish_yesterday(cfg, now, git):
     """Append once after the owl; retry an uncommitted row without rerunning its report.
 
@@ -70,9 +95,14 @@ def publish_yesterday(cfg, now, git):
             row = json.loads(lines[0])
             if not isinstance(row, dict) or row.get("date") != wanted or row.get("n") != day.get("n") or not row.get("complete") or not row.get("owl"):
                 raise ReportError("report command returned an ineligible row")
+            line = lines[0]
+            health = _health(cfg, wanted)
+            if health is not None:
+                row["health"] = health
+                line = json.dumps(row, ensure_ascii=False)
             # Preserve every previous byte. Replacement is atomic, so a failed
             # write cannot leave half a row or damage the earlier ledger.
-            addition = (b"\n" if raw and not raw.endswith(b"\n") else b"") + lines[0].encode("utf-8") + b"\n"
+            addition = (b"\n" if raw and not raw.endswith(b"\n") else b"") + line.encode("utf-8") + b"\n"
             temp = None
             try:
                 with tempfile.NamedTemporaryFile(dir=path.parent, prefix=".reports-", suffix=".tmp", delete=False) as stream:
