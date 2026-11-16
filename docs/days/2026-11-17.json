@@ -391,6 +391,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "13:04",
+   "to": "13:19",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -831,6 +838,34 @@
    "to": "Hegel",
    "text": "Finally, thank you. Please go on, the queue is getting long.",
    "t": "12:59"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s dismissal is the only honest thing in this building; he sees the particular man where the system sees a file. I am not here to be polite to the queue, but to find the source of the meal and the seat. The officer is the pivot; without his word, I remain a ghost haunting the corridor.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction"
+    }
+   ],
+   "t": "13:04"
+  },
+  {
+   "k": "said",
+   "text": "Excuse me, Officer. The guard has his duties. I am here to discuss the irregularity of my residence and, if it pleases you, to accept your hospitality for a meal. I am G.W.F. Hegel, though the paper says Hegde.",
+   "to": "the guard at the library and the programme officer",
+   "t": "13:04"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Sir, I am just the gate guard, I do not handle residence papers or meals. Please see the front desk for your documentation, and the cafeteria is open if you wish to eat.",
+   "t": "13:04"
   }
  ],
  "steps": [
@@ -1597,13 +1632,72 @@
      "text": "Note. — One means of freely and widely participating in public affairs is the press, which, in its more extended range, is superior to speech, although inferior in vivacity. — To define the liberty of the press as the liberty to speak and write what one pleases is parallel to the definition of liberty iu general, as liberty to do what one pleases."
     }
    ]
+  },
+  {
+   "t": "13:04",
+   "end": "13:19",
+   "event": "The guard at the library says: “Finally, thank you. Please go on, the queue is getting long.” He steps back to let the scholars pass through the corridor.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s dismissal is the only honest thing in this building; he sees the particular man where the system sees a file. I am not here to be polite to the queue, but to find the source of the meal and the seat. The officer is the pivot; without his word, I remain a ghost haunting the corridor.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 15,
+    "says": "Excuse me, Officer. The guard has his duties. I am here to discuss the irregularity of my residence and, if it pleases you, to accept your hospitality for a meal. I am G.W.F. Hegel, though the paper says Hegde.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Sir, I am just the gate guard, I do not handle residence papers or meals. Please see the front desk for your documentation, and the cafeteria is open if you wish to eat.",
+    "does": "I gesture towards the front desk and the cafeteria entrance."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:458"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction",
+     "id": "sibree-history:263"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "The people of India have achieved no foreign conquests, but have been on every occasion vanquished themselves. And as in this silent way, Northern India has been a centre of emigration, productive of merely physical diffusion, India as a Land of Desire forms an essential element in General History."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction",
+     "text": "We have already discussed the final aim of this progression. The principles of the successive phases of Spirit that animate the Nations in a necessitated gradation, are themselves only steps in the development of the one universal Spirit, which through them elevates and completes itself to a self-comprehending totality."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-17T13:04+05:30",
+  "until": "2026-11-17T13:19+05:30",
   "asleep": false,
   "imprest": 35700,
   "wearing": "bandhgala",
