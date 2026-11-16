@@ -342,6 +342,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "11:04",
+   "to": "12:04",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Reading at the IIC."
   }
  ],
  "entries": [
@@ -586,6 +593,34 @@
    "to": "Hegel",
    "text": "Right, I'll get the token sorted for you, sir. The cafeteria opens at twelve, so you can come down whenever. Please don't touch that book, it's for reference only.",
    "t": "10:54"
+  },
+  {
+   "k": "diary",
+   "text": "The guard has performed his duty with the quiet efficiency of a well-oiled mechanism; he is a functionary, not a friend, yet his gesture of securing the token is a small act of recognition in a system that otherwise treats me as an error in the ledger. I am at the Institute, a temple of the universal spirit in this particular land, and I have time before the cafeteria opens. I shall sit in the reading room and let the silence of the books settle the noise of the bureaucracy in my head, for I am here to think, and the file will remain in orders until Friday.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§209"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§97"
+    }
+   ],
+   "t": "11:04"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, sir. I shall return at noon. Please do not let the reference section suffer from my presence.",
+   "to": "the guard at the library and the programme officer",
+   "t": "11:04"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Don't worry, sir. Just keep your hands to yourself and the books will be fine. See you at twelve.",
+   "t": "11:04"
   }
  ],
  "steps": [
@@ -933,13 +968,72 @@
      "text": "Have I any right to kill myself? The answer is that I, as this individual am not lord over my life, since the comprehensive totality of one's activity, the life, falls within the direct and present personality. To speak of the right of a person over his life is a contradiction, since it implies a right of a person over himself. But no one can stand above and execute himself."
     }
    ]
+  },
+  {
+   "t": "11:04",
+   "end": "12:04",
+   "event": "The guard at the library says: “Right, I'll get the token sorted for you, sir. The cafeteria opens at twelve, so you can come down whenever. Please don't touch that book, it's for reference only.” He writes something on a small notepad and tucks it into his breast pocket.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard has performed his duty with the quiet efficiency of a well-oiled mechanism; he is a functionary, not a friend, yet his gesture of securing the token is a small act of recognition in a system that otherwise treats me as an error in the ledger. I am at the Institute, a temple of the universal spirit in this particular land, and I have time before the cafeteria opens. I shall sit in the reading room and let the silence of the books settle the noise of the bureaucracy in my head, for I am here to think, and the file will remain in orders until Friday.",
+    "action": "read",
+    "place": "iic",
+    "minutes": 60,
+    "says": "Thank you, sir. I shall return at noon. Please do not let the reference section suffer from my presence.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Don't worry, sir. Just keep your hands to yourself and the books will be fine. See you at twelve.",
+    "does": "He gives a small nod and turns back to the front desk."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.5,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§209",
+     "id": "dyde-right:495"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§97",
+     "id": "wallace-logic:450"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§209",
+     "text": "The relative principle of the mutual exchange of wants and labour for their satisfaction has in the first instance its return into itself in the infinite personality generally, i.e., in abstract right. Yet it is the very sphere of the relative which in the form of education gives embodiment to right, by fixing it as something universally acknowledged, known, and willed."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§97",
+     "text": "Whenever we speak of the One, the Many usually come into our mind at the same time. Whence, then, we are forced to ask, do the Many come? This question is unanswerable by the consciousness which pictures the Many as a primary datum, and-treats the One as only one among the Many."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-17T11:04+05:30",
+  "until": "2026-11-17T12:04+05:30",
   "asleep": false,
   "imprest": 35700,
   "wearing": "bandhgala",
