@@ -524,6 +524,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "17:39",
+   "to": "17:44",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Going from shop to shop in Khan Market."
   }
  ],
  "entries": [
@@ -1502,6 +1509,34 @@
    "to": "Hegel",
    "text": "Good. Eat it before it tastes like nothing. I am cutting a collar.",
    "t": "17:24"
+  },
+  {
+   "k": "diary",
+   "text": "The food is finished, and the obligation of the body is discharged. Masterji has returned to his work, the shears moving in the rhythm of a practical spirit. I am not yet ready to leave this horseshoe of needs; the air is cooling, and I have the energy for one more movement before the file's shadow returns.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras"
+    }
+   ],
+   "t": "17:39"
+  },
+  {
+   "k": "said",
+   "text": "Shukriya, Masterji. The collar will serve its purpose well.",
+   "to": "Masterji and Sunil",
+   "t": "17:39"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "It will. Cotton holds its shape better than these people do. Keep it warm.",
+   "t": "17:39"
   }
  ],
  "steps": [
@@ -3417,13 +3452,76 @@
      "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
     }
    ]
+  },
+  {
+   "t": "17:39",
+   "end": "17:44",
+   "event": "Masterji says: “Good. Eat it before it tastes like nothing. I am cutting a collar.” Turns back to the cutting table and picks up the shears.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The food is finished, and the obligation of the body is discharged. Masterji has returned to his work, the shears moving in the rhythm of a practical spirit. I am not yet ready to leave this horseshoe of needs; the air is cooling, and I have the energy for one more movement before the file's shadow returns.",
+    "action": "stay",
+    "place": "khan",
+    "minutes": 5,
+    "says": "Shukriya, Masterji. The collar will serve its purpose well.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Masterji",
+    "says": "It will. Cotton holds its shape better than these people do. Keep it warm.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 11.6,
+    "draws": {
+     "n": 2,
+     "refused": 1,
+     "echo": 0,
+     "picked": 1
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "id": "haldane-1:1015"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "id": "haldane-1:844"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "text": "Socrates thus omits, in characterizing virtue, just what we saw had also disappeared in actuality, that is, first the real spirit of a people, and then reality as the sympathies of the individual. For it is just when consciousness is not yet turned back into itself, that the universal good appears to the individual as the object of his sympathy."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "text": "This looks like external teleology—that plants are eaten by animals, &c., in which their limitation as genus lies. The genus of the plant has the absolute totality of its realization in the animal, the animal in the conscious existence, just as the earth has it in the plant. This is the system of the whole in which each moment is transitory."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-17T17:39+05:30",
+  "until": "2026-11-17T17:44+05:30",
   "asleep": false,
   "imprest": 35620,
   "wearing": "kurta",
