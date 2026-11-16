@@ -447,6 +447,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "At the IIC."
+  },
+  {
+   "from": "14:29",
+   "to": "15:14",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Eating at the IIC."
   }
  ],
  "entries": [
@@ -1111,6 +1118,34 @@
    "to": "Hegel",
    "text": "All the best, sir. Enjoy your meal.",
    "t": "14:19"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s dismissal is a small but firm boundary: the institution permits my presence but offers no fellowship. I am left with the particular need of the stomach and the universal silence of the room. To eat alone in a place of culture is to acknowledge that civil society satisfies needs without offering spirit.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§537"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "14:29"
+  },
+  {
+   "k": "said",
+   "text": "Thank you. I shall make the most of what is available.",
+   "to": "the guard at the library and the programme officer",
+   "t": "14:29"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Sir, please, just 'thank you' is enough. Go on, the food gets cold.",
+   "t": "14:29"
   }
  ],
  "steps": [
@@ -2364,13 +2399,72 @@
      "text": "In the fourth place it follows that we must not regard the history of Philosophy as dealing with the past, even though it is history. The scientific products of reason form the content of this history, and these are not past."
     }
    ]
+  },
+  {
+   "t": "14:29",
+   "end": "15:14",
+   "event": "The guard at the library says: “All the best, sir. Enjoy your meal.” Gives a small nod and turns back to the desk.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s dismissal is a small but firm boundary: the institution permits my presence but offers no fellowship. I am left with the particular need of the stomach and the universal silence of the room. To eat alone in a place of culture is to acknowledge that civil society satisfies needs without offering spirit.",
+    "action": "eat",
+    "place": "iic",
+    "minutes": 45,
+    "says": "Thank you. I shall make the most of what is available.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Sir, please, just 'thank you' is enough. Go on, the food gets cold.",
+    "does": "Waves a hand dismissively and looks back down at the register on the desk."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 10.9,
+    "draws": {
+     "n": 2,
+     "refused": 1,
+     "echo": 0,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§537",
+     "id": "wallace-mind:293"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§537",
+     "text": "Secondly, it carries back both, and the whole disposition and action of the individual—whose tendency is to become a centre of his own—into the life of the universal substance; and, in this direction, as a free power it interferes with those subordinate spheres and retains them in substantial immanence."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-17T14:29+05:30",
+  "until": "2026-11-17T15:14+05:30",
   "asleep": false,
   "imprest": 35700,
   "wearing": "bandhgala",
