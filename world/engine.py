@@ -176,6 +176,7 @@ class Engine:
         prev = next((s for s in reversed(day["steps"]) if "decision" in s), None)
         if getattr(self.cfg, "correspondent", False) and not st.get("asleep"):
             self.post_round(t, st)                  # letters from Munich: the outbox to the post, and an answer if it is due
+        self._voice_retries = 0
         sit, ctx = self.world.situation(t, st, day, prev)
         if not getattr(self.cfg, "thesis_reminders", True):
             sit["on_mind"] = [line for line in sit.get("on_mind", []) if not line.startswith("Your theses: ")]
@@ -273,6 +274,10 @@ class Engine:
             step["shelf_exposure"] = [{k: x[k] for k in ("work", "ref", "text")} for x in ctx["shelf"]]
         if drawn:
             step["mind"]["draws"] = drawn
+        if getattr(self, "_voice_retries", 0):
+            step["mind"]["voice_retries"] = self._voice_retries            # HEGEL_PROMISES: a promise the world refused, and the voice asked once more
+        if ctx.get("promised"):
+            step["promise"] = ctx["promised"][0] if len(ctx["promised"]) == 1 else ctx["promised"]
         if refused:
             step["mind"]["refused"] = refused
         if warnings:
@@ -394,10 +399,48 @@ class Engine:
             when = at_dt(date.fromisoformat(day["date"]), hm(sit["time"]))
             meal_status = (self.world.served(when, day["state"]) or "none") + ". " + self.world.meal_status(when, day["state"])
         vf = getattr(getattr(self, "cfg", None), "voice_facts", False) is True
-        messages = [{"role": "system", "content": self.voice_prompt}, {"role": "user", "content": voices.render(c, sit, where, says, remember, first_meeting=first_meeting, purchases=purchases, meal_status=meal_status, world_facts=voices.recorded_facts(self.world, cid, day.get("state") or {}, **({"voice_facts": True} if vf else {})) + voices.paid_here(self.world.places[sit["place"]], day.get("entries", [])), **({"voice_facts": True} if vf else {}))}]
+        menu = getattr(self.world, "menu", {}).get(cid) if getattr(self.world, "promises", False) else None      # HEGEL_PROMISES: what this person may promise
+        schema = contract.voice_schema(menu)
+        extra = {"today": day["date"]} if menu and day.get("date") else {}
+        messages = [{"role": "system", "content": self.voice_prompt}, {"role": "user", "content": voices.render(c, sit, where, says, remember, first_meeting=first_meeting, purchases=purchases, meal_status=meal_status, world_facts=voices.recorded_facts(self.world, cid, day.get("state") or {}, **({"voice_facts": True} if vf else {}), **extra) + voices.paid_here(self.world.places[sit["place"]], day.get("entries", [])), **({"voice_facts": True} if vf else {}), **({"menu": menu} if menu else {}))}]
         voice_chat = getattr(type(self.mind), "chat_voice", None)
-        reply = voice_chat(self.mind, messages, contract.VOICE_SCHEMA, max_tokens=250) if voice_chat else self.mind.chat(messages, contract.VOICE_SCHEMA, max_tokens=250)
-        return voices.clean(c, contract.extract_json(reply))
+        ask = (lambda msgs: voice_chat(self.mind, msgs, schema, max_tokens=250)) if voice_chat else (lambda msgs: self.mind.chat(msgs, schema, max_tokens=250))
+        reply = ask(messages)
+        out = contract.extract_json(reply)
+        said = voices.clean(c, out)
+        if menu and said and isinstance(out, dict) and out.get("act") is not None and day.get("state") is not None:
+            said = self.promised(cid, day, sit, menu, messages, reply, out, said, ask)
+        return said
+
+    def promised(self, cid, day, sit, menu, messages, reply, out, said, ask):
+        """HEGEL_PROMISES, the check before he hears the reply: a promise the world cannot keep is refused with its reason and the voice asked once
+        more (the same messages, its reply, one line). A second refusal, or a second answer that is unusable, drops the act and the first reply's
+        words stand; an answer without an act is taken as it comes. A promise that stands is written down (World.promise_make) and its id rides
+        on the reply as `promise`, for the caller to take off. MindAway on the second ask is no refusal: the first words stand, without the act."""
+        st, c = day["state"], self.world.cast[cid]
+        when = at_dt(date.fromisoformat(day["date"]), hm(sit["time"]))
+        why = self.world.promise_problem(cid, out["act"], when, sit["place"], st)
+        if why:
+            self._voice_retries = getattr(self, "_voice_retries", 0) + 1
+            log.info("promise refused at %s: %s", sit["time"], why)
+            msgs = messages + [{"role": "assistant", "content": reply},
+                               {"role": "user", "content": f"The world refuses this promise: {why}. Answer again; if you cannot promise it, do not."}]
+            try:
+                out = contract.extract_json(ask(msgs))
+            except MindAway as e:
+                log.warning("mind away for the second answer at %s: %s", sit["time"], e)
+                return said
+            again = voices.clean(c, out)
+            if again is None:
+                return said
+            if not isinstance(out, dict) or out.get("act") is None:
+                return again
+            why = self.world.promise_problem(cid, out["act"], when, sit["place"], st)
+            if why:
+                log.info("promise refused again at %s: %s", sit["time"], why)
+                return said
+            said = again
+        return dict(said, promise=self.world.promise_make(cid, out["act"], said["says"], when, sit["place"], st)["id"])
 
     def greet(self, day, sit, ctx):
         """A person he knows, new in sight today, may speak first: the line joins the event and what he has met.
@@ -409,6 +452,8 @@ class Engine:
             log.warning("mind away for a greeting at %s: %s", sit["time"], e)
             return getattr(self.mind, "ready", True)
         if said:
+            if said.get("promise"):
+                ctx.setdefault("promised", []).append(said.pop("promise"))
             ctx["greeting"] = said
             sit["event"] += " " + voices.heard(said)
             ctx.setdefault("opened", []).append(f"greeting:{cid}")
@@ -421,7 +466,10 @@ class Engine:
             vf = getattr(getattr(self, "cfg", None), "voice_facts", False) is True
             who = voices.pick(self.world.cast, says, ctx["present"], recipient=recipient, **(dict(
                 facts=True, purchases=ctx.get("purchases"), entries=day.get("entries"), segments=day.get("segments"), place=sit["place"]) if vf else {}))
-            return self.voice(who, day, sit, says, purchases=ctx.get("purchases"))
+            said = self.voice(who, day, sit, says, purchases=ctx.get("purchases"))
+            if said and said.get("promise"):
+                ctx.setdefault("promised", []).append(said.pop("promise"))
+            return said
         except MindAway as e:
             log.warning("mind away for an answer at %s: %s", sit["time"], e)
             return None
@@ -587,7 +635,7 @@ class Engine:
         if name := self.world.served(t, st):
             return not self.eaten(st, t, name)
         soon = any(0 < a - minute_of(t) <= 60 for a, _ in MEAL_WINDOWS.values())     # no plate an hour before a meal
-        return bool(st.get("today", {}).get("hunger") and not soon and self.world.plate(t, st))
+        return bool(st.get("today", {}).get("hunger") and not soon and self.world.plate(t, st)) or bool(st.get("today", {}).get("laid") and self.world.plate(t, st))
 
     @staticmethod
     def quiet_out(day, place):

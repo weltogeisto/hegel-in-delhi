@@ -291,7 +291,7 @@ class StubMind:
                        {"item": "Prepaid SIM card", "price_inr": 300}, {"item": "Mobile data, 28 days", "price_inr": 350}])
         elif vouchers > 2000 and "estates" in open_now and here != "estates" and 570 <= now <= 16 * 60 and sit["day"][:3] in ("Mon", "Tue", "Wed", "Thu", "Fri"):
             ans.update(action="walk", place="estates", minutes=30)                      # the vouchers want going through
-        elif here == "home" and ("laid out" in ev or "serves dinner" in ev):
+        elif here == "home" and ("laid out" in ev or "serves dinner" in ev or "sets down the plate" in ev):
             ans.update(action="eat", place="home", minutes=r.choice([30, 45]))
         elif hungry and here == "khan" and sit["imprest_left"] >= 220:
             ans.update(action="eat", place="khan", minutes=45, buys=[{"item": "Lunch at a dhaba: dal, rice, roti", "price_inr": 220}])
@@ -345,7 +345,13 @@ class StubMind:
             return json.dumps({"plan": items})
         if "does" in props:         # one of the people he meets, answering
             r = random.Random(messages[-1]["content"])
-            return json.dumps({"says": "(rehearsal) " + r.choice(REPLIES), "does": r.choice(DOINGS)})
+            out = {"says": "(rehearsal) " + r.choice(REPLIES), "does": r.choice(DOINGS)}
+            menu = (next((x for x in props["act"]["anyOf"] if "properties" in x), {}).get("properties", {}).get("what", {}).get("enum")) if "act" in props else None
+            if menu and "refuses this promise" not in messages[-1]["content"] and r.random() < 0.4:       # HEGEL_PROMISES: now and then a promise, in the menu's words
+                what = r.choice(menu)
+                out["act"] = {"kind": "promise", "what": what, "minutes": r.choice([5, 10, 15, 20, 30, 45, 60, 90, 120])}
+                out["says"] = f"(rehearsal) {r.choice(['Right away', 'In a little while', 'I will see to it'])}, sir: in {out['act']['minutes']} minutes."
+            return json.dumps(out)
         if "continues" in props:    # what he wrote, or with "about" what he means to write
             ask = messages[-1]["content"]
             shelf = re.findall(r"“([^”]+)” \(", ask.split("Your manuscripts so far:")[1]) if "Your manuscripts so far:" in ask else []

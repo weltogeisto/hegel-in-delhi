@@ -6,7 +6,8 @@ decided with a mind, how many opened with
   answered   the reply to what he had just said, and nothing else from the world;
   empty      "Nothing in particular happens.";
   brought    something he did not start: a beat of a storyline or an offer, the morning papers, the day's listings,
-             a letter, a person he has not met, a person who speaks first, a power cut, rain, bad air;
+             a letter, a person he has not met, a person who speaks first, a power cut, rain, bad air, a sight of the
+             street, a promise kept;
   routine    the rest: arriving, a closing hour, a meal laid out, hunger.
 
 Beside them: where he was (the share at home, the entropy of his places in bits), the people who spoke, what he did,
@@ -57,7 +58,7 @@ WORDS = (("papers", re.compile(r"Headlines: ")),
          ("post", re.compile(r"brings the post: |The post has come: ")))
 # The kinds in `opened` that count as brought, and the ones that only answer.
 BROUGHT_KINDS = {"beat", "offer", "session", "papers", "listings", "post", "stranger", "greeting", "power", "rain", "air",
-                 "sight", "part", "street"}
+                 "sight", "part", "street", "promise"}
 ANSWERED_KINDS = {"reply", "read"}
 
 

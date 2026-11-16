@@ -21,7 +21,7 @@ Specs: `pc/WORLD-2-WEEK1.md`. Every switch is off. Each goes on only after its s
 | Task | Owner | State | Next |
 |---|---|---|---|
 | T57 · what a voice is told about itself | Claude, then the PC seat | Built, off: `HEGEL_VOICE_FACTS`. Shri Hegde and Mr. Saxena read their side of the record; every person is `he` or `she`; the one whose trade his words concern answers | An arm of T57's screen |
-| T57 · a promise is a record | Claude, then the PC seat | In work: `HEGEL_PROMISES` | An arm of T57's screen |
+| T57 · a promise is a record | Claude, then the PC seat | Built, off: `HEGEL_PROMISES`. Ramesh may promise tea or a plate; the engine refuses what it cannot keep, asks once more, records the promise and keeps it at its minute, or marks it lapsed or broken. Each side sees its own record | An arm of T57's screen (`pc/T57-SCREEN.md`), declared and not run; `tools/voice_screen.py` is still to write |
 | T59 · the street | Claude; Welt reads the batch | Built, off: `HEGEL_STREET`, sixty cards, a linter in `world check`. Measured with stand-ins: the walker's empty moments 31% → 22%, the stay-at-home's 56% → 53% (`pc/STREET-BATCH-1.md`) | Welt reads the batch. Home needs events, not more sights |
 | T58 · a wider condition for beats | Claude | Built: `flags_in`, `flags_not` in a beat's `when`. No beat uses them yet | The file's orders (`pc/FILE-NEXT-ACT.md`) |
 | T67 · every call names its adapter | Claude | Built: once any adapter is set, every call sends its own scale, and 0 where it has none. Nothing changes while none is set | An adapter's day by fork, if Welt wants one |

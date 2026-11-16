@@ -34,6 +34,7 @@ WALK_M, HOT_C = 75, 33                  # metres a minute; from this temperature
 NUMBERS = "zero one two three four five six seven eight nine ten eleven twelve".split()
 PLAN_TIME = re.compile(r"(\d{1,2}):(\d{2})$")
 RECENT_CHARS, PURCHASE_CHARS = 480, 240  # bounded current recall; full records stay on disk
+PROMISES_KEPT = 20      # the last resolved promises the state keeps; the open ones all
 GREET_P = 0.35          # a person he knows, seen for the first time that day at a place, speaks first with this chance
 
 
@@ -92,7 +93,7 @@ def names(lst):
 
 
 class World(Economy):
-    def __init__(self, feeds=None, culture=False, street_on=False, street_file=None):
+    def __init__(self, feeds=None, culture=False, street_on=False, street_file=None, promises=False):
         p = load("places.json")
         self.places, self.walks = p["places"], p["walk"]
         self.culture = bool(culture)                          # HEGEL_CULTURE: museums, concerts and plays (data/culture.json)
@@ -101,6 +102,8 @@ class World(Economy):
             self.places, self.walks = {**self.places, **c["places"]}, {**self.walks, **c["walk"]}
         self.street = bool(street_on)                         # HEGEL_STREET: a card from the street deck at an empty moment (data/street.json)
         self.deck = street.load_deck(street_file) if self.street else []
+        self.promises = bool(promises)                        # HEGEL_PROMISES: a promise is a record (data/promises.json); nobody has a menu while it is off
+        self.menu = load("promises.json")["people"] if self.promises else {}
         self.cast = load("cast.json")["cast"]
         offers = load("offers.json")["offers"]
         self.beats = load("plot.json")["beats"] + offers
@@ -254,6 +257,9 @@ class World(Economy):
         and the last meal was at least three hours ago. None otherwise."""
         if self.served(t, state) or self.kitchen(state) or "ramesh" not in self.present_ids("home", t, state):
             return None
+        laid = state.get("today", {}).get("laid")
+        if laid:
+            return laid["dish"]                              # HEGEL_PROMISES: the plate Ramesh promised and has set down, whatever the hour of the last meal
         if state.get("last_meal") and t - datetime.fromisoformat(state["last_meal"]) < timedelta(hours=PLATE_GAP_H):
             return None
         return random.Random(f"plate|{t.date()}|{minute_of(t) // 60}").choice(PLATE)
@@ -268,6 +274,8 @@ class World(Economy):
             return f"{name.capitalize()} is available now."
         later = [(name, a) for name, (a, _) in MEAL_WINDOWS.items() if a > minute_of(t)]
         nxt = f"the next service is {later[0][0]} from {fmt(later[0][1])}" if later else "today's meal services have ended"
+        if state.get("today", {}).get("laid") and (plate := self.plate(t, state)):
+            return f"No set meal now ({nxt}); Ramesh has set down a plate: {plate}."
         if plate := self.plate(t, state):
             return f"No set meal now ({nxt}); if you ask, Ramesh puts a plate together: {plate}."
         return f"No household meal is available now; {nxt}."
@@ -276,6 +284,7 @@ class World(Economy):
         """A meal starts the clock again; a snack pushes hunger back two hours."""
         if food == "meal":
             state["last_meal"], state["snacks"] = t.isoformat(timespec="minutes"), 0
+            state.get("today", {}).pop("laid", None)         # HEGEL_PROMISES: whatever he eats, the promised plate is not eaten twice
         else:
             state["snacks"] = state.get("snacks", 0) + 1
 
@@ -316,6 +325,86 @@ class World(Economy):
         if getattr(self, "_post_card", None) is None:
             self._post_card = post.card()
         return self._post_card
+
+    # ── promises (HEGEL_PROMISES) ───────────────────────────────────
+    def promise_problem(self, cid, act, t, pid, state):
+        """Why the world cannot keep this promise of `cid`'s, made at t where he is (pid): a short reason in plain words, or None."""
+        menu = self.menu.get(cid, {})
+        if not isinstance(act, dict) or act.get("kind") != "promise":
+            return 'an act is a promise of the form {"kind": "promise", "what": ..., "minutes": ...}'
+        what, minutes = act.get("what"), act.get("minutes")
+        entry = menu.get(what) if isinstance(what, str) else None
+        if not entry:
+            return "that is not on your list; you may promise only " + " or ".join(x["says"] for x in menu.values())
+        lo, hi = entry["minutes"]
+        if type(minutes) is not int or not lo <= minutes <= hi:
+            return f"the minutes for {entry['says']} are a whole number from {lo} to {hi}"
+        due = t + timedelta(minutes=minutes)
+        if any(p["by"] == cid and p["what"] == what and p["status"] == "open" for p in state.get("promises", [])):
+            return f"you have already promised him {entry['says']}, and it is still open"
+        if entry.get("kitchen") and self.kitchen(state):
+            return f"the kitchen is shut ({self.kitchen(state).rstrip('.')})"
+        if pid != entry["place"]:
+            return f"it can be kept only {self.places[entry['place']]['at']}"
+        if due.date() != t.date() or minute_of(due) >= BED_M:
+            return "a promise does not run past the day; it would fall due after bedtime"
+        if cid not in self.present_ids(entry["place"], due, state):
+            return f"you will have left by {fmt(minute_of(due))}"
+        return None
+
+    def promise_make(self, cid, act, says, t, pid, state):
+        """Write the promise down, open: state["promises"]. Returns its record."""
+        n = state["promise_seq"] = state.get("promise_seq", 0) + 1
+        p = {"id": f"p{n}", "by": cid, "what": act["what"], "said": says, "made": t.isoformat(timespec="minutes"),
+             "due": (t + timedelta(minutes=act["minutes"])).isoformat(timespec="minutes"), "place": pid, "status": "open"}
+        state.setdefault("promises", []).append(p)
+        return p
+
+    def promise_round(self, t, state, pid, opened):
+        """At a moment he decides: each open promise that has fallen due is kept, broken or lapsed (bedtime and midnight lapse what is still open).
+        Kept: he is at its place and the person is there, the kitchen open; the event line that joins the moment, with its public entry, and the
+        kinds that opened it. Broken (the kitchen shut meanwhile, the person gone) and lapsed (he was elsewhere) say nothing now: the record and the
+        person's facts do. `opened`: what has already opened this moment (the engine's own tea). Returns ([(prompt, public)], [kinds])."""
+        out, kinds, d, m = [], [], t.date(), minute_of(t)
+        for p in state["promises"]:
+            if p["status"] != "open":
+                continue
+            due = datetime.fromisoformat(p["due"])
+            if t < due and due.date() == d and m < BED_M:
+                continue
+            entry, name = self.menu[p["by"]][p["what"]], self.cast[p["by"]]["name"]
+            p["resolved"] = t.isoformat(timespec="minutes")
+            if t < due or due.date() < d:
+                p["status"] = "lapsed"                                          # a promise never crosses the night
+            elif entry.get("kitchen") and self.kitchen(state):
+                p["status"], p["why"] = "broken", "the kitchen was shut"
+            elif p["by"] not in self.present_ids(p["place"], t, state):
+                p["status"], p["why"] = "broken", f"{name} had left"
+            elif pid != p["place"]:
+                p["status"] = "lapsed"                                          # he was elsewhere
+            else:
+                p["status"] = "kept"
+                if entry["keeps"] == "tea":
+                    if "tea" in opened:
+                        text, public = entry["by_meal"], None                    # the engine's own tea is this moment's: it keeps the promise
+                    else:
+                        self.feed(state, t, "snack")                             # as the engine's own tea: a snack
+                        text = public = entry["event"]
+                else:
+                    meal = self.served(t, state)
+                    if meal:
+                        text = public = entry["by_meal"].format(meal=meal)       # the engine's own meal is laid out: it keeps the promise, none is served twice
+                    else:
+                        dish = random.Random(f"plate|{d}|{m // 60}").choice(PLATE)
+                        state.setdefault("today", {})["laid"] = {"dish": dish, "id": p["id"]}      # World.plate returns it: he may eat it as a laid-out meal
+                        text = public = entry["event"].format(dish=dish)
+                out.append((text, {"k": "world", "text": public} if public else None))
+                kinds.append("promise:" + p["what"])
+        resolved = [p for p in state["promises"] if p["status"] != "open"]
+        if len(resolved) > PROMISES_KEPT:
+            drop = {id(p) for p in resolved[:-PROMISES_KEPT]}
+            state["promises"] = [p for p in state["promises"] if id(p) not in drop]
+        return out, kinds
 
     # ── museums, concerts and plays (HEGEL_CULTURE) ─────────────────
     def listings(self, d):
@@ -673,6 +762,11 @@ class World(Economy):
                 events.append(("It is late. The house is quiet.", None))
                 kind("late")
 
+        if state.get("promises"):                             # HEGEL_PROMISES: what has fallen due is kept, broken or lapsed
+            kept, kinds = self.promise_round(t, state, pid, opened)
+            events += kept
+            for x in kinds:
+                kind(x)
         outdoor = self.places[pid].get("outdoor")
         if outdoor and wx["rain"] >= 1 and today.get("rain_reported", -999) < m - 120:
             today["rain_reported"] = m
@@ -733,6 +827,8 @@ class World(Economy):
             when = datetime.fromisoformat(a["date"]).date()
             on_mind.append(f"{WEEKDAYS[when.weekday()]} {when.day} {when.strftime('%B')}{' ' + a['t'] if a.get('t') else ''}: {a['what']}.")
         on_mind += self.engagement_lines(t, state)
+        on_mind += [f"{self.cast[p['by']]['name']} has promised {self.menu[p['by']][p['what']]['says']} by {p['due'][11:16]}."
+                    for p in state.get("promises", []) if p["status"] == "open"]          # HEGEL_PROMISES: his side of the record
         if state.get("post"):
             on_mind += post.on_mind(state, self.post_card())
         flag = state["flags"].get("bandhgala")
@@ -1078,7 +1174,8 @@ class World(Economy):
             if self.served(t, state):
                 self.feed(state, t, "meal")
             elif plate := self.plate(t, state):                      # between meals, asked for
-                entry(t, {"k": "world", "text": f"Ramesh puts a plate together: {plate}."})
+                if not state.get("today", {}).get("laid"):          # a promised plate was set down, and said so, when it was kept
+                    entry(t, {"k": "world", "text": f"Ramesh puts a plate together: {plate}."})
                 self.feed(state, t, "meal")
         for b in plan["buys"]:
             entry(t, dict({"k": "bag", "item": b["item"], "price": b["price"]}, **{k: b[k] for k in ("office", "note") if b.get(k)}))

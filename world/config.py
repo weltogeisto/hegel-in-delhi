@@ -49,6 +49,7 @@ class Config:
         self.street_file = v.get("HEGEL_STREET_FILE", "").strip() or None   # another deck than world/data/street.json (a rehearsal's)
         self.correspondent = v.get("HEGEL_CORRESPONDENT", "0").strip().lower() in ("1", "yes", "true")   # Niethammer writes from Munich (pc/CORRESPONDENT.md); off until switched on
         self.voice_facts = v.get("HEGEL_VOICE_FACTS", "0").strip().lower() in ("1", "yes", "true")   # a voice is told its own side of the record, its pronoun, and the right person answers (pc/WORLD-2-WEEK1.md P2); off until switched on
+        self.promises = v.get("HEGEL_PROMISES", "0").strip().lower() in ("1", "yes", "true")   # a promise is a record: the voice may make one in `act`, the engine keeps it (pc/WORLD-2-WEEK1.md P1); off until switched on
         self.pause_away = v.get("HEGEL_PAUSE_AWAY", "0").strip().lower() in ("1", "yes", "true")   # hold his world at waking while the PC is away (pc/PAUSE.md); off until switched on
         self.wants = v.get("HEGEL_WANTS", "0").strip().lower() in ("1", "yes", "true")   # he may name what he wishes the city had (pc/WANTS-SCREEN.md); written down, no effect; off until switched on
         self.news_feeds = [u.strip() for u in v.get("NEWS_FEEDS", (

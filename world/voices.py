@@ -1,7 +1,8 @@
 """The people he meets answer him: who answers, what the voice is told, and what comes back."""
 import re
+from datetime import date, timedelta
 
-from .contract import VOICE_ASK
+from .contract import PROMISE_LINES, VOICE_ASK, VOICE_ASK_ACT
 from .memory import names_of
 from .works import cut
 
@@ -73,7 +74,7 @@ def pick(cast, says, present, recipient=None, facts=False, purchases=None, entri
     return next((c for c in present if not cast[c].get("background")), None) or (present[0] if present else None)
 
 
-def recorded_facts(world, cid, state, voice_facts=False):
+def recorded_facts(world, cid, state, voice_facts=False, today=None):
     """Only world facts this speaker handles; never Hegel's private thoughts.
 
     These are the state before this exchange. Checked current payments are
@@ -101,10 +102,28 @@ def recorded_facts(world, cid, state, voice_facts=False):
                 facts.append(f"The current recorded unpaid washing balance is ₹{balance:,}. " +
                              ("Do not request payment for a settled or not-yet-due charge." if balance == 0 else
                               "Only this recorded balance remains due; do not add a second charge."))
+    if today and getattr(world, "promises", False) and cid in world.menu:
+        facts += promise_facts(world, cid, state, today)
     if voice_facts and cid == "hegde":
         facts += hegde_facts(state)
     if voice_facts and cid == "saxena":
         facts += saxena_facts(world, state)
+    return facts
+
+
+def promise_facts(world, cid, state, today):
+    """What this person promised him, from the record (HEGEL_PROMISES): the open ones, and the last one resolved if it fell due today or yesterday.
+    Facts only; no word on how to feel about them."""
+    book = [p for p in state.get("promises", []) if p["by"] == cid]
+    yesterday = (date.fromisoformat(today) - timedelta(days=1)).isoformat()
+    def line(p, outcome):
+        due = p["due"][11:16]
+        return f"You promised him {world.menu[cid][p['what']]['says']} by {due}{'' if p['due'][:10] == today else ' yesterday'}; {outcome}."
+    facts = [line(p, "it is not yet due") for p in book if p["status"] == "open"]
+    done = [p for p in book if p["status"] != "open" and p["due"][:10] in (today, yesterday)]
+    if done:
+        p = max(done, key=lambda x: x["due"])
+        facts.append(line(p, {"kept": "you brought it", "lapsed": "he was out when it was due"}.get(p["status"]) or f"you could not: {p.get('why', 'it was not possible')}"))
     return facts
 
 
@@ -156,7 +175,7 @@ def paid_here(place, entries, limit=6):
             ". Do not ask for them again; ask only for anything new he takes now."]
 
 
-def render(c, sit, where, says, remember, first_meeting=None, purchases=None, meal_status=None, world_facts=None, voice_facts=False):
+def render(c, sit, where, says, remember, first_meeting=None, purchases=None, meal_status=None, world_facts=None, voice_facts=False, menu=None):
     """The user message for one voice. `where` is the place's name; `says` is what he said to them, or None when they speak first."""
     text = f"You are {c['name']}, {c['role']}." + (f" {c['card']}" if c.get("card") else "")
     if voice_facts and c.get("pronoun"):
@@ -172,6 +191,8 @@ def render(c, sit, where, says, remember, first_meeting=None, purchases=None, me
                  "This is the authoritative current service status. Do not invent a completed meal service; you may offer future preparation.\n")
     if world_facts:
         text += "Recorded facts within your role, before this exchange (authoritative over conflicting dialogue; checked current payments below still apply):\n" + "".join(f"- {fact}\n" for fact in world_facts)
+    if menu:
+        text += PROMISE_LINES.format(menu=", or ".join(f"{x['says']} (`what` \"{k}\", {x['minutes'][0]} to {x['minutes'][1]} minutes)" for k, x in menu.items()))
     if first_meeting is True:
         text += "Relationship: this is your first encounter with him. Do not invent a previous order, visit, payment or promise between you.\n"
     elif first_meeting is False:
@@ -188,7 +209,7 @@ def render(c, sit, where, says, remember, first_meeting=None, purchases=None, me
     if remember:
         text += "\nWhat has passed between you and him:\n" + "".join(f"- {x}\n" for x in remember)
     text += f"\nHe says: “{says}”\n" if says else "\nYou have just caught sight of him. You speak first.\n"
-    return text + "\n" + VOICE_ASK
+    return text + "\n" + (VOICE_ASK_ACT if menu else VOICE_ASK)
 
 
 def clean(c, out):

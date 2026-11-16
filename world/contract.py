@@ -50,6 +50,25 @@ VOICE_SCHEMA = {
     "properties": {"says": {"type": "string", "maxLength": 420}, "does": {"anyOf": [{"type": "string", "maxLength": 200}, {"type": "null"}]}},
     "required": ["says", "does"],
 }
+VOICE_ASK_ACT = 'Answer with the JSON object only: {"says": "...", "does": null, "act": null}'      # HEGEL_PROMISES: for a person with a menu
+PROMISE_LINES = ('You may promise him only this: {menu}.\n'
+                 'A promise is made in `act`, as {{"kind": "promise", "what": "<one of those words>", "minutes": <minutes until you keep it>}}; otherwise `act` is null.\n'
+                 'You promise nothing else.\n')      # HEGEL_PROMISES: what a person with a menu is told, after the facts about them (data/promises.json)
+
+
+def voice_schema(menu=None):
+    """VOICE_SCHEMA itself, unchanged, unless the person has a menu of promises (HEGEL_PROMISES): then it gains the optional `act`, null or
+    one promise whose `what` is a key of the menu. The minutes' bounds are the widest of the menu's; the world checks each entry's own."""
+    if not menu:
+        return VOICE_SCHEMA
+    schema = copy.deepcopy(VOICE_SCHEMA)
+    lo, hi = min(x["minutes"][0] for x in menu.values()), max(x["minutes"][1] for x in menu.values())
+    schema["properties"]["act"] = {"anyOf": [{"type": "null"}, {"type": "object", "properties": {
+        "kind": {"type": "string", "enum": ["promise"]}, "what": {"type": "string", "enum": list(menu)},
+        "minutes": {"type": "integer", "minimum": lo, "maximum": hi}}, "required": ["kind", "what", "minutes"]}]}      # optional, and not required
+    return schema
+
+
 WRITING_KINDS = ["essay", "letter", "notes", "chapter", "poem", "other"]
 WRITE_ASK = ("You sat down to write. What did you write? Up to about 450 words, in English: a title, the kind "
              f"({', '.join(WRITING_KINDS[:-1])} or other), whom it is to if it is a letter, and the text. If it carries on one of your "
