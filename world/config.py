@@ -92,6 +92,10 @@ class Config:
         if not 1 <= self.decision_draws <= 6:
             raise ValueError("HEGEL_DECISION_DRAWS must be from 1 to 6")
         self.seed = int(v["HEGEL_SEED"]) if v.get("HEGEL_SEED", "").strip() else None                    # a base seed: every call to the mind sends one derived from it (world/mind.py); unset, none is sent
+        cache = v.get("HEGEL_CACHE_PROMPT", "").strip().lower()                                          # the server's prompt cache, per request: unset leaves the field out; 0 sends false, 1 true (a same-seed rehearsal needs false)
+        if cache not in ("", "0", "no", "false", "1", "yes", "true"):
+            raise ValueError("HEGEL_CACHE_PROMPT must be empty, 0/no/false or 1/yes/true")
+        self.cache_prompt = None if not cache else cache in ("1", "yes", "true")
         self.write_mode = "plain" if v.get("HEGEL_WRITE_MODE", "chat").strip().lower() == "plain" else "chat"      # his writings: the chat call (default), or a plain-text completion
 
     def get(self, key, default=None):

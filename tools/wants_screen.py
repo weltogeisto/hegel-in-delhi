@@ -11,7 +11,9 @@ Three arms on the 24 contexts frozen as M1's confirmation froze its own (tools/p
     python3 tools/wants_screen.py measure --dir DIR
 
 `measure` prints, per arm, the five measures of the file, the band (A against A2), pass or fail for W by the file's rule, and how many of W's
-decisions carry a wish. A read for Welt, not a gate on its own: a pass earns a provisional trial on his word.
+decisions carry a wish. Every request carries "cache_prompt": false, so that a reply depends on its prompt and seed and not on how much of the prompt the server took
+from its cache (measured 16 November: with the cache on, two same-seed days differed; off, they were identical over 30 steps).
+A read for Welt, not a gate on its own: a pass earns a provisional trial on his word.
 """
 import argparse
 import json
@@ -42,6 +44,7 @@ def requests(folder):
                 s = dict(sit, wants=True) if arm == "W" else sit
                 payload = decision_payload([{"role": "system", "content": system}, row["messages"][1]], s, 1831)
                 payload["seed"] = seed              # decision_sampler registers only its own four seeds; this screen's are declared in its file
+                payload["cache_prompt"] = False     # likewise: decision_payload does not send it; the reply must not depend on what the server cached
                 out.append((f"wants/{row['id']}/{arm}/{seed}", row, arm, seed, payload))
     return out
 

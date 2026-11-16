@@ -24,6 +24,8 @@ On the same frozen situations, plain Qwen, no adapter, the filter as live (`HEGE
 
 A against A′ is the band of noise. W is read against it.
 
+**Every call sends `cache_prompt` false.** The PC seat found on 16 November that the same seed gives the same reply only then (`pc/exports/noise-band-20261116/README.md` on `codex/pc-seat-20261116`). Added before any output of this screen.
+
 **Situations:** 24, frozen as M1's confirmation froze its own (`tools/prompt_screen.py freeze --from-day N`): 16 moments where nobody speaks to him and 8 encounters, from the complete shadow days after the letter from Munich has paid his debts. Days on which he has ₹6 would make every wish a wish for money.
 
 ## Bars
