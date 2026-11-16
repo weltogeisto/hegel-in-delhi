@@ -12,7 +12,7 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 17,
+    "temp": 18,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 154
@@ -114,7 +114,7 @@
     "aqi": 84
    },
    {
-    "temp": 22,
+    "temp": 21,
     "sky": "clear",
     "rain": 0,
     "aqi": 83
@@ -461,6 +461,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Eating at the IIC."
+  },
+  {
+   "from": "15:29",
+   "to": "15:39",
+   "mode": "walk",
+   "a": "iic",
+   "b": "khan"
   }
  ],
  "entries": [
@@ -1168,6 +1175,28 @@
     }
    ],
    "t": "15:14"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s silence and the officer’s distant presence confirm my status: I am a tolerated anomaly, not a member. The afternoon stretches, empty and clear, but my body, having fasted for a day, demands substance, not just air. I cannot remain in this limbo of polite exclusion; I must move to where the system of needs is open and honest.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§6"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§527"
+    }
+   ],
+   "t": "15:29"
+  },
+  {
+   "k": "wear",
+   "item": "White cotton kurta",
+   "status": "Worn from 15:29.",
+   "sprite": "kurta",
+   "t": "15:29"
   }
  ],
  "steps": [
@@ -2534,16 +2563,70 @@
      "text": "To the master, on the other hand, by means of this mediatiag process, belongs the immediate relation, in the sense of the pure negation of it, in other words he gets the enjoyment. What mere desire did not attain, he now succeeds in attaining, viz. to have done with the thing, and find satisfaction in enjoyment."
     }
    ]
+  },
+  {
+   "t": "15:29",
+   "end": "15:39",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s silence and the officer’s distant presence confirm my status: I am a tolerated anomaly, not a member. The afternoon stretches, empty and clear, but my body, having fasted for a day, demands substance, not just air. I cannot remain in this limbo of polite exclusion; I must move to where the system of needs is open and honest.",
+    "action": "walk",
+    "place": "khan",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "khan",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§6",
+     "id": "dyde-right:72"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§527",
+     "id": "wallace-mind:275"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§6",
+     "text": "It i ends, indeed, to bring to pass some jjositive social conditi i, such as universal equality or universal religious life. 1 ut in fact it does not will the positive reality of any such c iidition, since that would carry in its train a system, and/f'htroduce a separation by way of institutions and between individuals."
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§527",
+     "text": "Where civil society, and with it the State, exists, there arise the several estates in their difference: for the universal substance, as vital, exists only so far as it organically particularises itself."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "iic",
-  "until": "2026-11-17T15:29+05:30",
+  "place": "khan",
+  "until": "2026-11-17T15:39+05:30",
   "asleep": false,
   "imprest": 35700,
-  "wearing": "bandhgala",
+  "wearing": "kurta",
   "wardrobe": [
    {
     "id": "frock",
@@ -2563,7 +2646,7 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Worn from 17:20."
+    "status": "Worn from 15:29."
    },
    {
     "id": "bandhgala",
@@ -2644,8 +2727,8 @@
     ]
    },
    "no_meals": true,
-   "walked": 1650,
-   "strain": 1650,
+   "walked": 2400,
+   "strain": 2400,
    "hunger": 1
   },
   "account": {
