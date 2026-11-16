@@ -30,14 +30,14 @@ Specs: `pc/WORLD-2-WEEK1.md`. Every switch is off. Each goes on only after its s
 
 Three tasks, none of which changes anything live. They come after the order of `DECISIONS.md` 34 in priority and may use the night (`DECISIONS.md` 30).
 
-### W0 · PC seat · bring main into shadow · OPEN
+### W0 · PC seat · bring main into shadow · DONE: shadow `406ac6c`, 1,320 tests OK (PR #1, 16 November)
 Main now holds the world's second phase, every switch off. The merge into shadow conflicts in two import lines of `world/__main__.py` and nowhere else (tried on 16 November against shadow's head). Resolve them to:
 `from . import health, nightly_report, pause, report, shelf, street, works`
 `from .mind import STAND_INS, HTTPMind, StubMind`
 `from .publish import Git, GitError`
 Then check the merge as `pc/PC-SESSION.md` says. With the new switches unset, his days are what they were, plus two fields in the record: `opened` on a step, `funnel` on a day.
 
-### W1 · PC seat · the health row in the nightly report · OPEN
+### W1 · PC seat · the health row in the nightly report · ON: shadow `664f90e`; the first row is due after the owl of Day 47
 Beside the day's row, run `python3 -m world report --health` on shadow's days and put its line where the nightly row goes. From the first night on main's new code, each step carries `opened` and each day a `funnel`; the row reads them. Done when one night's row has arrived by itself.
 
 ### W2 · PC seat · the band of noise · DONE: `codex/pc-seat-20261116` at `40947ac`, `pc/exports/noise-band-20261116/README.md`
@@ -51,8 +51,8 @@ Beside the day's row, run `python3 -m world report --health` on shadow's days an
 3. **Still to measure:** the band with the cache off and different seeds. It joins the next night's forks.
 4. **The instructions change under it.** From Day 48 shadow runs `mind/soul-ordinary.md` (the other cloud session's read of Day 47, 16 November). The band above was measured on `mind/soul.md`. Every fork names its instructions with `--set HEGEL_SOUL_FILE=…` to match shadow on its day, and the band is measured again on the new ones before a switch is read against it.
 
-### W3 · PC seat · the `wants` screen · OPEN
-Welt has accepted the sentence for the screen (`DECISIONS.md` 41). Run `pc/WANTS-SCREEN.md` as declared: `python3 tools/wants_screen.py freeze --repo <native> --shadow <sha> --out <dir> --from-day N` on the complete days after the letter from Munich paid his debts (Day 47 on), then `wants_screen.run(<dir>, post)` with the guarded transport as for M1 (216 calls), then push the records. Claude runs `measure` and writes the result. Nothing goes on shadow from this: a pass earns a trial only on Welt's word, at the end of the order. **Every call sends `cache_prompt` false** (W2); the tool does it once main has the change.
+### W3 · PC seat · the `wants` screen · OPEN, and waits for the cache change on main
+Welt has accepted the sentence for the screen (`DECISIONS.md` 41). Run `pc/WANTS-SCREEN.md` as declared: `python3 tools/wants_screen.py freeze --repo <native> --shadow <sha> --out <dir> --from-day N` on the complete days from Day 48 on (`--from-day 48`): the letter has paid his debts, and he runs on `mind/soul-ordinary.md`, which is the arms' instructions, then `wants_screen.run(<dir>, post)` with the guarded transport as for M1 (216 calls), then push the records. Claude runs `measure` and writes the result. Nothing goes on shadow from this: a pass earns a trial only on Welt's word, at the end of the order. **Every call sends `cache_prompt` false** (W2); the tool does it once main has the change.
 
 ## Current, 16 November 2026
 
