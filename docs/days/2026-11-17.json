@@ -384,6 +384,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "12:59",
+   "to": "13:04",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -796,6 +803,34 @@
    "to": "Hegel",
    "text": "Arey, stop philosophising, sir. The mechanism serves the people who press it, and you are blocking the corridor. Move, please.",
    "t": "12:54"
+  },
+  {
+   "k": "diary",
+   "text": "The guard is right; I am a man in the way, a particular obstructing the universal flow of the corridor. I must yield to the mechanism and the people it serves. I will step aside and let the lift do its work, then seek the officer for the meal I require.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Assyrians, Babylonians, Medes and Persians"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§319"
+    }
+   ],
+   "t": "12:59"
+  },
+  {
+   "k": "said",
+   "text": "You are correct, sir. I yield to the mechanism and the people. I step aside.",
+   "to": "the guard at the library and the programme officer",
+   "t": "12:59"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Finally, thank you. Please go on, the queue is getting long.",
+   "t": "12:59"
   }
  ],
  "steps": [
@@ -1503,13 +1538,72 @@
      "text": "Die dazwischen liegende ist sonach konstante Devotion; wir können den Ausdruck devotio assiduitatis umkehren und sie die Assiduität der Devotion nennen. Ihre weitere Bestimmung geben Theils Beschreibungen auch der Bhagavad-Gita selbst, Theils aber ist es die Stufe, welche für sich nothwendig das Auffallendste für Alle gewesen ist, welche von Indischem berichtet haben."
     }
    ]
+  },
+  {
+   "t": "12:59",
+   "end": "13:04",
+   "event": "The guard at the library says: “Arey, stop philosophising, sir. The mechanism serves the people who press it, and you are blocking the corridor. Move, please.” He points a finger toward the open elevator doors.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard is right; I am a man in the way, a particular obstructing the universal flow of the corridor. I must yield to the mechanism and the people it serves. I will step aside and let the lift do its work, then seek the officer for the meal I require.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 5,
+    "says": "You are correct, sir. I yield to the mechanism and the people. I step aside.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Finally, thank you. Please go on, the queue is getting long.",
+    "does": "He steps back to let the scholars pass through the corridor."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Assyrians, Babylonians, Medes and Persians",
+     "id": "sibree-history:596"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§319",
+     "id": "dyde-right:804"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Assyrians, Babylonians, Medes and Persians",
+     "text": "In Persia, the government, though joining all in a central unity, is but a combination of peoples — leaving each of them free. Thereby a stop is put to that barbarism and ferocity with which the nations had been wont to darry on their destructive feuds, and which the Book of Kings and the Book of Samuel sufficiently attest."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§319",
+     "text": "Note. — One means of freely and widely participating in public affairs is the press, which, in its more extended range, is superior to speech, although inferior in vivacity. — To define the liberty of the press as the liberty to speak and write what one pleases is parallel to the definition of liberty iu general, as liberty to do what one pleases."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-17T12:59+05:30",
+  "until": "2026-11-17T13:04+05:30",
   "asleep": false,
   "imprest": 35700,
   "wearing": "bandhgala",
