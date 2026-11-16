@@ -370,6 +370,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "At the IIC."
+  },
+  {
+   "from": "12:49",
+   "to": "12:54",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -726,6 +733,34 @@
    "to": "Hegel",
    "text": "Lift is on the right, don't stare at the doors like you've never seen one before. And keep your voice down, sir.",
    "t": "12:34"
+  },
+  {
+   "k": "diary",
+   "text": "The guard treats the mechanism as a thing of nature, as fixed and silent as a rock, whereas I see in it the dialectic of space: the separation of floors is negated by the vertical movement that unites them. He bids me lower my voice as one lowers the heat of a passion, but I am not here to shout at the machinery; I am here to descend into the body of the institution to find sustenance. The elevator is the ladder of the state, connecting the administrative ground to the intellectual height, and I must use it with the dignity of a man who understands the necessity of the means.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§147"
+    }
+   ],
+   "t": "12:49"
+  },
+  {
+   "k": "said",
+   "text": "I am not staring, sir, I am contemplating the mechanism. But I shall heed your counsel regarding the volume of my voice. Lead the way, or rather, show me the direction of the descent.",
+   "to": "the guard at the library and the programme officer",
+   "t": "12:49"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Arey, it’s a lift, sir, not a temple. Just press the button and don't block the corridor, the scholars are coming for lunch.",
+   "t": "12:49"
   }
  ],
  "steps": [
@@ -1315,13 +1350,72 @@
      "text": "But neither physical life nor intellectual remains content with mere abstention; as desire it presses on through hunger and through thirst towards Truth, towards knowledge itself. It presses on to satisfy this desire and does not allow itself to feast and find sufficiency in a reflection such as this."
     }
    ]
+  },
+  {
+   "t": "12:49",
+   "end": "12:54",
+   "event": "The guard at the library says: “Lift is on the right, don't stare at the doors like you've never seen one before. And keep your voice down, sir.” He points a thick finger toward the elevator lobby.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard treats the mechanism as a thing of nature, as fixed and silent as a rock, whereas I see in it the dialectic of space: the separation of floors is negated by the vertical movement that unites them. He bids me lower my voice as one lowers the heat of a passion, but I am not here to shout at the machinery; I am here to descend into the body of the institution to find sustenance. The elevator is the ladder of the state, connecting the administrative ground to the intellectual height, and I must use it with the dignity of a man who understands the necessity of the means.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 5,
+    "says": "I am not staring, sir, I am contemplating the mechanism. But I shall heed your counsel regarding the volume of my voice. Lead the way, or rather, show me the direction of the descent.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Arey, it’s a lift, sir, not a temple. Just press the button and don't block the corridor, the scholars are coming for lunch.",
+    "does": "He waves his hand impatiently toward the elevator lobby."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:456"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§147",
+     "id": "wallace-logic:691"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "India, moreover, was the centre of emigration for all the western world; but this external historical relation is to be regarded rather as a merely physical diffusion of peoples from this point."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§147",
+     "text": "Here there is no contrast to be seen, and therefore no sense of bondage, no pain, and no sorrow. True, indeed, as already remarked, this attitude towards destiny is void of consolation. But then, on the other hand, it is a frame of mind which does not need consolation, so long as personal subjectivity has not acquired its infinite significance."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-17T12:49+05:30",
+  "until": "2026-11-17T12:54+05:30",
   "asleep": false,
   "imprest": 35700,
   "wearing": "bandhgala",
