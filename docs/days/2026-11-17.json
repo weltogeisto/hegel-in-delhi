@@ -405,6 +405,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "At the IIC."
+  },
+  {
+   "from": "13:34",
+   "to": "13:39",
+   "mode": "inside",
+   "at": "iic",
+   "now": "At the IIC."
   }
  ],
  "entries": [
@@ -901,6 +908,34 @@
    "to": "Hegel",
    "text": "Right this way, sir. It's just past the pillar, they have the tiffins there.",
    "t": "13:19"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s gesture is a small act of mediation, bridging the gap between my hunger and the institution’s routine. I am a body that must eat, and I am a spirit that must not be rude; the cafeteria is where these two demands meet. I will follow him, for the universal satisfaction of the particular need is the way of the world, even if it is merely tiffin.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70"
+    }
+   ],
+   "t": "13:34"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, sir. I am in your debt for the direction.",
+   "to": "the guard at the library and the programme officer",
+   "t": "13:34"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "No problem, sir. Just mind the step on the way in.",
+   "t": "13:34"
   }
  ],
  "steps": [
@@ -1788,13 +1823,75 @@
      "text": "Whole books used to be written in this spirit. It is easy to see that they promoted the genuine interest neither of religion nor of science. External design stands immediately in front of the idea: but what thus stands on the threshold often for that reason is least adequate."
     }
    ]
+  },
+  {
+   "t": "13:34",
+   "end": "13:39",
+   "event": "The guard at the library says: “Right this way, sir. It's just past the pillar, they have the tiffins there.” He points his thumb over his shoulder toward the cafeteria entrance.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s gesture is a small act of mediation, bridging the gap between my hunger and the institution’s routine. I am a body that must eat, and I am a spirit that must not be rude; the cafeteria is where these two demands meet. I will follow him, for the universal satisfaction of the particular need is the way of the world, even if it is merely tiffin.",
+    "action": "stay",
+    "place": "iic",
+    "minutes": 5,
+    "says": "Thank you, sir. I am in your debt for the direction.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "No problem, sir. Just mind the step on the way in.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 6.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology",
+     "id": "baillie-1:533"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "id": "dyde-right:205"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology",
+     "text": "The way of the world is thus, from one point of view, particular individuahty seeking its pleasure and enjoyment, finding itself overthrown in doing so, and as a result satisfying the demands of the universal. But this satisfaction, hke the rest of the moments of this relationship, is a perverted state and process of the universal."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "text": "Addition. — The particular person is really a subordinate, who must devote his life to the service of the ethical fabric; when the state demands his life, he must yield it up. But should the man take his own life? Suicide may at first glance be looked upon as bravery, although it be the poor bravery of tailors and maid-servants."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-17T13:34+05:30",
+  "until": "2026-11-17T13:39+05:30",
   "asleep": false,
   "imprest": 35700,
   "wearing": "bandhgala",
