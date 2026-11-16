@@ -489,6 +489,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "16:24",
+   "to": "16:44",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -1315,6 +1322,40 @@
    "to": "Hegel",
    "text": "Arre, stop with the 'law of exchange' already. Just drink the chai before it turns to soup, yaar. The law is fine as long as the cup stays full.",
    "t": "16:09"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil reduces my dialectic to the temperature of the tea. He is right, in a way I did not expect: the universal holds only while the particular is satisfied. The cup is the state; if it is empty, there is only thirst and no law. I am hungry, and the stomach is a universal need that demands particular satisfaction before I can return to the abstract.",
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198"
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§198"
+    }
+   ],
+   "t": "16:24"
+  },
+  {
+   "k": "said",
+   "text": "You are correct, Sunil. The law is indeed fine, provided the cup remains full. I will accept the samosa; the spirit requires fuel to continue its labour.",
+   "to": "Masterji and Sunil",
+   "t": "16:24"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Samosa? Now we are talking business. Thirty rupees, hot and crisp, right here on the plate. Stop philosophizing and eat before the filling goes cold.",
+   "t": "16:24"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "16:24"
   }
  ],
  "steps": [
@@ -2920,15 +2961,80 @@
      "text": "' In this -work Mr. Hugo says (5th edition § 53) that \" Cicero praises the twelve tables with a side glance at philosophy,\" \" but the philosopher Phavorinus treats them exactly as many a great philosopher since has treated positive right.\""
     }
    ]
+  },
+  {
+   "t": "16:24",
+   "end": "16:44",
+   "event": "Sunil says: “Arre, stop with the 'law of exchange' already. Just drink the chai before it turns to soup, yaar. The law is fine as long as the cup stays full.” He waves a dismissive hand and turns back to the stove to check the boil.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil reduces my dialectic to the temperature of the tea. He is right, in a way I did not expect: the universal holds only while the particular is satisfied. The cup is the state; if it is empty, there is only thirst and no law. I am hungry, and the stomach is a universal need that demands particular satisfaction before I can return to the abstract.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 20,
+    "says": "You are correct, Sunil. The law is indeed fine, provided the cup remains full. I will accept the samosa; the spirit requires fuel to continue its labour.",
+    "buys": [
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Samosa? Now we are talking business. Thirty rupees, hot and crisp, right here on the plate. Stop philosophizing and eat before the filling goes cold.",
+    "does": "Slides a fresh samosa onto a paper plate and pushes it toward him."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "id": "wallace-logic:882"
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§198",
+     "id": "enzyklopaedie:513"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "text": "Like the solar system, so for example in the practical sphere the state is a system of three syllogisms. (1) The Individual or person, through his particularity or physical or mental needs (which when carried out to their full development give civil society), is coupled with the universal, i.e. with society, law, right, government."
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§198",
+     "text": "Wie das Sonnensystem, so ist z. B. im Praktischen der Staat ein System von drei Schlüssen. 1) Der Einzelne (die Person) schliesst sich durch seine Besonderheit (die physischen und geistigen Bedürfnisse, was weiter für sich ausgebildet die bürgerliche Gesellschaft giebt) mit dem Allgemeinen (der Gesellschaft, dem Rechte, Gesetz, Regierung) zusammen. 2) Ist der Wille…"
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-17T16:24+05:30",
+  "until": "2026-11-17T16:44+05:30",
   "asleep": false,
-  "imprest": 35680,
+  "imprest": 35650,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -3047,6 +3153,13 @@
      "t": "15:39",
      "item": "Chai, a cup",
      "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-17",
+     "t": "16:24",
+     "item": "Samosa",
+     "price": 30,
      "office": false
     }
    ],
@@ -3309,7 +3422,7 @@
    "sim": false
   },
   "last_meal": "2026-11-09T13:41+05:30",
-  "snacks": 2,
+  "snacks": 3,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
