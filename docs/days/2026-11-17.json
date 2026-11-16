@@ -475,6 +475,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with Masterji and Sunil at Khan Market."
+  },
+  {
+   "from": "15:54",
+   "to": "16:09",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Talking with Masterji and Sunil at Khan Market."
   }
  ],
  "entries": [
@@ -1245,6 +1252,34 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "15:39"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil’s threat is the only honest proposition on the table: he treats my speech as a commodity with a price, whereas I treat it as the movement of the Spirit itself. The cup is hot, the milk has settled, and the body, which I have neglected for the sake of the universal, now demands its particular satisfaction. I will drink the tea and keep my silence, for the dialectic can wait until the stomach is quiet.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33"
+    }
+   ],
+   "t": "15:54"
+  },
+  {
+   "k": "said",
+   "text": "Bahut achha, Sunil. The silence is cheaper than the extra charge, and the tea is the truth of the moment. I shall drink without philosophy, if you please.",
+   "to": "Masterji and Sunil",
+   "t": "15:54"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Smart man, keep the philosophy in your pocket today. Just drink it hot before the milk cools, and don't make me regret the free refill.",
+   "t": "15:54"
   }
  ],
  "steps": [
@@ -2730,13 +2765,73 @@
      "text": "Nevertheless, there is present there one spirit, one definite point of view as regards Philosophy, even though Mind does not make its appearance in the precise form which we demand."
     }
    ]
+  },
+  {
+   "t": "15:54",
+   "end": "16:09",
+   "event": "Sunil says: “Milk settles, spirit waits, you talk. I pour the tea, Masterji, and if you start quoting that 'dialectic' nonsense again, I'm charging you extra for the chai.” He pours the chai into the cup and slides it across the low table.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil’s threat is the only honest proposition on the table: he treats my speech as a commodity with a price, whereas I treat it as the movement of the Spirit itself. The cup is hot, the milk has settled, and the body, which I have neglected for the sake of the universal, now demands its particular satisfaction. I will drink the tea and keep my silence, for the dialectic can wait until the stomach is quiet.",
+    "action": "talk",
+    "place": "khan",
+    "minutes": 15,
+    "says": "Bahut achha, Sunil. The silence is cheaper than the extra charge, and the tea is the truth of the moment. I shall drink without philosophy, if you please.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Smart man, keep the philosophy in your pocket today. Just drink it hot before the milk cools, and don't make me regret the free refill.",
+    "does": "He wipes a small spill from the low table with the corner of his kurta."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251",
+     "id": "dyde-right:571"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "id": "rechts:121"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251",
+     "text": "In general it must stand to its members as a second family, a position which remains more indefinite than the family relation, because the general civic community is at a farther remove from indi viduals and their special needs."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-17T15:54+05:30",
+  "until": "2026-11-17T16:09+05:30",
   "asleep": false,
   "imprest": 35680,
   "wearing": "kurta",
