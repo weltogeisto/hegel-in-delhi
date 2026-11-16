@@ -18,7 +18,7 @@
     "aqi": 150
    },
    {
-    "temp": 16,
+    "temp": 17,
     "sky": "clear",
     "rain": 0,
     "aqi": 139
@@ -36,7 +36,7 @@
     "aqi": 121
    },
    {
-    "temp": 15,
+    "temp": 16,
     "sky": "clear",
     "rain": 0,
     "aqi": 113
@@ -48,7 +48,7 @@
     "aqi": 106
    },
    {
-    "temp": 14,
+    "temp": 15,
     "sky": "clear",
     "rain": 0,
     "aqi": 100
@@ -150,7 +150,7 @@
     "aqi": 91
    },
    {
-    "temp": 17,
+    "temp": 16,
     "sky": "clear",
     "rain": 0,
     "aqi": 94
@@ -300,16 +300,118 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "09:17",
+   "to": "09:47",
+   "mode": "inside",
+   "at": "home",
+   "now": "Reading at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Special trains from Santragachi to Prasanthi Nilayam for Sathya Sai Baba birth centenary” · “A bus driver recognised his passenger, it led police to the Madurai Tanishq heist suspect” · “Patients allege rat bites, dog roaming in Rajasthan’s Pali govt hospital ward; staff faces action”",
+   "t": "09:17"
+  },
+  {
+   "k": "plan",
+   "items": [
+    {
+     "time": "09:20",
+     "intention": "Read the papers on the step and note the electricity and dhobi demands."
+    },
+    {
+     "time": "10:00",
+     "intention": "Walk to Lodhi Gardens to clear the mind of the file's irregularity."
+    },
+    {
+     "time": "12:00",
+     "intention": "Visit the IIC to seek a meal and a place to sit among the living."
+    },
+    {
+     "time": "15:00",
+     "intention": "Return home to await the next movement of reason or necessity."
+    }
+   ],
+   "t": "09:17"
+  },
+  {
+   "k": "diary",
+   "text": "The hawker's papers lie in the dust, their headlines a chaos of trains and thefts that do not touch the bone-deep hunger of my own particular existence. I have six rupees, a sum so trivial it is almost an insult to the concept of currency, yet it is the entirety of my power over the material world. To read is to suspend the demand of the stomach; I must extract the universal from these particular cries before the sun climbs higher and the need for sustenance becomes a tyranny I cannot philosophize away.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316"
+    }
+   ],
+   "t": "09:17"
+  }
+ ],
+ "steps": [
+  {
+   "t": "09:17",
+   "end": "09:47",
+   "event": "You wake. Clear, 19 °C. The papers lie on the step where the hawker threw them. Headlines: Special trains from Santragachi to Prasanthi Nilayam for Sathya Sai Baba birth centenary; A bus driver recognised his passenger, it led police to the Madurai Tanishq heist suspect; Patients allege rat bites, dog roaming in Rajasthan’s Pali govt hospital ward; staff faces action. The electricity company asks for ₹1,800 (electricity), and you have only ₹6. The dhobi asks for ₹300 (the washing), and you have only ₹6.",
+   "present": [],
+   "decision": {
+    "thought": "The hawker's papers lie in the dust, their headlines a chaos of trains and thefts that do not touch the bone-deep hunger of my own particular existence. I have six rupees, a sum so trivial it is almost an insult to the concept of currency, yet it is the entirety of my power over the material world. To read is to suspend the demand of the stomach; I must extract the universal from these particular cries before the sun climbs higher and the need for sustenance becomes a tyranny I cannot philosophize away.",
+    "action": "read",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1191"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316",
+     "id": "rechts:1044"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "Diogenes of Sinope, the best known Cynic, distinguished himself even more than Antisthenes by the life he led, as also by his biting and often clever hits, and bitter and sarcastic retorts; but he likewise received replies which were often aimed as well."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316",
+     "text": "Was sich wirklich im Staate geltend macht, muß sich freilich auf organische Weise betätigen, und dies ist in der Verfassung der Fall. Aber zu allen Zeiten war die öffentliche Meinung eine große Macht und ist es besonders in unserer Zeit, wo das Prinzip der subjektiven Freiheit diese Wichtigkeit und Bedeutung hat."
+    }
+   ]
+  }
+ ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-17T09:17+05:30",
-  "asleep": true,
+  "until": "2026-11-17T09:47+05:30",
+  "asleep": false,
   "imprest": 6,
   "wearing": "kurta",
   "wardrobe": [
@@ -389,7 +491,16 @@
    }
   ],
   "depesche_n": 3,
-  "today": {},
+  "today": {
+   "woke": "09:17",
+   "pressed": [
+    "the electricity company|electricity",
+    "the dhobi|the washing"
+   ],
+   "seen": {
+    "home": []
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [],
@@ -428,7 +539,8 @@
     "2026-11-13",
     "2026-11-14",
     "2026-11-15",
-    "2026-11-16"
+    "2026-11-16",
+    "2026-11-17"
    ],
    "lodhi": [
     "2026-10-02",
@@ -693,5 +805,26 @@
    "hegde_call"
   ],
   "commissions": []
+ },
+ "plan": {
+  "written": "09:17",
+  "items": [
+   {
+    "time": "09:20",
+    "intention": "Read the papers on the step and note the electricity and dhobi demands."
+   },
+   {
+    "time": "10:00",
+    "intention": "Walk to Lodhi Gardens to clear the mind of the file's irregularity."
+   },
+   {
+    "time": "12:00",
+    "intention": "Visit the IIC to seek a meal and a place to sit among the living."
+   },
+   {
+    "time": "15:00",
+    "intention": "Return home to await the next movement of reason or necessity."
+   }
+  ]
  }
 }
