@@ -398,6 +398,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "13:19",
+   "to": "13:34",
+   "mode": "inside",
+   "at": "iic",
+   "now": "At the IIC."
   }
  ],
  "entries": [
@@ -866,6 +873,34 @@
    "to": "Hegel",
    "text": "Sir, I am just the gate guard, I do not handle residence papers or meals. Please see the front desk for your documentation, and the cafeteria is open if you wish to eat.",
    "t": "13:04"
+  },
+  {
+   "k": "diary",
+   "text": "The guard is a simple mechanism, a wheel that turns only when the system pushes it; he does not know the file, nor the meal, only the rule that separates the two. I am hungry, and the body demands its particular satisfaction before the spirit can continue its universal work. I shall eat, for the machine must be oiled, and then I shall wait for the programme officer to emerge from his office, where the real friction of this day resides.",
+   "shelf": [
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§205"
+    }
+   ],
+   "t": "13:19"
+  },
+  {
+   "k": "said",
+   "text": "Yes, sir, the cafeteria. Thank you.",
+   "to": "the guard at the library and the programme officer",
+   "t": "13:19"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Right this way, sir. It's just past the pillar, they have the tiffins there.",
+   "t": "13:19"
   }
  ],
  "steps": [
@@ -1691,13 +1726,75 @@
      "text": "We have already discussed the final aim of this progression. The principles of the successive phases of Spirit that animate the Nations in a necessitated gradation, are themselves only steps in the development of the one universal Spirit, which through them elevates and completes itself to a self-comprehending totality."
     }
    ]
+  },
+  {
+   "t": "13:19",
+   "end": "13:34",
+   "event": "The guard at the library says: “Sir, I am just the gate guard, I do not handle residence papers or meals. Please see the front desk for your documentation, and the cafeteria is open if you wish to eat.” I gesture towards the front desk and the cafeteria entrance.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard is a simple mechanism, a wheel that turns only when the system pushes it; he does not know the file, nor the meal, only the rule that separates the two. I am hungry, and the body demands its particular satisfaction before the spirit can continue its universal work. I shall eat, for the machine must be oiled, and then I shall wait for the programme officer to emerge from his office, where the real friction of this day resides.",
+    "action": "stay",
+    "place": "iic",
+    "minutes": 15,
+    "says": "Yes, sir, the cafeteria. Thank you.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Right this way, sir. It's just past the pillar, they have the tiffins there.",
+    "does": "He points his thumb over his shoulder toward the cafeteria entrance."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316",
+     "id": "rechts:1044"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§205",
+     "id": "wallace-logic:899"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316",
+     "text": "Was sich wirklich im Staate geltend macht, muß sich freilich auf organische Weise betätigen, und dies ist in der Verfassung der Fall. Aber zu allen Zeiten war die öffentliche Meinung eine große Macht und ist es besonders in unserer Zeit, wo das Prinzip der subjektiven Freiheit diese Wichtigkeit und Bedeutung hat."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§205",
+     "text": "Whole books used to be written in this spirit. It is easy to see that they promoted the genuine interest neither of religion nor of science. External design stands immediately in front of the idea: but what thus stands on the threshold often for that reason is least adequate."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-17T13:19+05:30",
+  "until": "2026-11-17T13:34+05:30",
   "asleep": false,
   "imprest": 35700,
   "wearing": "bandhgala",
