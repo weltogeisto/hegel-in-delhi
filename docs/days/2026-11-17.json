@@ -377,6 +377,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "12:54",
+   "to": "12:59",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -761,6 +768,34 @@
    "to": "Hegel",
    "text": "Arey, it’s a lift, sir, not a temple. Just press the button and don't block the corridor, the scholars are coming for lunch.",
    "t": "12:49"
+  },
+  {
+   "k": "diary",
+   "text": "He calls it a lift, as if naming the mechanism strips it of its mystery, yet I see in this simple button the universal command that moves the particular. I am not a god to be worshipped in the corridor, but a man who must eat, and the scholars’ hunger is a force that will soon push me aside. I press the button, not out of obedience to his impatience, but because the mechanism requires a human input to complete its circuit.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    },
+    {
+     "work": "Über die Bhagavad-Gita",
+     "ref": "Zweiter Artikel"
+    }
+   ],
+   "t": "12:54"
+  },
+  {
+   "k": "said",
+   "text": "The mechanism serves, and I serve myself. Do not mistake the servant for the master, guard.",
+   "to": "the guard at the library and the programme officer",
+   "t": "12:54"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Arey, stop philosophising, sir. The mechanism serves the people who press it, and you are blocking the corridor. Move, please.",
+   "t": "12:54"
   }
  ],
  "steps": [
@@ -1409,13 +1444,72 @@
      "text": "Here there is no contrast to be seen, and therefore no sense of bondage, no pain, and no sorrow. True, indeed, as already remarked, this attitude towards destiny is void of consolation. But then, on the other hand, it is a frame of mind which does not need consolation, so long as personal subjectivity has not acquired its infinite significance."
     }
    ]
+  },
+  {
+   "t": "12:54",
+   "end": "12:59",
+   "event": "The guard at the library says: “Arey, it’s a lift, sir, not a temple. Just press the button and don't block the corridor, the scholars are coming for lunch.” He waves his hand impatiently toward the elevator lobby.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "He calls it a lift, as if naming the mechanism strips it of its mystery, yet I see in this simple button the universal command that moves the particular. I am not a god to be worshipped in the corridor, but a man who must eat, and the scholars’ hunger is a force that will soon push me aside. I press the button, not out of obedience to his impatience, but because the mechanism requires a human input to complete its circuit.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 5,
+    "says": "The mechanism serves, and I serve myself. Do not mistake the servant for the master, guard.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Arey, stop philosophising, sir. The mechanism serves the people who press it, and you are blocking the corridor. Move, please.",
+    "does": "He points a finger toward the open elevator doors."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:23"
+    },
+    {
+     "work": "Über die Bhagavad-Gita",
+     "ref": "Zweiter Artikel",
+     "id": "gita:75"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state. The government has, up till now, shown such confidence in the scholars in this department as to leave the subject matter of philosophy wholly in their hands."
+    },
+    {
+     "work": "Über die Bhagavad-Gita",
+     "ref": "Zweiter Artikel",
+     "text": "Die dazwischen liegende ist sonach konstante Devotion; wir können den Ausdruck devotio assiduitatis umkehren und sie die Assiduität der Devotion nennen. Ihre weitere Bestimmung geben Theils Beschreibungen auch der Bhagavad-Gita selbst, Theils aber ist es die Stufe, welche für sich nothwendig das Auffallendste für Alle gewesen ist, welche von Indischem berichtet haben."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-17T12:54+05:30",
+  "until": "2026-11-17T12:59+05:30",
   "asleep": false,
   "imprest": 35700,
   "wearing": "bandhgala",
