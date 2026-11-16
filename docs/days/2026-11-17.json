@@ -440,6 +440,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "14:19",
+   "to": "14:29",
+   "mode": "inside",
+   "at": "iic",
+   "now": "At the IIC."
   }
  ],
  "entries": [
@@ -1076,6 +1083,34 @@
    "to": "Hegel",
    "text": "Just follow the main corridor past the hall, you can't miss it. For a proper dinner, there's a nice place near the gate, but this is the only one inside.",
    "t": "14:14"
+  },
+  {
+   "k": "diary",
+   "text": "The guard points to the only option within these walls. A meal is a necessity of the body, and the body is the first moment of spirit; I cannot think of the state while my stomach gurgles. The irregularity of the file waits, but the hunger is present and particular, demanding immediate satisfaction.",
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…"
+    }
+   ],
+   "t": "14:19"
+  },
+  {
+   "k": "said",
+   "text": "Thank you. I shall follow the corridor.",
+   "to": "the guard at the library and the programme officer",
+   "t": "14:19"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "All the best, sir. Enjoy your meal.",
+   "t": "14:19"
   }
  ],
  "steps": [
@@ -2267,13 +2302,75 @@
      "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
     }
    ]
+  },
+  {
+   "t": "14:19",
+   "end": "14:29",
+   "event": "The guard at the library says: “Just follow the main corridor past the hall, you can't miss it. For a proper dinner, there's a nice place near the gate, but this is the only one inside.” Points a thumb over the shoulder towards the main corridor. You are hungry.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard points to the only option within these walls. A meal is a necessity of the body, and the body is the first moment of spirit; I cannot think of the state while my stomach gurgles. The irregularity of the file waits, but the hunger is present and particular, demanding immediate satisfaction.",
+    "action": "stay",
+    "place": "iic",
+    "minutes": 10,
+    "says": "Thank you. I shall follow the corridor.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "All the best, sir. Enjoy your meal.",
+    "does": "Gives a small nod and turns back to the desk."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 6.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "id": "wallace-logic:882"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "id": "haldane-1:121"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "text": "Like the solar system, so for example in the practical sphere the state is a system of three syllogisms. (1) The Individual or person, through his particularity or physical or mental needs (which when carried out to their full development give civil society), is coupled with the universal, i.e. with society, law, right, government."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "text": "In the fourth place it follows that we must not regard the history of Philosophy as dealing with the past, even though it is history. The scientific products of reason form the content of this history, and these are not past."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-17T14:19+05:30",
+  "until": "2026-11-17T14:29+05:30",
   "asleep": false,
   "imprest": 35700,
   "wearing": "bandhgala",
@@ -2378,7 +2475,8 @@
    },
    "no_meals": true,
    "walked": 1650,
-   "strain": 1650
+   "strain": 1650,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
