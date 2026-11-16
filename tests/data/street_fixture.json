@@ -1,0 +1,17 @@
+{
+ "note": "A small deck for tests/test_street.py. Not the real deck. Months include October so that a rehearsal from 2026-10-03 can use it.",
+ "cards": [
+  {"id": "gate_caller", "text": "A man calls at the gate for the old newspapers and goes away with none.", "places": ["home"], "months": [10, 11, 12, 1], "hours": ["09:30", "17:00"]},
+  {"id": "courier_bell", "text": "A courier boy rings at the next bungalow, waits, and rings again.", "places": ["home"], "months": [10, 11, 12, 1], "hours": ["10:00", "16:00"], "cooldown_days": 3},
+  {"id": "road_sound", "text": "A scooter goes down the lane with something loose rattling in its mudguard.", "places": ["home"], "months": [10, 11, 12, 1], "hours": ["09:15", "20:00"], "cooldown_days": 2},
+  {"id": "neighbour_wall", "text": "The neighbour's gardener cuts back the hedge on the far side of the wall; the clippings come over in handfuls.", "places": ["home"], "months": [10, 11, 12, 1], "hours": ["09:30", "13:00"], "days": "Mon-Sat"},
+  {"id": "sunday_bells", "text": "A church bell somewhere beyond the trees keeps going for a long time.", "places": ["home", "lodhi"], "months": [10, 11, 12, 1], "hours": ["09:15", "12:00"], "days": "Sun"},
+  {"id": "rain_on_tin", "text": "Rain drums on the tin roof of the servants' quarters and runs off the sill in a rope.", "places": ["home"], "months": [10, 11, 12, 1], "hours": ["09:15", "20:00"], "weather": "rain"},
+  {"id": "fog_lamps", "text": "The lamps along the lane are still lit; the end of the road is gone in the grey.", "places": ["home", "lodhi"], "months": [11, 12, 1], "hours": ["05:00", "10:00"], "weather": "fog"},
+  {"id": "haze_sun", "text": "The sun is a flat orange coin behind the haze, and the leaves on the verandah steps are furred with grit.", "places": ["home", "lodhi", "khan"], "months": [10, 11, 12, 1], "hours": ["09:15", "17:00"], "weather": "poor_air"},
+  {"id": "dry_wind", "text": "A dry wind turns the leaves over on the path and pushes a paper cup along it.", "places": ["lodhi"], "months": [10, 11, 12, 1], "hours": ["06:00", "17:00"], "weather": "dry", "cooldown_days": 1},
+  {"id": "lodhi_walkers", "text": "A row of retired men in white shoes walk the path at a pace, arguing about a cricket score.", "places": ["lodhi"], "months": [10, 11, 12, 1], "hours": ["06:00", "10:00"]},
+  {"id": "khan_shutter", "text": "A shopkeeper rattles up his shutter and sweeps the step into the gutter.", "places": ["khan"], "months": [10, 11, 12, 1], "hours": ["10:30", "13:00"], "days": "Mon-Sat"},
+  {"id": "khan_cart", "text": "A handcart of oranges is pushed along the back of the market with a bell tied to its handle.", "places": ["khan"], "months": [10, 11, 12, 1], "hours": ["10:30", "20:00"]}
+ ]
+}

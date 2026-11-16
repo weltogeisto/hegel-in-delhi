@@ -28,6 +28,10 @@ SCHEMA = {
     },
     "required": ["thought", "action", "place", "minutes", "says", "buys", "revision"],
 }
+WANTS_LINE = ("If you wish this city had something it does not offer you, or allowed something it does not, you may say so in `wants`, "
+              "in one line. It is written down. Nothing follows from it at once.")      # HEGEL_WANTS: the last sentence of the decision's instructions (pc/WANTS-SCREEN.md)
+WANTS_PROPERTY = dict(NULLABLE_STR, description="Optional: something you wish this city had or allowed, in one line; omit or null if nothing.")
+WANTS_MAX = 160
 ASK = "Decide your next step. Answer with the JSON object only."
 PLAN_ASK = ("Before you decide, plan today: three to six intentions, each with a time (HH:MM) and one short sentence "
             "(under 120 characters) on what you mean to do. "
@@ -46,6 +50,25 @@ VOICE_SCHEMA = {
     "properties": {"says": {"type": "string", "maxLength": 420}, "does": {"anyOf": [{"type": "string", "maxLength": 200}, {"type": "null"}]}},
     "required": ["says", "does"],
 }
+VOICE_ASK_ACT = 'Answer with the JSON object only: {"says": "...", "does": null, "act": null}'      # HEGEL_PROMISES: for a person with a menu
+PROMISE_LINES = ('You may promise him only this: {menu}.\n'
+                 'A promise is made in `act`, as {{"kind": "promise", "what": "<one of those words>", "minutes": <minutes until you keep it>}}; otherwise `act` is null.\n'
+                 'You promise nothing else.\n')      # HEGEL_PROMISES: what a person with a menu is told, after the facts about them (data/promises.json)
+
+
+def voice_schema(menu=None):
+    """VOICE_SCHEMA itself, unchanged, unless the person has a menu of promises (HEGEL_PROMISES): then it gains the optional `act`, null or
+    one promise whose `what` is a key of the menu. The minutes' bounds are the widest of the menu's; the world checks each entry's own."""
+    if not menu:
+        return VOICE_SCHEMA
+    schema = copy.deepcopy(VOICE_SCHEMA)
+    lo, hi = min(x["minutes"][0] for x in menu.values()), max(x["minutes"][1] for x in menu.values())
+    schema["properties"]["act"] = {"anyOf": [{"type": "null"}, {"type": "object", "properties": {
+        "kind": {"type": "string", "enum": ["promise"]}, "what": {"type": "string", "enum": list(menu)},
+        "minutes": {"type": "integer", "minimum": lo, "maximum": hi}}, "required": ["kind", "what", "minutes"]}]}      # optional, and not required
+    return schema
+
+
 WRITING_KINDS = ["essay", "letter", "notes", "chapter", "poem", "other"]
 WRITE_ASK = ("You sat down to write. What did you write? Up to about 450 words, in English: a title, the kind "
              f"({', '.join(WRITING_KINDS[:-1])} or other), whom it is to if it is a letter, and the text. If it carries on one of your "
@@ -126,13 +149,17 @@ def extract_json(text):
 
 def decision_schema(sit=None):
     """The decision schema for a situation: SCHEMA itself, unchanged, unless the situation lists more places than PLACES
-    (HEGEL_CULTURE), when its place list widens to them. It takes the situation, as the PC's runtime and
+    (HEGEL_CULTURE), when its place list widens to them, or carries `wants` (HEGEL_WANTS), when the optional field is added. It takes the situation, as the PC's runtime and
     tools/decision_sampler.py expect."""
     places = (sit or {}).get("places")
-    if not places or list(places) == PLACES:
+    wants = bool((sit or {}).get("wants"))
+    if (not places or list(places) == PLACES) and not wants:
         return SCHEMA
     schema = copy.deepcopy(SCHEMA)
-    schema["properties"]["place"] = dict(schema["properties"]["place"], enum=list(places))
+    if places and list(places) != PLACES:
+        schema["properties"]["place"] = dict(schema["properties"]["place"], enum=list(places))
+    if wants:
+        schema["properties"]["wants"] = dict(WANTS_PROPERTY)          # optional, and not required (HEGEL_WANTS)
     return schema
 
 
@@ -156,11 +183,13 @@ def check_shape(ans, places=None):
             isinstance(b, dict) and isinstance(b.get("item"), str) and isinstance(b.get("price_inr"), int)
             and not isinstance(b.get("price_inr"), bool) and b["price_inr"] >= 0 for b in ans["buys"]):
         errors.append("buys is malformed")
-    for k in ("says", "revision", "looks_up", "speaks_to"):
+    for k in ("says", "revision", "looks_up", "speaks_to", "wants"):
         if ans.get(k) is not None and not isinstance(ans[k], str):
             errors.append(f"'{k}' must be text or null")
     if isinstance(ans.get("looks_up"), str) and len(ans["looks_up"]) > 100:
         errors.append("looks_up is too long: a few words to look up")
+    if isinstance(ans.get("wants"), str) and len(ans["wants"]) > WANTS_MAX:
+        errors.append(f"wants is too long: one line of at most {WANTS_MAX} characters")
     thought = ans["thought"] if isinstance(ans["thought"], str) else ""
     if len(thought.strip()) < 20:
         errors.append("thought is empty or too short")

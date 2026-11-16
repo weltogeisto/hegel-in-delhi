@@ -86,6 +86,10 @@ Three loops, at three speeds.
 
 **Gate:** the scoreboard, for every loop.
 
+## The world, phase two
+
+`WORLD-2.md`: a Delhi that holds what is said in it, offers more, remembers him and goes on without him. It runs inside Act 1. Welt's go for week 0 came on 16 November (`DECISIONS.md` 36): the instrument is built and nothing is live (`pc/WORLD-2-WEEK0-RESULT.md`). Weeks 1 and after wait for his word.
+
 ## Later
 
 Fans on his rounds (needs a read key on the Pi, installed by Welt); the Saturday Depesche for fans who ask for it; the larger owl at night; the Hegelizer.

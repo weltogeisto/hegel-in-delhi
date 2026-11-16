@@ -1,0 +1,27 @@
+{
+  "note": "What a person may promise (HEGEL_PROMISES, pc/WORLD-2-WEEK1.md P1), and what in the engine keeps it. A person with no entry under 'people' can promise nothing. 'says': how the promise is named to the voice and in the record's lines. 'minutes': [least, most] until it is kept. 'place': where it is kept. 'kitchen': refused, and broken, while the engine's kitchen is shut (World.kitchen: the wage or the groceries owed), as the engine's own meals and tea are. 'keeps': which engine mechanism keeps it ('tea': the tea event; 'plate': a plate laid at home that he can eat as a laid-out meal). 'kept_by': in words, for the owner. 'event': the line that joins the moment when it is kept. 'by_meal': the line when the engine's own meal (or own tea) is laid out at that very moment and keeps it instead.",
+  "people": {
+    "ramesh": {
+      "tea": {
+        "says": "tea",
+        "minutes": [5, 60],
+        "place": "home",
+        "kitchen": true,
+        "keeps": "tea",
+        "kept_by": "World.promise_round, in World.situation: the tea event as the engine brings its own (a snack through World.feed, the 'brings tea' entry on the page); gated by World.kitchen like the engine's own tea",
+        "event": "Ramesh brings the tea he promised.",
+        "by_meal": "The tea Ramesh brings is the tea he promised."
+      },
+      "plate": {
+        "says": "a plate of food",
+        "minutes": [5, 90],
+        "place": "home",
+        "kitchen": true,
+        "keeps": "plate",
+        "kept_by": "World.promise_round lays the plate (state['today']['laid']); World.plate returns it, so the eat action at home, World.meal_status and Engine.quiet_meal take it as they take Ramesh's plate; eating it is World.feed('meal')",
+        "event": "Ramesh sets down the plate he promised: {dish}.",
+        "by_meal": "The {meal} Ramesh has laid out is the plate he promised."
+      }
+    }
+  }
+}
