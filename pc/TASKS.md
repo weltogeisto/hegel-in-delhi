@@ -14,6 +14,18 @@ The plan is `WORLD-2.md`; week 0's packets are `pc/WORLD-2-WEEK0.md`, and what t
 | T57 · what the voices say: the count | Claude | DONE: of 100 recorded replies, 8 contradict the record and 26 to 38 carry a promise nobody wrote down; of 11 promises followed, 1 was kept (`pc/exports/voice-claims-20261116/REPORT.md`) | T57 does not shrink. Promises come first; recorded facts for Shri Hegde and each person's `he` or `she` are cheap and near |
 | T69 · what he wants | Claude, then the PC seat | Built, off: `HEGEL_WANTS`, `python3 -m world wishes`, `tools/wants_screen.py`. The screen is declared and not run: `pc/WANTS-SCREEN.md` | Welt reads the sentence. Then the PC seat runs the screen |
 
+## The world, phase two: weeks 1 and 2, first wave · Welt's go, 16 November (`DECISIONS.md` 39)
+
+Specs: `pc/WORLD-2-WEEK1.md`. Every switch is off. Each goes on only after its screen and Welt's word, at the end of the order of `DECISIONS.md` 34.
+
+| Task | Owner | State | Next |
+|---|---|---|---|
+| T57 · what a voice is told about itself | Claude, then the PC seat | Built, off: `HEGEL_VOICE_FACTS`. Shri Hegde and Mr. Saxena read their side of the record; every person is `he` or `she`; the one whose trade his words concern answers | An arm of T57's screen |
+| T57 · a promise is a record | Claude, then the PC seat | In work: `HEGEL_PROMISES` | An arm of T57's screen |
+| T59 · the street | Claude; Welt reads the batch | Built, off: `HEGEL_STREET`, sixty cards, a linter in `world check`. Measured with stand-ins: the walker's empty moments 31% → 22%, the stay-at-home's 56% → 53% (`pc/STREET-BATCH-1.md`) | Welt reads the batch. Home needs events, not more sights |
+| T58 · a wider condition for beats | Claude | Built: `flags_in`, `flags_not` in a beat's `when`. No beat uses them yet | The file's orders (`pc/FILE-NEXT-ACT.md`) |
+| T67 · every call names its adapter | Claude | Built: once any adapter is set, every call sends its own scale, and 0 where it has none. Nothing changes while none is set | An adapter's day by fork, if Welt wants one |
+
 ## Current, 15 November 2026
 
 The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). Welt confirmed its six decisions the same day; they are `DECISIONS.md` 16–22, with Delta kept only as a diagnostic. The 48-hour delivery target runs from 7 November. The T-history below is kept; the M-packets are the manual's §10.

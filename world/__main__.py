@@ -23,7 +23,7 @@ from collections import Counter
 from datetime import date, timedelta
 from pathlib import Path
 
-from . import health, pause, report, shelf, works
+from . import health, pause, report, shelf, street, works
 from .clock import fmt, minute_of, now_ist, parse_now
 from .config import Config
 from .engine import Days, Engine, until_of
@@ -65,7 +65,8 @@ def make_mind(cfg, which, wake=True):
 
 def make_world(cfg):
     """The world as the tick builds it, and as a rehearsal builds it: what the Config switches on (the culture) is on in both."""
-    return World(Feeds(cfg), culture=getattr(cfg, "culture", False))
+    return World(Feeds(cfg), culture=getattr(cfg, "culture", False), street_on=getattr(cfg, "street", False),
+                 street_file=getattr(cfg, "street_file", None))
 
 
 def cmd_tick(cfg, args):
@@ -386,6 +387,11 @@ def cmd_check(cfg, args):
             if x and x not in {y["id"] for y in w.beats}:
                 problems.append(f"beat {b['id']}: unknown beat {x}")
     problems += economy_problems(w)
+    deck = Path(getattr(cfg, "street_file", None) or street.DECK)
+    if deck.exists():                                 # the street deck, when there is one: the linter's own rules (tools/street_lint.py)
+        every = {**w.places, **json.loads((street.DATA / "culture.json").read_text(encoding="utf-8"))["places"]}
+        bad, _ = street.check_file(deck, every)       # its warnings (a name to look at) are for tools/street_lint.py, not for this check
+        problems += [f"street: {x}" for x in bad]
     days = Days(cfg.docs)
     for r in days.index()["days"]:
         day = days.load(r["date"])

@@ -97,6 +97,9 @@ Welt's calls, 16 November:
     - **Why:** all 39 intentions in his recorded morning plans stay inside the menu the world lists.
 38. **Who does which work in the cloud, and how sources are read:** planning stays with Claude in the cloud; reading, code and checks go to agents on Sonnet 5.5, briefed and checked. A paper that carries a decision is read in full (`COLLABORATION.md`, under Roles).
 
+39. **Weeks 1 and 2 are built, first wave** (`pc/WORLD-2-WEEK1.md`): promises as records, what a voice is told about itself, the street, a wider condition for beats, and every call naming its adapter. Welt, 16 November: "ok, lets go". Read as a go to build. Every switch stays off.
+    - **Not read into it:** a pull request to main, the sentence for `wants`, and the file's next act going into `plot.json`. Claude asked; the question was not clear to Welt, so all three wait for his word in plain terms.
+
 ## Still open
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.

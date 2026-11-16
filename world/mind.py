@@ -76,13 +76,17 @@ class HTTPMind:
         """Optionally disable the single loaded LoRA for another character, per request.
 
         This never changes the server's global adapter setting. When enabled,
-        ordinary character calls explicitly use adapter 0 at scale 1, so each
-        role change takes the server's adapter/cache-switch path. None preserves
-        the previous behaviour.
+        ordinary character calls explicitly use adapter 0 at the voice scale, and
+        every other call names scale 0 (see chat). None, with no other adapter
+        set, preserves the previous behaviour.
         """
         if self.voice_adapter_scale is None:
             return self.chat(messages, schema, max_tokens=max_tokens)
         return self.chat(messages, schema, max_tokens=max_tokens, adapter_scale=self.voice_adapter_scale)
+
+    def adapter_configured(self):
+        """True when any of the three adapter scales is set. Then every request names its adapter; otherwise none does."""
+        return any(s is not None for s in (self.voice_adapter_scale, self.writing_adapter_scale, self.decision_adapter_scale))
 
     def next_seed(self, own=None):
         """The seed to send with the next call: its own if it was given one, else derived from the base seed and this call's running number
@@ -127,8 +131,8 @@ class HTTPMind:
     def chat(self, messages, schema=None, max_tokens=700, temperature=None, *, adapter_scale=None,
              reasoning_budget=0, dry=0.0, seed=None):
         seed = self.next_seed(seed)
-        if adapter_scale is None and self.voice_adapter_scale is not None:
-            adapter_scale = 1
+        if adapter_scale is None and self.adapter_configured():
+            adapter_scale = 0           # a call that names no adapter gets none: only a voice, a decision or his prose asks for its own
         if adapter_scale not in (None, 0, 1):
             raise ValueError("adapter_scale must be None, 0 or 1")
         self._check_reasoning_budget(reasoning_budget)
@@ -173,6 +177,8 @@ class HTTPMind:
                    "cache_prompt": False, "repeat_penalty": REPEAT_PENALTY, "repeat_last_n": REPEAT_LAST_N, "dry_multiplier": DRY_MULTIPLIER}
         if seed is not None:
             payload["seed"] = seed
+        if self.adapter_configured():           # his prose in plain mode is not the voices': the base model, whatever the server holds
+            payload["lora"] = [{"id": 0, "scale": 0}]
         req = urllib.request.Request(self.url + "/completion", data=json.dumps(payload).encode("utf-8"), headers={"Content-Type": "application/json"})
         try:
             with urllib.request.urlopen(req, timeout=self.timeout) as r:

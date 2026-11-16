@@ -7,7 +7,7 @@ import re
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
-from . import contract, voices, works, post
+from . import contract, street, voices, works, post
 from .clock import DAYNAMES, WEEKDAYS, at_dt, days_match, fmt, hm, minute_of, sun
 from .memory import names_of
 from .money import HOME_GIFT, Economy
@@ -92,13 +92,15 @@ def names(lst):
 
 
 class World(Economy):
-    def __init__(self, feeds=None, culture=False):
+    def __init__(self, feeds=None, culture=False, street_on=False, street_file=None):
         p = load("places.json")
         self.places, self.walks = p["places"], p["walk"]
         self.culture = bool(culture)                          # HEGEL_CULTURE: museums, concerts and plays (data/culture.json)
         if self.culture:
             c = load("culture.json")
             self.places, self.walks = {**self.places, **c["places"]}, {**self.walks, **c["walk"]}
+        self.street = bool(street_on)                         # HEGEL_STREET: a card from the street deck at an empty moment (data/street.json)
+        self.deck = street.load_deck(street_file) if self.street else []
         self.cast = load("cast.json")["cast"]
         offers = load("offers.json")["offers"]
         self.beats = load("plot.json")["beats"] + offers
@@ -707,9 +709,17 @@ class World(Economy):
                 if seen_here:
                     events.append((seen_here, None))
                     kind("sight")
+        card = None
         if not any(p for p, _ in events):
             part = "morning" if m < 720 else "afternoon" if m < 1020 else "evening" if m < 1260 else "night"
-            events.append((f"Nothing in particular happens. The {part} goes on.", None))
+            nothing = f"Nothing in particular happens. The {part} goes on."
+            if self.street and self.deck and not state.get("asleep") and 240 <= m < BED_M:
+                card = street.draw(self.deck, state.get("street", {}), pid, d, m, wx)
+            if card:
+                events.append((card["text"], {"k": "world", "text": card["text"]}))
+                kind("street:" + card["id"])
+            else:
+                events.append((nothing, None))
 
         open_now = self.open_places(t, state)
         closes = {p: fmt(c) for p in open_now if (c := self.closes(p, t, state)) and c - m <= 180}
@@ -797,6 +807,8 @@ class World(Economy):
         self.show_plan(sit, day)
         ctx = {"t": t, "present": present, "beat": beat, "public": [e for _, e in events if e], "opened": opened,
                "fresh": [c for c in new if c in known]}
+        if card:
+            ctx["street"] = {"id": card["id"], "text": card["text"], "empty": nothing}      # recorded in apply, and only if a mind decided
         return sit, ctx
 
     # ── the rules ───────────────────────────────────────────────────
@@ -936,6 +948,13 @@ class World(Economy):
         d = t0.date()
         midnight = at_dt(d, 1440)
         segs, entries = [], []
+        card = ctx.get("street")
+        if card and ans.get("thought"):
+            state.setdefault("street", {})[card["id"]] = d.isoformat()      # a card is spent when a mind has seen it
+        elif card:                                                            # a quiet or away step has no mind: the moment stays empty
+            ctx["public"] = [e for e in ctx["public"] if e.get("text") != card["text"]]
+            ctx["opened"] = [k for k in ctx["opened"] if k != "street:" + card["id"]]
+            sit["event"] = sit["event"].replace(card["text"], card["empty"])
 
         def entry(t, e):
             e = dict(e)
