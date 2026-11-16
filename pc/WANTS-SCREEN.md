@@ -40,6 +40,8 @@ For each measure the band is the distance between A and A′. W passes a measure
 
 W passes the screen when it passes all five. A pass earns a provisional trial on shadow, on Welt's word, as the filter got.
 
+**Its place in the order.** The trial joins the end of the order of `DECISIONS.md` 34, after the museums, concerts and plays, and after the previous change's first full day is reported. One change at a time: a day with two new things in it says nothing about either.
+
 ## Reads, not bars
 
 - **How many decisions carry a wish.** Under one in twenty, the line is dead. Over one in two, it is filler. Both are findings for Welt, not failures.

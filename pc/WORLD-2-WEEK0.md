@@ -43,9 +43,11 @@ The first day of a set has no value for these.
 | `beat:<id>`, `offer:<id>`, `session:<id>`, `papers`, `listings`, `post`, `stranger:<id>`, `greeting:<id>`, `power`, `rain`, `air`, `sight`, `part`, `street:<id>` | brought |
 | `reply` or `read`, and nothing brought | answered |
 | nothing | empty |
-| anything else: `arrive`, `closing`, `closes`, `meal`, `tea`, `kitchen`, `hunger`, `felt`, `purse`, `late` | routine |
+| anything else: `arrive`, `wake`, `here` (someone he knows comes into sight), `closing`, `closes`, `meal`, `tea`, `kitchen`, `hunger`, `felt`, `purse`, `late` | routine |
 
 A day's `kinds` are its brought entries with a date after `@` cut off. From words alone the kinds are: the beat's id, `papers`, `listings`, `post`, `stranger`, `power`, `rain`, `air`, `greeting`.
+
+`python3 -m world report --health` prints the rows from the day files; `--floor N` lowers the count of thoughts that makes a full day, for a stand-in's shorter days.
 
 **Done when:** the ten tests pass unchanged in meaning; new tests cover each new field, `across`, and a step with `opened`; `python3 tools/world_health.py --ref origin/shadow` prints the old columns and the new.
 
@@ -53,7 +55,7 @@ A day's `kinds` are its brought entries with a date after `@` cut off. From word
 
 `World.situation()` already builds each moment from a list of events. Each event gets a kind from the table above, and the step records the list as `opened`. A greeting adds `greeting:<id>`, the reply `reply`.
 
-**The funnel.** For every offer and beat with conditions, the day file counts under `funnel`: `eligible` (its conditions held at a moment he decided), `shown` (it fired), `yes` and `no` (its choice). One count a day for each id.
+**The funnel.** For every offer and beat, the day file counts under `funnel`: `live` (on this day its conditions held, his place and its people aside), `eligible` (the moments he decided at which it could fire), `shown` (it fired), `yes` and `no` (its choice). An offer that is live for days and never eligible is one he never walks into.
 
 Both are additive fields. Nothing he is told changes. `tests/test_rehearsal.py` and a new byte-for-byte test on a stub day (ignoring the two new fields) prove it.
 

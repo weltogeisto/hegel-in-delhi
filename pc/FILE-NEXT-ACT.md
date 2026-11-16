@@ -113,22 +113,24 @@ A second voucher of the same kind belongs to the India International Centre, if 
 
 ## Part 2 · the hearing
 
-- **The notice** (`hearing_notice`, at home through Ramesh, from 11 December). A brown envelope, On India Government Service: he is to show cause why he should not vacate, and may be heard in person on a date ten days on, at eleven. It sets the appointment.
+- **The notice** (`hearing_notice`, at home through Ramesh, from 11 December). A brown envelope, On India Government Service: he is to show cause why he should not vacate. The Act gives him at most seven days, and a hearing in person only if he wants one. It sets the appointment, six days on, at eleven.
 - **The hearing** (`hearing`, at the Directorate at eleven, half an hour's grace). A new person, the Estate Officer, with the file open: his representation if there is one, Shri Hegde's letter, Mr. Malhotra's two lines. One question carries a yes or a no: does he claim this allotment as his own? Orders are reserved. It sets the next appointment, four weeks on.
-- **If he does not come** (`hearing_exparte`): Ramesh brings a second envelope the week after. The matter was heard on the papers.
+- **If he does not come** (`hearing_exparte`): Ramesh brings a second envelope the week after. The matter was decided on the papers. Staying away is a choice the Act allows.
 
 ## Part 3 · the orders
 
-The orders are read from the record. No ending is chosen here, and none is the good one.
+The orders are read from the record. No ending is chosen here, and none is the good one. The Estate Officer can evict and assess damages. The name on the allotment is corrected by the Directorate's own section, on the same file.
 
 | What the file holds | The orders | What it opens |
 |---|---|---|
-| Shri Hegde's letter names him as guest | The allotment is corrected to Shri G. Hegde. The Professor is shown as sharing, with the allottee's consent | The roles turn: he who let Shri Hegde in is now his guest. A share of the licence fee each month. Ramesh answers to Shri Hegde |
-| Shri Hegde wrote alone, and he made no claim | The allotment is corrected to Shri G. Hegde. The Professor is to vacate in thirty days | He must find a room. This way out needs a city with rooms in it (T61), so it is not possible before then |
-| He claimed it in his own name, and someone vouched for him | A term in his own name: six months, as a visiting scholar, at a licence fee. Shri Hegde is given another house | Rent, every month, and a date on which the term ends |
-| Nothing in his name, and he did not come | Occupation irregular. Damages from 1 October, assessed monthly. Put up again in ninety days | The limbo continues, at a price. Mr. Saxena's door opens again |
+| Shri Hegde's letter names him as guest | A corrigendum: the allotment is in the name of Shri G. Hegde. The Professor is on record as the allottee's guest, intimated to the Directorate as the rules ask for a guest of more than fifteen days | The roles turn: he who let Shri Hegde in is now his guest. No money may pass between them: a guest who pays is a sub-tenant, and the rules forbid one. Ramesh answers to Shri Hegde |
+| Shri Hegde wrote alone, and he made no claim | The corrigendum, and an order to vacate within fifteen days; a further fifteen on reasons recorded in writing | He must find a room. This way out needs a city with rooms in it (T61), so it is not possible before then |
+| He claimed it in his own name, and someone vouched for him | No allotment follows from the hearing: an Estate Officer does not allot. The order to vacate is held over while a recommendation is sought under the quota for eminent artistes, the nearest door that exists: the Ministry of Culture recommends, the Directorate allots, for three years and then a review | A second file, in another ministry, with its own months. The letters that vouch for him are what it is made of |
+| Nothing in his name, and he did not come | Occupation unauthorised. Damages for use and occupation, assessed after a notice of their own. Put up again in ninety days | The limbo continues, at a price. Mr. Saxena's door opens again |
 
-After any of them, an appeal within a fixed number of days. That carries the file into March.
+After an order to vacate or an assessment of damages, an appeal lies to the district judge within twelve days. He may stay the order, and aims to decide within a month. That is a new room and a new person, if Welt wants them.
+
+**A harder road exists.** Since 2019 the Act has a summary procedure for government residences: three working days to show cause, the notice pasted on the door, no right to be heard. Whether it reaches a man who was never allotted anything is unsettled. The draft takes the ordinary road.
 
 **The one addition to the engine:** the orders choose among four beats by several flags at once, and one of the four is "none of the others". Today a beat's `when` can only ask that a flag has a value. It needs to ask that a flag is unset or is one of several values. It belongs to T58.
 
@@ -136,8 +138,8 @@ After any of them, an appeal within a fixed number of days. That carries the fil
 
 1. **Does the file move without him?** Shri Hegde's letter and the hearing notice come on dates, whether he goes to the Directorate or not. This is the plan's idea in one thread. The alternative is the file as it was: it waits until he comes.
 2. **Does the gate come back?** His yes at the gate on 13 October makes Shri Hegde ask him. A no would have made Shri Hegde write alone. Nothing says which was wise.
-3. **The four orders.** Which may exist, and whether one is missing. The second needs rooms to rent first.
-4. **Money.** Damages and licence fees are invented sums, like every price. His purse is thin. They can be small, or wait until he earns.
+3. **The four orders.** Which may exist, and whether one is missing. The second needs rooms to rent first. The third opens a second file in another ministry.
+4. **Money.** Real damages are no small sum: a multiple of the licence fee, about fifty times for a house of this type, rising month by month. At that rate the fourth order ends his economy in a month. The choices: a simulated sum he can carry, damages assessed and stayed on appeal, or the real weight.
 5. **A new person,** the Estate Officer: a name, a manner, and whether she speaks or only her orders do.
 6. **His own letter.** If he writes to the Directorate unasked, should it count as his representation? It should, under chapter 7, and it needs code that reads to whom a writing is addressed (T70).
 7. **Every sentence above.** The prompts are the world's words in his ear. They are Claude's draft and Welt's to rewrite.
@@ -145,4 +147,6 @@ After any of them, an appeal within a fixed number of days. That carries the fil
 ## What is checked and what is not
 
 - **Checked against the repository:** the state on shadow, the beats that exist, what a beat and a choice can do.
-- **Not yet checked:** the procedure itself. The notice to show cause, the hearing before an Estate Officer, damages for irregular occupation, sharing with the allottee's consent and the appeal are written from memory of the Public Premises Act of 1971 and the allotment rules. They are checked against the texts before anything goes to `plot.json`.
+- **Checked against the texts, 16 November** (`research/FILE-NEXT-ACT-CHECK.md`): the Public Premises Act of 1971, sections 3B, 4, 5, 7 and 9, and the allotment rules of 2017. The first draft had four things wrong: the notice period (seven days at most, not ten), the time to vacate (fifteen days, not thirty), the appeal (to the district judge within twelve days, not inside the Directorate), and sharing a house with a paying guest (the rules call it subletting). It also invented a term for a visiting scholar, which does not exist. All are corrected above.
+- **How far the check carries:** the official sites did not answer from here. The Act and the rules were read in transcriptions on other sites. The rate of damages and the quota for artistes are known from summaries only.
+- **Not checked:** "corrigendum", "On India Government Service" and "representation" are the usual words as far as memory goes.
