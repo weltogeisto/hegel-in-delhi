@@ -32,17 +32,17 @@ Three tasks, none of which changes anything live. They come after the order of `
 
 **The Pi's disk is full, since 18:33 Berlin on 16 November: BLOCKED on Welt (`pc/PI-DISK-20261116.md`).** The timer ticks and the pushes work, but every tick dies saving the day file (`OSError 28`). Shadow has no step after Day 47's 18:26; the rest of that evening, his bedtime and the owl are missing, and nothing is backfilled. Needs Welt, because it is a system setting or a deletion: `sudo tune2fs -m 1 /dev/mmcblk0p2` on the Pi frees about 1.8 GiB and deletes nothing, or he names what may go. Until then W0, W1 and W3 wait, and so do the switches that wait for Day 47's owl.
 
-### W0 · PC seat · bring main into shadow · BLOCKED: the Pi's disk is full and a merge writes there; needs Welt (`pc/PI-DISK-20261116.md`)
+### W0 · PC seat · bring main into shadow · BLOCKED: the Pi's disk is full and a merge writes there; needs Welt (`pc/PI-DISK-20261116.md`). Ready on the PC: the merge of shadow `ce00506` and main `7df7094` is `5d5a882` on branch `codex/w0-w1-candidate-20261116`, checked as `pc/PC-SESSION.md` says (main's `docs/`): 1,320 tests OK, 26 skipped
 Main now holds the world's second phase, every switch off. The merge into shadow conflicts in two import lines of `world/__main__.py` and nowhere else (tried on 16 November against shadow's head). Resolve them to:
 `from . import health, nightly_report, pause, report, shelf, street, works`
 `from .mind import STAND_INS, HTTPMind, StubMind`
 `from .publish import Git, GitError`
 Then check the merge as `pc/PC-SESSION.md` says. With the new switches unset, his days are what they were, plus two fields in the record: `opened` on a step, `funnel` on a day.
 
-### W1 · PC seat · the health row in the nightly report · BLOCKED behind W0
+### W1 · PC seat · the health row in the nightly report · BLOCKED behind W0. Built and tested on the PC: `eb81583` on the same branch (the day's `health` line rides inside its nightly row; a missing or failed line never changes the row), 1,322 tests OK, 26 skipped; on real Day 46 the row gains a 24-key `health` object. It lands on shadow after W0, by cherry-pick under the tick lock
 Beside the day's row, run `python3 -m world report --health` on shadow's days and put its line where the nightly row goes. From the first night on main's new code, each step carries `opened` and each day a `funnel`; the row reads them. Done when one night's row has arrived by itself.
 
-### W2 · PC seat · the band of noise · RUNNING on the PC since 21:48 Berlin, 16 November: D = Day 46 (`2026-11-16`, complete, 33 thoughts), `--set HEGEL_DECISION_DRAWS=4 --set HEGEL_CORRESPONDENT=1` (the Pi's switches; no soul file is set), server on 8082 alone, forks run one after another
+### W2 · PC seat · the band of noise · DONE, 16 November, 22:57 Berlin (`pc/exports/noise-band-20261116/README.md`): **the same seed is not the same day on our server as it runs now, and is exactly the same day with `cache_prompt=false`.** Same-seed forks part at Ramesh's answer to the 09:14 decision (the 09:29 decision shows it); two same-seed days with the cache off are identical, all 30 steps. A slot flush is not enough (s1d and s1e still part). The band over seven distinct days of Day 46 (the Pi's filter and letters on): 25 to 36 moments, empty 0% to 19%, at home 33% to 53%, variation 0.24 to 0.52. Needs Claude in the cloud: whether `cache_prompt=false` for forks goes into main (not changed here)
 How much do two days differ when nothing was changed? Every later fork is read against this.
 1. Take the latest complete shadow day D. In a scratch folder, never in the repo: `python3 -m world simulate --docs <shadow's docs> --date D --days 1 --mind <the model server> --seed 1 --out <scratch>/s1a`, with `--set` for every switch shadow runs that day (the filter, the letters, the instructions file).
 2. The same three more times: `--seed 1` into `s1b`, `--seed 2` into `s2`, and no `--seed` into `s0`.

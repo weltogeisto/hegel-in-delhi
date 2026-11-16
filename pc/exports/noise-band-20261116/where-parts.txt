@@ -1,0 +1,27 @@
+# where two forks first differ in any field of a step (scripts/where_parts.py), same-seed pairs
+
+s1a vs s1b: step 1 (t=09:14) is the first to differ; 2 fields differ; the first few:
+  .voice.does
+    s1a: 'Ramesh tucks his hands into his kurta and turns away from the table.'
+    s1b: 'Ramesh adjusts his white kurta and turns to leave without waiting for a reply.'
+  .voice.says
+    s1a: "Arre sir, aapki 'arithmetic' theek hai, par meri pet ki arithmetic galat nahi hoti. Friday door kyun? Main kal"
+    s1b: 'Saturday ki shaam ko bhi aapne yahi arithmetic ki thi, sir. Ab Monday hai, aur aapke paas sirf chhe rupaye hai'
+
+s1a vs s1c: step 1 (t=09:14) is the first to differ; 2 fields differ; the first few:
+  .voice.does
+    s1a: 'Ramesh tucks his hands into his kurta and turns away from the table.'
+    s1c: 'Tucks the empty tea tumbler into his kurta pocket and turns toward the gate.'
+  .voice.says
+    s1a: "Arre sir, aapki 'arithmetic' theek hai, par meri pet ki arithmetic galat nahi hoti. Friday door kyun? Main kal"
+    s1c: 'Saturday ki shaam ko bhi aapne chhe rupaye hi diye the, aaj bhi wahi. File Friday ko aayegi, par meri bhookh a'
+
+s1d vs s1e: step 1 (t=09:14) is the first to differ; 2 fields differ; the first few:
+  .voice.does
+    s1d: 'Ramesh tucks his hands into his kurta and turns away from the table.'
+    s1e: 'Tucks the empty tea tumbler into his kurta pocket and turns toward the gate.'
+  .voice.says
+    s1d: "Arre sir, aapki 'arithmetic' theek hai, par meri pet ki arithmetic galat nahi hoti. Friday door kyun? Main kal"
+    s1e: 'Saturday ki shaam ko bhi aapne chhe rupaye hi diye the, aaj bhi wahi. File Friday ko aayegi, par meri bhookh a'
+
+n1 vs n2: no step differs in the 30 steps both have
