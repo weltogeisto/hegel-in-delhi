@@ -30,17 +30,19 @@ Specs: `pc/WORLD-2-WEEK1.md`. Every switch is off. Each goes on only after its s
 
 Three tasks, none of which changes anything live. They come after the order of `DECISIONS.md` 34 in priority and may use the night (`DECISIONS.md` 30).
 
-### W0 · PC seat · bring main into shadow · OPEN
+**The Pi's disk is full, since 18:33 Berlin on 16 November: BLOCKED on Welt (`pc/PI-DISK-20261116.md`).** The timer ticks and the pushes work, but every tick dies saving the day file (`OSError 28`). Shadow has no step after Day 47's 18:26; the rest of that evening, his bedtime and the owl are missing, and nothing is backfilled. Needs Welt, because it is a system setting or a deletion: `sudo tune2fs -m 1 /dev/mmcblk0p2` on the Pi frees about 1.8 GiB and deletes nothing, or he names what may go. Until then W0, W1 and W3 wait, and so do the switches that wait for Day 47's owl.
+
+### W0 · PC seat · bring main into shadow · BLOCKED: the Pi's disk is full and a merge writes there; needs Welt (`pc/PI-DISK-20261116.md`)
 Main now holds the world's second phase, every switch off. The merge into shadow conflicts in two import lines of `world/__main__.py` and nowhere else (tried on 16 November against shadow's head). Resolve them to:
 `from . import health, nightly_report, pause, report, shelf, street, works`
 `from .mind import STAND_INS, HTTPMind, StubMind`
 `from .publish import Git, GitError`
 Then check the merge as `pc/PC-SESSION.md` says. With the new switches unset, his days are what they were, plus two fields in the record: `opened` on a step, `funnel` on a day.
 
-### W1 · PC seat · the health row in the nightly report · OPEN
+### W1 · PC seat · the health row in the nightly report · BLOCKED behind W0
 Beside the day's row, run `python3 -m world report --health` on shadow's days and put its line where the nightly row goes. From the first night on main's new code, each step carries `opened` and each day a `funnel`; the row reads them. Done when one night's row has arrived by itself.
 
-### W2 · PC seat · the band of noise · OPEN
+### W2 · PC seat · the band of noise · RUNNING on the PC since 21:48 Berlin, 16 November: D = Day 46 (`2026-11-16`, complete, 33 thoughts), `--set HEGEL_DECISION_DRAWS=4 --set HEGEL_CORRESPONDENT=1` (the Pi's switches; no soul file is set), server on 8082 alone, forks run one after another
 How much do two days differ when nothing was changed? Every later fork is read against this.
 1. Take the latest complete shadow day D. In a scratch folder, never in the repo: `python3 -m world simulate --docs <shadow's docs> --date D --days 1 --mind <the model server> --seed 1 --out <scratch>/s1a`, with `--set` for every switch shadow runs that day (the filter, the letters, the instructions file).
 2. The same three more times: `--seed 1` into `s1b`, `--seed 2` into `s2`, and no `--seed` into `s0`.
@@ -48,7 +50,7 @@ How much do two days differ when nothing was changed? Every later fork is read a
 4. Push the four day files, the three diffs and the four rows to `pc/exports/noise-band-<date>/` with one page that says: is the same seed the same day on our server, and if not, at which moment do they part.
 Four rehearsed days: about an hour and a half of the card. By night, in the spare slot.
 
-### W3 · PC seat · the `wants` screen · OPEN
+### W3 · PC seat · the `wants` screen · BLOCKED: the freeze needs complete days from Day 47 on, and Day 47 stopped at 19:10 when the Pi's disk filled; the next complete day needs the Pi (`pc/PI-DISK-20261116.md`)
 Welt has accepted the sentence for the screen (`DECISIONS.md` 41). Run `pc/WANTS-SCREEN.md` as declared: `python3 tools/wants_screen.py freeze --repo <native> --shadow <sha> --out <dir> --from-day N` on the complete days after the letter from Munich paid his debts (Day 47 on), then `wants_screen.run(<dir>, post)` with the guarded transport as for M1 (216 calls), then push the records. Claude runs `measure` and writes the result. Nothing goes on shadow from this: a pass earns a trial only on Welt's word, at the end of the order.
 
 ## Current, 16 November 2026
@@ -63,7 +65,7 @@ The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). W
 | M5 · Training 3 labels | Claude | **CLOSED, Welt 15 November (`DECISIONS.md` 23):** 86 revised pairs (17.2%) against the bar of 200. The answers stay preserved. The filter does its work without training: on the same 500 situations, echo of a shown thought 17.2% → 2.2% and accepted 92.6% → 99.0%, at 1.29 calls | – |
 | M0 · baseline receipt | Astra | DONE, PR #15 merged (`5a347ab`): runtime at 12:18 UTC, plain Qwen, no adapter; the forty-case export | – |
 | M1 · forty-case re-audit | Claude | DONE: prompted Qwen keeps 39/40 rewrites intact, the adapter 25/40 (12 changed facts, 3 changed conclusions); the adapter stays off (`pc/exports/training1-20261106/new-rubric/REPORT.md`) | – |
-| M1 · ordinary life | Claude, then Claude on the PC | **The confirmation PASSED, 15 November:** blind, B preferred in 16 of 24 (bar 16), flags B 11 against A 12 (bar 13); lecture-hall terms per thought 2.51 → 1.42 (`pc/exports/m1-confirmation-20261115/judgment/REPORT.md`). **GO, Welt 15 November (`DECISIONS.md` 34)** | `HEGEL_SOUL_FILE=mind/soul-ordinary.md` once Day 47, the letter's first full day, is complete (the switch came at 09:18, one minute after his waking; a letter cannot come before 10:00). Claude reads the trial's days with stage 1's profile |
+| M1 · ordinary life | Claude, then Claude on the PC | **The confirmation PASSED, 15 November:** blind, B preferred in 16 of 24 (bar 16), flags B 11 against A 12 (bar 13); lecture-hall terms per thought 2.51 → 1.42 (`pc/exports/m1-confirmation-20261115/judgment/REPORT.md`). **GO, Welt 15 November (`DECISIONS.md` 34)** | `HEGEL_SOUL_FILE=mind/soul-ordinary.md` once Day 47, the letter's first full day, is complete (the switch came at 09:18, one minute after his waking; a letter cannot come before 10:00). **Day 47 was cut at 19:10 his time when the Pi's disk filled: no bedtime and no owl yet (`pc/PI-DISK-20261116.md`). Whether it counts as the first full day is for Claude in the cloud to rule on; the switch also needs the Pi to write again.** Claude reads the trial's days with stage 1's profile |
 | T49 · selection before training | Claude, then Claude on the PC | DONE: PASS, all five bars (`pc/T49-ARM-D-RESULT-20261114.md`). **LIVE on shadow since 14:28 Berlin, 15 November** (his 14:28 on Day 46), `HEGEL_DECISION_DRAWS=4`, a provisional trial (`DECISIONS.md` 24). **First read, Day 46's afternoon, 18 decisions:** 1 thought echoes a shown thought (5.6%; arm D 6.64%, bar 10.99%), 1.56 calls per decision (arm D 1.27), median 10.3 s, longest 25.7 s, no stop. Unfiltered, Days 44 to 46 morning: 10 of 58 (17.2%). The filter's own rule, with the prompt's "Earlier today" rebuilt from the day file | Day 47 is its first full day: Claude reads it against arm D |
 | M2 · source labels | Claude, then Astra | DONE on main (#41). **GO, Welt 15 November (`DECISIONS.md` 25):** `HEGEL_SHELF_ADDITIONS=1`, fourth in the order of `DECISIONS.md` 34. A quarter of the Philosophy of Right on his shelf is Gans's additions (`pc/M2-SOURCE-LABELS.md`) | Astra sets it after the new instructions' first full day |
 | T50 · the Paris backtest | Claude, then Astra | **Stage 1 DONE with two coders:** his letters home are 40–42% sights and art and 1–2% philosophy; the simulation's evening texts 1–2% and 28–30% (Claude and plain Qwen, kappa 0.59). Step 0: Qwen doesn't know the letters by heart (longest shared run 3 words) (`pc/PARIS-BACKTEST.md`) | Stage 2 waits for Welt's word, best after the letter and the venues are on |
