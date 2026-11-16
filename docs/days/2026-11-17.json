@@ -496,6 +496,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "16:44",
+   "to": "16:59",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -1356,6 +1363,40 @@
    "item": "Samosa",
    "price": 30,
    "t": "16:24"
+  },
+  {
+   "k": "diary",
+   "text": "The samosa sits on the paper plate, a hot triangle of necessity. I have already consumed one, and the body protests the second, yet the spirit hungers for the continuity of the act. Sunil’s impatience is the friction of civil society: he wants the exchange completed, the need satisfied, the moment passed. I will eat, not to refute him, but to let the material moment sublate into the next phase of the day.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "16:44"
+  },
+  {
+   "k": "said",
+   "text": "So be it. The filling is the content, the pastry the form. I shall consume the unity.",
+   "to": "Masterji and Sunil",
+   "t": "16:44"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Eat. The filling is hot, not a dialectic. Thirty rupees, already paid, so just eat before it gets cold.",
+   "t": "16:44"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "16:44"
   }
  ],
  "steps": [
@@ -3026,15 +3067,80 @@
      "text": "Wie das Sonnensystem, so ist z. B. im Praktischen der Staat ein System von drei Schlüssen. 1) Der Einzelne (die Person) schliesst sich durch seine Besonderheit (die physischen und geistigen Bedürfnisse, was weiter für sich ausgebildet die bürgerliche Gesellschaft giebt) mit dem Allgemeinen (der Gesellschaft, dem Rechte, Gesetz, Regierung) zusammen. 2) Ist der Wille…"
     }
    ]
+  },
+  {
+   "t": "16:44",
+   "end": "16:59",
+   "event": "Sunil says: “Samosa? Now we are talking business. Thirty rupees, hot and crisp, right here on the plate. Stop philosophizing and eat before the filling goes cold.” Slides a fresh samosa onto a paper plate and pushes it toward him.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The samosa sits on the paper plate, a hot triangle of necessity. I have already consumed one, and the body protests the second, yet the spirit hungers for the continuity of the act. Sunil’s impatience is the friction of civil society: he wants the exchange completed, the need satisfied, the moment passed. I will eat, not to refute him, but to let the material moment sublate into the next phase of the day.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 15,
+    "says": "So be it. The filling is the content, the pastry the form. I shall consume the unity.",
+    "buys": [
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Masterji",
+    "says": "Eat. The filling is hot, not a dialectic. Thirty rupees, already paid, so just eat before it gets cold.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "id": "haldane-1:969"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "text": "Because the philosophy of Socrates is no withdrawal from existence now and here into the free, pure regions of thought, but is in a piece with his life, it does not proceed to a system; and the manner of his philosophizing, which appears to imply a withdrawal from actual affairs as it did to Plato, yet in that very way gives itself this inward connection with ordinary life."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-17T16:44+05:30",
+  "until": "2026-11-17T16:59+05:30",
   "asleep": false,
-  "imprest": 35650,
+  "imprest": 35620,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -3158,6 +3264,13 @@
     {
      "date": "2026-11-17",
      "t": "16:24",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-17",
+     "t": "16:44",
      "item": "Samosa",
      "price": 30,
      "office": false
@@ -3422,7 +3535,7 @@
    "sim": false
   },
   "last_meal": "2026-11-09T13:41+05:30",
-  "snacks": 3,
+  "snacks": 4,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
