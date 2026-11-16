@@ -454,6 +454,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Eating at the IIC."
+  },
+  {
+   "from": "15:14",
+   "to": "15:29",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Eating at the IIC."
   }
  ],
  "entries": [
@@ -1146,6 +1153,21 @@
    "to": "Hegel",
    "text": "Sir, please, just 'thank you' is enough. Go on, the food gets cold.",
    "t": "14:29"
+  },
+  {
+   "k": "diary",
+   "text": "The guard's dismissal confirms the boundary: I am a guest tolerated by the institution, not a participant in its life. The food is cold, and my body, having fasted since yesterday, demands sustenance before the spirit can continue its critique. I will eat, though the fellowship is absent.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§526"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness"
+    }
+   ],
+   "t": "15:14"
   }
  ],
  "steps": [
@@ -2458,13 +2480,67 @@
      "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
     }
    ]
+  },
+  {
+   "t": "15:14",
+   "end": "15:29",
+   "event": "The guard at the library says: “Sir, please, just 'thank you' is enough. Go on, the food gets cold.” Waves a hand dismissively and looks back down at the register on the desk.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard's dismissal confirms the boundary: I am a guest tolerated by the institution, not a participant in its life. The food is cold, and my body, having fasted since yesterday, demands sustenance before the spirit can continue its critique. I will eat, though the fellowship is absent.",
+    "action": "eat",
+    "place": "iic",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 8.6,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§526",
+     "id": "wallace-mind:274"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "id": "baillie-1:217"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§526",
+     "text": "The labour which thus becomes more abstract tends on one hand by its uniformity to make labour easier and to increase production,—on another to limit each person to a single kind of technical skill, and thus produce more unconditional dependence on the social system."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "text": "To the master, on the other hand, by means of this mediatiag process, belongs the immediate relation, in the sense of the pure negation of it, in other words he gets the enjoyment. What mere desire did not attain, he now succeeds in attaining, viz. to have done with the thing, and find satisfaction in enjoyment."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-17T15:14+05:30",
+  "until": "2026-11-17T15:29+05:30",
   "asleep": false,
   "imprest": 35700,
   "wearing": "bandhgala",
