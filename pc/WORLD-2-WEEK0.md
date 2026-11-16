@@ -55,7 +55,7 @@ A day's `kinds` are its brought entries with a date after `@` cut off. From word
 
 `World.situation()` already builds each moment from a list of events. Each event gets a kind from the table above, and the step records the list as `opened`. A greeting adds `greeting:<id>`, the reply `reply`.
 
-**The funnel.** For every offer and beat, the day file counts under `funnel`: `live` (on this day its conditions held, his place and its people aside), `eligible` (the moments he decided at which it could fire), `shown` (it fired), `yes` and `no` (its choice). An offer that is live for days and never eligible is one he never walks into.
+**The funnel.** For every offer and beat, the day file counts under `funnel`: `live` (on this day its conditions held, his place and its people aside), `eligible` (the moments he decided at which it could fire), `shown` (it fired), `yes` and `no` (its choice). An offer that is live for days and never eligible is one he never walks into. A session of a standing engagement is counted apart from the offer that made it, as `session:<id>`.
 
 Both are additive fields. Nothing he is told changes. `tests/test_rehearsal.py` and a new byte-for-byte test on a stub day (ignoring the two new fields) prove it.
 

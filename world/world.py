@@ -802,10 +802,16 @@ class World(Economy):
     # ── the rules ───────────────────────────────────────────────────
     def check(self, ans, sit, ctx, state):
         """Errors (the mind must decide again), warnings, and the repaired decision with its plan."""
+        if isinstance(ans, dict) and "wants" in ans and not sit.get("wants"):
+            ans = {k: v for k, v in ans.items() if k != "wants"}      # HEGEL_WANTS off: a wish in an answer is ignored
         errors, warnings = contract.check_shape(ans, list(self.places) if self.culture else None)
         if errors:
             return errors, warnings, None
         ans = copy.deepcopy(ans)
+        if isinstance(ans.get("wants"), str):
+            ans["wants"] = " ".join(ans["wants"].split())
+        if not ans.get("wants"):
+            ans.pop("wants", None)                     # null and "" are no wish: the key stays out
         recipient = ans.get("speaks_to")
         if recipient is not None:
             if recipient not in self.cast or recipient not in ctx["present"]:

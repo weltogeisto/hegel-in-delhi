@@ -47,6 +47,7 @@ class Config:
         self.culture = v.get("HEGEL_CULTURE", "0").strip().lower() in ("1", "yes", "true")   # museums, concerts and plays (pc/CULTURE.md); off until switched on
         self.correspondent = v.get("HEGEL_CORRESPONDENT", "0").strip().lower() in ("1", "yes", "true")   # Niethammer writes from Munich (pc/CORRESPONDENT.md); off until switched on
         self.pause_away = v.get("HEGEL_PAUSE_AWAY", "0").strip().lower() in ("1", "yes", "true")   # hold his world at waking while the PC is away (pc/PAUSE.md); off until switched on
+        self.wants = v.get("HEGEL_WANTS", "0").strip().lower() in ("1", "yes", "true")   # he may name what he wishes the city had (pc/WANTS-SCREEN.md); written down, no effect; off until switched on
         self.news_feeds = [u.strip() for u in v.get("NEWS_FEEDS", (
             "https://www.thehindu.com/news/national/feeder/default.rss,"
             "https://indianexpress.com/section/india/feed/")).split(",") if u.strip()]

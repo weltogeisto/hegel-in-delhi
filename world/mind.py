@@ -207,6 +207,9 @@ ABOUTS = ["the morning's walk and what it showed him", "the tea, the heat and th
 LINES = ["The morning came in with the papers and the heat.", "Nothing here is quite where I left it, and I am no longer sure I did the leaving.",
          "The tea arrived before the argument did.", "I set down what I saw and let the rest wait for the afternoon.",
          "A city is a thought that has learned to walk about.", "The lamp does what lamps do, and so, I suppose, do I."]
+WISHES = ["(rehearsal) a reading room that stays open after nine", "(rehearsal) a bench in the shade at every corner of the market",
+          "(rehearsal) a bookshop that lets a man read before he buys", "(rehearsal) a post office that is open on a Sunday",
+          "(rehearsal) a way to cross the road without a prayer"]     # what the stub wishes for, with HEGEL_WANTS
 SINCE_MEAL = re.compile(r"last meal[^;]* (five|six|seven|eight|nine|ten|eleven|twelve|\d+) hours ago")
 VOUCHERS = re.compile(r"(\d+) vouchers? pending ₹([\d,]+)")
 DATE_AT = re.compile(r"(\w+ \d+ \w+) (\d\d:\d\d): (German lesson|your talk at the IIC)")      # an appointment line of the prompt
@@ -236,6 +239,14 @@ class StubMind:
         return None
 
     def decide(self, messages, sit):
+        ans = json.loads(self.choose(messages, sit))
+        if sit.get("wants"):                         # HEGEL_WANTS: about one decision in six names a wish, the same for the same situation
+            w = random.Random(f"{sit['id']}|wants")
+            if w.random() < 1 / 6:
+                ans["wants"] = w.choice(WISHES)
+        return json.dumps(ans)
+
+    def choose(self, messages, sit):
         r = random.Random(sit["id"])
         h, m = map(int, sit["time"].split(":"))
         now, here, open_now = h * 60 + m, sit["place"], sit["open_now"]

@@ -25,6 +25,14 @@ log = logging.getLogger("world")
 MAX_DECISIONS = 8
 FUNNEL = ("live", "eligible", "shown", "yes", "no")      # what a day counts for each offer and beat (day["funnel"])
 SHELF_MEMORY = 6                # steps of the day in which a passage of the shelf is not offered again
+
+
+def funnel_key(beat):
+    """The funnel's name for a beat: its id, or "session:<id>" for a session of a standing engagement, which shares its id with the offer
+    that made it and must not be counted as that offer shown again."""
+    return f"session:{beat['session']}" if beat.get("session") else beat["id"]
+
+
 CHOICE_SCHEMA = {"type": "object", "properties": {"answer": {"type": "string", "enum": ["yes", "no"]}}, "required": ["answer"]}
 
 
@@ -175,6 +183,8 @@ class Engine:
             said = report.echoes([s["decision"]["thought"] for s in day["steps"] if "decision" in s and s["decision"].get("thought")])
             if said:
                 sit.setdefault("on_mind", []).append(ECHO_LINE.format(phrases=", ".join(f"“{p}”" for p in said)))
+        if getattr(self.cfg, "wants", False):
+            sit["wants"] = True                     # HEGEL_WANTS: the decision's schema gains `wants`, and its instructions a sentence
         remember = self.memory.recall(sit, ctx, day)
         if remember:
             sit["remember"] = remember
@@ -196,7 +206,8 @@ class Engine:
             if sit["shelf"]:
                 ctx["shelf"] = sit["shelf"]
                 ctx["known_text"] += "\n" + "\n".join(x["text"] for x in sit["shelf"])         # what is open before him he has met
-            messages = [{"role": "system", "content": self.soul}, {"role": "user", "content": contract.render(sit)}]
+            system = self.soul + "\n\n" + contract.WANTS_LINE if sit.get("wants") else self.soul
+            messages = [{"role": "system", "content": system}, {"role": "user", "content": contract.render(sit)}]
             try:
                 for turn in range(3):
                     if turn == 0 and draws > 1:                    # T49: the first fresh reply among up to `draws`
@@ -224,15 +235,16 @@ class Engine:
         if result is None:
             result = self.quiet(st, t, sit, day)
         ans, plan = result
+        wish = ans.pop("wants", None)               # a wish is read off the decision here and goes into no later prompt, nor into the decision's record
         beat = ctx["beat"]
         if source in ("mind", "stub"):
             self.count_funnel(day, t, st)                  # before the beat fires: what could have been shown at this moment
         if beat and source in ("mind", "stub"):
             ctx["beat_entries"] = self.world.fire(beat, t, st)
-            tally = day.setdefault("funnel", {}).setdefault(beat.get("session") or beat["id"], dict.fromkeys(FUNNEL, 0))
+            tally = day.setdefault("funnel", {}).setdefault(funnel_key(beat), dict.fromkeys(FUNNEL, 0))
             tally["shown"] += 1
             if beat.get("choice"):
-                yes = self.ask_choice(messages, raw, beat)
+                yes = self.ask_choice(self.plain(messages), self.unwish(raw), beat)
                 tally["yes" if yes else "no"] += 1
                 ctx["beat_entries"] += self.world.settle_choice(beat, yes, st, t)
         if source in ("mind", "stub"):
@@ -245,12 +257,15 @@ class Engine:
                 letter = post.last_letter(st, self.post_card()) if st.get("post") else None
                 if letter:
                     ctx["manuscripts"] = ((ctx["manuscripts"] or "") + "\n\n" + letter).strip()
-                ctx["writing"] = self.write(messages, raw, ctx, st)
+                ctx["writing"] = self.write(self.plain(messages), self.unwish(raw), ctx, st)
             if ans.get("looks_up"):
                 ctx["read"] = self.look(ans["looks_up"], st)
         step = self.world.apply(ans, plan, sit, ctx, st, day)
         if ctx.get("writing") and st.get("post"):
             post.written(st, ctx["writing"], t.date(), self.post_card())          # a letter to Munich goes to the post tomorrow
+        if wish and sit.get("wants") and source in ("mind", "stub"):
+            step["wants"] = wish
+            day.setdefault("wishes", []).append({"t": step["t"], "place": sit["place"], "text": wish})      # the ledger: for Welt, `python3 -m world wishes`
         step["mind"] = {"source": source, "attempts": attempts, "latency_s": round(time.time() - t_start, 1)}
         if ctx.get("shelf") and source in ("mind", "stub"):
             step["shelf"] = [{"work": x["work"], "ref": x["ref"], "id": x["id"]} for x in ctx["shelf"]]
@@ -268,12 +283,29 @@ class Engine:
         log.info("%s %s %s → %s until %s (%s)", day["date"], step["t"], ans["action"], ans["place"], step["end"], source)
         return step
 
+    def plain(self, messages):
+        """The conversation of a decision for a call that is not a decision (the writing, the yes/no choice): with HEGEL_WANTS the system message
+        is the instructions alone, without the sentence about `wants`. The messages themselves when it is off."""
+        if not messages[0]["content"].endswith(contract.WANTS_LINE):
+            return messages
+        return [dict(messages[0], content=self.soul)] + [dict(m, content=self.unwish(m["content"])) if m["role"] == "assistant" else dict(m) for m in messages[1:]]
+
+    @staticmethod
+    def unwish(raw):
+        """The reply as the later calls see it: without `wants`, so that a wish reaches no prompt. Unchanged when it carries none."""
+        if '"wants"' not in raw:
+            return raw
+        ans = contract.extract_json(raw)
+        if not isinstance(ans, dict) or "wants" not in ans:
+            return raw
+        return json.dumps({k: v for k, v in ans.items() if k != "wants"}, ensure_ascii=False)
+
     def count_funnel(self, day, t, st):
         """The day's count of the offers and beats at a moment he decided: `live` once a day when its conditions other than
         his place, its people and its time held; `eligible` for each moment all of them held. Reads the state, changes none."""
         funnel, pid = day.setdefault("funnel", {}), st["place"]
         for b in self.world.beats + self.world.sessions(t.date(), st):
-            key = b.get("session") or b["id"]
+            key = funnel_key(b)
             tally = funnel.get(key)
             if self.world.eligible(b, t, st, pid):
                 tally = funnel.setdefault(key, dict.fromkeys(FUNNEL, 0))

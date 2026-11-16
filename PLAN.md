@@ -88,7 +88,7 @@ Three loops, at three speeds.
 
 ## The world, phase two
 
-Proposed on 15 November in `WORLD-2.md`, and waiting for Welt's go: a Delhi that holds what is said in it, offers more, remembers him and goes on without him. It runs inside Act 1.
+`WORLD-2.md`: a Delhi that holds what is said in it, offers more, remembers him and goes on without him. It runs inside Act 1. Welt's go for week 0 came on 16 November (`DECISIONS.md` 36): the instrument is built and nothing is live (`pc/WORLD-2-WEEK0-RESULT.md`). Weeks 1 and after wait for his word.
 
 ## Later
 

@@ -8,6 +8,7 @@
     python3 -m world owl --date 2026-10-03                 # write up a finished day now
     python3 -m world check                # sanity-check the world's data and the day files
     python3 -m world report [DATE [DATE]] # the scoreboard row of a day or a range (--table, --json)
+    python3 -m world wishes [--since DATE] # what he said he wished the city had (HEGEL_WANTS), by day
 """
 import argparse
 import fcntl
@@ -159,6 +160,26 @@ def cmd_report(cfg, args):
         print(report.table(rows))
     else:
         print("\n\n".join(report.text(r) for r in rows))
+    return 0
+
+
+def cmd_wishes(cfg, args):
+    """The wishes written down on the days (day["wishes"]), by day, for Welt; then how many, among how many decisions."""
+    days = Days(Path(args.docs) if args.docs else cfg.docs)
+    wishes = decisions = 0
+    for r in days.index()["days"]:
+        if args.since and r["date"] < args.since:
+            continue
+        day = days.load(r["date"])
+        if not day:
+            continue
+        decisions += sum(1 for s in day.get("steps", []) if "decision" in s)
+        if day.get("wishes"):
+            print(f"{day['date']}  day {day['n']}")
+            for w in day["wishes"]:
+                print(f"  {w['t']}  {w['place']}  {w['text']}")
+            wishes += len(day["wishes"])
+    print(f"{wishes} wishes in {decisions} decisions")
     return 0
 
 
@@ -433,13 +454,16 @@ def main():
     r.add_argument("--health", action="store_true", help="what the world gave him instead: a line a full day (world/health.py)")
     r.add_argument("--floor", type=int, default=report.FLOOR, help="with --health: the fewest thoughts that make a full day")
     r.add_argument("--json", action="store_true", help="one JSON object per day")
+    w = sub.add_parser("wishes", help="the wishes he has written down (HEGEL_WANTS), by day")
+    w.add_argument("--since", help="from this date (YYYY-MM-DD) on")
+    w.add_argument("--docs", help="another docs folder, e.g. a rehearsal's folder")
     args = p.parse_args()
     cfg = Config()
     if getattr(cfg, "pause_away", False):
         pause.apply(cfg)                        # his clock trails Delhi's by the days his world was held
     setup_logging(cfg, args.verbose)
     return {"tick": cmd_tick, "start": cmd_start, "status": cmd_status, "simulate": cmd_simulate, "owl": cmd_owl, "check": cmd_check,
-            "report": cmd_report}[args.cmd](cfg, args)
+            "report": cmd_report, "wishes": cmd_wishes}[args.cmd](cfg, args)
 
 
 if __name__ == "__main__":
