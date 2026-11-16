@@ -538,6 +538,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with Masterji and Sunil at Khan Market."
+  },
+  {
+   "from": "17:59",
+   "to": "18:26",
+   "mode": "walk",
+   "a": "khan",
+   "b": "home"
   }
  ],
  "entries": [
@@ -1572,6 +1579,34 @@
    "to": "Hegel",
    "text": "Baba, I cut cloth, not philosophy. You want it to last, stop wringing your hands and stop talking so much.",
    "t": "17:44"
+  },
+  {
+   "k": "diary",
+   "text": "Masterji’s dismissal is the ethical limit of my vanity: the garment serves the body, not the reverse. The sun has dropped low, and the air in the market is thinning out. I have eaten, I have argued, and now I must return to the bungalow to face the silence of the file.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§3"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World"
+    }
+   ],
+   "t": "17:59"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Masterji. The hand that cuts is wiser than the tongue that explains. I will leave you to your needle.",
+   "to": "Masterji and Sunil",
+   "t": "17:59"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Good. Don't let the steam touch the shoulders.",
+   "t": "17:59"
   }
  ],
  "steps": [
@@ -3610,13 +3645,74 @@
      "text": "For “when Antisthenes turned outside a hole in his cloak, Socrates said to him, I see thy vanity through the hole in thy cloak.” Clothing is not a thing of rational import, but is regulated through needs that arise of themselves. In the North the clothing must be different from that in Central Africa; and in winter we do not wear cotton garments."
     }
    ]
+  },
+  {
+   "t": "17:59",
+   "end": "18:26",
+   "event": "Masterji says: “Baba, I cut cloth, not philosophy. You want it to last, stop wringing your hands and stop talking so much.” He wipes his hands on his apron and turns back to the table.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Masterji’s dismissal is the ethical limit of my vanity: the garment serves the body, not the reverse. The sun has dropped low, and the air in the market is thinning out. I have eaten, I have argued, and now I must return to the bungalow to face the silence of the file.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 20,
+    "says": "You are right, Masterji. The hand that cuts is wiser than the tongue that explains. I will leave you to your needle.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "voice": {
+    "by": "Masterji",
+    "says": "Good. Don't let the steam touch the shoulders.",
+    "does": "He picks up the needle and turns back to the table."
+   },
+   "left": "khan",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§3",
+     "id": "dyde-right:57"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World",
+     "id": "baillie-2:47"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§3",
+     "text": "' In this -work Mr. Hugo says (5th edition § 53) that \" Cicero praises the twelve tables with a side glance at philosophy,\" \" but the philosopher Phavorinus treats them exactly as many a great philosopher since has treated positive right.\""
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World",
+     "text": "The power which perpetrates on the conscious individual this wrong of making him into a mere thing, is \" nature \"; it is the universahty not of the community, but the abstract universahty of mere existence. And the particular individual, in wiping out the wrong suffered, turns not against the community — for he has not suffered at its hands — but against the latter."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-11-17T17:59+05:30",
+  "place": "home",
+  "until": "2026-11-17T18:26+05:30",
   "asleep": false,
   "imprest": 35620,
   "wearing": "kurta",
@@ -3725,8 +3821,8 @@
     ]
    },
    "no_meals": true,
-   "walked": 2400,
-   "strain": 2400,
+   "walked": 4425,
+   "strain": 4425,
    "hunger": 2
   },
   "account": {
