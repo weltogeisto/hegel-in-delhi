@@ -482,6 +482,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with Masterji and Sunil at Khan Market."
+  },
+  {
+   "from": "16:09",
+   "to": "16:24",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -1280,6 +1287,34 @@
    "to": "Hegel",
    "text": "Smart man, keep the philosophy in your pocket today. Just drink it hot before the milk cools, and don't make me regret the free refill.",
    "t": "15:54"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil’s warning is the dialectic of the market: I am a guest only as long as I am a spender. The chai is hot, the milk is cooling, and the universal law of exchange is suspended by his grace, which is a temporary particular. I must drink while the suspension holds, for the next moment will demand the voucher I do not have.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§3"
+    }
+   ],
+   "t": "16:09"
+  },
+  {
+   "k": "said",
+   "text": "Bahut dhanyavaad, Sunil. The spirit is thirsty, and the law of exchange is in abeyance. I will drink before the milk cools, and thus before the law returns.",
+   "to": "Masterji and Sunil",
+   "t": "16:09"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Arre, stop with the 'law of exchange' already. Just drink the chai before it turns to soup, yaar. The law is fine as long as the cup stays full.",
+   "t": "16:09"
   }
  ],
  "steps": [
@@ -2825,13 +2860,73 @@
      "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
     }
    ]
+  },
+  {
+   "t": "16:09",
+   "end": "16:24",
+   "event": "Sunil says: “Smart man, keep the philosophy in your pocket today. Just drink it hot before the milk cools, and don't make me regret the free refill.” He wipes a small spill from the low table with the corner of his kurta.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil’s warning is the dialectic of the market: I am a guest only as long as I am a spender. The chai is hot, the milk is cooling, and the universal law of exchange is suspended by his grace, which is a temporary particular. I must drink while the suspension holds, for the next moment will demand the voucher I do not have.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 15,
+    "says": "Bahut dhanyavaad, Sunil. The spirit is thirsty, and the law of exchange is in abeyance. I will drink before the milk cools, and thus before the law returns.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "Sunil",
+    "says": "Arre, stop with the 'law of exchange' already. Just drink the chai before it turns to soup, yaar. The law is fine as long as the cup stays full.",
+    "does": "He waves a dismissive hand and turns back to the stove to check the boil."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 3,
+    "latency_s": 19.1,
+    "draws": {
+     "n": 3,
+     "refused": 1,
+     "echo": 1,
+     "picked": 2
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "id": "haldane-2:425"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§3",
+     "id": "dyde-right:57"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "text": "And again, the matter of a small body and a large is the same, because at one time a greater proceeds from a smaller, and at another time a smaller from a greater."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§3",
+     "text": "' In this -work Mr. Hugo says (5th edition § 53) that \" Cicero praises the twelve tables with a side glance at philosophy,\" \" but the philosopher Phavorinus treats them exactly as many a great philosopher since has treated positive right.\""
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-17T16:09+05:30",
+  "until": "2026-11-17T16:24+05:30",
   "asleep": false,
   "imprest": 35680,
   "wearing": "kurta",
