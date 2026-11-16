@@ -314,8 +314,10 @@ class NeedsTest(unittest.TestCase):
         self.assertEqual(st["last_meal"], "2026-10-03T14:00+05:30")
         data = json.loads((REPO / "world/data/places.json").read_text(encoding="utf-8"))["places"]
         food = {s["item"]: s["food"] for p in data.values() for s in p.get("sells", []) if s.get("food")}
-        self.assertEqual({k for k, v in food.items() if v == "meal"}, {"Chole bhature at a dhaba", "Lunch at a dhaba: dal, rice, roti"})
-        self.assertEqual({k for k, v in food.items() if v == "snack"}, {"Samosa", "Glucose biscuits", "Roasted corn on the cob"})
+        self.assertEqual({k for k, v in food.items() if v == "meal"}, {"Chole bhature at a dhaba", "Lunch at a dhaba: dal, rice, roti",
+                                                                       "Lunch in the IIC dining hall: dal, sabzi, rice, roti, a sweet"})
+        self.assertEqual({k for k, v in food.items() if v == "snack"}, {"Samosa", "Glucose biscuits", "Roasted corn on the cob",
+                                                                        "Vegetable sandwich at the IIC coffee house", "Tea and biscuits at the IIC coffee house"})
 
     def test_the_state_carries_wake_time_from_the_wake_up_step(self):
         box = Sandbox()

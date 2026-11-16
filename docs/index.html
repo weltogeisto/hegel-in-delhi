@@ -1676,9 +1676,11 @@ const put = (spr,fx,fy,who) => { q.drawImage(spr, Math.round(fx) - 12, Math.roun
 const ACTS = [[/asleep|sleep/,'sleep'], [/desk|writ|page for|notebook|letter to|manuscript/,'write'], [/breakfast|lunch|dinner|eating|meal/,'eat'],
   [/rest|nap|doz/,'rest'], [/bridge|cards|whist/,'cards'], [/read|paper|constitution|ambedkar|book|librar|stud/,'read'], [/file|directorate|saxena|official|talk/,'talk']];
 const ROOM_ACT = {home:'read', gym:'cards', iic:'read', estates:'talk'};
+const LEAD = [[/^talking\b/,'talk'], [/^eating\b/,'eat'], [/^reading\b/,'read'], [/^writing\b/,'write'], [/^resting\b/,'rest']];   // the verb the world wrote comes first: "Talking with the guard at the library" is not reading
 function actsOf(seg){
   if (seg.asleep) return ['sleep'];
-  const t = (seg.now || '').toLowerCase().replace(/^at home\.\s*/, '');
+  const t = (seg.now || '').toLowerCase().replace(/^at home\.\s*/, ''), lead = LEAD.find(([re]) => re.test(t));
+  if (lead) return [lead[1]];
   const parts = t.split(/,\s*then\s+|\s+then\s+|,\s+/).map(p => { const hit = ACTS.find(([re]) => re.test(p)); return hit ? hit[1] : null; }).filter(Boolean);
   return parts.length ? parts : [ROOM_ACT[seg.at] || 'read'];
 }
@@ -1701,6 +1703,8 @@ const PEOPLE = {
   saxena:   {skin:'#a8754d', skin2:'#8a5a36', hair:'#1f1c1c', hair2:'#141212', top:'#bcd3e8', top2:'#9fb8d1', under:'#bcd3e8', legs:'#4a4a52', shoes:'#2a1e16', moustache:true, vest:'#c9b48f', specs:true},
   peon:     {skin:'#946240', skin2:'#764a2c', hair:'#3a3430', hair2:'#2a2420', top:'#c9c0a8', top2:'#aaa087', under:'#c9c0a8', legs:'#8a8270', shoes:'#5a4030', cap:'#f6f4ee'},
   librarian:{skin:'#b98258', skin2:'#986440', hair:'#1f1a18', hair2:'#120e0c', top:'#2f7d6d', top2:'#24604f', under:'#2f7d6d', legs:'#2f7d6d', shoes:'#6b4a33', bun:true, sari:'#d9b45a', long:true},
+  guard:    {skin:'#946240', skin2:'#764a2c', hair:'#2a2320', hair2:'#1a1512', top:'#a39a74', top2:'#857d5a', under:'#a39a74', legs:'#5f5a44', shoes:'#2a1e16', cap:'#6b6446', moustache:true},
+  officer:  {skin:'#c08a62', skin2:'#a06e4a', hair:'#2a2320', hair2:'#1a1512', top:'#9db8d0', top2:'#7f9bb4', under:'#ffffff', legs:'#3a3f52', shoes:'#2a1e16', tie:'#2f6b4a', specs:true},
   reader:   {skin:'#c99068', skin2:'#a87048', hair:'#2a1f1a', hair2:'#1a1210', top:'#d96a4a', top2:'#b8553a', under:'#f3efe4', legs:'#3a3f5a', shoes:'#2a1e16', bun:true},
   sunil:    {skin:'#9c6a46', skin2:'#7e5232', hair:'#2a2320', hair2:'#1a1512', top:'#e9e2cf', top2:'#c9c0a8', under:'#e9e2cf', legs:'#6b5a44', shoes:'#5a4030', moustache:true, gamchha:'#b3262f'},
   masterji: {skin:'#b07a52', skin2:'#8f5e3a', hair:'#d9d9de', hair2:'#a9a9b2', top:'#f3efe4', top2:'#d9d1bd', under:'#f3efe4', legs:'#8a8270', shoes:'#5a4030', specs:true, tape:true, moustache:true},
@@ -1855,7 +1859,7 @@ const WHO = {
   visitor1:['A visitor','waiting for a file',null], visitor2:['A visitor','waiting for a file',null],
   bearer:['A bearer','Delhi Gymkhana Club',/bearer/i], member1:['A member','Delhi Gymkhana Club',null], member2:['A member','Delhi Gymkhana Club',null],
   member3:['A member','Delhi Gymkhana Club',null], member4:['A member','Delhi Gymkhana Club',null],
-  librarian:['The librarian','IIC library',/librarian/i], reader:['A reader','IIC library',null], reader2:['A reader','IIC library',null], student:['A student','IIC library',null],
+  librarian:['The librarian','IIC library',/librarian/i], guard:['The guard','India International Centre',/guard/i], officer:['The programme officer','India International Centre',/programme officer/i], reader:['A reader','IIC library',null], reader2:['A reader','IIC library',null], student:['A student','IIC library',null],
   masterji:['Masterji','tailor, Khan Market',/masterji/i], tailorboy:["Masterji's assistant",'Khan Market',null], bookseller:['The bookseller','Khan Market',/bookseller/i],
   nidhi:['Nidhi Rao','doctoral student in philosophy, JNU',/nidhi/i], sunil:['Sunil','chai seller',/sunil/i],
   jogger1:['A runner','Lodhi Gardens',null], jogger2:['A runner','Lodhi Gardens',null], jogger3:['A runner','Lodhi Gardens',null], walker:['A walker','Lodhi Gardens',null],
@@ -2170,6 +2174,16 @@ const GYM_ROOM = {
   idle: 'cards',
 };
 
+/* who is face to face with him: while he talks, the people the world named in its words ("Talking with the guard at the library"), and whoever answered
+   him last; while he does something else, only whoever answered him in the last ten minutes. Only those among `pool` that have a figure. */
+function talkersOf(seg, m, pool, talking){
+  const keys = [], add = k => { if (k && k !== 'hegel' && PEOPLE[k] && pool.includes(k) && !keys.includes(k)) keys.push(k); };
+  if (talking) Object.keys(WHO).forEach(k => { const re = WHO[k][2]; if (re && re.test(seg.now || '')) add(k); });
+  const said = lastOf(e => e.k === 'said' && e.by, m);
+  if (said && m - said.m < (talking ? 45 : 10)) add(keyOfSpeaker(said.by));
+  return keys.slice(0, 2);
+}
+
 /* ── the library at the India International Centre ── */
 const IIC_ROOM = {
   name: 'The library, India International Centre', dim: .16,
@@ -2194,8 +2208,15 @@ const IIC_ROOM = {
     P(84,3,24,24,'#d8cfbd');
     for (let y=4;y<27;y+=3) for (let x=85 + ((y/3|0) % 2);x<107;x+=3) P(x,y,2,2,sky);                       // the jaali, the screen of the IIC
     const o = st.outfit, slow = reduceMotion ? 0 : Math.floor(now/5200) % 2;
-    put(person('hegel','book',o),38,66, 'hegel'); put(person('reader','book',''),76,66, 'reader');
+    const folk = talkersOf(st.seg, m, ['librarian','guard','officer','nidhi'], act === 'talk');             // who stands face to face with him, from the words of the step
+    this.face = folk.length > 0;
+    if (!folk.length) put(person('hegel', act === 'rest' ? 'sitF' : 'book', o, 0, act === 'rest'),38,66, 'hegel');   // at his table; with nobody to see he stays seated
+    put(person('reader','book',''),76,66, 'reader');
     this.table(20,60,84,14); this.table(112,60,62,14);
+    if (folk.length){                                           // he has stood up, the book left open on the table, and they stand face to face in the aisle
+      put(person('hegel','profR',o),52,100, 'hegel');
+      folk.forEach((k,i) => put(person(k,'profL',''),72 + i*15,100 + i*3, k));
+    }
     P(34,63,9,5,'#f6f2e6'); P(38,63,1,5,'#d6cfbf'); P(35,64,2,1,'#b9b2a2'); P(40,64,2,1,'#b9b2a2'); if (slow) P(39,62,4,5,'#fbf8f0');
     P(72,63,9,5,'#f6f2e6'); P(76,63,1,5,'#d6cfbf');
     P(128,64,9,5,'#4a4f5e'); P(129,65,7,3,L[3] > .3 ? '#bfe3ff' : '#9fd0f0');                                 // a laptop: it is 2026
@@ -2204,13 +2225,45 @@ const IIC_ROOM = {
     P(126,96,12,3,'#6b4a33');
     P(150,52,12,6,'#6b4a33'); put(person('reader2','read','',Math.floor(now/6100) % 2),156,66, 'reader2'); P(146,60,20,14,WOOD[0]); P(146,60,20,1,WOOD[1]);
     P(118,100,2,12,'#6b4a33'); P(111,84,16,16,'#ffffff'); P(113,86,12,2,'#b3262f'); [90,92,94].forEach(y => P(113,y,12,1,'#9aa3ae')); P(113,96,8,1,'#9aa3ae');   // tonight's lecture
-    put(person('librarian', !reduceMotion && Math.floor(now/1100) % 5 === 0 ? 'eat' : 'sitF', '', 1),150,108, 'librarian'); P(132,104,40,10,WOOD[0]); P(132,104,40,1,WOOD[1]); P(132,114,40,3,WOOD[2]);
+    if (!folk.includes('librarian')) put(person('librarian','book','',1),150,108, 'librarian'); P(132,104,40,10,WOOD[0]);    // at her desk, unless she is the one he talks with P(132,104,40,1,WOOD[1]); P(132,114,40,3,WOOD[2]);
     P(136,101,6,3,'#2f4f6f'); P(137,99,6,2,'#7a2a2a'); P(160,102,3,2,'#c9a24a');
   },
   lights(m, act, night){ return [24,56,92,118,150].map(x => ({x:x+1,y:62,r:24,k:.75 + .2*night,warm:'rgba(220,255,190,.14)'})).concat([{x:150,y:100,r:26,k:.6}]); },
   dapple: true,
   idle: 'read',
 };
+
+/* ── the dining hall of the India International Centre: where he is when he eats at the IIC (the library is not a place to eat) ── */
+const IICD_ROOM = {
+  name: 'The dining hall, India International Centre', at: 'iic', dim: .16,
+  static(){
+    P(0,0,IW,IH,'#151827');
+    wallFace(0,0,192,32,{cap:'#d9cfb8', face:'#ebe3d0', dado:'#d5c8a8', skirt:'#a8977a'});
+    for (let y=32;y<144;y+=8) for (let x=0;x<192;x+=8) P(x,y,8,8, ((x>>3) + (y>>3)) % 2 ? '#cbc3b0' : '#c0b8a4');         // the floor, in squares
+    wallTop(0,0,4,144,['#d9cfb8','#b9ae96']); wallTop(188,0,4,144,['#d9cfb8','#b9ae96']);
+    P(88,6,34,20,'#2a2e44'); P(88,6,34,1,'#4a4f6a'); [[92,10,18],[92,14,24],[92,18,14],[92,22,20]].forEach(([x,y,w]) => P(x,y,w,1,'#f3efe4'));   // the board: today's lunch
+    P(150,64,28,34,'#7a4b2a'); P(150,64,28,2,'#9a6a42'); [70,78,86].forEach(y => P(153,y,22,1,'#5a361e'));                   // the stack of trays and plates
+    [[154,66],[166,66]].forEach(([x,y]) => { P(x,y,8,3,'#cfd3da'); P(x,y,8,1,'#eef1f4'); });
+  },
+  table(x,y,w = 28,h = 12){ P(x,y,w,h,'#f1ece0'); P(x,y,w,1,'#ffffff'); P(x,y+h,w,3,WOOD[2]); P(x+2,y+h+3,2,5,WOOD[3]); P(x+w-4,y+h+3,2,5,WOOD[3]); },
+  dyn(m, now, act, st){
+    windowTall(30,6,14,13,m,'#8a9a7a'); windowTall(144,6,14,13,m,'#8a9a7a');
+    const o = st.outfit, fr = reduceMotion ? 0 : Math.floor(now/1100) % 2;
+    put(person('peon','stand',''),100,46);                                                                                   // behind the buffet, serving
+    P(62,40,76,12,'#8a6040'); P(62,40,76,2,'#a8774c'); P(62,52,76,3,'#5a361e');                                             // the buffet along the wall
+    [[66,'#c98a4a'],[84,'#e8c547'],[102,'#f3efe4'],[120,'#b3262f']].forEach(([x,c]) => { P(x,36,14,5,'#cfd3da'); P(x,36,14,1,'#eef1f4'); P(x+2,37,10,2,c); });   // steel trays: sabzi, dal, rice, a sweet
+    put(person('reader2','sitF',''),122,98); put(person('student','eat','',1 - fr),30,114);
+    put(person('hegel','eat',o,fr),66,96, 'hegel');                                                                          // he eats: his hand goes to his mouth
+    this.table(50,90,34); this.table(108,92,28); this.table(18,108,24);
+    P(56,93,22,4,'#cfd3da'); P(56,93,22,1,'#eef1f4'); P(58,94,4,2,'#e8c547'); P(63,94,4,2,'#b3262f'); P(68,94,4,2,'#f3efe4'); P(73,94,3,2,'#c98a4a');   // his steel thali: dal, a vegetable, rice, a sweet
+    P(79,92,3,4,'#cfe3f2'); P(79,92,3,1,'#ffffff');                                                                           // a glass of water
+    steam(66,93,now); steam(122,95,now);
+    fan(40,60,now); fan(150,120,now);
+  },
+  lights(m, act, night){ return [{x:100,y:44,r:56,k:.9,warm:'rgba(255,225,160,.18)'}, {x:66,y:92,r:30,k:.85,warm:'rgba(255,210,130,.20)'}, {x:122,y:94,r:26,k:.6,warm:'rgba(255,210,130,.14)'}]; },
+  idle: 'eat',
+};
+IICD_ROOM.speak = () => [66,62];
 
 /* ── the Directorate of Estates, where the file is ── */
 const ESTATES_ROOM = {
@@ -2317,7 +2370,7 @@ const BOOKS_ROOM = {
 };
 TAILOR_ROOM.speak = () => [110,72];
 BOOKS_ROOM.speak = () => [82,16];
-const ROOMS = {home: HOME_ROOM, gym: GYM_ROOM, iic: IIC_ROOM, estates: ESTATES_ROOM, tailor: TAILOR_ROOM, books: BOOKS_ROOM};
+const ROOMS = {home: HOME_ROOM, gym: GYM_ROOM, iic: IIC_ROOM, iicd: IICD_ROOM, estates: ESTATES_ROOM, tailor: TAILOR_ROOM, books: BOOKS_ROOM};
 
 function lightRoom(R, m, now, act){
   const L = lightAt(m), night = Math.min(1, L[3]/.5), A = POLISH ? airOf(m) : {grey:0, fog:0, smog:0}, sun = 1 - Math.max(A.grey, A.fog*.8, A.smog*.5), dark = Math.min(.8, R.dim + .58*night + .14*(1 - sun)*(1 - night));
@@ -2354,10 +2407,12 @@ function shopOf(seg, m){                       // "Khan Market: a stationer, a t
   const f = Math.max(0, Math.min(.999, (m - seg.s)/Math.max(1, seg.e - seg.s))), p = parts[Math.floor(f*parts.length)];
   return /tailor/.test(p) ? 'tailor' : /book/.test(p) ? 'books' : null;
 }
-function roomOf(st, m){ const seg = st.seg; if (!POLISH) return null; return seg.mode === 'inside' && ROOMS[seg.at] ? seg.at : shopOf(seg, m); }
+function roomOf(st, m){ const seg = st.seg; if (!POLISH) return null;
+  if (seg.mode === 'inside' && ROOMS[seg.at]) return seg.at === 'iic' && actAt(seg, m) === 'eat' ? 'iicd' : seg.at;   // eating at the IIC is in the dining hall, not the library
+  return shopOf(seg, m); }
 let inT = 0, inRoom = null, insidePref = true, prefRoom = null;
 function drawInside(id, m, now, st, a){
-  const R = ROOMS[id], shop = id === 'tailor' || id === 'books', here = shop ? shopOf(st.seg, m) === id : st.seg.mode === 'inside' && st.seg.at === id, act = here && !shop ? actAt(st.seg, m) : R.idle;
+  const R = ROOMS[id], shop = id === 'tailor' || id === 'books', here = shop ? shopOf(st.seg, m) === id : st.seg.mode === 'inside' && st.seg.at === (R.at || id), act = here && !shop ? actAt(st.seg, m) : R.idle;
   HITS = [];
   if (!R.cache){ R.cache = document.createElement('canvas'); R.cache.width = IW; R.cache.height = IH; const save = q; q = R.cache.getContext('2d'); R.static(); q = save; }
   q = ic; ic.imageSmoothingEnabled = false; ic.clearRect(0,0,IW,IH); ic.drawImage(R.cache,0,0);
@@ -2381,7 +2436,7 @@ function drawInside(id, m, now, st, a){
 }
 HOME_ROOM.speak = act => act === 'write' ? [47,24] : act === 'eat' ? [35,52] : act === 'rest' ? [160,26] : act === 'talk' ? [62,72] : [79,50];
 GYM_ROOM.speak = () => [64,44];
-IIC_ROOM.speak = () => [38,34];
+IIC_ROOM.speak = function(){ return this.face ? [62,69] : [38,34]; };      // over the two of them when they stand face to face, else over his table
 ESTATES_ROOM.speak = () => [100,60];
 
 

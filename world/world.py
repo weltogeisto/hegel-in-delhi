@@ -35,6 +35,7 @@ NUMBERS = "zero one two three four five six seven eight nine ten eleven twelve".
 PLAN_TIME = re.compile(r"(\d{1,2}):(\d{2})$")
 RECENT_CHARS, PURCHASE_CHARS = 480, 240  # bounded current recall; full records stay on disk
 GREET_P = 0.35          # a person he knows, seen for the first time that day at a place, speaks first with this chance
+TALK_RUN = 4            # talking at one place this many steps running is put to him as a plain fact
 
 
 def load(name):
@@ -307,6 +308,63 @@ class World(Economy):
             f"last meal {when}{fmt(minute_of(meal))}, {hours_ago((t - meal).total_seconds() / 60)}{since}"
         line = f"Body: {last}; walked {today.get('walked', 0) / 1000:.1f} km today"
         return line + (f"; awake since {today['woke']}." if woke else "."), felt
+
+    def food_sold(self, pid):
+        """What is sold at this place that he can eat: [(item, price, 'meal' or 'snack')]."""
+        return [(s["item"], s["price"], s["food"]) for s in self.places[pid].get("sells", []) if s.get("food")]
+
+    def food_elsewhere(self, pid, t, state):
+        """Where else a meal is sold and open when he would get there, nearest first: [(place id, minutes on foot, cheapest meal)]."""
+        out = []
+        for p in self.places:
+            meals = [(i, pr) for i, pr, kind in self.food_sold(p) if kind == "meal"]
+            if p == pid or p == "home" or not meals:
+                continue
+            n = self.walk(pid, p)
+            if self.is_open(p, t + timedelta(minutes=n), state):
+                out.append((p, n, min(meals, key=lambda x: x[1])))
+        return sorted(out, key=lambda x: x[1])
+
+    def wants_food(self, t, state):
+        """He is hungry, or a meal's window is open at home's hours and he has not eaten in it (the engine's own test, for the prompt)."""
+        if state.get("today", {}).get("hunger"):
+            return True
+        name = meal_at(minute_of(t))
+        if not name:
+            return False
+        return not (state.get("last_meal") and datetime.fromisoformat(state["last_meal"]) >= at_dt(t.date(), MEAL_WINDOWS[name][0]))
+
+    def food_within_reach(self, pid, t, state, listed=False):
+        """The line he reads when he wants food: whether anything to eat is sold here, where else, and what the kitchen at home says.
+        It states only what the world will serve, so that "I shall eat" has somewhere to go. What is sold here is already in "For
+        sale here", and is repeated only when `listed` (the refusal of an eating step)."""
+        parts = []
+        here = self.food_sold(pid)
+        if here and listed:
+            parts.append("here: " + "; ".join(f"{i} ₹{pr:,}" for i, pr, _ in here))
+        elif not here and pid != "home":
+            parts.append(f"nothing to eat is sold {self.places[pid]['at']}")
+        for p, n, (i, pr) in self.food_elsewhere(pid, t, state):
+            parts.append(f"{self.places[p]['short']}, {n} min on foot: {i} ₹{pr:,}")
+        if pid != "home":
+            parts.append("at home: " + self.meal_status(t + timedelta(minutes=self.walk(pid, "home")), state))
+        return "Food: " + "; ".join(p.rstrip(".") for p in parts) + "."
+
+    def talk_run(self, day, pid):
+        """A plain fact when he has talked at this place for TALK_RUN steps or more in a row, else None."""
+        n, since, with_ = 0, None, []
+        for s in reversed(day.get("steps") or []):
+            dec = s.get("decision") or {}
+            if dec.get("action") != "talk" or dec.get("place") != pid:
+                break
+            n, since = n + 1, s["t"]
+            by = (s.get("voice") or {}).get("by")
+            if by and by not in with_:
+                with_.append(by)
+        if n < TALK_RUN:
+            return None
+        return (f"You have been talking {self.places[pid]['at']} for {n} steps in a row, since {since}"
+                + (f" (answers from {', '.join(with_)})" if with_ else "") + ".")
 
     def post_card(self):
         if getattr(self, "_post_card", None) is None:
@@ -690,6 +748,10 @@ class World(Economy):
             on_mind.append("Your bandhgala is ready at Masterji's. The balance is ₹3,500.")
         if state.get("theses"):
             on_mind.append("Your theses: " + "; ".join(f"{x['text']} ({x['status']})" for x in state["theses"]) + ".")
+        if self.wants_food(t, state) and not (pid == "home" and (self.served(t, state) or self.plate(t, state))):    # at home, with a meal laid out, the Household line says it
+            on_mind.append(self.food_within_reach(pid, t, state))
+        if run := self.talk_run(day, pid):
+            on_mind.append(run)
         on_mind.append(self.money_line(state, t))
         purchases = []
         for e in day.get("entries", []) + [e for _, e in events if e]:
@@ -850,6 +912,9 @@ class World(Economy):
                 break
         if action == "eat" and dest == "home" and not (self.served(arrival, state) or self.plate(arrival, state)):
             errors.append(self.meal_status(arrival, state) + " Choose an available activity; a request for food is not a completed meal.")
+        if action == "eat" and dest != "home" and not any(b.get("food") for b in buys):
+            errors.append("eating " + pl["at"] + " means buying food there. " + self.food_within_reach(dest, arrival, state, listed=True)
+                          + " Name what you buy in buys, or choose something else.")
         spent = sum(b["price"] for b in buys)
         if spent > state["imprest"]:
             errors.append(f"that costs ₹{spent:,} and you have only ₹{state['imprest']:,} in cash")

@@ -6,6 +6,7 @@ from .memory import names_of
 from .works import cut
 
 SAY_CAP, DOES_CAP, EVENT_CAP = 420, 200, 600
+FIRST_PERSON = re.compile(r"(?:I|My|We|Our)\b")
 
 
 def addressed(cast, says, present):
@@ -61,6 +62,20 @@ def recorded_facts(world, cid, state):
     return facts
 
 
+def place_facts(world, pid, t, state):
+    """What the place itself offers, from the world's own lists, so that a voice neither invents a canteen, a meal token or a lift
+    nor sends him to one: at a place that sells nothing it is told so, and where a meal can be had instead."""
+    place = world.places[pid]
+    if pid == "home" or world.food_sold(pid):
+        return []
+    facts = [f"No food is served {place['at']}: there is no canteen, café, kitchen, counter, meal token or coupon here, and you know of none."
+             if not place.get("sells") else f"No food is served {place['at']}."]
+    away = world.food_elsewhere(pid, t, state)
+    if away:
+        facts.append("A meal can be had at " + "; ".join(f"{world.places[p]['name']}, {n} minutes on foot ({i} ₹{pr:,})" for p, n, (i, pr) in away) + ".")
+    return facts
+
+
 def paid_here(place, entries, limit=6):
     """His settled purchases earlier today at this place, from the day's records, so a seller does not ask twice.
 
@@ -94,6 +109,8 @@ def render(c, sit, where, says, remember, first_meeting=None, purchases=None, me
         text += "Relationship: you have met him. Only the history supplied below establishes what passed between you; do not invent additional encounters or agreements.\n"
     if "for_sale" in sit:
         text += "Listed goods and prices here: " + ("; ".join(sit["for_sale"]) or "none listed") + ". Do not replace these prices with invented ones.\n"
+        text += ("Nothing else exists here for him to be sent to: do not offer, promise or point him to a canteen, café, counter, token, "
+                 "coupon, pass, lift, queue or office that this message does not name.\n")
     if purchases is not None:
         if purchases:
             text += "This exchange includes these purchases/payments at the recorded prices: " + "; ".join(
@@ -113,6 +130,8 @@ def clean(c, out):
     if len(says) < 2:
         return None
     does = " ".join(out["does"].split()) if isinstance(out.get("does"), str) else ""
+    if FIRST_PERSON.match(does):
+        does = ""                      # "I gesture towards the desk": the voice was to write what it does in the third person
     by = c["name"][0].upper() + c["name"][1:]
     return {"by": by, "says": cut(says, SAY_CAP), "does": cut(does, DOES_CAP).rstrip(".") + "." if does else None}
 

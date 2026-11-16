@@ -342,7 +342,11 @@ class Engine:
         if cid == "ramesh" and sit["place"] == "home" and day.get("state") is not None:
             when = at_dt(date.fromisoformat(day["date"]), hm(sit["time"]))
             meal_status = (self.world.served(when, day["state"]) or "none") + ". " + self.world.meal_status(when, day["state"])
-        messages = [{"role": "system", "content": self.voice_prompt}, {"role": "user", "content": voices.render(c, sit, where, says, remember, first_meeting=first_meeting, purchases=purchases, meal_status=meal_status, world_facts=voices.recorded_facts(self.world, cid, day.get("state") or {}) + voices.paid_here(self.world.places[sit["place"]], day.get("entries", [])))}]
+        state = day.get("state") or {}
+        when = at_dt(date.fromisoformat(day["date"]), hm(sit["time"]))
+        facts = (voices.recorded_facts(self.world, cid, state) + voices.paid_here(self.world.places[sit["place"]], day.get("entries", []))
+                 + voices.place_facts(self.world, sit["place"], when, state))
+        messages = [{"role": "system", "content": self.voice_prompt}, {"role": "user", "content": voices.render(c, sit, where, says, remember, first_meeting=first_meeting, purchases=purchases, meal_status=meal_status, world_facts=facts)}]
         voice_chat = getattr(type(self.mind), "chat_voice", None)
         reply = voice_chat(self.mind, messages, contract.VOICE_SCHEMA, max_tokens=250) if voice_chat else self.mind.chat(messages, contract.VOICE_SCHEMA, max_tokens=250)
         return voices.clean(c, contract.extract_json(reply))

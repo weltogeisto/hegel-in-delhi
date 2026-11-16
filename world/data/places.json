@@ -69,6 +69,12 @@
     "iic": {
       "name": "India International Centre", "short": "the IIC", "at": "at the IIC",
       "hours": {"daily": ["09:00", "21:30"]},
+      "sells": [
+        {"item": "Lunch in the IIC dining hall: dal, sabzi, rice, roti, a sweet", "price": 480, "match": ["lunch", "dinner", "dining hall", "thali", "meal", "dal", "rice"], "food": "meal"},
+        {"item": "Vegetable sandwich at the IIC coffee house", "price": 160, "match": ["sandwich", "snack"], "food": "snack"},
+        {"item": "Tea and biscuits at the IIC coffee house", "price": 90, "match": ["tea", "chai", "biscuit"], "food": "snack"},
+        {"item": "Filter coffee at the IIC coffee house", "price": 110, "match": ["coffee"]}
+      ],
       "formal": true
     },
     "estates": {
