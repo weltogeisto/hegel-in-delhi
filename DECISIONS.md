@@ -98,14 +98,21 @@ Welt's calls, 16 November:
 38. **Who does which work in the cloud, and how sources are read:** planning stays with Claude in the cloud; reading, code and checks go to agents on Sonnet 5.5, briefed and checked. A paper that carries a decision is read in full (`COLLABORATION.md`, under Roles).
 
 39. **Weeks 1 and 2 are built, first wave** (`pc/WORLD-2-WEEK1.md`): promises as records, what a voice is told about itself, the street, a wider condition for beats, and every call naming its adapter. Welt, 16 November: "ok, lets go". Read as a go to build. Every switch stays off.
-    - **Not read into it:** a pull request to main, the sentence for `wants`, and the file's next act going into `plot.json`. Claude asked; the question was not clear to Welt, so all three wait for his word in plain terms.
+    - **Not read into it:** a pull request to main, the sentence for `wants`, and the file's next act going into `plot.json`. Claude asked again in plain terms; the answers are 40 to 42.
+
+Welt's answers, the evening of 16 November, to three questions put plainly:
+
+40. **The PC gets the new work: yes.** The branch of the world's second phase is joined to main. Every new switch is off, so nothing changes for him. The PC seat's three tasks are W1 to W3 in `pc/TASKS.md`.
+41. **The sentence for `wants` may be tested: yes,** as drafted in `pc/WANTS-SCREEN.md`. The PC seat runs the screen on frozen moments. The sentence goes into his live days only after the result and Welt's word again.
+42. **The file's next act: later.** `pc/FILE-NEXT-ACT.md` stays a draft and out of `plot.json`. After his 20 November the file is silent until Welt takes it up.
 
 ## Still open
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.
 - Whether the two rules of 38 also bind the PC seat.
 - **Whether an adapter gets a day of its own.** No adapter has run a day in his world: each stopped at its gate first (T29, the forty-case re-audit, Training 3's data gate). Since week 0 a fair day is possible: one saved morning, two forks, plain Qwen against the adapter, the same seeds, read by state and by text (`tools/fork_diff.py`, `world report --health`). It needs T67 first, because today an adapter that is set reaches the owl, the letters and the yes-or-no as well. Claude's advice, 16 November: not for the Training 1 adapter, which changed facts in 12 of 40 rewrites; make the fork day the entry test of the next adapter. Loading an adapter is a hard limit either way.
-- **The sentence for `wants`** (`pc/WANTS-SCREEN.md`) and **the file's next act** (`pc/FILE-NEXT-ACT.md`, seven calls) wait for Welt's pen.
+- **The file's next act** (`pc/FILE-NEXT-ACT.md`, seven calls) waits for Welt's pen (42).
+- **The street's first batch** (`pc/STREET-BATCH-1.md`): sixty cards for Welt to read before `HEGEL_STREET` goes on anywhere.
 
 ## Ideas, not yet decided
 
