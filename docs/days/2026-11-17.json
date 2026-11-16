@@ -419,6 +419,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "At the IIC."
+  },
+  {
+   "from": "13:49",
+   "to": "14:04",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -971,6 +978,34 @@
    "to": "Hegel",
    "text": "Aunty, careful with that step, it's a bit rough.",
    "t": "13:39"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s address of 'Aunty' is a small absurdity, a friction in the mirror of self-recognition that I shall ignore with dignity. I am here to eat, for the body is the vessel of the spirit, and an empty vessel cannot hold the idea. The programme officer is present; I shall address him directly to secure sustenance.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness"
+    }
+   ],
+   "t": "13:49"
+  },
+  {
+   "k": "said",
+   "text": "Sir, I am Hegel, a scholar of the state and history, though the Directorate has confused me with a Mr. Hegde. I have not eaten since yesterday and find my faculties dimming. The institution’s hospitality is noted, but the body requires its due. Will you arrange a meal for me, or direct me to where I may purchase one within these walls?",
+   "to": "the guard at the library and the programme officer",
+   "t": "13:49"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Sir, the canteen is just past the main hall, but you need to pay at the counter. I can't arrange food myself, I'm just the gatekeeper.",
+   "t": "13:49"
   }
  ],
  "steps": [
@@ -1982,13 +2017,72 @@
      "text": "In respect of Mind and its works, just as in the case of Nature, we must guard against being so far misled by a well-meant endeavour after rational knowledge, as to try to exhibit the necessity of phenomena which are marked by a decided contingency, or, as the phrase is, to construe them a priori."
     }
    ]
+  },
+  {
+   "t": "13:49",
+   "end": "14:04",
+   "event": "The guard at the library says: “Aunty, careful with that step, it's a bit rough.” He nods politely and turns towards the entrance.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s address of 'Aunty' is a small absurdity, a friction in the mirror of self-recognition that I shall ignore with dignity. I am here to eat, for the body is the vessel of the spirit, and an empty vessel cannot hold the idea. The programme officer is present; I shall address him directly to secure sustenance.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 15,
+    "says": "Sir, I am Hegel, a scholar of the state and history, though the Directorate has confused me with a Mr. Hegde. I have not eaten since yesterday and find my faculties dimming. The institution’s hospitality is noted, but the body requires its due. Will you arrange a meal for me, or direct me to where I may purchase one within these walls?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Sir, the canteen is just past the main hall, but you need to pay at the counter. I can't arrange food myself, I'm just the gatekeeper.",
+    "does": "Points a thumb over the shoulder towards the corridor."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "id": "baillie-1:220"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "c. The unity and truth of these two abstract elements. The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "text": "But just as lordship showed its essential nature to be the reverse of what it wants to be, so, too, bondage will, when completed, pass into the opposite of what it immediately is: being a consciousness repressed within itself, it will enter into itself, and change round into real and true independence. We have seen what bondage is only in relation to lordship."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-17T13:49+05:30",
+  "until": "2026-11-17T14:04+05:30",
   "asleep": false,
   "imprest": 35700,
   "wearing": "bandhgala",
