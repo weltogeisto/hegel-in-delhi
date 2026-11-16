@@ -349,6 +349,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Reading at the IIC."
+  },
+  {
+   "from": "12:04",
+   "to": "12:19",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -621,6 +628,34 @@
    "to": "Hegel",
    "text": "Don't worry, sir. Just keep your hands to yourself and the books will be fine. See you at twelve.",
    "t": "11:04"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s advice is pragmatic but misses the point; the danger is not in the theft of objects, but in the unmediated access of the particular to the universal. I am here to observe the structure of knowledge, not to be a tourist. I must sit among the living and eat, for the body is the condition of the spirit's activity, and I have not eaten since yesterday.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "First Division, Descartes"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Megarics"
+    }
+   ],
+   "t": "12:04"
+  },
+  {
+   "k": "said",
+   "text": "I am not a thief, officer. I am a philosopher seeking a place to sit and perhaps a meal. The books are safe. I simply wish to observe the arrangement of knowledge, and to do so while my body is sustained. Is there a hall or a room where a visitor might sit and dine, or must I remain in the corridor like a ghost?",
+   "to": "the guard at the library and the programme officer",
+   "t": "12:04"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Sir, I don't know what a philosopher is, but the cafeteria on the ground floor is open. Go down, eat, and keep your hands in your lap.",
+   "t": "12:04"
   }
  ],
  "steps": [
@@ -1027,13 +1062,72 @@
      "text": "Whenever we speak of the One, the Many usually come into our mind at the same time. Whence, then, we are forced to ask, do the Many come? This question is unanswerable by the consciousness which pictures the Many as a primary datum, and-treats the One as only one among the Many."
     }
    ]
+  },
+  {
+   "t": "12:04",
+   "end": "12:19",
+   "event": "The guard at the library says: “Don't worry, sir. Just keep your hands to yourself and the books will be fine. See you at twelve.” He gives a small nod and turns back to the front desk.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s advice is pragmatic but misses the point; the danger is not in the theft of objects, but in the unmediated access of the particular to the universal. I am here to observe the structure of knowledge, not to be a tourist. I must sit among the living and eat, for the body is the condition of the spirit's activity, and I have not eaten since yesterday.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 15,
+    "says": "I am not a thief, officer. I am a philosopher seeking a place to sit and perhaps a meal. The books are safe. I simply wish to observe the arrangement of knowledge, and to do so while my body is sustained. Is there a hall or a room where a visitor might sit and dine, or must I remain in the corridor like a ghost?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Sir, I don't know what a philosopher is, but the cafeteria on the ground floor is open. Go down, eat, and keep your hands in your lap.",
+    "does": "Points a thick finger towards the elevator lobby."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "First Division, Descartes",
+     "id": "haldane-3:589"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Megarics",
+     "id": "haldane-1:1136"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "First Division, Descartes",
+     "text": "If a body is ground into small parts, it gives way, and yet it does not lose its nature; resistance is thus not essential. This not-being-for-itself is however a quantitatively slighter resistance only; the resistance always remains. But Descartes desires only to think; now he does not think resistance, colour, &c., but apprehends them by the senses only."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Megarics",
+     "text": "Chrysippus, a celebrated Stoic, wrote six books on the subject, and another, Philetas of Cos, died in the decline which he contracted through over-study of these paradoxes. We have the same thing over again when, in modern times, we see men worn out by absorbing themselves in the squaring of the circle—a proposition which has well nigh become immortal."
+    }
+   ]
   }
  ],
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-17T12:04+05:30",
+  "until": "2026-11-17T12:19+05:30",
   "asleep": false,
   "imprest": 35700,
   "wearing": "bandhgala",
