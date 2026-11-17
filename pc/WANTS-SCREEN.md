@@ -53,7 +53,7 @@ W passes the screen when it passes all five. A pass earns a provisional trial on
 ## What the PC seat runs
 
 1. Freeze the 24 situations and commit the manifest with its hash.
-2. Run A, A′ and W: 216 calls at the filter's 1.29 calls each, by day or in the spare slot by night (`DECISIONS.md` 30).
+2. Run A, A′ and W: 216 calls at the filter's 1.29 calls each, by day in the spare slot beside him (`DECISIONS.md` 30). There is no night window.
 3. Push the records. Claude computes the measures and writes the result.
 
 ## What it cannot show

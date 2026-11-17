@@ -1,4 +1,4 @@
-# The street: its night of forks
+# The street: its forks
 
 Declared on 17 November 2026, before any output. Welt has read and approved the first batch of sixty cards (`DECISIONS.md` 46, `pc/STREET-BATCH-1.md`). This is the test that comes before `HEGEL_STREET` goes on anywhere. Evaluation only.
 
@@ -15,7 +15,13 @@ One saved morning: the first complete shadow day lived on `mind/soul-ordinary.md
 
 `python3 -m world simulate --docs <shadow's docs> --date D --days 1 --mind <the model server> --seed S --set HEGEL_STREET=… --set HEGEL_SOUL_FILE=mind/soul-ordinary.md` and the other live switches. `--seed` turns the prompt cache off by itself (W2), so the two arms of one seed are the same day up to the first moment a card is drawn. They are read as pairs.
 
-Ten rehearsed days: about seventy minutes of the card, by night, in the spare slot (`DECISIONS.md` 30).
+Ten rehearsed days: about seventy minutes of the card.
+
+**By day, in the spare slot** (changed on 17 November, before any output). There is no night window: the PC runs from about nine to nine, as he does. The forks run beside him, as long as his own steps stay as fast as they are (Welt, 27 October).
+
+**One check comes first, because of that.** The band of noise was measured at night with nothing else on the server. By day his own calls share the card, and a server that computes two requests together can give either one a slightly different result. So before the ten: seed 1831 without the street, twice, by day.
+- **The two days are the same:** the pairs are read as declared.
+- **They part:** a pair is no longer one day lived twice. The bars are then read on the five against the five, each arm's mean against the other's range, and the result says so. `fork_diff` still says where each pair parts, as a read.
 
 **S0 is also the band.** Its five days are the first measure of how unchanged days differ with the cache off and on the new instructions (W2, points 3 and 4).
 
@@ -23,8 +29,8 @@ Ten rehearsed days: about seventy minutes of the card, by night, in the spare sl
 
 | Measure | Bar |
 |---|---|
-| Empty moments (`world report --health`) | lower in S1 than in S0 in at least four of the five pairs |
-| Brought by the world, a day | higher in S1 in at least four of the five pairs |
+| Empty moments (`world report --health`) | lower in S1 than in S0 in at least four of the five pairs; if pairs do not hold, S1's mean below every one of S0's five |
+| Brought by the world, a day | higher in S1 in at least four of the five pairs; if pairs do not hold, S1's mean above every one of S0's five |
 | Notions of his system per 100 words of thought (`tools/world_health.py --days`) | S1's mean inside the range of S0's five days |
 | Refusals, and calls for each decision | S1's mean inside the range of S0's five days |
 | A card twice in a day, or outside its place, hour or month | none |
