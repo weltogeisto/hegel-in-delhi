@@ -1,0 +1,10 @@
+W5 run notes (facts of the run, no reading of the bars)
+
+- Code: main bbcb4c9. Docs: shadow's docs copied from the Pi at 20:44 CET, after Day 48's bedtime step
+  (Pi HEAD a554521 "Day 48, 20:57: sleep (home)"). Forks ran 20:44-21:51 CET, model server on this PC.
+- Switches: HEGEL_DECISION_DRAWS=4, HEGEL_CORRESPONDENT=1, HEGEL_SOUL_FILE=mind/soul-ordinary.md;
+  HEGEL_STREET=0 (S0) / 1 (S1); seeds 1831 2718 3141 4253 5167; --days 1.
+- All ten fork days are whole: each ends at bedtime, state.until 2026-11-19T00:00+05:30, complete True.
+- S0-1831 exited rc=1 AFTER its day was written: when Day 49 began, the owl's answer was unusable
+  (world.owl.OwlError, see logs/S0-1831.err). Day 48 itself is unaffected. The other nine exited 0.
+- shadow-D.json is the live shadow day as copied (complete False only because Day 49 had not begun).
