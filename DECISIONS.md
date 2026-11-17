@@ -113,6 +113,12 @@ Welt's call, 17 November:
     - **One allowance:** a field that is only ever added beside the record, and that neither he, the page nor the owl reads, may be named in the guard's `ADDED` list instead of switched. What sits inside existing entries, or is a new kind of entry, goes behind the switch.
     - **Who:** the PC seat, on its branch.
 
+Welt's calls, the afternoon of 17 November:
+
+44. **The PC seat builds and runs the screen for the voices and the promises,** from a handover (`pc/T57-HANDOVER.md`). Claude in the cloud keeps the declaration, the reading and the result.
+45. **Khan Market gets its own scene on the page:** the lane with Sunil's stall and the dhaba, shown when he eats, drinks or talks there. Built by an agent on Sonnet 5.5, checked by Claude.
+    - **Why:** the page had rooms for four places and two Khan Market shops, shown only on a stroll. When he sat there eating, it showed nothing.
+
 ## Still open
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.
