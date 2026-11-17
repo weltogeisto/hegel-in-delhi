@@ -29,6 +29,15 @@ def digest(value):
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
 
+def evidence(step):
+    """A step as it is hashed into a record: without the wall time the mind took (`mind.latency_s`), which is not part of
+    his day. Left in, a record's id changed with the machine's speed, and the day guard (tests/test_opened.py) with it."""
+    mind = step.get("mind")
+    if isinstance(mind, dict) and "latency_s" in mind:
+        return dict(step, mind={k: v for k, v in mind.items() if k != "latency_s"})
+    return step
+
+
 def charge_id(owed):
     """Only an explicit identity or a recurring bill's source + due date is canonical.
 
@@ -136,7 +145,7 @@ def project(day):
         route = next((seg for seg in day.get("segments", [])
                       if seg.get("from") == step.get("t") and seg.get("mode") == "walk"), {})
         walking = ans.get("action") == "walk"
-        add("event", "steps", i, step, type="action", action=ans.get("action"),
+        add("event", "steps", i, evidence(step), type="action", action=ans.get("action"),
             time=begin, end=end, place=None if walking else ans.get("place"),
             **(dict(origin=route.get("a"), destination=ans.get("place")) if walking else {}))
         for j, observed in enumerate(step.get("observations", [])):
@@ -170,7 +179,8 @@ def project(day):
             amount=o['amount'],direction='out',settled=False,creditor=o.get('to'),
             obligation=True,time=horizon,place=None)
 
-    source = {key: day.get(key) for key in ("entries", "steps", "segments", "observations", "plan", "complete")}
+    source = {key: day.get(key) for key in ("entries", "segments", "observations", "plan", "complete")}
+    source["steps"] = [evidence(s) for s in day["steps"]] if isinstance(day.get("steps"), list) else day.get("steps")
     source["state"] = {k: st.get(k) for k in ('imprest','place','wearing','wardrobe','bag','file','owed')}
     source["through"] = st.get("until")
     return dict(version=VERSION, date=date, source_sha256=digest(source),

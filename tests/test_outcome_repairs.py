@@ -13,8 +13,8 @@ from test_world import answer, state
 
 
 class ExecutionEvidenceTest(unittest.TestCase):
-    def execute(self, *, place='lodhi', time=727, **decision):
-        world = World(outcome_memory=True)          # what is recorded at execution exists only with HEGEL_OUTCOME_MEMORY on
+    def execute(self, *, place='lodhi', time=727, consumed=True, **decision):
+        world = World(consumed=consumed)      # the `consumed` entry exists only with HEGEL_CONSUMED on (DECISIONS 48)
         st = state()
         st.update(place=place, until=f'2026-10-03T{time//60:02d}:{time%60:02d}')
         day = dict(date='2026-10-03', entries=[], steps=[], segments=[], state=st)
@@ -38,6 +38,13 @@ class ExecutionEvidenceTest(unittest.TestCase):
                          (consumed[0]['time'],consumed[0]['place'],consumed[0]['food']))
         self.assertIn('eating occurred', records.line(consumed[0]))
         self.assertIn(consumed[0]['id'], records.relevant(records.project(day), limit=3000))
+
+    def test_without_the_switch_he_eats_and_no_consumed_entry_is_written(self):
+        _, before, day, _, _, _ = self.execute(action='buy', buys=[dict(item='Corn',price_inr=40)], consumed=False)
+        self.assertEqual(before.get('snacks',0)+1, day['state']['snacks'])                  # the state eats either way
+        self.assertNotIn('consumed', [e['k'] for e in day['entries']])
+        _, _, day, _, _, _ = self.execute(place='home', time=480, action='eat', consumed=False)
+        self.assertNotIn('consumed', [e['k'] for e in day['entries']])
 
     def test_household_meal_records_service_name_at_execution(self):
         _, _, day, _, _, _ = self.execute(place='home', time=480, action='eat')

@@ -188,12 +188,22 @@ class RecordsTest(unittest.TestCase):
             if records.critical(r):self.assertIn(records.line(r),text)
         self.assertIn("[excerpt]",text)
 
+    def test_the_wall_time_a_mind_took_changes_no_record(self):
+        a = self.day()
+        a["steps"].append(dict(t="07:00", end="07:30", event="", decision=dict(action="read", place="home"),
+                               mind=dict(source="stub", attempts=1, latency_s=0.0)))
+        b = copy.deepcopy(a)
+        b["steps"][0]["mind"]["latency_s"] = 0.1
+        self.assertTrue(any(r["source"]["collection"] == "steps" for r in records.project(a)["records"]))
+        self.assertEqual(records.project(a), records.project(b))
+        self.assertEqual(0.1, b["steps"][0]["mind"]["latency_s"])          # the day itself keeps it
+
     def test_impossible_budget_fails_explicitly_without_hiding_records(self):
         with self.assertRaises(records.RecordBudgetError):records.render(records.project(self.day()),20)
 
     def test_save_replaces_one_store_and_loading_does_not_rewrite_a_legacy_day(self):
         with tempfile.TemporaryDirectory() as tmp:
-            days=Days(Path(tmp), records=True); day=self.day(); days.dir.mkdir()
+            days=Days(Path(tmp)); day=self.day(); days.dir.mkdir()
             days.path(day["date"]).write_text(json.dumps(day))
             before=days.path(day["date"]).read_bytes()
             loaded=days.load(day["date"])
@@ -210,8 +220,6 @@ class RecordIntegrationTest(unittest.TestCase):
         from test_world import Sandbox
         from datetime import date
         self.box = Sandbox()
-        self.box.cfg.outcome_memory = True          # HEGEL_OUTCOME_MEMORY: observations, places and records exist only with it on
-        self.box.days.records = True
         self.engine = self.box.engine()
         self.day = self.engine.new_day(self.box.days.load("2026-10-02"), date(2026,10,3))
 

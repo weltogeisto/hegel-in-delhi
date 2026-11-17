@@ -51,6 +51,7 @@ class Config:
         self.correspondent = v.get("HEGEL_CORRESPONDENT", "0").strip().lower() in ("1", "yes", "true")   # Niethammer writes from Munich (pc/CORRESPONDENT.md); off until switched on
         self.voice_facts = v.get("HEGEL_VOICE_FACTS", "0").strip().lower() in ("1", "yes", "true")   # a voice is told its own side of the record, its pronoun, and the right person answers (pc/WORLD-2-WEEK1.md P2); off until switched on
         self.promises = v.get("HEGEL_PROMISES", "0").strip().lower() in ("1", "yes", "true")   # a promise is a record: the voice may make one in `act`, the engine keeps it (pc/WORLD-2-WEEK1.md P1); off until switched on
+        self.consumed = v.get("HEGEL_CONSUMED", "0").strip().lower() in ("1", "yes", "true")   # what he ate is an entry of its own, which the page shows and the owl reads (DECISIONS 48); off until someone has looked at what they do with it
         self.pause_away = v.get("HEGEL_PAUSE_AWAY", "0").strip().lower() in ("1", "yes", "true")   # hold his world at waking while the PC is away (pc/PAUSE.md); off until switched on
         self.wants = v.get("HEGEL_WANTS", "0").strip().lower() in ("1", "yes", "true")   # he may name what he wishes the city had (pc/WANTS-SCREEN.md); written down, no effect; off until switched on
         self.news_feeds = [u.strip() for u in v.get("NEWS_FEEDS", (

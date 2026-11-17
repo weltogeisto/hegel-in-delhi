@@ -94,8 +94,8 @@ def names(lst):
 
 
 class World(Economy):
-    def __init__(self, feeds=None, culture=False, street_on=False, street_file=None, promises=False, outcome_memory=False):
-        self.outcome_memory = bool(outcome_memory)            # HEGEL_OUTCOME_MEMORY: charge ids, places, what he consumed, what he observed
+    def __init__(self, feeds=None, culture=False, street_on=False, street_file=None, promises=False, consumed=False):
+        self.consumed = bool(consumed)                        # HEGEL_CONSUMED: what he ate is an entry of its own (`consumed`); off until switched on (DECISIONS 48)
         p = load("places.json")
         self.places, self.walks = p["places"], p["walk"]
         self.culture = bool(culture)                          # HEGEL_CULTURE: museums, concerts and plays (data/culture.json)
@@ -905,10 +905,8 @@ class World(Economy):
             sit["places"] = list(self.places)                 # the decision's place list widens with the venues
         self.show_plan(sit, day)
         ctx = {"t": t, "present": present, "beat": beat, "public": [e for _, e in events if e], "opened": opened,
-               "fresh": [c for c in new if c in known]}
-        if self.outcome_memory:
-            ctx.update(observations=[f"Weather: {sit['weather']}. Air quality index: {sit['aqi']}."] + [prompt for prompt, _ in events[carried:] if prompt],
-                       observed_at=pid)
+               "fresh": [c for c in new if c in known],
+               "observations": [f"Weather: {sit['weather']}. Air quality index: {sit['aqi']}."] + [prompt for prompt, _ in events[carried:] if prompt], "observed_at": pid}
         if card:
             ctx["street"] = {"id": card["id"], "text": card["text"], "empty": nothing}      # recorded in apply, and only if a mind decided
         return sit, ctx
@@ -1077,7 +1075,7 @@ class World(Economy):
         def entry(t, e):
             e = dict(e)
             e["t"] = fmt(minute_of(t))
-            if self.outcome_memory and e.get("k") != "plan":       # retain the established intention-only plan format
+            if e.get("k") != "plan":       # retain the established intention-only plan format
                 e.setdefault("place", state["place"])
             entries.append(e)
 
@@ -1194,8 +1192,8 @@ class World(Economy):
         else:
             end = arrival
 
-        def consumed(t, e):                # what he ate, as its own entry: only with the switch on (a new kind of entry, DECISIONS 43)
-            if self.outcome_memory:
+        def consumed(t, e):                # what he ate, as an entry of its own: the page shows it and the owl reads it (DECISIONS 48)
+            if self.consumed:
                 entry(t, {"k": "consumed", **e})
 
         if action == "eat" and dest == "home":
@@ -1208,21 +1206,18 @@ class World(Economy):
                 self.feed(state, t, "meal")
                 consumed(t, {"item": plate, "food": "meal", "source": "household service"})
         for i,b in enumerate(plan["buys"]):
-            cid = None
-            if self.outcome_memory:
-                # A retry of this execution context reuses the transaction identity.
-                # A distinct sitting or two same-price items get distinct identities,
-                # even if a legacy caller supplies the same simulated minute.
-                identities=ctx.setdefault('purchase_ids',{})
-                if i not in identities:
-                    identities[i]=self.new_charge(state)
-                cid=identities[i]
-                if cid in state.setdefault('settled_charges',[]):
-                    logging.getLogger('world').warning('duplicate charge suppressed: %s',cid)
-                    continue
-                state['settled_charges'].append(cid)
-            entry(t, dict({"k": "bag", "item": b["item"], "price": b["price"]}, **({"charge_id": cid} if cid else {}),
-                          **{k: b[k] for k in ("office", "note") if b.get(k)}))
+            # A retry of this execution context reuses the transaction identity.
+            # A distinct sitting or two same-price items get distinct identities,
+            # even if a legacy caller supplies the same simulated minute.
+            identities=ctx.setdefault('purchase_ids',{})
+            if i not in identities:
+                identities[i]=self.new_charge(state)
+            cid=identities[i]
+            if cid in state.setdefault('settled_charges',[]):
+                logging.getLogger('world').warning('duplicate charge suppressed: %s',cid)
+                continue
+            entry(t, dict({"k": "bag", "item": b["item"], "price": b["price"], "charge_id":cid}, **{k: b[k] for k in ("office", "note") if b.get(k)}))
+            state.setdefault('settled_charges',[]).append(cid)
             state["imprest"] -= b["price"]
             self.voucher(state, t, b["item"], b["price"], b.get("office"))
             if b.get("tech"):
