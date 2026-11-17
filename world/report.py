@@ -42,6 +42,14 @@ def repetition(day):
     return {"thoughts": len(thoughts), "marked": marked, "share": marked / len(thoughts), "phrases": top}
 
 
+def echoes(thoughts, top=5):
+    """The phrases (grams(), T9's rule) that more than one of these thoughts used, most used first: what he has said too often today."""
+    seen = Counter()
+    for text in thoughts:
+        seen.update(grams(text or ""))
+    return sorted((p for p, c in seen.items() if c > 1), key=lambda p: (-seen[p], p))[:top]
+
+
 def refusal_kind(e):
     return re.sub(r"\d+", "#", e.split(";")[0].split(". ")[0]).strip()[:80]
 

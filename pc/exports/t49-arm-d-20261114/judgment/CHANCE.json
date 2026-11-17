@@ -1,0 +1,44 @@
+{
+ "cases": 157,
+ "gates": {
+  "argument": {
+   "fails_by_chance": 0.054,
+   "limit": -0.25,
+   "middle_90_percent": [
+    -0.35,
+    0.35
+   ]
+  },
+  "contradictions_per_100": {
+   "fails_by_chance": 0.259,
+   "limit": 0.3,
+   "middle_90_percent": [
+    -0.678,
+    0.686
+   ]
+  },
+  "statements_as_fact_per_100": {
+   "fails_by_chance": 0.033,
+   "limit": 0.5,
+   "middle_90_percent": [
+    -0.44,
+    0.441
+   ]
+  },
+  "voice": {
+   "fails_by_chance": 0.06,
+   "limit": -0.25,
+   "middle_90_percent": [
+    -0.35,
+    0.35
+   ]
+  }
+ },
+ "method": "random halves of each case's thoughts and of the scored thoughts; no key, no arm effect",
+ "rule": "T36 chance diagnostic; never a gate",
+ "runs": 5000,
+ "scored_thoughts": 40,
+ "seed": 1831,
+ "thoughts": 942,
+ "training_eligible": false
+}

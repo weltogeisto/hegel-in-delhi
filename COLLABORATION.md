@@ -2,11 +2,16 @@
 
 Decided by Welt on 12 October 2026: Claude and Codex coordinate through this repository. Welt sets direction and holds the hard limits below. He does not relay messages or approve merges.
 
+From 7 November 2026 the design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1), with Welt's decisions in `DECISIONS.md`. It sets the work; the roles and hard limits below are unchanged.
+
 ## Roles
 
 - **Codex (on the PC):** everything that needs the 3090, the PC or the Pi. That means runtime changes, test runs, blind packets and the shadow world.
 - **Astra (on the PC), from 25 October 2026:** holds the seat Codex held, decided by Welt. Wherever this file says Codex, read Astra. Astra may continue on `codex/outcome-memory` and PR #1.
+- **Claude on the PC, from 15 November 2026:** holds the seat Astra held, decided by Welt. Its standing brief is `pc/PC-SESSION.md`.
 - **Claude (in the cloud):** specs, code that needs no GPU, reviews, blind scoring, the scoreboard and merges to main.
+  - **Planning and the rest, from 16 November 2026:** decided by Welt. Claude in the cloud plans: specs, reviews, verdicts, and what goes into a plan. Its work that is not planning (reading sources, writing code, running checks) goes to agents on Sonnet 5.5. Claude briefs them, and checks what comes back before it uses it. They go out in small batches: thirteen at once ran into the usage limit on 15 November.
+  - **Sources, from 16 November 2026:** decided by Welt. A paper that carries a decision is read in full, not from its abstract. What is known only from an abstract is marked so, and nothing rests on it (`research/WORLD-2-SOURCES.md`).
 - **Hermes (on the Pi):** only if Codex cannot reach the Pi.
 - **Welt:** direction and the hard limits. Nothing else waits on him.
 

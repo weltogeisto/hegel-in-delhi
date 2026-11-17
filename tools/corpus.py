@@ -35,7 +35,7 @@ sys.path.insert(0, str(REPO))
 from world import shelf  # noqa: E402
 
 CACHE, SHELF = HERE / ".cache/corpus", REPO / "mind/shelf"
-UA = "hegel-in-delhi-corpus/1.0 (private research project; contact hendriksteinort@gmail.com)"
+UA = "hegel-in-delhi-corpus/1.0 (+https://github.com/weltogeisto/hegel-in-delhi)"
 DELAY = 1.5                                         # seconds between requests
 GUTENBERG = "https://www.gutenberg.org/cache/epub/{n}/pg{n}.txt"
 ARCHIVE = "https://archive.org/download/{i}/{i}_djvu.txt"

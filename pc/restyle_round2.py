@@ -4,6 +4,9 @@ Heavy training imports are deferred. Existing pilot training and output director
 never opened for writing by this module. Selection order is recall count, Delta, loss,
 then earlier step; every measured checkpoint and raw held reply is retained.
 """
+import contextlib
+import gc
+import os
 from datetime import datetime, timezone
 import hashlib
 import json
@@ -44,7 +47,7 @@ def mask_rows(rows, k=4, context=13):
     return [dict(row, labels=goldfish_labels(row["input_ids"], row["labels"], k, context)) for row in rows]
 
 
-def load_data(folder):
+def load_data(folder, chapter_splits=None):
     """Expand two accepted versions only after the whole fixed-unit gate has passed."""
     folder = Path(folder)
     units = data2.strict_rows(folder / data2.UNITS)
@@ -52,6 +55,12 @@ def load_data(folder):
     gate = data2.gate(units, good, failed)
     if not gate["passed"]:
         raise ValueError("round-two corpus is incomplete or failed its strict unit/ratio gate: " + json.dumps(gate))
+    assignments = None
+    if chapter_splits is not None:
+        from tools.chapter_splits import load_manifest
+        manifest, checksum = load_manifest(chapter_splits, folder / data2.UNITS)
+        assignments = manifest["assignments"]
+        gate = dict(gate, chapter_splits_sha256=checksum)
     by_id, parent_splits = {u["id"]: u for u in units}, {}
     for unit in units:
         parent = by_id.get(unit.get("parent_id"))
@@ -72,6 +81,9 @@ def load_data(folder):
             if not plain or data2.diversity(unit["original"], plain)["problems"]:
                 raise ValueError("saved plain version fails recipe4's fixed checks")
             row = {k: unit[k] for k in ("work", "ref", "split", "original", "kind", "parent_id")}
+            if assignments is not None:
+                assignment = assignments[unit["id"]]
+                row.update(original_split=row["split"], split=assignment["split"], chapter_group=assignment["group"])
             row.update(id=unit["id"] + "/v" + str(version["variant"]), unit_id=unit["id"],
                        variant=version["variant"], plain=plain, recipe=4)
             rows[row["split"]].append(row)
@@ -101,9 +113,9 @@ def held_units(rows, count=20):
     return selected
 
 
-def check_data(folder, seq, say=print):
+def check_data(folder, seq, say=print, chapter_splits=None):
     try:
-        rows, gate = load_data(folder)
+        rows, gate = load_data(folder, chapter_splits)
         held = held_units(rows["held"])
         from pc import train_hegel
         long_rows = sum(train_hegel.restyle_tokens(r) > seq for r in rows["train"] + held)
@@ -217,27 +229,105 @@ class MachineEvaluator:
         return rows
 
 
+@contextlib.contextmanager
+def _preserve_generation_state(model, tok):
+    """Restore training settings that Unsloth's generate changes beyond .training."""
+    modules = tuple(model.modules()) if hasattr(model, "modules") else (model,)
+    missing = object()
+    training = [(module, getattr(module, "training", missing)) for module in modules]
+    settings, seen = [], set()
+
+    def remember(obj, name, *, owned=False):
+        key = (id(obj), name)
+        if key not in seen:
+            seen.add(key)
+            value = vars(obj).get(name, missing) if owned else getattr(obj, name, missing)
+            settings.append((obj, name, value))
+
+    for module in modules:
+        remember(module, "gradient_checkpointing")
+        remember(module, "_flag_for_generation", owned=True)
+        # These are inference caches, not parameters, gradients or optimizer state.
+        for name in ("_cache", "_flex_attention_cache",
+                     "paged_attention", "paged_attention_K", "paged_attention_V"):
+            remember(module, name, owned=True)
+        config = getattr(module, "config", None)
+        if config is not None:
+            remember(config, "use_cache")
+            text_config = getattr(config, "text_config", None)
+            if text_config is not None:
+                remember(text_config, "use_cache")
+        saved_tok = getattr(module, "_saved_temp_tokenizer", None)
+        if saved_tok is not None:
+            remember(saved_tok, "padding_side")
+    remember(tok, "padding_side")
+    env = {name: os.environ.get(name) for name in
+           ("UNSLOTH_RETURN_LOGITS", "UNSLOTH_RETURN_HIDDEN_STATES")}
+    checkpointing = next((value for _, name, value in settings
+                          if name == "gradient_checkpointing"
+                          and value is not missing and value), False)
+    was_training = model.training
+    try:
+        yield
+    finally:
+        try:
+            restore = getattr(model, "for_training", None)
+            if callable(restore):
+                # Preserve the actual mode, including the string "unsloth".
+                restore(use_gradient_checkpointing=checkpointing)
+        finally:
+            model.train(was_training)
+            for module, value in training:
+                if value is not missing:
+                    module.training = value
+            for obj, name, value in settings:
+                if value is missing:
+                    # PEFT delegates attribute reads; delete only locally owned state.
+                    if name in vars(obj):
+                        delattr(obj, name)
+                else:
+                    setattr(obj, name, value)
+            for name, value in env.items():
+                if value is None:
+                    os.environ.pop(name, None)
+                else:
+                    os.environ[name] = value
+
+
+def _release_generation_memory(torch, device):
+    """Called only after temporary tensors and newly created caches lose their refs."""
+    gc.collect()
+    if device.type == "cuda":
+        torch.cuda.synchronize(device)
+        with torch.cuda.device(device):
+            torch.cuda.empty_cache()
+
+
 def generate_for_model(model, tok, plain, seed, tokens, torch):
-    """Use the live restyle prompt; restore model mode and training RNG afterwards."""
+    """Generate held text, then restore training state and release unused CUDA memory."""
     from world import restyle
     prompt = tok.apply_chat_template(restyle.messages(plain), tokenize=False,
                                      add_generation_prompt=True, enable_thinking=False)
-    inputs = tok(prompt, return_tensors="pt", add_special_tokens=False)
     device = next(model.parameters()).device
-    inputs = {k: v.to(device) for k, v in inputs.items()}
-    was_training = model.training
     cuda_devices = [device.index or 0] if device.type == "cuda" else []
+    inputs, answer, ids = {}, None, None
     try:
-        model.eval()
-        with torch.random.fork_rng(devices=cuda_devices), torch.inference_mode():
-            torch.manual_seed(seed)
-            answer = model.generate(**inputs, max_new_tokens=tokens, temperature=0.9, do_sample=True,
-                                    pad_token_id=tok.eos_token_id, use_cache=True)
-        ids = answer[0, inputs["input_ids"].shape[1]:]
-        return {"text": tok.decode(ids, skip_special_tokens=True), "generated_tokens": len(ids),
-                "finish_reason": "stop" if len(ids) and int(ids[-1]) == tok.eos_token_id else "length"}
+        inputs = tok(prompt, return_tensors="pt", add_special_tokens=False)
+        inputs = {k: v.to(device) for k, v in inputs.items()}
+        with torch.random.fork_rng(devices=cuda_devices), _preserve_generation_state(model, tok):
+            model.eval()
+            with torch.inference_mode():
+                torch.manual_seed(seed)
+                answer = model.generate(**inputs, max_new_tokens=tokens, temperature=0.9, do_sample=True,
+                                        pad_token_id=tok.eos_token_id, use_cache=True, disable_compile=True)
+            ids = answer[0, inputs["input_ids"].shape[1]:]
+            return {"text": tok.decode(ids, skip_special_tokens=True), "generated_tokens": len(ids),
+                    "finish_reason": "stop" if len(ids) and int(ids[-1]) == tok.eos_token_id else "length"}
     finally:
-        model.train(was_training)
+        # empty_cache alone cannot free tensors still referenced by these locals.
+        ids = answer = None
+        inputs.clear()
+        _release_generation_memory(torch, device)
 
 
 def runtime():
@@ -252,7 +342,11 @@ def runtime():
 
 
 def train(args, api, engine=None, generate=None, delta_fn=None):
-    rows, gate = load_data(args.data)
+    if not getattr(args, "chapter_splits", None) or not getattr(args, "confirmation_seal", None):
+        raise SystemExit("Training 1 needs --chapter-splits and --confirmation-seal before model loading")
+    from tools.voice_confirmation import verify_seal
+    _, confirmation_hash = verify_seal(args.confirmation_seal)
+    rows, gate = load_data(args.data, args.chapter_splits)
     held = held_units(rows["held"])
     out = Path(args.out) if args.out else api.OUT / ("hegelizer2-lora-dryrun" if args.dry_run else "hegelizer2-lora")
     if (out / "adapter_model.safetensors").exists():
@@ -260,10 +354,12 @@ def train(args, api, engine=None, generate=None, delta_fn=None):
     if out.exists() and any(out.iterdir()) and not args.resume:
         raise SystemExit("round-two output already exists; preserve it and use --resume or a NEW output")
     out.mkdir(parents=True, exist_ok=True)
-    source_names = ["pc/train_hegel.py", "pc/restyle_round2.py", "tools/hegelizer.py", "tools/hegelizer_round2.py", "tools/hegel_test.py", "world/restyle.py"]
+    source_names = ["tools/chapter_splits.py", "tools/voice_confirmation.py", "pc/train_hegel.py", "pc/restyle_round2.py", "tools/hegelizer.py", "tools/hegelizer_round2.py", "tools/hegel_test.py", "world/restyle.py"]
     source_hashes = {name: hashlib.sha256((api.REPO / name).read_bytes()).hexdigest() for name in source_names}
     plan = {"base": args.base, "source_sha256": source_hashes, "versions": api.versions(), "dry_run": args.dry_run, "data_sha256": hashlib.sha256((Path(args.data) / data2.DONE).read_bytes()).hexdigest(),
             "units_sha256": hashlib.sha256((Path(args.data) / data2.UNITS).read_bytes()).hexdigest(),
+            "chapter_splits_sha256": gate["chapter_splits_sha256"],
+            "confirmation_seal_sha256": confirmation_hash,
             "held_ids": [r["id"] for r in held], "rank": args.rank, "alpha": args.alpha,
             "batch": args.batch, "accum": args.accum, "lr": args.lr_restyle, "epochs": args.epochs_restyle,
             "seq": args.seq_restyle, "seed": args.seed, "goldfish": args.goldfish,

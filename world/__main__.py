@@ -8,6 +8,7 @@
     python3 -m world owl --date 2026-10-03                 # write up a finished day now
     python3 -m world check                # sanity-check the world's data and the day files
     python3 -m world report [DATE [DATE]] # the scoreboard row of a day or a range (--table, --json)
+    python3 -m world wishes [--since DATE] # what he said he wished the city had (HEGEL_WANTS), by day
 """
 import argparse
 import fcntl
@@ -17,16 +18,17 @@ import logging.handlers
 import re
 import shutil
 import sys
+import time
 from collections import Counter
 from datetime import date, timedelta
 from pathlib import Path
 
-from . import nightly_report, report, shelf, works
+from . import health, nightly_report, pause, report, shelf, street, works
 from .clock import fmt, minute_of, now_ist, parse_now
 from .config import Config
 from .engine import Days, Engine, until_of
 from .feeds import Feeds
-from .mind import HTTPMind, StubMind
+from .mind import STAND_INS, HTTPMind, StubMind
 from .publish import Git, GitError
 from .world import World, at_dt
 
@@ -48,14 +50,23 @@ def setup_logging(cfg, verbose):
 
 
 def make_mind(cfg, which, wake=True):
-    if which == "stub":
-        return StubMind()
+    if which in STAND_INS:
+        return STAND_INS[which]()
+    if which and which.startswith("stub:"):
+        sys.exit(f"no such stand-in {which!r}: stub, {', '.join(k for k in STAND_INS if k != 'stub')}")
     url = cfg.mind_url if which in (None, "pc") else which
     if not url:
         sys.exit("no mind configured: set PC_HOST (and MIND_PORT) in ~/.config/hegel/env, or pass --mind URL or --mind stub")
     return HTTPMind(url, wake=cfg.wake if wake else None, timeout=cfg.timeout, voice_adapter_scale=cfg.voice_adapter_scale,
                     writing_reasoning_tokens=cfg.writing_reasoning_tokens, writing_adapter_scale=cfg.writing_adapter_scale,
-                    decision_reasoning_tokens=cfg.decision_reasoning_tokens, decision_adapter_scale=cfg.decision_adapter_scale)
+                    decision_reasoning_tokens=cfg.decision_reasoning_tokens, decision_adapter_scale=cfg.decision_adapter_scale,
+                    decision_dry=getattr(cfg, "decision_dry", 0.0), seed=getattr(cfg, "seed", None), cache_prompt=getattr(cfg, "cache_prompt", None))
+
+
+def make_world(cfg):
+    """The world as the tick builds it, and as a rehearsal builds it: what the Config switches on (the culture) is on in both."""
+    return World(Feeds(cfg), culture=getattr(cfg, "culture", False), street_on=getattr(cfg, "street", False),
+                 street_file=getattr(cfg, "street_file", None), promises=getattr(cfg, "promises", False))
 
 
 def cmd_tick(cfg, args):
@@ -68,8 +79,12 @@ def cmd_tick(cfg, args):
         return 0
     now = parse_now(args.now) if args.now else now_ist(getattr(cfg, "clock_shift_min", 0))
     mind = make_mind(cfg, args.mind)
-    owl_mind = mind if args.mind == "stub" or not cfg.owl_url or cfg.owl_url == cfg.mind_url else HTTPMind(cfg.owl_url, wake=cfg.wake, timeout=cfg.timeout)
-    engine = Engine(cfg, World(Feeds(cfg)), mind, git=Git(cfg) if not args.no_git else None, owl_mind=owl_mind)
+    owl_mind = mind if args.mind in STAND_INS or not cfg.owl_url or cfg.owl_url == cfg.mind_url else HTTPMind(cfg.owl_url, wake=cfg.wake, timeout=cfg.timeout)
+    engine = Engine(cfg, make_world(cfg), mind, git=Git(cfg) if not args.no_git else None, owl_mind=owl_mind)
+    if getattr(cfg, "pause_away", False) and not args.now:
+        now = pause.gate(cfg, engine, mind, now_ist(cfg.base_shift_min))       # None while his world is held
+        if now is None:
+            return 0
     engine.tick(now)
     if engine.git:
         try:
@@ -142,6 +157,8 @@ def cmd_report(cfg, args):
     if not loaded:
         print("no day files")
         return 1
+    if args.health:
+        return health_report(days, index, picked, args.json, args.floor)
     rows = [report.row(day) for day in loaded]
     if args.json:
         for r in rows:
@@ -150,6 +167,43 @@ def cmd_report(cfg, args):
         print(report.table(rows))
     else:
         print("\n\n".join(report.text(r) for r in rows))
+    return 0
+
+
+def cmd_wishes(cfg, args):
+    """The wishes written down on the days (day["wishes"]), by day, for Welt; then how many, among how many decisions."""
+    days = Days(Path(args.docs) if args.docs else cfg.docs)
+    wishes = decisions = 0
+    for r in days.index()["days"]:
+        if args.since and r["date"] < args.since:
+            continue
+        day = days.load(r["date"])
+        if not day:
+            continue
+        decisions += sum(1 for s in day.get("steps", []) if "decision" in s)
+        if day.get("wishes"):
+            print(f"{day['date']}  day {day['n']}")
+            for w in day["wishes"]:
+                print(f"  {w['t']}  {w['place']}  {w['text']}")
+            wishes += len(day["wishes"])
+    print(f"{wishes} wishes in {decisions} decisions")
+    return 0
+
+
+def health_report(days, index, picked, as_json, floor=report.FLOOR):
+    """What the world gave him on the picked days (world/health.py): a line a full day. The days before them are read too,
+    so that a day can say how far it lies from the one before and how much of it earlier days already had."""
+    upto = [d for d in index if d <= picked[-1]]
+    rows = health.across([health.row(day, floor=floor) for day in (days.load(d) for d in upto) if day])
+    rows = [r for r in rows if r["date"] in picked]
+    if not rows:
+        print(f"no full day among them: a day counts from {floor} thoughts (--floor N for a stand-in's shorter days)")
+        return 0
+    if as_json:
+        for r in rows:
+            print(json.dumps(r, ensure_ascii=False))
+    else:
+        print(health.table(rows))
     return 0
 
 
@@ -169,41 +223,79 @@ def refusal_line(steps):
     return f"{len(said)} today; most often ({n}×): {top}" + ("  ← a loop?" if n >= LOOP_REFUSALS else "")
 
 
-def rehearsal_config(out, feeds=False):
-    """The Config of a rehearsal folder: nothing is pushed, the state lives under out/state, the feeds are off unless asked for."""
-    sim = Config({"HEGEL_PUSH": "0", "HEGEL_STATE": str(out / "state"), "HEGEL_FEEDS": "1" if feeds else "0"})
+PINNED = ("HEGEL_PUSH", "HEGEL_STATE", "HEGEL_PAUSE_AWAY")      # a rehearsal never pushes, keeps its state in its own folder, and is never held
+
+
+def parse_sets(items, seed=None):
+    """`--set KEY=VALUE` (repeated) as a dict of HEGEL_ switches for the rehearsal's Config; `--seed N` is HEGEL_SEED=N."""
+    sets = {}
+    for item in items or []:
+        key, eq, value = item.partition("=")
+        key = key.strip()
+        if not eq or not key.startswith("HEGEL_") or not key.isupper():
+            sys.exit(f"--set wants HEGEL_KEY=VALUE, not {item!r}")
+        if key in PINNED:
+            sys.exit(f"--set {key}: a rehearsal keeps that off or fixed")
+        sets[key] = value.strip()
+    if seed is not None:
+        sets["HEGEL_SEED"] = str(seed)
+    return sets
+
+
+def seeded_sets(cfg, args):
+    """The rehearsal's --set switches, and the notice to print before its days (or None). With --seed and a real mind, the prompt cache is off
+    unless the rehearsal's settings (--set, the environment, the env file) name HEGEL_CACHE_PROMPT themselves: a reply depends on how much of the
+    prompt the server took from its cache, so with it on the same seed is not the same day."""
+    sets = parse_sets(args.set, args.seed)
+    which = args.mind or "stub"
+    if args.seed is None or which in STAND_INS or which.startswith("stub") or "HEGEL_CACHE_PROMPT" in sets or str(cfg.values.get("HEGEL_CACHE_PROMPT", "")).strip():
+        return sets, None
+    sets["HEGEL_CACHE_PROMPT"] = "0"
+    return sets, (f"seed {args.seed}: the prompt cache is off for this rehearsal, so that the same seed is the same day "
+                  "(HEGEL_CACHE_PROMPT=1 to keep it on)")
+
+
+def rehearsal_config(out, feeds=False, sets=None):
+    """The Config of a rehearsal folder: nothing is pushed, the state lives under out/state, the feeds are off unless asked for, his world is never
+    held (pause), and `sets` (HEGEL_ switches) are applied on top of what the env file and the environment give."""
+    sim = Config({"HEGEL_FEEDS": "1" if feeds else "0", **(sets or {}), "HEGEL_PUSH": "0", "HEGEL_STATE": str(out / "state"), "HEGEL_PAUSE_AWAY": "0"})
     sim.docs = out
     return sim
 
 
-def rehearsal_setup(cfg, date_str, out, feeds=False):
+def rehearsal_setup(cfg, date_str, out, feeds=False, sets=None, docs=None):
     """Make `out` a scratch copy of the day files before date_str (and the page), and return the Config that writes there: nothing is
-    pushed, its state lives under out/state. `simulate` and tools/train_data.py both rehearse in such a folder."""
+    pushed, its state lives under out/state. `simulate` and tools/train_data.py both rehearse in such a folder.
+    `docs` is another rehearsal's folder to start from instead of the repo's docs (a fork): its day files, and the caches under its state
+    (lookup/ and feeds/: a page he once looked up must read the same in the fork, not be fetched again)."""
+    src_root = Path(docs).resolve() if docs else cfg.docs
+    if docs and src_root == out:
+        sys.exit("--docs and --out are the same folder: a fork needs a folder of its own")
     (out / "days").mkdir(parents=True, exist_ok=True)
-    src = Days(cfg.docs)
+    src = Days(src_root)
     prev = [r for r in src.index()["days"] if r["date"] < date_str]
     if not prev:
         sys.exit("a rehearsal needs an earlier day in docs/days to start from")
+    for old in (out / "days").glob("????-??-??.json"):       # a day left by an earlier run into this folder must not be taken for the continuation
+        if old.stem >= date_str:
+            old.unlink()
     for r in prev:
         shutil.copy(src.path(r["date"]), out / "days" / f"{r['date']}.json")
     (out / "days/index.json").write_text(json.dumps({"format": 1, "days": prev}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    if (cfg.docs / "index.html").exists():
+    if (src_root / "index.html").exists():
+        shutil.copy(src_root / "index.html", out / "index.html")
+    elif (cfg.docs / "index.html").exists():
         shutil.copy(cfg.docs / "index.html", out / "index.html")
-    return rehearsal_config(out, feeds)
+    if docs:
+        for sub in ("lookup", "feeds"):
+            if (src_root / "state" / sub).is_dir():
+                shutil.copytree(src_root / "state" / sub, out / "state" / sub, dirs_exist_ok=True)
+    return rehearsal_config(out, feeds, sets)
 
 
-def cmd_simulate(cfg, args):
-    d = date.fromisoformat(args.date)
-    out = Path(args.out).resolve()
-    sim = rehearsal_setup(cfg, args.date, out, args.feeds)
-    world = World(Feeds(sim))
-    mind = make_mind(sim, args.mind or "stub", wake=args.wake)
-    engine = Engine(sim, world, mind, git=None)
-    last = Days(out).latest()
-    if until_of(last).date() < d:          # a gap before the rehearsed day: start it fresh at midnight
-        last["state"]["until"] = at_dt(d, 0).isoformat(timespec="minutes")
-    now = at_dt(d, 0)
-    end = at_dt(d, 1440)
+def rehearse_day(engine, sim, out, d):
+    """One day of a rehearsal, then the owl, as the single-day simulate always did it; the day as written."""
+    now, end = at_dt(d, 0), at_dt(d, 1440)
     while now < end:
         engine.advance(now)
         now += timedelta(minutes=5)
@@ -211,15 +303,38 @@ def cmd_simulate(cfg, args):
     owl_day["complete"] = True
     Days(out).save(owl_day)
     engine.run_owl(owl_day, at_dt(d + timedelta(days=1), minute_of(at_dt(d, 0)) + 90))
-    day = Days(out).load(d)
+    return Days(out).load(d)
+
+
+def summary_line(day):
     steps = [s for s in day["steps"] if "decision" in s]
     srcs = {}
     for s in steps:
         srcs[s["mind"]["source"]] = srcs.get(s["mind"]["source"], 0) + 1
     refused = sum(len(s["mind"].get("refused", [])) for s in steps)
-    print(f"day {day['n']} ({day['date']}): {len(steps)} steps, {len(day['segments'])} segments, {len(day['entries'])} entries; "
-          f"by {srcs}; {refused} refusals; cash ₹{day['state']['imprest']:,}")
+    return (f"day {day['n']} ({day['date']}): {len(steps)} steps, {len(day['segments'])} segments, {len(day['entries'])} entries; "
+            f"by {srcs}; {refused} refusals; cash ₹{day['state']['imprest']:,}")
+
+
+def cmd_simulate(cfg, args):
+    t0 = time.time()
+    d = date.fromisoformat(args.date)
+    out = Path(args.out).resolve()
+    sets, notice = seeded_sets(cfg, args)
+    sim = rehearsal_setup(cfg, args.date, out, args.feeds, sets, args.docs)
+    world = make_world(sim)
+    mind = make_mind(sim, args.mind or "stub", wake=args.wake)
+    engine = Engine(sim, world, mind, git=None)
+    if notice:
+        print(notice)
+    last = Days(out).latest()
+    if until_of(last).date() < d:          # a gap before the rehearsed day: start it fresh at midnight
+        last["state"]["until"] = at_dt(d, 0).isoformat(timespec="minutes")
+    for i in range(max(1, args.days)):      # one folder, one engine, one mind: each day starts from what the one before left
+        day = rehearse_day(engine, sim, out, d + timedelta(days=i))
+        print(summary_line(day))
     print(f"wrote {out}/days/{day['date']}.json  (serve {out} and open index.html#{day['date']} to watch it)")
+    print(f"{max(1, args.days)} day(s) in {time.time() - t0:.1f}s")
     return 0
 
 
@@ -294,6 +409,11 @@ def cmd_check(cfg, args):
             if x and x not in {y["id"] for y in w.beats}:
                 problems.append(f"beat {b['id']}: unknown beat {x}")
     problems += economy_problems(w)
+    deck = Path(getattr(cfg, "street_file", None) or street.DECK)
+    if deck.exists():                                 # the street deck, when there is one: the linter's own rules (tools/street_lint.py)
+        every = {**w.places, **json.loads((street.DATA / "culture.json").read_text(encoding="utf-8"))["places"]}
+        bad, _ = street.check_file(deck, every)       # its warnings (a name to look at) are for tools/street_lint.py, not for this check
+        problems += [f"street: {x}" for x in bad]
     days = Days(cfg.docs)
     for r in days.index()["days"]:
         day = days.load(r["date"])
@@ -342,10 +462,14 @@ def main():
     sub.add_parser("status", help="show where things stand")
     s = sub.add_parser("simulate", help="rehearse a whole day into a scratch folder; nothing is committed")
     s.add_argument("--date", required=True)
-    s.add_argument("--mind", help="'stub' (default) or a llama-server URL")
+    s.add_argument("--mind", help="'stub' (default), 'stub:no', 'stub:home', 'stub:walker', or a llama-server URL")
     s.add_argument("--wake", action="store_true", help="wake the PC first (needs PC_MAC)")
     s.add_argument("--feeds", action="store_true", help="use the real weather and news feeds")
     s.add_argument("--out", default="/tmp/hegel-rehearsal")
+    s.add_argument("--days", type=int, default=1, help="rehearse this many days in a row (default 1), the owl after each")
+    s.add_argument("--set", action="append", metavar="KEY=VALUE", help="a HEGEL_ switch for the rehearsal's Config (repeatable), e.g. --set HEGEL_CULTURE=1")
+    s.add_argument("--docs", help="start from another rehearsal's folder instead of the repo's docs (a fork)")
+    s.add_argument("--seed", type=int, help="a base seed for the real mind's calls (HEGEL_SEED)")
     o = sub.add_parser("owl", help="write up a finished day now")
     o.add_argument("--date", required=True)
     o.add_argument("--mind", help="'stub' or a URL (default: OWL_URL / OWL_PORT on the PC)")
@@ -355,12 +479,19 @@ def main():
     r.add_argument("dates", nargs="*", help="one date, or the first and last of a range (default: the latest day)")
     r.add_argument("--docs", help="another docs folder, e.g. a checkout of the shadow branch")
     r.add_argument("--table", action="store_true", help="a Markdown table")
+    r.add_argument("--health", action="store_true", help="what the world gave him instead: a line a full day (world/health.py)")
+    r.add_argument("--floor", type=int, default=report.FLOOR, help="with --health: the fewest thoughts that make a full day")
     r.add_argument("--json", action="store_true", help="one JSON object per day")
+    w = sub.add_parser("wishes", help="the wishes he has written down (HEGEL_WANTS), by day")
+    w.add_argument("--since", help="from this date (YYYY-MM-DD) on")
+    w.add_argument("--docs", help="another docs folder, e.g. a rehearsal's folder")
     args = p.parse_args()
     cfg = Config()
+    if getattr(cfg, "pause_away", False):
+        pause.apply(cfg)                        # his clock trails Delhi's by the days his world was held
     setup_logging(cfg, args.verbose)
     return {"tick": cmd_tick, "start": cmd_start, "status": cmd_status, "simulate": cmd_simulate, "owl": cmd_owl, "check": cmd_check,
-            "report": cmd_report}[args.cmd](cfg, args)
+            "report": cmd_report, "wishes": cmd_wishes}[args.cmd](cfg, args)
 
 
 if __name__ == "__main__":

@@ -536,5 +536,119 @@ class WholePassageTest(unittest.TestCase):
         self.assertTrue(Config({"HEGEL_SHELF_WHOLE": "1"}).shelf_whole)
 
 
+class AdditionsTest(unittest.TestCase):
+    """Manual §6.2: an editor's addition keeps its name from the cleaned text through splitting, retrieval, the excerpt
+    and the prompt. The switch is HEGEL_SHELF_ADDITIONS; without it every label is what it was."""
+
+    def setUp(self):
+        patch = mock.patch.object(shelf, "FLOOR", 0.1)
+        patch.start()
+        self.addCleanup(patch.stop)
+
+    def shelf_of(self, text, lang="de", work="Philosophie des Rechts"):
+        passages = shelf.split_passages(text, "sec")
+        return shelf.Shelf(shelf.build_index([{"id": "w", "work": work, "lang": lang, "passages": passages}]), shelf.Terms([]))
+
+    def test_an_opener_says_whether_the_text_stands_inside_an_addition(self):
+        de = "§ 258. Der Staat ist das Vernünftige. § 258 Zusatz. (Die Idee.) Der Staat ist der Gang Gottes. § 259. Die Idee."
+        self.assertIs(shelf.opened(de), False)
+        self.assertIs(shelf.opened(de, de.index("Gang")), True)
+        self.assertIs(shelf.opened(de, de.index("Vernünftige")), False)
+        self.assertIs(shelf.opened(de, de.index("§ 258 Zusatz")), True)
+        en = "The state is rational. Note. — A remark of his own. Addition. — The state is the march of God."
+        self.assertIsNone(shelf.opened(en, 5))
+        self.assertIs(shelf.opened(en, en.index("remark")), False)
+        self.assertIs(shelf.opened(en), True)
+        self.assertIsNone(shelf.opened("A passage with no sign. See § 3 for more; an Addition is no opener here."))
+        self.assertEqual(shelf.as_addition("§258", "de"), "§258 Zusatz")
+        self.assertEqual(shelf.as_addition("Introduction", "en"), "Introduction, Addition")
+        self.assertEqual(shelf.as_addition("", "en"), "Addition")
+
+    def test_the_whole_path_from_the_cleaned_text_to_the_prompt(self):
+        text = ("§ 257. " + para(700, "Staat") + "\n\n§ 258. " + para(700, "Wille")
+                + "\n\n§ 258 Zusatz. (Die Idee.) " + para(700, "Gang") + "\n\n§ 259. " + para(700, "Verfassung"))
+        s = self.shelf_of(text)
+        plain = s.pick([("Gang", 1.0)], k=1)
+        named = s.pick([("Gang", 1.0)], k=1, additions=True)
+        self.assertEqual(plain[0]["label"], "Philosophie des Rechts §258")
+        self.assertEqual((named[0]["ref"], named[0]["label"]), ("§258 Zusatz", "Philosophie des Rechts §258 Zusatz"))
+        self.assertEqual(named[0]["text"], plain[0]["text"])
+        self.assertTrue(named[0]["text"].startswith("(Die Idee.) The Gang"))
+        self.assertEqual(set(named[0]), set(plain[0]))
+        prompt = contract.render({**RenderTest.SIT, "shelf": named})
+        self.assertIn("\nFrom your shelf:\n- Philosophie des Rechts §258 Zusatz: “(Die Idee.) The Gang", prompt)
+        own = s.pick([("Wille", 1.0)], k=1, additions=True)
+        self.assertEqual(own[0]["label"], "Philosophie des Rechts §258")
+        self.assertLessEqual(shelf.section_size(named), shelf.MAX_SECTION)
+
+    def test_a_long_addition_is_named_in_every_passage_it_runs_over(self):
+        text = "§ 258. " + para(700, "Wille") + "\n\n§ 258 Zusatz. " + para(900, "Gang") + " " + para(900, "Uhrwerk") + "\n\n§ 259. " + para(700, "Verfassung")
+        s = self.shelf_of(text)
+        docs = [d for d in range(s.n) if "Uhrwerk" in s.data["texts"][d] and "Zusatz" not in s.data["texts"][d]]
+        self.assertTrue(docs)                                   # a passage of the addition that carries no mark of its own
+        self.assertIs(s.within(docs[0]), True)
+        self.assertIsNone(s.within(0))
+        got = s.pick([("Uhrwerk", 1.0)], k=1, additions=True)
+        self.assertEqual(got[0]["label"], "Philosophie des Rechts §258 Zusatz")
+        self.assertEqual(s.pick([("Uhrwerk", 1.0)], k=1)[0]["label"], "Philosophie des Rechts §258")
+        self.assertEqual(s.pick([("Verfassung", 1.0)], k=1, additions=True)[0]["label"], "Philosophie des Rechts §259")
+
+    def test_the_english_addition_and_his_own_note(self):
+        text = ("§ 258. " + para(700, "will") + "\n\nNote. — " + para(700, "contract")
+                + "\n\nAddition. — " + para(700, "march") + "\n\n§ 259. " + para(700, "constitution"))
+        s = self.shelf_of(text, "en", "Philosophy of Right")
+        got = s.pick([("march", 1.0)], k=1, additions=True)
+        self.assertEqual(got[0]["label"], "Philosophy of Right §258 Addition")
+        self.assertTrue(got[0]["text"].startswith("The march"))
+        note = s.pick([("contract", 1.0)], k=1, additions=True)
+        self.assertEqual(note[0]["label"], "Philosophy of Right §258")
+        self.assertEqual(s.pick([("march", 1.0)], k=1)[0]["label"], "Philosophy of Right §258")
+
+    def test_an_addition_that_begins_inside_the_excerpt_keeps_its_mark(self):
+        whole = "§ 5. Der Wille ist frei. § 5 Zusatz. Der Wille will sich."
+        item = {"id": "w:0", "work": "Philosophie des Rechts", "ref": "§5", "lang": "de", "label": "Philosophie des Rechts §5", "text": whole}
+        named = shelf.shown(dict(item), whole, whole, None)
+        self.assertEqual((named["label"], named["text"]), ("Philosophie des Rechts §5", "Der Wille ist frei. Zusatz: Der Wille will sich."))
+        plain = shelf.shown(dict(item), whole)
+        self.assertEqual((plain["label"], plain["text"]), ("Philosophie des Rechts §5", "Der Wille ist frei. Der Wille will sich."))
+        carried = shelf.shown(dict(item, ref="Einleitung"), "Der Wille will sich.", "Der Wille will sich. Und mehr.", True)
+        self.assertEqual(carried["label"], "Philosophie des Rechts, Einleitung, Zusatz")
+
+    def test_the_switch_is_off_until_it_is_set_and_reaches_the_pick(self):
+        from world.config import Config
+        self.assertFalse(Config({}).shelf_additions)
+        self.assertTrue(Config({"HEGEL_SHELF_ADDITIONS": "1"}).shelf_additions)
+        box = Sandbox()
+        self.addCleanup(box.close)
+        engine = box.engine(StubMind())
+        calls = []
+        engine.shelf = mock.Mock(pick=lambda parts, **kw: calls.append(kw) or [])
+        sit = {"event": "You arrive.", "place": "khan"}
+        ctx = {"present": [], "recent": []}
+        engine.offer({"steps": []}, sit, ctx, {})
+        engine.cfg.shelf_additions = True
+        engine.offer({"steps": []}, sit, ctx, {})
+        self.assertEqual([kw["additions"] for kw in calls], [False, True])
+
+    def test_on_the_real_shelf_a_quarter_of_the_philosophy_of_right_begins_inside_an_addition(self):
+        s = shelf.load()
+        if s is None:
+            self.skipTest("no index")
+        count = {}
+        for w in s.data["works"]:
+            if w["id"] in ("rechts", "dyde-right"):
+                inside = 0
+                for d in range(w["start"], w["start"] + w["n"]):
+                    text = " ".join(s.data["texts"][d].split())
+                    here = shelf.opened(text, 0)
+                    inside += bool(s.within(d) if here is None else here)
+                count[w["id"]] = (inside, w["n"])
+        self.assertEqual(count, {"rechts": (268, 1057), "dyde-right": (222, 857)})      # measured 14 November on the index as built
+        parts = [("Der Staat ist der Gang Gottes in der Welt", 1.0)]
+        named, plain = s.pick(parts, additions=True), s.pick(parts)
+        self.assertEqual([x["id"] for x in named], [x["id"] for x in plain])
+        self.assertTrue(all(a["label"] == b["label"] or a["label"].startswith(b["label"]) for a, b in zip(named, plain)))
+
+
 if __name__ == "__main__":
     unittest.main()

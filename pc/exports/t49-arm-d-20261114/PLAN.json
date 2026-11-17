@@ -1,0 +1,87 @@
+{
+  "anchor": "31964ce8b81c5f2486cdef9d96361044701c48c6",
+  "anchor_basis": "parent of first successful natural mind decision after wake on 14 November; all later actual steps checked",
+  "arm": "D",
+  "clock_shift_minutes": 1170,
+  "cutoff_utc": "2026-11-14T19:44:00+00:00",
+  "date": "2026-11-14",
+  "days": {
+    "day12": {
+      "sha256": "b793330e51a2ddec2112d8261330a3ce69b78d7b5cb38963b13b301dcfb42508"
+    },
+    "day27": {
+      "sha256": "8e2a2d0cb4e2190f0a9f09381e8cd2588a57e225eee797994334490c90762e4c"
+    },
+    "t9-file": {
+      "sha256": "0af0716cffe5b2b79661237743c29cfef013fe62ec962ed947962d2a6147f081"
+    },
+    "t9-vouchers": {
+      "sha256": "a3151b9ff8e9d8a638c13d72527aebbf3e66208fa5f1e19af4f5d5a2c58eebb2"
+    }
+  },
+  "expected_argv": [
+    "/home/ai/local-ai/llama/release-b11429/llama-b11429/llama-server",
+    "-m",
+    "/mnt/c/AI/models/Qwen3.8-27B/Qwen3.8-27B-UD-Q4_K_M.gguf",
+    "-ngl",
+    "99",
+    "-c",
+    "49152",
+    "-np",
+    "3",
+    "--host",
+    "0.0.0.0",
+    "--port",
+    "8082",
+    "--alias",
+    "qwen"
+  ],
+  "expected_pid": 431,
+  "expected_rows": 471,
+  "expected_start_ticks": "419",
+  "hard_stop_utc": "2026-11-14T19:45:00+00:00",
+  "lead_minutes": 15,
+  "limit_s": 13.2,
+  "linux_boot": "9fb4f4df-9d16-44cf-9081-97b8e00ac99b",
+  "m1_completion_sha256": "e62b5b826907e9482cf46a51de7f8ead5eab91c226678907b7b642e5edc1f0f6",
+  "main": "617bfa5f6cd05e3f7ca88a80b2c717f8127e2bcd",
+  "max_age_s": 300,
+  "model_proof_sha256": "aab1c293dac7f14ac8b23829a92699362c8fcd5027f91dcfa29757ab9c9d67b1",
+  "mount_namespace": "mnt:[4026532220]",
+  "no_automatic_restart": true,
+  "no_live_changes": true,
+  "owner": 6868027240,
+  "pi_window_sha256": "9f75fdea7f8934539fd56e3f2efe9ae68c6abacd27342711601a0b0a3324247c",
+  "power": {
+    "boot": "2026-11-14T10:45:40.5000000Z",
+    "deadlineUtc": "2026-11-14T22:45:40.5000000+00:00",
+    "pendingUtc": null,
+    "reason": "boot",
+    "startedUtc": "2026-11-14T10:45:40.5000000+00:00",
+    "version": 1
+  },
+  "prior_closure_sha256": "b224d56efb37bae9db00422abcab2d3ffbddbb78229281c867632f5aef7efb36",
+  "prior_results_sha256": "da978449b88f5e69489f8b1aaa303ab76d64b25b8a963e1a3c1c3495acac5ffb",
+  "prior_stops_today": 0,
+  "protocol_sha256": "af4ddd6fe6803ee1f4d5020f4834c6a533c04e07817453041fd82e86b625929f",
+  "request_seconds": 90,
+  "second_stop_ends_day": true,
+  "seed_table_sha256": "a355810f691ea5cf1d3264ea71a0177c6c342a733ede63a6eb465115495e5113",
+  "seeds": [
+    1831,
+    2718,
+    3141
+  ],
+  "slot": 1,
+  "source_commit": "ed6cb7479fa014ca21f4eabdcf9ec3fb83837ebe",
+  "stop_on_slow": true,
+  "weight_path": "/mnt/c/AI/models/Qwen3.8-27B/Qwen3.8-27B-UD-Q4_K_M.gguf",
+  "weight_sha256": "322e194ff79741c7baa497c240f677f54b201b0efab44ca8e50f122b39123482",
+  "weight_stat": {
+    "bytes": 16464440224,
+    "device": 69,
+    "inode": 7318349394480391,
+    "mtime_ns": 1790026294597219500
+  },
+  "workers": 1
+}

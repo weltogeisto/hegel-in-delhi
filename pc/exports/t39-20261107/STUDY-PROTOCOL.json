@@ -1,0 +1,61 @@
+{
+  "arm_file_sha256": "b93da509afa6f94d8d6520700d46dcb8f6d9b5e0fd949b39321655b86f9defdf",
+  "arms": [
+    "A",
+    "B",
+    "C"
+  ],
+  "blind_order_sha256": "7d486eaed83d7f46f1a0ac1f281ab0c07e542022b15932049e89a7de97e43249",
+  "case_sha256": "1c7105a26f8604b62bac9d84d0861f4f9fb769ad2db48b573e6277e8281dfd3a",
+  "conditions": "Common current main soul, decision schema, temp .7, no adapter/thinking, 700 output tokens, same declared seed on each paired decision and bounded contract retry; shared slot 1 only. Schema HTTP error stops and remains recorded. No silent unconstrained fallback.",
+  "continuation_provenance": {
+    "model_only_change": "Revalidated identical full SHA256 through existing tmux/server mount namespace, device 69; WSL command namespace is device 80",
+    "original_job": "/home/ai/hegel-eval/codex-tasks-20261106/t39-20261106",
+    "original_protocol_sha256": "bbdda365ff90574cff567f038b216491d9e07553cb983484c101ff11aef3723a",
+    "plan_sha256": "549f7f02f7fee425c31194ea1377e723c4e654679162468e8c37fbd1b62fdd41"
+  },
+  "counts": {
+    "deterministic_bedtime_markers": 1,
+    "historical_decision_opportunities": 156,
+    "paired_tracks": 9,
+    "scheduled_rows": 1413,
+    "steps": 157
+  },
+  "created_utc": "2026-11-06T16:31:14.217086+00:00",
+  "dry_proof_sha256": "4bb39edc1d6e07d2635021008f5ec902f56fd05123cfc04ec54b2ba49681cf5e",
+  "gpu_memory": "Maximum of measured server-GPU samples; not per-job allocator peak on a shared device.",
+  "latency_guard_amendment": {
+    "arms_cases_seeds_measures_unchanged": true,
+    "owner_comment": 6708128544,
+    "owner_main": "e93036c4af716203649968b76c4b4e10ea4bf0de",
+    "prior_protocol_sha256": "4406f6e9631d46cd652d360bfcbede01a122f39bf6119f17cf85ed5e947c1905",
+    "prior_stop_closure_sha256": "6e99c3ecfc28b245f3dfb82a06b55ef24301f1562c3d3a432e7756eb79df228d",
+    "rule_sha256": "f2f47d26faf6220a0b90dee0db379e55c0eae672494f315cfeae2d124d0facdd",
+    "total_latency_still_recorded": true
+  },
+  "manifest_basis": "all four immutable historical days, all their case IDs and attributed prior facts, same three seeds, as specified by Claude before the experiment",
+  "metric": "Count unique thoughts with at least one report.grams overlap from earlier thoughts actually visible in their own prompt, including the guard phrases. Report refusal count separately. T3 blind full sentence factual audit using typed records; uncertain/empty remain. 20 thoughts per arm in preregistered random order among nonempty, then globally shuffle by second opaque rank. Claude grades before opening key; nothing goes live.",
+  "owner_pr_comment": 6689327322,
+  "replay": "Keep recorded exogenous trajectories, actions actually executed, predecision evidence, plan and observed shelf fixed. Replace earlier thoughts and same-day thought recall with that arm and seed; use actual prior-day quotes as rendered. Compare all historical decision opportunities including the historic refusal and transport-away, retain sole historically deterministic no-call bedtime marker. Do not apply present-day bedtime retroactively.",
+  "runtime_sha256": {
+    "decision_replay.py": "c57230570edbca4c3d41c7e70a7d7cbe9a5ef74362ed13545f6b1152ac5cfb71",
+    "freeze_cases_v2.py": "3095b9ac2381b843ac40e0418f491a70a071a71877819f3ccedcbb4d5b5e0f90",
+    "reconcile_dry.py": "afda0dbf379a32a7faf73ad5cf699d770518b8593a7417711b2a8bce0f6c2283",
+    "recovery_guard.py": "dc785976bbeccf48f416a2a4493271b0ef3218dd4f6df95d51b639c481364353",
+    "revalidate_model.py": "54f3c25d92776306da8b91b2e08700b1190b60716c463211cf071d85b5cce5dc",
+    "shared_slot.py": "1d0ea2688604410ffe8c26ec37e04f041d1bd6ff5c94dde302d866a102b23f6a"
+  },
+  "seeds": [
+    1831,
+    2718,
+    3141
+  ],
+  "source_commit": "97cfde716335963cd900916523db6e985e7d9a9d",
+  "tests": {
+    "decision_validation_cases": 157,
+    "echo_guard_activated_cases": 149,
+    "prestep_sources": 157,
+    "render_and_sampler_cases": 471,
+    "same_day_recall_tests": 162
+  }
+}

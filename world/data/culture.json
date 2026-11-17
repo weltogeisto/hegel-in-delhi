@@ -1,0 +1,301 @@
+{
+ "note": "Museums, galleries, concerts and plays (Welt, 15 November; pc/CULTURE.md). Loaded only with HEGEL_CULTURE=1. Hours and prices are the venues' usual ones, approximate. Walking times are estimates, a straight line × 1.3 at 75 m a minute, until tools/osm_map.py measures them; the method is within 5% of the measured table on average. 'sights' are what he can see there, one per step, in an order fixed per day; 'programme' is what is on, by weekday; a performance's 'parts' are shown one per step while it lasts. Performances end by 20:30, before the world sends him to bed at 21:00. No living performer, curator or artist is named.",
+ "places": {
+  "national_museum": {
+   "name": "the National Museum, Janpath",
+   "short": "the National Museum",
+   "at": "at the National Museum",
+   "hours": {
+    "Tue-Sun": [
+     "10:00",
+     "18:00"
+    ]
+   },
+   "holidays_closed": true,
+   "entry": {
+    "match": [
+     "ticket",
+     "entry",
+     "admission"
+    ]
+   },
+   "sells": [
+    {
+     "item": "Entry ticket, foreign visitors",
+     "price": 650,
+     "match": [
+      "foreign",
+      "foreigner",
+      "international"
+     ]
+    },
+    {
+     "item": "Entry ticket, Indian citizens",
+     "price": 20,
+     "match": [
+      "ticket",
+      "entry",
+      "admission"
+     ]
+    }
+   ],
+   "sights": [
+    "In the Harappan gallery: a bronze girl from Mohenjo-daro, about ten centimetres tall, some four and a half thousand years old, one hand on her hip, her arm full of bangles.",
+    "In the Harappan gallery: small square seals of steatite, each with an animal in profile, a bull or a one-horned beast, and a line of signs above it that no one has yet read.",
+    "In the Buddhist gallery: relics found at Piprahwa, near the Nepal border, held to be the Buddha's own, kept in a gilded shrine shaped like a stupa. Visitors stand before it with folded hands.",
+    "In the Gandhara gallery: a standing Buddha in grey schist from the north-west, the robe falling in deep, regular folds like a Greek mantle, the face calm and the eyes half closed.",
+    "In the bronze gallery: Shiva as Nataraja, lord of the dance, cast in the south about a thousand years ago, dancing inside a ring of flames, one foot raised, the other on a dwarf.",
+    "In the gallery of paintings: pages of the memoirs of Babur, the first Mughal emperor, painted in his grandson's workshop: a garden laid out in four parts, water channels, the emperor among his courtiers.",
+    "In the gallery of paintings: a small Pahari painting from the hills: Radha and Krishna under one cloak in a storm, the lightning drawn as a gold thread across a black sky.",
+    "In the Central Asian gallery: wall paintings and silk banners brought from the desert towns of the old Silk Road a century ago: a Buddha with a halo, donors in long robes, a fragment of a horse.",
+    "In the gallery of musical instruments: long-necked lutes, drums, a rudra veena with two gourds, bamboo flutes, set in rows behind glass, with labels giving the region each comes from.",
+    "In the coin gallery: punch-marked silver from before the Maurya kings, gold coins of the Gupta emperors showing a king playing a lute, Mughal rupees struck with lines of verse.",
+    "In the courtyard: a cart from a temple, wooden wheels taller than a man, and stone sculptures from many centuries set out along the walls under the trees."
+   ]
+  },
+  "ngma": {
+   "name": "the National Gallery of Modern Art, Jaipur House",
+   "short": "the National Gallery of Modern Art",
+   "at": "at the National Gallery of Modern Art",
+   "hours": {
+    "Tue-Sun": [
+     "11:00",
+     "18:30"
+    ]
+   },
+   "holidays_closed": true,
+   "entry": {
+    "match": [
+     "ticket",
+     "entry",
+     "admission"
+    ]
+   },
+   "sells": [
+    {
+     "item": "Entry ticket, foreign visitors",
+     "price": 500,
+     "match": [
+      "foreign",
+      "foreigner",
+      "international"
+     ]
+    },
+    {
+     "item": "Entry ticket, Indian citizens",
+     "price": 20,
+     "match": [
+      "ticket",
+      "entry",
+      "admission"
+     ]
+    }
+   ],
+   "sights": [
+    "In the old building, once a maharaja's palace: aquatints made by two English painters, an uncle and his nephew, who travelled India in the 1780s and 1790s: temples, forts, ghats, drawn with an engraver's exactness.",
+    "Oil paintings by Raja Ravi Varma, a painter from the south who died in 1906: Indian goddesses and heroines of the epics, painted in the European manner, rich silks, theatrical light.",
+    "A room of Amrita Sher-Gil, a painter who trained in Paris and died in 1941, aged twenty-eight: three young women sit side by side, their faces still, none looking at another.",
+    "Paintings by Rabindranath Tagore, the poet, who began to paint in his sixties: dark faces and strange birds, made with ink, a finger and whatever was to hand.",
+    "Panels by Nandalal Bose, painted for a political congress in 1938: village people at their work, a drummer, a woman grinding grain, in flat colours and bold outlines.",
+    "Paintings by Jamini Roy, who left oil painting for the style of Bengal's village scroll painters: large-eyed figures, thick outlines, earth colours, a mother and child.",
+    "In the new wing: large canvases from the decades after independence, some abstract, one all red and black, another a city seen from above in grey and ochre."
+   ]
+  },
+  "habitat": {
+   "name": "the India Habitat Centre, Lodhi Road",
+   "short": "the Habitat Centre",
+   "at": "at the Habitat Centre",
+   "hours": {
+    "daily": [
+     "09:00",
+     "21:30"
+    ]
+   },
+   "sights": [
+    "The building: red brick and blue tiles, built in the 1990s by an American architect who lived in Delhi, shaded courtyards linked by bridges, the sun kept out by screens of steel and glass.",
+    "In the visual arts gallery: an exhibition of photographs of Delhi's old walled city, its lanes and rooftops, kite-flyers, a man asleep on a handcart.",
+    "In the courtyard: a bookstall, a café with people at laptops, a notice board covered with announcements of talks, recitals and film screenings.",
+    "In the library corridor: a small exhibition of handwritten manuscripts in several scripts, with a note on how each script is read."
+   ],
+   "programme": [
+    {
+     "days": "Mon",
+     "from": "18:30",
+     "to": "20:00",
+     "title": "a recital of Hindustani vocal music, raga Yaman",
+     "price": 0,
+     "parts": [
+      "The recital begins. The singer sits cross-legged with a harmonium player and a tabla player; a drone sounds from two tanpuras. She opens with a long, slow, unmetred passage, note by note, without words.",
+      "The tabla enters and a slow cycle of beats begins. The song has words now, a few lines repeated, each time ornamented differently.",
+      "The tempo quickens. Fast runs of notes, the tabla answering, the audience nodding and murmuring at each return to the first beat of the cycle.",
+      "The recital ends. Applause; the singer bows with folded hands. People drift out into the courtyard."
+     ]
+    },
+    {
+     "days": "Wed",
+     "from": "18:30",
+     "to": "20:00",
+     "title": "a sitar recital, raga Bageshree",
+     "price": 0,
+     "parts": [
+      "The sitar player tunes for some minutes, then begins alone: slow phrases bent upward by pulling the string, the sympathetic strings ringing behind.",
+      "The tabla joins. The phrases settle into a cycle of sixteen beats; the player and the drummer trade passages and meet on the first beat.",
+      "A fast close: rapid strokes on the drone strings, the tabla matching them, the hall silent until the last stroke.",
+      "The recital ends. Applause; the players bow. The hall empties slowly."
+     ]
+    },
+    {
+     "days": "Fri",
+     "from": "18:00",
+     "to": "19:30",
+     "title": "a talk with readings: Kalidasa's Shakuntala and its readers in Europe",
+     "price": 0,
+     "parts": [
+      "A professor of Sanskrit begins: Kalidasa's play, written some fifteen hundred years ago, was translated into English in 1789 and into German in 1791, and read across Europe.",
+      "She reads in Sanskrit and then in English: the scene where Shakuntala leaves the hermitage, and the deer will not let go of her dress.",
+      "She speaks about the play's European readers, quotes a German poet's four lines in praise of it, and asks what they saw in it and what they did not.",
+      "Questions from the audience: a student asks about the ring, an old man about the translation. The talk ends with applause."
+     ]
+    },
+    {
+     "days": "Sat",
+     "from": "18:30",
+     "to": "20:00",
+     "title": "a Kathak evening: dance with tabla and sarangi",
+     "price": 0,
+     "parts": [
+      "The dancer enters with bells around her ankles. She stands still, then begins with slow gestures of the hands and eyes while the sarangi plays.",
+      "Footwork: she counts the rhythm aloud in syllables, then strikes it with her feet, faster and faster, the tabla echoing every pattern.",
+      "A story told in gesture: Krishna stealing butter, a mother's anger, the child's innocent face. The audience laughs.",
+      "A final run of spins, dozens of them, ending exactly on the beat. Applause."
+     ]
+    }
+   ]
+  },
+  "kamani": {
+   "name": "Kamani Auditorium, Mandi House",
+   "short": "Kamani Auditorium",
+   "at": "at Kamani Auditorium",
+   "hours": {
+    "Tue-Sun": [
+     "16:30",
+     "21:00"
+    ]
+   },
+   "entry": {
+    "match": [
+     "ticket",
+     "seat"
+    ]
+   },
+   "sells": [
+    {
+     "item": "Ticket for tonight's performance",
+     "price": 300,
+     "match": [
+      "ticket",
+      "seat"
+     ]
+    }
+   ],
+   "sights": [
+    "The foyer: posters of past productions, a counter selling tea and samosas, people in kurtas and saris and jeans waiting for the doors to open.",
+    "Mandi House outside: a roundabout ringed by theatres, academies of music, dance and drama, students rehearsing lines on the steps."
+   ],
+   "programme": [
+    {
+     "days": "Tue,Thu",
+     "from": "18:30",
+     "to": "20:30",
+     "title": "Mohan Rakesh's play Ashadh Ka Ek Din, in Hindi",
+     "price": 300,
+     "parts": [
+      "The play begins in a village in the hills, in the rain. A young poet, Kalidasa, and Mallika, who loves him. Her mother wants her married; she will not hear of it.",
+      "Word comes from the court at Ujjain: the king wants the poet. He hesitates, then goes. Mallika urges him to go.",
+      "Years later, in the same house, poorer now. Mallika keeps the blank pages he left. The poet has become famous and a governor; he passes through the village without coming to her.",
+      "The last scene: he comes at last, in the rain, worn out, and finds she has a child and a husband. He leaves again. The lights go down on her alone. Long applause."
+     ]
+    },
+    {
+     "days": "Wed",
+     "from": "18:30",
+     "to": "20:15",
+     "title": "a Bharatanatyam recital",
+     "price": 300,
+     "parts": [
+      "The dancer enters to a singer, a drummer and a flute. Straight lines, deep bent knees, the eyes following the hands.",
+      "A long piece of pure dance: the feet stamping complex rhythms against the drum, the body held like a sculpture between them.",
+      "A song about a woman waiting for her lover, told in gesture: the dancer becomes the woman, her friend, the absent god.",
+      "The recital ends with a hymn. The dancer bows to the stage and to the musicians. Applause."
+     ]
+    },
+    {
+     "days": "Fri",
+     "from": "18:30",
+     "to": "20:15",
+     "title": "a dhrupad recital, the oldest form of north Indian classical song",
+     "price": 300,
+     "parts": [
+      "Two singers, brothers, sit with tanpuras. They open with a long, very slow passage on meaningless syllables, the voices low, every note approached with care.",
+      "The barrel drum, the pakhawaj, enters with a deep, rolling stroke. The song has words now, in old Hindi, in praise of a god.",
+      "The brothers alternate lines, then sing together, the drum playing variations in a cycle of twelve beats.",
+      "The recital ends. Silence for a moment, then applause."
+     ]
+    },
+    {
+     "days": "Sat,Sun",
+     "from": "17:00",
+     "to": "19:00",
+     "title": "Western classical music: Rossini overtures and Beethoven's Seventh Symphony, by a Delhi chamber orchestra",
+     "price": 300,
+     "parts": [
+      "The orchestra tunes: some forty players, many young. The conductor raises his baton. The overture to The Barber of Seville.",
+      "A second Rossini overture, William Tell, ending in a gallop. Applause between the pieces; someone shouts bravo.",
+      "After the interval, Beethoven's Seventh: a slow introduction, then a dance rhythm that does not let go.",
+      "The slow movement, a march in a minor key repeated and built up, then the finale, faster and louder to the end. The hall stands to applaud."
+     ]
+    }
+   ]
+  }
+ },
+ "walk": {
+  "national_museum-home": 31,
+  "national_museum-lodhi": 36,
+  "national_museum-safdarjung": 46,
+  "national_museum-khan": 26,
+  "national_museum-gandhi": 22,
+  "national_museum-gym": 25,
+  "national_museum-iic": 37,
+  "national_museum-estates": 23,
+  "national_museum-ngma": 25,
+  "national_museum-habitat": 44,
+  "national_museum-kamani": 36,
+  "ngma-home": 44,
+  "ngma-lodhi": 42,
+  "ngma-safdarjung": 57,
+  "ngma-khan": 23,
+  "ngma-gandhi": 38,
+  "ngma-gym": 47,
+  "ngma-iic": 39,
+  "ngma-estates": 49,
+  "ngma-habitat": 44,
+  "ngma-kamani": 29,
+  "habitat-home": 24,
+  "habitat-lodhi": 12,
+  "habitat-safdarjung": 25,
+  "habitat-khan": 21,
+  "habitat-gandhi": 30,
+  "habitat-gym": 41,
+  "habitat-iic": 8,
+  "habitat-estates": 53,
+  "habitat-kamani": 71,
+  "kamani-home": 65,
+  "kamani-lodhi": 67,
+  "kamani-safdarjung": 80,
+  "kamani-khan": 50,
+  "kamani-gandhi": 57,
+  "kamani-gym": 61,
+  "kamani-iic": 65,
+  "kamani-estates": 56
+ }
+}

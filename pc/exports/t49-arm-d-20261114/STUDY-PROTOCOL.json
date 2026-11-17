@@ -1,0 +1,66 @@
+{
+  "arm": "D",
+  "blind_rule": "Only after complete echo pass: fresh A/D sentence audit and 20 thoughts per arm with separate private random key. No keys released before actual scores and hashes are committed.",
+  "case_sha256": "1c7105a26f8604b62bac9d84d0861f4f9fb769ad2db48b573e6277e8281dfd3a",
+  "collision_count": 0,
+  "conditions": "Original T39 soul, cases, trajectory, same own-seed history, A's prompt/validator/sampler; prefer.choose with away=MindAway. Only first canonical turn draws up to four. On all-refused, original refusal loop has two further calls. Maximum six requests per decision.",
+  "continuation_20261114": {
+    "clean_stop_berlin": "20:45",
+    "complete_chains": 383,
+    "completed_decisions": 294,
+    "completed_rows": 297,
+    "first_unsent": {
+      "arm": "D",
+      "case": "t9-file/015",
+      "seed": 1831
+    },
+    "new_day_prior_stops": 0,
+    "no_protocol_or_seed_change": true,
+    "operating_date": "2026-11-14",
+    "owner": 6868027240,
+    "previous_closure_sha256": "b224d56efb37bae9db00422abcab2d3ffbddbb78229281c867632f5aef7efb36",
+    "previous_job": "/home/ai/hegel-eval/codex-tasks-20261113/t39-d-resume-150000"
+  },
+  "counts": {
+    "actual_decisions": 468,
+    "no_call_markers": 3,
+    "rows": 471
+  },
+  "created_utc": "2026-11-13T14:39:32.165246+00:00",
+  "draw_seed_sha256": "a355810f691ea5cf1d3264ea71a0177c6c342a733ede63a6eb465115495e5113",
+  "draws": 4,
+  "final_receipt_reserve_seconds": 60,
+  "hard_stop_berlin": "2026-11-13T20:45:00+01:00",
+  "measures": "Original frozen T39 measures; compare saved A per-day/pooled; report all-call mean, selector draw mean and no-fresh count. Echo <=10.99% is only the machine prerequisite; human truth/voice pending.",
+  "no_fresh_rule": "No accepted fresh reply among the initial up-to-four draws (note.refused + note.echo == note.n), regardless of later canonical refusal outcome.",
+  "no_live_switch": true,
+  "no_training": true,
+  "original_protocol_sha256": "68aea4fdf9b36bdf27768f1172bb388631ce019931d7fba1686f10c152cc69e9",
+  "owner_comment": 6854533461,
+  "owner_main": "973b467735ef2f3953aa52a310159a741bdf9638",
+  "paired_arm": "A",
+  "paired_seeds": [
+    1831,
+    2718,
+    3141
+  ],
+  "recovery": {
+    "all_cases_seeds_measures_unchanged": true,
+    "prior_job": "/home/ai/hegel-eval/codex-tasks-20261113/t39-d-142800",
+    "prior_study_stops_today": 1,
+    "prior_terminal_sha256": "b4bc44da62eb1ffbb7e2fe01c92d274187cc31ae5b590e38cde88546467f9e8d",
+    "second_stop_ends_day": true,
+    "two_passing_steps_sha256": "d71e8f0cc82a1dba2b993b5f5e3c14decc9a73f37374595b9fa1760e38e0d59f",
+    "zero_prior_study_requests": true
+  },
+  "request_stop_utc": "2026-11-13T19:44:00+00:00",
+  "seed_namespace": "T49-D-20261113-v1",
+  "seed_range": [
+    2147483648,
+    4294967294
+  ],
+  "seed_rule": "Draw 1 is the paired seed. Draws 2..4: SHA256 UTF-8 'T49-D-20261113-v1\\0<case id>\\0<paired seed>\\0<draw ordinal>\\0<nonce>'; first 8 bytes big-endian modulo (2**31-1), plus 2**31. Nonce starts zero; increment only to avoid an already assigned seed, in manifest/paired-seed/draw order. UINT32_MAX is excluded. Canonical refusal turns 2/3 retain the paired seed.",
+  "seed_separation": "Dedicated namespace and high uint32 range; T39/M1/Training3 declared seeds are low fixed integers; reviewed Phase A request_seed returns values below 2147483647. No claim that unrelated historical experiments never used a numeric seed in this range.",
+  "shown_rule": "Only Earlier today thought excerpts, exactly prefer.shown_thoughts; original T39 scoring still compares all actually visible earlier thoughts.",
+  "source_commit": "c23f326a107ba353bee1bd6df74f6666234b3ecf"
+}

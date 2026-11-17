@@ -79,6 +79,33 @@ def label(work, ref):
     return f"{work} {ref}" if (ref or "").startswith("§") else f"{work}, {ref}" if ref else work
 
 
+# ── additions (manual §6.2) ─────────────────────────────────────────
+# The Philosophy of Right on the shelf carries Gans's additions of 1833: students' notes of the lectures, set under the
+# sections after Hegel's death. They are not his published text, and a label has to say so.
+ADDITION = {"de": "Zusatz", "en": "Addition"}
+BACK = 40                                           # passages to look back through for where an addition began
+# where a paragraph opens inside a passage: a section's own text ('§ 258.'), its remark in Dyde ('Note. —'), or an addition
+# ('§ 258 Zusatz.', 'Addition. —'). Paragraphs are joined by a space, so an opener follows the end of a sentence.
+OPENS = re.compile(r"(?:^|(?<=[.!?:”\"])\s+)(?:§\s*\d+[a-z]?(?P<zus>\s+Zusatz)?\.|(?P<add>Addition\.\s*—)|Note\.\s*—)(?=\s)")
+
+
+def opened(text, at=None):
+    """Whether `text`, read up to position `at` (all of it if None), stands inside an addition: True; False inside a
+    section's own text; None when no paragraph has opened yet."""
+    inside = None
+    for m in OPENS.finditer(text):
+        if at is not None and m.start() > at:
+            break
+        inside = bool(m.group("zus") or m.group("add"))
+    return inside
+
+
+def as_addition(ref, lang):
+    """'§258 Zusatz', 'Introduction, Addition'."""
+    word = ADDITION.get(lang, "Addition")
+    return f"{ref} {word}" if (ref or "").startswith("§") else f"{ref}, {word}" if ref else word
+
+
 # ── passages ────────────────────────────────────────────────────────
 def sentences(text):
     """The sentences of text, each with its closing punctuation; abbreviations and initials do not end one."""
@@ -337,11 +364,22 @@ class Shelf:
         weights, phrases = self.weights(parts)
         return [self.hit(d, s) for d, s in self.ranked(weights, phrases, skip)[:n]]
 
-    def pick(self, parts, avoid=(), hold=(), k=2, whole=False):
+    def within(self, doc):
+        """Whether passage `doc` begins inside an addition that an earlier passage of its work opened: True or False, or
+        None when the BACK passages before it do not say. A long addition runs over several passages, and only the first
+        carries its mark."""
+        for d in range(doc - 1, max(self.work_of(doc)["start"], doc - BACK) - 1, -1):
+            inside = opened(" ".join(self.data["texts"][d].split()))
+            if inside is not None:
+                return inside
+        return None
+
+    def pick(self, parts, avoid=(), hold=(), k=2, whole=False, additions=False):
         """The k passages to show for the query parts, each cut to an excerpt: the best German and the best English one if both
         are strong (RELATIVE of the best score), else the best two. Passages in `avoid` (ids) and works in `hold` (work ids) are
         left out, and so is a passage right next to one already chosen. [] when even the best is weaker than FLOOR.
-        With `whole`, each passage is shown whole, within WHOLE_SECTION, so a point is not cut away from its sentence."""
+        With `whole`, each passage is shown whole, within WHOLE_SECTION, so a point is not cut away from its sentence.
+        With `additions`, a label says when its excerpt begins inside an addition (see shown)."""
         held, avoided = set(hold), set(avoid)
         weights, phrases = self.weights(parts)
         hits = [self.hit(d, s) for d, s in self.ranked(weights, phrases, lambda d: self.work_of(d)["id"] in held or self.ident(d) in avoided)]
@@ -357,8 +395,9 @@ class Shelf:
             if len(chosen) < k and all(h["id"] != c["id"] and not (self.work_of(h["doc"]) is self.work_of(c["doc"]) and abs(h["doc"] - c["doc"]) <= 1)
                                        for c in chosen):
                 chosen.append(h)
+        carried = {h["id"]: self.within(h["doc"]) for h in chosen} if additions else None
         items = [{**{a: b for a, b in h.items() if a != "doc"}} for h in chosen]
-        return fit(items, weights, self, MAX_CHARS, WHOLE_SECTION) if whole else fit(items, weights, self)
+        return fit(items, weights, self, MAX_CHARS, WHOLE_SECTION, carried=carried) if whole else fit(items, weights, self, carried=carried)
 
 
 def excerpt(text, weights, limit=LIMIT):
@@ -391,25 +430,51 @@ def section_size(items):
     return len("From your shelf:\n") + sum(len(f"- {x['label']}: “{x['text']}”\n") for x in items)
 
 
-def shown(item, text):
+def shown(item, text, whole=None, carried=None):
     """item with `text` as its excerpt, minus the section signs that begin paragraphs ('§ 170.', '§ 258 Zusatz.'); if the excerpt
-    itself starts with one, that is the reference."""
+    itself starts with one, that is the reference.
+
+    With `whole`, the passage the excerpt was cut from, the reference and the label also say when the excerpt begins inside
+    an addition: 'Philosophie des Rechts §258 Zusatz', 'Philosophy of Right §258 Addition'. `carried` is Shelf.within for
+    the passage, for an addition that began before it. An addition that begins inside the excerpt keeps its mark in the
+    text ('Zusatz:', 'Addition. —'), and the label stays the section's."""
     m = re.match(r"§\s*(\d+[a-z]?)(?:\s+Zusatz)?\.?\s*", text)
-    text = re.sub(r"(?<=[.!?:”])\s+§\s*\d+[a-z]?(?:\s+Zusatz)?\.\s+(?=\S)", " ", text[m.end():] if m else text)
+    body, inside = text[m.end():] if m else text, None
+    if whole is not None:
+        whole = " ".join(whole.split())
+        at = whole.find(text.rstrip("…"))
+        if at >= 0:
+            here = opened(whole, at)
+            inside = carried if here is None else here
+        lead = re.match(r"Addition\.\s*—\s*", body)
+        if inside and lead:
+            body = body[lead.end():]
+        body = re.sub(r"(?<=[.!?:”])\s+§\s*\d+[a-z]?\s+Zusatz\.\s+(?=\S)", " Zusatz: ", body)
+    text = re.sub(r"(?<=[.!?:”])\s+§\s*\d+[a-z]?(?:\s+Zusatz)?\.\s+(?=\S)", " ", body)
     if m and (item["ref"] or "").startswith("§"):
         item["ref"] = f"§{m.group(1)}"
+        item["label"] = label(item["work"], item["ref"])
+    if whole is not None:
+        if inside:
+            item["ref"] = as_addition(item["ref"], item.get("lang"))
         item["label"] = label(item["work"], item["ref"])
     item["text"] = text.strip()
     return item
 
 
-def fit(items, weights, shelf, limit=LIMIT, section=None):
-    """items with their texts cut to excerpts, then shortened until the whole section is at most `section` (MAX_SECTION) characters."""
+def fit(items, weights, shelf, limit=LIMIT, section=None, carried=None):
+    """items with their texts cut to excerpts, then shortened until the whole section is at most `section` (MAX_SECTION) characters.
+    `carried` ({id: Shelf.within}) turns the addition labels on; None leaves every label as it was."""
     section = section or MAX_SECTION
     full = {x["id"]: x["text"] for x in items}
+    refs = {x["id"]: x["ref"] for x in items}
     while True:
         for x in items:
-            shown(x, excerpt(full[x["id"]], weights, limit))
+            if carried is None:
+                shown(x, excerpt(full[x["id"]], weights, limit))
+            else:
+                x["ref"] = refs[x["id"]]                 # each cut is judged afresh: a shorter excerpt may begin elsewhere
+                shown(x, excerpt(full[x["id"]], weights, limit), full[x["id"]], carried.get(x["id"]))
         if section_size(items) <= section or limit <= 120:
             return items
         limit -= 20

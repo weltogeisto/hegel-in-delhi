@@ -44,6 +44,15 @@ class Config:
         self.feeds = v.get("HEGEL_FEEDS", "1") not in ("0", "no", "false", "")
         self.shelf = v.get("HEGEL_SHELF", "1") not in ("0", "no", "false", "")          # his books in front of him (mind/shelf)
         self.shelf_whole = v.get("HEGEL_SHELF_WHOLE", "0").strip().lower() in ("1", "yes", "true")   # whole passages, not excerpts
+        self.shelf_additions = v.get("HEGEL_SHELF_ADDITIONS", "0").strip().lower() in ("1", "yes", "true")   # M2: a label names an editor's addition; off until Welt's word
+        self.culture = v.get("HEGEL_CULTURE", "0").strip().lower() in ("1", "yes", "true")   # museums, concerts and plays (pc/CULTURE.md); off until switched on
+        self.street = v.get("HEGEL_STREET", "0").strip().lower() in ("1", "yes", "true")   # a card from the street deck at an empty moment (pc/WORLD-2-WEEK1.md P4); off until switched on
+        self.street_file = v.get("HEGEL_STREET_FILE", "").strip() or None   # another deck than world/data/street.json (a rehearsal's)
+        self.correspondent = v.get("HEGEL_CORRESPONDENT", "0").strip().lower() in ("1", "yes", "true")   # Niethammer writes from Munich (pc/CORRESPONDENT.md); off until switched on
+        self.voice_facts = v.get("HEGEL_VOICE_FACTS", "0").strip().lower() in ("1", "yes", "true")   # a voice is told its own side of the record, its pronoun, and the right person answers (pc/WORLD-2-WEEK1.md P2); off until switched on
+        self.promises = v.get("HEGEL_PROMISES", "0").strip().lower() in ("1", "yes", "true")   # a promise is a record: the voice may make one in `act`, the engine keeps it (pc/WORLD-2-WEEK1.md P1); off until switched on
+        self.pause_away = v.get("HEGEL_PAUSE_AWAY", "0").strip().lower() in ("1", "yes", "true")   # hold his world at waking while the PC is away (pc/PAUSE.md); off until switched on
+        self.wants = v.get("HEGEL_WANTS", "0").strip().lower() in ("1", "yes", "true")   # he may name what he wishes the city had (pc/WANTS-SCREEN.md); written down, no effect; off until switched on
         self.news_feeds = [u.strip() for u in v.get("NEWS_FEEDS", (
             "https://www.thehindu.com/news/national/feeder/default.rss,"
             "https://indianexpress.com/section/india/feed/")).split(",") if u.strip()]
@@ -76,6 +85,18 @@ class Config:
         if not 0 <= self.owl_reasoning_tokens <= 2048:
             raise ValueError("HEGEL_OWL_REASONING_TOKENS must be from 0 to 2048")
         self.thesis_reminders = v.get("HEGEL_THESIS_REMINDERS", "1") not in ("0", "no", "false", "")
+        self.echo_guard = v.get("HEGEL_ECHO_GUARD", "0").strip().lower() in ("1", "yes", "true")       # T36 arm B; off until it passes the ratchet
+        self.decision_dry = float(v.get("HEGEL_DECISION_DRY", "0") or 0)                                # T36 arm C: the DRY sampler's multiplier, 0 off
+        if not 0 <= self.decision_dry <= 2:
+            raise ValueError("HEGEL_DECISION_DRY must be from 0 to 2")
+        self.decision_draws = int(v.get("HEGEL_DECISION_DRAWS", "1") or 1)                              # T49: replies to choose among, 1 off
+        if not 1 <= self.decision_draws <= 6:
+            raise ValueError("HEGEL_DECISION_DRAWS must be from 1 to 6")
+        self.seed = int(v["HEGEL_SEED"]) if v.get("HEGEL_SEED", "").strip() else None                    # a base seed: every call to the mind sends one derived from it (world/mind.py); unset, none is sent
+        cache = v.get("HEGEL_CACHE_PROMPT", "").strip().lower()                                          # the server's prompt cache, per request: unset leaves the field out; 0 sends false, 1 true (a same-seed rehearsal needs false)
+        if cache not in ("", "0", "no", "false", "1", "yes", "true"):
+            raise ValueError("HEGEL_CACHE_PROMPT must be empty, 0/no/false or 1/yes/true")
+        self.cache_prompt = None if not cache else cache in ("1", "yes", "true")
         self.write_mode = "plain" if v.get("HEGEL_WRITE_MODE", "chat").strip().lower() == "plain" else "chat"      # his writings: the chat call (default), or a plain-text completion
         self.outcome_memory = v.get('HEGEL_OUTCOME_MEMORY','0') not in ('0','no','false','')
         self.evidence_view = 'compact' if v.get('HEGEL_EVIDENCE_VIEW', 'full').strip().lower() == 'compact' else 'full'      # how the writers see the records: grouped and short, or every record with its id

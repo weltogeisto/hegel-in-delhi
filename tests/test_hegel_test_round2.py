@@ -354,6 +354,8 @@ class RunnerTest(unittest.TestCase):
                                           "minutes": 30, "says": None, "buys": [], "revision": None})
                 elif payload["messages"][0]["content"].startswith("Judge meaning"):
                     content = '{"everything":true,"nothing_added":true}'
+                elif payload["messages"][0]["content"].startswith("Compare meaning"):
+                    content = '{"added":[],"omitted":[]}'
                 else:
                     content = "a fixture restyle in independent words " + payload["messages"][-1]["content"][-20:]
                 data = json_bytes({"choices": [{"message": {"content": content}, "finish_reason": "stop"}]})
@@ -364,7 +366,7 @@ class RunnerTest(unittest.TestCase):
             control = r2.run_arm(out, "control", "test", clients("raw-control"), judge, base, guard)
             adapter_client = clients("raw-adapter", [{"id": 0, "scale": 0.8}])
             adapter = r2.run_arm(out, "adapter", "test", adapter_client, judge, base, guard)
-            self.assertEqual(len(calls), 220)  # 2*(40 restyles + 40 meanings + 20 contract restyles) + 20 shared base
+            self.assertEqual(len(calls), 300)  # 2*(40 restyles + 40 unchanged meanings + 40 diagnostics + 20 contract restyles) + 20 shared base
             self.assertEqual(sum("response_format" in p for p in calls), 20)
             r2.validate_result(plan, control, "control")
             r2.validate_result(plan, adapter, "adapter")
