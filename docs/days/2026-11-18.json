@@ -395,6 +395,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "13:46",
+   "to": "13:56",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -717,6 +724,40 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "13:36"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil is correct; the syllogism is a luxury of the mind, but the stomach is a necessity of the body. I have eaten a samosa, but the liquid will aid the digestion. I shall not argue with the heat, nor with the hunger.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§288"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70"
+    }
+   ],
+   "t": "13:46"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Sunil. The body is the first fact.",
+   "to": "Masterji and Sunil",
+   "t": "13:46"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "First fact, last fact, whatever you call it. Just finish it up before it turns cold, then I'll have to scrape the cup.",
+   "t": "13:46"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "13:46"
   }
  ],
  "steps": [
@@ -1419,6 +1460,74 @@
      "text": "The wider connection due to the sea becomes al means for colonization, to which, be it sporadic or systematic, the full-grown civic community finds itself impelled. Thus for a part of its population it provides on a new soil a return to the family principle, and also procures for itself at the same time a new incentive and field for work."
     }
    ]
+  },
+  {
+   "t": "13:46",
+   "end": "13:56",
+   "event": "Sunil says: “Syllogisms don't fill the tummy, bhaiya, only the stomach does. Finish this cup, it's getting lukewarm.”",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil is correct; the syllogism is a luxury of the mind, but the stomach is a necessity of the body. I have eaten a samosa, but the liquid will aid the digestion. I shall not argue with the heat, nor with the hunger.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 10,
+    "says": "You are right, Sunil. The body is the first fact.",
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Sunil",
+    "says": "First fact, last fact, whatever you call it. Just finish it up before it turns cold, then I'll have to scrape the cup.",
+    "does": "He wipes the steam off the glass with his thumb."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§288",
+     "id": "dyde-right:736"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "id": "dyde-right:205"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§288",
+     "text": "Common interests of private concern occur within the civic community, and fall outside of the self-constituted and self-contained universal of the state (§ 266). They are administered in the corporations (§ 251) of the societies, trades, and professions, by their superintendents and representatives."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "text": "Addition. — The particular person is really a subordinate, who must devote his life to the service of the ethical fabric; when the state demands his life, he must yield it up. But should the man take his own life? Suicide may at first glance be looked upon as bravery, although it be the poor bravery of tailors and maid-servants."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1426,9 +1535,9 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-18T13:46+05:30",
+  "until": "2026-11-18T13:56+05:30",
   "asleep": false,
-  "imprest": 35450,
+  "imprest": 35430,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1603,6 +1712,13 @@
     {
      "date": "2026-11-18",
      "t": "13:36",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-18",
+     "t": "13:46",
      "item": "Chai, a cup",
      "price": 20,
      "office": false
