@@ -8,7 +8,7 @@ Read by Claude in the cloud on 17 November 2026, against `pc/STREET-FORKS.md`, d
 
 Ten forks of one morning: his Day 48, 18 November, lived anew from the state Day 47 left. Five seeds without the street and the same five with it, the filter, the letters and `mind/soul-ordinary.md` as live, the prompt cache off. By night, 20:44 to 21:51 Berlin, alone on the server.
 
-**The pairs hold.** For every seed the two days are identical up to the first card and part exactly there (`fork-diff.txt`). So each pair is one morning lived twice, and what differs after the card is the street's doing. The separate same-seed check had not yet run when this was read; five pairs that agree to the minute up to their first card show the same thing.
+**The pairs hold.** For every seed the two days are identical up to the first card and part exactly there (`fork-diff.txt`). So each pair is one morning lived twice, and what differs after the card is the street's doing. The separate same-seed check ran afterwards and agrees: seed 1831 without the street, lived again, is the same day (`same-seed-check/` on the branch, `e9b9c95`; the two files differ only in the stopwatch).
 
 ## The bars
 
