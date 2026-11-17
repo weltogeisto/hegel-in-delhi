@@ -125,6 +125,13 @@ Welt's calls, the afternoon of 17 November:
     - **Both ways:** a yes to either offer lets the other be made again later, so a lean month can send Ramesh back to three days and a better one bring him back.
     - **Behind `HEGEL_RAMESH_DAYS`, off by default:** without it the offer does not exist and his world is as it was (`tests/test_ramesh_days.py`). It goes on with Welt's word, after the new instructions' first whole day (Day 49) has been read, so the two changes are read apart.
 
+Welt's call, the afternoon of 17 November, on two answers that had reached two seats:
+
+48. **The guard on the records branch: the new reference stands for the bookkeeping, and the `consumed` entry goes behind a switch.** This settles 43, which Welt gave to Claude in the cloud, against the "new reference" the PC seat understood from him in its own chat and recorded on `codex/outcome-memory` (`370fa85`).
+    - **Kept:** the PC seat's new reference for what nobody reads: `records`, the charge numbers, `observations` on a step, `place` and `since` on an expense. Its comparison of ten days on main with ten on the branch showed that nothing main writes changed.
+    - **Behind a switch, off by default:** the `consumed` entry. The page shows entries and the owl reads them at night, so it can change what he is told. It goes on after someone has looked at what the owl and the page do with it.
+    - **So the reference is recorded once more,** with `consumed` off, in a commit that says so.
+
 ## Still open
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.
