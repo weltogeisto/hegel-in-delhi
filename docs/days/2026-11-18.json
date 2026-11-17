@@ -402,6 +402,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "13:56",
+   "to": "14:36",
+   "mode": "walk",
+   "a": "khan",
+   "b": "estates"
   }
  ],
  "entries": [
@@ -758,6 +765,41 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "13:46"
+  },
+  {
+   "k": "diary",
+   "text": "The cup is empty; the steam has vanished, and with it the excuse for lingering. The body has been fed, the mind has had its moment of reflection on the state of affairs, and now the practical necessity of the file asserts itself. I must not let the heat make me sluggish; the deadline is in two days, and the Directorate does not care for the sun.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World"
+    }
+   ],
+   "t": "13:56"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Sunil. The cup is finished.",
+   "to": "Masterji and Sunil",
+   "t": "13:56"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "See, I told you. No scraping needed, just a rinse. You’re a regular now, don’t worry about the change.",
+   "t": "13:56"
+  },
+  {
+   "k": "wear",
+   "item": "Bandhgala, charcoal",
+   "status": "Worn from 13:56.",
+   "sprite": "bandhgala",
+   "t": "13:56"
   }
  ],
  "steps": [
@@ -1528,17 +1570,81 @@
      "text": "Addition. — The particular person is really a subordinate, who must devote his life to the service of the ethical fabric; when the state demands his life, he must yield it up. But should the man take his own life? Suicide may at first glance be looked upon as bravery, although it be the poor bravery of tailors and maid-servants."
     }
    ]
+  },
+  {
+   "t": "13:56",
+   "end": "14:36",
+   "event": "Sunil says: “First fact, last fact, whatever you call it. Just finish it up before it turns cold, then I'll have to scrape the cup.” He wipes the steam off the glass with his thumb.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The cup is empty; the steam has vanished, and with it the excuse for lingering. The body has been fed, the mind has had its moment of reflection on the state of affairs, and now the practical necessity of the file asserts itself. I must not let the heat make me sluggish; the deadline is in two days, and the Directorate does not care for the sun.",
+    "action": "walk",
+    "place": "estates",
+    "minutes": 15,
+    "says": "Thank you, Sunil. The cup is finished.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "estates",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Sunil",
+    "says": "See, I told you. No scraping needed, just a rinse. You’re a regular now, don’t worry about the change.",
+    "does": "He grabs the glass and swirls it into the steel wash basin."
+   },
+   "left": "khan",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206",
+     "id": "dyde-right:491"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World",
+     "id": "baillie-2:47"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206",
+     "text": "The recognition of the claim that whatever in the civic community and the state is rationally necessary should occur through subjective free choice is a fuller definition of the popular idea of freedom (§ 121). The particularity of the individual becomes definitely and actually realized, only by his limiting himself exclusively to one of the particular spheres of want."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World",
+     "text": "The power which perpetrates on the conscious individual this wrong of making him into a mere thing, is \" nature \"; it is the universahty not of the community, but the abstract universahty of mere existence. And the particular individual, in wiping out the wrong suffered, turns not against the community — for he has not suffered at its hands — but against the latter."
+    }
+   ]
   }
  ],
  "funnel": {},
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-11-18T13:56+05:30",
+  "place": "estates",
+  "until": "2026-11-18T14:36+05:30",
   "asleep": false,
   "imprest": 35430,
-  "wearing": "kurta",
+  "wearing": "bandhgala",
   "wardrobe": [
    {
     "id": "frock",
@@ -1563,7 +1669,7 @@
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Worn from 11:59."
+    "status": "Worn from 13:56."
    }
   ],
   "people": [
@@ -1640,8 +1746,8 @@
     ]
    },
    "no_meals": true,
-   "walked": 2400,
-   "strain": 2400
+   "walked": 5400,
+   "strain": 5400
   },
   "account": {
    "advance": 15000,
