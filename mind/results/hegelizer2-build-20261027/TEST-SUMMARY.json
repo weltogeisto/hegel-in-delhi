@@ -1,0 +1,99 @@
+{
+  "utc": "2026-10-27T12:27:15.927600+00:00",
+  "unique_passing": 256,
+  "by_module": {
+    "test_hegelizer_round2": 32,
+    "test_hegelizer": 54,
+    "test_restyle_round2": 20,
+    "test_train_hegel": 39,
+    "test_hegel_test_round2": 28,
+    "test_hegeltest": 83
+  },
+  "unresolved_skips": [],
+  "unresolved_failures": [],
+  "retained_original_failures": [
+    {
+      "test": "tests.test_hegelizer_round2.CorpusTest.test_short_pieces_are_one_to_three_intact_sentences",
+      "status": "FAIL",
+      "receipt": "T30-tests-1"
+    }
+  ],
+  "runs": {
+    "T30-compatibility-1": {
+      "executed": 54,
+      "ok": 54,
+      "skipped": 0,
+      "failed": 0,
+      "seconds": 53.29722584100091
+    },
+    "T30-tests-1": {
+      "executed": 27,
+      "ok": 26,
+      "skipped": 0,
+      "failed": 1,
+      "seconds": 0.25998596000135876
+    },
+    "T30-tests-2": {
+      "executed": 4,
+      "ok": 4,
+      "skipped": 0,
+      "failed": 0,
+      "seconds": 0.1571834360001958
+    },
+    "T31-compatibility-1": {
+      "executed": 41,
+      "ok": 41,
+      "skipped": 0,
+      "failed": 0,
+      "seconds": 0.8263025539999944
+    },
+    "T31-tests-1": {
+      "executed": 19,
+      "ok": 19,
+      "skipped": 0,
+      "failed": 0,
+      "seconds": 1.2157046959982836
+    },
+    "tests/T30-T32-final-additions-1": {
+      "executed": 4,
+      "ok": 4,
+      "skipped": 0,
+      "failed": 0,
+      "seconds": 0.21996144500008086
+    },
+    "tests/T32-compatibility-1": {
+      "executed": 83,
+      "ok": 81,
+      "skipped": 2,
+      "failed": 0,
+      "seconds": 16.61278141799994
+    },
+    "tests/T32-node-checks-1": {
+      "executed": 2,
+      "ok": 2,
+      "skipped": 0,
+      "failed": 0,
+      "seconds": 1.4940085259986517
+    },
+    "tests/T32-tests-1": {
+      "executed": 26,
+      "ok": 26,
+      "skipped": 0,
+      "failed": 0,
+      "seconds": 6.392294388999289
+    }
+  },
+  "real_model_requests": 0,
+  "new_sheet_node_syntax_exit": 0,
+  "new_sheet_export_flow": {
+    "fixture_only": true,
+    "rendered_pairs": 20,
+    "radios": 60,
+    "preselected": 0,
+    "incomplete_export_blocked": true,
+    "export_choices": 20,
+    "role_or_key_in_export": false,
+    "passed": true
+  },
+  "supersedes_incomplete_summary": "TEST-SUMMARY-FINAL.json omitted the older RUN.json-style receipts; this reconciles RUN and CHECKS files without rerunning tests."
+}

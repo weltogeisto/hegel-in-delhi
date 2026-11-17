@@ -1,0 +1,71 @@
+{
+  "original_failures_preserved": [
+    {
+      "original_file": "/mnt/c/hegel/handover/codex-tasks-20261025/T19-Pi-deploy-result-20261025-114411.json",
+      "sha256": "3070f9f172da9ea9f47844da0278170d6e7a9174e521fcef53b1deed8c5936c4",
+      "helper_sha256": "69966796aa3012682acd9194f93e98c3e51d54d79d182d662a2931df11b1f0bf",
+      "error": "AssertionError: ",
+      "outcome": "FAILED",
+      "events": []
+    },
+    {
+      "original_file": "/mnt/c/hegel/handover/codex-tasks-20261025/T19-Pi-deploy-result-20261025-114742.json",
+      "sha256": "e7fa789ce50f2867f72de56f6751b08358cae12a3305ee63e61b8fcbbf0aeefc",
+      "helper_sha256": "e605573a7e0c66e31b1fd0863cce5e2341f5c1f510866c7fe640854bf512ac52",
+      "error": "RuntimeError: {\"args\": [\"git\", \"restore\", \"--source=505a7a9a7aea0d3a618ae9ba7d63ff4384f43994\", \"--staged\", \"--worktree\", \"--\", \"docs/index.html\", \"supabase/fanclub.sql\", \"tests/test_fanclub.py\", \"world/data/visitors.json\", \".github/workflows/fanclub-keepalive.yml\"], \"exit\": 1, \"stdout\": \"\", \"stderr\": \"error: pathspec 'supabase/fanclub.sql' did not match any file(s) known to git\\nerror: pathspec 'tests/test_fanclub.py' did not match any file(s) known to git\\nerror: pathspec 'world/data/visitors.json' did not match any file(s) known to git\\n\"}",
+      "outcome": "FAILED",
+      "events": [
+        "CSV_preflight",
+        "locked_preflight",
+        "fetch",
+        "dry_merge",
+        "real_main_merge",
+        "failed_merge_evidence",
+        "abort_only_own_uncommitted_merge"
+      ]
+    }
+  ],
+  "CSV_correction": {
+    "utc": "2026-10-25T11:47:08.561305+00:00",
+    "original_failed_guard": "T19-Pi-deploy-result-20261025-114411.json",
+    "failure_before_merge_or_source_mutation": true,
+    "diagnosis": "Guard incorrectly required PC22CSV set on Pi; sealed T13 JSON records10 original Pi CSV files.",
+    "sealed_original_T13_json_sha256": "5a1d580b9aad6d84e20e823e0e1921eff01d60eceff1e67f1cdb3dd699ffe340",
+    "Pi_original_CSV_hashes": {
+      "mind/results/blind-review-v2/claude-packet-a.csv": "60dd2c75ca5a57950c7f126d68cbe185be2ec4de51e93b91cf6055860979c681",
+      "mind/results/blind-review-v2/grok-packet-a.csv": "494956ce26523795011cbab21e09c8371d2b704c17c0c6db28e7604f2edfb4be",
+      "mind/results/fixed-day-writers-20261012/claude-owl-argument.csv": "b8cd750a6050814d8548472edc46b4506b87597930018d7161b7511d8fa747fc",
+      "mind/results/fixed-day-writers-20261012/claude-sentence-errors.csv": "bfaef54d05afa13aae77e84f0c220f5cbbb16f16fc2ab6dfe71b49799e08363e",
+      "mind/results/fixed-day-writers-20261012/claude-text-totals.csv": "d7dfe5bc0af28a6b08d3ab9a320994c3eaf8902b6b74c659f0ea9a744231076f",
+      "mind/results/persona-bildung-20261012/claude-scores.csv": "90b6648e9e95da30873cb062d444c071a38be6895e20e38240acccf6d182384f",
+      "mind/results/persona-confirmation-20261012/claude-scores.csv": "a4dbf8343f9ef91bd256adec8ea129b90f527fd701aa857446db6e3acbe565cf",
+      "mind/results/persona-fresh-controls-20261012/claude-scores.csv": "ab395f67af9e07ac19cbed7527130c21139427a7a8e2c125e1c426864f2afc6c",
+      "mind/results/shelf-reden-20261012/claude-scores.csv": "2792c1458715f3f7ead3a5002cffe008fbbc8366634d64ae7e83ddab5bad8da0",
+      "mind/results/shelf-whole-20261012/claude-scores.csv": "f45be5cb161983f43aa2656c75a24f379a7155cda7f234a1e20ce1d8da53f4fa"
+    },
+    "PC_original_CSV_count": 22,
+    "PC_only_CSV_paths": [
+      "mind/results/fixed-day-writers-20261012/joined-job-costs.csv",
+      "mind/results/fixed-day-writers-20261012/joined-text-scores.csv",
+      "mind/results/fixed-day-writers-20261012/wall-times.csv",
+      "mind/results/owl-thesis-count-20261013/wall-times.csv",
+      "mind/results/persona-bildung-20261012/joined-scores.csv",
+      "mind/results/persona-bildung-20261012/wall-times.csv",
+      "mind/results/persona-confirmation-20261012/joined-scores.csv",
+      "mind/results/persona-confirmation-20261012/wall-times.csv",
+      "mind/results/persona-fresh-controls-20261012/joined-scores.csv",
+      "mind/results/persona-fresh-controls-20261012/wall-times.csv",
+      "mind/results/shelf-reden-20261012/wall-times.csv",
+      "mind/results/shelf-whole-20261012/wall-times.csv"
+    ],
+    "resolution": "Exact fixed T13 Pi10 baseline, never copied or filtered current outputs; all PC22 still preserved/verified separately. No runtime/test change."
+  },
+  "pathspec_correction": {
+    "original_failure": "T19-Pi-deploy-result-20261025-114742.json",
+    "diagnosis": "Three fan files were already absent from both oldHEAD and merge index, so git restore rejected their unknown pathspecs.",
+    "original_own_merge_abort_exit": 0,
+    "repair": "Restore only actual old/index fan paths; separately assert all4 excluded fan files absent. No change to tested runtime or source inputs.",
+    "implementation_failure_round": 2
+  },
+  "tested_runtime_source_and_model_inputs_unchanged": true
+}

@@ -75,6 +75,25 @@ class HTTPMind:
         self.ready = True
         log.info("mind awake after %.0fs", time.time() - t0)
 
+    def prompt_tokens(self, value, thinking=False):
+        """Count the actual server template/tokenizer, including its generation prefix.
+
+        This is metadata only: no model generation and no tokenizer package.
+        """
+        self.ensure_awake()
+        def post(path, payload):
+            request = urllib.request.Request(self.url + path, data=json.dumps(payload).encode('utf-8'),
+                                             headers={'Content-Type': 'application/json'})
+            with urllib.request.urlopen(request, timeout=self.timeout) as response:
+                return json.load(response)
+        if isinstance(value, list):
+            value = post('/apply-template', dict(messages=value,
+                         chat_template_kwargs=dict(enable_thinking=thinking)))['prompt']
+        tokens = post('/tokenize', dict(content=value, add_special=True, parse_special=True))['tokens']
+        if not isinstance(tokens, list) or not all(type(x) is int for x in tokens):
+            raise MindAway('tokenizer returned invalid token IDs')
+        return len(tokens)
+
     def chat_voice(self, messages, schema=None, max_tokens=250):
         """Optionally disable the single loaded LoRA for another character, per request.
 
@@ -328,6 +347,9 @@ class StubMind:
         doing = f"{ans['action']} {'to' if ans['action'] == 'walk' else 'at'} {ans['place']}"
         text = r.choice(THOUGHTS).format(time=sit["time"], doing=doing, a=a, b=b, c=c, minutes=ans["minutes"])
         ans["thought"] = f"(rehearsal) {text}"
+        if sit.get('reconcile_payments'):
+            for buy in ans.get('buys', []):
+                buy.update(purpose='purchase', source_charge_id=None)
         return ans
 
     def complete(self, prompt, max_tokens=700, temperature=None, seed=None):
@@ -361,7 +383,11 @@ class StubMind:
             return json.dumps(out)
         if "continues" in props:    # what he wrote, or with "about" what he means to write
             ask = messages[-1]["content"]
-            shelf = re.findall(r"“([^”]+)” \(", ask.split("Your manuscripts so far:")[1]) if "Your manuscripts so far:" in ask else []
+            # Only the explicitly labelled index is a list of continuable works.
+            # Typed records below it also quote dialogue with parenthetical
+            # provenance; those quotations must not become manuscript titles.
+            index=re.search(r'Your manuscripts so far:(.*?)(?:\. (?:Date of this sitting:|Use the observations)|\n|$)',ask,re.S)
+            shelf = re.findall(r"“([^”]+)” \(",index.group(1)) if index else []
             r = random.Random(ask)
             title = shelf[-1] if shelf and r.random() < 0.7 else "(rehearsal) " + r.choice(TITLES)
             kind = r.choice(["essay", "notes", "letter"])

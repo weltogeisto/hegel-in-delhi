@@ -1,0 +1,19 @@
+{
+  "eventReadError": "No events were found that match the specified selection criteria.",
+  "task": {
+    "state": "Ready",
+    "enabled": true,
+    "wakeToRun": false,
+    "lastRunUtc": "2026-10-26T07:34:47.0000000Z",
+    "actions": [
+      {
+        "Execute": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "Arguments": "-NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -File C:\\hegel\\scripts\\Start-HegelQwen8082.ps1",
+        "WorkingDirectory": "C:\\hegel"
+      }
+    ],
+    "lastTaskResult": 0,
+    "name": "Hegel Qwen 8082 GPU"
+  },
+  "capturedUtc": "2026-10-26T07:39:29.5215138Z"
+}

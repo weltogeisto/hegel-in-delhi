@@ -1,0 +1,177 @@
+{
+  "authorization": "Welt14October human handover, steps1-3 scoped exceptions to shared-server no-restart/no-reconfiguration; no public switch, secrets or fanclub on Pi",
+  "step1": {
+    "status": "DONE",
+    "outcome": "GPU_RESTORED_AND_TESTED",
+    "pid": 6683,
+    "session": "hegel-server-cuda-20261014-162609",
+    "argv_nul_sha256": "1944b782a1c3557851d1c3639e04e43072e6c2a6e8eff6e96978f96d6e48d6b0",
+    "cwd": "/home/ai/hegel-in-delhi",
+    "process_only_LD_LIBRARY_PATH": "/home/ai/local-ai/llama/release-b11429/cudart-llama-b11429-bin-ubuntu-cuda-12.8-x64",
+    "server_command_unchanged": true,
+    "slots": 3,
+    "n_ctx_per_slot": 16384,
+    "evidence": [
+      {
+        "utc": "2026-10-14T16:27:35.561823+00:00",
+        "kind": "GPU_ready",
+        "pid": 6683,
+        "health": [
+          200,
+          {
+            "status": "ok"
+          }
+        ],
+        "gpu": "0, NVIDIA GeForce RTX 3090, 19267 MiB, 0 %\n",
+        "gpu_processes": "",
+        "argv_nul_sha256": "1944b782a1c3557851d1c3639e04e43072e6c2a6e8eff6e96978f96d6e48d6b0",
+        "CUDA_backend_loaded": true,
+        "log": "/home/ai/hegel-logs/qwen-CUDA-20261014-162609.log"
+      },
+      {
+        "utc": "2026-10-14T16:27:38.829087+00:00",
+        "kind": "test_completed",
+        "status": 200,
+        "wall_s": 3.2590226249994885,
+        "tokens": 110,
+        "tokens_per_s": 33.75245055256935,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 30,
+          "prompt_ms": 466.473,
+          "prompt_per_token_ms": 15.549100000000001,
+          "prompt_per_second": 64.31240393334663,
+          "predicted_n": 110,
+          "predicted_ms": 2789.459,
+          "predicted_per_token_ms": 25.59136697247706,
+          "predicted_per_second": 39.07567739837725
+        },
+        "request": "/mnt/c/hegel/handover/codex-tasks-20261014/qwen-GPU-authorized-test-20261014-162609.request.json",
+        "response": "/mnt/c/hegel/handover/codex-tasks-20261014/qwen-GPU-authorized-test-20261014-162609.response.json",
+        "request_sha256": "d8ce5cbd6322dc889d3dad926508097151c0faa1f606aabdd9de9450801b59be",
+        "response_sha256": "73ef2b3e752bed9166f98e6cc7291093df1d9df0569599219bee5f7f3df55897",
+        "content": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30"
+      }
+    ],
+    "receipt": {
+      "file": "qwen-CUDA-approved-result-20261014-162609.json",
+      "bytes": 16261,
+      "sha256": "f77d3a983250982521d04ee0dab6e3bbf1cc656a3c2ed34bab07503506d74d44"
+    }
+  },
+  "step2": {
+    "status": "BLOCKED_WINDOWS_ADMINISTRATOR_UAC_CANCELLED",
+    "awake_flag_present": true,
+    "fresh_shell_idempotence_only": {
+      "action": "REUSED_EXISTING",
+      "launch_attempts": 0,
+      "pid": 6683,
+      "health": [
+        200,
+        {
+          "status": "ok"
+        }
+      ],
+      "CUDA_backend_loaded": true,
+      "GPU": "0, NVIDIA GeForce RTX 3090, 19287 MiB, 0 %\n",
+      "receipt": {
+        "file": "qwen-autostart-20261014-164550-413900.json",
+        "bytes": 2816,
+        "sha256": "7bfd6893007d2e50fa7951e2952eebab44a77005b835696b40bd9a0a791da243"
+      }
+    },
+    "boot_or_logon_task_installed": false,
+    "cold_start_test_executed": false,
+    "Windows_reboot_performed": false,
+    "needed": "Run the prepared installer with Windows administrator elevation; the one UAC launch was cancelled, not repeated.",
+    "prepared_task": "Hegel Qwen 8082 GPU; current-user S4U; boot delay30s and logon delay15s; hidden; no stored password; no wake; duplicate-safe launcher",
+    "prepared_files": [
+      {
+        "file": "Install-HegelStartup-And-UpdatePolicy.ps1",
+        "bytes": 8621,
+        "sha256": "bad44751ff28331e70dd16aca6be99f9960a58921e2d0fe3be1263f69b809dbd"
+      },
+      {
+        "file": "test-qwen-startup-fresh-shell.py",
+        "bytes": 5448,
+        "sha256": "ec76a3cc51419388b88cf3a0bf1c8b79f4fd2c4d497699bd89b298153a67f020"
+      },
+      {
+        "file": "hegel-qwen-8082-start.py",
+        "bytes": 5647,
+        "sha256": "b0905e205bb4db3c67d138169cb191ce44cb7e38f94263eef329fd0204661503"
+      }
+    ]
+  },
+  "step3": {
+    "status": "BLOCKED_WINDOWS_ADMINISTRATOR_UAC_CANCELLED",
+    "Windows_Update_settings_applied": [],
+    "OS_message": "Der Vorgang wurde durch den Benutzer abgebrochen.",
+    "wrapper_exit0_was_not_success": true,
+    "planned_not_applied": {
+      "AU/NoAutoUpdate": 0,
+      "AU/AUOptions": 3,
+      "AU/AlwaysAutoRebootAtScheduledTime": 0,
+      "WindowsUpdate/SetActiveHours": 1,
+      "WindowsUpdate/ActiveHoursStart": 18,
+      "WindowsUpdate/ActiveHoursEnd": 12,
+      "WindowsUpdate/SetComplianceDeadlineForQU": 0,
+      "WindowsUpdate/SetComplianceDeadlineForFU": 0,
+      "WindowsUpdate/SetComplianceDeadline": 0,
+      "UX/SmartActiveHoursState": 0,
+      "UX/ActiveHoursStart": 18,
+      "UX/ActiveHoursEnd": 12,
+      "UX/IsExpedited": 0,
+      "UX/RestartNotificationsAllowed2": 1
+    },
+    "planned_effect": "Auto-download and notify before installation; protect18:00-12:00local; disable forced-deadline enables, adaptive hours and expedited restart; show restart notifications. No guarantee claimed before application.",
+    "unrelated_power_firewall_secrets_changed": false
+  },
+  "step4": {
+    "status": "DONE",
+    "shadow": "39148aeb991480186783129076877473e24a143e",
+    "first_natural_tick_finished_UTC": "2026-10-14T16:56:05Z",
+    "report": "T13-SHADOW-MAIN-20261014.md"
+  },
+  "step5": {
+    "status": "DONE_NATURAL_HOURLY_RETRY_BEFORE_GPU_RESTORATION",
+    "owl_commit": "14c7e9ea416c937295a06c0ade133ba396428fed",
+    "natural_tick_started_UTC": "2026-10-14T16:01:04Z",
+    "owl_wrote_UTC": "2026-10-14T16:05:17Z",
+    "natural_service_finished_UTC": "2026-10-14T16:05:20Z",
+    "written_rehearsal": "02:31",
+    "post_owl_raw_day_sha256": "93759aa56be96a46a89b31380cdfab6a1b4e7161fcf16e45dd8c563244cda104",
+    "original_pre_owl_raw_day_sha256": "39f649efc628a9169a2e26fdecd12a7320777320a3eee972b267a99c1cb911cd",
+    "all_original_steps_identical": true,
+    "all_original_entries_identical": true,
+    "decisions": 35,
+    "nonnull_thoughts": 4,
+    "null_thoughts_by_source": {
+      "away": 31
+    },
+    "forced_owl_or_tick": false,
+    "GPU_caused_this_owl": false,
+    "Claude_T11_review_ready": true,
+    "audit_receipt": {
+      "file": "T13-owl-actual-remote-independent-20261014-165724.json",
+      "bytes": 2938,
+      "sha256": "f786f4e2ca7b02083ba1d1366d4ff1437f6f11da8d15b06bc760f066dee66722"
+    }
+  },
+  "step6": {
+    "status": "OPEN_FIRST_COMPLETE_DAY_WITH_AT_LEAST30_THOUGHTS",
+    "auditor_sha256": "bb77f3afc99ea2459e111e78bb8ac8f23adef68a74c79795d615c1ba5ba0439a",
+    "Day13": "not measurable,4 thoughts; not rerun",
+    "partial_day_share_or_top_ten_computed": false,
+    "expected_day14_not_guaranteed": true
+  },
+  "limits": {
+    "public_world": "PAUSED",
+    "shift": 300,
+    "lead": 15,
+    "owl_at": "01:30",
+    "fan_club_on_Pi": "Excluded from working tree, old page preserved; genuine main ancestry retained.",
+    "model_adapter_package_global_environment_secret_firewall_changes": false,
+    "forced_tick_owl": false
+  }
+}

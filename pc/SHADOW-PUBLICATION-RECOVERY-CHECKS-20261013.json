@@ -1,0 +1,816 @@
+{
+  "format": 1,
+  "recorded_utc": "2026-10-13T00:31:40.007779+00:00",
+  "authority": "PR comment 6131388922; COLLABORATION.md overnight shadow management",
+  "outcome": "DONE: existing committed step published after transient GitHub DNS outage",
+  "rounds": {
+    "operational_recovery_attempts": 1,
+    "success": true
+  },
+  "failure_journal_utc": [
+    "2026-10-13T00:14:04.979235+00:00 Gondolin systemd[1142]: Starting hegel-world.service - Hegel in Delhi: one tick of the world...",
+    "2026-10-13T00:14:25.338521+00:00 Gondolin python3[243433]: WARNING pull --ff-only failed, will merge on push: ould not resolve hostname github.com: Temporary failure in name resolution",
+    "2026-10-13T00:14:25.338521+00:00 Gondolin python3[243433]: fatal: Could not read from remote repository.",
+    "2026-10-13T00:14:25.338521+00:00 Gondolin python3[243433]: Please make sure you have the correct access rights",
+    "2026-10-13T00:14:25.338521+00:00 Gondolin python3[243433]: and the repository exists.",
+    "2026-10-13T00:14:25.394330+00:00 Gondolin python3[243433]: INFO mind awake after 0s",
+    "2026-10-13T00:14:33.581340+00:00 Gondolin python3[243433]: INFO 2026-10-13 10:59 walk → khan until 11:26 (mind)",
+    "2026-10-13T00:16:23.734003+00:00 Gondolin python3[243433]: Traceback (most recent call last):",
+    "2026-10-13T00:16:23.745839+00:00 Gondolin python3[243433]:   File \"<frozen runpy>\", line 198, in _run_module_as_main",
+    "2026-10-13T00:16:23.745839+00:00 Gondolin python3[243433]:   File \"<frozen runpy>\", line 88, in _run_code",
+    "2026-10-13T00:16:23.745839+00:00 Gondolin python3[243433]:   File \"/home/faqts/hegel-in-delhi/world/__main__.py\", line 309, in <module>",
+    "2026-10-13T00:16:23.745839+00:00 Gondolin python3[243433]:     sys.exit(main())",
+    "2026-10-13T00:16:23.745839+00:00 Gondolin python3[243433]:              ~~~~^^",
+    "2026-10-13T00:16:23.745839+00:00 Gondolin python3[243433]:   File \"/home/faqts/hegel-in-delhi/world/__main__.py\", line 305, in main",
+    "2026-10-13T00:16:23.745839+00:00 Gondolin python3[243433]:     return {\"tick\": cmd_tick, \"start\": cmd_start, \"status\": cmd_status, \"simulate\": cmd_simulate, \"owl\": cmd_owl, \"check\": cmd_check}[args.cmd](cfg, args)",
+    "2026-10-13T00:16:23.745839+00:00 Gondolin python3[243433]:            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^",
+    "2026-10-13T00:16:23.745839+00:00 Gondolin python3[243433]:   File \"/home/faqts/hegel-in-delhi/world/__main__.py\", line 70, in cmd_tick",
+    "2026-10-13T00:16:23.745839+00:00 Gondolin python3[243433]:     engine.tick(now)",
+    "2026-10-13T00:16:23.745839+00:00 Gondolin python3[243433]:     ~~~~~~~~~~~^^^^^",
+    "2026-10-13T00:16:23.745839+00:00 Gondolin python3[243433]:   File \"/home/faqts/hegel-in-delhi/world/engine.py\", line 521, in tick",
+    "2026-10-13T00:16:23.745839+00:00 Gondolin python3[243433]:     self.git.publish(paths, msg)",
+    "2026-10-13T00:16:23.745839+00:00 Gondolin python3[243433]:     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^",
+    "2026-10-13T00:16:23.833754+00:00 Gondolin python3[243433]:   File \"/home/faqts/hegel-in-delhi/world/publish.py\", line 54, in publish",
+    "2026-10-13T00:16:23.833754+00:00 Gondolin python3[243433]:     raise GitError(\"push failed four times: \" + (p.stderr or \"\").strip()[-300:])",
+    "2026-10-13T00:16:23.833754+00:00 Gondolin python3[243433]: world.publish.GitError: push failed four times: ssh: Could not resolve hostname github.com: Temporary failure in name resolution",
+    "2026-10-13T00:16:23.833754+00:00 Gondolin python3[243433]: fatal: Could not read from remote repository.",
+    "2026-10-13T00:16:23.833754+00:00 Gondolin python3[243433]: Please make sure you have the correct access rights",
+    "2026-10-13T00:16:23.833754+00:00 Gondolin python3[243433]: and the repository exists.",
+    "2026-10-13T00:16:23.784212+00:00 Gondolin systemd[1142]: hegel-world.service: Main process exited, code=exited, status=1/FAILURE",
+    "2026-10-13T00:16:23.784378+00:00 Gondolin systemd[1142]: hegel-world.service: Failed with result 'exit-code'.",
+    "2026-10-13T00:16:23.784557+00:00 Gondolin systemd[1142]: Failed to start hegel-world.service - Hegel in Delhi: one tick of the world.",
+    "2026-10-13T00:16:23.785533+00:00 Gondolin systemd[1142]: Starting hegel-world.service - Hegel in Delhi: one tick of the world...",
+    "2026-10-13T00:16:24.097617+00:00 Gondolin systemd[1142]: Finished hegel-world.service - Hegel in Delhi: one tick of the world."
+  ],
+  "diagnosis_checks": {
+    "head": {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit": 0,
+      "stdout": "a9dabd73ec7f15cbb97a8dc4c0f76d13ae06c86d\n",
+      "stderr": ""
+    },
+    "status": {
+      "command": [
+        "git",
+        "status",
+        "--short",
+        "--branch"
+      ],
+      "exit": 0,
+      "stdout": "## shadow...origin/shadow [ahead 1]\n",
+      "stderr": ""
+    },
+    "recent_commits": {
+      "command": [
+        "git",
+        "log",
+        "-4",
+        "--format=%H %P %aI %s"
+      ],
+      "exit": 0,
+      "stdout": "a9dabd73ec7f15cbb97a8dc4c0f76d13ae06c86d f76cd34908f515c9f9562486b300ea6b8a9975af 2026-10-13T02:14:33+02:00 Day 12, 10:59: walk (khan)\nf76cd34908f515c9f9562486b300ea6b8a9975af 69b0fd3f968995ed2870c673c9a8cc4155ce66a6 2026-10-13T01:29:11+02:00 Day 12, 10:14: rest (home)\n69b0fd3f968995ed2870c673c9a8cc4155ce66a6 5bbd5679b6cc8e0cba94d8c9841177dc16f6539a 2026-10-13T01:14:12+02:00 Day 12, 09:59: read (home)\n5bbd5679b6cc8e0cba94d8c9841177dc16f6539a 391338bff8b9d56d57b7bcd0445b7047e06a1bae 2026-10-13T00:29:35+02:00 Day 12, 09:14: write (home)\n",
+      "stderr": ""
+    },
+    "tracking_counts": {
+      "command": [
+        "git",
+        "rev-list",
+        "--left-right",
+        "--count",
+        "origin/shadow...HEAD"
+      ],
+      "exit": 0,
+      "stdout": "0\t1\n",
+      "stderr": ""
+    },
+    "github_dns": {
+      "command": [
+        "getent",
+        "ahostsv4",
+        "github.com"
+      ],
+      "exit": 0,
+      "stdout": "140.82.121.3    STREAM github.com\n140.82.121.3    DGRAM  \n140.82.121.3    RAW    \n",
+      "stderr": ""
+    },
+    "remote_shadow": {
+      "command": [
+        "git",
+        "ls-remote",
+        "--refs",
+        "origin",
+        "refs/heads/shadow"
+      ],
+      "exit": 0,
+      "stdout": "f76cd34908f515c9f9562486b300ea6b8a9975af\trefs/heads/shadow\n",
+      "stderr": ""
+    },
+    "service": {
+      "command": [
+        "systemctl",
+        "--user",
+        "show",
+        "hegel-world.service",
+        "-p",
+        "ActiveState",
+        "-p",
+        "SubState",
+        "-p",
+        "Result",
+        "-p",
+        "ExecMainStatus",
+        "-p",
+        "ExecMainStartTimestamp",
+        "-p",
+        "ExecMainExitTimestamp"
+      ],
+      "exit": 0,
+      "stdout": "Result=success\nExecMainStartTimestamp=Tue 2026-10-13 02:26:04 CEST\nExecMainExitTimestamp=\nExecMainStatus=0\nActiveState=activating\nSubState=start\n",
+      "stderr": ""
+    },
+    "head_after": {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit": 0,
+      "stdout": "a9dabd73ec7f15cbb97a8dc4c0f76d13ae06c86d\n",
+      "stderr": ""
+    }
+  },
+  "recovery": {
+    "started_utc": "2026-10-13T00:27:26.236725+00:00",
+    "checks": {
+      "head_before": {
+        "command": [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exit": 0,
+        "stdout": "a9dabd73ec7f15cbb97a8dc4c0f76d13ae06c86d\n",
+        "stderr": ""
+      },
+      "branch": {
+        "command": [
+          "git",
+          "branch",
+          "--show-current"
+        ],
+        "exit": 0,
+        "stdout": "shadow\n",
+        "stderr": ""
+      },
+      "status_before": {
+        "command": [
+          "git",
+          "status",
+          "--porcelain=v1"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "parent": {
+        "command": [
+          "git",
+          "rev-parse",
+          "HEAD^"
+        ],
+        "exit": 0,
+        "stdout": "f76cd34908f515c9f9562486b300ea6b8a9975af\n",
+        "stderr": ""
+      },
+      "changed_paths": {
+        "command": [
+          "git",
+          "diff",
+          "--name-only",
+          "f76cd34908f515c9f9562486b300ea6b8a9975af",
+          "a9dabd73ec7f15cbb97a8dc4c0f76d13ae06c86d"
+        ],
+        "exit": 0,
+        "stdout": "docs/days/2026-10-13.json\n",
+        "stderr": ""
+      },
+      "remote_before": {
+        "command": [
+          "git",
+          "ls-remote",
+          "--refs",
+          "origin",
+          "refs/heads/shadow"
+        ],
+        "exit": 0,
+        "stdout": "f76cd34908f515c9f9562486b300ea6b8a9975af\trefs/heads/shadow\n",
+        "stderr": ""
+      },
+      "push": {
+        "command": [
+          "git",
+          "push",
+          "-q",
+          "origin",
+          "a9dabd73ec7f15cbb97a8dc4c0f76d13ae06c86d:refs/heads/shadow"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "remote_after": {
+        "command": [
+          "git",
+          "ls-remote",
+          "--refs",
+          "origin",
+          "refs/heads/shadow"
+        ],
+        "exit": 0,
+        "stdout": "a9dabd73ec7f15cbb97a8dc4c0f76d13ae06c86d\trefs/heads/shadow\n",
+        "stderr": ""
+      },
+      "head_after": {
+        "command": [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exit": 0,
+        "stdout": "a9dabd73ec7f15cbb97a8dc4c0f76d13ae06c86d\n",
+        "stderr": ""
+      },
+      "status_after": {
+        "command": [
+          "git",
+          "status",
+          "--porcelain=v1"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    "outcome": "published_existing_commit",
+    "day_sha256_before": "d7629265da3581145084f2f693f5a4bf2ce4f22f2ba267a36bf983626381527c",
+    "day_sha256_after": "d7629265da3581145084f2f693f5a4bf2ce4f22f2ba267a36bf983626381527c",
+    "finished_utc": "2026-10-13T00:27:30.853242+00:00"
+  },
+  "watch": {
+    "utc": "2026-10-13T00:25:00.176102+00:00",
+    "config": {
+      "branch": "shadow",
+      "clock_shift_min": 300,
+      "lead": 15
+    },
+    "index": {
+      "clock_shift_min": 300,
+      "day_row": [
+        {
+          "date": "2026-10-13",
+          "n": 12,
+          "title": "Tuesday, 13 October 2026",
+          "holiday": null
+        }
+      ]
+    },
+    "day": {
+      "date": "2026-10-13",
+      "n": 12,
+      "state_until": "2026-10-13T11:26+05:30",
+      "asleep": false,
+      "complete": false,
+      "keys": [
+        "format",
+        "n",
+        "date",
+        "title",
+        "holiday",
+        "sun",
+        "weather",
+        "places",
+        "opening",
+        "segments",
+        "entries",
+        "steps",
+        "owl",
+        "complete",
+        "state",
+        "plan"
+      ],
+      "owl_present": false,
+      "decision_steps": 13,
+      "quiet_steps": 0,
+      "steps": [
+        {
+          "t": "05:59",
+          "end": "06:29",
+          "action": "read",
+          "place": "home",
+          "mind": {
+            "source": "mind",
+            "attempts": 1,
+            "latency_s": 13.0
+          }
+        },
+        {
+          "t": "06:29",
+          "end": "06:59",
+          "action": "talk",
+          "place": "home",
+          "mind": {
+            "source": "mind",
+            "attempts": 1,
+            "latency_s": 9.1
+          }
+        },
+        {
+          "t": "06:59",
+          "end": "07:19",
+          "action": "walk",
+          "place": "lodhi",
+          "mind": {
+            "source": "mind",
+            "attempts": 2,
+            "latency_s": 12.7
+          }
+        },
+        {
+          "t": "07:19",
+          "end": "08:04",
+          "action": "stay",
+          "place": "lodhi",
+          "mind": {
+            "source": "mind",
+            "attempts": 1,
+            "latency_s": 5.4
+          }
+        },
+        {
+          "t": "08:04",
+          "end": "08:19",
+          "action": "talk",
+          "place": "lodhi",
+          "mind": {
+            "source": "mind",
+            "attempts": 1,
+            "latency_s": 10.2
+          }
+        },
+        {
+          "t": "08:19",
+          "end": "08:29",
+          "action": "talk",
+          "place": "lodhi",
+          "mind": {
+            "source": "mind",
+            "attempts": 1,
+            "latency_s": 8.3
+          }
+        },
+        {
+          "t": "08:29",
+          "end": "08:49",
+          "action": "walk",
+          "place": "home",
+          "mind": {
+            "source": "mind",
+            "attempts": 1,
+            "latency_s": 4.5
+          }
+        },
+        {
+          "t": "08:49",
+          "end": "09:04",
+          "action": "eat",
+          "place": "home",
+          "mind": {
+            "source": "mind",
+            "attempts": 1,
+            "latency_s": 8.5
+          }
+        },
+        {
+          "t": "09:04",
+          "end": "09:14",
+          "action": "talk",
+          "place": "home",
+          "mind": {
+            "source": "mind",
+            "attempts": 1,
+            "latency_s": 8.9
+          }
+        },
+        {
+          "t": "09:14",
+          "end": "09:59",
+          "action": "write",
+          "place": "home",
+          "mind": {
+            "source": "mind",
+            "attempts": 1,
+            "latency_s": 27.9
+          }
+        },
+        {
+          "t": "09:59",
+          "end": "10:14",
+          "action": "read",
+          "place": "home",
+          "mind": {
+            "source": "mind",
+            "attempts": 1,
+            "latency_s": 5.4
+          }
+        },
+        {
+          "t": "10:14",
+          "end": "10:59",
+          "action": "rest",
+          "place": "home",
+          "mind": {
+            "source": "mind",
+            "attempts": 1,
+            "latency_s": 4.4
+          }
+        },
+        {
+          "t": "10:59",
+          "end": "11:26",
+          "action": "walk",
+          "place": "khan",
+          "mind": {
+            "source": "mind",
+            "attempts": 1,
+            "latency_s": 8.2
+          }
+        }
+      ]
+    },
+    "file_checks": [
+      {
+        "path": "mind/soul.md",
+        "bytes": 6729,
+        "blob": "2198e24f5f997ea6e9d3ceae974e980e48eb066d",
+        "git_blob": "2198e24f5f997ea6e9d3ceae974e980e48eb066d",
+        "matches_head": true,
+        "sha256": "256e8a1c5aedfd8edc7b9147a60a10a3ee387efdd6fba2d0a32b818c2c6d1cee"
+      },
+      {
+        "path": "docs/days/index.json",
+        "bytes": 291,
+        "blob": "d8868c2a463c69bf0a63014aecec211d547bb492",
+        "git_blob": "d8868c2a463c69bf0a63014aecec211d547bb492",
+        "matches_head": true,
+        "sha256": "d21d58c64a8b8d79faa043f3d0bc9d69871c409b7572ba8522ab6529c20376f9"
+      },
+      {
+        "path": "docs/days/2026-10-13.json",
+        "bytes": 57514,
+        "blob": "57dfea92d87b7382c3022e70b7bf3bf20f0e11d0",
+        "git_blob": "57dfea92d87b7382c3022e70b7bf3bf20f0e11d0",
+        "matches_head": true,
+        "sha256": "d7629265da3581145084f2f693f5a4bf2ce4f22f2ba267a36bf983626381527c"
+      }
+    ],
+    "service": {
+      "command": [
+        "systemctl",
+        "--user",
+        "show",
+        "hegel-world.service",
+        "-p",
+        "ActiveState",
+        "-p",
+        "SubState",
+        "-p",
+        "Result",
+        "-p",
+        "ExecMainStatus",
+        "-p",
+        "ExecMainStartTimestamp",
+        "-p",
+        "ExecMainExitTimestamp"
+      ],
+      "exit": 0,
+      "stdout": "Result=success\nExecMainStartTimestamp=Tue 2026-10-13 02:24:04 CEST\nExecMainExitTimestamp=Tue 2026-10-13 02:24:05 CEST\nExecMainStatus=0\nActiveState=inactive\nSubState=dead\n",
+      "stderr": ""
+    },
+    "timer_active": {
+      "command": [
+        "systemctl",
+        "--user",
+        "is-active",
+        "hegel-world.timer"
+      ],
+      "exit": 0,
+      "stdout": "active\n",
+      "stderr": ""
+    },
+    "timer_enabled": {
+      "command": [
+        "systemctl",
+        "--user",
+        "is-enabled",
+        "hegel-world.timer"
+      ],
+      "exit": 0,
+      "stdout": "enabled\n",
+      "stderr": ""
+    }
+  },
+  "independent_verification": {
+    "utc": "2026-10-13T00:28:33.553761+00:00",
+    "checks": {
+      "fetch": {
+        "args": [
+          "fetch",
+          "origin"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": "From https://github.com/weltogeisto/hegel-in-delhi\n   f76cd34..a9dabd7  shadow     -> origin/shadow\n"
+      },
+      "primary": {
+        "args": [
+          "rev-parse",
+          "HEAD"
+        ],
+        "exit": 0,
+        "stdout": "caf16ea7ff9cc1a00940c4a64fd66cc0795c0ac2\n",
+        "stderr": ""
+      },
+      "clean": {
+        "args": [
+          "status",
+          "--porcelain=v1"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "main": {
+        "args": [
+          "rev-parse",
+          "origin/main"
+        ],
+        "exit": 0,
+        "stdout": "8fc5f030576745446aa9bb4d262ee17fcbc7740d\n",
+        "stderr": ""
+      },
+      "shadow": {
+        "args": [
+          "rev-parse",
+          "origin/shadow"
+        ],
+        "exit": 0,
+        "stdout": "a9dabd73ec7f15cbb97a8dc4c0f76d13ae06c86d\n",
+        "stderr": ""
+      },
+      "parent": {
+        "args": [
+          "rev-parse",
+          "a9dabd73ec7f15cbb97a8dc4c0f76d13ae06c86d^"
+        ],
+        "exit": 0,
+        "stdout": "f76cd34908f515c9f9562486b300ea6b8a9975af\n",
+        "stderr": ""
+      },
+      "clock_ancestor": {
+        "args": [
+          "merge-base",
+          "--is-ancestor",
+          "1d7c123e2ba3aef7d400d4ead6bb91d73c78cff7",
+          "a9dabd73ec7f15cbb97a8dc4c0f76d13ae06c86d"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "adopted_ancestor": {
+        "args": [
+          "merge-base",
+          "--is-ancestor",
+          "ad1270c13a9f7ced413f9f91cf02417b2019ab87",
+          "a9dabd73ec7f15cbb97a8dc4c0f76d13ae06c86d"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "current_main_ancestor": {
+        "args": [
+          "merge-base",
+          "--is-ancestor",
+          "8fc5f030576745446aa9bb4d262ee17fcbc7740d",
+          "a9dabd73ec7f15cbb97a8dc4c0f76d13ae06c86d"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "step_only": {
+        "args": [
+          "diff",
+          "--name-only",
+          "a9dabd73ec7f15cbb97a8dc4c0f76d13ae06c86d^",
+          "a9dabd73ec7f15cbb97a8dc4c0f76d13ae06c86d"
+        ],
+        "exit": 0,
+        "stdout": "docs/days/2026-10-13.json\n",
+        "stderr": ""
+      },
+      "runtime_diff": {
+        "args": [
+          "diff",
+          "--name-only",
+          "1d7c123e2ba3aef7d400d4ead6bb91d73c78cff7",
+          "a9dabd73ec7f15cbb97a8dc4c0f76d13ae06c86d",
+          "--",
+          "world",
+          "mind/soul.md"
+        ],
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    "files": [
+      {
+        "path": "world/publish.py",
+        "bytes": 2105,
+        "sha256": "e06284256845e8ded8fea8fb771041a7a1133cbd83c91aefc46b820086632a90",
+        "matches_pi_receipt": true,
+        "git_blob": "3c1f282410e55fbb249d768aa4a8afbad1bc03c3"
+      },
+      {
+        "path": "world/engine.py",
+        "bytes": 29325,
+        "sha256": "57d734a3540a5acb304b1598c78790e723fb0ab90cd3663507c4b65156e3d691",
+        "matches_pi_receipt": true,
+        "git_blob": "c71eb06f95312e94ebb6e0793da05282eef61736"
+      },
+      {
+        "path": "world/__main__.py",
+        "bytes": 16042,
+        "sha256": "2a2a1d8a0d4eeb305a358b454f58fd5500ee893149e4816848c2cb4ae6cdc652",
+        "matches_pi_receipt": true,
+        "git_blob": "f83b0e6f915981147884132584b7716149a5b15e"
+      },
+      {
+        "path": "docs/days/2026-10-13.json",
+        "bytes": 57514,
+        "sha256": "d7629265da3581145084f2f693f5a4bf2ce4f22f2ba267a36bf983626381527c",
+        "matches_pi_receipt": true,
+        "git_blob": "57dfea92d87b7382c3022e70b7bf3bf20f0e11d0"
+      },
+      {
+        "path": "docs/days/index.json",
+        "bytes": 291,
+        "sha256": "d21d58c64a8b8d79faa043f3d0bc9d69871c409b7572ba8522ab6529c20376f9",
+        "matches_pi_receipt": true,
+        "git_blob": "d8868c2a463c69bf0a63014aecec211d547bb492"
+      },
+      {
+        "path": "mind/soul.md",
+        "bytes": 6729,
+        "sha256": "256e8a1c5aedfd8edc7b9147a60a10a3ee387efdd6fba2d0a32b818c2c6d1cee",
+        "matches_pi_receipt": true,
+        "git_blob": "2198e24f5f997ea6e9d3ceae974e980e48eb066d"
+      }
+    ],
+    "day": {
+      "date": "2026-10-13",
+      "n": 12,
+      "decision_steps": 13,
+      "quiet_steps": 0,
+      "last_step": {
+        "t": "10:59",
+        "end": "11:26",
+        "event": "Ramesh brings word from Masterji: your bandhgala is ready for its fitting at Khan Market. The balance is ₹3,500.",
+        "present": [
+          "Ramesh, the caretaker"
+        ],
+        "decision": {
+          "thought": "The bandhgala is ready, and the tailoring of the body must keep pace with the tailoring of the spirit. I have the means, and the sun is high but the air is clear; I shall not let the hour slip while I sit in the heat. I will go to Khan Market to settle the account and see the garment, for a man in a bungalow must not look like a ghost.",
+          "action": "walk",
+          "place": "khan",
+          "minutes": 45,
+          "says": "Thank you, Ramesh. I shall go to Khan Market now to settle the balance with Masterji. Please keep the sambar warm until my return.",
+          "buys": [],
+          "revision": null
+        },
+        "arrived": "khan",
+        "voice": {
+          "by": "Ramesh",
+          "says": "Yes sir, the sambar is warm, but the balance is due before you leave. Please hand over the three thousand five hundred rupees now.",
+          "does": null
+        },
+        "mind": {
+          "source": "mind",
+          "attempts": 1,
+          "latency_s": 8.2
+        },
+        "shelf": [
+          {
+            "work": "Philosophy of Right",
+            "ref": "§236",
+            "id": "dyde-right:549"
+          },
+          {
+            "work": "Philosophie der Geschichte",
+            "ref": "Die Neue Welt",
+            "id": "welt-1:528"
+          }
+        ],
+        "shelf_exposure": [
+          {
+            "work": "Philosophy of Right",
+            "ref": "§236",
+            "text": "Note. — In contrast with freedom of business and trade in the civic community stands the other extreme of the establishment and direction of the work of all by means of official regulation. Under this head comes perhaps the construction of the pyramids and other monstrous Egyptian and Asiatic works."
+          },
+          {
+            "work": "Philosophie der Geschichte",
+            "ref": "Die Neue Welt",
+            "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+          }
+        ],
+        "beat": "bandhgala_ready"
+      },
+      "until": "2026-10-13T11:26+05:30",
+      "complete": false,
+      "owl_present": false
+    },
+    "runtime_changes_since_clock": ""
+  },
+  "original_receipts": [
+    {
+      "name": "shadow-watch-20261013-0017.json",
+      "bytes": 22078,
+      "sha256": "67f4396de89f5c766746a4bffad01da7cab6285bc3c67f7fe5af7c5559a2d806"
+    },
+    {
+      "name": "shadow-push-diagnosis-20261013-0027.json",
+      "bytes": 85166,
+      "sha256": "3c6177aa5dffd46238d4257de8593c2acb240b4e12badef32d81aa15fba1845b"
+    },
+    {
+      "name": "shadow-push-recovery-20261013-0027.json",
+      "bytes": 5206,
+      "sha256": "35c543a8f825d4d733efa0edd134e1b86b7b6483ff8dbff8c9c7cd407dccffc8"
+    },
+    {
+      "name": "shadow-push-recovery-independent-20261013.json",
+      "bytes": 33161,
+      "sha256": "c78292e85c24a69bce59cb45eec230d8b50998ef1565873ab48123883c0b0f74"
+    },
+    {
+      "name": "shadow-recovery-main-integration-20261013.json",
+      "bytes": 192,
+      "sha256": "e92a92e9e43b0eb32e352af10cadeea016f34699316e9e36fb043a8acbde1293"
+    },
+    {
+      "name": "shadow-recovery-conflict-pc-TASKS.md-20261013.txt",
+      "bytes": 16767,
+      "sha256": "5561f72cae11eb6edd972a5ef6f8fc44cdbc2a99524dae50076704c9700c3163"
+    }
+  ],
+  "original_helpers": [
+    {
+      "name": "check-shadow-watch.py",
+      "bytes": 4052,
+      "sha256": "278771e6d7bdd57563ee29e1b3d4f67dcbd1df3a9a1ee0b42a6a189b7e85d0b6"
+    },
+    {
+      "name": "shadow-push-diagnosis-20261013-0027.py",
+      "bytes": 2612,
+      "sha256": "fc7f8f24d7f37b78d518990138d07c0f5697788ce90582fa89837ef6275fae61"
+    },
+    {
+      "name": "shadow-push-recovery-20261013-0027.py",
+      "bytes": 3670,
+      "sha256": "9cc781dee6de8e2013a0cd7c56217be0021794a77b437645aa7da1d378b25191"
+    },
+    {
+      "name": "write-shadow-recovery-report-20261013.py",
+      "bytes": 10107,
+      "sha256": "0e68959b8b0568d145850d22ab02c30f9403fd60a06fccf38700788303a162f8"
+    }
+  ],
+  "raw_root": "C:/hegel/handover/codex-tasks-20261012",
+  "scope": {
+    "new_decisions_triggered": 0,
+    "product_source_edits": 0,
+    "configuration_edits": 0,
+    "restarts": 0,
+    "forced_ticks": 0,
+    "system_clock_edits": 0,
+    "public_world_changes": 0,
+    "shared_server_changes": 0,
+    "tests_rerun": 0
+  }
+}

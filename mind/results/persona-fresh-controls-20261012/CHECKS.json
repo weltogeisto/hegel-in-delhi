@@ -1,0 +1,92 @@
+{
+  "at": "2026-10-12T14:47:53.704482+00:00",
+  "candidate": "e885f435238482a696fa7dcdd57f84753179de04",
+  "source_tree": "4675e31ea426979f2493f5912b5d50c325278426",
+  "protocol_candidate": "e885f435238482a696fa7dcdd57f84753179de04",
+  "protected_files": 42,
+  "source_inputs_verified": true,
+  "wrapper_exit": 0,
+  "runner_exit": 0,
+  "jobs": 48,
+  "nonempty": 48,
+  "usable": 48,
+  "calls": 48,
+  "extra_calls": 0,
+  "invalid_json_calls": 0,
+  "length_stops": 0,
+  "B_paragraph_shown": 24,
+  "A_paragraph_shown": 0,
+  "paired_offers_identical": true,
+  "paired_requests_differ_only_persona": true,
+  "prompt_tokens": [
+    2067,
+    2075,
+    2105,
+    2206,
+    2214,
+    2244
+  ],
+  "words_range": [
+    152,
+    533
+  ],
+  "over_200_words": 35,
+  "under_120_words": 0,
+  "over_2800_characters": 1,
+  "wall_seconds": 912.928582337001,
+  "variant_wall_seconds": {
+    "A": 460.67887126799906,
+    "B": 449.97268679898843
+  },
+  "case_variant_wall_seconds": {
+    "arch": {
+      "A": 161.65907779599365,
+      "B": 147.0414113299994
+    },
+    "directions": {
+      "A": 150.77599296200424,
+      "B": 147.77831957499802
+    },
+    "bowls": {
+      "A": 148.24380051000117,
+      "B": 155.15295589399102
+    }
+  },
+  "cleanup": {
+    "frozen_inputs_unchanged": true,
+    "shared_server_untouched": true,
+    "original_days_unchanged": true,
+    "training": false,
+    "rollout": false
+  },
+  "server_cmdline_sha256": "1944b782a1c3557851d1c3639e04e43072e6c2a6e8eff6e96978f96d6e48d6b0",
+  "cpu_suite_overlap": true,
+  "sole_gpu_evaluation": true,
+  "protocol_sha256": "bf493abf0d610962ce5e71ec9b257a47b7c04576d9f55fbac4670732aa05aaaa",
+  "helper_hashes_verified": true,
+  "archive_hash_verified": true,
+  "fresh_declared_schedule_verified": true,
+  "original_case_fields_preserved": true,
+  "packet_hashes_verified": true,
+  "all_text_fingerprints_and_raw_equality_verified": true,
+  "all_response_result_texts_identical": true,
+  "characters_range": [
+    801,
+    2915
+  ],
+  "all_sealed_outputs_verified": 100,
+  "key_outside_git": true,
+  "full_suite": {
+    "candidate": "e885f435238482a696fa7dcdd57f84753179de04",
+    "tree": "4675e31ea426979f2493f5912b5d50c325278426",
+    "tests": 893,
+    "seconds": 701.846,
+    "skipped": 19,
+    "wrapper_exit": 0,
+    "unittest_exit": 0,
+    "archive_sha256": "1a13c6cc7b3c2606255e4664c9947282e08bb150207616c0344922fa415f2cb3",
+    "all_tracked_files_verified_against_git_and_snapshot": 273,
+    "log_sha256": "63372030096dc03cb3e6e468d2d711acab85ab4357dbf1e00003024351a4247e",
+    "final_result": "OK (skipped=19)"
+  }
+}

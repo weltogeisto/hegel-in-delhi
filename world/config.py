@@ -43,6 +43,7 @@ class Config:
         self.clock_shift_min = int(v.get("HEGEL_CLOCK_SHIFT_MIN", "0") or 0)    # rehearsals only: his clock runs this far ahead of Delhi
         self.feeds = v.get("HEGEL_FEEDS", "1") not in ("0", "no", "false", "")
         self.shelf = v.get("HEGEL_SHELF", "1") not in ("0", "no", "false", "")          # his books in front of him (mind/shelf)
+        self.shelf_whole = v.get("HEGEL_SHELF_WHOLE", "0").strip().lower() in ("1", "yes", "true")   # whole passages, not excerpts
         self.shelf_additions = v.get("HEGEL_SHELF_ADDITIONS", "0").strip().lower() in ("1", "yes", "true")   # M2: a label names an editor's addition; off until Welt's word
         self.culture = v.get("HEGEL_CULTURE", "0").strip().lower() in ("1", "yes", "true")   # museums, concerts and plays (pc/CULTURE.md); off until switched on
         self.street = v.get("HEGEL_STREET", "0").strip().lower() in ("1", "yes", "true")   # a card from the street deck at an empty moment (pc/WORLD-2-WEEK1.md P4); off until switched on
@@ -51,6 +52,7 @@ class Config:
         self.voice_facts = v.get("HEGEL_VOICE_FACTS", "0").strip().lower() in ("1", "yes", "true")   # a voice is told its own side of the record, its pronoun, and the right person answers (pc/WORLD-2-WEEK1.md P2); off until switched on
         self.ramesh_days = v.get("HEGEL_RAMESH_DAYS", "0").strip().lower() in ("1", "yes", "true")   # Ramesh may offer to come every day again (DECISIONS 47); off until switched on
         self.promises = v.get("HEGEL_PROMISES", "0").strip().lower() in ("1", "yes", "true")   # a promise is a record: the voice may make one in `act`, the engine keeps it (pc/WORLD-2-WEEK1.md P1); off until switched on
+        self.consumed = v.get("HEGEL_CONSUMED", "0").strip().lower() in ("1", "yes", "true")   # what he ate is an entry of its own, which the page shows and the owl reads (DECISIONS 48); off until someone has looked at what they do with it
         self.pause_away = v.get("HEGEL_PAUSE_AWAY", "0").strip().lower() in ("1", "yes", "true")   # hold his world at waking while the PC is away (pc/PAUSE.md); off until switched on
         self.wants = v.get("HEGEL_WANTS", "0").strip().lower() in ("1", "yes", "true")   # he may name what he wishes the city had (pc/WANTS-SCREEN.md); written down, no effect; off until switched on
         self.news_feeds = [u.strip() for u in v.get("NEWS_FEEDS", (
@@ -98,6 +100,14 @@ class Config:
             raise ValueError("HEGEL_CACHE_PROMPT must be empty, 0/no/false or 1/yes/true")
         self.cache_prompt = None if not cache else cache in ("1", "yes", "true")
         self.write_mode = "plain" if v.get("HEGEL_WRITE_MODE", "chat").strip().lower() == "plain" else "chat"      # his writings: the chat call (default), or a plain-text completion
+        self.outcome_memory = v.get('HEGEL_OUTCOME_MEMORY','0') not in ('0','no','false','')
+        self.evidence_view = 'compact' if v.get('HEGEL_EVIDENCE_VIEW', 'full').strip().lower() == 'compact' else 'full'      # how the writers see the records: grouped and short, or every record with its id
+        # Explicit opt-in until the isolated results have been reviewed. Missing
+        # calibration must fail rather than invent a temperature at runtime.
+        self.claim_check = v.get('HEGEL_CLAIM_CHECK','0') not in ('0','no','false','')
+        if self.claim_check and not self.outcome_memory:
+            raise ValueError('HEGEL_CLAIM_CHECK requires HEGEL_OUTCOME_MEMORY')
+        self.claim_calibration = Path(v.get('HEGEL_CLAIM_CALIBRATION',self.repo/'pc/claim-calibration.json')).expanduser()
 
     def get(self, key, default=None):
         return self.values.get(key, default)

@@ -1,0 +1,37 @@
+  hegelizer     186 train + 20 held-out examples    0.55 M characters  about  0.14 M tokens; longest about 989 tokens (limit 1024)
+  phase 3 (restyle): ready, 186 to train on and 20 held out
+data ok
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+==((====))==  Unsloth 2026.9.14: Fast Qwen3_5 patching. Transformers: 5.5.0.
+   \\   /|    NVIDIA GeForce RTX 3090. Num GPUs = 1. Max memory: 23.999 GB. Platform: Linux.
+O^O/ \_/ \    Torch: 2.12.1+cu130. CUDA: 8.6. CUDA Toolkit: 13.0. Triton: 3.7.1
+\        /    Bfloat16 = TRUE. FA [Xformers = None. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Not offloading embeddings; offloading is unsupported on WSL.
+CUDA cache released: 20.4 GiB allocated, 22.8 reserved, 0.0 free; loss budget 0.125 GiB
+LoRA r=16 alpha=32: 116.7 M trainable parameters; VRAM 22.4 GiB peak allocated, 22.8 reserved, 24.0 used of 24.0 on the card
+restyle: 186 train + 20 held-out examples; 0 + 0 longer than 1024 tokens skipped, not cut; 0.10 M tokens to train on
+  template check, prompt ends 'nst him.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n', completion starts 'But when it was left to the accused to determine what his pu' and ends 'judgment.<|im_end|>\n'
+[restyle] 186 sequences, 24 steps planned, running 5 (dry run), lr 0.0002, 2 epoch(s)
+Unsloth: Will smartly offload gradients to save VRAM!
+[restyle] step 1/5  loss 1.5160  lr 0.00e+00  1.3 min  VRAM 21.3 GiB peak allocated, 23.2 reserved, 24.0 used of 24.0 on the card
+{'loss': '1.516', 'grad_norm': '0.3937', 'learning_rate': '0', 'epoch': '0.08602'}
+[restyle] step 2/5  loss 1.5861  lr 2.00e-04  2.0 min  VRAM 21.5 GiB peak allocated, 23.2 reserved, 24.0 used of 24.0 on the card
+{'loss': '1.586', 'grad_norm': '0.4819', 'learning_rate': '0.0002', 'epoch': '0.172'}
+[restyle] step 3/5  loss 1.4465  lr 1.71e-04  2.8 min  VRAM 21.5 GiB peak allocated, 23.2 reserved, 24.0 used of 24.0 on the card
+{'loss': '1.447', 'grad_norm': '0.2202', 'learning_rate': '0.0001707', 'epoch': '0.2581'}
+[restyle] step 4/5  loss 1.4667  lr 1.00e-04  3.6 min  VRAM 21.5 GiB peak allocated, 23.2 reserved, 24.0 used of 24.0 on the card
+{'loss': '1.467', 'grad_norm': '0.1974', 'learning_rate': '0.0001', 'epoch': '0.3441'}
+[restyle] step 5/5  loss 1.3736  lr 2.93e-05  4.4 min  VRAM 21.5 GiB peak allocated, 23.2 reserved, 24.0 used of 24.0 on the card
+{'loss': '1.374', 'grad_norm': '0.2156', 'learning_rate': '2.929e-05', 'epoch': '0.4301'}
+{'eval_loss': '1.416', 'eval_runtime': '6.329', 'eval_samples_per_second': '1.264', 'eval_steps_per_second': '1.264', 'epoch': '0.4301'}
+[restyle] epoch 0.43: train loss 1.4778, held-out loss 1.4158 on 8 examples
+{'train_runtime': '272.2', 'train_samples_per_second': '0.294', 'train_steps_per_second': '0.018', 'train_loss': '1.478', 'epoch': '0.4301'}
+{'eval_loss': '1.416', 'eval_runtime': '5.082', 'eval_samples_per_second': '1.574', 'eval_steps_per_second': '1.574', 'epoch': '0.4301'}
+[restyle] epoch 0.43: train loss None, held-out loss 1.4158 on 8 examples
+[restyle] done in 4.6 min; VRAM 21.6 GiB peak allocated, 23.2 reserved, 24.0 used of 24.0 on the card
+[restyle] projection: 48 s per step x 24 steps = 0.3 h
+restyle: train loss 1.3736424446105957, held-out loss 1.4158 (per epoch: 0.43: 1.4778 / 1.4158; 0.43: None / 1.4158)
+adapter saved to /home/ai/hegel-eval/codex-tasks-20261026/lora-pilot-calibration-20261026-142600 (445 MB)
+wrote /home/ai/hegel-eval/codex-tasks-20261026/lora-pilot-calibration-20261026-142600/training.json

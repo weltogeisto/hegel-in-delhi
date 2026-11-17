@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-27T12:27:15.927600+00:00",
+  "status": "T30_T31_T32_CPU_BUILD_COMPLETE_FOR_CLAUDE_REVIEW",
+  "owner_relay": 6440225069,
+  "owner_spec_main": "620b82ec5e4f2eddfe0d6bd3abd4914d68bd730f",
+  "source_spec_sha256": "1ef8ae77de8d17bc5bdf51d49daff08cb997de7104bfc977de9cb208afb30bd8",
+  "original_human_message_locally_captured": false,
+  "authorization_provenance": "Explicit owner relay on PR1; no invented original human reply. CPU build first; Claude reviews and merges before phases.",
+  "tests_unique_passing": 256,
+  "unresolved_failures": 0,
+  "unresolved_skips": 0,
+  "real_model_requests": 0,
+  "GPU_training_evaluation_or_deployment_started": false,
+  "corpus_full": 3998,
+  "corpus_short": 3372,
+  "planned_versions_if_all_accepted": 14740,
+  "planned_train_pairs": 14048,
+  "planned_held_pairs": 692,
+  "corpus_units_sha256": "5051e7a11c33df3b6a1e898a5684c07e09aacdc36e5ddf6961c4f4755c400e8c",
+  "corpus_unit_file": "/mnt/c/hegel/handover/codex-tasks-20261027/T30-T32-hegelizer2-build-20261027-111600/CPU-corpus-build/hegelizer2-units.jsonl",
+  "actual_fixed_thoughts_eligible": 40,
+  "blind_cohort_or_keys_generated": false,
+  "machine_checkpoint_policy": [
+    "recall_beyond_input",
+    "Delta",
+    "heldout_loss",
+    "earlier_step"
+  ],
+  "selection_policy_requires_Claude_review": true,
+  "GPU_new_cap": "OPEN; original pilot approval is not a new cap",
+  "night": "OPEN; Welt grants it, no power-rule change",
+  "pending": [
+    "Claude code review and merge to main",
+    "Relevant round-two GPU cap and phase window",
+    "T33 phase0 with verified per-request scale0 routing and natural-step latency baseline",
+    "T34 phaseA with unchanged strict unit/ratio gate",
+    "T35 phaseB/C only after main, T34 gate, cap and granted night"
+  ],
+  "no_adoption": true,
+  "runtime_guard_enabled_on_live_world": false,
+  "preservation": "Pilot, raw days, original CSV, handouts, old keys, original judgments, completed T28/T29 evidence unchanged; genuine main merge remains the actual parent."
+}

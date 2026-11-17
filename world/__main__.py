@@ -23,13 +23,13 @@ from collections import Counter
 from datetime import date, timedelta
 from pathlib import Path
 
-from . import health, pause, report, shelf, street, works
+from . import health, nightly_report, pause, report, shelf, street, works
 from .clock import fmt, minute_of, now_ist, parse_now
 from .config import Config
 from .engine import Days, Engine, until_of
 from .feeds import Feeds
-from .mind import STAND_INS, HTTPMind
-from .publish import Git
+from .mind import STAND_INS, HTTPMind, StubMind
+from .publish import Git, GitError
 from .world import World, at_dt
 
 log = logging.getLogger("world")
@@ -67,7 +67,7 @@ def make_world(cfg):
     """The world as the tick builds it, and as a rehearsal builds it: what the Config switches on (the culture) is on in both."""
     return World(Feeds(cfg), culture=getattr(cfg, "culture", False), street_on=getattr(cfg, "street", False),
                  street_file=getattr(cfg, "street_file", None), promises=getattr(cfg, "promises", False),
-                 ramesh_days=getattr(cfg, "ramesh_days", False))
+                 ramesh_days=getattr(cfg, "ramesh_days", False), consumed=getattr(cfg, "consumed", False))
 
 
 def cmd_tick(cfg, args):
@@ -87,6 +87,12 @@ def cmd_tick(cfg, args):
         if now is None:
             return 0
     engine.tick(now)
+    if engine.git:
+        try:
+            nightly_report.publish_yesterday(cfg, now, engine.git)
+        except (OSError, ValueError, nightly_report.ReportError, GitError) as exc:
+            log.error("nightly report failed; will retry next tick: %s", exc)
+            return 1
     return 0
 
 

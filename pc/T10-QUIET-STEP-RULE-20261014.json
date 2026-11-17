@@ -1,0 +1,70 @@
+{
+  "utc": "2026-10-14T15:22:03.876108+00:00",
+  "authorization_main": "4016d8dffe439b0bb57f7baabc6d6a7edec59dbd",
+  "authorization_comment": 6171110370,
+  "task_status": "OPEN; waiting for first complete day with at least 30 thoughts",
+  "old_auditor_sha256": "d4e312af2421b0db0c2aec9969f2ed65f24cc3d3856152bdce127e6960591126",
+  "new_auditor_sha256": "bb77f3afc99ea2459e111e78bb8ac8f23adef68a74c79795d615c1ba5ba0439a",
+  "minimum_thoughts": 30,
+  "gram_stopwords_marking_ranking_unchanged": true,
+  "T9_all_original_result_fields_exact": true,
+  "T9_days": [
+    {
+      "id": "day12",
+      "decisions": 42,
+      "thoughts": 42,
+      "null_thought_decisions": 0,
+      "null_thought_decisions_by_source": {},
+      "measurable": true,
+      "marked_thoughts": 29,
+      "share": 0.6904761904761905
+    },
+    {
+      "id": "control-file",
+      "decisions": 33,
+      "thoughts": 33,
+      "null_thought_decisions": 0,
+      "null_thought_decisions_by_source": {},
+      "measurable": true,
+      "marked_thoughts": 16,
+      "share": 0.48484848484848486
+    },
+    {
+      "id": "control-vouchers",
+      "decisions": 40,
+      "thoughts": 40,
+      "null_thought_decisions": 0,
+      "null_thought_decisions_by_source": {},
+      "measurable": true,
+      "marked_thoughts": 19,
+      "share": 0.475
+    }
+  ],
+  "focused_tests": {
+    "count": 6,
+    "runtime_s": 0.002,
+    "exit": 0
+  },
+  "regression_exit": 0,
+  "frozen_source_tree": "4b571a0102889fd2118a1402a0e5094d5a6eeaad",
+  "all_frozen_files_verified_after": 361,
+  "day13": {
+    "classification_source": "counts from unchanged raw record and Claude explicit rule; no new auditor invocation",
+    "raw_bytes": 44243,
+    "raw_sha256": "39f649efc628a9169a2e26fdecd12a7320777320a3eee972b267a99c1cb911cd",
+    "complete": true,
+    "decisions": 35,
+    "thoughts": 4,
+    "null_thought_decisions": 31,
+    "null_thought_decisions_by_source": {
+      "away": 31
+    },
+    "measurable": false,
+    "status": "not measurable",
+    "share": null,
+    "top_ten": null,
+    "new_auditor_invocations": 0
+  },
+  "model_calls": 0,
+  "prior_failure_preserved": "pc/T10-REPETITION-20261014.md/json and mind/results/thought-repetition-day13-20261014/"
+}
