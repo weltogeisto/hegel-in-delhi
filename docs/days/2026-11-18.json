@@ -493,6 +493,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "17:51",
+   "to": "18:01",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -1357,6 +1364,21 @@
    "item": "Glucose biscuits",
    "price": 10,
    "t": "17:36"
+  },
+  {
+   "k": "diary",
+   "text": "Masterji’s gesture is a small act of ethical order in a chaotic market; the separation of the food from the hands is a boundary respected. I have eaten enough to satisfy the immediate demand of the body, and the air is cooling. The plan calls for Lodhi Gardens to clear the head, but the file is a weight that sits in the stomach. I will take this last samosa, finish it, and then walk toward the gardens before the dark fully settles.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§531"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    }
+   ],
+   "t": "17:51"
   }
  ],
  "steps": [
@@ -3015,6 +3037,64 @@
      "text": "Wie das Sonnensystem, so ist z. B. im Praktischen der Staat ein System von drei Schlüssen. 1) Der Einzelne (die Person) schliesst sich durch seine Besonderheit (die physischen und geistigen Bedürfnisse, was weiter für sich ausgebildet die bürgerliche Gesellschaft giebt) mit dem Allgemeinen (der Gesellschaft, dem Rechte, Gesetz, Regierung) zusammen. 2) Ist der Wille…"
     }
    ]
+  },
+  {
+   "t": "17:51",
+   "end": "18:01",
+   "event": "Masterji says: “Garam pani aa raha hai. Samosa alag plate mein rakh diya, ab koi haath nahi lagayega.” He wraps the last samosa in a small piece of paper and slides it to the side of the counter.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Masterji’s gesture is a small act of ethical order in a chaotic market; the separation of the food from the hands is a boundary respected. I have eaten enough to satisfy the immediate demand of the body, and the air is cooling. The plan calls for Lodhi Gardens to clear the head, but the file is a weight that sits in the stomach. I will take this last samosa, finish it, and then walk toward the gardens before the dark fully settles.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 10,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§531",
+     "id": "wallace-mind:287"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:643"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§531",
+     "text": "Materially the principle involves the difference of objective probation according as it goes with or without the factor of absolute certification which lies in confession. The function of judicial administration is only to actualise to necessity the abstract side of personal liberty in civil society."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "The civil rights implied in it give rise to a feeling of self-respect, the sense of counting as a lawful person in the civic community. This feeling of being infinite and free from all Others is the root out of which springs the needed balance of the various kinds of thought and sentiment. The isolation with which the Jews have been blamed it is better to preserve."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -3022,7 +3102,7 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-18T17:51+05:30",
+  "until": "2026-11-18T18:01+05:30",
   "asleep": false,
   "imprest": 25791,
   "wearing": "kurta",
