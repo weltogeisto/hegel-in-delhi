@@ -409,6 +409,13 @@
    "mode": "walk",
    "a": "khan",
    "b": "estates"
+  },
+  {
+   "from": "14:36",
+   "to": "15:16",
+   "mode": "walk",
+   "a": "estates",
+   "b": "khan"
   }
  ],
  "entries": [
@@ -800,6 +807,86 @@
    "status": "Worn from 13:56.",
    "sprite": "bandhgala",
    "t": "13:56"
+  },
+  {
+   "k": "expense",
+   "item": "Queried vouchers",
+   "amount": 8004,
+   "to": "the Directorate of Estates",
+   "why": "queried vouchers",
+   "settles": true,
+   "text": "Paid to the Directorate of Estates.",
+   "t": "14:36"
+  },
+  {
+   "k": "expense",
+   "item": "Queried vouchers",
+   "amount": 220,
+   "to": "the Directorate of Estates",
+   "why": "queried vouchers",
+   "settles": true,
+   "text": "Paid to the Directorate of Estates.",
+   "t": "14:36"
+  },
+  {
+   "k": "expense",
+   "item": "Queried vouchers",
+   "amount": 1070,
+   "to": "the Directorate of Estates",
+   "why": "queried vouchers",
+   "settles": true,
+   "text": "Paid to the Directorate of Estates.",
+   "t": "14:36"
+  },
+  {
+   "k": "file",
+   "text": "Mr. Saxena queries ₹270 of personal expenditure on the imprest: recovery from the allottee.",
+   "owe": {
+    "to": "the Directorate of Estates",
+    "amount": 270,
+    "why": "queried vouchers",
+    "since": "2026-11-18"
+   },
+   "recoup": {
+    "admitted": 0,
+    "queried": 270
+   },
+   "t": "14:36"
+  },
+  {
+   "k": "diary",
+   "text": "The system has swallowed my vouchers whole, leaving only the residue of my own poverty to be recovered. I have paid ₹9,294 in this hour, yet the query for ₹270 stands like a small, personal wound in the ledger. My body protests the abstraction with a sharp hunger; I must leave this building before the light fails, or I shall be forced to spend what little remains on a meal here.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299"
+    }
+   ],
+   "t": "14:36"
+  },
+  {
+   "k": "said",
+   "text": "Noted, Mr. Saxena. I shall keep the receipt for the recovery. Good day.",
+   "to": "Mr. Saxena",
+   "t": "14:36"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Good day, sir. Don't forget the fifteen days; the clock doesn't stop for tea.",
+   "t": "14:36"
+  },
+  {
+   "k": "wear",
+   "item": "White cotton kurta",
+   "status": "Worn from 14:36.",
+   "sprite": "kurta",
+   "t": "14:36"
   }
  ],
  "steps": [
@@ -1634,17 +1721,82 @@
      "text": "The power which perpetrates on the conscious individual this wrong of making him into a mere thing, is \" nature \"; it is the universahty not of the community, but the abstract universahty of mere existence. And the particular individual, in wiping out the wrong suffered, turns not against the community — for he has not suffered at its hands — but against the latter."
     }
    ]
+  },
+  {
+   "t": "14:36",
+   "end": "15:16",
+   "event": "You arrive at Directorate of Estates, Nirman Bhawan. It closes at 17:30. You pay the Directorate of Estates ₹8,004 for queried vouchers. You pay the Directorate of Estates ₹220 for queried vouchers. You pay the Directorate of Estates ₹1,070 for queried vouchers. Mr. Saxena goes through your vouchers: nothing is admitted; ₹270 is queried as personal and will be recovered from you. Mr. Saxena is here. You are hungry.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The system has swallowed my vouchers whole, leaving only the residue of my own poverty to be recovered. I have paid ₹9,294 in this hour, yet the query for ₹270 stands like a small, personal wound in the ledger. My body protests the abstraction with a sharp hunger; I must leave this building before the light fails, or I shall be forced to spend what little remains on a meal here.",
+    "action": "walk",
+    "place": "khan",
+    "minutes": 10,
+    "says": "Noted, Mr. Saxena. I shall keep the receipt for the recovery. Good day.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "khan",
+   "opened": [
+    "arrive",
+    "purse",
+    "here",
+    "hunger"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Good day, sir. Don't forget the fifteen days; the clock doesn't stop for tea.",
+    "does": "He taps the file folder closed with a dull thud and turns back to his next phone call."
+   },
+   "left": "estates",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299",
+     "id": "dyde-right:757"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299",
+     "text": "This would be detrimental to their character as laws. The organic unity of the functions of state implies that one single spirit both fixes the nature of the universal and also carries it out to its definite reality."
+    }
+   ]
   }
  ],
  "funnel": {},
  "owl": null,
  "complete": false,
  "state": {
-  "place": "estates",
-  "until": "2026-11-18T14:36+05:30",
+  "place": "khan",
+  "until": "2026-11-18T15:16+05:30",
   "asleep": false,
-  "imprest": 35430,
-  "wearing": "bandhgala",
+  "imprest": 26136,
+  "wearing": "kurta",
   "wardrobe": [
    {
     "id": "frock",
@@ -1664,7 +1816,7 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Worn from 12:31."
+    "status": "Worn from 14:36."
    },
    {
     "id": "bandhgala",
@@ -1743,95 +1895,22 @@
      "bookseller",
      "masterji",
      "sunil"
+    ],
+    "estates": [
+     "saxena"
     ]
    },
    "no_meals": true,
-   "walked": 5400,
-   "strain": 5400
+   "walked": 8400,
+   "strain": 8400,
+   "recouped": true,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
-   "vouchers": [
-    {
-     "date": "2026-11-17",
-     "t": "15:39",
-     "item": "Chai, a cup",
-     "price": 20,
-     "office": false
-    },
-    {
-     "date": "2026-11-17",
-     "t": "16:24",
-     "item": "Samosa",
-     "price": 30,
-     "office": false
-    },
-    {
-     "date": "2026-11-17",
-     "t": "16:44",
-     "item": "Samosa",
-     "price": 30,
-     "office": false
-    },
-    {
-     "date": "2026-11-18",
-     "t": "12:41",
-     "item": "Chai, a cup",
-     "price": 20,
-     "office": false
-    },
-    {
-     "date": "2026-11-18",
-     "t": "12:41",
-     "item": "Samosa",
-     "price": 30,
-     "office": false
-    },
-    {
-     "date": "2026-11-18",
-     "t": "13:01",
-     "item": "Samosa",
-     "price": 30,
-     "office": false
-    },
-    {
-     "date": "2026-11-18",
-     "t": "13:01",
-     "item": "Chai, a cup",
-     "price": 20,
-     "office": false
-    },
-    {
-     "date": "2026-11-18",
-     "t": "13:16",
-     "item": "Samosa",
-     "price": 30,
-     "office": false
-    },
-    {
-     "date": "2026-11-18",
-     "t": "13:31",
-     "item": "Chai, a cup",
-     "price": 20,
-     "office": false
-    },
-    {
-     "date": "2026-11-18",
-     "t": "13:36",
-     "item": "Chai, a cup",
-     "price": 20,
-     "office": false
-    },
-    {
-     "date": "2026-11-18",
-     "t": "13:46",
-     "item": "Chai, a cup",
-     "price": 20,
-     "office": false
-    }
-   ],
+   "vouchers": [],
    "admitted": 730,
-   "queried": 9294
+   "queried": 9564
   },
   "visits": {
    "home": [
@@ -1912,7 +1991,8 @@
    "estates": [
     "2026-11-05",
     "2026-11-06",
-    "2026-11-16"
+    "2026-11-16",
+    "2026-11-18"
    ]
   },
   "owed": [
@@ -1925,24 +2005,6 @@
     "item": "Ramesh's wage for cooking",
     "at": "home",
     "with": "ramesh"
-   },
-   {
-    "to": "the Directorate of Estates",
-    "amount": 8004,
-    "why": "queried vouchers",
-    "since": "2026-11-05",
-    "at": "estates",
-    "with": "saxena",
-    "after": "2026-11-06"
-   },
-   {
-    "to": "the Directorate of Estates",
-    "amount": 220,
-    "why": "queried vouchers",
-    "since": "2026-11-06",
-    "at": "estates",
-    "with": "saxena",
-    "after": "2026-11-07"
    },
    {
     "to": "Ramesh",
@@ -1966,12 +2028,12 @@
    },
    {
     "to": "the Directorate of Estates",
-    "amount": 1070,
+    "amount": 270,
     "why": "queried vouchers",
-    "since": "2026-11-16",
+    "since": "2026-11-18",
     "at": "estates",
     "with": "saxena",
-    "after": "2026-11-17"
+    "after": "2026-11-19"
    }
   ],
   "cheques": [],
@@ -2083,7 +2145,8 @@
    "saxena": [
     "2026-11-05",
     "2026-11-06",
-    "2026-11-16"
+    "2026-11-16",
+    "2026-11-18"
    ]
   },
   "refused": {
