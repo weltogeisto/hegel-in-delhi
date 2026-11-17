@@ -388,6 +388,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "13:36",
+   "to": "13:46",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -676,6 +683,40 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "13:31"
+  },
+  {
+   "k": "diary",
+   "text": "The heat is a physical force that demands submission, just as the state demands the submission of the individual will. I am too empty to argue with a cup of tea, so I accept it. The chai is hot, the samosa is gone, and the body is finally acknowledged.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§248"
+    }
+   ],
+   "t": "13:36"
+  },
+  {
+   "k": "said",
+   "text": "It is a fine observation, Sunil. The body does not care for my syllogisms when it is empty.",
+   "to": "Masterji and Sunil",
+   "t": "13:36"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Syllogisms don't fill the tummy, bhaiya, only the stomach does. Finish this cup, it's getting lukewarm.",
+   "t": "13:36"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "13:36"
   }
  ],
  "steps": [
@@ -1310,6 +1351,74 @@
      "text": "To right as such, happiness is something external. Tet in the system of wants well-being is an essential element. The universal, which is at first only right, has to spread itself over the whole field of particularity. Justice, it is true, is a large factor in the civic community. The state will flourish, if it has good laws, of which free property is the fundamental condition."
     }
    ]
+  },
+  {
+   "t": "13:36",
+   "end": "13:46",
+   "event": "Sunil says: “You're a funny one, bhaiya. No change, it's exactly twenty. Here, drink this before you melt into the lane.” Slides a fresh cup of chai across the metal table and wipes a new smudge with the cloth.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The heat is a physical force that demands submission, just as the state demands the submission of the individual will. I am too empty to argue with a cup of tea, so I accept it. The chai is hot, the samosa is gone, and the body is finally acknowledged.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 10,
+    "says": "It is a fine observation, Sunil. The body does not care for my syllogisms when it is empty.",
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Sunil",
+    "says": "Syllogisms don't fill the tummy, bhaiya, only the stomach does. Finish this cup, it's getting lukewarm.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1189"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§248",
+     "id": "dyde-right:567"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "Anything further is meaningless, and is left to chance and to opinion; in modern times, for instance, old-fashioned clothing had a meaning in relation to patriotism. The cut of my coat is decided by fashion, and the tailor sees to this; it is not my business to invent it, for mercifully others have done so for me."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§248",
+     "text": "The wider connection due to the sea becomes al means for colonization, to which, be it sporadic or systematic, the full-grown civic community finds itself impelled. Thus for a part of its population it provides on a new soil a return to the family principle, and also procures for itself at the same time a new incentive and field for work."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1317,9 +1426,9 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-18T13:36+05:30",
+  "until": "2026-11-18T13:46+05:30",
   "asleep": false,
-  "imprest": 35470,
+  "imprest": 35450,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1487,6 +1596,13 @@
     {
      "date": "2026-11-18",
      "t": "13:31",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-18",
+     "t": "13:36",
      "item": "Chai, a cup",
      "price": 20,
      "office": false
