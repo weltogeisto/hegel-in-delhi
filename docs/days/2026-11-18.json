@@ -486,6 +486,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "17:36",
+   "to": "17:51",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -1316,6 +1323,40 @@
    "to": "Hegel",
    "text": "Bahut accha, 'attend to the matter' kar lo. Ab chup chap khao, aakhri samosa bhi sookh raha hai. Ek aur chai chahiye, ya bas garam pani?",
    "t": "17:21"
+  },
+  {
+   "k": "diary",
+   "text": "The final samosa is indeed drying out, a testament to the impermanence of all material things, but my stomach cares little for ontology. I have read enough of the morning's paper to know that the world turns without my participation, so I will not let the last morsel go to waste. Sunil asks if I want more chai or water; I will take the water, for my head is already heavy with caffeine and ink.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229"
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§198"
+    }
+   ],
+   "t": "17:36"
+  },
+  {
+   "k": "said",
+   "text": "Garam pani, please. And keep the last samosa for me; I will finish it.",
+   "to": "Masterji and Sunil",
+   "t": "17:36"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Garam pani aa raha hai. Samosa alag plate mein rakh diya, ab koi haath nahi lagayega.",
+   "t": "17:36"
+  },
+  {
+   "k": "bag",
+   "item": "Glucose biscuits",
+   "price": 10,
+   "t": "17:36"
   }
  ],
  "steps": [
@@ -2906,6 +2947,74 @@
      "text": "This content, in so far as it is completely particiiiarised, is, in its concrete reahty, not confined to the single individual, but involves and embraces the activity of all. The labour of the individual for his own wants and necessities is just as much a satisfaction of those of others as of himself, and the satisfaction of his own he attains only by the labour of others."
     }
    ]
+  },
+  {
+   "t": "17:36",
+   "end": "17:51",
+   "event": "Sunil says: “Bahut accha, 'attend to the matter' kar lo. Ab chup chap khao, aakhri samosa bhi sookh raha hai. Ek aur chai chahiye, ya bas garam pani?” He points a chopstick at the plate and wipes a smudge of oil from his apron.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The final samosa is indeed drying out, a testament to the impermanence of all material things, but my stomach cares little for ontology. I have read enough of the morning's paper to know that the world turns without my participation, so I will not let the last morsel go to waste. Sunil asks if I want more chai or water; I will take the water, for my head is already heavy with caffeine and ink.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 15,
+    "says": "Garam pani, please. And keep the last samosa for me; I will finish it.",
+    "buys": [
+     {
+      "item": "Glucose biscuits",
+      "price_inr": 10
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Masterji",
+    "says": "Garam pani aa raha hai. Samosa alag plate mein rakh diya, ab koi haath nahi lagayega.",
+    "does": "He wraps the last samosa in a small piece of paper and slides it to the side of the counter."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "id": "dyde-right:542"
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§198",
+     "id": "enzyklopaedie:513"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "text": "To right as such, happiness is something external. Tet in the system of wants well-being is an essential element. The universal, which is at first only right, has to spread itself over the whole field of particularity. Justice, it is true, is a large factor in the civic community. The state will flourish, if it has good laws, of which free property is the fundamental condition."
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§198",
+     "text": "Wie das Sonnensystem, so ist z. B. im Praktischen der Staat ein System von drei Schlüssen. 1) Der Einzelne (die Person) schliesst sich durch seine Besonderheit (die physischen und geistigen Bedürfnisse, was weiter für sich ausgebildet die bürgerliche Gesellschaft giebt) mit dem Allgemeinen (der Gesellschaft, dem Rechte, Gesetz, Regierung) zusammen. 2) Ist der Wille…"
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2913,9 +3022,9 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-18T17:36+05:30",
+  "until": "2026-11-18T17:51+05:30",
   "asleep": false,
-  "imprest": 25801,
+  "imprest": 25791,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -3117,6 +3226,13 @@
      "t": "17:06",
      "item": "Chai, a cup",
      "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-18",
+     "t": "17:36",
+     "item": "Glucose biscuits",
+     "price": 10,
      "office": false
     }
    ],
@@ -3369,7 +3485,7 @@
    "sim": false
   },
   "last_meal": "2026-11-09T13:41+05:30",
-  "snacks": 12,
+  "snacks": 13,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
