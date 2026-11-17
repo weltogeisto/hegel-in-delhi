@@ -137,6 +137,16 @@ class Economy:
                 fresh.append(o)
         return fresh
 
+    def falling_due(self, t, st):
+        """The costs that accrue() would put onto what he owes at t, without putting them there."""
+        d, out = t.date(), []
+        for c in (self.cost_of(c, st) for c in self.costs):
+            last = st["costs"].get(c["id"]) or (d - timedelta(days=1)).isoformat()
+            due = self.last_due(c["when"], d, st)
+            if due and due.isoformat() > last:
+                out.append(c)
+        return out
+
     def reachable(self, o, pid, present):
         """Can this creditor be paid here and now?"""
         return (not o.get("at") or o["at"] == pid) and (not o.get("with") or o["with"] in present)
@@ -313,7 +323,9 @@ class Economy:
         """The conditions of an offer: days met, visits, day count, cash, flags (each equal to a value;
         flags_in: one of several values, null accepting the flag unset; flags_not: none of the values named, an unset flag
         passing unless null is among them), a garment, a manuscript, a date, a cost owed
-        that his cash cannot meet, costs of which none may stand owed (owes_none), cheques held, days of the week."""
+        that his cash cannot meet, costs of which none may stand owed (owes_none), net_min (cash less all he owes),
+        cheques held, days of the week. owes_none and net_min count the costs that fall due at this very moment too:
+        an offer is judged before the moment's bills are added and paid."""
         d, cash = t.date(), st["imprest"]
         net = cash - sum(o.get("amount", 0) for o in st.get("owed", []))      # a purse that cannot pay what is owed is thin too
         if w.get("on") and w["on"] != d.isoformat():
@@ -334,8 +346,12 @@ class Economy:
             return False
         if any(not any(o.get("cost") == cid and o["amount"] > cash for o in st.get("owed", [])) for cid in w.get("owes", [])):
             return False                                    # a cost of this kind stands owed, and his cash cannot meet it
-        if any(o.get("cost") in w.get("owes_none", []) for o in st.get("owed", [])):
-            return False                                    # none of these costs may stand owed at all
+        if "owes_none" in w or "net_min" in w:
+            due = self.falling_due(t, st)
+            if any(c in w.get("owes_none", []) for c in [o.get("cost") for o in st.get("owed", [])] + [c["id"] for c in due]):
+                return False                                # none of these costs may stand owed, nor fall due now
+            if net - sum(c["amount"] for c in due) < w.get("net_min", -10 ** 9):
+                return False                                # what is left once everything owed, and falling due now, is paid
         if len(st.get("cheques", [])) < w.get("cheques", 0) or (w.get("days") and not days_match(w["days"], d)):
             return False
         return not w.get("words") or any(x["words"] >= w["words"] for x in st.get("works", []))

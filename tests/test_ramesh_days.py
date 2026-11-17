@@ -1,7 +1,7 @@
 """Ramesh's days, both ways (DECISIONS 47). Short of money, Hegel may agree that Ramesh comes three days a week for
-half the wage (ramesh_parttime). Once nothing is owed for the wage or the groceries and the purse holds two months of
-the full wage, Ramesh offers to come every day but Wednesday again (ramesh_fulltime). Each answer lets the opposite
-offer be made again later."""
+half the wage (ramesh_parttime). With HEGEL_RAMESH_DAYS on, once nothing is owed for the wage or the groceries and
+what is left after everything owed holds two months of the full wage, Ramesh offers to come every day but Wednesday
+again (ramesh_fulltime). Each yes lets the opposite offer be made again later. Off, the offer does not exist."""
 import sys
 import unittest
 from pathlib import Path
@@ -9,6 +9,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from test_economy import D, There, fresh, look, offer  # noqa: E402
 
+from world.config import Config  # noqa: E402
 from world.world import World, at_dt  # noqa: E402
 
 THU = D(19, 11)          # a Thursday: Ramesh comes on either schedule
@@ -34,7 +35,7 @@ def groceries(amount=900):
 
 class WayBackTest(unittest.TestCase):
     def setUp(self):
-        self.w = World()
+        self.w = World(ramesh_days=True)
 
     def beat(self, st, t=None):
         with There(home=["ramesh"]):
@@ -103,6 +104,47 @@ class WayBackTest(unittest.TestCase):
         self.assertIs(st["flags"]["ramesh_parttime"], True)
         self.assertNotIn("ramesh_fulltime", st["beats"])                           # the way back is open again
         self.assertEqual([o["amount"] for o in st["owed"] if o.get("cost") == "wage"], [4000])
+
+
+    def test_a_bill_falling_due_in_that_moment_counts_against_the_purse(self):
+        sat = at_dt(D(21, 11), 540)                     # the dhobi falls due on Saturday, a day Ramesh comes
+        due = sum(c["amount"] for c in self.w.falling_due(sat, part_time()))
+        self.assertGreaterEqual(due, 300)
+        self.assertNotEqual(self.beat(part_time(cash=16000 + due - 1), sat), "ramesh_fulltime")
+        self.assertEqual(self.beat(part_time(cash=16000 + due), sat), "ramesh_fulltime")
+
+    def test_a_wage_falling_due_in_that_moment_holds_the_offer_back(self):
+        mon = at_dt(D(1, 2).replace(year=2027), 540)    # 1 February 2027, a Monday: the month's wage falls due as he wakes
+        st = part_time()
+        st["costs"] = {c["id"]: "2027-01-31" for c in self.w.costs}
+        self.assertNotEqual(self.beat(st, mon), "ramesh_fulltime")
+        self.assertFalse([o for o in st["owed"] if o.get("cost") == "wage"])                # accrued and paid in that moment
+        self.assertEqual(self.beat(st, at_dt(D(1, 2).replace(year=2027), 570)), "ramesh_fulltime")
+
+    def test_what_he_owes_elsewhere_counts_too(self):
+        st = part_time(cash=25000, owed=[{"to": "the Directorate of Estates", "amount": 9294, "why": "queried vouchers",
+                                          "since": "2026-11-05", "at": "estates", "with": "saxena"}])
+        self.assertNotEqual(self.beat(st), "ramesh_fulltime")                                # 25,000 less 9,294 is short of 16,000
+        st["imprest"] = 25294
+        self.assertEqual(self.beat(st), "ramesh_fulltime")
+
+
+class SwitchTest(unittest.TestCase):
+    def test_off_by_default_the_offer_does_not_exist(self):
+        self.assertFalse(Config({}).ramesh_days)
+        self.assertTrue(Config({"HEGEL_RAMESH_DAYS": "1"}).ramesh_days)
+        self.assertNotIn("ramesh_fulltime", [b["id"] for b in World().beats])
+        self.assertIn("ramesh_fulltime", [b["id"] for b in World(ramesh_days=True).beats])
+        st = part_time()
+        with There(home=["ramesh"]):
+            beat = look(World(), at_dt(THU, 600), st, "home")[1]["beat"]
+        self.assertNotEqual((beat or {}).get("id"), "ramesh_fulltime")
+        self.assertIs(st["flags"]["ramesh_parttime"], True)
+
+    def test_the_rehearsal_and_the_tick_build_the_same_world(self):
+        from world.__main__ import make_world
+        cfg = Config({"HEGEL_RAMESH_DAYS": "1", "HEGEL_FEEDS": "0"})
+        self.assertIn("ramesh_fulltime", [b["id"] for b in make_world(cfg).beats])
 
 
 if __name__ == "__main__":
