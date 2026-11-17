@@ -1,0 +1,86 @@
+INFO day 48 begins (2026-11-18)
+INFO mind awake after 0s
+INFO 2026-11-18 09:14 walk → iic until 09:36 (mind)
+INFO writing by chat call: Letter to Dr. Clara Lindner
+INFO 2026-11-18 09:36 write → iic until 10:36 (mind)
+INFO 2026-11-18 10:36 stay → iic until 11:06 (mind)
+INFO writing by chat call: On the Ethical Substance and the Dream of the East
+INFO 2026-11-18 11:06 write → iic until 11:51 (mind)
+INFO 2026-11-18 11:51 walk → khan until 12:01 (mind)
+INFO 2026-11-18 12:01 eat → khan until 12:46 (mind)
+INFO 2026-11-18 12:46 stay → khan until 12:56 (mind)
+INFO 2026-11-18 12:56 stay → khan until 13:06 (mind)
+INFO 2026-11-18 13:06 eat → khan until 13:36 (mind)
+INFO 2026-11-18 13:36 buy → khan until 13:51 (mind)
+INFO 2026-11-18 13:51 eat → khan until 14:01 (mind)
+INFO 2026-11-18 14:01 eat → khan until 14:16 (mind)
+INFO 2026-11-18 14:16 eat → khan until 14:46 (mind)
+INFO 2026-11-18 14:46 rest → khan until 15:06 (mind)
+INFO 2026-11-18 15:06 talk → khan until 15:51 (mind)
+INFO 2026-11-18 15:51 walk → home until 16:18 (mind)
+INFO 2026-11-18 16:18 walk → khan until 16:45 (mind)
+INFO 2026-11-18 16:45 talk → khan until 17:15 (mind)
+INFO 2026-11-18 17:15 buy → khan until 17:20 (mind)
+INFO 2026-11-18 17:20 buy → khan until 17:30 (mind)
+INFO 2026-11-18 17:30 talk → khan until 17:35 (mind)
+INFO 2026-11-18 17:35 talk → khan until 17:45 (mind)
+INFO 2026-11-18 17:45 stay → khan until 17:50 (mind)
+INFO 2026-11-18 17:50 talk → khan until 17:55 (mind)
+INFO 2026-11-18 17:55 stay → khan until 18:10 (mind)
+INFO 2026-11-18 18:10 stay → khan until 18:25 (mind)
+INFO 2026-11-18 18:25 stay → khan until 18:35 (mind)
+INFO 2026-11-18 18:35 stay → khan until 18:50 (mind)
+INFO 2026-11-18 18:50 stay → khan until 19:05 (mind)
+INFO 2026-11-18 19:05 stay → khan until 19:15 (mind)
+INFO 2026-11-18 19:15 walk → home until 19:42 (mind)
+INFO 2026-11-18 19:42 walk → iic until 20:04 (mind)
+INFO 2026-11-18 20:04 rest → iic until 20:34 (mind)
+INFO 2026-11-18 20:34 rest → iic until 20:59 (mind)
+INFO 2026-11-18 20:59 talk → iic until 21:00 (mind)
+INFO 2026-11-18 21:00 sleep → home until 24:00 (bedtime)
+INFO day 49 begins (2026-11-19)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/root/w5/main/world/__main__.py", line 499, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/root/w5/main/world/__main__.py", line 494, in main
+    return {"tick": cmd_tick, "start": cmd_start, "status": cmd_status, "simulate": cmd_simulate, "owl": cmd_owl, "check": cmd_check,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/w5/main/world/__main__.py", line 335, in cmd_simulate
+    day = rehearse_day(engine, sim, out, d + timedelta(days=i))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/w5/main/world/__main__.py", line 306, in rehearse_day
+    engine.run_owl(owl_day, at_dt(d + timedelta(days=1), minute_of(at_dt(d, 0)) + 90))
+  File "/root/w5/main/world/engine.py", line 801, in run_owl
+    written = owl.write(self.cfg, day, st, self.owl_mind, depesche_n=n, problems=lambda text: self.world.problems(text, known),
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/w5/main/world/owl.py", line 235, in write
+    raise OwlError("the owl's answer was unusable: " + (raw or "")[:200])
+world.owl.OwlError: the owl's answer was unusable: {
+  "diary": "The body is a void that mocks the spirit, and the spirit is a void that mocks the body. I have not eaten since yesterday, and the plan calls for a walk to Khan Market, but the market is 
+Command exited with non-zero status 1
+	Command being timed: "python3 -m world simulate --docs /root/w5/shadow-docs --date 2026-11-18 --days 1 --mind http://127.0.0.1:8082 --seed 1831 --set HEGEL_DECISION_DRAWS=4 --set HEGEL_CORRESPONDENT=1 --set HEGEL_SOUL_FILE=mind/soul-ordinary.md --set HEGEL_STREET=0 --out /root/w5/out/CHECK-S0-1831"
+	User time (seconds): 1.09
+	System time (seconds): 0.13
+	Percent of CPU this job got: 0%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 7:10.21
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 81680
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 30352
+	Voluntary context switches: 143
+	Involuntary context switches: 10
+	Swaps: 0
+	File system inputs: 528
+	File system outputs: 16624
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
