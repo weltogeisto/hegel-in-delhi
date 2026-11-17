@@ -479,6 +479,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "17:21",
+   "to": "17:36",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -1281,6 +1288,34 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "17:06"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil is right; the body does not care for my dialectics, only for the warmth of the oil. I will eat with the seriousness of a man who knows his own limitations, while the market hums around me. The sun is setting, and I must finish this before the dark takes the streets.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology"
+    }
+   ],
+   "t": "17:21"
+  },
+  {
+   "k": "said",
+   "text": "You are correct, Sunil. The content must fill the form, or the form is empty. I will attend to the matter.",
+   "to": "Masterji and Sunil",
+   "t": "17:21"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Bahut accha, 'attend to the matter' kar lo. Ab chup chap khao, aakhri samosa bhi sookh raha hai. Ek aur chai chahiye, ya bas garam pani?",
+   "t": "17:21"
   }
  ],
  "steps": [
@@ -2807,6 +2842,70 @@
      "text": "Thus if many are, they are small and great; small, so that they have no size; great, so that they are infinite.” Aristotle (Phys. VI. 9) explains this dialectic further; Zeno’s treatment of motion was above all objectively dialectical. But the particulars which we find in the Parmenides of Plato are not his."
     }
    ]
+  },
+  {
+   "t": "17:21",
+   "end": "17:36",
+   "event": "Sunil says: “Hmph, form and content. You talk too much for a man eating three samosas. Eat, before the oil cools down and your 'dialectic' gets soggy.” Sunil wipes his hands on his apron and watches him take a bite. You are very hungry.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil is right; the body does not care for my dialectics, only for the warmth of the oil. I will eat with the seriousness of a man who knows his own limitations, while the market hums around me. The sun is setting, and I must finish this before the dark takes the streets.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 15,
+    "says": "You are correct, Sunil. The content must fill the form, or the form is empty. I will attend to the matter.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply",
+    "hunger"
+   ],
+   "voice": {
+    "by": "Sunil",
+    "says": "Bahut accha, 'attend to the matter' kar lo. Ab chup chap khao, aakhri samosa bhi sookh raha hai. Ek aur chai chahiye, ya bas garam pani?",
+    "does": "He points a chopstick at the plate and wipes a smudge of oil from his apron."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 4,
+    "latency_s": 19.0,
+    "draws": {
+     "n": 4,
+     "refused": 0,
+     "echo": 4,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "id": "dyde-right:464"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology",
+     "id": "baillie-1:480"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "text": "The civic community contains three elements: A. The recasting of want, and the satisfaction of the individual through his work, through the work of all others, and through the satisfaction of their wants. This is a system of wants. B. Actualization of the general freedom required for this, i.e., the protection of property by the administration of justice."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology",
+     "text": "This content, in so far as it is completely particiiiarised, is, in its concrete reahty, not confined to the single individual, but involves and embraces the activity of all. The labour of the individual for his own wants and necessities is just as much a satisfaction of those of others as of himself, and the satisfaction of his own he attains only by the labour of others."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2814,7 +2913,7 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-18T17:21+05:30",
+  "until": "2026-11-18T17:36+05:30",
   "asleep": false,
   "imprest": 25801,
   "wearing": "kurta",
@@ -2924,7 +3023,7 @@
    "no_meals": true,
    "walked": 8400,
    "strain": 8400,
-   "hunger": 1
+   "hunger": 2
   },
   "account": {
    "advance": 15000,
