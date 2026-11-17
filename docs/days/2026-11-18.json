@@ -444,6 +444,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "16:11",
+   "to": "16:26",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -1046,6 +1053,46 @@
    "price": 45,
    "office": true,
    "t": "16:01"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil’s ledger is the true constitution of this market: it binds the transaction, not the paper. I have already bought the papers at 16:01, so this offer is a redundancy, a double-counting in his head that I must correct before it becomes a debt. The air is cool, the sun gone, and my stomach is a hollow drum. I will take the chai and the samosa, pay in cash to keep his book clear, and then walk to the gardens before the dark closes in.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§541"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316"
+    }
+   ],
+   "t": "16:11"
+  },
+  {
+   "k": "said",
+   "text": "I have already taken the paper, Sunil. Do not add it twice. I will pay for the chai and a samosa now, in cash, so your head may rest.",
+   "to": "Masterji and Sunil",
+   "t": "16:11"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Arre, sir, I am not a computer, I just talk. Here is your hot chai and a fresh samosa, just twenty and thirty rupees. Take it, and don't worry about my head.",
+   "t": "16:11"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "16:11"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "16:11"
   }
  ],
  "steps": [
@@ -2212,6 +2259,78 @@
      "text": "In so far as it has risen above the substance of ethical life and the quiescent state of thought, and attained its conscious independence, it has left behind the law of custom and of substantial existence, the kinds of knowledge acquired through observation, and the sphere of theory; these lie behind it as a gray shadow that is just vanishing."
     }
    ]
+  },
+  {
+   "t": "16:11",
+   "end": "16:26",
+   "event": "Sunil says: “Morning's paper is still there, sir, just under the counter. That's forty-five, add it to the chai bill, I'll keep the total straight in my head.” He slides the newspaper across the counter and taps the small ledger on his chest.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil’s ledger is the true constitution of this market: it binds the transaction, not the paper. I have already bought the papers at 16:01, so this offer is a redundancy, a double-counting in his head that I must correct before it becomes a debt. The air is cool, the sun gone, and my stomach is a hollow drum. I will take the chai and the samosa, pay in cash to keep his book clear, and then walk to the gardens before the dark closes in.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 15,
+    "says": "I have already taken the paper, Sunil. Do not add it twice. I will pay for the chai and a samosa now, in cash, so your head may rest.",
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     },
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Sunil",
+    "says": "Arre, sir, I am not a computer, I just talk. Here is your hot chai and a fresh samosa, just twenty and thirty rupees. Take it, and don't worry about my head.",
+    "does": "He slides the steel cup and a paper-wrapped samosa across the counter."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§541",
+     "id": "wallace-mind:308"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316",
+     "id": "rechts:1044"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§541",
+     "text": "The really living totality,—that which preserves, in other words continually produces the state in general and its constitution, is the government. The organisation which natural necessity gives is seen in the rise of the family and of the’estates’ of civil society."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316",
+     "text": "Was sich wirklich im Staate geltend macht, muß sich freilich auf organische Weise betätigen, und dies ist in der Verfassung der Fall. Aber zu allen Zeiten war die öffentliche Meinung eine große Macht und ist es besonders in unserer Zeit, wo das Prinzip der subjektiven Freiheit diese Wichtigkeit und Bedeutung hat."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2219,9 +2338,9 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-18T16:11+05:30",
+  "until": "2026-11-18T16:26+05:30",
   "asleep": false,
-  "imprest": 26051,
+  "imprest": 26001,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -2354,6 +2473,20 @@
      "item": "Newspapers",
      "price": 45,
      "office": true
+    },
+    {
+     "date": "2026-11-18",
+     "t": "16:11",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-18",
+     "t": "16:11",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
     }
    ],
    "admitted": 730,
@@ -2605,7 +2738,7 @@
    "sim": false
   },
   "last_meal": "2026-11-09T13:41+05:30",
-  "snacks": 7,
+  "snacks": 8,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
