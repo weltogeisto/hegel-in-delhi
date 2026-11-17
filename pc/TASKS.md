@@ -37,7 +37,7 @@ Main now holds the world's second phase, every switch off. The merge into shadow
 `from .publish import Git, GitError`
 Then check the merge as `pc/PC-SESSION.md` says. With the new switches unset, his days are what they were, plus two fields in the record: `opened` on a step, `funnel` on a day.
 
-### W1 · PC seat · the health row in the nightly report · ON: shadow `664f90e`; the first row is due after the owl of Day 47
+### W1 · PC seat · the health row in the nightly report · DONE: Day 47's row arrived by itself at 09:10 Berlin, 17 November (shadow `604a08f`): 37 moments, 78% answered, 5% empty, 5 brought, 14% at home. Day 48's first step carries `opened`
 Beside the day's row, run `python3 -m world report --health` on shadow's days and put its line where the nightly row goes. From the first night on main's new code, each step carries `opened` and each day a `funnel`; the row reads them. Done when one night's row has arrived by itself.
 
 ### W2 · PC seat · the band of noise · DONE: `codex/pc-seat-20261116` at `40947ac`, `pc/exports/noise-band-20261116/README.md`
