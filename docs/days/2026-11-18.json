@@ -514,6 +514,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Walking the paths of Lodhi Gardens."
+  },
+  {
+   "from": "19:03",
+   "to": "19:20",
+   "mode": "walk",
+   "a": "lodhi",
+   "b": "khan"
   }
  ],
  "entries": [
@@ -1423,6 +1430,21 @@
     }
    ],
    "t": "18:18"
+  },
+  {
+   "k": "diary",
+   "text": "The gardens close in twenty-seven minutes, and the air is clearing as the day ends. I have walked nearly ten kilometres and eaten nothing substantial since yesterday; my body insists on its rights, and I must not let the spirit starve while the flesh complains. I shall take a final look at the tombs, then make my way to Khan Market before it shuts at twenty past eight. A man cannot think clearly on an empty stomach, and I have the means to remedy this, even if the wine is still forbidden.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…"
+    }
+   ],
+   "t": "19:03"
   }
  ],
  "steps": [
@@ -3252,14 +3274,68 @@
      "text": "Wir haben den Despotismus im Orient in glänzender Ausbildung als eine dem Morgenland entsprechende Gestaltung gesehen; nicht minder ist die demokratische Form in Griechenland die welthistorische Bestimmung."
     }
    ]
+  },
+  {
+   "t": "19:03",
+   "end": "19:20",
+   "event": "Lodhi Gardens closes at 19:30.",
+   "present": [],
+   "decision": {
+    "thought": "The gardens close in twenty-seven minutes, and the air is clearing as the day ends. I have walked nearly ten kilometres and eaten nothing substantial since yesterday; my body insists on its rights, and I must not let the spirit starve while the flesh complains. I shall take a final look at the tombs, then make my way to Khan Market before it shuts at twenty past eight. A man cannot think clearly on an empty stomach, and I have the means to remedy this, even if the wine is still forbidden.",
+    "action": "walk",
+    "place": "khan",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "khan",
+   "opened": [
+    "closes"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:514"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "id": "haldane-1:113"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "But in India it is normal: for here there is no sense of personal independence with which a state of despotism could be compared, and which would raise revolt in the soul; nothing approaching even a resentful protest against it, is left, except the corporeal smart, and the pain of being deprived of absolute necessaries and of pleasure."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "text": "But it must be considered in regard to the slow progress of the world-spirit, that there is no need for it to hasten:—“A thousand years are in Thy sight as one day.” It has time enough just because it is itself outside of time, because it is eternal."
+    }
+   ]
   }
  ],
  "funnel": {},
  "owl": null,
  "complete": false,
  "state": {
-  "place": "lodhi",
-  "until": "2026-11-18T19:03+05:30",
+  "place": "khan",
+  "until": "2026-11-18T19:20+05:30",
   "asleep": false,
   "imprest": 25791,
   "wearing": "kurta",
@@ -3368,8 +3444,8 @@
     "lodhi": []
    },
    "no_meals": true,
-   "walked": 9675,
-   "strain": 9675,
+   "walked": 10950,
+   "strain": 10950,
    "hunger": 2
   },
   "account": {
