@@ -30,26 +30,29 @@ Specs: `pc/WORLD-2-WEEK1.md`. Every switch is off. Each goes on only after its s
 
 Three tasks, none of which changes anything live. They come after the order of `DECISIONS.md` 34 in priority and may use the night (`DECISIONS.md` 30).
 
-### W0 · PC seat · bring main into shadow · OPEN
+### W0 · PC seat · bring main into shadow · DONE: shadow `406ac6c`, 1,320 tests OK (PR #1, 16 November)
 Main now holds the world's second phase, every switch off. The merge into shadow conflicts in two import lines of `world/__main__.py` and nowhere else (tried on 16 November against shadow's head). Resolve them to:
 `from . import health, nightly_report, pause, report, shelf, street, works`
 `from .mind import STAND_INS, HTTPMind, StubMind`
 `from .publish import Git, GitError`
 Then check the merge as `pc/PC-SESSION.md` says. With the new switches unset, his days are what they were, plus two fields in the record: `opened` on a step, `funnel` on a day.
 
-### W1 · PC seat · the health row in the nightly report · OPEN
+### W1 · PC seat · the health row in the nightly report · DONE: Day 47's row arrived by itself at 09:10 Berlin, 17 November (shadow `604a08f`): 37 moments, 78% answered, 5% empty, 5 brought, 14% at home. Day 48's first step carries `opened`
 Beside the day's row, run `python3 -m world report --health` on shadow's days and put its line where the nightly row goes. From the first night on main's new code, each step carries `opened` and each day a `funnel`; the row reads them. Done when one night's row has arrived by itself.
 
-### W2 · PC seat · the band of noise · OPEN
-How much do two days differ when nothing was changed? Every later fork is read against this.
-1. Take the latest complete shadow day D. In a scratch folder, never in the repo: `python3 -m world simulate --docs <shadow's docs> --date D --days 1 --mind <the model server> --seed 1 --out <scratch>/s1a`, with `--set` for every switch shadow runs that day (the filter, the letters, the instructions file).
-2. The same three more times: `--seed 1` into `s1b`, `--seed 2` into `s2`, and no `--seed` into `s0`.
-3. For the pairs s1a/s1b (same seed), s1a/s2 (different seeds) and s1a/s0: `python3 tools/fork_diff.py A B`, and `python3 -m world report --health --docs <folder> D` for each folder.
-4. Push the four day files, the three diffs and the four rows to `pc/exports/noise-band-<date>/` with one page that says: is the same seed the same day on our server, and if not, at which moment do they part.
-Four rehearsed days: about an hour and a half of the card. By night, in the spare slot.
+### W2 · PC seat · the band of noise · DONE: `codex/pc-seat-20261116` at `40947ac`, `pc/exports/noise-band-20261116/README.md`
+**The answer:** on our server the same seed is the same day only with the prompt cache off. With it on, three same-seed forks part at Ramesh's first answer, because a reply depends on how much of the prompt the server took from its cache. With `"cache_prompt": false` on every call, two same-seed days are identical over all 30 steps. Flushing the slots is not enough.
 
-### W3 · PC seat · the `wants` screen · OPEN
-Welt has accepted the sentence for the screen (`DECISIONS.md` 41). Run `pc/WANTS-SCREEN.md` as declared: `python3 tools/wants_screen.py freeze --repo <native> --shadow <sha> --out <dir> --from-day N` on the complete days after the letter from Munich paid his debts (Day 47 on), then `wants_screen.run(<dir>, post)` with the guarded transport as for M1 (216 calls), then push the records. Claude runs `measure` and writes the result. Nothing goes on shadow from this: a pass earns a trial only on Welt's word, at the end of the order.
+**The band,** seven days from one morning (Day 46, the filter and the letters on, cache on): 25 to 36 moments; empty 0 to 19%; at home 33 to 53%; variation 0.24 to 0.52; one or two things brought.
+
+**What follows, decided by Claude in the cloud, 16 November:**
+1. **A fork that is read against another sends `cache_prompt` false.** `simulate --seed` does it by itself with a real mind (`HEGEL_CACHE_PROMPT`), and so does every call of `tools/wants_screen.py`. All arms of one comparison use one mode. The live world keeps its cache.
+2. **One pair of forks shows nothing small.** "Empty" swings 19 points and "at home" 20 between seeds. A switch is read over several seeds a side, five at least, and by what it does to the same seed's day up to the moment the two part.
+3. **Still to measure:** the band with the cache off and different seeds. It joins the next night's forks.
+4. **The instructions change under it.** From Day 48 shadow runs `mind/soul-ordinary.md` (the other cloud session's read of Day 47, 16 November). The band above was measured on `mind/soul.md`. Every fork names its instructions with `--set HEGEL_SOUL_FILE=…` to match shadow on its day, and the band is measured again on the new ones before a switch is read against it.
+
+### W3 · PC seat · the `wants` screen · OPEN, and waits for the cache change on main
+Welt has accepted the sentence for the screen (`DECISIONS.md` 41). Run `pc/WANTS-SCREEN.md` as declared: `python3 tools/wants_screen.py freeze --repo <native> --shadow <sha> --out <dir> --from-day N` on the complete days from Day 48 on (`--from-day 48`): the letter has paid his debts, and he runs on `mind/soul-ordinary.md`, which is the arms' instructions, then `wants_screen.run(<dir>, post)` with the guarded transport as for M1 (216 calls), then push the records. Claude runs `measure` and writes the result. Nothing goes on shadow from this: a pass earns a trial only on Welt's word, at the end of the order. **Every call sends `cache_prompt` false** (W2); the tool does it once main has the change.
 
 ## Current, 16 November 2026
 

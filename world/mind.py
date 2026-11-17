@@ -28,7 +28,7 @@ class HTTPMind:
 
     def __init__(self, url, wake=None, timeout=300, temperature=0.7, voice_adapter_scale=None,
                  writing_reasoning_tokens=0, writing_adapter_scale=None,
-                 decision_reasoning_tokens=0, decision_adapter_scale=None, decision_dry=0.0, seed=None):
+                 decision_reasoning_tokens=0, decision_adapter_scale=None, decision_dry=0.0, seed=None, cache_prompt=None):
         self.url, self.wake, self.timeout, self.temperature = url.rstrip("/"), wake, timeout, temperature
         if not 0 <= decision_dry <= 2:
             raise ValueError("decision_dry must be from 0 to 2")
@@ -46,6 +46,9 @@ class HTTPMind:
         self.voice_adapter_scale = voice_adapter_scale
         self.writing_reasoning_tokens = writing_reasoning_tokens
         self.writing_adapter_scale = writing_adapter_scale
+        if cache_prompt not in (None, True, False):
+            raise ValueError("cache_prompt must be None, True or False")
+        self.cache_prompt = cache_prompt          # None: say nothing (chat) or keep complete's own False; True/False: every request names it, so that a same-seed rehearsal is the same day
         self.ready = False
         self.seed, self.calls = seed, 0          # a base seed (HEGEL_SEED, --seed) and the number of chat and complete calls so far
 
@@ -146,6 +149,8 @@ class HTTPMind:
             payload["lora"] = [{"id": 0, "scale": adapter_scale}]
         if seed is not None:
             payload["seed"] = seed
+        if self.cache_prompt is not None:
+            payload["cache_prompt"] = self.cache_prompt
         if dry:                     # llama.cpp's DRY sampler: continuing a run of words already in the context costs more the longer it gets
             payload.update(dry_multiplier=dry, dry_base=DRY_BASE, dry_allowed_length=DRY_ALLOWED, dry_penalty_last_n=DRY_LAST_N)
         if schema:
@@ -177,6 +182,8 @@ class HTTPMind:
                    "cache_prompt": False, "repeat_penalty": REPEAT_PENALTY, "repeat_last_n": REPEAT_LAST_N, "dry_multiplier": DRY_MULTIPLIER}
         if seed is not None:
             payload["seed"] = seed
+        if self.cache_prompt is not None:
+            payload["cache_prompt"] = self.cache_prompt         # complete() sends False on its own when this is None
         if self.adapter_configured():           # his prose in plain mode is not the voices': the base model, whatever the server holds
             payload["lora"] = [{"id": 0, "scale": 0}]
         req = urllib.request.Request(self.url + "/completion", data=json.dumps(payload).encode("utf-8"), headers={"Content-Type": "application/json"})

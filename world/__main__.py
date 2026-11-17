@@ -60,7 +60,7 @@ def make_mind(cfg, which, wake=True):
     return HTTPMind(url, wake=cfg.wake if wake else None, timeout=cfg.timeout, voice_adapter_scale=cfg.voice_adapter_scale,
                     writing_reasoning_tokens=cfg.writing_reasoning_tokens, writing_adapter_scale=cfg.writing_adapter_scale,
                     decision_reasoning_tokens=cfg.decision_reasoning_tokens, decision_adapter_scale=cfg.decision_adapter_scale,
-                    decision_dry=getattr(cfg, "decision_dry", 0.0), seed=getattr(cfg, "seed", None))
+                    decision_dry=getattr(cfg, "decision_dry", 0.0), seed=getattr(cfg, "seed", None), cache_prompt=getattr(cfg, "cache_prompt", None))
 
 
 def make_world(cfg):
@@ -236,6 +236,19 @@ def parse_sets(items, seed=None):
     return sets
 
 
+def seeded_sets(cfg, args):
+    """The rehearsal's --set switches, and the notice to print before its days (or None). With --seed and a real mind, the prompt cache is off
+    unless the rehearsal's settings (--set, the environment, the env file) name HEGEL_CACHE_PROMPT themselves: a reply depends on how much of the
+    prompt the server took from its cache, so with it on the same seed is not the same day."""
+    sets = parse_sets(args.set, args.seed)
+    which = args.mind or "stub"
+    if args.seed is None or which in STAND_INS or which.startswith("stub") or "HEGEL_CACHE_PROMPT" in sets or str(cfg.values.get("HEGEL_CACHE_PROMPT", "")).strip():
+        return sets, None
+    sets["HEGEL_CACHE_PROMPT"] = "0"
+    return sets, (f"seed {args.seed}: the prompt cache is off for this rehearsal, so that the same seed is the same day "
+                  "(HEGEL_CACHE_PROMPT=1 to keep it on)")
+
+
 def rehearsal_config(out, feeds=False, sets=None):
     """The Config of a rehearsal folder: nothing is pushed, the state lives under out/state, the feeds are off unless asked for, his world is never
     held (pause), and `sets` (HEGEL_ switches) are applied on top of what the env file and the environment give."""
@@ -301,10 +314,13 @@ def cmd_simulate(cfg, args):
     t0 = time.time()
     d = date.fromisoformat(args.date)
     out = Path(args.out).resolve()
-    sim = rehearsal_setup(cfg, args.date, out, args.feeds, parse_sets(args.set, args.seed), args.docs)
+    sets, notice = seeded_sets(cfg, args)
+    sim = rehearsal_setup(cfg, args.date, out, args.feeds, sets, args.docs)
     world = make_world(sim)
     mind = make_mind(sim, args.mind or "stub", wake=args.wake)
     engine = Engine(sim, world, mind, git=None)
+    if notice:
+        print(notice)
     last = Days(out).latest()
     if until_of(last).date() < d:          # a gap before the rehearsed day: start it fresh at midnight
         last["state"]["until"] = at_dt(d, 0).isoformat(timespec="minutes")

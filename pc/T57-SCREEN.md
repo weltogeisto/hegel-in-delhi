@@ -19,6 +19,8 @@ Plain Qwen, no adapter, the voices' instructions as live.
 
 A against A′ is the band of noise. P stands on F because a promise is checked against the record F supplies.
 
+**Every call sends `cache_prompt` false,** so that the same seed is the same reply (W2, `pc/TASKS.md`). Added on 16 November, before any output.
+
 ## Contexts
 
 Forty recorded moments in which he spoke and a person answered, frozen before any output. Each is rebuilt from the shadow commit just before its step, as M1 rebuilt its situations, so that every arm reads the same morning.

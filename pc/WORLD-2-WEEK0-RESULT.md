@@ -42,6 +42,13 @@ Of 100 recorded replies, eight contradict the record, five of them on something 
 
 So T57 keeps its size, and its order is clear: promises first.
 
+## The band of noise, measured by the PC seat the same night
+
+From one saved morning, seven days with nothing changed (`pc/exports/noise-band-20261116/README.md` on `codex/pc-seat-20261116`):
+
+- **The same seed is the same day only with the server's prompt cache off.** With it on, a reply depends on what the server happened to hold. With it off, two days were identical over all 30 steps. Forks that are compared now send it off.
+- **Unchanged days differ widely:** empty moments from 0 to 19%, at home from 33 to 53%, 25 to 36 moments. So one pair of forks shows only a large effect. A switch is read over five seeds a side or more.
+
 ## What this changes in the plan
 
 Nothing in the order of `WORLD-2.md`, and three things inside it:
