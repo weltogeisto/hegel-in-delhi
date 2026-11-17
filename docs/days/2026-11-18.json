@@ -12,13 +12,13 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 17,
+    "temp": 16,
     "sky": "clear",
     "rain": 0,
     "aqi": 110
    },
    {
-    "temp": 17,
+    "temp": 16,
     "sky": "clear",
     "rain": 0,
     "aqi": 113
@@ -36,7 +36,7 @@
     "aqi": 117
    },
    {
-    "temp": 16,
+    "temp": 15,
     "sky": "clear",
     "rain": 0,
     "aqi": 118
@@ -48,7 +48,7 @@
     "aqi": 120
    },
    {
-    "temp": 15,
+    "temp": 14,
     "sky": "clear",
     "rain": 0,
     "aqi": 121
@@ -90,7 +90,7 @@
     "aqi": 131
    },
    {
-    "temp": 25,
+    "temp": 24,
     "sky": "clear",
     "rain": 0,
     "aqi": 132
@@ -114,7 +114,7 @@
     "aqi": 133
    },
    {
-    "temp": 22,
+    "temp": 21,
     "sky": "clear",
     "rain": 0,
     "aqi": 133
@@ -126,13 +126,13 @@
     "aqi": 134
    },
    {
-    "temp": 20,
+    "temp": 19,
     "sky": "clear",
     "rain": 0,
     "aqi": 134
    },
    {
-    "temp": 19,
+    "temp": 18,
     "sky": "clear",
     "rain": 0,
     "aqi": 134
@@ -304,17 +304,126 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "09:14",
+   "to": "09:59",
+   "mode": "inside",
+   "at": "home",
+   "now": "Reading at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Keralam CM announces Tirupati-model mega project for Sabarimala pilgrims” · “Cervical cancer vaccine has reached 80% of India’s girls. In Mumbai, it’s 2%” · “Calcutta High Court issues criminal contempt proceedings against Abhishek Banerjee”",
+   "t": "09:14"
+  },
+  {
+   "k": "plan",
+   "items": [
+    {
+     "time": "09:30",
+     "intention": "Read the papers on the step, noting the vaccine stats and the Calcutta court case."
+    },
+    {
+     "time": "10:15",
+     "intention": "Walk to the IIC to review notes for Tuesday's talk, despite the file delay."
+    },
+    {
+     "time": "13:00",
+     "intention": "Return home and attempt to secure food, acknowledging Ramesh's unpaid status."
+    },
+    {
+     "time": "16:00",
+     "intention": "Draft a reply to Dr. Lindner, addressing the philosophical implications of recent events."
+    },
+    {
+     "time": "18:00",
+     "intention": "Walk to Lodhi Gardens to clear the head before the evening darkens."
+    }
+   ],
+   "t": "09:14"
+  },
+  {
+   "k": "diary",
+   "text": "The headlines sit on the step like a verdict. The vaccine statistics reveal a state that functions by the slow, mechanical diffusion of the universal into the particular, a progress that is measurable and therefore real. The Calcutta court case is merely the noise of civil society's private opinions clashing, but the Sabarimala project is the state asserting its ethical substance over the particularity of devotion. I have not eaten in a day; the body protests with the indifference of a law, but the mind is awake. I will read as planned, then walk to the IIC.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§224"
+    }
+   ],
+   "t": "09:14"
+  }
+ ],
+ "steps": [
+  {
+   "t": "09:14",
+   "end": "09:59",
+   "event": "You wake. Clear, 19 °C. The papers lie on the step where the hawker threw them. Headlines: Keralam CM announces Tirupati-model mega project for Sabarimala pilgrims; Cervical cancer vaccine has reached 80% of India’s girls. In Mumbai, it’s 2%; Calcutta High Court issues criminal contempt proceedings against Abhishek Banerjee.",
+   "present": [],
+   "decision": {
+    "thought": "The headlines sit on the step like a verdict. The vaccine statistics reveal a state that functions by the slow, mechanical diffusion of the universal into the particular, a progress that is measurable and therefore real. The Calcutta court case is merely the noise of civil society's private opinions clashing, but the Sabarimala project is the state asserting its ethical substance over the particularity of devotion. I have not eaten in a day; the body protests with the indifference of a law, but the mind is awake. I will read as planned, then walk to the IIC.",
+    "action": "read",
+    "place": "home",
+    "minutes": 45,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "papers"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 14.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "id": "haldane-1:1028"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§224",
+     "id": "rechts:490"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "text": "The first step towards reaching a spiritual consciousness is the negative one of acquiring freedom for one’s consciousness. For since perception attempts to prove individual laws, it proceeds from a determination to which, as a universal basis, particular duty is submitted; but this basis is itself not absolute, and falls under the same dialectic."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§224",
+     "text": "Deliberationen der Mitglieder des Gerichts über das zu fällende Urteil unter sich sind Äußerungen der noch besonderen Meinungen und Ansichten, also ihrer Natur nach nichts öffentliches."
+    }
+   ]
+  }
+ ],
  "funnel": {},
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-18T09:14+05:30",
-  "asleep": true,
+  "until": "2026-11-18T09:59+05:30",
+  "asleep": false,
   "imprest": 35620,
   "wearing": "kurta",
   "wardrobe": [
@@ -401,7 +510,12 @@
    }
   ],
   "depesche_n": 3,
-  "today": {},
+  "today": {
+   "woke": "09:14",
+   "seen": {
+    "home": []
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -463,7 +577,8 @@
     "2026-11-14",
     "2026-11-15",
     "2026-11-16",
-    "2026-11-17"
+    "2026-11-17",
+    "2026-11-18"
    ],
    "lodhi": [
     "2026-10-02",
@@ -733,5 +848,30 @@
     "amount": 37794
    }
   }
+ },
+ "plan": {
+  "written": "09:14",
+  "items": [
+   {
+    "time": "09:30",
+    "intention": "Read the papers on the step, noting the vaccine stats and the Calcutta court case."
+   },
+   {
+    "time": "10:15",
+    "intention": "Walk to the IIC to review notes for Tuesday's talk, despite the file delay."
+   },
+   {
+    "time": "13:00",
+    "intention": "Return home and attempt to secure food, acknowledging Ramesh's unpaid status."
+   },
+   {
+    "time": "16:00",
+    "intention": "Draft a reply to Dr. Lindner, addressing the philosophical implications of recent events."
+   },
+   {
+    "time": "18:00",
+    "intention": "Walk to Lodhi Gardens to clear the head before the evening darkens."
+   }
+  ]
  }
 }
