@@ -500,6 +500,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "18:01",
+   "to": "18:18",
+   "mode": "walk",
+   "a": "khan",
+   "b": "lodhi"
   }
  ],
  "entries": [
@@ -1379,6 +1386,21 @@
     }
    ],
    "t": "17:51"
+  },
+  {
+   "k": "diary",
+   "text": "The sun is nearly gone, and the air has that sharp clarity that follows the heat's departure. I have eaten enough to sustain the body, but the mind requires the quiet of the gardens to settle before the night closes in. The file remains a distant worry, but here, among the tombs, I can breathe without the weight of the Directorate.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§263"
+    }
+   ],
+   "t": "18:01"
   }
  ],
  "steps": [
@@ -3095,14 +3117,70 @@
      "text": "The civil rights implied in it give rise to a feeling of self-respect, the sense of counting as a lawful person in the civic community. This feeling of being infinite and free from all Others is the root out of which springs the needed balance of the various kinds of thought and sentiment. The isolation with which the Jews have been blamed it is better to preserve."
     }
    ]
+  },
+  {
+   "t": "18:01",
+   "end": "18:18",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The sun is nearly gone, and the air has that sharp clarity that follows the heat's departure. I have eaten enough to sustain the body, but the mind requires the quiet of the gardens to settle before the night closes in. The file remains a distant worry, but here, among the tombs, I can breathe without the weight of the Directorate.",
+    "action": "walk",
+    "place": "lodhi",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "lodhi",
+   "opened": [],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1189"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§263",
+     "id": "dyde-right:616"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "For “when Antisthenes turned outside a hole in his cloak, Socrates said to him, I see thy vanity through the hole in thy cloak.” Clothing is not a thing of rational import, but is regulated through needs that arise of themselves. In the North the clothing must be different from that in Central Africa; and in winter we do not wear cotton garments."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§263",
+     "text": "The foundation and~ final- truth of these institutions is the spirit, which is their universal purpose and conscious object. The family is, indeed, also ethical, but its purpose is not a conscious one. In the civic community, on the other hand, separation is the definitive feature."
+    }
+   ]
   }
  ],
  "funnel": {},
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-11-18T18:01+05:30",
+  "place": "lodhi",
+  "until": "2026-11-18T18:18+05:30",
   "asleep": false,
   "imprest": 25791,
   "wearing": "kurta",
@@ -3210,8 +3288,8 @@
     ]
    },
    "no_meals": true,
-   "walked": 8400,
-   "strain": 8400,
+   "walked": 9675,
+   "strain": 9675,
    "hunger": 2
   },
   "account": {
