@@ -106,13 +106,27 @@ Welt's answers, the evening of 16 November, to three questions put plainly:
 41. **The sentence for `wants` may be tested: yes,** as drafted in `pc/WANTS-SCREEN.md`. The PC seat runs the screen on frozen moments. The sentence goes into his live days only after the result and Welt's word again.
 42. **The file's next act: later.** `pc/FILE-NEXT-ACT.md` stays a draft and out of `plot.json`. After his 20 November the file is silent until Welt takes it up.
 
+Welt's call, 17 November:
+
+43. **The records branch keeps its additions behind a switch that is off by default.** When main was merged into `codex/outcome-memory`, the day guard failed (`tests/test_opened.py`): that branch adds `records`, charge ids, `observations` and a `consumed` entry to every day with nothing switched. The guard's reference is not recorded again.
+    - **Why:** the guard stands for one rule, that a day with every new switch off is the day main gives. A reference recorded again to pass would stop meaning that for the branch's own later changes.
+    - **One allowance:** a field that is only ever added beside the record, and that neither he, the page nor the owl reads, may be named in the guard's `ADDED` list instead of switched. What sits inside existing entries, or is a new kind of entry, goes behind the switch.
+    - **Who:** the PC seat, on its branch.
+
+Welt's calls, the afternoon of 17 November:
+
+44. **The PC seat builds and runs the screen for the voices and the promises,** from a handover (`pc/T57-HANDOVER.md`). Claude in the cloud keeps the declaration, the reading and the result.
+45. **Khan Market gets its own scene on the page:** the lane with Sunil's stall and the dhaba, shown when he eats, drinks or talks there. Built by an agent on Sonnet 5.5, checked by Claude.
+    - **Why:** the page had rooms for four places and two Khan Market shops, shown only on a stroll. When he sat there eating, it showed nothing.
+
+46. **The street's first batch is approved** (Welt, 17 November): the sixty cards as written, the seven that are not verified against Delhi included. `HEGEL_STREET` stays off until its night of forks has passed (`pc/STREET-FORKS.md`) and Welt has given his word for the trial.
+
 ## Still open
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.
 - Whether the two rules of 38 also bind the PC seat.
 - **Whether an adapter gets a day of its own.** No adapter has run a day in his world: each stopped at its gate first (T29, the forty-case re-audit, Training 3's data gate). Since week 0 a fair day is possible: one saved morning, two forks, plain Qwen against the adapter, the same seeds, read by state and by text (`tools/fork_diff.py`, `world report --health`). It needs T67 first, because today an adapter that is set reaches the owl, the letters and the yes-or-no as well. Claude's advice, 16 November: not for the Training 1 adapter, which changed facts in 12 of 40 rewrites; make the fork day the entry test of the next adapter. Loading an adapter is a hard limit either way.
 - **The file's next act** (`pc/FILE-NEXT-ACT.md`, seven calls) waits for Welt's pen (42).
-- **The street's first batch** (`pc/STREET-BATCH-1.md`): sixty cards for Welt to read before `HEGEL_STREET` goes on anywhere.
 
 ## Ideas, not yet decided
 

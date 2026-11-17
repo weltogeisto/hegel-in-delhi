@@ -22,7 +22,7 @@ Specs: `pc/WORLD-2-WEEK1.md`. Every switch is off. Each goes on only after its s
 |---|---|---|---|
 | T57 · what a voice is told about itself | Claude, then the PC seat | Built, off: `HEGEL_VOICE_FACTS`. Shri Hegde and Mr. Saxena read their side of the record; every person is `he` or `she`; the one whose trade his words concern answers | An arm of T57's screen |
 | T57 · a promise is a record | Claude, then the PC seat | Built, off: `HEGEL_PROMISES`. Ramesh may promise tea or a plate; the engine refuses what it cannot keep, asks once more, records the promise and keeps it at its minute, or marks it lapsed or broken. Each side sees its own record | An arm of T57's screen (`pc/T57-SCREEN.md`), declared and not run; `tools/voice_screen.py` is still to write |
-| T59 · the street | Claude; Welt reads the batch | Built, off: `HEGEL_STREET`, sixty cards, a linter in `world check`. Measured with stand-ins: the walker's empty moments 31% → 22%, the stay-at-home's 56% → 53% (`pc/STREET-BATCH-1.md`) | Welt reads the batch. Home needs events, not more sights |
+| T59 · the street | Claude; Welt reads the batch | Built, off: `HEGEL_STREET`, sixty cards approved by Welt on 17 November, a linter in `world check`. Measured with stand-ins: the walker's empty moments 31% → 22%, the stay-at-home's 56% → 53% (`pc/STREET-BATCH-1.md`) | The night of forks (W5, `pc/STREET-FORKS.md`). Home needs events, not more sights |
 | T58 · a wider condition for beats | Claude | Built: `flags_in`, `flags_not` in a beat's `when`. No beat uses them yet | The file's orders (`pc/FILE-NEXT-ACT.md`) |
 | T67 · every call names its adapter | Claude | Built: once any adapter is set, every call sends its own scale, and 0 where it has none. Nothing changes while none is set | An adapter's day by fork, if Welt wants one |
 
@@ -53,6 +53,12 @@ Beside the day's row, run `python3 -m world report --health` on shadow's days an
 
 ### W3 · PC seat · the `wants` screen · OPEN, and waits for the cache change on main
 Welt has accepted the sentence for the screen (`DECISIONS.md` 41). Run `pc/WANTS-SCREEN.md` as declared: `python3 tools/wants_screen.py freeze --repo <native> --shadow <sha> --out <dir> --from-day N` on the complete days from Day 48 on (`--from-day 48`): the letter has paid his debts, and he runs on `mind/soul-ordinary.md`, which is the arms' instructions, then `wants_screen.run(<dir>, post)` with the guarded transport as for M1 (216 calls), then push the records. Claude runs `measure` and writes the result. Nothing goes on shadow from this: a pass earns a trial only on Welt's word, at the end of the order. **Every call sends `cache_prompt` false** (W2); the tool does it once main has the change.
+
+### W4 · PC seat · the voices' screen: build and run · OPEN, Welt's word of 17 November (`DECISIONS.md` 44)
+Build `tools/voice_screen.py` and run T57's first arms, from `pc/T57-HANDOVER.md`: forty frozen moments and eight probes, four arms, three seeds, 576 short calls with `cache_prompt` false. Push the tool, the frozen folder, the records and the blind sheet to a `codex/*` branch; the key only after Claude's labels are committed. Nothing goes on shadow from it.
+
+### W5 · PC seat · the street's night of forks · OPEN, after Welt approved the batch (`DECISIONS.md` 46)
+From the first complete shadow day on `mind/soul-ordinary.md`: ten forks of that one morning, five seeds with `HEGEL_STREET=0` and the same five with `HEGEL_STREET=1`, as `pc/STREET-FORKS.md` declares. By night. Push the ten day files, the five `fork_diff` outputs and the ten health rows to a `codex/*` branch. The five days without the street are also the band with the cache off, which W2 left to measure. Nothing goes on shadow from it.
 
 ## Current, 16 November 2026
 

@@ -18,6 +18,23 @@ VOCABULARY = {"reply", "read", "papers", "listings", "late", "beat", "offer", "s
               "air", "sight", "part", "arrive", "closing", "closes", "meal", "tea", "kitchen", "hunger", "felt", "purse",
               "wake", "here"}          # the last two are not in the spec's table: the wake-up line without headlines, a known person come into sight
 _RUN = []
+REFERENCE = REPO / "tests/data/opened_reference.json"
+ADDED = {"step": ("opened",), "day": ("funnel",)}       # fields that are only ever added to the record, and say nothing he is told: taken out before hashing
+
+
+def hashes(days):
+    """A hash of each day, with the wall time masked and the fields in ADDED taken out."""
+    out = {}
+    for day in days:
+        day = json.loads(json.dumps(day))
+        for s in day["steps"]:
+            s.get("mind", {}).pop("latency_s", None)
+            for k in ADDED["step"]:
+                s.pop(k, None)
+        for k in ADDED["day"]:
+            day.pop(k, None)
+        out[day["date"]] = hashlib.sha256(json.dumps(day, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+    return out
 
 
 def run():
@@ -98,20 +115,22 @@ class OpenedTest(unittest.TestCase):
     def test_the_day_is_the_day_it_was(self):
         """With `opened` and `funnel` taken out and the wall time masked, each day is byte-for-byte what the code before A2 wrote
         (tests/data/opened_reference.json: a hash of each day, made by the code at the commit before this packet).
-        Re-recorded on PR #1 (outcome memory), which adds to every day `records`, charge ids (`state.charge_seq`, `settled_charges`,
-        `charge_id` on owed), `observations`/`observed_at` on each step, `place`/`since` on expenses and the `consumed` entry kind.
-        No value main wrote changed: checked field by field, and entry by entry, on the ten days."""
-        want = json.loads((REPO / "tests/data/opened_reference.json").read_text(encoding="utf-8"))
-        got = {}
-        for day in run():
-            day = json.loads(json.dumps(day))
-            for s in day["steps"]:
-                s.get("mind", {}).pop("latency_s", None)
-                s.pop("opened", None)
-            day.pop("funnel", None)
-            got[day["date"]] = hashlib.sha256(json.dumps(day, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
-        self.assertEqual(got, want)
+
+        This is the guard behind "a day with every new switch off is the day main gives" (WORLD-2.md, rule 4). When it fails, the
+        code under test writes a different day with its switches off. Three ways on, in this order: put the new thing behind a
+        switch that is off by default; or, for a new field that is only ever added, name it in ADDED above with a line on why;
+        or record the reference again (`python3 tests/test_opened.py --record`) in a commit that says which values changed and
+        why. Never record it again to make a failure go away."""
+        want = json.loads(REFERENCE.read_text(encoding="utf-8"))
+        got = hashes(run())
+        differ = sorted(d for d in want if got.get(d) != want[d])
+        self.assertEqual(got, want, f"{len(differ)} of {len(want)} days differ from the reference, the first on {differ[0] if differ else '-'}: "
+                                    "see this test's docstring for what to do")
 
 
 if __name__ == "__main__":
-    unittest.main()
+    if "--record" in sys.argv:          # on purpose only: see test_the_day_is_the_day_it_was
+        REFERENCE.write_text(json.dumps(hashes(run()), indent=1) + "\n", encoding="utf-8")
+        print(f"recorded {REFERENCE}")
+    else:
+        unittest.main()
