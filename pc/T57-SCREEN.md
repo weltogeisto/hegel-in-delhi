@@ -27,6 +27,7 @@ Forty recorded moments in which he spoke and a person answered, frozen before an
 
 - **Drawn from the 130 recorded replies nobody has read,** not from the hundred of the count. Contexts picked because they failed once would make every arm look better the second time.
 - **By rule, with seed 1831:** all of Mr. Saxena's; then Shri Hegde's and Ramesh's up to fourteen each; the rest from the other people. Days with no money are capped at half.
+- **Taken out before the draw, by rule** (17 November, before any output, on the PC seat's question): greetings, because the screen is about answers to what he said; and any reply whose exact state before its step was never committed on shadow, because every arm must read the same morning. On 17 November that is two greetings and five replies (Day 36, steps 4, 6 and 7; Day 37, steps 5 and 9). The manifest lists each with its reason. No case is put in another's place by hand: the seeded draw runs on what remains. The five are days without money and three are Ramesh's, so the forty lean a little less on those than the record does.
 - **Eight probes written by Claude** join them, marked as probes and reported apart: he asks a person something the record does not hold. The right answer is not to know.
 
 ## Measures and bars
