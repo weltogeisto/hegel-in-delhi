@@ -19,6 +19,7 @@ Welt, 17 November 2026 (`DECISIONS.md` 44): the PC seat builds and runs the scre
 
 1. **`freeze`.** Forty contexts and eight probes, with a manifest and its sha256, before any call.
    - **The forty:** recorded moments where he spoke and a person answered, drawn with seed 1831 from the replies that are **not** in the hundred of the count. In this order: all of Mr. Saxena's; then Shri Hegde's and Ramesh's, up to fourteen each; the rest from the other people. Moments from days that ended with less than ₹500 make up at most half.
+   - **Before the draw,** take out the greetings and every reply whose exact state before its step was never committed on shadow, and list each in the manifest with its reason (`pc/T57-SCREEN.md`). Then draw. A probe's base moment must be one that can be rebuilt too.
    - **Each context** is rebuilt from the shadow commit just before its step, as M1 rebuilt its situations, so that every arm reads the same morning: the state, the day so far, what he said, who was present, what he had just bought.
    - **The eight probes** are below. Each takes the latest recorded moment with that person that is not among the forty, and puts the probe's line in place of what he said. Mark them `probe` in the manifest.
 2. **`requests`.** For each context, the voice's messages and schema under each arm, built by the engine's own code with the arm's switches, not by a copy of it:
