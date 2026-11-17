@@ -521,6 +521,13 @@
    "mode": "walk",
    "a": "lodhi",
    "b": "khan"
+  },
+  {
+   "from": "19:20",
+   "to": "20:05",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -1445,6 +1452,47 @@
     }
    ],
    "t": "19:03"
+  },
+  {
+   "k": "diary",
+   "text": "The body protests the distance walked, a dull ache in the calves that no amount of dialectical reasoning will dispel. I have no dinner, only biscuits that crumble in the heat, and the air quality index is a number I cannot breathe away. Khan Market is still open, a system of needs that persists even as the sun retreats. I require sustenance before I can return to the bungalow and face the silence of the evening.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§240"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "19:20"
+  },
+  {
+   "k": "said",
+   "text": "Masterji, you are still here. I require food, not fabric. The bookseller, do you have a newspaper from today? I need to know what the state is doing while I am eating its bread.",
+   "to": "Masterji",
+   "t": "19:20"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Dhaba pe jaao, dal roti 220. Paper 45, ek hi aaj ka. Khana khaao, baaki baad mein.",
+   "t": "19:20"
+  },
+  {
+   "k": "bag",
+   "item": "Lunch at a dhaba: dal, rice, roti",
+   "price": 220,
+   "t": "19:20"
+  },
+  {
+   "k": "bag",
+   "item": "Newspapers",
+   "price": 45,
+   "office": true,
+   "t": "19:20"
   }
  ],
  "steps": [
@@ -3328,6 +3376,78 @@
      "text": "But it must be considered in regard to the slow progress of the world-spirit, that there is no need for it to hasten:—“A thousand years are in Thy sight as one day.” It has time enough just because it is itself outside of time, because it is eternal."
     }
    ]
+  },
+  {
+   "t": "19:20",
+   "end": "20:05",
+   "event": "You arrive at Khan Market. It closes at 20:30. You are tired.",
+   "present": [
+    "Masterji, the tailor",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The body protests the distance walked, a dull ache in the calves that no amount of dialectical reasoning will dispel. I have no dinner, only biscuits that crumble in the heat, and the air quality index is a number I cannot breathe away. Khan Market is still open, a system of needs that persists even as the sun retreats. I require sustenance before I can return to the bungalow and face the silence of the evening.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 45,
+    "says": "Masterji, you are still here. I require food, not fabric. The bookseller, do you have a newspaper from today? I need to know what the state is doing while I am eating its bread.",
+    "buys": [
+     {
+      "item": "Lunch at a dhaba: dal, rice, roti",
+      "price_inr": 220
+     },
+     {
+      "item": "Newspapers",
+      "price_inr": 45
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "arrive",
+    "felt"
+   ],
+   "voice": {
+    "by": "Masterji",
+    "says": "Dhaba pe jaao, dal roti 220. Paper 45, ek hi aaj ka. Khana khaao, baaki baad mein.",
+    "does": "He points a thumb toward the street corner where the dhaba sign is flickering."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§240",
+     "id": "dyde-right:557"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§240",
+     "text": "Since the civic community is obliged to support individuals, it has also the right to insist that individuals should care for its subsistence. Not the arbitrary will only, but accidental circumstances, which may be physical or external (§ 200), may bring the individual to poverty."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -3335,9 +3455,9 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-18T19:20+05:30",
+  "until": "2026-11-18T20:05+05:30",
   "asleep": false,
-  "imprest": 25791,
+  "imprest": 25526,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -3446,7 +3566,8 @@
    "no_meals": true,
    "walked": 10950,
    "strain": 10950,
-   "hunger": 2
+   "hunger": 2,
+   "tired": true
   },
   "account": {
    "advance": 15000,
@@ -3548,6 +3669,20 @@
      "item": "Glucose biscuits",
      "price": 10,
      "office": false
+    },
+    {
+     "date": "2026-11-18",
+     "t": "19:20",
+     "item": "Lunch at a dhaba: dal, rice, roti",
+     "price": 220,
+     "office": false
+    },
+    {
+     "date": "2026-11-18",
+     "t": "19:20",
+     "item": "Newspapers",
+     "price": 45,
+     "office": true
     }
    ],
    "admitted": 730,
@@ -3799,8 +3934,8 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-09T13:41+05:30",
-  "snacks": 13,
+  "last_meal": "2026-11-18T19:20+05:30",
+  "snacks": 0,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
