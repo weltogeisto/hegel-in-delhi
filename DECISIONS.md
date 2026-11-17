@@ -106,6 +106,13 @@ Welt's answers, the evening of 16 November, to three questions put plainly:
 41. **The sentence for `wants` may be tested: yes,** as drafted in `pc/WANTS-SCREEN.md`. The PC seat runs the screen on frozen moments. The sentence goes into his live days only after the result and Welt's word again.
 42. **The file's next act: later.** `pc/FILE-NEXT-ACT.md` stays a draft and out of `plot.json`. After his 20 November the file is silent until Welt takes it up.
 
+Welt's call, 17 November:
+
+43. **The records branch keeps its additions behind a switch that is off by default.** When main was merged into `codex/outcome-memory`, the day guard failed (`tests/test_opened.py`): that branch adds `records`, charge ids, `observations` and a `consumed` entry to every day with nothing switched. The guard's reference is not recorded again.
+    - **Why:** the guard stands for one rule, that a day with every new switch off is the day main gives. A reference recorded again to pass would stop meaning that for the branch's own later changes.
+    - **One allowance:** a field that is only ever added beside the record, and that neither he, the page nor the owl reads, may be named in the guard's `ADDED` list instead of switched. What sits inside existing entries, or is a new kind of entry, goes behind the switch.
+    - **Who:** the PC seat, on its branch.
+
 ## Still open
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.
