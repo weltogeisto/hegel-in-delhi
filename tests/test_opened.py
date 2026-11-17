@@ -97,7 +97,10 @@ class OpenedTest(unittest.TestCase):
 
     def test_the_day_is_the_day_it_was(self):
         """With `opened` and `funnel` taken out and the wall time masked, each day is byte-for-byte what the code before A2 wrote
-        (tests/data/opened_reference.json: a hash of each day, made by the code at the commit before this packet)."""
+        (tests/data/opened_reference.json: a hash of each day, made by the code at the commit before this packet).
+        Re-recorded on PR #1 (outcome memory), which adds to every day `records`, charge ids (`state.charge_seq`, `settled_charges`,
+        `charge_id` on owed), `observations`/`observed_at` on each step, `place`/`since` on expenses and the `consumed` entry kind.
+        No value main wrote changed: checked field by field, and entry by entry, on the ten days."""
         want = json.loads((REPO / "tests/data/opened_reference.json").read_text(encoding="utf-8"))
         got = {}
         for day in run():
