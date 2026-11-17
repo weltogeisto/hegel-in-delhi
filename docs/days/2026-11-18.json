@@ -465,6 +465,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "16:51",
+   "to": "17:06",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -1187,6 +1194,46 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "16:36"
+  },
+  {
+   "k": "diary",
+   "text": "The body is the first organ of the spirit, and it speaks plainly when it is hungry. I have walked far and thought more, but the stomach demands a pause. I will eat the samosa and drink the chai, for a man cannot argue with the immediate necessity of digestion, nor can he think clearly on an empty vessel.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "16:51"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Sunil. The stomach has its own dialectic. Thank you.",
+   "to": "Masterji and Sunil",
+   "t": "16:51"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Dialectic be damned, sir. The dough is ready and the oil is hot. Here, try this one while it’s still crispy.",
+   "t": "16:51"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "16:51"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "16:51"
   }
  ],
  "steps": [
@@ -2569,6 +2616,78 @@
      "text": "In general it must stand to its members as a second family, a position which remains more indefinite than the family relation, because the general civic community is at a farther remove from indi viduals and their special needs."
     }
    ]
+  },
+  {
+   "t": "16:51",
+   "end": "17:06",
+   "event": "Sunil says: “Another samosa and chai, is it? Fine, sir. I’ll get them hot for you. Don't worry about the philosophy, just eat before your stomach gets a headache.” Sunil turns to the stove and starts frying a fresh samosa.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The body is the first organ of the spirit, and it speaks plainly when it is hungry. I have walked far and thought more, but the stomach demands a pause. I will eat the samosa and drink the chai, for a man cannot argue with the immediate necessity of digestion, nor can he think clearly on an empty vessel.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 15,
+    "says": "You are right, Sunil. The stomach has its own dialectic. Thank you.",
+    "buys": [
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     },
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Sunil",
+    "says": "Dialectic be damned, sir. The dough is ready and the oil is hot. Here, try this one while it’s still crispy.",
+    "does": "Slides the fresh samosa and a steaming cup of chai onto the small metal table."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.5,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "c. The unity and truth of these two abstract elements. The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2576,9 +2695,9 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-18T16:51+05:30",
+  "until": "2026-11-18T17:06+05:30",
   "asleep": false,
-  "imprest": 25901,
+  "imprest": 25851,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -2750,6 +2869,20 @@
     {
      "date": "2026-11-18",
      "t": "16:36",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-18",
+     "t": "16:51",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-18",
+     "t": "16:51",
      "item": "Chai, a cup",
      "price": 20,
      "office": false
@@ -3004,7 +3137,7 @@
    "sim": false
   },
   "last_meal": "2026-11-09T13:41+05:30",
-  "snacks": 10,
+  "snacks": 11,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
