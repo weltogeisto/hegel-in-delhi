@@ -472,6 +472,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "17:06",
+   "to": "17:21",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -1234,6 +1241,46 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "16:51"
+  },
+  {
+   "k": "diary",
+   "text": "The body does not wait for the spirit to resolve its contradictions; it demands satisfaction now. Sunil’s pragmatism is the dialectic’s own cunning at work: he feeds the hunger that my abstractions cannot. I accept the offering, for the samosa is as universal a medium of social intercourse as any concept.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Eleatic School, Melissus"
+    }
+   ],
+   "t": "17:06"
+  },
+  {
+   "k": "said",
+   "text": "You have no patience for dialectics, Sunil, but you have the right instinct. The crispy shell is the form, the spiced potato the content. I accept.",
+   "to": "Masterji and Sunil",
+   "t": "17:06"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Hmph, form and content. You talk too much for a man eating three samosas. Eat, before the oil cools down and your 'dialectic' gets soggy.",
+   "t": "17:06"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "17:06"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "17:06"
   }
  ],
  "steps": [
@@ -2688,6 +2735,78 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "17:06",
+   "end": "17:21",
+   "event": "Sunil says: “Dialectic be damned, sir. The dough is ready and the oil is hot. Here, try this one while it’s still crispy.” Slides the fresh samosa and a steaming cup of chai onto the small metal table.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The body does not wait for the spirit to resolve its contradictions; it demands satisfaction now. Sunil’s pragmatism is the dialectic’s own cunning at work: he feeds the hunger that my abstractions cannot. I accept the offering, for the samosa is as universal a medium of social intercourse as any concept.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 15,
+    "says": "You have no patience for dialectics, Sunil, but you have the right instinct. The crispy shell is the form, the spiced potato the content. I accept.",
+    "buys": [
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     },
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Sunil",
+    "says": "Hmph, form and content. You talk too much for a man eating three samosas. Eat, before the oil cools down and your 'dialectic' gets soggy.",
+    "does": "Sunil wipes his hands on his apron and watches him take a bite."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.5,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "id": "haldane-2:425"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Eleatic School, Melissus",
+     "id": "haldane-1:665"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "text": "And again, the matter of a small body and a large is the same, because at one time a greater proceeds from a smaller, and at another time a smaller from a greater."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Eleatic School, Melissus",
+     "text": "Thus if many are, they are small and great; small, so that they have no size; great, so that they are infinite.” Aristotle (Phys. VI. 9) explains this dialectic further; Zeno’s treatment of motion was above all objectively dialectical. But the particulars which we find in the Parmenides of Plato are not his."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2695,9 +2814,9 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-18T17:06+05:30",
+  "until": "2026-11-18T17:21+05:30",
   "asleep": false,
-  "imprest": 25851,
+  "imprest": 25801,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -2883,6 +3002,20 @@
     {
      "date": "2026-11-18",
      "t": "16:51",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-18",
+     "t": "17:06",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-18",
+     "t": "17:06",
      "item": "Chai, a cup",
      "price": 20,
      "office": false
@@ -3137,7 +3270,7 @@
    "sim": false
   },
   "last_meal": "2026-11-09T13:41+05:30",
-  "snacks": 11,
+  "snacks": 12,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
