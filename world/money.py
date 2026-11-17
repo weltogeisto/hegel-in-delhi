@@ -313,7 +313,7 @@ class Economy:
         """The conditions of an offer: days met, visits, day count, cash, flags (each equal to a value;
         flags_in: one of several values, null accepting the flag unset; flags_not: none of the values named, an unset flag
         passing unless null is among them), a garment, a manuscript, a date, a cost owed
-        that his cash cannot meet, cheques held, days of the week."""
+        that his cash cannot meet, costs of which none may stand owed (owes_none), cheques held, days of the week."""
         d, cash = t.date(), st["imprest"]
         net = cash - sum(o.get("amount", 0) for o in st.get("owed", []))      # a purse that cannot pay what is owed is thin too
         if w.get("on") and w["on"] != d.isoformat():
@@ -334,6 +334,8 @@ class Economy:
             return False
         if any(not any(o.get("cost") == cid and o["amount"] > cash for o in st.get("owed", [])) for cid in w.get("owes", [])):
             return False                                    # a cost of this kind stands owed, and his cash cannot meet it
+        if any(o.get("cost") in w.get("owes_none", []) for o in st.get("owed", [])):
+            return False                                    # none of these costs may stand owed at all
         if len(st.get("cheques", [])) < w.get("cheques", 0) or (w.get("days") and not days_match(w["days"], d)):
             return False
         return not w.get("words") or any(x["words"] >= w["words"] for x in st.get("works", []))

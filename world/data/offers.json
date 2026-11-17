@@ -110,9 +110,25 @@
         "yes": {
           "public": "He agrees. From now on Ramesh comes on Mondays, Thursdays and Saturdays, for ₹4,000 a month.",
           "flags": {"ramesh_parttime": true},
-          "reprice": {"cost": "wage", "amount": 4000, "why": "the wage for cooking, three days a week"}
+          "reprice": {"cost": "wage", "amount": 4000, "why": "the wage for cooking, three days a week"},
+          "reopens": ["ramesh_fulltime"]
         },
         "no": {"public": "He keeps Ramesh on as before. The wage stands owed."}
+      }
+    },
+    {
+      "id": "ramesh_fulltime", "kind": "world", "where": "home", "needs": ["ramesh"], "again_days": 7,
+      "when": {"flags": {"ramesh_parttime": true}, "owes_none": ["wage", "groceries"], "cash_min": 16000},
+      "prompt": "Ramesh has his wage, and the groceries are paid. Looking at the stove rather than at you, he says he could come every day again but Wednesday, as before, for ₹8,000 a month.",
+      "public": "Ramesh offers to come every day but Wednesday again, for ₹8,000 a month instead of ₹4,000 for three days.",
+      "choice": {
+        "question": "Did you agree that Ramesh comes every day but Wednesday again, for ₹8,000 a month?",
+        "yes": {
+          "public": "He agrees. From now on Ramesh comes every day but Wednesday, for ₹8,000 a month.",
+          "flags": {"ramesh_parttime": false},
+          "reopens": ["ramesh_parttime"]
+        },
+        "no": {"public": "He keeps Ramesh on three days a week."}
       }
     },
     {

@@ -628,6 +628,9 @@ class World(Economy):
             state["file"] = branch["file"]
         if branch.get("appointment"):
             self.appoint(state, branch["appointment"], t)
+        for bid in branch.get("reopens", []):
+            if bid in state["beats"]:
+                state["beats"].remove(bid)                       # the opposite offer may be made again (Ramesh's days)
         if not yes and beat.get("again_days") and beat["id"] in state["beats"]:
             state["beats"].remove(beat["id"])                    # an offer he refused may be made again
             self.ledger(state)["refused"][beat["id"]] = t.date().isoformat()
