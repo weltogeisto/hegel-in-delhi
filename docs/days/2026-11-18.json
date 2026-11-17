@@ -542,6 +542,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "20:30",
+   "to": "20:57",
+   "mode": "walk",
+   "a": "khan",
+   "b": "home"
   }
  ],
  "entries": [
@@ -1575,6 +1582,21 @@
    "item": "Lunch at a dhaba: dal, rice, roti",
    "price": 220,
    "t": "20:20"
+  },
+  {
+   "k": "diary",
+   "text": "The bookseller's dismissal is a small but clear boundary: the transaction is closed, and her time is her own. I have eaten twice in the last hour, a redundancy that speaks to the disorder of my days, but the body insists on its rhythm. The market is shutting, its shutters coming down like a curtain on a scene I have not fully understood. I must withdraw into the quiet of my bungalow, where the heat has broken and the air is finally breathable.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Peloponnesian War"
+    }
+   ],
+   "t": "20:30"
   }
  ],
  "steps": [
@@ -3664,14 +3686,69 @@
      "text": "To right as such, happiness is something external. Tet in the system of wants well-being is an essential element. The universal, which is at first only right, has to spread itself over the whole field of particularity. Justice, it is true, is a large factor in the civic community. The state will flourish, if it has good laws, of which free property is the fundamental condition."
     }
    ]
+  },
+  {
+   "t": "20:30",
+   "end": "20:57",
+   "event": "The bookseller says: “I heard you the first time, sir, the money is already taken. Just go eat before the oil gets too cold, I have stock to count before I lock up.” She waves a dismissive hand at him and turns back to the shelf of hardcovers. Khan Market is closing. You must leave.",
+   "present": [],
+   "decision": {
+    "thought": "The bookseller's dismissal is a small but clear boundary: the transaction is closed, and her time is her own. I have eaten twice in the last hour, a redundancy that speaks to the disorder of my days, but the body insists on its rhythm. The market is shutting, its shutters coming down like a curtain on a scene I have not fully understood. I must withdraw into the quiet of my bungalow, where the heat has broken and the air is finally breathable.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 45,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "opened": [
+    "reply",
+    "closing"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Peloponnesian War",
+     "id": "sibree-history:835"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "c. The unity and truth of these two abstract elements. The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Peloponnesian War",
+     "text": "Xenophon says: \" Who does not stand in need of Athens? Is she not indispensable to all lands that are rich in corn and herds, in oil and wine — to all who wish to traffic either in money or in mind? — to craftsmen, sophists, philosophers, poets, and all who desire what is worth seeing or hearing in sacred and public matters?\""
+    }
+   ]
   }
  ],
  "funnel": {},
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-11-18T20:30+05:30",
+  "place": "home",
+  "until": "2026-11-18T20:57+05:30",
   "asleep": false,
   "imprest": 25086,
   "wearing": "kurta",
@@ -3780,8 +3857,8 @@
     "lodhi": []
    },
    "no_meals": true,
-   "walked": 10950,
-   "strain": 10950,
+   "walked": 12975,
+   "strain": 12975,
    "tired": true
   },
   "account": {
