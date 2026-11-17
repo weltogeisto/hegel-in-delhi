@@ -374,6 +374,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "13:16",
+   "to": "13:31",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -594,6 +601,40 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "13:01"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil is right to mock the abstraction; the body does not care for my syllogisms when it is empty. The samosa is still hot, and the crispness of the potato is a small, concrete truth that outweighs any dialectic. I will eat this, and then I must decide if I can afford the lunch or if I must walk home with the hunger still gnawing.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§486"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198"
+    }
+   ],
+   "t": "13:16"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Sunil. The immediate is the only thing that bites. I shall attend to the aloo before it surrenders its virtue to the steam.",
+   "to": "Masterji and Sunil",
+   "t": "13:16"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "You lot speak like you're writing a thesis for a cold potato. Eat it, it's getting soft. That's another twenty rupees if you want the next one.",
+   "t": "13:16"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "13:16"
   }
  ],
  "steps": [
@@ -1092,6 +1133,74 @@
      "text": ""
     }
    ]
+  },
+  {
+   "t": "13:16",
+   "end": "13:31",
+   "event": "Sunil says: “See, that is what I like. Straight to the point, no more of that abstract nonsense. Eat the samosa before it goes cold, the aloo inside is still crisp.” He taps the table with a finger to emphasize the point.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil is right to mock the abstraction; the body does not care for my syllogisms when it is empty. The samosa is still hot, and the crispness of the potato is a small, concrete truth that outweighs any dialectic. I will eat this, and then I must decide if I can afford the lunch or if I must walk home with the hunger still gnawing.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 15,
+    "says": "You are right, Sunil. The immediate is the only thing that bites. I shall attend to the aloo before it surrenders its virtue to the steam.",
+    "buys": [
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Sunil",
+    "says": "You lot speak like you're writing a thesis for a cold potato. Eat it, it's getting soft. That's another twenty rupees if you want the next one.",
+    "does": "He wipes a smudge off the metal table with a rough cloth."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§486",
+     "id": "wallace-mind:239"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "id": "wallace-logic:882"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§486",
+     "text": "Still it holds fundamentally good that he who has no rights has no duties and vice versa. Distribution. The free will is A. itself at first immediate, and hence as a single being—the person: the existence which the person gives to its liberty is property. The Right as right (law) is formal, abstract right."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "text": "Like the solar system, so for example in the practical sphere the state is a system of three syllogisms. (1) The Individual or person, through his particularity or physical or mental needs (which when carried out to their full development give civil society), is coupled with the universal, i.e. with society, law, right, government."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1099,9 +1208,9 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-18T13:16+05:30",
+  "until": "2026-11-18T13:31+05:30",
   "asleep": false,
-  "imprest": 35520,
+  "imprest": 35490,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1257,6 +1366,13 @@
      "t": "13:01",
      "item": "Chai, a cup",
      "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-18",
+     "t": "13:16",
+     "item": "Samosa",
+     "price": 30,
      "office": false
     }
    ],
@@ -1525,7 +1641,7 @@
    "sim": false
   },
   "last_meal": "2026-11-09T13:41+05:30",
-  "snacks": 6,
+  "snacks": 7,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
