@@ -458,6 +458,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "16:36",
+   "to": "16:51",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -1140,6 +1147,46 @@
    "item": "Samosa",
    "price": 30,
    "t": "16:26"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil’s observation cuts to the core: the body’s need for sustenance is immediate, while the spirit’s need for order is abstract. I have neglected the former in pursuit of the latter, and the result is a hollowing out. The samosa is cold, but the need for food is not; I must address the body before I can attend to the file or the philosophy.",
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251"
+    }
+   ],
+   "t": "16:36"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Sunil. The body is the first ethical substance. I will take another samosa and perhaps a cup of chai to follow. The coldness of the previous one is a lesson in immediacy I have ignored.",
+   "to": "Masterji and Sunil",
+   "t": "16:36"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Another samosa and chai, is it? Fine, sir. I’ll get them hot for you. Don't worry about the philosophy, just eat before your stomach gets a headache.",
+   "t": "16:36"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "16:36"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "16:36"
   }
  ],
  "steps": [
@@ -2450,6 +2497,78 @@
      "text": "B. bürgerliche Gesellschaft, eine Verbindung der Glieder als selbständiger Einzelner in einer somit formellen Allgemeinheit, durch ihre Bedürfnisse, und durch die Rechtsverfassung als Mittel der Sicherheit der Personen und des Eigentums und durch eine äußerliche Ordnung für ihre besonderen und gemeinsamen Interessen…"
     }
    ]
+  },
+  {
+   "t": "16:36",
+   "end": "16:51",
+   "event": "Sunil says: “Sustenance, sir? You talk like a book, but you eat like a man. The evening breeze is nice, but don't let the samosa go cold on you.”",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil’s observation cuts to the core: the body’s need for sustenance is immediate, while the spirit’s need for order is abstract. I have neglected the former in pursuit of the latter, and the result is a hollowing out. The samosa is cold, but the need for food is not; I must address the body before I can attend to the file or the philosophy.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 15,
+    "says": "You are right, Sunil. The body is the first ethical substance. I will take another samosa and perhaps a cup of chai to follow. The coldness of the previous one is a lesson in immediacy I have ignored.",
+    "buys": [
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     },
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Sunil",
+    "says": "Another samosa and chai, is it? Fine, sir. I’ll get them hot for you. Don't worry about the philosophy, just eat before your stomach gets a headache.",
+    "does": "Sunil turns to the stove and starts frying a fresh samosa."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 12.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "id": "wallace-logic:71"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251",
+     "id": "dyde-right:571"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "text": "A slothful mind finds it natural to say: 'Don't let it be supposed that we mean to be in earnest with our philosophy. We shall be glad inter alia to study Logic: but Logic must be sure to leave us as we were before.' People have a feeling that, if thinking passes the ordinary range of our ideas and impressions, it cannot but be on the evil road."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251",
+     "text": "In general it must stand to its members as a second family, a position which remains more indefinite than the family relation, because the general civic community is at a farther remove from indi viduals and their special needs."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2457,9 +2576,9 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-18T16:36+05:30",
+  "until": "2026-11-18T16:51+05:30",
   "asleep": false,
-  "imprest": 25951,
+  "imprest": 25901,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -2619,6 +2738,20 @@
      "t": "16:26",
      "item": "Samosa",
      "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-18",
+     "t": "16:36",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-18",
+     "t": "16:36",
+     "item": "Chai, a cup",
+     "price": 20,
      "office": false
     }
    ],
@@ -2871,7 +3004,7 @@
    "sim": false
   },
   "last_meal": "2026-11-09T13:41+05:30",
-  "snacks": 9,
+  "snacks": 10,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
