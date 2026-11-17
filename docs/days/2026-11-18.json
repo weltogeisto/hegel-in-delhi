@@ -549,6 +549,15 @@
    "mode": "walk",
    "a": "khan",
    "b": "home"
+  },
+  {
+   "from": "20:57",
+   "to": "24:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Asleep.",
+   "asleep": true,
+   "owl": true
   }
  ],
  "entries": [
@@ -1597,6 +1606,21 @@
     }
    ],
    "t": "20:30"
+  },
+  {
+   "k": "diary",
+   "text": "It is nearly eleven, and the day has been a series of small frictions. I am too tired for the Lindner letter, and the file is in the hands of bureaucracy, which moves at its own pace. I have eaten enough dhal for a week, and the heat has finally broken. I will sleep.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33"
+    }
+   ],
+   "t": "20:57"
   }
  ],
  "steps": [
@@ -3741,6 +3765,58 @@
      "text": "Xenophon says: \" Who does not stand in need of Athens? Is she not indispensable to all lands that are rich in corn and herds, in oil and wine — to all who wish to traffic either in money or in mind? — to craftsmen, sophists, philosophers, poets, and all who desire what is worth seeing or hearing in sacred and public matters?\""
     }
    ]
+  },
+  {
+   "t": "20:57",
+   "end": "24:00",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [],
+   "decision": {
+    "thought": "It is nearly eleven, and the day has been a series of small frictions. I am too tired for the Lindner letter, and the file is in the hands of bureaucracy, which moves at its own pace. I have eaten enough dhal for a week, and the heat has finally broken. I will sleep.",
+    "action": "sleep",
+    "place": "home",
+    "minutes": 240,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.5,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206",
+     "id": "dyde-right:491"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "id": "rechts:121"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206",
+     "text": "The recognition of the claim that whatever in the civic community and the state is rationally necessary should occur through subjective free choice is a fuller definition of the popular idea of freedom (§ 121). The particularity of the individual becomes definitely and actually realized, only by his limiting himself exclusively to one of the particular spheres of want."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -3748,8 +3824,8 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-18T20:57+05:30",
-  "asleep": false,
+  "until": "2026-11-19T00:00+05:30",
+  "asleep": true,
   "imprest": 25086,
   "wearing": "kurta",
   "wardrobe": [
