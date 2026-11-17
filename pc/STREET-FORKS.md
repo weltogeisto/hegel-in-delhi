@@ -6,7 +6,7 @@ Declared on 17 November 2026, before any output. Welt has read and approved the 
 
 ## The forks
 
-One saved morning: the first complete shadow day lived on `mind/soul-ordinary.md`, called D. Each fork lives D once, in a scratch folder, with the switches shadow runs that day.
+One saved morning. **D is 18 November, his Day 48** (set on 17 November, before any output): the first day he lived on `mind/soul-ordinary.md`. A fork does not start from Day 48's record. It starts from the state Day 47 left, which is complete and has its owl, and lives Day 48 anew. So it does not matter that the real Day 48 lost two hours to a PC that was off, or that its owl is not yet written; the real day only stands beside the forks as one more row. Each fork lives D once, in a scratch folder, with the switches shadow ran that day, and without the live feeds, so that every fork has the same weather.
 
 | Arm | Switch | Seeds |
 |---|---|---|
@@ -17,9 +17,9 @@ One saved morning: the first complete shadow day lived on `mind/soul-ordinary.md
 
 Ten rehearsed days: about seventy minutes of the card.
 
-**By day, in the spare slot** (changed on 17 November, before any output). There is no night window: the PC runs from about nine to nine, as he does. The forks run beside him, as long as his own steps stay as fast as they are (Welt, 27 October).
+**By night when Welt keeps the PC on, otherwise by day in the spare slot** (changed on 17 November, before any output). One job at a time on the server: a fork does not run while a screen runs, or the forks are no longer alone on the card. There is no night window: the PC runs from about nine to nine, as he does. The forks run beside him, as long as his own steps stay as fast as they are (Welt, 27 October).
 
-**One check comes first, because of that.** The band of noise was measured at night with nothing else on the server. By day his own calls share the card, and a server that computes two requests together can give either one a slightly different result. So before the ten: seed 1831 without the street, twice, by day.
+**One check comes first, because of that.** The band of noise was measured at night with nothing else on the server. By day his own calls share the card, and a server that computes two requests together can give either one a slightly different result. So before the ten: seed 1831 without the street, twice, in the same conditions as the ten.
 - **The two days are the same:** the pairs are read as declared.
 - **They part:** a pair is no longer one day lived twice. The bars are then read on the five against the five, each arm's mean against the other's range, and the result says so. `fork_diff` still says where each pair parts, as a read.
 
