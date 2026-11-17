@@ -416,6 +416,13 @@
    "mode": "walk",
    "a": "estates",
    "b": "khan"
+  },
+  {
+   "from": "15:16",
+   "to": "15:46",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -887,6 +894,40 @@
    "status": "Worn from 14:36.",
    "sprite": "kurta",
    "t": "14:36"
+  },
+  {
+   "k": "diary",
+   "text": "I have walked eight kilometres since morning and my stomach has been empty for far too long. The body is the immediate ground of spirit; if I starve, the philosophy of right becomes a mere abstraction. I will eat, and I will speak to the bookseller to see if he carries any German or English texts on political economy that are not yet outdated by my own knowledge.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "15:16"
+  },
+  {
+   "k": "said",
+   "text": "Sunil, another cup of chai, please. And Masterji, I see you are still at your bench. The heat has moderated, but the work continues.",
+   "to": "Masterji and Sunil",
+   "t": "15:16"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Twenty rupees, same as always. You drink like a man trying to hydrate a whole district, sir.",
+   "t": "15:16"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "15:16"
   }
  ],
  "steps": [
@@ -1786,6 +1827,74 @@
      "text": "This would be detrimental to their character as laws. The organic unity of the functions of state implies that one single spirit both fixes the nature of the universal and also carries it out to its definite reality."
     }
    ]
+  },
+  {
+   "t": "15:16",
+   "end": "15:46",
+   "event": "You arrive at Khan Market. It closes at 20:30.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "I have walked eight kilometres since morning and my stomach has been empty for far too long. The body is the immediate ground of spirit; if I starve, the philosophy of right becomes a mere abstraction. I will eat, and I will speak to the bookseller to see if he carries any German or English texts on political economy that are not yet outdated by my own knowledge.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 30,
+    "says": "Sunil, another cup of chai, please. And Masterji, I see you are still at your bench. The heat has moderated, but the work continues.",
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "arrive"
+   ],
+   "voice": {
+    "by": "Sunil",
+    "says": "Twenty rupees, same as always. You drink like a man trying to hydrate a whole district, sir.",
+    "does": "He pours fresh tea from the kettle into a paper cup, the steam rising in the late afternoon air."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "id": "dyde-right:464"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "text": "The civic community contains three elements: A. The recasting of want, and the satisfaction of the individual through his work, through the work of all others, and through the satisfaction of their wants. This is a system of wants. B. Actualization of the general freedom required for this, i.e., the protection of property by the administration of justice."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1793,9 +1902,9 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-18T15:16+05:30",
+  "until": "2026-11-18T15:46+05:30",
   "asleep": false,
-  "imprest": 26136,
+  "imprest": 26116,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1903,12 +2012,19 @@
    "no_meals": true,
    "walked": 8400,
    "strain": 8400,
-   "recouped": true,
    "hunger": 1
   },
   "account": {
    "advance": 15000,
-   "vouchers": [],
+   "vouchers": [
+    {
+     "date": "2026-11-18",
+     "t": "15:16",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    }
+   ],
    "admitted": 730,
    "queried": 9564
   },
