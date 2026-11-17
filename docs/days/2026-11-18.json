@@ -353,6 +353,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "12:31",
+   "to": "12:41",
+   "mode": "walk",
+   "a": "iic",
+   "b": "khan"
   }
  ],
  "entries": [
@@ -451,6 +458,41 @@
    "to": "Hegel",
    "text": "Sir, you're inside IIC, it's not that thick. The cafeteria is right there, just past the main hall, or grab water from the dispenser near the entrance. Don't worry about the sun, we're all under the canopy.",
    "t": "12:21"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s insistence that the heat is merely a matter of canopy is a pragmatic comfort, but my body knows better than his map. I cannot lecture on the actuality of the ethical idea with a hollow stomach that has not received sustenance in over twenty-four hours. I must secure a meal before the afternoon deepens.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Philo"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction"
+    }
+   ],
+   "t": "12:31"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, sir. I will take the air for a while, but I find I must attend to a more pressing need first.",
+   "to": "the guard at the library and the programme officer",
+   "t": "12:31"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Sir, the restrooms are just to the left of the main hall, past the security desk. No need to go outside for that, the building is quite clean.",
+   "t": "12:31"
+  },
+  {
+   "k": "wear",
+   "item": "White cotton kurta",
+   "status": "Worn from 12:31.",
+   "sprite": "kurta",
+   "t": "12:31"
   }
  ],
  "steps": [
@@ -740,17 +782,80 @@
      "text": "The state is (α) its inward structure as a self-relating development—constitutional (inner-state) law: (β) a particular individual, and therefore in connexion with other particular individuals,—international (outer-state) law; (γ) but these particular minds are only stages in the general development of mind in its actuality: universal history. α. Constitutional Law(167)."
     }
    ]
+  },
+  {
+   "t": "12:31",
+   "end": "12:41",
+   "event": "The guard at the library says: “Sir, you're inside IIC, it's not that thick. The cafeteria is right there, just past the main hall, or grab water from the dispenser near the entrance. Don't worry about the sun, we're all under the canopy.” Points a thumb towards the main hall and cafeteria area.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s insistence that the heat is merely a matter of canopy is a pragmatic comfort, but my body knows better than his map. I cannot lecture on the actuality of the ethical idea with a hollow stomach that has not received sustenance in over twenty-four hours. I must secure a meal before the afternoon deepens.",
+    "action": "walk",
+    "place": "khan",
+    "minutes": 45,
+    "says": "Thank you, sir. I will take the air for a while, but I find I must attend to a more pressing need first.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "khan",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Sir, the restrooms are just to the left of the main hall, past the security desk. No need to go outside for that, the building is quite clean.",
+    "does": "He gestures vaguely towards the left side of the lobby."
+   },
+   "left": "iic",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.5,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Philo",
+     "id": "haldane-2:988"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction",
+     "id": "sibree-history:15"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Philo",
+     "text": "In the Old Testament history of creation, grass, plants, and trees are created on the third day, and on the fourth day lights in the firmament of heaven, the sun and moon. Philo therefore says (De mundi opificio, pp. 9, 10) that on the fourth day a number adorned the heavens, the four, the tetractys, the most perfect, &c. These are the main points in Philo’s philosophy."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction",
+     "text": "Pragmatical (didactic) reflections, though in their nature decidedly abstract, are truly and indefeasibly of the Present, and quicken the annals of the dead Past with the life of to-day. Whether, indeed, such reflections are truly interesting and enlivening, depends on the writer's own spirit."
+    }
+   ]
   }
  ],
  "funnel": {},
  "owl": null,
  "complete": false,
  "state": {
-  "place": "iic",
-  "until": "2026-11-18T12:31+05:30",
+  "place": "khan",
+  "until": "2026-11-18T12:41+05:30",
   "asleep": false,
   "imprest": 35620,
-  "wearing": "bandhgala",
+  "wearing": "kurta",
   "wardrobe": [
    {
     "id": "frock",
@@ -770,7 +875,7 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Worn from 18:48."
+    "status": "Worn from 12:31."
    },
    {
     "id": "bandhgala",
@@ -847,8 +952,8 @@
     ]
    },
    "no_meals": true,
-   "walked": 1650,
-   "strain": 1650
+   "walked": 2400,
+   "strain": 2400
   },
   "account": {
    "advance": 15000,
