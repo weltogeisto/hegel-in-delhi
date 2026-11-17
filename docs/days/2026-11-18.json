@@ -430,6 +430,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "15:51",
+   "to": "16:01",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Talking with Masterji and Sunil at Khan Market."
   }
  ],
  "entries": [
@@ -969,6 +976,34 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "15:46"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil’s jest is the perfect corrective to my abstraction. The system of needs does not require a lecture to function; it requires a coin and a hot cup. My body, having walked eight kilometres, is the concrete that demands satisfaction, not the concept that explains it. I will finish the tea and then turn my attention to the bookseller, whose shelves might hold the actuality I have been seeking in theory.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Second Division"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "15:51"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Sunil. The universal is only as good as the cup it fills. Here is the money; make sure the next cup is as full as the first.",
+   "to": "Masterji and Sunil",
+   "t": "15:51"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Pehle ka cup bhi full tha, sir, bas aapka gharana thoda zyada hai. Next one is on the stove, don't worry about the levels.",
+   "t": "15:51"
   }
  ],
  "steps": [
@@ -2004,6 +2039,69 @@
      "text": "It thus becomes B. The civic community, an association of members or independent individuals in a formal universality. Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests."
     }
    ]
+  },
+  {
+   "t": "15:51",
+   "end": "16:01",
+   "event": "Sunil says: “Universal thirst, yeah? My kettle's running dry on that philosophy. Just pay up and finish it before it goes cold, sir.”",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil’s jest is the perfect corrective to my abstraction. The system of needs does not require a lecture to function; it requires a coin and a hot cup. My body, having walked eight kilometres, is the concrete that demands satisfaction, not the concept that explains it. I will finish the tea and then turn my attention to the bookseller, whose shelves might hold the actuality I have been seeking in theory.",
+    "action": "talk",
+    "place": "khan",
+    "minutes": 10,
+    "says": "You are right, Sunil. The universal is only as good as the cup it fills. Here is the money; make sure the next cup is as full as the first.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Sunil",
+    "says": "Pehle ka cup bhi full tha, sir, bas aapka gharana thoda zyada hai. Next one is on the stove, don't worry about the levels.",
+    "does": "He takes the twenty-rupee note and tucks it into his kurta pocket without counting it."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Second Division",
+     "id": "haldane-3:757"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Second Division",
+     "text": "The universal, laws, forces, universal matter, etc., have in natural science been derived from perceptions; thus to the English, Newton is held to be the philosopher κατ’ ἐξοχήν. The other side is that in practical philosophy regarding society or the state, thought applies itself to concrete objects such as the will of the prince, subjects and their ends and personal welfare."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2011,7 +2109,7 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-18T15:51+05:30",
+  "until": "2026-11-18T16:01+05:30",
   "asleep": false,
   "imprest": 26096,
   "wearing": "kurta",
