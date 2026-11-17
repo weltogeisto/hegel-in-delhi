@@ -451,6 +451,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "16:26",
+   "to": "16:36",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -1093,6 +1100,46 @@
    "item": "Samosa",
    "price": 30,
    "t": "16:11"
+  },
+  {
+   "k": "diary",
+   "text": "The body demands fuel, and the spirit demands order, but here they meet in a steel cup. I have walked far today and the sun is dropping; a samosa and chai are not a luxury, but the necessary maintenance of the instrument through which I think. I will eat quickly before the market thins out.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§157"
+    }
+   ],
+   "t": "16:26"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Sunil. The heat is fading, but the need for sustenance remains.",
+   "to": "Masterji and Sunil",
+   "t": "16:26"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Sustenance, sir? You talk like a book, but you eat like a man. The evening breeze is nice, but don't let the samosa go cold on you.",
+   "t": "16:26"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "16:26"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "16:26"
   }
  ],
  "steps": [
@@ -2331,6 +2378,78 @@
      "text": "Was sich wirklich im Staate geltend macht, muß sich freilich auf organische Weise betätigen, und dies ist in der Verfassung der Fall. Aber zu allen Zeiten war die öffentliche Meinung eine große Macht und ist es besonders in unserer Zeit, wo das Prinzip der subjektiven Freiheit diese Wichtigkeit und Bedeutung hat."
     }
    ]
+  },
+  {
+   "t": "16:26",
+   "end": "16:36",
+   "event": "Sunil says: “Arre, sir, I am not a computer, I just talk. Here is your hot chai and a fresh samosa, just twenty and thirty rupees. Take it, and don't worry about my head.” He slides the steel cup and a paper-wrapped samosa across the counter.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The body demands fuel, and the spirit demands order, but here they meet in a steel cup. I have walked far today and the sun is dropping; a samosa and chai are not a luxury, but the necessary maintenance of the instrument through which I think. I will eat quickly before the market thins out.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 10,
+    "says": "Thank you, Sunil. The heat is fading, but the need for sustenance remains.",
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     },
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Sunil",
+    "says": "Sustenance, sir? You talk like a book, but you eat like a man. The evening breeze is nice, but don't let the samosa go cold on you.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "id": "wallace-mind:321"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§157",
+     "id": "rechts:374"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "text": "These principles are those expounded earlier, liberty of property, and above all personal liberty, civil society, with its industry and its communities, and the regulated efficiency of the particular bureaux in subordination to the laws."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§157",
+     "text": "B. bürgerliche Gesellschaft, eine Verbindung der Glieder als selbständiger Einzelner in einer somit formellen Allgemeinheit, durch ihre Bedürfnisse, und durch die Rechtsverfassung als Mittel der Sicherheit der Personen und des Eigentums und durch eine äußerliche Ordnung für ihre besonderen und gemeinsamen Interessen…"
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2338,9 +2457,9 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-18T16:26+05:30",
+  "until": "2026-11-18T16:36+05:30",
   "asleep": false,
-  "imprest": 26001,
+  "imprest": 25951,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -2484,6 +2603,20 @@
     {
      "date": "2026-11-18",
      "t": "16:11",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-18",
+     "t": "16:26",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-18",
+     "t": "16:26",
      "item": "Samosa",
      "price": 30,
      "office": false
@@ -2738,7 +2871,7 @@
    "sim": false
   },
   "last_meal": "2026-11-09T13:41+05:30",
-  "snacks": 8,
+  "snacks": 9,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
