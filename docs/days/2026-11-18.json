@@ -24,7 +24,7 @@
     "aqi": 106
    },
    {
-    "temp": 16,
+    "temp": 17,
     "sky": "clear",
     "rain": 0,
     "aqi": 109
@@ -72,7 +72,7 @@
     "aqi": 119
    },
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "clear",
     "rain": 0,
     "aqi": 120
@@ -90,7 +90,7 @@
     "aqi": 121
    },
    {
-    "temp": 24,
+    "temp": 25,
     "sky": "clear",
     "rain": 0,
     "aqi": 121
@@ -423,6 +423,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "15:46",
+   "to": "15:51",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -928,6 +935,40 @@
    "item": "Chai, a cup",
    "price": 20,
    "t": "15:16"
+  },
+  {
+   "k": "diary",
+   "text": "The steam rises, a transient spirit that vanishes into the air, much like the substance of the state I am currently debating. I am parched, and the body demands its satisfaction before the mind can continue its work. Twenty rupees is a small price for the sustenance that keeps the philosopher alive in this dusty market.",
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "15:46"
+  },
+  {
+   "k": "said",
+   "text": "Yes, Sunil. The thirst is universal, even if the water is local.",
+   "to": "Masterji and Sunil",
+   "t": "15:46"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Universal thirst, yeah? My kettle's running dry on that philosophy. Just pay up and finish it before it goes cold, sir.",
+   "t": "15:46"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "15:46"
   }
  ],
  "steps": [
@@ -1895,6 +1936,74 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "15:46",
+   "end": "15:51",
+   "event": "Sunil says: “Twenty rupees, same as always. You drink like a man trying to hydrate a whole district, sir.” He pours fresh tea from the kettle into a paper cup, the steam rising in the late afternoon air.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The steam rises, a transient spirit that vanishes into the air, much like the substance of the state I am currently debating. I am parched, and the body demands its satisfaction before the mind can continue its work. Twenty rupees is a small price for the sustenance that keeps the philosopher alive in this dusty market.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 5,
+    "says": "Yes, Sunil. The thirst is universal, even if the water is local.",
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Sunil",
+    "says": "Universal thirst, yeah? My kettle's running dry on that philosophy. Just pay up and finish it before it goes cold, sir.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "id": "wallace-logic:882"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "text": "Like the solar system, so for example in the practical sphere the state is a system of three syllogisms. (1) The Individual or person, through his particularity or physical or mental needs (which when carried out to their full development give civil society), is coupled with the universal, i.e. with society, law, right, government."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "It thus becomes B. The civic community, an association of members or independent individuals in a formal universality. Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1902,9 +2011,9 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-18T15:46+05:30",
+  "until": "2026-11-18T15:51+05:30",
   "asleep": false,
-  "imprest": 26116,
+  "imprest": 26096,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -2020,6 +2129,13 @@
     {
      "date": "2026-11-18",
      "t": "15:16",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-18",
+     "t": "15:46",
      "item": "Chai, a cup",
      "price": 20,
      "office": false
