@@ -63,6 +63,6 @@ Claude then has two readers label the sheet, settles what they disagree on, comm
 ## Limits and rules
 
 - **Nothing goes on shadow from this.** Both switches stay off there. A pass earns a trial only on Welt's word, at the end of the order of `DECISIONS.md` 34, the facts before the promises.
-- **By night or in the spare slot** (`DECISIONS.md` 30). The calls are short: about an hour of the card.
+- **By day, in the spare slot** beside him, as long as his own steps stay as fast as they are (`DECISIONS.md` 30). There is no night window. The calls are short: about an hour of the card.
 - **Evaluation only.** No reply, label or probe becomes training data.
 - **If the engine's code cannot build a voice's prompt outside a running day** without a change to `world/`, stop and say exactly what stands in the way. Do not copy the prompt code into the tool.

@@ -1,6 +1,6 @@
 # The street, first batch
 
-**Approved by Welt on 17 November 2026, as written** (`DECISIONS.md` 46). Next: the night of forks, `pc/STREET-FORKS.md`.
+**Approved by Welt on 17 November 2026, as written** (`DECISIONS.md` 46). Next: the forks, `pc/STREET-FORKS.md`.
 
 Sixty cards for November to February, in `world/data/street.json`. Drafted by an agent under Claude's brief, read by Claude, then read by Welt. The linter passes (`python3 tools/street_lint.py`).
 

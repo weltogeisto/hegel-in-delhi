@@ -48,7 +48,7 @@ F passes on its first three bars. P passes on all of its own. A pass earns a pro
 ## What the PC seat runs
 
 1. `tools/voice_screen.py freeze`: the forty contexts and the eight probes, with a manifest and its hash. This tool is not yet written; it follows the promises packet.
-2. Four arms, 48 contexts, three seeds: 576 short calls, by night in the spare slot (`DECISIONS.md` 30).
+2. Four arms, 48 contexts, three seeds: 576 short calls, by day in the spare slot beside him, as long as his own steps stay as fast as they are (`DECISIONS.md` 30). There is no night window: the PC runs from about nine to nine.
 3. Push the records. The readers, the settlement and the result are Claude's.
 
 ## What it cannot show
