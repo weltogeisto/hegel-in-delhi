@@ -528,6 +528,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "20:05",
+   "to": "20:20",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -1493,6 +1500,40 @@
    "price": 45,
    "office": true,
    "t": "19:20"
+  },
+  {
+   "k": "diary",
+   "text": "The body demands sustenance, and the market is closing. Masterji’s advice is practical, if unrefined; I will take the food, for a philosopher must eat to think. I have already bought the paper, so there is no need to delay for that.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Separation of Philosophy from Other Allied…"
+    }
+   ],
+   "t": "20:05"
+  },
+  {
+   "k": "said",
+   "text": "The food, then. I will take it.",
+   "to": "the bookseller",
+   "t": "20:05"
+  },
+  {
+   "k": "said",
+   "by": "The bookseller",
+   "to": "Hegel",
+   "text": "Right, the dhaba is just around the corner, past the flower stall. That’s ₹220 for the dal and roti, keep your change tight. Close in twenty-five minutes, don't dawdle.",
+   "t": "20:05"
+  },
+  {
+   "k": "bag",
+   "item": "Lunch at a dhaba: dal, rice, roti",
+   "price": 220,
+   "t": "20:05"
   }
  ],
  "steps": [
@@ -3448,6 +3489,73 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "20:05",
+   "end": "20:20",
+   "event": "Masterji says: “Dhaba pe jaao, dal roti 220. Paper 45, ek hi aaj ka. Khana khaao, baaki baad mein.” He points a thumb toward the street corner where the dhaba sign is flickering. Khan Market closes at 20:30.",
+   "present": [
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The body demands sustenance, and the market is closing. Masterji’s advice is practical, if unrefined; I will take the food, for a philosopher must eat to think. I have already bought the paper, so there is no need to delay for that.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 15,
+    "says": "The food, then. I will take it.",
+    "buys": [
+     {
+      "item": "Lunch at a dhaba: dal, rice, roti",
+      "price_inr": 220
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply",
+    "closes"
+   ],
+   "voice": {
+    "by": "The bookseller",
+    "says": "Right, the dhaba is just around the corner, past the flower stall. That’s ₹220 for the dal and roti, keep your change tight. Close in twenty-five minutes, don't dawdle.",
+    "does": "She gestures sharply toward the flickering dhaba sign across the street."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251",
+     "id": "dyde-right:571"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Separation of Philosophy from Other Allied…",
+     "id": "haldane-1:212"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251",
+     "text": "In general it must stand to its members as a second family, a position which remains more indefinite than the family relation, because the general civic community is at a farther remove from indi viduals and their special needs."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Separation of Philosophy from Other Allied…",
+     "text": "But He says, “I am with you even unto the ends of the earth; where two or three are gathered together in My Name, there will I be in the midst.” I shall not be seen of you in the flesh, but “The Spirit of Truth will guide you into all Truth.” The external is not the true relation; it will disappear."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -3455,9 +3563,9 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-18T20:05+05:30",
+  "until": "2026-11-18T20:20+05:30",
   "asleep": false,
-  "imprest": 25526,
+  "imprest": 25306,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -3566,7 +3674,6 @@
    "no_meals": true,
    "walked": 10950,
    "strain": 10950,
-   "hunger": 2,
    "tired": true
   },
   "account": {
@@ -3683,6 +3790,13 @@
      "item": "Newspapers",
      "price": 45,
      "office": true
+    },
+    {
+     "date": "2026-11-18",
+     "t": "20:05",
+     "item": "Lunch at a dhaba: dal, rice, roti",
+     "price": 220,
+     "office": false
     }
    ],
    "admitted": 730,
@@ -3934,7 +4048,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-18T19:20+05:30",
+  "last_meal": "2026-11-18T20:05+05:30",
   "snacks": 0,
   "works": [
    {
