@@ -93,7 +93,7 @@ def names(lst):
 
 
 class World(Economy):
-    def __init__(self, feeds=None, culture=False, street_on=False, street_file=None, promises=False):
+    def __init__(self, feeds=None, culture=False, street_on=False, street_file=None, promises=False, ramesh_days=False):
         p = load("places.json")
         self.places, self.walks = p["places"], p["walk"]
         self.culture = bool(culture)                          # HEGEL_CULTURE: museums, concerts and plays (data/culture.json)
@@ -105,7 +105,8 @@ class World(Economy):
         self.promises = bool(promises)                        # HEGEL_PROMISES: a promise is a record (data/promises.json); nobody has a menu while it is off
         self.menu = load("promises.json")["people"] if self.promises else {}
         self.cast = load("cast.json")["cast"]
-        offers = load("offers.json")["offers"]
+        switched = {"ramesh_days"} if ramesh_days else set()   # HEGEL_RAMESH_DAYS: an offer that names a switch exists only while it is on
+        offers = [o for o in load("offers.json")["offers"] if not o.get("switch") or o["switch"] in switched]
         self.beats = load("plot.json")["beats"] + offers
         self.offer_ids = {o["id"] for o in offers}             # which beats come from offers.json: `opened` names them offer:<id>
         self.costs = load("costs.json")["costs"]
@@ -628,6 +629,9 @@ class World(Economy):
             state["file"] = branch["file"]
         if branch.get("appointment"):
             self.appoint(state, branch["appointment"], t)
+        for bid in branch.get("reopens", []):
+            if bid in state["beats"]:
+                state["beats"].remove(bid)                       # the opposite offer may be made again (Ramesh's days)
         if not yes and beat.get("again_days") and beat["id"] in state["beats"]:
             state["beats"].remove(beat["id"])                    # an offer he refused may be made again
             self.ledger(state)["refused"][beat["id"]] = t.date().isoformat()

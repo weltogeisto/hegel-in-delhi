@@ -120,6 +120,10 @@ Welt's calls, the afternoon of 17 November:
     - **Why:** the page had rooms for four places and two Khan Market shops, shown only on a stroll. When he sat there eating, it showed nothing.
 
 46. **The street's first batch is approved** (Welt, 17 November): the sixty cards as written, the seven that are not verified against Delhi included. `HEGEL_STREET` stays off until its night of forks has passed (`pc/STREET-FORKS.md`) and Welt has given his word for the trial.
+47. **Ramesh's days go both ways** (Welt, 17 November: "build ramesh offer"). Short of money, Hegel agreed that Ramesh comes on Mondays, Thursdays and Saturdays for ₹4,000. Nothing offered the way back.
+    - **The offer:** once no wage and no groceries stand owed, and ₹16,000, two months of the full wage, is left after everything he owes, Ramesh offers at home to come every day but Wednesday again, for ₹8,000 (`ramesh_fulltime` in `world/data/offers.json`). Bills falling due in that same moment count. Hegel answers yes or no, as to every offer; a no comes back after a week.
+    - **Both ways:** a yes to either offer lets the other be made again later, so a lean month can send Ramesh back to three days and a better one bring him back.
+    - **Behind `HEGEL_RAMESH_DAYS`, off by default:** without it the offer does not exist and his world is as it was (`tests/test_ramesh_days.py`). It goes on with Welt's word, after the new instructions' first whole day (Day 49) has been read, so the two changes are read apart.
 
 ## Still open
 
