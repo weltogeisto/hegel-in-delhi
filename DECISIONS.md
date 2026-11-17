@@ -119,13 +119,14 @@ Welt's calls, the afternoon of 17 November:
 45. **Khan Market gets its own scene on the page:** the lane with Sunil's stall and the dhaba, shown when he eats, drinks or talks there. Built by an agent on Sonnet 5.5, checked by Claude.
     - **Why:** the page had rooms for four places and two Khan Market shops, shown only on a stroll. When he sat there eating, it showed nothing.
 
+46. **The street's first batch is approved** (Welt, 17 November): the sixty cards as written, the seven that are not verified against Delhi included. `HEGEL_STREET` stays off until its night of forks has passed (`pc/STREET-FORKS.md`) and Welt has given his word for the trial.
+
 ## Still open
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.
 - Whether the two rules of 38 also bind the PC seat.
 - **Whether an adapter gets a day of its own.** No adapter has run a day in his world: each stopped at its gate first (T29, the forty-case re-audit, Training 3's data gate). Since week 0 a fair day is possible: one saved morning, two forks, plain Qwen against the adapter, the same seeds, read by state and by text (`tools/fork_diff.py`, `world report --health`). It needs T67 first, because today an adapter that is set reaches the owl, the letters and the yes-or-no as well. Claude's advice, 16 November: not for the Training 1 adapter, which changed facts in 12 of 40 rewrites; make the fork day the entry test of the next adapter. Loading an adapter is a hard limit either way.
 - **The file's next act** (`pc/FILE-NEXT-ACT.md`, seven calls) waits for Welt's pen (42).
-- **The street's first batch** (`pc/STREET-BATCH-1.md`): sixty cards for Welt to read before `HEGEL_STREET` goes on anywhere.
 
 ## Ideas, not yet decided
 
