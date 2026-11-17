@@ -381,6 +381,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Eating at Khan Market."
+  },
+  {
+   "from": "13:31",
+   "to": "13:36",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -635,6 +642,40 @@
    "item": "Samosa",
    "price": 30,
    "t": "13:16"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil is right; the samosa is cooling, and my stomach has no interest in the dialectic of temperature. I have eaten three in an hour, which is a quantity that suggests either gluttony or a body in crisis. I shall pay him and move on, for the file is due back Friday and I have no time to sit in this horseshoe of commerce while the heat rises.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§459"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229"
+    }
+   ],
+   "t": "13:31"
+  },
+  {
+   "k": "said",
+   "text": "Twenty rupees, Sunil. Keep the change if there is any, though I suspect you have already accounted for it in your ledger. The samosa is indeed soft, and so am I.",
+   "to": "Masterji and Sunil",
+   "t": "13:31"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "You're a funny one, bhaiya. No change, it's exactly twenty. Here, drink this before you melt into the lane.",
+   "t": "13:31"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "13:31"
   }
  ],
  "steps": [
@@ -1201,6 +1242,74 @@
      "text": "Like the solar system, so for example in the practical sphere the state is a system of three syllogisms. (1) The Individual or person, through his particularity or physical or mental needs (which when carried out to their full development give civil society), is coupled with the universal, i.e. with society, law, right, government."
     }
    ]
+  },
+  {
+   "t": "13:31",
+   "end": "13:36",
+   "event": "Sunil says: “You lot speak like you're writing a thesis for a cold potato. Eat it, it's getting soft. That's another twenty rupees if you want the next one.” He wipes a smudge off the metal table with a rough cloth.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil is right; the samosa is cooling, and my stomach has no interest in the dialectic of temperature. I have eaten three in an hour, which is a quantity that suggests either gluttony or a body in crisis. I shall pay him and move on, for the file is due back Friday and I have no time to sit in this horseshoe of commerce while the heat rises.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 5,
+    "says": "Twenty rupees, Sunil. Keep the change if there is any, though I suspect you have already accounted for it in your ledger. The samosa is indeed soft, and so am I.",
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Sunil",
+    "says": "You're a funny one, bhaiya. No change, it's exactly twenty. Here, drink this before you melt into the lane.",
+    "does": "Slides a fresh cup of chai across the metal table and wipes a new smudge with the cloth."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§459",
+     "id": "wallace-mind:180"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "id": "dyde-right:542"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§459",
+     "text": "The imperfection of the Chinese vocal language is notorious: numbers of its words possess several utterly different meanings, as many as ten and twenty, so that, in speaking, the distinction is made perceptible merely by accent and intensity, by speaking low and soft or crying out."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "text": "To right as such, happiness is something external. Tet in the system of wants well-being is an essential element. The universal, which is at first only right, has to spread itself over the whole field of particularity. Justice, it is true, is a large factor in the civic community. The state will flourish, if it has good laws, of which free property is the fundamental condition."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1208,9 +1317,9 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-18T13:31+05:30",
+  "until": "2026-11-18T13:36+05:30",
   "asleep": false,
-  "imprest": 35490,
+  "imprest": 35470,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1373,6 +1482,13 @@
      "t": "13:16",
      "item": "Samosa",
      "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-18",
+     "t": "13:31",
+     "item": "Chai, a cup",
+     "price": 20,
      "office": false
     }
    ],
