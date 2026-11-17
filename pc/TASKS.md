@@ -54,6 +54,9 @@ Beside the day's row, run `python3 -m world report --health` on shadow's days an
 ### W3 · PC seat · the `wants` screen · OPEN, and waits for the cache change on main
 Welt has accepted the sentence for the screen (`DECISIONS.md` 41). Run `pc/WANTS-SCREEN.md` as declared: `python3 tools/wants_screen.py freeze --repo <native> --shadow <sha> --out <dir> --from-day N` on the complete days from Day 48 on (`--from-day 48`): the letter has paid his debts, and he runs on `mind/soul-ordinary.md`, which is the arms' instructions, then `wants_screen.run(<dir>, post)` with the guarded transport as for M1 (216 calls), then push the records. Claude runs `measure` and writes the result. Nothing goes on shadow from this: a pass earns a trial only on Welt's word, at the end of the order. **Every call sends `cache_prompt` false** (W2); the tool does it once main has the change.
 
+### W4 · PC seat · the voices' screen: build and run · OPEN, Welt's word of 17 November (`DECISIONS.md` 44)
+Build `tools/voice_screen.py` and run T57's first arms, from `pc/T57-HANDOVER.md`: forty frozen moments and eight probes, four arms, three seeds, 576 short calls with `cache_prompt` false. Push the tool, the frozen folder, the records and the blind sheet to a `codex/*` branch; the key only after Claude's labels are committed. Nothing goes on shadow from it.
+
 ## Current, 16 November 2026
 
 The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). Welt confirmed its six decisions the same day; they are `DECISIONS.md` 16–22, with Delta kept only as a diagnostic. The 48-hour delivery target runs from 7 November. The T-history below is kept; the M-packets are the manual's §10.
