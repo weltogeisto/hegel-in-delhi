@@ -279,12 +279,16 @@ class Engine:
         beat = ctx["beat"]
         if source in ("mind", "stub"):
             self.count_funnel(day, t, st)                  # before the beat fires: what could have been shown at this moment
+        yes = None
+        if beat and source in ("mind", "stub") and beat.get("choice"):
+            yes = self.ask_choice(self.plain(messages), self.unwish(raw), beat)
+            if yes is None:
+                beat = None                 # the PC went away before he answered: the offer is not made and stays open
         if beat and source in ("mind", "stub"):
             ctx["beat_entries"] = self.world.fire(beat, t, st)
             tally = day.setdefault("funnel", {}).setdefault(funnel_key(beat), dict.fromkeys(FUNNEL, 0))
             tally["shown"] += 1
             if beat.get("choice"):
-                yes = self.ask_choice(self.plain(messages), self.unwish(raw), beat)
                 tally["yes" if yes else "no"] += 1
                 ctx["beat_entries"] += self.world.settle_choice(beat, yes, st, t)
         if source in ("mind", "stub"):
@@ -729,6 +733,7 @@ class Engine:
         return n
 
     def ask_choice(self, messages, raw, beat):
+        """His yes or no to an offer: True or False, or None when the PC went away before it answered (not a no)."""
         q = beat["choice"]["question"]
         msgs = messages + [{"role": "assistant", "content": raw},
                            {"role": "user", "content": f"For the record, one word: {q} Answer {{\"answer\": \"yes\"}} or {{\"answer\": \"no\"}}."}]
@@ -736,7 +741,7 @@ class Engine:
             a = contract.extract_json(self.mind.chat(for_task(msgs, "choice"), CHOICE_SCHEMA, max_tokens=20, temperature=0))
             return isinstance(a, dict) and a.get("answer") == "yes"
         except MindAway:
-            return False
+            return None
 
     # ── the tick ────────────────────────────────────────────────────
     def advance(self, now):

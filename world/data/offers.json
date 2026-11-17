@@ -1,5 +1,5 @@
 {
-  "note": "Offers, and the beats that follow them: the same shape as plot.json. 'when' holds an offer's conditions (met_days: days he has met them; visits: days he has been in a place; known: people he has met; since_day: days since day 1; cash_below, cash_min; flags (each must equal its value); flags_in (a flag must be one of a list of values, null in the list accepting it unset); flags_not (a flag must not be a value or any of a list of values; unset passes unless null is listed); wardrobe: a garment he still owns; words: a manuscript of that many words; on: one date; owes: a cost he owes and his cash cannot meet; cheques: cheques he holds; days: days of the week). Effects, in a beat or in a choice's yes or no: pay (money to him now, or after_min later, at a place 'at', or at his next sitting of 'write' words), cheque (the same, but a cheque he cannot bank), owe, sell (a garment, and what it fetches where 'at'), schedule (a standing engagement with 'days', or an appointment in_days for a beat that follows), reprice (a debt that stands owed is changed), bank (an account: cheques then clear in three days), commission (work that recurs every N days, one piece asked for at a time). A pay with 'flag' sets that flag when it is paid. 'again_days': a refused offer comes back after that many days. Every offer is made by someone present; every price is simulated.",
+  "note": "Offers, and the beats that follow them: the same shape as plot.json. 'when' holds an offer's conditions (met_days: days he has met them; visits: days he has been in a place; known: people he has met; since_day: days since day 1; cash_below, cash_min; flags (each must equal its value); flags_in (a flag must be one of a list of values, null in the list accepting it unset); flags_not (a flag must not be a value or any of a list of values; unset passes unless null is listed); wardrobe: a garment he still owns; words: a manuscript of that many words; on: one date; owes: a cost he owes and his cash cannot meet; cheques: cheques he holds; days: days of the week). Effects, in a beat or in a choice's yes or no: pay (money to him now, or after_min later, at a place 'at', or at his next sitting of 'write' words), cheque (the same, but a cheque he cannot bank), owe, sell (a garment, and what it fetches where 'at'), schedule (a standing engagement with 'days', or an appointment in_days for a beat that follows), reprice (a debt that stands owed is changed), bank (an account: cheques then clear in three days), commission (work that recurs every N days, one piece asked for at a time). A pay with 'flag' sets that flag when it is paid. 'again_days': a refused offer comes back after that many days. owes_none: none of these costs may stand owed or fall due at that moment; net_min: cash less all he owes and all that falls due at that moment. A choice branch's 'reopens' lets the named offers be made again. 'switch': the offer exists only while that switch is on (ramesh_days: HEGEL_RAMESH_DAYS). Every offer is made by someone present; every price is simulated.",
   "offers": [
     {
       "id": "tutoring_german", "kind": "world", "needs": ["nidhi"], "again_days": 14,
@@ -110,9 +110,25 @@
         "yes": {
           "public": "He agrees. From now on Ramesh comes on Mondays, Thursdays and Saturdays, for ₹4,000 a month.",
           "flags": {"ramesh_parttime": true},
-          "reprice": {"cost": "wage", "amount": 4000, "why": "the wage for cooking, three days a week"}
+          "reprice": {"cost": "wage", "amount": 4000, "why": "the wage for cooking, three days a week"},
+          "reopens": ["ramesh_fulltime"]
         },
         "no": {"public": "He keeps Ramesh on as before. The wage stands owed."}
+      }
+    },
+    {
+      "id": "ramesh_fulltime", "kind": "world", "where": "home", "needs": ["ramesh"], "again_days": 7, "switch": "ramesh_days",
+      "when": {"flags": {"ramesh_parttime": true}, "owes_none": ["wage", "groceries"], "net_min": 16000},
+      "prompt": "Ramesh has his wage, and the groceries are paid. Looking at the stove rather than at you, he says he could come every day again but Wednesday, as before, for ₹8,000 a month.",
+      "public": "Ramesh offers to come every day but Wednesday again, for ₹8,000 a month instead of ₹4,000 for three days.",
+      "choice": {
+        "question": "Did you agree that Ramesh comes every day but Wednesday again, for ₹8,000 a month?",
+        "yes": {
+          "public": "He agrees. From now on Ramesh comes every day but Wednesday, for ₹8,000 a month.",
+          "flags": {"ramesh_parttime": false},
+          "reopens": ["ramesh_parttime"]
+        },
+        "no": {"public": "He keeps Ramesh on three days a week."}
       }
     },
     {
