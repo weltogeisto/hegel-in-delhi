@@ -507,6 +507,13 @@
    "mode": "walk",
    "a": "khan",
    "b": "lodhi"
+  },
+  {
+   "from": "18:18",
+   "to": "19:03",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Walking the paths of Lodhi Gardens."
   }
  ],
  "entries": [
@@ -1401,6 +1408,21 @@
     }
    ],
    "t": "18:01"
+  },
+  {
+   "k": "diary",
+   "text": "The air is clear, a rare mercy in this brown city, and the domes stand out sharply against the cooling sky. I have one hour and twelve minutes before the gates close, enough time to let the thoughts settle before I must retreat to the bungalow. I will walk the perimeter slowly, not to exercise, for my legs are already spent, but to think in the open, where the mind is less cramped than in a room.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die griechische Welt, Die besonderen Götter"
+    }
+   ],
+   "t": "18:18"
   }
  ],
  "steps": [
@@ -3173,6 +3195,63 @@
      "text": "The foundation and~ final- truth of these institutions is the spirit, which is their universal purpose and conscious object. The family is, indeed, also ethical, but its purpose is not a conscious one. In the civic community, on the other hand, separation is the definitive feature."
     }
    ]
+  },
+  {
+   "t": "18:18",
+   "end": "19:03",
+   "event": "You arrive at Lodhi Gardens. It closes at 19:30.",
+   "present": [],
+   "decision": {
+    "thought": "The air is clear, a rare mercy in this brown city, and the domes stand out sharply against the cooling sky. I have one hour and twelve minutes before the gates close, enough time to let the thoughts settle before I must retreat to the bungalow. I will walk the perimeter slowly, not to exercise, for my legs are already spent, but to think in the open, where the mind is less cramped than in a room.",
+    "action": "stay",
+    "place": "lodhi",
+    "minutes": 45,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "arrive"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics",
+     "id": "haldane-2:598"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die griechische Welt, Die besonderen Götter",
+     "id": "welt-3:190"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics",
+     "text": "He then proved that at night he carried water for a gardener, and by means of this occupation, earned as much as he required in order in the day to be in Zeno’s company—as to which the only point which is not quite comprehensible to us is how, even in such a way, philosophy, of all things, could be studied."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die griechische Welt, Die besonderen Götter",
+     "text": "Wir haben den Despotismus im Orient in glänzender Ausbildung als eine dem Morgenland entsprechende Gestaltung gesehen; nicht minder ist die demokratische Form in Griechenland die welthistorische Bestimmung."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -3180,7 +3259,7 @@
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-11-18T18:18+05:30",
+  "until": "2026-11-18T19:03+05:30",
   "asleep": false,
   "imprest": 25791,
   "wearing": "kurta",
@@ -3285,7 +3364,8 @@
     ],
     "estates": [
      "saxena"
-    ]
+    ],
+    "lodhi": []
    },
    "no_meals": true,
    "walked": 9675,
@@ -3441,7 +3521,8 @@
     "2026-10-28",
     "2026-11-07",
     "2026-11-15",
-    "2026-11-16"
+    "2026-11-16",
+    "2026-11-18"
    ],
    "gandhi": [
     "2026-10-02",
