@@ -437,6 +437,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with Masterji and Sunil at Khan Market."
+  },
+  {
+   "from": "16:01",
+   "to": "16:11",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -1004,6 +1011,41 @@
    "to": "Hegel",
    "text": "Pehle ka cup bhi full tha, sir, bas aapka gharana thoda zyada hai. Next one is on the stove, don't worry about the levels.",
    "t": "15:51"
+  },
+  {
+   "k": "diary",
+   "text": "Sunil’s economy is absolute: the note is taken, the debt of gratitude implied, the steam rising. I have no stomach for the samosas he offers, but my head requires the clarity of the evening papers before I attempt to address Lindner from this haze. The air is thinning, and the market is still a system of needs that does not sleep, only shifts its posture.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§71"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology"
+    }
+   ],
+   "t": "16:01"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Sunil. One newspaper, if you have the morning's edition.",
+   "to": "Masterji and Sunil",
+   "t": "16:01"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Morning's paper is still there, sir, just under the counter. That's forty-five, add it to the chai bill, I'll keep the total straight in my head.",
+   "t": "16:01"
+  },
+  {
+   "k": "bag",
+   "item": "Newspapers",
+   "price": 45,
+   "office": true,
+   "t": "16:01"
   }
  ],
  "steps": [
@@ -2102,6 +2144,74 @@
      "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
     }
    ]
+  },
+  {
+   "t": "16:01",
+   "end": "16:11",
+   "event": "Sunil says: “Pehle ka cup bhi full tha, sir, bas aapka gharana thoda zyada hai. Next one is on the stove, don't worry about the levels.” He takes the twenty-rupee note and tucks it into his kurta pocket without counting it.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Sunil’s economy is absolute: the note is taken, the debt of gratitude implied, the steam rising. I have no stomach for the samosas he offers, but my head requires the clarity of the evening papers before I attempt to address Lindner from this haze. The air is thinning, and the market is still a system of needs that does not sleep, only shifts its posture.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 10,
+    "says": "Thank you, Sunil. One newspaper, if you have the morning's edition.",
+    "buys": [
+     {
+      "item": "Newspapers",
+      "price_inr": 45
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Sunil",
+    "says": "Morning's paper is still there, sir, just under the counter. That's forty-five, add it to the chai bill, I'll keep the total straight in my head.",
+    "does": "He slides the newspaper across the counter and taps the small ledger on his chest."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§71",
+     "id": "dyde-right:207"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology",
+     "id": "baillie-1:494"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§71",
+     "text": "'Sole. — It is just as much a necesity of reason that men make contracts, exchange, and trade, as that they should have property (§ 45, note). In their consciousness it is some want, benevolence, or advantage, which occasions the contract, but really it is reason, or the idea as it is embodied in the realized will of a free person."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Phrenology",
+     "text": "In so far as it has risen above the substance of ethical life and the quiescent state of thought, and attained its conscious independence, it has left behind the law of custom and of substantial existence, the kinds of knowledge acquired through observation, and the sphere of theory; these lie behind it as a gray shadow that is just vanishing."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2109,9 +2219,9 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-18T16:01+05:30",
+  "until": "2026-11-18T16:11+05:30",
   "asleep": false,
-  "imprest": 26096,
+  "imprest": 26051,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -2237,6 +2347,13 @@
      "item": "Chai, a cup",
      "price": 20,
      "office": false
+    },
+    {
+     "date": "2026-11-18",
+     "t": "16:01",
+     "item": "Newspapers",
+     "price": 45,
+     "office": true
     }
    ],
    "admitted": 730,
