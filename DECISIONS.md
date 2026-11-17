@@ -123,7 +123,8 @@ Welt's calls, the afternoon of 17 November:
 47. **Ramesh's days go both ways** (Welt, 17 November: "build ramesh offer"). Short of money, Hegel agreed that Ramesh comes on Mondays, Thursdays and Saturdays for ₹4,000. Nothing offered the way back.
     - **The offer:** once no wage and no groceries stand owed, and ₹16,000, two months of the full wage, is left after everything he owes, Ramesh offers at home to come every day but Wednesday again, for ₹8,000 (`ramesh_fulltime` in `world/data/offers.json`). Bills falling due in that same moment count. Hegel answers yes or no, as to every offer; a no comes back after a week.
     - **Both ways:** a yes to either offer lets the other be made again later, so a lean month can send Ramesh back to three days and a better one bring him back.
-    - **Behind `HEGEL_RAMESH_DAYS`, off by default:** without it the offer does not exist and his world is as it was (`tests/test_ramesh_days.py`). It goes on with Welt's word, after the new instructions' first whole day (Day 49) has been read, so the two changes are read apart.
+    - **Behind `HEGEL_RAMESH_DAYS`, off by default:** without it the offer does not exist and his world is as it was (`tests/test_ramesh_days.py`).
+    - **When it goes on:** Welt left it to Claude ("make the decision that I would most likely make"). It goes on once the new instructions' first whole day, Day 49, has been read, before Day 50's waking, so the two changes are read apart. Nothing presses: Ramesh cooks again on Thursday either way.
 
 Welt's call, the afternoon of 17 November, on two answers that had reached two seats:
 
@@ -131,6 +132,8 @@ Welt's call, the afternoon of 17 November, on two answers that had reached two s
     - **Kept:** the PC seat's new reference for what nobody reads: `records`, the charge numbers, `observations` on a step, `place` and `since` on an expense. Its comparison of ten days on main with ten on the branch showed that nothing main writes changed.
     - **Behind a switch, off by default:** the `consumed` entry. The page shows entries and the owl reads them at night, so it can change what he is told. It goes on after someone has looked at what the owl and the page do with it.
     - **So the reference is recorded once more,** with `consumed` off, in a commit that says so.
+
+49. **A dropped answer is not a no** (Welt left it to Claude, 17 November). When the PC went away between his decision and his yes or no to an offer, the world counted a no: the refusal was recorded and the offer waited a week. Now the offer is not made at that moment and stays open for the next (`world/engine.py` `ask_choice`; `tests/test_choice_away.py`). A real no counts as before. It acts only when the PC drops mid-answer, so it needs no switch.
 
 ## Still open
 
