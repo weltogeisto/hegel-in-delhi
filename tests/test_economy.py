@@ -531,6 +531,16 @@ class OfferTest(unittest.TestCase):
             st["owed"] = [{"to": "Ramesh", "amount": 8000, "why": "the wage for cooking", "cost": "wage", "since": "2026-10-05"}]
             self.assertEqual(look(w, at_dt(D(5), 450), st, "lodhi")[1]["beat"]["id"], "loan_malhotra")
 
+    def test_with_outcome_memory_the_loan_carries_its_charge_id(self):
+        w, st = World(outcome_memory=True), fresh()
+        st["imprest"] = 400
+        with There(lodhi=["malhotra"]):
+            oid, out = offer(w, at_dt(D(5), 450), st, "lodhi")
+        self.assertEqual(oid, "loan_malhotra")
+        self.assertTrue(st['owed'][0]['charge_id'].startswith('charge:'))
+        self.assertEqual(out[-1]["owe"], {"to": "Mr. R. K. Malhotra", "amount": 5000, "why": "the loan", "since": "2026-10-05",
+                                          "charge_id": st['owed'][0]['charge_id']})
+
     def test_the_loan_is_cash_now_and_owed_to_malhotra_to_be_repaid_after_a_week(self):
         w, st = self.w, fresh()
         st["imprest"] = 400
@@ -539,9 +549,8 @@ class OfferTest(unittest.TestCase):
             self.assertEqual(oid, "loan_malhotra")
             self.assertEqual(st["imprest"], 5400)
             self.assertEqual([(e["k"], e.get("amount")) for e in out], [("world", None), ("world", None), ("income", 5000), ("world", None)])
-            self.assertEqual(out[-1]["owe"], {"to": "Mr. R. K. Malhotra", "amount": 5000, "why": "the loan", "since": "2026-10-05",
-                "charge_id": st['owed'][0]['charge_id']})
-            self.assertTrue(st['owed'][0]['charge_id'].startswith('charge:'))
+            self.assertEqual(out[-1]["owe"], {"to": "Mr. R. K. Malhotra", "amount": 5000, "why": "the loan", "since": "2026-10-05"})
+            self.assertNotIn("charge_id", st["owed"][0])                                               # HEGEL_OUTCOME_MEMORY is off
             self.assertEqual(st["owed"][0]["after"], "2026-10-12")
             look(w, at_dt(D(6), 450), st, "lodhi")
             look(w, at_dt(D(11), 450), st, "lodhi")
@@ -656,18 +665,30 @@ class CostTest(unittest.TestCase):
         with There(khan=["masterji"], home=["ramesh"]):
             sit, ctx = look(w, at_dt(D(4), 11 * 60), st, "khan")
             self.assertEqual(st["owed"], [{"to": "Ramesh", "amount": 1500, "why": "groceries", "since": "2026-10-04", "cost": "groceries", "item": "Groceries for Ramesh's kitchen",
-                                         "at": "home", "with": "ramesh", "charge_id": "cost:groceries:2026-10-04"}])
+                                         "at": "home", "with": "ramesh"}])
             self.assertEqual(self.paid(ctx), [])
             note = next(e for e in ctx["public"] if e.get("owe"))
             self.assertEqual((note["k"], note["text"]), ("world", "Groceries: ₹1,500 falls due to Ramesh."))
-            self.assertEqual(note["owe"], {"to": "Ramesh", "amount": 1500, "why": "groceries", "since": "2026-10-04",
-                "cost": "groceries", "charge_id": "cost:groceries:2026-10-04"})
+            self.assertEqual(note["owe"], {"to": "Ramesh", "amount": 1500, "why": "groceries", "since": "2026-10-04"})
             self.assertEqual(st["imprest"], 10501)
             self.assertIn("owes Ramesh ₹1,500 (groceries)", look(w, at_dt(D(4), 15 * 60), st, "khan")[0]["on_mind"][-2])
             sit, ctx = look(w, at_dt(D(4), 19 * 60), st, "home")
         self.assertEqual(self.paid(ctx), [("Groceries for Ramesh's kitchen", 1500, "Ramesh")])
         self.assertTrue(ctx["public"][0]["settles"])
         self.assertEqual((st["owed"], st["imprest"]), ([], 9001))
+
+    def test_with_outcome_memory_a_cost_carries_its_charge_id_until_paid(self):
+        w, st = World(outcome_memory=True), fresh(None)
+        with There(khan=["masterji"], home=["ramesh"]):
+            sit, ctx = look(w, at_dt(D(4), 11 * 60), st, "khan")
+            self.assertEqual(st["owed"][0]["charge_id"], "cost:groceries:2026-10-04")
+            note = next(e for e in ctx["public"] if e.get("owe"))
+            self.assertEqual(note["owe"], {"to": "Ramesh", "amount": 1500, "why": "groceries", "since": "2026-10-04",
+                                           "cost": "groceries", "charge_id": "cost:groceries:2026-10-04"})
+            sit, ctx = look(w, at_dt(D(4), 19 * 60), st, "home")
+        paid = next(e for e in ctx["public"] if e["k"] == "expense")
+        self.assertEqual((paid["charge_id"], paid["since"]), ("cost:groceries:2026-10-04", "2026-10-04"))
+        self.assertIn("cost:groceries:2026-10-04", st["settled_charges"])
 
     def test_he_who_cannot_pay_is_asked_and_nothing_is_cooked_until_he_does(self):
         w, st = self.w, fresh(None)

@@ -66,7 +66,8 @@ def make_mind(cfg, which, wake=True):
 def make_world(cfg):
     """The world as the tick builds it, and as a rehearsal builds it: what the Config switches on (the culture) is on in both."""
     return World(Feeds(cfg), culture=getattr(cfg, "culture", False), street_on=getattr(cfg, "street", False),
-                 street_file=getattr(cfg, "street_file", None), promises=getattr(cfg, "promises", False))
+                 street_file=getattr(cfg, "street_file", None), promises=getattr(cfg, "promises", False),
+                 outcome_memory=getattr(cfg, "outcome_memory", False))
 
 
 def cmd_tick(cfg, args):

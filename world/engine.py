@@ -42,9 +42,10 @@ ECHO_LINE = "Already said today, more than once: {phrases}. Find other words, or
 class Days:
     """docs/days: one JSON file per day plus index.json."""
 
-    def __init__(self, docs, shift_min=None):
+    def __init__(self, docs, shift_min=None, records=False):
         self.dir = docs / "days"
         self.shift_min = shift_min          # None leaves the index's clock shift as it is
+        self.records = records              # HEGEL_OUTCOME_MEMORY: the typed records are kept in the day file; a day that has them keeps them fresh
 
     def path(self, d):
         return self.dir / f"{d.isoformat() if hasattr(d, 'isoformat') else d}.json"
@@ -54,7 +55,8 @@ class Days:
         return json.loads(p.read_text(encoding="utf-8")) if p.exists() else None
 
     def save(self, day):
-        records.refresh(day)
+        if self.records or "records" in day:
+            records.refresh(day)
         self.dir.mkdir(parents=True, exist_ok=True)
         p = self.path(day["date"])
         tmp = p.with_suffix(".tmp")
@@ -94,7 +96,9 @@ class Engine:
     def __init__(self, cfg, world, mind, git=None, owl_mind=None, claim_guard=None):
         self.cfg, self.world, self.mind, self.git = cfg, world, mind, git
         self.owl_mind = owl_mind or mind
-        self.days = Days(cfg.docs, getattr(cfg, "clock_shift_min", 0))
+        if getattr(cfg, "outcome_memory", False):
+            world.outcome_memory = True     # the switch reaches the books and the entries however the world was built
+        self.days = Days(cfg.docs, getattr(cfg, "clock_shift_min", 0), records=getattr(cfg, "outcome_memory", False))
         self.memory = Memory(self.days, world)
         self.lookup = lookup.find           # (query, cache folder) -> the page he reads, or a note; tests put a stand-in here
         self.soul = cfg.soul_file.read_text(encoding="utf-8")

@@ -14,7 +14,7 @@ from test_world import answer, state
 
 class ExecutionEvidenceTest(unittest.TestCase):
     def execute(self, *, place='lodhi', time=727, **decision):
-        world = World()
+        world = World(outcome_memory=True)          # what is recorded at execution exists only with HEGEL_OUTCOME_MEMORY on
         st = state()
         st.update(place=place, until=f'2026-10-03T{time//60:02d}:{time%60:02d}')
         day = dict(date='2026-10-03', entries=[], steps=[], segments=[], state=st)

@@ -193,7 +193,7 @@ class RecordsTest(unittest.TestCase):
 
     def test_save_replaces_one_store_and_loading_does_not_rewrite_a_legacy_day(self):
         with tempfile.TemporaryDirectory() as tmp:
-            days=Days(Path(tmp)); day=self.day(); days.dir.mkdir()
+            days=Days(Path(tmp), records=True); day=self.day(); days.dir.mkdir()
             days.path(day["date"]).write_text(json.dumps(day))
             before=days.path(day["date"]).read_bytes()
             loaded=days.load(day["date"])
@@ -210,6 +210,8 @@ class RecordIntegrationTest(unittest.TestCase):
         from test_world import Sandbox
         from datetime import date
         self.box = Sandbox()
+        self.box.cfg.outcome_memory = True          # HEGEL_OUTCOME_MEMORY: observations, places and records exist only with it on
+        self.box.days.records = True
         self.engine = self.box.engine()
         self.day = self.engine.new_day(self.box.days.load("2026-10-02"), date(2026,10,3))
 
