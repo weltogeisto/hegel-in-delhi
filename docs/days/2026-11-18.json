@@ -360,6 +360,13 @@
    "mode": "walk",
    "a": "iic",
    "b": "khan"
+  },
+  {
+   "from": "12:41",
+   "to": "13:01",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Eating at Khan Market."
   }
  ],
  "entries": [
@@ -493,6 +500,53 @@
    "status": "Worn from 12:31.",
    "sprite": "kurta",
    "t": "12:31"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Masterji, you are here again, and not a moment too soon. I have a fresh batch of Assam boiling on the stove, just the right strength for a man who talks too much about cotton and inorganic things.",
+   "t": "12:41"
+  },
+  {
+   "k": "diary",
+   "text": "The hunger has moved from the stomach to the head, a dull throb that makes the air feel thin. Sunil’s chai is a crude remedy, but the body does not care for the aesthetics of its nourishment, only for the fact of it. I must eat before I can think, for the spirit requires the organic to sustain its movement.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "12:41"
+  },
+  {
+   "k": "said",
+   "text": "It is strong, Sunil, but the strength is exactly what is required. The inorganic body requires fuel.",
+   "to": "Masterji and Sunil",
+   "t": "12:41"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Beta, chai is fuel, not philosophy. You want it strong, you pay the price, but stop calling my milk 'inorganic.' Have your samosa, it's hot.",
+   "t": "12:41"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "t": "12:41"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "t": "12:41"
   }
  ],
  "steps": [
@@ -845,6 +899,80 @@
      "text": "Pragmatical (didactic) reflections, though in their nature decidedly abstract, are truly and indefeasibly of the Present, and quicken the annals of the dead Past with the life of to-day. Whether, indeed, such reflections are truly interesting and enlivening, depends on the writer's own spirit."
     }
    ]
+  },
+  {
+   "t": "12:41",
+   "end": "13:01",
+   "event": "You arrive at Khan Market. It closes at 20:30. Masterji is here. Sunil is here. Sunil says: “Masterji, you are here again, and not a moment too soon. I have a fresh batch of Assam boiling on the stove, just the right strength for a man who talks too much about cotton and inorganic things.” He pours a cup of chai into a paper cup and slides it across the counter.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The hunger has moved from the stomach to the head, a dull throb that makes the air feel thin. Sunil’s chai is a crude remedy, but the body does not care for the aesthetics of its nourishment, only for the fact of it. I must eat before I can think, for the spirit requires the organic to sustain its movement.",
+    "action": "eat",
+    "place": "khan",
+    "minutes": 20,
+    "says": "It is strong, Sunil, but the strength is exactly what is required. The inorganic body requires fuel.",
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     },
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "arrive",
+    "here",
+    "greeting:sunil"
+   ],
+   "voice": {
+    "by": "Sunil",
+    "says": "Beta, chai is fuel, not philosophy. You want it strong, you pay the price, but stop calling my milk 'inorganic.' Have your samosa, it's hot.",
+    "does": "He slides a samosa wrapped in paper next to the chai cup."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 13.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:643"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "The civil rights implied in it give rise to a feeling of self-respect, the sense of counting as a lawful person in the civic community. This feeling of being infinite and free from all Others is the root out of which springs the needed balance of the various kinds of thought and sentiment. The isolation with which the Jews have been blamed it is better to preserve."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -852,9 +980,9 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-18T12:41+05:30",
+  "until": "2026-11-18T13:01+05:30",
   "asleep": false,
-  "imprest": 35620,
+  "imprest": 35570,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -949,6 +1077,11 @@
     "iic": [
      "guard",
      "officer"
+    ],
+    "khan": [
+     "bookseller",
+     "masterji",
+     "sunil"
     ]
    },
    "no_meals": true,
@@ -975,6 +1108,20 @@
     {
      "date": "2026-11-17",
      "t": "16:44",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-18",
+     "t": "12:41",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-18",
+     "t": "12:41",
      "item": "Samosa",
      "price": 30,
      "office": false
@@ -1044,7 +1191,8 @@
     "2026-11-09",
     "2026-11-14",
     "2026-11-15",
-    "2026-11-17"
+    "2026-11-17",
+    "2026-11-18"
    ],
    "gym": [
     "2026-10-02"
@@ -1175,7 +1323,8 @@
     "2026-11-07",
     "2026-11-09",
     "2026-11-14",
-    "2026-11-17"
+    "2026-11-17",
+    "2026-11-18"
    ],
    "nidhi": [
     "2026-10-02"
@@ -1190,7 +1339,8 @@
     "2026-11-08",
     "2026-11-14",
     "2026-11-16",
-    "2026-11-17"
+    "2026-11-17",
+    "2026-11-18"
    ],
    "hegde": [
     "2026-10-02",
@@ -1242,7 +1392,7 @@
    "sim": false
   },
   "last_meal": "2026-11-09T13:41+05:30",
-  "snacks": 4,
+  "snacks": 5,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
