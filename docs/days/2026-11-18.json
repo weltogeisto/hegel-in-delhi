@@ -15,145 +15,145 @@
     "temp": 16,
     "sky": "clear",
     "rain": 0,
-    "aqi": 110
+    "aqi": 104
    },
    {
     "temp": 16,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 106
+   },
+   {
+    "temp": 16,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 109
+   },
+   {
+    "temp": 16,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 110
+   },
+   {
+    "temp": 15,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 111
+   },
+   {
+    "temp": 15,
     "sky": "clear",
     "rain": 0,
     "aqi": 113
    },
    {
-    "temp": 16,
+    "temp": 14,
     "sky": "clear",
     "rain": 0,
-    "aqi": 115
-   },
-   {
-    "temp": 16,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 117
+    "aqi": 114
    },
    {
     "temp": 15,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 116
+   },
+   {
+    "temp": 17,
     "sky": "clear",
     "rain": 0,
     "aqi": 118
    },
    {
-    "temp": 15,
+    "temp": 19,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 119
+   },
+   {
+    "temp": 21,
     "sky": "clear",
     "rain": 0,
     "aqi": 120
    },
    {
-    "temp": 14,
+    "temp": 23,
     "sky": "clear",
     "rain": 0,
     "aqi": 121
    },
    {
-    "temp": 15,
+    "temp": 24,
     "sky": "clear",
     "rain": 0,
-    "aqi": 124
-   },
-   {
-    "temp": 17,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 126
-   },
-   {
-    "temp": 19,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 128
-   },
-   {
-    "temp": 21,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 130
-   },
-   {
-    "temp": 23,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 131
+    "aqi": 121
    },
    {
     "temp": 24,
     "sky": "clear",
     "rain": 0,
-    "aqi": 131
-   },
-   {
-    "temp": 24,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 132
+    "aqi": 121
    },
    {
     "temp": 25,
     "sky": "clear",
     "rain": 0,
-    "aqi": 132
+    "aqi": 121
    },
    {
     "temp": 25,
     "sky": "clear",
     "rain": 0,
-    "aqi": 132
+    "aqi": 122
    },
    {
     "temp": 24,
     "sky": "clear",
     "rain": 0,
-    "aqi": 133
+    "aqi": 122
    },
    {
     "temp": 21,
     "sky": "clear",
     "rain": 0,
-    "aqi": 133
+    "aqi": 123
    },
    {
     "temp": 20,
     "sky": "clear",
     "rain": 0,
-    "aqi": 134
+    "aqi": 125
    },
    {
     "temp": 19,
     "sky": "clear",
     "rain": 0,
-    "aqi": 134
+    "aqi": 126
    },
    {
     "temp": 18,
     "sky": "clear",
     "rain": 0,
-    "aqi": 134
+    "aqi": 129
    },
    {
     "temp": 18,
     "sky": "clear",
     "rain": 0,
-    "aqi": 135
+    "aqi": 132
    },
    {
     "temp": 17,
     "sky": "clear",
     "rain": 0,
-    "aqi": 135
+    "aqi": 136
    },
    {
     "temp": 17,
     "sky": "clear",
     "rain": 0,
-    "aqi": 135
+    "aqi": 139
    }
   ]
  },
@@ -346,6 +346,13 @@
    "mode": "walk",
    "a": "home",
    "b": "iic"
+  },
+  {
+   "from": "12:21",
+   "to": "12:31",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -416,6 +423,34 @@
    "status": "Worn from 11:59.",
    "sprite": "bandhgala",
    "t": "11:59"
+  },
+  {
+   "k": "diary",
+   "text": "The heat is already pressing, and my stomach has been silent since yesterday, a hollow drum. I cannot review notes for Tuesday's talk on an empty vessel; the spirit requires the body's cooperation, however reluctantly. I will ask the officer for the nearest place to eat, or at least water, before I attempt to sit down.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§527"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§536"
+    }
+   ],
+   "t": "12:21"
+  },
+  {
+   "k": "said",
+   "text": "Good day. The air is thick here. Do you know of a place nearby where I might find a simple meal or a glass of water? My constitution is not yet adjusted to the delays of the midday sun.",
+   "to": "the guard at the library and the programme officer",
+   "t": "12:21"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Sir, you're inside IIC, it's not that thick. The cafeteria is right there, just past the main hall, or grab water from the dispenser near the entrance. Don't worry about the sun, we're all under the canopy.",
+   "t": "12:21"
   }
  ],
  "steps": [
@@ -643,6 +678,68 @@
      "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
     }
    ]
+  },
+  {
+   "t": "12:21",
+   "end": "12:31",
+   "event": "You arrive at India International Centre. It closes at 21:30.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The heat is already pressing, and my stomach has been silent since yesterday, a hollow drum. I cannot review notes for Tuesday's talk on an empty vessel; the spirit requires the body's cooperation, however reluctantly. I will ask the officer for the nearest place to eat, or at least water, before I attempt to sit down.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 10,
+    "says": "Good day. The air is thick here. Do you know of a place nearby where I might find a simple meal or a glass of water? My constitution is not yet adjusted to the delays of the midday sun.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "arrive"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Sir, you're inside IIC, it's not that thick. The cafeteria is right there, just past the main hall, or grab water from the dispenser near the entrance. Don't worry about the sun, we're all under the canopy.",
+    "does": "Points a thumb towards the main hall and cafeteria area."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 12.4,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§527",
+     "id": "wallace-mind:275"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§536",
+     "id": "wallace-mind:292"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§527",
+     "text": "Where civil society, and with it the State, exists, there arise the several estates in their difference: for the universal substance, as vital, exists only so far as it organically particularises itself."
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§536",
+     "text": "The state is (α) its inward structure as a self-relating development—constitutional (inner-state) law: (β) a particular individual, and therefore in connexion with other particular individuals,—international (outer-state) law; (γ) but these particular minds are only stages in the general development of mind in its actuality: universal history. α. Constitutional Law(167)."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -650,7 +747,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-18T12:21+05:30",
+  "until": "2026-11-18T12:31+05:30",
   "asleep": false,
   "imprest": 35620,
   "wearing": "bandhgala",
@@ -743,6 +840,10 @@
    "seen": {
     "home": [
      "hegde"
+    ],
+    "iic": [
+     "guard",
+     "officer"
     ]
    },
    "no_meals": true,
@@ -846,7 +947,8 @@
    "iic": [
     "2026-10-28",
     "2026-11-06",
-    "2026-11-17"
+    "2026-11-17",
+    "2026-11-18"
    ],
    "safdarjung": [
     "2026-10-28"
