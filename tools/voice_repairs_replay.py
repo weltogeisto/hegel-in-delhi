@@ -103,10 +103,10 @@ class Replay:
         if dec.get("speaks_to") in f["present"]:
             on, rule = dec["speaks_to"], "recipient"
         named = voices.addressed(self.cast, dec["says"], f["present"])
-        longest = voices.named_longest(self.cast, dec["says"], f["present"])
-        names = [c for c in f["present"] if voices.named_longest(self.cast, dec["says"], [c])]
+        found = voices.addressed_at(self.cast, dec["says"], f["present"])
+        names = [c for c in f["present"] if voices.addressed(self.cast, dec["says"], [c])]
         return dict(row, reproducible=True, speaker=speaker, new=on, changed=on != speaker, rule=rule, names_a_present=bool(names),
-                    new_is_named=on in names, recorded_is_named=speaker in names, first_named=named, longest_named=longest,
+                    new_is_named=on in names, recorded_is_named=speaker in names, first_named=named, addressed_names=sorted(found),
                     greeting=f["greeting"], greeting_held=f["greeting_held"], beat=f["beat"], purchases=f["purchases"])
 
     def dropped(self, day, i):
@@ -154,6 +154,7 @@ def table(res):
         md += [f"- {r['day']} {r['t']}: recorded {r['recorded']}, now {r['new']} (rule: {r['rule']}). "
                f"His words name a present person: {'yes' if r['names_a_present'] else 'no'}; the new speaker is that person: "
                f"{'yes' if r['new_is_named'] else 'no'}; the recorded speaker was named: {'yes' if r['recorded_is_named'] else 'no'}.",
+               f"  Present: {', '.join(r['present'])}. Addressed names found: {', '.join(r['addressed_names']) or 'none'}.",
                f"  His words: {r['says']}"]
     md += ["", "## `does` lines dropped", ""] + [f"- {r['day']} {r['t']}, {r['speaker']} ({r['kind']}): {r['does']}" for r in res["dropped"]]
     if res["unreproducible"]:

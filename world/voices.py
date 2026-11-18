@@ -22,21 +22,48 @@ def addressed(cast, says, present):
     return min(hits)[1] if hits else None
 
 
-def named_longest(cast, says, present):
-    """HEGEL_VOICE_REPAIRS: the person present whose name opens the longest stretch of `says` (to the next name, or the end); a tie
-    goes to the one named first. None if no one is named."""
-    hits = []
+def addressed_at(cast, says, present):
+    """HEGEL_VOICE_REPAIRS: {person present: [where in `says` each address to them begins]}, for the people he speaks TO, not of.
+
+    A name form (the ones `addressed` matches) stands as a vocative when it is followed directly by a comma and comes at the start of
+    the text or after a sentence end (. ! ? ;), after at most one of And, But, So, Now, The; or when it is preceded directly by ", " and
+    followed by a sentence end or the end of the text ("Thank you, Ramesh."). A title before it ("Shri Hegde") belongs to the address.
+    "Ramesh has left" and "I will join Shri Hegde for a moment" name a person and address no one."""
+    says, found = says or "", {}
+    lead = re.compile(r"(?:^|[.!?;]\s*)(?:(?:and|but|so|now|the)\s+)?$", re.I)
+    title = re.compile(r"(?:\b(?:" + "|".join(sorted(TITLES)) + r")\b\.?\s+)+$", re.I)
     for cid in present:
         c = cast[cid]
         terms = names_of(c) | ({re.sub(r"^the ", "", c["name"], flags=re.I)} if c.get("background") else set())
-        hits += [(m.start(), cid) for m in re.finditer(r"\b(" + "|".join(re.escape(x) for x in terms) + r")\b", says or "", re.I)]
-    hits.sort()
-    best = {}
-    for i, (start, cid) in enumerate(hits):
-        end = hits[i + 1][0] if i + 1 < len(hits) else len(says)
-        if end - start > best.get(cid, (0, 0))[0]:
-            best[cid] = (end - start, start)
-    return min(best, key=lambda c: (-best[c][0], best[c][1])) if best else None
+        for m in re.finditer(r"\b(" + "|".join(re.escape(x) for x in sorted(terms, key=len, reverse=True)) + r")\b", says, re.I):
+            before, after = says[:m.start()], says[m.end():]
+            t = title.search(before)
+            begin = t.start() if t else m.start()
+            opening = lead.search(says[:begin]) and after.startswith(",")
+            closing = says[:begin].endswith(", ") and (not after or after[0] in ".!?;")
+            if opening or closing:
+                found.setdefault(cid, []).append(begin)
+    return found
+
+
+def address_of(cast, says, present, purchases=None):
+    """HEGEL_VOICE_REPAIRS: who he addresses, as (person, rule), or (None, None). One addressed: that person. Several: the seller of this
+    step's purchase if among them, else the one whose address opens the longest stretch (to the next address or the end)."""
+    found = addressed_at(cast, says, present)
+    if len(found) == 1:
+        return next(iter(found)), "addressed"
+    if not found:
+        return None, None
+    sold = next((c for x in purchases or [] for c in found if seller_of(cast, str(x.get("item", "")), [c])), None)
+    if sold:
+        return sold, "addressed_purchase"
+    spots = sorted((at, cid) for cid, ats in found.items() for at in ats)
+    stretch = {}
+    for i, (at, cid) in enumerate(spots):
+        end = spots[i + 1][0] if i + 1 < len(spots) else len(says)
+        if end - at > stretch.get(cid, (0, 0))[0]:
+            stretch[cid] = (end - at, at)
+    return min(stretch, key=lambda c: (-stretch[c][0], stretch[c][1])), "addressed_longest"
 
 
 def _words(says, terms):
@@ -75,9 +102,9 @@ def pick(cast, says, present, recipient=None, facts=False, purchases=None, entri
     he bought from in this step, then the one he last spoke with here today, then the legacy fallback.
 
     With `repairs` (HEGEL_VOICE_REPAIRS; a dict that may hold `greeting`, the person who spoke first in this step, and `needs`,
-    the people the beat that fired in this step needs), the order is: the person his words name longest, the greeter, the beat's
-    person, the seller of this step's purchase (with `facts`, first the one whose trade his words concern), the one he last spoke
-    with here (whatever `facts` says), the legacy fallback.
+    the people the beat that fired in this step needs), the order is: the person he addresses (address_of; if he addresses no one, the one his words name first), the greeter, the beat's
+    person, the seller of this step's purchase (with `facts`, first the one whose trade his words concern), then, only with `facts`
+    and as without `repairs`, the one he last spoke with here, then the legacy fallback.
     """
     if recipient is not None:
         if recipient not in cast or recipient not in present:
@@ -105,10 +132,14 @@ def _pick_repaired(cast, says, present, facts, purchases, entries, segments, pla
 
 
 def route_repaired(cast, says, present, facts, purchases, entries, segments, place, repairs):
-    """(who answers, the rule that decided) under HEGEL_VOICE_REPAIRS: named, greeting, beat, purchase, last_spoken or fallback."""
-    named = named_longest(cast, says, present)
+    """(who answers, the rule that decided) under HEGEL_VOICE_REPAIRS: addressed (see address_of), mention (his words name a person
+    and address no one: the one named first, as `addressed` does), greeting, beat, purchase, last_spoken (only with `facts`) or fallback."""
+    who, rule = address_of(cast, says, present, purchases)
+    if who:
+        return who, rule
+    named = addressed(cast, says, present)
     if named:
-        return named, "named"
+        return named, "mention"
     if repairs.get("greeting") in present:
         return repairs["greeting"], "greeting"
     need = next((c for c in repairs.get("needs") or [] if c in present), None)
@@ -118,7 +149,7 @@ def route_repaired(cast, says, present, facts, purchases, entries, segments, pla
         (c for x in purchases or [] if (c := seller_of(cast, str(x.get("item", "")), present))), None)
     if sold:
         return sold, "purchase"
-    last = last_spoken(cast, entries, segments, place, present)
+    last = last_spoken(cast, entries, segments, place, present) if facts else None
     if last:
         return last, "last_spoken"
     return next((c for c in present if not cast[c].get("background")), None) or (present[0] if present else None), "fallback"

@@ -98,14 +98,85 @@ class C_WhoAnswers(unittest.TestCase):
         self.assertEqual(reply(False, says, ["ramesh", "hegde"]), "ramesh")
         self.assertEqual(reply(True, says, ["ramesh", "hegde"]), "hegde")
 
-    def test_longest_stretch_keeps_malhotra(self):
+    def test_addressing_keeps_the_existing_names_tests(self):
         c = CAST
-        self.assertEqual(voices.pick(c, "Malhotra, and then Nidhi", ["nidhi", "malhotra"], repairs={}), "malhotra")
+        self.assertEqual(voices.pick(c, "Malhotra, and then Nidhi", ["nidhi", "malhotra"], repairs={}), "malhotra")     # only Malhotra is addressed
         self.assertEqual(voices.pick(c, "Mr. Malhotra, your bid", ["nidhi", "malhotra"], repairs={}), "malhotra")
         self.assertEqual(voices.pick(c, "Nidhi, a word?", ["ramesh", "nidhi"], repairs={}), "nidhi")
         self.assertEqual(voices.pick(c, "Excuse me, the bookseller?", ["bookseller", "nidhi"], repairs={}), "bookseller")
-        self.assertEqual(voices.pick(c, "Ramesh, Hegde", ["ramesh", "hegde"], repairs={}), "ramesh")          # a tie: the first named
+        self.assertEqual(voices.pick(c, "Ramesh, Hegde", ["ramesh", "hegde"], repairs={}), "ramesh")          # both addressed: the longer stretch
 
+    def test_mention_alone_is_the_first_named(self):
+        self.assertEqual(voices.pick(CAST, "I think Ramesh and Hegde have left.", ["hegde", "ramesh"], repairs={}), "ramesh")
+
+    def test_the_six_replay_cases(self):
+        """From the replay of Days 44 to 49: his words in full, who answers with the switch on."""
+        cases = [
+            ("Shri Hegde, the file is gone for orders, and with it, my means of subsistence. Ramesh has left; there is no food, and no money to buy any. "
+             "The system of needs operates with a cold logic that my philosophy cannot soothe. I am, for now, a body without resources in a house that is not mine.",
+             ["ramesh", "hegde"], [], "hegde"),                                                                         # 2026-11-16 09:44
+            ("Ramesh, you have my thanks. The chai is sufficient. Hegde, you may retire; I must now attend to the silence of the house.",
+             ["ramesh", "hegde"], [], "hegde"),                                                                         # 2026-11-16 19:01, the longer stretch
+            ("Sunil, another cup of chai, please. And Masterji, I see you are still at your bench. The heat has moderated, but the work continues.",
+             ["masterji", "sunil", "bookseller"], [dict(item="Chai, a cup", price=20)], "sunil"),                       # 2026-11-18 15:16
+            ("Masterji, you are still here. I require food, not fabric. The bookseller, do you have a newspaper from today? I need to know what the state is doing while I am eating its bread.",
+             ["masterji", "bookseller"], [dict(item="Lunch at a dhaba: dal, rice, roti", price=220), dict(item="Newspapers", price=45)], "bookseller"),   # 2026-11-18 19:20
+            ("Ramesh, thank you. Shri Hegde, before you go to sleep, I must speak with you regarding the vouchers. The Directorate has queried twenty-seven rupees from my imprest.",
+             ["ramesh", "hegde"], [], "hegde"),                                                                         # 2026-11-19 19:24
+            ("Thank you, Ramesh. I will join Shri Hegde for a moment before we settle in.",
+             ["ramesh", "hegde"], [], "ramesh"),                                                                        # 2026-11-19 20:09
+        ]
+        for says, p, buys, want in cases:
+            with self.subTest(says=says[:30]):
+                self.assertEqual(voices.pick(CAST, says, p, purchases=buys, repairs={}), want)
+
+
+class AddressedAt(unittest.TestCase):
+    """voices.addressed_at: a name he speaks TO counts, a name he only mentions does not."""
+    def found(self, says, present=("ramesh", "hegde", "masterji", "sunil", "bookseller", "nidhi")):
+        return {k: v for k, v in voices.addressed_at(CAST, says, list(present)).items()}
+
+    def test_start_of_text_with_comma(self):
+        self.assertEqual(self.found("Ramesh, tea."), {"ramesh": [0]})
+
+    def test_after_sentence_end_and_leading_word(self):
+        f = self.found("Thanks. Sunil, chai. And Masterji, a word! But Nidhi, you too; So Hegde, you as well.")
+        self.assertEqual(sorted(f), ["hegde", "masterji", "nidhi", "sunil"])
+        self.assertEqual(self.found("Fine. Now Ramesh, go."), {"ramesh": [10]})
+
+    def test_end_of_text_after_comma(self):
+        self.assertEqual(sorted(self.found("Thank you, Ramesh.")), ["ramesh"])
+        self.assertEqual(sorted(self.found("Thank you, Ramesh")), ["ramesh"])
+        self.assertEqual(sorted(self.found("Is it so, Hegde?")), ["hegde"])
+
+    def test_a_title_belongs_to_the_name(self):
+        self.assertEqual(self.found("Shri Hegde, a word."), {"hegde": [0]})
+        self.assertEqual(self.found("Well. Shri G. Hegde, a word."), {"hegde": [6]})
+        self.assertEqual(voices.addressed_at(CAST, "Mr. Malhotra, your bid", ["malhotra"]), {"malhotra": [0]})
+
+    def test_mention_is_not_address(self):
+        for says in ("Ramesh has left; there is no food.", "I will join Shri Hegde for a moment.", "Tell Ramesh, please.", "Masterji's coat is ready.",
+                     "He said Ramesh, and then left.", "Is that Hegde here?", "Hegde"):
+            with self.subTest(says=says):
+                self.assertEqual(self.found(says), {})
+
+    def test_background_person_by_role(self):
+        self.assertEqual(sorted(self.found("The bookseller, do you have a paper?")), ["bookseller"])
+        self.assertEqual(sorted(self.found("Excuse me, the bookseller?")), ["bookseller"])
+
+    def test_only_people_present_and_empty_words(self):
+        self.assertEqual(self.found("Ramesh, tea.", ["hegde"]), {})
+        self.assertEqual(voices.addressed_at(CAST, None, ["ramesh"]), {})
+
+    def test_address_of_several(self):
+        self.assertEqual(voices.address_of(CAST, "Ramesh, hello. Hegde, you may sit down and rest.", ["ramesh", "hegde"]), ("hegde", "addressed_longest"))
+        self.assertEqual(voices.address_of(CAST, "Sunil, hello. Masterji, you may sit down and rest.", ["masterji", "sunil"], [dict(item="Chai", price=20)]),
+                         ("sunil", "addressed_purchase"))
+        self.assertEqual(voices.address_of(CAST, "Ramesh, hello.", ["ramesh", "hegde"]), ("ramesh", "addressed"))
+        self.assertEqual(voices.address_of(CAST, "Hello.", ["ramesh", "hegde"]), (None, None))
+
+
+class C2_WhoAnswersNext(unittest.TestCase):
     def test_day47_programme_officer(self):
         """Day 47, 10:39: the beat iic_talk fired ('The programme officer of the Centre comes over...'); the guard answered."""
         says = "I accept your invitation with pleasure. I shall come at half past six."

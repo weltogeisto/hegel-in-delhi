@@ -43,7 +43,7 @@ class Replay(unittest.TestCase):
 
     def test_named_move_is_marked(self):
         r = self.res["changed"][1]
-        self.assertEqual((r["t"], r["new"], r["rule"]), ("10:02", "hegde", "named"))
+        self.assertEqual((r["t"], r["new"], r["rule"]), ("10:02", "hegde", "addressed_longest"))
         self.assertTrue(r["names_a_present"] and r["new_is_named"] and r["recorded_is_named"])
 
     def test_dropped_does(self):
