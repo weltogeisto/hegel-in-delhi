@@ -489,6 +489,13 @@
    "mode": "walk",
    "a": "home",
    "b": "lodhi"
+  },
+  {
+   "from": "14:49",
+   "to": "15:49",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Walking the paths of Lodhi Gardens."
   }
  ],
  "entries": [
@@ -907,6 +914,21 @@
    "to": "Hegel",
    "text": "Ji, enjoy the walk. The path to the gate is dry enough, no need to worry about the dust.",
    "t": "14:29"
+  },
+  {
+   "k": "diary",
+   "text": "The heat has broken, leaving the air still and the light soft. I am alone in the gardens, the perfect setting for the mind to turn upon itself. The file is a dead end for today, but the tension in my thought regarding India and history is alive. I will walk the paths and see if the movement of my own thinking can resolve the contradiction I have found.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die griechische Welt, Die besonderen Götter"
+    }
+   ],
+   "t": "14:49"
   }
  ],
  "steps": [
@@ -1749,6 +1771,63 @@
      "text": "For it is an indispensable requirement that the grave of parents be annually visited. Here lamentations are annually renewed, and many, to give full vent to their grief, remain there sometimes one or two months. The body of a deceased father is often kept three or four months in the house, and during this time no one may sit down on a chair or sleep in a bed."
     }
    ]
+  },
+  {
+   "t": "14:49",
+   "end": "15:49",
+   "event": "You arrive at Lodhi Gardens. It closes at 19:30.",
+   "present": [],
+   "decision": {
+    "thought": "The heat has broken, leaving the air still and the light soft. I am alone in the gardens, the perfect setting for the mind to turn upon itself. The file is a dead end for today, but the tension in my thought regarding India and history is alive. I will walk the paths and see if the movement of my own thinking can resolve the contradiction I have found.",
+    "action": "stay",
+    "place": "lodhi",
+    "minutes": 60,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "arrive"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "id": "haldane-1:103"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die griechische Welt, Die besonderen Götter",
+     "id": "welt-3:190"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "text": "It has been shown above in reference to the existence of Mind, that its Being is its activity. Nature, on the contrary, is, as it is; its changes are thus only repetitions, and its movements take the form of a circle merely. To express this better, the activity of Mind is to know itself."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die griechische Welt, Die besonderen Götter",
+     "text": "Wir haben den Despotismus im Orient in glänzender Ausbildung als eine dem Morgenland entsprechende Gestaltung gesehen; nicht minder ist die demokratische Form in Griechenland die welthistorische Bestimmung."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1756,7 +1835,7 @@
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-11-19T14:49+05:30",
+  "until": "2026-11-19T15:49+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
@@ -1849,7 +1928,8 @@
    "seen": {
     "home": [
      "ramesh"
-    ]
+    ],
+    "lodhi": []
    },
    "breakfast": true,
    "lunch": true,
@@ -2035,7 +2115,8 @@
     "2026-11-07",
     "2026-11-15",
     "2026-11-16",
-    "2026-11-18"
+    "2026-11-18",
+    "2026-11-19"
    ],
    "gandhi": [
     "2026-10-02",
