@@ -608,6 +608,15 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Shri G. Hegde at home."
+  },
+  {
+   "from": "21:00",
+   "to": "24:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Asleep.",
+   "asleep": true,
+   "owl": true
   }
  ],
  "entries": [
@@ -3384,6 +3393,32 @@
      "text": "If so, he would be an animal, wliicli, because of its dangerous and passionate nature would have to be be tilled. It is claimed that the criminal in the moment of his act must have presented clearly to himself the nature of the wrong he is doing and of his liability to punishment, if the act is to be counted to him for a crime."
     }
    ]
+  },
+  {
+   "t": "21:00",
+   "end": "24:00",
+   "event": "Shri G. Hegde says: “Good, good. The file will be ready by then, likely. Don't stay up late reading; the bungalow is quiet enough to hear the house settle if you do.” He nods briefly and gestures towards the hallway leading to the study.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "sleep",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "bedtime",
+    "attempts": 0,
+    "latency_s": 0.0
+   }
   }
  ],
  "funnel": {},
@@ -3391,8 +3426,8 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-19T21:00+05:30",
-  "asleep": false,
+  "until": "2026-11-20T00:00+05:30",
+  "asleep": true,
   "imprest": 18686,
   "wearing": "kurta",
   "wardrobe": [
