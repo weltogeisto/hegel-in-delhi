@@ -440,6 +440,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "10:34",
+   "to": "10:44",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -703,6 +710,21 @@
    "to": "Hegel",
    "text": "Ji. I'll ring the bell when it's ready.",
    "t": "10:24"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh is gone, and the house is quiet except for the hum of the refrigerator. The file is gone for fifteen days, a bureaucratic suspension that mirrors the pause in my own thoughts. I must not let the silence become empty; it is the space where the reply to Dr. Lindner must be formed.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Middle Ages"
+    }
+   ],
+   "t": "10:34"
   }
  ],
  "steps": [
@@ -1144,6 +1166,65 @@
      "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
     }
    ]
+  },
+  {
+   "t": "10:34",
+   "end": "10:44",
+   "event": "Ramesh says: “Ji. I'll ring the bell when it's ready.” He nods once, adjusts the towel on his shoulder, and turns back toward the kitchen.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh is gone, and the house is quiet except for the hum of the refrigerator. The file is gone for fifteen days, a bureaucratic suspension that mirrors the pause in my own thoughts. I must not let the silence become empty; it is the space where the reply to Dr. Lindner must be formed.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 10,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 6.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Middle Ages",
+     "id": "sibree-history:1194"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Middle Ages",
+     "text": "Their first united undertaking was the erection of a tower in which a bell was suspended: the ringing of the bell was a signal for a general rendezvous, and the object of the union thus appointed was the formation of a kind of militia."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1151,7 +1232,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-19T10:34+05:30",
+  "until": "2026-11-19T10:44+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
