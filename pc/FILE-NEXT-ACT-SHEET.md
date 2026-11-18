@@ -4,7 +4,7 @@ Claude in the cloud, the night of 18 November 2026. The full draft is `pc/FILE-N
 
 **Why now.** His 20 November is Day 50. The last beat that exists, `saxena_query`, fires the next time he stands before Mr. Saxena: the allottee is to furnish proof of identity as Shri G. Hegde. After it the story of the file holds nothing.
 
-**One yes turns on part 1:** three doors that open once the query has come. None is the right one. Each puts a fact on the file and nothing else. It is built behind a switch, `HEGEL_FILE_ACT`, which is off. Parts 2 and 3 are for December and the new year and are not built.
+**One yes turns on part 1:** three doors that open once the query has come. None is the right one. Each puts a fact on the file and nothing else. It is built behind a switch, `HEGEL_FILE_ACT`, which is off: with it off his world is the same, hash for hash (`tests/test_opened.py`). In two rehearsals of 45 days every door opened under its own conditions and at no other time (`tests/test_file_act.py`). Parts 2 and 3 are for December and the new year and are not built.
 
 ## The seven calls, with my answer to each
 

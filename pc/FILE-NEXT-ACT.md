@@ -1,6 +1,6 @@
 # The file's next act
 
-A draft by Claude for Welt's pen (T56, `WORLD-2.md`). Nothing here is in `plot.json`. It goes there when Welt has edited it and said so.
+A draft by Claude for Welt's pen (T56, `WORLD-2.md`). Nothing here is in `plot.json`. It goes there when Welt has edited it and said so. **Since 18 November part 1 stands beside it,** in `world/data/plot_file_act.json`, read only when `HEGEL_FILE_ACT` is on. The switch is off and waits for Welt's yes (`pc/FILE-NEXT-ACT-SHEET.md`).
 
 **The idea:** until now the file waited for him. From 20 November it moves whether he comes or not. Shri Hegde has his own letter to answer, the Directorate has its own calendar, and what he did in October comes back as a fact on paper.
 
