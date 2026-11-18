@@ -142,6 +142,9 @@ Welt's calls, the night of 17 to 18 November, after the street's forks passed (`
     - **First, one card is rewritten** (done): the IIC noticeboard announced a lecture, and in a fork he resolved to attend it. It now reads: "On the board by the entrance, typed notices curl at their corners under coloured pins, and last month's programme still shows through this month's."
     - **Read weekly by Claude in the cloud:** empty moments, what the world brings, the share of a day's kinds seen before, and what he does with the cards.
 
+51. **The street goes ahead** (Welt, 18 November: "sooner ahead"). It is the next change in his world, before the shelf labels and the museums: `HEGEL_STREET=1` before his waking on Day 50. The shelf labels follow on Day 51 and the museums, concerts and plays on Day 52, each after the previous one's first full day, as before.
+    - **Why it can:** it has passed its forks, and they ran on the world as it stands today: the new instructions, the filter and the letters, without the shelf labels or the museums.
+
 ## Still open
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.
