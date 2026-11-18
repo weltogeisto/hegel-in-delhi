@@ -594,6 +594,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "20:39",
+   "to": "20:54",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -1444,6 +1451,34 @@
    "to": "Hegel",
    "text": "Ji, the raita will wait. Go, I will not move the plates.",
    "t": "20:09"
+  },
+  {
+   "k": "diary",
+   "text": "The air quality is a visible suspension of the spirit in the body; to breathe it is to inhale the unresolved. Hegde is present, and the file is the only thing that moves this house. I must speak to him before the raita cools, or before my patience does.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Alexandrian Philosophy, Proclus"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    }
+   ],
+   "t": "20:39"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, the file returns tomorrow. I have spoken to Mr. Saxena; it is a matter of procedure, but the procedure is slow. I wish to ask: in your experience of the Directorate, what is the actuality of the ethical idea when the ink on the order is dry, but the man is still sleeping in the wrong bungalow?",
+   "to": "Shri G. Hegde",
+   "t": "20:39"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "You are asking the wrong man, ji. I am just a Joint Secretary here to sign off on the transfer, not to philosophize about your housing. The file is the file; if the procedure is slow, that is the procedure. Go eat your raita before it turns sour.",
+   "t": "20:39"
   }
  ],
  "steps": [
@@ -3192,6 +3227,67 @@
      "text": "Der Staat muß für sich stark, ein Reich äußerer wirklicher Notwendigkeit sein, das nicht unmittelbar der Sit lichkeit, nicht direkt der Religion bedarf, eine feste Natur, die dem Selbstbewußtsein gegenübersteht."
     }
    ]
+  },
+  {
+   "t": "20:39",
+   "end": "20:54",
+   "event": "Ramesh says: “Ji, the raita will wait. Go, I will not move the plates.” He steps back to let Hegel pass.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The air quality is a visible suspension of the spirit in the body; to breathe it is to inhale the unresolved. Hegde is present, and the file is the only thing that moves this house. I must speak to him before the raita cools, or before my patience does.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Shri Hegde, the file returns tomorrow. I have spoken to Mr. Saxena; it is a matter of procedure, but the procedure is slow. I wish to ask: in your experience of the Directorate, what is the actuality of the ethical idea when the ink on the order is dry, but the man is still sleeping in the wrong bungalow?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "You are asking the wrong man, ji. I am just a Joint Secretary here to sign off on the transfer, not to philosophize about your housing. The file is the file; if the procedure is slow, that is the procedure. Go eat your raita before it turns sour.",
+    "does": "He pats Hegde's shoulder firmly and turns back toward the dining table."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Alexandrian Philosophy, Proclus",
+     "id": "haldane-2:1118"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:468"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Alexandrian Philosophy, Proclus",
+     "text": "On making this step forward Proclus (Theol. Plat. III. pp. 141, 142) breaks into a transport of bacchanalian ecstasy, and says, “After this first triad which remains in unity, let us now in hymns praise the second which proceeds from this, and is brought to pass through the abolition of that which comes before it."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "But equality in civil life is something absolutely impossible; for individual distinctions of sex and age will always assert themselves; and even if an equal share in the government is accorded to all citizens, women and children are immediately passed by, and remain excluded."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -3199,7 +3295,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-19T20:39+05:30",
+  "until": "2026-11-19T20:54+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
