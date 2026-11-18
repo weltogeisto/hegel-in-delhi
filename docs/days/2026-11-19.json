@@ -510,6 +510,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Talking with Mrs. Kapoor in Lodhi Gardens."
+  },
+  {
+   "from": "16:14",
+   "to": "16:29",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Talking with Mrs. Kapoor in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -1021,6 +1028,37 @@
    "why": "stagnation",
    "topic": "the ranking of peoples",
    "t": "15:59"
+  },
+  {
+   "k": "diary",
+   "text": "She speaks with the authority of one who has seen the mechanism from the inside, not the outside. To say the engine is the fight for the biscuit is to say that the struggle for recognition is the driving force of social life, a view I would not have entirely rejected had I not placed the state above civil society. It is a sharp counter to my abstraction, grounding the 'stagnation' in the visceral reality of individual need and conflict.",
+   "sensitive": true,
+   "why": "stagnation",
+   "topic": "the ranking of peoples",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "First Division, Descartes"
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810"
+    }
+   ],
+   "t": "16:14"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Madam. I spoke of the spirit as if it were a clock that had stopped, but you remind me that the gears are still grinding, even if the hands do not move forward. The individual, struggling for his particular satisfaction, is the immediate reality; the universal is only the result of that struggle being mediated. I am learning to see the mechanism, not just the design.",
+   "to": "Mrs. Kapoor",
+   "t": "16:14"
+  },
+  {
+   "k": "said",
+   "by": "Mrs. Kapoor",
+   "to": "Hegel",
+   "text": "Gears? Pah, I taught you history, not engineering. Just because the hands aren't moving doesn't mean the mechanism isn't rusted through. You foreigners always want to find a 'universal' in the mess; there is only the mess, and my aching knees.",
+   "t": "16:14"
   }
  ],
  "steps": [
@@ -2043,6 +2081,67 @@
      "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
     }
    ]
+  },
+  {
+   "t": "16:14",
+   "end": "16:29",
+   "event": "Mrs. Kapoor says: “Thirty-one years in a classroom, and I can tell you, things don't just circle; they grind. You want to feel the stagnation? Watch the children fight over the last biscuit, that is the real engine.” She taps the bench again, leaning forward slightly despite her knees.",
+   "present": [
+    "Mrs. Kapoor, a retired schoolteacher"
+   ],
+   "decision": {
+    "thought": "She speaks with the authority of one who has seen the mechanism from the inside, not the outside. To say the engine is the fight for the biscuit is to say that the struggle for recognition is the driving force of social life, a view I would not have entirely rejected had I not placed the state above civil society. It is a sharp counter to my abstraction, grounding the 'stagnation' in the visceral reality of individual need and conflict.",
+    "action": "talk",
+    "place": "lodhi",
+    "minutes": 15,
+    "says": "You are right, Madam. I spoke of the spirit as if it were a clock that had stopped, but you remind me that the gears are still grinding, even if the hands do not move forward. The individual, struggling for his particular satisfaction, is the immediate reality; the universal is only the result of that struggle being mediated. I am learning to see the mechanism, not just the design.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mrs. Kapoor",
+    "says": "Gears? Pah, I taught you history, not engineering. Just because the hands aren't moving doesn't mean the mechanism isn't rusted through. You foreigners always want to find a 'universal' in the mess; there is only the mess, and my aching knees.",
+    "does": "She waves a dismissive hand at the bench and stands up slowly, wincing slightly as her knees lock."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "First Division, Descartes",
+     "id": "haldane-3:533"
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810",
+     "id": "reden:58"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "First Division, Descartes",
+     "text": "But as he here found no satisfaction, he soon left society and returned to his studies. He retired to a suburb of Paris and there occupied himself principally with mathematics, remaining quite concealed from all his former friends. At last, after the lapse of two years, he was discovered by them, drawn forth from his retirement, and again introduced to the great world."
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810",
+     "text": "Zum Besuche unserer Schulen gehört ruhiges Verhalten, Gewöhnung an fortdauernde Aufmerksamkeit, ein Gefühl des Respekts und Gehorsams gegen die Lehrer, ein gegen diese wie gegen die Mitschüler anständiges, sittsames Betragen."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2050,7 +2149,7 @@
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-11-19T16:14+05:30",
+  "until": "2026-11-19T16:29+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
