@@ -7,6 +7,7 @@ Declared on 18 November by Claude in the cloud, and read by the phase-two sessio
 - **The morning:** the first complete shadow day D after the museums' first full day, with every switch shadow runs on D. Its docs are copied from the Pi after D's bedtime step.
 - **Two days per fork,** so that the night between D and D+1 writes the first notebook and D+1 lives with it: `python3 -m world simulate --docs <shadow's docs> --date D --days 2 --mind <server> --seed S --set HEGEL_NOTEBOOK=<0|1>`, plus a `--set` for every live switch. No `--feeds`, scratch folders only. `--seed` turns the prompt cache off.
 - **Seeds:** 1831, 2718, 3141, 4253 and 5167, each with the notebook off and on: twenty days of the card, about two and a half hours. The drift arm below adds twelve days, about an hour and a half.
+- **M1's paired test shares this morning** (`pc/M1-TRIAL-READING.md`, second reading): the five notebook-off forks' day D are its `soul-ordinary` arm. Five more one-day forks of D with `--set HEGEL_SOUL_FILE=mind/soul.md`, the same seeds and switches, are its other arm.
 - **First, the same-seed check:** seed 1831 with the notebook off, twice, then `tools/fork_diff.py`. If the two runs part, all ten still run, and the bars are read five against five.
 
 ## The measures, on D+1, where the notebook acts
