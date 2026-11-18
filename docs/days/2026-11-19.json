@@ -419,6 +419,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "10:04",
+   "to": "10:19",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -598,6 +605,34 @@
    "to": "Hegel",
    "text": "Ji, chai is hot on the stove. I will bring it when you are ready.",
    "t": "09:59"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh offers the chai, a small act of service that bridges the gap between his station and mine. I will take a moment to sit on the verandah; the air is cool but the haze is thick, a visible reminder of the city's chaotic vitality. I need this pause before I attempt the letter to Lindner.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "10:04"
+  },
+  {
+   "k": "said",
+   "text": "Ji, bring it when you are ready. I will be on the verandah.",
+   "to": "Ramesh",
+   "t": "10:04"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, five minutes. The samosas are in the fridge if you want one with it.",
+   "t": "10:04"
   }
  ],
  "steps": [
@@ -853,6 +888,67 @@
      "text": "It requires but little reflection to see that the services performed by the classes in behalf of the general well-being and public liberty cannot be traced to an insight special to these classes. The highest state of&cials have necessarily deeper and more comprehensive insight into the workings and needs of the state, and also greater skill and wider practical experience."
     }
    ]
+  },
+  {
+   "t": "10:04",
+   "end": "10:19",
+   "event": "Ramesh says: “Ji, chai is hot on the stove. I will bring it when you are ready.”",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh offers the chai, a small act of service that bridges the gap between his station and mine. I will take a moment to sit on the verandah; the air is cool but the haze is thick, a visible reminder of the city's chaotic vitality. I need this pause before I attempt the letter to Lindner.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ji, bring it when you are ready. I will be on the verandah.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, five minutes. The samosas are in the fridge if you want one with it.",
+    "does": "He turns away toward the kitchen, adjusting the towel over his shoulder."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 11.3,
+    "draws": {
+     "n": 2,
+     "refused": 1,
+     "echo": 0,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "id": "dyde-right:549"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "text": "Note. — In contrast with freedom of business and trade in the civic community stands the other extreme of the establishment and direction of the work of all by means of official regulation. Under this head comes perhaps the construction of the pyramids and other monstrous Egyptian and Asiatic works."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -860,7 +956,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-19T10:04+05:30",
+  "until": "2026-11-19T10:19+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
