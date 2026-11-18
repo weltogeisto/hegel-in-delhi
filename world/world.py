@@ -94,7 +94,7 @@ def names(lst):
 
 
 class World(Economy):
-    def __init__(self, feeds=None, culture=False, street_on=False, street_file=None, promises=False, ramesh_days=False, consumed=False):
+    def __init__(self, feeds=None, culture=False, street_on=False, street_file=None, promises=False, ramesh_days=False, consumed=False, file_act=False):
         self.consumed = bool(consumed)                        # HEGEL_CONSUMED: what he ate is an entry of its own (`consumed`); off until switched on (DECISIONS 48)
         p = load("places.json")
         self.places, self.walks = p["places"], p["walk"]
@@ -109,7 +109,8 @@ class World(Economy):
         self.cast = load("cast.json")["cast"]
         switched = {"ramesh_days"} if ramesh_days else set()   # HEGEL_RAMESH_DAYS: an offer that names a switch exists only while it is on
         offers = [o for o in load("offers.json")["offers"] if not o.get("switch") or o["switch"] in switched]
-        self.beats = load("plot.json")["beats"] + offers
+        self.file_act = bool(file_act)                         # HEGEL_FILE_ACT: the file's next act, four beats (data/plot_file_act.json); off until switched on
+        self.beats = load("plot.json")["beats"] + (load("plot_file_act.json")["beats"] if self.file_act else []) + offers
         self.offer_ids = {o["id"] for o in offers}             # which beats come from offers.json: `opened` names them offer:<id>
         self.costs = load("costs.json")["costs"]
         self.holidays = load("holidays.json")["holidays"]
