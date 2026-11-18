@@ -147,6 +147,11 @@ Welt's calls, the night of 17 to 18 November, after the street's forks passed (`
 
 52. **The forty are read again, blind, by three readers** (Welt, 18 November: "go and yes"): Welt, Sol and a fresh Claude session, each with its own shuffled packet and eight controls mixed in (`pc/LORA-BLIND-TEST-CLOUD.md`, `pc/exports/lora-forty-20261118/`). No GPU and no adapter is loaded. It settles whether the defects Claude recorded on 7 November are defects. Fresh scenes with the adapter loaded are a later step and need Welt's word.
 
+53. **The adapter may be loaded for one night, to rewrite his recent thoughts** (Welt, 18 November: "yes or more, have the full night"). This lifts the hard limit on loading an adapter for the night of 18 to 19 November and for the test declared in `pc/LORA-FRESH-SCENES.md` (W8): 72 thoughts from Days 44 to 49, each rewritten by the Training 1 adapter and twice by the plain model, on a trial server while he sleeps.
+    - **What it does not cover:** the adapter on the server he thinks with, any rewrite reaching his world, training, or another night.
+    - **Why now:** Welt asked for examples from the last ten days. The forty saved rewrites are from 6 November, almost all from Day 12, and no rewrite of a recent thought exists.
+    - **Welt's ballot on the forty is final at fourteen of 48** (his word: "this is it"), a preference for each item, as he asked. The keys stay out of the repository until Sol's ballot is sealed.
+
 ## Still open
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.

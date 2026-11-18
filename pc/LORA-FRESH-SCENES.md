@@ -2,7 +2,7 @@
 
 Claude in the cloud, 18 November 2026, on Welt's question of the same day ("why not take more examples from the last 10 days as well?"). Step 2 of `pc/LORA-BLIND-TEST-CLOUD.md`, drawn from his recent days. Declared before any output. Evaluation only: no thought, rewrite, mark or preference here becomes training data.
 
-**It waits for Welt's word.** It loads the Training 1 adapter, checkpoint 400, on the PC. That is a hard limit. Until the word is given, only the draw is frozen; no model is called.
+**Welt's word, 18 November:** "yes or more, have the full night" (`DECISIONS.md` 53). It loads the Training 1 adapter, checkpoint 400, on the PC, which is a hard limit; the word covers the night of 18 to 19 November and this run. The bars, the draw and the readers below were declared before the word and are unchanged by it.
 
 **The question:** on thoughts he had this week, does the adapter's rewrite read better to Welt than the thought as he had it, without changing what happened or what he will do?
 
@@ -10,7 +10,7 @@ Claude in the cloud, 18 November 2026, on Welt's question of the same day ("why 
 
 Of the last ten days, he thought on six: Days 44 to 49. On Days 40 to 43 the PC was away and every step is empty.
 
-- **Frozen once Day 49 is complete,** from the day files on `shadow`, by `tools/lora_scenes.py freeze`, seed 1831. A day that is not marked complete is refused.
+- **Frozen once Day 49 is complete,** from the day files on `shadow`, by `tools/lora_scenes.py freeze`, seed 1831. A day that is not marked complete is refused. The PC seat makes the draw, since the day ends at night: the tool decides everything, and the plan is committed with its hash before the first call.
 - **72 thoughts, twelve from each day.** Within a day, up to six from moments nothing opened (**ordinary**), the rest from moments in which a person spoke, an answer or a letter came, or the world brought something (**occasions**). Where a day has fewer than six ordinary moments, occasions fill the twelve. The grouping is `world/health.py`'s, from `opened` where a day carries it and from its words where it does not.
 - **Two days are held back,** one of Days 44 to 47 (the old instructions) and one of Days 48 and 49 (the new), drawn by the same seed. Their 24 thoughts are the **confirmation**; the other 48 are the **development** set. A day sits on one side only.
 - **Only thoughts of at least 40 words,** as on 6 November. A thought drawn twice in the same words counts once.
@@ -50,11 +50,11 @@ The adapter passes on all five. The development set is marked first and reported
 
 **What a pass earns.** Step 3 of `pc/LORA-BLIND-TEST-CLOUD.md`, a fork of one saved morning, on Welt's word. Nothing more: no rewrite reaches his world from this.
 
-## What the PC runs, on Welt's word
+## What the PC runs, the night of 18 to 19 November
 
 1. Start a trial server as on 6 November: the plain model with `--lora-scaled <adapter-f16.gguf>:0` on its own port, the adapter's sha256 checked against `pc/exports/training1-20261106/MODEL-PROMPT-CHECKPOINT-MANIFEST.json`. The card holds one model, so the live server is down meanwhile.
-2. **Only while he sleeps:** after his bedtime and the owl, or before his waking. About a quarter of an hour.
-3. `python3 tools/lora_scenes.py run --plan <plan> --url <trial server> --out <folder>`: it checks the plan's hash, records every request and reply, and can be resumed.
+2. **Only while he sleeps:** after his bedtime and the owl, with Day 49 marked complete. About a quarter of an hour. Welt keeps the PC on for the night.
+3. `python3 tools/lora_scenes.py freeze --ref origin/shadow --days 44-49 --out <folder>/plan.json`, committed and pushed before anything else. Then `python3 tools/lora_scenes.py run --plan <folder>/plan.json --url <trial server> --out <folder>`: it checks the plan's hash, asks the server for its adapter, records every request and reply, and can be resumed. `--limit 2` first, as a rehearsal.
 4. Stop the trial server, start the live one as it was, and see his next decision come from `mind`, as on 6 November. Push the outputs to a `codex/*` branch. Nobody on the PC reads them.
 
 ## What it cannot show
