@@ -601,6 +601,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Shri G. Hegde at home."
+  },
+  {
+   "from": "20:54",
+   "to": "21:00",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -1479,6 +1486,34 @@
    "to": "Hegel",
    "text": "You are asking the wrong man, ji. I am just a Joint Secretary here to sign off on the transfer, not to philosophize about your housing. The file is the file; if the procedure is slow, that is the procedure. Go eat your raita before it turns sour.",
    "t": "20:39"
+  },
+  {
+   "k": "diary",
+   "text": "Hegde is right that I am asking the wrong man; the file is a mechanism, not a person, and my irritation is merely the spirit chafing against the friction of the state's machinery. The raita is already in my belly, but the gesture of hospitality is what matters here, and I must not let my pride override the simple social bond of the household. I will accept the correction and turn to the quiet of the study, where the day's frictions can be written down before they calcify.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§501"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§131"
+    }
+   ],
+   "t": "20:54"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Shri Hegde. The procedure is the procedure, and I have mistaken the clerk for the state. I have eaten, but I thank you for the concern. I will retire to my study.",
+   "to": "Shri G. Hegde",
+   "t": "20:54"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Good, good. The file will be ready by then, likely. Don't stay up late reading; the bungalow is quiet enough to hear the house settle if you do.",
+   "t": "20:54"
   }
  ],
  "steps": [
@@ -3288,6 +3323,67 @@
      "text": "But equality in civil life is something absolutely impossible; for individual distinctions of sex and age will always assert themselves; and even if an equal share in the government is accorded to all citizens, women and children are immediately passed by, and remain excluded."
     }
    ]
+  },
+  {
+   "t": "20:54",
+   "end": "21:00",
+   "event": "Shri G. Hegde says: “You are asking the wrong man, ji. I am just a Joint Secretary here to sign off on the transfer, not to philosophize about your housing. The file is the file; if the procedure is slow, that is the procedure. Go eat your raita before it turns sour.” He pats Hegde's shoulder firmly and turns back toward the dining table.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Hegde is right that I am asking the wrong man; the file is a mechanism, not a person, and my irritation is merely the spirit chafing against the friction of the state's machinery. The raita is already in my belly, but the gesture of hospitality is what matters here, and I must not let my pride override the simple social bond of the household. I will accept the correction and turn to the quiet of the study, where the day's frictions can be written down before they calcify.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "You are right, Shri Hegde. The procedure is the procedure, and I have mistaken the clerk for the state. I have eaten, but I thank you for the concern. I will retire to my study.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Good, good. The file will be ready by then, likely. Don't stay up late reading; the bungalow is quiet enough to hear the house settle if you do.",
+    "does": "He nods briefly and gestures towards the hallway leading to the study."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 3,
+    "latency_s": 18.1,
+    "draws": {
+     "n": 3,
+     "refused": 2,
+     "echo": 0,
+     "picked": 2
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§501",
+     "id": "wallace-mind:246"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§131",
+     "id": "dyde-right:305"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§501",
+     "text": "This negation of right has its existence in the will of the criminal; and consequently revenge or punishment directs itself against the person or property of the criminal and exercises coercion upon him."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§131",
+     "text": "If so, he would be an animal, wliicli, because of its dangerous and passionate nature would have to be be tilled. It is claimed that the criminal in the moment of his act must have presented clearly to himself the nature of the wrong he is doing and of his liability to punishment, if the act is to be counted to him for a crime."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -3295,7 +3391,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-19T20:54+05:30",
+  "until": "2026-11-19T21:00+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
