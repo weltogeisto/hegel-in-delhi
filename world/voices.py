@@ -101,18 +101,27 @@ def pick(cast, says, present, recipient=None, facts=False, purchases=None, entri
 
 def _pick_repaired(cast, says, present, facts, purchases, entries, segments, place, repairs):
     """pick() with HEGEL_VOICE_REPAIRS on: see there for the order."""
+    return route_repaired(cast, says, present, facts, purchases, entries, segments, place, repairs)[0]
+
+
+def route_repaired(cast, says, present, facts, purchases, entries, segments, place, repairs):
+    """(who answers, the rule that decided) under HEGEL_VOICE_REPAIRS: named, greeting, beat, purchase, last_spoken or fallback."""
     named = named_longest(cast, says, present)
     if named:
-        return named
+        return named, "named"
     if repairs.get("greeting") in present:
-        return repairs["greeting"]
+        return repairs["greeting"], "greeting"
     need = next((c for c in repairs.get("needs") or [] if c in present), None)
     if need:
-        return need
+        return need, "beat"
     sold = (seller_of(cast, says, present) if facts else None) or next(
         (c for x in purchases or [] if (c := seller_of(cast, str(x.get("item", "")), present))), None)
-    return sold or last_spoken(cast, entries, segments, place, present) or (
-        next((c for c in present if not cast[c].get("background")), None) or (present[0] if present else None))
+    if sold:
+        return sold, "purchase"
+    last = last_spoken(cast, entries, segments, place, present)
+    if last:
+        return last, "last_spoken"
+    return next((c for c in present if not cast[c].get("background")), None) or (present[0] if present else None), "fallback"
 
 
 def recorded_facts(world, cid, state, voice_facts=False, today=None):
@@ -290,10 +299,9 @@ def render(c, sit, where, says, remember, first_meeting=None, purchases=None, me
     return text + "\n" + (VOICE_ASK_ACT if menu else VOICE_ASK)
 
 
-def own_does(c, does):
-    """HEGEL_VOICE_REPAIRS: the `does` line as it may stand, or None. Dropped: a line in the first person (I, me, my, myself), and one that
-    names the speaker after the line's opening (his own name may open it: "Mrs. Kapoor sits down"). So is a line that opens with He or She
-    against the cast's pronoun for the speaker. No word of a voice's line is rewritten."""
+def does_flaw(c, does):
+    """HEGEL_VOICE_REPAIRS: why the `does` line cannot be the speaker's ("first person", "names the speaker", "wrong pronoun"), or None.
+    The speaker's own name may open the line ("Mrs. Kapoor sits down"); only a later naming counts."""
     forms = names_of(c)
     if c.get("background"):
         forms |= {re.sub(r"^the ", "", c["name"], flags=re.I)}
@@ -301,11 +309,20 @@ def own_does(c, does):
         forms |= {w for w in (x.strip(".") for x in c["name"].split()) if len(w) > 1 and w.lower() not in TITLES}
     pat = "|".join(re.escape(x) for x in sorted(forms, key=len, reverse=True))
     rest = re.sub(r"^(?:" + pat + r")\b", "", does, flags=re.I)
+    if re.search(r"\bI\b", does) or re.search(r"\b(?:me|my|myself)\b", does, re.I):
+        return "first person"
+    if re.search(r"\b(?:" + pat + r")\b", rest, re.I):
+        return "names the speaker"
     want = {"he": "He", "she": "She"}.get(c.get("pronoun"))
     m = re.match(r"(He|She)\b", does)
-    if (want and m and m.group(1) != want) or re.search(r"\bI\b", does) or re.search(r"\b(?:me|my|myself)\b", does, re.I) or re.search(r"\b(?:" + pat + r")\b", rest, re.I):
-        return None
-    return does
+    return "wrong pronoun" if want and m and m.group(1) != want else None
+
+
+def own_does(c, does):
+    """HEGEL_VOICE_REPAIRS: the `does` line as it may stand, or None. Dropped: a line in the first person (I, me, my, myself), one that
+    names the speaker after the line's opening, and one that opens with He or She against the cast's pronoun for the speaker.
+    No word of a voice's line is rewritten."""
+    return None if does_flaw(c, does) else does
 
 
 def clean(c, out, repairs=False):
