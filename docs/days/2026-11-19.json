@@ -538,6 +538,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Talking with Mrs. Kapoor in Lodhi Gardens."
+  },
+  {
+   "from": "17:34",
+   "to": "18:19",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Talking with Mrs. Kapoor in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -1173,6 +1180,34 @@
    "to": "Hegel",
    "text": "That is the first sensible thing you have said all week. Sit properly, then, and do not fidget. I am not finished with the 1998 incident.",
    "t": "17:19"
+  },
+  {
+   "k": "diary",
+   "text": "She has pinned me to the bench with the weight of her authority, and I am too tired and too ashamed to argue. The 1998 incident is the concrete fact I have been fleeing; I must listen to it without turning it into a thesis. I will sit still and let the story settle into me.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§131"
+    }
+   ],
+   "t": "17:34"
+  },
+  {
+   "k": "said",
+   "text": "I am listening, Mrs. Kapoor. Please, tell me what happened.",
+   "to": "Mrs. Kapoor",
+   "t": "17:34"
+  },
+  {
+   "k": "said",
+   "by": "Mrs. Kapoor",
+   "to": "Hegel",
+   "text": "1998? Pah, you think it's a chapter in your history books. It was when the headmistress found the diary, and we all stood in the corridor like sheep, pretending we didn't know whose handwriting it was.",
+   "t": "17:34"
   }
  ],
  "steps": [
@@ -2439,6 +2474,67 @@
      "text": "Generally speaking, it is the point of view which has in recent times been emphasised in Germany. The finite, this theory tells us, ought to be absorbed; the infinite ought not to be a negative merely, but also a positive. That 'ought to be' betrays the incapacity of actually making good a claim which is at the same time recognised to be right."
     }
    ]
+  },
+  {
+   "t": "17:34",
+   "end": "18:19",
+   "event": "Mrs. Kapoor says: “That is the first sensible thing you have said all week. Sit properly, then, and do not fidget. I am not finished with the 1998 incident.” Mrs. Kapoor adjusts her shawl and gestures for him to stay put on the bench.",
+   "present": [
+    "Mrs. Kapoor, a retired schoolteacher"
+   ],
+   "decision": {
+    "thought": "She has pinned me to the bench with the weight of her authority, and I am too tired and too ashamed to argue. The 1998 incident is the concrete fact I have been fleeing; I must listen to it without turning it into a thesis. I will sit still and let the story settle into me.",
+    "action": "talk",
+    "place": "lodhi",
+    "minutes": 45,
+    "says": "I am listening, Mrs. Kapoor. Please, tell me what happened.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mrs. Kapoor",
+    "says": "1998? Pah, you think it's a chapter in your history books. It was when the headmistress found the diary, and we all stood in the corridor like sheep, pretending we didn't know whose handwriting it was.",
+    "does": "She taps her cane on the bench to emphasize the point."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:130"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§131",
+     "id": "wallace-logic:610"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "These belong to this -realm, because the conception taking them in their truth, brings them all together. Free will, in order not to remain abstract, must in the first instance give itself reality; the sensible materials of this reality are objects, i.e., external things. This first phase of freedom we shall know as property."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§131",
+     "text": "In the history of Modern Philosophy, Kant has the merit of first rehabilitating this distinction between the common and the philosophic modes of thought. He stopped half-way however, when he attached to Appearance a subjective meaning only, and put the abstract essence immovable outside it as the thing-in-itself beyond the reach of our cognition."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2446,7 +2542,7 @@
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-11-19T17:34+05:30",
+  "until": "2026-11-19T18:19+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
