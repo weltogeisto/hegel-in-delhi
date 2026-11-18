@@ -135,6 +135,16 @@ Welt's call, the afternoon of 17 November, on two answers that had reached two s
 
 49. **A dropped answer is not a no** (Welt left it to Claude, 17 November). When the PC went away between his decision and his yes or no to an offer, the world counted a no: the refusal was recorded and the offer waited a week. Now the offer is not made at that moment and stays open for the next (`world/engine.py` `ask_choice`; `tests/test_choice_away.py`). A real no counts as before. It acts only when the PC drops mid-answer, so it needs no switch.
 
+Welt's calls, the night of 17 to 18 November, after the street's forks passed (`pc/STREET-FORKS-RESULT.md`):
+
+50. **The street goes on in his world as a provisional trial,** `HEGEL_STREET=1` on shadow. Setting it back to 0 ends the trial.
+    - **Its place:** at the end of the order of 34, after the museums, concerts and plays, one change at a time, each after the previous one's first full day is reported. Welt was offered to move it ahead and gave no word to; one word from him moves it.
+    - **First, one card is rewritten** (done): the IIC noticeboard announced a lecture, and in a fork he resolved to attend it. It now reads: "On the board by the entrance, typed notices curl at their corners under coloured pins, and last month's programme still shows through this month's."
+    - **Read weekly by Claude in the cloud:** empty moments, what the world brings, the share of a day's kinds seen before, and what he does with the cards.
+
+51. **The street goes ahead** (Welt, 18 November: "sooner ahead"). It is the next change in his world, before the shelf labels and the museums: `HEGEL_STREET=1` before his waking on Day 50. The shelf labels follow on Day 51 and the museums, concerts and plays on Day 52, each after the previous one's first full day, as before.
+    - **Why it can:** it has passed its forks, and they ran on the world as it stands today: the new instructions, the filter and the letters, without the shelf labels or the museums.
+
 ## Still open
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.

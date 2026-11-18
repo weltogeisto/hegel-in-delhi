@@ -51,14 +51,31 @@ Beside the day's row, run `python3 -m world report --health` on shadow's days an
 3. **Still to measure:** the band with the cache off and different seeds. It joins the street's forks (W5).
 4. **The instructions change under it.** From Day 48 shadow runs `mind/soul-ordinary.md` (the other cloud session's read of Day 47, 16 November). The band above was measured on `mind/soul.md`. Every fork names its instructions with `--set HEGEL_SOUL_FILE=…` to match shadow on its day, and the band is measured again on the new ones before a switch is read against it.
 
-### W3 · PC seat · the `wants` screen · OPEN, and waits for the cache change on main
+### W3 · PC seat · the `wants` screen · OPEN: waits for complete days from Day 48 on that hold 16 moments where nobody speaks to him and 8 encounters. Day 48 alone has 10 and 22, and is not marked complete before its owl, so not before Day 49 is complete
 Welt has accepted the sentence for the screen (`DECISIONS.md` 41). Run `pc/WANTS-SCREEN.md` as declared: `python3 tools/wants_screen.py freeze --repo <native> --shadow <sha> --out <dir> --from-day N` on the complete days from Day 48 on (`--from-day 48`): the letter has paid his debts, and he runs on `mind/soul-ordinary.md`, which is the arms' instructions, then `wants_screen.run(<dir>, post)` with the guarded transport as for M1 (216 calls), then push the records. Claude runs `measure` and writes the result. Nothing goes on shadow from this: a pass earns a trial only on Welt's word, at the end of the order. **Every call sends `cache_prompt` false** (W2); the tool does it once main has the change.
 
 ### W4 · PC seat · the voices' screen: build and run · OPEN, Welt's word of 17 November (`DECISIONS.md` 44)
 Build `tools/voice_screen.py` and run T57's first arms, from `pc/T57-HANDOVER.md`: forty frozen moments and eight probes, four arms, three seeds, 576 short calls with `cache_prompt` false. Push the tool, the frozen folder, the records and the blind sheet to a `codex/*` branch; the key only after Claude's labels are committed. Nothing goes on shadow from it.
 
-### W5 · PC seat · the street's forks · OPEN, after Welt approved the batch (`DECISIONS.md` 46)
-From the first complete shadow day on `mind/soul-ordinary.md`: ten forks of that one morning, five seeds with `HEGEL_STREET=0` and the same five with `HEGEL_STREET=1`, as `pc/STREET-FORKS.md` declares. By day, in the spare slot. First seed 1831 without the street twice: if the two days are the same, pairs hold; if not, the result is read five against five. Push the ten day files, the five `fork_diff` outputs and the ten health rows to a `codex/*` branch. The five days without the street are also the band with the cache off, which W2 left to measure. Nothing goes on shadow from it.
+### W5 · PC seat · the street's forks · DONE, 17 November: all five bars pass (`pc/STREET-FORKS-RESULT.md`; raw results on `codex/street-forks-20261117`, `92fb3ba`). Brought by the world 1.4 → 5.0 a day; empty moments 24% → 20%; his thinking no worse; 11 of 17 cards noticed, 5 lectured on. Next: Welt's word for the trial, and one card rewritten first
+D is 18 November, his Day 48: ten forks of that one morning, each starting from the state Day 47 left (`--date 2026-11-18`, `--set HEGEL_SOUL_FILE=mind/soul-ordinary.md`, the switches shadow ran that day, no `--feeds`), five seeds with `HEGEL_STREET=0` and the same five with `HEGEL_STREET=1`, as `pc/STREET-FORKS.md` declares. By night when the PC stays on, otherwise by day in the spare slot, and never while another job uses the server. First seed 1831 without the street twice: if the two days are the same, pairs hold; if not, the result is read five against five. Push the ten day files, the five `fork_diff` outputs and the ten health rows to a `codex/*` branch. The five days without the street are also the band with the cache off, which W2 left to measure. Nothing goes on shadow from it.
+
+### W6 · PC seat · the street on shadow, a provisional trial · OPEN, Welt's word of 18 November (`DECISIONS.md` 50)
+Set `HEGEL_STREET=1` on the Pi **before his waking on Day 50**: Welt moved it ahead of the shelf labels and the museums on 18 November (`DECISIONS.md` 51). Main must be on shadow first, with the rewritten noticeboard card. It goes on only if Day 49 was a whole day on the new instructions; if Day 49 lost its mind for more than an hour, it waits a day, as every switch does. Post the first full day with the street: the health row and the cards drawn. Setting it back to 0 ends the trial.
+
+## The order, day by day (Claude in the cloud, 18 November)
+
+One change goes on at a time, each after the previous one's first full day (`DECISIONS.md` 31, 34, 47, 50). The PC is on from about 09:00 to 21:00 Berlin, so each switch is set on the Pi in the morning, after the PC starts and before he wakes at about 09:15. Day numbers are his. His calendar runs a day ahead of Berlin's: Day 49 is lived on Berlin's Wednesday 18 November.
+
+| His day | What goes on before his waking | Read on that day |
+|---|---|---|
+| 48 | the new instructions, `HEGEL_SOUL_FILE=mind/soul-ordinary.md` (on since 08:39 Berlin, 17 November) | a gap from 09:59 to 11:59 while the PC was off |
+| 49 | nothing new | the new instructions' first whole day |
+| 50 | main merged into shadow and checked with main's `docs/`; **the street, `HEGEL_STREET=1` (W6), moved ahead by Welt on 18 November (`DECISIONS.md` 51)**; Ramesh's way back, `HEGEL_RAMESH_DAYS=1` | the street: the health row and the cards drawn. Ramesh doesn't come on Fridays, so his offer can come on Day 51 at the earliest |
+| 51 | the shelf labels, `HEGEL_SHELF_ADDITIONS=1` | the shelf labels; Ramesh's offer may come in the morning |
+| 52 | the museums, concerts and plays, `HEGEL_CULTURE=1` | the venues |
+
+If a day loses its mind for more than an hour, the next switch waits a day. The PC seat posts each switch on PR #1 with the time it went on.
 
 ## Current, 16 November 2026
 
