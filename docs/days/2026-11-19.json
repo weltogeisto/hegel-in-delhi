@@ -531,6 +531,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Talking with Mrs. Kapoor in Lodhi Gardens."
+  },
+  {
+   "from": "17:19",
+   "to": "17:34",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Talking with Mrs. Kapoor in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -1138,6 +1145,34 @@
    "to": "Hegel",
    "text": "The mechanism? Pah. It wasn't a machine, it was a room full of girls learning to lie to their teachers because it was safer than telling the truth. Now, stop using your big words and listen to what actually happened.",
    "t": "16:34"
+  },
+  {
+   "k": "diary",
+   "text": "She is right to scold me; I retreated into the abstract precisely because the concrete was uncomfortable. I will listen. I will let her words stand without immediately trying to sublate them into a system.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§552"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§94"
+    }
+   ],
+   "t": "17:19"
+  },
+  {
+   "k": "said",
+   "text": "You are right. I will listen.",
+   "to": "Mrs. Kapoor",
+   "t": "17:19"
+  },
+  {
+   "k": "said",
+   "by": "Mrs. Kapoor",
+   "to": "Hegel",
+   "text": "That is the first sensible thing you have said all week. Sit properly, then, and do not fidget. I am not finished with the 1998 incident.",
+   "t": "17:19"
   }
  ],
  "steps": [
@@ -2343,6 +2378,67 @@
      "text": "Socrates thus omits, in characterizing virtue, just what we saw had also disappeared in actuality, that is, first the real spirit of a people, and then reality as the sympathies of the individual. For it is just when consciousness is not yet turned back into itself, that the universal good appears to the individual as the object of his sympathy."
     }
    ]
+  },
+  {
+   "t": "17:19",
+   "end": "17:34",
+   "event": "Mrs. Kapoor says: “The mechanism? Pah. It wasn't a machine, it was a room full of girls learning to lie to their teachers because it was safer than telling the truth. Now, stop using your big words and listen to what actually happened.” She taps the bench with her cane for emphasis.",
+   "present": [
+    "Mrs. Kapoor, a retired schoolteacher"
+   ],
+   "decision": {
+    "thought": "She is right to scold me; I retreated into the abstract precisely because the concrete was uncomfortable. I will listen. I will let her words stand without immediately trying to sublate them into a system.",
+    "action": "talk",
+    "place": "lodhi",
+    "minutes": 15,
+    "says": "You are right. I will listen.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mrs. Kapoor",
+    "says": "That is the first sensible thing you have said all week. Sit properly, then, and do not fidget. I am not finished with the 1998 incident.",
+    "does": "Mrs. Kapoor adjusts her shawl and gestures for him to stay put on the bench."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§552",
+     "id": "wallace-mind:358"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§94",
+     "id": "wallace-logic:439"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§552",
+     "text": "The ethical life is the divine spirit as indwelling in self-consciousness, as it is actually present in a nation and its individual members. This self-consciousness retiring upon itself out of its empirical actuality and bringing its truth to consciousness, has in its faith and in its conscience only what it has consciously secured in its spiritual actuality."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§94",
+     "text": "Generally speaking, it is the point of view which has in recent times been emphasised in Germany. The finite, this theory tells us, ought to be absorbed; the infinite ought not to be a negative merely, but also a positive. That 'ought to be' betrays the incapacity of actually making good a claim which is at the same time recognised to be right."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2350,7 +2446,7 @@
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-11-19T17:19+05:30",
+  "until": "2026-11-19T17:34+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
