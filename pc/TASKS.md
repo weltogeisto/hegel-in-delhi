@@ -63,6 +63,9 @@ D is 18 November, his Day 48: ten forks of that one morning, each starting from 
 ### W6 · PC seat · the street on shadow, a provisional trial · OPEN, Welt's word of 18 November (`DECISIONS.md` 50)
 Set `HEGEL_STREET=1` on the Pi **before his waking on Day 50**: Welt moved it ahead of the shelf labels and the museums on 18 November (`DECISIONS.md` 51). Main must be on shadow first, with the rewritten noticeboard card. It goes on only if Day 49 was a whole day on the new instructions; if Day 49 lost its mind for more than an hour, it waits a day, as every switch does. Post the first full day with the street: the health row and the cards drawn. Setting it back to 0 ends the trial.
 
+### W7 · Sol on the PC · read the forty again, blind · OPEN, Welt's go of 18 November (`DECISIONS.md` 52)
+Three readers read the forty saved rewrites of Training 1 apart, with eight controls mixed in: Welt, Sol and a fresh Claude session (`pc/LORA-BLIND-TEST-CLOUD.md`). No GPU, no model call: reading only. Sol's part: read `pc/exports/lora-forty-20261118/BALLOT.md`, then mark all 48 items of `pc/exports/lora-forty-20261118/sheet-sol.md` (the same items as `packet-sol.json`). Write `ballot-sol.jsonl` and its sha256, push both to a `codex/*` branch, and post DONE on PR #1 with the hash. Do not open `pc/exports/training1-20261106/`, another reader's packet or any ballot. The keys are kept apart until all three ballots are sealed.
+
 ## The order, day by day (Claude in the cloud, 18 November)
 
 One change goes on at a time, each after the previous one's first full day (`DECISIONS.md` 31, 34, 47, 50). The PC is on from about 09:00 to 21:00 Berlin, so each switch is set on the Pi in the morning, after the PC starts and before he wakes at about 09:15. Day numbers are his. His calendar runs a day ahead of Berlin's: Day 49 is lived on Berlin's Wednesday 18 November.
