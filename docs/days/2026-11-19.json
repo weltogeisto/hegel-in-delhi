@@ -398,6 +398,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "09:24",
+   "to": "09:54",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -493,6 +500,34 @@
    "to": "Hegel",
    "text": "Ji, the tea is ready if you change your mind. I will keep the stove warm for a few minutes.",
    "t": "09:19"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh has prepared poha and tea, a simple start to the day. I will take a moment to eat, for a man cannot reason clearly on an empty stomach, and then I must return to the study to address that letter from Dr. Lindner.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "09:24"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. The poha looks well made. I will be in the study shortly after this.",
+   "to": "Ramesh",
+   "t": "09:24"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, please. I will be in the gatehouse if you need anything before I leave.",
+   "t": "09:24"
   }
  ],
  "steps": [
@@ -558,6 +593,68 @@
      "text": "Deliberationen der Mitglieder des Gerichts über das zu fällende Urteil unter sich sind Äußerungen der noch besonderen Meinungen und Ansichten, also ihrer Natur nach nichts öffentliches."
     }
    ]
+  },
+  {
+   "t": "09:24",
+   "end": "09:54",
+   "event": "Ramesh says: “Ji, the tea is ready if you change your mind. I will keep the stove warm for a few minutes.” He nods once and turns to place the kettle back on the counter. Ramesh has laid out breakfast: poha with peanuts and a pot of tea.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh has prepared poha and tea, a simple start to the day. I will take a moment to eat, for a man cannot reason clearly on an empty stomach, and then I must return to the study to address that letter from Dr. Lindner.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": "Thank you, Ramesh. The poha looks well made. I will be in the study shortly after this.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply",
+    "meal"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, please. I will be in the gatehouse if you need anything before I leave.",
+    "does": "He wipes his hands on his apron and steps back from the table."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:23"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state. The government has, up till now, shown such confidence in the scholars in this department as to leave the subject matter of philosophy wholly in their hands."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -565,7 +662,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-19T09:24+05:30",
+  "until": "2026-11-19T09:54+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
@@ -659,7 +756,8 @@
     "home": [
      "ramesh"
     ]
-   }
+   },
+   "breakfast": true
   },
   "account": {
    "advance": 15000,
@@ -1012,7 +1110,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-18T20:20+05:30",
+  "last_meal": "2026-11-19T09:24+05:30",
   "snacks": 0,
   "works": [
    {
