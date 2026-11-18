@@ -447,6 +447,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "10:44",
+   "to": "10:59",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -725,6 +732,21 @@
     }
    ],
    "t": "10:34"
+  },
+  {
+   "k": "diary",
+   "text": "The plan said I would settle into the study to draft the reply to Dr. Lindner, but the morning has drifted into a quiet pause. I am still in the verandah chair, the white kurta cool against the skin. It is time to move from the verandah to the desk; the letter waits, and the file waits for the afternoon.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810"
+    }
+   ],
+   "t": "10:44"
   }
  ],
  "steps": [
@@ -1225,6 +1247,63 @@
      "text": "Their first united undertaking was the erection of a tower in which a bell was suspended: the ringing of the bell was a signal for a general rendezvous, and the object of the union thus appointed was the formation of a kind of militia."
     }
    ]
+  },
+  {
+   "t": "10:44",
+   "end": "10:59",
+   "event": "Nothing in particular happens. The morning goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The plan said I would settle into the study to draft the reply to Dr. Lindner, but the morning has drifted into a quiet pause. I am still in the verandah chair, the white kurta cool against the skin. It is time to move from the verandah to the desk; the letter waits, and the file waits for the afternoon.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [],
+   "mind": {
+    "source": "mind",
+    "attempts": 3,
+    "latency_s": 11.2,
+    "draws": {
+     "n": 3,
+     "refused": 0,
+     "echo": 2,
+     "picked": 2
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810",
+     "id": "reden:58"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810",
+     "text": "Studienanstalten sind Theils Institute des Unterrichts, nicht unmittelbar der Erziehung, Theils fangen sie nicht von den ersten Elementen der Bildung, weder der Erkenntniß, noch der Sitten, an."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1232,7 +1311,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-19T10:44+05:30",
+  "until": "2026-11-19T10:59+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
