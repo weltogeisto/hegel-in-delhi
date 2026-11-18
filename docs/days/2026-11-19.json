@@ -545,6 +545,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Talking with Mrs. Kapoor in Lodhi Gardens."
+  },
+  {
+   "from": "18:19",
+   "to": "18:34",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Talking to himself in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -1208,6 +1215,26 @@
    "to": "Hegel",
    "text": "1998? Pah, you think it's a chapter in your history books. It was when the headmistress found the diary, and we all stood in the corridor like sheep, pretending we didn't know whose handwriting it was.",
    "t": "17:34"
+  },
+  {
+   "k": "diary",
+   "text": "Mrs. Kapoor’s cane taps out a rhythm that is not quite mine, but I cannot look away. The diary in the corridor, the sheep pretending ignorance—it is a concrete instance of the tension I have been trying to articulate: the individual will submerged in the collective, yet the collective defined by the individual’s hidden truth. I am tired, and the air is cooling, but the conversation has sharpened my mind more than the walk did. I must let her finish; she is holding the floor, and I am the guest.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction"
+    }
+   ],
+   "t": "18:19"
+  },
+  {
+   "k": "said",
+   "text": "You say we pretended not to know. But did we, or did we simply lack the language to name what we saw?",
+   "t": "18:19"
   }
  ],
  "steps": [
@@ -2535,6 +2562,63 @@
      "text": "In the history of Modern Philosophy, Kant has the merit of first rehabilitating this distinction between the common and the philosophic modes of thought. He stopped half-way however, when he attached to Appearance a subjective meaning only, and put the abstract essence immovable outside it as the thing-in-itself beyond the reach of our cognition."
     }
    ]
+  },
+  {
+   "t": "18:19",
+   "end": "18:34",
+   "event": "Mrs. Kapoor says: “1998? Pah, you think it's a chapter in your history books. It was when the headmistress found the diary, and we all stood in the corridor like sheep, pretending we didn't know whose handwriting it was.” She taps her cane on the bench to emphasize the point.",
+   "present": [],
+   "decision": {
+    "thought": "Mrs. Kapoor’s cane taps out a rhythm that is not quite mine, but I cannot look away. The diary in the corridor, the sheep pretending ignorance—it is a concrete instance of the tension I have been trying to articulate: the individual will submerged in the collective, yet the collective defined by the individual’s hidden truth. I am tired, and the air is cooling, but the conversation has sharpened my mind more than the walk did. I must let her finish; she is holding the floor, and I am the guest.",
+    "action": "talk",
+    "place": "lodhi",
+    "minutes": 15,
+    "says": "You say we pretended not to know. But did we, or did we simply lack the language to name what we saw?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 6.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    },
+    "warnings": [
+     "talks although nobody is present"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "id": "haldane-3:8"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "id": "haldane-3:41"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "text": "The Trinity is thereby not only present in conception, which would not yet constitute the perfect concrete, but actuality is perfectly united to it. In the consciousness of the world it has consequently broken in upon men that the Absolute has attained to this “culminating point” of immediate actuality, as Proclus says; and that is the manifestation of Christianity."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "text": "This history is the Notion, the Idea of Spirit itself, and the world-history has in it found its end, which is in this immediate way to know the truth. It is therefore the Spirit which so comprehends that history, and at the time of Pentecost this is shown in an immediate and evident manner."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2542,7 +2626,7 @@
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-11-19T18:19+05:30",
+  "until": "2026-11-19T18:34+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
