@@ -152,6 +152,11 @@ Welt's calls, the night of 17 to 18 November, after the street's forks passed (`
     - **Why now:** Welt asked for examples from the last ten days. The forty saved rewrites are from 6 November, almost all from Day 12, and no rewrite of a recent thought exists.
     - **Welt's ballot on the forty is final at fourteen of 48** (his word: "this is it"), a preference for each item, as he asked. The keys stay out of the repository until Sol's ballot is sealed.
 
+Welt, the night of 18 November: "dont get stuck waiting on me not answering, i trust you". Taken by Claude in the cloud for these two, to be read by him in the morning:
+
+54. **The filter's draws are kept from Day 50 on:** `HEGEL_KEEP_DRAWS=1` on the Pi with the morning's switches (`pc/FILTER-PAIRS.md`). It changes nothing he is told, and the day files stay as they are. It gathers the preference pairs Training 3 lacked, by the world's fixed checks, within the data rule. **Not covered:** any training from them, which stays Welt's call with its own declared test.
+55. **Paris stage 2 takes the travel version of his instructions** (option 2 in `pc/PARIS-BACKTEST.md`): his instructions with the Delhi premise taken out, by a fixed edit declared before any call. Claude prepares the cards, the edit and the tool. The calls run in the PC's spare time, never at the cost of his steps. His own letters to Munich are read against the real ones meanwhile (option 3).
+
 ## Still open
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.
