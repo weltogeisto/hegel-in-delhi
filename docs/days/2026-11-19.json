@@ -475,6 +475,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "13:44",
+   "to": "14:29",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -837,6 +844,34 @@
     }
    ],
    "t": "12:44"
+  },
+  {
+   "k": "diary",
+   "text": "The meal is modest but the heat demands sustenance, and the body must be fed before the mind can return to the Directorate. I will eat with Ramesh, for there is a certain dignity in the communal table, and I must ask about the file before I leave, though I suspect the answer will only be a repetition of the delay.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§235"
+    }
+   ],
+   "t": "13:44"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, sit with me for a moment. Before I go to the Directorate, I need to know if there has been any movement on the file since Mr. Saxena's last remark. And tell me, what is the air like for the afternoon? I find the haze in the morning oppressive, but I must know if it clears by four.",
+   "to": "Ramesh",
+   "t": "13:44"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, sit. The file is just where you left it, no new papers since Saxena sir came. Air is clear today, no haze at all, you can go out at four without worry.",
+   "t": "13:44"
   }
  ],
  "steps": [
@@ -1556,6 +1591,67 @@
      "text": "Their differences and their various qualities are only the expression of the Idea and the form contained within it. Thus the Idea is the central point, which is also the periphery, the source of light, which in all its expansion does not come without itself, but remains present and immanent within itself."
     }
    ]
+  },
+  {
+   "t": "13:44",
+   "end": "14:29",
+   "event": "Ramesh has laid out lunch: kadhi, rice and aloo gobhi.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The meal is modest but the heat demands sustenance, and the body must be fed before the mind can return to the Directorate. I will eat with Ramesh, for there is a certain dignity in the communal table, and I must ask about the file before I leave, though I suspect the answer will only be a repetition of the delay.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 45,
+    "says": "Ramesh, sit with me for a moment. Before I go to the Directorate, I need to know if there has been any movement on the file since Mr. Saxena's last remark. And tell me, what is the air like for the afternoon? I find the haze in the morning oppressive, but I must know if it clears by four.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "meal"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, sit. The file is just where you left it, no new papers since Saxena sir came. Air is clear today, no haze at all, you can go out at four without worry.",
+    "does": "Ramesh gestures to the chair with his hand and places a glass of water on the table."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 14.2,
+    "draws": {
+     "n": 2,
+     "refused": 1,
+     "echo": 0,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299",
+     "id": "dyde-right:760"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§235",
+     "id": "wallace-logic:965"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299",
+     "text": "The monarcliical gives the final decision, and the executive element advises. The executive element has concrete knowledge and oversight of the whole in its many sides and in the actual principles firmly rooted in them. It has also acquaintance with the wants of the oflices of state. In the legislature are at last represented the different classes or estates."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§235",
+     "text": "Thus the truth of the Good is laid down as the unity of the theoretical and practical idea in the doctrine that the Good is radically and really achieved, that the objective world is in itself and for itself the Idea, just as it at the same time eternally lays itself down as End, and by action brings about its actuality."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1563,7 +1659,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-19T13:44+05:30",
+  "until": "2026-11-19T14:29+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
@@ -1658,7 +1754,8 @@
      "ramesh"
     ]
    },
-   "breakfast": true
+   "breakfast": true,
+   "lunch": true
   },
   "account": {
    "advance": 15000,
@@ -2011,7 +2108,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-19T09:24+05:30",
+  "last_meal": "2026-11-19T13:44+05:30",
   "snacks": 0,
   "works": [
    {
