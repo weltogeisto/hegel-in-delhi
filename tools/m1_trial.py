@@ -19,7 +19,7 @@ REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO))
 sys.path.insert(0, str(REPO / "tools"))
 
-from paris_profile import CODEBOOK, CODES, distance, kappa, shares, split, usable  # noqa: E402
+from paris_profile import CODEBOOK, CODES, INSTRUCTION, distance, kappa, parse, shares, split, usable  # noqa: E402
 from prompt_screen import DOCTRINE  # noqa: E402
 from world.shelf import sentences  # noqa: E402
 from world.prefer import fresh  # noqa: E402
@@ -132,6 +132,20 @@ def freeze(ref, out, keyout):
     return manifest
 
 
+def qwen_requests(folder):
+    """Plain Qwen as the third coder: one call per sentence, the same instruction and settings as stage 1's second coder."""
+    book = (Path(folder) / "CODEBOOK.md").read_text(encoding="utf-8")
+    rows = [json.loads(l) for l in (Path(folder) / "SHEET.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()]
+    return [{"id": r["id"], "messages": [{"role": "system", "content": INSTRUCTION + book}, {"role": "user", "content": r["sentence"]}],
+             "settings": {"temperature": 0, "max_tokens": 4, "seed": SEED, "cache_prompt": False}} for r in rows]
+
+
+def qwen_codes(replies_path, out_path):
+    """{"id", "reply"} lines from the PC into {"id", "code"} lines, as the two Claude coders gave them; unreadable replies are 10."""
+    rows = [json.loads(l) for l in Path(replies_path).read_text(encoding="utf-8").splitlines() if l.strip()]
+    Path(out_path).write_text("".join(json.dumps({"id": r["id"], "code": parse(r["reply"]) or 10}) + "\n" for r in rows), encoding="utf-8")
+
+
 def read_codes(path):
     out = {}
     for line in Path(path).read_text(encoding="utf-8").splitlines():
@@ -174,6 +188,8 @@ def main(argv=None):
     f = sub.add_parser("freeze"); f.add_argument("--ref", required=True); f.add_argument("--out", required=True); f.add_argument("--keyout", required=True)
     c = sub.add_parser("counts"); c.add_argument("--ref", required=True); c.add_argument("--out", required=True)
     r = sub.add_parser("report"); r.add_argument("--folder", required=True); r.add_argument("--key", required=True); r.add_argument("--codes", nargs="+", required=True)
+    q = sub.add_parser("requests"); q.add_argument("--folder", required=True); q.add_argument("--out", required=True)
+    k = sub.add_parser("qwen-codes"); k.add_argument("--replies", required=True); k.add_argument("--out", required=True)
     a = ap.parse_args(argv)
     if a.cmd == "freeze":
         print(json.dumps(freeze(a.ref, a.out, a.keyout), indent=1))
@@ -182,6 +198,12 @@ def main(argv=None):
         Path(a.out).mkdir(parents=True, exist_ok=True)
         (Path(a.out) / "COUNTS.json").write_text(json.dumps(res, indent=1) + "\n", encoding="utf-8")
         print(json.dumps(res, indent=1))
+    elif a.cmd == "requests":
+        rows = qwen_requests(a.folder)
+        Path(a.out).write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows), encoding="utf-8")
+        print(len(rows))
+    elif a.cmd == "qwen-codes":
+        qwen_codes(a.replies, a.out)
     else:
         print(json.dumps(report(a.folder, a.key, a.codes), indent=1, ensure_ascii=False))
 
