@@ -102,6 +102,13 @@ class EatAwayTest(unittest.TestCase):
         self.assertEqual(self.errors(at(13, 15), action="eat", place="khan"), [])
         self.assertTrue(self.errors(at(15, 30), action="eat", place="khan"))             # not two hours later
 
+    def test_the_habitat_centre_has_its_cafe_and_food_court(self):
+        self.w = World(repairs=True, culture=True)                       # its own sights show a café; it sold nothing before
+        self.st["place"] = "habitat"
+        errors = self.errors(at(13), action="eat", place="habitat")
+        self.assertTrue(any("A thali at the food court" in e for e in errors), errors)
+        self.assertEqual(self.errors(at(13), action="eat", place="habitat", buys=[{"item": "a thali", "price_inr": 450}]), [])
+
     def test_a_place_that_sells_no_food(self):
         self.st["place"] = "iic"
         errors = self.errors(at(13), action="eat", place="iic")
