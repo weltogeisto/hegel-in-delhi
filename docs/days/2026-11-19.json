@@ -426,6 +426,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "10:19",
+   "to": "10:24",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -633,6 +640,34 @@
    "to": "Hegel",
    "text": "Ji, five minutes. The samosas are in the fridge if you want one with it.",
    "t": "10:04"
+  },
+  {
+   "k": "diary",
+   "text": "The samosa is a small concession to the body, which insists on its own rhythm even when the spirit is otherwise occupied. I will take one, but I must not let the appetite delay the work of the mind. The Lindner letter waits, and the file at the Directorate is a ticking clock.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World"
+    },
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Range of Aesthetic"
+    }
+   ],
+   "t": "10:19"
+  },
+  {
+   "k": "said",
+   "text": "Yes, Ramesh. One samosa. But keep the chai coming; I must be in the study by ten.",
+   "to": "Ramesh",
+   "t": "10:19"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, one samosa, chai will keep coming. You'll be in the study by ten, no problem.",
+   "t": "10:19"
   }
  ],
  "steps": [
@@ -949,6 +984,67 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "10:19",
+   "end": "10:24",
+   "event": "Ramesh says: “Ji, five minutes. The samosas are in the fridge if you want one with it.” He turns away toward the kitchen, adjusting the towel over his shoulder.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The samosa is a small concession to the body, which insists on its own rhythm even when the spirit is otherwise occupied. I will take one, but I must not let the appetite delay the work of the mind. The Lindner letter waits, and the file at the Directorate is a ticking clock.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 5,
+    "says": "Yes, Ramesh. One samosa. But keep the chai coming; I must be in the study by ten.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, one samosa, chai will keep coming. You'll be in the study by ten, no problem.",
+    "does": "He turns back toward the kitchen, towel still over his shoulder."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 11.9,
+    "draws": {
+     "n": 2,
+     "refused": 1,
+     "echo": 0,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World",
+     "id": "baillie-2:18"
+    },
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Range of Aesthetic",
+     "id": "bosanquet-art:31"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World",
+     "text": "The procuring and maintaining of power and wealth turn, in part, merely on needs and wants, and are a matter that has to do with desire; in part, they become in their higher aspect something which is merely of mediate significance."
+    },
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Range of Aesthetic",
+     "text": "Those who delight in grumbling and censure may set down this phenomenon for a corruption, and ascribe it to the predominance of passion and selfish interests, which scare away at once the seriousness and the cheerfulness of art."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -956,7 +1052,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-19T10:19+05:30",
+  "until": "2026-11-19T10:24+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
