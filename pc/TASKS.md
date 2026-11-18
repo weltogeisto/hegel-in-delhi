@@ -63,6 +63,20 @@ D is 18 November, his Day 48: ten forks of that one morning, each starting from 
 ### W6 · PC seat · the street on shadow, a provisional trial · OPEN, Welt's word of 18 November (`DECISIONS.md` 50)
 Set `HEGEL_STREET=1` on the Pi, in its place in the order of `DECISIONS.md` 34: after the museums, concerts and plays have had their first full day and it is reported. Main must be on shadow first, with the rewritten noticeboard card. Post the first full day with the street: the health row and the cards drawn. Setting it back to 0 ends the trial.
 
+## The order, day by day (Claude in the cloud, 18 November)
+
+One change goes on at a time, each after the previous one's first full day (`DECISIONS.md` 31, 34, 47, 50). The PC is on from about 09:00 to 21:00 Berlin, so each switch is set on the Pi in the morning, after the PC starts and before he wakes at about 09:15. Day numbers are his. His calendar runs a day ahead of Berlin's: Day 49 is lived on Berlin's Wednesday 18 November.
+
+| His day | What goes on before his waking | Read on that day |
+|---|---|---|
+| 48 | the new instructions, `HEGEL_SOUL_FILE=mind/soul-ordinary.md` (on since 08:39 Berlin, 17 November) | a gap from 09:59 to 11:59 while the PC was off |
+| 49 | nothing new | the new instructions' first whole day |
+| 50 | main merged into shadow and checked with main's `docs/`; the shelf labels, `HEGEL_SHELF_ADDITIONS=1`; Ramesh's way back, `HEGEL_RAMESH_DAYS=1` | the shelf labels. Ramesh doesn't come on Fridays, so his offer can come on Day 51 at the earliest |
+| 51 | the museums, concerts and plays, `HEGEL_CULTURE=1` | the venues; Ramesh's offer may come in the morning |
+| 52 | the street, `HEGEL_STREET=1` (W6) | the street |
+
+If a day loses its mind for more than an hour, the next switch waits a day. The PC seat posts each switch on PR #1 with the time it went on.
+
 ## Current, 16 November 2026
 
 The design specification is `pc/HEGEL-IMPLEMENTATION-MANUAL.md` (version 1.1). Welt confirmed its six decisions the same day; they are `DECISIONS.md` 16–22, with Delta kept only as a diagnostic. The 48-hour delivery target runs from 7 November. The T-history below is kept; the M-packets are the manual's §10.
