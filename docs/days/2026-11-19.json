@@ -13,45 +13,33 @@
   "hours": [
    {
     "temp": 16,
-    "sky": "clear",
+    "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 141
+    "aqi": 165
    },
    {
     "temp": 16,
-    "sky": "clear",
+    "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 142
-   },
-   {
-    "temp": 16,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 144
+    "aqi": 162
    },
    {
     "temp": 15,
-    "sky": "clear",
+    "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 145
+    "aqi": 159
    },
    {
-    "temp": 14,
-    "sky": "clear",
+    "temp": 15,
+    "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 147
-   },
-   {
-    "temp": 14,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 148
+    "aqi": 156
    },
    {
     "temp": 14,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 150
+    "aqi": 153
    },
    {
     "temp": 14,
@@ -60,16 +48,76 @@
     "aqi": 151
    },
    {
+    "temp": 13,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 149
+   },
+   {
+    "temp": 14,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 148
+   },
+   {
     "temp": 16,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 147
+   },
+   {
+    "temp": 18,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 146
+   },
+   {
+    "temp": 20,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 147
+   },
+   {
+    "temp": 22,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 150
+   },
+   {
+    "temp": 23,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 151
+   },
+   {
+    "temp": 24,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 152
    },
    {
-    "temp": 18,
+    "temp": 24,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 153
+   },
+   {
+    "temp": 24,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 154
+   },
+   {
+    "temp": 23,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 154
+   },
+   {
+    "temp": 21,
+    "sky": "clear, hazy",
+    "rain": 0,
+    "aqi": 155
    },
    {
     "temp": 20,
@@ -78,82 +126,34 @@
     "aqi": 156
    },
    {
-    "temp": 22,
+    "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 158
    },
    {
-    "temp": 23,
+    "temp": 19,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 161
+    "aqi": 160
    },
    {
-    "temp": 24,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 163
-   },
-   {
-    "temp": 24,
+    "temp": 18,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 164
    },
    {
-    "temp": 24,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 165
-   },
-   {
-    "temp": 24,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 167
-   },
-   {
-    "temp": 21,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 168
-   },
-   {
-    "temp": 20,
+    "temp": 17,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 170
-   },
-   {
-    "temp": 20,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 170
-   },
-   {
-    "temp": 19,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 171
-   },
-   {
-    "temp": 18,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 172
-   },
-   {
-    "temp": 18,
-    "sky": "clear, hazy",
-    "rain": 0,
-    "aqi": 174
    },
    {
     "temp": 17,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 177
+    "aqi": 176
    }
   ]
  },
@@ -391,18 +391,183 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "09:19",
+   "to": "09:24",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Why Ukraine keeps targeting the Kerch Bridge” · “Couple at Madhya Pradesh hotel, a police visit, and a ‘ganja’ threat” · “NEET paper leak case: Delhi court orders framing of charges against 14 accused”",
+   "t": "09:19"
+  },
+  {
+   "k": "expense",
+   "item": "Ramesh's wage for cooking",
+   "amount": 4000,
+   "to": "Ramesh",
+   "why": "the wage for cooking, three days a week",
+   "settles": true,
+   "text": "Paid to Ramesh.",
+   "t": "09:19"
+  },
+  {
+   "k": "expense",
+   "item": "Groceries for Ramesh's kitchen",
+   "amount": 1500,
+   "to": "Ramesh",
+   "why": "groceries",
+   "settles": true,
+   "text": "Paid to Ramesh.",
+   "t": "09:19"
+  },
+  {
+   "k": "expense",
+   "item": "Groceries for Ramesh's kitchen",
+   "amount": 900,
+   "to": "Ramesh",
+   "why": "groceries",
+   "settles": true,
+   "text": "Paid to Ramesh.",
+   "t": "09:19"
+  },
+  {
+   "k": "plan",
+   "items": [
+    {
+     "time": "09:25",
+     "intention": "Read the newspapers on the verandah and discuss the headlines with Ramesh."
+    },
+    {
+     "time": "10:00",
+     "intention": "Take breakfast and settle into the study to begin drafting the reply to Dr. Lindner."
+    },
+    {
+     "time": "11:30",
+     "intention": "Walk to Lodhi Gardens to think through the tension in my theses on India and history."
+    },
+    {
+     "time": "14:00",
+     "intention": "Return home for lunch and a short rest to recover from the morning's exertion."
+    },
+    {
+     "time": "16:00",
+     "intention": "Visit the Directorate of Estates to follow up on the file and the queried vouchers."
+    },
+    {
+     "time": "18:30",
+     "intention": "Go to the IIC to prepare for the talk scheduled for Tuesday evening."
+    }
+   ],
+   "t": "09:19"
+  },
+  {
+   "k": "diary",
+   "text": "The air is crisp, 18 degrees, a rare mercy from the Delhi sun. Ramesh stands before me with the ledgers, and the transactions are recorded; the money leaves my pocket, becoming his wage and the fuel for his kitchen. I will not let him linger. The newspapers on the verandah await, and I have a plan for the morning that begins with reading the news and discussing it with him, a small social ritual before the solitude of the study.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§224"
+    }
+   ],
+   "t": "09:19"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, you may go. I shall take the papers to the verandah. Do not worry about the kitchen for the moment; I will be reading.",
+   "to": "Ramesh",
+   "t": "09:19"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, the tea is ready if you change your mind. I will keep the stove warm for a few minutes.",
+   "t": "09:19"
+  }
+ ],
+ "steps": [
+  {
+   "t": "09:19",
+   "end": "09:24",
+   "event": "You wake. Clear, 18 °C. Ramesh has left the papers on the verandah. Headlines: Why Ukraine keeps targeting the Kerch Bridge; Couple at Madhya Pradesh hotel, a police visit, and a ‘ganja’ threat; NEET paper leak case: Delhi court orders framing of charges against 14 accused. You pay Ramesh ₹4,000 for the wage for cooking, three days a week. You pay Ramesh ₹1,500 for groceries. You pay Ramesh ₹900 for groceries. Ramesh is here.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The air is crisp, 18 degrees, a rare mercy from the Delhi sun. Ramesh stands before me with the ledgers, and the transactions are recorded; the money leaves my pocket, becoming his wage and the fuel for his kitchen. I will not let him linger. The newspapers on the verandah await, and I have a plan for the morning that begins with reading the news and discussing it with him, a small social ritual before the solitude of the study.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 5,
+    "says": "Ramesh, you may go. I shall take the papers to the verandah. Do not worry about the kitchen for the moment; I will be reading.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "papers",
+    "purse",
+    "here"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, the tea is ready if you change your mind. I will keep the stove warm for a few minutes.",
+    "does": "He nods once and turns to place the kettle back on the counter."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 17.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "id": "dyde-right:464"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§224",
+     "id": "rechts:490"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "text": "The civic community contains three elements: A. The recasting of want, and the satisfaction of the individual through his work, through the work of all others, and through the satisfaction of their wants. This is a system of wants. B. Actualization of the general freedom required for this, i.e., the protection of property by the administration of justice."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§224",
+     "text": "Deliberationen der Mitglieder des Gerichts über das zu fällende Urteil unter sich sind Äußerungen der noch besonderen Meinungen und Ansichten, also ihrer Natur nach nichts öffentliches."
+    }
+   ]
+  }
+ ],
  "funnel": {},
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-19T09:19+05:30",
-  "asleep": true,
-  "imprest": 25086,
+  "until": "2026-11-19T09:24+05:30",
+  "asleep": false,
+  "imprest": 18686,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -488,7 +653,14 @@
    }
   ],
   "depesche_n": 3,
-  "today": {},
+  "today": {
+   "woke": "09:19",
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -656,7 +828,8 @@
     "2026-11-15",
     "2026-11-16",
     "2026-11-17",
-    "2026-11-18"
+    "2026-11-18",
+    "2026-11-19"
    ],
    "lodhi": [
     "2026-10-02",
@@ -708,36 +881,6 @@
   },
   "owed": [
    {
-    "to": "Ramesh",
-    "amount": 4000,
-    "why": "the wage for cooking, three days a week",
-    "since": "2026-11-01",
-    "cost": "wage",
-    "item": "Ramesh's wage for cooking",
-    "at": "home",
-    "with": "ramesh"
-   },
-   {
-    "to": "Ramesh",
-    "amount": 1500,
-    "why": "groceries",
-    "since": "2026-11-08",
-    "cost": "groceries",
-    "item": "Groceries for Ramesh's kitchen",
-    "at": "home",
-    "with": "ramesh"
-   },
-   {
-    "to": "Ramesh",
-    "amount": 900,
-    "why": "groceries",
-    "since": "2026-11-15",
-    "cost": "groceries",
-    "item": "Groceries for Ramesh's kitchen",
-    "at": "home",
-    "with": "ramesh"
-   },
-   {
     "to": "the Directorate of Estates",
     "amount": 270,
     "why": "queried vouchers",
@@ -783,7 +926,8 @@
     "2026-11-12",
     "2026-11-13",
     "2026-11-14",
-    "2026-11-16"
+    "2026-11-16",
+    "2026-11-19"
    ],
    "malhotra": [
     "2026-10-02",
@@ -916,5 +1060,34 @@
     "amount": 37794
    }
   }
+ },
+ "plan": {
+  "written": "09:19",
+  "items": [
+   {
+    "time": "09:25",
+    "intention": "Read the newspapers on the verandah and discuss the headlines with Ramesh."
+   },
+   {
+    "time": "10:00",
+    "intention": "Take breakfast and settle into the study to begin drafting the reply to Dr. Lindner."
+   },
+   {
+    "time": "11:30",
+    "intention": "Walk to Lodhi Gardens to think through the tension in my theses on India and history."
+   },
+   {
+    "time": "14:00",
+    "intention": "Return home for lunch and a short rest to recover from the morning's exertion."
+   },
+   {
+    "time": "16:00",
+    "intention": "Visit the Directorate of Estates to follow up on the file and the queried vouchers."
+   },
+   {
+    "time": "18:30",
+    "intention": "Go to the IIC to prepare for the talk scheduled for Tuesday evening."
+   }
+  ]
  }
 }
