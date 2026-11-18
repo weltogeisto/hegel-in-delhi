@@ -5,6 +5,7 @@ the next situation, asks the mind, checks the answer, writes the step into docs/
 moves on. The page reveals each step when its time comes. The day file is the state: no database.
 """
 import copy
+import gzip
 import json
 import logging
 import os
@@ -397,8 +398,26 @@ class Engine:
         def check(raw):
             errors, _, rep = self.world.check(contract.extract_json(raw), sit, ctx, st)
             return errors, None if errors else rep[0]["thought"]
-        return prefer.choose(lambda: self.mind.decide(messages, sit), check,
-                             prefer.shown_thoughts(sit.get("earlier")), draws, away=MindAway)
+        keep = [] if getattr(self.cfg, "keep_draws", False) else None
+        raw, note = prefer.choose(lambda: self.mind.decide(messages, sit), check,
+                                  prefer.shown_thoughts(sit.get("earlier")), draws, away=MindAway, keep=keep)
+        if keep and len(keep) > 1:
+            self.keep_draws(ctx["t"], messages, keep, note)
+        return raw, note
+
+    def keep_draws(self, t, messages, keep, note):
+        """HEGEL_KEEP_DRAWS: a decision that took more than one reply, with every reply the world judged, appended to
+        <state>/draws/<date>.jsonl.gz. The local model's own replies, sorted by the world's fixed checks: preference data
+        within the data rule (pc/FILTER-PAIRS.md). Never in the day file or the repository; a failure here costs nothing."""
+        try:
+            folder = self.cfg.state / "draws"
+            folder.mkdir(parents=True, exist_ok=True)
+            row = {"date": t.date().isoformat(), "t": t.strftime("%H:%M"), "soul": getattr(self.cfg, "soul_file", None) and self.cfg.soul_file.name,
+                   "messages": messages, "draws": keep, "picked": note.get("picked")}
+            with gzip.open(folder / f"{row['date']}.jsonl.gz", "at", encoding="utf-8") as f:
+                f.write(json.dumps(row, ensure_ascii=False) + "\n")
+        except Exception as e:                      # keeping data must never stop his day
+            log.warning("draws not kept at %s: %s", t, e)
 
     def offer(self, day, sit, ctx, st):
         """The passages of his shelf for this decision: the two that fit the event, the place, the people present and their

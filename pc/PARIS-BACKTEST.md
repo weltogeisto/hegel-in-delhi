@@ -139,6 +139,15 @@ Given the same day, does he write home the way the real one did?
   - The real letter picked in 20 or more of 24: the simulated register is measurably unlike his.
   - A prompt or a training is closer to him when it lowers that count by at least 4 and shares more kinds of content with the real letter.
 
+**Before stage 2: one design question for Welt** (Claude in the cloud, 18 November, after Welt's "lets move there").
+The declared simulated side gives the card to his live instructions. Those instructions tell the model it is Hegel woken in Delhi in 2026, while the card puts him in Paris in 1827. As declared, the two worlds would mix in one prompt. The options:
+1. **As declared:** the live instructions and the card together. This is the cheapest option, but a letter that mentions Delhi tells the judge which text is simulated.
+2. **A travel version of his instructions:** the same text with the Delhi premise taken out, by a fixed edit declared before any call. It then measures his register, not his world. About 170 calls.
+3. **His own letters as the test:** every letter he writes to Munich is coded with stage 1's codebook and set against the real letters, week by week, as M1's reading did with his first letter on 18 November: a quarter philosophy, nothing of what he saw (`pc/exports/m1-trial-20261118/RESULT.md`). It costs nothing, but its genre differs: a scholarly stranger, not his wife.
+4. **Stage 3,** below: a Paris of 1827 to live in. This is the real answer, and days of building.
+
+**Claude's advice:** the third now, since it runs anyway. The second for stage 2, on Welt's word, when the card has a spare night. The fourth after the venues have shown whether a Delhi with things to see moves him at all.
+
 ### Stage 3 · Hegel in Paris, closed loop · only after stages 1 and 2, on Welt's word
 
 The world engine with a Paris of September 1827: places, prices and people, and the simulated Hegel living the same four weeks. Compared day by day with what he did: where he went, what he paid, his evenings, his illness, his verdicts. The builder of that world knows the letters, so the world is frozen and reviewed before any run. It is days of building, and it is the frontier piece: a simulated person backtested against the historical one. Not specified further here.

@@ -92,6 +92,7 @@ class Config:
         self.decision_dry = float(v.get("HEGEL_DECISION_DRY", "0") or 0)                                # T36 arm C: the DRY sampler's multiplier, 0 off
         if not 0 <= self.decision_dry <= 2:
             raise ValueError("HEGEL_DECISION_DRY must be from 0 to 2")
+        self.keep_draws = v.get("HEGEL_KEEP_DRAWS", "0").strip().lower() in ("1", "yes", "true")   # the filter's draws kept in the state folder as preference data (pc/FILTER-PAIRS.md); off until switched on
         self.decision_draws = int(v.get("HEGEL_DECISION_DRAWS", "1") or 1)                              # T49: replies to choose among, 1 off
         if not 1 <= self.decision_draws <= 6:
             raise ValueError("HEGEL_DECISION_DRAWS must be from 1 to 6")
