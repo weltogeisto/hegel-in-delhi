@@ -23,7 +23,7 @@
 
 ## Still to do
 
-- **The map on the page.** `tools/osm_map.py` should place the four buildings and measure the walks. Until then the page draws him at home while he is at a venue.
+- **The map on the page: done, 18 November.** The India Habitat Centre stands where OpenStreetMap has it (way 287659125), its entrance on Lodhi Road. The National Museum, the National Gallery of Modern Art and Kamani Auditorium lie beyond the map's north edge. Each has a signpost there, as the Directorate has, shown only while he goes there or is there (`docs/map/lutyens.json`, `docs/index.html`, `tests/test_venue_map.py`). The walking times stay the estimates above.
 - **When it goes on.** Fifth and last in the order of `DECISIONS.md` 34: the filter, the letter from Munich (whose money pays for the tickets), the new instructions, the shelf labels, then this. Astra sets `HEGEL_CULTURE=1` on the Pi after the shelf labels' first full day.
 - **How to read it.** Stage 1's profile, run again on the days after it is on, is the measure. It says whether sights and art return to what he writes, and whether philosophy and hunger give way.
 

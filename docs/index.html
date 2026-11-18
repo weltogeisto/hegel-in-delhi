@@ -349,6 +349,14 @@ const PLACES = {
               text:'Library and lecture hall on Max Mueller Marg, which is named after the German Indologist.'},
   estates:   {name:'Directorate of Estates, Nirman Bhawan', label:'To the Directorate of Estates',
               text:'Off the map to the north. It holds the file.'},
+  habitat:   {name:'India Habitat Centre', label:'Habitat Centre',
+              text:'On Lodhi Road, opened in 1993: galleries and an evening programme of recitals, dance and talks.'},
+  national_museum: {name:'National Museum, Janpath', label:'To the National Museum', edge:true,
+              text:'Off the map to the north. Founded in 1949: the Harappan bronzes, the Buddha from Gandhara, the Chola Nataraja.'},
+  ngma:      {name:'National Gallery of Modern Art, Jaipur House', label:'To the National Gallery of Modern Art', edge:true,
+              text:'Off the map to the north-east, by India Gate. Indian painting since the eighteenth century.'},
+  kamani:    {name:'Kamani Auditorium, Mandi House', label:'To Kamani Auditorium', edge:true,
+              text:'Off the map to the north. Plays, dance and concerts at Mandi House since 1971.'},
 };
 const placeOf = id => PLACES[id] || PLACES.home;
 
@@ -1292,7 +1300,8 @@ function render(m, now){
     ctx.fillStyle = 'rgba(226,69,127,.9)';
     trailPoints(m).forEach(([x,y],i) => { if (i % 2 === 0) ctx.fillRect(ox + x*s + s*.25, oy + y*s + s*.25, Math.max(2,s*.5), Math.max(2,s*.5)); });
     ctx.font = `${Math.round(12*dpr)}px "Pixelify Sans", "Courier New", monospace`; ctx.textBaseline = 'middle';
-    Object.values(PLACES).forEach(pl => {
+    Object.entries(PLACES).forEach(([id, pl]) => {
+      if (pl.edge && !(seg && (seg.b === id || seg.at === id))) return;     // a venue beyond the map is signposted only while he goes there or is there
       const [x0,y0,x1,y1] = pl.rect; const label = pl.short === 'home' ? 'Hegel' : (pl.label || pl.name);
       let cx = ox + (x0+x1+1)/2*s, cy = oy + (y0+y1+1)/2*s; const tw = ctx.measureText(label).width + 10*dpr, th = 18*dpr;
       cx = Math.min(W - tw/2 - 4, Math.max(tw/2 + 4, cx)); cy = Math.min(H - th, Math.max(th, cy + (pl.short === 'home' ? -14*dpr : 0)));
