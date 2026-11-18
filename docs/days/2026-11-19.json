@@ -405,6 +405,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "09:54",
+   "to": "09:59",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -528,6 +535,34 @@
    "to": "Hegel",
    "text": "Ji, please. I will be in the gatehouse if you need anything before I leave.",
    "t": "09:24"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh has finished his errands and is retreating to the gatehouse. The plan for this hour is to read the newspapers on the verandah, but the air quality is poor and the study is quiet. I will settle in there to begin the reply to Dr. Lindner, as the morning light is best for writing.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§526"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    }
+   ],
+   "t": "09:54"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. I shall be in the study.",
+   "to": "Ramesh",
+   "t": "09:54"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, the gatehouse is just outside. Do not hesitate to call if you need anything.",
+   "t": "09:54"
   }
  ],
  "steps": [
@@ -655,6 +690,70 @@
      "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
     }
    ]
+  },
+  {
+   "t": "09:54",
+   "end": "09:59",
+   "event": "Ramesh says: “Ji, please. I will be in the gatehouse if you need anything before I leave.” He wipes his hands on his apron and steps back from the table.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh has finished his errands and is retreating to the gatehouse. The plan for this hour is to read the newspapers on the verandah, but the air quality is poor and the study is quiet. I will settle in there to begin the reply to Dr. Lindner, as the morning light is best for writing.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 5,
+    "says": "Thank you, Ramesh. I shall be in the study.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, the gatehouse is just outside. Do not hesitate to call if you need anything.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§526",
+     "id": "wallace-mind:274"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§526",
+     "text": "The labour which thus becomes more abstract tends on one hand by its uniformity to make labour easier and to increase production,—on another to limit each person to a single kind of technical skill, and thus produce more unconditional dependence on the social system."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -662,7 +761,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-19T09:54+05:30",
+  "until": "2026-11-19T09:59+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
