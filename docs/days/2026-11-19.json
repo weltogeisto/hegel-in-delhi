@@ -482,6 +482,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "14:29",
+   "to": "14:49",
+   "mode": "walk",
+   "a": "home",
+   "b": "lodhi"
   }
  ],
  "entries": [
@@ -872,6 +879,34 @@
    "to": "Hegel",
    "text": "Ji, sit. The file is just where you left it, no new papers since Saxena sir came. Air is clear today, no haze at all, you can go out at four without worry.",
    "t": "13:44"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh confirms the file is stagnant, a bureaucratic impasse that mirrors the spiritual stasis I have observed. I must wait for the fifteen days, but the clear air invites a different kind of movement. I will take a walk to Lodhi Gardens to let the mind breathe and perhaps clarify the tension in my thoughts on history.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato, Philosophy of Nature"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China"
+    }
+   ],
+   "t": "14:29"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. The clarity of the air is a mercy. I shall walk for an hour to clear my head before returning to the office.",
+   "to": "Ramesh",
+   "t": "14:29"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, enjoy the walk. The path to the gate is dry enough, no need to worry about the dust.",
+   "t": "14:29"
   }
  ],
  "steps": [
@@ -1652,14 +1687,76 @@
      "text": "Thus the truth of the Good is laid down as the unity of the theoretical and practical idea in the doctrine that the Good is radically and really achieved, that the objective world is in itself and for itself the Idea, just as it at the same time eternally lays itself down as End, and by action brings about its actuality."
     }
    ]
+  },
+  {
+   "t": "14:29",
+   "end": "14:49",
+   "event": "Ramesh says: “Ji, sit. The file is just where you left it, no new papers since Saxena sir came. Air is clear today, no haze at all, you can go out at four without worry.” Ramesh gestures to the chair with his hand and places a glass of water on the table.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh confirms the file is stagnant, a bureaucratic impasse that mirrors the spiritual stasis I have observed. I must wait for the fifteen days, but the clear air invites a different kind of movement. I will take a walk to Lodhi Gardens to let the mind breathe and perhaps clarify the tension in my thoughts on history.",
+    "action": "walk",
+    "place": "lodhi",
+    "minutes": 45,
+    "says": "Thank you, Ramesh. The clarity of the air is a mercy. I shall walk for an hour to clear my head before returning to the office.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "lodhi",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, enjoy the walk. The path to the gate is dry enough, no need to worry about the dust.",
+    "does": "Ramesh gives a short nod and turns back to the papers on the desk."
+   },
+   "left": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.5,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato, Philosophy of Nature",
+     "id": "haldane-2:188"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "id": "sibree-history:395"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato, Philosophy of Nature",
+     "text": "Plato continues: “Since what is solid requires two means, because it not only has breadth but also depth, God has placed air and water between fire and earth; and indeed He gave to them the same proportion, so that fire is related to air as air to water, and as air is to water, so is water to earth.”"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "text": "For it is an indispensable requirement that the grave of parents be annually visited. Here lamentations are annually renewed, and many, to give full vent to their grief, remain there sometimes one or two months. The body of a deceased father is often kept three or four months in the house, and during this time no one may sit down on a chair or sleep in a bed."
+    }
+   ]
   }
  ],
  "funnel": {},
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-19T14:29+05:30",
+  "place": "lodhi",
+  "until": "2026-11-19T14:49+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
@@ -1755,7 +1852,9 @@
     ]
    },
    "breakfast": true,
-   "lunch": true
+   "lunch": true,
+   "walked": 1500,
+   "strain": 1500
   },
   "account": {
    "advance": 15000,
