@@ -211,17 +211,18 @@ class D_DoesLines(unittest.TestCase):
     def test_another_person_named_is_fine(self):
         self.assertEqual(self.does("hegde", "He hands Ramesh the file.", True), "He hands Ramesh the file.")
 
-    def test_pronoun_first_word_only(self):
-        # Day 47, 10:17, Shri Hegde (he): 'She rolls her eyes and turns away to check the stove.'
-        self.assertEqual(self.does("hegde", "She rolls her eyes and turns away to check the stove.", True), "He rolls her eyes and turns away to check the stove.")
-        # Day 48, 20:05 and 20:20, the bookseller (he)
-        self.assertEqual(self.does("bookseller", "She gestures sharply toward the flickering dhaba sign across the street.", True),
-                         "He gestures sharply toward the flickering dhaba sign across the street.")
-        self.assertEqual(self.does("bookseller", "She waves a dismissive hand at him and turns back to the shelf of hardcovers.", True),
-                         "He waves a dismissive hand at him and turns back to the shelf of hardcovers.")
-        for cid, line in (("nidhi", "He taps the book."), ("nidhi", "She taps the book."), ("hegde", "He nods."), ("hegde", "Sheets rustle."), ("hegde", "Nods, she says.")):
-            want = {"He taps the book.": "She taps the book."}.get(line, line) if cid == "nidhi" else line
-            self.assertEqual(self.does(cid, line, True), want)
+    def test_wrong_pronoun_drops_the_line(self):
+        # Day 47, 10:17, Shri Hegde (he); Day 48, 20:05 and 20:20, the bookseller (he)
+        for cid, line in (("hegde", "She rolls her eyes and turns away to check the stove."),
+                          ("bookseller", "She gestures sharply toward the flickering dhaba sign across the street."),
+                          ("bookseller", "She waves a dismissive hand at him and turns back to the shelf of hardcovers."),
+                          ("nidhi", "He taps the book.")):
+            self.assertEqual(self.does(cid, line, False), line)
+            out = voices.clean(CAST[cid], {"says": "Well.", "does": line}, repairs=True)
+            self.assertIsNone(out["does"])
+            self.assertEqual(out["says"], "Well.")
+        for cid, line in (("nidhi", "She taps the book."), ("hegde", "He nods."), ("hegde", "Sheets rustle."), ("hegde", "Nods, she says.")):
+            self.assertEqual(self.does(cid, line, True), line)
 
     def test_off_is_todays(self):
         for cid, line in (("guard", "I gesture towards the front desk."), ("hegde", "She rolls her eyes."), ("hegde", "He pats Hegde's shoulder."), ("nidhi", "He taps.")):

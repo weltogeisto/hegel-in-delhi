@@ -292,8 +292,8 @@ def render(c, sit, where, says, remember, first_meeting=None, purchases=None, me
 
 def own_does(c, does):
     """HEGEL_VOICE_REPAIRS: the `does` line as it may stand, or None. Dropped: a line in the first person (I, me, my, myself), and one that
-    names the speaker after the line's opening (his own name may open it: "Mrs. Kapoor sits down"). A line that opens with He or She
-    against the cast's pronoun for the speaker has that first word corrected, and nothing else."""
+    names the speaker after the line's opening (his own name may open it: "Mrs. Kapoor sits down"). So is a line that opens with He or She
+    against the cast's pronoun for the speaker. No word of a voice's line is rewritten."""
     forms = names_of(c)
     if c.get("background"):
         forms |= {re.sub(r"^the ", "", c["name"], flags=re.I)}
@@ -301,11 +301,11 @@ def own_does(c, does):
         forms |= {w for w in (x.strip(".") for x in c["name"].split()) if len(w) > 1 and w.lower() not in TITLES}
     pat = "|".join(re.escape(x) for x in sorted(forms, key=len, reverse=True))
     rest = re.sub(r"^(?:" + pat + r")\b", "", does, flags=re.I)
-    if re.search(r"\bI\b", does) or re.search(r"\b(?:me|my|myself)\b", does, re.I) or re.search(r"\b(?:" + pat + r")\b", rest, re.I):
-        return None
     want = {"he": "He", "she": "She"}.get(c.get("pronoun"))
     m = re.match(r"(He|She)\b", does)
-    return want + does[m.end():] if want and m and m.group(1) != want else does
+    if (want and m and m.group(1) != want) or re.search(r"\bI\b", does) or re.search(r"\b(?:me|my|myself)\b", does, re.I) or re.search(r"\b(?:" + pat + r")\b", rest, re.I):
+        return None
+    return does
 
 
 def clean(c, out, repairs=False):
