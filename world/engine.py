@@ -450,6 +450,10 @@ class Engine:
         self.world.show_plan(sit, day)
         return True
 
+    def voice_repairs(self):
+        """HEGEL_VOICE_REPAIRS (config.py): is the switch on."""
+        return getattr(getattr(self, "cfg", None), "voice_repairs", False) is True
+
     def voice(self, cid, day, sit, says, purchases=None):
         """One call: the person cid answers what he said, or speaks first when says is None. {by, says, does}, or None
         when the answer is unusable. MindAway goes up."""
@@ -463,6 +467,7 @@ class Engine:
             when = at_dt(date.fromisoformat(day["date"]), hm(sit["time"]))
             meal_status = (self.world.served(when, day["state"]) or "none") + ". " + self.world.meal_status(when, day["state"])
         vf = getattr(getattr(self, "cfg", None), "voice_facts", False) is True
+        vr = self.voice_repairs()
         menu = getattr(self.world, "menu", {}).get(cid) if getattr(self.world, "promises", False) else None      # HEGEL_PROMISES: what this person may promise
         schema = contract.voice_schema(menu)
         extra = {"today": day["date"]} if menu and day.get("date") else {}
@@ -470,12 +475,12 @@ class Engine:
         facts += voices.paid_here(self.world.places[sit["place"]], day.get("entries", []))
         if getattr(getattr(self, 'cfg', None), 'outcome_memory', False):
             facts += voices.recorded_receipts(day, sit['place'])
-        messages = [{"role": "system", "content": self.voice_prompt}, {"role": "user", "content": voices.render(c, sit, where, says, remember, first_meeting=first_meeting, purchases=purchases, meal_status=meal_status, world_facts=facts, **({"voice_facts": True} if vf else {}), **({"menu": menu} if menu else {}))}]
+        messages = [{"role": "system", "content": self.voice_prompt}, {"role": "user", "content": voices.render(c, sit, where, says, remember, first_meeting=first_meeting, purchases=purchases, meal_status=meal_status, world_facts=facts, **({"voice_facts": True} if vf else {}), **({"menu": menu} if menu else {}), **({"repairs": True} if vr else {}))}]
         voice_chat = getattr(type(self.mind), "chat_voice", None)
         ask = (lambda msgs: voice_chat(self.mind, msgs, schema, max_tokens=250)) if voice_chat else (lambda msgs: self.mind.chat(msgs, schema, max_tokens=250))
         reply = ask(messages)
         out = contract.extract_json(reply)
-        said = voices.clean(c, out)
+        said = voices.clean(c, out, **({"repairs": True} if vr else {}))
         if menu and said and isinstance(out, dict) and out.get("act") is not None and day.get("state") is not None:
             said = self.promised(cid, day, sit, menu, messages, reply, out, said, ask)
         return said
@@ -498,7 +503,7 @@ class Engine:
             except MindAway as e:
                 log.warning("mind away for the second answer at %s: %s", sit["time"], e)
                 return said
-            again = voices.clean(c, out)
+            again = voices.clean(c, out, **({"repairs": True} if self.voice_repairs() else {}))
             if again is None:
                 return said
             if not isinstance(out, dict) or out.get("act") is None:
@@ -528,12 +533,21 @@ class Engine:
             ctx["known_text"] += "\n" + voices.heard(said)
         return True
 
+    def reply_facts(self, ctx):
+        """HEGEL_VOICE_REPAIRS: what routing reads of this step: who spoke first (the greeting), and whom the beat that fired in it needs."""
+        greeter = next((x[len("greeting:"):] for x in ctx.get("opened", []) if isinstance(x, str) and x.startswith("greeting:")), None)
+        return {"greeting": greeter, "needs": (ctx.get("beat") or {}).get("needs", []) if "beat_entries" in ctx else []}
+
     def reply(self, day, sit, ctx, says, recipient=None):
         """The one he spoke to answers (one call). None if the mind is away or the answer is unusable."""
         try:
             vf = getattr(getattr(self, "cfg", None), "voice_facts", False) is True
-            who = voices.pick(self.world.cast, says, ctx["present"], recipient=recipient, **(dict(
-                facts=True, purchases=ctx.get("purchases"), entries=day.get("entries"), segments=day.get("segments"), place=sit["place"]) if vf else {}))
+            more = dict(facts=True) if vf else {}
+            if vf or self.voice_repairs():
+                more.update(purchases=ctx.get("purchases"), entries=day.get("entries"), segments=day.get("segments"), place=sit["place"])
+            if self.voice_repairs():
+                more["repairs"] = self.reply_facts(ctx)
+            who = voices.pick(self.world.cast, says, ctx["present"], recipient=recipient, **more)
             said = self.voice(who, day, sit, says, purchases=ctx.get("purchases"))
             if said and said.get("promise"):
                 ctx.setdefault("promised", []).append(said.pop("promise"))

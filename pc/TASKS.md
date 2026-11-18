@@ -75,6 +75,13 @@ Declared in `pc/LORA-FRESH-SCENES.md`. It loads the Training 1 adapter, checkpoi
 5. Push `<folder>` (the plan, `outputs.jsonl`, `RUN.json`, the raw requests) to a `codex/*` branch and post DONE on PR #1 with the two hashes. **Nobody on the PC reads the outputs:** Sol is a reader and gets a packet from Claude in the cloud.
 The rest of the night goes to W3, on the plain live server. No fork of a day with the adapter is run: the engine has no step that rewrites a finished thought, so such a day cannot be run as the adapter was trained. This task is complete with step 5.
 
+### W9 · PC seat · the voices' repairs, Part 2 of their check · OPEN, not for the night of 18 November
+Declared in `pc/VOICE-REPAIRS-CHECK.md`. `HEGEL_VOICE_REPAIRS` is off and stays off; this is a screen on recorded moments, plain Qwen, no adapter, prompt cache off. Part 1 (the replay, no model) is done and passes.
+1. **The moments, by rule, from the complete days of Days 44 to 49:** set A, every recorded greeting or reply whose speaker's own presence sentence stood in its event; set B, every recorded reply at a place with nothing for sale that is not his home. Twenty of each at most, drawn with seed 1831. Rebuild each from the shadow commit just before its step with `tools/voice_screen.py` (W4's tool), commit the manifest with its hash before any call.
+2. **Two arms,** `HEGEL_VOICE_REPAIRS` off and on, seeds 1831, 2718 and 3141: at most 240 short calls, by day in the spare slot.
+3. Push the replies with the arm hidden in a key that stays on the PC until the labels are sealed, as for W4. The readers and the result are Claude's.
+It comes after W8, W3 and the three things still owed for W4 (the two keys, arm P's act records, the who-answers table).
+
 ## The order, day by day (Claude in the cloud, 18 November)
 
 One change goes on at a time, each after the previous one's first full day (`DECISIONS.md` 31, 34, 47, 50). The PC is on from about 09:00 to 21:00 Berlin, so each switch is set on the Pi in the morning, after the PC starts and before he wakes at about 09:15. Day numbers are his. His calendar runs a day ahead of Berlin's: Day 49 is lived on Berlin's Wednesday 18 November.
