@@ -566,6 +566,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "19:09",
+   "to": "19:24",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -1292,6 +1299,46 @@
    "to": "Hegel",
    "text": "Ji, coming right up. One egg, rice, and the dal from the lunch batch. Sit, I'll be quick.",
    "t": "18:54"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Hah, look who finally deigned to return to his actuality. I told you, I was sleeping, not waiting up like a doormat. Did the food at that IIC place at least taste like something real, or just another abstract concept?",
+   "t": "19:09"
+  },
+  {
+   "k": "diary",
+   "text": "The body is a stubborn fact, and I will not argue with it. Hegde’s jest about 'abstract concepts' is a cheap shot, but I am too hungry to be offended. I will eat the simple food Ramesh is preparing and let the day close in silence.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Scepticism"
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810"
+    }
+   ],
+   "t": "19:09"
+  },
+  {
+   "k": "said",
+   "text": "It tasted of rice and effort, Shri. Which, I am told, is what reality is made of.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "19:09"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, the dal is hot. Eat it before it gets cold, that is the only reality that matters here.",
+   "t": "19:09"
+  },
+  {
+   "k": "world",
+   "text": "Ramesh puts a plate together: a plate of khichdi with ghee.",
+   "t": "19:09"
   }
  ],
  "steps": [
@@ -2789,6 +2836,70 @@
      "text": "Nicht der Unterschied, welcher sich als bestimmtes Ding, oder als Bewußtsein eines bestimmten natürlichen Daseins, als ein Gefühl, oder als Begierde und Zweck für dieselbe, ob er durch das eigene oder durch ein fremdes Bewußtsein gesetzt sei, hat mehr Wesenheit, sondern allein der Unterschied, der ein gedachter, oder unmittelbar nicht von Mir unterschieden ist."
     }
    ]
+  },
+  {
+   "t": "19:09",
+   "end": "19:24",
+   "event": "Ramesh says: “Ji, coming right up. One egg, rice, and the dal from the lunch batch. Sit, I'll be quick.” Ramesh nods once and turns toward the kitchen doorway. Shri G. Hegde is here. Shri G. Hegde says: “Hah, look who finally deigned to return to his actuality. I told you, I was sleeping, not waiting up like a doormat. Did the food at that IIC place at least taste like something real, or just another abstract concept?” I lean back against the wall, arms crossed, and give a dry little laugh.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The body is a stubborn fact, and I will not argue with it. Hegde’s jest about 'abstract concepts' is a cheap shot, but I am too hungry to be offended. I will eat the simple food Ramesh is preparing and let the day close in silence.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 15,
+    "says": "It tasted of rice and effort, Shri. Which, I am told, is what reality is made of.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply",
+    "here",
+    "greeting:hegde"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, the dal is hot. Eat it before it gets cold, that is the only reality that matters here.",
+    "does": "He places the plate on the table and straightens the napkin."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Scepticism",
+     "id": "haldane-2:849"
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810",
+     "id": "reden:58"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Scepticism",
+     "text": "For because he asserted that the reality of sensuous things has no truth, it is, for instance, said that were he walking he would go out of the way of no object, no waggon or horse that came towards him; or he would go straight up against a wall, completely disbelieving in the reality of sensuous sensations and such like."
+    },
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810",
+     "text": "Studienanstalten sind Theils Institute des Unterrichts, nicht unmittelbar der Erziehung, Theils fangen sie nicht von den ersten Elementen der Bildung, weder der Erkenntniß, noch der Sitten, an."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2796,7 +2907,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-19T19:09+05:30",
+  "until": "2026-11-19T19:24+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
@@ -2888,6 +2999,7 @@
    "woke": "09:19",
    "seen": {
     "home": [
+     "hegde",
      "ramesh"
     ],
     "lodhi": [
@@ -3232,7 +3344,8 @@
     "2026-11-15",
     "2026-11-16",
     "2026-11-17",
-    "2026-11-18"
+    "2026-11-18",
+    "2026-11-19"
    ],
    "kapoor": [
     "2026-10-28",
@@ -3253,7 +3366,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-19T13:44+05:30",
+  "last_meal": "2026-11-19T19:09+05:30",
   "snacks": 0,
   "works": [
    {
