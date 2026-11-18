@@ -197,16 +197,24 @@ class C2_WhoAnswersNext(unittest.TestCase):
         self.assertEqual(reply(False, says, p, ctx), "masterji")
         self.assertEqual(reply(True, says, p, ctx), "sunil")
 
-    def test_day48_biscuits_and_last_spoken(self):
-        """Day 48, 17:36: 'Garam pani, please. And keep the last samosa for me; I will finish it.' (Masterji answered, Sunil had been answering)."""
+    def test_day48_biscuits_by_the_purchase(self):
+        """Day 48, 17:36: 'Garam pani, please. And keep the last samosa for me; I will finish it.' with glucose biscuits bought (Sunil's);
+        Masterji answered, though Sunil had been answering."""
         says = "Garam pani, please. And keep the last samosa for me; I will finish it."
+        p = ["masterji", "sunil", "bookseller"]
+        ctx = dict(purchases=[dict(item="Glucose biscuits", price=10)])
+        self.assertEqual(reply(False, says, p, ctx), "masterji")
+        self.assertEqual(reply(True, says, p, ctx), "sunil")
+
+    def test_last_spoken_only_under_voice_facts(self):
+        """With the repairs on, who last spoke with him decides exactly as it does today: only with HEGEL_VOICE_FACTS."""
         p = ["masterji", "sunil", "bookseller"]
         ent = [dict(k="said", by="Sunil", to="Hegel", t="17:21", text="x")]
         seg = [{"from": "09:00", "to": "18:00", "at": "khan"}]
-        self.assertEqual(reply(False, says, p, entries=ent, segments=seg), "masterji")
-        self.assertEqual(reply(True, says, p, entries=ent, segments=seg), "sunil")                      # last spoken, with HEGEL_VOICE_FACTS off
-        self.assertEqual(reply(True, "Thank you.", p, {"purchases": []}, entries=ent, segments=seg), "sunil")
-        self.assertEqual(reply(True, "Thank you.", p, entries=ent, segments=[{"from": "09:00", "to": "18:00", "at": "lodhi"}]), "masterji")
+        for on in (False, True):
+            self.assertEqual(reply(on, "Thank you.", p, entries=ent, segments=seg), "masterji")
+            self.assertEqual(reply(on, "Thank you.", p, entries=ent, segments=seg, vf=True), "sunil")
+            self.assertEqual(reply(on, "Thank you.", p, entries=ent, segments=[{"from": "09:00", "to": "18:00", "at": "lodhi"}], vf=True), "masterji")
 
     def test_greeting_speaker(self):
         """Day 47, 09:47: Shri Hegde spoke first; then words that name no one are his to answer."""
@@ -221,16 +229,17 @@ class C2_WhoAnswersNext(unittest.TestCase):
         ent = [dict(k="said", by="The bookseller", to="Hegel", t="10:00", text="x")]
         seg = [{"from": "09:00", "to": "11:00", "at": "khan"}]
         kw = dict(purchases=[dict(item="Samosa", price=20)], entries=ent, segments=seg, place="khan", repairs=full)
-        self.assertEqual(voices.pick(CAST, "Sunil, hello", p, **kw), "sunil")              # 1 named
+        self.assertEqual(voices.pick(CAST, "Sunil, hello", p, **kw), "sunil")              # 1 addressed
         self.assertEqual(voices.pick(CAST, "Hello", p, **kw), "masterji")                  # 2 greeting
         kw["repairs"] = dict(needs=["nidhi"])
         self.assertEqual(voices.pick(CAST, "Hello", p, **kw), "nidhi")                     # 3 beat
         kw["repairs"] = {}
         self.assertEqual(voices.pick(CAST, "Hello", p, **kw), "sunil")                     # 4 purchase
         kw["purchases"] = []
-        self.assertEqual(voices.pick(CAST, "Hello", p, **kw), "bookseller")                # 5 last spoken
+        self.assertEqual(voices.pick(CAST, "Hello", p, **kw), "masterji")                  # 5 fallback: no last-spoken rule without facts
+        self.assertEqual(voices.pick(CAST, "Hello", p, facts=True, **kw), "bookseller")    # with HEGEL_VOICE_FACTS, as today
         kw["entries"] = []
-        self.assertEqual(voices.pick(CAST, "Hello", p, **kw), "masterji")                  # 6 fallback
+        self.assertEqual(voices.pick(CAST, "Hello", p, facts=True, **kw), "masterji")
 
     def test_trade_words_stay_with_voice_facts(self):
         p = ["masterji", "bookseller", "sunil"]

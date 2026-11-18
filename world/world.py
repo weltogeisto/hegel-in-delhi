@@ -31,6 +31,7 @@ BED_M = 1260                     # at nine in the evening the world sends him to
 NIGHT_FROM = 1200                # a sleep begun from eight in the evening is the night's, until morning
 TEA_WINDOW, PLATE_GAP_H = (990, 1050), 3   # tea at half past four; between meals Ramesh puts a plate together if three hours have passed
 HUNGRY_H, VERY_HUNGRY_H, TIRED_H, TIRED_M = 5, 8, 16, 10_000        # hours since a meal, hours awake, metres walked
+SNACK_H = 2                                                          # hours a snack holds hunger off
 WALK_M, HOT_C = 75, 33                  # metres a minute; from this temperature walking counts one and a half times
 NUMBERS = "zero one two three four five six seven eight nine ten eleven twelve".split()
 PLAN_TIME = re.compile(r"(\d{1,2}):(\d{2})$")
@@ -94,7 +95,9 @@ def names(lst):
 
 
 class World(Economy):
-    def __init__(self, feeds=None, culture=False, street_on=False, street_file=None, promises=False, ramesh_days=False, consumed=False, file_act=False):
+    def __init__(self, feeds=None, culture=False, street_on=False, street_file=None, promises=False, ramesh_days=False, consumed=False, file_act=False,
+                 repairs=False):
+        self.repairs = bool(repairs)                          # HEGEL_WORLD_REPAIRS: five repairs from the review of Days 47–49 (DECISIONS 57); off until switched on
         self.consumed = bool(consumed)                        # HEGEL_CONSUMED: what he ate is an entry of its own (`consumed`); off until switched on (DECISIONS 48)
         p = load("places.json")
         self.places, self.walks = p["places"], p["walk"]
@@ -266,7 +269,11 @@ class World(Economy):
             return laid["dish"]                              # HEGEL_PROMISES: the plate Ramesh promised and has set down, whatever the hour of the last meal
         if state.get("last_meal") and t - datetime.fromisoformat(state["last_meal"]) < timedelta(hours=PLATE_GAP_H):
             return None
-        return random.Random(f"plate|{t.date()}|{minute_of(t) // 60}").choice(PLATE)
+        return random.Random(self.plate_seed(t, state)).choice(PLATE)
+
+    def plate_seed(self, t, state):
+        """Off, a new dish each hour, so the plate promised was not the plate offered. With the repairs, one dish until he eats a meal."""
+        return f"plate|{t.date()}|{state.get('last_meal')}" if self.repairs else f"plate|{t.date()}|{minute_of(t) // 60}"
 
     def meal_status(self, t, state):
         """Available household service, independent of an NPC's claim about a tray."""
@@ -284,13 +291,32 @@ class World(Economy):
             return f"No set meal now ({nxt}); if you ask, Ramesh puts a plate together: {plate}."
         return f"No household meal is available now; {nxt}."
 
+    def fed_at(self, t, state, clamp=True):
+        """The moment his hunger counts from: the last meal, pushed on by the snacks since, and never later than t."""
+        if self.repairs and state.get("fed_at"):
+            fed = datetime.fromisoformat(state["fed_at"])
+        else:
+            meal = datetime.fromisoformat(state["last_meal"]) if state.get("last_meal") else at_dt(t.date() - timedelta(days=1), 1200)
+            fed = meal + timedelta(hours=SNACK_H * state.get("snacks", 0))
+        return min(t, fed) if clamp else fed
+
     def feed(self, state, t, food):
-        """A meal starts the clock again; a snack pushes hunger back two hours."""
+        """A meal starts the clock again. A snack pushes hunger back two hours. With the repairs, it is never worth less than two hours
+        from when it is eaten (counted from a meal days old, a snack fed him nothing), and snacks together never more than a meal eaten then."""
         if food == "meal":
             state["last_meal"], state["snacks"] = t.isoformat(timespec="minutes"), 0
+            state.pop("fed_at", None)
             state.get("today", {}).pop("laid", None)         # HEGEL_PROMISES: whatever he eats, the promised plate is not eaten twice
+        elif self.repairs:
+            fed = max(self.fed_at(t, state, clamp=False) + timedelta(hours=SNACK_H), t - timedelta(hours=HUNGRY_H - SNACK_H))
+            state["snacks"], state["fed_at"] = state.get("snacks", 0) + 1, min(t, fed).isoformat(timespec="minutes")
         else:
             state["snacks"] = state.get("snacks", 0) + 1
+
+    def ate_here(self, state, pid, t):
+        """He bought food at pid in the last hour and a half: a step of eating it there is the meal he paid for."""
+        b = state.get("today", {}).get("bought_food")
+        return bool(b) and b["place"] == pid and timedelta(0) <= t - datetime.fromisoformat(b["t"]) <= timedelta(minutes=90)
 
     def walked(self, state, t, minutes):
         """Metres on foot today, and the same weighted by the heat."""
@@ -303,7 +329,7 @@ class World(Economy):
         today = state.setdefault("today", {})
         meal = datetime.fromisoformat(state["last_meal"]) if state.get("last_meal") else at_dt(t.date() - timedelta(days=1), 1200)
         woke = at_dt(t.date(), hm(today["woke"])) if today.get("woke") else None
-        fed = min(t, meal + timedelta(hours=2 * state.get("snacks", 0)))
+        fed = self.fed_at(t, state)
         hungry = (t - max(fed, woke or fed)).total_seconds() / 3600       # sleep does not make him hungry
         level = 2 if hungry > VERY_HUNGRY_H else 1 if hungry > HUNGRY_H else 0
         felt = []
@@ -399,7 +425,7 @@ class World(Economy):
                     if meal:
                         text = public = entry["by_meal"].format(meal=meal)       # the engine's own meal is laid out: it keeps the promise, none is served twice
                     else:
-                        dish = random.Random(f"plate|{d}|{m // 60}").choice(PLATE)
+                        dish = random.Random(self.plate_seed(t, state)).choice(PLATE)    # with the repairs, the dish World.plate offered
                         state.setdefault("today", {})["laid"] = {"dish": dish, "id": p["id"]}      # World.plate returns it: he may eat it as a laid-out meal
                         text = public = entry["event"].format(dish=dish)
                 out.append((text, {"k": "world", "text": public} if public else None))
@@ -668,7 +694,8 @@ class World(Economy):
             kind("read")
         said = (prev_step or {}).get("voice")
         if said and prev_step.get("end") == fmt(m) and not prev_step.get("left"):
-            events.append((voices.heard(said), None))
+            gone = "" if not self.repairs or any(self.cast[c]["name"].casefold() == said["by"].casefold() for c in present) else f" {said['by']} has gone."
+            events.append((voices.heard(said) + gone, None))       # they answered when he spoke; by the step's end their hours may be over
             kind("reply")                                          # their answer to what he said, as the step ends
         # A step that took him elsewhere ends where he went: the answer stays with that step, in the record, and
         # does not follow him (a bookseller's line reached him at home at 38:25 and 45:25).
@@ -1031,6 +1058,10 @@ class World(Economy):
                 break
         if action == "eat" and dest == "home" and not (self.served(arrival, state) or self.plate(arrival, state)):
             errors.append(self.meal_status(arrival, state) + " Choose an available activity; a request for food is not a completed meal.")
+        if self.repairs and action == "eat" and dest != "home" and not any(b.get("food") for b in buys) and not self.ate_here(state, dest, arrival):
+            foods = [s["item"] for s in pl.get("sells", []) if s.get("food")]
+            errors.append(f"there is nothing to eat {pl.get('at', 'here')} unless you buy it: " + ("; ".join(foods) if foods else "no food is sold here") +
+                          ". Buy food in this step, or choose another activity.")
         spent = sum(b["price"] for b in buys)
         if spent > state["imprest"]:
             errors.append(f"that costs ₹{spent:,} and you have only ₹{state['imprest']:,} in cash")
@@ -1085,8 +1116,13 @@ class World(Economy):
             entries.append(e)
 
         def dress(t, pid, asleep=False):
+            if self.repairs and state["place"] != "home":
+                return                                       # he changes only at home: not at the place he leaves, nor where he arrives
             want = self.dress(state, pid, asleep)
             if want != state["wearing"]:
+                off = self.garment(state, state["wearing"]) if self.repairs else None
+                if off:
+                    off["status"] = f"Taken off at {fmt(minute_of(t))}."
                 state["wearing"] = want
                 g = self.garment(state, want)
                 if g:
@@ -1230,6 +1266,8 @@ class World(Economy):
                 state["tech"].update(got[b["tech"]])
             if b.get("food"):
                 self.feed(state, t, b["food"])
+                if self.repairs:
+                    state.setdefault("today", {})["bought_food"] = {"place": dest, "t": t.isoformat(timespec="minutes")}
                 consumed(t, {"item": b["item"], "food": b["food"], "source": "catalogue food execution", "charge_id": cid})
             pl = self.places[dest]
             if pl.get("entry") and any(k in b["item"].lower() for k in pl["entry"]["match"]):
