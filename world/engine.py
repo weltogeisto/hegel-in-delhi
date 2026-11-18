@@ -207,6 +207,8 @@ class Engine:
         remember = self.memory.recall(sit, ctx, day)
         if remember:
             sit["remember"] = remember
+        if getattr(self.cfg, "notebook", False) and (st.get("notebook") or {}).get("text"):
+            sit["notebook"] = st["notebook"]["text"]          # HEGEL_NOTEBOOK: what he has come to understand of this century
         ctx["recent"], ctx["known_text"] = self.memory.recent_thoughts(day), self.memory.known_text(day, sit)
         m = minute_of(t)
         t_start = time.time()
@@ -818,7 +820,8 @@ class Engine:
         n = st.get("depesche_n", 0) + 1 if weekday == self.cfg.depesche_day else None
         known = self.memory.known_before(day["date"]) + "\n" + encountered_text(day)
         written = owl.write(self.cfg, day, st, self.owl_mind, depesche_n=n, problems=lambda text: self.world.problems(text, known),
-                            flag=self.world.flag, topic=self.world.topic, claim_guard=self.claim_guard)
+                            flag=self.world.flag, topic=self.world.topic, claim_guard=self.claim_guard,
+                            notebook=getattr(self.cfg, "notebook", False))
         written["written"] = fmt(minute_of(now))
         day["owl"] = written
         if n:

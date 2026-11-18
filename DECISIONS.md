@@ -157,6 +157,8 @@ Welt, the night of 18 November: "dont get stuck waiting on me not answering, i t
 54. **The filter's draws are kept from Day 50 on:** `HEGEL_KEEP_DRAWS=1` on the Pi with the morning's switches (`pc/FILTER-PAIRS.md`). It changes nothing he is told, and the day files stay as they are. It gathers the preference pairs Training 3 lacked, by the world's fixed checks, within the data rule. **Not covered:** any training from them, which stays Welt's call with its own declared test.
 55. **Paris stage 2 takes the travel version of his instructions** (option 2 in `pc/PARIS-BACKTEST.md`): his instructions with the Delhi premise taken out, by a fixed edit declared before any call. Claude prepares the cards, the edit and the tool. The calls run in the PC's spare time, never at the cost of his steps. His own letters to Munich are read against the real ones meanwhile (option 3).
 
+56. **The notebook of the age is built, off** (`HEGEL_NOTEBOOK`, `pc/NOTEBOOK.md`; Claude in the cloud on the night of 18 November, on Welt's "move us forward" and "i trust you"). Each night the owl rewrites a notebook of at most 1,500 characters: what he has come to understand of this century, and how his view has moved. It is in his prompt the next day. It goes on only after forks of two days, five seeds a side, and Welt's word, after the file's next act in the order.
+
 ## Still open
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.
@@ -166,5 +168,5 @@ Welt, the night of 18 November: "dont get stuck waiting on me not answering, i t
 
 ## Ideas, not yet decided
 
-- **A notebook of the age.** The owl keeps a short running summary (about 1,000–1,500 characters) of what he has come to understand about this century: machines, institutions, events, people, and how his view of each has shifted. It enters his prompt every day, so what he learned weeks ago stays in front of him. It records only what he met and thought; it never steers him. Reason: today his prompt remembers only the last moments and the owl's gist of three nights, so older discoveries are allowed by the 1831 gate but fade from view.
+- **A notebook of the age** (built, off: decision 56). The owl keeps a short running summary (about 1,000–1,500 characters) of what he has come to understand about this century: machines, institutions, events, people, and how his view of each has shifted. It enters his prompt every day, so what he learned weeks ago stays in front of him. It records only what he met and thought; it never steers him. Reason: today his prompt remembers only the last moments and the owl's gist of three nights, so older discoveries are allowed by the 1831 gate but fade from view.
 - **An inbox.** People can send him emails, which he reads on a device in the world and may answer. Open questions: how mail gets in (a real address the Pi reads, a form, or Welt forwarding by hand), who approves it, whether his answers are public, and how he comes by an address in the world.

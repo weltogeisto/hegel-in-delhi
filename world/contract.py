@@ -128,6 +128,8 @@ def render(s, ask=ASK):
         text += "\nOn your mind:\n" + "".join(f"- {x}\n" for x in s["on_mind"])
     if s.get("remember"):
         text += "\nYou remember:\n" + "".join(f"- {x}\n" for x in s["remember"])
+    if s.get("notebook"):
+        text += "\nYour notebook of this age, as you keep it each night:\n" + s["notebook"] + "\n"
     if s.get("earlier"):
         text += "\nEarlier today:\n" + "".join(f"- {x}\n" for x in s["earlier"])
     if s.get("shelf"):
