@@ -3,10 +3,11 @@ import re
 from datetime import date, timedelta
 
 from .contract import PROMISE_LINES, VOICE_ASK, VOICE_ASK_ACT
-from .memory import names_of
+from .memory import TITLES, names_of
 from .works import cut
 
 SAY_CAP, DOES_CAP, EVENT_CAP = 420, 200, 600
+NOTHING_SOLD = "Nothing is sold or served here. Do not offer, arrange or describe food, drink or goods."      # HEGEL_VOICE_REPAIRS: a place with no goods
 
 
 def addressed(cast, says, present):
@@ -19,6 +20,23 @@ def addressed(cast, says, present):
         if m:
             hits.append((m.start(), cid))
     return min(hits)[1] if hits else None
+
+
+def named_longest(cast, says, present):
+    """HEGEL_VOICE_REPAIRS: the person present whose name opens the longest stretch of `says` (to the next name, or the end); a tie
+    goes to the one named first. None if no one is named."""
+    hits = []
+    for cid in present:
+        c = cast[cid]
+        terms = names_of(c) | ({re.sub(r"^the ", "", c["name"], flags=re.I)} if c.get("background") else set())
+        hits += [(m.start(), cid) for m in re.finditer(r"\b(" + "|".join(re.escape(x) for x in terms) + r")\b", says or "", re.I)]
+    hits.sort()
+    best = {}
+    for i, (start, cid) in enumerate(hits):
+        end = hits[i + 1][0] if i + 1 < len(hits) else len(says)
+        if end - start > best.get(cid, (0, 0))[0]:
+            best[cid] = (end - start, start)
+    return min(best, key=lambda c: (-best[c][0], best[c][1])) if best else None
 
 
 def _words(says, terms):
@@ -50,16 +68,23 @@ def last_spoken(cast, entries, segments, place, present):
     return None
 
 
-def pick(cast, says, present, recipient=None, facts=False, purchases=None, entries=None, segments=None, place=None):
+def pick(cast, says, present, recipient=None, facts=False, purchases=None, entries=None, segments=None, place=None, repairs=None):
     """An explicit present recipient takes precedence; legacy speech keeps its fallback.
 
     With `facts` on, when his words name no one the answer comes from the person whose trade the words concern, or whom
     he bought from in this step, then the one he last spoke with here today, then the legacy fallback.
+
+    With `repairs` (HEGEL_VOICE_REPAIRS; a dict that may hold `greeting`, the person who spoke first in this step, and `needs`,
+    the people the beat that fired in this step needs), the order is: the person his words name longest, the greeter, the beat's
+    person, the seller of this step's purchase (with `facts`, first the one whose trade his words concern), the one he last spoke
+    with here (whatever `facts` says), the legacy fallback.
     """
     if recipient is not None:
         if recipient not in cast or recipient not in present:
             raise ValueError("explicit speech recipient is not present")
         return recipient
+    if repairs is not None:
+        return _pick_repaired(cast, says, present, facts, purchases, entries, segments, place, repairs)
     named = addressed(cast, says, present)
     if named:
         return named
@@ -72,6 +97,22 @@ def pick(cast, says, present, recipient=None, facts=False, purchases=None, entri
         if last:
             return last
     return next((c for c in present if not cast[c].get("background")), None) or (present[0] if present else None)
+
+
+def _pick_repaired(cast, says, present, facts, purchases, entries, segments, place, repairs):
+    """pick() with HEGEL_VOICE_REPAIRS on: see there for the order."""
+    named = named_longest(cast, says, present)
+    if named:
+        return named
+    if repairs.get("greeting") in present:
+        return repairs["greeting"]
+    need = next((c for c in repairs.get("needs") or [] if c in present), None)
+    if need:
+        return need
+    sold = (seller_of(cast, says, present) if facts else None) or next(
+        (c for x in purchases or [] if (c := seller_of(cast, str(x.get("item", "")), present))), None)
+    return sold or last_spoken(cast, entries, segments, place, present) or (
+        next((c for c in present if not cast[c].get("background")), None) or (present[0] if present else None))
 
 
 def recorded_facts(world, cid, state, voice_facts=False, today=None):
@@ -199,7 +240,16 @@ def paid_here(place, entries, limit=6):
             ". Do not ask for them again; ask only for anything new he takes now."]
 
 
-def render(c, sit, where, says, remember, first_meeting=None, purchases=None, meal_status=None, world_facts=None, voice_facts=False, menu=None):
+def own_presence_out(c, event):
+    """HEGEL_VOICE_REPAIRS: `event` without the sentence that says the speaker himself is here ("Shri G. Hegde is here." or
+    "Shri G. Hegde is here; you have not met."); the voice already knows who it is. Other people's presence lines stay."""
+    for name in (c["name"], c.get("short")):
+        if name:
+            event = re.sub(r"(?:(?<=[.!?”])\s+|^)" + re.escape(name) + r" is here(?:; you have not met)?\.", "", event).lstrip()
+    return event
+
+
+def render(c, sit, where, says, remember, first_meeting=None, purchases=None, meal_status=None, world_facts=None, voice_facts=False, menu=None, repairs=False):
     """The user message for one voice. `where` is the place's name; `says` is what he said to them, or None when they speak first."""
     text = f"You are {c['name']}, {c['role']}." + (f" {c['card']}" if c.get("card") else "")
     if voice_facts and c.get("pronoun"):
@@ -222,26 +272,50 @@ def render(c, sit, where, says, remember, first_meeting=None, purchases=None, me
     elif first_meeting is False:
         text += "Relationship: you have met him. Only the history supplied below establishes what passed between you; do not invent additional encounters or agreements.\n"
     if "for_sale" in sit:
-        text += "Listed goods and prices here: " + ("; ".join(sit["for_sale"]) or "none listed") + ". Do not replace these prices with invented ones.\n"
+        if repairs and not sit["for_sale"] and sit.get("place") != "home":
+            text += "Listed goods and prices here: " + NOTHING_SOLD + " Do not replace these prices with invented ones.\n"
+        else:
+            text += "Listed goods and prices here: " + ("; ".join(sit["for_sale"]) or "none listed") + ". Do not replace these prices with invented ones.\n"
     if purchases is not None:
         if purchases:
             text += "This exchange includes these purchases/payments at the recorded prices: " + "; ".join(
                 f"{x['item']} ₹{x['price']:,}" for x in purchases) + ". Do not charge or request payment for these items a second time, or invent another transaction.\n"
         else:
             text += "No payment or purchase is recorded for this exchange. His words may request or promise it; do not narrate taking money or a completed paid handover. You may discuss terms, ask for payment or make an ordinary gesture.\n"
-    text += f"What is happening (told from his side, so 'you' there means him): {sit['event'][:EVENT_CAP]}\n"
+    event = own_presence_out(c, sit["event"]) if repairs else sit["event"]
+    text += f"What is happening (told from his side, so 'you' there means him): {event[:EVENT_CAP]}\n"
     if remember:
         text += "\nWhat has passed between you and him:\n" + "".join(f"- {x}\n" for x in remember)
     text += f"\nHe says: “{says}”\n" if says else "\nYou have just caught sight of him. You speak first.\n"
     return text + "\n" + (VOICE_ASK_ACT if menu else VOICE_ASK)
 
 
-def clean(c, out):
+def own_does(c, does):
+    """HEGEL_VOICE_REPAIRS: the `does` line as it may stand, or None. Dropped: a line in the first person (I, me, my, myself), and one that
+    names the speaker after the line's opening (his own name may open it: "Mrs. Kapoor sits down"). A line that opens with He or She
+    against the cast's pronoun for the speaker has that first word corrected, and nothing else."""
+    forms = names_of(c)
+    if c.get("background"):
+        forms |= {re.sub(r"^the ", "", c["name"], flags=re.I)}
+    else:
+        forms |= {w for w in (x.strip(".") for x in c["name"].split()) if len(w) > 1 and w.lower() not in TITLES}
+    pat = "|".join(re.escape(x) for x in sorted(forms, key=len, reverse=True))
+    rest = re.sub(r"^(?:" + pat + r")\b", "", does, flags=re.I)
+    if re.search(r"\bI\b", does) or re.search(r"\b(?:me|my|myself)\b", does, re.I) or re.search(r"\b(?:" + pat + r")\b", rest, re.I):
+        return None
+    want = {"he": "He", "she": "She"}.get(c.get("pronoun"))
+    m = re.match(r"(He|She)\b", does)
+    return want + does[m.end():] if want and m and m.group(1) != want else does
+
+
+def clean(c, out, repairs=False):
     """{by, says, does} from the voice's answer, or None if it is unusable."""
     says = " ".join(out["says"].split()).strip("\"“” ") if isinstance(out, dict) and isinstance(out.get("says"), str) else ""
     if len(says) < 2:
         return None
     does = " ".join(out["does"].split()) if isinstance(out.get("does"), str) else ""
+    if repairs and does:
+        does = own_does(c, does) or ""
     by = c["name"][0].upper() + c["name"][1:]
     return {"by": by, "says": cut(says, SAY_CAP), "does": cut(does, DOES_CAP).rstrip(".") + "." if does else None}
 
