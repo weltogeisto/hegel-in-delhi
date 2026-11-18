@@ -503,6 +503,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Talking with Mrs. Kapoor in Lodhi Gardens."
+  },
+  {
+   "from": "15:59",
+   "to": "16:14",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Talking with Mrs. Kapoor in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -977,6 +984,43 @@
    "why": "stagnation",
    "topic": "the ranking of peoples",
    "t": "15:49"
+  },
+  {
+   "k": "diary",
+   "text": "She cuts straight to the marrow, asking if the stagnation I describe is a felt reality or a theoretical construct. I must answer plainly, for she is not a student to be managed but a woman of experience. The heat is breaking, and the air, though thick, allows for a moment of stillness on this bench. I will tell her the truth of my perception: that the spirit here dreams, and that this dream is a form of life that does not move toward the universal state, which is why it feels static to the one who seeks progress.",
+   "sensitive": true,
+   "why": "stagnation",
+   "topic": "the ranking of peoples",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§522"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    }
+   ],
+   "t": "15:59"
+  },
+  {
+   "k": "said",
+   "text": "It is both, Mrs. Kapoor. It is in the books, yes, but it is also in the air. When I look at the castes fixed like stone, and the gods multiplying without a single state to give them a common form, I feel a kind of paralysis. It is not that life is absent; it is that life does not turn. It circles. That is the stagnation I mean. Do you feel it in your own life, or is your world moving?",
+   "to": "Mrs. Kapoor",
+   "sensitive": true,
+   "why": "castes",
+   "topic": "caste",
+   "t": "15:59"
+  },
+  {
+   "k": "said",
+   "by": "Mrs. Kapoor",
+   "to": "Hegel",
+   "text": "Thirty-one years in a classroom, and I can tell you, things don't just circle; they grind. You want to feel the stagnation? Watch the children fight over the last biscuit, that is the real engine.",
+   "sensitive": true,
+   "why": "stagnation",
+   "topic": "the ranking of peoples",
+   "t": "15:59"
   }
  ],
  "steps": [
@@ -1938,6 +1982,67 @@
      "text": "A slothful mind finds it natural to say: 'Don't let it be supposed that we mean to be in earnest with our philosophy. We shall be glad inter alia to study Logic: but Logic must be sure to leave us as we were before.' People have a feeling that, if thinking passes the ordinary range of our ideas and impressions, it cannot but be on the evil road."
     }
    ]
+  },
+  {
+   "t": "15:59",
+   "end": "16:14",
+   "event": "Mrs. Kapoor says: “Metaphor? Pah, just sit down before you trip over a root. My family is fine, but my knees are complaining about the humidity. Tell me, is this 'stagnation' you speak of something you actually feel, or just another word from your books?” Mrs. Kapoor sits down on the bench, tapping her cane lightly against the concrete edge.",
+   "present": [
+    "Mrs. Kapoor, a retired schoolteacher"
+   ],
+   "decision": {
+    "thought": "She cuts straight to the marrow, asking if the stagnation I describe is a felt reality or a theoretical construct. I must answer plainly, for she is not a student to be managed but a woman of experience. The heat is breaking, and the air, though thick, allows for a moment of stillness on this bench. I will tell her the truth of my perception: that the spirit here dreams, and that this dream is a form of life that does not move toward the universal state, which is why it feels static to the one who seeks progress.",
+    "action": "talk",
+    "place": "lodhi",
+    "minutes": 15,
+    "says": "It is both, Mrs. Kapoor. It is in the books, yes, but it is also in the air. When I look at the castes fixed like stone, and the gods multiplying without a single state to give them a common form, I feel a kind of paralysis. It is not that life is absent; it is that life does not turn. It circles. That is the stagnation I mean. Do you feel it in your own life, or is your world moving?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mrs. Kapoor",
+    "says": "Thirty-one years in a classroom, and I can tell you, things don't just circle; they grind. You want to feel the stagnation? Watch the children fight over the last biscuit, that is the real engine.",
+    "does": "She taps the bench again, leaning forward slightly despite her knees."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§522",
+     "id": "wallace-mind:270"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§522",
+     "text": "(3) The children, thus invested with independence, leave the concrete life and action of the family to which they primarily belong, acquire an existence of their own, destined however to found anew such an actual family."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1945,7 +2050,7 @@
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-11-19T15:59+05:30",
+  "until": "2026-11-19T16:14+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
