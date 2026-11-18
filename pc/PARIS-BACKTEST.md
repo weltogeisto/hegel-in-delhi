@@ -148,6 +148,25 @@ The declared simulated side gives the card to his live instructions. Those instr
 
 **Claude's advice:** the third now, since it runs anyway. The second for stage 2, on Welt's word, when the card has a spare night. The fourth after the venues have shown whether a Delhi with things to see moves him at all.
 
+**Stage 2 as it runs, declared on 18 November before any letter or translation exists** (`DECISIONS.md` 55; `tools/paris_stage2.py`; `pc/exports/paris-stage2-20261118/`):
+- **The passages:** every paragraph of at least 40 words in each journey, with the date line or heading it falls under (`ENTRIES.json`). Their order is fixed by seed 1831 per journey (`ORDER.json`).
+- **The cards:** Claude agents that never judge go through the passages in that order and write a card for each of the first 8 per journey that reports what happened that day. They record why each passage they pass over was passed over. A card has at most 60 words, in the third person: who was there and what happened, never his reaction. A fifth agent checks every card against that rule and mends what breaks it (`CARDS.jsonl`).
+- **His side:** the travel version of his live instructions, `soul-<year>.md`, made by the fixed edit in `travel_soul`:
+  - a premise for the journey, with Marie and the boys at home in Berlin;
+  - his character, his life to 1818 and his voice, unchanged;
+  - nothing of Delhi, Hindi, 2026 or his death.
+  The prompt: "<date>, evening, <place>. Today: <card>. Write to Marie tonight, as you would: at most 150 words." Three seeds (1831, 2718, 3141), temperature 0.7.
+- **The real side:** the passage itself, put into English by plain Qwen under one fixed instruction, at temperature 0.
+- **The judge:** a fresh Claude agent that has never seen the German or the cards' passages.
+  - **Which is real:** for each card, the card and two texts, the first seed's letter and the translation, in random order. It says which is the real one.
+  - **What each text holds:** of seven kinds: people, places, prices, food, sights, health, family.
+  - The key stays outside the repository until the judgments are sealed on main.
+- **A second measure, beside it:** stage 1's codebook on the 72 letters and the 24 translations, by two coders apart, with the distance between the two profiles.
+- **The reading, as declared on 13 November:**
+  - the real letter picked in 20 or more of 24: his register is measurably unlike Hegel's;
+  - a later prompt or world is closer when it lowers that count by at least 4 and shares more kinds of content with the real letters.
+- **The calls:** 72 letters and 24 translations on the PC, in its spare time, never at the cost of his steps.
+
 ### Stage 3 · Hegel in Paris, closed loop · only after stages 1 and 2, on Welt's word
 
 The world engine with a Paris of September 1827: places, prices and people, and the simulated Hegel living the same four weeks. Compared day by day with what he did: where he went, what he paid, his evenings, his illness, his verdicts. The builder of that world knows the letters, so the world is frozen and reviewed before any run. It is days of building, and it is the frontier piece: a simulated person backtested against the historical one. Not specified further here.
