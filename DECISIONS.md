@@ -145,6 +145,8 @@ Welt's calls, the night of 17 to 18 November, after the street's forks passed (`
 51. **The street goes ahead** (Welt, 18 November: "sooner ahead"). It is the next change in his world, before the shelf labels and the museums: `HEGEL_STREET=1` before his waking on Day 50. The shelf labels follow on Day 51 and the museums, concerts and plays on Day 52, each after the previous one's first full day, as before.
     - **Why it can:** it has passed its forks, and they ran on the world as it stands today: the new instructions, the filter and the letters, without the shelf labels or the museums.
 
+52. **The forty are read again, blind, by three readers** (Welt, 18 November: "go and yes"): Welt, Sol and a fresh Claude session, each with its own shuffled packet and eight controls mixed in (`pc/LORA-BLIND-TEST-CLOUD.md`, `pc/exports/lora-forty-20261118/`). No GPU and no adapter is loaded. It settles whether the defects Claude recorded on 7 November are defects. Fresh scenes with the adapter loaded are a later step and need Welt's word.
+
 ## Still open
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.
