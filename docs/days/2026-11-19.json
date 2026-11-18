@@ -552,6 +552,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Talking to himself in Lodhi Gardens."
+  },
+  {
+   "from": "18:34",
+   "to": "18:54",
+   "mode": "walk",
+   "a": "lodhi",
+   "b": "home"
   }
  ],
  "entries": [
@@ -1235,6 +1242,21 @@
    "k": "said",
    "text": "You say we pretended not to know. But did we, or did we simply lack the language to name what we saw?",
    "t": "18:19"
+  },
+  {
+   "k": "diary",
+   "text": "The conversation with Mrs. Kapoor has left a residue of discomfort that I am not yet equipped to process, and the empty air of the garden offers no further interlocutors. I have walked enough for the day; the body protests against further exertion, and the mind requires the quiet of the verandah to settle the dust of the afternoon.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19"
+    }
+   ],
+   "t": "18:34"
   }
  ],
  "steps": [
@@ -2619,14 +2641,66 @@
      "text": "This history is the Notion, the Idea of Spirit itself, and the world-history has in it found its end, which is in this immediate way to know the truth. It is therefore the Spirit which so comprehends that history, and at the time of Pentecost this is shown in an immediate and evident manner."
     }
    ]
+  },
+  {
+   "t": "18:34",
+   "end": "18:54",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [],
+   "decision": {
+    "thought": "The conversation with Mrs. Kapoor has left a residue of discomfort that I am not yet equipped to process, and the empty air of the garden offers no further interlocutors. I have walked enough for the day; the body protests against further exertion, and the mind requires the quiet of the verandah to settle the dust of the afternoon.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "opened": [],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273",
+     "id": "dyde-right:681"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "id": "wallace-logic:71"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273",
+     "text": "The story of this true erection of the ethical life is the subject matter of universal world-history."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "text": "A slothful mind finds it natural to say: 'Don't let it be supposed that we mean to be in earnest with our philosophy. We shall be glad inter alia to study Logic: but Logic must be sure to leave us as we were before.' People have a feeling that, if thinking passes the ordinary range of our ideas and impressions, it cannot but be on the evil road."
+    }
+   ]
   }
  ],
  "funnel": {},
  "owl": null,
  "complete": false,
  "state": {
-  "place": "lodhi",
-  "until": "2026-11-19T18:34+05:30",
+  "place": "home",
+  "until": "2026-11-19T18:54+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
@@ -2726,8 +2800,8 @@
    },
    "breakfast": true,
    "lunch": true,
-   "walked": 1500,
-   "strain": 1500
+   "walked": 3000,
+   "strain": 3000
   },
   "account": {
    "advance": 15000,
