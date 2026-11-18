@@ -53,7 +53,7 @@ The adapter passes on all five. The development set is marked first and reported
 ## What the PC runs, the night of 18 to 19 November
 
 1. Start a trial server as on 6 November: the plain model with `--lora-scaled <adapter-f16.gguf>:0` on its own port, the adapter's sha256 checked against `pc/exports/training1-20261106/MODEL-PROMPT-CHECKPOINT-MANIFEST.json`. The card holds one model, so the live server is down meanwhile.
-2. **Only while he sleeps:** after his bedtime and the owl, with Day 49 marked complete. About a quarter of an hour. Welt keeps the PC on for the night.
+2. **Only while he sleeps:** once Day 49 is marked complete, at about 23:45 Berlin. The owl writes the next morning at about 09:10 on the live server, and the draw does not need it, so nothing waits for it. The live server is back by 08:30. About a quarter of an hour. Welt keeps the PC on for the night.
 3. `python3 tools/lora_scenes.py freeze --ref origin/shadow --days 44-49 --out <folder>/plan.json`, committed and pushed before anything else. Then `python3 tools/lora_scenes.py run --plan <folder>/plan.json --url <trial server> --out <folder>`: it checks the plan's hash, asks the server for its adapter, records every request and reply, and can be resumed. `--limit 2` first, as a rehearsal.
 4. Stop the trial server, start the live one as it was, and see his next decision come from `mind`, as on 6 November. Push the outputs to a `codex/*` branch. Nobody on the PC reads them.
 
