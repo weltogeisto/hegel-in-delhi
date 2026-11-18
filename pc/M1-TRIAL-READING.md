@@ -42,3 +42,11 @@ Two days per side make this a description, not a test with power. The days also 
 **The letter** is reported beside the groups, with its distance to his real letters home (stage 1's profile). It is the first sample of how he writes to someone, against how the real Hegel wrote from abroad.
 
 Evaluation only: no sentence, code or result here is ever training data.
+
+## The result, 18 November (`pc/exports/m1-trial-20261118/RESULT.md`)
+
+**By the letter of the rule above, "worse".** Philosophy proper rose by both coders, by one or two sentences of 150 (6.0% to 7.3%, 7.3% to 8.0%). Day 49's calls per decision, 1.42, lie just above the old days' 1.27 to 1.39; the new days together are at 1.29. The rule set no margin, which was a flaw in its declaration; it is not corrected after the fact.
+
+**What it means:** lecture-hall terms per thought fell from 2.03 and 2.81 to 1.31 and 0.71, and half of Day 49's thoughts carry none. What he thinks about barely moved, because sentences whose point is philosophy were already rare (6–7%). His first letter to Munich is a quarter philosophy and has nothing of what he saw, against 1–2% and 40% in the real letters home.
+
+**Advice:** keep the trial and read it again after a week, with a margin declared in advance.
