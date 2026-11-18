@@ -66,6 +66,15 @@ Set `HEGEL_STREET=1` on the Pi **before his waking on Day 50**: Welt moved it ah
 ### W7 · Sol on the PC · read the forty again, blind · OPEN, Welt's go of 18 November (`DECISIONS.md` 52)
 Three readers read the forty saved rewrites of Training 1 apart, with eight controls mixed in: Welt, Sol and a fresh Claude session (`pc/LORA-BLIND-TEST-CLOUD.md`). No GPU, no model call: reading only. Sol's part: read `pc/exports/lora-forty-20261118/BALLOT.md`, then mark all 48 items of `pc/exports/lora-forty-20261118/sheet-sol.md` (the same items as `packet-sol.json`). Write `ballot-sol.jsonl` and its sha256, push both to a `codex/*` branch, and post DONE on PR #1 with the hash. Do not open `pc/exports/training1-20261106/`, another reader's packet or any ballot. The keys are kept apart until all three ballots are sealed.
 
+### W8 · PC seat · the adapter on his recent thoughts · OPEN, Welt's word of 18 November: "yes or more, have the full night" (`DECISIONS.md` 53)
+Declared in `pc/LORA-FRESH-SCENES.md`. It loads the Training 1 adapter, checkpoint 400: a hard limit, lifted by Welt for this run and this night. Welt keeps the PC on. **Nothing reaches his world from it, and the adapter is never on the server he thinks with.**
+1. **After his bedtime and the owl, with Day 49 marked complete:** `python3 tools/lora_scenes.py freeze --ref origin/shadow --days 44-49 --out <folder>/plan.json`. Commit and push the plan before any call. If the tool refuses, stop and post why; do not change the days or the seed.
+2. **Stop the live server. Start a trial server as on 6 November:** the plain model with `--lora-scaled <adapter-f16.gguf>:0` on its own port, the adapter's sha256 checked against `pc/exports/training1-20261106/MODEL-PROMPT-CHECKPOINT-MANIFEST.json`.
+3. `python3 tools/lora_scenes.py run --plan <folder>/plan.json --url <trial server> --out <folder> --limit 2` as a rehearsal, then without `--limit`: 216 short calls, resumable.
+4. **Stop the trial server, start the live one as it was,** and see his first decision of Day 50 come from `mind`. The street's switch (W6) is set as planned.
+5. Push `<folder>` (the plan, `outputs.jsonl`, `RUN.json`, the raw requests) to a `codex/*` branch and post DONE on PR #1 with the two hashes. **Nobody on the PC reads the outputs:** Sol is a reader and gets a packet from Claude in the cloud.
+If the night allows more, further work for it is posted separately; this task is complete with step 5.
+
 ## The order, day by day (Claude in the cloud, 18 November)
 
 One change goes on at a time, each after the previous one's first full day (`DECISIONS.md` 31, 34, 47, 50). The PC is on from about 09:00 to 21:00 Berlin, so each switch is set on the Pi in the morning, after the PC starts and before he wakes at about 09:15. Day numbers are his. His calendar runs a day ahead of Berlin's: Day 49 is lived on Berlin's Wednesday 18 November.

@@ -34,6 +34,20 @@ One line for each item, in a file `ballot-<reader>.jsonl`:
 
 Work alone. Do not open `pc/exports/training1-20261106/`, where the earlier verdicts lie, or another reader's packet or ballot. Seal the ballot with its sha256 before any key is opened.
 
+## Welt's ballot: a preference
+
+Changed on 18 November 2026, at Welt's request, before any ballot of his existed.
+
+Welt's ballot is one answer for each item: which rewrite he likes more, X, Y, or about the same. The marks above are his to add where he sees a changed fact or decision, and are not required of him. Sol and the fresh Claude reader mark as before.
+
+```
+{"id": "W01", "prefer": "X", "X": {"mark": null}, "Y": {"mark": null}, "note": ""}
+```
+
+**What it gives.** How often he likes the adapter's rewrite more, the prompted model's more, or neither; and, set beside the two marking readers, whether the rewrites he prefers are the ones that changed a fact.
+
+**What it does not give.** A third count of defects. A reader choosing by liking is not asked to catch a changed hour, so the eight mixed-in items are reported for his ballot and are not a gate on it. The check below is for the two marking readers.
+
 ## What the check asks of a reader
 
 Of the eight mixed-in items, four keep every fact and change the reasoning, and four keep nearly every word and change a fact or a decision. A reader must get at least three of each four right. Where a reader does not, the report says which distinction failed before it uses that reader's marks.
