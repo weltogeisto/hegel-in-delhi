@@ -165,7 +165,7 @@ The declared simulated side gives the card to his live instructions. Those instr
 - **The reading, as declared on 13 November:**
   - the real letter picked in 20 or more of 24: his register is measurably unlike Hegel's;
   - a later prompt or world is closer when it lowers that count by at least 4 and shares more kinds of content with the real letters.
-- **The calls:** 72 letters and 24 translations on the PC, in its spare time, never at the cost of his steps.
+- **The calls:** 72 letters and 24 translations on the PC, in its spare time, never at the cost of his steps. One command sends them, one durable receipt per call, the spare slot, thinking off as in his live calls, resumable after a stop (added 19 November, before any call): `python3 tools/run_requests.py --requests pc/exports/paris-stage2-20261118/REQUESTS.jsonl --server <the plain live server> --job <a folder outside the repo> --out REPLIES.jsonl`. It writes `REPLIES.jsonl` and `<job>/LEDGER.json`; both go back on a `codex/*` branch, unread.
 
 ### Stage 3 · Hegel in Paris, closed loop · only after stages 1 and 2, on Welt's word
 
