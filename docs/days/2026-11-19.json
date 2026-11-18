@@ -559,6 +559,13 @@
    "mode": "walk",
    "a": "lodhi",
    "b": "home"
+  },
+  {
+   "from": "18:54",
+   "to": "19:09",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -1257,6 +1264,34 @@
     }
    ],
    "t": "18:34"
+  },
+  {
+   "k": "diary",
+   "text": "Five hours since my last meal is a long time, and the body insists on its rights with the same stubbornness as the spirit. Ramesh is here, and the heat has broken, so it is time to eat before I attempt to compose myself for the evening. I will not ask for a full dinner yet, but a plate will do.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…"
+    }
+   ],
+   "t": "18:54"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, please put a plate together for me. Rice, the day's dal, and a fried egg if you have one.",
+   "to": "Ramesh",
+   "t": "18:54"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, coming right up. One egg, rice, and the dal from the lunch batch. Sit, I'll be quick.",
+   "t": "18:54"
   }
  ],
  "steps": [
@@ -2693,6 +2728,67 @@
      "text": "A slothful mind finds it natural to say: 'Don't let it be supposed that we mean to be in earnest with our philosophy. We shall be glad inter alia to study Logic: but Logic must be sure to leave us as we were before.' People have a feeling that, if thinking passes the ordinary range of our ideas and impressions, it cannot but be on the evil road."
     }
    ]
+  },
+  {
+   "t": "18:54",
+   "end": "19:09",
+   "event": "You are hungry.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Five hours since my last meal is a long time, and the body insists on its rights with the same stubbornness as the spirit. Ramesh is here, and the heat has broken, so it is time to eat before I attempt to compose myself for the evening. I will not ask for a full dinner yet, but a plate will do.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, please put a plate together for me. Rice, the day's dal, and a fried egg if you have one.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "hunger"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, coming right up. One egg, rice, and the dal from the lunch batch. Sit, I'll be quick.",
+    "does": "Ramesh nods once and turns toward the kitchen doorway."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "id": "haldane-3:1108"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "id": "phaen:385"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "text": "There is no man so foolish as that philosophy; when a man feels hungry, he does not call up the imagination of food, but sets about satisfying his hunger. All activity is a conception which does not yet exist, but whose subjectivity is abrogated."
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "text": "Nicht der Unterschied, welcher sich als bestimmtes Ding, oder als Bewußtsein eines bestimmten natürlichen Daseins, als ein Gefühl, oder als Begierde und Zweck für dieselbe, ob er durch das eigene oder durch ein fremdes Bewußtsein gesetzt sei, hat mehr Wesenheit, sondern allein der Unterschied, der ein gedachter, oder unmittelbar nicht von Mir unterschieden ist."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2700,7 +2796,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-19T18:54+05:30",
+  "until": "2026-11-19T19:09+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
@@ -2801,7 +2897,8 @@
    "breakfast": true,
    "lunch": true,
    "walked": 3000,
-   "strain": 3000
+   "strain": 3000,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
