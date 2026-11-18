@@ -83,7 +83,7 @@ One change goes on at a time, each after the previous one's first full day (`DEC
 |---|---|---|
 | 48 | the new instructions, `HEGEL_SOUL_FILE=mind/soul-ordinary.md` (on since 08:39 Berlin, 17 November) | a gap from 09:59 to 11:59 while the PC was off |
 | 49 | nothing new | the new instructions' first whole day |
-| 50 | main merged into shadow and checked with main's `docs/`; **the street, `HEGEL_STREET=1` (W6), moved ahead by Welt on 18 November (`DECISIONS.md` 51)**; Ramesh's way back, `HEGEL_RAMESH_DAYS=1` | the street: the health row and the cards drawn. Ramesh doesn't come on Fridays, so his offer can come on Day 51 at the earliest |
+| 50 | main merged into shadow and checked with main's `docs/`; **the street, `HEGEL_STREET=1` (W6), moved ahead by Welt on 18 November (`DECISIONS.md` 51)**; Ramesh's way back, `HEGEL_RAMESH_DAYS=1`; the filter's draws kept, `HEGEL_KEEP_DRAWS=1` (`DECISIONS.md` 54; nothing he is told changes) | the street: the health row and the cards drawn. Ramesh doesn't come on Fridays, so his offer can come on Day 51 at the earliest |
 | 51 | the shelf labels, `HEGEL_SHELF_ADDITIONS=1` | the shelf labels; Ramesh's offer may come in the morning |
 | 52 | the museums, concerts and plays, `HEGEL_CULTURE=1` | the venues |
 
