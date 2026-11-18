@@ -10,6 +10,7 @@ Her first letter comes with money: what he owes and `gift` rupees besides, paid 
 own settling then pays his creditors where they can be reached. Her letters are one model call each, from his card and the correspondence. They are world content, never
 training data."""
 import json
+import re
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -43,15 +44,32 @@ def written(state, w, d, c):
     return True
 
 
+def _grams(text, n=4):
+    words = re.findall(r"\w+", (text or "").lower())
+    return {tuple(words[i:i + n]) for i in range(len(words) - n + 1)}
+
+
+def redrafts(later, earlier):
+    """Whether a later sitting wrote the earlier one's letter again rather than going on with it: the same opening, or
+    half the earlier text's four-word runs again. A sitting that goes on adds; one that writes it again replaces."""
+    a, b = " ".join((earlier or "").split()), " ".join((later or "").split())
+    if a[:120] and a[:120] == b[:120]:
+        return True
+    g = _grams(a)
+    return bool(g) and len(g & _grams(b)) >= len(g) / 2
+
+
 def to_post(state, d, c):
     """In the morning the outbox goes to the post as one letter; its answer is due days_each_way × 2 later.
+    A sitting that wrote the letter again replaces the draft it rewrote (Day 49 had two sittings, each the whole letter).
     Returns the posted letter or None."""
     post = state["post"]
     ready = [x for x in post["outbox"] if x["written"] < d.isoformat()]
     if not ready:
         return None
     post["outbox"] = [x for x in post["outbox"] if x not in ready]
-    text = "\n\n".join(x["text"] for x in ready if x["text"]).strip()
+    kept = [x for i, x in enumerate(ready) if x["text"] and not any(redrafts(y["text"], x["text"]) for y in ready[i + 1:])]
+    text = "\n\n".join(x["text"] for x in kept).strip()
     letter = {"posted": d.isoformat(), "written": ready[-1]["written"], "text": text,
               "due": (d + timedelta(days=2 * c["days_each_way"])).isoformat()}
     post["sent"].append(letter)

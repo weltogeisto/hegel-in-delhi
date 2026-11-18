@@ -37,6 +37,28 @@ class Pieces(unittest.TestCase):
         self.assertEqual((sent["text"], sent["due"]), ("Dear N.", (D + timedelta(days=11)).isoformat()))
         self.assertEqual(st["post"]["outbox"], [])
 
+    def test_a_sitting_that_writes_the_letter_again_replaces_the_draft(self):
+        """Day 49: two sittings, each the whole letter. She gets the second, once, not both in a row."""
+        import json as _json
+        outbox = _json.loads((Path(__file__).resolve().parent / "data/outbox_day49.json").read_text(encoding="utf-8"))["outbox"]
+        st = {}
+        post.start(st, D)
+        st["post"]["outbox"] = [dict(x, written=D.isoformat()) for x in outbox]
+        sent = post.to_post(st, D + timedelta(days=1), C)
+        self.assertEqual(sent["text"], outbox[1]["text"].strip())
+        self.assertEqual(sent["text"].count("Dear Dr. Lindner"), 1)
+        self.assertEqual(st["post"]["outbox"], [])
+
+    def test_a_sitting_that_goes_on_with_the_letter_is_added(self):
+        st = {}
+        post.start(st, D)
+        first = "Dear Dr. Lindner, your letter reached me this morning, and with it a sum I did not expect from Munich."
+        second = "Since I wrote the lines above, Ramesh has come back to the kitchen, and the house smells of cumin again."
+        for text in (first, second):
+            post.written(st, {"kind": "letter", "to": "Dr. Lindner", "title": "To Dr. L.", "text": text}, D, C)
+        sent = post.to_post(st, D + timedelta(days=1), C)
+        self.assertEqual(sent["text"], first + "\n\n" + second)
+
     def test_what_is_due_first_reply_nudge(self):
         st = {}
         post.start(st, D)
