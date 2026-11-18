@@ -573,6 +573,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "19:24",
+   "to": "19:39",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -1339,6 +1346,34 @@
    "k": "world",
    "text": "Ramesh puts a plate together: a plate of khichdi with ghee.",
    "t": "19:09"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh is right that the heat of the food is the only reality that matters in this moment. I have just finished eating, so I will not argue with the body's satisfaction, but I must address the matter of the queried vouchers before Hegde retires. The state's money requires my attention, and I cannot let the confusion between Hegde and Hegel fester any longer.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "19:24"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, thank you. Shri Hegde, before you go to sleep, I must speak with you regarding the vouchers. The Directorate has queried twenty-seven rupees from my imprest, and I need your signature to clear them. It is a matter of administrative order, and I wish to settle it tonight so we may both rest easy.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "19:24"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, sir, you are confusing me with the bungalow's officer. I am just the caretaker. I bring the tea and wash the clothes. For the Directorate's papers and signatures, you will have to ask the officer in charge, not me. I do not touch the accounts.",
+   "t": "19:24"
   }
  ],
  "steps": [
@@ -2900,6 +2935,68 @@
      "text": "Studienanstalten sind Theils Institute des Unterrichts, nicht unmittelbar der Erziehung, Theils fangen sie nicht von den ersten Elementen der Bildung, weder der Erkenntniß, noch der Sitten, an."
     }
    ]
+  },
+  {
+   "t": "19:24",
+   "end": "19:39",
+   "event": "Ramesh says: “Ji, the dal is hot. Eat it before it gets cold, that is the only reality that matters here.” He places the plate on the table and straightens the napkin.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Ramesh is right that the heat of the food is the only reality that matters in this moment. I have just finished eating, so I will not argue with the body's satisfaction, but I must address the matter of the queried vouchers before Hegde retires. The state's money requires my attention, and I cannot let the confusion between Hegde and Hegel fester any longer.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, thank you. Shri Hegde, before you go to sleep, I must speak with you regarding the vouchers. The Directorate has queried twenty-seven rupees from my imprest, and I need your signature to clear them. It is a matter of administrative order, and I wish to settle it tonight so we may both rest easy.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, sir, you are confusing me with the bungalow's officer. I am just the caretaker. I bring the tea and wash the clothes. For the Directorate's papers and signatures, you will have to ask the officer in charge, not me. I do not touch the accounts.",
+    "does": "Ramesh straightens the napkin and steps back."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 4,
+    "latency_s": 23.9,
+    "draws": {
+     "n": 4,
+     "refused": 3,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "id": "haldane-2:425"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "text": "And again, the matter of a small body and a large is the same, because at one time a greater proceeds from a smaller, and at another time a smaller from a greater."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2907,7 +3004,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-19T19:24+05:30",
+  "until": "2026-11-19T19:39+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
@@ -3009,8 +3106,7 @@
    "breakfast": true,
    "lunch": true,
    "walked": 3000,
-   "strain": 3000,
-   "hunger": 1
+   "strain": 3000
   },
   "account": {
    "advance": 15000,
