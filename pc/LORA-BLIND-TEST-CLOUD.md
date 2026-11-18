@@ -1,6 +1,6 @@
 # Does the adapter give him a better thought? A design, and where it is not independent
 
-Claude in the cloud, 18 November 2026, at Welt's request. A second design beside the one Welt passed on ("A blind test for Astra and Fable"). Evaluation only. Loading an adapter is a hard limit: nothing here runs without Welt's word.
+Claude in the cloud, 18 November 2026, at Welt's request. A second design beside the one Welt passed on, which asks for two designs made apart. Evaluation only. Loading an adapter is a hard limit: nothing here runs without Welt's word.
 
 **The claim to test:** when the adapter keeps the facts, does its rewrite of a thought say something the thought did not, that is true of the moment?
 
@@ -13,7 +13,7 @@ Claude in the cloud, 18 November 2026, at Welt's request. A second design beside
 
 | Point | The design as passed on | Here |
 |---|---|---|
-| Readers of the forty | Fable and Welt | Welt, a reader of another family (Sol), and a fresh Claude session. Agreement between the two Claude readings is reported and counted for little |
+| Readers of the forty | Claude in the cloud and Welt | Welt, a reader of another family (Sol), and a fresh Claude session. Agreement between the two Claude readings is reported and counted for little |
 | Who writes the eight controls | not said | This session, which is no longer a reader. Symmetric: four that keep every fact and change the reasoning, four that keep nearly every word and change an actor, a sum, a certainty or whether a thing was done |
 | One draw per arm | one saved output | The plain rewrite runs twice, on two seeds. The distance between its two runs is the band; the adapter is read against it. Prompt cache off (W2) |
 | What "reasoning" rewards | a distinction, scored 1 to 5 | The same, with two guards against rewarding the lecture hall: the count of notions of his system per 100 words beside every score, and a guess from each reader at which version is the adapter's. If readers can pick it out by its register, the blindness is thin and the result says so |
