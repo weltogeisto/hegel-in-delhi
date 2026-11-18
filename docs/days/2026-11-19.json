@@ -517,6 +517,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Talking with Mrs. Kapoor in Lodhi Gardens."
+  },
+  {
+   "from": "16:29",
+   "to": "16:34",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Talking with Mrs. Kapoor in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -1059,6 +1066,43 @@
    "to": "Hegel",
    "text": "Gears? Pah, I taught you history, not engineering. Just because the hands aren't moving doesn't mean the mechanism isn't rusted through. You foreigners always want to find a 'universal' in the mess; there is only the mess, and my aching knees.",
    "t": "16:14"
+  },
+  {
+   "k": "diary",
+   "text": "She dismisses the mechanism, yet her wince is the only thing that truly moved. The 'mess' she speaks of is not a void; it is the friction of a system that has not yet found its form. I have pushed the abstraction too far; I must descend to the concrete before I can ascend again.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§527"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198"
+    }
+   ],
+   "t": "16:29"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Mrs. Kapoor. The theory is cold, and your knees are real. I will go back to the bungalow and let the mess speak for itself.",
+   "to": "Mrs. Kapoor",
+   "t": "16:29"
+  },
+  {
+   "k": "said",
+   "by": "Mrs. Kapoor",
+   "to": "Hegel",
+   "text": "Don't you dare disappear into your bungalow just because I gave you a piece of my mind. Sit down, you’re scaring my knees. And if you think the 'mess' will speak for itself, you haven't been listening to a single word I've said in thirty years.",
+   "t": "16:29"
+  },
+  {
+   "k": "work",
+   "title": "Revision log",
+   "text": "The thesis that India stands outside world history as a static, dreaming spirit is shaken by the concrete, aching reality of its people's daily existence.",
+   "sensitive": true,
+   "why": "outside world history",
+   "topic": "the ranking of peoples",
+   "t": "16:29"
   }
  ],
  "steps": [
@@ -2142,6 +2186,67 @@
      "text": "Zum Besuche unserer Schulen gehört ruhiges Verhalten, Gewöhnung an fortdauernde Aufmerksamkeit, ein Gefühl des Respekts und Gehorsams gegen die Lehrer, ein gegen diese wie gegen die Mitschüler anständiges, sittsames Betragen."
     }
    ]
+  },
+  {
+   "t": "16:29",
+   "end": "16:34",
+   "event": "Mrs. Kapoor says: “Gears? Pah, I taught you history, not engineering. Just because the hands aren't moving doesn't mean the mechanism isn't rusted through. You foreigners always want to find a 'universal' in the mess; there is only the mess, and my aching knees.” She waves a dismissive hand at the bench and stands up slowly, wincing slightly as her knees lock.",
+   "present": [
+    "Mrs. Kapoor, a retired schoolteacher"
+   ],
+   "decision": {
+    "thought": "She dismisses the mechanism, yet her wince is the only thing that truly moved. The 'mess' she speaks of is not a void; it is the friction of a system that has not yet found its form. I have pushed the abstraction too far; I must descend to the concrete before I can ascend again.",
+    "action": "talk",
+    "place": "lodhi",
+    "minutes": 5,
+    "says": "You are right, Mrs. Kapoor. The theory is cold, and your knees are real. I will go back to the bungalow and let the mess speak for itself.",
+    "buys": [],
+    "revision": "The thesis that India stands outside world history as a static, dreaming spirit is shaken by the concrete, aching reality of its people's daily existence."
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mrs. Kapoor",
+    "says": "Don't you dare disappear into your bungalow just because I gave you a piece of my mind. Sit down, you’re scaring my knees. And if you think the 'mess' will speak for itself, you haven't been listening to a single word I've said in thirty years.",
+    "does": "She points a stern finger at the bench and grunts as she lowers herself back onto it."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§527",
+     "id": "wallace-mind:275"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "id": "wallace-logic:882"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§527",
+     "text": "Where civil society, and with it the State, exists, there arise the several estates in their difference: for the universal substance, as vital, exists only so far as it organically particularises itself."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "text": "Like the solar system, so for example in the practical sphere the state is a system of three syllogisms. (1) The Individual or person, through his particularity or physical or mental needs (which when carried out to their full development give civil society), is coupled with the universal, i.e. with society, law, right, government."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2149,7 +2254,7 @@
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-11-19T16:29+05:30",
+  "until": "2026-11-19T16:34+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
