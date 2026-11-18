@@ -1,0 +1,130 @@
+{
+ "note": "Four beats of the file's next act (pc/FILE-NEXT-ACT.md, part 1). The loader adds them only while HEGEL_FILE_ACT is on; off, they do not exist.",
+ "beats": [
+  {
+   "id": "saxena_reply",
+   "after": [
+    "saxena_query"
+   ],
+   "where": "estates",
+   "needs": [
+    "saxena"
+   ],
+   "kind": "file",
+   "again_days": 10,
+   "prompt": "Mr. Saxena turns the file towards you. A query wants its reply within thirty days, he says. 'You may give a representation in your own name. Plain paper. Who you are, and since when you occupy. I will put it up.'",
+   "public": "Mr. Saxena: the query wants a reply within thirty days. He may give a representation in his own name, on plain paper.",
+   "choice": {
+    "question": "Did you give Mr. Saxena a written representation in your own name, saying that you are not Shri G. Hegde?",
+    "yes": {
+     "flags": {
+      "file_reply": "own_name"
+     },
+     "file": "His representation is on the file, in his own name: he is not Shri G. Hegde. Put up.",
+     "public": "He writes it at the counter and signs it G. W. F. Hegel. Mr. Saxena stamps it received."
+    },
+    "no": {
+     "file": "The query stands unanswered: proof of identity as Shri G. Hegde.",
+     "public": "He gives nothing in writing. The query stands."
+    }
+   }
+  },
+  {
+   "id": "hegde_letter",
+   "from": "2026-11-21",
+   "where": "home",
+   "needs": [
+    "hegde"
+   ],
+   "window": [
+    "19:00",
+    "21:00"
+   ],
+   "when": {
+    "flags": {
+     "hegde_lodger": true
+    }
+   },
+   "kind": "file",
+   "prompt": "Shri Hegde has had a letter from the Directorate: they ask him, too, who the allottee is. He must answer by the month's end, he says, and he would rather write it with you than about you. He would ask that the allotment be corrected to his name, and put on record that you stay on as his guest until the file is decided.",
+   "public": "Shri Hegde has a letter from the Directorate too. He proposes to answer it together: the allotment corrected to his name, and the Professor on record as his guest.",
+   "choice": {
+    "question": "Did you agree that Shri Hegde asks for the allotment to be corrected to his name, with you on record as his guest?",
+    "yes": {
+     "flags": {
+      "file_hegde": "with_guest"
+     },
+     "file": "Shri Hegde asks for the allotment in his name, the Professor on record as his guest.",
+     "public": "He agrees. Shri Hegde writes the letter that evening and reads it to him before he seals it."
+    },
+    "no": {
+     "flags": {
+      "file_hegde": "alone"
+     },
+     "file": "Shri Hegde asks for the allotment in his name.",
+     "public": "He does not agree. Shri Hegde folds the draft. He must answer his own letter all the same, he says, and will."
+    }
+   }
+  },
+  {
+   "id": "malhotra_vouch",
+   "after": [
+    "saxena_query"
+   ],
+   "needs": [
+    "malhotra"
+   ],
+   "when": {
+    "met_days": {
+     "malhotra": 3
+    }
+   },
+   "kind": "file",
+   "variants": {
+    "lodhi": {
+     "prompt": "Mr. Malhotra has heard of the query. In thirty-five years he saw many such files, he says. On paper you are a spelling mistake; a file likes a name it knows. He would write two lines to the Directorate: that he knows you, and since when."
+    },
+    "gym": {
+     "prompt": "Mr. Malhotra has heard of the query. In thirty-five years he saw many such files, he says. On paper you are a spelling mistake; a file likes a name it knows. He would write two lines to the Directorate: that he knows you, and since when."
+    }
+   },
+   "public": "Mr. Malhotra offers to write to the Directorate that he knows him, and since when.",
+   "choice": {
+    "question": "Did you accept Mr. Malhotra's offer to write to the Directorate that he knows you?",
+    "yes": {
+     "flags": {
+      "file_vouched": "malhotra"
+     },
+     "file": "A letter from Shri R. K. Malhotra, IAS (retired), is on the file: he knows the occupant.",
+     "public": "He accepts. Mr. Malhotra will post it in the morning."
+    },
+    "no": {
+     "public": "He declines, with thanks."
+    }
+   }
+  },
+  {
+   "id": "hegde_copy",
+   "from": "2026-11-21",
+   "after": [
+    "hegde_gate"
+   ],
+   "where": "home",
+   "needs": [
+    "ramesh"
+   ],
+   "when": {
+    "flags_not": {
+     "hegde_lodger": true
+    }
+   },
+   "kind": "file",
+   "prompt": "Ramesh brings an envelope up from the gate: a copy, sent on from the guest house. Shri Hegde has answered the Directorate's letter. He asks that the allotment be corrected to his name.",
+   "public": "A copy comes from the guest house: Shri Hegde has asked the Directorate for the allotment in his name.",
+   "flags": {
+    "file_hegde": "alone"
+   },
+   "file": "Shri Hegde asks for the allotment in his name."
+  }
+ ]
+}
