@@ -524,6 +524,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Talking with Mrs. Kapoor in Lodhi Gardens."
+  },
+  {
+   "from": "16:34",
+   "to": "17:19",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Talking with Mrs. Kapoor in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -1103,6 +1110,34 @@
    "why": "outside world history",
    "topic": "the ranking of peoples",
    "t": "16:29"
+  },
+  {
+   "k": "diary",
+   "text": "She has refused to let me retreat into the abstract, forcing me to sit and face the concrete reality she has just described. I must listen, not to argue, but to understand the mechanism she claims to have witnessed. The air is cooling, and the gardens are quiet, making this the right moment for such a serious conversation.",
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§63"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates"
+    }
+   ],
+   "t": "16:34"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Mrs. Kapoor. I shall not disappear. I am listening. Please, tell me more about what you saw in that classroom. I want to understand how the mechanism works, not just that it exists.",
+   "to": "Mrs. Kapoor",
+   "t": "16:34"
+  },
+  {
+   "k": "said",
+   "by": "Mrs. Kapoor",
+   "to": "Hegel",
+   "text": "The mechanism? Pah. It wasn't a machine, it was a room full of girls learning to lie to their teachers because it was safer than telling the truth. Now, stop using your big words and listen to what actually happened.",
+   "t": "16:34"
   }
  ],
  "steps": [
@@ -2247,6 +2282,67 @@
      "text": "Like the solar system, so for example in the practical sphere the state is a system of three syllogisms. (1) The Individual or person, through his particularity or physical or mental needs (which when carried out to their full development give civil society), is coupled with the universal, i.e. with society, law, right, government."
     }
    ]
+  },
+  {
+   "t": "16:34",
+   "end": "17:19",
+   "event": "Mrs. Kapoor says: “Don't you dare disappear into your bungalow just because I gave you a piece of my mind. Sit down, you’re scaring my knees. And if you think the 'mess' will speak for itself, you haven't been listening to a single word I've said in thirty years.” She points a stern finger at the bench and grunts as she lowers herself back onto it.",
+   "present": [
+    "Mrs. Kapoor, a retired schoolteacher"
+   ],
+   "decision": {
+    "thought": "She has refused to let me retreat into the abstract, forcing me to sit and face the concrete reality she has just described. I must listen, not to argue, but to understand the mechanism she claims to have witnessed. The air is cooling, and the gardens are quiet, making this the right moment for such a serious conversation.",
+    "action": "talk",
+    "place": "lodhi",
+    "minutes": 45,
+    "says": "You are right, Mrs. Kapoor. I shall not disappear. I am listening. Please, tell me more about what you saw in that classroom. I want to understand how the mechanism works, not just that it exists.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mrs. Kapoor",
+    "says": "The mechanism? Pah. It wasn't a machine, it was a room full of girls learning to lie to their teachers because it was safer than telling the truth. Now, stop using your big words and listen to what actually happened.",
+    "does": "She taps the bench with her cane for emphasis."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§63",
+     "id": "wallace-logic:310"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "id": "haldane-1:1015"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§63",
+     "text": "But if we are speaking of faith in the True and Eternal, and saying that God is given and revealed to us in immediate knowledge OF intuition, we are concerned not with the things of sense, but with objects special to our thinking mind, with truths of inherently universal significance."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "text": "Socrates thus omits, in characterizing virtue, just what we saw had also disappeared in actuality, that is, first the real spirit of a people, and then reality as the sympathies of the individual. For it is just when consciousness is not yet turned back into itself, that the universal good appears to the individual as the object of his sympathy."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2254,7 +2350,7 @@
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-11-19T16:34+05:30",
+  "until": "2026-11-19T17:19+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
