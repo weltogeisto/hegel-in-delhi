@@ -433,6 +433,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "10:24",
+   "to": "10:34",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -668,6 +675,34 @@
    "to": "Hegel",
    "text": "Ji, one samosa, chai will keep coming. You'll be in the study by ten, no problem.",
    "t": "10:19"
+  },
+  {
+   "k": "diary",
+   "text": "The chai is warm, the samosa gone, and the air on the verandah is still. It is ten twenty-four; the study awaits, and with it the ghost of Dr. Lindner. I must turn the letter from a social obligation into a philosophical correction before the heat of the day sets in.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "10:24"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. I will be in the study.",
+   "to": "Ramesh",
+   "t": "10:24"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji. I'll ring the bell when it's ready.",
+   "t": "10:24"
   }
  ],
  "steps": [
@@ -1045,6 +1080,70 @@
      "text": "Those who delight in grumbling and censure may set down this phenomenon for a corruption, and ascribe it to the predominance of passion and selfish interests, which scare away at once the seriousness and the cheerfulness of art."
     }
    ]
+  },
+  {
+   "t": "10:24",
+   "end": "10:34",
+   "event": "Ramesh says: “Ji, one samosa, chai will keep coming. You'll be in the study by ten, no problem.” He turns back toward the kitchen, towel still over his shoulder.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The chai is warm, the samosa gone, and the air on the verandah is still. It is ten twenty-four; the study awaits, and with it the ghost of Dr. Lindner. I must turn the letter from a social obligation into a philosophical correction before the heat of the day sets in.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 10,
+    "says": "Thank you, Ramesh. I will be in the study.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji. I'll ring the bell when it's ready.",
+    "does": "He nods once, adjusts the towel on his shoulder, and turns back toward the kitchen."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "id": "sibree-history:288"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "text": "Only when, as in Europe, the direct increase of agriculturists is checked, •will the inhabitants, instead of pressing outwards to occupy the fields, press inwards upon each other, — pursuing town occupations, and trading with their fellow citizens; and so form a compact system of civil society, and require an organized state."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1052,7 +1151,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-19T10:24+05:30",
+  "until": "2026-11-19T10:34+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
