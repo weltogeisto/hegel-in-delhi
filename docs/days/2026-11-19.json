@@ -580,6 +580,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh and Shri G. Hegde at home."
+  },
+  {
+   "from": "19:39",
+   "to": "20:09",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -1374,6 +1381,34 @@
    "to": "Hegel",
    "text": "Ji, sir, you are confusing me with the bungalow's officer. I am just the caretaker. I bring the tea and wash the clothes. For the Directorate's papers and signatures, you will have to ask the officer in charge, not me. I do not touch the accounts.",
    "t": "19:24"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh is correct; I was speaking to the wrong agent. The distinction between the servant and the officer is a concrete moment of civil society's division of labour, where the caretaker serves the body and the officer serves the state. I will eat the pulao, for the body demands its due, and then settle into the study to draft the letter to Dr. Lindner, which is the one task that remains mine to do.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289"
+    }
+   ],
+   "t": "19:39"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Ramesh. I mistake the function of the household for that of the office. Eat your dinner, and I shall do the same.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "19:39"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, the pulao is ready. Please sit, the raita is fresh.",
+   "t": "19:39"
   }
  ],
  "steps": [
@@ -2997,6 +3032,69 @@
      "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
     }
    ]
+  },
+  {
+   "t": "19:39",
+   "end": "20:09",
+   "event": "Ramesh says: “Ji, sir, you are confusing me with the bungalow's officer. I am just the caretaker. I bring the tea and wash the clothes. For the Directorate's papers and signatures, you will have to ask the officer in charge, not me. I do not touch the accounts.” Ramesh straightens the napkin and steps back. Ramesh serves dinner before he goes home: vegetable pulao and raita.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Ramesh is correct; I was speaking to the wrong agent. The distinction between the servant and the officer is a concrete moment of civil society's division of labour, where the caretaker serves the body and the officer serves the state. I will eat the pulao, for the body demands its due, and then settle into the study to draft the letter to Dr. Lindner, which is the one task that remains mine to do.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": "You are right, Ramesh. I mistake the function of the household for that of the office. Eat your dinner, and I shall do the same.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "opened": [
+    "reply",
+    "meal"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, the pulao is ready. Please sit, the raita is fresh.",
+    "does": "Ramesh places the plates on the table and steps back."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1189"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "id": "dyde-right:740"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "In the North the clothing must be different from that in Central Africa; and in winter we do not wear cotton garments. Anything further is meaningless, and is left to chance and to opinion; in modern times, for instance, old-fashioned clothing had a meaning in relation to patriotism."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "text": "The lower concrete civil life must be governed from below in a concrete way. And yet the work must be divided into its abstract branches, specially officered by middlemen, whose activity in connection with those below them must from the lowest to the highest executive offices take the form of a continuous concrete oversight."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -3004,7 +3102,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-19T19:39+05:30",
+  "until": "2026-11-19T20:09+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
@@ -3106,7 +3204,8 @@
    "breakfast": true,
    "lunch": true,
    "walked": 3000,
-   "strain": 3000
+   "strain": 3000,
+   "dinner": true
   },
   "account": {
    "advance": 15000,
@@ -3462,7 +3561,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-19T19:09+05:30",
+  "last_meal": "2026-11-19T19:39+05:30",
   "snacks": 0,
   "works": [
    {
