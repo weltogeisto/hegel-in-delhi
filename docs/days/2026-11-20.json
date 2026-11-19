@@ -494,6 +494,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "15:34",
+   "to": "15:44",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -1101,6 +1108,37 @@
    "to": "Hegel",
    "text": "Sir, I just watch the door, I don't hold the files. You need to talk to the Programme Officer about the Tuesday details, not me. The haze is thick today, maybe wait for the AC to kick in…",
    "t": "15:19",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The guard is correct; I am addressing the wrong functionary for the specific details of my engagement. I will turn to the Programme Officer to settle the logistics of Tuesday's talk, as the bureaucracy requires one to address the specific office responsible for the matter in hand.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    }
+   ],
+   "t": "15:34",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "The Programme Officer, please. I require clarification on the arrangements for my lecture on Tuesday.",
+   "to": "the guard at the library and the programme officer",
+   "t": "15:34",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The programme officer",
+   "to": "Hegel",
+   "text": "Sir, I am right here, as I mentioned ten minutes ago. Please, stop shouting at the guard, he is just doing his job. I have your file open, so let us discuss the room arrangements properly.",
+   "t": "15:34",
    "place": "iic"
   }
  ],
@@ -2332,6 +2370,72 @@
      "text": "This degradation of philosophy appears, indeed, to outsiders as of supremely small importance, and to be confined merely to the idle talk of the school. But the view necessarily makes its way into ethics, which is an essential part of philosophy. The real world sees the meaning of these views only when they have become a reality."
     }
    ]
+  },
+  {
+   "t": "15:34",
+   "end": "15:44",
+   "event": "The guard at the library says: “Sir, I just watch the door, I don't hold the files. You need to talk to the Programme Officer about the Tuesday details, not me. The haze is thick today, maybe wait for the AC to kick in…”",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard is correct; I am addressing the wrong functionary for the specific details of my engagement. I will turn to the Programme Officer to settle the logistics of Tuesday's talk, as the bureaucracy requires one to address the specific office responsible for the matter in hand.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 10,
+    "says": "The Programme Officer, please. I require clarification on the arrangements for my lecture on Tuesday.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 287."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "The programme officer",
+    "says": "Sir, I am right here, as I mentioned ten minutes ago. Please, stop shouting at the guard, he is just doing his job. I have your file open, so let us discuss the room arrangements properly.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "id": "sibree-history:408"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "text": "Functionaries are appointed to superintend the roads, the rivers, and the coasts. Everything is arranged with the greatest minuteness. In particular, great attention is paid to the rivers; in the Shu-King are to be found many edicts of the Emperor, designed to secure the land from inundations. The gates of every town are guarded by a watch, and the streets are barred all night."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "That which the public servant has to perform is as it stands of absolute value. Hence positive injury or non-performance, either being opposed to the essence of service, is a wrong to the universal content (§ 95, a negative-infinite judgment), and therefore a fault or crime."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2354,7 +2458,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-20T15:34+05:30",
+  "until": "2026-11-20T15:44+05:30",
   "asleep": false,
   "imprest": 18216,
   "wearing": "bandhgala",
@@ -2850,7 +2954,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "df450a94620029a7bc2549989eeb6639c12038ee0541f3d3cb3138b4d21847d8",
+  "source_sha256": "ca65b3fc4499d05d92b7208b3ad3888a806f044d42890630aa3c761641ad3685",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3393,6 +3497,36 @@
     "words": "Sir, I just watch the door, I don't hold the files. You need to talk to the Programme Officer about the Tuesday details, not me. The haze is thick today, maybe wait for the AC to kick in…",
     "verified": false,
     "time": "15:19",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:aa71ab1c1a112cd4:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 55,
+     "sha256": "aa71ab1c1a112cd4208ad3a92ef87151829bb66e78d9a642fab9ac834813d166"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "The Programme Officer, please. I require clarification on the arrangements for my lecture on Tuesday.",
+    "verified": false,
+    "time": "15:34",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:bece6cd5b7710c22:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 56,
+     "sha256": "bece6cd5b7710c222e3b8f1a238ac9f1f17c37eacc4e4ab241ddda7ed39d841b"
+    },
+    "speaker": "The programme officer",
+    "recipient": "Hegel",
+    "words": "Sir, I am right here, as I mentioned ten minutes ago. Please, stop shouting at the guard, he is just doing his job. I have your file open, so let us discuss the room arrangements properly.",
+    "verified": false,
+    "time": "15:34",
     "place": "iic"
    },
    {
@@ -4337,68 +4471,98 @@
     "text": "Weather: 24 °C, a brown haze. Air quality index: 287."
    },
    {
-    "id": "2026-11-20:event:22cf87b155f204ca:1",
+    "id": "2026-11-20:event:dd4d62ee6f02486a:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 19,
+     "sha256": "dd4d62ee6f02486a4d6bc6cbd2b5652c9e809b95a1af6c175ef52350eb7eb8d8"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "15:34",
+    "end": "15:44",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:event:f2522835df693ec3:8",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      19,
+      0
+     ],
+     "sha256": "f2522835df693ec3c8c8111e201308c7e786cfad2ca9902aaebe855b23b9c55e"
+    },
+    "type": "observation",
+    "time": "15:34",
+    "place": "iic",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 287."
+   },
+   {
+    "id": "2026-11-20:event:f1a67dd81f39a4a2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "22cf87b155f204ca5fb5f3420251b147d2802425604c9a0089df0065b8ec7971"
+     "sha256": "f1a67dd81f39a4a2c7c56fe82f7d9bccad668b3c49c59aefe3347c5fe11c0da0"
     },
     "type": "cash",
-    "time": "15:34",
+    "time": "15:44",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:003ec85f39a0325d:1",
+    "id": "2026-11-20:event:56e4750fcf12b4e8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "003ec85f39a0325d9cda9a5c851c18c79ae43b934ca7eff9193ba1d8c3ac01c6"
+     "sha256": "56e4750fcf12b4e8addfd23c80242e3ed84765920c140cbc9c46f95a7002b1e4"
     },
     "type": "location",
-    "time": "15:34",
+    "time": "15:44",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:f2e0a86e21fa174d:1",
+    "id": "2026-11-20:event:17ba42f5722e59bd:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "f2e0a86e21fa174d829c40c4d2f565414b342f8c7757bd0f37f0393eed3daafd"
+     "sha256": "17ba42f5722e59bdea2677fe8018ef64eb2a9cae074b9db7388735718d5e5ffc"
     },
     "type": "inventory",
-    "time": "15:34",
+    "time": "15:44",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-20:event:7aae733852930d3d:1",
+    "id": "2026-11-20:event:7b88becfca425e7c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "7aae733852930d3d910963b73231343f759972089085f30c89c1da2caa1b4809"
+     "sha256": "7b88becfca425e7cac8e84fbf0e27bd604d205c121c6c79899d21833ecea5aba"
     },
     "type": "inventory",
-    "time": "15:34",
+    "time": "15:44",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:3a56b522e30ea13b:1",
+    "id": "2026-11-20:event:7b7267a95d7380b1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "3a56b522e30ea13b8be1678f6c8a4127469eae5a351c070bb408005b0de97549"
+     "sha256": "7b7267a95d7380b1651888e8dcbcdb39d049e522a1ec04e706016240dad38645"
     },
     "type": "inventory",
-    "time": "15:34",
+    "time": "15:44",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -4417,7 +4581,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "15:34",
+    "time": "15:44",
     "place": null
    }
   ]
