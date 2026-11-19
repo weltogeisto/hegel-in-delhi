@@ -599,6 +599,13 @@
    "mode": "walk",
    "a": "iic",
    "b": "khan"
+  },
+  {
+   "from": "19:49",
+   "to": "20:04",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Going from shop to shop in Khan Market."
   }
  ],
  "entries": [
@@ -1656,6 +1663,37 @@
    "sprite": "kurta",
    "t": "19:39",
    "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The air is thick with that brown haze, a tangible weight that settles on the cotton of my kurta. I have walked seven kilometres and my stomach growls, a physical objection to my intellectual exertions. Masterji is here, and the bookseller is closing up, but my primary need is sustenance before the shop shutter drops. I will take a moment to steady myself and perhaps speak with the tailor about the fit of the new kurta, as I must present a certain dignity at the Directorate.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "19:49",
+   "place": "khan"
+  },
+  {
+   "k": "said",
+   "text": "Masterji, the light is fading. I hope the white cotton will hold its shape. I must appear respectable, even if the state has confused my identity with a Joint Secretary.",
+   "to": "Masterji",
+   "t": "19:49",
+   "place": "khan"
+  },
+  {
+   "k": "said",
+   "by": "Masterji",
+   "to": "Hegel",
+   "text": "Cotton holds. It is the man who bends, not the cloth. The haze is thick, but the kurta is clean.",
+   "t": "19:49",
+   "place": "khan"
   }
  ],
  "steps": [
@@ -3869,6 +3907,73 @@
      "text": "But the needs of the time and the interests of the events in the world already mentioned, have repressed a real and earnest effort after Philosophy and driven hence any general attention to it. It has thus happened that because vigorous natures turned to the practical, insipidity and dulness appropriated to themselves the preeminence in Philosophy and flourished there."
     }
    ]
+  },
+  {
+   "t": "19:49",
+   "end": "20:04",
+   "event": "You arrive at Khan Market. It closes at 20:30.",
+   "present": [
+    "Masterji, the tailor",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The air is thick with that brown haze, a tangible weight that settles on the cotton of my kurta. I have walked seven kilometres and my stomach growls, a physical objection to my intellectual exertions. Masterji is here, and the bookseller is closing up, but my primary need is sustenance before the shop shutter drops. I will take a moment to steady myself and perhaps speak with the tailor about the fit of the new kurta, as I must present a certain dignity at the Directorate.",
+    "action": "stay",
+    "place": "khan",
+    "minutes": 15,
+    "says": "Masterji, the light is fading. I hope the white cotton will hold its shape. I must appear respectable, even if the state has confused my identity with a Joint Secretary.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 296.",
+    "You arrive at Khan Market. It closes at 20:30."
+   ],
+   "observed_at": "khan",
+   "opened": [
+    "arrive"
+   ],
+   "voice": {
+    "by": "Masterji",
+    "says": "Cotton holds. It is the man who bends, not the cloth. The haze is thick, but the kurta is clean.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "id": "dyde-right:464"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "text": "The civic community contains three elements: A. The recasting of want, and the satisfaction of the individual through his work, through the work of all others, and through the satisfaction of their wants. This is a system of wants. B. Actualization of the general freedom required for this, i.e., the protection of property by the administration of justice."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -3891,7 +3996,7 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-20T19:49+05:30",
+  "until": "2026-11-20T20:04+05:30",
   "asleep": false,
   "imprest": 18216,
   "wearing": "kurta",
@@ -4389,7 +4494,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "026b0895e1b9f3275714d15d4b27a61e2815665b92d47271e1ebd1f6a8a7e2b9",
+  "source_sha256": "e30c5c13bd119cd9dfcf42ba5ea2a952958e07b0aa8f80760302ec91d042ab82",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -5351,6 +5456,36 @@
     "gone": false,
     "time": "19:39",
     "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:c21730104a9aa480:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 98,
+     "sha256": "c21730104a9aa480d1849a439125faf2c5dd46f96f83e626ec664784d6baa9d0"
+    },
+    "speaker": "Hegel",
+    "recipient": "Masterji",
+    "words": "Masterji, the light is fading. I hope the white cotton will hold its shape. I must appear respectable, even if the state has confused my identity with a Joint Secretary.",
+    "verified": false,
+    "time": "19:49",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-20:statement:36b84599b9c7ef01:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 99,
+     "sha256": "36b84599b9c7ef0160c32eef22d9913b087e4d0de2940e43f6814df2a3a0a519"
+    },
+    "speaker": "Masterji",
+    "recipient": "Hegel",
+    "words": "Cotton holds. It is the man who bends, not the cloth. The haze is thick, but the kurta is clean.",
+    "verified": false,
+    "time": "19:49",
+    "place": "khan"
    },
    {
     "id": "2026-11-20:event:6aabd31d135eddce:1",
@@ -6778,68 +6913,114 @@
     "text": "You are hungry."
    },
    {
-    "id": "2026-11-20:event:3768fd2243b2cb10:1",
+    "id": "2026-11-20:event:68cf24dad556300d:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 34,
+     "sha256": "68cf24dad556300d7c2bf84f352e323aecf0ed5557f25c8b98d1d2d08b45c645"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "19:49",
+    "end": "20:04",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-20:event:de29b753be141eeb:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      34,
+      0
+     ],
+     "sha256": "de29b753be141eebba14b7d2d2ad3e68ae860efd8f4910663dac004462960441"
+    },
+    "type": "observation",
+    "time": "19:49",
+    "place": "khan",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 296."
+   },
+   {
+    "id": "2026-11-20:event:58b399e7f6970857:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      34,
+      1
+     ],
+     "sha256": "58b399e7f6970857cb6b635781a338097740c05f53d38d40aafc16d84f082c5a"
+    },
+    "type": "observation",
+    "time": "19:49",
+    "place": "khan",
+    "text": "You arrive at Khan Market. It closes at 20:30."
+   },
+   {
+    "id": "2026-11-20:event:8f88f5e30de70be3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "3768fd2243b2cb10a28e09c9da7260224d5331bfad7289667a26c97deeac6290"
+     "sha256": "8f88f5e30de70be388b8f557f1df30ea56468f552ffbfcbfbba6dbdfd4d97b61"
     },
     "type": "cash",
-    "time": "19:49",
+    "time": "20:04",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:367038d6d1c09098:1",
+    "id": "2026-11-20:event:81d0979660dfeede:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "367038d6d1c090989e1516458b6cdeca5b44dc50db34890b9ce88903a713429e"
+     "sha256": "81d0979660dfeedeaf01e62a3405fa7ef865665bc2a2063f5089f13c83d75841"
     },
     "type": "location",
-    "time": "19:49",
+    "time": "20:04",
     "place": "khan",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:bca39568b007a821:1",
+    "id": "2026-11-20:event:8b1225a6e67e9ed6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "bca39568b007a82127343f75c39601537acbf05f15d5cdea40c2e17f911a70b8"
+     "sha256": "8b1225a6e67e9ed6f315b60c5b13db3a0069b800dc8686863794b33750d82b65"
     },
     "type": "inventory",
-    "time": "19:49",
+    "time": "20:04",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-20:event:e18f6d3f9a4a19da:1",
+    "id": "2026-11-20:event:5ef2354352da1ac7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "e18f6d3f9a4a19da91e88d27065353674b991551ae28e19105a160e07a4342bc"
+     "sha256": "5ef2354352da1ac786f4da4fb4d5771e314233c8b3e689f2f0babebff386d09c"
     },
     "type": "inventory",
-    "time": "19:49",
+    "time": "20:04",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:b96ca03cb009885a:1",
+    "id": "2026-11-20:event:b1d1fc7c45efa053:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "b96ca03cb009885a918170a2cf34c24cd50e75eb9937ce06d0a2e4c912354b07"
+     "sha256": "b1d1fc7c45efa053d606cd395e6ef63942fa90d6e5c109c892768bd4ea1a04aa"
     },
     "type": "inventory",
-    "time": "19:49",
+    "time": "20:04",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -6858,7 +7039,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "19:49",
+    "time": "20:04",
     "place": null
    }
   ]
