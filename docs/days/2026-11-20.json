@@ -445,6 +445,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "14:09",
+   "to": "14:19",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -856,6 +863,30 @@
    "price": 30,
    "charge_id": "charge:5",
    "t": "13:54",
+   "place": "khan"
+  },
+  {
+   "k": "diary",
+   "text": "The body demands fuel to continue its labour, and the haze makes the air unbreathable; I will consume what is offered. I have just eaten a samosa, so a cup of tea will suffice to settle the stomach before I return to the task at hand.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History"
+    }
+   ],
+   "t": "14:09",
+   "place": "khan"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "charge_id": "charge:6",
+   "t": "14:09",
    "place": "khan"
   }
  ],
@@ -1625,6 +1656,73 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "14:09",
+   "end": "14:19",
+   "event": "Sunil says: “Kya baat hai, Masterji, aaj ka pehla order? Chai garam, samosa gila, dono ₹50. Uthao, uthao, dhuaan mein khana nahi hota.” He slides the cup and plate across the counter, tapping the kerosene stove with a spoon to check the flame.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The body demands fuel to continue its labour, and the haze makes the air unbreathable; I will consume what is offered. I have just eaten a samosa, so a cup of tea will suffice to settle the stomach before I return to the task at hand.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 10,
+    "says": null,
+    "buys": [
+     {
+      "item": "Chai, a cup",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 287."
+   ],
+   "observed_at": "khan",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 6.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:643"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "id": "sibree-history:288"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "The civil rights implied in it give rise to a feeling of self-respect, the sense of counting as a lawful person in the civic community. This feeling of being infinite and free from all Others is the root out of which springs the needed balance of the various kinds of thought and sentiment. The isolation with which the Jews have been blamed it is better to preserve."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "text": "Only when, as in Europe, the direct increase of agriculturists is checked, •will the inhabitants, instead of pressing outwards to occupy the fields, press inwards upon each other, — pursuing town occupations, and trading with their fellow citizens; and so form a compact system of civil society, and require an organized state."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1647,9 +1745,9 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-20T14:09+05:30",
+  "until": "2026-11-20T14:19+05:30",
   "asleep": false,
-  "imprest": 18456,
+  "imprest": 18436,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1764,6 +1862,13 @@
      "t": "13:54",
      "item": "Samosa",
      "price": 30,
+     "office": false
+    },
+    {
+     "date": "2026-11-20",
+     "t": "14:09",
+     "item": "Chai, a cup",
+     "price": 20,
      "office": false
     }
    ],
@@ -2084,9 +2189,10 @@
   "settled_charges": [
    "charge:1",
    "charge:4",
-   "charge:5"
+   "charge:5",
+   "charge:6"
   ],
-  "charge_seq": 5,
+  "charge_seq": 6,
   "street": {
    "home_vegetable_cart": "2026-11-20",
    "estates_bench": "2026-11-20",
@@ -2122,7 +2228,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "bc5a9da6eb5243a89e27496d2c2aac097421f881fabcc597386a69c81dac9e1c",
+  "source_sha256": "f792c0d2db9e0870b939450e1a3010bdaac815201b3141839bd745a40036b8e2",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2492,6 +2598,25 @@
     "creditor": null,
     "payer": null,
     "time": "13:54",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-20:payment:52bb13a454bd2bae:1",
+    "kind": "payment",
+    "source": {
+     "collection": "entries",
+     "index": 37,
+     "sha256": "52bb13a454bd2baeb7f24ed11bb5777f293ff21d1bd7003dedc3b8148edefd08"
+    },
+    "canonical_id": "charge:6",
+    "item": "Chai, a cup",
+    "amount": 20,
+    "direction": "out",
+    "settled": true,
+    "medium": "cash",
+    "creditor": null,
+    "payer": null,
+    "time": "14:09",
     "place": "khan"
    },
    {
@@ -3176,68 +3301,98 @@
     "text": "Masterji is here. Sunil is here."
    },
    {
-    "id": "2026-11-20:event:39e76d7c68f723d7:1",
+    "id": "2026-11-20:event:309e1a2d3cbcec4d:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 12,
+     "sha256": "309e1a2d3cbcec4d59d0925c94196917247ceab270ce5fe846b1dc71baeb68d0"
+    },
+    "type": "action",
+    "action": "buy",
+    "time": "14:09",
+    "end": "14:19",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-20:event:f2522835df693ec3:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      12,
+      0
+     ],
+     "sha256": "f2522835df693ec3c8c8111e201308c7e786cfad2ca9902aaebe855b23b9c55e"
+    },
+    "type": "observation",
+    "time": "14:09",
+    "place": "khan",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 287."
+   },
+   {
+    "id": "2026-11-20:event:3965d5d05cf46d97:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "39e76d7c68f723d7b93268e1241bb7eb9e3ddd0edc8b96eafefd0e93c140698a"
+     "sha256": "3965d5d05cf46d973c082f36ad73b77bcef09d3769f60cc3dd2ca5be746c55a0"
     },
     "type": "cash",
-    "time": "14:09",
-    "amount": 18456,
+    "time": "14:19",
+    "amount": 18436,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:a5dd0d709477600e:1",
+    "id": "2026-11-20:event:39793b40f181b225:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "a5dd0d709477600e66f79893228427aba97a637bcf35a40189dfcfcf548d7262"
+     "sha256": "39793b40f181b225efface698417638f83a4ae367866fea0e3cbdfc8cba9e8b1"
     },
     "type": "location",
-    "time": "14:09",
+    "time": "14:19",
     "place": "khan",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:6b08f4b11a92101e:1",
+    "id": "2026-11-20:event:ea2419e8999843ed:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "6b08f4b11a92101e17c7fcf0ea48e9cfba202b23c31298075ea96267d7421d91"
+     "sha256": "ea2419e8999843edce3667ac9cc302263ebcf5abb9fc4a507e59d3d1ff178cd2"
     },
     "type": "inventory",
-    "time": "14:09",
+    "time": "14:19",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-20:event:7cb86f204ea431ce:1",
+    "id": "2026-11-20:event:6805f7829b60da8d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "7cb86f204ea431ceee767944753c6cd72f8df7b9ab442a43588198434c28fbb2"
+     "sha256": "6805f7829b60da8ddf8d1d625f42afa13aee07327b77090adfc8af2dd09df969"
     },
     "type": "inventory",
-    "time": "14:09",
+    "time": "14:19",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 10:30.\"}]"
    },
    {
-    "id": "2026-11-20:event:2de5fa0a2d598cff:1",
+    "id": "2026-11-20:event:cb285ee25181e3e6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "2de5fa0a2d598cff1b2963bfde23d06ac7e553f12bee24c7d37eee4905e93fcc"
+     "sha256": "cb285ee25181e3e68e12153f1af2ff1cc242da35b113f98555404aae815c428b"
     },
     "type": "inventory",
-    "time": "14:09",
+    "time": "14:19",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3256,7 +3411,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "14:09",
+    "time": "14:19",
     "place": null
    }
   ]
