@@ -606,6 +606,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Going from shop to shop in Khan Market."
+  },
+  {
+   "from": "20:04",
+   "to": "20:31",
+   "mode": "walk",
+   "a": "khan",
+   "b": "home"
   }
  ],
  "entries": [
@@ -1693,6 +1700,37 @@
    "to": "Hegel",
    "text": "Cotton holds. It is the man who bends, not the cloth. The haze is thick, but the kurta is clean.",
    "t": "19:49",
+   "place": "khan"
+  },
+  {
+   "k": "diary",
+   "text": "Masterji’s remark is a small comfort in the suffocating air; the cloth endures, but my lungs are not yet accustomed to this brown weight. The market closes in twenty-six minutes, and the haze is at 300, a number that suggests the atmosphere itself has become a solid obstacle. I will not linger to breathe what is not air, but return to the bungalow where the windows can be closed.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§304"
+    }
+   ],
+   "t": "20:04",
+   "place": "khan"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Masterji. The cloth does not bend, but I must not let the air bend me. I take my leave before the shutters fall.",
+   "to": "the bookseller",
+   "t": "20:04",
+   "place": "khan"
+  },
+  {
+   "k": "said",
+   "by": "The bookseller",
+   "to": "Hegel",
+   "text": "Ji, go safe. The haze is thick enough to choke a man, so keep your head down on the way back. Locking up now, so do not wait for me.",
+   "t": "20:04",
    "place": "khan"
   }
  ],
@@ -3974,6 +4012,76 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "20:04",
+   "end": "20:31",
+   "event": "Masterji says: “Cotton holds. It is the man who bends, not the cloth. The haze is thick, but the kurta is clean.” Khan Market closes at 20:30. The air is very poor today: the index stands at 300.",
+   "present": [
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "Masterji’s remark is a small comfort in the suffocating air; the cloth endures, but my lungs are not yet accustomed to this brown weight. The market closes in twenty-six minutes, and the haze is at 300, a number that suggests the atmosphere itself has become a solid obstacle. I will not linger to breathe what is not air, but return to the bungalow where the windows can be closed.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 25,
+    "says": "You are right, Masterji. The cloth does not bend, but I must not let the air bend me. I take my leave before the shutters fall.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "observations": [
+    "Weather: 19 °C, a brown haze. Air quality index: 300.",
+    "Khan Market closes at 20:30.",
+    "The air is very poor today: the index stands at 300."
+   ],
+   "observed_at": "khan",
+   "opened": [
+    "reply",
+    "closes",
+    "air"
+   ],
+   "voice": {
+    "by": "The bookseller",
+    "says": "Ji, go safe. The haze is thick enough to choke a man, so keep your head down on the way back. Locking up now, so do not wait for me.",
+    "does": "He begins pulling down the metal shutters with a rattle."
+   },
+   "left": "khan",
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 12.4,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1189"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§304",
+     "id": "rechts:699"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "For “when Antisthenes turned outside a hole in his cloak, Socrates said to him, I see thy vanity through the hole in thy cloak.” Clothing is not a thing of rational import, but is regulated through needs that arise of themselves. In the North the clothing must be different from that in Central Africa; and in winter we do not wear cotton garments."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§304",
+     "text": "Wie von selten der fürstlichen Gewalt die Regierungsgewalt (§ 300) schon diese Bestimmung hat, so muß auch von der Seite der Stände aus ein Moment derselben nach - der Bestimmung gekehrt sein, wesentlich als das Moment ■ der Mitte zu existieren. § 305."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -3995,8 +4103,8 @@
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-11-20T20:04+05:30",
+  "place": "home",
+  "until": "2026-11-20T20:31+05:30",
   "asleep": false,
   "imprest": 18216,
   "wearing": "kurta",
@@ -4098,10 +4206,11 @@
      "officer"
     ]
    },
-   "walked": 7425,
-   "strain": 7425,
+   "walked": 9450,
+   "strain": 9450,
    "lunch": true,
-   "hunger": 1
+   "hunger": 1,
+   "bad_air": true
   },
   "account": {
    "advance": 15000,
@@ -4494,7 +4603,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "e30c5c13bd119cd9dfcf42ba5ea2a952958e07b0aa8f80760302ec91d042ab82",
+  "source_sha256": "8133a6cb67d368c87061ba0ea583c101e7989ba46c867dd856603016b17acc6a",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -5485,6 +5594,36 @@
     "words": "Cotton holds. It is the man who bends, not the cloth. The haze is thick, but the kurta is clean.",
     "verified": false,
     "time": "19:49",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-20:statement:cc82742ea52796fc:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 101,
+     "sha256": "cc82742ea52796fc76c54d1ce6617381e82fe14eb0ce3c5bad14e784619b7c70"
+    },
+    "speaker": "Hegel",
+    "recipient": "the bookseller",
+    "words": "You are right, Masterji. The cloth does not bend, but I must not let the air bend me. I take my leave before the shutters fall.",
+    "verified": false,
+    "time": "20:04",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-20:statement:5446cd35eb6b7e8f:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 102,
+     "sha256": "5446cd35eb6b7e8fdce984a6c0bff1d35c90959ad228dfef420d19340d492284"
+    },
+    "speaker": "The bookseller",
+    "recipient": "Hegel",
+    "words": "Ji, go safe. The haze is thick enough to choke a man, so keep your head down on the way back. Locking up now, so do not wait for me.",
+    "verified": false,
+    "time": "20:04",
     "place": "khan"
    },
    {
@@ -6959,68 +7098,132 @@
     "text": "You arrive at Khan Market. It closes at 20:30."
    },
    {
-    "id": "2026-11-20:event:8f88f5e30de70be3:1",
+    "id": "2026-11-20:event:8750ae4eb03f4206:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 35,
+     "sha256": "8750ae4eb03f4206189b46309d1b30451d377e196e8df55f9be6665b616b39b6"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "20:04",
+    "end": "20:31",
+    "place": null,
+    "origin": "khan",
+    "destination": "home"
+   },
+   {
+    "id": "2026-11-20:event:287fa790dc10bcbd:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      35,
+      0
+     ],
+     "sha256": "287fa790dc10bcbda6fb197feef4c9d6331bd75091a7fa9475f5b0e5b70c89be"
+    },
+    "type": "observation",
+    "time": "20:04",
+    "place": "khan",
+    "text": "Weather: 19 °C, a brown haze. Air quality index: 300."
+   },
+   {
+    "id": "2026-11-20:event:5fa7f823ca8fb0ed:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      35,
+      1
+     ],
+     "sha256": "5fa7f823ca8fb0edd9254eca8bec4d345bbeebccd00e5ce16e393f2cb5f2979a"
+    },
+    "type": "observation",
+    "time": "20:04",
+    "place": "khan",
+    "text": "Khan Market closes at 20:30."
+   },
+   {
+    "id": "2026-11-20:event:8e79cfb23d1cae41:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      35,
+      2
+     ],
+     "sha256": "8e79cfb23d1cae410988f53e0e10f72f7ec4bd2477c52f1cdf9969365f73e9fe"
+    },
+    "type": "observation",
+    "time": "20:04",
+    "place": "khan",
+    "text": "The air is very poor today: the index stands at 300."
+   },
+   {
+    "id": "2026-11-20:event:7a948d977d0e34ab:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "8f88f5e30de70be388b8f557f1df30ea56468f552ffbfcbfbba6dbdfd4d97b61"
+     "sha256": "7a948d977d0e34ab608e10ac81bed3f3fd03bab1e96a8841d0f8a97d1391ae84"
     },
     "type": "cash",
-    "time": "20:04",
+    "time": "20:31",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:81d0979660dfeede:1",
+    "id": "2026-11-20:event:657594fc37e16eaa:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "81d0979660dfeedeaf01e62a3405fa7ef865665bc2a2063f5089f13c83d75841"
+     "sha256": "657594fc37e16eaa7dddd80c763534348438b97e40a1b43fc1ff769cf862a772"
     },
     "type": "location",
-    "time": "20:04",
-    "place": "khan",
+    "time": "20:31",
+    "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:8b1225a6e67e9ed6:1",
+    "id": "2026-11-20:event:cf3142f5a7f00802:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "8b1225a6e67e9ed6f315b60c5b13db3a0069b800dc8686863794b33750d82b65"
+     "sha256": "cf3142f5a7f00802da843d32e4acd3ce16f5e699ac64f6d9af82665ef6ebfb98"
     },
     "type": "inventory",
-    "time": "20:04",
+    "time": "20:31",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-20:event:5ef2354352da1ac7:1",
+    "id": "2026-11-20:event:d2a04c4a9f95e2a2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "5ef2354352da1ac786f4da4fb4d5771e314233c8b3e689f2f0babebff386d09c"
+     "sha256": "d2a04c4a9f95e2a28951f108ab7dee50f9a8a1b1b43e4ef04938a86687126b93"
     },
     "type": "inventory",
-    "time": "20:04",
+    "time": "20:31",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:b1d1fc7c45efa053:1",
+    "id": "2026-11-20:event:60a391f6f89051b7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "b1d1fc7c45efa053d606cd395e6ef63942fa90d6e5c109c892768bd4ea1a04aa"
+     "sha256": "60a391f6f89051b72978f79a8f42f798e03833ad182ee91572f00b14f909c5f6"
     },
     "type": "inventory",
-    "time": "20:04",
+    "time": "20:31",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -7039,7 +7242,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "20:04",
+    "time": "20:31",
     "place": null
    }
   ]
