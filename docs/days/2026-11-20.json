@@ -515,6 +515,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "16:19",
+   "to": "16:29",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -1215,6 +1222,37 @@
    "to": "Hegel",
    "text": "Arre, sir, you're making it sound like a philosophy class again. Just tell the officer how many chairs you need and if you want the projector, that's all I can do.",
    "t": "15:59",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The guard is right to cut the air; I have been pontificating over logistics when the room requires only furniture. The state, even in its administrative details, demands that the particular be fixed before the universal can appear. I must tell the officer what I need, plainly, or the lecture on Tuesday will be a ghost with no chair to sit on.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Sophists"
+    }
+   ],
+   "t": "16:19",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "Officer, please. I require six chairs arranged in a semicircle for the audience, and if the projector is functional, I should like it set up. I have no slides, only my voice, but I would not risk the dark.",
+   "to": "the guard at the library and the programme officer",
+   "t": "16:19",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Six chairs, semicircle, projector on. Noted. Officer, please check if the machine is working.",
+   "t": "16:19",
    "place": "iic"
   }
  ],
@@ -2644,6 +2682,72 @@
      "text": "For these absurdities, however, the conception is not responsible. They are due to the attempt to equate crime and punishment throughout their minute details. Value, as the inner identity of things specifically different, has already been made use~of in connection with contract, and occurs again in the civil prosecution of crime (§ 95)."
     }
    ]
+  },
+  {
+   "t": "16:19",
+   "end": "16:29",
+   "event": "The guard at the library says: “Arre, sir, you're making it sound like a philosophy class again. Just tell the officer how many chairs you need and if you want the projector, that's all I can do.” He turns back towards the entrance to watch the door.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard is right to cut the air; I have been pontificating over logistics when the room requires only furniture. The state, even in its administrative details, demands that the particular be fixed before the universal can appear. I must tell the officer what I need, plainly, or the lecture on Tuesday will be a ghost with no chair to sit on.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 10,
+    "says": "Officer, please. I require six chairs arranged in a semicircle for the audience, and if the projector is functional, I should like it set up. I have no slides, only my voice, but I would not risk the dark.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 287."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Six chairs, semicircle, projector on. Noted. Officer, please check if the machine is working.",
+    "does": "He jots down the details on his clipboard and points towards the officer."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "id": "haldane-2:65"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Sophists",
+     "id": "haldane-1:880"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "text": "In the Republic, Plato further speaks in a figure of the difference between a condition of philosophic culture and a lack of Philosophy: it is a long comparison which is both striking and brilliant. The idea which he makes use of is as follows:—“Let us think of an underground den like a cave with a long entrance opening to the light."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Sophists",
+     "text": "Having reached Protagoras with Hippocrates, Socrates finds him in an assemblage of the foremost Sophists and surrounded by listeners, “walking about and like an Orpheus entrancing all men by his words, Hippias sitting meanwhile on a chair with not so many round him, and Prodicus lying amongst a great number of admirers.”"
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2666,7 +2770,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-20T16:19+05:30",
+  "until": "2026-11-20T16:29+05:30",
   "asleep": false,
   "imprest": 18216,
   "wearing": "bandhgala",
@@ -3162,7 +3266,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "523b6814a4346a9623fa73a9083c7ca94ad99aa4f243f6faf9d070da78503284",
+  "source_sha256": "7e59c845e2f34e185732ec9095a947db6280094488e4d7e47269be82e530ecc7",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3795,6 +3899,36 @@
     "words": "Arre, sir, you're making it sound like a philosophy class again. Just tell the officer how many chairs you need and if you want the projector, that's all I can do.",
     "verified": false,
     "time": "15:59",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:3ac639e9b19ef2b0:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 64,
+     "sha256": "3ac639e9b19ef2b027c57f08fbaaeafa13fe41f65d645eabf8daa7b392e8ca91"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "Officer, please. I require six chairs arranged in a semicircle for the audience, and if the projector is functional, I should like it set up. I have no slides, only my voice, but I would not risk the dark.",
+    "verified": false,
+    "time": "16:19",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:4710afcadfc35ed4:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 65,
+     "sha256": "4710afcadfc35ed44022435f7b870c43796dff852b8067785d9c807e365c2565"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Six chairs, semicircle, projector on. Noted. Officer, please check if the machine is working.",
+    "verified": false,
+    "time": "16:19",
     "place": "iic"
    },
    {
@@ -4829,68 +4963,98 @@
     "text": "Weather: 24 °C, a brown haze. Air quality index: 287."
    },
    {
-    "id": "2026-11-20:event:d9958532fc4b45ee:1",
+    "id": "2026-11-20:event:77ae0f36092c6868:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 22,
+     "sha256": "77ae0f36092c68685a281afe9c576f47cf91aff720c4600d95598b7278b7eee0"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "16:19",
+    "end": "16:29",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:event:e484da80e4800924:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      22,
+      0
+     ],
+     "sha256": "e484da80e480092499a214966f247074306bba929910534153af8b431e999a8d"
+    },
+    "type": "observation",
+    "time": "16:19",
+    "place": "iic",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 287."
+   },
+   {
+    "id": "2026-11-20:event:1003abada9cf88e6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "d9958532fc4b45eeaf1ee4dd13b6894a11be7abae5b82f49eed99bb71ada8ff8"
+     "sha256": "1003abada9cf88e679253c8647e034952e7fab6fa27a39d0798e77775c5cc5b8"
     },
     "type": "cash",
-    "time": "16:19",
+    "time": "16:29",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:51c81ac7d85ea54f:1",
+    "id": "2026-11-20:event:7f75fa70df119947:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "51c81ac7d85ea54fa0582a3e09d9a6c4ec22155565d33606b3070239a5627b46"
+     "sha256": "7f75fa70df119947da0df52a7073d556d95403a8310ce9728c4dba907a18a856"
     },
     "type": "location",
-    "time": "16:19",
+    "time": "16:29",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:0cdbfc6f5c353791:1",
+    "id": "2026-11-20:event:7ca7cce00c8bc242:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "0cdbfc6f5c353791988e571ae8cf94f84dfe408e7adf1e1960ea8f6500de2741"
+     "sha256": "7ca7cce00c8bc24287d4cb02da104970eb6732c246cf3944abc5a6b0a96beb6f"
     },
     "type": "inventory",
-    "time": "16:19",
+    "time": "16:29",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-20:event:41f70a0dd2961212:1",
+    "id": "2026-11-20:event:8779ced354fce257:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "41f70a0dd296121233a47fd62741f28dedcc2245bf6b105eff2585b7b5bb807d"
+     "sha256": "8779ced354fce257f3579338fe8c55f7840726c713f17c4caa8aafe4dd6421c5"
     },
     "type": "inventory",
-    "time": "16:19",
+    "time": "16:29",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:35622399f04cbecb:1",
+    "id": "2026-11-20:event:9dfaf2725ff2cf37:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "35622399f04cbecb95b997b140dddc50e7d6a8a106fd467d645822cfa09d2b60"
+     "sha256": "9dfaf2725ff2cf3741e34af8840180fd93dc782a8836c76d16ceb29414a4cd2b"
     },
     "type": "inventory",
-    "time": "16:19",
+    "time": "16:29",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -4909,7 +5073,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "16:19",
+    "time": "16:29",
     "place": null
    }
   ]
