@@ -473,6 +473,13 @@
    "mode": "walk",
    "a": "khan",
    "b": "iic"
+  },
+  {
+   "from": "14:54",
+   "to": "15:09",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -988,6 +995,37 @@
    "sprite": "bandhgala",
    "t": "14:44",
    "place": "khan"
+  },
+  {
+   "k": "diary",
+   "text": "The brown haze hangs heavy in the air, a tangible weight that makes the glass of the IIC look like a sealed jar. I am here for Tuesday's talk, but the file from the Directorate still haunts me; I must ensure the Programme Officer knows I am not merely a ghost in a bandhgala. I will speak to him now, before the hour grows too late for administrative matters.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China"
+    }
+   ],
+   "t": "14:54",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "Officer, I hope you will excuse my intrusion. I am here regarding the programme for Tuesday. I must ask if you have received the clarification from the Directorate, or if I am still a stranger in my own file?",
+   "to": "the guard at the library and the programme officer",
+   "t": "14:54",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Sir, I just watch the door, I don't hold the files. You need to talk to the Programme Officer about the Tuesday details, not me. The haze is thick today, maybe wait for the AC to kick in before you go asking questions.",
+   "t": "14:54",
+   "place": "iic"
   }
  ],
  "steps": [
@@ -2019,6 +2057,73 @@
      "text": "To right as such, happiness is something external. Tet in the system of wants well-being is an essential element. The universal, which is at first only right, has to spread itself over the whole field of particularity. Justice, it is true, is a large factor in the civic community. The state will flourish, if it has good laws, of which free property is the fundamental condition."
     }
    ]
+  },
+  {
+   "t": "14:54",
+   "end": "15:09",
+   "event": "You arrive at India International Centre. It closes at 21:30.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The brown haze hangs heavy in the air, a tangible weight that makes the glass of the IIC look like a sealed jar. I am here for Tuesday's talk, but the file from the Directorate still haunts me; I must ensure the Programme Officer knows I am not merely a ghost in a bandhgala. I will speak to him now, before the hour grows too late for administrative matters.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 15,
+    "says": "Officer, I hope you will excuse my intrusion. I am here regarding the programme for Tuesday. I must ask if you have received the clarification from the Directorate, or if I am still a stranger in my own file?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 287.",
+    "You arrive at India International Centre. It closes at 21:30."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "arrive"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Sir, I just watch the door, I don't hold the files. You need to talk to the Programme Officer about the Tuesday details, not me. The haze is thick today, maybe wait for the AC to kick in before you go asking questions.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:457"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "id": "sibree-history:376"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "The spread of Indian culture is pre-historical, for History is limited to that which makes an essential epoch in the development of Spirit. On the whole, the diffusion of Indian culture is only a dumb, deedless expansion; that is, it presents no political action."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "text": "WITH the Empire of China History has to begin, for it is the oldest, as far as history gives us any information; and its principle has such substantiality, that for the empire in question it is at once the oldest and the newest."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2041,7 +2146,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-20T14:54+05:30",
+  "until": "2026-11-20T15:09+05:30",
   "asleep": false,
   "imprest": 18216,
   "wearing": "bandhgala",
@@ -2137,6 +2242,10 @@
      "bookseller",
      "masterji",
      "sunil"
+    ],
+    "iic": [
+     "guard",
+     "officer"
     ]
    },
    "walked": 6675,
@@ -2254,7 +2363,8 @@
     "2026-10-28",
     "2026-11-06",
     "2026-11-17",
-    "2026-11-18"
+    "2026-11-18",
+    "2026-11-20"
    ],
    "safdarjung": [
     "2026-10-28"
@@ -2532,7 +2642,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "ba2f0a43e66b4fb0517e3de5db80f9b7e475822bc77e1d880fac88208f8d01e1",
+  "source_sha256": "c1ce353fadaa03d5536e6678582524a77a4a014c4a71bfa69e79080927b45769",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2986,6 +3096,36 @@
     "gone": false,
     "time": "14:44",
     "place": "khan"
+   },
+   {
+    "id": "2026-11-20:statement:51ed79299e36dfec:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 46,
+     "sha256": "51ed79299e36dfecce74324e076abe3800c773ef2680c17517d655f3f5826d8e"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "Officer, I hope you will excuse my intrusion. I am here regarding the programme for Tuesday. I must ask if you have received the clarification from the Directorate, or if I am still a stranger in my own file?",
+    "verified": false,
+    "time": "14:54",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:78ccae86bfaf3725:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 47,
+     "sha256": "78ccae86bfaf3725895218ff434b4f178e804bdf289fec63c9cf4d06a45c5e47"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Sir, I just watch the door, I don't hold the files. You need to talk to the Programme Officer about the Tuesday details, not me. The haze is thick today, maybe wait for the AC to kick in before you go asking questions.",
+    "verified": false,
+    "time": "14:54",
+    "place": "iic"
    },
    {
     "id": "2026-11-20:event:6aabd31d135eddce:1",
@@ -3823,68 +3963,114 @@
     "text": "Nothing in particular happens. The afternoon goes on."
    },
    {
-    "id": "2026-11-20:event:423566befbd55e68:1",
+    "id": "2026-11-20:event:58c5e2442fcdfd0f:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 16,
+     "sha256": "58c5e2442fcdfd0faf05cb930e15b87c63d988bf8d95757216fb6eb70617421f"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "14:54",
+    "end": "15:09",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:event:f2522835df693ec3:5",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      16,
+      0
+     ],
+     "sha256": "f2522835df693ec3c8c8111e201308c7e786cfad2ca9902aaebe855b23b9c55e"
+    },
+    "type": "observation",
+    "time": "14:54",
+    "place": "iic",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 287."
+   },
+   {
+    "id": "2026-11-20:event:9783bfaa4b9687d6:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      16,
+      1
+     ],
+     "sha256": "9783bfaa4b9687d6e91c528bb0aa0889b4db7c29d7dd151f5b42bf02bfb8d917"
+    },
+    "type": "observation",
+    "time": "14:54",
+    "place": "iic",
+    "text": "You arrive at India International Centre. It closes at 21:30."
+   },
+   {
+    "id": "2026-11-20:event:2d7ab85c6a5c14ab:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "423566befbd55e680961b07a6519a4dbd17f18a4f2162d21991d49a33362987c"
+     "sha256": "2d7ab85c6a5c14ab9d15811c0693371df34aa0bb5891a9ed567275f4a0cbf2b9"
     },
     "type": "cash",
-    "time": "14:54",
+    "time": "15:09",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:9a9b9ac749c1799a:1",
+    "id": "2026-11-20:event:e15924e929fa52f6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "9a9b9ac749c1799a571398dd853cfb24cc816537e493a20238a0e0608f9ecc2b"
+     "sha256": "e15924e929fa52f6b05178f9df5c789889ed092afa2a201e0ebb07a36026d68f"
     },
     "type": "location",
-    "time": "14:54",
+    "time": "15:09",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:2b589dd029d8fa18:1",
+    "id": "2026-11-20:event:27b23577b2d7cbcc:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "2b589dd029d8fa185c523277f52a214b3eade3699330ddd8527086abe4dea04c"
+     "sha256": "27b23577b2d7cbccfcfe0d9da9dc06fea63b0021850eaf141276073afaf5cecf"
     },
     "type": "inventory",
-    "time": "14:54",
+    "time": "15:09",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-20:event:9dff63d55dd484e3:1",
+    "id": "2026-11-20:event:3371f93e6b2e43d6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "9dff63d55dd484e3cba0fccb1c377852c86cf9a8cfaaa7b1fe81d2df7e1b57f6"
+     "sha256": "3371f93e6b2e43d6496bfd167e80bb93bc62de7e951c98d3264fb776ec8e91d6"
     },
     "type": "inventory",
-    "time": "14:54",
+    "time": "15:09",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:87ba9251c2625974:1",
+    "id": "2026-11-20:event:ce810a93bef0d922:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "87ba9251c26259743a80ccf60186101d4330b7fa26afec2a7c512e336a62a276"
+     "sha256": "ce810a93bef0d9229011ef9399362ff1cf36ad7a0a30164aa2e28a6dabb7fdb5"
     },
     "type": "inventory",
-    "time": "14:54",
+    "time": "15:09",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3903,7 +4089,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "14:54",
+    "time": "15:09",
     "place": null
    }
   ]
