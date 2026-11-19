@@ -417,6 +417,13 @@
    "mode": "walk",
    "a": "estates",
    "b": "home"
+  },
+  {
+   "from": "12:12",
+   "to": "12:42",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -714,6 +721,28 @@
    "sprite": "kurta",
    "t": "11:46",
    "place": "estates"
+  },
+  {
+   "k": "world",
+   "text": "The compound walls along the road are limewashed white with a black band at the foot, and every gate carries its number in black paint and a brass plate gone green at the corners.",
+   "t": "12:12",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The heat is already pressing, and I have been walking since ten. The file is back at the Directorate, but the query is not a door I can open by force; it is a mechanism that will grind on its own schedule. I must return to the bungalow to rest and draft the letter to Dr. Lindner, as planned, before the afternoon heat makes the ink dry too fast.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, The Philosophy of Mind"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Scepticism"
+    }
+   ],
+   "t": "12:12",
+   "place": "home"
   }
  ],
  "steps": [
@@ -1222,6 +1251,68 @@
      "text": "Now this is the one side in which Socrates looks away from the contradiction and makes laws and justice, as they are accepted by each individually, to be the affirmative content."
     }
    ]
+  },
+  {
+   "t": "12:12",
+   "end": "12:42",
+   "event": "The compound walls along the road are limewashed white with a black band at the foot, and every gate carries its number in black paint and a brass plate gone green at the corners.",
+   "present": [],
+   "decision": {
+    "thought": "The heat is already pressing, and I have been walking since ten. The file is back at the Directorate, but the query is not a door I can open by force; it is a mechanism that will grind on its own schedule. I must return to the bungalow to rest and draft the letter to Dr. Lindner, as planned, before the afternoon heat makes the ink dry too fast.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 290.",
+    "The compound walls along the road are limewashed white with a black band at the foot, and every gate carries its number in black paint and a brass plate gone green at the corners."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "street:home_walls"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, The Philosophy of Mind",
+     "id": "haldane-2:475"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Scepticism",
+     "id": "haldane-2:867"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, The Philosophy of Mind",
+     "text": "“Further, every sense-perception is in its organ, and distinguishes everything that is perceived, like black and white, and so on. It is thus not possible for separate perceptions, white and sweet, to be distinguished as separate indifferent moments, for both must be present (δῆλα) to one subject. This one subject must therefore determine one thing to be different from another."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Scepticism",
+     "text": "Thus, in view of the nature of Scepticism, we cannot ask for any system of propositions, nor will this philosophy really be a system; just as little did it lie in the spirit of Scepticism to form a school, properly speaking, but only an external connection in the wider sense of the word. Sextus (Pyrrh. Hyp."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1244,7 +1335,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-20T12:12+05:30",
+  "until": "2026-11-20T12:42+05:30",
   "asleep": false,
   "imprest": 18506,
   "wearing": "kurta",
@@ -1338,8 +1429,7 @@
     ]
    },
    "walked": 3900,
-   "strain": 3900,
-   "recouped": true
+   "strain": 3900
   },
   "account": {
    "advance": 15000,
@@ -1661,7 +1751,8 @@
   "charge_seq": 3,
   "street": {
    "home_vegetable_cart": "2026-11-20",
-   "estates_bench": "2026-11-20"
+   "estates_bench": "2026-11-20",
+   "home_walls": "2026-11-20"
   }
  },
  "plan": {
@@ -1692,7 +1783,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "11602e110757433bdd6cea31b4e13ab16d6dac9bff1f67a0d54e1c9d50eea168",
+  "source_sha256": "e32d77cb44c6d3cd6bf262c632732f1b6c7f171b1a8b33e56666c2d48b2ec79a",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1954,6 +2045,19 @@
     "gone": false,
     "time": "11:46",
     "place": "estates"
+   },
+   {
+    "id": "2026-11-20:event:4f07985d737b71ec:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 25,
+     "sha256": "4f07985d737b71ece53cf145e488d30b3b7a6c87b482236e61f511737021a1f8"
+    },
+    "type": "world",
+    "text": "The compound walls along the road are limewashed white with a black band at the foot, and every gate carries its number in black paint and a brass plate gone green at the corners.",
+    "time": "12:12",
+    "place": "home"
    },
    {
     "id": "2026-11-20:event:6aabd31d135eddce:1",
@@ -2435,68 +2539,114 @@
     "text": "Weather: 22 °C, a brown haze. Air quality index: 290."
    },
    {
-    "id": "2026-11-20:event:bb368df55312dd76:1",
+    "id": "2026-11-20:event:1709eaec74ac838c:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 8,
+     "sha256": "1709eaec74ac838c56a67b95d2c5db1b49c48b57b487c9536086ffa1f423f584"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "12:12",
+    "end": "12:42",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-20:event:288599f5df11e8a8:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      8,
+      0
+     ],
+     "sha256": "288599f5df11e8a8ece7d71f31427fa8c8016bd9658757f2e0d634379d9b4869"
+    },
+    "type": "observation",
+    "time": "12:12",
+    "place": "home",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 290."
+   },
+   {
+    "id": "2026-11-20:event:ce308efa4f800586:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      8,
+      1
+     ],
+     "sha256": "ce308efa4f8005867cffa265a0443e38684a76e2ab86024dc3dfd33ff8259ea0"
+    },
+    "type": "observation",
+    "time": "12:12",
+    "place": "home",
+    "text": "The compound walls along the road are limewashed white with a black band at the foot, and every gate carries its number in black paint and a brass plate gone green at the corners."
+   },
+   {
+    "id": "2026-11-20:event:b412328fe3136f63:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "bb368df55312dd7675cfaa6158ebf14223598e3c4417181ba563582703843742"
+     "sha256": "b412328fe3136f632f2597731fdbe5e599f39f5a0bce826adf2c5135bcdf7a81"
     },
     "type": "cash",
-    "time": "12:12",
+    "time": "12:42",
     "amount": 18506,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:a8f782eabe32a75e:1",
+    "id": "2026-11-20:event:f212e14af68650e5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "a8f782eabe32a75e158aa64d6fb4185f95f8f212605133db63667fda44e34ba2"
+     "sha256": "f212e14af68650e593f353b6b94e72cdd6d3464567beaee8a0e938533cfadf15"
     },
     "type": "location",
-    "time": "12:12",
+    "time": "12:42",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:f0a25b3ed80c12f3:1",
+    "id": "2026-11-20:event:972086f766b36668:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "f0a25b3ed80c12f35a3b3e9c10c8d3afe6d29c8b622d8197a2f045dbe10065ad"
+     "sha256": "972086f766b366685de8477fc20d7adadeba6d81accb3e3db4f5c1b237c1561c"
     },
     "type": "inventory",
-    "time": "12:12",
+    "time": "12:42",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-20:event:d226aa2fa72d1132:1",
+    "id": "2026-11-20:event:8d15e09e407e3f76:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "d226aa2fa72d1132420423b419a30c36f6c4971a09ccd416c275f641b843c5f3"
+     "sha256": "8d15e09e407e3f762ae21db61edec49d37e1d7dc9fc529178d3df82ae2870d7c"
     },
     "type": "inventory",
-    "time": "12:12",
+    "time": "12:42",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 10:30.\"}]"
    },
    {
-    "id": "2026-11-20:event:463178ee62b94487:1",
+    "id": "2026-11-20:event:24da22ecfb5e2530:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "463178ee62b944873eb42bfec93fb45d7a90dc6c460b65a6f0fd912f249f1015"
+     "sha256": "24da22ecfb5e2530fd6ed62db3944fd04ff4956e71b45d1c9ddb18618144ce1d"
     },
     "type": "inventory",
-    "time": "12:12",
+    "time": "12:42",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2515,7 +2665,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "12:12",
+    "time": "12:42",
     "place": null
    }
   ]
