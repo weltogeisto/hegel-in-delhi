@@ -620,6 +620,15 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "21:00",
+   "to": "24:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Asleep.",
+   "asleep": true,
+   "owl": true
   }
  ],
  "entries": [
@@ -4162,6 +4171,33 @@
      "text": "The government rests with the official world, and the personal decision of the monarch constitutes its apex; for a final decision is, as was remarked above, absolutely necessary. Yet with firmly established laws, and a settled organization of the State, what is left to the sole arbitrement of the monarch is, in point of substance, no great matter."
     }
    ]
+  },
+  {
+   "t": "21:00",
+   "end": "24:00",
+   "event": "Nothing in particular happens. The night goes on.",
+   "present": [],
+   "decision": {
+    "thought": null,
+    "action": "sleep",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 19 °C, a brown haze. Air quality index: 302.",
+    "Nothing in particular happens. The night goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "mind": {
+    "source": "bedtime",
+    "attempts": 0,
+    "latency_s": 0.0
+   }
   }
  ],
  "funnel": {
@@ -4184,8 +4220,8 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-20T21:00+05:30",
-  "asleep": false,
+  "until": "2026-11-21T00:00+05:30",
+  "asleep": true,
   "imprest": 18216,
   "wearing": "kurta",
   "wardrobe": [
@@ -4683,7 +4719,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "da76064e636983cf5ca88c35f64ae303efc9a27f6013a0a093cf3e864a4840e5",
+  "source_sha256": "8707ee1d5384a613ad060bb1dc6ae71fc0c0e74420d9f82ea86af9d4cfd7c995",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -7288,68 +7324,114 @@
     "text": "Nothing in particular happens. The evening goes on."
    },
    {
-    "id": "2026-11-20:event:2748ac6158f6774e:1",
+    "id": "2026-11-20:event:6e52f66a2a9a2384:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 37,
+     "sha256": "6e52f66a2a9a2384a7d6d9eb1d4a9ff7575fb1afc717cb2b9e2c5a9207e304c5"
+    },
+    "type": "action",
+    "action": "sleep",
+    "time": "21:00",
+    "end": "24:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-20:event:79799685d76bf6c1:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      37,
+      0
+     ],
+     "sha256": "79799685d76bf6c19d2d36fb3c0488f53431228a6e0651bfda6126827ce67117"
+    },
+    "type": "observation",
+    "time": "21:00",
+    "place": "home",
+    "text": "Weather: 19 °C, a brown haze. Air quality index: 302."
+   },
+   {
+    "id": "2026-11-20:event:4346d60c7ea0b928:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      37,
+      1
+     ],
+     "sha256": "4346d60c7ea0b928d548362b7b4aab5c4b1e2d7ec7b66a89d032c4612c537e3c"
+    },
+    "type": "observation",
+    "time": "21:00",
+    "place": "home",
+    "text": "Nothing in particular happens. The night goes on."
+   },
+   {
+    "id": "2026-11-20:event:175ed6040c8b1594:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "2748ac6158f6774e776fea53f47108d5fdf3e90983b21e752fccbf2094eb8f3c"
+     "sha256": "175ed6040c8b15948f1866d9deb961575737ecab5fdbb1c1a53cee968fa5afaf"
     },
     "type": "cash",
-    "time": "21:00",
+    "time": "00:00",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:1afdb1ddfc8e7208:1",
+    "id": "2026-11-20:event:87c57ec1b2b9eff6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "1afdb1ddfc8e7208fdae9fb9ede17152736ee4bd663f7de1bdb72313eca259b0"
+     "sha256": "87c57ec1b2b9eff67495b9b3352407d5b54b6832274a1f644e93b449b077f9a4"
     },
     "type": "location",
-    "time": "21:00",
+    "time": "00:00",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:ffa3143c999ab997:1",
+    "id": "2026-11-20:event:5363b05a301005a2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "ffa3143c999ab997bc652785c508fe00b8dd02aa223e787602a6cdaf72e259dd"
+     "sha256": "5363b05a301005a27fca6033c26dd739ef4010175634a0148c42d8478f338adb"
     },
     "type": "inventory",
-    "time": "21:00",
+    "time": "00:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-20:event:ced11ceb6ffedd16:1",
+    "id": "2026-11-20:event:b6776ebf85de2636:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "ced11ceb6ffedd16b6c1e29a488e299b67b14f4d419a8a6d13c4b762cbce18ae"
+     "sha256": "b6776ebf85de263610dc3306b5ae289bfa76699cecb6424e1d28f3180eade6dd"
     },
     "type": "inventory",
-    "time": "21:00",
+    "time": "00:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:fbefa80f2cac74c5:1",
+    "id": "2026-11-20:event:682552085425c9df:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "fbefa80f2cac74c574060072ab7ba95e1432d0838c511097d0d7b8acbd940752"
+     "sha256": "682552085425c9dffb04fd9ee0a2aef437d303d78b946ac1cb1bde59930da50d"
     },
     "type": "inventory",
-    "time": "21:00",
+    "time": "00:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -7368,7 +7450,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "21:00",
+    "time": "00:00",
     "place": null
    }
   ]
