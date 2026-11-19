@@ -487,6 +487,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "15:19",
+   "to": "15:34",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -1063,6 +1070,37 @@
    "to": "Hegel",
    "text": "I am the Programme Officer, sir, though I suspect you already knew that. I’ve had your request forwarded to my desk since this morning, so let’s skip the small talk and get straight to the Tuesday agenda.",
    "t": "15:09",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "She cuts to the chase, which I respect; the bureaucracy here has a certain efficient sharpness that belies the sluggishness I expected. I sit, ready to articulate the structure of the talk, though the air in this room feels thinner than the open heat outside.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§140"
+    }
+   ],
+   "t": "15:19",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "Indeed. I have prepared a sketch of the talk, focusing on the dialectic of world history. I trust the room will be arranged for a standing audience, or at least a clear line of sight to the podium, as the argument moves from the abstract to the concrete.",
+   "to": "the guard at the library and the programme officer",
+   "t": "15:19",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Sir, I just watch the door, I don't hold the files. You need to talk to the Programme Officer about the Tuesday details, not me. The haze is thick today, maybe wait for the AC to kick in…",
+   "t": "15:19",
    "place": "iic"
   }
  ],
@@ -2228,6 +2266,72 @@
      "text": "\"With those whom they have reason to fear, they are humble enough;.for which they avenge themselves on their dependents. \" I do not know an honest man among them,\" says an English authority. Children have no respect for their parents: sons maltreat their mothers. It would lead us too far to give a detailed notice of Hindoo Art and Science."
     }
    ]
+  },
+  {
+   "t": "15:19",
+   "end": "15:34",
+   "event": "The programme officer says: “I am the Programme Officer, sir, though I suspect you already knew that. I’ve had your request forwarded to my desk since this morning, so let’s skip the small talk and get straight to the Tuesday agenda.” She gestures for him to sit down in the adjacent armchair while she opens her laptop.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "She cuts to the chase, which I respect; the bureaucracy here has a certain efficient sharpness that belies the sluggishness I expected. I sit, ready to articulate the structure of the talk, though the air in this room feels thinner than the open heat outside.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 15,
+    "says": "Indeed. I have prepared a sketch of the talk, focusing on the dialectic of world history. I trust the room will be arranged for a standing audience, or at least a clear line of sight to the podium, as the argument moves from the abstract to the concrete.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 287."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Sir, I just watch the door, I don't hold the files. You need to talk to the Programme Officer about the Tuesday details, not me. The haze is thick today, maybe wait for the AC to kick in…",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "id": "haldane-1:832"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§140",
+     "id": "dyde-right:345"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "text": "Socrates explains this in the following way: “It appears to me to be as if some one were to say that Socrates performs all his actions with understanding, and then in going on to give the reasons for each of my actions, were to say that I sit here because my body consists of bones and muscles; the bones are fixed and have joints that divide them (διαφυὰς)…"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§140",
+     "text": "This degradation of philosophy appears, indeed, to outsiders as of supremely small importance, and to be confined merely to the idle talk of the school. But the view necessarily makes its way into ethics, which is an essential part of philosophy. The real world sees the meaning of these views only when they have become a reality."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2250,7 +2354,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-20T15:19+05:30",
+  "until": "2026-11-20T15:34+05:30",
   "asleep": false,
   "imprest": 18216,
   "wearing": "bandhgala",
@@ -2746,7 +2850,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "7db3f7f3914d6d24381017d4b2250307a50431d709d5ca6c22fcf040d7346e1d",
+  "source_sha256": "df450a94620029a7bc2549989eeb6639c12038ee0541f3d3cb3138b4d21847d8",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3259,6 +3363,36 @@
     "words": "I am the Programme Officer, sir, though I suspect you already knew that. I’ve had your request forwarded to my desk since this morning, so let’s skip the small talk and get straight to the Tuesday agenda.",
     "verified": false,
     "time": "15:09",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:cd8e783c03b0b310:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 52,
+     "sha256": "cd8e783c03b0b310eea7a5329069e65353f86ebb5a4475f6ce53a88c372904d5"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "Indeed. I have prepared a sketch of the talk, focusing on the dialectic of world history. I trust the room will be arranged for a standing audience, or at least a clear line of sight to the podium, as the argument moves from the abstract to the concrete.",
+    "verified": false,
+    "time": "15:19",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:7d4c30d086e7e814:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 53,
+     "sha256": "7d4c30d086e7e8149d56e8531749c0e7361344ec257d2980a9dd887d77b86dee"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Sir, I just watch the door, I don't hold the files. You need to talk to the Programme Officer about the Tuesday details, not me. The haze is thick today, maybe wait for the AC to kick in…",
+    "verified": false,
+    "time": "15:19",
     "place": "iic"
    },
    {
@@ -4173,68 +4307,98 @@
     "text": "Weather: 24 °C, a brown haze. Air quality index: 287."
    },
    {
-    "id": "2026-11-20:event:045b9061c188c371:1",
+    "id": "2026-11-20:event:d021916c3485f66d:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 18,
+     "sha256": "d021916c3485f66d5e9a8746c87e07e44d9ad5dd0f5341485176da12b4c3dfd6"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "15:19",
+    "end": "15:34",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:event:f2522835df693ec3:7",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      18,
+      0
+     ],
+     "sha256": "f2522835df693ec3c8c8111e201308c7e786cfad2ca9902aaebe855b23b9c55e"
+    },
+    "type": "observation",
+    "time": "15:19",
+    "place": "iic",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 287."
+   },
+   {
+    "id": "2026-11-20:event:22cf87b155f204ca:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "045b9061c188c371624180d0d58aac6028553bdeb05bbffaa527e4331ddb9c14"
+     "sha256": "22cf87b155f204ca5fb5f3420251b147d2802425604c9a0089df0065b8ec7971"
     },
     "type": "cash",
-    "time": "15:19",
+    "time": "15:34",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:29fb3df2c1e3b3c7:1",
+    "id": "2026-11-20:event:003ec85f39a0325d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "29fb3df2c1e3b3c738648dc5520ad6321f555ae23e790ce59940c76a0607f0b0"
+     "sha256": "003ec85f39a0325d9cda9a5c851c18c79ae43b934ca7eff9193ba1d8c3ac01c6"
     },
     "type": "location",
-    "time": "15:19",
+    "time": "15:34",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:810cc4b973da6efa:1",
+    "id": "2026-11-20:event:f2e0a86e21fa174d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "810cc4b973da6efa13a93a239d034bc7f98ae190bbc317148d8ef6e2655dfff7"
+     "sha256": "f2e0a86e21fa174d829c40c4d2f565414b342f8c7757bd0f37f0393eed3daafd"
     },
     "type": "inventory",
-    "time": "15:19",
+    "time": "15:34",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-20:event:96cb1dcda8866c0b:1",
+    "id": "2026-11-20:event:7aae733852930d3d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "96cb1dcda8866c0bd81d1753e1bb8c1aa0df7483064137c54e85d0a84614a3ce"
+     "sha256": "7aae733852930d3d910963b73231343f759972089085f30c89c1da2caa1b4809"
     },
     "type": "inventory",
-    "time": "15:19",
+    "time": "15:34",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:cd137adb2351fdc2:1",
+    "id": "2026-11-20:event:3a56b522e30ea13b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "cd137adb2351fdc20c0b81a3e4008d8de0c1dd2878b376e42c40a52c3a38dd81"
+     "sha256": "3a56b522e30ea13b8be1678f6c8a4127469eae5a351c070bb408005b0de97549"
     },
     "type": "inventory",
-    "time": "15:19",
+    "time": "15:34",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -4253,7 +4417,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "15:19",
+    "time": "15:34",
     "place": null
    }
   ]
