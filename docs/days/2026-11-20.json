@@ -452,6 +452,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "14:19",
+   "to": "14:34",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -887,6 +894,45 @@
    "price": 20,
    "charge_id": "charge:6",
    "t": "14:09",
+   "place": "khan"
+  },
+  {
+   "k": "diary",
+   "text": "The body insists again, and the samosa was a mere pause, not a meal. I am too thin to sustain this much walking and thinking; I must eat properly before the heat of the afternoon takes hold. Sunil has the dhaba food, and I have the cash to pay for it.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§243"
+    }
+   ],
+   "t": "14:19",
+   "place": "khan"
+  },
+  {
+   "k": "said",
+   "text": "Sunil, I will have the lunch. Dal, rice, and roti. Bring it to me here, please.",
+   "to": "Masterji and Sunil",
+   "t": "14:19",
+   "place": "khan"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Done, Masterji, dal-rice-roti at the dhaba, that's ₹220. I'll get it to you here in ten minutes, don't sit too long in this haze.",
+   "t": "14:19",
+   "place": "khan"
+  },
+  {
+   "k": "bag",
+   "item": "Lunch at a dhaba: dal, rice, roti",
+   "price": 220,
+   "charge_id": "charge:7",
+   "t": "14:19",
    "place": "khan"
   }
  ],
@@ -1723,6 +1769,79 @@
      "text": "Only when, as in Europe, the direct increase of agriculturists is checked, •will the inhabitants, instead of pressing outwards to occupy the fields, press inwards upon each other, — pursuing town occupations, and trading with their fellow citizens; and so form a compact system of civil society, and require an organized state."
     }
    ]
+  },
+  {
+   "t": "14:19",
+   "end": "14:34",
+   "event": "You are hungry.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The body insists again, and the samosa was a mere pause, not a meal. I am too thin to sustain this much walking and thinking; I must eat properly before the heat of the afternoon takes hold. Sunil has the dhaba food, and I have the cash to pay for it.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 15,
+    "says": "Sunil, I will have the lunch. Dal, rice, and roti. Bring it to me here, please.",
+    "buys": [
+     {
+      "item": "Lunch at a dhaba: dal, rice, roti",
+      "price_inr": 220
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 287.",
+    "You are hungry."
+   ],
+   "observed_at": "khan",
+   "opened": [
+    "hunger"
+   ],
+   "voice": {
+    "by": "Sunil",
+    "says": "Done, Masterji, dal-rice-roti at the dhaba, that's ₹220. I'll get it to you here in ten minutes, don't sit too long in this haze.",
+    "does": "He scribbles the order on a scrap of paper and tucks it into his kurta pocket."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "id": "haldane-3:1108"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§243",
+     "id": "rechts:514"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "text": "There is no man so foolish as that philosophy; when a man feels hungry, he does not call up the imagination of food, but sets about satisfying his hunger. All activity is a conception which does not yet exist, but whose subjectivity is abrogated."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§243",
+     "text": ""
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1745,9 +1864,9 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-20T14:19+05:30",
+  "until": "2026-11-20T14:34+05:30",
   "asleep": false,
-  "imprest": 18436,
+  "imprest": 18216,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1845,7 +1964,8 @@
    },
    "walked": 5925,
    "strain": 5925,
-   "lunch": true
+   "lunch": true,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
@@ -1869,6 +1989,13 @@
      "t": "14:09",
      "item": "Chai, a cup",
      "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-20",
+     "t": "14:19",
+     "item": "Lunch at a dhaba: dal, rice, roti",
+     "price": 220,
      "office": false
     }
    ],
@@ -2104,8 +2231,8 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-19T20:09+05:30",
-  "snacks": 1,
+  "last_meal": "2026-11-20T14:19+05:30",
+  "snacks": 0,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
@@ -2190,9 +2317,10 @@
    "charge:1",
    "charge:4",
    "charge:5",
-   "charge:6"
+   "charge:6",
+   "charge:7"
   ],
-  "charge_seq": 6,
+  "charge_seq": 7,
   "street": {
    "home_vegetable_cart": "2026-11-20",
    "estates_bench": "2026-11-20",
@@ -2228,7 +2356,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "f792c0d2db9e0870b939450e1a3010bdaac815201b3141839bd745a40036b8e2",
+  "source_sha256": "18e7e7f9c8b2234f4b3e29245b5b114c100addcb3b8e6b93542842199c55f9c6",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2617,6 +2745,55 @@
     "creditor": null,
     "payer": null,
     "time": "14:09",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-20:statement:f607bc06346555ad:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 39,
+     "sha256": "f607bc06346555add6f8f133f889b8cba1093bb94e31726bedf2dbf9a61826be"
+    },
+    "speaker": "Hegel",
+    "recipient": "Masterji and Sunil",
+    "words": "Sunil, I will have the lunch. Dal, rice, and roti. Bring it to me here, please.",
+    "verified": false,
+    "time": "14:19",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-20:statement:3db24993bcfe17fe:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 40,
+     "sha256": "3db24993bcfe17fe8a7998663a46859b4b5f99922baf34373ef8cca40385a331"
+    },
+    "speaker": "Sunil",
+    "recipient": "Hegel",
+    "words": "Done, Masterji, dal-rice-roti at the dhaba, that's ₹220. I'll get it to you here in ten minutes, don't sit too long in this haze.",
+    "verified": false,
+    "time": "14:19",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-20:payment:95f8f31654912c81:1",
+    "kind": "payment",
+    "source": {
+     "collection": "entries",
+     "index": 41,
+     "sha256": "95f8f31654912c8149e529ef7172227d613342ee0914178c88b00895c986c050"
+    },
+    "canonical_id": "charge:7",
+    "item": "Lunch at a dhaba: dal, rice, roti",
+    "amount": 220,
+    "direction": "out",
+    "settled": true,
+    "medium": "cash",
+    "creditor": null,
+    "payer": null,
+    "time": "14:19",
     "place": "khan"
    },
    {
@@ -3331,68 +3508,114 @@
     "text": "Weather: 24 °C, a brown haze. Air quality index: 287."
    },
    {
-    "id": "2026-11-20:event:3965d5d05cf46d97:1",
+    "id": "2026-11-20:event:34bdfb7d4529ac99:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 13,
+     "sha256": "34bdfb7d4529ac990c04cad9a1947dea6d744822232d9930a020de7b88d7ecc7"
+    },
+    "type": "action",
+    "action": "buy",
+    "time": "14:19",
+    "end": "14:34",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-20:event:f2522835df693ec3:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      13,
+      0
+     ],
+     "sha256": "f2522835df693ec3c8c8111e201308c7e786cfad2ca9902aaebe855b23b9c55e"
+    },
+    "type": "observation",
+    "time": "14:19",
+    "place": "khan",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 287."
+   },
+   {
+    "id": "2026-11-20:event:db3ff12517f16edc:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      13,
+      1
+     ],
+     "sha256": "db3ff12517f16edc1aa01a8fc0ae5caeb6285a44e5c2c7e2f3ddc18e6acec5ed"
+    },
+    "type": "observation",
+    "time": "14:19",
+    "place": "khan",
+    "text": "You are hungry."
+   },
+   {
+    "id": "2026-11-20:event:a8a585a3db364c50:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "3965d5d05cf46d973c082f36ad73b77bcef09d3769f60cc3dd2ca5be746c55a0"
+     "sha256": "a8a585a3db364c50c7b40d0c5d083b52bfd495b9351ecfe902671ee685c08fff"
     },
     "type": "cash",
-    "time": "14:19",
-    "amount": 18436,
+    "time": "14:34",
+    "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:39793b40f181b225:1",
+    "id": "2026-11-20:event:598644461747afd3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "39793b40f181b225efface698417638f83a4ae367866fea0e3cbdfc8cba9e8b1"
+     "sha256": "598644461747afd373be884c56cfd4c96e0b5099659dcaf224aa46c1c027c058"
     },
     "type": "location",
-    "time": "14:19",
+    "time": "14:34",
     "place": "khan",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:ea2419e8999843ed:1",
+    "id": "2026-11-20:event:52dc26a07e944563:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "ea2419e8999843edce3667ac9cc302263ebcf5abb9fc4a507e59d3d1ff178cd2"
+     "sha256": "52dc26a07e9445639e3c924c0f70bd744696cce772da6f29afaac053c48185d2"
     },
     "type": "inventory",
-    "time": "14:19",
+    "time": "14:34",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-20:event:6805f7829b60da8d:1",
+    "id": "2026-11-20:event:0825ac531a731cde:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "6805f7829b60da8ddf8d1d625f42afa13aee07327b77090adfc8af2dd09df969"
+     "sha256": "0825ac531a731cde049f1c34994a8e823c3f48866f55175ff3a45841493a30ff"
     },
     "type": "inventory",
-    "time": "14:19",
+    "time": "14:34",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 10:30.\"}]"
    },
    {
-    "id": "2026-11-20:event:cb285ee25181e3e6:1",
+    "id": "2026-11-20:event:b1ed222b3b5d03da:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "cb285ee25181e3e68e12153f1af2ff1cc242da35b113f98555404aae815c428b"
+     "sha256": "b1ed222b3b5d03da698de7ee94cb95aa8b32eba2a3e72b70b0dd569b31a18119"
     },
     "type": "inventory",
-    "time": "14:19",
+    "time": "14:34",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3411,7 +3634,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "14:19",
+    "time": "14:34",
     "place": null
    }
   ]
