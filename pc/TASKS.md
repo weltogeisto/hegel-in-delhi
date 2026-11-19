@@ -94,7 +94,7 @@ One change goes on at a time, each after the previous one's first full day (`DEC
 | 50 | main merged into shadow and checked with main's `docs/`; **the street, `HEGEL_STREET=1` (W6), moved ahead by Welt on 18 November (`DECISIONS.md` 51)**; Ramesh's way back, `HEGEL_RAMESH_DAYS=1`; the filter's draws kept, `HEGEL_KEEP_DRAWS=1` (`DECISIONS.md` 54; nothing he is told changes) | the street: the health row and the cards drawn. Ramesh doesn't come on Fridays, so his offer can come on Day 51 at the earliest |
 | 51 | the shelf labels, `HEGEL_SHELF_ADDITIONS=1`; the world repairs, `HEGEL_WORLD_REPAIRS=1` (`DECISIONS.md` 57: the plate, snacks, eating away from home, an answer from someone gone, the wardrobe) | the shelf labels; Ramesh's offer may come in the morning; no "eat" away from home without food bought, one garment worn at a time, and "has gone" only after a closing hour |
 | 52 | the museums, concerts and plays, `HEGEL_CULTURE=1` | the venues |
-| 53 at the earliest, **only on Welt's yes** to `pc/FILE-NEXT-ACT-SHEET.md` | the file's next act, part 1, `HEGEL_FILE_ACT=1`: three doors after the query, and Shri Hegde's letter on an evening from his 21 November | which doors opened, his yes or no at each, the file's line |
+| 53 at the earliest, after the museums' first full day. **Welt's yes of 19 November** (`DECISIONS.md` 59) | the file's next act, part 1, `HEGEL_FILE_ACT=1`: three doors after the query, and Shri Hegde's letter on an evening from his 21 November | which doors opened, his yes or no at each, the file's line |
 
 If a day loses its mind for more than an hour, the next switch waits a day. The PC seat posts each switch on PR #1 with the time it went on.
 
