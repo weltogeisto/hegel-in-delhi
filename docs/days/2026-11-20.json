@@ -529,6 +529,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "16:39",
+   "to": "16:54",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -1291,6 +1298,37 @@
    "to": "Hegel",
    "text": "Haan, sir. I'll tell the officer to give it a good test run. Maps of the Indus, is it? Sure, we'll keep the machine ready.",
    "t": "16:29",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s casual dismissal of the Indus as a mere map item strikes me as a trivialization of the sacred and the geographical. Yet, in this place, the river is just another line on a chart, not the sanctity I described in my lectures. I must observe how the practical world absorbs the spiritual.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Indien, Staats- und Kastenwesen"
+    }
+   ],
+   "t": "16:39",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "It is not merely a map, sir. The Indus is the boundary of the world, the source of the Ganges' name. But I see you treat it as a file. Very well. I will take a seat.",
+   "to": "the guard at the library and the programme officer",
+   "t": "16:39",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Sir, it's just a projector, not a philosophy exam. Please, take a seat while the officer finishes the check.",
+   "t": "16:39",
    "place": "iic"
   }
  ],
@@ -2852,6 +2890,72 @@
      "text": "After having for some years led an unsettled life, he returned in about the six and thirtieth year of his age to Athens, to the very centre of all Philosophy; and there, some time after, he bought for himself a garden, where he lived and taught in the midst of his friends."
     }
    ]
+  },
+  {
+   "t": "16:39",
+   "end": "16:54",
+   "event": "The guard at the library says: “Haan, sir. I'll tell the officer to give it a good test run. Maps of the Indus, is it? Sure, we'll keep the machine ready.” He taps the clipboard against his palm and nods towards the officer.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s casual dismissal of the Indus as a mere map item strikes me as a trivialization of the sacred and the geographical. Yet, in this place, the river is just another line on a chart, not the sanctity I described in my lectures. I must observe how the practical world absorbs the spiritual.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 15,
+    "says": "It is not merely a map, sir. The Indus is the boundary of the world, the source of the Ganges' name. But I see you treat it as a file. Very well. I will take a seat.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 287."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Sir, it's just a projector, not a philosophy exam. Please, take a seat while the officer finishes the check.",
+    "does": "He gestures vaguely towards the empty chairs in the semicircle."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.5,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:462"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Indien, Staats- und Kastenwesen",
+     "id": "welt-2:248"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "The Kingdom of Bengal is especially nourishing. The Nerbuddah forms the boundary between the Deccan and Hindostan. The peninsula of the Deccan presents a far greater variety than Hindostan, and its rivers possess almost as great a sanctity as the Indus and the Ganges, — which latter has become a general name for all the rivers in India, as the River KO.T i^oyjiv."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Indien, Staats- und Kastenwesen",
+     "text": "Die Halbinsel Dekan bietet eine weit größere Mannigfaltigkeit als Hindostan dar; Gebirge durchschneiden, fruchtbare Ströme durchfließen es, und ihre Flüsse haben fast eine ebenso große Heiligkeit als der Indus und der Ganges, der ein ganz allgemeiner Name für alle Flüsse in Indien geworden ist, als der Fluß xar’ &&oynr."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2874,7 +2978,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-20T16:39+05:30",
+  "until": "2026-11-20T16:54+05:30",
   "asleep": false,
   "imprest": 18216,
   "wearing": "bandhgala",
@@ -3370,7 +3474,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "88c4088111c6cbd4b9f687bbc896efb34689ea74db66bd7959c6e8c6ab3b95ad",
+  "source_sha256": "3abc0174fa08e8fb9562848e82e34bc8bf8739734354b7ca414a1393ff1e8206",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4063,6 +4167,36 @@
     "words": "Haan, sir. I'll tell the officer to give it a good test run. Maps of the Indus, is it? Sure, we'll keep the machine ready.",
     "verified": false,
     "time": "16:29",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:b1d87c35b869b1b4:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 70,
+     "sha256": "b1d87c35b869b1b469f71c1e7de448466c2e9202758e9f8c2897cedae205f690"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "It is not merely a map, sir. The Indus is the boundary of the world, the source of the Ganges' name. But I see you treat it as a file. Very well. I will take a seat.",
+    "verified": false,
+    "time": "16:39",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:e8dd87715dd6a41e:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 71,
+     "sha256": "e8dd87715dd6a41efbf73470c1b623a80fd9d568e81c5fee889c68f116e8e7c1"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Sir, it's just a projector, not a philosophy exam. Please, take a seat while the officer finishes the check.",
+    "verified": false,
+    "time": "16:39",
     "place": "iic"
    },
    {
@@ -5157,68 +5291,98 @@
     "text": "Weather: 23 °C, a brown haze. Air quality index: 287."
    },
    {
-    "id": "2026-11-20:event:cdf50b190abdc652:1",
+    "id": "2026-11-20:event:8ea9541fd19e2800:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 24,
+     "sha256": "8ea9541fd19e2800ce32c66af093aa259facaff5eefcc598be4cfce56704a0f0"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "16:39",
+    "end": "16:54",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:event:e484da80e4800924:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      24,
+      0
+     ],
+     "sha256": "e484da80e480092499a214966f247074306bba929910534153af8b431e999a8d"
+    },
+    "type": "observation",
+    "time": "16:39",
+    "place": "iic",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 287."
+   },
+   {
+    "id": "2026-11-20:event:601655946e74366f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "cdf50b190abdc652d511fb1cde913e6eb74b1d5e65f75ddee8410dcd7de1719e"
+     "sha256": "601655946e74366fbc8f0e31f2d66cf83f9fa8456ec00156f0c7908ecb1e1611"
     },
     "type": "cash",
-    "time": "16:39",
+    "time": "16:54",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:a5ea5795e2d393eb:1",
+    "id": "2026-11-20:event:0a248c6b1878b93f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "a5ea5795e2d393eb1d4bdf85d79b52e1d98b783a0a231663cfb1417c5300ec5f"
+     "sha256": "0a248c6b1878b93fc421dd7646096aa96428e5617d512b6add7d123213af7821"
     },
     "type": "location",
-    "time": "16:39",
+    "time": "16:54",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:7c2d6edbaf807f80:1",
+    "id": "2026-11-20:event:08eb3457dc8a6ce5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "7c2d6edbaf807f80cd3d1ba746b262dc88b7f1e1bc67a0db4f0c46a5bb7f3390"
+     "sha256": "08eb3457dc8a6ce52b1adfa28a85deee35ac9fbfa3dc5a2578e42b0b0257c206"
     },
     "type": "inventory",
-    "time": "16:39",
+    "time": "16:54",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-20:event:a2e03641d49196ad:1",
+    "id": "2026-11-20:event:63f1199b451fc603:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "a2e03641d49196adab8ce693cbed51619454c052aa9f60ed4b0c021d579d2362"
+     "sha256": "63f1199b451fc603aae35a110af9907e034e8fbded944aeb77509ebec01b991c"
     },
     "type": "inventory",
-    "time": "16:39",
+    "time": "16:54",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:0386f997fbd36635:1",
+    "id": "2026-11-20:event:2adb4e17d5ece054:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "0386f997fbd3663596310bdefd62e79d0d787e0de43cda4b7fd381a32a487943"
+     "sha256": "2adb4e17d5ece054cde8b4fe3b009433e4f9f6b2d78f2d4cc10e3aed30dbf8b1"
     },
     "type": "inventory",
-    "time": "16:39",
+    "time": "16:54",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -5237,7 +5401,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "16:39",
+    "time": "16:54",
     "place": null
    }
   ]
