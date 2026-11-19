@@ -550,6 +550,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Resting at the IIC."
+  },
+  {
+   "from": "17:29",
+   "to": "17:44",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -1390,6 +1397,43 @@
     }
    ],
    "t": "17:09",
+   "place": "iic"
+  },
+  {
+   "k": "world",
+   "text": "On the board by the entrance, typed notices curl at their corners under coloured pins, and last month's programme still shows through this month's.",
+   "t": "17:29",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The board is a palimpsest of bureaucratic time, last month's programmes bleeding through the current ones. It is a fitting image for the confusion of my own identity here: Shri Hegde and Hegel layered one over the other, neither quite distinct. The Programme Officer is present; I must speak to him before I can proceed to my lecture preparation.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Conscience: the Beautiful Soul"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China"
+    }
+   ],
+   "t": "17:29",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "Sir, I am here for the session at 18:30. Could you please direct me to the room or the specific arrangements for the evening?",
+   "to": "the guard at the library and the programme officer",
+   "t": "17:29",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Sir, the 18:30 slot is in the small seminar room on the first floor, right past the main reading hall. The officer will show you the exact door in a few minutes, so just stay here until he’s done with his checks.",
+   "t": "17:29",
    "place": "iic"
   }
  ],
@@ -3144,6 +3188,73 @@
      "text": "Dies ist der Standpunkt, der die Bildung als immanentes Moment des Absoluten, und ihren unendlichen Wert erweist. Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse."
     }
    ]
+  },
+  {
+   "t": "17:29",
+   "end": "17:44",
+   "event": "On the board by the entrance, typed notices curl at their corners under coloured pins, and last month's programme still shows through this month's.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The board is a palimpsest of bureaucratic time, last month's programmes bleeding through the current ones. It is a fitting image for the confusion of my own identity here: Shri Hegde and Hegel layered one over the other, neither quite distinct. The Programme Officer is present; I must speak to him before I can proceed to my lecture preparation.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 15,
+    "says": "Sir, I am here for the session at 18:30. Could you please direct me to the room or the specific arrangements for the evening?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 21 °C, a brown haze. Air quality index: 289.",
+    "On the board by the entrance, typed notices curl at their corners under coloured pins, and last month's programme still shows through this month's."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "street:iic_noticeboard"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Sir, the 18:30 slot is in the small seminar room on the first floor, right past the main reading hall. The officer will show you the exact door in a few minutes, so just stay here until he’s done with his checks.",
+    "does": "He gestures vaguely towards the staircase while keeping an eye on the entrance."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 3,
+    "latency_s": 15.6,
+    "draws": {
+     "n": 3,
+     "refused": 1,
+     "echo": 1,
+     "picked": 2
+    }
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Conscience: the Beautiful Soul",
+     "id": "baillie-2:386"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "id": "sibree-history:376"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Conscience: the Beautiful Soul",
+     "text": "It is the outcome of the third sphere of the spiritual world, and may be shortly contrasted with the two former types of self. The totality or actuahty which is revealed as the final result of the ethical world, the world of the social order, is the self of a Person, ethical personality: its existence Kes in its being recognised and acknowledged."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "text": "WITH the Empire of China History has to begin, for it is the oldest, as far as history gives us any information; and its principle has such substantiality, that for the empire in question it is at once the oldest and the newest."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -3166,7 +3277,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-20T17:29+05:30",
+  "until": "2026-11-20T17:44+05:30",
   "asleep": false,
   "imprest": 18216,
   "wearing": "bandhgala",
@@ -3631,7 +3742,8 @@
    "home_vegetable_cart": "2026-11-20",
    "estates_bench": "2026-11-20",
    "home_walls": "2026-11-20",
-   "home_marigolds": "2026-11-20"
+   "home_marigolds": "2026-11-20",
+   "iic_noticeboard": "2026-11-20"
   }
  },
  "plan": {
@@ -3662,7 +3774,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "700d70504e8cddf12d7723be814efb50e584c65711bff3adbe368c11fb937db5",
+  "source_sha256": "6975433bff05ea237ccfe8c7cad6d01adbf278b79a2416db45348a2a8fc86f8c",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4415,6 +4527,49 @@
     "words": "You're welcome, sir. Take your time, the chai is still hot in the back if you need it.",
     "verified": false,
     "time": "16:54",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:event:5943f263cce047bb:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 76,
+     "sha256": "5943f263cce047bb963afad9a4e17607650055f5036dc291b4e94da8bdcc3ce6"
+    },
+    "type": "world",
+    "text": "On the board by the entrance, typed notices curl at their corners under coloured pins, and last month's programme still shows through this month's.",
+    "time": "17:29",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:74e4d7433eb23073:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 78,
+     "sha256": "74e4d7433eb23073144660910b24fc0f0eb443c951f0a8f28f4cbde8ecdc2b9b"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "Sir, I am here for the session at 18:30. Could you please direct me to the room or the specific arrangements for the evening?",
+    "verified": false,
+    "time": "17:29",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:e74ba2298ab1878b:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 79,
+     "sha256": "e74ba2298ab1878bb51f57704c134eaed316b96636a5f1bfd2cdb2eb9538c3c3"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Sir, the 18:30 slot is in the small seminar room on the first floor, right past the main reading hall. The officer will show you the exact door in a few minutes, so just stay here until he’s done with his checks.",
+    "verified": false,
+    "time": "17:29",
     "place": "iic"
    },
    {
@@ -5599,68 +5754,114 @@
     "text": "Weather: 21 °C, a brown haze. Air quality index: 289."
    },
    {
-    "id": "2026-11-20:event:2733220f72d8262b:1",
+    "id": "2026-11-20:event:a99511a8f21c1467:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 27,
+     "sha256": "a99511a8f21c146750ce0effca7baf1132d755c38d559c55322ebf13f210fdff"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "17:29",
+    "end": "17:44",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:event:46a4e67a55cf8fcc:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      27,
+      0
+     ],
+     "sha256": "46a4e67a55cf8fccc88ddda5ff59fd292663e93f19d62af41a686f73f23887c5"
+    },
+    "type": "observation",
+    "time": "17:29",
+    "place": "iic",
+    "text": "Weather: 21 °C, a brown haze. Air quality index: 289."
+   },
+   {
+    "id": "2026-11-20:event:e991e1931a71df6e:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      27,
+      1
+     ],
+     "sha256": "e991e1931a71df6ea7dfaac413cb56793bdf3660640d155e8d10e97624c096b1"
+    },
+    "type": "observation",
+    "time": "17:29",
+    "place": "iic",
+    "text": "On the board by the entrance, typed notices curl at their corners under coloured pins, and last month's programme still shows through this month's."
+   },
+   {
+    "id": "2026-11-20:event:b00e71a0f5a49cd4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "2733220f72d8262b62586207c2a5308d2b3d58943681fd4670e93f1578cb82fd"
+     "sha256": "b00e71a0f5a49cd4fcdd48c31db11e87aa4cdac61a25731a5fc0861176252f16"
     },
     "type": "cash",
-    "time": "17:29",
+    "time": "17:44",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:7ff60b9fcd289788:1",
+    "id": "2026-11-20:event:15b9ab8124b6da26:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "7ff60b9fcd289788a48fa8d839c2bfbe9da58768b7361fa7a51e56f46b7e3bec"
+     "sha256": "15b9ab8124b6da269cb1604277ca5896ca5066ca66367f196bb4a329bab70cad"
     },
     "type": "location",
-    "time": "17:29",
+    "time": "17:44",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:ed89524afd27072b:1",
+    "id": "2026-11-20:event:3a7cc241ef7e12fc:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "ed89524afd27072bd7cb5b9ff2970a75cbd0ea185c43f365ce388f225cee7b7b"
+     "sha256": "3a7cc241ef7e12fce81b4894ddb4ecb12ca695a52c955bbe0e78e0a66a654660"
     },
     "type": "inventory",
-    "time": "17:29",
+    "time": "17:44",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-20:event:814786791c9431f8:1",
+    "id": "2026-11-20:event:da1efb43d7337044:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "814786791c9431f83477750b352e03ae182a726e3852ea470ff612d87fbc3064"
+     "sha256": "da1efb43d7337044f58e1b2773ec89defc939d5e7441eac84610819adfa3b7fb"
     },
     "type": "inventory",
-    "time": "17:29",
+    "time": "17:44",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:2b2a4ce0af467271:1",
+    "id": "2026-11-20:event:805895e129321703:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "2b2a4ce0af46727127c11f09bf352a76044b42075f29488019c96d491340b1dd"
+     "sha256": "805895e1293217038049b900e2090f64b2b2043de9a83fe0d17f5141b2b75d97"
     },
     "type": "inventory",
-    "time": "17:29",
+    "time": "17:44",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -5679,7 +5880,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "17:29",
+    "time": "17:44",
     "place": null
    }
   ]
