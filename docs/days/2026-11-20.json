@@ -571,6 +571,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "At the IIC."
+  },
+  {
+   "from": "18:14",
+   "to": "18:29",
+   "mode": "inside",
+   "at": "iic",
+   "now": "At the IIC."
   }
  ],
  "entries": [
@@ -1510,6 +1517,37 @@
    "to": "Hegel",
    "text": "Arre, koi baat nahi sir. Bas thoda dheere se, yeh kitabein purani hain.",
    "t": "17:59",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s caution is a small, human respect for the material form of thought. I must not let the haste of the hour crush the quiet of the library, where the spirit dwells in its most concentrated shape. I will adjust my pace to match the gravity of the place.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    }
+   ],
+   "t": "18:14",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "Ji, thank you. I will be careful.",
+   "to": "the guard at the library and the programme officer",
+   "t": "18:14",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Theek hai sir, aap chalta hain. Koi baat nahi.",
+   "t": "18:14",
    "place": "iic"
   }
  ],
@@ -3463,6 +3501,72 @@
      "text": "There were then no places of learning, no books from which men could be taught, for to the ancients, as Plato says, “the chief part of culture” (ραιδείας) “consisted in being skilled” (δεινόν) “in poetry,” just as with us fifty years ago the principal instruction of the people consisted of Bible History and Biblical precepts."
     }
    ]
+  },
+  {
+   "t": "18:14",
+   "end": "18:29",
+   "event": "The guard at the library says: “Arre, koi baat nahi sir. Bas thoda dheere se, yeh kitabein purani hain.” The guard nods once and turns back to watch the entrance.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s caution is a small, human respect for the material form of thought. I must not let the haste of the hour crush the quiet of the library, where the spirit dwells in its most concentrated shape. I will adjust my pace to match the gravity of the place.",
+    "action": "stay",
+    "place": "iic",
+    "minutes": 15,
+    "says": "Ji, thank you. I will be careful.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 292."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Theek hai sir, aap chalta hain. Koi baat nahi.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 10.5,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "id": "sibree-history:408"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:457"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "text": "Functionaries are appointed to superintend the roads, the rivers, and the coasts. Everything is arranged with the greatest minuteness. In particular, great attention is paid to the rivers; in the Shu-King are to be found many edicts of the Emperor, designed to secure the land from inundations. The gates of every town are guarded by a watch, and the streets are barred all night."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "The spread of Indian culture is pre-historical, for History is limited to that which makes an essential epoch in the development of Spirit. On the whole, the diffusion of Indian culture is only a dumb, deedless expansion; that is, it presents no political action."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -3485,7 +3589,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-20T18:14+05:30",
+  "until": "2026-11-20T18:29+05:30",
   "asleep": false,
   "imprest": 18216,
   "wearing": "bandhgala",
@@ -3982,7 +4086,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "3f013f7f11392a54125c9b90211a1db20199cb48f416ee8ab0062dc4f3946082",
+  "source_sha256": "bd17eaccc214920367d63b0aeac3c04c84cead7a8051f841dd971762ccfc57d2",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4838,6 +4942,36 @@
     "words": "Arre, koi baat nahi sir. Bas thoda dheere se, yeh kitabein purani hain.",
     "verified": false,
     "time": "17:59",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:455ab59f6c787eee:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 87,
+     "sha256": "455ab59f6c787eee9f739674b70f5229345970d59691e22d7a08eef43ac9ab1e"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "Ji, thank you. I will be careful.",
+    "verified": false,
+    "time": "18:14",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:7453290452d9fb85:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 88,
+     "sha256": "7453290452d9fb853ef3d644a4acaf9b66184b761b93552137e0c38f2c62203b"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Theek hai sir, aap chalta hain. Koi baat nahi.",
+    "verified": false,
+    "time": "18:14",
     "place": "iic"
    },
    {
@@ -6128,68 +6262,98 @@
     "text": "Weather: 21 °C, a brown haze. Air quality index: 289."
    },
    {
-    "id": "2026-11-20:event:8ca9cf2545e86ae6:1",
+    "id": "2026-11-20:event:bbb3db9d5a8ce7c3:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 30,
+     "sha256": "bbb3db9d5a8ce7c3285b656a7b60a9cd817a7d81d4495895dbf5a30267b73f0d"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "18:14",
+    "end": "18:29",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:event:062dbf154bf95265:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      30,
+      0
+     ],
+     "sha256": "062dbf154bf95265d4ba29f0f201dc9593e22f320db5e76bcebc9f084c8dccce"
+    },
+    "type": "observation",
+    "time": "18:14",
+    "place": "iic",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 292."
+   },
+   {
+    "id": "2026-11-20:event:2dc6326eec278f93:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "8ca9cf2545e86ae6effe4731c708f0dfc58dfc795b69d63b0a5a269093a9c34a"
+     "sha256": "2dc6326eec278f93461aa65f665502492778e25080f7170a616da6f62fe23dd2"
     },
     "type": "cash",
-    "time": "18:14",
+    "time": "18:29",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:d2aa69af46007024:1",
+    "id": "2026-11-20:event:9d3a44b721e4b0da:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "d2aa69af46007024de29ad1b49f00d41f64eb4838dc2a9d97aedcff8079003e4"
+     "sha256": "9d3a44b721e4b0dae367631a1914cc10b5b8734d7d3723cb8b078a1320272e18"
     },
     "type": "location",
-    "time": "18:14",
+    "time": "18:29",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:63444fd4c78e4145:1",
+    "id": "2026-11-20:event:700e22b7c0232c25:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "63444fd4c78e41450f20fb8baa719567229e4f4ee08ca8e0156ba24e310e2144"
+     "sha256": "700e22b7c0232c2531b952ac2b32e0855a799410b8fb66f61c3f549966f22d66"
     },
     "type": "inventory",
-    "time": "18:14",
+    "time": "18:29",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-20:event:fcaca0c2fc2d1046:1",
+    "id": "2026-11-20:event:415224612a720d1b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "fcaca0c2fc2d104679b44177fbe4a9f9a511f24327f90b8d5b85a15a8a331152"
+     "sha256": "415224612a720d1b43fb2fda9712923e685392f3b8b78462a52b34e8e55b9c97"
     },
     "type": "inventory",
-    "time": "18:14",
+    "time": "18:29",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:11780c2977f0de00:1",
+    "id": "2026-11-20:event:1d8f1fd987e077c2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "11780c2977f0de002614c2a8b1b94e607753d8fa2d22583f40430d004ea17d86"
+     "sha256": "1d8f1fd987e077c2f47552255533bdfe5ff38b2e74fd836f84c5ba64c011eba0"
     },
     "type": "inventory",
-    "time": "18:14",
+    "time": "18:29",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -6208,7 +6372,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "18:14",
+    "time": "18:29",
     "place": null
    }
   ]
