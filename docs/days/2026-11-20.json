@@ -410,6 +410,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "11:46",
+   "to": "12:12",
+   "mode": "walk",
+   "a": "estates",
+   "b": "home"
   }
  ],
  "entries": [
@@ -667,6 +674,45 @@
    "to": "Hegel",
    "text": "You prove it by bringing the correct documents, sir, not by asking philosophical questions. The file is with orders, so there is nothing I can do until they send it back.",
    "t": "11:31",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "Mr. Saxena is right in the immediate sense: I cannot conjure the documents from thin air, and the system waits on its own internal clock. But his dismissal of the question as merely 'philosophical' misses the point; the confusion between Hegel and Hegde is not a clerical error but a structural one, where the universal label overrides the particular individual. I must wait for the file to return, but I cannot let the bureaucracy absorb my time entirely. I will return to my bungalow to rest and work on the letter to Dr. Lindner, as planned, while the file sits in limbo.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§219"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates"
+    }
+   ],
+   "t": "11:46",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "Very well, sir. I shall await the file’s return. Thank you for your time.",
+   "to": "Mr. Saxena",
+   "t": "11:46",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Do not wait here, sir. The corridor is crowded and I have three phones ringing. Go home, and when the file comes back, you will know.",
+   "t": "11:46",
+   "place": "estates"
+  },
+  {
+   "k": "wear",
+   "item": "White cotton kurta",
+   "status": "Worn from 11:46.",
+   "sprite": "kurta",
+   "t": "11:46",
    "place": "estates"
   }
  ],
@@ -1110,6 +1156,72 @@
      "text": "Thus, it may be—if we look only to the fact that the will of one individual stands at the head of the state—oriental despotism is included under the vague name monarchy,—as also feudal monarchy, to which indeed even the favourite name of “constitutional monarchy” cannot be refused."
     }
    ]
+  },
+  {
+   "t": "11:46",
+   "end": "12:12",
+   "event": "Mr. Saxena says: “You prove it by bringing the correct documents, sir, not by asking philosophical questions. The file is with orders, so there is nothing I can do until they send it back.” Sips tea from the steel tumbler without looking up from the next file.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "Mr. Saxena is right in the immediate sense: I cannot conjure the documents from thin air, and the system waits on its own internal clock. But his dismissal of the question as merely 'philosophical' misses the point; the confusion between Hegel and Hegde is not a clerical error but a structural one, where the universal label overrides the particular individual. I must wait for the file to return, but I cannot let the bureaucracy absorb my time entirely. I will return to my bungalow to rest and work on the letter to Dr. Lindner, as planned, while the file sits in limbo.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 20,
+    "says": "Very well, sir. I shall await the file’s return. Thank you for your time.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 290."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Do not wait here, sir. The corridor is crowded and I have three phones ringing. Go home, and when the file comes back, you will know.",
+    "does": "He waves a hand dismissively and turns back to the stack of papers on his desk."
+   },
+   "left": "estates",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§219",
+     "id": "dyde-right:527"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "id": "haldane-1:1022"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§219",
+     "text": "Eight, having entered reality in the form of law, and having become an actual fact, stands in independent opposition to the particular will and opinion of right, and has to vindicate itself as a tmiversal. The recognition and realization of right in each special case without the subjective instigation of private interests, is the office of a public power, the court of justice."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "text": "Now this is the one side in which Socrates looks away from the contradiction and makes laws and justice, as they are accepted by each individually, to be the affirmative content."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1131,11 +1243,11 @@
  "owl": null,
  "complete": false,
  "state": {
-  "place": "estates",
-  "until": "2026-11-20T11:46+05:30",
+  "place": "home",
+  "until": "2026-11-20T12:12+05:30",
   "asleep": false,
   "imprest": 18506,
-  "wearing": "bandhgala",
+  "wearing": "kurta",
   "wardrobe": [
    {
     "id": "frock",
@@ -1155,7 +1267,7 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Worn from 14:36."
+    "status": "Worn from 11:46."
    },
    {
     "id": "bandhgala",
@@ -1225,8 +1337,8 @@
      "saxena"
     ]
    },
-   "walked": 1950,
-   "strain": 1950,
+   "walked": 3900,
+   "strain": 3900,
    "recouped": true
   },
   "account": {
@@ -1580,7 +1692,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "da9f550231bdca1a38ffb3d333e97c19369ab9b76e7783197caa7a8386b7eb04",
+  "source_sha256": "11602e110757433bdd6cea31b4e13ab16d6dac9bff1f67a0d54e1c9d50eea168",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1796,6 +1908,51 @@
     "words": "You prove it by bringing the correct documents, sir, not by asking philosophical questions. The file is with orders, so there is nothing I can do until they send it back.",
     "verified": false,
     "time": "11:31",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-20:statement:b0006d6a1dee8155:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 22,
+     "sha256": "b0006d6a1dee8155eb9a73494c8b0bceb9144e70ead5ff891ec0ed29af46cd6a"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "Very well, sir. I shall await the file’s return. Thank you for your time.",
+    "verified": false,
+    "time": "11:46",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-20:statement:491a25ebc5b545ba:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 23,
+     "sha256": "491a25ebc5b545ba1844cb7a65c3104e34b46c867393212173c7aa8896c10645"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "Do not wait here, sir. The corridor is crowded and I have three phones ringing. Go home, and when the file comes back, you will know.",
+    "verified": false,
+    "time": "11:46",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-20:event:298bd9b14e8dc9e4:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 24,
+     "sha256": "298bd9b14e8dc9e4e7460b84e1198130ba9148b484cb79caaeae42e8e0fed3ae"
+    },
+    "type": "wear",
+    "item": "White cotton kurta",
+    "status": "Worn from 11:46.",
+    "gone": false,
+    "time": "11:46",
     "place": "estates"
    },
    {
@@ -2246,68 +2403,100 @@
     "text": "On a long bench outside a section door, men sit with plastic folders on their knees and rise one by one when a peon calls a name in a flat voice."
    },
    {
-    "id": "2026-11-20:event:fdb460e930553ba8:1",
+    "id": "2026-11-20:event:fcdd2594609e9624:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 7,
+     "sha256": "fcdd2594609e962447088bbd7cd022777d35b5561326bc422877ee68a053dcc8"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "11:46",
+    "end": "12:12",
+    "place": null,
+    "origin": "estates",
+    "destination": "home"
+   },
+   {
+    "id": "2026-11-20:event:4651715bee6a40b6:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      7,
+      0
+     ],
+     "sha256": "4651715bee6a40b62498f867b073dee796b7d9fdbaeb3df72e5bbdf58fcbe013"
+    },
+    "type": "observation",
+    "time": "11:46",
+    "place": "estates",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 290."
+   },
+   {
+    "id": "2026-11-20:event:bb368df55312dd76:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "fdb460e930553ba8d064c4f373acac522c5dabf71d23102f3af484a096ddab17"
+     "sha256": "bb368df55312dd7675cfaa6158ebf14223598e3c4417181ba563582703843742"
     },
     "type": "cash",
-    "time": "11:46",
+    "time": "12:12",
     "amount": 18506,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:4fd7f7ae2e61d7a9:1",
+    "id": "2026-11-20:event:a8f782eabe32a75e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "4fd7f7ae2e61d7a9baa308ae57f123fae41eb1f34e8432b0aa449570e6c24079"
+     "sha256": "a8f782eabe32a75e158aa64d6fb4185f95f8f212605133db63667fda44e34ba2"
     },
     "type": "location",
-    "time": "11:46",
-    "place": "estates",
+    "time": "12:12",
+    "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:fde6017520ef9075:1",
+    "id": "2026-11-20:event:f0a25b3ed80c12f3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "fde6017520ef907527c000db71318cc0b009a7760b2b1914e58b8fa40a9f40f0"
+     "sha256": "f0a25b3ed80c12f35a3b3e9c10c8d3afe6d29c8b622d8197a2f045dbe10065ad"
     },
     "type": "inventory",
-    "time": "11:46",
+    "time": "12:12",
     "place": null,
-    "text": "Recorded wearing at this horizon only: \"bandhgala\""
+    "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-20:event:2852bde8ddce8f68:1",
+    "id": "2026-11-20:event:d226aa2fa72d1132:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "2852bde8ddce8f686cd54b0288118360a6e29405488b9da18aa5de78c785f857"
+     "sha256": "d226aa2fa72d1132420423b419a30c36f6c4971a09ccd416c275f641b843c5f3"
     },
     "type": "inventory",
-    "time": "11:46",
+    "time": "12:12",
     "place": null,
-    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 14:36.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 10:30.\"}]"
+    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 10:30.\"}]"
    },
    {
-    "id": "2026-11-20:event:5077776be41a2b17:1",
+    "id": "2026-11-20:event:463178ee62b94487:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "5077776be41a2b17988d045bd20e7fe3b82fc1efdaa81687bc134b6b4eec6b24"
+     "sha256": "463178ee62b944873eb42bfec93fb45d7a90dc6c460b65a6f0fd912f249f1015"
     },
     "type": "inventory",
-    "time": "11:46",
+    "time": "12:12",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2326,7 +2515,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "11:46",
+    "time": "12:12",
     "place": null
    }
   ]
