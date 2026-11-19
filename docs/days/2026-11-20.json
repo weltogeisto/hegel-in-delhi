@@ -431,6 +431,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "13:27",
+   "to": "13:54",
+   "mode": "walk",
+   "a": "home",
+   "b": "khan"
   }
  ],
  "entries": [
@@ -771,6 +778,22 @@
     }
    ],
    "t": "12:42",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "It is past one, and the haze sits heavy on the city, a brown blanket that swallows the sun. I have not eaten since yesterday evening, and the body protests against the spirit's abstractions with a hollow ache. Since Ramesh is absent, there is no meal to be had at home, so I must descend into the world of needs to satisfy this particular lack. The system of needs does not rest, even if I am tired.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Common Ideas Regarding the History of Philosophy"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    }
+   ],
+   "t": "13:27",
    "place": "home"
   }
  ],
@@ -1401,6 +1424,65 @@
      "text": "Such a dispute is precisely paralleled by a negative judgment, like, 'This flower is not red:' by which we merely deny the particular colour of the flower, but not its colour in general, which may be blue, yellow, or any other. Similarly death, as a negatively-infinite judgment, is distinguished from disease as simply-negative."
     }
    ]
+  },
+  {
+   "t": "13:27",
+   "end": "13:54",
+   "event": "Ramesh comes only on Mondays, Thursdays and Saturdays now. There is no lunch at home today.",
+   "present": [],
+   "decision": {
+    "thought": "It is past one, and the haze sits heavy on the city, a brown blanket that swallows the sun. I have not eaten since yesterday evening, and the body protests against the spirit's abstractions with a hollow ache. Since Ramesh is absent, there is no meal to be had at home, so I must descend into the world of needs to satisfy this particular lack. The system of needs does not rest, even if I am tired.",
+    "action": "walk",
+    "place": "khan",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "khan",
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 286.",
+    "Ramesh comes only on Mondays, Thursdays and Saturdays now. There is no lunch at home today."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "meal"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Common Ideas Regarding the History of Philosophy",
+     "id": "haldane-1:63"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1189"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Common Ideas Regarding the History of Philosophy",
+     "text": "Hence the thought expressed in such an utterance reveals the fact that it is dead understanding; for it is only death which fasts and yet rests satisfied. But neither physical life nor intellectual remains content with mere abstention; as desire it presses on through hunger and through thirst towards Truth, towards knowledge itself."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "For “when Antisthenes turned outside a hole in his cloak, Socrates said to him, I see thy vanity through the hole in thy cloak.” Clothing is not a thing of rational import, but is regulated through needs that arise of themselves. In the North the clothing must be different from that in Central Africa; and in winter we do not wear cotton garments."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1422,8 +1504,8 @@
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-20T13:27+05:30",
+  "place": "khan",
+  "until": "2026-11-20T13:54+05:30",
   "asleep": false,
   "imprest": 18506,
   "wearing": "kurta",
@@ -1516,8 +1598,9 @@
      "saxena"
     ]
    },
-   "walked": 3900,
-   "strain": 3900
+   "walked": 5925,
+   "strain": 5925,
+   "lunch": true
   },
   "account": {
    "advance": 15000,
@@ -1872,7 +1955,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "d965d31a6585b8591645c3fb155be05cfb1b01dad03b62dddb01c7212f6a91c3",
+  "source_sha256": "2b23aecf84516ca9a7d80bb607841878c5338c5fdcdc93442dfe2808e4d23de0",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2733,68 +2816,116 @@
     "text": "Marigolds in orange and lemon yellow crowd the edge of the lawn, heavy-headed, with a few bees going from flower to flower in the sun."
    },
    {
-    "id": "2026-11-20:event:fab01e42938b3944:1",
+    "id": "2026-11-20:event:2ba8d8a9dea9bb8a:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 10,
+     "sha256": "2ba8d8a9dea9bb8add93810ad47a3cac14dffc125dd82655901989d37d4ee79f"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "13:27",
+    "end": "13:54",
+    "place": null,
+    "origin": "home",
+    "destination": "khan"
+   },
+   {
+    "id": "2026-11-20:event:4aecec5269033152:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      10,
+      0
+     ],
+     "sha256": "4aecec5269033152803407c34d5b790214d3e07ef6cabd7bb42ed453edf0ea9d"
+    },
+    "type": "observation",
+    "time": "13:27",
+    "place": "home",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 286."
+   },
+   {
+    "id": "2026-11-20:event:850d5310d1ec663b:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      10,
+      1
+     ],
+     "sha256": "850d5310d1ec663bd63da781bb8752ee6135636800b2b564eb41675b2b0cd2af"
+    },
+    "type": "observation",
+    "time": "13:27",
+    "place": "home",
+    "text": "Ramesh comes only on Mondays, Thursdays and Saturdays now. There is no lunch at home today."
+   },
+   {
+    "id": "2026-11-20:event:e93f7055d7b98b80:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "fab01e42938b3944dca801fc48a4fb1036d63ef5aac8fcae39df0f97123114b6"
+     "sha256": "e93f7055d7b98b804a74b3999c55b40d2d1f3df62254e06c89162749614fcd75"
     },
     "type": "cash",
-    "time": "13:27",
+    "time": "13:54",
     "amount": 18506,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:94789a5c96663fc3:1",
+    "id": "2026-11-20:event:c459313e4bf810c3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "94789a5c96663fc3cefafdd62736803202f4e6eec674a2c546e91c1cf829b0e4"
+     "sha256": "c459313e4bf810c38d46bcceb6740a655b44c3e65c86270fdef86c45abe68421"
     },
     "type": "location",
-    "time": "13:27",
-    "place": "home",
+    "time": "13:54",
+    "place": "khan",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:97845894e6a933bd:1",
+    "id": "2026-11-20:event:359ad859f4256bab:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "97845894e6a933bda61d6fd95ecf875f78caf75d8b1e165792c9395584683925"
+     "sha256": "359ad859f4256bab2764c70a7e118a2349b02070fc98eb037ab6a100ec4eb8dd"
     },
     "type": "inventory",
-    "time": "13:27",
+    "time": "13:54",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-20:event:8835b319ab5e9c5a:1",
+    "id": "2026-11-20:event:71e9122a9fd0452d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "8835b319ab5e9c5ae4deeaecb460c6c568e1b936e76d653063672db04ee0e46f"
+     "sha256": "71e9122a9fd0452d1780d0531ea5eb7f7010dff6d98a3915b26e9e8c40959459"
     },
     "type": "inventory",
-    "time": "13:27",
+    "time": "13:54",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 10:30.\"}]"
    },
    {
-    "id": "2026-11-20:event:22f825116e618dfe:1",
+    "id": "2026-11-20:event:941541c83f06db91:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "22f825116e618dfeb058c347edb34783054cb1b69eb16f752f3601e4ab2f1309"
+     "sha256": "941541c83f06db91906a267412b60a1f347368da84003eab381f06e1858c1d99"
     },
     "type": "inventory",
-    "time": "13:27",
+    "time": "13:54",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2813,7 +2944,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "13:27",
+    "time": "13:54",
     "place": null
    }
   ]
