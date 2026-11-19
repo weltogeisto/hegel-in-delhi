@@ -375,6 +375,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Reading at home."
+  },
+  {
+   "from": "09:50",
+   "to": "10:30",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -440,6 +447,22 @@
     }
    ],
    "t": "09:30",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The morning stretches out with a strange, suspended quality, the brown haze pressing in. Hegde is present, a reminder of the bureaucratic machinery that has swallowed my identity, yet his presence is a small, human anchor in this alienation. I must not let the irritation of the 'irregular occupation' cloud my composure; the state is the ethical idea, even when it mistakes a German idealist for a Joint Secretary. I will wait for the hour to arrive, rather than rush into the friction of the Directorate before I am ready.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    }
+   ],
+   "t": "09:50",
    "place": "home"
   }
  ],
@@ -563,6 +586,65 @@
      "text": "It is this feature of them which is significant in world-history. The concrete ideas, which embody the national minds or - Spirits, h as its truth in the concrete idea i n its absolute, jiniversality. This is the spirit of the world, around whose throne stand the other spirits as perfecters of its actuality, and witnesses and ornaments of its splendour.\""
     }
    ]
+  },
+  {
+   "t": "09:50",
+   "end": "10:30",
+   "event": "Nothing in particular happens. The morning goes on.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The morning stretches out with a strange, suspended quality, the brown haze pressing in. Hegde is present, a reminder of the bureaucratic machinery that has swallowed my identity, yet his presence is a small, human anchor in this alienation. I must not let the irritation of the 'irregular occupation' cloud my composure; the state is the ethical idea, even when it mistakes a German idealist for a Joint Secretary. I will wait for the hour to arrive, rather than rush into the friction of the Directorate before I am ready.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 40,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, a brown haze. Air quality index: 287.",
+    "Nothing in particular happens. The morning goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 17.9,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "id": "sibree-history:376"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "text": "WITH the Empire of China History has to begin, for it is the oldest, as far as history gives us any information; and its principle has such substantiality, that for the empire in question it is at once the oldest and the newest."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -585,7 +667,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-20T09:50+05:30",
+  "until": "2026-11-20T10:30+05:30",
   "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
@@ -1140,7 +1222,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "4cab6155fb7eef4636dbc3673887e98738082150a1cc8f9d9285d4f5ea93df9d",
+  "source_sha256": "5e0df58d31917d2663d96414dc9165fca8c6f9bc9b70720ffd5c53aa278a604c",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1325,68 +1407,114 @@
     "text": "Shri G. Hegde is here."
    },
    {
-    "id": "2026-11-20:event:4ca5174b52c53c5b:1",
+    "id": "2026-11-20:event:b3b1e6eb73411226:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 2,
+     "sha256": "b3b1e6eb734112268aa42d471d26e50a7f8a01a1dbfc0b11afdc08f83fa38688"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "09:50",
+    "end": "10:30",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-20:event:638d79fe556619b3:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      2,
+      0
+     ],
+     "sha256": "638d79fe556619b38be4d3941522f57309562f6bd55d2b4dd4834f7325975049"
+    },
+    "type": "observation",
+    "time": "09:50",
+    "place": "home",
+    "text": "Weather: 18 °C, a brown haze. Air quality index: 287."
+   },
+   {
+    "id": "2026-11-20:event:8323bf6d941fbde8:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      2,
+      1
+     ],
+     "sha256": "8323bf6d941fbde8ec8205e0dea55e42b640c2c5c010e35edd2cb0a7e77b6f34"
+    },
+    "type": "observation",
+    "time": "09:50",
+    "place": "home",
+    "text": "Nothing in particular happens. The morning goes on."
+   },
+   {
+    "id": "2026-11-20:event:e06057b740a5e665:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "4ca5174b52c53c5b8ddc6d7ca730a8bcce887737fd2a791bfac24627fd2593dc"
+     "sha256": "e06057b740a5e66506a45d3d2c0cd253b34912105b22896c6c0bd17cce2d93b7"
     },
     "type": "cash",
-    "time": "09:50",
+    "time": "10:30",
     "amount": 18686,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:3796316f3349d970:1",
+    "id": "2026-11-20:event:3b7e6b0e7784849e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "3796316f3349d97048da4a9e59629b7c926e8039fc868c5453045b268634730d"
+     "sha256": "3b7e6b0e7784849e8e826c73bd715c44a0b8813de644e0a0b164caaf71bee4ad"
     },
     "type": "location",
-    "time": "09:50",
+    "time": "10:30",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:025221581469af94:1",
+    "id": "2026-11-20:event:9b8a2d56af788dd1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "025221581469af94628167e9e9e184bec565e50fdbc1daa85d89d64e3494171c"
+     "sha256": "9b8a2d56af788dd108a9dabd901b20d2757d715f38f0092cde061985184af2b6"
     },
     "type": "inventory",
-    "time": "09:50",
+    "time": "10:30",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-20:event:3d18f07fd4c0e2a1:1",
+    "id": "2026-11-20:event:f574ffb81a5e1d15:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "3d18f07fd4c0e2a1ab8b16262c8f5429179232574c290a39e7a632c873071d31"
+     "sha256": "f574ffb81a5e1d15735b18d1d56f016ddb0cc01f1dcfc94544cbabc4b02e5170"
     },
     "type": "inventory",
-    "time": "09:50",
+    "time": "10:30",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 14:36.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 13:56.\"}]"
    },
    {
-    "id": "2026-11-20:event:c1aeece493da79aa:1",
+    "id": "2026-11-20:event:7a3b028fc7735e17:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "c1aeece493da79aa337c9d79888cb63b59e75b6a1944a0ba17925d18a343db00"
+     "sha256": "7a3b028fc7735e17279d6a306f8c7456e2c982bf948ebc27cc80fa9a74e2eec0"
     },
     "type": "inventory",
-    "time": "09:50",
+    "time": "10:30",
     "place": null,
     "text": "Recorded file at this horizon only: \"Gone up for orders. Mr. Saxena: come after fifteen days. Occupation irregular.\""
    },
@@ -1405,7 +1533,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "09:50",
+    "time": "10:30",
     "place": null
    }
   ]
