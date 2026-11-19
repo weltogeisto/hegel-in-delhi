@@ -501,6 +501,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "15:44",
+   "to": "15:59",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -1139,6 +1146,37 @@
    "to": "Hegel",
    "text": "Sir, I am right here, as I mentioned ten minutes ago. Please, stop shouting at the guard, he is just doing his job. I have your file open, so let us discuss the room arrangements properly.",
    "t": "15:34",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "I have been loud, which is unbecoming of a man who claims to understand the dialectic of recognition. The officer is here, the file is open, and the guard is merely the mechanism. I must lower my voice and direct my energy toward the actual business of the room arrangements for Tuesday.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§501"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Indien, Staats- und Kastenwesen"
+    }
+   ],
+   "t": "15:44",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "You are right, sir. I apologize for my tone. Let us proceed with the details of the room.",
+   "to": "the guard at the library and the programme officer",
+   "t": "15:44",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Haha, sorry sir, I was just joking about the AC. Go ahead and talk to the officer, I'll keep an eye on the door.",
+   "t": "15:44",
    "place": "iic"
   }
  ],
@@ -2436,6 +2474,72 @@
      "text": "That which the public servant has to perform is as it stands of absolute value. Hence positive injury or non-performance, either being opposed to the essence of service, is a wrong to the universal content (§ 95, a negative-infinite judgment), and therefore a fault or crime."
     }
    ]
+  },
+  {
+   "t": "15:44",
+   "end": "15:59",
+   "event": "The programme officer says: “Sir, I am right here, as I mentioned ten minutes ago. Please, stop shouting at the guard, he is just doing his job. I have your file open, so let us discuss the room arrangements properly.”",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "I have been loud, which is unbecoming of a man who claims to understand the dialectic of recognition. The officer is here, the file is open, and the guard is merely the mechanism. I must lower my voice and direct my energy toward the actual business of the room arrangements for Tuesday.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 15,
+    "says": "You are right, sir. I apologize for my tone. Let us proceed with the details of the room.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 287."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Haha, sorry sir, I was just joking about the AC. Go ahead and talk to the officer, I'll keep an eye on the door.",
+    "does": "He steps back slightly to let them pass and adjusts his cap."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§501",
+     "id": "wallace-mind:246"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Indien, Staats- und Kastenwesen",
+     "id": "welt-2:271"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§501",
+     "text": "This negation of right has its existence in the will of the criminal; and consequently revenge or punishment directs itself against the person or property of the criminal and exercises coercion upon him."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Indien, Staats- und Kastenwesen",
+     "text": "Die verschiedenen Kasten seien verschiedene Stäunne, die sich zusammengefunden und dann ihre Verschiedenheit der Nationalbeschäftigung beibeha!ten haben. Die Brahminen sollen von Norden her nach Indien gekommen sein; das beruht auf Ausdrücken in indischen Büchern, kann aber nicht für geschichtlich genommen werden."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2458,7 +2562,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-20T15:44+05:30",
+  "until": "2026-11-20T15:59+05:30",
   "asleep": false,
   "imprest": 18216,
   "wearing": "bandhgala",
@@ -2954,7 +3058,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "ca65b3fc4499d05d92b7208b3ad3888a806f044d42890630aa3c761641ad3685",
+  "source_sha256": "80302d78cee04f7f541fa844edcedab012cf1a9d260ab31bfad67a6cbedecf4d",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3527,6 +3631,36 @@
     "words": "Sir, I am right here, as I mentioned ten minutes ago. Please, stop shouting at the guard, he is just doing his job. I have your file open, so let us discuss the room arrangements properly.",
     "verified": false,
     "time": "15:34",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:2ae176affd354566:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 58,
+     "sha256": "2ae176affd354566ac86fdbed779280d54fbe020f2e826d1c47eaf723cbd253f"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "You are right, sir. I apologize for my tone. Let us proceed with the details of the room.",
+    "verified": false,
+    "time": "15:44",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:89c2e224218d1298:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 59,
+     "sha256": "89c2e224218d129846ab1e26a4e5d48969a1a7e9d1e9e0e849d32574c0d3210a"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Haha, sorry sir, I was just joking about the AC. Go ahead and talk to the officer, I'll keep an eye on the door.",
+    "verified": false,
+    "time": "15:44",
     "place": "iic"
    },
    {
@@ -4501,68 +4635,98 @@
     "text": "Weather: 24 °C, a brown haze. Air quality index: 287."
    },
    {
-    "id": "2026-11-20:event:f1a67dd81f39a4a2:1",
+    "id": "2026-11-20:event:84a898357e4ba1a2:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 20,
+     "sha256": "84a898357e4ba1a2e9d0794d832f5100ac703090bdeff046af8916ffb24cfe05"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "15:44",
+    "end": "15:59",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:event:f2522835df693ec3:9",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      20,
+      0
+     ],
+     "sha256": "f2522835df693ec3c8c8111e201308c7e786cfad2ca9902aaebe855b23b9c55e"
+    },
+    "type": "observation",
+    "time": "15:44",
+    "place": "iic",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 287."
+   },
+   {
+    "id": "2026-11-20:event:e3c20a3135c2d027:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "f1a67dd81f39a4a2c7c56fe82f7d9bccad668b3c49c59aefe3347c5fe11c0da0"
+     "sha256": "e3c20a3135c2d0270fd997d99ef565fca968ed7dcdce7e6afb3ed9524243ec2c"
     },
     "type": "cash",
-    "time": "15:44",
+    "time": "15:59",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:56e4750fcf12b4e8:1",
+    "id": "2026-11-20:event:a2fde818a21a1252:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "56e4750fcf12b4e8addfd23c80242e3ed84765920c140cbc9c46f95a7002b1e4"
+     "sha256": "a2fde818a21a1252b95312f0b1084624bd20e64f578707e483e077b688c9b996"
     },
     "type": "location",
-    "time": "15:44",
+    "time": "15:59",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:17ba42f5722e59bd:1",
+    "id": "2026-11-20:event:3d5e28125a517e8d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "17ba42f5722e59bdea2677fe8018ef64eb2a9cae074b9db7388735718d5e5ffc"
+     "sha256": "3d5e28125a517e8ddd78e4ca6590ad9ea7b3bbdd00d6a0a7fc0c6c09ab2603e3"
     },
     "type": "inventory",
-    "time": "15:44",
+    "time": "15:59",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-20:event:7b88becfca425e7c:1",
+    "id": "2026-11-20:event:963a176cec827861:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "7b88becfca425e7cac8e84fbf0e27bd604d205c121c6c79899d21833ecea5aba"
+     "sha256": "963a176cec827861260e955ee5d42eed401200122567701a739c706b4efd5dfb"
     },
     "type": "inventory",
-    "time": "15:44",
+    "time": "15:59",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:7b7267a95d7380b1:1",
+    "id": "2026-11-20:event:4d4322028a3a46d6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "7b7267a95d7380b1651888e8dcbcdb39d049e522a1ec04e706016240dad38645"
+     "sha256": "4d4322028a3a46d63640e57481bdbe66f32e1fe5cc8061d893d47a0fa5d616ba"
     },
     "type": "inventory",
-    "time": "15:44",
+    "time": "15:59",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -4581,7 +4745,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "15:44",
+    "time": "15:59",
     "place": null
    }
   ]
