@@ -459,6 +459,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Shopping at Khan Market."
+  },
+  {
+   "from": "14:34",
+   "to": "14:44",
+   "mode": "inside",
+   "at": "khan",
+   "now": "Resting at Khan Market."
   }
  ],
  "entries": [
@@ -933,6 +940,22 @@
    "price": 220,
    "charge_id": "charge:7",
    "t": "14:19",
+   "place": "khan"
+  },
+  {
+   "k": "diary",
+   "text": "The haze thickens the air into something almost tangible, a brown curtain that seems to absorb the light. I will wait for the food to arrive, for the body must be satisfied before the spirit can properly judge the state of affairs. It is a small discipline, sitting still while the world churns around you, but necessary.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Religion"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "14:34",
    "place": "khan"
   }
  ],
@@ -1842,6 +1865,68 @@
      "text": ""
     }
    ]
+  },
+  {
+   "t": "14:34",
+   "end": "14:44",
+   "event": "Sunil says: “Done, Masterji, dal-rice-roti at the dhaba, that's ₹220. I'll get it to you here in ten minutes, don't sit too long in this haze.” He scribbles the order on a scrap of paper and tucks it into his kurta pocket.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The haze thickens the air into something almost tangible, a brown curtain that seems to absorb the light. I will wait for the food to arrive, for the body must be satisfied before the spirit can properly judge the state of affairs. It is a small discipline, sitting still while the world churns around you, but necessary.",
+    "action": "rest",
+    "place": "khan",
+    "minutes": 10,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 287."
+   ],
+   "observed_at": "khan",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Religion",
+     "id": "baillie-2:480"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Religion",
+     "text": "So far as spirit in religion presents itself to itself, it is indeed consciousness, and the reality enclosed within it is the shape and garment in which it clothes its idea of itself. The reahty, however, does not in this presentation get proper justice done to it, that is to say, it does not get to be an independent and free objective existence and not merely a garment."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1864,7 +1949,7 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-20T14:34+05:30",
+  "until": "2026-11-20T14:44+05:30",
   "asleep": false,
   "imprest": 18216,
   "wearing": "kurta",
@@ -1964,8 +2049,7 @@
    },
    "walked": 5925,
    "strain": 5925,
-   "lunch": true,
-   "hunger": 1
+   "lunch": true
   },
   "account": {
    "advance": 15000,
@@ -2356,7 +2440,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "18e7e7f9c8b2234f4b3e29245b5b114c100addcb3b8e6b93542842199c55f9c6",
+  "source_sha256": "8f9b5f2dc72df9a7f83e38651812db10025e2effd25d5789bf306d202073c692",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3554,68 +3638,98 @@
     "text": "You are hungry."
    },
    {
-    "id": "2026-11-20:event:a8a585a3db364c50:1",
+    "id": "2026-11-20:event:71bea59222189a2b:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 14,
+     "sha256": "71bea59222189a2b3853030e636b73be0346640e2a820a16da550b8aeb841dd5"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "14:34",
+    "end": "14:44",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-20:event:f2522835df693ec3:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      14,
+      0
+     ],
+     "sha256": "f2522835df693ec3c8c8111e201308c7e786cfad2ca9902aaebe855b23b9c55e"
+    },
+    "type": "observation",
+    "time": "14:34",
+    "place": "khan",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 287."
+   },
+   {
+    "id": "2026-11-20:event:ce07099f08ba8523:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "a8a585a3db364c50c7b40d0c5d083b52bfd495b9351ecfe902671ee685c08fff"
+     "sha256": "ce07099f08ba8523a9f8265d16fa77906001bd0537c14fe74f881fc2fc960a6e"
     },
     "type": "cash",
-    "time": "14:34",
+    "time": "14:44",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:598644461747afd3:1",
+    "id": "2026-11-20:event:c92a815401aead40:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "598644461747afd373be884c56cfd4c96e0b5099659dcaf224aa46c1c027c058"
+     "sha256": "c92a815401aead40100b3855124eb50cddda8bcfef3f4fcfe23653cf906a77c0"
     },
     "type": "location",
-    "time": "14:34",
+    "time": "14:44",
     "place": "khan",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:52dc26a07e944563:1",
+    "id": "2026-11-20:event:dec441e727d9a2a8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "52dc26a07e9445639e3c924c0f70bd744696cce772da6f29afaac053c48185d2"
+     "sha256": "dec441e727d9a2a818f685a6609f1d2eff30a8995d38ab8b8ee7739518d4313b"
     },
     "type": "inventory",
-    "time": "14:34",
+    "time": "14:44",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-20:event:0825ac531a731cde:1",
+    "id": "2026-11-20:event:d20fed00791d3015:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "0825ac531a731cde049f1c34994a8e823c3f48866f55175ff3a45841493a30ff"
+     "sha256": "d20fed00791d301586d4d70bbda579efe693e49db637e88391d49a4bf9bf237b"
     },
     "type": "inventory",
-    "time": "14:34",
+    "time": "14:44",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 10:30.\"}]"
    },
    {
-    "id": "2026-11-20:event:b1ed222b3b5d03da:1",
+    "id": "2026-11-20:event:8ddce4480b063a08:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "b1ed222b3b5d03da698de7ee94cb95aa8b32eba2a3e72b70b0dd569b31a18119"
+     "sha256": "8ddce4480b063a08d5a27ed62dbfeba43b9cd2da9dd0e605ffa281c02632b1b2"
     },
     "type": "inventory",
-    "time": "14:34",
+    "time": "14:44",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3634,7 +3748,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "14:34",
+    "time": "14:44",
     "place": null
    }
   ]
