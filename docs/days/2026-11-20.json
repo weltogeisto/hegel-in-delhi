@@ -543,6 +543,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Resting at the IIC."
+  },
+  {
+   "from": "17:09",
+   "to": "17:29",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Resting at the IIC."
   }
  ],
  "entries": [
@@ -1367,6 +1374,22 @@
    "to": "Hegel",
    "text": "You're welcome, sir. Take your time, the chai is still hot in the back if you need it.",
    "t": "16:54",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s dismissal is final; the air is thick with the day's dust, a brown haze that chokes the lungs as much as the heat chokes the spirit. I am not yet ready to speak to the programme officer, and the file on my identity remains a knot I must untie in solitude. I will sit a while longer, letting the silence settle before I face the next interlocutor.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§187"
+    }
+   ],
+   "t": "17:09",
    "place": "iic"
   }
  ],
@@ -3060,6 +3083,67 @@
      "text": "The state is merely the laity, and must be absolutely respectful. That which is peculiarly ethical falls beyond its reach. Now it is a matter of history that there have been barbaric times and circumstances, in which all high spiritual matters had their seat in the church, and the state was only a worldly rule of for6e, lawlessness, and passion."
     }
    ]
+  },
+  {
+   "t": "17:09",
+   "end": "17:29",
+   "event": "The guard at the library says: “You're welcome, sir. Take your time, the chai is still hot in the back if you need it.” He gives a small nod and turns back towards the main gate, arms crossed over his chest.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s dismissal is final; the air is thick with the day's dust, a brown haze that chokes the lungs as much as the heat chokes the spirit. I am not yet ready to speak to the programme officer, and the file on my identity remains a knot I must untie in solitude. I will sit a while longer, letting the silence settle before I face the next interlocutor.",
+    "action": "rest",
+    "place": "iic",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 21 °C, a brown haze. Air quality index: 289."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.5,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206",
+     "id": "dyde-right:491"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§187",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§206",
+     "text": "But when subjective particularity is welcomed by objective order, and given its rights and place, it becomes the animating principle of the civic community, stimulates thought and promotes merit and honour."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§187",
+     "text": "Dies ist der Standpunkt, der die Bildung als immanentes Moment des Absoluten, und ihren unendlichen Wert erweist. Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -3082,7 +3166,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-20T17:09+05:30",
+  "until": "2026-11-20T17:29+05:30",
   "asleep": false,
   "imprest": 18216,
   "wearing": "bandhgala",
@@ -3578,7 +3662,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "f7674d7729b262ae177771c21bcdb914cedb1991668a7e90d8e6220bf6a16224",
+  "source_sha256": "700d70504e8cddf12d7723be814efb50e584c65711bff3adbe368c11fb937db5",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -5485,68 +5569,98 @@
     "text": "Weather: 23 °C, a brown haze. Air quality index: 287."
    },
    {
-    "id": "2026-11-20:event:a4746781c1e8d080:1",
+    "id": "2026-11-20:event:0e459dc8c691889a:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 26,
+     "sha256": "0e459dc8c691889a91567d8e9315617626bf9ce2fef3aae969b5734bda1237cd"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "17:09",
+    "end": "17:29",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:event:46a4e67a55cf8fcc:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      26,
+      0
+     ],
+     "sha256": "46a4e67a55cf8fccc88ddda5ff59fd292663e93f19d62af41a686f73f23887c5"
+    },
+    "type": "observation",
+    "time": "17:09",
+    "place": "iic",
+    "text": "Weather: 21 °C, a brown haze. Air quality index: 289."
+   },
+   {
+    "id": "2026-11-20:event:2733220f72d8262b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "a4746781c1e8d080d664aacdcd6c7d91b999685b3e2e9652cdd4e2578bca6dc5"
+     "sha256": "2733220f72d8262b62586207c2a5308d2b3d58943681fd4670e93f1578cb82fd"
     },
     "type": "cash",
-    "time": "17:09",
+    "time": "17:29",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:12748ba66353f044:1",
+    "id": "2026-11-20:event:7ff60b9fcd289788:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "12748ba66353f044af507181df77b29d19f73330beaa0523e1e9e305d22a8916"
+     "sha256": "7ff60b9fcd289788a48fa8d839c2bfbe9da58768b7361fa7a51e56f46b7e3bec"
     },
     "type": "location",
-    "time": "17:09",
+    "time": "17:29",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:7c750b96ff555380:1",
+    "id": "2026-11-20:event:ed89524afd27072b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "7c750b96ff5553804284021aaebdf793f1fb190534b4811f45f2136b6d7d3884"
+     "sha256": "ed89524afd27072bd7cb5b9ff2970a75cbd0ea185c43f365ce388f225cee7b7b"
     },
     "type": "inventory",
-    "time": "17:09",
+    "time": "17:29",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-20:event:ea4f519223113475:1",
+    "id": "2026-11-20:event:814786791c9431f8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "ea4f519223113475dd6d85a5be12130bfb2e1793b3aff7caf5fed626cee8f3b3"
+     "sha256": "814786791c9431f83477750b352e03ae182a726e3852ea470ff612d87fbc3064"
     },
     "type": "inventory",
-    "time": "17:09",
+    "time": "17:29",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:72de953d156e5869:1",
+    "id": "2026-11-20:event:2b2a4ce0af467271:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "72de953d156e5869a4141e0d4154e44a0db9bb38ddc3c679de60e77469c07800"
+     "sha256": "2b2a4ce0af46727127c11f09bf352a76044b42075f29488019c96d491340b1dd"
     },
     "type": "inventory",
-    "time": "17:09",
+    "time": "17:29",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -5565,7 +5679,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "17:09",
+    "time": "17:29",
     "place": null
    }
   ]
