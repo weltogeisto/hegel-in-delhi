@@ -51,6 +51,8 @@ Evaluation only: no sentence, code or result here is ever training data.
 
 **Advice:** keep the trial and read it again after a week, with a margin declared in advance.
 
+**The third coder, 19 November:** plain Qwen dissents in direction. It codes far more sentences as philosophy, and by its reading philosophy fell from 22.7% to 14.0%. It agrees with the Claude coders only moderately (kappa 0.57 and 0.58). The verdict by the declared rule stands; see `pc/exports/m1-trial-20261118/RESULT.md`.
+
 ## The second reading, declared 19 November about 00:30 Berlin, before any of its days
 
 Claude in the cloud, on Welt's "use the night". Declared on main before Day 50 has a single step. It has two parts. The week as lived describes. The paired forks test, because only they hold the street, the shelf labels, the world repairs and the museums equal on both sides.
