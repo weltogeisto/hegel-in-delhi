@@ -480,6 +480,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "15:09",
+   "to": "15:19",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -1025,6 +1032,37 @@
    "to": "Hegel",
    "text": "Sir, I just watch the door, I don't hold the files. You need to talk to the Programme Officer about the Tuesday details, not me. The haze is thick today, maybe wait for the AC to kick in before you go asking questions.",
    "t": "14:54",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The guard is a mere threshold, a boundary that must be crossed to reach the content within. He speaks of the haze and the air conditioning as if they were philosophical impediments, but the real obstacle is the lack of information regarding Tuesday's arrangements. I will not wait for the machine to cool the air; I will engage with the officer who holds the keys to the programme.",
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§88"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    }
+   ],
+   "t": "15:09",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "The air conditioning is a luxury, not a necessity for my understanding. I require the details of the Tuesday programme from the Programme Officer, not the guard's speculation about the weather. Please direct me to him.",
+   "to": "the guard at the library and the programme officer",
+   "t": "15:09",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The programme officer",
+   "to": "Hegel",
+   "text": "I am the Programme Officer, sir, though I suspect you already knew that. I’ve had your request forwarded to my desk since this morning, so let’s skip the small talk and get straight to the Tuesday agenda.",
+   "t": "15:09",
    "place": "iic"
   }
  ],
@@ -2124,6 +2162,72 @@
      "text": "WITH the Empire of China History has to begin, for it is the oldest, as far as history gives us any information; and its principle has such substantiality, that for the empire in question it is at once the oldest and the newest."
     }
    ]
+  },
+  {
+   "t": "15:09",
+   "end": "15:19",
+   "event": "The guard at the library says: “Sir, I just watch the door, I don't hold the files. You need to talk to the Programme Officer about the Tuesday details, not me. The haze is thick today, maybe wait for the AC to kick in before you go asking questions.”",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard is a mere threshold, a boundary that must be crossed to reach the content within. He speaks of the haze and the air conditioning as if they were philosophical impediments, but the real obstacle is the lack of information regarding Tuesday's arrangements. I will not wait for the machine to cool the air; I will engage with the officer who holds the keys to the programme.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 10,
+    "says": "The air conditioning is a luxury, not a necessity for my understanding. I require the details of the Tuesday programme from the Programme Officer, not the guard's speculation about the weather. Please direct me to him.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 287."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "The programme officer",
+    "says": "I am the Programme Officer, sir, though I suspect you already knew that. I’ve had your request forwarded to my desk since this morning, so let’s skip the small talk and get straight to the Tuesday agenda.",
+    "does": "She gestures for him to sit down in the adjacent armchair while she opens her laptop."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§88",
+     "id": "wallace-logic:419"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:507"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§88",
+     "text": "Idea. Even Becoming however, taken at its best on its own ground, is an extremely poor term: it needs to grow in depth and weight of meaning. Such deepened force we find e.g. in Life. Life is a Becoming; but that is not enough to exhaust the notion of life. A still higher form is found in Mind. Here too is Becoming, but richer and more intensive than mere logical Becoming."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "\"With those whom they have reason to fear, they are humble enough;.for which they avenge themselves on their dependents. \" I do not know an honest man among them,\" says an English authority. Children have no respect for their parents: sons maltreat their mothers. It would lead us too far to give a detailed notice of Hindoo Art and Science."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2146,7 +2250,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-20T15:09+05:30",
+  "until": "2026-11-20T15:19+05:30",
   "asleep": false,
   "imprest": 18216,
   "wearing": "bandhgala",
@@ -2642,7 +2746,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "c1ce353fadaa03d5536e6678582524a77a4a014c4a71bfa69e79080927b45769",
+  "source_sha256": "7db3f7f3914d6d24381017d4b2250307a50431d709d5ca6c22fcf040d7346e1d",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3125,6 +3229,36 @@
     "words": "Sir, I just watch the door, I don't hold the files. You need to talk to the Programme Officer about the Tuesday details, not me. The haze is thick today, maybe wait for the AC to kick in before you go asking questions.",
     "verified": false,
     "time": "14:54",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:e37c51b3e2d88e1f:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 49,
+     "sha256": "e37c51b3e2d88e1feb0579e6f53f377580acc38353c7e209825f7bc077c41088"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "The air conditioning is a luxury, not a necessity for my understanding. I require the details of the Tuesday programme from the Programme Officer, not the guard's speculation about the weather. Please direct me to him.",
+    "verified": false,
+    "time": "15:09",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:b4f4de28f0af1121:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 50,
+     "sha256": "b4f4de28f0af11213a70faaaa724cdc5274494367631c0a732e4ba1c4ca1acf8"
+    },
+    "speaker": "The programme officer",
+    "recipient": "Hegel",
+    "words": "I am the Programme Officer, sir, though I suspect you already knew that. I’ve had your request forwarded to my desk since this morning, so let’s skip the small talk and get straight to the Tuesday agenda.",
+    "verified": false,
+    "time": "15:09",
     "place": "iic"
    },
    {
@@ -4009,68 +4143,98 @@
     "text": "You arrive at India International Centre. It closes at 21:30."
    },
    {
-    "id": "2026-11-20:event:2d7ab85c6a5c14ab:1",
+    "id": "2026-11-20:event:68d8e440abcec3e0:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 17,
+     "sha256": "68d8e440abcec3e02c53f01d7156c5bf61bb47ec8a4ded93aef6325d0e407da7"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "15:09",
+    "end": "15:19",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:event:f2522835df693ec3:6",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      17,
+      0
+     ],
+     "sha256": "f2522835df693ec3c8c8111e201308c7e786cfad2ca9902aaebe855b23b9c55e"
+    },
+    "type": "observation",
+    "time": "15:09",
+    "place": "iic",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 287."
+   },
+   {
+    "id": "2026-11-20:event:045b9061c188c371:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "2d7ab85c6a5c14ab9d15811c0693371df34aa0bb5891a9ed567275f4a0cbf2b9"
+     "sha256": "045b9061c188c371624180d0d58aac6028553bdeb05bbffaa527e4331ddb9c14"
     },
     "type": "cash",
-    "time": "15:09",
+    "time": "15:19",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:e15924e929fa52f6:1",
+    "id": "2026-11-20:event:29fb3df2c1e3b3c7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "e15924e929fa52f6b05178f9df5c789889ed092afa2a201e0ebb07a36026d68f"
+     "sha256": "29fb3df2c1e3b3c738648dc5520ad6321f555ae23e790ce59940c76a0607f0b0"
     },
     "type": "location",
-    "time": "15:09",
+    "time": "15:19",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:27b23577b2d7cbcc:1",
+    "id": "2026-11-20:event:810cc4b973da6efa:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "27b23577b2d7cbccfcfe0d9da9dc06fea63b0021850eaf141276073afaf5cecf"
+     "sha256": "810cc4b973da6efa13a93a239d034bc7f98ae190bbc317148d8ef6e2655dfff7"
     },
     "type": "inventory",
-    "time": "15:09",
+    "time": "15:19",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-20:event:3371f93e6b2e43d6:1",
+    "id": "2026-11-20:event:96cb1dcda8866c0b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "3371f93e6b2e43d6496bfd167e80bb93bc62de7e951c98d3264fb776ec8e91d6"
+     "sha256": "96cb1dcda8866c0bd81d1753e1bb8c1aa0df7483064137c54e85d0a84614a3ce"
     },
     "type": "inventory",
-    "time": "15:09",
+    "time": "15:19",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:ce810a93bef0d922:1",
+    "id": "2026-11-20:event:cd137adb2351fdc2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "ce810a93bef0d9229011ef9399362ff1cf36ad7a0a30164aa2e28a6dabb7fdb5"
+     "sha256": "cd137adb2351fdc20c0b81a3e4008d8de0c1dd2878b376e42c40a52c3a38dd81"
     },
     "type": "inventory",
-    "time": "15:09",
+    "time": "15:19",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -4089,7 +4253,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "15:09",
+    "time": "15:19",
     "place": null
    }
   ]
