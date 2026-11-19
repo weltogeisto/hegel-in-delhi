@@ -557,6 +557,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "17:44",
+   "to": "17:59",
+   "mode": "inside",
+   "at": "iic",
+   "now": "At the IIC."
   }
  ],
  "entries": [
@@ -1434,6 +1441,37 @@
    "to": "Hegel",
    "text": "Sir, the 18:30 slot is in the small seminar room on the first floor, right past the main reading hall. The officer will show you the exact door in a few minutes, so just stay here until he’s done with his checks.",
    "t": "17:29",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The guard's instruction is a minor friction, a bureaucratic delay that tests my patience, but it is the necessary form through which the event will occur. I will remain seated and observe the programme officer, allowing the time to pass without resistance, for the content of Tuesday's lecture is already formed in my mind, waiting only for the vessel of the room.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Pythagoras and the Pythagoreans"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§300"
+    }
+   ],
+   "t": "17:44",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "Thank you. I shall wait here.",
+   "to": "the guard at the library and the programme officer",
+   "t": "17:44",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Acha, sir. Sit on that bench, please. Just try not to lean against the old books, the spine is a bit loose.",
+   "t": "17:44",
    "place": "iic"
   }
  ],
@@ -3255,6 +3293,72 @@
      "text": "WITH the Empire of China History has to begin, for it is the oldest, as far as history gives us any information; and its principle has such substantiality, that for the empire in question it is at once the oldest and the newest."
     }
    ]
+  },
+  {
+   "t": "17:44",
+   "end": "17:59",
+   "event": "The guard at the library says: “Sir, the 18:30 slot is in the small seminar room on the first floor, right past the main reading hall. The officer will show you the exact door in a few minutes, so just stay here until he’s done with his checks.” He gestures vaguely towards the staircase while keeping an eye on the entrance.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard's instruction is a minor friction, a bureaucratic delay that tests my patience, but it is the necessary form through which the event will occur. I will remain seated and observe the programme officer, allowing the time to pass without resistance, for the content of Tuesday's lecture is already formed in my mind, waiting only for the vessel of the room.",
+    "action": "stay",
+    "place": "iic",
+    "minutes": 15,
+    "says": "Thank you. I shall wait here.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 21 °C, a brown haze. Air quality index: 289."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Acha, sir. Sit on that bench, please. Just try not to lean against the old books, the spine is a bit loose.",
+    "does": "The guard points his chin towards the wooden bench near the window and resumes watching the entrance."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Pythagoras and the Pythagoreans",
+     "id": "haldane-1:511"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§300",
+     "id": "dyde-right:761"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Pythagoras and the Pythagoreans",
+     "text": "The Spartans had, at an earlier period, given assistance to the others, for, as Thucydides says (I. 18), to them thanks were generally ascribed for having abolished the rule of the few, and caused a reversion to the system of giving public power to the people; later on they did the opposite, abolishing democracy and introducing aristocracy."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§300",
+     "text": "Addition. — It proceeds from a wrong view of the state to exclude the members of the executive from the legislature, as was at one time done by the constituent assembly. In England the ministers are rightly members of parliament, since those who share in the executive should stand in connection with and not in opposition to the legislature."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -3277,7 +3381,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-20T17:44+05:30",
+  "until": "2026-11-20T17:59+05:30",
   "asleep": false,
   "imprest": 18216,
   "wearing": "bandhgala",
@@ -3774,7 +3878,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "6975433bff05ea237ccfe8c7cad6d01adbf278b79a2416db45348a2a8fc86f8c",
+  "source_sha256": "887a2ab5d31207b36810bd133ee1039698dce0cb21463827d33abf660f4e2573",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4570,6 +4674,36 @@
     "words": "Sir, the 18:30 slot is in the small seminar room on the first floor, right past the main reading hall. The officer will show you the exact door in a few minutes, so just stay here until he’s done with his checks.",
     "verified": false,
     "time": "17:29",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:2fd5111cd3e8cf91:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 81,
+     "sha256": "2fd5111cd3e8cf91d18b08d413860f5b1e0dbc8d5835ba43769f5732b6711e34"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "Thank you. I shall wait here.",
+    "verified": false,
+    "time": "17:44",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:60925997cfb05eaa:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 82,
+     "sha256": "60925997cfb05eaa50ebd5bb6b2f918770e8977a98b4e8a3fb20ceed2736cafc"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Acha, sir. Sit on that bench, please. Just try not to lean against the old books, the spine is a bit loose.",
+    "verified": false,
+    "time": "17:44",
     "place": "iic"
    },
    {
@@ -5800,68 +5934,98 @@
     "text": "On the board by the entrance, typed notices curl at their corners under coloured pins, and last month's programme still shows through this month's."
    },
    {
-    "id": "2026-11-20:event:b00e71a0f5a49cd4:1",
+    "id": "2026-11-20:event:efcc838710e516af:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 28,
+     "sha256": "efcc838710e516aff6e27b41d9a2b90caae3ad71ce1d83013093c0c8000b3570"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "17:44",
+    "end": "17:59",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:event:46a4e67a55cf8fcc:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      28,
+      0
+     ],
+     "sha256": "46a4e67a55cf8fccc88ddda5ff59fd292663e93f19d62af41a686f73f23887c5"
+    },
+    "type": "observation",
+    "time": "17:44",
+    "place": "iic",
+    "text": "Weather: 21 °C, a brown haze. Air quality index: 289."
+   },
+   {
+    "id": "2026-11-20:event:412c82f0cdfd14b8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "b00e71a0f5a49cd4fcdd48c31db11e87aa4cdac61a25731a5fc0861176252f16"
+     "sha256": "412c82f0cdfd14b86d56c77fa3c79cfd8bb1003f6a557f143df8014623540749"
     },
     "type": "cash",
-    "time": "17:44",
+    "time": "17:59",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:15b9ab8124b6da26:1",
+    "id": "2026-11-20:event:dd28dfd423508a5b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "15b9ab8124b6da269cb1604277ca5896ca5066ca66367f196bb4a329bab70cad"
+     "sha256": "dd28dfd423508a5b4e80f6ff817f5e66c26193b71c49c440dabb7ac14ee65ff0"
     },
     "type": "location",
-    "time": "17:44",
+    "time": "17:59",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:3a7cc241ef7e12fc:1",
+    "id": "2026-11-20:event:412f4f89d0115a6b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "3a7cc241ef7e12fce81b4894ddb4ecb12ca695a52c955bbe0e78e0a66a654660"
+     "sha256": "412f4f89d0115a6bff0fd6c580a9311654a57d854196541f184c31fd13e00cd5"
     },
     "type": "inventory",
-    "time": "17:44",
+    "time": "17:59",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-20:event:da1efb43d7337044:1",
+    "id": "2026-11-20:event:bb143ce00fea6d15:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "da1efb43d7337044f58e1b2773ec89defc939d5e7441eac84610819adfa3b7fb"
+     "sha256": "bb143ce00fea6d1500e5a6d33fccc284264efda6345b4e4f67d17e63c62d9812"
     },
     "type": "inventory",
-    "time": "17:44",
+    "time": "17:59",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:805895e129321703:1",
+    "id": "2026-11-20:event:a566da99029e5a2a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "805895e1293217038049b900e2090f64b2b2043de9a83fe0d17f5141b2b75d97"
+     "sha256": "a566da99029e5a2a6b1ef7d5704f75acc88088fcabe867fedbb9b72a884e4601"
     },
     "type": "inventory",
-    "time": "17:44",
+    "time": "17:59",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -5880,7 +6044,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "17:44",
+    "time": "17:59",
     "place": null
    }
   ]
