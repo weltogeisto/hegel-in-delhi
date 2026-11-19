@@ -50,7 +50,9 @@ The adapter passes on all five. The development set is marked first and reported
 
 **What a pass earns.** Step 3 of `pc/LORA-BLIND-TEST-CLOUD.md`, a fork of one saved morning, on Welt's word. Nothing more: no rewrite reaches his world from this.
 
-## What the PC runs, the night of 18 to 19 November
+## What the PC runs
+
+**It did not run on the night of 18 to 19 November:** the PC seat waited for a yes on the PC while Welt slept. Welt's word covered that night only, so a new night needs his word again. The draw stays Days 44 to 49.
 
 1. Start a trial server as on 6 November: the plain model with `--lora-scaled <adapter-f16.gguf>:0` on its own port, the adapter's sha256 checked against `pc/exports/training1-20261106/MODEL-PROMPT-CHECKPOINT-MANIFEST.json`. The card holds one model, so the live server is down meanwhile.
 2. **Only while he sleeps:** once Day 49 is marked complete, at about 23:45 Berlin. The owl writes the next morning at about 09:10 on the live server, and the draw does not need it, so nothing waits for it. The live server is back by 08:30. About a quarter of an hour. Welt keeps the PC on for the night.

@@ -24,6 +24,7 @@
 ## Still to do
 
 - **The map on the page: done, 18 November.** The India Habitat Centre stands where OpenStreetMap has it (way 287659125), its entrance on Lodhi Road. The National Museum, the National Gallery of Modern Art and Kamani Auditorium lie beyond the map's north edge. Each has a signpost there, as the Directorate has, shown only while he goes there or is there (`docs/map/lutyens.json`, `docs/index.html`, `tests/test_venue_map.py`). The walking times stay the estimates above.
+- **Food at the Habitat Centre, 19 November.** Its sights showed a café, but it sold nothing, so with `HEGEL_WORLD_REPAIRS` (`DECISIONS.md` 57) "eat" there would be refused. It now sells a thali at the food court (₹450, a meal), a sandwich (₹220, a snack), coffee (₹160) and tea (₹90). The museums and Kamani sell tickets only, and the IIC stays without food: it is a members' club, and its voices are told so (the phase-two session's `HEGEL_VOICE_REPAIRS`).
 - **When it goes on.** Fifth and last in the order of `DECISIONS.md` 34: the filter, the letter from Munich (whose money pays for the tickets), the new instructions, the shelf labels, then this. Astra sets `HEGEL_CULTURE=1` on the Pi after the shelf labels' first full day.
 - **How to read it.** Stage 1's profile, run again on the days after it is on, is the measure. It says whether sights and art return to what he writes, and whether philosophy and hunger give way.
 

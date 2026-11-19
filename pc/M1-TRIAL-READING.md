@@ -50,3 +50,40 @@ Evaluation only: no sentence, code or result here is ever training data.
 **What it means:** lecture-hall terms per thought fell from 2.03 and 2.81 to 1.31 and 0.71, and half of Day 49's thoughts carry none. What he thinks about barely moved, because sentences whose point is philosophy were already rare (6–7%). His first letter to Munich is a quarter philosophy and has nothing of what he saw, against 1–2% and 40% in the real letters home.
 
 **Advice:** keep the trial and read it again after a week, with a margin declared in advance.
+
+**The third coder, 19 November:** plain Qwen dissents in direction. It codes far more sentences as philosophy, and by its reading philosophy fell from 22.7% to 14.0%. It agrees with the Claude coders only moderately (kappa 0.57 and 0.58). The verdict by the declared rule stands; see `pc/exports/m1-trial-20261118/RESULT.md`.
+
+## The second reading, declared 19 November about 00:30 Berlin, before any of its days
+
+Claude in the cloud, on Welt's "use the night". Declared on main before Day 50 has a single step. It has two parts. The week as lived describes. The paired forks test, because only they hold the street, the shelf labels, the world repairs and the museums equal on both sides.
+
+### 1. The week as lived (a description)
+
+- **New:** Days 50 to 56 on `mind/soul-ordinary.md`. **Old:** the six days on `mind/soul.md` since Day 35 with at least 80% of their steps decided by the mind: Days 36, 37, 38, 45, 46 and 47. A new day enters on the same 80% rule.
+- **Measures:** those of the first reading, unchanged (`tools/m1_trial.py counts` and the blind profile, two fresh coders, 150 sentences a side, seed 1831, codes sealed before the key).
+- **Margins:**
+  - Lecture-hall terms: "lower" means the new week's pooled terms per thought are at most three quarters of the old days' pooled value.
+  - Philosophy proper (code 9): it "moves" only if both coders put the new side more than four points from the old (about two standard errors at 150 sentences).
+  - Calls per decision: "worse" means more than a tenth above the old range's top.
+  - Echo and steps with a refusal: "worse" means more than five points above the old range's top, counted only on days with the filter (46 and 47 against the new week), since the filter changed both.
+- **Confounders, listed now:** the street (from Day 50), Ramesh's way back, the shelf labels and the world repairs (51), the museums (52), the file's next act if Welt says yes. The old days had none of them. So this part can describe the week but cannot credit M1 alone.
+
+### 2. The paired forks (the test)
+
+- **The morning:** day D of `pc/NOTEBOOK-FORKS.md`, the first complete shadow day after the museums' first full day, with every switch shadow runs on D.
+- **Two arms, one day each, seeds 1831, 2718, 3141, 4253 and 5167,** with `--seed` (cache off):
+  - `HEGEL_SOUL_FILE=mind/soul.md`;
+  - `mind/soul-ordinary.md`. These five days need no new run: the notebook forks' notebook-off arm on day D is this arm, because the notebook acts only after the owl.
+  - The PC's cost is the five `soul.md` days: about 35 minutes, in the spare slot, on Welt's word.
+- **Measures on D,** per fork:
+  - lecture-hall terms per thought;
+  - philosophy proper, by two blind coders, on all usable thought sentences of the ten forks, shuffled under opaque IDs;
+  - echo, calls per decision, refusals.
+- **M1 holds if all of these hold:**
+  - lecture-hall terms per thought are lower with `soul-ordinary` in at least four of the five pairs, and the pooled value is at most three quarters of `soul.md`'s;
+  - philosophy proper is not higher with `soul-ordinary` by more than four points, by both coders;
+  - echo, calls per decision and refusals are not higher with `soul-ordinary` beyond the margins of part 1, pooled.
+- **M1 fails** if the terms are lower in fewer than three pairs, or philosophy rises beyond the margin by both coders, or a guard leaves its margin. Anything between is "no clear movement".
+- **If it fails,** the result goes to Welt with the option of going back to `mind/soul.md`; nothing is switched without his word.
+
+The letters of the week are profiled beside part 1, with no bar: Paris stage 2 is the instrument for letters. Evaluation only: no fork, sentence, code or result here is ever training data.

@@ -54,3 +54,15 @@ By day, philosophy proper was 5 or 6 sentences of 83 on Day 46, 4 or 5 of 67 on 
 Keep the trial. The change it was made for is large and clear, and nothing measurable got worse beyond a sentence or two. Read it again after a week of days, with a margin declared in advance.
 
 Evaluation only: no sentence, code or result here is ever training data.
+
+## The third coder, 19 November
+
+Plain Qwen coded the same 325 sentences on the PC (`coder-qwen-20261119/`, 325 of 325 replied; `CODES-Q.jsonl`; every reply was one code). It is the model that wrote the thoughts, and it reads them differently. Its agreement with the two Claude coders is moderate: kappa 0.57 and 0.58, where the Claude coders agree at 0.93.
+
+| Philosophy proper (code 9) | old (Days 46, 47) | new (Days 48, 49) | his letter |
+|---|---:|---:|---:|
+| Coder A | 6.0% | 7.3% | 24.0% |
+| Coder B | 7.3% | 8.0% | 20.0% |
+| Qwen | 22.7% | 14.0% | 32.0% |
+
+The declared rule named the two Claude coders, so the verdict above stands. Qwen dissents in direction: by its reading, philosophy fell by almost nine points. All three agree that his letter carries far more philosophy than his thoughts do. The second reading (`pc/M1-TRIAL-READING.md`), with its margins and its paired forks, is the test. This table goes beside it (`RESULT-THREE-CODERS.json`).

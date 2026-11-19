@@ -1,0 +1,125 @@
+{
+ "tool_output": {
+  "arms": {
+   "A": {
+    "replies": 72,
+    "accepted": 0.972,
+    "echo": 0.056,
+    "notions": 1.89,
+    "words": 57.306,
+    "wishes": 0,
+    "divergence": 0.0
+   },
+   "A2": {
+    "replies": 72,
+    "accepted": 0.861,
+    "echo": 0.125,
+    "notions": 1.999,
+    "words": 63.236,
+    "wishes": 0,
+    "divergence": 0.034
+   },
+   "W": {
+    "replies": 72,
+    "accepted": 0.931,
+    "echo": 0.069,
+    "notions": 1.473,
+    "words": 59.403,
+    "wishes": 1,
+    "divergence": 0.062
+   }
+  },
+  "band": {
+   "accepted": 0.111,
+   "echo": 0.069,
+   "notions": 0.108,
+   "words": 5.931,
+   "acts": 0.034
+  },
+  "W_passes": {
+   "accepted": true,
+   "echo": true,
+   "notions": true,
+   "words": true,
+   "acts": false
+  },
+  "passed": false,
+  "wishes": {
+   "W": 1,
+   "of": 72,
+   "read": "dead (under one in twenty)"
+  }
+ },
+ "unrounded": {
+  "A": {
+   "replies": 72,
+   "accepted": 0.9722222222222222,
+   "echo": 0.05555555555555555,
+   "notions": 1.8904507998061075,
+   "words": 57.30555555555556,
+   "acts": {
+    "read": 156,
+    "stay": 240,
+    "talk": 271,
+    "buy": 75,
+    "eat": 165,
+    "walk": 285,
+    "rest": 135
+   },
+   "wishes": 0,
+   "divergence": 0.0
+  },
+  "A2": {
+   "replies": 72,
+   "accepted": 0.8611111111111112,
+   "echo": 0.125,
+   "notions": 1.998682187568636,
+   "words": 63.236111111111114,
+   "acts": {
+    "read": 300,
+    "walk": 285,
+    "talk": 195,
+    "stay": 331,
+    "buy": 100,
+    "rest": 260,
+    "sleep": 30,
+    "eat": 120
+   },
+   "wishes": 0,
+   "divergence": 0.03407313345629002
+  },
+  "W": {
+   "replies": 72,
+   "accepted": 0.9305555555555556,
+   "echo": 0.06944444444444445,
+   "notions": 1.4729950900163666,
+   "words": 59.40277777777778,
+   "acts": {
+    "read": 135,
+    "walk": 475,
+    "talk": 316,
+    "buy": 95,
+    "eat": 75,
+    "rest": 75,
+    "sleep": 30,
+    "stay": 85
+   },
+   "wishes": 1,
+   "divergence": 0.06217303742893697
+  }
+ },
+ "band_unrounded": {
+  "accepted": 0.11111111111111105,
+  "echo": 0.06944444444444445,
+  "notions": 0.1082313877625285,
+  "words": 5.930555555555557,
+  "acts": 0.03407313345629002
+ },
+ "thresholds": {
+  "accepted": 0.7500000000000001,
+  "echo": 0.19444444444444445,
+  "notions": 2.1069135753311645,
+  "words": 69.55972222222223,
+  "acts": 0.03407313345629002
+ }
+}

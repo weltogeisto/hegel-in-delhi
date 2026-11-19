@@ -50,6 +50,8 @@ class Config:
         self.street_file = v.get("HEGEL_STREET_FILE", "").strip() or None   # another deck than world/data/street.json (a rehearsal's)
         self.correspondent = v.get("HEGEL_CORRESPONDENT", "0").strip().lower() in ("1", "yes", "true")   # Niethammer writes from Munich (pc/CORRESPONDENT.md); off until switched on
         self.voice_facts = v.get("HEGEL_VOICE_FACTS", "0").strip().lower() in ("1", "yes", "true")   # a voice is told its own side of the record, its pronoun, and the right person answers (pc/WORLD-2-WEEK1.md P2); off until switched on
+        self.voice_repairs = v.get("HEGEL_VOICE_REPAIRS", "0").strip().lower() in ("1", "yes", "true")   # four repairs to the voices: no own presence line, no goods where none are sold, who answers, checked `does` lines (tests/test_voice_repairs.py); off until switched on
+        self.world_repairs = v.get("HEGEL_WORLD_REPAIRS", "0").strip().lower() in ("1", "yes", "true")   # five repairs from the review of Days 47–49 (DECISIONS 57); off until switched on
         self.ramesh_days = v.get("HEGEL_RAMESH_DAYS", "0").strip().lower() in ("1", "yes", "true")   # Ramesh may offer to come every day again (DECISIONS 47); off until switched on
         self.file_act = v.get("HEGEL_FILE_ACT", "0").strip().lower() in ("1", "yes", "true")   # the file moves after the query: three doors and a copy (pc/FILE-NEXT-ACT.md, part 1); off until switched on
         self.promises = v.get("HEGEL_PROMISES", "0").strip().lower() in ("1", "yes", "true")   # a promise is a record: the voice may make one in `act`, the engine keeps it (pc/WORLD-2-WEEK1.md P1); off until switched on
@@ -92,6 +94,7 @@ class Config:
         self.decision_dry = float(v.get("HEGEL_DECISION_DRY", "0") or 0)                                # T36 arm C: the DRY sampler's multiplier, 0 off
         if not 0 <= self.decision_dry <= 2:
             raise ValueError("HEGEL_DECISION_DRY must be from 0 to 2")
+        self.notebook = v.get("HEGEL_NOTEBOOK", "0").strip().lower() in ("1", "yes", "true")   # the owl keeps his notebook of the age, in his prompt each day (pc/NOTEBOOK.md); off until switched on
         self.keep_draws = v.get("HEGEL_KEEP_DRAWS", "0").strip().lower() in ("1", "yes", "true")   # the filter's draws kept in the state folder as preference data (pc/FILTER-PAIRS.md); off until switched on
         self.decision_draws = int(v.get("HEGEL_DECISION_DRAWS", "1") or 1)                              # T49: replies to choose among, 1 off
         if not 1 <= self.decision_draws <= 6:
