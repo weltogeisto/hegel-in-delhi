@@ -1,0 +1,15 @@
+# Education-persona trial: generation evidence
+
+Candidate `ecb71f0a27e1b888a646849d6f7ada2465896b2a`, isolated branch `codex/soul-bildung-eval`. Generation finished at 09:58 UTC on 12 October; blind scores are pending.
+
+Thirty letters in fifteen adjacent randomized A/B pairs: the existing Karl situation with ten seeds, plus the existing Directorate reimbursement situation with five. A is exactly main `mind/soul.md`; B adds only the single Nuremberg education paragraph in `mind/soul-bildung.md`. The control concerns reimbursement, not teaching, children or family, and retains its recorded cash of INR 240. Both use plain Qwen3.8-27B, normal Engine chat, bounded reasoning of 384 tokens, event-only retrieval, identical excerpt shelf offers, and no adapter, outcome memory or claim checker.
+
+Both wrapper and runner exited 0. All 41 frozen source/input files were independently verified after completion. All 30 scheduled results are usable and nonempty, with valid JSON, one call each, no retries and no server length stops. Actual paired requests differed only in the persona paragraph; B showed it 15/15 times, A 0/15. Offered passages matched exactly in every pair. Whole-prompt counts equalled serving-tokenizer usage: Karl A/B 2,052/2,191; reimbursement A/B 2,077/2,216, below the 7,263 ceiling.
+
+Word counts were 154–289. **14 of 30 exceeded the requested 200-word upper bound**; none was below 120 words or above 2,800 characters. Every output remains unchanged in the packet. No length resampling, trimming, exclusion or replacement occurred. A server stop status does not by itself certify that a scene or argument is complete; judge the supplied prose.
+
+Summed job wall time A/B: 279.968077044/281.478719165s. Karl A/B: 186.030315655/189.880254121s; reimbursement A/B: 93.937761389/91.598465044s. Elapsed: 562.908392550s. Every job time is in `wall-times.csv` under its blind text id. The T3 GPU job had completed before this run began. The existing shared server used slot 2, leaving slot 0 free for the scheduled shadow world; PID 384, healthy status, empty adapter list and three slots were verified after generation. It was never stopped or reconfigured.
+
+Full suite: **882 tests in 701.651s, OK (19 skipped), exit 0**; all 224 archived files matched the native test snapshot after completion. Focused checks: 69 tests OK (2 skipped), 3.223s. See `pc/PERSONA-BILDUNG-VALIDATION-20261012.md` for exact candidate provenance and the preserved earlier module-list error.
+
+Use the v2 guide. Commit all 30 scores and their SHA256 hash before requesting the new private key. No variant assignments or actual offered passages are included in the blind packet; the key stays outside Git. Cases are analysed separately: Karl requires B commitments >= A + 0.5 and argument >= A; reimbursement requires both commitments and argument >= A. No pooled pass. Generation and full-suite success do not establish this blind pass, and the default persona is unchanged. Claude owns scoring, default decisions and merges.

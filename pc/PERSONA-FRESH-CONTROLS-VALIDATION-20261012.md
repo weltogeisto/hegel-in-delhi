@@ -1,0 +1,11 @@
+# Fresh-control persona validation, 12 October 2026
+
+Candidate `e885f435238482a696fa7dcdd57f84753179de04`, tree `4675e31ea426979f2493f5912b5d50c325278426`. Full suite **893 tests in 701.846s, OK (19 skipped)**; unittest and wrapper exits 0. All 273 tracked archive members independently compared byte for byte to Git and the native tested snapshot. No mismatch.
+
+Native snapshot: /home/ai/hegel-eval/codex-tasks-20261012/suite-e885f43. Archive SHA256 `1a13c6cc7b3c2606255e4664c9947282e08bb150207616c0344922fa415f2cb3`; raw suite-log SHA256 `63372030096dc03cb3e6e468d2d711acab85ab4357dbf1e00003024351a4247e`. Original logs/reports remain in C:\hegel\handover\codex-tasks-20261012 as persona-fresh-suite-job.log/.exit, persona-fresh-suite-review.json and persona-fresh-suite-independent-review.json. ResourceWarning for an unclosed socket and expected 127.0.0.1:9 fixture messages are retained; final result was OK.
+
+Focused checks: 26 tests OK (16 persona, 10 writer), six new regressions and T4e packet-guide coverage. This 893-test result covers exact e885f43; prior 887-test evidence applies to d41480b.
+
+T4e finished at 14:45:04 UTC with both exits 0, all 48 scheduled results retained, all 42 protected source/input files and launch/helper/protocol/archive hashes verified. All 100 raw-output files sealed and verified. Every paired request differs only in the education paragraph; identical shelf offers. All responses are usable nonempty JSON, one call each, no retries or length stops. All 35 texts over 200 words and the one 2,915-character output are retained. Original response/result/packet text equality is verified. All costs and checks are in mind/results/persona-fresh-controls-20261012/GENERATION.md and CHECKS.json.
+
+The packet was created once from primary before integrating incoming main 073053e, while completed source still matched its frozen manifest. This checkpoint adds packet/reports/status documentation only; runtime/tests/defaults are unchanged. Future source provenance uses e885f43 plus seals; later checkout changes are not evidence tampering. New scores and their committed hash must be verified before this review's key release. Tests and usable JSON do not replace the blind prose gate. Claude owns adoption/defaults and main merges.

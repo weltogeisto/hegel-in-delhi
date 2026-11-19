@@ -27,11 +27,12 @@ def fresh(thought, shown):
     return not any(said & grams(t) for t in shown)
 
 
-def choose(draw, check, shown, draws, away=Exception):
+def choose(draw, check, shown, draws, away=Exception, keep=None):
     """draw() -> a raw reply; check(raw) -> (errors, thought). Returns (the chosen reply, a note for the record).
 
     The note counts the replies drawn, those the world refused, those that echoed, and which one was picked. A mind
-    that goes away after its first reply ends the drawing; what it has said so far is used."""
+    that goes away after its first reply ends the drawing; what it has said so far is used. With `keep` (a list),
+    every draw is added to it as {raw, errors, thought, fresh}, for HEGEL_KEEP_DRAWS; the note stays as it was."""
     first = held = None
     note = {"n": 0, "refused": 0, "echo": 0}
     for i in range(draws):
@@ -46,6 +47,9 @@ def choose(draw, check, shown, draws, away=Exception):
         if first is None:
             first = raw
         errors, thought = check(raw)
+        if keep is not None:
+            keep.append({"raw": raw, "errors": list(errors or []), "thought": thought,
+                         "fresh": None if errors else fresh(thought, shown)})
         if errors:
             note["refused"] += 1
             continue

@@ -28,7 +28,7 @@ class HTTPMind:
 
     def __init__(self, url, wake=None, timeout=300, temperature=0.7, voice_adapter_scale=None,
                  writing_reasoning_tokens=0, writing_adapter_scale=None,
-                 decision_reasoning_tokens=0, decision_adapter_scale=None, decision_dry=0.0, seed=None):
+                 decision_reasoning_tokens=0, decision_adapter_scale=None, decision_dry=0.0, seed=None, cache_prompt=None):
         self.url, self.wake, self.timeout, self.temperature = url.rstrip("/"), wake, timeout, temperature
         if not 0 <= decision_dry <= 2:
             raise ValueError("decision_dry must be from 0 to 2")
@@ -46,6 +46,9 @@ class HTTPMind:
         self.voice_adapter_scale = voice_adapter_scale
         self.writing_reasoning_tokens = writing_reasoning_tokens
         self.writing_adapter_scale = writing_adapter_scale
+        if cache_prompt not in (None, True, False):
+            raise ValueError("cache_prompt must be None, True or False")
+        self.cache_prompt = cache_prompt          # None: say nothing (chat) or keep complete's own False; True/False: every request names it, so that a same-seed rehearsal is the same day
         self.ready = False
         self.seed, self.calls = seed, 0          # a base seed (HEGEL_SEED, --seed) and the number of chat and complete calls so far
 
@@ -71,6 +74,25 @@ class HTTPMind:
             raise MindAway(f"no answer from {self.url}/health")
         self.ready = True
         log.info("mind awake after %.0fs", time.time() - t0)
+
+    def prompt_tokens(self, value, thinking=False):
+        """Count the actual server template/tokenizer, including its generation prefix.
+
+        This is metadata only: no model generation and no tokenizer package.
+        """
+        self.ensure_awake()
+        def post(path, payload):
+            request = urllib.request.Request(self.url + path, data=json.dumps(payload).encode('utf-8'),
+                                             headers={'Content-Type': 'application/json'})
+            with urllib.request.urlopen(request, timeout=self.timeout) as response:
+                return json.load(response)
+        if isinstance(value, list):
+            value = post('/apply-template', dict(messages=value,
+                         chat_template_kwargs=dict(enable_thinking=thinking)))['prompt']
+        tokens = post('/tokenize', dict(content=value, add_special=True, parse_special=True))['tokens']
+        if not isinstance(tokens, list) or not all(type(x) is int for x in tokens):
+            raise MindAway('tokenizer returned invalid token IDs')
+        return len(tokens)
 
     def chat_voice(self, messages, schema=None, max_tokens=250):
         """Optionally disable the single loaded LoRA for another character, per request.
@@ -146,6 +168,8 @@ class HTTPMind:
             payload["lora"] = [{"id": 0, "scale": adapter_scale}]
         if seed is not None:
             payload["seed"] = seed
+        if self.cache_prompt is not None:
+            payload["cache_prompt"] = self.cache_prompt
         if dry:                     # llama.cpp's DRY sampler: continuing a run of words already in the context costs more the longer it gets
             payload.update(dry_multiplier=dry, dry_base=DRY_BASE, dry_allowed_length=DRY_ALLOWED, dry_penalty_last_n=DRY_LAST_N)
         if schema:
@@ -177,6 +201,8 @@ class HTTPMind:
                    "cache_prompt": False, "repeat_penalty": REPEAT_PENALTY, "repeat_last_n": REPEAT_LAST_N, "dry_multiplier": DRY_MULTIPLIER}
         if seed is not None:
             payload["seed"] = seed
+        if self.cache_prompt is not None:
+            payload["cache_prompt"] = self.cache_prompt         # complete() sends False on its own when this is None
         if self.adapter_configured():           # his prose in plain mode is not the voices': the base model, whatever the server holds
             payload["lora"] = [{"id": 0, "scale": 0}]
         req = urllib.request.Request(self.url + "/completion", data=json.dumps(payload).encode("utf-8"), headers={"Content-Type": "application/json"})
@@ -321,6 +347,9 @@ class StubMind:
         doing = f"{ans['action']} {'to' if ans['action'] == 'walk' else 'at'} {ans['place']}"
         text = r.choice(THOUGHTS).format(time=sit["time"], doing=doing, a=a, b=b, c=c, minutes=ans["minutes"])
         ans["thought"] = f"(rehearsal) {text}"
+        if sit.get('reconcile_payments'):
+            for buy in ans.get('buys', []):
+                buy.update(purpose='purchase', source_charge_id=None)
         return ans
 
     def complete(self, prompt, max_tokens=700, temperature=None, seed=None):
@@ -354,7 +383,11 @@ class StubMind:
             return json.dumps(out)
         if "continues" in props:    # what he wrote, or with "about" what he means to write
             ask = messages[-1]["content"]
-            shelf = re.findall(r"“([^”]+)” \(", ask.split("Your manuscripts so far:")[1]) if "Your manuscripts so far:" in ask else []
+            # Only the explicitly labelled index is a list of continuable works.
+            # Typed records below it also quote dialogue with parenthetical
+            # provenance; those quotations must not become manuscript titles.
+            index=re.search(r'Your manuscripts so far:(.*?)(?:\. (?:Date of this sitting:|Use the observations)|\n|$)',ask,re.S)
+            shelf = re.findall(r"“([^”]+)” \(",index.group(1)) if index else []
             r = random.Random(ask)
             title = shelf[-1] if shelf and r.random() < 0.7 else "(rehearsal) " + r.choice(TITLES)
             kind = r.choice(["essay", "notes", "letter"])

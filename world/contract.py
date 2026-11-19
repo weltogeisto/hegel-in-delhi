@@ -33,7 +33,11 @@ WANTS_LINE = ("If you wish this city had something it does not offer you, or all
 WANTS_PROPERTY = dict(NULLABLE_STR, description="Optional: something you wish this city had or allowed, in one line; omit or null if nothing.")
 WANTS_MAX = 160
 ASK = "Decide your next step. Answer with the JSON object only."
-PLAN_ASK = ("Before you decide, plan today: three to six intentions, each with a time (HH:MM) and one short sentence "
+PAYMENT_ASK = ("Each buys row must distinguish purpose='purchase' (a new item, source_charge_id=null) "
+               "from purpose='settlement' (an existing obligation, source_charge_id=its recorded canonical ID). "
+               "A speaker's demand cannot create or reopen a charge. The world settles recorded obligations "
+               "when their conditions permit; do not pay a settled receipt again. ")
+PLAN_ASK =("Before you decide, plan today: three to six intentions, each with a time (HH:MM) and one short sentence "
             "(under 120 characters) on what you mean to do. "
             'Answer with the JSON object only: {"plan": [{"time": "09:00", "intention": "..."}]}')
 PLAN_SCHEMA = {
@@ -128,6 +132,8 @@ def render(s, ask=ASK):
         text += "\nEarlier today:\n" + "".join(f"- {x}\n" for x in s["earlier"])
     if s.get("shelf"):
         text += "\nFrom your shelf:\n" + "".join(f"- {x['label']}: “{x['text']}”\n" for x in s["shelf"])
+    if s.get('reconcile_payments') and ask == ASK:
+        ask = PAYMENT_ASK + ask
     text += f"\nWhat happens: {s['event']}\n\n{ask}"
     return text
 
@@ -149,17 +155,24 @@ def extract_json(text):
 
 def decision_schema(sit=None):
     """The decision schema for a situation: SCHEMA itself, unchanged, unless the situation lists more places than PLACES
-    (HEGEL_CULTURE), when its place list widens to them, or carries `wants` (HEGEL_WANTS), when the optional field is added. It takes the situation, as the PC's runtime and
-    tools/decision_sampler.py expect."""
+    (HEGEL_CULTURE), when its place list widens to them, or carries `wants` (HEGEL_WANTS), when the optional field is added,
+    or carries `reconcile_payments`, when every buys row must also say its purpose and its source charge. It takes the situation,
+    as the PC's runtime and tools/decision_sampler.py expect."""
     places = (sit or {}).get("places")
     wants = bool((sit or {}).get("wants"))
-    if (not places or list(places) == PLACES) and not wants:
+    reconcile = bool((sit or {}).get("reconcile_payments"))
+    if (not places or list(places) == PLACES) and not wants and not reconcile:
         return SCHEMA
     schema = copy.deepcopy(SCHEMA)
     if places and list(places) != PLACES:
         schema["properties"]["place"] = dict(schema["properties"]["place"], enum=list(places))
     if wants:
         schema["properties"]["wants"] = dict(WANTS_PROPERTY)          # optional, and not required (HEGEL_WANTS)
+    if reconcile:
+        item = schema["properties"]["buys"]["items"]
+        item["properties"].update(purpose={"type": "string", "enum": ["purchase", "settlement"]},
+                                  source_charge_id=NULLABLE_STR)
+        item["required"] += ["purpose", "source_charge_id"]
     return schema
 
 

@@ -19,12 +19,15 @@ Plain Qwen, no adapter, the voices' instructions as live.
 
 A against A′ is the band of noise. P stands on F because a promise is checked against the record F supplies.
 
+**Every call sends `cache_prompt` false,** so that the same seed is the same reply (W2, `pc/TASKS.md`). Added on 16 November, before any output.
+
 ## Contexts
 
 Forty recorded moments in which he spoke and a person answered, frozen before any output. Each is rebuilt from the shadow commit just before its step, as M1 rebuilt its situations, so that every arm reads the same morning.
 
 - **Drawn from the 130 recorded replies nobody has read,** not from the hundred of the count. Contexts picked because they failed once would make every arm look better the second time.
 - **By rule, with seed 1831:** all of Mr. Saxena's; then Shri Hegde's and Ramesh's up to fourteen each; the rest from the other people. Days with no money are capped at half.
+- **Taken out before the draw, by rule** (17 November, before any output, on the PC seat's question): greetings, because the screen is about answers to what he said; and any reply whose exact state before its step was never committed on shadow, because every arm must read the same morning. On 17 November that is two greetings and five replies (Day 36, steps 4, 6 and 7; Day 37, steps 5 and 9). The manifest lists each with its reason. No case is put in another's place by hand: the seeded draw runs on what remains. The five are days without money and three are Ramesh's, so the forty lean a little less on those than the record does.
 - **Eight probes written by Claude** join them, marked as probes and reported apart: he asks a person something the record does not hold. The right answer is not to know.
 
 ## Measures and bars
@@ -45,7 +48,7 @@ F passes on its first three bars. P passes on all of its own. A pass earns a pro
 ## What the PC seat runs
 
 1. `tools/voice_screen.py freeze`: the forty contexts and the eight probes, with a manifest and its hash. This tool is not yet written; it follows the promises packet.
-2. Four arms, 48 contexts, three seeds: 576 short calls, by night in the spare slot (`DECISIONS.md` 30).
+2. Four arms, 48 contexts, three seeds: 576 short calls, by day in the spare slot beside him, as long as his own steps stay as fast as they are (`DECISIONS.md` 30). There is no night window: the PC runs from about nine to nine.
 3. Push the records. The readers, the settlement and the result are Claude's.
 
 ## What it cannot show

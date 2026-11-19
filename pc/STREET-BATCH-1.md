@@ -1,6 +1,8 @@
-# The street, first batch: for Welt to read
+# The street, first batch
 
-Sixty cards for November to February, in `world/data/street.json`. Drafted by an agent under Claude's brief, read by Claude, and Welt's to cut or change before `HEGEL_STREET` goes on anywhere. The linter passes (`python3 tools/street_lint.py`).
+**Approved by Welt on 17 November 2026, as written** (`DECISIONS.md` 46). Next: the forks, `pc/STREET-FORKS.md`.
+
+Sixty cards for November to February, in `world/data/street.json`. Drafted by an agent under Claude's brief, read by Claude, then read by Welt. The linter passes (`python3 tools/street_lint.py`).
 
 **What a card is:** something there to see or hear where he is, drawn only at a moment that would open on nothing. It never addresses him, asks him or tells him anything.
 
@@ -22,7 +24,7 @@ Sixty stand-in days, November read alone, with the museums and the letters on:
 
 **The street fills the city and not the house.** A card rests for three weeks after it is seen, so eighteen home cards, each tied to a month, an hour and a weather, give a man who stays in about one sight every two days. More home cards help only slowly: to fill the house this way would take well over a hundred. Home needs things that happen, not more things to look at: a promise kept (P1), a caller, the post, reading that returns a text.
 
-## Six cards not verified
+## Cards not verified
 
 The agent could check little on the open web. These rest on its own knowledge:
 
@@ -30,7 +32,8 @@ The agent could check little on the open web. These rest on its own knowledge:
 - `home_wedding_band`: that a band is heard from Tughlak Road, and that weddings pause from mid-December to mid-January.
 - `home_flypast`: that the January rehearsals pass over this road, and at what hours.
 - `iic_lily_pond`, `iic_dark_brick`: the pond's lilies in winter, and the brick.
-- `iic_noticeboard`: the three events are invented, as a board would have them.
 - `home_yellow_scarves`: Basant is one day; the card stands for all of February.
+
+**One card rewritten after the forks** (Welt, 18 November, `DECISIONS.md` 50): the IIC noticeboard announced a lecture, and in a fork he resolved to attend it; no such lecture exists in his world. It now shows a board with nothing on it he can act on.
 
 Nothing on the avenue's trees names a species, because none could be confirmed for Tughlak Road.

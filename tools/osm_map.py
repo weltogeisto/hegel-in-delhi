@@ -1204,7 +1204,20 @@ def finish_places(m):
     if ex:
         m.pois["estates"] = {"rect": [max(0, ex[0] - 1), 0, min(m.w - 1, ex[0] + 1), 2], "spot": list(ex), "entrance": list(ex)}
     m.signs = signs_for(m, ex or (0, 0))
+    for pid, poi in VENUES.items():                     # the museums, concerts and plays (world/data/culture.json)
+        m.pois.setdefault(pid, dict(poi))
     return ex
+
+
+# The venues of HEGEL_CULTURE, placed on 18 November from OSM way 287659125 (India Habitat Centre, its outline and its
+# Lodhi Road front) and, for the three beyond the map, a north-edge road cell where a straight walk from his bungalow
+# toward each leaves the map. Fixed cells for this BBOX and RES; tests/test_venue_map.py checks them on the built grid.
+VENUES = {
+    "habitat":         {"rect": [197, 129, 219, 150], "spot": [207, 129], "entrance": [207, 129]},
+    "national_museum": {"rect": [111, 0, 113, 2], "spot": [112, 0], "entrance": [112, 0]},
+    "kamani":          {"rect": [136, 0, 138, 2], "spot": [137, 0], "entrance": [137, 0]},
+    "ngma":            {"rect": [200, 0, 202, 2], "spot": [201, 0], "entrance": [201, 0]},
+}
 
 
 # ───────────────────────── output ─────────────────────────

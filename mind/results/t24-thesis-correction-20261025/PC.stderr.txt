@@ -1,0 +1,18 @@
+test_later_day_owns_revision_without_rewriting_historical_state (tests.test_owl_persistence.OwlPersistenceTest.test_later_day_owns_revision_without_rewriting_historical_state) ... ok
+test_missing_evidence_does_not_change_status (tests.test_owl_persistence.OwlPersistenceTest.test_missing_evidence_does_not_change_status) ... owl: 'india' unshaken → shaken has no evidence in the day's record; the status stays
+ok
+test_next_day_inherits_nightly_revision_and_number (tests.test_owl_persistence.OwlPersistenceTest.test_next_day_inherits_nightly_revision_and_number) ... ok
+test_same_day_depesche_number_survives_reload (tests.test_owl_persistence.OwlPersistenceTest.test_same_day_depesche_number_survives_reload) ... ok
+test_same_day_revision_survives_reload (tests.test_owl_persistence.OwlPersistenceTest.test_same_day_revision_survives_reload) ... ok
+test_a_full_day_moves_a_thesis_on_evidence (tests.test_owl_persistence.ThesisFloorTest.test_a_full_day_moves_a_thesis_on_evidence) ... ok
+test_a_thin_day_moves_no_thesis_and_the_owl_is_told (tests.test_owl_persistence.ThesisFloorTest.test_a_thin_day_moves_no_thesis_and_the_owl_is_told) ... ok
+test_a_change_with_evidence_is_applied_and_stored (tests.test_needs.ThesisTest.test_a_change_with_evidence_is_applied_and_stored) ... ok
+test_a_change_without_evidence_is_not_applied (tests.test_needs.ThesisTest.test_a_change_without_evidence_is_not_applied) ... ok
+test_revise_in_detail (tests.test_needs.ThesisTest.test_revise_in_detail) ... ok
+test_the_prompt_asks_for_the_evidence (tests.test_needs.ThesisTest.test_the_prompt_asks_for_the_evidence) ... ok
+test_the_stand_in_owl_answers_with_the_new_field_and_changes_nothing (tests.test_needs.ThesisTest.test_the_stand_in_owl_answers_with_the_new_field_and_changes_nothing) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 2.241s
+
+OK

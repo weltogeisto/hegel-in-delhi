@@ -1,0 +1,128 @@
+{
+  "task": "T4d",
+  "verdict": "FAIL",
+  "gates": {
+    "karl_commitments_gain_at_least_0_5": true,
+    "karl_argument_no_worse": true,
+    "aggregate_controls_commitments_no_worse": false,
+    "aggregate_controls_argument_no_worse": true
+  },
+  "scores_commit": "cfc8aec97a694635b5cb59f35cb42bfbfc91c843",
+  "scores_sha256": "a4dbf8343f9ef91bd256adec8ea129b90f527fd701aa857446db6e3acbe565cf",
+  "cases": {
+    "karl": {
+      "A": {
+        "n": 6,
+        "argument": 2.0,
+        "commitments": 2.0,
+        "particular": 3.1666666666666665,
+        "voice": 2.8333333333333335
+      },
+      "B": {
+        "n": 6,
+        "argument": 2.1666666666666665,
+        "commitments": 2.8333333333333335,
+        "particular": 3.1666666666666665,
+        "voice": 3.0
+      }
+    },
+    "fare": {
+      "A": {
+        "n": 10,
+        "argument": 2.6,
+        "commitments": 3.1,
+        "particular": 4.0,
+        "voice": 2.9
+      },
+      "B": {
+        "n": 10,
+        "argument": 2.7,
+        "commitments": 3.0,
+        "particular": 4.0,
+        "voice": 2.9
+      }
+    },
+    "columns": {
+      "A": {
+        "n": 10,
+        "argument": 2.9,
+        "commitments": 2.7,
+        "particular": 3.1,
+        "voice": 2.8
+      },
+      "B": {
+        "n": 10,
+        "argument": 2.9,
+        "commitments": 2.7,
+        "particular": 3.0,
+        "voice": 3.0
+      }
+    },
+    "controls": {
+      "A": {
+        "n": 20,
+        "argument": 2.75,
+        "commitments": 2.9,
+        "particular": 3.55,
+        "voice": 2.85
+      },
+      "B": {
+        "n": 20,
+        "argument": 2.8,
+        "commitments": 2.85,
+        "particular": 3.5,
+        "voice": 2.95
+      }
+    }
+  },
+  "karl_commitments_gain": 0.8333333333333334,
+  "comparison": {
+    "A": "Exactly mind/soul.md at d41480b; not soul-v2",
+    "B": "Same persona plus only the education paragraph in mind/soul-bildung.md"
+  },
+  "case_variant_wall_seconds": {
+    "karl": {
+      "A": 108.75812914299786,
+      "B": 115.54681980699934
+    },
+    "fare": {
+      "A": 185.3026309809975,
+      "B": 188.25523408499976
+    },
+    "columns": {
+      "A": 196.93675113099744,
+      "B": 190.4860808159974
+    }
+  },
+  "variant_wall_seconds": {
+    "A": 490.9975112549928,
+    "B": 494.2881347079965
+  },
+  "elapsed_seconds": 987.8406562,
+  "prompt_tokens": [
+    2052,
+    2075,
+    2077,
+    2191,
+    2214,
+    2216
+  ],
+  "words_range": [
+    155,
+    451
+  ],
+  "over_200_words": 18,
+  "jobs": 52,
+  "nonempty": 52,
+  "usable": 52,
+  "calls": 52,
+  "retries": 0,
+  "server_length_stops": 0,
+  "protected_files_verified": 41,
+  "raw_output_files_verified": 108,
+  "single_blind_rater": true,
+  "development_cases_reused": true,
+  "source": "d41480b51368b67c4c6914c7041de61d074ed5cc",
+  "default_changed": false,
+  "default_owner": "Claude; changes only after reviewing this result"
+}

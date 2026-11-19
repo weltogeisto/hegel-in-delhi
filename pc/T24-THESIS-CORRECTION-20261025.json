@@ -1,0 +1,133 @@
+{
+  "task": "T24",
+  "status": "DONE",
+  "source_main": "272123285c7a1801d06400efe0ef0050a06868c8",
+  "feature": "f469dfcfb0db1181bea8f4e8299e9f08c76cbd86",
+  "Pi_shadow_commit": "f12e387154b8f5ee611afd16fc0ed80fc3a2b5e7",
+  "Pi_tree": "6b5db2cbd2cfd330ec0869c6a502bb300d0bf457",
+  "actual_Pi_parents": [
+    "2929c3d3e23578509b8dba3b54a9c441a56f84de",
+    "272123285c7a1801d06400efe0ef0050a06868c8"
+  ],
+  "authorized_correction": {
+    "all_other_JSON_values_equal": true,
+    "changed_field": "state.theses[id=state].status",
+    "expected_sha256": "07dd3df29b1dbe53785f4b1a33eaa056484e62a324ac643499ef95de8f2ff1bc",
+    "from": "shaken",
+    "india": "shaken",
+    "new_bytes": 11508,
+    "old_bytes": 11506,
+    "original_sha256": "69b19ee6bf5a2df5cd10fe55717d9c5ef656d8aa4919bc4eb63cffe191d1bce3",
+    "path": "docs/days/2026-10-26.json",
+    "to": "unshaken",
+    "day24_owl_SHA256": "d74be942cd2808fe0e9ee7162285ed9819eb55e7cd108541f00452d82c811cb8",
+    "all_other_JSON_values_unchanged": true,
+    "other_day_state_files_unchanged": true,
+    "india_unchanged": true
+  },
+  "natural_check": {
+    "utc": "2026-10-25T16:08:46.523535+00:00",
+    "T24": "DONE",
+    "capture": "/mnt/c/hegel/handover/codex-tasks-20261025/T24-natural-Pi-capture-20261025-160650.json",
+    "capture_SHA256": "b0df433a577c14abc6d9167a847a30dafac2b6a282a9d3c8c84af5f45014d1a4",
+    "actual_shadow": "f12e387154b8f5ee611afd16fc0ed80fc3a2b5e7",
+    "clean_stable_HEAD": true,
+    "natural_service_exit_UTC": "2026-10-25T16:06:04+00:00",
+    "service": {
+      "Result": "success",
+      "ExecMainStartTimestamp": "Sun 2026-10-25 17:06:04 CET",
+      "ExecMainExitTimestamp": "Sun 2026-10-25 17:06:04 CET",
+      "ExecMainStatus": "0",
+      "ActiveState": "inactive",
+      "SubState": "dead",
+      "InactiveEnterTimestamp": "Sun 2026-10-25 17:06:04 CET",
+      "InvocationID": "71f7231da4a94c41af7a37cd21760abd"
+    },
+    "timer": {
+      "NextElapseUSecRealtime": "Sun 2026-10-25 17:07:00 CET",
+      "ActiveState": "active",
+      "UnitFileState": "enabled"
+    },
+    "fan_files_absent": {
+      "supabase/fanclub.sql": true,
+      "tests/test_fanclub.py": true,
+      "world/data/visitors.json": true,
+      ".github/workflows/fanclub-keepalive.yml": true
+    },
+    "owl_equals_fresh_main": true,
+    "raw_day_bytes_frozen_separately": true,
+    "no_model_or_health_probe": true,
+    "no_forced_tick_owl_server_timer_or_power_action": true
+  },
+  "source_files_verified": 208,
+  "Pi_original_CSV": 10,
+  "PC_original_CSV": 22,
+  "focused_checks": {
+    "utc": "2026-10-25T16:10:55.661445+00:00",
+    "PC": {
+      "tests": 12,
+      "passed": 12,
+      "test_seconds": 2.241,
+      "wrapper_seconds": 2.405774263002968
+    },
+    "Pi": {
+      "first_run_tests": 12,
+      "first_passed": 7,
+      "first_fixture_errors": 5,
+      "test_seconds": 0.374,
+      "failed_only_retry_tests": 5,
+      "failed_only_retry_success": true,
+      "failed_only_retry_seconds": 1.7869515589991352,
+      "deduplicated_passing_cases": 12
+    },
+    "original_failures_and_inputs_preserved": true,
+    "frozen_PC_files": 444,
+    "frozen_Pi_files": 208,
+    "all_archive_native_snapshot_bytes_exact_before_after": true,
+    "unchanged_Claude_tests": true,
+    "no_model_or_health_call": true,
+    "unit_fixtures_use_StubMind": true,
+    "no_standalone_economy_or_model_simulation": true,
+    "original_wrapper_label_correction": "The original copied CHECKS field no_model_or_simulation describes no standalone model/simulation job. These unit tests include ordinary Sandbox/StubMind day setup; no real mind or live world was used."
+  },
+  "timer_configuration_unchanged": true,
+  "all_other_day_state_JSON_and_Day24_owl_unchanged": true,
+  "T19_hook_CLI_ledger_and_old_page_preserved": true,
+  "all_four_fan_paths_absent": true,
+  "PC_merge_extensions_preserved": "Fresh main TASKS; canonical thesis floor integrated with existing PC records/prompt-budget/claim_guard extensions; count named thesis_thoughts to avoid existing typed-thought list collision; tests unchanged from main",
+  "no_thinking_rule_beyond_Claude_main": true,
+  "no_replay_rerun_or_model_test": true,
+  "T10": "OPEN for first full complete natural post-return day>=30non-null thoughts; no auditor invoked",
+  "T14": "NOT DONE, actual gap retained",
+  "public_page_and_GitHub_link_choices": "pending human decision; no publication or public switch",
+  "originals": {
+    "/mnt/c/hegel/handover/codex-tasks-20261025/T24-test-plan-20261025-160045.json": {
+      "sha256": "c5824aeed2b7ec84149f377d578256c836ce66a76d59ca5abd85d2ffcc9ecedd",
+      "bytes": 1782
+    },
+    "/mnt/c/hegel/handover/codex-tasks-20261025/T24-Pi-main-result-20261025-160505.json": {
+      "sha256": "dae5304cb3f6ba76ded454d688c051a94fe7bc1e3c6f75f4231fa19fd02dbaba",
+      "bytes": 316024
+    },
+    "/mnt/c/hegel/handover/codex-tasks-20261025/T24-natural-Pi-capture-20261025-160650.json": {
+      "sha256": "b0df433a577c14abc6d9167a847a30dafac2b6a282a9d3c8c84af5f45014d1a4",
+      "bytes": 6486
+    },
+    "/mnt/c/hegel/handover/codex-tasks-20261025/T24-independent-deployment-verification-20261025.json": {
+      "sha256": "8a0be7a0d35b8913e8b0ada69d8abb70f9608bbac93b614c69dd397b6c6f8da4",
+      "bytes": 48400
+    },
+    "/mnt/c/hegel/handover/codex-tasks-20261025/T24-natural-independent-verification-20261025.json": {
+      "sha256": "dee38156889a080eeb2a5dd2a62a58fbedf7d120cf33fa4e65e94c27ae590d07",
+      "bytes": 5437
+    },
+    "/mnt/c/hegel/handover/codex-tasks-20261025/T24-fixture-isolation-20261025-160404/PLAN.json": {
+      "sha256": "b419e9486bcd508f9d64e1745297f9f4590a0b7e52cae7645e2180c8ba2ec0a3",
+      "bytes": 914
+    },
+    "/mnt/c/hegel/handover/codex-tasks-20261025/T24-fixture-isolation-20261025-160404/RUN.json": {
+      "sha256": "95d11c56d67b28d8d7bea4e7a0566db3e698da6b56f2d3e16aa3dfcc9e75daa2",
+      "bytes": 354
+    }
+  }
+}

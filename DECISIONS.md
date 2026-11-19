@@ -106,13 +106,63 @@ Welt's answers, the evening of 16 November, to three questions put plainly:
 41. **The sentence for `wants` may be tested: yes,** as drafted in `pc/WANTS-SCREEN.md`. The PC seat runs the screen on frozen moments. The sentence goes into his live days only after the result and Welt's word again.
 42. **The file's next act: later.** `pc/FILE-NEXT-ACT.md` stays a draft and out of `plot.json`. After his 20 November the file is silent until Welt takes it up.
 
+Welt's call, 17 November:
+
+43. **The records branch keeps its additions behind a switch that is off by default.** When main was merged into `codex/outcome-memory`, the day guard failed (`tests/test_opened.py`): that branch adds `records`, charge ids, `observations` and a `consumed` entry to every day with nothing switched. The guard's reference is not recorded again.
+    - **Why:** the guard stands for one rule, that a day with every new switch off is the day main gives. A reference recorded again to pass would stop meaning that for the branch's own later changes.
+    - **One allowance:** a field that is only ever added beside the record, and that neither he, the page nor the owl reads, may be named in the guard's `ADDED` list instead of switched. What sits inside existing entries, or is a new kind of entry, goes behind the switch.
+    - **Who:** the PC seat, on its branch.
+
+Welt's calls, the afternoon of 17 November:
+
+44. **The PC seat builds and runs the screen for the voices and the promises,** from a handover (`pc/T57-HANDOVER.md`). Claude in the cloud keeps the declaration, the reading and the result.
+45. **Khan Market gets its own scene on the page:** the lane with Sunil's stall and the dhaba, shown when he eats, drinks or talks there. Built by an agent on Sonnet 5.5, checked by Claude.
+    - **Why:** the page had rooms for four places and two Khan Market shops, shown only on a stroll. When he sat there eating, it showed nothing.
+
+46. **The street's first batch is approved** (Welt, 17 November): the sixty cards as written, the seven that are not verified against Delhi included. `HEGEL_STREET` stays off until its forks have passed (`pc/STREET-FORKS.md`) and Welt has given his word for the trial.
+47. **Ramesh's days go both ways** (Welt, 17 November: "build ramesh offer"). Short of money, Hegel agreed that Ramesh comes on Mondays, Thursdays and Saturdays for ₹4,000. Nothing offered the way back.
+    - **The offer:** once no wage and no groceries stand owed, and ₹16,000, two months of the full wage, is left after everything he owes, Ramesh offers at home to come every day but Wednesday again, for ₹8,000 (`ramesh_fulltime` in `world/data/offers.json`). Bills falling due in that same moment count. Hegel answers yes or no, as to every offer; a no comes back after a week.
+    - **Both ways:** a yes to either offer lets the other be made again later, so a lean month can send Ramesh back to three days and a better one bring him back.
+    - **Behind `HEGEL_RAMESH_DAYS`, off by default:** without it the offer does not exist and his world is as it was (`tests/test_ramesh_days.py`).
+    - **When it goes on:** Welt left it to Claude ("make the decision that I would most likely make"). It goes on once the new instructions' first whole day, Day 49, has been read, before Day 50's waking, so the two changes are read apart. Nothing presses: Ramesh cooks again on Thursday either way.
+
+Welt's call, the afternoon of 17 November, on two answers that had reached two seats:
+
+48. **The guard on the records branch: the new reference stands for the bookkeeping, and the `consumed` entry goes behind a switch.** This settles 43, which Welt gave to Claude in the cloud, against the "new reference" the PC seat understood from him in its own chat and recorded on `codex/outcome-memory` (`370fa85`).
+    - **Kept:** the PC seat's new reference for what nobody reads: `records`, the charge numbers, `observations` on a step, `place` and `since` on an expense. Its comparison of ten days on main with ten on the branch showed that nothing main writes changed.
+    - **Behind a switch, off by default:** the `consumed` entry. The page shows entries and the owl reads them at night, so it can change what he is told. It goes on after someone has looked at what the owl and the page do with it.
+    - **So the reference is recorded once more,** with `consumed` off, in a commit that says so.
+
+49. **A dropped answer is not a no** (Welt left it to Claude, 17 November). When the PC went away between his decision and his yes or no to an offer, the world counted a no: the refusal was recorded and the offer waited a week. Now the offer is not made at that moment and stays open for the next (`world/engine.py` `ask_choice`; `tests/test_choice_away.py`). A real no counts as before. It acts only when the PC drops mid-answer, so it needs no switch.
+
+Welt's calls, the night of 17 to 18 November, after the street's forks passed (`pc/STREET-FORKS-RESULT.md`):
+
+50. **The street goes on in his world as a provisional trial,** `HEGEL_STREET=1` on shadow. Setting it back to 0 ends the trial.
+    - **Its place:** at the end of the order of 34, after the museums, concerts and plays, one change at a time, each after the previous one's first full day is reported. Welt was offered to move it ahead and gave no word to; one word from him moves it.
+    - **First, one card is rewritten** (done): the IIC noticeboard announced a lecture, and in a fork he resolved to attend it. It now reads: "On the board by the entrance, typed notices curl at their corners under coloured pins, and last month's programme still shows through this month's."
+    - **Read weekly by Claude in the cloud:** empty moments, what the world brings, the share of a day's kinds seen before, and what he does with the cards.
+
+51. **The street goes ahead** (Welt, 18 November: "sooner ahead"). It is the next change in his world, before the shelf labels and the museums: `HEGEL_STREET=1` before his waking on Day 50. The shelf labels follow on Day 51 and the museums, concerts and plays on Day 52, each after the previous one's first full day, as before.
+    - **Why it can:** it has passed its forks, and they ran on the world as it stands today: the new instructions, the filter and the letters, without the shelf labels or the museums.
+
+52. **The forty are read again, blind, by three readers** (Welt, 18 November: "go and yes"): Welt, Sol and a fresh Claude session, each with its own shuffled packet and eight controls mixed in (`pc/LORA-BLIND-TEST-CLOUD.md`, `pc/exports/lora-forty-20261118/`). No GPU and no adapter is loaded. It settles whether the defects Claude recorded on 7 November are defects. Fresh scenes with the adapter loaded are a later step and need Welt's word.
+
+53. **The adapter may be loaded for one night, to rewrite his recent thoughts** (Welt, 18 November: "yes or more, have the full night"). This lifts the hard limit on loading an adapter for the night of 18 to 19 November and for the test declared in `pc/LORA-FRESH-SCENES.md` (W8): 72 thoughts from Days 44 to 49, each rewritten by the Training 1 adapter and twice by the plain model, on a trial server while he sleeps.
+    - **What it does not cover:** the adapter on the server he thinks with, any rewrite reaching his world, training, or another night.
+    - **Why now:** Welt asked for examples from the last ten days. The forty saved rewrites are from 6 November, almost all from Day 12, and no rewrite of a recent thought exists.
+    - **Welt's ballot on the forty is final at fourteen of 48** (his word: "this is it"), a preference for each item, as he asked. The keys stay out of the repository until Sol's ballot is sealed.
+
+Welt, the night of 18 November: "dont get stuck waiting on me not answering, i trust you". Taken by Claude in the cloud for these two, to be read by him in the morning:
+
+54. **The filter's draws are kept from Day 50 on:** `HEGEL_KEEP_DRAWS=1` on the Pi with the morning's switches (`pc/FILTER-PAIRS.md`). It changes nothing he is told, and the day files stay as they are. It gathers the preference pairs Training 3 lacked, by the world's fixed checks, within the data rule. **Not covered:** any training from them, which stays Welt's call with its own declared test.
+55. **Paris stage 2 takes the travel version of his instructions** (option 2 in `pc/PARIS-BACKTEST.md`): his instructions with the Delhi premise taken out, by a fixed edit declared before any call. Claude prepares the cards, the edit and the tool. The calls run in the PC's spare time, never at the cost of his steps. His own letters to Munich are read against the real ones meanwhile (option 3).
+
 ## Still open
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.
 - Whether the two rules of 38 also bind the PC seat.
 - **Whether an adapter gets a day of its own.** No adapter has run a day in his world: each stopped at its gate first (T29, the forty-case re-audit, Training 3's data gate). Since week 0 a fair day is possible: one saved morning, two forks, plain Qwen against the adapter, the same seeds, read by state and by text (`tools/fork_diff.py`, `world report --health`). It needs T67 first, because today an adapter that is set reaches the owl, the letters and the yes-or-no as well. Claude's advice, 16 November: not for the Training 1 adapter, which changed facts in 12 of 40 rewrites; make the fork day the entry test of the next adapter. Loading an adapter is a hard limit either way.
 - **The file's next act** (`pc/FILE-NEXT-ACT.md`, seven calls) waits for Welt's pen (42).
-- **The street's first batch** (`pc/STREET-BATCH-1.md`): sixty cards for Welt to read before `HEGEL_STREET` goes on anywhere.
 
 ## Ideas, not yet decided
 

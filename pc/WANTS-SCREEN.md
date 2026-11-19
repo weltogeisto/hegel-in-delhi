@@ -18,13 +18,15 @@ On the same frozen situations, plain Qwen, no adapter, the filter as live (`HEGE
 
 | Arm | Instructions | Seeds |
 |---|---|---|
-| A | the instructions live on shadow on the day of the freeze | 1831, 2718, 3141 |
+| A | the instructions live on shadow from Day 48: `mind/soul-ordinary.md` | 1831, 2718, 3141 |
 | A′ | the same again | 4253, 5167, 6079 |
 | W | the same, with the sentence and the field | 1831, 2718, 3141 |
 
 A against A′ is the band of noise. W is read against it.
 
-**Situations:** 24, frozen as M1's confirmation froze its own (`tools/prompt_screen.py freeze --from-day N`): 16 moments where nobody speaks to him and 8 encounters, from the complete shadow days after the letter from Munich has paid his debts. Days on which he has ₹6 would make every wish a wish for money.
+**Every call sends `cache_prompt` false.** The PC seat found on 16 November that the same seed gives the same reply only then (`pc/exports/noise-band-20261116/README.md` on `codex/pc-seat-20261116`). Added before any output of this screen.
+
+**Situations:** 24, frozen as M1's confirmation froze its own (`tools/prompt_screen.py freeze --from-day N`): 16 moments where nobody speaks to him and 8 encounters, from the complete shadow days from Day 48 on. Two reasons for that day: the letter from Munich has paid his debts by then (days on which he has ₹6 would make every wish a wish for money), and from Day 48 he runs on `mind/soul-ordinary.md`. Day 47 was lived on the old instructions, so its moments would carry thoughts the arms' instructions did not write. Changed on 16 November, before any output.
 
 ## Bars
 
@@ -51,7 +53,7 @@ W passes the screen when it passes all five. A pass earns a provisional trial on
 ## What the PC seat runs
 
 1. Freeze the 24 situations and commit the manifest with its hash.
-2. Run A, A′ and W: 216 calls at the filter's 1.29 calls each, by day or in the spare slot by night (`DECISIONS.md` 30).
+2. Run A, A′ and W: 216 calls at the filter's 1.29 calls each, by day in the spare slot beside him (`DECISIONS.md` 30). There is no night window.
 3. Push the records. Claude computes the measures and writes the result.
 
 ## What it cannot show

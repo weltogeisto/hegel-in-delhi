@@ -5,6 +5,7 @@ the next situation, asks the mind, checks the answer, writes the step into docs/
 moves on. The page reveals each step when its time comes. The day file is the state: no database.
 """
 import copy
+import gzip
 import json
 import logging
 import os
@@ -12,7 +13,7 @@ import random
 import time
 from datetime import date, datetime, timedelta
 
-from . import contract, lookup, owl, prefer, report, shelf, voices, works, post
+from . import claim_check, contract, lookup, owl, post, prefer, prompt_budget, records, report, shelf, voices, works
 from .clock import day_number, fmt, hm, long_date, minute_of, sun
 from .memory import Memory, encountered_text
 from .money import ADVANCE
@@ -54,6 +55,7 @@ class Days:
         return json.loads(p.read_text(encoding="utf-8")) if p.exists() else None
 
     def save(self, day):
+        records.refresh(day)
         self.dir.mkdir(parents=True, exist_ok=True)
         p = self.path(day["date"])
         tmp = p.with_suffix(".tmp")
@@ -90,15 +92,31 @@ def until_of(day):
 
 
 class Engine:
-    def __init__(self, cfg, world, mind, git=None, owl_mind=None):
+    def __init__(self, cfg, world, mind, git=None, owl_mind=None, claim_guard=None):
         self.cfg, self.world, self.mind, self.git = cfg, world, mind, git
         self.owl_mind = owl_mind or mind
+        if getattr(cfg, "consumed", False):
+            world.consumed = True           # HEGEL_CONSUMED reaches the entries however the world was built
         self.days = Days(cfg.docs, getattr(cfg, "clock_shift_min", 0))
         self.memory = Memory(self.days, world)
         self.lookup = lookup.find           # (query, cache folder) -> the page he reads, or a note; tests put a stand-in here
         self.soul = cfg.soul_file.read_text(encoding="utf-8")
         self.voice_prompt = (cfg.repo / "mind/voices.md").read_text(encoding="utf-8")
         self.shelf = shelf.load(cfg.repo / "mind/shelf/index.json.gz", cfg.repo / "world/data/shelf_terms.json") if cfg.shelf else None
+        # The LLM checker failed the factuality/cost evaluation. Audit callers
+        # may still inject a guard explicitly; runtime flags never construct one.
+        self.claim_guard = claim_guard
+
+    def regenerate_prose(self, mind, text, unsupported, evidence, system=None):
+        schema={'type':'object','properties':{'text':{'type':'string'}},'required':['text']}
+        request=("Rewrite this text once, preserving its subject and argument, but removing or qualifying the unsupported claims. "
+                 "Do not add events. Records are evidence; statements prove only words said.\n" + evidence +
+                 "\nUnsupported claims: "+json.dumps(unsupported,ensure_ascii=False)+"\nText: "+text)
+        raw=mind.chat([dict(role='system',content=system or self.soul),dict(role='user',content=request)],schema,max_tokens=1200)
+        answer=contract.extract_json(raw)
+        if not isinstance(answer,dict) or not isinstance(answer.get('text'),str):
+            raise claim_check.ClaimProtocolError('Prose regeneration returned unusable JSON')
+        return answer['text']
 
     # ── days ────────────────────────────────────────────────────────
     def migrate(self, prev, st):
@@ -203,6 +221,19 @@ class Engine:
             refused.append(["the PC did not wake for a greeting"])
             source = "away"
         else:
+            if getattr(self.cfg,'outcome_memory',False):
+                sit['reconcile_payments'] = True
+                store=records.current(day,sit,ctx)
+                past=list(self.memory.before(t.date()))[:3]
+                # The current snapshot wins; older snapshots retain their own dates.
+                for old in past:
+                    store['records'].extend(records.project(old)['records'])
+                ctx['records']=store
+                prior=[x for x in remember if 'as the owl wrote it up' in x or 'you thought:' in x][:1]
+                prior=[('Prior interpretation, not event evidence: '+x)[:220] for x in prior]
+                room=600-sum(len(x)+3 for x in prior)
+                sit['remember']=records.recall(store, ' '.join(sit.get('present',[])),
+                    limit=room,lines=8-len(prior))+prior
             sit["shelf"] = self.offer(day, sit, ctx, st)
             if sit["shelf"]:
                 ctx["shelf"] = sit["shelf"]
@@ -237,15 +268,28 @@ class Engine:
             result = self.quiet(st, t, sit, day)
         ans, plan = result
         wish = ans.pop("wants", None)               # a wish is read off the decision here and goes into no later prompt, nor into the decision's record
+        if self.claim_guard and ans.get('thought'):
+            proof=records.relevant(ctx['records'],ans['thought'])
+            compact=records.relevant(ctx['records'],ans['thought'],limit=9000)
+            ans=dict(ans,thought=self.claim_guard.protect(ans['thought'],proof,
+                lambda bad:self.regenerate_prose(self.mind,ans['thought'],bad,compact),
+                label=f"{day['date']} {sit['time']} diary"))
+            wrong=self.world.problems(ans['thought'],ctx.get('known_text',''))
+            if wrong:
+                raise claim_check.ClaimProtocolError('Regenerated thought failed the knowledge check: '+'; '.join(wrong))
         beat = ctx["beat"]
         if source in ("mind", "stub"):
             self.count_funnel(day, t, st)                  # before the beat fires: what could have been shown at this moment
+        yes = None
+        if beat and source in ("mind", "stub") and beat.get("choice"):
+            yes = self.ask_choice(self.plain(messages), self.unwish(raw), beat)
+            if yes is None:
+                beat = None                 # the PC went away before he answered: the offer is not made and stays open
         if beat and source in ("mind", "stub"):
             ctx["beat_entries"] = self.world.fire(beat, t, st)
             tally = day.setdefault("funnel", {}).setdefault(funnel_key(beat), dict.fromkeys(FUNNEL, 0))
             tally["shown"] += 1
             if beat.get("choice"):
-                yes = self.ask_choice(self.plain(messages), self.unwish(raw), beat)
                 tally["yes" if yes else "no"] += 1
                 ctx["beat_entries"] += self.world.settle_choice(beat, yes, st, t)
         if source in ("mind", "stub"):
@@ -354,8 +398,26 @@ class Engine:
         def check(raw):
             errors, _, rep = self.world.check(contract.extract_json(raw), sit, ctx, st)
             return errors, None if errors else rep[0]["thought"]
-        return prefer.choose(lambda: self.mind.decide(messages, sit), check,
-                             prefer.shown_thoughts(sit.get("earlier")), draws, away=MindAway)
+        keep = [] if getattr(self.cfg, "keep_draws", False) else None
+        raw, note = prefer.choose(lambda: self.mind.decide(messages, sit), check,
+                                  prefer.shown_thoughts(sit.get("earlier")), draws, away=MindAway, keep=keep)
+        if keep and len(keep) > 1:
+            self.keep_draws(ctx["t"], messages, keep, note)
+        return raw, note
+
+    def keep_draws(self, t, messages, keep, note):
+        """HEGEL_KEEP_DRAWS: a decision that took more than one reply, with every reply the world judged, appended to
+        <state>/draws/<date>.jsonl.gz. The local model's own replies, sorted by the world's fixed checks: preference data
+        within the data rule (pc/FILTER-PAIRS.md). Never in the day file or the repository; a failure here costs nothing."""
+        try:
+            folder = self.cfg.state / "draws"
+            folder.mkdir(parents=True, exist_ok=True)
+            row = {"date": t.date().isoformat(), "t": t.strftime("%H:%M"), "soul": getattr(self.cfg, "soul_file", None) and self.cfg.soul_file.name,
+                   "messages": messages, "draws": keep, "picked": note.get("picked")}
+            with gzip.open(folder / f"{row['date']}.jsonl.gz", "at", encoding="utf-8") as f:
+                f.write(json.dumps(row, ensure_ascii=False) + "\n")
+        except Exception as e:                      # keeping data must never stop his day
+            log.warning("draws not kept at %s: %s", t, e)
 
     def offer(self, day, sit, ctx, st):
         """The passages of his shelf for this decision: the two that fit the event, the place, the people present and their
@@ -367,7 +429,7 @@ class Engine:
         roles = [self.world.cast[c]["role"] for c in ctx["present"]]
         thoughts = [text for _, text in ctx["recent"][-2:]]
         parts = shelf.query_parts(sit["event"], self.world.places[sit["place"]]["short"], roles, thoughts, [x["text"] for x in st.get("theses", [])])
-        return self.shelf.pick(parts, avoid=used, additions=getattr(self.cfg, "shelf_additions", False))
+        return self.shelf.pick(parts, avoid=used, whole=getattr(self.cfg, 'shelf_whole', False), additions=getattr(self.cfg, "shelf_additions", False))
 
     def make_plan(self, day, t, sit, ctx):
         """On waking: one extra call for the day's intentions. With no usable answer he simply has no plan.
@@ -402,7 +464,11 @@ class Engine:
         menu = getattr(self.world, "menu", {}).get(cid) if getattr(self.world, "promises", False) else None      # HEGEL_PROMISES: what this person may promise
         schema = contract.voice_schema(menu)
         extra = {"today": day["date"]} if menu and day.get("date") else {}
-        messages = [{"role": "system", "content": self.voice_prompt}, {"role": "user", "content": voices.render(c, sit, where, says, remember, first_meeting=first_meeting, purchases=purchases, meal_status=meal_status, world_facts=voices.recorded_facts(self.world, cid, day.get("state") or {}, **({"voice_facts": True} if vf else {}), **extra) + voices.paid_here(self.world.places[sit["place"]], day.get("entries", [])), **({"voice_facts": True} if vf else {}), **({"menu": menu} if menu else {}))}]
+        facts = voices.recorded_facts(self.world, cid, day.get("state") or {}, **({"voice_facts": True} if vf else {}), **extra)
+        facts += voices.paid_here(self.world.places[sit["place"]], day.get("entries", []))
+        if getattr(getattr(self, 'cfg', None), 'outcome_memory', False):
+            facts += voices.recorded_receipts(day, sit['place'])
+        messages = [{"role": "system", "content": self.voice_prompt}, {"role": "user", "content": voices.render(c, sit, where, says, remember, first_meeting=first_meeting, purchases=purchases, meal_status=meal_status, world_facts=facts, **({"voice_facts": True} if vf else {}), **({"menu": menu} if menu else {}))}]
         voice_chat = getattr(type(self.mind), "chat_voice", None)
         ask = (lambda msgs: voice_chat(self.mind, msgs, schema, max_tokens=250)) if voice_chat else (lambda msgs: self.mind.chat(msgs, schema, max_tokens=250))
         reply = ask(messages)
@@ -486,11 +552,24 @@ class Engine:
                 return None
             if w:
                 log.info("writing by plain completion: %s", w["title"])
-                return w
+                return self.check_writing(w,ctx)
             log.info("writing: no text from a plain completion, falling back to the chat call")
         w = self.write_chat(messages, raw, ctx, st)
         if w:
             log.info("writing by chat call: %s", w["title"])
+        return self.check_writing(w,ctx)
+
+    def check_writing(self,w,ctx):
+        if w and self.claim_guard:
+            proof=records.relevant(ctx['records'],w['text'])
+            compact=records.relevant(ctx['records'],w['text'],limit=9000)
+            text=self.claim_guard.protect(w['text'],proof,
+                lambda bad:self.regenerate_prose(self.mind,w['text'],bad,compact),
+                label=f"{ctx['t'].isoformat()} writing",context=w['title'])
+            wrong=self.world.problems(text,ctx.get('known_text',''))
+            if wrong:
+                raise claim_check.ClaimProtocolError('Regenerated writing failed the knowledge check: '+'; '.join(wrong))
+            return dict(w,text=text) if text.strip() else None
         return w
 
     def write_plain(self, messages, raw, ctx, st):
@@ -507,6 +586,17 @@ class Engine:
         shown = works.exemplars(plan, ctx["t"].date(), self.cfg.repo)
         log.info("writing: exemplars %s", ", ".join(x["topic"] for x in shown) or "none")
         prompt, opening = works.prompt(plan, st, ctx["t"].date(), shown)
+        if ctx.get('records'):
+            # Preserve the writing examples. The context shares the existing
+            # 9000-character manuscript allowance; the writing's header stays last.
+            prefix=''.join(works.EXEMPLAR.format(**x) for x in shown)
+            room=min(3000,9000-len(prompt)-45)
+            factual=records.relevant(ctx['records'],plan['about'],limit=room,view=getattr(self.cfg,'evidence_view','full'))
+            body = prompt[len(prefix):]
+            prompt=prefix+'[Typed records for this sitting:\n'+factual+']\n'+body
+            if getattr(self.cfg, 'evidence_view', 'full') == 'compact':
+                prompt = prompt_budget.fit(self.mind, lambda n: prefix + '[Typed records for this sitting:\n' +
+                    records.compact(ctx['records'], plan['about'], limit=n) + ']\n' + body, room)
         for seed in (None, random.randrange(1, 2 ** 31)):
             try:
                 w = works.sitting(plan, self.mind.complete(prompt, works.TOKENS, seed=seed), opening)
@@ -531,10 +621,22 @@ class Engine:
         then the writing is dropped (the decision stands). None if dropped."""
         request = works.ask(st, ctx["t"].date())
         if ctx.get("manuscripts"):
-            request += "\n\n" + ctx["manuscripts"]
-        msgs = for_task(messages + [{"role": "assistant", "content": raw}, {"role": "user", "content": request}], "writing")
+            manuscript=ctx['manuscripts'][:6000] if ctx.get('records') else ctx['manuscripts']
+            request += '\n\n'+manuscript
+        compact_view = bool(ctx.get('records')) and getattr(self.cfg, 'evidence_view', 'full') == 'compact'
+        def build(room):
+            ask = request
+            if ctx.get('records'):
+                ask += '\n\n' + records.relevant(ctx['records'], limit=room, view=getattr(self.cfg, 'evidence_view', 'full'))
+            return for_task(messages + [dict(role='assistant', content=raw), dict(role='user', content=ask)], 'writing')
+        msgs = prompt_budget.fit(self.mind, build, 3000,
+            thinking=bool(getattr(self.cfg, 'writing_reasoning_tokens', 0))) if compact_view else build(3000)
         for attempt in range(2):
             try:
+                if compact_view and callable(getattr(self.mind, 'prompt_tokens', None)):
+                    size = self.mind.prompt_tokens(msgs, thinking=bool(getattr(self.cfg, 'writing_reasoning_tokens', 0)))
+                    if size > prompt_budget.MAX_TOKENS:
+                        raise prompt_budget.PromptBudgetError(f'Writing retry has {size} tokens, above {prompt_budget.MAX_TOKENS}')
                 writing_call = getattr(self.mind, "chat_writing", self.mind.chat)
                 reply = writing_call(msgs, contract.WRITE_SCHEMA, max_tokens=1100)
             except MindAway as e:
@@ -650,6 +752,7 @@ class Engine:
         return n
 
     def ask_choice(self, messages, raw, beat):
+        """His yes or no to an offer: True or False, or None when the PC went away before it answered (not a no)."""
         q = beat["choice"]["question"]
         msgs = messages + [{"role": "assistant", "content": raw},
                            {"role": "user", "content": f"For the record, one word: {q} Answer {{\"answer\": \"yes\"}} or {{\"answer\": \"no\"}}."}]
@@ -657,7 +760,7 @@ class Engine:
             a = contract.extract_json(self.mind.chat(for_task(msgs, "choice"), CHOICE_SCHEMA, max_tokens=20, temperature=0))
             return isinstance(a, dict) and a.get("answer") == "yes"
         except MindAway:
-            return False
+            return None
 
     # ── the tick ────────────────────────────────────────────────────
     def advance(self, now):
@@ -715,7 +818,7 @@ class Engine:
         n = st.get("depesche_n", 0) + 1 if weekday == self.cfg.depesche_day else None
         known = self.memory.known_before(day["date"]) + "\n" + encountered_text(day)
         written = owl.write(self.cfg, day, st, self.owl_mind, depesche_n=n, problems=lambda text: self.world.problems(text, known),
-                            flag=self.world.flag, topic=self.world.topic)
+                            flag=self.world.flag, topic=self.world.topic, claim_guard=self.claim_guard)
         written["written"] = fmt(minute_of(now))
         day["owl"] = written
         if n:

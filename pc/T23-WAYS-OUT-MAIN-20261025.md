@@ -1,0 +1,17 @@
+# T23: the chosen ways out are on shadow, 25 October 2026
+
+**T23 DONE.** Genuine Pi merge `d4bc5ff159944c9729717eedf52177c186f6e90c` has real parents `3c0a3e21a4fbf85bcc8480deb0bb23ebe2c73e77` and main `e5dc1040db60495cdc78d677d3099da332f6e0a9`, containing Claude's feature `f76483e6b9fad9ccb531064864595c3b5d8262fd`. One scheduled read-only capture verifies a natural tick starting and finishing at **14:18:04 UTC**, exit0/Resultsuccess, inactive service, enabled/active timer. Clean stable Pi HEAD d4bc5ff equals independently fetched actual shadow; all17captured SHA256/length/blobIDs match raw Git.
+
+All of Welt's chosen option2 is now present: Ramesh can offer three days a week, Mr. Saxena's letter enables a bank account with three-day cheque clearing, the Yamuna Review can offer a fortnightly column, and Masterji can ask about the frock again. Each is an offer he can refuse. The feature files on Pi equal fresh main exactly; no local default/spec change was made.
+
+All208raw blobs/tree were verified against working bytes before ordinary shadow push and independently after fetch. Original day/state JSON stayed byte-identical through the merge. T19's nightly hook, CLI and384-byte report ledger were preserved exactly. The old Pi page remains and the fan SQL/test/visitor data/keepalive workflow are absent. All10original PiCSV files retain exact bytes; PC's22original CSV files are checked separately. Timer, shadow/shift300/lead15/owl01:30, server and independent power settings were untouched.
+
+Nine unchanged WaysOutTest checks pass on each newly frozen variant: the resolved PC merge and the exact prospective Pi merge,0.035s each, exits0. All430PC and208Pi archive/native/snapshot files match before/after. This checks the new combined source; no completed21day simulation, original suite, T13/T19 test run, GPU or model evaluation was repeated. Tests cover the part-time offer and costs, letter/account/clearing, recurring column and frock return.
+
+The PC genuine merge had two conflicts, TASKS and money. Both originals remain. Resolution preserves fresh Claude tasks and verified T19/T22DONE blocks, new flag/bank/commission rules, and existing PC normal-income/receive charge IDs. Those PC-only extensions were not deployed to Pi; its money/world and feature data are exact main.
+
+The first14:10guard found the service active and deferred before source mutation. It was preserved, and that turn ended without another Pi probe. The next heartbeat confirmed identical tested main/source and safely retried the reviewed guard under a new receipt. It completed at14:16:48UTC; the observed natural exit0 is later. No active call was killed, no tick or owl forced, and no server or timer test was made. Source and input files were not retuned or resampled.
+
+The capture is hashes, not raw bytes. Exact current/previous Git day files and reports.jsonl are frozen separately with seals in the machine-readable proof. T10 remains OPEN for the first FULL completed post-return day with at least30thoughts, Day14excluded and25October not full; no original auditor run. Actual boot-trigger proof remains a future observation after a natural reboot. T14 failure and every actual gap record remain.
+
+Original RUN/CHECKS/stdout/stderr, both guard receipts, capture, independent proof and conflict-resolution record: mind/results/t23-ways-out-main-20261025/. Full result and raw seals: pc/T23-WAYS-OUT-MAIN-20261025.json.

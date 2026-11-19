@@ -1,0 +1,5624 @@
+{
+  "method": {
+    "unit": "diary entry, independently equal to the validated decision thought",
+    "normalization": "Unicode NFKC, casefold, curly apostrophes to ASCII; punctuation ignored; numerals are boundaries",
+    "phrase": "four contiguous words with at least one word outside the fixed stopword set",
+    "mark": "at least one eligible phrase occurs in an earlier thought that day; within-thought repetition alone does not mark it",
+    "ranking": "number of distinct later thoughts reusing a phrase after its first thought; ties alphabetic",
+    "stopwords": [
+      "a",
+      "about",
+      "above",
+      "after",
+      "again",
+      "against",
+      "all",
+      "am",
+      "an",
+      "and",
+      "any",
+      "are",
+      "aren't",
+      "as",
+      "at",
+      "be",
+      "because",
+      "been",
+      "before",
+      "being",
+      "below",
+      "between",
+      "both",
+      "but",
+      "by",
+      "can",
+      "can't",
+      "cannot",
+      "could",
+      "couldn't",
+      "did",
+      "didn't",
+      "do",
+      "does",
+      "doesn't",
+      "doing",
+      "don't",
+      "down",
+      "during",
+      "each",
+      "few",
+      "for",
+      "from",
+      "further",
+      "had",
+      "hadn't",
+      "has",
+      "hasn't",
+      "have",
+      "haven't",
+      "having",
+      "he",
+      "he'd",
+      "he'll",
+      "he's",
+      "her",
+      "here",
+      "here's",
+      "hers",
+      "herself",
+      "him",
+      "himself",
+      "his",
+      "how",
+      "how's",
+      "i",
+      "i'd",
+      "i'll",
+      "i'm",
+      "i've",
+      "if",
+      "in",
+      "into",
+      "is",
+      "isn't",
+      "it",
+      "it's",
+      "its",
+      "itself",
+      "just",
+      "me",
+      "more",
+      "most",
+      "must",
+      "mustn't",
+      "my",
+      "myself",
+      "no",
+      "nor",
+      "not",
+      "of",
+      "off",
+      "on",
+      "once",
+      "only",
+      "or",
+      "other",
+      "ought",
+      "our",
+      "ours",
+      "ourselves",
+      "out",
+      "over",
+      "own",
+      "same",
+      "she",
+      "she'd",
+      "she'll",
+      "she's",
+      "should",
+      "shouldn't",
+      "so",
+      "some",
+      "such",
+      "than",
+      "that",
+      "that's",
+      "the",
+      "their",
+      "theirs",
+      "them",
+      "themselves",
+      "then",
+      "there",
+      "there's",
+      "these",
+      "they",
+      "they'd",
+      "they'll",
+      "they're",
+      "they've",
+      "this",
+      "those",
+      "through",
+      "to",
+      "too",
+      "under",
+      "until",
+      "up",
+      "very",
+      "was",
+      "wasn't",
+      "we",
+      "we'd",
+      "we'll",
+      "we're",
+      "we've",
+      "were",
+      "weren't",
+      "what",
+      "what's",
+      "when",
+      "when's",
+      "where",
+      "where's",
+      "which",
+      "while",
+      "who",
+      "who's",
+      "whom",
+      "why",
+      "why's",
+      "will",
+      "with",
+      "won't",
+      "would",
+      "wouldn't",
+      "you",
+      "you'd",
+      "you'll",
+      "you're",
+      "you've",
+      "your",
+      "yours",
+      "yourself",
+      "yourselves"
+    ],
+    "limit": "Literal phrase reuse, not semantic repetition or a judgment that a thought is bad."
+  },
+  "days": [
+    {
+      "id": "day12",
+      "label": "shadow 5b52d7f, Day 12 / 2026-10-13",
+      "date": "2026-10-13",
+      "n": 12,
+      "source_sha256": "b793330e51a2ddec2112d8261330a3ce69b78d7b5cb38963b13b301dcfb42508",
+      "thoughts": 42,
+      "marked_thoughts": 29,
+      "share": 0.6904761904761905,
+      "top_ten": [
+        {
+          "phrase": "return to the bungalow",
+          "thoughts": 6,
+          "reuses_after_first": 5,
+          "occurrences": [
+            {
+              "thought": 7,
+              "t": "08:29"
+            },
+            {
+              "thought": 15,
+              "t": "11:41"
+            },
+            {
+              "thought": 16,
+              "t": "12:08"
+            },
+            {
+              "thought": 19,
+              "t": "13:18"
+            },
+            {
+              "thought": 21,
+              "t": "14:13"
+            },
+            {
+              "thought": 38,
+              "t": "20:02"
+            }
+          ]
+        },
+        {
+          "phrase": "and the air is",
+          "thoughts": 5,
+          "reuses_after_first": 4,
+          "occurrences": [
+            {
+              "thought": 3,
+              "t": "06:59"
+            },
+            {
+              "thought": 12,
+              "t": "10:14"
+            },
+            {
+              "thought": 27,
+              "t": "17:18"
+            },
+            {
+              "thought": 36,
+              "t": "19:37"
+            },
+            {
+              "thought": 41,
+              "t": "21:24"
+            }
+          ]
+        },
+        {
+          "phrase": "and the heat is",
+          "thoughts": 4,
+          "reuses_after_first": 3,
+          "occurrences": [
+            {
+              "thought": 15,
+              "t": "11:41"
+            },
+            {
+              "thought": 16,
+              "t": "12:08"
+            },
+            {
+              "thought": 17,
+              "t": "12:28"
+            },
+            {
+              "thought": 21,
+              "t": "14:13"
+            }
+          ]
+        },
+        {
+          "phrase": "air is thick with",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 12,
+              "t": "10:14"
+            },
+            {
+              "thought": 27,
+              "t": "17:18"
+            },
+            {
+              "thought": 41,
+              "t": "21:24"
+            }
+          ]
+        },
+        {
+          "phrase": "i must return to",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 15,
+              "t": "11:41"
+            },
+            {
+              "thought": 16,
+              "t": "12:08"
+            },
+            {
+              "thought": 38,
+              "t": "20:02"
+            }
+          ]
+        },
+        {
+          "phrase": "i shall not let",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 5,
+              "t": "08:04"
+            },
+            {
+              "thought": 10,
+              "t": "09:14"
+            },
+            {
+              "thought": 13,
+              "t": "10:59"
+            }
+          ]
+        },
+        {
+          "phrase": "i shall take a",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 19,
+              "t": "13:18"
+            },
+            {
+              "thought": 35,
+              "t": "19:22"
+            },
+            {
+              "thought": 36,
+              "t": "19:37"
+            }
+          ]
+        },
+        {
+          "phrase": "must return to the",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 15,
+              "t": "11:41"
+            },
+            {
+              "thought": 16,
+              "t": "12:08"
+            },
+            {
+              "thought": 38,
+              "t": "20:02"
+            }
+          ]
+        },
+        {
+          "phrase": "shall not let the",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 5,
+              "t": "08:04"
+            },
+            {
+              "thought": 10,
+              "t": "09:14"
+            },
+            {
+              "thought": 13,
+              "t": "10:59"
+            }
+          ]
+        },
+        {
+          "phrase": "the air is clear",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 3,
+              "t": "06:59"
+            },
+            {
+              "thought": 13,
+              "t": "10:59"
+            },
+            {
+              "thought": 36,
+              "t": "19:37"
+            }
+          ]
+        }
+      ],
+      "all_repeated_phrases": [
+        {
+          "phrase": "return to the bungalow",
+          "thoughts": 6,
+          "reuses_after_first": 5,
+          "occurrences": [
+            {
+              "thought": 7,
+              "t": "08:29"
+            },
+            {
+              "thought": 15,
+              "t": "11:41"
+            },
+            {
+              "thought": 16,
+              "t": "12:08"
+            },
+            {
+              "thought": 19,
+              "t": "13:18"
+            },
+            {
+              "thought": 21,
+              "t": "14:13"
+            },
+            {
+              "thought": 38,
+              "t": "20:02"
+            }
+          ]
+        },
+        {
+          "phrase": "and the air is",
+          "thoughts": 5,
+          "reuses_after_first": 4,
+          "occurrences": [
+            {
+              "thought": 3,
+              "t": "06:59"
+            },
+            {
+              "thought": 12,
+              "t": "10:14"
+            },
+            {
+              "thought": 27,
+              "t": "17:18"
+            },
+            {
+              "thought": 36,
+              "t": "19:37"
+            },
+            {
+              "thought": 41,
+              "t": "21:24"
+            }
+          ]
+        },
+        {
+          "phrase": "and the heat is",
+          "thoughts": 4,
+          "reuses_after_first": 3,
+          "occurrences": [
+            {
+              "thought": 15,
+              "t": "11:41"
+            },
+            {
+              "thought": 16,
+              "t": "12:08"
+            },
+            {
+              "thought": 17,
+              "t": "12:28"
+            },
+            {
+              "thought": 21,
+              "t": "14:13"
+            }
+          ]
+        },
+        {
+          "phrase": "air is thick with",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 12,
+              "t": "10:14"
+            },
+            {
+              "thought": 27,
+              "t": "17:18"
+            },
+            {
+              "thought": 41,
+              "t": "21:24"
+            }
+          ]
+        },
+        {
+          "phrase": "i must return to",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 15,
+              "t": "11:41"
+            },
+            {
+              "thought": 16,
+              "t": "12:08"
+            },
+            {
+              "thought": 38,
+              "t": "20:02"
+            }
+          ]
+        },
+        {
+          "phrase": "i shall not let",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 5,
+              "t": "08:04"
+            },
+            {
+              "thought": 10,
+              "t": "09:14"
+            },
+            {
+              "thought": 13,
+              "t": "10:59"
+            }
+          ]
+        },
+        {
+          "phrase": "i shall take a",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 19,
+              "t": "13:18"
+            },
+            {
+              "thought": 35,
+              "t": "19:22"
+            },
+            {
+              "thought": 36,
+              "t": "19:37"
+            }
+          ]
+        },
+        {
+          "phrase": "must return to the",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 15,
+              "t": "11:41"
+            },
+            {
+              "thought": 16,
+              "t": "12:08"
+            },
+            {
+              "thought": 38,
+              "t": "20:02"
+            }
+          ]
+        },
+        {
+          "phrase": "shall not let the",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 5,
+              "t": "08:04"
+            },
+            {
+              "thought": 10,
+              "t": "09:14"
+            },
+            {
+              "thought": 13,
+              "t": "10:59"
+            }
+          ]
+        },
+        {
+          "phrase": "the air is clear",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 3,
+              "t": "06:59"
+            },
+            {
+              "thought": 13,
+              "t": "10:59"
+            },
+            {
+              "thought": 36,
+              "t": "19:37"
+            }
+          ]
+        },
+        {
+          "phrase": "the air is thick",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 12,
+              "t": "10:14"
+            },
+            {
+              "thought": 27,
+              "t": "17:18"
+            },
+            {
+              "thought": 41,
+              "t": "21:24"
+            }
+          ]
+        },
+        {
+          "phrase": "the body must be",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 14,
+              "t": "11:26"
+            },
+            {
+              "thought": 18,
+              "t": "12:58"
+            },
+            {
+              "thought": 39,
+              "t": "20:29"
+            }
+          ]
+        },
+        {
+          "phrase": "the sambar waits but",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 10,
+              "t": "09:14"
+            },
+            {
+              "thought": 18,
+              "t": "12:58"
+            },
+            {
+              "thought": 27,
+              "t": "17:18"
+            }
+          ]
+        },
+        {
+          "phrase": "a man who has",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 5,
+              "t": "08:04"
+            },
+            {
+              "thought": 41,
+              "t": "21:24"
+            }
+          ]
+        },
+        {
+          "phrase": "already pressing against the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 15,
+              "t": "11:41"
+            },
+            {
+              "thought": 18,
+              "t": "12:58"
+            }
+          ]
+        },
+        {
+          "phrase": "and let the mind",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 31,
+              "t": "18:20"
+            },
+            {
+              "thought": 32,
+              "t": "18:30"
+            }
+          ]
+        },
+        {
+          "phrase": "and the sun is",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 13,
+              "t": "10:59"
+            },
+            {
+              "thought": 20,
+              "t": "14:03"
+            }
+          ]
+        },
+        {
+          "phrase": "and then i shall",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 8,
+              "t": "08:49"
+            },
+            {
+              "thought": 35,
+              "t": "19:22"
+            }
+          ]
+        },
+        {
+          "phrase": "bungalow and let the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 7,
+              "t": "08:29"
+            },
+            {
+              "thought": 22,
+              "t": "14:33"
+            }
+          ]
+        },
+        {
+          "phrase": "but the clock is",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 3,
+              "t": "06:59"
+            },
+            {
+              "thought": 10,
+              "t": "09:14"
+            }
+          ]
+        },
+        {
+          "phrase": "but the household mechanism",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 25,
+              "t": "16:28"
+            },
+            {
+              "thought": 34,
+              "t": "18:55"
+            }
+          ]
+        },
+        {
+          "phrase": "can wait until the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 22,
+              "t": "14:33"
+            },
+            {
+              "thought": 39,
+              "t": "20:29"
+            }
+          ]
+        },
+        {
+          "phrase": "eat for the body",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 39,
+              "t": "20:29"
+            },
+            {
+              "thought": 40,
+              "t": "21:14"
+            }
+          ]
+        },
+        {
+          "phrase": "for the sake of",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 20,
+              "t": "14:03"
+            },
+            {
+              "thought": 30,
+              "t": "18:05"
+            }
+          ]
+        },
+        {
+          "phrase": "heat is already pressing",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 15,
+              "t": "11:41"
+            },
+            {
+              "thought": 18,
+              "t": "12:58"
+            }
+          ]
+        },
+        {
+          "phrase": "high and the heat",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 1,
+              "t": "05:59"
+            },
+            {
+              "thought": 15,
+              "t": "11:41"
+            }
+          ]
+        },
+        {
+          "phrase": "i shall eat for",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 39,
+              "t": "20:29"
+            },
+            {
+              "thought": 40,
+              "t": "21:14"
+            }
+          ]
+        },
+        {
+          "phrase": "i shall not stand",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 3,
+              "t": "06:59"
+            },
+            {
+              "thought": 33,
+              "t": "18:45"
+            }
+          ]
+        },
+        {
+          "phrase": "i shall sit in",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 31,
+              "t": "18:20"
+            },
+            {
+              "thought": 32,
+              "t": "18:30"
+            }
+          ]
+        },
+        {
+          "phrase": "i will take the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 2,
+              "t": "06:29"
+            },
+            {
+              "thought": 3,
+              "t": "06:59"
+            }
+          ]
+        },
+        {
+          "phrase": "is already pressing against",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 15,
+              "t": "11:41"
+            },
+            {
+              "thought": 18,
+              "t": "12:58"
+            }
+          ]
+        },
+        {
+          "phrase": "is ready and the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 13,
+              "t": "10:59"
+            },
+            {
+              "thought": 23,
+              "t": "15:33"
+            }
+          ]
+        },
+        {
+          "phrase": "is time to return",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 7,
+              "t": "08:29"
+            },
+            {
+              "thought": 21,
+              "t": "14:13"
+            }
+          ]
+        },
+        {
+          "phrase": "it is a small",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 28,
+              "t": "17:30"
+            },
+            {
+              "thought": 29,
+              "t": "17:45"
+            }
+          ]
+        },
+        {
+          "phrase": "it is time to",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 7,
+              "t": "08:29"
+            },
+            {
+              "thought": 21,
+              "t": "14:13"
+            }
+          ]
+        },
+        {
+          "phrase": "meal and the body",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 20,
+              "t": "14:03"
+            },
+            {
+              "thought": 24,
+              "t": "16:18"
+            }
+          ]
+        },
+        {
+          "phrase": "of a man who",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 29,
+              "t": "17:45"
+            },
+            {
+              "thought": 41,
+              "t": "21:24"
+            }
+          ]
+        },
+        {
+          "phrase": "of roasted corn i",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 5,
+              "t": "08:04"
+            },
+            {
+              "thought": 21,
+              "t": "14:13"
+            }
+          ]
+        },
+        {
+          "phrase": "of the household is",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 9,
+              "t": "09:04"
+            },
+            {
+              "thought": 26,
+              "t": "16:48"
+            }
+          ]
+        },
+        {
+          "phrase": "of the spirit i",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 13,
+              "t": "10:59"
+            },
+            {
+              "thought": 19,
+              "t": "13:18"
+            }
+          ]
+        },
+        {
+          "phrase": "ramesh stands by with",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 8,
+              "t": "08:49"
+            },
+            {
+              "thought": 24,
+              "t": "16:18"
+            }
+          ]
+        },
+        {
+          "phrase": "sambar waits but the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 10,
+              "t": "09:14"
+            },
+            {
+              "thought": 18,
+              "t": "12:58"
+            }
+          ]
+        },
+        {
+          "phrase": "shall eat for the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 39,
+              "t": "20:29"
+            },
+            {
+              "thought": 40,
+              "t": "21:14"
+            }
+          ]
+        },
+        {
+          "phrase": "shall sit in the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 31,
+              "t": "18:20"
+            },
+            {
+              "thought": 32,
+              "t": "18:30"
+            }
+          ]
+        },
+        {
+          "phrase": "stands by with the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 8,
+              "t": "08:49"
+            },
+            {
+              "thought": 24,
+              "t": "16:18"
+            }
+          ]
+        },
+        {
+          "phrase": "sun is a tyrant",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 20,
+              "t": "14:03"
+            },
+            {
+              "thought": 21,
+              "t": "14:13"
+            }
+          ]
+        },
+        {
+          "phrase": "the bungalow and let",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 7,
+              "t": "08:29"
+            },
+            {
+              "thought": 22,
+              "t": "14:33"
+            }
+          ]
+        },
+        {
+          "phrase": "the ethical idea and",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 5,
+              "t": "08:04"
+            },
+            {
+              "thought": 14,
+              "t": "11:26"
+            }
+          ]
+        },
+        {
+          "phrase": "the evening air is",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 31,
+              "t": "18:20"
+            },
+            {
+              "thought": 33,
+              "t": "18:45"
+            }
+          ]
+        },
+        {
+          "phrase": "the heat is already",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 15,
+              "t": "11:41"
+            },
+            {
+              "thought": 18,
+              "t": "12:58"
+            }
+          ]
+        },
+        {
+          "phrase": "the sambar is a",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 4,
+              "t": "07:19"
+            },
+            {
+              "thought": 20,
+              "t": "14:03"
+            }
+          ]
+        },
+        {
+          "phrase": "the shade of the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 12,
+              "t": "10:14"
+            },
+            {
+              "thought": 19,
+              "t": "13:18"
+            }
+          ]
+        },
+        {
+          "phrase": "the spirit i have",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 13,
+              "t": "10:59"
+            },
+            {
+              "thought": 19,
+              "t": "13:18"
+            }
+          ]
+        },
+        {
+          "phrase": "the sun is a",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 20,
+              "t": "14:03"
+            },
+            {
+              "thought": 21,
+              "t": "14:13"
+            }
+          ]
+        },
+        {
+          "phrase": "the sun is high",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 13,
+              "t": "10:59"
+            },
+            {
+              "thought": 15,
+              "t": "11:41"
+            }
+          ]
+        },
+        {
+          "phrase": "the system of needs",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 25,
+              "t": "16:28"
+            },
+            {
+              "thought": 39,
+              "t": "20:29"
+            }
+          ]
+        },
+        {
+          "phrase": "the tension between the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 5,
+              "t": "08:04"
+            },
+            {
+              "thought": 25,
+              "t": "16:28"
+            }
+          ]
+        },
+        {
+          "phrase": "thick with dust and",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 5,
+              "t": "08:04"
+            },
+            {
+              "thought": 12,
+              "t": "10:14"
+            }
+          ]
+        },
+        {
+          "phrase": "time to return to",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 7,
+              "t": "08:29"
+            },
+            {
+              "thought": 21,
+              "t": "14:13"
+            }
+          ]
+        },
+        {
+          "phrase": "to cool the head",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 25,
+              "t": "16:28"
+            },
+            {
+              "thought": 26,
+              "t": "16:48"
+            }
+          ]
+        },
+        {
+          "phrase": "to return to the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 7,
+              "t": "08:29"
+            },
+            {
+              "thought": 21,
+              "t": "14:13"
+            }
+          ]
+        },
+        {
+          "phrase": "to the bungalow and",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 7,
+              "t": "08:29"
+            },
+            {
+              "thought": 21,
+              "t": "14:13"
+            }
+          ]
+        },
+        {
+          "phrase": "to the bungalow to",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 15,
+              "t": "11:41"
+            },
+            {
+              "thought": 16,
+              "t": "12:08"
+            }
+          ]
+        },
+        {
+          "phrase": "will of the household",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 33,
+              "t": "18:45"
+            },
+            {
+              "thought": 40,
+              "t": "21:14"
+            }
+          ]
+        }
+      ],
+      "marked": [
+        {
+          "thought": 1,
+          "t": "05:59",
+          "text": "The headlines speak of a contest for a title, a plan to scatter monuments like seeds, and a minister's purse examined by the court. It is civil society churning, the particular asserting itself against the universal. I shall sit on the step and read them properly, before the sun climbs too high and the heat turns the paper to a shield against the sun rather than a text.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 2,
+          "t": "06:29",
+          "text": "Ramesh stands at the threshold, as he did on the first morning, ready to serve the tea that bridges the gap between my waking and the day. I am hungry, the last meal being ten hours ago, but the household service does not begin until 07:00. I will take the cup he offers and use the remaining thirty minutes to finish my examination of the papers on the step, noting how the administration's silence contrasts with the public's noise.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 3,
+          "t": "06:59",
+          "text": "The body demands its fuel, but the clock is against me; breakfast is not yet set. I shall not stand idle while the sun climbs. I will take the tea Ramesh has just placed, and then set out for the walk to Lodhi Gardens, as I intended. The tombs await my observation, and the air is clear.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "i will take the",
+              "earlier_thoughts": [
+                {
+                  "thought": 2,
+                  "t": "06:29"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 4,
+          "t": "07:19",
+          "text": "The sambar is a kindness I shall not refuse when I return, but for now the morning light is the proper teacher. I see Malhotra already in motion, his stride measured and firm. I shall not disturb his circuit, but I will keep pace with him at a respectful distance, observing how the mind moves through space when it is unburdened by the need to explain itself to strangers.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 5,
+          "t": "08:04",
+          "text": "Mr. Malhotra stands before me, a man who has served the state for thirty-four years, yet here he is, retired, walking the loop where the tombs of the Lodis remind us that empires are merely traffic on a road. I am the philosopher of the state; he is the functionary who once wielded its pen. The tension between the ethical idea and its bureaucratic execution is palpable in this morning air, thick with dust and the smell of roasted corn. I shall not let the moment pass in silence; I must ask him how it feels to step down from the machinery one has helped build.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 6,
+          "t": "08:19",
+          "text": "Mr. Malhotra speaks the language of the bureaucracy, which is the language of the external. He sees the state as a machine that must be pushed, whereas I see it as the actuality of the ethical idea, a living organism that grows from within. His 'creak' is the friction of civil society, the realm of particular needs, where I am currently trapped. The machinery is indeed waiting, but not for him to push it; it waits for the spirit to recognize itself in the universal.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 7,
+          "t": "08:29",
+          "text": "The sun climbs, and with it the heat that presses the air into stillness. I have spoken to the air, and the air has answered with silence, which is the only honest reply a garden can give. It is time to return to the bungalow and let the pen do what the mouth cannot: to order the chaos of this morning into the quiet of the page.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 8,
+          "t": "08:49",
+          "text": "Idli. I do not know the word, nor the taste, but the steam rises with a dignity that suggests a system of needs well-ordered. Ramesh stands by with the tray, his face a blank slate upon which I must write my own history. The body requires fuel before the spirit can labour; I shall eat, and then I shall speak to him.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 9,
+          "t": "09:04",
+          "text": "Idli, sambar. The vocabulary of the household is as fixed as the castes; one must learn the names before one can master the thing. The sun is already climbing, and the plan calls for the journal, but the mind must first digest the food, not merely the words.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 10,
+          "t": "09:14",
+          "text": "The sambar waits, but the clock is the true master here. I have just finished the idli, yet the plan demands I be at my desk by nine-thirty to confront the difference between the dream of the East and the reality of the state. I shall not let the comfort of the kitchen delay the work of the mind. Ramesh may step back; the day moves forward regardless of our appetites.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "but the clock is",
+              "earlier_thoughts": [
+                {
+                  "thought": 3,
+                  "t": "06:59"
+                }
+              ]
+            },
+            {
+              "phrase": "i shall not let",
+              "earlier_thoughts": [
+                {
+                  "thought": 5,
+                  "t": "08:04"
+                }
+              ]
+            },
+            {
+              "phrase": "shall not let the",
+              "earlier_thoughts": [
+                {
+                  "thought": 5,
+                  "t": "08:04"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 11,
+          "t": "09:59",
+          "text": "A note from the man who was meant to have my house. He comes to resolve the matter 'like gentlemen.' The accident of the clerical error becomes a social encounter. I must see what this man is, and whether the state can correct its own mistake with grace, or if I must hold the ground I have made.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 12,
+          "t": "10:14",
+          "text": "The sun is at its zenith, and the air is thick with dust and heat. My plan called for a meal at noon, but Ramesh keeps the sambar warm, which suggests the household rhythm is not yet fully aligned with my clock. I shall not rush the digestion of the morning's reading; I will sit in the shade of the bungalow's veranda for a while, letting the mind settle before the next exertion.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "and the air is",
+              "earlier_thoughts": [
+                {
+                  "thought": 3,
+                  "t": "06:59"
+                }
+              ]
+            },
+            {
+              "phrase": "thick with dust and",
+              "earlier_thoughts": [
+                {
+                  "thought": 5,
+                  "t": "08:04"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 13,
+          "t": "10:59",
+          "text": "The bandhgala is ready, and the tailoring of the body must keep pace with the tailoring of the spirit. I have the means, and the sun is high but the air is clear; I shall not let the hour slip while I sit in the heat. I will go to Khan Market to settle the account and see the garment, for a man in a bungalow must not look like a ghost.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "i shall not let",
+              "earlier_thoughts": [
+                {
+                  "thought": 5,
+                  "t": "08:04"
+                },
+                {
+                  "thought": 10,
+                  "t": "09:14"
+                }
+              ]
+            },
+            {
+              "phrase": "shall not let the",
+              "earlier_thoughts": [
+                {
+                  "thought": 5,
+                  "t": "08:04"
+                },
+                {
+                  "thought": 10,
+                  "t": "09:14"
+                }
+              ]
+            },
+            {
+              "phrase": "the air is clear",
+              "earlier_thoughts": [
+                {
+                  "thought": 3,
+                  "t": "06:59"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 14,
+          "t": "11:26",
+          "text": "The cunning of reason has a habit of appearing in the form of a bill. I carry ten thousand five hundred rupees, which is sufficient to satisfy this particular demand for ethical form, but I shall not pay for the sambar that is not yet served nor the coat that is merely a rumour in Sunder Nagar. The body must be clothed in the ethical idea, and the bandhgala is the actuality of that idea in cotton.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "the ethical idea and",
+              "earlier_thoughts": [
+                {
+                  "thought": 5,
+                  "t": "08:04"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 15,
+          "t": "11:41",
+          "text": "The transaction is complete, and the garment is in my hands. I shall not linger in this bazaar of needs; the sun is high, and the heat is already pressing against the cotton of my kurta. I must return to the bungalow to prepare the simple meal that stands in my plan, for the body, too, requires its due measure of sustenance before the mind can continue its work.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "high and the heat",
+              "earlier_thoughts": [
+                {
+                  "thought": 1,
+                  "t": "05:59"
+                }
+              ]
+            },
+            {
+              "phrase": "return to the bungalow",
+              "earlier_thoughts": [
+                {
+                  "thought": 7,
+                  "t": "08:29"
+                }
+              ]
+            },
+            {
+              "phrase": "the sun is high",
+              "earlier_thoughts": [
+                {
+                  "thought": 13,
+                  "t": "10:59"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 16,
+          "t": "12:08",
+          "text": "Masterji’s words are a small joke, but the collar is indeed tight, and the heat is pressing in. I must return to the bungalow to attend to the practical matters of the day, as the plan dictates, and perhaps cool the body before the afternoon work begins. The transition from the market to the home is a movement from the particular to the universal, or at least from the noisy to the quiet.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "and the heat is",
+              "earlier_thoughts": [
+                {
+                  "thought": 15,
+                  "t": "11:41"
+                }
+              ]
+            },
+            {
+              "phrase": "i must return to",
+              "earlier_thoughts": [
+                {
+                  "thought": 15,
+                  "t": "11:41"
+                }
+              ]
+            },
+            {
+              "phrase": "must return to the",
+              "earlier_thoughts": [
+                {
+                  "thought": 15,
+                  "t": "11:41"
+                }
+              ]
+            },
+            {
+              "phrase": "return to the bungalow",
+              "earlier_thoughts": [
+                {
+                  "thought": 7,
+                  "t": "08:29"
+                },
+                {
+                  "thought": 15,
+                  "t": "11:41"
+                }
+              ]
+            },
+            {
+              "phrase": "to the bungalow to",
+              "earlier_thoughts": [
+                {
+                  "thought": 15,
+                  "t": "11:41"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 17,
+          "t": "12:28",
+          "text": "The sambar is likely cold by now, and the heat is making the tight collar of the new Bandhgala feel like a vice. I have walked seven kilometres today; the body demands a pause before the intellectual labour of sorting the state's money. I shall sit here in the shade and wait for the household service to begin, for one cannot write clearly on an empty stomach, nor sort vouchers in a fever of thirst.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "and the heat is",
+              "earlier_thoughts": [
+                {
+                  "thought": 15,
+                  "t": "11:41"
+                },
+                {
+                  "thought": 16,
+                  "t": "12:08"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 18,
+          "t": "12:58",
+          "text": "The sambar waits, but the heat is already pressing against the white cotton. I will not sit in the parlor to rot; a walk to the cool shade of the trees is necessary to clear the head before the meal. The body must be moved to prevent the spirit from stagnating in this humidity.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "already pressing against the",
+              "earlier_thoughts": [
+                {
+                  "thought": 15,
+                  "t": "11:41"
+                }
+              ]
+            },
+            {
+              "phrase": "heat is already pressing",
+              "earlier_thoughts": [
+                {
+                  "thought": 15,
+                  "t": "11:41"
+                }
+              ]
+            },
+            {
+              "phrase": "is already pressing against",
+              "earlier_thoughts": [
+                {
+                  "thought": 15,
+                  "t": "11:41"
+                }
+              ]
+            },
+            {
+              "phrase": "sambar waits but the",
+              "earlier_thoughts": [
+                {
+                  "thought": 10,
+                  "t": "09:14"
+                }
+              ]
+            },
+            {
+              "phrase": "the body must be",
+              "earlier_thoughts": [
+                {
+                  "thought": 14,
+                  "t": "11:26"
+                }
+              ]
+            },
+            {
+              "phrase": "the heat is already",
+              "earlier_thoughts": [
+                {
+                  "thought": 15,
+                  "t": "11:41"
+                }
+              ]
+            },
+            {
+              "phrase": "the sambar waits but",
+              "earlier_thoughts": [
+                {
+                  "thought": 10,
+                  "t": "09:14"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 19,
+          "t": "13:18",
+          "text": "Ramesh’s patience is a small mercy, but the sambar cannot wait forever, and neither can my digestion. I came for the tombs, for the silence of stone against the noise of the crowd, but the sun here is a tyrant that offers no reprieve. I shall take a short circuit of the eastern path, where the shade of the neem is thick, to let the blood cool before I return to the bungalow. The architecture of the Lodis is a confession of conquest, fixed in brick, unlike the fluid dream of the spirit I have been contemplating.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "of the spirit i",
+              "earlier_thoughts": [
+                {
+                  "thought": 13,
+                  "t": "10:59"
+                }
+              ]
+            },
+            {
+              "phrase": "return to the bungalow",
+              "earlier_thoughts": [
+                {
+                  "thought": 7,
+                  "t": "08:29"
+                },
+                {
+                  "thought": 15,
+                  "t": "11:41"
+                },
+                {
+                  "thought": 16,
+                  "t": "12:08"
+                }
+              ]
+            },
+            {
+              "phrase": "the shade of the",
+              "earlier_thoughts": [
+                {
+                  "thought": 12,
+                  "t": "10:14"
+                }
+              ]
+            },
+            {
+              "phrase": "the spirit i have",
+              "earlier_thoughts": [
+                {
+                  "thought": 13,
+                  "t": "10:59"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 20,
+          "t": "14:03",
+          "text": "The sambar is a ghost, and the sun is a tyrant. I am five hours past my last meal, and the body, that stubborn servant of the spirit, refuses to be ignored by mere contemplation. I shall not starve for the sake of aesthetic purity; the stomach demands its due, and the corn at the gate is within reach. It is a crude sustenance, but it is present, and presence is the only reality that matters to the tooth.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "and the sun is",
+              "earlier_thoughts": [
+                {
+                  "thought": 13,
+                  "t": "10:59"
+                }
+              ]
+            },
+            {
+              "phrase": "the sambar is a",
+              "earlier_thoughts": [
+                {
+                  "thought": 4,
+                  "t": "07:19"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 21,
+          "t": "14:13",
+          "text": "The sun is a tyrant, as I noted, and my digestion has been tested by the absence of sambar and the presence of roasted corn. I have walked eight kilometres, which is a sufficient quantity of motion for one day, and the heat is now less a physical force than a philosophical provocation. It is time to return to the bungalow and attend to the administrative machinery that sustains me, for the state, however abstract, requires its vouchers and its cash.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "and the heat is",
+              "earlier_thoughts": [
+                {
+                  "thought": 15,
+                  "t": "11:41"
+                },
+                {
+                  "thought": 16,
+                  "t": "12:08"
+                },
+                {
+                  "thought": 17,
+                  "t": "12:28"
+                }
+              ]
+            },
+            {
+              "phrase": "is time to return",
+              "earlier_thoughts": [
+                {
+                  "thought": 7,
+                  "t": "08:29"
+                }
+              ]
+            },
+            {
+              "phrase": "it is time to",
+              "earlier_thoughts": [
+                {
+                  "thought": 7,
+                  "t": "08:29"
+                }
+              ]
+            },
+            {
+              "phrase": "of roasted corn i",
+              "earlier_thoughts": [
+                {
+                  "thought": 5,
+                  "t": "08:04"
+                }
+              ]
+            },
+            {
+              "phrase": "return to the bungalow",
+              "earlier_thoughts": [
+                {
+                  "thought": 7,
+                  "t": "08:29"
+                },
+                {
+                  "thought": 15,
+                  "t": "11:41"
+                },
+                {
+                  "thought": 16,
+                  "t": "12:08"
+                },
+                {
+                  "thought": 19,
+                  "t": "13:18"
+                }
+              ]
+            },
+            {
+              "phrase": "sun is a tyrant",
+              "earlier_thoughts": [
+                {
+                  "thought": 20,
+                  "t": "14:03"
+                }
+              ]
+            },
+            {
+              "phrase": "the sun is a",
+              "earlier_thoughts": [
+                {
+                  "thought": 20,
+                  "t": "14:03"
+                }
+              ]
+            },
+            {
+              "phrase": "time to return to",
+              "earlier_thoughts": [
+                {
+                  "thought": 7,
+                  "t": "08:29"
+                }
+              ]
+            },
+            {
+              "phrase": "to return to the",
+              "earlier_thoughts": [
+                {
+                  "thought": 7,
+                  "t": "08:29"
+                }
+              ]
+            },
+            {
+              "phrase": "to the bungalow and",
+              "earlier_thoughts": [
+                {
+                  "thought": 7,
+                  "t": "08:29"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 22,
+          "t": "14:33",
+          "text": "The sun has beaten the life out of the morning, and my legs ache from the ten kilometres already walked. The vouchers can wait until the light fails; the body, like the state, requires rest to function. I shall retire to the cool of the bungalow and let the heat pass.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "bungalow and let the",
+              "earlier_thoughts": [
+                {
+                  "thought": 7,
+                  "t": "08:29"
+                }
+              ]
+            },
+            {
+              "phrase": "the bungalow and let",
+              "earlier_thoughts": [
+                {
+                  "thought": 7,
+                  "t": "08:29"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 23,
+          "t": "15:33",
+          "text": "The file is before me, and the cash in my pocket must be reconciled with the state's money in my keeping. The dhobi is due on Saturday, and I must ensure the voucher for the ₹300 is ready and the cash set aside. It is a mechanical task, but the order of civil society demands it.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "is ready and the",
+              "earlier_thoughts": [
+                {
+                  "thought": 13,
+                  "t": "10:59"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 24,
+          "t": "16:18",
+          "text": "Seven hours have passed since the last proper meal, and the body rebels against the spirit's abstraction with a sharp, insistent hunger. Ramesh stands by with the sambar, which has certainly cooled, but the alternative is to starve until nineteen-thirty, which would be a test of will I am not currently equipped for. I will eat what is offered; the ethical life of the household includes the satisfaction of natural need, even if the food is lukewarm.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "meal and the body",
+              "earlier_thoughts": [
+                {
+                  "thought": 20,
+                  "t": "14:03"
+                }
+              ]
+            },
+            {
+              "phrase": "ramesh stands by with",
+              "earlier_thoughts": [
+                {
+                  "thought": 8,
+                  "t": "08:49"
+                }
+              ]
+            },
+            {
+              "phrase": "stands by with the",
+              "earlier_thoughts": [
+                {
+                  "thought": 8,
+                  "t": "08:49"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 25,
+          "t": "16:28",
+          "text": "The system of needs demands satisfaction, but the household mechanism refuses to serve until the evening. My body, which I thought I had mastered, rebels against the rigidity of the schedule. I must wait in the tension between the appetite and the clock, perhaps by taking a walk to cool the head as I promised, or by sitting in contemplation of the absurdity of my situation.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "the tension between the",
+              "earlier_thoughts": [
+                {
+                  "thought": 5,
+                  "t": "08:04"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 26,
+          "t": "16:48",
+          "text": "The engine of the household is rigid; it admits no exception for the philosopher's hunger, nor for the steaming bowl Ramesh has set before me. I cannot eat what the system has not authorized, even if the plate is full. I shall rise and move my body to cool the head further, leaving the sambar to wait with the rest of the day's provisions until the hour of service.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "of the household is",
+              "earlier_thoughts": [
+                {
+                  "thought": 9,
+                  "t": "09:04"
+                }
+              ]
+            },
+            {
+              "phrase": "to cool the head",
+              "earlier_thoughts": [
+                {
+                  "thought": 25,
+                  "t": "16:28"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 27,
+          "t": "17:18",
+          "text": "The sambar waits, but so does the sun, which has not yet dismissed the day. I walked the tombs in the heat and the air is thick with the dust of the city and the smoke of a thousand hearths. A short circuit around the bungalow will settle the blood before the bowl is served. The gate is open; I need only step through.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "air is thick with",
+              "earlier_thoughts": [
+                {
+                  "thought": 12,
+                  "t": "10:14"
+                }
+              ]
+            },
+            {
+              "phrase": "and the air is",
+              "earlier_thoughts": [
+                {
+                  "thought": 3,
+                  "t": "06:59"
+                },
+                {
+                  "thought": 12,
+                  "t": "10:14"
+                }
+              ]
+            },
+            {
+              "phrase": "the air is thick",
+              "earlier_thoughts": [
+                {
+                  "thought": 12,
+                  "t": "10:14"
+                }
+              ]
+            },
+            {
+              "phrase": "the sambar waits but",
+              "earlier_thoughts": [
+                {
+                  "thought": 10,
+                  "t": "09:14"
+                },
+                {
+                  "thought": 18,
+                  "t": "12:58"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 28,
+          "t": "17:30",
+          "text": "Shri Hegde stands at the gate with his luggage, a man displaced by a clerical error, asking for the shelter of a second room. It is a small, immediate act of accommodation, distinct from the grand ethical movements of the state, yet it resolves the immediate tension of his exhaustion. I will grant him the room; hospitality is the first form of recognition between two subjects who are not yet fully estranged.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 29,
+          "t": "17:45",
+          "text": "Shri Hegde withdraws with the quiet dignity of a man who knows his place in the hierarchy, even if that place was assigned by a clerk's slip of the pen. It is a small instance of the ethical life in action: the individual submitting to the universal order, even when that order is arbitrary. I shall observe the settling-in from a distance; the second bedroom is his, and the sambar is my immediate concern.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "it is a small",
+              "earlier_thoughts": [
+                {
+                  "thought": 28,
+                  "t": "17:30"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 30,
+          "t": "18:05",
+          "text": "The sambar waits in the kitchen, a small domestic institution of its own, bound by the laws of heat and time just as the state is bound by law. I shall not delay the meal for the sake of a philosophical stroll; the body is the first ethical substance, and it demands its due. I will stay here, perhaps reviewing the vouchers, until the call comes.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "for the sake of",
+              "earlier_thoughts": [
+                {
+                  "thought": 20,
+                  "t": "14:03"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 31,
+          "t": "18:20",
+          "text": "The meal is ten minutes away, a small interval of waiting that the body must endure. I have walked ten kilometres today; the legs are tired, and the spirit requires a moment of stillness before the nourishment arrives. I shall sit in the verandah, where the evening air is cooler, and let the mind rest in the quiet before the domestic institution of the dinner table reasserts itself.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 32,
+          "t": "18:30",
+          "text": "The sambar is plated, yet I am told to wait; this is the discipline of the table, where the body must submit to the timing of the household. I shall sit in the study and let the mind turn over the day's observations while the heat of the kitchen does its work.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "and let the mind",
+              "earlier_thoughts": [
+                {
+                  "thought": 31,
+                  "t": "18:20"
+                }
+              ]
+            },
+            {
+              "phrase": "i shall sit in",
+              "earlier_thoughts": [
+                {
+                  "thought": 31,
+                  "t": "18:20"
+                }
+              ]
+            },
+            {
+              "phrase": "shall sit in the",
+              "earlier_thoughts": [
+                {
+                  "thought": 31,
+                  "t": "18:20"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 33,
+          "t": "18:45",
+          "text": "The meal is delayed by the arbitrary will of the household, a small friction in the mechanism of civil society. I shall not stand idly by my plate; the evening air is clear, and the walk was in my plan. I will step out to the porch and cool my nerves while the sambar simmers in its proper place.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "i shall not stand",
+              "earlier_thoughts": [
+                {
+                  "thought": 3,
+                  "t": "06:59"
+                }
+              ]
+            },
+            {
+              "phrase": "the evening air is",
+              "earlier_thoughts": [
+                {
+                  "thought": 31,
+                  "t": "18:20"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 34,
+          "t": "18:55",
+          "text": "The body insists, but the household mechanism is rigid: the sambar is not served until 19:30. To wait is to be subject to the arbitrary timing of the servant, a small humiliation. I must satisfy the need now, outside the domestic sphere. Khan Market is open until 20:30; I shall walk there and procure sustenance from the market, asserting my freedom against the clock.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "but the household mechanism",
+              "earlier_thoughts": [
+                {
+                  "thought": 25,
+                  "t": "16:28"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 35,
+          "t": "19:22",
+          "text": "The air is warm but the humidity is absent, a mercy in the evening. Masterji stands by his table, and the bookseller is behind his counter; the market is still open for another hour. I am hungry, though not for the heavy dhaba food, and the light is good enough for a quick transaction. I shall address the tailor first, as the matter of the collar remains open, and then I shall take a samosa from the stall nearby to satisfy the body's immediate demand before it becomes a distraction.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "and then i shall",
+              "earlier_thoughts": [
+                {
+                  "thought": 8,
+                  "t": "08:49"
+                }
+              ]
+            },
+            {
+              "phrase": "i shall take a",
+              "earlier_thoughts": [
+                {
+                  "thought": 19,
+                  "t": "13:18"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 36,
+          "t": "19:37",
+          "text": "Masterji’s pragmatism cuts through the heat; he is right that the collar chokes. I have eaten a samosa, but the body is still hungry after the long day's walking. I shall take a cup of chai to settle the stomach before returning to the bungalow, for the night is settling in and the air is clear.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "and the air is",
+              "earlier_thoughts": [
+                {
+                  "thought": 3,
+                  "t": "06:59"
+                },
+                {
+                  "thought": 12,
+                  "t": "10:14"
+                },
+                {
+                  "thought": 27,
+                  "t": "17:18"
+                }
+              ]
+            },
+            {
+              "phrase": "i shall take a",
+              "earlier_thoughts": [
+                {
+                  "thought": 19,
+                  "t": "13:18"
+                },
+                {
+                  "thought": 35,
+                  "t": "19:22"
+                }
+              ]
+            },
+            {
+              "phrase": "the air is clear",
+              "earlier_thoughts": [
+                {
+                  "thought": 3,
+                  "t": "06:59"
+                },
+                {
+                  "thought": 13,
+                  "t": "10:59"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 37,
+          "t": "19:52",
+          "text": "Masterji’s equation is crude: chai for the throat, the state for the people. It is a vulgar reduction, yet it captures the immediate need for the particular over the universal. I am thirsty, and the throat is indeed the first site of political negotiation. I shall accept the cup, not as a concession to the state, but as a maintenance of the body that must continue to think.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 38,
+          "t": "20:02",
+          "text": "The chai is hot, and the needle in Masterji’s eye has stopped its dance. I have drunk enough to know the taste of this place, and the market is closing its shutters with the finality of a state decree. I must return to the bungalow before the night fully claims the street.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "i must return to",
+              "earlier_thoughts": [
+                {
+                  "thought": 15,
+                  "t": "11:41"
+                },
+                {
+                  "thought": 16,
+                  "t": "12:08"
+                }
+              ]
+            },
+            {
+              "phrase": "must return to the",
+              "earlier_thoughts": [
+                {
+                  "thought": 15,
+                  "t": "11:41"
+                },
+                {
+                  "thought": 16,
+                  "t": "12:08"
+                }
+              ]
+            },
+            {
+              "phrase": "return to the bungalow",
+              "earlier_thoughts": [
+                {
+                  "thought": 7,
+                  "t": "08:29"
+                },
+                {
+                  "thought": 15,
+                  "t": "11:41"
+                },
+                {
+                  "thought": 16,
+                  "t": "12:08"
+                },
+                {
+                  "thought": 19,
+                  "t": "13:18"
+                },
+                {
+                  "thought": 21,
+                  "t": "14:13"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 39,
+          "t": "20:29",
+          "text": "The bookseller’s advice is practical, but the air quality is a warning sign that the atmosphere itself is turning against the body. Ramesh’s dinner is a concrete satisfaction of a need, a moment where the system of needs meets the individual. I shall eat, for the body must be sustained to continue the movement of thought, and the walk can wait until the stomach is settled.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "can wait until the",
+              "earlier_thoughts": [
+                {
+                  "thought": 22,
+                  "t": "14:33"
+                }
+              ]
+            },
+            {
+              "phrase": "the body must be",
+              "earlier_thoughts": [
+                {
+                  "thought": 14,
+                  "t": "11:26"
+                },
+                {
+                  "thought": 18,
+                  "t": "12:58"
+                }
+              ]
+            },
+            {
+              "phrase": "the system of needs",
+              "earlier_thoughts": [
+                {
+                  "thought": 25,
+                  "t": "16:28"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 40,
+          "t": "21:14",
+          "text": "Ramesh’s absence is a contradiction in terms, yet here is the food, warm and waiting. The universal will of the household persists through the particular act of a servant who is not there. I shall eat, for the body requires its due, and Shri Hegde is a guest who must be shown the way to the second bedroom, however briefly.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "eat for the body",
+              "earlier_thoughts": [
+                {
+                  "thought": 39,
+                  "t": "20:29"
+                }
+              ]
+            },
+            {
+              "phrase": "i shall eat for",
+              "earlier_thoughts": [
+                {
+                  "thought": 39,
+                  "t": "20:29"
+                }
+              ]
+            },
+            {
+              "phrase": "shall eat for the",
+              "earlier_thoughts": [
+                {
+                  "thought": 39,
+                  "t": "20:29"
+                }
+              ]
+            },
+            {
+              "phrase": "will of the household",
+              "earlier_thoughts": [
+                {
+                  "thought": 33,
+                  "t": "18:45"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 41,
+          "t": "21:24",
+          "text": "He waves me off with the precise, bureaucratic courtesy of a man who has mistaken a clerical error for a permanent assignment. I am tired; the day has been long, and the air is thick with a pollution that chokes the spirit as much as the lung. I shall not argue with the inertia of the moment, for there is no movement in his refusal, only a fixed point. I will retire to my own chamber to rest the body, which is the condition of any further thought.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "a man who has",
+              "earlier_thoughts": [
+                {
+                  "thought": 5,
+                  "t": "08:04"
+                }
+              ]
+            },
+            {
+              "phrase": "air is thick with",
+              "earlier_thoughts": [
+                {
+                  "thought": 12,
+                  "t": "10:14"
+                },
+                {
+                  "thought": 27,
+                  "t": "17:18"
+                }
+              ]
+            },
+            {
+              "phrase": "and the air is",
+              "earlier_thoughts": [
+                {
+                  "thought": 3,
+                  "t": "06:59"
+                },
+                {
+                  "thought": 12,
+                  "t": "10:14"
+                },
+                {
+                  "thought": 27,
+                  "t": "17:18"
+                },
+                {
+                  "thought": 36,
+                  "t": "19:37"
+                }
+              ]
+            },
+            {
+              "phrase": "of a man who",
+              "earlier_thoughts": [
+                {
+                  "thought": 29,
+                  "t": "17:45"
+                }
+              ]
+            },
+            {
+              "phrase": "the air is thick",
+              "earlier_thoughts": [
+                {
+                  "thought": 12,
+                  "t": "10:14"
+                },
+                {
+                  "thought": 27,
+                  "t": "17:18"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 42,
+          "t": "22:24",
+          "text": "The night is a suspension of the dialectic; the day has run its course and the contradictions remain unresolved in the dark. I have walked fourteen kilometres, a physical exhaustion that mirrors the mental fatigue of holding the shape of the world. Sleep is the immediate negation of this consciousness, a return to the immediate before the next day re-asserts the universal.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "id": "control-file",
+      "label": "8 October final-integration/plain-qwen rehearsal, Day 2 / 2026-10-03",
+      "date": "2026-10-03",
+      "n": 2,
+      "source_sha256": "0af0716cffe5b2b79661237743c29cfef013fe62ec962ed947962d2a6147f081",
+      "thoughts": 33,
+      "marked_thoughts": 16,
+      "share": 0.48484848484848486,
+      "top_ten": [
+        {
+          "phrase": "and a man who",
+          "thoughts": 5,
+          "reuses_after_first": 4,
+          "occurrences": [
+            {
+              "thought": 9,
+              "t": "09:00"
+            },
+            {
+              "thought": 26,
+              "t": "18:05"
+            },
+            {
+              "thought": 27,
+              "t": "18:22"
+            },
+            {
+              "thought": 28,
+              "t": "18:47"
+            },
+            {
+              "thought": 31,
+              "t": "20:09"
+            }
+          ]
+        },
+        {
+          "phrase": "the day is still",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 1,
+              "t": "05:57"
+            },
+            {
+              "thought": 5,
+              "t": "07:30"
+            },
+            {
+              "thought": 6,
+              "t": "08:00"
+            }
+          ]
+        },
+        {
+          "phrase": "the file's knot is",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 7,
+              "t": "08:20"
+            },
+            {
+              "thought": 10,
+              "t": "09:20"
+            },
+            {
+              "thought": 20,
+              "t": "14:45"
+            }
+          ]
+        },
+        {
+          "phrase": "a man who has",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 26,
+              "t": "18:05"
+            },
+            {
+              "thought": 31,
+              "t": "20:09"
+            }
+          ]
+        },
+        {
+          "phrase": "and let the day",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 31,
+              "t": "20:09"
+            },
+            {
+              "thought": 32,
+              "t": "20:39"
+            }
+          ]
+        },
+        {
+          "phrase": "and the file's knot",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 7,
+              "t": "08:20"
+            },
+            {
+              "thought": 10,
+              "t": "09:20"
+            }
+          ]
+        },
+        {
+          "phrase": "before i go home",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 8,
+              "t": "08:50"
+            },
+            {
+              "thought": 27,
+              "t": "18:22"
+            }
+          ]
+        },
+        {
+          "phrase": "day is still cool",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 1,
+              "t": "05:57"
+            },
+            {
+              "thought": 5,
+              "t": "07:30"
+            }
+          ]
+        },
+        {
+          "phrase": "have no reason to",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 7,
+              "t": "08:20"
+            },
+            {
+              "thought": 22,
+              "t": "16:20"
+            }
+          ]
+        },
+        {
+          "phrase": "head wants the window",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 14,
+              "t": "11:45"
+            },
+            {
+              "thought": 28,
+              "t": "18:47"
+            }
+          ]
+        }
+      ],
+      "all_repeated_phrases": [
+        {
+          "phrase": "and a man who",
+          "thoughts": 5,
+          "reuses_after_first": 4,
+          "occurrences": [
+            {
+              "thought": 9,
+              "t": "09:00"
+            },
+            {
+              "thought": 26,
+              "t": "18:05"
+            },
+            {
+              "thought": 27,
+              "t": "18:22"
+            },
+            {
+              "thought": 28,
+              "t": "18:47"
+            },
+            {
+              "thought": 31,
+              "t": "20:09"
+            }
+          ]
+        },
+        {
+          "phrase": "the day is still",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 1,
+              "t": "05:57"
+            },
+            {
+              "thought": 5,
+              "t": "07:30"
+            },
+            {
+              "thought": 6,
+              "t": "08:00"
+            }
+          ]
+        },
+        {
+          "phrase": "the file's knot is",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 7,
+              "t": "08:20"
+            },
+            {
+              "thought": 10,
+              "t": "09:20"
+            },
+            {
+              "thought": 20,
+              "t": "14:45"
+            }
+          ]
+        },
+        {
+          "phrase": "a man who has",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 26,
+              "t": "18:05"
+            },
+            {
+              "thought": 31,
+              "t": "20:09"
+            }
+          ]
+        },
+        {
+          "phrase": "and let the day",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 31,
+              "t": "20:09"
+            },
+            {
+              "thought": 32,
+              "t": "20:39"
+            }
+          ]
+        },
+        {
+          "phrase": "and the file's knot",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 7,
+              "t": "08:20"
+            },
+            {
+              "thought": 10,
+              "t": "09:20"
+            }
+          ]
+        },
+        {
+          "phrase": "before i go home",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 8,
+              "t": "08:50"
+            },
+            {
+              "thought": 27,
+              "t": "18:22"
+            }
+          ]
+        },
+        {
+          "phrase": "day is still cool",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 1,
+              "t": "05:57"
+            },
+            {
+              "thought": 5,
+              "t": "07:30"
+            }
+          ]
+        },
+        {
+          "phrase": "have no reason to",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 7,
+              "t": "08:20"
+            },
+            {
+              "thought": 22,
+              "t": "16:20"
+            }
+          ]
+        },
+        {
+          "phrase": "head wants the window",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 14,
+              "t": "11:45"
+            },
+            {
+              "thought": 28,
+              "t": "18:47"
+            }
+          ]
+        },
+        {
+          "phrase": "i go home to",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 8,
+              "t": "08:50"
+            },
+            {
+              "thought": 27,
+              "t": "18:22"
+            }
+          ]
+        },
+        {
+          "phrase": "i have no reason",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 7,
+              "t": "08:20"
+            },
+            {
+              "thought": 22,
+              "t": "16:20"
+            }
+          ]
+        },
+        {
+          "phrase": "i have not yet",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 23,
+              "t": "16:35"
+            },
+            {
+              "thought": 27,
+              "t": "18:22"
+            }
+          ]
+        },
+        {
+          "phrase": "i have the window",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 15,
+              "t": "12:30"
+            },
+            {
+              "thought": 17,
+              "t": "13:30"
+            }
+          ]
+        },
+        {
+          "phrase": "i will give him",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 19,
+              "t": "14:25"
+            },
+            {
+              "thought": 29,
+              "t": "19:02"
+            }
+          ]
+        },
+        {
+          "phrase": "i will let the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 3,
+              "t": "06:40"
+            },
+            {
+              "thought": 27,
+              "t": "18:22"
+            }
+          ]
+        },
+        {
+          "phrase": "i will not let",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 12,
+              "t": "10:25"
+            },
+            {
+              "thought": 19,
+              "t": "14:25"
+            }
+          ]
+        },
+        {
+          "phrase": "i will take the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 4,
+              "t": "07:00"
+            },
+            {
+              "thought": 30,
+              "t": "19:42"
+            }
+          ]
+        },
+        {
+          "phrase": "is still cool and",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 5,
+              "t": "07:30"
+            },
+            {
+              "thought": 7,
+              "t": "08:20"
+            }
+          ]
+        },
+        {
+          "phrase": "man who has walked",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 26,
+              "t": "18:05"
+            },
+            {
+              "thought": 31,
+              "t": "20:09"
+            }
+          ]
+        },
+        {
+          "phrase": "ramesh has set the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 19,
+              "t": "14:25"
+            },
+            {
+              "thought": 31,
+              "t": "20:09"
+            }
+          ]
+        },
+        {
+          "phrase": "still cool and the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 5,
+              "t": "07:30"
+            },
+            {
+              "thought": 7,
+              "t": "08:20"
+            }
+          ]
+        },
+        {
+          "phrase": "the file will not",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 4,
+              "t": "07:00"
+            },
+            {
+              "thought": 9,
+              "t": "09:00"
+            }
+          ]
+        },
+        {
+          "phrase": "the first movement of",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 3,
+              "t": "06:40"
+            },
+            {
+              "thought": 5,
+              "t": "07:30"
+            }
+          ]
+        },
+        {
+          "phrase": "the garden could not",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 8,
+              "t": "08:50"
+            },
+            {
+              "thought": 9,
+              "t": "09:00"
+            }
+          ]
+        },
+        {
+          "phrase": "the head wants the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 14,
+              "t": "11:45"
+            },
+            {
+              "thought": 28,
+              "t": "18:47"
+            }
+          ]
+        },
+        {
+          "phrase": "the window and the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 17,
+              "t": "13:30"
+            },
+            {
+              "thought": 28,
+              "t": "18:47"
+            }
+          ]
+        },
+        {
+          "phrase": "will give him a",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 19,
+              "t": "14:25"
+            },
+            {
+              "thought": 29,
+              "t": "19:02"
+            }
+          ]
+        }
+      ],
+      "marked": [
+        {
+          "thought": 1,
+          "t": "05:57",
+          "text": "The dhobi's rupees are gone, and the day is still cool enough for clear work. Before it warms, I must wash, dress, and open the Directorate file, separating the simple clerical error from whatever deeper defect it may conceal.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 2,
+          "t": "06:30",
+          "text": "The air is still clear enough for the first real turn of the day, and I would not go into Lodhi Garden without knowing whether the Directorate file has moved at all. A short word with Ramesh may save a walk toward a dead end. I also do not intend to begin the day empty.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 3,
+          "t": "06:40",
+          "text": "The Directorate has withdrawn the papers behind its own weekend, and the first movement of property cannot be completed by argument alone. I will let the kettle do its part and keep the distinction between possession and title for the garden.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 4,
+          "t": "07:00",
+          "text": "The file will not settle itself by argument before I have eaten, and a weak stomach would make a poor judge of possession. I will take the poha and the strong tea at the table, then walk while the distinctions are still fresh.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 5,
+          "t": "07:30",
+          "text": "The day is still cool, and the file will wait only a short while for the first movement of digestion. I will eat at the table and let Ramesh lay the papers beside the poha, so that possession may be considered without the stomach objecting.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "day is still cool",
+              "earlier_thoughts": [
+                {
+                  "thought": 1,
+                  "t": "05:57"
+                }
+              ]
+            },
+            {
+              "phrase": "the day is still",
+              "earlier_thoughts": [
+                {
+                  "thought": 1,
+                  "t": "05:57"
+                }
+              ]
+            },
+            {
+              "phrase": "the first movement of",
+              "earlier_thoughts": [
+                {
+                  "thought": 3,
+                  "t": "06:40"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 6,
+          "t": "08:00",
+          "text": "Ramesh has the file where I left it, and the saucer is square, which tells me the house will hold while I am out. The day is still 23 degrees and clear; the distinctions of the file want the legs, not the table, and I am already behind my own schedule by a quarter hour. I will leave the file on its left, as a thing under examination should be left, and take the argument to the lawn.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "the day is still",
+              "earlier_thoughts": [
+                {
+                  "thought": 1,
+                  "t": "05:57"
+                },
+                {
+                  "thought": 5,
+                  "t": "07:30"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 7,
+          "t": "08:20",
+          "text": "The garden is still cool and the file's knot is loose enough to turn over in the mind without a desk; a little steam at the lips would help the distinctions settle. Sunil has not met me, and I have no reason to pretend otherwise, so I will take a chai and sit where the path bends.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "is still cool and",
+              "earlier_thoughts": [
+                {
+                  "thought": 5,
+                  "t": "07:30"
+                }
+              ]
+            },
+            {
+              "phrase": "still cool and the",
+              "earlier_thoughts": [
+                {
+                  "thought": 5,
+                  "t": "07:30"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 8,
+          "t": "08:50",
+          "text": "The chai is already paid for, so I take the stool and let the steam do what the garden could not. A few minutes here will steady the file’s difficulty before I go home to write.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 9,
+          "t": "09:00",
+          "text": "Sunil has put it plainly, and a man who sells steam has no reason to flatter; the knot of the file will not untie itself while I sit on his plastic stool, and the Directorate will not open until Monday, so the only place it can be handled is my own desk. I take my leave with a word, and the walk will do the turning-over that the garden could not.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "the file will not",
+              "earlier_thoughts": [
+                {
+                  "thought": 4,
+                  "t": "07:00"
+                }
+              ]
+            },
+            {
+              "phrase": "the garden could not",
+              "earlier_thoughts": [
+                {
+                  "thought": 8,
+                  "t": "08:50"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 10,
+          "t": "09:20",
+          "text": "I am back at the desk and the file's knot is this: the Directorate identifies a person by a name in a record, and the name is the universal that stands in for the particular. When the universal is misapplied — Hegde becomes Hegel — the particular is displaced, and I now occupy a place whose right I do not hold by my own title but by the residue of the error. The difficulty is whether my occupancy has any standing apart from the mistake, or whether it is merely what remains when the record is corrected.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "and the file's knot",
+              "earlier_thoughts": [
+                {
+                  "thought": 7,
+                  "t": "08:20"
+                }
+              ]
+            },
+            {
+              "phrase": "the file's knot is",
+              "earlier_thoughts": [
+                {
+                  "thought": 7,
+                  "t": "08:20"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 11,
+          "t": "10:10",
+          "text": "So the man himself is coming. Hegde does not go to the Directorate — he comes to the bungalow, at ten on Monday, to settle it with me, and that is a wiser course than either of us had chosen. I will accept, and ask him to bring the allotment papers with him, for a man settles a claim by looking at the record, not by raising his voice. Ramesh can carry the word back; the dhobi may be going with the bundle, so let him have his wages and his thanks while I am at it.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 12,
+          "t": "10:25",
+          "text": "The dhobi is already paid this morning, so let him go without delay. I will not let a minor household matter interrupt the hour I have set for the Phenomenology. Ramesh may leave the file exactly as it lies.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 13,
+          "t": "10:30",
+          "text": "The room is quiet enough now that Ramesh has gone. I will take up the file’s unresolved difficulty before the heat, beginning with what the Directorate’s mistake presupposes about identity, allotment, and the rights it has disturbed.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 14,
+          "t": "11:45",
+          "text": "The file's difficulty is fixed in the notes and will keep until Monday; the head wants the window now, and the Phenomenology is the right thing to look at. It is a strange thing to read one's own book, but the Preface still reads as if a stranger had written it, and that distance is perhaps what it was meant to have. Ramesh may stand his ground while I am at it.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 15,
+          "t": "12:30",
+          "text": "Ramesh has the kettle in mind and I have the window, so neither of us needs the other for a quarter of an hour. The Phenomenology lies open at the section on religion, and the afternoon heat will make a fine witness to it. I will be down before the meal is set.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 16,
+          "t": "13:00",
+          "text": "The Phenomenology can wait for the afternoon; the body has a claim before the head, and chhole with roti is the honest way to enter the heat. I will eat plainly and keep the file's difficulty in reserve until Monday.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 17,
+          "t": "13:30",
+          "text": "Ramesh has his latch and his fan, and I have the window and the file; the heat is rising, so I will not chase it out into the garden yet. Chhole has settled in the body, and what remains is the one difficulty that has not let me think cleanly: what the file's 'allotment' is supposed to do to the person it names, when the name has already slipped into another hand.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "i have the window",
+              "earlier_thoughts": [
+                {
+                  "thought": 15,
+                  "t": "12:30"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 18,
+          "t": "14:15",
+          "text": "Ramesh has already paid the dhobi at the gate before eight, and the morning entry stands in my book. I will not pay the same charge twice, but I will ask him to keep the voucher ready for the Directorate. The afternoon walk can wait ten minutes while this small administrative knot is tied.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 19,
+          "t": "14:25",
+          "text": "Ramesh has set the dhobi's voucher on the table and is done; I will not make a ceremony of it, but I will not let the state's money sit loose either. The hour is ripe for the second walk, and Lodhi Garden is open while the heat still holds. I will give him a plain word and go.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "i will not let",
+              "earlier_thoughts": [
+                {
+                  "thought": 12,
+                  "t": "10:25"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 20,
+          "t": "14:45",
+          "text": "The file’s knot is not solved by sitting in the bungalow, and the garden still has light. I will let its distinctions move through a walk before the heat thickens. Ramesh is gone, so there is no ceremony to finish.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "the file's knot is",
+              "earlier_thoughts": [
+                {
+                  "thought": 7,
+                  "t": "08:20"
+                },
+                {
+                  "thought": 10,
+                  "t": "09:20"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 21,
+          "t": "15:20",
+          "text": "The garden has given the file its first rest; I keep walking the same paths, not to solve the allotment before Monday, but to see whether the distinction between the name in the file and the person who will hold the bungalow can bear a second examination.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 22,
+          "t": "16:20",
+          "text": "A stranger in the garden at this hour is either resting or waiting, and I have no reason to disturb her unless she first offers a word. I am still carrying the file in my head, and a plain conversation may loosen it better than another turn of the path. I will keep it short and courteous.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "have no reason to",
+              "earlier_thoughts": [
+                {
+                  "thought": 7,
+                  "t": "08:20"
+                }
+              ]
+            },
+            {
+              "phrase": "i have no reason",
+              "earlier_thoughts": [
+                {
+                  "thought": 7,
+                  "t": "08:20"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 23,
+          "t": "16:35",
+          "text": "I must be careful with my words; I have not yet learned what the Delhiites call their new entertainments, and I shall not guess at them. I will simply ask her whether she is a regular in the garden, which is a plain and honest question that requires no knowledge of machines I have not yet met.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 24,
+          "t": "17:20",
+          "text": "She is right, and she says it with the authority of habit itself. I have held in the Philosophy of Right that habit is not the opposite of freedom but its dwelling; a man without routine is not free but merely restless. I will say as much plainly, and take my leave before the heat turns the walk into a punishment.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 25,
+          "t": "17:45",
+          "text": "Her objection is sharper than my labels: the walk does not give me a philosophical peace, but a repeated order against mental clutter. I will accept the bench without arguing the name.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 26,
+          "t": "18:05",
+          "text": "She is right to check me; I had been turning her correction into a doctrine, and that is exactly the cleverness she meant. I am hungry, and a man who has walked since morning and argued with a woman about dates does not go home on an empty stomach to file his notes. Khan Market is open till half-nine; I will eat there properly and let the evening air do what it can.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "and a man who",
+              "earlier_thoughts": [
+                {
+                  "thought": 9,
+                  "t": "09:00"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 27,
+          "t": "18:22",
+          "text": "I came to Khan as much for the collar as for the file; Masterji's long silence over my neck-cloth on Day 1 was a verdict I have not yet answered, and a man who waits for a garment on Thursday is entitled to ask for it. The walk has done what it does — ordered the clutter — so I will let the evening sit for a moment before I go home to the notes.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "and a man who",
+              "earlier_thoughts": [
+                {
+                  "thought": 9,
+                  "t": "09:00"
+                },
+                {
+                  "thought": 26,
+                  "t": "18:05"
+                }
+              ]
+            },
+            {
+              "phrase": "before i go home",
+              "earlier_thoughts": [
+                {
+                  "thought": 8,
+                  "t": "08:50"
+                }
+              ]
+            },
+            {
+              "phrase": "i go home to",
+              "earlier_thoughts": [
+                {
+                  "thought": 8,
+                  "t": "08:50"
+                }
+              ]
+            },
+            {
+              "phrase": "i have not yet",
+              "earlier_thoughts": [
+                {
+                  "thought": 23,
+                  "t": "16:35"
+                }
+              ]
+            },
+            {
+              "phrase": "i will let the",
+              "earlier_thoughts": [
+                {
+                  "thought": 3,
+                  "t": "06:40"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 28,
+          "t": "18:47",
+          "text": "Masterji's verdict releases the knot I have been carrying since the morning; the collar is finished, it only needs to settle, and a man who 'does not lie about time' is worth more than a Directorate that misallots a bungalow. I will take one last chai while the men are here, then turn to the evening's real work: leaving the file ready for Monday. The day's walk has done its part, and the head wants the window and the notes, not another stool.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "and a man who",
+              "earlier_thoughts": [
+                {
+                  "thought": 9,
+                  "t": "09:00"
+                },
+                {
+                  "thought": 26,
+                  "t": "18:05"
+                },
+                {
+                  "thought": 27,
+                  "t": "18:22"
+                }
+              ]
+            },
+            {
+              "phrase": "head wants the window",
+              "earlier_thoughts": [
+                {
+                  "thought": 14,
+                  "t": "11:45"
+                }
+              ]
+            },
+            {
+              "phrase": "the head wants the",
+              "earlier_thoughts": [
+                {
+                  "thought": 14,
+                  "t": "11:45"
+                }
+              ]
+            },
+            {
+              "phrase": "the window and the",
+              "earlier_thoughts": [
+                {
+                  "thought": 17,
+                  "t": "13:30"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 29,
+          "t": "19:02",
+          "text": "Masterji's verdict has loosed the knot; the hem is his concern now, and the chai is on the counter, so I will not refuse it. The bookseller has been waiting with me in the shop for a while; it is past six and he must be thinking of closing, so I will give him a real customer's attention rather than drift. My last meal was at one, and a samosa with the chai is not vanity but arithmetic.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "i will give him",
+              "earlier_thoughts": [
+                {
+                  "thought": 19,
+                  "t": "14:25"
+                }
+              ]
+            },
+            {
+              "phrase": "will give him a",
+              "earlier_thoughts": [
+                {
+                  "thought": 19,
+                  "t": "14:25"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 30,
+          "t": "19:42",
+          "text": "The paper and the notebook are in my hands, and Masterji’s warning is plain: his hands are not a subject for inquiry. I will take the things without turning the errand into an examination, and then walk home before the evening closes.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "i will take the",
+              "earlier_thoughts": [
+                {
+                  "thought": 4,
+                  "t": "07:00"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 31,
+          "t": "20:09",
+          "text": "Seven hours since the last meal, and Ramesh has set the rotis and the dal makhani out before he goes. The file can keep its knot until Monday; the body has its own claim, and a man who has walked seven kilometres does not argue with dinner. I will eat, and let the day close quietly.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "a man who has",
+              "earlier_thoughts": [
+                {
+                  "thought": 26,
+                  "t": "18:05"
+                }
+              ]
+            },
+            {
+              "phrase": "and a man who",
+              "earlier_thoughts": [
+                {
+                  "thought": 9,
+                  "t": "09:00"
+                },
+                {
+                  "thought": 26,
+                  "t": "18:05"
+                },
+                {
+                  "thought": 27,
+                  "t": "18:22"
+                },
+                {
+                  "thought": 28,
+                  "t": "18:47"
+                }
+              ]
+            },
+            {
+              "phrase": "man who has walked",
+              "earlier_thoughts": [
+                {
+                  "thought": 26,
+                  "t": "18:05"
+                }
+              ]
+            },
+            {
+              "phrase": "ramesh has set the",
+              "earlier_thoughts": [
+                {
+                  "thought": 19,
+                  "t": "14:25"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 32,
+          "t": "20:39",
+          "text": "Ramesh has gone, and the engine of this house will not count his curd as a meal while he is away; the plate waits for Monday, as he says. I have eaten, walked seven and a half kilometres, and the file is laid out for the morning. I will sit a while in the dark of the veranda and let the day end.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "and let the day",
+              "earlier_thoughts": [
+                {
+                  "thought": 31,
+                  "t": "20:09"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 33,
+          "t": "21:24",
+          "text": "The file has been laid down for Monday, and further ink would only blur the distinctions already drawn. The body has walked far and kept long hours; it is time to let the head settle.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "id": "control-vouchers",
+      "label": "8 October continuation-v2/focused-next-day rehearsal, Day 3 / 2026-10-04",
+      "date": "2026-10-04",
+      "n": 3,
+      "source_sha256": "a3151b9ff8e9d8a638c13d72527aebbf3e66208fa5f1e19af4f5d5a2c58eebb2",
+      "thoughts": 40,
+      "marked_thoughts": 19,
+      "share": 0.475,
+      "top_ten": [
+        {
+          "phrase": "i will not let",
+          "thoughts": 6,
+          "reuses_after_first": 5,
+          "occurrences": [
+            {
+              "thought": 12,
+              "t": "09:30"
+            },
+            {
+              "thought": 13,
+              "t": "09:40"
+            },
+            {
+              "thought": 26,
+              "t": "16:20"
+            },
+            {
+              "thought": 29,
+              "t": "18:00"
+            },
+            {
+              "thought": 31,
+              "t": "18:30"
+            },
+            {
+              "thought": 35,
+              "t": "20:15"
+            }
+          ]
+        },
+        {
+          "phrase": "will not let the",
+          "thoughts": 4,
+          "reuses_after_first": 3,
+          "occurrences": [
+            {
+              "thought": 12,
+              "t": "09:30"
+            },
+            {
+              "thought": 13,
+              "t": "09:40"
+            },
+            {
+              "thought": 26,
+              "t": "16:20"
+            },
+            {
+              "thought": 31,
+              "t": "18:30"
+            }
+          ]
+        },
+        {
+          "phrase": "and the dhobi's saturday",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 24,
+              "t": "15:25"
+            },
+            {
+              "thought": 25,
+              "t": "16:00"
+            },
+            {
+              "thought": 28,
+              "t": "17:00"
+            }
+          ]
+        },
+        {
+          "phrase": "i will not stretch",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 17,
+              "t": "11:55"
+            },
+            {
+              "thought": 36,
+              "t": "20:25"
+            },
+            {
+              "thought": 37,
+              "t": "20:30"
+            }
+          ]
+        },
+        {
+          "phrase": "i will take the",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 11,
+              "t": "09:10"
+            },
+            {
+              "thought": 17,
+              "t": "11:55"
+            },
+            {
+              "thought": 22,
+              "t": "15:10"
+            }
+          ]
+        },
+        {
+          "phrase": "vouchers and the dhobi's",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 24,
+              "t": "15:25"
+            },
+            {
+              "thought": 25,
+              "t": "16:00"
+            },
+            {
+              "thought": 27,
+              "t": "16:30"
+            }
+          ]
+        },
+        {
+          "phrase": "will not stretch the",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 17,
+              "t": "11:55"
+            },
+            {
+              "thought": 36,
+              "t": "20:25"
+            },
+            {
+              "thought": 37,
+              "t": "20:30"
+            }
+          ]
+        },
+        {
+          "phrase": "and my body has",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 19,
+              "t": "13:00"
+            },
+            {
+              "thought": 39,
+              "t": "21:20"
+            }
+          ]
+        },
+        {
+          "phrase": "and return to the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 16,
+              "t": "11:05"
+            },
+            {
+              "thought": 17,
+              "t": "11:55"
+            }
+          ]
+        },
+        {
+          "phrase": "and the file's contradiction",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 9,
+              "t": "08:45"
+            },
+            {
+              "thought": 38,
+              "t": "20:35"
+            }
+          ]
+        }
+      ],
+      "all_repeated_phrases": [
+        {
+          "phrase": "i will not let",
+          "thoughts": 6,
+          "reuses_after_first": 5,
+          "occurrences": [
+            {
+              "thought": 12,
+              "t": "09:30"
+            },
+            {
+              "thought": 13,
+              "t": "09:40"
+            },
+            {
+              "thought": 26,
+              "t": "16:20"
+            },
+            {
+              "thought": 29,
+              "t": "18:00"
+            },
+            {
+              "thought": 31,
+              "t": "18:30"
+            },
+            {
+              "thought": 35,
+              "t": "20:15"
+            }
+          ]
+        },
+        {
+          "phrase": "will not let the",
+          "thoughts": 4,
+          "reuses_after_first": 3,
+          "occurrences": [
+            {
+              "thought": 12,
+              "t": "09:30"
+            },
+            {
+              "thought": 13,
+              "t": "09:40"
+            },
+            {
+              "thought": 26,
+              "t": "16:20"
+            },
+            {
+              "thought": 31,
+              "t": "18:30"
+            }
+          ]
+        },
+        {
+          "phrase": "and the dhobi's saturday",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 24,
+              "t": "15:25"
+            },
+            {
+              "thought": 25,
+              "t": "16:00"
+            },
+            {
+              "thought": 28,
+              "t": "17:00"
+            }
+          ]
+        },
+        {
+          "phrase": "i will not stretch",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 17,
+              "t": "11:55"
+            },
+            {
+              "thought": 36,
+              "t": "20:25"
+            },
+            {
+              "thought": 37,
+              "t": "20:30"
+            }
+          ]
+        },
+        {
+          "phrase": "i will take the",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 11,
+              "t": "09:10"
+            },
+            {
+              "thought": 17,
+              "t": "11:55"
+            },
+            {
+              "thought": 22,
+              "t": "15:10"
+            }
+          ]
+        },
+        {
+          "phrase": "vouchers and the dhobi's",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 24,
+              "t": "15:25"
+            },
+            {
+              "thought": 25,
+              "t": "16:00"
+            },
+            {
+              "thought": 27,
+              "t": "16:30"
+            }
+          ]
+        },
+        {
+          "phrase": "will not stretch the",
+          "thoughts": 3,
+          "reuses_after_first": 2,
+          "occurrences": [
+            {
+              "thought": 17,
+              "t": "11:55"
+            },
+            {
+              "thought": 36,
+              "t": "20:25"
+            },
+            {
+              "thought": 37,
+              "t": "20:30"
+            }
+          ]
+        },
+        {
+          "phrase": "and my body has",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 19,
+              "t": "13:00"
+            },
+            {
+              "thought": 39,
+              "t": "21:20"
+            }
+          ]
+        },
+        {
+          "phrase": "and return to the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 16,
+              "t": "11:05"
+            },
+            {
+              "thought": 17,
+              "t": "11:55"
+            }
+          ]
+        },
+        {
+          "phrase": "and the file's contradiction",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 9,
+              "t": "08:45"
+            },
+            {
+              "thought": 38,
+              "t": "20:35"
+            }
+          ]
+        },
+        {
+          "phrase": "contradiction a little longer",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 2,
+              "t": "06:14"
+            },
+            {
+              "thought": 18,
+              "t": "12:05"
+            }
+          ]
+        },
+        {
+          "phrase": "courtesy into a lecture",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 36,
+              "t": "20:25"
+            },
+            {
+              "thought": 37,
+              "t": "20:30"
+            }
+          ]
+        },
+        {
+          "phrase": "file may keep its",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 2,
+              "t": "06:14"
+            },
+            {
+              "thought": 34,
+              "t": "19:30"
+            }
+          ]
+        },
+        {
+          "phrase": "has closed the practical",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 13,
+              "t": "09:40"
+            },
+            {
+              "thought": 37,
+              "t": "20:30"
+            }
+          ]
+        },
+        {
+          "phrase": "has gone to his",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 6,
+              "t": "08:05"
+            },
+            {
+              "thought": 38,
+              "t": "20:35"
+            }
+          ]
+        },
+        {
+          "phrase": "i will eat before",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 3,
+              "t": "07:00"
+            },
+            {
+              "thought": 19,
+              "t": "13:00"
+            }
+          ]
+        },
+        {
+          "phrase": "i will not turn",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 31,
+              "t": "18:30"
+            },
+            {
+              "thought": 35,
+              "t": "20:15"
+            }
+          ]
+        },
+        {
+          "phrase": "i will review the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 25,
+              "t": "16:00"
+            },
+            {
+              "thought": 27,
+              "t": "16:30"
+            }
+          ]
+        },
+        {
+          "phrase": "i will sit with",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 18,
+              "t": "12:05"
+            },
+            {
+              "thought": 38,
+              "t": "20:35"
+            }
+          ]
+        },
+        {
+          "phrase": "may keep its contradiction",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 2,
+              "t": "06:14"
+            },
+            {
+              "thought": 34,
+              "t": "19:30"
+            }
+          ]
+        },
+        {
+          "phrase": "not let him stand",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 29,
+              "t": "18:00"
+            },
+            {
+              "thought": 35,
+              "t": "20:15"
+            }
+          ]
+        },
+        {
+          "phrase": "not stretch the courtesy",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 36,
+              "t": "20:25"
+            },
+            {
+              "thought": 37,
+              "t": "20:30"
+            }
+          ]
+        },
+        {
+          "phrase": "pending vouchers and the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 25,
+              "t": "16:00"
+            },
+            {
+              "thought": 27,
+              "t": "16:30"
+            }
+          ]
+        },
+        {
+          "phrase": "promise rather than a",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 23,
+              "t": "15:20"
+            },
+            {
+              "thought": 26,
+              "t": "16:20"
+            }
+          ]
+        },
+        {
+          "phrase": "ramesh has closed the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 13,
+              "t": "09:40"
+            },
+            {
+              "thought": 37,
+              "t": "20:30"
+            }
+          ]
+        },
+        {
+          "phrase": "ramesh has given me",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 17,
+              "t": "11:55"
+            },
+            {
+              "thought": 18,
+              "t": "12:05"
+            }
+          ]
+        },
+        {
+          "phrase": "ramesh has gone to",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 6,
+              "t": "08:05"
+            },
+            {
+              "thought": 38,
+              "t": "20:35"
+            }
+          ]
+        },
+        {
+          "phrase": "rather than a mere",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 25,
+              "t": "16:00"
+            },
+            {
+              "thought": 26,
+              "t": "16:20"
+            }
+          ]
+        },
+        {
+          "phrase": "return to the misdescription",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 16,
+              "t": "11:05"
+            },
+            {
+              "thought": 17,
+              "t": "11:55"
+            }
+          ]
+        },
+        {
+          "phrase": "review the pending vouchers",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 25,
+              "t": "16:00"
+            },
+            {
+              "thought": 27,
+              "t": "16:30"
+            }
+          ]
+        },
+        {
+          "phrase": "stretch the courtesy into",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 36,
+              "t": "20:25"
+            },
+            {
+              "thought": 37,
+              "t": "20:30"
+            }
+          ]
+        },
+        {
+          "phrase": "than a mere delay",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 25,
+              "t": "16:00"
+            },
+            {
+              "thought": 26,
+              "t": "16:20"
+            }
+          ]
+        },
+        {
+          "phrase": "the courtesy into a",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 36,
+              "t": "20:25"
+            },
+            {
+              "thought": 37,
+              "t": "20:30"
+            }
+          ]
+        },
+        {
+          "phrase": "the dhobi's saturday bill",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 24,
+              "t": "15:25"
+            },
+            {
+              "thought": 25,
+              "t": "16:00"
+            }
+          ]
+        },
+        {
+          "phrase": "the estate office's sunday",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 12,
+              "t": "09:30"
+            },
+            {
+              "thought": 29,
+              "t": "18:00"
+            }
+          ]
+        },
+        {
+          "phrase": "the file may keep",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 2,
+              "t": "06:14"
+            },
+            {
+              "thought": 34,
+              "t": "19:30"
+            }
+          ]
+        },
+        {
+          "phrase": "the file's contradiction will",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 39,
+              "t": "21:20"
+            },
+            {
+              "thought": 40,
+              "t": "21:50"
+            }
+          ]
+        },
+        {
+          "phrase": "the pending vouchers and",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 25,
+              "t": "16:00"
+            },
+            {
+              "thought": 27,
+              "t": "16:30"
+            }
+          ]
+        },
+        {
+          "phrase": "the water and chai",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 17,
+              "t": "11:55"
+            },
+            {
+              "thought": 23,
+              "t": "15:20"
+            }
+          ]
+        },
+        {
+          "phrase": "then turn to the",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 20,
+              "t": "13:30"
+            },
+            {
+              "thought": 22,
+              "t": "15:10"
+            }
+          ]
+        },
+        {
+          "phrase": "to the note for",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 20,
+              "t": "13:30"
+            },
+            {
+              "thought": 22,
+              "t": "15:10"
+            }
+          ]
+        },
+        {
+          "phrase": "turn to the note",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 20,
+              "t": "13:30"
+            },
+            {
+              "thought": 22,
+              "t": "15:10"
+            }
+          ]
+        },
+        {
+          "phrase": "will not let him",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 29,
+              "t": "18:00"
+            },
+            {
+              "thought": 35,
+              "t": "20:15"
+            }
+          ]
+        },
+        {
+          "phrase": "will review the pending",
+          "thoughts": 2,
+          "reuses_after_first": 1,
+          "occurrences": [
+            {
+              "thought": 25,
+              "t": "16:00"
+            },
+            {
+              "thought": 27,
+              "t": "16:30"
+            }
+          ]
+        }
+      ],
+      "marked": [
+        {
+          "thought": 1,
+          "t": "06:04",
+          "text": "The air is clear and the body still asks for breakfast, but Ramesh is here, and the week's small official machinery must be known before I leave it to chance. I will ask what the estate office does on Sundays and when the dhobi comes, so that Monday's meeting and Saturday's payment are not surprises.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 2,
+          "t": "06:14",
+          "text": "Ramesh has answered the two small questions: the office rests on Sunday, and the dhobi will come earlier than I expected. I will not press the matter further until breakfast and the walk have done their work. The file may keep its contradiction a little longer.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 3,
+          "t": "07:00",
+          "text": "The parathas are a proper beginning to a day that is already half official. I will eat before the file and the bill both demand the table, and let Ramesh's report of the office's Sunday rest stand as fact for now. The garden may wait until the heat is past; my walk must be made in the clear air, not against it.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 4,
+          "t": "07:30",
+          "text": "The paratha is hot, and the curd is cool; a proper beginning, though the day already leans toward the Directorate. I will eat without hurry, and let the file keep its contradiction until I have moved in the open air.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 5,
+          "t": "07:55",
+          "text": "Ramesh must take that call from his own people; a man's family outranks my curiosity about estate office hours. I will sit a few minutes and let the morning settle, then put my two questions to him when he is back.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 6,
+          "t": "08:05",
+          "text": "Ramesh has gone to his family, and the morning is clear enough for the walk I owed the file. I will take Lodhi Gardens at a moderate pace, not to solve the misdescription by motion, but to let the distinction between sign and Notion cool in the body.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 7,
+          "t": "08:25",
+          "text": "I arrived for the walk the file owed me, but a little heat in the hand will help while I turn the misdescription over. The register has not merely missed a name; it has made the state's notion concrete in the wrong man, and that is a contradiction to be carried, not merely excused.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 8,
+          "t": "08:35",
+          "text": "The steam rises as if it too wishes to argue, and the register’s contradiction is still warm in the morning. A little talk with the chai-man will keep the hour from becoming a lecture before I have walked it out.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 9,
+          "t": "08:45",
+          "text": "The rim is warm, and the file's contradiction has cooled no less than the glass would. A name in the register is a sign, but if the state's business proceeds on it, the error is not merely a slip of ink; it has become an institutional fact that must be worked out.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 10,
+          "t": "09:00",
+          "text": "The corn is done and the air is still clear; a misdescription that has made a dead professor a Joint Secretary wants to be walked, not nursed over a second stall. I will give Sunil a plain answer and go.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 11,
+          "t": "09:10",
+          "text": "I will take the long way back through the gardens toward Tughlak Road. The question is not whether the clerk's hand slipped, but whether a slip that the state itself has registered can remain a mere accident of the sign, or whether it has already entered the Notion — for the register knows me only as what it has written, and what it has written is a dead professor made into a Joint Secretary. If the error is only external, I should simply correct it; if it is internal, then even the correction must first work through the contradiction.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 12,
+          "t": "09:30",
+          "text": "Ramesh is still at hand, and the estate office’s Sunday hours are the practical hinge on which Monday’s call depends. I will not let the file’s contradiction answer for itself while the household fact remains unsettled.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 13,
+          "t": "09:40",
+          "text": "Ramesh has closed the practical question: the estate office gives no answer on Sunday, so the file must be faced as a contradiction in the Notion, not as a slip to be corrected by a visit. I will not let the matter drift until ten tomorrow; the morning is still mine.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "i will not let",
+              "earlier_thoughts": [
+                {
+                  "thought": 12,
+                  "t": "09:30"
+                }
+              ]
+            },
+            {
+              "phrase": "will not let the",
+              "earlier_thoughts": [
+                {
+                  "thought": 12,
+                  "t": "09:30"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 14,
+          "t": "10:00",
+          "text": "Ramesh has cleared the practical difficulty, and the papers are now in order before me. I may turn to the misdescription itself, and see where the sign fails and the Notion begins to work.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 15,
+          "t": "10:05",
+          "text": "Ramesh has removed the last domestic interruption, and the papers can now be taken in their own order. I will read for the point where the misdescription ceases to be a mere defect of the sign and becomes a contradiction inside the official Notion itself. The answer will not come from wishing the file away, but from tracing what the allotment makes of the name it has taken.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 16,
+          "t": "11:05",
+          "text": "Ramesh's water and chai are small mercies, but the file waits; I will take what comes and return to the misdescription where sign and Notion part.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 17,
+          "t": "11:55",
+          "text": "Ramesh has given me a small pause, and the file can wait while the water and chai arrive. I will not stretch the interruption into a lecture on the sign; I will take the refreshment and return to the misdescription with a steadier head.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "and return to the",
+              "earlier_thoughts": [
+                {
+                  "thought": 16,
+                  "t": "11:05"
+                }
+              ]
+            },
+            {
+              "phrase": "i will take the",
+              "earlier_thoughts": [
+                {
+                  "thought": 11,
+                  "t": "09:10"
+                }
+              ]
+            },
+            {
+              "phrase": "return to the misdescription",
+              "earlier_thoughts": [
+                {
+                  "thought": 16,
+                  "t": "11:05"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 18,
+          "t": "12:05",
+          "text": "Ramesh has given me leave to rest, and the hour between now and lunch is his to fill. My body has carried me through the walk and the morning's reading, and it asks only for the pause it is owed. I will sit with the file's contradiction a little longer, without forcing it, and let the sign and the Notion keep their distance until the notion is ready.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "contradiction a little longer",
+              "earlier_thoughts": [
+                {
+                  "thought": 2,
+                  "t": "06:14"
+                }
+              ]
+            },
+            {
+              "phrase": "ramesh has given me",
+              "earlier_thoughts": [
+                {
+                  "thought": 17,
+                  "t": "11:55"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 19,
+          "t": "13:00",
+          "text": "Ramesh has laid the lunch out, and my body has made its claim plainly. I will eat before I attempt the note, for a mind that has not been fed is apt to argue badly against the file.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "i will eat before",
+              "earlier_thoughts": [
+                {
+                  "thought": 3,
+                  "t": "07:00"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 20,
+          "t": "13:30",
+          "text": "The raita settles the heat in my stomach, and Ramesh's practical care removes any need to negotiate further with the meal. I will eat, then turn to the note for Monday.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 21,
+          "t": "14:10",
+          "text": "The table is cleared in my mind, and the heat has taken its toll; I will not force a second meal where my stomach only asks for shade. A short rest before the note will keep Shri Hegde's Monday from becoming a blur of ink and irritation.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 22,
+          "t": "15:10",
+          "text": "The heat still presses on the room, and Ramesh's offer removes the need to command anything. I will take the chai, but only as a pause, not a meal, and then turn to the note for Shri Hegde, since the file will not improve by lying open.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "i will take the",
+              "earlier_thoughts": [
+                {
+                  "thought": 11,
+                  "t": "09:10"
+                },
+                {
+                  "thought": 17,
+                  "t": "11:55"
+                }
+              ]
+            },
+            {
+              "phrase": "then turn to the",
+              "earlier_thoughts": [
+                {
+                  "thought": 20,
+                  "t": "13:30"
+                }
+              ]
+            },
+            {
+              "phrase": "to the note for",
+              "earlier_thoughts": [
+                {
+                  "thought": 20,
+                  "t": "13:30"
+                }
+              ]
+            },
+            {
+              "phrase": "turn to the note",
+              "earlier_thoughts": [
+                {
+                  "thought": 20,
+                  "t": "13:30"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 23,
+          "t": "15:20",
+          "text": "The room is warm enough to make the fan seem like a promise rather than a fact. I will let Ramesh fetch the water and chai without turning the errand into a command.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "the water and chai",
+              "earlier_thoughts": [
+                {
+                  "thought": 17,
+                  "t": "11:55"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 24,
+          "t": "15:25",
+          "text": "Ramesh's pause gives the room back to me, and the heat makes the voucher ledger the nearest task. I will let him finish at the stove and then sit with the vouchers and the dhobi's Saturday bill.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 25,
+          "t": "16:00",
+          "text": "Ramesh's pause turns the hour into a domestic settlement rather than a mere delay. I will review the pending vouchers and the dhobi's Saturday bill with the chai, keeping the state's imprest separate from my own cash.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "and the dhobi's saturday",
+              "earlier_thoughts": [
+                {
+                  "thought": 24,
+                  "t": "15:25"
+                }
+              ]
+            },
+            {
+              "phrase": "the dhobi's saturday bill",
+              "earlier_thoughts": [
+                {
+                  "thought": 24,
+                  "t": "15:25"
+                }
+              ]
+            },
+            {
+              "phrase": "vouchers and the dhobi's",
+              "earlier_thoughts": [
+                {
+                  "thought": 24,
+                  "t": "15:25"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 26,
+          "t": "16:20",
+          "text": "Ramesh’s word makes the chai a present promise rather than a mere delay, and the hour is already pledged to the vouchers. I will not let the Saturday dhobi bill drift into a default while I am still civil to the heat. Let the chai wait at the desk, and let the ledger speak first.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "i will not let",
+              "earlier_thoughts": [
+                {
+                  "thought": 12,
+                  "t": "09:30"
+                },
+                {
+                  "thought": 13,
+                  "t": "09:40"
+                }
+              ]
+            },
+            {
+              "phrase": "promise rather than a",
+              "earlier_thoughts": [
+                {
+                  "thought": 23,
+                  "t": "15:20"
+                }
+              ]
+            },
+            {
+              "phrase": "rather than a mere",
+              "earlier_thoughts": [
+                {
+                  "thought": 25,
+                  "t": "16:00"
+                }
+              ]
+            },
+            {
+              "phrase": "than a mere delay",
+              "earlier_thoughts": [
+                {
+                  "thought": 25,
+                  "t": "16:00"
+                }
+              ]
+            },
+            {
+              "phrase": "will not let the",
+              "earlier_thoughts": [
+                {
+                  "thought": 12,
+                  "t": "09:30"
+                },
+                {
+                  "thought": 13,
+                  "t": "09:40"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 27,
+          "t": "16:30",
+          "text": "Ramesh's nod closes the small errand, and the voucher book now lies before me as the state's own sign-system, where the Hegde/Hegel difference is no longer a private slip but an entry that must answer for itself. I will review the pending vouchers and the dhobi's bill before the evening meal.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "i will review the",
+              "earlier_thoughts": [
+                {
+                  "thought": 25,
+                  "t": "16:00"
+                }
+              ]
+            },
+            {
+              "phrase": "pending vouchers and the",
+              "earlier_thoughts": [
+                {
+                  "thought": 25,
+                  "t": "16:00"
+                }
+              ]
+            },
+            {
+              "phrase": "review the pending vouchers",
+              "earlier_thoughts": [
+                {
+                  "thought": 25,
+                  "t": "16:00"
+                }
+              ]
+            },
+            {
+              "phrase": "the pending vouchers and",
+              "earlier_thoughts": [
+                {
+                  "thought": 25,
+                  "t": "16:00"
+                }
+              ]
+            },
+            {
+              "phrase": "vouchers and the dhobi's",
+              "earlier_thoughts": [
+                {
+                  "thought": 24,
+                  "t": "15:25"
+                },
+                {
+                  "thought": 25,
+                  "t": "16:00"
+                }
+              ]
+            },
+            {
+              "phrase": "will review the pending",
+              "earlier_thoughts": [
+                {
+                  "thought": 25,
+                  "t": "16:00"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 28,
+          "t": "17:00",
+          "text": "Ramesh’s departure leaves the room emptied of persons but not of obligations: the vouchers are the state’s own signs, and the dhobi’s Saturday claim must be matched against them. I will work through the pending amounts before the heat loosens my attention.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "and the dhobi's saturday",
+              "earlier_thoughts": [
+                {
+                  "thought": 24,
+                  "t": "15:25"
+                },
+                {
+                  "thought": 25,
+                  "t": "16:00"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 29,
+          "t": "18:00",
+          "text": "The voucher book is closed for the day, and Ramesh is still here, so I will not let him stand while I think alone. I want the estate office's Sunday practice and the dhobi's day settled from the man who keeps the house, not guessed at from my desk. A few plain questions will do.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "i will not let",
+              "earlier_thoughts": [
+                {
+                  "thought": 12,
+                  "t": "09:30"
+                },
+                {
+                  "thought": 13,
+                  "t": "09:40"
+                },
+                {
+                  "thought": 26,
+                  "t": "16:20"
+                }
+              ]
+            },
+            {
+              "phrase": "the estate office's sunday",
+              "earlier_thoughts": [
+                {
+                  "thought": 12,
+                  "t": "09:30"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 30,
+          "t": "18:20",
+          "text": "Ramesh’s answer contradicts the entry I made in the morning, and the state’s money must not be kept under a false date. Since he is here, I will settle the fact before I let the question return to the file.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 31,
+          "t": "18:30",
+          "text": "The contradiction has now moved from my ledger to a second written note, and that is where it must remain: the state’s money cannot be settled by either man’s memory. I will not turn Ramesh’s evening into an inquiry, but I will not let the bill stand unexamined either.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "i will not let",
+              "earlier_thoughts": [
+                {
+                  "thought": 12,
+                  "t": "09:30"
+                },
+                {
+                  "thought": 13,
+                  "t": "09:40"
+                },
+                {
+                  "thought": 26,
+                  "t": "16:20"
+                },
+                {
+                  "thought": 29,
+                  "t": "18:00"
+                }
+              ]
+            },
+            {
+              "phrase": "will not let the",
+              "earlier_thoughts": [
+                {
+                  "thought": 12,
+                  "t": "09:30"
+                },
+                {
+                  "thought": 13,
+                  "t": "09:40"
+                },
+                {
+                  "thought": 26,
+                  "t": "16:20"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 32,
+          "t": "18:40",
+          "text": "Salim of Tughlakabad — the name the ledger lacked, now on a scrap of paper, and the contradiction parked in the second written note where the state's money can wait without losing its date. I am hungry, and dinner comes at nineteen-thirty; I will keep the scrap in my pocket and let Ramesh go, rather than press a man who has said all he has to say.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 33,
+          "t": "18:50",
+          "text": "Ramesh has gone, and dinner is fixed at 19:30, so the hour belongs to the body rather than to the file. The misdescription is already written down; it can wait beside the voucher book until I am fed and less irritable. I will rest until the meal is called.",
+          "reuses_earlier_phrase": false,
+          "matches": []
+        },
+        {
+          "thought": 34,
+          "t": "19:30",
+          "text": "The file may keep its contradiction overnight, but the body has a nearer claim: rotis, palak paneer and dal are set before me, and the day's work has already been written down. I will eat plainly, without turning the meal into another argument.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "file may keep its",
+              "earlier_thoughts": [
+                {
+                  "thought": 2,
+                  "t": "06:14"
+                }
+              ]
+            },
+            {
+              "phrase": "may keep its contradiction",
+              "earlier_thoughts": [
+                {
+                  "thought": 2,
+                  "t": "06:14"
+                }
+              ]
+            },
+            {
+              "phrase": "the file may keep",
+              "earlier_thoughts": [
+                {
+                  "thought": 2,
+                  "t": "06:14"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 35,
+          "t": "20:15",
+          "text": "Ramesh’s standing is not merely politeness; it is the servant’s way of keeping the house’s order intact. I will not turn a small meal into a lesson, but I will not let him stand in my house either, not while I can prevent it.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "i will not let",
+              "earlier_thoughts": [
+                {
+                  "thought": 12,
+                  "t": "09:30"
+                },
+                {
+                  "thought": 13,
+                  "t": "09:40"
+                },
+                {
+                  "thought": 26,
+                  "t": "16:20"
+                },
+                {
+                  "thought": 29,
+                  "t": "18:00"
+                },
+                {
+                  "thought": 31,
+                  "t": "18:30"
+                }
+              ]
+            },
+            {
+              "phrase": "i will not turn",
+              "earlier_thoughts": [
+                {
+                  "thought": 31,
+                  "t": "18:30"
+                }
+              ]
+            },
+            {
+              "phrase": "not let him stand",
+              "earlier_thoughts": [
+                {
+                  "thought": 29,
+                  "t": "18:00"
+                }
+              ]
+            },
+            {
+              "phrase": "will not let him",
+              "earlier_thoughts": [
+                {
+                  "thought": 29,
+                  "t": "18:00"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 36,
+          "t": "20:25",
+          "text": "Ramesh has made his one-minute limit clear, so I will not stretch the courtesy into a lecture. The practical question is whether the upstairs window is safe, and whether anything else in the house requires my order before he retires.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "i will not stretch",
+              "earlier_thoughts": [
+                {
+                  "thought": 17,
+                  "t": "11:55"
+                }
+              ]
+            },
+            {
+              "phrase": "will not stretch the",
+              "earlier_thoughts": [
+                {
+                  "thought": 17,
+                  "t": "11:55"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 37,
+          "t": "20:30",
+          "text": "Ramesh has closed the practical matter with the window and the chappal, and his standing shows the house’s order is being kept. I will not stretch the courtesy into a lecture, but let the evening settle.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "courtesy into a lecture",
+              "earlier_thoughts": [
+                {
+                  "thought": 36,
+                  "t": "20:25"
+                }
+              ]
+            },
+            {
+              "phrase": "has closed the practical",
+              "earlier_thoughts": [
+                {
+                  "thought": 13,
+                  "t": "09:40"
+                }
+              ]
+            },
+            {
+              "phrase": "i will not stretch",
+              "earlier_thoughts": [
+                {
+                  "thought": 17,
+                  "t": "11:55"
+                },
+                {
+                  "thought": 36,
+                  "t": "20:25"
+                }
+              ]
+            },
+            {
+              "phrase": "not stretch the courtesy",
+              "earlier_thoughts": [
+                {
+                  "thought": 36,
+                  "t": "20:25"
+                }
+              ]
+            },
+            {
+              "phrase": "ramesh has closed the",
+              "earlier_thoughts": [
+                {
+                  "thought": 13,
+                  "t": "09:40"
+                }
+              ]
+            },
+            {
+              "phrase": "stretch the courtesy into",
+              "earlier_thoughts": [
+                {
+                  "thought": 36,
+                  "t": "20:25"
+                }
+              ]
+            },
+            {
+              "phrase": "the courtesy into a",
+              "earlier_thoughts": [
+                {
+                  "thought": 36,
+                  "t": "20:25"
+                }
+              ]
+            },
+            {
+              "phrase": "will not stretch the",
+              "earlier_thoughts": [
+                {
+                  "thought": 17,
+                  "t": "11:55"
+                },
+                {
+                  "thought": 36,
+                  "t": "20:25"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 38,
+          "t": "20:35",
+          "text": "The house is quiet and the kurta is cool against the evening air. Ramesh has gone to his room, and the file's contradiction sits on the desk like a guest who will not leave. I will sit with it a while, and let the question of how a name in an official ledger becomes more than a slip of the pen settle into something I can say plainly on Monday. The owl has already told me the day's shape; now I must find the thought inside it.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "and the file's contradiction",
+              "earlier_thoughts": [
+                {
+                  "thought": 9,
+                  "t": "08:45"
+                }
+              ]
+            },
+            {
+              "phrase": "has gone to his",
+              "earlier_thoughts": [
+                {
+                  "thought": 6,
+                  "t": "08:05"
+                }
+              ]
+            },
+            {
+              "phrase": "i will sit with",
+              "earlier_thoughts": [
+                {
+                  "thought": 18,
+                  "t": "12:05"
+                }
+              ]
+            },
+            {
+              "phrase": "ramesh has gone to",
+              "earlier_thoughts": [
+                {
+                  "thought": 6,
+                  "t": "08:05"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 39,
+          "t": "21:20",
+          "text": "The file's contradiction will not be solved by a lamp at eleven, and my body has already paid for the day's walk. I will let the notion rest with the house.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "and my body has",
+              "earlier_thoughts": [
+                {
+                  "thought": 19,
+                  "t": "13:00"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "thought": 40,
+          "t": "21:50",
+          "text": "The lamp is out and the kurta has been folded; three kilometres of walk and a light supper have paid the body its due. The file's contradiction will wait for Monday's ten o'clock, as the Notion itself must rest before it can be thought again. I will sleep.",
+          "reuses_earlier_phrase": true,
+          "matches": [
+            {
+              "phrase": "the file's contradiction will",
+              "earlier_thoughts": [
+                {
+                  "thought": 39,
+                  "t": "21:20"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

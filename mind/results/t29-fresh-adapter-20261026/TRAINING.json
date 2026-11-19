@@ -1,0 +1,68 @@
+{
+ "phases": {
+  "restyle": {
+   "steps": 24,
+   "planned_steps": 24,
+   "final_loss": 1.2165772914886475,
+   "minutes": 18.3,
+   "seconds_per_step": 45.1,
+   "peak_vram_gib": 21.6,
+   "epochs": [
+    {
+     "epoch": 1.0,
+     "step": 12,
+     "train_loss": 1.4101,
+     "heldout_loss": 1.3365
+    },
+    {
+     "epoch": 2.0,
+     "step": 24,
+     "train_loss": 1.2248,
+     "heldout_loss": 1.3328
+    }
+   ],
+   "heldout_loss": 1.3328,
+   "heldout_examples": 20,
+   "skipped_too_long": 0,
+   "heldout_skipped_too_long": 0
+  }
+ },
+ "base": "/home/ai/models/qwen-base",
+ "versions": {
+  "torch": "2.12.1",
+  "transformers": "5.5.0",
+  "unsloth": "2026.9.14",
+  "unsloth_zoo": "2026.9.9",
+  "peft": "0.21.2",
+  "trl": "0.24.0",
+  "datasets": "4.3.0",
+  "bitsandbytes": "0.50.2",
+  "accelerate": "1.15.0"
+ },
+ "args": {
+  "base": "/home/ai/models/qwen-base",
+  "data": "/home/ai/hegel-eval/codex-tasks-20261026/t29-full-training-20261026-155100/job/data",
+  "out": "/home/ai/hegel-eval/codex-tasks-20261026/speedrun-20261026-081917/lora-pilot-adapter",
+  "dry_run": false,
+  "resume": false,
+  "phase": "restyle",
+  "seq_corpus": 2048,
+  "seq_format": 4096,
+  "seq_restyle": 1024,
+  "rank": 16,
+  "alpha": 32,
+  "bf16": false,
+  "text_only": true,
+  "loss_target_gib": 0.125,
+  "batch": 1,
+  "accum": 16,
+  "lr_corpus": 0.0001,
+  "lr_format": 5e-05,
+  "lr_restyle": 0.0002,
+  "epochs_corpus": 1,
+  "epochs_format": 2,
+  "epochs_restyle": 2,
+  "save_steps": 25,
+  "seed": 3407
+ }
+}
