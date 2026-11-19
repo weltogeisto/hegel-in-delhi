@@ -522,6 +522,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "16:29",
+   "to": "16:39",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -1253,6 +1260,37 @@
    "to": "Hegel",
    "text": "Six chairs, semicircle, projector on. Noted. Officer, please check if the machine is working.",
    "t": "16:19",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s efficiency is a relief; he treats the arrangement of chairs as a matter of fact, not a metaphysical puzzle. I must ensure the projector works, for a lecture on history without a visual anchor is just noise in the haze. I will watch the officer test the machine, keeping my silence so as not to disturb the routine.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Epicurus"
+    }
+   ],
+   "t": "16:29",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "Thank you. Please ensure the projector is fully functional before I arrive for the talk; I intend to use it to show the maps of the Indus Valley.",
+   "to": "the guard at the library and the programme officer",
+   "t": "16:29",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Haan, sir. I'll tell the officer to give it a good test run. Maps of the Indus, is it? Sure, we'll keep the machine ready.",
+   "t": "16:29",
    "place": "iic"
   }
  ],
@@ -2748,6 +2786,72 @@
      "text": "Having reached Protagoras with Hippocrates, Socrates finds him in an assemblage of the foremost Sophists and surrounded by listeners, “walking about and like an Orpheus entrancing all men by his words, Hippias sitting meanwhile on a chair with not so many round him, and Prodicus lying amongst a great number of admirers.”"
     }
    ]
+  },
+  {
+   "t": "16:29",
+   "end": "16:39",
+   "event": "The guard at the library says: “Six chairs, semicircle, projector on. Noted. Officer, please check if the machine is working.” He jots down the details on his clipboard and points towards the officer.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s efficiency is a relief; he treats the arrangement of chairs as a matter of fact, not a metaphysical puzzle. I must ensure the projector works, for a lecture on history without a visual anchor is just noise in the haze. I will watch the officer test the machine, keeping my silence so as not to disturb the routine.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 10,
+    "says": "Thank you. Please ensure the projector is fully functional before I arrive for the talk; I intend to use it to show the maps of the Indus Valley.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 287."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Haan, sir. I'll tell the officer to give it a good test run. Maps of the Indus, is it? Sure, we'll keep the machine ready.",
+    "does": "He taps the clipboard against his palm and nods towards the officer."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:0"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Epicurus",
+     "id": "haldane-2:696"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "The present work covers the same ground in a more detailed and systematic way. But now that these outlines are to be printed and given to the general public, there is an opportunity of explaining points which in lecturing would be commented on orally."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Epicurus",
+     "text": "After having for some years led an unsettled life, he returned in about the six and thirtieth year of his age to Athens, to the very centre of all Philosophy; and there, some time after, he bought for himself a garden, where he lived and taught in the midst of his friends."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2770,7 +2874,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-20T16:29+05:30",
+  "until": "2026-11-20T16:39+05:30",
   "asleep": false,
   "imprest": 18216,
   "wearing": "bandhgala",
@@ -3266,7 +3370,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "7e59c845e2f34e185732ec9095a947db6280094488e4d7e47269be82e530ecc7",
+  "source_sha256": "88c4088111c6cbd4b9f687bbc896efb34689ea74db66bd7959c6e8c6ab3b95ad",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3929,6 +4033,36 @@
     "words": "Six chairs, semicircle, projector on. Noted. Officer, please check if the machine is working.",
     "verified": false,
     "time": "16:19",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:21954f8020504103:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 67,
+     "sha256": "21954f8020504103183792cb8287d237031e4360af3767e691e868f159169cc0"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "Thank you. Please ensure the projector is fully functional before I arrive for the talk; I intend to use it to show the maps of the Indus Valley.",
+    "verified": false,
+    "time": "16:29",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:56368f6e5d0ba6c0:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 68,
+     "sha256": "56368f6e5d0ba6c0ae6c796f8abdfb052c7c7ab12178cd46a42b22760c444646"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Haan, sir. I'll tell the officer to give it a good test run. Maps of the Indus, is it? Sure, we'll keep the machine ready.",
+    "verified": false,
+    "time": "16:29",
     "place": "iic"
    },
    {
@@ -4993,68 +5127,98 @@
     "text": "Weather: 23 °C, a brown haze. Air quality index: 287."
    },
    {
-    "id": "2026-11-20:event:1003abada9cf88e6:1",
+    "id": "2026-11-20:event:57b566fd1fb3cdce:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 23,
+     "sha256": "57b566fd1fb3cdce326b6bed943d99abe05f7291c9654db30d4a68d20032587e"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "16:29",
+    "end": "16:39",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:event:e484da80e4800924:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      23,
+      0
+     ],
+     "sha256": "e484da80e480092499a214966f247074306bba929910534153af8b431e999a8d"
+    },
+    "type": "observation",
+    "time": "16:29",
+    "place": "iic",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 287."
+   },
+   {
+    "id": "2026-11-20:event:cdf50b190abdc652:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "1003abada9cf88e679253c8647e034952e7fab6fa27a39d0798e77775c5cc5b8"
+     "sha256": "cdf50b190abdc652d511fb1cde913e6eb74b1d5e65f75ddee8410dcd7de1719e"
     },
     "type": "cash",
-    "time": "16:29",
+    "time": "16:39",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:7f75fa70df119947:1",
+    "id": "2026-11-20:event:a5ea5795e2d393eb:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "7f75fa70df119947da0df52a7073d556d95403a8310ce9728c4dba907a18a856"
+     "sha256": "a5ea5795e2d393eb1d4bdf85d79b52e1d98b783a0a231663cfb1417c5300ec5f"
     },
     "type": "location",
-    "time": "16:29",
+    "time": "16:39",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:7ca7cce00c8bc242:1",
+    "id": "2026-11-20:event:7c2d6edbaf807f80:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "7ca7cce00c8bc24287d4cb02da104970eb6732c246cf3944abc5a6b0a96beb6f"
+     "sha256": "7c2d6edbaf807f80cd3d1ba746b262dc88b7f1e1bc67a0db4f0c46a5bb7f3390"
     },
     "type": "inventory",
-    "time": "16:29",
+    "time": "16:39",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-20:event:8779ced354fce257:1",
+    "id": "2026-11-20:event:a2e03641d49196ad:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "8779ced354fce257f3579338fe8c55f7840726c713f17c4caa8aafe4dd6421c5"
+     "sha256": "a2e03641d49196adab8ce693cbed51619454c052aa9f60ed4b0c021d579d2362"
     },
     "type": "inventory",
-    "time": "16:29",
+    "time": "16:39",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:9dfaf2725ff2cf37:1",
+    "id": "2026-11-20:event:0386f997fbd36635:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "9dfaf2725ff2cf3741e34af8840180fd93dc782a8836c76d16ceb29414a4cd2b"
+     "sha256": "0386f997fbd3663596310bdefd62e79d0d787e0de43cda4b7fd381a32a487943"
     },
     "type": "inventory",
-    "time": "16:29",
+    "time": "16:39",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -5073,7 +5237,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "16:29",
+    "time": "16:39",
     "place": null
    }
   ]
