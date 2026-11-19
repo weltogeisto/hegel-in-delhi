@@ -18,7 +18,7 @@
     "aqi": 214
    },
    {
-    "temp": 16,
+    "temp": 15,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 223
@@ -30,7 +30,7 @@
     "aqi": 232
    },
    {
-    "temp": 15,
+    "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 241
@@ -48,7 +48,7 @@
     "aqi": 259
    },
    {
-    "temp": 14,
+    "temp": 13,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 268
@@ -90,7 +90,7 @@
     "aqi": 290
    },
    {
-    "temp": 24,
+    "temp": 23,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 291
@@ -144,7 +144,7 @@
     "aqi": 301
    },
    {
-    "temp": 17,
+    "temp": 18,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 302
@@ -361,17 +361,148 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "09:12",
+   "to": "09:30",
+   "mode": "inside",
+   "at": "home",
+   "now": "Reading at home."
   }
  ],
- "entries": [],
- "steps": [],
- "funnel": {},
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Rail Parcel App to debut in Hyderabad, aims at doorstep services” · “Mumbai-Ahmedabad bullet train project: Railways to energise Surat-Bilimora section, B28 train launch targeted in 10 months” · “Cyclone Akvan to spare most of Andhra; red alert remains for Srikakulam, Vizianagaram, Parvathipuram”",
+   "t": "09:12",
+   "place": "home"
+  },
+  {
+   "k": "plan",
+   "items": [
+    {
+     "time": "09:30",
+     "intention": "Read the headlines on the step and note the bullet train progress."
+    },
+    {
+     "time": "10:30",
+     "intention": "Walk to the Directorate of Estates to collect my file from orders."
+    },
+    {
+     "time": "13:00",
+     "intention": "Return home to rest and draft the letter to Dr. Lindner."
+    },
+    {
+     "time": "16:00",
+     "intention": "Walk to the IIC to prepare for Tuesday's lecture."
+    },
+    {
+     "time": "18:30",
+     "intention": "Walk to the IIC to deliver the talk on history."
+    }
+   ],
+   "t": "09:12"
+  },
+  {
+   "k": "diary",
+   "text": "The haze sits low, a brown lid on the city, but the headlines cut through it with the sharpness of mechanism. The bullet train is energising its sections, a concrete line being drawn across the map, while the cyclone is spared. I must note the train's progress; it is the visible dialectic of progress in this soil, and I have a file to collect in an hour.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§340"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316"
+    }
+   ],
+   "t": "09:12",
+   "place": "home"
+  }
+ ],
+ "steps": [
+  {
+   "t": "09:12",
+   "end": "09:30",
+   "event": "You wake. A brown haze, 18 °C. The papers lie on the step where the hawker threw them. Headlines: Rail Parcel App to debut in Hyderabad, aims at doorstep services; Mumbai-Ahmedabad bullet train project: Railways to energise Surat-Bilimora section, B28 train launch targeted in 10 months; Cyclone Akvan to spare most of Andhra; red alert remains for Srikakulam, Vizianagaram, Parvathipuram.",
+   "present": [],
+   "decision": {
+    "thought": "The haze sits low, a brown lid on the city, but the headlines cut through it with the sharpness of mechanism. The bullet train is energising its sections, a concrete line being drawn across the map, while the cyclone is spared. I must note the train's progress; it is the visible dialectic of progress in this soil, and I have a file to collect in an hour.",
+    "action": "read",
+    "place": "home",
+    "minutes": 18,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, a brown haze. Air quality index: 287.",
+    "You wake. A brown haze, 18 °C. The papers lie on the step where the hawker threw them. Headlines: Rail Parcel App to debut in Hyderabad, aims at doorstep services; Mumbai-Ahmedabad bullet train project: Railways to energise Surat-Bilimora section, B28 train launch targeted in 10 months; Cyclone Akvan to spare most of Andhra; red alert remains for Srikakulam, Vizianagaram, Parvathipuram."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "papers"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 12.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§340",
+     "id": "dyde-right:843"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316",
+     "id": "rechts:1044"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§340",
+     "text": "The destinies and deeds of states in their connection with one another are the visible dialectic of the finite nature of these spirits. Out of this dialectic the universal spirit, the spirit of the world, the unlimited spirit, produces itself. It has the highest right of all, and exercises its right upon the lower spirits in world-history."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316",
+     "text": "Was sich wirklich im Staate geltend macht, muß sich freilich auf organische Weise betätigen, und dies ist in der Verfassung der Fall. Aber zu allen Zeiten war die öffentliche Meinung eine große Macht und ist es besonders in unserer Zeit, wo das Prinzip der subjektiven Freiheit diese Wichtigkeit und Bedeutung hat."
+    }
+   ]
+  }
+ ],
+ "funnel": {
+  "saxena_query": {
+   "live": 1,
+   "eligible": 0,
+   "shown": 0,
+   "yes": 0,
+   "no": 0
+  },
+  "ramesh_fulltime": {
+   "live": 1,
+   "eligible": 0,
+   "shown": 0,
+   "yes": 0,
+   "no": 0
+  }
+ },
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-20T09:12+05:30",
-  "asleep": true,
+  "until": "2026-11-20T09:30+05:30",
+  "asleep": false,
   "imprest": 18686,
   "wearing": "kurta",
   "wardrobe": [
@@ -458,7 +589,12 @@
    }
   ],
   "depesche_n": 3,
-  "today": {},
+  "today": {
+   "woke": "09:12",
+   "seen": {
+    "home": []
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -627,7 +763,8 @@
     "2026-11-16",
     "2026-11-17",
     "2026-11-18",
-    "2026-11-19"
+    "2026-11-19",
+    "2026-11-20"
    ],
    "lodhi": [
     "2026-10-02",
@@ -686,7 +823,8 @@
     "since": "2026-11-18",
     "at": "estates",
     "with": "saxena",
-    "after": "2026-11-19"
+    "after": "2026-11-19",
+    "charge_id": "charge:1"
    }
   ],
   "cheques": [],
@@ -882,6 +1020,260 @@
     "owed": 17794,
     "amount": 37794
    }
-  }
+  },
+  "settled_charges": [],
+  "charge_seq": 1
+ },
+ "plan": {
+  "written": "09:12",
+  "items": [
+   {
+    "time": "09:30",
+    "intention": "Read the headlines on the step and note the bullet train progress."
+   },
+   {
+    "time": "10:30",
+    "intention": "Walk to the Directorate of Estates to collect my file from orders."
+   },
+   {
+    "time": "13:00",
+    "intention": "Return home to rest and draft the letter to Dr. Lindner."
+   },
+   {
+    "time": "16:00",
+    "intention": "Walk to the IIC to prepare for Tuesday's lecture."
+   },
+   {
+    "time": "18:30",
+    "intention": "Walk to the IIC to deliver the talk on history."
+   }
+  ]
+ },
+ "records": {
+  "version": 2,
+  "date": "2026-11-20",
+  "source_sha256": "cd5da4e7a1643ba9ac8809902bf07f562d4d722c27f80dd068319fc849d3efcc",
+  "complete": false,
+  "steps_present": true,
+  "records": [
+   {
+    "id": "2026-11-20:event:e23d6d77c15f4552:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 0,
+     "sha256": "e23d6d77c15f4552075de71b9f300cd0b26771c531d00669b4e063ae31378a30"
+    },
+    "type": "world",
+    "text": "Morning papers: “Rail Parcel App to debut in Hyderabad, aims at doorstep services” · “Mumbai-Ahmedabad bullet train project: Railways to energise Surat-Bilimora section, B28 train launch targeted in 10 months” · “Cyclone Akvan to spare most of Andhra; red alert remains for Srikakulam, Vizianagaram, Parvathipuram”",
+    "time": "09:12",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-20:event:6aabd31d135eddce:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 0,
+     "sha256": "6aabd31d135eddcee2100d3d0bc60d2ca7f628bc15109b6cc3f86121e155a510"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:12",
+    "intended_time": "09:30",
+    "place": null,
+    "text": "Read the headlines on the step and note the bullet train progress."
+   },
+   {
+    "id": "2026-11-20:event:86dd05ba0dc9536a:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 1,
+     "sha256": "86dd05ba0dc9536a9d4f45fb3d271d1f477f391b4279359bc079a3c265bc0d57"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:12",
+    "intended_time": "10:30",
+    "place": null,
+    "text": "Walk to the Directorate of Estates to collect my file from orders."
+   },
+   {
+    "id": "2026-11-20:event:049469ee9c91866c:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 2,
+     "sha256": "049469ee9c91866ceecdf2935877e09ebbfea75bb870950447b624ee17a355db"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:12",
+    "intended_time": "13:00",
+    "place": null,
+    "text": "Return home to rest and draft the letter to Dr. Lindner."
+   },
+   {
+    "id": "2026-11-20:event:a691d710ee5c2fc5:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 3,
+     "sha256": "a691d710ee5c2fc5d87e28032f1aaf008f97705a92039bf342bbecef7d333116"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:12",
+    "intended_time": "16:00",
+    "place": null,
+    "text": "Walk to the IIC to prepare for Tuesday's lecture."
+   },
+   {
+    "id": "2026-11-20:event:24fd273834956601:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 4,
+     "sha256": "24fd273834956601e545bd609c96db9b610f1f20c0c51b6eb3df38384239ba62"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:12",
+    "intended_time": "18:30",
+    "place": null,
+    "text": "Walk to the IIC to deliver the talk on history."
+   },
+   {
+    "id": "2026-11-20:event:0e3bcbf7d25eac2f:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 0,
+     "sha256": "0e3bcbf7d25eac2f3becbd82406b2dce97783bdac2e94bba0c1df2f9a14ddb76"
+    },
+    "type": "action",
+    "action": "read",
+    "time": "09:12",
+    "end": "09:30",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-20:event:638d79fe556619b3:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      0
+     ],
+     "sha256": "638d79fe556619b38be4d3941522f57309562f6bd55d2b4dd4834f7325975049"
+    },
+    "type": "observation",
+    "time": "09:12",
+    "place": "home",
+    "text": "Weather: 18 °C, a brown haze. Air quality index: 287."
+   },
+   {
+    "id": "2026-11-20:event:0a16abf46dd5b6d0:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      1
+     ],
+     "sha256": "0a16abf46dd5b6d05f3457c0e23f2010c6e73830c68577f6e5493568f1d9370b"
+    },
+    "type": "observation",
+    "time": "09:12",
+    "place": "home",
+    "text": "You wake. A brown haze, 18 °C. The papers lie on the step where the hawker threw them. Headlines: Rail Parcel App to debut in Hyderabad, aims at doorstep services; Mumbai-Ahmedabad bullet train project: Railways to energise Surat-Bilimora section, B28 train launch targeted in 10 months; Cyclone Akvan to spare most of Andhra; red alert remains for Srikakulam, Vizianagaram, Parvathipuram."
+   },
+   {
+    "id": "2026-11-20:event:bd8350503c84850c:1",
+    "kind": "event",
+    "source": {
+     "collection": "state",
+     "index": "imprest",
+     "sha256": "bd8350503c84850ca5cda92c43b795ed3cd838fb87ab59319ea2c59a8d70dd32"
+    },
+    "type": "cash",
+    "time": "09:30",
+    "amount": 18686,
+    "at_close": false,
+    "place": null
+   },
+   {
+    "id": "2026-11-20:event:38ddd6406778a124:1",
+    "kind": "event",
+    "source": {
+     "collection": "state",
+     "index": "place",
+     "sha256": "38ddd6406778a124d920db5c6ef45013670ff237f855204a830c8fa069352e6a"
+    },
+    "type": "location",
+    "time": "09:30",
+    "place": "home",
+    "text": "Recorded location at this horizon only; not a past or planned location."
+   },
+   {
+    "id": "2026-11-20:event:2b23b20cfe855253:1",
+    "kind": "event",
+    "source": {
+     "collection": "state",
+     "index": "wearing",
+     "sha256": "2b23b20cfe855253c6f4a143a3aee220c7506c3b816c7b45622d21aa2c732372"
+    },
+    "type": "inventory",
+    "time": "09:30",
+    "place": null,
+    "text": "Recorded wearing at this horizon only: \"kurta\""
+   },
+   {
+    "id": "2026-11-20:event:771a13a6075a1c57:1",
+    "kind": "event",
+    "source": {
+     "collection": "state",
+     "index": "wardrobe",
+     "sha256": "771a13a6075a1c5778a9c657f35056ec5521df17479df7dd846501dfc9b965fc"
+    },
+    "type": "inventory",
+    "time": "09:30",
+    "place": null,
+    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 14:36.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 13:56.\"}]"
+   },
+   {
+    "id": "2026-11-20:event:d062570cdb07b317:1",
+    "kind": "event",
+    "source": {
+     "collection": "state",
+     "index": "file",
+     "sha256": "d062570cdb07b3174caaa30b1b96c71e0fff146eab6251c2513812c6e347e702"
+    },
+    "type": "inventory",
+    "time": "09:30",
+    "place": null,
+    "text": "Recorded file at this horizon only: \"Gone up for orders. Mr. Saxena: come after fifteen days. Occupation irregular.\""
+   },
+   {
+    "id": "2026-11-20:payment:c5f76959d033118b:1",
+    "kind": "payment",
+    "source": {
+     "collection": "state.owed",
+     "index": 0,
+     "sha256": "c5f76959d033118b143389d70a4ffd72f11cdbb1689fa9f4068987106d9101f4"
+    },
+    "canonical_id": "charge:1",
+    "item": "queried vouchers",
+    "amount": 270,
+    "direction": "out",
+    "settled": false,
+    "creditor": "the Directorate of Estates",
+    "obligation": true,
+    "time": "09:30",
+    "place": null
+   }
+  ]
  }
 }
