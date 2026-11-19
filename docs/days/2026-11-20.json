@@ -12,25 +12,25 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 16,
+    "temp": 17,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 224
    },
    {
-    "temp": 15,
+    "temp": 16,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 231
    },
    {
-    "temp": 15,
+    "temp": 16,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 239
    },
    {
-    "temp": 14,
+    "temp": 15,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 247
@@ -48,7 +48,7 @@
     "aqi": 262
    },
    {
-    "temp": 13,
+    "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 267
@@ -66,13 +66,13 @@
     "aqi": 279
    },
    {
-    "temp": 18,
+    "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 284
    },
    {
-    "temp": 20,
+    "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 286
@@ -90,7 +90,7 @@
     "aqi": 286
    },
    {
-    "temp": 23,
+    "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 286
@@ -126,7 +126,7 @@
     "aqi": 292
    },
    {
-    "temp": 19,
+    "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 296
@@ -138,7 +138,7 @@
     "aqi": 300
    },
    {
-    "temp": 18,
+    "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 302
@@ -150,7 +150,7 @@
     "aqi": 304
    },
    {
-    "temp": 17,
+    "temp": 18,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 306
@@ -592,6 +592,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Reading at the IIC."
+  },
+  {
+   "from": "19:39",
+   "to": "19:49",
+   "mode": "walk",
+   "a": "iic",
+   "b": "khan"
   }
  ],
  "entries": [
@@ -1609,6 +1616,45 @@
     }
    ],
    "t": "18:39",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "Five hours without food is a long siege for a man who has just finished a mental march through the history of freedom. The body insists on its own dialectic; it will not be lectured into satiety by the imagination of food. Khan Market is open until twenty-three, and the system of needs does not close for the sake of my pride. I must descend from the spirit to the table.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Inaugural Address"
+    }
+   ],
+   "t": "19:39",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "Thank you for your time. I shall return to my work.",
+   "to": "the guard at the library and the programme officer",
+   "t": "19:39",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Arre, koi baat nahi. Kal subah aana, coffee banata hoon. Dhyan se rahega.",
+   "t": "19:39",
+   "place": "iic"
+  },
+  {
+   "k": "wear",
+   "item": "White cotton kurta",
+   "status": "Worn from 19:39.",
+   "sprite": "kurta",
+   "t": "19:39",
    "place": "iic"
   }
  ],
@@ -3755,6 +3801,74 @@
      "text": "But just as lordship showed its essential nature to be the reverse of what it wants to be, so, too, bondage will, when completed, pass into the opposite of what it immediately is: being a consciousness repressed within itself, it will enter into itself, and change round into real and true independence. We have seen what bondage is only in relation to lordship."
     }
    ]
+  },
+  {
+   "t": "19:39",
+   "end": "19:49",
+   "event": "You are hungry.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "Five hours without food is a long siege for a man who has just finished a mental march through the history of freedom. The body insists on its own dialectic; it will not be lectured into satiety by the imagination of food. Khan Market is open until twenty-three, and the system of needs does not close for the sake of my pride. I must descend from the spirit to the table.",
+    "action": "walk",
+    "place": "khan",
+    "minutes": 15,
+    "says": "Thank you for your time. I shall return to my work.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "khan",
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 296.",
+    "You are hungry."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "hunger"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Arre, koi baat nahi. Kal subah aana, coffee banata hoon. Dhyan se rahega.",
+    "does": "He waves a dismissive hand and turns back to the register."
+   },
+   "left": "iic",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 6.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "id": "haldane-3:1108"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Inaugural Address",
+     "id": "haldane-1:4"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "text": "There is no man so foolish as that philosophy; when a man feels hungry, he does not call up the imagination of food, but sets about satisfying his hunger. All activity is a conception which does not yet exist, but whose subjectivity is abrogated."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Inaugural Address",
+     "text": "But the needs of the time and the interests of the events in the world already mentioned, have repressed a real and earnest effort after Philosophy and driven hence any general attention to it. It has thus happened that because vigorous natures turned to the practical, insipidity and dulness appropriated to themselves the preeminence in Philosophy and flourished there."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -3776,11 +3890,11 @@
  "owl": null,
  "complete": false,
  "state": {
-  "place": "iic",
-  "until": "2026-11-20T19:39+05:30",
+  "place": "khan",
+  "until": "2026-11-20T19:49+05:30",
   "asleep": false,
   "imprest": 18216,
-  "wearing": "bandhgala",
+  "wearing": "kurta",
   "wardrobe": [
    {
     "id": "frock",
@@ -3800,7 +3914,7 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Worn from 11:46."
+    "status": "Worn from 19:39."
    },
    {
     "id": "bandhgala",
@@ -3879,9 +3993,10 @@
      "officer"
     ]
    },
-   "walked": 6675,
-   "strain": 6675,
-   "lunch": true
+   "walked": 7425,
+   "strain": 7425,
+   "lunch": true,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
@@ -4274,7 +4389,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "2ef4613f9fd2100883ca0144e5f21df1234bddb96f3391e4fbe6de0f21a69fee",
+  "source_sha256": "026b0895e1b9f3275714d15d4b27a61e2815665b92d47271e1ebd1f6a8a7e2b9",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -5190,6 +5305,51 @@
     "words": "Bas chaliye, dhyan se rahega. All the best.",
     "verified": false,
     "time": "18:29",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:e85fc93d339f040a:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 94,
+     "sha256": "e85fc93d339f040a996f12441b63210beeb5cd999a063c2a045c79f658f65778"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "Thank you for your time. I shall return to my work.",
+    "verified": false,
+    "time": "19:39",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:caeed198cdb2447a:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 95,
+     "sha256": "caeed198cdb2447a33914fb65af0dff7f75922d0d11756631cf91feb1f3c5ecf"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Arre, koi baat nahi. Kal subah aana, coffee banata hoon. Dhyan se rahega.",
+    "verified": false,
+    "time": "19:39",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:event:62fedac5bdaea07b:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 96,
+     "sha256": "62fedac5bdaea07bb41f7e7a4f2c190a1f8dbc934d63890529ed18b8ef5c3655"
+    },
+    "type": "wear",
+    "item": "White cotton kurta",
+    "status": "Worn from 19:39.",
+    "gone": false,
+    "time": "19:39",
     "place": "iic"
    },
    {
@@ -6570,68 +6730,116 @@
     "text": "Weather: 20 °C, a brown haze. Air quality index: 292."
    },
    {
-    "id": "2026-11-20:event:ab6449a8d264abd6:1",
+    "id": "2026-11-20:event:bceb15e0c8979942:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 33,
+     "sha256": "bceb15e0c897994231e1409cb3f7511e4f39db716bc54b9a915aaa1fddfe4ad1"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "19:39",
+    "end": "19:49",
+    "place": null,
+    "origin": "iic",
+    "destination": "khan"
+   },
+   {
+    "id": "2026-11-20:event:de29b753be141eeb:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      33,
+      0
+     ],
+     "sha256": "de29b753be141eebba14b7d2d2ad3e68ae860efd8f4910663dac004462960441"
+    },
+    "type": "observation",
+    "time": "19:39",
+    "place": "iic",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 296."
+   },
+   {
+    "id": "2026-11-20:event:db3ff12517f16edc:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      33,
+      1
+     ],
+     "sha256": "db3ff12517f16edc1aa01a8fc0ae5caeb6285a44e5c2c7e2f3ddc18e6acec5ed"
+    },
+    "type": "observation",
+    "time": "19:39",
+    "place": "iic",
+    "text": "You are hungry."
+   },
+   {
+    "id": "2026-11-20:event:3768fd2243b2cb10:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "ab6449a8d264abd6123d17891b85729e699d2bda73e15716f3bf77e06a6d55c5"
+     "sha256": "3768fd2243b2cb10a28e09c9da7260224d5331bfad7289667a26c97deeac6290"
     },
     "type": "cash",
-    "time": "19:39",
+    "time": "19:49",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:72d9b4bc7bd37670:1",
+    "id": "2026-11-20:event:367038d6d1c09098:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "72d9b4bc7bd376702eb8ff0bfa9dcd3078ae85732de7252977f4535e6815d79e"
+     "sha256": "367038d6d1c090989e1516458b6cdeca5b44dc50db34890b9ce88903a713429e"
     },
     "type": "location",
-    "time": "19:39",
-    "place": "iic",
+    "time": "19:49",
+    "place": "khan",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:cb0153fd8df09a64:1",
+    "id": "2026-11-20:event:bca39568b007a821:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "cb0153fd8df09a64f9c0b52424d9cf2af69b9ba6a42871dbbacb90052a8cfa62"
+     "sha256": "bca39568b007a82127343f75c39601537acbf05f15d5cdea40c2e17f911a70b8"
     },
     "type": "inventory",
-    "time": "19:39",
+    "time": "19:49",
     "place": null,
-    "text": "Recorded wearing at this horizon only: \"bandhgala\""
+    "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-20:event:5e233f366fe911ab:1",
+    "id": "2026-11-20:event:e18f6d3f9a4a19da:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "5e233f366fe911ab81ef76a448608a1ea4d37f6234bc093e0aee9f3f1646e647"
+     "sha256": "e18f6d3f9a4a19da91e88d27065353674b991551ae28e19105a160e07a4342bc"
     },
     "type": "inventory",
-    "time": "19:39",
+    "time": "19:49",
     "place": null,
-    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
+    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:7940ccc959a6f781:1",
+    "id": "2026-11-20:event:b96ca03cb009885a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "7940ccc959a6f781ed408c16d61eab973c1a4d85a91b4cec9814095cd60664d3"
+     "sha256": "b96ca03cb009885a918170a2cf34c24cd50e75eb9937ce06d0a2e4c912354b07"
     },
     "type": "inventory",
-    "time": "19:39",
+    "time": "19:49",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -6650,7 +6858,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "19:39",
+    "time": "19:49",
     "place": null
    }
   ]
