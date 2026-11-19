@@ -396,6 +396,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "11:11",
+   "to": "11:31",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Writing at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -584,6 +591,35 @@
    "to": "Hegel",
    "text": "Aadhaar card and a recent utility bill in that exact name, that is all. Sit down and fill Form 12-B; I am not in the habit of doing your paperwork for you.",
    "t": "10:56",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "The machine demands a face that is not mine. To satisfy the state, I would have to lie, yet to refuse is to be cast out of the system that claims to be the actuality of the ethical idea. I will fill the form, for the state must be recognized in its demands, even if the content is a fiction. It is a strange dialectic: my freedom is contingent upon my submission to a bureaucratic absurdity.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§297"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die germanische Welt"
+    }
+   ],
+   "t": "11:11",
+   "place": "estates"
+  },
+  {
+   "k": "writing",
+   "title": "Form 12-B",
+   "kind": "notes",
+   "to": null,
+   "sitting": 1,
+   "text": "20 November 2026, 11:11. The Directorate of Estates.\n\nThe carbonless copy is slick, resistant to the nib. Mr. Saxena, the section officer, does not look at me. He looks at the space where the signature should go. 'Aadhaar card and a recent utility bill in that exact name,' he says. 'Shri G. Hegde.'\n\nI have no Aadhaar card. I have no utility bill in the name of the Joint Secretary from Bengaluru. I am Georg Wilhelm Friedrich Hegel. I am a ghost in a file. The tension here is not merely bureaucratic; it is ontological. The state demands a particular identity to grant a particular right (the bungalow), but the particular identity required is a fiction. To satisfy the universal authority of the administration, I must submit to a particular lie. I must become Hegde.\n\nSaxena taps the desk. 'I am not in the habit of doing your paperwork for you.' He is right. The official's will is bounded by the form. He cannot will my existence; he can only process its documentation. The ethical idea, in this office, is reduced to a carbon copy. The freedom of the state is the freedom to demand a form that I cannot truthfully fill.\n\nI pick up the pen. I will write 'G. Hegde' in the name field. It is a surrender, but also a recognition. The state is not the dream; it is the machine. And the machine grinds. I am the grain. I fill the form. The haze outside is 290, a brown fog that mirrors the opacity of this administrative logic. I am not Hegel here. I am Hegde. I sign.",
+   "work": "form-12-b",
+   "words": 272,
+   "mode": "chat",
+   "t": "11:11",
    "place": "estates"
   }
  ],
@@ -901,6 +937,66 @@
     }
    ],
    "beat": "saxena_query"
+  },
+  {
+   "t": "11:11",
+   "end": "11:31",
+   "event": "Mr. Saxena says: “Aadhaar card and a recent utility bill in that exact name, that is all. Sit down and fill Form 12-B; I am not in the habit of doing your paperwork for you.” He slides a fresh stack of carbonless copies across the desk and taps the space where the signature should go.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The machine demands a face that is not mine. To satisfy the state, I would have to lie, yet to refuse is to be cast out of the system that claims to be the actuality of the ethical idea. I will fill the form, for the state must be recognized in its demands, even if the content is a fiction. It is a strange dialectic: my freedom is contingent upon my submission to a bureaucratic absurdity.",
+    "action": "write",
+    "place": "estates",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 290."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 30.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§297",
+     "id": "dyde-right:753"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die germanische Welt",
+     "id": "welt-4:10"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§297",
+     "text": "It is of great concern to the state that a middle class should be formed, but this can be effected only in an organization such as we have described, namely, by the legalization of particular circles, which are relatively independent, and by a force of officials, whose wilfulness has no power over these legalized circles."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die germanische Welt",
+     "text": "Der Staat muß für sich stark, ein Reich äußerer wirklicher Notwendigkeit sein, das nicht unmittelbar der Sit lichkeit, nicht direkt der Religion bedarf, eine feste Natur, die dem Selbstbewußtsein gegenübersteht."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -923,7 +1019,7 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-20T11:11+05:30",
+  "until": "2026-11-20T11:31+05:30",
   "asleep": false,
   "imprest": 18506,
   "wearing": "bandhgala",
@@ -1287,6 +1383,17 @@
     "sittings": 2,
     "last": "2026-11-19",
     "tail": "yet recognize the free individual within.\n\nI am learning to wait, not with resignation, but with the patience of a mind that knows the end is rational, even if the path is circuitous. I have engaged a caretaker, Ramesh, who manages the household with a quiet dignity that speaks of a deeper order than the one found in the office files. He does not argue; he simply acts. In that silence, I hear a truth that my philosophy has struggled to articulate: that the ethical substance is not only in the state, but in the daily, unspoken interactions of civil society. The sambar is warm, the chai is hot, and the delay is the air I breathe.\n\nI am well, though the body complains of the heat and the dust. The mind is active, if sometimes frustrated by the resistance of the particular to the universal."
+   },
+   {
+    "id": "form-12-b",
+    "title": "Form 12-B",
+    "kind": "notes",
+    "to": null,
+    "started": "2026-11-20",
+    "words": 272,
+    "sittings": 1,
+    "last": "2026-11-20",
+    "tail": "universal authority of the administration, I must submit to a particular lie. I must become Hegde.\n\nSaxena taps the desk. 'I am not in the habit of doing your paperwork for you.' He is right. The official's will is bounded by the form. He cannot will my existence; he can only process its documentation. The ethical idea, in this office, is reduced to a carbon copy. The freedom of the state is the freedom to demand a form that I cannot truthfully fill.\n\nI pick up the pen. I will write 'G. Hegde' in the name field. It is a surrender, but also a recognition. The state is not the dream; it is the machine. And the machine grinds. I am the grain. I fill the form. The haze outside is 290, a brown fog that mirrors the opacity of this administrative logic. I am not Hegel here. I am Hegde. I sign."
    }
   ],
   "missed": [
@@ -1359,7 +1466,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "7ead40aa588b6ffe02d96dd880cbda734c11f14740162aa5be2069c081c469b3",
+  "source_sha256": "61750796247931dbcf2e3fe9a16b9fb597cb9c4d3f1a7cc73441d266d7e3e88e",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1514,6 +1621,24 @@
     "words": "Aadhaar card and a recent utility bill in that exact name, that is all. Sit down and fill Form 12-B; I am not in the habit of doing your paperwork for you.",
     "verified": false,
     "time": "10:56",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-20:work:52bbc44420338f5e:1",
+    "kind": "work",
+    "source": {
+     "collection": "entries",
+     "index": 16,
+     "sha256": "52bbc44420338f5e1d85ff503895c64bfbe50945d549c29d212e91e0f1a79f11"
+    },
+    "work_id": "form-12-b",
+    "title": "Form 12-B",
+    "genre": "notes",
+    "recipient": null,
+    "text": "20 November 2026, 11:11. The Directorate of Estates.\n\nThe carbonless copy is slick, resistant to the nib. Mr. Saxena, the section officer, does not look at me. He looks at the space where the signature should go. 'Aadhaar card and a recent utility bill in that exact name,' he says. 'Shri G. Hegde.'\n\nI have no Aadhaar card. I have no utility bill in the name of the Joint Secretary from Bengaluru. I am Georg Wilhelm Friedrich Hegel. I am a ghost in a file. The tension here is not merely bureaucratic; it is ontological. The state demands a particular identity to grant a particular right (the bungalow), but the particular identity required is a fiction. To satisfy the universal authority of the administration, I must submit to a particular lie. I must become Hegde.\n\nSaxena taps the desk. 'I am not in the habit of doing your paperwork for you.' He is right. The official's will is bounded by the form. He cannot will my existence; he can only process its documentation. The ethical idea, in this office, is reduced to a carbon copy. The freedom of the state is the freedom to demand a form that I cannot truthfully fill.\n\nI pick up the pen. I will write 'G. Hegde' in the name field. It is a surrender, but also a recognition. The state is not the dream; it is the machine. And the machine grinds. I am the grain. I fill the form. The haze outside is 290, a brown fog that mirrors the opacity of this administrative logic. I am not Hegel here. I am Hegde. I sign.",
+    "status": "draft",
+    "sitting": 1,
+    "time": "11:11",
     "place": "estates"
    },
    {
@@ -1888,68 +2013,98 @@
     "text": "Mr. Saxena is here."
    },
    {
-    "id": "2026-11-20:event:f0e9cd2a6dd40dc9:1",
+    "id": "2026-11-20:event:92ea6e47c5eeaf60:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 5,
+     "sha256": "92ea6e47c5eeaf6043540abc2e7e55aedf76299cb765fe8ca5e0ee4412f80d8d"
+    },
+    "type": "action",
+    "action": "write",
+    "time": "11:11",
+    "end": "11:31",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-20:event:4651715bee6a40b6:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      5,
+      0
+     ],
+     "sha256": "4651715bee6a40b62498f867b073dee796b7d9fdbaeb3df72e5bbdf58fcbe013"
+    },
+    "type": "observation",
+    "time": "11:11",
+    "place": "estates",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 290."
+   },
+   {
+    "id": "2026-11-20:event:f31bb42252c7d13a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "f0e9cd2a6dd40dc9b56f147a01d16aad936f646f1c43b4e6aa8389959933dc46"
+     "sha256": "f31bb42252c7d13aa03c0cecbd79395b14d2520ce511425e69a6f215882afa1b"
     },
     "type": "cash",
-    "time": "11:11",
+    "time": "11:31",
     "amount": 18506,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:54079a0da4bff62f:1",
+    "id": "2026-11-20:event:c9ddcc10a05f93ab:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "54079a0da4bff62fcd4897006057a6dfd0754f8679f4c8af75f697d1931e3a46"
+     "sha256": "c9ddcc10a05f93ab2d4570a925db1ce6a5b54c8e82f4df0bd72f4511361d0848"
     },
     "type": "location",
-    "time": "11:11",
+    "time": "11:31",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:c1183464bb189217:1",
+    "id": "2026-11-20:event:db9ff1c79295018c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "c1183464bb189217dad4d5e57e949e76e9d342eb94bb01dc074d9b5b9307f074"
+     "sha256": "db9ff1c79295018c21b2985161621cdc564b170d6f027ab11728cbdb80d5e862"
     },
     "type": "inventory",
-    "time": "11:11",
+    "time": "11:31",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-20:event:8dac569bd4834a16:1",
+    "id": "2026-11-20:event:f8a92f0e79a974c1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "8dac569bd4834a1682f27b9a45d15754c4f54abd818d638003e8b7b4c0048e3f"
+     "sha256": "f8a92f0e79a974c162d0b9e15fe6513a9bb1bc6b9f6d45bbca12e524d5ec9808"
     },
     "type": "inventory",
-    "time": "11:11",
+    "time": "11:31",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 14:36.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 10:30.\"}]"
    },
    {
-    "id": "2026-11-20:event:499260dced00012d:1",
+    "id": "2026-11-20:event:dbba67821124191c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "499260dced00012d929796deb3804dacf6ea06cff67e38fdb6847bae22d1400e"
+     "sha256": "dbba67821124191c2dfb7973bd28814e1a0e82ff0956625a733a863561df472c"
     },
     "type": "inventory",
-    "time": "11:11",
+    "time": "11:31",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -1968,7 +2123,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "11:11",
+    "time": "11:31",
     "place": null
    }
   ]
