@@ -466,6 +466,13 @@
    "mode": "inside",
    "at": "khan",
    "now": "Resting at Khan Market."
+  },
+  {
+   "from": "14:44",
+   "to": "14:54",
+   "mode": "walk",
+   "a": "khan",
+   "b": "iic"
   }
  ],
  "entries": [
@@ -956,6 +963,30 @@
     }
    ],
    "t": "14:34",
+   "place": "khan"
+  },
+  {
+   "k": "diary",
+   "text": "The haze presses against the glass, a brown wall that refuses to part. I have eaten well, yet the spirit is restless, needing the order of a place rather than the chaos of the street. The IIC opens now, and I must prepare my mind for the evening, or at least find a chair that does not wobble.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229"
+    }
+   ],
+   "t": "14:44",
+   "place": "khan"
+  },
+  {
+   "k": "wear",
+   "item": "Bandhgala, charcoal",
+   "status": "Worn from 14:44.",
+   "sprite": "bandhgala",
+   "t": "14:44",
    "place": "khan"
   }
  ],
@@ -1927,6 +1958,67 @@
      "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
     }
    ]
+  },
+  {
+   "t": "14:44",
+   "end": "14:54",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The haze presses against the glass, a brown wall that refuses to part. I have eaten well, yet the spirit is restless, needing the order of a place rather than the chaos of the street. The IIC opens now, and I must prepare my mind for the evening, or at least find a chair that does not wobble.",
+    "action": "walk",
+    "place": "iic",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "iic",
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 287.",
+    "Nothing in particular happens. The afternoon goes on."
+   ],
+   "observed_at": "khan",
+   "opened": [],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "id": "dyde-right:542"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§229",
+     "text": "To right as such, happiness is something external. Tet in the system of wants well-being is an essential element. The universal, which is at first only right, has to spread itself over the whole field of particularity. Justice, it is true, is a large factor in the civic community. The state will flourish, if it has good laws, of which free property is the fundamental condition."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1948,11 +2040,11 @@
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-11-20T14:44+05:30",
+  "place": "iic",
+  "until": "2026-11-20T14:54+05:30",
   "asleep": false,
   "imprest": 18216,
-  "wearing": "kurta",
+  "wearing": "bandhgala",
   "wardrobe": [
    {
     "id": "frock",
@@ -1977,7 +2069,7 @@
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Worn from 10:30."
+    "status": "Worn from 14:44."
    }
   ],
   "people": [
@@ -2047,8 +2139,8 @@
      "sunil"
     ]
    },
-   "walked": 5925,
-   "strain": 5925,
+   "walked": 6675,
+   "strain": 6675,
    "lunch": true
   },
   "account": {
@@ -2440,7 +2532,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "8f9b5f2dc72df9a7f83e38651812db10025e2effd25d5789bf306d202073c692",
+  "source_sha256": "ba2f0a43e66b4fb0517e3de5db80f9b7e475822bc77e1d880fac88208f8d01e1",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2878,6 +2970,21 @@
     "creditor": null,
     "payer": null,
     "time": "14:19",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-20:event:fb0ae11c15989b38:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 44,
+     "sha256": "fb0ae11c15989b38fe67233bed9b1e485b87c1eb99eb8d0655784ef586ebbc61"
+    },
+    "type": "wear",
+    "item": "Bandhgala, charcoal",
+    "status": "Worn from 14:44.",
+    "gone": false,
+    "time": "14:44",
     "place": "khan"
    },
    {
@@ -3668,68 +3775,116 @@
     "text": "Weather: 24 °C, a brown haze. Air quality index: 287."
    },
    {
-    "id": "2026-11-20:event:ce07099f08ba8523:1",
+    "id": "2026-11-20:event:4e1b2d77035e2baa:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 15,
+     "sha256": "4e1b2d77035e2baad38da1e45cf33498d9d01b3e6c39cf196aea173e6947ca65"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "14:44",
+    "end": "14:54",
+    "place": null,
+    "origin": "khan",
+    "destination": "iic"
+   },
+   {
+    "id": "2026-11-20:event:f2522835df693ec3:4",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      15,
+      0
+     ],
+     "sha256": "f2522835df693ec3c8c8111e201308c7e786cfad2ca9902aaebe855b23b9c55e"
+    },
+    "type": "observation",
+    "time": "14:44",
+    "place": "khan",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 287."
+   },
+   {
+    "id": "2026-11-20:event:a77f13cd004dc58e:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      15,
+      1
+     ],
+     "sha256": "a77f13cd004dc58e92ee3fd09257ac61887e5229b3f41685577fbace3df64cce"
+    },
+    "type": "observation",
+    "time": "14:44",
+    "place": "khan",
+    "text": "Nothing in particular happens. The afternoon goes on."
+   },
+   {
+    "id": "2026-11-20:event:423566befbd55e68:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "ce07099f08ba8523a9f8265d16fa77906001bd0537c14fe74f881fc2fc960a6e"
+     "sha256": "423566befbd55e680961b07a6519a4dbd17f18a4f2162d21991d49a33362987c"
     },
     "type": "cash",
-    "time": "14:44",
+    "time": "14:54",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:c92a815401aead40:1",
+    "id": "2026-11-20:event:9a9b9ac749c1799a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "c92a815401aead40100b3855124eb50cddda8bcfef3f4fcfe23653cf906a77c0"
+     "sha256": "9a9b9ac749c1799a571398dd853cfb24cc816537e493a20238a0e0608f9ecc2b"
     },
     "type": "location",
-    "time": "14:44",
-    "place": "khan",
+    "time": "14:54",
+    "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:dec441e727d9a2a8:1",
+    "id": "2026-11-20:event:2b589dd029d8fa18:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "dec441e727d9a2a818f685a6609f1d2eff30a8995d38ab8b8ee7739518d4313b"
+     "sha256": "2b589dd029d8fa185c523277f52a214b3eade3699330ddd8527086abe4dea04c"
     },
     "type": "inventory",
-    "time": "14:44",
+    "time": "14:54",
     "place": null,
-    "text": "Recorded wearing at this horizon only: \"kurta\""
+    "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-20:event:d20fed00791d3015:1",
+    "id": "2026-11-20:event:9dff63d55dd484e3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "d20fed00791d301586d4d70bbda579efe693e49db637e88391d49a4bf9bf237b"
+     "sha256": "9dff63d55dd484e3cba0fccb1c377852c86cf9a8cfaaa7b1fe81d2df7e1b57f6"
     },
     "type": "inventory",
-    "time": "14:44",
+    "time": "14:54",
     "place": null,
-    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 10:30.\"}]"
+    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:8ddce4480b063a08:1",
+    "id": "2026-11-20:event:87ba9251c2625974:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "8ddce4480b063a08d5a27ed62dbfeba43b9cd2da9dd0e605ffa281c02632b1b2"
+     "sha256": "87ba9251c26259743a80ccf60186101d4330b7fa26afec2a7c512e336a62a276"
     },
     "type": "inventory",
-    "time": "14:44",
+    "time": "14:54",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3748,7 +3903,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "14:44",
+    "time": "14:54",
     "place": null
    }
   ]
