@@ -578,6 +578,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "At the IIC."
+  },
+  {
+   "from": "18:29",
+   "to": "18:39",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -1548,6 +1555,37 @@
    "to": "Hegel",
    "text": "Theek hai sir, aap chalta hain. Koi baat nahi.",
    "t": "18:14",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s dismissal is brief, a practical closing of the scene. It is 18:29; my talk is at 18:30. I am already dressed in my bandhgala, and the haze outside does not deter the internal movement of the spirit. I must enter the room and begin.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Certain Attempts in Philosophy, Campanella"
+    }
+   ],
+   "t": "18:29",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "Thank you. I shall proceed.",
+   "to": "the guard at the library and the programme officer",
+   "t": "18:29",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Bas chaliye, dhyan se rahega. All the best.",
+   "t": "18:29",
    "place": "iic"
   }
  ],
@@ -3567,6 +3605,72 @@
      "text": "The spread of Indian culture is pre-historical, for History is limited to that which makes an essential epoch in the development of Spirit. On the whole, the diffusion of Indian culture is only a dumb, deedless expansion; that is, it presents no political action."
     }
    ]
+  },
+  {
+   "t": "18:29",
+   "end": "18:39",
+   "event": "The guard at the library says: “Theek hai sir, aap chalta hain. Koi baat nahi.”",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s dismissal is brief, a practical closing of the scene. It is 18:29; my talk is at 18:30. I am already dressed in my bandhgala, and the haze outside does not deter the internal movement of the spirit. I must enter the room and begin.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 10,
+    "says": "Thank you. I shall proceed.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 292."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Bas chaliye, dhyan se rahega. All the best.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "id": "haldane-1:113"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Certain Attempts in Philosophy, Campanella",
+     "id": "haldane-3:318"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "text": "As the best of what is in the world is that which Thought produces, it is unreasonable to believe that reason only is in Nature, and not in Mind. That man who believes that what, like the philosophies, belongs to the region of mind must be merely contingent, is insincere in his belief in divine rule, and what he says of it is but empty talk."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Certain Attempts in Philosophy, Campanella",
+     "text": "The ancients expressed the same by saying of the Father of the gods, that he really had his dwelling-place in every point of the universe. It is the universe that first gives to things true reality; it is the substance of all things, the monad, the atom, the spirit poured out on all things, the innermost essence, the pure form."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -3589,7 +3693,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-20T18:29+05:30",
+  "until": "2026-11-20T18:39+05:30",
   "asleep": false,
   "imprest": 18216,
   "wearing": "bandhgala",
@@ -4086,7 +4190,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "bd17eaccc214920367d63b0aeac3c04c84cead7a8051f841dd971762ccfc57d2",
+  "source_sha256": "447bc99d3861ff240d60629f846e4ca3ef2215243664a358b191da14a0a5e140",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4972,6 +5076,36 @@
     "words": "Theek hai sir, aap chalta hain. Koi baat nahi.",
     "verified": false,
     "time": "18:14",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:6a18c308dce97e06:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 90,
+     "sha256": "6a18c308dce97e06262bc6d218c5d2b3f3fd952a5c7c79d23dd3502c2a207565"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "Thank you. I shall proceed.",
+    "verified": false,
+    "time": "18:29",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:481850fb35b80056:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 91,
+     "sha256": "481850fb35b80056a9573a5a02089e408b1da4098df0b6b2a18207dad8577c7b"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Bas chaliye, dhyan se rahega. All the best.",
+    "verified": false,
+    "time": "18:29",
     "place": "iic"
    },
    {
@@ -6292,68 +6426,98 @@
     "text": "Weather: 20 °C, a brown haze. Air quality index: 292."
    },
    {
-    "id": "2026-11-20:event:2dc6326eec278f93:1",
+    "id": "2026-11-20:event:1a102b9952af0072:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 31,
+     "sha256": "1a102b9952af00728cd89c246d05e4814efd6a461fd7ac42e6b8b9fc2cd0d869"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "18:29",
+    "end": "18:39",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:event:062dbf154bf95265:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      31,
+      0
+     ],
+     "sha256": "062dbf154bf95265d4ba29f0f201dc9593e22f320db5e76bcebc9f084c8dccce"
+    },
+    "type": "observation",
+    "time": "18:29",
+    "place": "iic",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 292."
+   },
+   {
+    "id": "2026-11-20:event:70de33b0d5ff7ae4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "2dc6326eec278f93461aa65f665502492778e25080f7170a616da6f62fe23dd2"
+     "sha256": "70de33b0d5ff7ae4b80dd51a8fc0cfd1c8c1dd4c78e84beb1ba40236b38a7174"
     },
     "type": "cash",
-    "time": "18:29",
+    "time": "18:39",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:9d3a44b721e4b0da:1",
+    "id": "2026-11-20:event:20ee9dce40d4450e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "9d3a44b721e4b0dae367631a1914cc10b5b8734d7d3723cb8b078a1320272e18"
+     "sha256": "20ee9dce40d4450eb5c28bee6b31875ec763fa07b5e16c80a8e237b9398060ca"
     },
     "type": "location",
-    "time": "18:29",
+    "time": "18:39",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:700e22b7c0232c25:1",
+    "id": "2026-11-20:event:94994e954f47d6f3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "700e22b7c0232c2531b952ac2b32e0855a799410b8fb66f61c3f549966f22d66"
+     "sha256": "94994e954f47d6f3caf0f64d2110766bfad92b1fd582b9ff1ae0a71f35e423ab"
     },
     "type": "inventory",
-    "time": "18:29",
+    "time": "18:39",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-20:event:415224612a720d1b:1",
+    "id": "2026-11-20:event:0232a5d6d7c1e102:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "415224612a720d1b43fb2fda9712923e685392f3b8b78462a52b34e8e55b9c97"
+     "sha256": "0232a5d6d7c1e1021b9c2f697ff56f8b2667983bd495caccbc91a63ac3560ff5"
     },
     "type": "inventory",
-    "time": "18:29",
+    "time": "18:39",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:1d8f1fd987e077c2:1",
+    "id": "2026-11-20:event:a0ffde91ab3292f6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "1d8f1fd987e077c2f47552255533bdfe5ff38b2e74fd836f84c5ba64c011eba0"
+     "sha256": "a0ffde91ab3292f6e062dfcd3ed84400afcdfd4634f932ae60d3c225a460cfa0"
     },
     "type": "inventory",
-    "time": "18:29",
+    "time": "18:39",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -6372,7 +6536,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "18:29",
+    "time": "18:39",
     "place": null
    }
   ]
