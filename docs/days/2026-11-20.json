@@ -613,6 +613,13 @@
    "mode": "walk",
    "a": "khan",
    "b": "home"
+  },
+  {
+   "from": "20:31",
+   "to": "21:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1732,6 +1739,22 @@
    "text": "Ji, go safe. The haze is thick enough to choke a man, so keep your head down on the way back. Locking up now, so do not wait for me.",
    "t": "20:04",
    "place": "khan"
+  },
+  {
+   "k": "diary",
+   "text": "The air is a solid wall of brown dust; to breathe it is to swallow the city's impurity. I am too tired and too hungry for the Directorate tonight, and the IIC will be empty of its usual bustle. I shall rest, let the body recover its strength, and perhaps read a little before sleep to keep the mind from idling in the dark.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution"
+    }
+   ],
+   "t": "20:31",
+   "place": "home"
   }
  ],
  "steps": [
@@ -4082,6 +4105,63 @@
      "text": "Wie von selten der fürstlichen Gewalt die Regierungsgewalt (§ 300) schon diese Bestimmung hat, so muß auch von der Seite der Stände aus ein Moment derselben nach - der Bestimmung gekehrt sein, wesentlich als das Moment ■ der Mitte zu existieren. § 305."
     }
    ]
+  },
+  {
+   "t": "20:31",
+   "end": "21:00",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [],
+   "decision": {
+    "thought": "The air is a solid wall of brown dust; to breathe it is to swallow the city's impurity. I am too tired and too hungry for the Directorate tonight, and the IIC will be empty of its usual bustle. I shall rest, let the body recover its strength, and perhaps read a little before sleep to keep the mind from idling in the dark.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 60,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 19 °C, a brown haze. Air quality index: 300.",
+    "Nothing in particular happens. The evening goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "id": "dyde-right:205"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution",
+     "id": "sibree-history:1434"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70",
+     "text": "Addition. — The particular person is really a subordinate, who must devote his life to the service of the ethical fabric; when the state demands his life, he must yield it up. But should the man take his own life? Suicide may at first glance be looked upon as bravery, although it be the poor bravery of tailors and maid-servants."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution",
+     "text": "The government rests with the official world, and the personal decision of the monarch constitutes its apex; for a final decision is, as was remarked above, absolutely necessary. Yet with firmly established laws, and a settled organization of the State, what is left to the sole arbitrement of the monarch is, in point of substance, no great matter."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -4104,7 +4184,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-20T20:31+05:30",
+  "until": "2026-11-20T21:00+05:30",
   "asleep": false,
   "imprest": 18216,
   "wearing": "kurta",
@@ -4603,7 +4683,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "8133a6cb67d368c87061ba0ea583c101e7989ba46c867dd856603016b17acc6a",
+  "source_sha256": "da76064e636983cf5ca88c35f64ae303efc9a27f6013a0a093cf3e864a4840e5",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -7162,68 +7242,114 @@
     "text": "The air is very poor today: the index stands at 300."
    },
    {
-    "id": "2026-11-20:event:7a948d977d0e34ab:1",
+    "id": "2026-11-20:event:44e75ba6aa4ca647:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 36,
+     "sha256": "44e75ba6aa4ca647b4e0dbee3c0eae73e0a73f318fcbc8de0628f973cac233f6"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "20:31",
+    "end": "21:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-20:event:287fa790dc10bcbd:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      36,
+      0
+     ],
+     "sha256": "287fa790dc10bcbda6fb197feef4c9d6331bd75091a7fa9475f5b0e5b70c89be"
+    },
+    "type": "observation",
+    "time": "20:31",
+    "place": "home",
+    "text": "Weather: 19 °C, a brown haze. Air quality index: 300."
+   },
+   {
+    "id": "2026-11-20:event:f0883d583a8f0cb4:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      36,
+      1
+     ],
+     "sha256": "f0883d583a8f0cb4f513e9e7918f61a4da92f5f5c5ffd125af87394140064d60"
+    },
+    "type": "observation",
+    "time": "20:31",
+    "place": "home",
+    "text": "Nothing in particular happens. The evening goes on."
+   },
+   {
+    "id": "2026-11-20:event:2748ac6158f6774e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "7a948d977d0e34ab608e10ac81bed3f3fd03bab1e96a8841d0f8a97d1391ae84"
+     "sha256": "2748ac6158f6774e776fea53f47108d5fdf3e90983b21e752fccbf2094eb8f3c"
     },
     "type": "cash",
-    "time": "20:31",
+    "time": "21:00",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:657594fc37e16eaa:1",
+    "id": "2026-11-20:event:1afdb1ddfc8e7208:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "657594fc37e16eaa7dddd80c763534348438b97e40a1b43fc1ff769cf862a772"
+     "sha256": "1afdb1ddfc8e7208fdae9fb9ede17152736ee4bd663f7de1bdb72313eca259b0"
     },
     "type": "location",
-    "time": "20:31",
+    "time": "21:00",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:cf3142f5a7f00802:1",
+    "id": "2026-11-20:event:ffa3143c999ab997:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "cf3142f5a7f00802da843d32e4acd3ce16f5e699ac64f6d9af82665ef6ebfb98"
+     "sha256": "ffa3143c999ab997bc652785c508fe00b8dd02aa223e787602a6cdaf72e259dd"
     },
     "type": "inventory",
-    "time": "20:31",
+    "time": "21:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-20:event:d2a04c4a9f95e2a2:1",
+    "id": "2026-11-20:event:ced11ceb6ffedd16:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "d2a04c4a9f95e2a28951f108ab7dee50f9a8a1b1b43e4ef04938a86687126b93"
+     "sha256": "ced11ceb6ffedd16b6c1e29a488e299b67b14f4d419a8a6d13c4b762cbce18ae"
     },
     "type": "inventory",
-    "time": "20:31",
+    "time": "21:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:60a391f6f89051b7:1",
+    "id": "2026-11-20:event:fbefa80f2cac74c5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "60a391f6f89051b72978f79a8f42f798e03833ad182ee91572f00b14f909c5f6"
+     "sha256": "fbefa80f2cac74c574060072ab7ba95e1432d0838c511097d0d7b8acbd940752"
     },
     "type": "inventory",
-    "time": "20:31",
+    "time": "21:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -7242,7 +7368,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "20:31",
+    "time": "21:00",
     "place": null
    }
   ]
