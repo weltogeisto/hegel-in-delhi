@@ -585,6 +585,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "18:39",
+   "to": "19:39",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Reading at the IIC."
   }
  ],
  "entries": [
@@ -1586,6 +1593,22 @@
    "to": "Hegel",
    "text": "Bas chaliye, dhyan se rahega. All the best.",
    "t": "18:29",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s parting words are a final, practical dismissal, a closing of the social circuit before the intellectual one begins. I am alone in the library, the brown haze pressing against the glass, and the weight of the file still hangs in the air, a reminder that my identity here is still a matter of administrative dispute. I must now turn to the text, to the movement of the spirit, before the hour is lost.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness"
+    }
+   ],
+   "t": "18:39",
    "place": "iic"
   }
  ],
@@ -3671,6 +3694,67 @@
      "text": "The ancients expressed the same by saying of the Father of the gods, that he really had his dwelling-place in every point of the universe. It is the universe that first gives to things true reality; it is the substance of all things, the monad, the atom, the spirit poured out on all things, the innermost essence, the pure form."
     }
    ]
+  },
+  {
+   "t": "18:39",
+   "end": "19:39",
+   "event": "The guard at the library says: “Bas chaliye, dhyan se rahega. All the best.”",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s parting words are a final, practical dismissal, a closing of the social circuit before the intellectual one begins. I am alone in the library, the brown haze pressing against the glass, and the weight of the file still hangs in the air, a reminder that my identity here is still a matter of administrative dispute. I must now turn to the text, to the movement of the spirit, before the hour is lost.",
+    "action": "read",
+    "place": "iic",
+    "minutes": 60,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 292."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:482"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "id": "baillie-1:220"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "The whole sea-shore is already strewed with the bodies of persons who have thus immolated themselves. Infanticide is also very common in India. Mothers throw their children into the Ganges, or let them pine away under the rays of the sun. The morality which is involved in respect for human life, is not found among the Hindoos."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "text": "But just as lordship showed its essential nature to be the reverse of what it wants to be, so, too, bondage will, when completed, pass into the opposite of what it immediately is: being a consciousness repressed within itself, it will enter into itself, and change round into real and true independence. We have seen what bondage is only in relation to lordship."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -3693,7 +3777,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-20T18:39+05:30",
+  "until": "2026-11-20T19:39+05:30",
   "asleep": false,
   "imprest": 18216,
   "wearing": "bandhgala",
@@ -4190,7 +4274,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "447bc99d3861ff240d60629f846e4ca3ef2215243664a358b191da14a0a5e140",
+  "source_sha256": "2ef4613f9fd2100883ca0144e5f21df1234bddb96f3391e4fbe6de0f21a69fee",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -6456,68 +6540,98 @@
     "text": "Weather: 20 °C, a brown haze. Air quality index: 292."
    },
    {
-    "id": "2026-11-20:event:70de33b0d5ff7ae4:1",
+    "id": "2026-11-20:event:904852f954fa8130:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 32,
+     "sha256": "904852f954fa8130d48052e5a5b78a00714b4b3ec26cadc78ed88225afdfb8c9"
+    },
+    "type": "action",
+    "action": "read",
+    "time": "18:39",
+    "end": "19:39",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:event:062dbf154bf95265:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      32,
+      0
+     ],
+     "sha256": "062dbf154bf95265d4ba29f0f201dc9593e22f320db5e76bcebc9f084c8dccce"
+    },
+    "type": "observation",
+    "time": "18:39",
+    "place": "iic",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 292."
+   },
+   {
+    "id": "2026-11-20:event:ab6449a8d264abd6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "70de33b0d5ff7ae4b80dd51a8fc0cfd1c8c1dd4c78e84beb1ba40236b38a7174"
+     "sha256": "ab6449a8d264abd6123d17891b85729e699d2bda73e15716f3bf77e06a6d55c5"
     },
     "type": "cash",
-    "time": "18:39",
+    "time": "19:39",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:20ee9dce40d4450e:1",
+    "id": "2026-11-20:event:72d9b4bc7bd37670:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "20ee9dce40d4450eb5c28bee6b31875ec763fa07b5e16c80a8e237b9398060ca"
+     "sha256": "72d9b4bc7bd376702eb8ff0bfa9dcd3078ae85732de7252977f4535e6815d79e"
     },
     "type": "location",
-    "time": "18:39",
+    "time": "19:39",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:94994e954f47d6f3:1",
+    "id": "2026-11-20:event:cb0153fd8df09a64:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "94994e954f47d6f3caf0f64d2110766bfad92b1fd582b9ff1ae0a71f35e423ab"
+     "sha256": "cb0153fd8df09a64f9c0b52424d9cf2af69b9ba6a42871dbbacb90052a8cfa62"
     },
     "type": "inventory",
-    "time": "18:39",
+    "time": "19:39",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-20:event:0232a5d6d7c1e102:1",
+    "id": "2026-11-20:event:5e233f366fe911ab:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "0232a5d6d7c1e1021b9c2f697ff56f8b2667983bd495caccbc91a63ac3560ff5"
+     "sha256": "5e233f366fe911ab81ef76a448608a1ea4d37f6234bc093e0aee9f3f1646e647"
     },
     "type": "inventory",
-    "time": "18:39",
+    "time": "19:39",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:a0ffde91ab3292f6:1",
+    "id": "2026-11-20:event:7940ccc959a6f781:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "a0ffde91ab3292f6e062dfcd3ed84400afcdfd4634f932ae60d3c225a460cfa0"
+     "sha256": "7940ccc959a6f781ed408c16d61eab973c1a4d85a91b4cec9814095cd60664d3"
     },
     "type": "inventory",
-    "time": "18:39",
+    "time": "19:39",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -6536,7 +6650,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "18:39",
+    "time": "19:39",
     "place": null
    }
   ]
