@@ -438,6 +438,13 @@
    "mode": "walk",
    "a": "home",
    "b": "khan"
+  },
+  {
+   "from": "13:54",
+   "to": "14:09",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Shopping at Khan Market."
   }
  ],
  "entries": [
@@ -795,6 +802,61 @@
    ],
    "t": "13:27",
    "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Hogya, Masterji. Chai taiyaar hai, samosa bhi safe hai. Aaj hawa mein dhoop ki jagah dhuaan hai, isliye thoda jaldi ho jayega. Paise ready rakhiye, aadha ghanta mein chalta hoon.",
+   "t": "13:54",
+   "place": "khan"
+  },
+  {
+   "k": "diary",
+   "text": "The air is thick with a brown haze that chokes the lungs, an AQI of 286 is a state of nature, not a state of right. I have walked 5.9 km and last ate eighteen hours ago; the body insists on its rights. Sunil is closing early due to the smog, so I must act now.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§181"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "13:54",
+   "place": "khan"
+  },
+  {
+   "k": "said",
+   "text": "Sunil, one cup of chai and that samosa. The air is too heavy to wait, and my stomach has been empty since yesterday evening.",
+   "to": "Masterji and Sunil",
+   "t": "13:54",
+   "place": "khan"
+  },
+  {
+   "k": "said",
+   "by": "Sunil",
+   "to": "Hegel",
+   "text": "Kya baat hai, Masterji, aaj ka pehla order? Chai garam, samosa gila, dono ₹50. Uthao, uthao, dhuaan mein khana nahi hota.",
+   "t": "13:54",
+   "place": "khan"
+  },
+  {
+   "k": "bag",
+   "item": "Chai, a cup",
+   "price": 20,
+   "charge_id": "charge:4",
+   "t": "13:54",
+   "place": "khan"
+  },
+  {
+   "k": "bag",
+   "item": "Samosa",
+   "price": 30,
+   "charge_id": "charge:5",
+   "t": "13:54",
+   "place": "khan"
   }
  ],
  "steps": [
@@ -1483,6 +1545,86 @@
      "text": "For “when Antisthenes turned outside a hole in his cloak, Socrates said to him, I see thy vanity through the hole in thy cloak.” Clothing is not a thing of rational import, but is regulated through needs that arise of themselves. In the North the clothing must be different from that in Central Africa; and in winter we do not wear cotton garments."
     }
    ]
+  },
+  {
+   "t": "13:54",
+   "end": "14:09",
+   "event": "You arrive at Khan Market. It closes at 20:30. Masterji is here. Sunil is here. Sunil says: “Hogya, Masterji. Chai taiyaar hai, samosa bhi safe hai. Aaj hawa mein dhoop ki jagah dhuaan hai, isliye thoda jaldi ho jayega. Paise ready rakhiye, aadha ghanta mein chalta hoon.”",
+   "present": [
+    "Masterji, the tailor",
+    "Sunil, who sells chai",
+    "the bookseller"
+   ],
+   "decision": {
+    "thought": "The air is thick with a brown haze that chokes the lungs, an AQI of 286 is a state of nature, not a state of right. I have walked 5.9 km and last ate eighteen hours ago; the body insists on its rights. Sunil is closing early due to the smog, so I must act now.",
+    "action": "buy",
+    "place": "khan",
+    "minutes": 15,
+    "says": "Sunil, one cup of chai and that samosa. The air is too heavy to wait, and my stomach has been empty since yesterday evening.",
+    "buys": [
+     {
+      "item": "Chai",
+      "price_inr": 20
+     },
+     {
+      "item": "Samosa",
+      "price_inr": 30
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 286.",
+    "You arrive at Khan Market. It closes at 20:30.",
+    "Masterji is here. Sunil is here."
+   ],
+   "observed_at": "khan",
+   "opened": [
+    "arrive",
+    "here",
+    "greeting:sunil"
+   ],
+   "voice": {
+    "by": "Sunil",
+    "says": "Kya baat hai, Masterji, aaj ka pehla order? Chai garam, samosa gila, dono ₹50. Uthao, uthao, dhuaan mein khana nahi hota.",
+    "does": "He slides the cup and plate across the counter, tapping the kerosene stove with a spoon to check the flame."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 13.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§181",
+     "id": "dyde-right:446"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§181",
+     "text": "But the particular person is essentially connected with others. Hence each establishes and satisfies himself by means of others, and so must call in the assistance of the form of universality. This universality is the other principle of the civic commun ity.l Addition. — The civic community is the realm of difference, intermediate between the family and the state."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1505,9 +1647,9 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-20T13:54+05:30",
+  "until": "2026-11-20T14:09+05:30",
   "asleep": false,
-  "imprest": 18506,
+  "imprest": 18456,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1596,6 +1738,11 @@
     ],
     "estates": [
      "saxena"
+    ],
+    "khan": [
+     "bookseller",
+     "masterji",
+     "sunil"
     ]
    },
    "walked": 5925,
@@ -1604,7 +1751,22 @@
   },
   "account": {
    "advance": 15000,
-   "vouchers": [],
+   "vouchers": [
+    {
+     "date": "2026-11-20",
+     "t": "13:54",
+     "item": "Chai, a cup",
+     "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-20",
+     "t": "13:54",
+     "item": "Samosa",
+     "price": 30,
+     "office": false
+    }
+   ],
    "admitted": 820,
    "queried": 10524
   },
@@ -1674,7 +1836,8 @@
     "2026-11-14",
     "2026-11-15",
     "2026-11-17",
-    "2026-11-18"
+    "2026-11-18",
+    "2026-11-20"
    ],
    "gym": [
     "2026-10-02"
@@ -1762,7 +1925,8 @@
     "2026-11-09",
     "2026-11-14",
     "2026-11-17",
-    "2026-11-18"
+    "2026-11-18",
+    "2026-11-20"
    ],
    "nidhi": [
     "2026-10-02"
@@ -1778,7 +1942,8 @@
     "2026-11-14",
     "2026-11-16",
     "2026-11-17",
-    "2026-11-18"
+    "2026-11-18",
+    "2026-11-20"
    ],
    "hegde": [
     "2026-10-02",
@@ -1835,7 +2000,7 @@
    "sim": false
   },
   "last_meal": "2026-11-19T20:09+05:30",
-  "snacks": 0,
+  "snacks": 1,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
@@ -1917,9 +2082,11 @@
    }
   },
   "settled_charges": [
-   "charge:1"
+   "charge:1",
+   "charge:4",
+   "charge:5"
   ],
-  "charge_seq": 3,
+  "charge_seq": 5,
   "street": {
    "home_vegetable_cart": "2026-11-20",
    "estates_bench": "2026-11-20",
@@ -1955,7 +2122,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "2b23aecf84516ca9a7d80bb607841878c5338c5fdcdc93442dfe2808e4d23de0",
+  "source_sha256": "bc5a9da6eb5243a89e27496d2c2aac097421f881fabcc597386a69c81dac9e1c",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2243,6 +2410,89 @@
     "text": "Marigolds in orange and lemon yellow crowd the edge of the lawn, heavy-headed, with a few bees going from flower to flower in the sun.",
     "time": "12:42",
     "place": "home"
+   },
+   {
+    "id": "2026-11-20:statement:17ce0b9ffe2b7e1e:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 30,
+     "sha256": "17ce0b9ffe2b7e1e3c7a737c2fa6d006ce21aa2e0e4dbc7f88629ca994d26c90"
+    },
+    "speaker": "Sunil",
+    "recipient": "Hegel",
+    "words": "Hogya, Masterji. Chai taiyaar hai, samosa bhi safe hai. Aaj hawa mein dhoop ki jagah dhuaan hai, isliye thoda jaldi ho jayega. Paise ready rakhiye, aadha ghanta mein chalta hoon.",
+    "verified": false,
+    "time": "13:54",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-20:statement:131b0e3c8a8156e7:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 32,
+     "sha256": "131b0e3c8a8156e7a45b865060db0f7c2b8f672b12d0e9cf576ada28c2fcdf23"
+    },
+    "speaker": "Hegel",
+    "recipient": "Masterji and Sunil",
+    "words": "Sunil, one cup of chai and that samosa. The air is too heavy to wait, and my stomach has been empty since yesterday evening.",
+    "verified": false,
+    "time": "13:54",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-20:statement:ef96679847d8077e:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 33,
+     "sha256": "ef96679847d8077e95169a00480766926bc754309117c54bd82f70bbf0afd78a"
+    },
+    "speaker": "Sunil",
+    "recipient": "Hegel",
+    "words": "Kya baat hai, Masterji, aaj ka pehla order? Chai garam, samosa gila, dono ₹50. Uthao, uthao, dhuaan mein khana nahi hota.",
+    "verified": false,
+    "time": "13:54",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-20:payment:f1f6cfdc32cce855:1",
+    "kind": "payment",
+    "source": {
+     "collection": "entries",
+     "index": 34,
+     "sha256": "f1f6cfdc32cce8552b5e555c3d8a8847958e40d3008cf1ab393e0187b0c71871"
+    },
+    "canonical_id": "charge:4",
+    "item": "Chai, a cup",
+    "amount": 20,
+    "direction": "out",
+    "settled": true,
+    "medium": "cash",
+    "creditor": null,
+    "payer": null,
+    "time": "13:54",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-20:payment:9a5bb08efbb4d5d9:1",
+    "kind": "payment",
+    "source": {
+     "collection": "entries",
+     "index": 35,
+     "sha256": "9a5bb08efbb4d5d902d3530b92c79c5f0b1709c8a8fed446f503f8fab7939242"
+    },
+    "canonical_id": "charge:5",
+    "item": "Samosa",
+    "amount": 30,
+    "direction": "out",
+    "settled": true,
+    "medium": "cash",
+    "creditor": null,
+    "payer": null,
+    "time": "13:54",
+    "place": "khan"
    },
    {
     "id": "2026-11-20:event:6aabd31d135eddce:1",
@@ -2864,68 +3114,130 @@
     "text": "Ramesh comes only on Mondays, Thursdays and Saturdays now. There is no lunch at home today."
    },
    {
-    "id": "2026-11-20:event:e93f7055d7b98b80:1",
+    "id": "2026-11-20:event:7b03b954aa0cedc8:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 11,
+     "sha256": "7b03b954aa0cedc8a8837b8f139e186e7505a58184b5777d8ca2a856c31de7e0"
+    },
+    "type": "action",
+    "action": "buy",
+    "time": "13:54",
+    "end": "14:09",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-20:event:4aecec5269033152:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      11,
+      0
+     ],
+     "sha256": "4aecec5269033152803407c34d5b790214d3e07ef6cabd7bb42ed453edf0ea9d"
+    },
+    "type": "observation",
+    "time": "13:54",
+    "place": "khan",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 286."
+   },
+   {
+    "id": "2026-11-20:event:58b399e7f6970857:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      11,
+      1
+     ],
+     "sha256": "58b399e7f6970857cb6b635781a338097740c05f53d38d40aafc16d84f082c5a"
+    },
+    "type": "observation",
+    "time": "13:54",
+    "place": "khan",
+    "text": "You arrive at Khan Market. It closes at 20:30."
+   },
+   {
+    "id": "2026-11-20:event:f31c3a75263bb855:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      11,
+      2
+     ],
+     "sha256": "f31c3a75263bb855a3ab1711e92904aba0895155741dfd70ed91ac20316333e7"
+    },
+    "type": "observation",
+    "time": "13:54",
+    "place": "khan",
+    "text": "Masterji is here. Sunil is here."
+   },
+   {
+    "id": "2026-11-20:event:39e76d7c68f723d7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "e93f7055d7b98b804a74b3999c55b40d2d1f3df62254e06c89162749614fcd75"
+     "sha256": "39e76d7c68f723d7b93268e1241bb7eb9e3ddd0edc8b96eafefd0e93c140698a"
     },
     "type": "cash",
-    "time": "13:54",
-    "amount": 18506,
+    "time": "14:09",
+    "amount": 18456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:c459313e4bf810c3:1",
+    "id": "2026-11-20:event:a5dd0d709477600e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "c459313e4bf810c38d46bcceb6740a655b44c3e65c86270fdef86c45abe68421"
+     "sha256": "a5dd0d709477600e66f79893228427aba97a637bcf35a40189dfcfcf548d7262"
     },
     "type": "location",
-    "time": "13:54",
+    "time": "14:09",
     "place": "khan",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:359ad859f4256bab:1",
+    "id": "2026-11-20:event:6b08f4b11a92101e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "359ad859f4256bab2764c70a7e118a2349b02070fc98eb037ab6a100ec4eb8dd"
+     "sha256": "6b08f4b11a92101e17c7fcf0ea48e9cfba202b23c31298075ea96267d7421d91"
     },
     "type": "inventory",
-    "time": "13:54",
+    "time": "14:09",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-20:event:71e9122a9fd0452d:1",
+    "id": "2026-11-20:event:7cb86f204ea431ce:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "71e9122a9fd0452d1780d0531ea5eb7f7010dff6d98a3915b26e9e8c40959459"
+     "sha256": "7cb86f204ea431ceee767944753c6cd72f8df7b9ab442a43588198434c28fbb2"
     },
     "type": "inventory",
-    "time": "13:54",
+    "time": "14:09",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 10:30.\"}]"
    },
    {
-    "id": "2026-11-20:event:941541c83f06db91:1",
+    "id": "2026-11-20:event:2de5fa0a2d598cff:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "941541c83f06db91906a267412b60a1f347368da84003eab381f06e1858c1d99"
+     "sha256": "2de5fa0a2d598cff1b2963bfde23d06ac7e553f12bee24c7d37eee4905e93fcc"
     },
     "type": "inventory",
-    "time": "13:54",
+    "time": "14:09",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2944,7 +3256,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "13:54",
+    "time": "14:09",
     "place": null
    }
   ]
