@@ -536,6 +536,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "16:54",
+   "to": "17:09",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Resting at the IIC."
   }
  ],
  "entries": [
@@ -1329,6 +1336,37 @@
    "to": "Hegel",
    "text": "Sir, it's just a projector, not a philosophy exam. Please, take a seat while the officer finishes the check.",
    "t": "16:39",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s insistence that this is merely a technical matter, devoid of the weight of history, is a comfort I do not require, but I will accept his hospitality. I shall sit and observe how the officer manages the 'check,' for even in the maintenance of a projector, the order of the state reveals itself.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    }
+   ],
+   "t": "16:54",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "Very well, I will wait. Thank you.",
+   "to": "the guard at the library and the programme officer",
+   "t": "16:54",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "You're welcome, sir. Take your time, the chai is still hot in the back if you need it.",
+   "t": "16:54",
    "place": "iic"
   }
  ],
@@ -2956,6 +2994,72 @@
      "text": "Die Halbinsel Dekan bietet eine weit größere Mannigfaltigkeit als Hindostan dar; Gebirge durchschneiden, fruchtbare Ströme durchfließen es, und ihre Flüsse haben fast eine ebenso große Heiligkeit als der Indus und der Ganges, der ein ganz allgemeiner Name für alle Flüsse in Indien geworden ist, als der Fluß xar’ &&oynr."
     }
    ]
+  },
+  {
+   "t": "16:54",
+   "end": "17:09",
+   "event": "The guard at the library says: “Sir, it's just a projector, not a philosophy exam. Please, take a seat while the officer finishes the check.” He gestures vaguely towards the empty chairs in the semicircle.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s insistence that this is merely a technical matter, devoid of the weight of history, is a comfort I do not require, but I will accept his hospitality. I shall sit and observe how the officer manages the 'check,' for even in the maintenance of a projector, the order of the state reveals itself.",
+    "action": "rest",
+    "place": "iic",
+    "minutes": 15,
+    "says": "Very well, I will wait. Thank you.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 287."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "You're welcome, sir. Take your time, the chai is still hot in the back if you need it.",
+    "does": "He gives a small nod and turns back towards the main gate, arms crossed over his chest."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "id": "haldane-3:413"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:650"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "text": "With the present day all difference has disappeared; philosophers are not monks, for we find them generally in connection with the world, participating with others in some common work or calling. They live, not independently, but in the relation of citizens, or they occupy public offices and take part in the life of the state."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "The state is merely the laity, and must be absolutely respectful. That which is peculiarly ethical falls beyond its reach. Now it is a matter of history that there have been barbaric times and circumstances, in which all high spiritual matters had their seat in the church, and the state was only a worldly rule of for6e, lawlessness, and passion."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2978,7 +3082,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-20T16:54+05:30",
+  "until": "2026-11-20T17:09+05:30",
   "asleep": false,
   "imprest": 18216,
   "wearing": "bandhgala",
@@ -3474,7 +3578,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "3abc0174fa08e8fb9562848e82e34bc8bf8739734354b7ca414a1393ff1e8206",
+  "source_sha256": "f7674d7729b262ae177771c21bcdb914cedb1991668a7e90d8e6220bf6a16224",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4197,6 +4301,36 @@
     "words": "Sir, it's just a projector, not a philosophy exam. Please, take a seat while the officer finishes the check.",
     "verified": false,
     "time": "16:39",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:34353fa1fb32da10:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 73,
+     "sha256": "34353fa1fb32da102cfd99407e8c8a1e1779156f5601fee45e3da3658083f1e1"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "Very well, I will wait. Thank you.",
+    "verified": false,
+    "time": "16:54",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:2f8bfb5d11602812:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 74,
+     "sha256": "2f8bfb5d11602812a0820f5dcbf0a82906bf33ff4bda65f571cbde176bdc804b"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "You're welcome, sir. Take your time, the chai is still hot in the back if you need it.",
+    "verified": false,
+    "time": "16:54",
     "place": "iic"
    },
    {
@@ -5321,68 +5455,98 @@
     "text": "Weather: 23 °C, a brown haze. Air quality index: 287."
    },
    {
-    "id": "2026-11-20:event:601655946e74366f:1",
+    "id": "2026-11-20:event:c5cdd97d22d81b9e:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 25,
+     "sha256": "c5cdd97d22d81b9e652c67b98ecde3a71a5eee27cf844d07bdd311a8d13589fd"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "16:54",
+    "end": "17:09",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:event:e484da80e4800924:4",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      25,
+      0
+     ],
+     "sha256": "e484da80e480092499a214966f247074306bba929910534153af8b431e999a8d"
+    },
+    "type": "observation",
+    "time": "16:54",
+    "place": "iic",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 287."
+   },
+   {
+    "id": "2026-11-20:event:a4746781c1e8d080:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "601655946e74366fbc8f0e31f2d66cf83f9fa8456ec00156f0c7908ecb1e1611"
+     "sha256": "a4746781c1e8d080d664aacdcd6c7d91b999685b3e2e9652cdd4e2578bca6dc5"
     },
     "type": "cash",
-    "time": "16:54",
+    "time": "17:09",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:0a248c6b1878b93f:1",
+    "id": "2026-11-20:event:12748ba66353f044:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "0a248c6b1878b93fc421dd7646096aa96428e5617d512b6add7d123213af7821"
+     "sha256": "12748ba66353f044af507181df77b29d19f73330beaa0523e1e9e305d22a8916"
     },
     "type": "location",
-    "time": "16:54",
+    "time": "17:09",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:08eb3457dc8a6ce5:1",
+    "id": "2026-11-20:event:7c750b96ff555380:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "08eb3457dc8a6ce52b1adfa28a85deee35ac9fbfa3dc5a2578e42b0b0257c206"
+     "sha256": "7c750b96ff5553804284021aaebdf793f1fb190534b4811f45f2136b6d7d3884"
     },
     "type": "inventory",
-    "time": "16:54",
+    "time": "17:09",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-20:event:63f1199b451fc603:1",
+    "id": "2026-11-20:event:ea4f519223113475:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "63f1199b451fc603aae35a110af9907e034e8fbded944aeb77509ebec01b991c"
+     "sha256": "ea4f519223113475dd6d85a5be12130bfb2e1793b3aff7caf5fed626cee8f3b3"
     },
     "type": "inventory",
-    "time": "16:54",
+    "time": "17:09",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:2adb4e17d5ece054:1",
+    "id": "2026-11-20:event:72de953d156e5869:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "2adb4e17d5ece054cde8b4fe3b009433e4f9f6b2d78f2d4cc10e3aed30dbf8b1"
+     "sha256": "72de953d156e5869a4141e0d4154e44a0db9bb38ddc3c679de60e77469c07800"
     },
     "type": "inventory",
-    "time": "16:54",
+    "time": "17:09",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -5401,7 +5565,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "16:54",
+    "time": "17:09",
     "place": null
    }
   ]
