@@ -564,6 +564,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "At the IIC."
+  },
+  {
+   "from": "17:59",
+   "to": "18:14",
+   "mode": "inside",
+   "at": "iic",
+   "now": "At the IIC."
   }
  ],
  "entries": [
@@ -1472,6 +1479,37 @@
    "to": "Hegel",
    "text": "Acha, sir. Sit on that bench, please. Just try not to lean against the old books, the spine is a bit loose.",
    "t": "17:44",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s concern for the books is a small, concrete act of care that contrasts with the abstract violence of the state. I sit. The air in the room is still, thick with the smell of paper and dust. I have time before the talk, and the silence here is not empty; it is waiting to be filled by the movement of thought. I will look at the spines, not to read them, but to see what has been kept here.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Separation of Philosophy from Other Allied…"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Sophists, Protagoras"
+    }
+   ],
+   "t": "17:59",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "Thank you. I will be careful.",
+   "to": "the guard at the library and the programme officer",
+   "t": "17:59",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Arre, koi baat nahi sir. Bas thoda dheere se, yeh kitabein purani hain.",
+   "t": "17:59",
    "place": "iic"
   }
  ],
@@ -3359,6 +3397,72 @@
      "text": "Addition. — It proceeds from a wrong view of the state to exclude the members of the executive from the legislature, as was at one time done by the constituent assembly. In England the ministers are rightly members of parliament, since those who share in the executive should stand in connection with and not in opposition to the legislature."
     }
    ]
+  },
+  {
+   "t": "17:59",
+   "end": "18:14",
+   "event": "The guard at the library says: “Acha, sir. Sit on that bench, please. Just try not to lean against the old books, the spine is a bit loose.” The guard points his chin towards the wooden bench near the window and resumes watching the entrance.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s concern for the books is a small, concrete act of care that contrasts with the abstract violence of the state. I sit. The air in the room is still, thick with the smell of paper and dust. I have time before the talk, and the silence here is not empty; it is waiting to be filled by the movement of thought. I will look at the spines, not to read them, but to see what has been kept here.",
+    "action": "stay",
+    "place": "iic",
+    "minutes": 15,
+    "says": "Thank you. I will be careful.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 21 °C, a brown haze. Air quality index: 289."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Arre, koi baat nahi sir. Bas thoda dheere se, yeh kitabein purani hain.",
+    "does": "The guard nods once and turns back to watch the entrance."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 12.5,
+    "draws": {
+     "n": 2,
+     "refused": 1,
+     "echo": 0,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Separation of Philosophy from Other Allied…",
+     "id": "haldane-1:251"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Sophists, Protagoras",
+     "id": "haldane-1:913"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Separation of Philosophy from Other Allied…",
+     "text": "Thus it may be said that eternity is a circle, the snake that bites its own tail. This is only an image, but Mind does not require such a symbol. There are people who value such methods of representation, but these forms do not go far. The most abstract determinations can indeed be thus expressed, but any further progress brings about confusion."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Sophists, Protagoras",
+     "text": "There were then no places of learning, no books from which men could be taught, for to the ancients, as Plato says, “the chief part of culture” (ραιδείας) “consisted in being skilled” (δεινόν) “in poetry,” just as with us fifty years ago the principal instruction of the people consisted of Bible History and Biblical precepts."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -3381,7 +3485,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-20T17:59+05:30",
+  "until": "2026-11-20T18:14+05:30",
   "asleep": false,
   "imprest": 18216,
   "wearing": "bandhgala",
@@ -3878,7 +3982,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-20",
-  "source_sha256": "887a2ab5d31207b36810bd133ee1039698dce0cb21463827d33abf660f4e2573",
+  "source_sha256": "3f013f7f11392a54125c9b90211a1db20199cb48f416ee8ab0062dc4f3946082",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4704,6 +4808,36 @@
     "words": "Acha, sir. Sit on that bench, please. Just try not to lean against the old books, the spine is a bit loose.",
     "verified": false,
     "time": "17:44",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:de6b02002d77306e:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 84,
+     "sha256": "de6b02002d77306e3aca823a0b6fbc55b74460d7f6d73fb7e1726b79c2e83fa3"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "Thank you. I will be careful.",
+    "verified": false,
+    "time": "17:59",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:statement:d8a331e2426e14db:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 85,
+     "sha256": "d8a331e2426e14dbfecd7d54ca15ed98b6b492b7ee657db3eb163d97e46654b5"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Arre, koi baat nahi sir. Bas thoda dheere se, yeh kitabein purani hain.",
+    "verified": false,
+    "time": "17:59",
     "place": "iic"
    },
    {
@@ -5964,68 +6098,98 @@
     "text": "Weather: 21 °C, a brown haze. Air quality index: 289."
    },
    {
-    "id": "2026-11-20:event:412c82f0cdfd14b8:1",
+    "id": "2026-11-20:event:c1e3f94150e2e9c2:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 29,
+     "sha256": "c1e3f94150e2e9c257b27c6d5ecbfc38b8563098a321e5e6cb41ecc1d225607a"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "17:59",
+    "end": "18:14",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-20:event:46a4e67a55cf8fcc:4",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      29,
+      0
+     ],
+     "sha256": "46a4e67a55cf8fccc88ddda5ff59fd292663e93f19d62af41a686f73f23887c5"
+    },
+    "type": "observation",
+    "time": "17:59",
+    "place": "iic",
+    "text": "Weather: 21 °C, a brown haze. Air quality index: 289."
+   },
+   {
+    "id": "2026-11-20:event:8ca9cf2545e86ae6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "412c82f0cdfd14b86d56c77fa3c79cfd8bb1003f6a557f143df8014623540749"
+     "sha256": "8ca9cf2545e86ae6effe4731c708f0dfc58dfc795b69d63b0a5a269093a9c34a"
     },
     "type": "cash",
-    "time": "17:59",
+    "time": "18:14",
     "amount": 18216,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-20:event:dd28dfd423508a5b:1",
+    "id": "2026-11-20:event:d2aa69af46007024:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "dd28dfd423508a5b4e80f6ff817f5e66c26193b71c49c440dabb7ac14ee65ff0"
+     "sha256": "d2aa69af46007024de29ad1b49f00d41f64eb4838dc2a9d97aedcff8079003e4"
     },
     "type": "location",
-    "time": "17:59",
+    "time": "18:14",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-20:event:412f4f89d0115a6b:1",
+    "id": "2026-11-20:event:63444fd4c78e4145:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "412f4f89d0115a6bff0fd6c580a9311654a57d854196541f184c31fd13e00cd5"
+     "sha256": "63444fd4c78e41450f20fb8baa719567229e4f4ee08ca8e0156ba24e310e2144"
     },
     "type": "inventory",
-    "time": "17:59",
+    "time": "18:14",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-20:event:bb143ce00fea6d15:1",
+    "id": "2026-11-20:event:fcaca0c2fc2d1046:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "bb143ce00fea6d1500e5a6d33fccc284264efda6345b4e4f67d17e63c62d9812"
+     "sha256": "fcaca0c2fc2d104679b44177fbe4a9f9a511f24327f90b8d5b85a15a8a331152"
     },
     "type": "inventory",
-    "time": "17:59",
+    "time": "18:14",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-20:event:a566da99029e5a2a:1",
+    "id": "2026-11-20:event:11780c2977f0de00:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "a566da99029e5a2a6b1ef7d5704f75acc88088fcabe867fedbb9b72a884e4601"
+     "sha256": "11780c2977f0de002614c2a8b1b94e607753d8fa2d22583f40430d004ea17d86"
     },
     "type": "inventory",
-    "time": "17:59",
+    "time": "18:14",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -6044,7 +6208,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "17:59",
+    "time": "18:14",
     "place": null
    }
   ]
