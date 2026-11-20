@@ -299,6 +299,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh and Shri G. Hegde at home."
+  },
+  {
+   "from": "10:54",
+   "to": "11:09",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -533,6 +540,37 @@
    "to": "Hegel",
    "text": "Arre, stop with the 'bureaucratic farce' drama, ji. It’s just a house, not the UN General Assembly. Sit, I’ll make the chai strong, you look like you haven’t eaten since Bengaluru.",
    "t": "10:39",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "He is right that I have turned a domestic inconvenience into a philosophical crisis. The state is not a house, yet the confusion of my identity here does feel like a fracture in the ethical substance. I will accept the chai; it is the first warm thing I have held since waking, and the heat of the cup is a small, manageable reality against the brown haze outside.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§201 Addition"
+    }
+   ],
+   "t": "10:54",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Shri Hegde. I have been treating a clerical error as a metaphysical one. I accept the chai.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "10:54",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Ha, a metaphysical error over a transfer order, that is new. Don't worry, I am putting in a lot of ginger, so the philosophy will keep coming.",
+   "t": "10:54",
    "place": "home"
   }
  ],
@@ -883,6 +921,73 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "10:54",
+   "end": "11:09",
+   "event": "Shri G. Hegde says: “Arre, stop with the 'bureaucratic farce' drama, ji. It’s just a house, not the UN General Assembly. Sit, I’ll make the chai strong, you look like you haven’t eaten since Bengaluru.” Shri Hegde places a spare cup on the coffee table and turns to the stove to start the water.",
+   "present": [
+    "Ramesh, the caretaker",
+    "the dhobi",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "He is right that I have turned a domestic inconvenience into a philosophical crisis. The state is not a house, yet the confusion of my identity here does feel like a fracture in the ethical substance. I will accept the chai; it is the first warm thing I have held since waking, and the heat of the cup is a small, manageable reality against the brown haze outside.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": "You are right, Shri Hegde. I have been treating a clerical error as a metaphysical one. I accept the chai.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 21 °C, a brown haze. Air quality index: 332."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Ha, a metaphysical error over a transfer order, that is new. Don't worry, I am putting in a lot of ginger, so the philosophy will keep coming.",
+    "does": "She drops a generous chunk of fresh ginger into the boiling water."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251",
+     "id": "dyde-right:571"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§201 Addition",
+     "id": "dyde-right:482"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§251",
+     "text": "In general it must stand to its members as a second family, a position which remains more indefinite than the family relation, because the general civic community is at a farther remove from indi viduals and their special needs."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§201 Addition",
+     "text": "The manner of sharing in the general wealth is left to each particular individual, but the general differences, found in the division of the civic community, are essential. The family is the first basis of the state, and classes or estates are the second."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -898,7 +1003,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-21T10:54+05:30",
+  "until": "2026-11-21T11:09+05:30",
   "asleep": false,
   "imprest": 17916,
   "wearing": "kurta",
@@ -1363,7 +1468,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-21",
-  "source_sha256": "2ec13ceff5ecfab99ef96610827fdc7c40f21019dbcc4bb6047ddf4c96cde0e4",
+  "source_sha256": "87289ae5cb475b76063eb6db3f2addffd9bcfcfa55cad4d3dd258d4998be6c7c",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1603,6 +1708,36 @@
     "words": "Arre, stop with the 'bureaucratic farce' drama, ji. It’s just a house, not the UN General Assembly. Sit, I’ll make the chai strong, you look like you haven’t eaten since Bengaluru.",
     "verified": false,
     "time": "10:39",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:aca588bc5f4d0071:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 23,
+     "sha256": "aca588bc5f4d00711887e180321e071278082f861da40f257516797ec65e1838"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh and Shri G. Hegde",
+    "words": "You are right, Shri Hegde. I have been treating a clerical error as a metaphysical one. I accept the chai.",
+    "verified": false,
+    "time": "10:54",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:e0fce01128dd14f2:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 24,
+     "sha256": "e0fce01128dd14f202b8f1e14719d9a13df8608ce3a11b566b1b1bb75ae7dc4e"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "Ha, a metaphysical error over a transfer order, that is new. Don't worry, I am putting in a lot of ginger, so the philosophy will keep coming.",
+    "verified": false,
+    "time": "10:54",
     "place": "home"
    },
    {
@@ -1958,68 +2093,98 @@
     "text": "Weather: 21 °C, a brown haze. Air quality index: 332."
    },
    {
-    "id": "2026-11-21:event:ff3dc85ec8f013f5:1",
+    "id": "2026-11-21:event:b95bb6fa3b397f59:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 5,
+     "sha256": "b95bb6fa3b397f59c894f1bfe7618bf035100865a27ab30c4ff71f44e61dcc92"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "10:54",
+    "end": "11:09",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:event:6caf5ac9c724bfaa:4",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      5,
+      0
+     ],
+     "sha256": "6caf5ac9c724bfaad53adf6bf818a313b3680860902fa685ebefb383ecb36f11"
+    },
+    "type": "observation",
+    "time": "10:54",
+    "place": "home",
+    "text": "Weather: 21 °C, a brown haze. Air quality index: 332."
+   },
+   {
+    "id": "2026-11-21:event:9e9c9c192462f5a5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "ff3dc85ec8f013f54dd0de52c20838eef08fb4eb56045389a87407e8812c9119"
+     "sha256": "9e9c9c192462f5a50793708c91d745ffa2c7fbf10f4462e17802c8356f06c4fc"
     },
     "type": "cash",
-    "time": "10:54",
+    "time": "11:09",
     "amount": 17916,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-21:event:c90e1c9a3cc4f70e:1",
+    "id": "2026-11-21:event:8be94fa3e7761716:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "c90e1c9a3cc4f70e2701ed5d559626d2d9ae997263dd9eec5d2e7bd3e5d198cc"
+     "sha256": "8be94fa3e77617166d5ea02ba45728b1bf8994d1fcace8f24f4c9def70a3f22a"
     },
     "type": "location",
-    "time": "10:54",
+    "time": "11:09",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-21:event:dac2c1300217be73:1",
+    "id": "2026-11-21:event:bc10ee4dea844e8a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "dac2c1300217be73e50167e48bc862a84a41a53fd15a58c0a7f23c80e39ca7cb"
+     "sha256": "bc10ee4dea844e8a1e7da049fb36f408a793b3b5ee4d56deb51fc7093d2959fb"
     },
     "type": "inventory",
-    "time": "10:54",
+    "time": "11:09",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-21:event:833d10e7efae1201:1",
+    "id": "2026-11-21:event:fbd6bda8df99c1c3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "833d10e7efae1201f1e6bce69a86cc4ba2cafa5e9ea4957ce0f32a60836cecb0"
+     "sha256": "fbd6bda8df99c1c33b9853777f5f5a4a999d3d9d5e02edf726a0abbbd3a87ba9"
     },
     "type": "inventory",
-    "time": "10:54",
+    "time": "11:09",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-21:event:21cfab1d89c6f72b:1",
+    "id": "2026-11-21:event:34577543dcf677c4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "21cfab1d89c6f72bdb0a013e4dac0b3b10221dc373a54e70a79334014a2c8419"
+     "sha256": "34577543dcf677c476af6c12903832bb4f2395b9d6d3b0b9d03c56908333bb38"
     },
     "type": "inventory",
-    "time": "10:54",
+    "time": "11:09",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2038,7 +2203,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "10:54",
+    "time": "11:09",
     "place": null
    }
   ]
