@@ -334,6 +334,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "12:09",
+   "to": "12:29",
+   "mode": "walk",
+   "a": "home",
+   "b": "lodhi"
   }
  ],
  "entries": [
@@ -726,6 +733,37 @@
    "to": "Hegel",
    "text": "The door stays shut, sir. I will make the tea when you return.",
    "t": "11:59",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The door stays shut; the mechanism holds even as the identity within it fractures. Ramesh’s obedience is the form, the substance is my confusion, but the tea will be ready. I cannot stay in this bungalow of paradox any longer; I need to walk the road where the tombs stand and the history is written in stone, not in files.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    }
+   ],
+   "t": "12:09",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. I shall return for the tea.",
+   "to": "Ramesh",
+   "t": "12:09",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "The kettle is already on, sir. Go and find your clerk. I will keep the room cool until you get back.",
+   "t": "12:09",
    "place": "home"
   }
  ],
@@ -1407,6 +1445,72 @@
      "text": "Thus since the investigation of the faculties of knowledge is itself knowing, it cannot in Kant attain to what it aims at because it is that already—it cannot come to itself because it is already with itself; the same thing happens as happened with the Jews, the Spirit passes through the midst of them and they know it not."
     }
    ]
+  },
+  {
+   "t": "12:09",
+   "end": "12:29",
+   "event": "Ramesh says: “The door stays shut, sir. I will make the tea when you return.” He tucks the stray file back into the stack and turns to leave.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The door stays shut; the mechanism holds even as the identity within it fractures. Ramesh’s obedience is the form, the substance is my confusion, but the tea will be ready. I cannot stay in this bungalow of paradox any longer; I need to walk the road where the tombs stand and the history is written in stone, not in files.",
+    "action": "walk",
+    "place": "lodhi",
+    "minutes": 45,
+    "says": "Thank you, Ramesh. I shall return for the tea.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "lodhi",
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 331."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "The kettle is already on, sir. Go and find your clerk. I will keep the room cool until you get back.",
+    "does": "He nods once and turns to walk away, his hand resting on the doorknob for a moment before he lets go."
+   },
+   "left": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:23"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state. The government has, up till now, shown such confidence in the scholars in this department as to leave the subject matter of philosophy wholly in their hands."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1421,8 +1525,8 @@
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-21T12:09+05:30",
+  "place": "lodhi",
+  "until": "2026-11-21T12:29+05:30",
   "asleep": false,
   "imprest": 17916,
   "wearing": "kurta",
@@ -1515,7 +1619,9 @@
     ]
    },
    "breakfast": true,
-   "bad_air": true
+   "bad_air": true,
+   "walked": 1500,
+   "strain": 1500
   },
   "account": {
    "advance": 15000,
@@ -1887,7 +1993,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-21",
-  "source_sha256": "86880ab0a1faf08e36981814aeff258cf1ce78f5e169822c359777ed9a5daf43",
+  "source_sha256": "ecbf6d2b8ca5d597f5c0ab4bdd89cbc6b602c5d2acbe098beebce5ed6946a4d8",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2277,6 +2383,36 @@
     "words": "The door stays shut, sir. I will make the tea when you return.",
     "verified": false,
     "time": "11:59",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:4370f1a08b9df765:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 38,
+     "sha256": "4370f1a08b9df76511c07094d878c17bb24ca7f66cafb1d3b3ae835d26913b26"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Thank you, Ramesh. I shall return for the tea.",
+    "verified": false,
+    "time": "12:09",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:6f25377edbf75a19:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 39,
+     "sha256": "6f25377edbf75a198341513cdbf8f91bdce4120c99b6c42a389089c9123a1b0b"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "The kettle is already on, sir. Go and find your clerk. I will keep the room cool until you get back.",
+    "verified": false,
+    "time": "12:09",
     "place": "home"
    },
    {
@@ -2782,68 +2918,100 @@
     "text": "Weather: 22 °C, a brown haze. Air quality index: 331."
    },
    {
-    "id": "2026-11-21:event:f53bc29d531ad074:1",
+    "id": "2026-11-21:event:20c02878f610ee61:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 10,
+     "sha256": "20c02878f610ee61b6a903d7bfb846ae532c166c13406752abdd4ebccdea4b0f"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "12:09",
+    "end": "12:29",
+    "place": null,
+    "origin": "home",
+    "destination": "lodhi"
+   },
+   {
+    "id": "2026-11-21:event:0bf593ee90f813b1:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      10,
+      0
+     ],
+     "sha256": "0bf593ee90f813b10b0929b8995e0bab60d907474c5ca6bbc6c9a19f367f5cd8"
+    },
+    "type": "observation",
+    "time": "12:09",
+    "place": "home",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 331."
+   },
+   {
+    "id": "2026-11-21:event:cc17f3b3b8130e2b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "f53bc29d531ad0741f40901825d754ae92639b6c42d86c99047ecf9659748bfe"
+     "sha256": "cc17f3b3b8130e2be8103a5baea3efca39f37d97907682b402d521ec6d439fa3"
     },
     "type": "cash",
-    "time": "12:09",
+    "time": "12:29",
     "amount": 17916,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-21:event:d696272b8f2e196f:1",
+    "id": "2026-11-21:event:0778d1cdab6db920:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "d696272b8f2e196fcf19555c451c47fdf0540bbea9e6e35fda8d64d6107c3f39"
+     "sha256": "0778d1cdab6db920e6d6144f45a8961a940e886c734a568c78941f2e35c4b436"
     },
     "type": "location",
-    "time": "12:09",
-    "place": "home",
+    "time": "12:29",
+    "place": "lodhi",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-21:event:859b69037f5608b3:1",
+    "id": "2026-11-21:event:4d3c2cc4ab4eeb01:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "859b69037f5608b396a452ec003fb94a8aeb4b0b1b9086eefd5d867c42d916ac"
+     "sha256": "4d3c2cc4ab4eeb01d7ac01ad3646521f2711e10c80c4dbd386fb3962d789d9ca"
     },
     "type": "inventory",
-    "time": "12:09",
+    "time": "12:29",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-21:event:c7ee64fef4daef91:1",
+    "id": "2026-11-21:event:ac7cdd2ee49cc333:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "c7ee64fef4daef91619817c8f8a9efb7aa6f537cb2b8df95c16e6137855d0cbb"
+     "sha256": "ac7cdd2ee49cc33347e70ceac943638a1d5130a2564316e6e7cd53628f10cd99"
     },
     "type": "inventory",
-    "time": "12:09",
+    "time": "12:29",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-21:event:41007f35fdf67147:1",
+    "id": "2026-11-21:event:0f27822746c895a3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "41007f35fdf67147fd9384a25c6c89d4f93e30cfb984fb36ba6598be3709e7d7"
+     "sha256": "0f27822746c895a3855a9f3098bb9385c6fc340bda74b1de5e64a09c321fd80d"
     },
     "type": "inventory",
-    "time": "12:09",
+    "time": "12:29",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2862,7 +3030,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "12:09",
+    "time": "12:29",
     "place": null
    }
   ]
