@@ -404,6 +404,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Writing at home."
+  },
+  {
+   "from": "17:24",
+   "to": "17:39",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -1063,6 +1070,34 @@
    "words": 448,
    "mode": "chat",
    "t": "16:24",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "Ramesh brings tea.",
+   "t": "17:24",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The postman's habit is a small concession to the chaos of the city, a way to ensure the flow of information does not halt for a signature. I accept the tea and biscuits as a pause before the evening heat breaks. The haze outside is thickening, sealing the bungalow in a brown cocoon that feels less like weather and more like the atmosphere of a dream.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§79"
+    }
+   ],
+   "t": "17:24",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "Ramesh puts a plate together: an omelette, toast and a pot of tea.",
+   "t": "17:24",
    "place": "home"
   }
  ],
@@ -2364,6 +2399,68 @@
      "text": "Was sich wirklich im Staate geltend macht, muß sich freilich auf organische Weise betätigen, und dies ist in der Verfassung der Fall. Aber zu allen Zeiten war die öffentliche Meinung eine große Macht und ist es besonders in unserer Zeit, wo das Prinzip der subjektiven Freiheit diese Wichtigkeit und Bedeutung hat."
     }
    ]
+  },
+  {
+   "t": "17:24",
+   "end": "17:39",
+   "event": "Ramesh says: “Yes, sir. The postman usually leaves the bulk in the blue bin by the gate if there is no one to sign for it.” He gives a small nod and turns back to the stack of files. Ramesh brings tea: tea and Marie biscuits.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The postman's habit is a small concession to the chaos of the city, a way to ensure the flow of information does not halt for a signature. I accept the tea and biscuits as a pause before the evening heat breaks. The haze outside is thickening, sealing the bungalow in a brown cocoon that feels less like weather and more like the atmosphere of a dream.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 21 °C, a brown haze. Air quality index: 328.",
+    "Ramesh brings tea: tea and Marie biscuits."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply",
+    "tea"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 6.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§79",
+     "id": "dyde-right:216"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§79",
+     "text": "As stipulation involves the will, it contains, from the standpoint of right, the substance of contract. In contrast with this substantive contract the possession, which remains till the contract is fully carried out, has no reality outside of the agreement. I have given up a possession and my private control over it, and it has already become the property of another."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2379,7 +2476,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-21T17:24+05:30",
+  "until": "2026-11-21T17:39+05:30",
   "asleep": false,
   "imprest": 17916,
   "wearing": "kurta",
@@ -2476,7 +2573,8 @@
    "bad_air": true,
    "walked": 3000,
    "strain": 3000,
-   "lunch": true
+   "lunch": true,
+   "tea": true
   },
   "account": {
    "advance": 15000,
@@ -2747,7 +2845,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-21T14:19+05:30",
+  "last_meal": "2026-11-21T17:24+05:30",
   "snacks": 0,
   "works": [
    {
@@ -2852,7 +2950,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-21",
-  "source_sha256": "f918e36a0e82e7ad3a84d6e616958b7dc5686c9258f7df20ae2e037d406aba11",
+  "source_sha256": "e2087ac3caca972020758ce19f82fd4a2c4b90b119286413b38caac6fbca965e",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3437,6 +3535,32 @@
     "status": "draft",
     "sitting": 6,
     "time": "16:24",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:event:8fb4eac4a74f1ba7:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 60,
+     "sha256": "8fb4eac4a74f1ba727956b56876a97b149503a2cb5dacd35d09103e166add9d0"
+    },
+    "type": "world",
+    "text": "Ramesh brings tea.",
+    "time": "17:24",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:event:3e6c021b695e65e4:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 62,
+     "sha256": "3e6c021b695e65e444fac7482d22c16b2793d531e3dc36a86a07e91df1866dc1"
+    },
+    "type": "world",
+    "text": "Ramesh puts a plate together: an omelette, toast and a pot of tea.",
+    "time": "17:24",
     "place": "home"
    },
    {
@@ -4358,68 +4482,114 @@
     "text": "Weather: 22 °C, a brown haze. Air quality index: 328."
    },
    {
-    "id": "2026-11-21:event:915d61cf28f410c3:1",
+    "id": "2026-11-21:event:696034b05d97d97b:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 20,
+     "sha256": "696034b05d97d97b5b6c17a8271b6f20d1eaf38da54b64e2e3d39f53cd32ed19"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "17:24",
+    "end": "17:39",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:event:6aee10f929783a6a:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      20,
+      0
+     ],
+     "sha256": "6aee10f929783a6abdf1745d43016bd89d7f1901d2b0250896683f7ca2a09fcc"
+    },
+    "type": "observation",
+    "time": "17:24",
+    "place": "home",
+    "text": "Weather: 21 °C, a brown haze. Air quality index: 328."
+   },
+   {
+    "id": "2026-11-21:event:bb053ee900b8fd8b:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      20,
+      1
+     ],
+     "sha256": "bb053ee900b8fd8bfb848c71b53c918d5e47c3003dd827908e19e13e396a41ff"
+    },
+    "type": "observation",
+    "time": "17:24",
+    "place": "home",
+    "text": "Ramesh brings tea: tea and Marie biscuits."
+   },
+   {
+    "id": "2026-11-21:event:e238346951294f26:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "915d61cf28f410c37536f2e9dc3147c7d0186e44055e4222d0a7cef9049bbf96"
+     "sha256": "e238346951294f2605d0f1f0676370e4f992f5fbcf56abf99b118aed98cc6aa5"
     },
     "type": "cash",
-    "time": "17:24",
+    "time": "17:39",
     "amount": 17916,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-21:event:0dda3725a70e1147:1",
+    "id": "2026-11-21:event:0dc0395d439060dc:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "0dda3725a70e114765421be4c5ebee87b489b5ce8b29f5dd032dd05765a30a5a"
+     "sha256": "0dc0395d439060dc25893986c82ac8c6c0c67b25a57ea278074e7a5611103729"
     },
     "type": "location",
-    "time": "17:24",
+    "time": "17:39",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-21:event:73826d2767252292:1",
+    "id": "2026-11-21:event:79c2493d4ab64a8f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "73826d2767252292b0b7b7c24ee46db49256ebb1689c89fc8a2545a2a0d25062"
+     "sha256": "79c2493d4ab64a8ff27c9d54c3f1b918c98cc19d013035fe0ea0b336f37c5afc"
     },
     "type": "inventory",
-    "time": "17:24",
+    "time": "17:39",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-21:event:0ecd586875c3cf78:1",
+    "id": "2026-11-21:event:804ed3b8d4e0ceab:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "0ecd586875c3cf7888965b9f154a298f6e983ef995fc0d0ccbd7efc85b520378"
+     "sha256": "804ed3b8d4e0ceabd4573d55ce5616d5fe4b8e068ae4b8f2d879ab3c11d07fcd"
     },
     "type": "inventory",
-    "time": "17:24",
+    "time": "17:39",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-21:event:3558cdf019d4089d:1",
+    "id": "2026-11-21:event:618f9c3aec861b6a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "3558cdf019d4089ddd3b9467879675fad8884b72a81b0cbfd34974c2c868fa1b"
+     "sha256": "618f9c3aec861b6a331b08121b5bae8d3c8836f0a92d69213b6cb8eeaca99635"
     },
     "type": "inventory",
-    "time": "17:24",
+    "time": "17:39",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -4438,7 +4608,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "17:24",
+    "time": "17:39",
     "place": null
    }
   ]
