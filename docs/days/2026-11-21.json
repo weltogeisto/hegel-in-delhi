@@ -355,6 +355,13 @@
    "mode": "walk",
    "a": "lodhi",
    "b": "home"
+  },
+  {
+   "from": "13:34",
+   "to": "14:19",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -811,6 +818,37 @@
    ],
    "t": "13:14",
    "place": "lodhi"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh has laid out the food with the quiet dignity of a man who has been told his wages are being reduced but still expects his employer to eat. The kadhi smells of cumin and the aloo gobhi looks dry, a meal fit for a scholar who has walked three kilometres in brown dust. I am hungry, and the body must be satisfied before the spirit can return to the Directorate's query.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "French Philosophy, The Negative Aspect"
+    }
+   ],
+   "t": "13:34",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "It is sufficient, Ramesh. The rice is well cooked. Sit, if you have finished your own plate.",
+   "to": "Ramesh",
+   "t": "13:34",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "No sir, I eat standing by the stove. You take your time, the kadhi won't go cold in this heat.",
+   "t": "13:34",
+   "place": "home"
   }
  ],
  "steps": [
@@ -1673,6 +1711,72 @@
      "text": "\"When the Europeans became acquainted with India, they found a multitude of petty Kingdoms, at whose head were Mahometan and Indian princes. There was an order of things very nearly approaching feudal organization; and the Kingdoms in question were divided into districts, having as governors Mahometans, or people of the \"Warrior Caste of Hindoos."
     }
    ]
+  },
+  {
+   "t": "13:34",
+   "end": "14:19",
+   "event": "Ramesh has laid out lunch: kadhi, rice and aloo gobhi.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh has laid out the food with the quiet dignity of a man who has been told his wages are being reduced but still expects his employer to eat. The kadhi smells of cumin and the aloo gobhi looks dry, a meal fit for a scholar who has walked three kilometres in brown dust. I am hungry, and the body must be satisfied before the spirit can return to the Directorate's query.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 45,
+    "says": "It is sufficient, Ramesh. The rice is well cooked. Sit, if you have finished your own plate.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 330.",
+    "Ramesh has laid out lunch: kadhi, rice and aloo gobhi."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "meal"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "No sir, I eat standing by the stove. You take your time, the kadhi won't go cold in this heat.",
+    "does": "Ramesh wipes his hands on his dhoti and steps back towards the kitchen."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 12.0,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "French Philosophy, The Negative Aspect",
+     "id": "haldane-3:943"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal. This is the state-constitution."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "French Philosophy, The Negative Aspect",
+     "text": "This French philosophy also attacked the state; it assailed prejudices and superstition, especially the depravity of civic life, of court manners and of Government officials; it laid hold of and brought to light the evil, the ridiculous, the base, and exposed the whole tissue of hypocrisy and unjust power to the derision…"
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1688,7 +1792,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-21T13:34+05:30",
+  "until": "2026-11-21T14:19+05:30",
   "asleep": false,
   "imprest": 17916,
   "wearing": "kurta",
@@ -1784,7 +1888,8 @@
    "breakfast": true,
    "bad_air": true,
    "walked": 3000,
-   "strain": 3000
+   "strain": 3000,
+   "lunch": true
   },
   "account": {
    "advance": 15000,
@@ -2055,7 +2160,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-21T09:24+05:30",
+  "last_meal": "2026-11-21T13:34+05:30",
   "snacks": 0,
   "works": [
    {
@@ -2157,7 +2262,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-21",
-  "source_sha256": "b7da4fd3cb2d05324f99cbe1606daaa8c4ca9ba4d6b95afa6de4a6ece43c64fa",
+  "source_sha256": "bb1f17c3cf2952e528f85df470f69e3d235bb8d0c88d8ee62cbae8275b1b56b9",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2577,6 +2682,36 @@
     "words": "The kettle is already on, sir. Go and find your clerk. I will keep the room cool until you get back.",
     "verified": false,
     "time": "12:09",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:b513a54939e9812e:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 43,
+     "sha256": "b513a54939e9812ed9cbf9898f74ec0f9543f910703978f065e5661690e307ae"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "It is sufficient, Ramesh. The rice is well cooked. Sit, if you have finished your own plate.",
+    "verified": false,
+    "time": "13:34",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:05eb4fbe6545f103:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 44,
+     "sha256": "05eb4fbe6545f10366d9e35ec91d1b2f340b8cd76712468ac6cba60c00a2d0c7"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "No sir, I eat standing by the stove. You take your time, the kadhi won't go cold in this heat.",
+    "verified": false,
+    "time": "13:34",
     "place": "home"
    },
    {
@@ -3208,68 +3343,114 @@
     "text": "Nothing in particular happens. The afternoon goes on."
    },
    {
-    "id": "2026-11-21:event:6f3f2145363abf14:1",
+    "id": "2026-11-21:event:34758e8f359e9c55:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 13,
+     "sha256": "34758e8f359e9c556d244e4b058fac979fe47aa6c5ff1e80e62acc176f139f05"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "13:34",
+    "end": "14:19",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:event:025a6cd23e377937:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      13,
+      0
+     ],
+     "sha256": "025a6cd23e377937f759daff6f9fdc399c695f2085d2cca229168310188e6849"
+    },
+    "type": "observation",
+    "time": "13:34",
+    "place": "home",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 330."
+   },
+   {
+    "id": "2026-11-21:event:d002759fe984568f:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      13,
+      1
+     ],
+     "sha256": "d002759fe984568f2a9688ff3f8619ebb1c5ac0ca37d481eadb6e9cbd45677ea"
+    },
+    "type": "observation",
+    "time": "13:34",
+    "place": "home",
+    "text": "Ramesh has laid out lunch: kadhi, rice and aloo gobhi."
+   },
+   {
+    "id": "2026-11-21:event:99f7b4a5c4abe352:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "6f3f2145363abf14243a7b46f5cef821684d227f4dda4d7b9d22c82c82245ee0"
+     "sha256": "99f7b4a5c4abe352408685791a025fc353937ba36508ecd793e79faaf235410f"
     },
     "type": "cash",
-    "time": "13:34",
+    "time": "14:19",
     "amount": 17916,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-21:event:67fa136c1a4fd103:1",
+    "id": "2026-11-21:event:5a801b4fa8b998ca:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "67fa136c1a4fd10325ff83fe2f1eea5f14265716731e9cce95c7f20108c2e8de"
+     "sha256": "5a801b4fa8b998ca4846678836e80909fad67fc374b2a867373368d4f70e8e54"
     },
     "type": "location",
-    "time": "13:34",
+    "time": "14:19",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-21:event:80d4f6a8bb8541c1:1",
+    "id": "2026-11-21:event:08537172924e8105:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "80d4f6a8bb8541c1485130eaf45910322cbd05530551774cb0cebd7b9db2a373"
+     "sha256": "08537172924e8105da9a8127898c5a93c616ca1b6b2f149f767603b386f6573a"
     },
     "type": "inventory",
-    "time": "13:34",
+    "time": "14:19",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-21:event:854ab686caf6cdab:1",
+    "id": "2026-11-21:event:0a2b03daba35f3ed:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "854ab686caf6cdaba1f8c67760e6a2f9365fa10519fc98be0043ca6f257788ad"
+     "sha256": "0a2b03daba35f3edc5bf8bedb4b7e2d5d721dc8feb0ee72a8e5bbfa9ac7844ec"
     },
     "type": "inventory",
-    "time": "13:34",
+    "time": "14:19",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-21:event:d1b17c28e34a4b49:1",
+    "id": "2026-11-21:event:0a138b7373769248:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "d1b17c28e34a4b49d174e321263b1ab0fe96f354c0b2e170ae6ddd1b2493673d"
+     "sha256": "0a138b737376924821e24b521621e32608168edc2517724cf36c1f849237da81"
     },
     "type": "inventory",
-    "time": "13:34",
+    "time": "14:19",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3288,7 +3469,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "13:34",
+    "time": "14:19",
     "place": null
    }
   ]
