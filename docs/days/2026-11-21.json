@@ -432,6 +432,13 @@
    "mode": "walk",
    "a": "lodhi",
    "b": "home"
+  },
+  {
+   "from": "19:49",
+   "to": "20:34",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -1183,6 +1190,37 @@
    ],
    "t": "19:29",
    "place": "lodhi"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh sets the food down with the quiet efficiency of a man who has learned that this house is a puzzle he cannot solve, only serve. Shri Hegde sits across from me, a mirror that does not reflect my face but my situation: the identity query is not just a bureaucratic error, but a collision of two lives occupying the same space. I eat the roti, hot and soft, and the dal, rich and heavy, and I feel the hunger break the philosophical knot in my chest. The state demands a signature, but the spirit demands a meal first.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§248 Addition"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…"
+    }
+   ],
+   "t": "19:49",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "The food is good, Ramesh. And Shri Hegde, you have a strange way of proving a negative. But for now, the curry is the only truth that matters.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "19:49",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "You are still confusing my name with the postman's, sir. Eat your dal, the curd will sour if you keep talking.",
+   "t": "19:49",
+   "place": "home"
   }
  ],
  "steps": [
@@ -2728,6 +2766,73 @@
      "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
     }
    ]
+  },
+  {
+   "t": "19:49",
+   "end": "20:34",
+   "event": "Ramesh serves dinner before he goes home: rotis, dal makhani and a bowl of curd.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Ramesh sets the food down with the quiet efficiency of a man who has learned that this house is a puzzle he cannot solve, only serve. Shri Hegde sits across from me, a mirror that does not reflect my face but my situation: the identity query is not just a bureaucratic error, but a collision of two lives occupying the same space. I eat the roti, hot and soft, and the dal, rich and heavy, and I feel the hunger break the philosophical knot in my chest. The state demands a signature, but the spirit demands a meal first.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 45,
+    "says": "The food is good, Ramesh. And Shri Hegde, you have a strange way of proving a negative. But for now, the curry is the only truth that matters.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 19 °C, a brown haze. Air quality index: 329.",
+    "Ramesh serves dinner before he goes home: rotis, dal makhani and a bowl of curd."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "meal"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "You are still confusing my name with the postman's, sir. Eat your dal, the curd will sour if you keep talking.",
+    "does": "He sets the steel plate of curd down on the table with a dull thud."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 12.3,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§248 Addition",
+     "id": "dyde-right:567"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "id": "phaen:385"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§248 Addition",
+     "text": "The civic society is forced to found colonies, owing to the increase of population, but more especially because production oversteps the needs of consumption, and the growing numbers cannot satisfy their needs by their work."
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "text": "Nicht der Unterschied, welcher sich als bestimmtes Ding, oder als Bewußtsein eines bestimmten natürlichen Daseins, als ein Gefühl, oder als Begierde und Zweck für dieselbe, ob er durch das eigene oder durch ein fremdes Bewußtsein gesetzt sei, hat mehr Wesenheit, sondern allein der Unterschied, der ein gedachter, oder unmittelbar nicht von Mir unterschieden ist."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2743,7 +2848,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-21T19:49+05:30",
+  "until": "2026-11-21T20:34+05:30",
   "asleep": false,
   "imprest": 17916,
   "wearing": "kurta",
@@ -2841,7 +2946,8 @@
    "walked": 6000,
    "strain": 6000,
    "lunch": true,
-   "tea": true
+   "tea": true,
+   "dinner": true
   },
   "account": {
    "advance": 15000,
@@ -3112,7 +3218,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-21T17:24+05:30",
+  "last_meal": "2026-11-21T19:49+05:30",
   "snacks": 0,
   "works": [
    {
@@ -3217,7 +3323,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-21",
-  "source_sha256": "aebe8d859d07132cc7fb84441228e93d5f294505e6af9b933f5cd672c09accef",
+  "source_sha256": "d09f3e21a61945cabbb39f18b9d68d609c342afbed11f2db13d3658362fd83e4",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3858,6 +3964,36 @@
     "words": "Bhai, it is November, not April. The fog is only in your head. I am not waiting for anyone, I am just going to check the gate latch.",
     "verified": false,
     "time": "17:39",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:ef7c33f36384c521:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 69,
+     "sha256": "ef7c33f36384c52125ba8003adba06461f7f82c944b0bfa266c36d054d4595f8"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh and Shri G. Hegde",
+    "words": "The food is good, Ramesh. And Shri Hegde, you have a strange way of proving a negative. But for now, the curry is the only truth that matters.",
+    "verified": false,
+    "time": "19:49",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:b1d53d030ec7e28b:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 70,
+     "sha256": "b1d53d030ec7e28bdbf59b3a28dd8720ecc249b83012252c93eb28033c6429ba"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "You are still confusing my name with the postman's, sir. Eat your dal, the curd will sour if you keep talking.",
+    "verified": false,
+    "time": "19:49",
     "place": "home"
    },
    {
@@ -4967,68 +5103,114 @@
     "text": "Lodhi Gardens closes at 19:30."
    },
    {
-    "id": "2026-11-21:event:3a04e3e673bb4233:1",
+    "id": "2026-11-21:event:8fbadc6e0f5eef90:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 24,
+     "sha256": "8fbadc6e0f5eef900a238fa3d247e760780321efcb6a69a9a0a751968e07da7a"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "19:49",
+    "end": "20:34",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:event:bf2e7568a6732f51:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      24,
+      0
+     ],
+     "sha256": "bf2e7568a6732f517d189a1d1308ef13aece0d5066fa03a630f61ede624d66a7"
+    },
+    "type": "observation",
+    "time": "19:49",
+    "place": "home",
+    "text": "Weather: 19 °C, a brown haze. Air quality index: 329."
+   },
+   {
+    "id": "2026-11-21:event:dd23de52325affb2:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      24,
+      1
+     ],
+     "sha256": "dd23de52325affb25046fd963c27ac7a1e25e58498608d4b2d7baa3ba3eb985c"
+    },
+    "type": "observation",
+    "time": "19:49",
+    "place": "home",
+    "text": "Ramesh serves dinner before he goes home: rotis, dal makhani and a bowl of curd."
+   },
+   {
+    "id": "2026-11-21:event:9cafd3a78859d61a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "3a04e3e673bb42336b2b9247ec26f83fdd9bb3e3444d11848f18c0db121f64f9"
+     "sha256": "9cafd3a78859d61a21435af887440f52a4befdfcc4f84e076a6cddca1bd88504"
     },
     "type": "cash",
-    "time": "19:49",
+    "time": "20:34",
     "amount": 17916,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-21:event:b2a7e70ea9806016:1",
+    "id": "2026-11-21:event:3b7dfde3c643e708:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "b2a7e70ea98060161b0493e748a2aacc5dd8152627bb4b8b01592e5b0a2242d6"
+     "sha256": "3b7dfde3c643e708ca0ad63ecbc5a4689bf4dfa23180d896093f478fff3c12b2"
     },
     "type": "location",
-    "time": "19:49",
+    "time": "20:34",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-21:event:4a5728cc7c0b7a09:1",
+    "id": "2026-11-21:event:4cf3e85407266473:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "4a5728cc7c0b7a096c14057fb12ad3e8246ce73529780edd7707b362c137cab4"
+     "sha256": "4cf3e85407266473bbb2d4776c85479f4348ded0b4c79934e6a0a03aeeba806b"
     },
     "type": "inventory",
-    "time": "19:49",
+    "time": "20:34",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-21:event:16c6cadec4c01161:1",
+    "id": "2026-11-21:event:b161b55a9c90d217:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "16c6cadec4c011618220ff232db7f4515efe519f36c90f7ad9c2c420dce24509"
+     "sha256": "b161b55a9c90d217f4e435d3cf10d276bf041fbb5f1511336b941f67d6f89fee"
     },
     "type": "inventory",
-    "time": "19:49",
+    "time": "20:34",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-21:event:4a8711ca69f490d8:1",
+    "id": "2026-11-21:event:d9a78ef508943d31:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "4a8711ca69f490d855865bcf33308474c1f2f251ebfaa1b993ceb5057a471abe"
+     "sha256": "d9a78ef508943d31128286289cc7bbc78c0ea103b446def584c72d34da12167d"
     },
     "type": "inventory",
-    "time": "19:49",
+    "time": "20:34",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -5047,7 +5229,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "19:49",
+    "time": "20:34",
     "place": null
    }
   ]
