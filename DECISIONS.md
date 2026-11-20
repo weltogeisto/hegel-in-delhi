@@ -168,6 +168,8 @@ Welt, the night of 18 November: "dont get stuck waiting on me not answering, i t
     - **Not answered, and not needed before December:** the four orders, the money, the Estate Officer, his own letter (calls 3 to 6). Claude's answers are on the sheet; nothing is built for them.
     - **How the yes was read:** it followed a message whose one open question was this sheet. If Welt meant only the adapter's night (58), the switch stays off; setting it back to 0 ends it at any time.
 
+59. **W8 is scored without Welt's preferences, and an exploratory fork runs anyway** (Welt, 20 November, about 23:35 Berlin). "Don't wait for my preferences": Sol's and Claude's keys were opened and the defect bars scored. Both fail: in the 24 held back, 3 substantive and 4 minor changes by the adapter, against 1 and 1 by the plain rewrite (`pc/exports/lora-fresh-scenes-20261119/readers/DEFECTS.md`). Welt's own key stays closed and his packet blind. Told the result, Welt still gave his word for an exploratory fork with the adapter on the night of 20 to 21 November: reported apart, never a pass, nothing of it reaches his world. The adapter may be loaded that night only, and the live server is back before Day 52's waking.
+
 ## Still open
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.
