@@ -565,7 +565,7 @@ When Welt says so: Codex sets `HEGEL_CLOCK_SHIFT_MIN` to 0 and points the Pi's w
 - **G6 · Claude, then Astra · after T39:** different plans, not different words (verbalized sampling in the morning plan).
 
 ### The literature watch · Claude · STANDING, Fridays 10:17 Berlin
-`tools/arxiv_watch.py` lists the week's new arXiv papers; Claude keeps what matters, writes `research/watch/<date>.md`, and tells Welt in one line (`research/watch/README.md`).
+`tools/arxiv_watch.py` lists the week's new arXiv papers; Claude keeps what matters, writes `research/watch/<date>.md`, merges it into `main` through a pull request (Welt, 20 November), and tells Welt in one line (`research/watch/README.md`).
 
 ## Parked
 - A local cybersecurity model for Welt (his wish, 28 October), after the Qwen trial: the best open security model and abliterated variants, run through the same sealed harness on security tasks (CTF-style challenges in the sandbox, code audit, log analysis), measuring skill, refusals, and what abliteration costs in quality. It would follow injected orders more readily (T3), so it gets tools only inside a sandbox, never Hermes's or the PC's.
