@@ -278,6 +278,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "10:09",
+   "to": "10:24",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -411,6 +418,45 @@
    "to": "Hegel",
    "text": "Ji, sit where the breeze hits. I will place the idli on the small table, just in case the sambar gets cold.",
    "t": "09:24",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Hegel ji, you are early. The file is still in the drawer, but I suppose the idli is more important today. Sit, don't stand there looking like a man waiting for a train.",
+   "t": "10:09",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Hegde is here, and the file is still in the drawer, yet she offers idli with the casualness of a hostess. The identity query hangs in the air, a tension between my name and her name that the state has failed to resolve. I will eat, for the body must be sustained before the spirit can negotiate with bureaucracy, but I will not let the moment pass without addressing the error that has placed me in her house.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Eleatic School, Parminides"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature"
+    }
+   ],
+   "t": "10:09",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, you are kind to offer food, but the matter of the file is urgent. The Directorate requires proof of identity as Shri G. Hegde, and I am not he. I am Hegel. We must find a way to correct this administrative confusion before it calcifies into a legal impossibility.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "10:09",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "I am not Shri Hegde, ji. I am Shri G. Hegde, the Joint Secretary to whom this bungalow was allocated. Please do not confuse the name on the file with your own identity crisis.",
+   "t": "10:09",
    "place": "home"
   }
  ],
@@ -557,6 +603,76 @@
      "text": "Somit entsteht im Pöbel das Böse, daß er die Ehre nicht hat, seine Subsistenz durch seine Arbeit zu finden, und doch, seine Subsistenz zu finden, als sein Recht anspricht. Gegen die Natur kann kein Mensch ein Recht behaupten; aber im Zustande der Gesellschaft gewinnt der Mangel sogleich die Form eines Unrechts, was dieser oder jener Klasse angetan wird."
     }
    ]
+  },
+  {
+   "t": "10:09",
+   "end": "10:24",
+   "event": "Ramesh says: “Ji, sit where the breeze hits. I will place the idli on the small table, just in case the sambar gets cold.” He sets the plate of idli on the verandah table and steps back. Shri G. Hegde is here. Shri G. Hegde says: “Hegel ji, you are early. The file is still in the drawer, but I suppose the idli is more important today. Sit, don't stand there looking like a man waiting for a train.” She gestures to the chair opposite the verandah table, keeping her voice low so as not to startle the birds in the neem tree.",
+   "present": [
+    "Ramesh, the caretaker",
+    "the dhobi",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Hegde is here, and the file is still in the drawer, yet she offers idli with the casualness of a hostess. The identity query hangs in the air, a tension between my name and her name that the state has failed to resolve. I will eat, for the body must be sustained before the spirit can negotiate with bureaucracy, but I will not let the moment pass without addressing the error that has placed me in her house.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Shri Hegde, you are kind to offer food, but the matter of the file is urgent. The Directorate requires proof of identity as Shri G. Hegde, and I am not he. I am Hegel. We must find a way to correct this administrative confusion before it calcifies into a legal impossibility.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 21 °C, a brown haze. Air quality index: 332.",
+    "Shri G. Hegde is here."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply",
+    "here",
+    "greeting:hegde"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "I am not Shri Hegde, ji. I am Shri G. Hegde, the Joint Secretary to whom this bungalow was allocated. Please do not confuse the name on the file with your own identity crisis.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 4,
+    "latency_s": 27.5,
+    "draws": {
+     "n": 4,
+     "refused": 3,
+     "echo": 1,
+     "picked": 2
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Eleatic School, Parminides",
+     "id": "haldane-1:644"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "id": "haldane-2:425"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Eleatic School, Parminides",
+     "text": "But that he ascribes sensation to the opposites in and for themselves is clear, because he says: “The dead do not feel light or warmth or hear voices, because the fire is out of them; they feel cold, stillness and the opposite, however, and, speaking generally, each existence has a certain knowledge.”"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "text": "And again, the matter of a small body and a large is the same, because at one time a greater proceeds from a smaller, and at another time a smaller from a greater."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -572,7 +688,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-21T10:09+05:30",
+  "until": "2026-11-21T10:24+05:30",
   "asleep": false,
   "imprest": 17916,
   "wearing": "kurta",
@@ -659,6 +775,8 @@
    "woke": "09:14",
    "seen": {
     "home": [
+     "dhobi",
+     "hegde",
      "ramesh"
     ]
    },
@@ -910,7 +1028,8 @@
     "2026-11-17",
     "2026-11-18",
     "2026-11-19",
-    "2026-11-20"
+    "2026-11-20",
+    "2026-11-21"
    ],
    "kapoor": [
     "2026-10-28",
@@ -1034,7 +1153,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-21",
-  "source_sha256": "b0e3b9f7c9aef7689396c8cb3816cb84890e6d64041441d094cf444eb9b7c15d",
+  "source_sha256": "e9cc6419b79815cac1fb15b9b3fc182e25d61c30ac27862ecdc053600ec8a793",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1169,6 +1288,51 @@
     "words": "Ji, sit where the breeze hits. I will place the idli on the small table, just in case the sambar gets cold.",
     "verified": false,
     "time": "09:24",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:8933c15e409b8e5b:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 12,
+     "sha256": "8933c15e409b8e5bc1f532336d64cd10ccf83332bf1f6b0315e406aeaa069498"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "Hegel ji, you are early. The file is still in the drawer, but I suppose the idli is more important today. Sit, don't stand there looking like a man waiting for a train.",
+    "verified": false,
+    "time": "10:09",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:ae6ab25276ab792e:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 14,
+     "sha256": "ae6ab25276ab792e6b43f12ffb6b1c0831018edb1bf33ab8b8c8d7604e79911a"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh and Shri G. Hegde",
+    "words": "Shri Hegde, you are kind to offer food, but the matter of the file is urgent. The Directorate requires proof of identity as Shri G. Hegde, and I am not he. I am Hegel. We must find a way to correct this administrative confusion before it calcifies into a legal impossibility.",
+    "verified": false,
+    "time": "10:09",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:4c854db044d71829:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 15,
+     "sha256": "4c854db044d71829a58b0b898177b569afad7039f3601b02fa94c16bb372d22b"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "I am not Shri Hegde, ji. I am Shri G. Hegde, the Joint Secretary to whom this bungalow was allocated. Please do not confuse the name on the file with your own identity crisis.",
+    "verified": false,
+    "time": "10:09",
     "place": "home"
    },
    {
@@ -1418,68 +1582,114 @@
     "text": "The air is very poor today: the index stands at 332."
    },
    {
-    "id": "2026-11-21:event:0c5e3fc8ca89ab0c:1",
+    "id": "2026-11-21:event:f67594ea13eed9b0:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 2,
+     "sha256": "f67594ea13eed9b0bbc8a4fda0a9d6f5b815f59ea4cc668ec23c7dd0310d6a1c"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "10:09",
+    "end": "10:24",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:event:6caf5ac9c724bfaa:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      2,
+      0
+     ],
+     "sha256": "6caf5ac9c724bfaad53adf6bf818a313b3680860902fa685ebefb383ecb36f11"
+    },
+    "type": "observation",
+    "time": "10:09",
+    "place": "home",
+    "text": "Weather: 21 °C, a brown haze. Air quality index: 332."
+   },
+   {
+    "id": "2026-11-21:event:62bb1c36d0c7c817:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      2,
+      1
+     ],
+     "sha256": "62bb1c36d0c7c81705f4b6b26667224595edeaced7771eb5f38e8f57651b3a25"
+    },
+    "type": "observation",
+    "time": "10:09",
+    "place": "home",
+    "text": "Shri G. Hegde is here."
+   },
+   {
+    "id": "2026-11-21:event:5247ea1b3153507a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "0c5e3fc8ca89ab0c726c4cff8100c1a31c8d1566f0bccdf8553fe4f75afd99bd"
+     "sha256": "5247ea1b3153507abbaec9d1771570b41f07fe6bcda4691996bab105f1485e32"
     },
     "type": "cash",
-    "time": "10:09",
+    "time": "10:24",
     "amount": 17916,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-21:event:63ba48c30be1f838:1",
+    "id": "2026-11-21:event:5b66f4fe074da270:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "63ba48c30be1f838fd8465968a7ac9e5e05400099e85ec60b23eab47132cd104"
+     "sha256": "5b66f4fe074da27035eb4e438e96f9f64fe48a5b3b3edfec2da5720704e087c5"
     },
     "type": "location",
-    "time": "10:09",
+    "time": "10:24",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-21:event:a548553a9706ac5e:1",
+    "id": "2026-11-21:event:0f0c3cfe5c2b6e68:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "a548553a9706ac5e4877bd2a183881938981790b44592e1cdaf0884ef953758f"
+     "sha256": "0f0c3cfe5c2b6e68f165cef82a9c403e851f1b034877905e5c710a689a564622"
     },
     "type": "inventory",
-    "time": "10:09",
+    "time": "10:24",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-21:event:e3db60d5f23d80b5:1",
+    "id": "2026-11-21:event:c20bab719a11bb67:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "e3db60d5f23d80b52601091b3179c81b4fd2976ec9a4dae224a10f4c3946ed07"
+     "sha256": "c20bab719a11bb67859e1aae5b5ba3433f2c8af92d1005a15fd1597d404efb2a"
     },
     "type": "inventory",
-    "time": "10:09",
+    "time": "10:24",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-21:event:36929adb01ccc71b:1",
+    "id": "2026-11-21:event:3563440865111efb:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "36929adb01ccc71b03f02e674f8f579fa1dc58f6facf0496b7a32a78c401b2eb"
+     "sha256": "3563440865111efbcc4cd26c5344f056dd8b8f18f360681c200f71a6a93aa4ad"
     },
     "type": "inventory",
-    "time": "10:09",
+    "time": "10:24",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -1498,7 +1708,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "10:09",
+    "time": "10:24",
     "place": null
    }
   ]
