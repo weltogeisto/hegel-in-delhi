@@ -425,6 +425,13 @@
    "mode": "stand",
    "at": "lodhi",
    "now": "Resting in Lodhi Gardens."
+  },
+  {
+   "from": "19:29",
+   "to": "19:49",
+   "mode": "walk",
+   "a": "lodhi",
+   "b": "home"
   }
  ],
  "entries": [
@@ -1159,6 +1166,22 @@
     }
    ],
    "t": "17:59",
+   "place": "lodhi"
+  },
+  {
+   "k": "diary",
+   "text": "The gatekeeper is already moving the barrier; the garden does not wait for my contemplations. I have walked enough to clear the head, and the air is thick with the day's exhaust. It is time to turn back to the bungalow, where the silence is my own and the dinner waits.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33"
+    }
+   ],
+   "t": "19:29",
    "place": "lodhi"
   }
  ],
@@ -2646,6 +2669,65 @@
      "text": "Wir haben den Despotismus im Orient in glänzender Ausbildung als eine dem Morgenland entsprechende Gestaltung gesehen; nicht minder ist die demokratische Form in Griechenland die welthistorische Bestimmung."
     }
    ]
+  },
+  {
+   "t": "19:29",
+   "end": "19:49",
+   "event": "Lodhi Gardens closes at 19:30.",
+   "present": [],
+   "decision": {
+    "thought": "The gatekeeper is already moving the barrier; the garden does not wait for my contemplations. I have walked enough to clear the head, and the air is thick with the day's exhaust. It is time to turn back to the bungalow, where the silence is my own and the dinner waits.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "observations": [
+    "Weather: 19 °C, a brown haze. Air quality index: 329.",
+    "Lodhi Gardens closes at 19:30."
+   ],
+   "observed_at": "lodhi",
+   "opened": [
+    "closes"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "id": "wallace-mind:321"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "id": "rechts:121"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "text": "Thus, it may be—if we look only to the fact that the will of one individual stands at the head of the state—oriental despotism is included under the vague name monarchy,—as also feudal monarchy, to which indeed even the favourite name of “constitutional monarchy” cannot be refused."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§33",
+     "text": "C. die Einheit und Wahrheit dieser bsiden abstrakten Momente, — die gedachte Idee des Guten realisiert in dem in sich reflektierten Willen und in äußerlicher Welt; ■ — so daß die Freiheit als die Substanz ebensosehr als Wirklichkeit und Notwendigkeit existiert, wie als subjektiver Wille; — die Idee in ihrer an und für sich allgemeinen Existenz; die Sittlichkeit."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2660,8 +2742,8 @@
  "owl": null,
  "complete": false,
  "state": {
-  "place": "lodhi",
-  "until": "2026-11-21T19:29+05:30",
+  "place": "home",
+  "until": "2026-11-21T19:49+05:30",
   "asleep": false,
   "imprest": 17916,
   "wearing": "kurta",
@@ -2756,8 +2838,8 @@
    },
    "breakfast": true,
    "bad_air": true,
-   "walked": 4500,
-   "strain": 4500,
+   "walked": 6000,
+   "strain": 6000,
    "lunch": true,
    "tea": true
   },
@@ -3135,7 +3217,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-21",
-  "source_sha256": "865afd01a45676e8a762b26bbf26742143a6be750a20b179f143ab301f088959",
+  "source_sha256": "aebe8d859d07132cc7fb84441228e93d5f294505e6af9b933f5cd672c09accef",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4837,68 +4919,116 @@
     "text": "You arrive at Lodhi Gardens. It closes at 19:30."
    },
    {
-    "id": "2026-11-21:event:0f9b7d672ab30a69:1",
+    "id": "2026-11-21:event:7de0d220eef361c5:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 23,
+     "sha256": "7de0d220eef361c57ca1deebebfa8d590223cd3ce01af0766015e911d55aa778"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "19:29",
+    "end": "19:49",
+    "place": null,
+    "origin": "lodhi",
+    "destination": "home"
+   },
+   {
+    "id": "2026-11-21:event:bf2e7568a6732f51:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      23,
+      0
+     ],
+     "sha256": "bf2e7568a6732f517d189a1d1308ef13aece0d5066fa03a630f61ede624d66a7"
+    },
+    "type": "observation",
+    "time": "19:29",
+    "place": "lodhi",
+    "text": "Weather: 19 °C, a brown haze. Air quality index: 329."
+   },
+   {
+    "id": "2026-11-21:event:3b8d15288c8f06a3:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      23,
+      1
+     ],
+     "sha256": "3b8d15288c8f06a32be4c511a699364bd436bb5e40d6987f78c1d2c6c824e4cd"
+    },
+    "type": "observation",
+    "time": "19:29",
+    "place": "lodhi",
+    "text": "Lodhi Gardens closes at 19:30."
+   },
+   {
+    "id": "2026-11-21:event:3a04e3e673bb4233:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "0f9b7d672ab30a698f33df80aa016debd5a2b16e7939d8829a809c25f55dd229"
+     "sha256": "3a04e3e673bb42336b2b9247ec26f83fdd9bb3e3444d11848f18c0db121f64f9"
     },
     "type": "cash",
-    "time": "19:29",
+    "time": "19:49",
     "amount": 17916,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-21:event:2087c28199e89b44:1",
+    "id": "2026-11-21:event:b2a7e70ea9806016:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "2087c28199e89b448c08819749c3f99460cf96084303fa5c05d0304a49d45487"
+     "sha256": "b2a7e70ea98060161b0493e748a2aacc5dd8152627bb4b8b01592e5b0a2242d6"
     },
     "type": "location",
-    "time": "19:29",
-    "place": "lodhi",
+    "time": "19:49",
+    "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-21:event:37ba07859c74b892:1",
+    "id": "2026-11-21:event:4a5728cc7c0b7a09:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "37ba07859c74b892530daaddcad59d7b8d48f7c3e95a95fa29efbae76a0d8b07"
+     "sha256": "4a5728cc7c0b7a096c14057fb12ad3e8246ce73529780edd7707b362c137cab4"
     },
     "type": "inventory",
-    "time": "19:29",
+    "time": "19:49",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-21:event:98208329d4c4fd11:1",
+    "id": "2026-11-21:event:16c6cadec4c01161:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "98208329d4c4fd11716f1d15364c2fb14e3de73ed4ffd1ba220e6199a80deadc"
+     "sha256": "16c6cadec4c011618220ff232db7f4515efe519f36c90f7ad9c2c420dce24509"
     },
     "type": "inventory",
-    "time": "19:29",
+    "time": "19:49",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-21:event:f41f3e41bfda58df:1",
+    "id": "2026-11-21:event:4a8711ca69f490d8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "f41f3e41bfda58dfa3f26146a127f174f6b65e5878bb552e9877d70a806b2781"
+     "sha256": "4a8711ca69f490d855865bcf33308474c1f2f251ebfaa1b993ceb5057a471abe"
     },
     "type": "inventory",
-    "time": "19:29",
+    "time": "19:49",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -4917,7 +5047,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "19:29",
+    "time": "19:49",
     "place": null
    }
   ]
