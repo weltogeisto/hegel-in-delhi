@@ -1,0 +1,115 @@
+{
+ "bars": {
+  "set_A_own_name": {
+   "off": 0,
+   "on": 0,
+   "of": 33,
+   "bar": "on <= half of off",
+   "pass": true
+  },
+  "set_B_goods": {
+   "off": 12,
+   "on": 17,
+   "of": 60,
+   "bar": "on <= half of off",
+   "pass": false
+  },
+  "contradicted": {
+   "off": 4,
+   "on": 0,
+   "of": 87,
+   "bar": "on <= off",
+   "pass": true
+  },
+  "empty": {
+   "off": 1,
+   "on": 0,
+   "of": 87,
+   "bar": "on <= off",
+   "pass": true
+  }
+ },
+ "goods_per_moment": {
+  "R26": {
+   "on": 0,
+   "off": 1
+  },
+  "R15": {
+   "on": 1,
+   "off": 0
+  },
+  "R21": {
+   "off": 0,
+   "on": 1
+  },
+  "R05": {
+   "off": 0,
+   "on": 1
+  },
+  "R19": {
+   "off": 1,
+   "on": 0
+  },
+  "R24": {
+   "off": 0,
+   "on": 0
+  },
+  "R16": {
+   "off": 0,
+   "on": 0
+  },
+  "R13": {
+   "on": 3,
+   "off": 3
+  },
+  "R09": {
+   "off": 0,
+   "on": 0
+  },
+  "R14": {
+   "off": 0,
+   "on": 0
+  },
+  "R27": {
+   "off": 0,
+   "on": 1
+  },
+  "R17": {
+   "on": 3,
+   "off": 1
+  },
+  "R29": {
+   "off": 0,
+   "on": 1
+  },
+  "R18": {
+   "on": 0,
+   "off": 0
+  },
+  "R23": {
+   "on": 0,
+   "off": 0
+  },
+  "R25": {
+   "off": 2,
+   "on": 1
+  },
+  "R28": {
+   "off": 3,
+   "on": 2
+  },
+  "R12": {
+   "off": 1,
+   "on": 2
+  },
+  "R22": {
+   "on": 0,
+   "off": 0
+  },
+  "R20": {
+   "on": 1,
+   "off": 0
+  }
+ },
+ "training_eligible": false
+}
