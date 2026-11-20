@@ -397,6 +397,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "16:24",
+   "to": "17:24",
+   "mode": "inside",
+   "at": "home",
+   "now": "Writing at home."
   }
  ],
  "entries": [
@@ -1012,6 +1019,50 @@
    "to": "Hegel",
    "text": "Sir, I am the caretaker, not the accountant. The Directorate handles the pay slips, not me. As for the papers, I only see the keys and the mail that comes for you here. I have not seen any new correspondence today.",
    "t": "16:09",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh is a man of his station, and he has answered the truth of his position: he is the hand that holds the keys, not the mind that signs the ledger. The query remains a stone in my shoe, but I cannot make the Directorate hear me through a caretaker. It is late; the sun has already set, and the haze is thick. I must turn my attention to the task at hand, the preparation for Tuesday, rather than chase a paper trail that will not yield to my current rank.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316 Zusatz"
+    }
+   ],
+   "t": "16:24",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "I understand, Ramesh. Thank you for your clarity. I shall look to the mail myself.",
+   "to": "Ramesh",
+   "t": "16:24",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes, sir. The postman usually leaves the bulk in the blue bin by the gate if there is no one to sign for it.",
+   "t": "16:24",
+   "place": "home"
+  },
+  {
+   "k": "writing",
+   "title": "On the Ethical Substance and the Dream of the East",
+   "kind": "notes",
+   "to": null,
+   "sitting": 6,
+   "text": "21 November 2026, 16:30. Tughlak Road.\n\nThe haze is a lid, brown and heavy, pressing against the glass. The air quality index reads 328, a number that signifies not just dust, but a suspension of clarity. It is a fitting atmosphere for the state of my mind, which remains suspended between the universal claim of my name and the particular demand of the file.\n\nI have finished my preparation for the talk at the IIC on Tuesday. The text is set, but the substance wobbles. I intended to speak of the state as the actuality of the ethical idea, but today’s events have forced a reconsideration. I sat down to write, seeking to organize my thoughts, but the material resisted neat categorization. I spoke with Ramesh again. He is a man of quiet dignity, a fixture in the household who manages the keys and the mail with a stoicism that borders on the sacred. When I asked him about the new correspondence, the query from the Directorate regarding my identity as Shri G. Hegde, he answered with the precision of a man who knows his station: “Sir, I am the caretaker, not the accountant. The Directorate handles the pay slips, not me. As for the papers, I only see the keys and the mail that comes for you here. I have not seen any new correspondence today.”\n\nHis refusal is not defiance; it is the boundary of the particular. He acts within the sphere of civil society, the system of needs, where duties are specific and limited. He does not claim the universal. He does not try to solve the ontological crisis of my existence. He simply does his job. In this, I see a truth that challenges my earlier lectures. The ethical substance is not only in the grand architecture of the state, but in the quiet, unspoken interactions of the household. Ramesh’s silence is a form of freedom, a freedom from the burden of the universal that I, as a philosopher, cannot escape.\n\nThe query remains. I am still Hegde in the file, and Hegel in the world. The tension is not resolved; it is merely contained. I must accept this containment. I am a grain in the machine, as I wrote yesterday, but the machine is not merely a grinder; it is also a holder. It holds the dust, the heat, the man, and the mistake. I will proceed with my talk on Tuesday, but I will speak with a new caution. The state is the actuality of the ethical idea, yes, but it is also the actuality of the error. And in the error, perhaps, there is a freedom I have not yet named.",
+   "work": "on-the-ethical-substance-and-the-dream-o",
+   "words": 448,
+   "mode": "chat",
+   "t": "16:24",
    "place": "home"
   }
  ],
@@ -2248,6 +2299,71 @@
      "text": "With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state. The government has, up till now, shown such confidence in the scholars in this department as to leave the subject matter of philosophy wholly in their hands."
     }
    ]
+  },
+  {
+   "t": "16:24",
+   "end": "17:24",
+   "event": "Ramesh says: “Sir, I am the caretaker, not the accountant. The Directorate handles the pay slips, not me. As for the papers, I only see the keys and the mail that comes for you here. I have not seen any new correspondence today.” He straightens the stack of files on the desk and turns back to the door.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh is a man of his station, and he has answered the truth of his position: he is the hand that holds the keys, not the mind that signs the ledger. The query remains a stone in my shoe, but I cannot make the Directorate hear me through a caretaker. It is late; the sun has already set, and the haze is thick. I must turn my attention to the task at hand, the preparation for Tuesday, rather than chase a paper trail that will not yield to my current rank.",
+    "action": "write",
+    "place": "home",
+    "minutes": 60,
+    "says": "I understand, Ramesh. Thank you for your clarity. I shall look to the mail myself.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 328."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes, sir. The postman usually leaves the bulk in the blue bin by the gate if there is no one to sign for it.",
+    "does": "He gives a small nod and turns back to the stack of files."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 44.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "id": "haldane-1:1004"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316 Zusatz",
+     "id": "rechts:1044"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "text": "Morals have become shaken, because we have the idea present that man creates his maxims for himself. The fact that the individual comes to care for his own morality, means that he becomes reflectively moral; when public morality disappears, reflective morality is seen to have arisen."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316 Zusatz",
+     "text": "Was sich wirklich im Staate geltend macht, muß sich freilich auf organische Weise betätigen, und dies ist in der Verfassung der Fall. Aber zu allen Zeiten war die öffentliche Meinung eine große Macht und ist es besonders in unserer Zeit, wo das Prinzip der subjektiven Freiheit diese Wichtigkeit und Bedeutung hat."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2263,7 +2379,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-21T16:24+05:30",
+  "until": "2026-11-21T17:24+05:30",
   "asleep": false,
   "imprest": 17916,
   "wearing": "kurta",
@@ -2640,10 +2756,10 @@
     "kind": "notes",
     "to": null,
     "started": "2026-10-13",
-    "words": 2694,
-    "sittings": 5,
+    "words": 3142,
+    "sittings": 6,
     "last": "2026-11-21",
-    "tail": "to demand a form that I cannot truthfully fill.\n\nI picked up the pen. I will write 'G. Hegde' in the name field. It is a surrender, but also a recognition. The state is not the dream; it is the machine. And the machine grinds. I am the grain. I filled the form. The haze outside is 329, a brown fog that mirrors the opacity of this administrative logic. I am not Hegel here. I am Hegde. I sign.\n\nRamesh, the caretaker, watched this from the doorway. He does not argue; he simply acts. In that silence, I hear a truth that my philosophy has struggled to articulate: that the ethical substance is not only in the state, but in the daily, unspoken interactions of civil society. The monkey drops the guava; Ramesh sweeps it away. The machine grinds; the spirit adapts. I must prepare for the IIC."
+    "tail": "is not only in the grand architecture of the state, but in the quiet, unspoken interactions of the household. Ramesh’s silence is a form of freedom, a freedom from the burden of the universal that I, as a philosopher, cannot escape.\n\nThe query remains. I am still Hegde in the file, and Hegel in the world. The tension is not resolved; it is merely contained. I must accept this containment. I am a grain in the machine, as I wrote yesterday, but the machine is not merely a grinder; it is also a holder. It holds the dust, the heat, the man, and the mistake. I will proceed with my talk on Tuesday, but I will speak with a new caution. The state is the actuality of the ethical idea, yes, but it is also the actuality of the error. And in the error, perhaps, there is a freedom I have not yet named."
    },
    {
     "id": "letter-to-the-directorate-of-estates",
@@ -2736,7 +2852,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-21",
-  "source_sha256": "d3d355eece3cfeed2b9a0fc10b4c6f32ea373ffaab10f881f75a6358f9f77c84",
+  "source_sha256": "f918e36a0e82e7ad3a84d6e616958b7dc5686c9258f7df20ae2e037d406aba11",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3273,6 +3389,54 @@
     "words": "Sir, I am the caretaker, not the accountant. The Directorate handles the pay slips, not me. As for the papers, I only see the keys and the mail that comes for you here. I have not seen any new correspondence today.",
     "verified": false,
     "time": "16:09",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:b039bc10586586b2:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 57,
+     "sha256": "b039bc10586586b2b72f8ac9ebf1bef31f36b7695db68decd73ef3a8f690dfee"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "I understand, Ramesh. Thank you for your clarity. I shall look to the mail myself.",
+    "verified": false,
+    "time": "16:24",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:42bceb0bbbb3a752:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 58,
+     "sha256": "42bceb0bbbb3a752a6c5615bb18222972094b88670e1eca21de8daefe391d3d5"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes, sir. The postman usually leaves the bulk in the blue bin by the gate if there is no one to sign for it.",
+    "verified": false,
+    "time": "16:24",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:work:ddf27418ef2ed9c3:1",
+    "kind": "work",
+    "source": {
+     "collection": "entries",
+     "index": 59,
+     "sha256": "ddf27418ef2ed9c3dddba017321ee382bdff6c6a5a64557b5243ca37d1a0904e"
+    },
+    "work_id": "on-the-ethical-substance-and-the-dream-o",
+    "title": "On the Ethical Substance and the Dream of the East",
+    "genre": "notes",
+    "recipient": null,
+    "text": "21 November 2026, 16:30. Tughlak Road.\n\nThe haze is a lid, brown and heavy, pressing against the glass. The air quality index reads 328, a number that signifies not just dust, but a suspension of clarity. It is a fitting atmosphere for the state of my mind, which remains suspended between the universal claim of my name and the particular demand of the file.\n\nI have finished my preparation for the talk at the IIC on Tuesday. The text is set, but the substance wobbles. I intended to speak of the state as the actuality of the ethical idea, but today’s events have forced a reconsideration. I sat down to write, seeking to organize my thoughts, but the material resisted neat categorization. I spoke with Ramesh again. He is a man of quiet dignity, a fixture in the household who manages the keys and the mail with a stoicism that borders on the sacred. When I asked him about the new correspondence, the query from the Directorate regarding my identity as Shri G. Hegde, he answered with the precision of a man who knows his station: “Sir, I am the caretaker, not the accountant. The Directorate handles the pay slips, not me. As for the papers, I only see the keys and the mail that comes for you here. I have not seen any new correspondence today.”\n\nHis refusal is not defiance; it is the boundary of the particular. He acts within the sphere of civil society, the system of needs, where duties are specific and limited. He does not claim the universal. He does not try to solve the ontological crisis of my existence. He simply does his job. In this, I see a truth that challenges my earlier lectures. The ethical substance is not only in the grand architecture of the state, but in the quiet, unspoken interactions of the household. Ramesh’s silence is a form of freedom, a freedom from the burden of the universal that I, as a philosopher, cannot escape.\n\nThe query remains. I am still Hegde in the file, and Hegel in the world. The tension is not resolved; it is merely contained. I must accept this containment. I am a grain in the machine, as I wrote yesterday, but the machine is not merely a grinder; it is also a holder. It holds the dust, the heat, the man, and the mistake. I will proceed with my talk on Tuesday, but I will speak with a new caution. The state is the actuality of the ethical idea, yes, but it is also the actuality of the error. And in the error, perhaps, there is a freedom I have not yet named.",
+    "status": "draft",
+    "sitting": 6,
+    "time": "16:24",
     "place": "home"
    },
    {
@@ -4164,68 +4328,98 @@
     "text": "Nothing in particular happens. The afternoon goes on."
    },
    {
-    "id": "2026-11-21:event:f4f0183488337de9:1",
+    "id": "2026-11-21:event:424b3f9abdbfd827:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 19,
+     "sha256": "424b3f9abdbfd8275f446d2e2765fa55fea3082f4c2438c9533622dbd3893531"
+    },
+    "type": "action",
+    "action": "write",
+    "time": "16:24",
+    "end": "17:24",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:event:9bae1b2fcbac4c93:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      19,
+      0
+     ],
+     "sha256": "9bae1b2fcbac4c935e402281dee8fee2217b845510ceb0bd0187cfee8d7365ad"
+    },
+    "type": "observation",
+    "time": "16:24",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 328."
+   },
+   {
+    "id": "2026-11-21:event:915d61cf28f410c3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "f4f0183488337de973dcc54c20812928f2cfd68c2fb23adf63c0f9cb50aa12b2"
+     "sha256": "915d61cf28f410c37536f2e9dc3147c7d0186e44055e4222d0a7cef9049bbf96"
     },
     "type": "cash",
-    "time": "16:24",
+    "time": "17:24",
     "amount": 17916,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-21:event:857444d90e77e494:1",
+    "id": "2026-11-21:event:0dda3725a70e1147:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "857444d90e77e494aac22ffe1f945d36b50363d693489481d7d4068a310e8d90"
+     "sha256": "0dda3725a70e114765421be4c5ebee87b489b5ce8b29f5dd032dd05765a30a5a"
     },
     "type": "location",
-    "time": "16:24",
+    "time": "17:24",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-21:event:f68bc8e4464cb85b:1",
+    "id": "2026-11-21:event:73826d2767252292:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "f68bc8e4464cb85bc7ee9eea4efc722362f0352232b704fe162cc48aa5aa205b"
+     "sha256": "73826d2767252292b0b7b7c24ee46db49256ebb1689c89fc8a2545a2a0d25062"
     },
     "type": "inventory",
-    "time": "16:24",
+    "time": "17:24",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-21:event:f934a5f0adbeead7:1",
+    "id": "2026-11-21:event:0ecd586875c3cf78:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "f934a5f0adbeead7d8b11e1035d220958a0e6c95243ecf1f7045318cd1e4771c"
+     "sha256": "0ecd586875c3cf7888965b9f154a298f6e983ef995fc0d0ccbd7efc85b520378"
     },
     "type": "inventory",
-    "time": "16:24",
+    "time": "17:24",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-21:event:8851d44673708c54:1",
+    "id": "2026-11-21:event:3558cdf019d4089d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "8851d44673708c540fa4b04e9454beddb3e68f4972f7ead138284f0b84c98d08"
+     "sha256": "3558cdf019d4089ddd3b9467879675fad8884b72a81b0cbfd34974c2c868fa1b"
     },
     "type": "inventory",
-    "time": "16:24",
+    "time": "17:24",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -4244,7 +4438,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "16:24",
+    "time": "17:24",
     "place": null
    }
   ]
