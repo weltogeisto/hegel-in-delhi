@@ -369,6 +369,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "14:39",
+   "to": "14:54",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -871,6 +878,28 @@
     }
    ],
    "t": "14:19",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "A water tanker crawls along the road spraying a fine fan from its rear, and the grey pavement turns dark behind it and begins to pale again within minutes.",
+   "t": "14:39",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The tanker sprays a fine fan across the road, turning the grey pavement dark before it pales again within minutes. It is a futile gesture against the brown haze, a momentary cleanliness that the dust swallows as quickly as it is born. I watch the water evaporate into the dry air, a small emblem of the futility of trying to wash the impurity out of the world by force.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§562"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§351"
+    }
+   ],
+   "t": "14:39",
    "place": "home"
   }
  ],
@@ -1860,6 +1889,67 @@
      "text": "“It may happen that a man has done wrong to another, and suffers hunger and cold at the hands of him whom he considers entitled to inflict them upon him; in this case, the nobler he is, the less will his anger be excited."
     }
    ]
+  },
+  {
+   "t": "14:39",
+   "end": "14:54",
+   "event": "A water tanker crawls along the road spraying a fine fan from its rear, and the grey pavement turns dark behind it and begins to pale again within minutes.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The tanker sprays a fine fan across the road, turning the grey pavement dark before it pales again within minutes. It is a futile gesture against the brown haze, a momentary cleanliness that the dust swallows as quickly as it is born. I watch the water evaporate into the dry air, a small emblem of the futility of trying to wash the impurity out of the world by force.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 329.",
+    "A water tanker crawls along the road spraying a fine fan from its rear, and the grey pavement turns dark behind it and begins to pale again within minutes."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "street:home_water_tanker"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§562",
+     "id": "wallace-mind:402"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§351",
+     "id": "dyde-right:849"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§562",
+     "text": "In the sublime divinity to which the work of art succeeds in giving expression the artistic genius and the spectator find themselves at home, with their personal sense and feeling, satisfied and liberated: to them the vision and the consciousness of free spirit has been vouchsafed and attained."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§351",
+     "text": "It is this feature of them which is significant in world-history. The concrete ideas, which embody the national minds or - Spirits, h as its truth in the concrete idea i n its absolute, jiniversality. This is the spirit of the world, around whose throne stand the other spirits as perfecters of its actuality, and witnesses and ornaments of its splendour.\""
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1875,7 +1965,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-21T14:39+05:30",
+  "until": "2026-11-21T14:54+05:30",
   "asleep": false,
   "imprest": 17916,
   "wearing": "kurta",
@@ -2339,13 +2429,14 @@
    "estates_bench": "2026-11-20",
    "home_walls": "2026-11-20",
    "home_marigolds": "2026-11-20",
-   "iic_noticeboard": "2026-11-20"
+   "iic_noticeboard": "2026-11-20",
+   "home_water_tanker": "2026-11-21"
   }
  },
  "records": {
   "version": 2,
   "date": "2026-11-21",
-  "source_sha256": "98c240f4a3a64758ee6081e1170c02b74b398ffa17c9f097964580435b95a48e",
+  "source_sha256": "2868ee0384d2959bd31abda49a235a0382273a0fa416889413da49a49101a471",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2795,6 +2886,19 @@
     "words": "No sir, I eat standing by the stove. You take your time, the kadhi won't go cold in this heat.",
     "verified": false,
     "time": "13:34",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:event:c5b4d9f428e7a14f:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 46,
+     "sha256": "c5b4d9f428e7a14f7230e8f43a622edfc586d99941ac91a98fbe2bca961c4e05"
+    },
+    "type": "world",
+    "text": "A water tanker crawls along the road spraying a fine fan from its rear, and the grey pavement turns dark behind it and begins to pale again within minutes.",
+    "time": "14:39",
     "place": "home"
    },
    {
@@ -3502,68 +3606,114 @@
     "text": "Weather: 24 °C, a brown haze. Air quality index: 329."
    },
    {
-    "id": "2026-11-21:event:c3cda334ee37fa4a:1",
+    "id": "2026-11-21:event:66c2fd10934e3193:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 15,
+     "sha256": "66c2fd10934e3193646789dd8d296d3ae31d379824ffee8e6bab675a45eb79c1"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "14:39",
+    "end": "14:54",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:event:2ded0a6115e357d8:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      15,
+      0
+     ],
+     "sha256": "2ded0a6115e357d897bea5555201bf35efc99c3485914aca274afd7b2c97215c"
+    },
+    "type": "observation",
+    "time": "14:39",
+    "place": "home",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 329."
+   },
+   {
+    "id": "2026-11-21:event:a47e37e705ae1fc1:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      15,
+      1
+     ],
+     "sha256": "a47e37e705ae1fc19b3eccc144f8d43ef3b060fa3360cd934910c6fd34c3e4ad"
+    },
+    "type": "observation",
+    "time": "14:39",
+    "place": "home",
+    "text": "A water tanker crawls along the road spraying a fine fan from its rear, and the grey pavement turns dark behind it and begins to pale again within minutes."
+   },
+   {
+    "id": "2026-11-21:event:f31c54dcb4e84f0f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "c3cda334ee37fa4a662c9d5692f2b6ed6edd05e36e0f7999b50341538532404b"
+     "sha256": "f31c54dcb4e84f0ff32b150dd55ce8878590d9105caac32040eacf8cb95b773a"
     },
     "type": "cash",
-    "time": "14:39",
+    "time": "14:54",
     "amount": 17916,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-21:event:8d0dd02dfc884ae0:1",
+    "id": "2026-11-21:event:22eb7401882f4ae5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "8d0dd02dfc884ae05470182665dc049d05cff05754444a3aa4628fc01e48d9fa"
+     "sha256": "22eb7401882f4ae54331d4b28e8bd33b2f20e18b51c7b8de315c1c67fb3fc685"
     },
     "type": "location",
-    "time": "14:39",
+    "time": "14:54",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-21:event:c94917b2453e1c3e:1",
+    "id": "2026-11-21:event:24be716cce26bf78:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "c94917b2453e1c3ebaf2033b49f4aa5d687d4549ab2bd6e40a0184c31e8c367e"
+     "sha256": "24be716cce26bf78344aed5ba5b31f54504635ce6dd620dbd7c4671d3f93ffe3"
     },
     "type": "inventory",
-    "time": "14:39",
+    "time": "14:54",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-21:event:70f7ecc29b69f427:1",
+    "id": "2026-11-21:event:a1c34c35aa375b7a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "70f7ecc29b69f42754439dfe8be7c9ebc874e2d9612bd234ca029bd6c714720b"
+     "sha256": "a1c34c35aa375b7a7209add00a447bf1b898afaccd9fc601d38fad5ad4f6eafb"
     },
     "type": "inventory",
-    "time": "14:39",
+    "time": "14:54",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-21:event:d0364fd52a57142e:1",
+    "id": "2026-11-21:event:f9a45607bbfd549a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "d0364fd52a57142e2ebbae8337af2675210466acabb6303a67135f489641e444"
+     "sha256": "f9a45607bbfd549a0350f3734ed3b8d7dd22fa0f52b1910124035bc48677fe78"
     },
     "type": "inventory",
-    "time": "14:39",
+    "time": "14:54",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3582,7 +3732,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "14:39",
+    "time": "14:54",
     "place": null
    }
   ]
