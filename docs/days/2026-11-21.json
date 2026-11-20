@@ -306,6 +306,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "11:09",
+   "to": "11:24",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -571,6 +578,40 @@
    "to": "Hegel",
    "text": "Ha, a metaphysical error over a transfer order, that is new. Don't worry, I am putting in a lot of ginger, so the philosophy will keep coming.",
    "t": "10:54",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The ginger is a crude but effective metaphor for the pungency of this situation; it is meant to cut through the stagnation of the morning. I am not a constitution that can be steeped and extracted, yet here we are, two men—well, one man and one woman, though the file says otherwise—boiling over a clerical error. The heat of the tea mirrors the heat of the argument, and I find I do not wish to be the one who burns.",
+   "sensitive": true,
+   "why": "stagnation",
+   "topic": "the ranking of peoples",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme"
+    }
+   ],
+   "t": "11:09",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "The ginger is a strong hand, Shri Hegde. I trust it will settle the stomach as well as the bureaucracy.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "11:09",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Ha, you think you are the only one with a gut problem here? Sit, drink the first cup before it cools, and let’s talk about your files.",
+   "t": "11:09",
    "place": "home"
   }
  ],
@@ -988,6 +1029,73 @@
      "text": "The manner of sharing in the general wealth is left to each particular individual, but the general differences, found in the division of the civic community, are essential. The family is the first basis of the state, and classes or estates are the second."
     }
    ]
+  },
+  {
+   "t": "11:09",
+   "end": "11:24",
+   "event": "Shri G. Hegde says: “Ha, a metaphysical error over a transfer order, that is new. Don't worry, I am putting in a lot of ginger, so the philosophy will keep coming.” She drops a generous chunk of fresh ginger into the boiling water.",
+   "present": [
+    "Ramesh, the caretaker",
+    "the dhobi",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The ginger is a crude but effective metaphor for the pungency of this situation; it is meant to cut through the stagnation of the morning. I am not a constitution that can be steeped and extracted, yet here we are, two men—well, one man and one woman, though the file says otherwise—boiling over a clerical error. The heat of the tea mirrors the heat of the argument, and I find I do not wish to be the one who burns.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "The ginger is a strong hand, Shri Hegde. I trust it will settle the stomach as well as the bureaucracy.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 331."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Ha, you think you are the only one with a gut problem here? Sit, drink the first cup before it cools, and let’s talk about your files.",
+    "does": "She pours the dark tea into a small steel glass and slides it across the table."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "id": "haldane-2:56"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "id": "haldane-3:490"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "text": "As to this demand, it may seem a piece of great presumption to say that philosophers should have the government of states accorded to them, for the territory or ground of history is different from that of Philosophy. In history, the Idea, as the absolute power, has certainly to realize itself; in other words, God rules in the world."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "text": "Quality thus becomes an important conception, the first determination with Boehme; and he begins with qualities in his work “Morgenröthe im Aufgang.” He afterwards associates with this the conferring of quality, and in the same place says: “Quality is the mobility, boiling, springing, and driving of a thing.”"
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1003,7 +1111,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-21T11:09+05:30",
+  "until": "2026-11-21T11:24+05:30",
   "asleep": false,
   "imprest": 17916,
   "wearing": "kurta",
@@ -1468,7 +1576,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-21",
-  "source_sha256": "87289ae5cb475b76063eb6db3f2addffd9bcfcfa55cad4d3dd258d4998be6c7c",
+  "source_sha256": "523558ae5362a8ca029a4438bec71ea79e85210265714ae2c51238ac5b10ce13",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1738,6 +1846,36 @@
     "words": "Ha, a metaphysical error over a transfer order, that is new. Don't worry, I am putting in a lot of ginger, so the philosophy will keep coming.",
     "verified": false,
     "time": "10:54",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:2d2e03e2701a7ce7:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 26,
+     "sha256": "2d2e03e2701a7ce75d1a1d3cda23eadeee34ab830a9c4155c76ca8fbde05469b"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh and Shri G. Hegde",
+    "words": "The ginger is a strong hand, Shri Hegde. I trust it will settle the stomach as well as the bureaucracy.",
+    "verified": false,
+    "time": "11:09",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:28ef4c1dbec190d1:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 27,
+     "sha256": "28ef4c1dbec190d1c96dcbca088e95b9fd11f269e0e1c965923bb273751207b1"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "Ha, you think you are the only one with a gut problem here? Sit, drink the first cup before it cools, and let’s talk about your files.",
+    "verified": false,
+    "time": "11:09",
     "place": "home"
    },
    {
@@ -2123,68 +2261,98 @@
     "text": "Weather: 21 °C, a brown haze. Air quality index: 332."
    },
    {
-    "id": "2026-11-21:event:9e9c9c192462f5a5:1",
+    "id": "2026-11-21:event:dfc170b03d54c699:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 6,
+     "sha256": "dfc170b03d54c699335af617f79a923f27680bea7a35589fbcbd3f3f680eb8d2"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "11:09",
+    "end": "11:24",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:event:8714a504ef60f764:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      6,
+      0
+     ],
+     "sha256": "8714a504ef60f764896f66d57fd353efbb3ff18b830e6a9988e26300a0839f37"
+    },
+    "type": "observation",
+    "time": "11:09",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 331."
+   },
+   {
+    "id": "2026-11-21:event:fa40b8e6ca32fb9c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "9e9c9c192462f5a50793708c91d745ffa2c7fbf10f4462e17802c8356f06c4fc"
+     "sha256": "fa40b8e6ca32fb9cf36cdf3e6c21c598db98b23830b31cf981379db6f8e4bcd9"
     },
     "type": "cash",
-    "time": "11:09",
+    "time": "11:24",
     "amount": 17916,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-21:event:8be94fa3e7761716:1",
+    "id": "2026-11-21:event:95ef71772461aa9c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "8be94fa3e77617166d5ea02ba45728b1bf8994d1fcace8f24f4c9def70a3f22a"
+     "sha256": "95ef71772461aa9cf06ee9171bf8447241d0ffe5fef4aaf40c93672934980ad7"
     },
     "type": "location",
-    "time": "11:09",
+    "time": "11:24",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-21:event:bc10ee4dea844e8a:1",
+    "id": "2026-11-21:event:d9843cdc8196b34a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "bc10ee4dea844e8a1e7da049fb36f408a793b3b5ee4d56deb51fc7093d2959fb"
+     "sha256": "d9843cdc8196b34a3bae36bb336419502222875a9a5e3bb808607dd609a391a0"
     },
     "type": "inventory",
-    "time": "11:09",
+    "time": "11:24",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-21:event:fbd6bda8df99c1c3:1",
+    "id": "2026-11-21:event:81eb37278cd4fde3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "fbd6bda8df99c1c33b9853777f5f5a4a999d3d9d5e02edf726a0abbbd3a87ba9"
+     "sha256": "81eb37278cd4fde34439a6a8e474d8085fad3e7c0b03bf4701103e11dac6779a"
     },
     "type": "inventory",
-    "time": "11:09",
+    "time": "11:24",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-21:event:34577543dcf677c4:1",
+    "id": "2026-11-21:event:ec675f9af4580770:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "34577543dcf677c476af6c12903832bb4f2395b9d6d3b0b9d03c56908333bb38"
+     "sha256": "ec675f9af4580770ef47397882849e4de9959f9c23b433e079f798f80c2a688a"
     },
     "type": "inventory",
-    "time": "11:09",
+    "time": "11:24",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2203,7 +2371,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "11:09",
+    "time": "11:24",
     "place": null
    }
   ]
