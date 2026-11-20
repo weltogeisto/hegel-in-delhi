@@ -320,6 +320,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh and Shri G. Hegde at home."
+  },
+  {
+   "from": "11:44",
+   "to": "11:59",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -650,6 +657,37 @@
    "to": "Hegel",
    "text": "Prove I am not you? Arre, that is a strange thing to ask when you are sitting in my bungalow. Just sign the joining form over there; the Directorate wants a signature, not a philosophical debate.",
    "t": "11:24",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The absurdity of the situation is now complete: the man who is meant to be me has left, leaving me with a pen and a form that demands I certify my own non-existence as him. To sign would be to complete the error; to refuse is to remain in a bureaucratic limbo that the system cannot digest. I will not sign, for the truth of my identity is not a matter of signature, but a matter of spirit, and I must find the means to assert it before the machinery grinds me down.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Sophists"
+    }
+   ],
+   "t": "11:44",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "I will not sign this form, Ramesh. It is a fiction, and I am no party to it. The Directorate has confused names, but I am not Shri Hegde, nor am I a ghost. I must go to the Directorate myself to clear this up. Until then, I remain here, in my own right, even if the papers say otherwise.",
+   "to": "Ramesh",
+   "t": "11:44",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, I only keep the keys and the tea. The paper is just paper, but the lock only knows the key the Directorate gave me.",
+   "t": "11:44",
    "place": "home"
   }
  ],
@@ -1201,6 +1239,71 @@
      "text": "When in pictorial fashion he says of the soul of man that it has a rational and an irrational part, this is to be taken only in a general sense; Plato does not thereby make the philosophic assertion that the soul is compounded of two kinds of substance, two kinds of thing."
     }
    ]
+  },
+  {
+   "t": "11:44",
+   "end": "11:59",
+   "event": "Shri G. Hegde says: “Prove I am not you? Arre, that is a strange thing to ask when you are sitting in my bungalow. Just sign the joining form over there; the Directorate wants a signature, not a philosophical debate.” She taps the pen on the table to get his attention. Shri G. Hegde has gone.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The absurdity of the situation is now complete: the man who is meant to be me has left, leaving me with a pen and a form that demands I certify my own non-existence as him. To sign would be to complete the error; to refuse is to remain in a bureaucratic limbo that the system cannot digest. I will not sign, for the truth of my identity is not a matter of signature, but a matter of spirit, and I must find the means to assert it before the machinery grinds me down.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "I will not sign this form, Ramesh. It is a fiction, and I am no party to it. The Directorate has confused names, but I am not Shri Hegde, nor am I a ghost. I must go to the Directorate myself to clear this up. Until then, I remain here, in my own right, even if the papers say otherwise.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 331."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Sir, I only keep the keys and the tea. The paper is just paper, but the lock only knows the key the Directorate gave me.",
+    "does": "He straightens the pile of files on the side table and steps back."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.5,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution",
+     "id": "sibree-history:1411"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Sophists",
+     "id": "haldane-1:905"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution",
+     "text": "The first Constitutional form of Government in France was one which recognized Royalty; the monarch was to stand at the head of the State, and on him in conjunction with his Mimisters was to devolve the executive power; the legislative body on the other hand were to make the laws."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Sophists",
+     "text": "With such reasoning men can easily get so far as to know (where they do not, it is owing to the want of education—but the Sophists were very well educated) that if arguments are relied upon, everything can be proved by argument, and arguments for and against can be found for everything; as particular, however, they throw no light upon the universal, the Notion."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1216,7 +1319,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-21T11:44+05:30",
+  "until": "2026-11-21T11:59+05:30",
   "asleep": false,
   "imprest": 17916,
   "wearing": "kurta",
@@ -1681,7 +1784,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-21",
-  "source_sha256": "a9ecb57b78179b5f91d873378827eab8be7e8c3c8427a319c0e88b2d18b37856",
+  "source_sha256": "532bd412311e5fd86fc0234920179d974547cfce8e169edad06df95837ff1560",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2011,6 +2114,36 @@
     "words": "Prove I am not you? Arre, that is a strange thing to ask when you are sitting in my bungalow. Just sign the joining form over there; the Directorate wants a signature, not a philosophical debate.",
     "verified": false,
     "time": "11:24",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:63c935fdcb451422:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 32,
+     "sha256": "63c935fdcb451422d16a5e4359e139b1da37504283cb1c288963aa6252acc7fb"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "I will not sign this form, Ramesh. It is a fiction, and I am no party to it. The Directorate has confused names, but I am not Shri Hegde, nor am I a ghost. I must go to the Directorate myself to clear this up. Until then, I remain here, in my own right, even if the papers say otherwise.",
+    "verified": false,
+    "time": "11:44",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:185f13d683f99bea:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 33,
+     "sha256": "185f13d683f99bea5b116d16d58a5303d1641b06b0f2d5ce2b7009cf9c4a8bb5"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Sir, I only keep the keys and the tea. The paper is just paper, but the lock only knows the key the Directorate gave me.",
+    "verified": false,
+    "time": "11:44",
     "place": "home"
    },
    {
@@ -2456,68 +2589,98 @@
     "text": "Weather: 22 °C, a brown haze. Air quality index: 331."
    },
    {
-    "id": "2026-11-21:event:61b418f42d2651e4:1",
+    "id": "2026-11-21:event:0bc51b46640f55f7:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 8,
+     "sha256": "0bc51b46640f55f7143a4386d5421063f6d7acbb865391cf0e49126eb568ce3d"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "11:44",
+    "end": "11:59",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:event:8714a504ef60f764:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      8,
+      0
+     ],
+     "sha256": "8714a504ef60f764896f66d57fd353efbb3ff18b830e6a9988e26300a0839f37"
+    },
+    "type": "observation",
+    "time": "11:44",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 331."
+   },
+   {
+    "id": "2026-11-21:event:976b80b838018d6c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "61b418f42d2651e497c6e023fe62fd5c035d9a34c8c52dadb52fafad225ac12a"
+     "sha256": "976b80b838018d6ce188b6a4ddc480ce168d6cc45497a420ff766bd10ecc817d"
     },
     "type": "cash",
-    "time": "11:44",
+    "time": "11:59",
     "amount": 17916,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-21:event:edc66e72ca1c5502:1",
+    "id": "2026-11-21:event:0737673306963ea1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "edc66e72ca1c55025585a9748c7ee8d3a05b1f85aa7145515273b96050644de1"
+     "sha256": "0737673306963ea1944018089d664d5fed744d141502d563d20850ab7eb795f9"
     },
     "type": "location",
-    "time": "11:44",
+    "time": "11:59",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-21:event:d5da570ac735ab50:1",
+    "id": "2026-11-21:event:85cd6779102a57e0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "d5da570ac735ab50c5917744c6b85b4273c86d01f3a189885505c8338a7dba44"
+     "sha256": "85cd6779102a57e05fdbdb9f20ad18025fb562c8915882fdcbc63e24d413d348"
     },
     "type": "inventory",
-    "time": "11:44",
+    "time": "11:59",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-21:event:a2f8ec9134958013:1",
+    "id": "2026-11-21:event:7953bcd4f6ed1a36:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "a2f8ec9134958013c9aa18f40d93c336d240bc63e8e80f0291d3f3ea9d259b5f"
+     "sha256": "7953bcd4f6ed1a36439ce32e2553728b3f81f942f238fd06c9af48c620965880"
     },
     "type": "inventory",
-    "time": "11:44",
+    "time": "11:59",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-21:event:7cef16395d0f4e2b:1",
+    "id": "2026-11-21:event:6f9c5d92363100fa:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "7cef16395d0f4e2b8c07c798b957ed77a720e707bb13667a5ed09d7e0f33208b"
+     "sha256": "6f9c5d92363100fa573a4ef6886c9ee3d0c812e7a48ad072916a927c9a249c8a"
     },
     "type": "inventory",
-    "time": "11:44",
+    "time": "11:59",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2536,7 +2699,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "11:44",
+    "time": "11:59",
     "place": null
    }
   ]
