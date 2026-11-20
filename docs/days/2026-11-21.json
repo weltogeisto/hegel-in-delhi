@@ -31,13 +31,13 @@
    },
    {
     "temp": 16,
-    "sky": "overcast",
+    "sky": "a brown haze",
     "rain": 0,
     "aqi": 329
    },
    {
     "temp": 15,
-    "sky": "overcast",
+    "sky": "a brown haze",
     "rain": 0,
     "aqi": 331
    },
@@ -390,6 +390,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Writing at home."
+  },
+  {
+   "from": "16:09",
+   "to": "16:24",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -974,6 +981,37 @@
    "why": "outside world history",
    "topic": "the ranking of peoples",
    "t": "15:09",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh stands in the doorway, waiting. The file is still on my desk, a heavy weight of bureaucratic error. I must address the matter of his wage and the identity query before I can settle into my notes for Tuesday. The haze outside is thick, but the room is cool, as he promised.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    }
+   ],
+   "t": "16:09",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, come in. We have two matters to discuss. First, regarding the reduction in your wages, I wish to explain the circumstances. Second, the Directorate has sent back a query regarding my identity as Shri Hegde. I need to know if you have seen any further correspondence or if there is anything you can tell me about the original allotment papers.",
+   "to": "Ramesh",
+   "t": "16:09",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, I am the caretaker, not the accountant. The Directorate handles the pay slips, not me. As for the papers, I only see the keys and the mail that comes for you here. I have not seen any new correspondence today.",
+   "t": "16:09",
    "place": "home"
   }
  ],
@@ -2146,6 +2184,70 @@
      "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
     }
    ]
+  },
+  {
+   "t": "16:09",
+   "end": "16:24",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh stands in the doorway, waiting. The file is still on my desk, a heavy weight of bureaucratic error. I must address the matter of his wage and the identity query before I can settle into my notes for Tuesday. The haze outside is thick, but the room is cool, as he promised.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, come in. We have two matters to discuss. First, regarding the reduction in your wages, I wish to explain the circumstances. Second, the Directorate has sent back a query regarding my identity as Shri Hegde. I need to know if you have seen any further correspondence or if there is anything you can tell me about the original allotment papers.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 328.",
+    "Nothing in particular happens. The afternoon goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Sir, I am the caretaker, not the accountant. The Directorate handles the pay slips, not me. As for the papers, I only see the keys and the mail that comes for you here. I have not seen any new correspondence today.",
+    "does": "He straightens the stack of files on the desk and turns back to the door."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273",
+     "id": "dyde-right:681"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:23"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273",
+     "text": "This is the descent of the spirit of the world into itself, the free perfection by virtue of which the idea sets loose from itself its own elements, and nothing but its own elements, and makes them totalities; at the same time it holds them within the unity of the conception, in which is found their real rationality."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state. The government has, up till now, shown such confidence in the scholars in this department as to leave the subject matter of philosophy wholly in their hands."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2161,7 +2263,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-21T16:09+05:30",
+  "until": "2026-11-21T16:24+05:30",
   "asleep": false,
   "imprest": 17916,
   "wearing": "kurta",
@@ -2634,7 +2736,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-21",
-  "source_sha256": "d8f84841dfbe83719dd9e0aff784de32e3acbad96535f6402f59e5c9c5c95a61",
+  "source_sha256": "d3d355eece3cfeed2b9a0fc10b4c6f32ea373ffaab10f881f75a6358f9f77c84",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3141,6 +3243,36 @@
     "status": "draft",
     "sitting": 5,
     "time": "15:09",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:56e415f7eb3400d6:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 54,
+     "sha256": "56e415f7eb3400d6921dfec739510679121fb7210b67f15d627483243be4f5e6"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, come in. We have two matters to discuss. First, regarding the reduction in your wages, I wish to explain the circumstances. Second, the Directorate has sent back a query regarding my identity as Shri Hegde. I need to know if you have seen any further correspondence or if there is anything you can tell me about the original allotment papers.",
+    "verified": false,
+    "time": "16:09",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:206438fe7656d2b6:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 55,
+     "sha256": "206438fe7656d2b6da4930c8364f9d8a7770ac378f89d069f8182c0b93d2c4ca"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Sir, I am the caretaker, not the accountant. The Directorate handles the pay slips, not me. As for the papers, I only see the keys and the mail that comes for you here. I have not seen any new correspondence today.",
+    "verified": false,
+    "time": "16:09",
     "place": "home"
    },
    {
@@ -3986,68 +4118,114 @@
     "text": "A rhesus monkey sits on the compound wall turning a guava in its hands, bites once, and drops the rest into the road."
    },
    {
-    "id": "2026-11-21:event:1838cd408e68a037:1",
+    "id": "2026-11-21:event:ee18382ba3f15cc6:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 18,
+     "sha256": "ee18382ba3f15cc67cab442d4860ce7250d40fb0b8d27580f3c2cdb6f5e92666"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "16:09",
+    "end": "16:24",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:event:9bae1b2fcbac4c93:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      18,
+      0
+     ],
+     "sha256": "9bae1b2fcbac4c935e402281dee8fee2217b845510ceb0bd0187cfee8d7365ad"
+    },
+    "type": "observation",
+    "time": "16:09",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 328."
+   },
+   {
+    "id": "2026-11-21:event:a77f13cd004dc58e:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      18,
+      1
+     ],
+     "sha256": "a77f13cd004dc58e92ee3fd09257ac61887e5229b3f41685577fbace3df64cce"
+    },
+    "type": "observation",
+    "time": "16:09",
+    "place": "home",
+    "text": "Nothing in particular happens. The afternoon goes on."
+   },
+   {
+    "id": "2026-11-21:event:f4f0183488337de9:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "1838cd408e68a0375806990aa73f0867ffc7874672cc7356f807931fba571b96"
+     "sha256": "f4f0183488337de973dcc54c20812928f2cfd68c2fb23adf63c0f9cb50aa12b2"
     },
     "type": "cash",
-    "time": "16:09",
+    "time": "16:24",
     "amount": 17916,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-21:event:239eaa790855ca1e:1",
+    "id": "2026-11-21:event:857444d90e77e494:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "239eaa790855ca1e8a0363ebd63cc066363ac7f270521cd7b1ae0c4f4d68da0d"
+     "sha256": "857444d90e77e494aac22ffe1f945d36b50363d693489481d7d4068a310e8d90"
     },
     "type": "location",
-    "time": "16:09",
+    "time": "16:24",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-21:event:246bd46b74aa2e68:1",
+    "id": "2026-11-21:event:f68bc8e4464cb85b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "246bd46b74aa2e68ced1492bd1289397cd31e9e5622557d2fc22af23b8eba641"
+     "sha256": "f68bc8e4464cb85bc7ee9eea4efc722362f0352232b704fe162cc48aa5aa205b"
     },
     "type": "inventory",
-    "time": "16:09",
+    "time": "16:24",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-21:event:b0c982995033286f:1",
+    "id": "2026-11-21:event:f934a5f0adbeead7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "b0c982995033286fdc336220c25b0399a79ea9c45ba4126dc924565070987d2f"
+     "sha256": "f934a5f0adbeead7d8b11e1035d220958a0e6c95243ecf1f7045318cd1e4771c"
     },
     "type": "inventory",
-    "time": "16:09",
+    "time": "16:24",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-21:event:f3e48a03331ca1e6:1",
+    "id": "2026-11-21:event:8851d44673708c54:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "f3e48a03331ca1e64b5c2241858101f2f568fc9290a00ba7293407ba7e66a6e8"
+     "sha256": "8851d44673708c540fa4b04e9454beddb3e68f4972f7ead138284f0b84c98d08"
     },
     "type": "inventory",
-    "time": "16:09",
+    "time": "16:24",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -4066,7 +4244,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "16:09",
+    "time": "16:24",
     "place": null
    }
   ]
