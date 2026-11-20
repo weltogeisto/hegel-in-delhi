@@ -271,6 +271,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "09:24",
+   "to": "10:09",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -374,6 +381,37 @@
    "text": "Hegel, ji. I will write it down. The tea is in the steel pot, just like you like it.",
    "t": "09:14",
    "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh writes my name with the care of a man recording a debt or a birth, and the air outside is thick enough to taste the city's indifference. I will not walk into that brown wall today; the spirit needs a clear head, not a congested lung, and the identity file will not be solved by coughing. I will eat, and I will sit in the verandah, watching the haze settle over the bungalow as if it were a verdict.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§245"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§244 Zusatz"
+    }
+   ],
+   "t": "09:24",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "The name is recorded, Ramesh. Now the idli. The air is too thick for a man to think clearly, so I shall sit in the verandah and let the day pass.",
+   "to": "Ramesh",
+   "t": "09:24",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, sit where the breeze hits. I will place the idli on the small table, just in case the sambar gets cold.",
+   "t": "09:24",
+   "place": "home"
   }
  ],
  "steps": [
@@ -450,6 +488,75 @@
     }
    ],
    "beat": "ramesh_fulltime"
+  },
+  {
+   "t": "09:24",
+   "end": "10:09",
+   "event": "Ramesh says: “Hegel, ji. I will write it down. The tea is in the steel pot, just like you like it.” Ramesh takes the notebook from his pocket and writes the name down carefully. Ramesh has laid out breakfast: idli with sambar and coconut chutney. The air is very poor today: the index stands at 332.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh writes my name with the care of a man recording a debt or a birth, and the air outside is thick enough to taste the city's indifference. I will not walk into that brown wall today; the spirit needs a clear head, not a congested lung, and the identity file will not be solved by coughing. I will eat, and I will sit in the verandah, watching the haze settle over the bungalow as if it were a verdict.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 45,
+    "says": "The name is recorded, Ramesh. Now the idli. The air is too thick for a man to think clearly, so I shall sit in the verandah and let the day pass.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 19 °C, a brown haze. Air quality index: 332.",
+    "Ramesh has laid out breakfast: idli with sambar and coconut chutney.",
+    "The air is very poor today: the index stands at 332."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply",
+    "meal",
+    "air"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, sit where the breeze hits. I will place the idli on the small table, just in case the sambar gets cold.",
+    "does": "He sets the plate of idli on the verandah table and steps back."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§245",
+     "id": "dyde-right:563"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§244 Zusatz",
+     "id": "rechts:979"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§245",
+     "text": "If upon the more wealthy classes the burden were directly laid of maintaining the poor at the level of their ordinary way of life, or if in public institutions, such as rich hospitals, foundations, or cloisters, the poor could receive direct support, they would be assured of subsistence without requiring to do any work."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§244 Zusatz",
+     "text": "Somit entsteht im Pöbel das Böse, daß er die Ehre nicht hat, seine Subsistenz durch seine Arbeit zu finden, und doch, seine Subsistenz zu finden, als sein Recht anspricht. Gegen die Natur kann kein Mensch ein Recht behaupten; aber im Zustande der Gesellschaft gewinnt der Mangel sogleich die Form eines Unrechts, was dieser oder jener Klasse angetan wird."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -465,7 +572,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-21T09:24+05:30",
+  "until": "2026-11-21T10:09+05:30",
   "asleep": false,
   "imprest": 17916,
   "wearing": "kurta",
@@ -554,7 +661,9 @@
     "home": [
      "ramesh"
     ]
-   }
+   },
+   "breakfast": true,
+   "bad_air": true
   },
   "account": {
    "advance": 15000,
@@ -823,7 +932,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-20T14:19+05:30",
+  "last_meal": "2026-11-21T09:24+05:30",
   "snacks": 0,
   "works": [
    {
@@ -925,7 +1034,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-21",
-  "source_sha256": "b705716715f9c86faaa66b104e4eaa68b6632f54a8047af3b3ce03fa6b72df8d",
+  "source_sha256": "b0e3b9f7c9aef7689396c8cb3816cb84890e6d64041441d094cf444eb9b7c15d",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1030,6 +1139,36 @@
     "words": "Hegel, ji. I will write it down. The tea is in the steel pot, just like you like it.",
     "verified": false,
     "time": "09:14",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:cddec0ef52432df6:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 10,
+     "sha256": "cddec0ef52432df6a2f690468d364cd363962d55167d68451ba4f432b30c8caa"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "The name is recorded, Ramesh. Now the idli. The air is too thick for a man to think clearly, so I shall sit in the verandah and let the day pass.",
+    "verified": false,
+    "time": "09:24",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:9a1f143e49c3cbe4:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 11,
+     "sha256": "9a1f143e49c3cbe455facaac8799134ab572288b978e46e237d6eeebbe0b60a4"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Ji, sit where the breeze hits. I will place the idli on the small table, just in case the sambar gets cold.",
+    "verified": false,
+    "time": "09:24",
     "place": "home"
    },
    {
@@ -1217,68 +1356,130 @@
     "text": "Ramesh is here."
    },
    {
-    "id": "2026-11-21:event:7c69d748e2c46a88:1",
+    "id": "2026-11-21:event:62bb9d96bea6d955:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 1,
+     "sha256": "62bb9d96bea6d955d9f4f0d6e49831f16477d2c21044dd2a78f636072b9e8360"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "09:24",
+    "end": "10:09",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:event:d0c5ac96c165c922:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      1,
+      0
+     ],
+     "sha256": "d0c5ac96c165c922326e0566f2120df0a4cd10f5b6f14f8c43375927ce9d48bf"
+    },
+    "type": "observation",
+    "time": "09:24",
+    "place": "home",
+    "text": "Weather: 19 °C, a brown haze. Air quality index: 332."
+   },
+   {
+    "id": "2026-11-21:event:6c91fe2a45d514fa:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      1,
+      1
+     ],
+     "sha256": "6c91fe2a45d514fa160d7a3aafba407f3d73915bd2376806461b31e50784141d"
+    },
+    "type": "observation",
+    "time": "09:24",
+    "place": "home",
+    "text": "Ramesh has laid out breakfast: idli with sambar and coconut chutney."
+   },
+   {
+    "id": "2026-11-21:event:20d9770efed2a3ad:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      1,
+      2
+     ],
+     "sha256": "20d9770efed2a3ad0d7954e412e3c24fbe928fbbcd1d2728a3c8306d2d05561d"
+    },
+    "type": "observation",
+    "time": "09:24",
+    "place": "home",
+    "text": "The air is very poor today: the index stands at 332."
+   },
+   {
+    "id": "2026-11-21:event:0c5e3fc8ca89ab0c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "7c69d748e2c46a88293797921edc8902b76246fd00fe2d6e697ba84617de1084"
+     "sha256": "0c5e3fc8ca89ab0c726c4cff8100c1a31c8d1566f0bccdf8553fe4f75afd99bd"
     },
     "type": "cash",
-    "time": "09:24",
+    "time": "10:09",
     "amount": 17916,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-21:event:7a7e754ccd05f360:1",
+    "id": "2026-11-21:event:63ba48c30be1f838:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "7a7e754ccd05f36083e32eb17db569da17c46551790ec1fbbdc285e74093b0cf"
+     "sha256": "63ba48c30be1f838fd8465968a7ac9e5e05400099e85ec60b23eab47132cd104"
     },
     "type": "location",
-    "time": "09:24",
+    "time": "10:09",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-21:event:6dcd98a305d6b4bc:1",
+    "id": "2026-11-21:event:a548553a9706ac5e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "6dcd98a305d6b4bcbdcd2639f3615b1a1378d0fbf552add3e57846ab1ef2b935"
+     "sha256": "a548553a9706ac5e4877bd2a183881938981790b44592e1cdaf0884ef953758f"
     },
     "type": "inventory",
-    "time": "09:24",
+    "time": "10:09",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-21:event:4a6e8f8d8dd8b82c:1",
+    "id": "2026-11-21:event:e3db60d5f23d80b5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "4a6e8f8d8dd8b82c29406192576d325efe3b5606ef506215f0105c9327478172"
+     "sha256": "e3db60d5f23d80b52601091b3179c81b4fd2976ec9a4dae224a10f4c3946ed07"
     },
     "type": "inventory",
-    "time": "09:24",
+    "time": "10:09",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-21:event:fb4a1020c1185ad1:1",
+    "id": "2026-11-21:event:36929adb01ccc71b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "fb4a1020c1185ad17c93ae100782308ebdfdd712d5645a1ae8ab1635748af14b"
+     "sha256": "36929adb01ccc71b03f02e674f8f579fa1dc58f6facf0496b7a32a78c401b2eb"
     },
     "type": "inventory",
-    "time": "09:24",
+    "time": "10:09",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -1297,7 +1498,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "09:24",
+    "time": "10:09",
     "place": null
    }
   ]
