@@ -49,7 +49,7 @@ TOPICS = {
         'abs:"historical figures" AND abs:"language model"',
         'abs:"knowledge boundary" AND abs:character',
         'abs:"historical text" AND abs:"language model"',
-        'abs:"temporal leakage"',
+        'abs:"temporal leakage" AND abs:"language model"',
     ],
     "A. Memory": [
         'abs:"memory consolidation" AND abs:agent',
