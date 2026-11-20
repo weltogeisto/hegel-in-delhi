@@ -12,7 +12,7 @@ Claude in the cloud. `HEGEL_STREET=1` since his Day 50 (`DECISIONS.md` 50 and 51
 | Empty moments | 5% | 9% | 16% | **8%** |
 | Moments at home | 14% | 9% | 68% | **22%** |
 | Notions of his system per 100 words | 4.17 | 1.97 | 1.11 | **1.15** |
-| Share of the day's kinds seen the day before | 50% | 50% | 33% | **22%** |
+| Share of what the day brought that an earlier day had brought | 50% | 50% | 33% | **22%** |
 
 (`python3 tools/world_health.py --ref origin/shadow`.)
 
