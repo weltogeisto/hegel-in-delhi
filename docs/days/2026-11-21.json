@@ -418,6 +418,13 @@
    "mode": "walk",
    "a": "home",
    "b": "lodhi"
+  },
+  {
+   "from": "17:59",
+   "to": "19:29",
+   "mode": "stand",
+   "at": "lodhi",
+   "now": "Resting in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -1137,6 +1144,22 @@
    "text": "Bhai, it is November, not April. The fog is only in your head. I am not waiting for anyone, I am just going to check the gate latch.",
    "t": "17:39",
    "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The brown haze is thickening, a tangible weight on the air that matches the weight of the identity query sitting in my pocket. I have ninety minutes before the gates close, enough time to sit on a bench and let the tension in my theses about the state and freedom work itself out in the quiet. The sun is gone, but the city's noise remains, a civil society that does not sleep even when the light does.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die griechische Welt, Die besonderen Götter"
+    }
+   ],
+   "t": "17:59",
+   "place": "lodhi"
   }
  ],
  "steps": [
@@ -2564,6 +2587,65 @@
      "text": "He lays hold of knowledge, the simply ideal, and of intellectual thought, which is implicitly life, but not silent nor sealed."
     }
    ]
+  },
+  {
+   "t": "17:59",
+   "end": "19:29",
+   "event": "You arrive at Lodhi Gardens. It closes at 19:30.",
+   "present": [],
+   "decision": {
+    "thought": "The brown haze is thickening, a tangible weight on the air that matches the weight of the identity query sitting in my pocket. I have ninety minutes before the gates close, enough time to sit on a bench and let the tension in my theses about the state and freedom work itself out in the quiet. The sun is gone, but the city's noise remains, a civil society that does not sleep even when the light does.",
+    "action": "rest",
+    "place": "lodhi",
+    "minutes": 90,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 21 °C, a brown haze. Air quality index: 328.",
+    "You arrive at Lodhi Gardens. It closes at 19:30."
+   ],
+   "observed_at": "lodhi",
+   "opened": [
+    "arrive"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "id": "sibree-history:376"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die griechische Welt, Die besonderen Götter",
+     "id": "welt-3:190"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "text": "WITH the Empire of China History has to begin, for it is the oldest, as far as history gives us any information; and its principle has such substantiality, that for the empire in question it is at once the oldest and the newest."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die griechische Welt, Die besonderen Götter",
+     "text": "Wir haben den Despotismus im Orient in glänzender Ausbildung als eine dem Morgenland entsprechende Gestaltung gesehen; nicht minder ist die demokratische Form in Griechenland die welthistorische Bestimmung."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2579,7 +2661,7 @@
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-11-21T17:59+05:30",
+  "until": "2026-11-21T19:29+05:30",
   "asleep": false,
   "imprest": 17916,
   "wearing": "kurta",
@@ -3053,7 +3135,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-21",
-  "source_sha256": "0e530fa70263c72bbb5c64e2992acef6001d4c31a2f4596461c66f6d1b827b9a",
+  "source_sha256": "865afd01a45676e8a762b26bbf26742143a6be750a20b179f143ab301f088959",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4709,68 +4791,114 @@
     "text": "Nothing in particular happens. The evening goes on."
    },
    {
-    "id": "2026-11-21:event:dd184dcb4a4b2358:1",
+    "id": "2026-11-21:event:e6ce53a60c0ef555:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 22,
+     "sha256": "e6ce53a60c0ef55526e9002f15d22aceffbb12d9a3f73ed35e6bdb7b9b0c8a34"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "17:59",
+    "end": "19:29",
+    "place": "lodhi"
+   },
+   {
+    "id": "2026-11-21:event:6aee10f929783a6a:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      22,
+      0
+     ],
+     "sha256": "6aee10f929783a6abdf1745d43016bd89d7f1901d2b0250896683f7ca2a09fcc"
+    },
+    "type": "observation",
+    "time": "17:59",
+    "place": "lodhi",
+    "text": "Weather: 21 °C, a brown haze. Air quality index: 328."
+   },
+   {
+    "id": "2026-11-21:event:c5fde5a7b058005b:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      22,
+      1
+     ],
+     "sha256": "c5fde5a7b058005b0fd2c5beda490598a396c89cee6534961cabb31f62874020"
+    },
+    "type": "observation",
+    "time": "17:59",
+    "place": "lodhi",
+    "text": "You arrive at Lodhi Gardens. It closes at 19:30."
+   },
+   {
+    "id": "2026-11-21:event:0f9b7d672ab30a69:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "dd184dcb4a4b23589ca7e34054b1ea8541f6f727bd0eb2070c94622a1ac1a194"
+     "sha256": "0f9b7d672ab30a698f33df80aa016debd5a2b16e7939d8829a809c25f55dd229"
     },
     "type": "cash",
-    "time": "17:59",
+    "time": "19:29",
     "amount": 17916,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-21:event:10e6ac4b63f0b9fb:1",
+    "id": "2026-11-21:event:2087c28199e89b44:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "10e6ac4b63f0b9fb53b8e840072ea34e11485ffa32a18ef74d38c1db7062f852"
+     "sha256": "2087c28199e89b448c08819749c3f99460cf96084303fa5c05d0304a49d45487"
     },
     "type": "location",
-    "time": "17:59",
+    "time": "19:29",
     "place": "lodhi",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-21:event:d824536eb228d9f6:1",
+    "id": "2026-11-21:event:37ba07859c74b892:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "d824536eb228d9f62e192197e8c91a5c3ca678be746b8af2112eff4fc5572e17"
+     "sha256": "37ba07859c74b892530daaddcad59d7b8d48f7c3e95a95fa29efbae76a0d8b07"
     },
     "type": "inventory",
-    "time": "17:59",
+    "time": "19:29",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-21:event:e48cb28b7f1a84c0:1",
+    "id": "2026-11-21:event:98208329d4c4fd11:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "e48cb28b7f1a84c076b6d16facf5e7f66fe4b29aff59bdbb258fd444d65fff77"
+     "sha256": "98208329d4c4fd11716f1d15364c2fb14e3de73ed4ffd1ba220e6199a80deadc"
     },
     "type": "inventory",
-    "time": "17:59",
+    "time": "19:29",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-21:event:7414256387079918:1",
+    "id": "2026-11-21:event:f41f3e41bfda58df:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "741425638707991834fdf2a90bba2fd6941630c2fe628d48cbeef9ea92a80cc0"
+     "sha256": "f41f3e41bfda58dfa3f26146a127f174f6b65e5878bb552e9877d70a806b2781"
     },
     "type": "inventory",
-    "time": "17:59",
+    "time": "19:29",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -4789,7 +4917,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "17:59",
+    "time": "19:29",
     "place": null
    }
   ]
