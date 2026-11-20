@@ -327,6 +327,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "11:59",
+   "to": "12:09",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -688,6 +695,37 @@
    "to": "Hegel",
    "text": "Sir, I only keep the keys and the tea. The paper is just paper, but the lock only knows the key the Directorate gave me.",
    "t": "11:44",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh speaks the truth of the mechanism: the lock does not judge the name, it only accepts the key. The error is in the paper, not in the metal. I must stop treating the caretaker as an accomplice in the absurdity and recognize him for what he is: a function of the household, bound by the same rigid rules as the state. The form is a dead letter until I find a way to make it live, but for now, it is just paper.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "General Standpoint of the Scholastics"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi"
+    }
+   ],
+   "t": "11:59",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Ramesh. The lock is indifferent to the name, but the Directorate is not. I must find the clerk who holds the original allotment. Until then, the keys remain yours, and the door remains closed to the truth.",
+   "to": "Ramesh",
+   "t": "11:59",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "The door stays shut, sir. I will make the tea when you return.",
+   "t": "11:59",
    "place": "home"
   }
  ],
@@ -1304,6 +1342,71 @@
      "text": "With such reasoning men can easily get so far as to know (where they do not, it is owing to the want of education—but the Sophists were very well educated) that if arguments are relied upon, everything can be proved by argument, and arguments for and against can be found for everything; as particular, however, they throw no light upon the universal, the Notion."
     }
    ]
+  },
+  {
+   "t": "11:59",
+   "end": "12:09",
+   "event": "Ramesh says: “Sir, I only keep the keys and the tea. The paper is just paper, but the lock only knows the key the Directorate gave me.” He straightens the pile of files on the side table and steps back.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh speaks the truth of the mechanism: the lock does not judge the name, it only accepts the key. The error is in the paper, not in the metal. I must stop treating the caretaker as an accomplice in the absurdity and recognize him for what he is: a function of the household, bound by the same rigid rules as the state. The form is a dead letter until I find a way to make it live, but for now, it is just paper.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "You are right, Ramesh. The lock is indifferent to the name, but the Directorate is not. I must find the clerk who holds the original allotment. Until then, the keys remain yours, and the door remains closed to the truth.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 331."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "The door stays shut, sir. I will make the tea when you return.",
+    "does": "He tucks the stray file back into the stack and turns to leave."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "General Standpoint of the Scholastics",
+     "id": "haldane-3:241"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "id": "haldane-3:1046"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "General Standpoint of the Scholastics",
+     "text": "Even should we go astray on ground like this, our errors keep in view the fixed centre-point of the self-consciousness of the human mind, and as errors even they have a root therein, which as such forms the justification for them. It is only a one-sided withdrawal from the unity of this root with the altogether concrete ground-work and original, that is really faulty."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "text": "Thus since the investigation of the faculties of knowledge is itself knowing, it cannot in Kant attain to what it aims at because it is that already—it cannot come to itself because it is already with itself; the same thing happens as happened with the Jews, the Spirit passes through the midst of them and they know it not."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1319,7 +1422,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-21T11:59+05:30",
+  "until": "2026-11-21T12:09+05:30",
   "asleep": false,
   "imprest": 17916,
   "wearing": "kurta",
@@ -1784,7 +1887,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-21",
-  "source_sha256": "532bd412311e5fd86fc0234920179d974547cfce8e169edad06df95837ff1560",
+  "source_sha256": "86880ab0a1faf08e36981814aeff258cf1ce78f5e169822c359777ed9a5daf43",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2144,6 +2247,36 @@
     "words": "Sir, I only keep the keys and the tea. The paper is just paper, but the lock only knows the key the Directorate gave me.",
     "verified": false,
     "time": "11:44",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:88d8095d37e82c6f:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 35,
+     "sha256": "88d8095d37e82c6f341b3556ec7daa4d4864a7e1baa28894901607420a108696"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "You are right, Ramesh. The lock is indifferent to the name, but the Directorate is not. I must find the clerk who holds the original allotment. Until then, the keys remain yours, and the door remains closed to the truth.",
+    "verified": false,
+    "time": "11:59",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:582adb48636f9b46:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 36,
+     "sha256": "582adb48636f9b467b79109f9f5c8968f3b52be9219503295b1bb183cf1cbf5a"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "The door stays shut, sir. I will make the tea when you return.",
+    "verified": false,
+    "time": "11:59",
     "place": "home"
    },
    {
@@ -2619,68 +2752,98 @@
     "text": "Weather: 22 °C, a brown haze. Air quality index: 331."
    },
    {
-    "id": "2026-11-21:event:976b80b838018d6c:1",
+    "id": "2026-11-21:event:5fb1553c37f7e19c:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 9,
+     "sha256": "5fb1553c37f7e19cecbd145130cc91ce45413151f52c7534df8cc42a54041322"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "11:59",
+    "end": "12:09",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:event:8714a504ef60f764:4",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      9,
+      0
+     ],
+     "sha256": "8714a504ef60f764896f66d57fd353efbb3ff18b830e6a9988e26300a0839f37"
+    },
+    "type": "observation",
+    "time": "11:59",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 331."
+   },
+   {
+    "id": "2026-11-21:event:f53bc29d531ad074:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "976b80b838018d6ce188b6a4ddc480ce168d6cc45497a420ff766bd10ecc817d"
+     "sha256": "f53bc29d531ad0741f40901825d754ae92639b6c42d86c99047ecf9659748bfe"
     },
     "type": "cash",
-    "time": "11:59",
+    "time": "12:09",
     "amount": 17916,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-21:event:0737673306963ea1:1",
+    "id": "2026-11-21:event:d696272b8f2e196f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "0737673306963ea1944018089d664d5fed744d141502d563d20850ab7eb795f9"
+     "sha256": "d696272b8f2e196fcf19555c451c47fdf0540bbea9e6e35fda8d64d6107c3f39"
     },
     "type": "location",
-    "time": "11:59",
+    "time": "12:09",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-21:event:85cd6779102a57e0:1",
+    "id": "2026-11-21:event:859b69037f5608b3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "85cd6779102a57e05fdbdb9f20ad18025fb562c8915882fdcbc63e24d413d348"
+     "sha256": "859b69037f5608b396a452ec003fb94a8aeb4b0b1b9086eefd5d867c42d916ac"
     },
     "type": "inventory",
-    "time": "11:59",
+    "time": "12:09",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-21:event:7953bcd4f6ed1a36:1",
+    "id": "2026-11-21:event:c7ee64fef4daef91:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "7953bcd4f6ed1a36439ce32e2553728b3f81f942f238fd06c9af48c620965880"
+     "sha256": "c7ee64fef4daef91619817c8f8a9efb7aa6f537cb2b8df95c16e6137855d0cbb"
     },
     "type": "inventory",
-    "time": "11:59",
+    "time": "12:09",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-21:event:6f9c5d92363100fa:1",
+    "id": "2026-11-21:event:41007f35fdf67147:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "6f9c5d92363100fa573a4ef6886c9ee3d0c812e7a48ad072916a927c9a249c8a"
+     "sha256": "41007f35fdf67147fd9384a25c6c89d4f93e30cfb984fb36ba6598be3709e7d7"
     },
     "type": "inventory",
-    "time": "11:59",
+    "time": "12:09",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2699,7 +2862,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "11:59",
+    "time": "12:09",
     "place": null
    }
   ]
