@@ -411,6 +411,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "17:39",
+   "to": "17:59",
+   "mode": "walk",
+   "a": "home",
+   "b": "lodhi"
   }
  ],
  "entries": [
@@ -1098,6 +1105,37 @@
    "k": "world",
    "text": "Ramesh puts a plate together: an omelette, toast and a pot of tea.",
    "t": "17:24",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh stands there with the keys, a silent testament to the hierarchy I am still struggling to unmake in my own mind. The air outside is thick with the city's impurity, a brown haze that seals the bungalow in. I have just eaten, yet the evening feels hollow; I need to walk, to let the physical movement sort the philosophical knots that have tightened since my walk to Lodhi.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Alexandrian Philosophy, Plotinus"
+    }
+   ],
+   "t": "17:39",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, the air is too thick to breathe tonight. I shall walk. Do not wait up for me.",
+   "to": "Ramesh",
+   "t": "17:39",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Bhai, it is November, not April. The fog is only in your head. I am not waiting for anyone, I am just going to check the gate latch.",
+   "t": "17:39",
    "place": "home"
   }
  ],
@@ -2461,6 +2499,71 @@
      "text": "As stipulation involves the will, it contains, from the standpoint of right, the substance of contract. In contrast with this substantive contract the possession, which remains till the contract is fully carried out, has no reality outside of the agreement. I have given up a possession and my private control over it, and it has already become the property of another."
     }
    ]
+  },
+  {
+   "t": "17:39",
+   "end": "17:59",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh stands there with the keys, a silent testament to the hierarchy I am still struggling to unmake in my own mind. The air outside is thick with the city's impurity, a brown haze that seals the bungalow in. I have just eaten, yet the evening feels hollow; I need to walk, to let the physical movement sort the philosophical knots that have tightened since my walk to Lodhi.",
+    "action": "walk",
+    "place": "lodhi",
+    "minutes": 45,
+    "says": "Ramesh, the air is too thick to breathe tonight. I shall walk. Do not wait up for me.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "lodhi",
+   "observations": [
+    "Weather: 21 °C, a brown haze. Air quality index: 328.",
+    "Nothing in particular happens. The evening goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Bhai, it is November, not April. The fog is only in your head. I am not waiting for anyone, I am just going to check the gate latch.",
+    "does": "Ramesh turns away, his white kurta catching the dim light."
+   },
+   "left": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "id": "dyde-right:549"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Alexandrian Philosophy, Plotinus",
+     "id": "haldane-2:1021"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "text": "Note. — In contrast with freedom of business and trade in the civic community stands the other extreme of the establishment and direction of the work of all by means of official regulation. Under this head comes perhaps the construction of the pyramids and other monstrous Egyptian and Asiatic works."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Alexandrian Philosophy, Plotinus",
+     "text": "He lays hold of knowledge, the simply ideal, and of intellectual thought, which is implicitly life, but not silent nor sealed."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2475,8 +2578,8 @@
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-21T17:39+05:30",
+  "place": "lodhi",
+  "until": "2026-11-21T17:59+05:30",
   "asleep": false,
   "imprest": 17916,
   "wearing": "kurta",
@@ -2571,8 +2674,8 @@
    },
    "breakfast": true,
    "bad_air": true,
-   "walked": 3000,
-   "strain": 3000,
+   "walked": 4500,
+   "strain": 4500,
    "lunch": true,
    "tea": true
   },
@@ -2950,7 +3053,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-21",
-  "source_sha256": "e2087ac3caca972020758ce19f82fd4a2c4b90b119286413b38caac6fbca965e",
+  "source_sha256": "0e530fa70263c72bbb5c64e2992acef6001d4c31a2f4596461c66f6d1b827b9a",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3561,6 +3664,36 @@
     "type": "world",
     "text": "Ramesh puts a plate together: an omelette, toast and a pot of tea.",
     "time": "17:24",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:7077bb36ea3163d2:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 64,
+     "sha256": "7077bb36ea3163d25e614403a8a51e25bd5c6039615627ddb1e0682df5ae4e54"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, the air is too thick to breathe tonight. I shall walk. Do not wait up for me.",
+    "verified": false,
+    "time": "17:39",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:statement:4b817880954d8d6b:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 65,
+     "sha256": "4b817880954d8d6b6e9eef0ef9729af7cf103a350353ebbbdfd78f7a402cde3b"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Bhai, it is November, not April. The fog is only in your head. I am not waiting for anyone, I am just going to check the gate latch.",
+    "verified": false,
+    "time": "17:39",
     "place": "home"
    },
    {
@@ -4528,68 +4661,116 @@
     "text": "Ramesh brings tea: tea and Marie biscuits."
    },
    {
-    "id": "2026-11-21:event:e238346951294f26:1",
+    "id": "2026-11-21:event:8311303d6cce421a:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 21,
+     "sha256": "8311303d6cce421a4012630e6a7de3477827cce45b845133fc97c649991dc28c"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "17:39",
+    "end": "17:59",
+    "place": null,
+    "origin": "home",
+    "destination": "lodhi"
+   },
+   {
+    "id": "2026-11-21:event:6aee10f929783a6a:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      21,
+      0
+     ],
+     "sha256": "6aee10f929783a6abdf1745d43016bd89d7f1901d2b0250896683f7ca2a09fcc"
+    },
+    "type": "observation",
+    "time": "17:39",
+    "place": "home",
+    "text": "Weather: 21 °C, a brown haze. Air quality index: 328."
+   },
+   {
+    "id": "2026-11-21:event:f0883d583a8f0cb4:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      21,
+      1
+     ],
+     "sha256": "f0883d583a8f0cb4f513e9e7918f61a4da92f5f5c5ffd125af87394140064d60"
+    },
+    "type": "observation",
+    "time": "17:39",
+    "place": "home",
+    "text": "Nothing in particular happens. The evening goes on."
+   },
+   {
+    "id": "2026-11-21:event:dd184dcb4a4b2358:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "e238346951294f2605d0f1f0676370e4f992f5fbcf56abf99b118aed98cc6aa5"
+     "sha256": "dd184dcb4a4b23589ca7e34054b1ea8541f6f727bd0eb2070c94622a1ac1a194"
     },
     "type": "cash",
-    "time": "17:39",
+    "time": "17:59",
     "amount": 17916,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-21:event:0dc0395d439060dc:1",
+    "id": "2026-11-21:event:10e6ac4b63f0b9fb:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "0dc0395d439060dc25893986c82ac8c6c0c67b25a57ea278074e7a5611103729"
+     "sha256": "10e6ac4b63f0b9fb53b8e840072ea34e11485ffa32a18ef74d38c1db7062f852"
     },
     "type": "location",
-    "time": "17:39",
-    "place": "home",
+    "time": "17:59",
+    "place": "lodhi",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-21:event:79c2493d4ab64a8f:1",
+    "id": "2026-11-21:event:d824536eb228d9f6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "79c2493d4ab64a8ff27c9d54c3f1b918c98cc19d013035fe0ea0b336f37c5afc"
+     "sha256": "d824536eb228d9f62e192197e8c91a5c3ca678be746b8af2112eff4fc5572e17"
     },
     "type": "inventory",
-    "time": "17:39",
+    "time": "17:59",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-21:event:804ed3b8d4e0ceab:1",
+    "id": "2026-11-21:event:e48cb28b7f1a84c0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "804ed3b8d4e0ceabd4573d55ce5616d5fe4b8e068ae4b8f2d879ab3c11d07fcd"
+     "sha256": "e48cb28b7f1a84c076b6d16facf5e7f66fe4b29aff59bdbb258fd444d65fff77"
     },
     "type": "inventory",
-    "time": "17:39",
+    "time": "17:59",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-21:event:618f9c3aec861b6a:1",
+    "id": "2026-11-21:event:7414256387079918:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "618f9c3aec861b6a331b08121b5bae8d3c8836f0a92d69213b6cb8eeaca99635"
+     "sha256": "741425638707991834fdf2a90bba2fd6941630c2fe628d48cbeef9ea92a80cc0"
     },
     "type": "inventory",
-    "time": "17:39",
+    "time": "17:59",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -4608,7 +4789,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "17:39",
+    "time": "17:59",
     "place": null
    }
   ]
