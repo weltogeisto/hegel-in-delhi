@@ -362,6 +362,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "14:19",
+   "to": "14:39",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -848,6 +855,22 @@
    "to": "Hegel",
    "text": "No sir, I eat standing by the stove. You take your time, the kadhi won't go cold in this heat.",
    "t": "13:34",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s deference is absolute; he sees the hierarchy that I, in my Germanic pride, have not fully dismantled in my own heart, though I have shaken the theses that underpin it. The kadhi is a small comfort, a taste of the household that remains even as the state crumbles around me. I will eat, but I will watch him, for in his quiet service lies the ethical life I claim to find in the state, yet here it is merely a private bond.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato, Philosophy of Mind"
+    }
+   ],
+   "t": "14:19",
    "place": "home"
   }
  ],
@@ -1777,6 +1800,66 @@
      "text": "This French philosophy also attacked the state; it assailed prejudices and superstition, especially the depravity of civic life, of court manners and of Government officials; it laid hold of and brought to light the evil, the ridiculous, the base, and exposed the whole tissue of hypocrisy and unjust power to the derision…"
     }
    ]
+  },
+  {
+   "t": "14:19",
+   "end": "14:39",
+   "event": "Ramesh says: “No sir, I eat standing by the stove. You take your time, the kadhi won't go cold in this heat.” Ramesh wipes his hands on his dhoti and steps back towards the kitchen.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh’s deference is absolute; he sees the hierarchy that I, in my Germanic pride, have not fully dismantled in my own heart, though I have shaken the theses that underpin it. The kadhi is a small comfort, a taste of the household that remains even as the state crumbles around me. I will eat, but I will watch him, for in his quiet service lies the ethical life I claim to find in the state, yet here it is merely a private bond.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 329."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "id": "sibree-history:269"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato, Philosophy of Mind",
+     "id": "haldane-2:263"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "text": "Nature, as contrasted with Spirit, is a quantitative mass, whose power must not be so great as to make its single force omnipotent. In the extreme zones man cannot come to free movement; cold and heat are here too powerful to allow Spirit to build up a world for itself. Aristotle said long ago, \" When pressing needs are satisfied, man turns to the general and more elevated.\""
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato, Philosophy of Mind",
+     "text": "“It may happen that a man has done wrong to another, and suffers hunger and cold at the hands of him whom he considers entitled to inflict them upon him; in this case, the nobler he is, the less will his anger be excited."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1792,7 +1875,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-21T14:19+05:30",
+  "until": "2026-11-21T14:39+05:30",
   "asleep": false,
   "imprest": 17916,
   "wearing": "kurta",
@@ -2160,7 +2243,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-21T13:34+05:30",
+  "last_meal": "2026-11-21T14:19+05:30",
   "snacks": 0,
   "works": [
    {
@@ -2262,7 +2345,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-21",
-  "source_sha256": "bb1f17c3cf2952e528f85df470f69e3d235bb8d0c88d8ee62cbae8275b1b56b9",
+  "source_sha256": "98c240f4a3a64758ee6081e1170c02b74b398ffa17c9f097964580435b95a48e",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3389,68 +3472,98 @@
     "text": "Ramesh has laid out lunch: kadhi, rice and aloo gobhi."
    },
    {
-    "id": "2026-11-21:event:99f7b4a5c4abe352:1",
+    "id": "2026-11-21:event:e0fd80590cc60af8:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 14,
+     "sha256": "e0fd80590cc60af8ee512951111c3eb2a88b3316b158f685aacf8a31ad582bd5"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "14:19",
+    "end": "14:39",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:event:2ded0a6115e357d8:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      14,
+      0
+     ],
+     "sha256": "2ded0a6115e357d897bea5555201bf35efc99c3485914aca274afd7b2c97215c"
+    },
+    "type": "observation",
+    "time": "14:19",
+    "place": "home",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 329."
+   },
+   {
+    "id": "2026-11-21:event:c3cda334ee37fa4a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "99f7b4a5c4abe352408685791a025fc353937ba36508ecd793e79faaf235410f"
+     "sha256": "c3cda334ee37fa4a662c9d5692f2b6ed6edd05e36e0f7999b50341538532404b"
     },
     "type": "cash",
-    "time": "14:19",
+    "time": "14:39",
     "amount": 17916,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-21:event:5a801b4fa8b998ca:1",
+    "id": "2026-11-21:event:8d0dd02dfc884ae0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "5a801b4fa8b998ca4846678836e80909fad67fc374b2a867373368d4f70e8e54"
+     "sha256": "8d0dd02dfc884ae05470182665dc049d05cff05754444a3aa4628fc01e48d9fa"
     },
     "type": "location",
-    "time": "14:19",
+    "time": "14:39",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-21:event:08537172924e8105:1",
+    "id": "2026-11-21:event:c94917b2453e1c3e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "08537172924e8105da9a8127898c5a93c616ca1b6b2f149f767603b386f6573a"
+     "sha256": "c94917b2453e1c3ebaf2033b49f4aa5d687d4549ab2bd6e40a0184c31e8c367e"
     },
     "type": "inventory",
-    "time": "14:19",
+    "time": "14:39",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-21:event:0a2b03daba35f3ed:1",
+    "id": "2026-11-21:event:70f7ecc29b69f427:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "0a2b03daba35f3edc5bf8bedb4b7e2d5d721dc8feb0ee72a8e5bbfa9ac7844ec"
+     "sha256": "70f7ecc29b69f42754439dfe8be7c9ebc874e2d9612bd234ca029bd6c714720b"
     },
     "type": "inventory",
-    "time": "14:19",
+    "time": "14:39",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-21:event:0a138b7373769248:1",
+    "id": "2026-11-21:event:d0364fd52a57142e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "0a138b737376924821e24b521621e32608168edc2517724cf36c1f849237da81"
+     "sha256": "d0364fd52a57142e2ebbae8337af2675210466acabb6303a67135f489641e444"
     },
     "type": "inventory",
-    "time": "14:19",
+    "time": "14:39",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3469,7 +3582,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "14:19",
+    "time": "14:39",
     "place": null
    }
   ]
