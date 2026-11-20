@@ -348,6 +348,13 @@
    "mode": "stand",
    "at": "lodhi",
    "now": "Resting in Lodhi Gardens."
+  },
+  {
+   "from": "13:14",
+   "to": "13:34",
+   "mode": "walk",
+   "a": "lodhi",
+   "b": "home"
   }
  ],
  "entries": [
@@ -787,6 +794,22 @@
     }
    ],
    "t": "12:29",
+   "place": "lodhi"
+  },
+  {
+   "k": "diary",
+   "text": "The haze is thicker now, a brown lid pressing down on the domes of the Sayyids. I have been sitting here since noon, watching the light fail, and the plan for lunch at home is becoming a necessity rather than a choice. The heat is not yet unbearable, but the air is thick with the city's exhalations, and my body asks for the cool of the verandah.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Ethical Action"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    }
+   ],
+   "t": "13:14",
    "place": "lodhi"
   }
  ],
@@ -1593,6 +1616,63 @@
      "text": "Wir haben den Despotismus im Orient in glänzender Ausbildung als eine dem Morgenland entsprechende Gestaltung gesehen; nicht minder ist die demokratische Form in Griechenland die welthistorische Bestimmung."
     }
    ]
+  },
+  {
+   "t": "13:14",
+   "end": "13:34",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [],
+   "decision": {
+    "thought": "The haze is thicker now, a brown lid pressing down on the domes of the Sayyids. I have been sitting here since noon, watching the light fail, and the plan for lunch at home is becoming a necessity rather than a choice. The heat is not yet unbearable, but the air is thick with the city's exhalations, and my body asks for the cool of the verandah.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 330.",
+    "Nothing in particular happens. The afternoon goes on."
+   ],
+   "observed_at": "lodhi",
+   "opened": [],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Ethical Action",
+     "id": "baillie-2:98"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:526"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Ethical Action",
+     "text": "Spieit m Self-estrangement — The Discipline op The ethical substance preserved and kept opposition enclosed within its simple conscious life; and this consciousness was in immediate unity with its own essential nature."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "\"When the Europeans became acquainted with India, they found a multitude of petty Kingdoms, at whose head were Mahometan and Indian princes. There was an order of things very nearly approaching feudal organization; and the Kingdoms in question were divided into districts, having as governors Mahometans, or people of the \"Warrior Caste of Hindoos."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1607,8 +1687,8 @@
  "owl": null,
  "complete": false,
  "state": {
-  "place": "lodhi",
-  "until": "2026-11-21T13:14+05:30",
+  "place": "home",
+  "until": "2026-11-21T13:34+05:30",
   "asleep": false,
   "imprest": 17916,
   "wearing": "kurta",
@@ -1703,8 +1783,8 @@
    },
    "breakfast": true,
    "bad_air": true,
-   "walked": 1500,
-   "strain": 1500
+   "walked": 3000,
+   "strain": 3000
   },
   "account": {
    "advance": 15000,
@@ -2077,7 +2157,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-21",
-  "source_sha256": "5d5b4537565bcafbfcc5a980ecd9ad219765964c6d66c967ef5151ed93cd10d8",
+  "source_sha256": "b7da4fd3cb2d05324f99cbe1606daaa8c4ca9ba4d6b95afa6de4a6ece43c64fa",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3080,68 +3160,116 @@
     "text": "You arrive at Lodhi Gardens. It closes at 19:30."
    },
    {
-    "id": "2026-11-21:event:3b59eea6a3afa401:1",
+    "id": "2026-11-21:event:46da411efc4261f2:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 12,
+     "sha256": "46da411efc4261f277dfe8aa3cf1a070bc4967abadbcca85e7d350dbbb00d6a0"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "13:14",
+    "end": "13:34",
+    "place": null,
+    "origin": "lodhi",
+    "destination": "home"
+   },
+   {
+    "id": "2026-11-21:event:025a6cd23e377937:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      12,
+      0
+     ],
+     "sha256": "025a6cd23e377937f759daff6f9fdc399c695f2085d2cca229168310188e6849"
+    },
+    "type": "observation",
+    "time": "13:14",
+    "place": "lodhi",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 330."
+   },
+   {
+    "id": "2026-11-21:event:a77f13cd004dc58e:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      12,
+      1
+     ],
+     "sha256": "a77f13cd004dc58e92ee3fd09257ac61887e5229b3f41685577fbace3df64cce"
+    },
+    "type": "observation",
+    "time": "13:14",
+    "place": "lodhi",
+    "text": "Nothing in particular happens. The afternoon goes on."
+   },
+   {
+    "id": "2026-11-21:event:6f3f2145363abf14:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "3b59eea6a3afa4014da5512a561fbcd822708ae7a243a7c0b7552898fd29b8d7"
+     "sha256": "6f3f2145363abf14243a7b46f5cef821684d227f4dda4d7b9d22c82c82245ee0"
     },
     "type": "cash",
-    "time": "13:14",
+    "time": "13:34",
     "amount": 17916,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-21:event:def563700fce1100:1",
+    "id": "2026-11-21:event:67fa136c1a4fd103:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "def563700fce1100e53b6c8dd7ed031f7edaaafac139dffd9a971a7865308dcc"
+     "sha256": "67fa136c1a4fd10325ff83fe2f1eea5f14265716731e9cce95c7f20108c2e8de"
     },
     "type": "location",
-    "time": "13:14",
-    "place": "lodhi",
+    "time": "13:34",
+    "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-21:event:cd3c72346139f634:1",
+    "id": "2026-11-21:event:80d4f6a8bb8541c1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "cd3c72346139f63452da94d544c4154f2c7aaf235266c652c8d82c47d63c971d"
+     "sha256": "80d4f6a8bb8541c1485130eaf45910322cbd05530551774cb0cebd7b9db2a373"
     },
     "type": "inventory",
-    "time": "13:14",
+    "time": "13:34",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-21:event:54b240b0aa4b42c6:1",
+    "id": "2026-11-21:event:854ab686caf6cdab:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "54b240b0aa4b42c61aa5a4588b16611e36363ff56b89ef1a6b6c7d5db8763ffd"
+     "sha256": "854ab686caf6cdaba1f8c67760e6a2f9365fa10519fc98be0043ca6f257788ad"
     },
     "type": "inventory",
-    "time": "13:14",
+    "time": "13:34",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-21:event:822cd7f11411c71a:1",
+    "id": "2026-11-21:event:d1b17c28e34a4b49:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "822cd7f11411c71a0b420f35d1954d43643d09970cbb186ddab5d4c2d64a7988"
+     "sha256": "d1b17c28e34a4b49d174e321263b1ab0fe96f354c0b2e170ae6ddd1b2493673d"
     },
     "type": "inventory",
-    "time": "13:14",
+    "time": "13:34",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3160,7 +3288,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "13:14",
+    "time": "13:34",
     "place": null
    }
   ]
