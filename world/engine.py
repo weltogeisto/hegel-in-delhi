@@ -635,7 +635,7 @@ class Engine:
     def write_chat(self, messages, raw, ctx, st):
         """One chat call for what he wrote. Names from after 1831 that he has not met: he is asked once to write it again without them,
         then the writing is dropped (the decision stands). None if dropped."""
-        request = works.ask(st, ctx["t"].date())
+        request = works.ask(st, ctx["t"].date(), letter_register=getattr(getattr(self, "cfg", None), "letter_register", False) is True)
         if ctx.get("manuscripts"):
             manuscript=ctx['manuscripts'][:6000] if ctx.get('records') else ctx['manuscripts']
             request += '\n\n'+manuscript
