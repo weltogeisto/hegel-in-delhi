@@ -376,6 +376,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "14:54",
+   "to": "15:09",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -900,6 +907,28 @@
     }
    ],
    "t": "14:39",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "A peahen walks the top of the compound wall with great care, one foot set exactly before the other, then drops into the neighbouring garden.",
+   "t": "14:54",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The peahen moves with the precision of a surveyor, each step a deliberate assertion of boundary. It is a small, living demonstration of order imposed upon the chaos of the wall, a reminder that even in this haze, structure holds.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato, Philosophy of Mind"
+    }
+   ],
+   "t": "14:54",
    "place": "home"
   }
  ],
@@ -1950,6 +1979,67 @@
      "text": "It is this feature of them which is significant in world-history. The concrete ideas, which embody the national minds or - Spirits, h as its truth in the concrete idea i n its absolute, jiniversality. This is the spirit of the world, around whose throne stand the other spirits as perfecters of its actuality, and witnesses and ornaments of its splendour.\""
     }
    ]
+  },
+  {
+   "t": "14:54",
+   "end": "15:09",
+   "event": "A peahen walks the top of the compound wall with great care, one foot set exactly before the other, then drops into the neighbouring garden.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The peahen moves with the precision of a surveyor, each step a deliberate assertion of boundary. It is a small, living demonstration of order imposed upon the chaos of the wall, a reminder that even in this haze, structure holds.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 329.",
+    "A peahen walks the top of the compound wall with great care, one foot set exactly before the other, then drops into the neighbouring garden."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "street:home_peahen"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction",
+     "id": "sibree-history:96"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato, Philosophy of Mind",
+     "id": "haldane-2:280"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction",
+     "text": "For that Spirit which had taken this fresh step in history is the inmost soul of all individuals; but in a state of unconsciousness which the great men in question aroused. Their fellows, therefore, follow these soul-leaders; for they feel the irresistible power of their own inner Spirit thus embodied."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato, Philosophy of Mind",
+     "text": "Thus he places them on very nearly the same footing as the men, though all the same he has no great confidence in their bravery, but stations them in the rear only, and not even as reserve, but only as arrière-garde, in order that they may at least inspire the foe with terror by their numbers, and, in case of necessity, hasten to give aid."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1965,7 +2055,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-21T14:54+05:30",
+  "until": "2026-11-21T15:09+05:30",
   "asleep": false,
   "imprest": 17916,
   "wearing": "kurta",
@@ -2430,13 +2520,14 @@
    "home_walls": "2026-11-20",
    "home_marigolds": "2026-11-20",
    "iic_noticeboard": "2026-11-20",
-   "home_water_tanker": "2026-11-21"
+   "home_water_tanker": "2026-11-21",
+   "home_peahen": "2026-11-21"
   }
  },
  "records": {
   "version": 2,
   "date": "2026-11-21",
-  "source_sha256": "2868ee0384d2959bd31abda49a235a0382273a0fa416889413da49a49101a471",
+  "source_sha256": "1389d1c13a7c523d482b45a0e75c2ae4eb6f5e60f805c8423560a02c950e4f24",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2899,6 +2990,19 @@
     "type": "world",
     "text": "A water tanker crawls along the road spraying a fine fan from its rear, and the grey pavement turns dark behind it and begins to pale again within minutes.",
     "time": "14:39",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:event:cf25d4a9bdf6319f:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 48,
+     "sha256": "cf25d4a9bdf6319f4cc436b1c3a5ca41fbca73e1da57f86f47fbef679012d8e8"
+    },
+    "type": "world",
+    "text": "A peahen walks the top of the compound wall with great care, one foot set exactly before the other, then drops into the neighbouring garden.",
+    "time": "14:54",
     "place": "home"
    },
    {
@@ -3652,68 +3756,114 @@
     "text": "A water tanker crawls along the road spraying a fine fan from its rear, and the grey pavement turns dark behind it and begins to pale again within minutes."
    },
    {
-    "id": "2026-11-21:event:f31c54dcb4e84f0f:1",
+    "id": "2026-11-21:event:74c0a17898ffc7b2:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 16,
+     "sha256": "74c0a17898ffc7b24d2976449658b864a8c33ab332b22d1a64762257c7310614"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "14:54",
+    "end": "15:09",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:event:2ded0a6115e357d8:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      16,
+      0
+     ],
+     "sha256": "2ded0a6115e357d897bea5555201bf35efc99c3485914aca274afd7b2c97215c"
+    },
+    "type": "observation",
+    "time": "14:54",
+    "place": "home",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 329."
+   },
+   {
+    "id": "2026-11-21:event:375d6d19115b0818:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      16,
+      1
+     ],
+     "sha256": "375d6d19115b081870176d9c3e928837bd49bcc7341a108c3497b7c7691617ee"
+    },
+    "type": "observation",
+    "time": "14:54",
+    "place": "home",
+    "text": "A peahen walks the top of the compound wall with great care, one foot set exactly before the other, then drops into the neighbouring garden."
+   },
+   {
+    "id": "2026-11-21:event:f210d7297e4a84dd:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "f31c54dcb4e84f0ff32b150dd55ce8878590d9105caac32040eacf8cb95b773a"
+     "sha256": "f210d7297e4a84dde9f945cf4ffbc51fdb3e852c67d91d0c7e3d1655c71b054b"
     },
     "type": "cash",
-    "time": "14:54",
+    "time": "15:09",
     "amount": 17916,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-21:event:22eb7401882f4ae5:1",
+    "id": "2026-11-21:event:9541e374b4ef2d0c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "22eb7401882f4ae54331d4b28e8bd33b2f20e18b51c7b8de315c1c67fb3fc685"
+     "sha256": "9541e374b4ef2d0c1b4b0e11f05cb35dd3413c6f92bae0c72451665cdf99b57d"
     },
     "type": "location",
-    "time": "14:54",
+    "time": "15:09",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-21:event:24be716cce26bf78:1",
+    "id": "2026-11-21:event:e0f5e3dedf0d2e23:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "24be716cce26bf78344aed5ba5b31f54504635ce6dd620dbd7c4671d3f93ffe3"
+     "sha256": "e0f5e3dedf0d2e234b089dbe763119cd293ea01c63a0964632cdb604ec8305ac"
     },
     "type": "inventory",
-    "time": "14:54",
+    "time": "15:09",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-21:event:a1c34c35aa375b7a:1",
+    "id": "2026-11-21:event:4093e569eaebd09e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "a1c34c35aa375b7a7209add00a447bf1b898afaccd9fc601d38fad5ad4f6eafb"
+     "sha256": "4093e569eaebd09e5429b7b1098b0890351c59bacad947df63041fae3cc658a2"
     },
     "type": "inventory",
-    "time": "14:54",
+    "time": "15:09",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-21:event:f9a45607bbfd549a:1",
+    "id": "2026-11-21:event:7eb65f88a8cbf30d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "f9a45607bbfd549a0350f3734ed3b8d7dd22fa0f52b1910124035bc48677fe78"
+     "sha256": "7eb65f88a8cbf30d3160fa132f3938971d5ba0e66d17591fbd39dcbc02439026"
     },
     "type": "inventory",
-    "time": "14:54",
+    "time": "15:09",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3732,7 +3882,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "14:54",
+    "time": "15:09",
     "place": null
    }
   ]
