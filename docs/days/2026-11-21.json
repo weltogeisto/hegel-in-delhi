@@ -439,6 +439,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "20:34",
+   "to": "21:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1220,6 +1227,22 @@
    "to": "Hegel",
    "text": "You are still confusing my name with the postman's, sir. Eat your dal, the curd will sour if you keep talking.",
    "t": "19:49",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh has gone, leaving the curd and the silence. The brown haze presses against the glass, a solid brown wall that seals the city in. It is twenty past eight; the IIC is open until twenty-one thirty, and the talk is not until Tuesday, but the air here is too thick for thought, and the walk I took in the morning has left my legs heavy with a dull ache. I will rest.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi"
+    }
+   ],
+   "t": "20:34",
    "place": "home"
   }
  ],
@@ -2833,6 +2856,66 @@
      "text": "Nicht der Unterschied, welcher sich als bestimmtes Ding, oder als Bewußtsein eines bestimmten natürlichen Daseins, als ein Gefühl, oder als Begierde und Zweck für dieselbe, ob er durch das eigene oder durch ein fremdes Bewußtsein gesetzt sei, hat mehr Wesenheit, sondern allein der Unterschied, der ein gedachter, oder unmittelbar nicht von Mir unterschieden ist."
     }
    ]
+  },
+  {
+   "t": "20:34",
+   "end": "21:00",
+   "event": "Ramesh says: “You are still confusing my name with the postman's, sir. Eat your dal, the curd will sour if you keep talking.” He sets the steel plate of curd down on the table with a dull thud. Ramesh has gone.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Ramesh has gone, leaving the curd and the silence. The brown haze presses against the glass, a solid brown wall that seals the city in. It is twenty past eight; the IIC is open until twenty-one thirty, and the talk is not until Tuesday, but the air here is too thick for thought, and the walk I took in the morning has left my legs heavy with a dull ache. I will rest.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 60,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 19 °C, a brown haze. Air quality index: 328."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 4,
+    "latency_s": 18.5,
+    "draws": {
+     "n": 4,
+     "refused": 3,
+     "echo": 0,
+     "picked": 3
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "id": "haldane-1:113"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "id": "haldane-3:1108"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "text": "A long time is undoubtedly required by Mind in working out Philosophy, and when one first reflects on it, the length of the time may seem astonishing, like the immensity of the space spoken of in astronomy. But it must be considered in regard to the slow progress of the world-spirit, that there is no need for it to hasten:—“A thousand years are in Thy sight as one day.”"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "text": "There is no man so foolish as that philosophy; when a man feels hungry, he does not call up the imagination of food, but sets about satisfying his hunger. All activity is a conception which does not yet exist, but whose subjectivity is abrogated."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2848,7 +2931,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-21T20:34+05:30",
+  "until": "2026-11-21T21:00+05:30",
   "asleep": false,
   "imprest": 17916,
   "wearing": "kurta",
@@ -3323,7 +3406,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-21",
-  "source_sha256": "d09f3e21a61945cabbb39f18b9d68d609c342afbed11f2db13d3658362fd83e4",
+  "source_sha256": "9bd6d3791c427b1f997b1bc429df3a17acddc0cd7ed7f5dbd4db9c4d5fd4e61e",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -5149,68 +5232,98 @@
     "text": "Ramesh serves dinner before he goes home: rotis, dal makhani and a bowl of curd."
    },
    {
-    "id": "2026-11-21:event:9cafd3a78859d61a:1",
+    "id": "2026-11-21:event:212a5624003e9de3:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 25,
+     "sha256": "212a5624003e9de31d980d2a282b9ae5c31672fdfdab0143b178f713ed41537d"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "20:34",
+    "end": "21:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-21:event:ff6818b1dc5968cb:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      25,
+      0
+     ],
+     "sha256": "ff6818b1dc5968cb686485cfb7945ed771f0b0144a790f9c4adb0ada50df2788"
+    },
+    "type": "observation",
+    "time": "20:34",
+    "place": "home",
+    "text": "Weather: 19 °C, a brown haze. Air quality index: 328."
+   },
+   {
+    "id": "2026-11-21:event:4972bf05044c851e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "9cafd3a78859d61a21435af887440f52a4befdfcc4f84e076a6cddca1bd88504"
+     "sha256": "4972bf05044c851ea9354ca63eff6a80d222afe3fb63c72496c8a0a8fdb2b1f9"
     },
     "type": "cash",
-    "time": "20:34",
+    "time": "21:00",
     "amount": 17916,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-21:event:3b7dfde3c643e708:1",
+    "id": "2026-11-21:event:134b0654b7846b1e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "3b7dfde3c643e708ca0ad63ecbc5a4689bf4dfa23180d896093f478fff3c12b2"
+     "sha256": "134b0654b7846b1e5160d41f566bae63e4211ebf4ec5f41e9f28ba5e508e458a"
     },
     "type": "location",
-    "time": "20:34",
+    "time": "21:00",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-21:event:4cf3e85407266473:1",
+    "id": "2026-11-21:event:e77ca230c0564de1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "4cf3e85407266473bbb2d4776c85479f4348ded0b4c79934e6a0a03aeeba806b"
+     "sha256": "e77ca230c0564de110cba221a8b6176d3b300547ae860908cfb8489588a4bbd1"
     },
     "type": "inventory",
-    "time": "20:34",
+    "time": "21:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-21:event:b161b55a9c90d217:1",
+    "id": "2026-11-21:event:4cecf8e569f608e5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "b161b55a9c90d217f4e435d3cf10d276bf041fbb5f1511336b941f67d6f89fee"
+     "sha256": "4cecf8e569f608e5a2e3198d1fe5bbc457a5f2bbab9093ea342dd3594dd58dfc"
     },
     "type": "inventory",
-    "time": "20:34",
+    "time": "21:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
    },
    {
-    "id": "2026-11-21:event:d9a78ef508943d31:1",
+    "id": "2026-11-21:event:97c372f204ef9359:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "d9a78ef508943d31128286289cc7bbc78c0ea103b446def584c72d34da12167d"
+     "sha256": "97c372f204ef9359025fd4e5248e2e98f9fe6f298f052e7056eb5be7826b3b6b"
     },
     "type": "inventory",
-    "time": "20:34",
+    "time": "21:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -5229,7 +5342,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "20:34",
+    "time": "21:00",
     "place": null
    }
   ]
