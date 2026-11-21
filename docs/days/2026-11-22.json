@@ -341,6 +341,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "19:29",
+   "to": "19:59",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -669,6 +676,37 @@
     }
    ],
    "t": "19:14",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The file query hangs in the air like the haze outside, a concrete obstacle to my abstract existence here. Hegde is present, and Ramesh is present, yet the dinner service has not begun. I am three hours since my last meal and the heat has drained me. I will sit with Hegde and Ramesh, discussing the nature of public service and the absurdity of my identity, until the food arrives.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301 Addition"
+    }
+   ],
+   "t": "19:29",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, the Directorate seeks proof that you are you. It is a peculiar demand for a man who has been allotted a house by a clerical error. I find myself in the position of the public servant, whose existence is bound up in his work, yet I cannot even prove I am the work. Ramesh, what do you make of a state that requires its servants to prove their own existence?",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "19:29",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "You are making it sound like a philosophical crisis, but it is just a rubber stamp, friend. I have been doing this since 1998; the state doesn't want to prove I exist, it just wants to know where the ink is.",
+   "t": "19:29",
    "place": "home"
   }
  ],
@@ -1335,6 +1373,71 @@
      "text": "Cynicism adopted a simple wardrobe—a thick stick of wild olive, a ragged double mantle without any under garment, which served as bed by night, a beggar’s sack for the food that was required, and a cup with which to draw water. This was the costume with which these Cynics used to distinguish themselves."
     }
    ]
+  },
+  {
+   "t": "19:29",
+   "end": "19:59",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The file query hangs in the air like the haze outside, a concrete obstacle to my abstract existence here. Hegde is present, and Ramesh is present, yet the dinner service has not begun. I am three hours since my last meal and the heat has drained me. I will sit with Hegde and Ramesh, discussing the nature of public service and the absurdity of my identity, until the food arrives.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 30,
+    "says": "Shri Hegde, the Directorate seeks proof that you are you. It is a peculiar demand for a man who has been allotted a house by a clerical error. I find myself in the position of the public servant, whose existence is bound up in his work, yet I cannot even prove I am the work. Ramesh, what do you make of a state that requires its servants to prove their own existence?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 329.",
+    "Nothing in particular happens. The evening goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "You are making it sound like a philosophical crisis, but it is just a rubber stamp, friend. I have been doing this since 1998; the state doesn't want to prove I exist, it just wants to know where the ink is.",
+    "does": "He waves a hand dismissively at the philosophical question and takes a sip of water."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301 Addition",
+     "id": "dyde-right:763"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence. So also it is not a matter merely external and particular, the performance of which is intrusted to him."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301 Addition",
+     "text": "It requires but little reflection to see that the services performed by the classes in behalf of the general well-being and public liberty cannot be traced to an insight special to these classes. The highest state of&cials have necessarily deeper and more comprehensive insight into the workings and needs of the state, and also greater skill and wider practical experience."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1342,7 +1445,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-22T19:29+05:30",
+  "until": "2026-11-22T19:59+05:30",
   "asleep": false,
   "imprest": 16416,
   "wearing": "kurta",
@@ -1823,7 +1926,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-22",
-  "source_sha256": "03b7e14b4ed5f6db80cdce6097b9aec16045767d26db039f9dead8f9b10bd331",
+  "source_sha256": "fc26606f59004dcb4cfebcb1ea797cea43c7c84b7fa83fc7304a8a94cab063cf",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2151,6 +2254,36 @@
     "words": "Nahi sir, I don't eat here. My wife is waiting at the quarter, but I'll set your table by seven-thirty.",
     "verified": false,
     "time": "18:59",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-22:statement:4469c7705d96c9ff:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 33,
+     "sha256": "4469c7705d96c9ffffac81346f2c2b1e58f7bc9288f8a69ae2f04d5d9c301243"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh and Shri G. Hegde",
+    "words": "Shri Hegde, the Directorate seeks proof that you are you. It is a peculiar demand for a man who has been allotted a house by a clerical error. I find myself in the position of the public servant, whose existence is bound up in his work, yet I cannot even prove I am the work. Ramesh, what do you make of a state that requires its servants to prove their own existence?",
+    "verified": false,
+    "time": "19:29",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-22:statement:a04fd2f7d7f4ce3f:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 34,
+     "sha256": "a04fd2f7d7f4ce3f176e844bef1cd209197554f815e1b462a0debd9cc9509b55"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "You are making it sound like a philosophical crisis, but it is just a rubber stamp, friend. I have been doing this since 1998; the state doesn't want to prove I exist, it just wants to know where the ink is.",
+    "verified": false,
+    "time": "19:29",
     "place": "home"
    },
    {
@@ -2586,68 +2719,114 @@
     "text": "Shri G. Hegde is here."
    },
    {
-    "id": "2026-11-22:event:5ebc896f2f88f679:1",
+    "id": "2026-11-22:event:fab52aa9e61e0af9:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 11,
+     "sha256": "fab52aa9e61e0af98152c1be631daf84d691e884def02d2bcb315664f99b5427"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "19:29",
+    "end": "19:59",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-22:event:5e2140e4916dea78:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      11,
+      0
+     ],
+     "sha256": "5e2140e4916dea78323c00b803843bf426855113d108514225370b610f0a8a7d"
+    },
+    "type": "observation",
+    "time": "19:29",
+    "place": "home",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 329."
+   },
+   {
+    "id": "2026-11-22:event:f0883d583a8f0cb4:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      11,
+      1
+     ],
+     "sha256": "f0883d583a8f0cb4f513e9e7918f61a4da92f5f5c5ffd125af87394140064d60"
+    },
+    "type": "observation",
+    "time": "19:29",
+    "place": "home",
+    "text": "Nothing in particular happens. The evening goes on."
+   },
+   {
+    "id": "2026-11-22:event:c3f3d52d8a7194d7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "5ebc896f2f88f679ee2329cd0da48c121e1679bff2e7fe291e3e7f810c7e7f51"
+     "sha256": "c3f3d52d8a7194d7cbeef6a830232d9d4586831aef116cce38f983ac551314e3"
     },
     "type": "cash",
-    "time": "19:29",
+    "time": "19:59",
     "amount": 16416,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-22:event:2f7701392f950373:1",
+    "id": "2026-11-22:event:7e4c034ac0f277f0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "2f7701392f950373deff64760875c19d9a8b0e589b460a532704a3667bf6ee7b"
+     "sha256": "7e4c034ac0f277f02e616e24b3d6e0a015da492266970e65151a5cb80e477409"
     },
     "type": "location",
-    "time": "19:29",
+    "time": "19:59",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-22:event:d6e13963dc38f197:1",
+    "id": "2026-11-22:event:e951c98a03af24bf:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "d6e13963dc38f197edfd0a785511195dd42d387f2e6094ab501b5693fb0e8b28"
+     "sha256": "e951c98a03af24bf6ce11083abf3dcaf154d801c1b1e9473d1b884d58a4bd05b"
     },
     "type": "inventory",
-    "time": "19:29",
+    "time": "19:59",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-22:event:51f32fc3cac3d777:1",
+    "id": "2026-11-22:event:881ee8e72a805289:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "51f32fc3cac3d777b6039f2f8bb589c46ac3cb053fbd118a0345f31982e10c7f"
+     "sha256": "881ee8e72a8052897de8f2ea47ca1a473d2f1a626e2f4d34c5fd658fb33d03d9"
     },
     "type": "inventory",
-    "time": "19:29",
+    "time": "19:59",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 18:49.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 18:49.\"}]"
    },
    {
-    "id": "2026-11-22:event:cbf924c7f14105f3:1",
+    "id": "2026-11-22:event:d723f145d708cf57:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "cbf924c7f14105f3b830f0729df357bf3428b6bfc4fc8ace4f175a85616269a8"
+     "sha256": "d723f145d708cf5713a1e5e7a71e35f2932e6029f2a5bbf987efddf4151ec874"
     },
     "type": "inventory",
-    "time": "19:29",
+    "time": "19:59",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2666,7 +2845,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "19:29",
+    "time": "19:59",
     "place": null
    }
   ]
