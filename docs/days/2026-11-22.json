@@ -334,6 +334,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "19:14",
+   "to": "19:29",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -646,6 +653,22 @@
    "to": "Hegel",
    "text": "Nahi sir, I don't eat here. My wife is waiting at the quarter, but I'll set your table by seven-thirty.",
    "t": "18:59",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s absence from the meal is a small refusal, a boundary he maintains even in service. Hegde is here, the man whose name is on the file, and the irony of our co-existence hangs in the brown air. I am hungry, but I will wait for the proper hour; discipline is the first lesson, even in one’s own house.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, Egypt"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    }
+   ],
+   "t": "19:14",
    "place": "home"
   }
  ],
@@ -1249,6 +1272,69 @@
      "text": "Judicial administration naturally has no concern with such part of actions and interests as belongs only to particularity, and leaves to chance not only the occurrence of crimes but also the care for public weal. In civil society the sole end is to satisfy want—and that, because it is man’s want, in a uniform general way, so as to secure this satisfaction."
     }
    ]
+  },
+  {
+   "t": "19:14",
+   "end": "19:29",
+   "event": "Ramesh says: “Nahi sir, I don't eat here. My wife is waiting at the quarter, but I'll set your table by seven-thirty.” He places the glass of water on the side table without a sound. Shri G. Hegde is here.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Ramesh’s absence from the meal is a small refusal, a boundary he maintains even in service. Hegde is here, the man whose name is on the file, and the irony of our co-existence hangs in the brown air. I am hungry, but I will wait for the proper hour; discipline is the first lesson, even in one’s own house.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 329.",
+    "Shri G. Hegde is here."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply",
+    "here"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, Egypt",
+     "id": "sibree-history:691"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1188"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, Egypt",
+     "text": "It is stated that, in a public market-place, sodomy was committed by a woman with a goat. Juvenal relates, that human flesh was eaten and human blood drunk out of revenge. The other side is the struggle of Spirit for liberation,— fancy displayed in the forms created by art, together with the abstract understanding shewn in the mechanical labours connected with their production."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "Cynicism adopted a simple wardrobe—a thick stick of wild olive, a ragged double mantle without any under garment, which served as bed by night, a beggar’s sack for the food that was required, and a cup with which to draw water. This was the costume with which these Cynics used to distinguish themselves."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1256,7 +1342,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-22T19:14+05:30",
+  "until": "2026-11-22T19:29+05:30",
   "asleep": false,
   "imprest": 16416,
   "wearing": "kurta",
@@ -1345,6 +1431,7 @@
    "bad_air": true,
    "seen": {
     "home": [
+     "hegde",
      "ramesh"
     ],
     "iic": [
@@ -1605,7 +1692,8 @@
     "2026-11-18",
     "2026-11-19",
     "2026-11-20",
-    "2026-11-21"
+    "2026-11-21",
+    "2026-11-22"
    ],
    "kapoor": [
     "2026-10-28",
@@ -1735,7 +1823,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-22",
-  "source_sha256": "9a531c8667a50cce8507875f7b62b8f2557934b531c5081a82c76452aad68607",
+  "source_sha256": "03b7e14b4ed5f6db80cdce6097b9aec16045767d26db039f9dead8f9b10bd331",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2452,68 +2540,114 @@
     "text": "Weather: 20 °C, a brown haze. Air quality index: 331."
    },
    {
-    "id": "2026-11-22:event:f4e1b074a131024c:1",
+    "id": "2026-11-22:event:d1aef4b99ba587c3:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 10,
+     "sha256": "d1aef4b99ba587c36efe4e5e2bc1bb3d34fc963a3d9ee347bf7f95def74fdcbb"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "19:14",
+    "end": "19:29",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-22:event:5e2140e4916dea78:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      10,
+      0
+     ],
+     "sha256": "5e2140e4916dea78323c00b803843bf426855113d108514225370b610f0a8a7d"
+    },
+    "type": "observation",
+    "time": "19:14",
+    "place": "home",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 329."
+   },
+   {
+    "id": "2026-11-22:event:62bb1c36d0c7c817:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      10,
+      1
+     ],
+     "sha256": "62bb1c36d0c7c81705f4b6b26667224595edeaced7771eb5f38e8f57651b3a25"
+    },
+    "type": "observation",
+    "time": "19:14",
+    "place": "home",
+    "text": "Shri G. Hegde is here."
+   },
+   {
+    "id": "2026-11-22:event:5ebc896f2f88f679:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "f4e1b074a131024c03683ac04f612bc40242d6daff2ddc095c2b6a8579ce707c"
+     "sha256": "5ebc896f2f88f679ee2329cd0da48c121e1679bff2e7fe291e3e7f810c7e7f51"
     },
     "type": "cash",
-    "time": "19:14",
+    "time": "19:29",
     "amount": 16416,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-22:event:8a4952c23992d8d4:1",
+    "id": "2026-11-22:event:2f7701392f950373:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "8a4952c23992d8d4aafdefbe851cba9eb1fe5726f00f0a008c95a9e3422278e2"
+     "sha256": "2f7701392f950373deff64760875c19d9a8b0e589b460a532704a3667bf6ee7b"
     },
     "type": "location",
-    "time": "19:14",
+    "time": "19:29",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-22:event:35624a408b1c5dad:1",
+    "id": "2026-11-22:event:d6e13963dc38f197:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "35624a408b1c5dad25e360d308855f8c9c1be2ed28bea24207ced17da83fc876"
+     "sha256": "d6e13963dc38f197edfd0a785511195dd42d387f2e6094ab501b5693fb0e8b28"
     },
     "type": "inventory",
-    "time": "19:14",
+    "time": "19:29",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-22:event:729a188f7d08eadb:1",
+    "id": "2026-11-22:event:51f32fc3cac3d777:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "729a188f7d08eadb050e81ec31b4b794acadfdaa4238f7d355f54e2390a03a16"
+     "sha256": "51f32fc3cac3d777b6039f2f8bb589c46ac3cb053fbd118a0345f31982e10c7f"
     },
     "type": "inventory",
-    "time": "19:14",
+    "time": "19:29",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 18:49.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 18:49.\"}]"
    },
    {
-    "id": "2026-11-22:event:c5bf23faa42bde9b:1",
+    "id": "2026-11-22:event:cbf924c7f14105f3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "c5bf23faa42bde9bbb621cf38eb3dabe5e9ee75b7f5e1eb7245136cd0fbd69f5"
+     "sha256": "cbf924c7f14105f3b830f0729df357bf3428b6bfc4fc8ace4f175a85616269a8"
     },
     "type": "inventory",
-    "time": "19:14",
+    "time": "19:29",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2532,7 +2666,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "19:14",
+    "time": "19:29",
     "place": null
    }
   ]
