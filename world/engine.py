@@ -13,7 +13,7 @@ import random
 import time
 from datetime import date, datetime, timedelta
 
-from . import claim_check, contract, lookup, owl, post, prefer, prompt_budget, records, report, shelf, voices, works
+from . import calls, claim_check, contract, lookup, owl, post, prefer, prompt_budget, records, report, shelf, voices, works
 from .clock import day_number, fmt, hm, long_date, minute_of, sun
 from .memory import Memory, encountered_text
 from .money import ADVANCE
@@ -95,6 +95,13 @@ class Engine:
     def __init__(self, cfg, world, mind, git=None, owl_mind=None, claim_guard=None):
         self.cfg, self.world, self.mind, self.git = cfg, world, mind, git
         self.owl_mind = owl_mind or mind
+        self.recorder = None
+        if getattr(cfg, "record_calls", False):              # HEGEL_RECORD_CALLS: one record for the engine's minds, in the order they are asked
+            self.recorder = calls.Recorder(cfg.state / "calls", {"code": calls.code_hash(cfg.repo), "switches": calls.switches(cfg),
+                                                                  "owl_mind_separate": self.owl_mind is not mind})
+            for m in {id(mind): mind, id(self.owl_mind): self.owl_mind}.values():
+                if hasattr(m, "recorder"):
+                    m.recorder = self.recorder
         if getattr(cfg, "consumed", False):
             world.consumed = True           # HEGEL_CONSUMED reaches the entries however the world was built
         self.days = Days(cfg.docs, getattr(cfg, "clock_shift_min", 0))
@@ -189,8 +196,8 @@ class Engine:
     # ── one step ────────────────────────────────────────────────────
     def step(self, day, t):
         st = day["state"]
-        if getattr(self.cfg, "seed_streams", False) and callable(getattr(self.mind, "at", None)):
-            self.mind.at(t.isoformat(timespec="minutes"))       # HEGEL_SEED_STREAMS: this moment's calls draw from its own stream
+        if (getattr(self.cfg, "seed_streams", False) or getattr(self.cfg, "record_calls", False)) and callable(getattr(self.mind, "at", None)):
+            self.mind.at(t.isoformat(timespec="minutes"))       # this moment's calls: their own seed stream, and their place in the record
         if "account" not in st:
             self.migrate(day, st)               # a day file from before the economy: its books are made on first need
         prev = next((s for s in reversed(day["steps"]) if "decision" in s), None)
@@ -835,7 +842,7 @@ class Engine:
         weekday = datetime.fromisoformat(day["date"]).strftime("%A")
         n = st.get("depesche_n", 0) + 1 if weekday == self.cfg.depesche_day else None
         known = self.memory.known_before(day["date"]) + "\n" + encountered_text(day)
-        if getattr(self.cfg, "seed_streams", False) and callable(getattr(self.owl_mind, "at", None)):
+        if (getattr(self.cfg, "seed_streams", False) or getattr(self.cfg, "record_calls", False)) and callable(getattr(self.owl_mind, "at", None)):
             self.owl_mind.at(f"owl|{day['date']}")
         written = owl.write(self.cfg, day, st, self.owl_mind, depesche_n=n, problems=lambda text: self.world.problems(text, known),
                             flag=self.world.flag, topic=self.world.topic, claim_guard=self.claim_guard,
@@ -859,6 +866,8 @@ class Engine:
         owl_day = self.owl_ready(now)
         if not owl_day and not self.due(now):
             return []           # most minutes: nothing to decide, no network
+        if getattr(self, "recorder", None):
+            self.recorder.tick(now, calls.folder_hash(self.cfg.state / "feeds"))
         if self.git:
             self.git.sync()
         changed = self.advance(now)
