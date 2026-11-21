@@ -1,0 +1,16 @@
+{
+ "sealed": "2026-11-21, before any key is applied",
+ "judges": "two fresh agents, one per sheet; each made one tool call, its own sheet (audited)",
+ "arms": {
+  "off": {
+   "sheet_sha256": "8459a1ef89a6ee25f4ae8f3522bb9618703d1510217886da132794374d1ec81f",
+   "judgments_sha256": "58ac9e6354eef79ac4a892d1d979651a602576ccd69f4a1de869c8867e89139e",
+   "key_sha256_expected": "5a394bcc597edca44a43aadff1feec209d6ee8025a98c23fbe841cac5145bab4"
+  },
+  "on": {
+   "sheet_sha256": "a76ea071650b86e58bef3bccaf9d501931e2f68982b10e94ef9bb752d6f84376",
+   "judgments_sha256": "8fb7f613983aab5221ee2a2bd8853912ea5ac2e4b82321ee7b61b84dae98a1d3",
+   "key_sha256_expected": "4c0bb4f65a77cef6e0e98a50d434a5e88341ea13c434cfc135f2e18169d5267f"
+  }
+ }
+}
