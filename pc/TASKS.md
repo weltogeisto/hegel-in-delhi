@@ -84,6 +84,9 @@ Declared in `pc/VOICE-REPAIRS-CHECK.md`. `HEGEL_VOICE_REPAIRS` is off and stays 
 3. Push the replies with the arm hidden in a key that stays on the PC until the labels are sealed, as for W4. The readers and the result are Claude's.
 It comes after W8, W3 and the three things still owed for W4 (the two keys, arm P's act records, the who-answers table).
 
+### W10 · PC seat · the fast lane, night 1: the museums off and on · OPEN for the night of 21 to 22 November (`DECISIONS.md` 61)
+Declared in `pc/FAST-LANE-NIGHT1.md` before any run. After the 21:15 merge and `HEGEL_CULTURE=1`: the noise band (Day 51's morning, seed 1831, culture off, twice, `fork_diff`), then 48 one-day runs, the saved mornings of Days 50, 51 and 52, culture off and on, eight seeds, in the declared order, one at a time in the spare slot. The live server is never restarted. No run starts after 07:30 Berlin; 8082 is checked after the last. Push to `codex/fast-lane-night1-20261121` and post DONE on PR #1. A measurement, not a gate: the read is Claude's, in the morning.
+
 ## The order, day by day (Claude in the cloud, 18 November)
 
 One change goes on at a time, each after the previous one's first full day (`DECISIONS.md` 31, 34, 47, 50). The PC is on from about 09:00 to 21:00 Berlin, so each switch is set on the Pi in the morning, after the PC starts and before he wakes at about 09:15. Day numbers are his. His calendar runs a day ahead of Berlin's: Day 49 is lived on Berlin's Wednesday 18 November.
