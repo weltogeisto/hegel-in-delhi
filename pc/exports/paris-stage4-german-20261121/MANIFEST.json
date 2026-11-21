@@ -6,5 +6,15 @@
   "SKIPPED.json": "e963a3bff82b222a4520fb7eb142a4ac25511e4984040284ddee53e0e6d3c9aa",
   "REQUESTS-1.jsonl": "3a26423ef6a2663fb98e7f29a0caf141ea90c64fff343a315f5677ac23ff6a2b"
  },
- "training_eligible": false
+ "training_eligible": false,
+ "round1": {
+  "branch": "codex/paris-stage4-german-20261121",
+  "commit": "ae0bf4d8",
+  "REPLIES-1.jsonl": "c8f06bff5fbd3dfc09e7fa6e681016f080331feae33473b3af1e1cade8d1172f"
+ },
+ "round2": {
+  "REQUESTS-2.jsonl": "e32a3d8ab4f63319dbfc853c0fcf92d202bd64ba24f1f6988e577302f0c89658",
+  "requests": 48
+ },
+ "deviation_noted_before_any_judgment": "7 of the 48 'German' letters came back in English (de-off: 2a1380a5ff, cb33647769, 4563cb691a; de-on: 2a1380a5ff, 8c367cefff, 3f8db86b51, 2621b09f6f). Run as declared; the German-only subset is reported beside the declared count and decides nothing."
 }
