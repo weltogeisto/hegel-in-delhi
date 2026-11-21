@@ -313,6 +313,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "At the IIC."
+  },
+  {
+   "from": "18:27",
+   "to": "18:49",
+   "mode": "walk",
+   "a": "iic",
+   "b": "home"
   }
  ],
  "entries": [
@@ -527,6 +534,28 @@
     }
    ],
    "t": "18:22",
+   "place": "iic"
+  },
+  {
+   "k": "world",
+   "text": "Through the closed door of a seminar room comes the even voice of a speaker reading a paper aloud, and now and then the rustle of many pages turning.",
+   "t": "18:27",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The voice is steady, but the rustle of pages suggests a mind that has not yet grasped the whole, only the parts. I am tired from my earlier walk, and the air here is thick with the day's dust. I will not linger in the corridor to eavesdrop on a performance that does not concern my Tuesday talk. I return to the bungalow to rest before the evening settles.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Roman World, Rome to the Second Punic War"
+    }
+   ],
+   "t": "18:27",
    "place": "iic"
   }
  ],
@@ -937,14 +966,76 @@
      "text": "It strikes every one, in beginning to form an acquaintance with the treasures of Indian literature, that a land so rich in intellectual products, and those of the profoundest order of thought, has no History; and in this respect contrasts most strongly with China — an empire possessing one so remarkable, one going back to the most ancient times."
     }
    ]
+  },
+  {
+   "t": "18:27",
+   "end": "18:49",
+   "event": "Through the closed door of a seminar room comes the even voice of a speaker reading a paper aloud, and now and then the rustle of many pages turning.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The voice is steady, but the rustle of pages suggests a mind that has not yet grasped the whole, only the parts. I am tired from my earlier walk, and the air here is thick with the day's dust. I will not linger in the corridor to eavesdrop on a performance that does not concern my Tuesday talk. I return to the bungalow to rest before the evening settles.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 331.",
+    "Through the closed door of a seminar room comes the even voice of a speaker reading a paper aloud, and now and then the rustle of many pages turning."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "street:iic_seminar_voice"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "id": "sibree-history:391"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Roman World, Rome to the Second Punic War",
+     "id": "sibree-history:947"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "text": "The duties of the Family are absolutely binding, and established and regulated by law. The son may not accost the father, when he comes into the room; he must seem to contract himself to nothing at the side of the door, and may not leave the room without his father's permission. When the father dies, the son must mourn for three years — abstaining from meat and wine."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Roman World, Rome to the Second Punic War",
+     "text": "It would be a wearisome task to pursue the wars of the Romans in Italy; partly because they are in themselves unimportant-— even the often empty rhetoric of the generals in Livy cannot very much increase the interest — partly on account of the unintelligent character of the Roman annalists…"
+    }
+   ]
   }
  ],
  "funnel": {},
  "owl": null,
  "complete": false,
  "state": {
-  "place": "iic",
-  "until": "2026-11-22T18:27+05:30",
+  "place": "home",
+  "until": "2026-11-22T18:49+05:30",
   "asleep": false,
   "imprest": 16416,
   "wearing": "bandhgala",
@@ -1040,8 +1131,8 @@
      "officer"
     ]
    },
-   "walked": 1650,
-   "strain": 1650
+   "walked": 3300,
+   "strain": 3300
   },
   "account": {
    "advance": 15000,
@@ -1415,13 +1506,14 @@
    "iic_noticeboard": "2026-11-20",
    "home_water_tanker": "2026-11-21",
    "home_peahen": "2026-11-21",
-   "home_monkey_wall": "2026-11-21"
+   "home_monkey_wall": "2026-11-21",
+   "iic_seminar_voice": "2026-11-22"
   }
  },
  "records": {
   "version": 2,
   "date": "2026-11-22",
-  "source_sha256": "7967de8b29b0bb325f999fb19bad746317c48dffc0578115838a6fbb34eec232",
+  "source_sha256": "ff21744ae11296e43ac006d51a1e5b668751ebe99fff11ea4f831402c3069d0d",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1648,6 +1740,19 @@
     "words": "Sorry, Shri Hegde, my mistake. The officer is already with him, so just go ahead and find her. And watch the steps near the stacks, the floor gets slippery in this humidity.",
     "verified": false,
     "time": "18:07",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-22:event:e515d7d3076a3048:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 21,
+     "sha256": "e515d7d3076a3048561f4b579e0d4afd13c941a865edb28cd61ffe58584ad3f4"
+    },
+    "type": "world",
+    "text": "Through the closed door of a seminar room comes the even voice of a speaker reading a paper aloud, and now and then the rustle of many pages turning.",
+    "time": "18:27",
     "place": "iic"
    },
    {
@@ -1913,68 +2018,116 @@
     "text": "Weather: 20 °C, a brown haze. Air quality index: 331."
    },
    {
-    "id": "2026-11-22:event:f8dd96c463a29fbd:1",
+    "id": "2026-11-22:event:a334c3ed37f20f76:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 7,
+     "sha256": "a334c3ed37f20f76eda7b4fff1c0b6a420b698777709c416528037b5e37f5377"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "18:27",
+    "end": "18:49",
+    "place": null,
+    "origin": "iic",
+    "destination": "home"
+   },
+   {
+    "id": "2026-11-22:event:b2702d8f5c37e2b5:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      7,
+      0
+     ],
+     "sha256": "b2702d8f5c37e2b5255765e346a9ef0aa06240216f720c3b9b6979138bec4d5f"
+    },
+    "type": "observation",
+    "time": "18:27",
+    "place": "iic",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 331."
+   },
+   {
+    "id": "2026-11-22:event:2237fe06005c216d:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      7,
+      1
+     ],
+     "sha256": "2237fe06005c216df78675ada43da8ea0465fbf12512fc194be87d433f89629f"
+    },
+    "type": "observation",
+    "time": "18:27",
+    "place": "iic",
+    "text": "Through the closed door of a seminar room comes the even voice of a speaker reading a paper aloud, and now and then the rustle of many pages turning."
+   },
+   {
+    "id": "2026-11-22:event:b576a33b2758e75c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "f8dd96c463a29fbd1c00480b0cd67bbde2b862c1298b87700c91c561b5442fa2"
+     "sha256": "b576a33b2758e75c3786ad45437607ad92d711c2a8ce4c520f15fd120cddbf32"
     },
     "type": "cash",
-    "time": "18:27",
+    "time": "18:49",
     "amount": 16416,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-22:event:ae4b222bddac33d2:1",
+    "id": "2026-11-22:event:b5dcd920a8a77bc6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "ae4b222bddac33d2bdf1c3a1b66bcc49ca4486c39c73edc3074be5c43f07d468"
+     "sha256": "b5dcd920a8a77bc619bbc69ce35afe0d9a31b0174a7d01864c19a397bc7291dd"
     },
     "type": "location",
-    "time": "18:27",
-    "place": "iic",
+    "time": "18:49",
+    "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-22:event:fcd58f096ad765ca:1",
+    "id": "2026-11-22:event:d0a036499b0ebb19:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "fcd58f096ad765ca403838486f6a22c91395474014a5436d319c7949b9d2c529"
+     "sha256": "d0a036499b0ebb19ff03538450addfbe23b0e95603ab1434434275e575fe70b3"
     },
     "type": "inventory",
-    "time": "18:27",
+    "time": "18:49",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-22:event:c09ef0d039598f47:1",
+    "id": "2026-11-22:event:1e02e2f7255f04d1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "c09ef0d039598f47d82a9c441928e4355829a160591ebe02d05fad4bd64d61a2"
+     "sha256": "1e02e2f7255f04d18edb9f73d8c12e882c982c5116a349ae54654e3812b0022c"
     },
     "type": "inventory",
-    "time": "18:27",
+    "time": "18:49",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 17:15.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 17:15.\"}]"
    },
    {
-    "id": "2026-11-22:event:6425ad652476d93a:1",
+    "id": "2026-11-22:event:d98e0d45517fafda:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "6425ad652476d93a48eb9ba9af9cbaaa616db61d3e72aaaa476d894a2c6d7d9d"
+     "sha256": "d98e0d45517fafdac50826229a528ddf6e5360a4b41ba602f4cb6cf88e64fd7b"
     },
     "type": "inventory",
-    "time": "18:27",
+    "time": "18:49",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -1993,7 +2146,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "18:27",
+    "time": "18:49",
     "place": null
    }
   ]
