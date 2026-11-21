@@ -2,6 +2,8 @@
 
 Proposed on 21 November 2026 by Claude on the PC, on Welt's ask in the PC session ("1 week progress in one night or more"; "we are a simulation laboratory"; rules may change with good reason). v1 of this file was reviewed adversarially the same evening against external practice. Its verdict was "right direction, wrong design", and this version takes its findings in. A proposal: the cloud session turns it into an order, and Welt decides the points marked **Welt**.
 
+**Status, DECISIONS 61 (Welt, 21 November, about 17:40):** the PC stays on at night for the fast lane, on the home GPU only. No rented GPUs (so the rented rows in D and the rented nights in the plan below are out) and no delayed publication (H). Not yet decided: every slot at night (the spare slot until then), statistical gates in place of live-day gates, the dead-man alert and catch-up mode. The live server is started only by its Windows starter, and port 8082 is checked after every night job. The text below stays as proposed and reviewed.
+
 ## The idea in one paragraph
 
 His live life stays in real time. It is the record, and the final check. Everything we want to *learn* moves to an offline lane that runs on the GPU at night, and on rented GPUs when one card is not enough. That lane is designed as experiments, not as more days. A rehearsed real-mind day costs 6 to 11 GPU-minutes (measured on 20–21 November: six whole days with every live switch in 36 minutes). So one home night holds about 60 to 130 day-runs, and a rented night about 800. Used well, that answers four switches in one night instead of four live weeks.
