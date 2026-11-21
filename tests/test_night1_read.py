@@ -89,6 +89,31 @@ class Night1Test(unittest.TestCase):
         self.assertEqual(con.execute("select count(*) from runs").fetchone()[0], 13)
         con.close()
 
+    def test_block_2_reads_the_act_against_the_museums_alone(self):
+        d = day("2026-11-21", 12, 18, venue="national_museum")
+        d["state"].update({"beats": ["saxena_query", "hegde_letter"], "flags": {"file_reply": "own_name", "other": 1},
+                           "file": "His representation is on the file."})
+        put(self.root, "51-act-1831", d, run={"morning": "51", "seed": 1831,
+                                               "switches": {"HEGEL_CULTURE": "1", "HEGEL_FILE_ACT": "1"}})
+        runs = nr.load(self.root)
+        r = {x["run"]: x for x in runs}["51-act-1831"]
+        self.assertEqual(r["arm"], "act")
+        self.assertEqual(r["act_beats"], ["hegde_letter"])
+        self.assertEqual(r["act_flags"], {"file_reply": "own_name"})
+        text, eff = nr.report(runs, boot=200)
+        self.assertIn("## Block 2", text)
+        self.assertIn("`hegde_letter` fired in 1 of 1", text)
+        self.assertEqual(eff["act"]["home_share"]["mornings"], ["51"])
+        self.assertNotIn("pooled", eff)
+
+    def test_block_3_seeds_are_pooled_and_block_1_stays_alone(self):
+        put(self.root, "50-off-2027", day("2026-11-20", 30, 0))
+        put(self.root, "50-on-2027", day("2026-11-20", 0, 30))
+        text, eff = nr.report(nr.load(self.root), boot=200)
+        self.assertEqual(eff["block1"]["home_share"]["n_on"], 6)
+        self.assertEqual(eff["pooled"]["home_share"]["n_on"], 7)
+        self.assertIn("Blocks 1 and 3 pooled", text)
+
     def test_the_command_line_writes_the_result(self):
         out = Path(self.td.name) / "out"
         self.assertEqual(nr.main(["--runs", str(self.root), "--out", str(out), "--boot", "100"]), 0)

@@ -25,12 +25,33 @@ v2's `HEGEL_VOICE_REPAIRS` arm is dropped: it failed W9 (`pc/exports/voice-repai
   - Seed by seed, and within a seed morning by morning.
   - For each morning the two arms run back to back: off then on for even seeds in the list, on then off for odd ones.
   - A night cut short therefore leaves both arms balanced.
-- **Concurrency:** one run at a time, in the spare slot. If Welt says yes to every slot while he sleeps, as many runs at once as the server has slots, but only after the noise band below is measured at that concurrency.
+- **Concurrency: every slot while he sleeps** (Welt's yes, 21 November, about 20:40; `DECISIONS.md` 62). As many runs at once as the live server has slots, once Day 53's merge is checked and 8082 answers. The noise band below is measured at that concurrency, its two runs started together with the others filling the remaining slots. Within a block, runs start in the declared order as slots free up.
 - **First, the noise band:** the saved morning of Day 51, seed 1831, `HEGEL_CULTURE=0`, twice, compared with `tools/fork_diff.py`. If the two days match, same-seed pairs hold at this concurrency. If not, the night is read unpaired, which v2 assumes anyway.
 - **Stops:**
   - No run starts after 07:30 Berlin, and every run is stopped by 07:45.
   - 8082 is checked after the last run.
   - If the live server dies, it is started only by its Windows starter, and the night is posted as BLOCKED.
+
+## Blocks 2 and 3, declared at the same time, before any run
+
+Every slot finishes block 1 early, so the night has room for two more blocks. Each starts only when the one before it is complete.
+
+**Block 2: the next switch rehearsed before it goes live.** The file's next act, part 1 (`HEGEL_FILE_ACT=1`), has Welt's yes of 19 November (`DECISIONS.md` 59) and goes on after the museums' first full day.
+- **Runs:** the saved mornings of Days 51 and 52 (Saturday 21 and Sunday 22 November). On those mornings the query has already fired (Day 50), and two of the act's doors are dated from his 21 November.
+- **Arm:** `HEGEL_CULTURE=1` and `HEGEL_FILE_ACT=1`, with every other switch as in block 1. The folder name is `<day>-act-<seed>`.
+- **Seeds:** the eight of block 1, then 2027, 1123, 1729 and 2357. That makes 12 a morning and 24 runs.
+- **The control:** block 1's "on" runs of the same mornings.
+- **What is read:**
+  - which of the act's four beats fired;
+  - his yes or no at each;
+  - the file's line at the end of the day;
+  - the same health measures as block 1, "act" against "on".
+- **What it is for:** a dress rehearsal, not a gate. It shows Welt how the doors play across many days before the first live one, and it finds a door that never opens or opens wrongly while that is still cheap to fix.
+
+**Block 3, if the night allows: block 1 again with eight more seeds.**
+- **Runs:** the same mornings and arms, seeds 2027, 1123, 1729, 2357, 2503, 1301, 1907 and 2113, in block 1's order.
+- **What it buys:** 48 runs against 48, which makes a difference of about 3 points visible.
+- **How it is reported:** block 1 alone first, as declared, then pooled. A block cut short by 07:30 is reported as far as it went.
 
 ## What is measured (declared now, read in the morning by Claude in the cloud)
 
