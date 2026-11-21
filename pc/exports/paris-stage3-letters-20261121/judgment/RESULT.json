@@ -1,0 +1,94 @@
+{
+ "heldout-off": {
+  "real_picked": 24,
+  "of": 24,
+  "sureness": {
+   "sure": 24
+  },
+  "kinds_real": {
+   "people": 20,
+   "places": 22,
+   "prices": 3,
+   "food": 8,
+   "sights": 17,
+   "health": 11,
+   "family": 17
+  },
+  "kinds_model": {
+   "people": 18,
+   "places": 23,
+   "prices": 0,
+   "food": 11,
+   "sights": 15,
+   "health": 21,
+   "family": 24
+  },
+  "kinds_per_letter_real": 4.08,
+  "kinds_per_letter_model": 4.67,
+  "kind_overlap_jaccard_mean": 0.698
+ },
+ "heldout-on": {
+  "real_picked": 24,
+  "of": 24,
+  "sureness": {
+   "sure": 24
+  },
+  "kinds_real": {
+   "people": 20,
+   "places": 21,
+   "prices": 3,
+   "food": 8,
+   "sights": 17,
+   "health": 11,
+   "family": 16
+  },
+  "kinds_model": {
+   "people": 22,
+   "places": 23,
+   "prices": 21,
+   "food": 24,
+   "sights": 20,
+   "health": 24,
+   "family": 23
+  },
+  "kinds_per_letter_real": 4.0,
+  "kinds_per_letter_model": 6.54,
+  "kind_overlap_jaccard_mean": 0.581
+ },
+ "old-on": {
+  "real_picked": 24,
+  "of": 24,
+  "sureness": {
+   "sure": 24
+  },
+  "kinds_real": {
+   "people": 21,
+   "places": 18,
+   "prices": 2,
+   "food": 5,
+   "sights": 20,
+   "health": 8,
+   "family": 8
+  },
+  "kinds_model": {
+   "people": 24,
+   "places": 18,
+   "prices": 21,
+   "food": 23,
+   "sights": 23,
+   "health": 22,
+   "family": 23
+  },
+  "kinds_per_letter_real": 3.42,
+  "kinds_per_letter_model": 6.42,
+  "kind_overlap_jaccard_mean": 0.528
+ },
+ "reading": {
+  "declared": "closer if heldout-on's real-picked count is at least 4 lower than heldout-off's and its letters share more kinds with the real ones",
+  "count_drop": 0,
+  "overlap_off": 0.698,
+  "overlap_on": 0.581,
+  "verdict": "not shown closer"
+ },
+ "training_eligible": false
+}
