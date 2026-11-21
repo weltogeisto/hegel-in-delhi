@@ -327,6 +327,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "18:59",
+   "to": "19:14",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -608,6 +615,37 @@
    "status": "Worn from 18:49.",
    "sprite": "kurta",
    "t": "18:49",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The haze is not merely weather; it is a medium, a suspension in which the city floats, distinct yet connected. Ramesh’s observation of the noise confirms the barrier between the private interior and the public exterior. I shall accept the water and wait for the evening meal, which will soon restore the rhythm of the household.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§533"
+    }
+   ],
+   "t": "18:59",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Yes, the muffled sound is a sign of the distance. Thank you, Ramesh. I shall be ready for dinner when you are.",
+   "to": "Ramesh",
+   "t": "18:59",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Nahi sir, I don't eat here. My wife is waiting at the quarter, but I'll set your table by seven-thirty.",
+   "t": "18:59",
    "place": "home"
   }
  ],
@@ -1146,6 +1184,71 @@
      "text": "The absolute substance, the moving immovable, the existent ground of heaven which we saw as end, is, on the contrary, both activity itself and the content and object of activity. But Aristotle distinguishes from this what falls under the form of this opposition, “That moving is also moved which has movement as a capacity, and whose immobility is rest."
     }
    ]
+  },
+  {
+   "t": "18:59",
+   "end": "19:14",
+   "event": "Ramesh says: “Probably a function at the club, sir. The noise gets muffled, then hits you all at once. I haven't fetched the paper today, but I’ll bring the water.” Ramesh turns to fetch a glass of water from the cooler.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The haze is not merely weather; it is a medium, a suspension in which the city floats, distinct yet connected. Ramesh’s observation of the noise confirms the barrier between the private interior and the public exterior. I shall accept the water and wait for the evening meal, which will soon restore the rhythm of the household.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Yes, the muffled sound is a sign of the distance. Thank you, Ramesh. I shall be ready for dinner when you are.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 331."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Nahi sir, I don't eat here. My wife is waiting at the quarter, but I'll set your table by seven-thirty.",
+    "does": "He places the glass of water on the side table without a sound."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§533",
+     "id": "wallace-mind:288"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§533",
+     "text": "Judicial administration naturally has no concern with such part of actions and interests as belongs only to particularity, and leaves to chance not only the occurrence of crimes but also the care for public weal. In civil society the sole end is to satisfy want—and that, because it is man’s want, in a uniform general way, so as to secure this satisfaction."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1153,7 +1256,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-22T18:59+05:30",
+  "until": "2026-11-22T19:14+05:30",
   "asleep": false,
   "imprest": 16416,
   "wearing": "kurta",
@@ -1632,7 +1735,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-22",
-  "source_sha256": "a1e5d2cbf0300784f56f857d46620a393b771f1651ad3daa9763f64c758c2d2a",
+  "source_sha256": "9a531c8667a50cce8507875f7b62b8f2557934b531c5081a82c76452aad68607",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1930,6 +2033,36 @@
     "status": "Worn from 18:49.",
     "gone": false,
     "time": "18:49",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-22:statement:a13f614cc13940ec:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 29,
+     "sha256": "a13f614cc13940ecf023e8d373e85a1750f0fee035543c6e3cafc7d8f2c50a56"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Yes, the muffled sound is a sign of the distance. Thank you, Ramesh. I shall be ready for dinner when you are.",
+    "verified": false,
+    "time": "18:59",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-22:statement:70855b03f0a67255:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 30,
+     "sha256": "70855b03f0a67255c1b444372fb2f6405c4b8125aa9042726264b90d70091785"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Nahi sir, I don't eat here. My wife is waiting at the quarter, but I'll set your table by seven-thirty.",
+    "verified": false,
+    "time": "18:59",
     "place": "home"
    },
    {
@@ -2289,68 +2422,98 @@
     "text": "From somewhere beyond the trees a brass band plays a film tune, the drums carrying further than the horns, and the sound swells and fades as the procession moves."
    },
    {
-    "id": "2026-11-22:event:513f2368663917ff:1",
+    "id": "2026-11-22:event:38a0105d1b9edf53:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 9,
+     "sha256": "38a0105d1b9edf539e2413862f9e443e71b40196df365c1e764d4f70fada4afd"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "18:59",
+    "end": "19:14",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-22:event:b2702d8f5c37e2b5:5",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      9,
+      0
+     ],
+     "sha256": "b2702d8f5c37e2b5255765e346a9ef0aa06240216f720c3b9b6979138bec4d5f"
+    },
+    "type": "observation",
+    "time": "18:59",
+    "place": "home",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 331."
+   },
+   {
+    "id": "2026-11-22:event:f4e1b074a131024c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "513f2368663917ffaeb0829edc6fdfec22fbb871e7230f39ac7faa6e448f05da"
+     "sha256": "f4e1b074a131024c03683ac04f612bc40242d6daff2ddc095c2b6a8579ce707c"
     },
     "type": "cash",
-    "time": "18:59",
+    "time": "19:14",
     "amount": 16416,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-22:event:6e6a0af9cfb7750a:1",
+    "id": "2026-11-22:event:8a4952c23992d8d4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "6e6a0af9cfb7750a288da0d7b79e353555d78f6da6f44557e53872ab87f8ddc4"
+     "sha256": "8a4952c23992d8d4aafdefbe851cba9eb1fe5726f00f0a008c95a9e3422278e2"
     },
     "type": "location",
-    "time": "18:59",
+    "time": "19:14",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-22:event:cf28d6bb8b8c2c98:1",
+    "id": "2026-11-22:event:35624a408b1c5dad:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "cf28d6bb8b8c2c9836b5e9d99d18226906e6dbb70132c3965abf29a190b648ec"
+     "sha256": "35624a408b1c5dad25e360d308855f8c9c1be2ed28bea24207ced17da83fc876"
     },
     "type": "inventory",
-    "time": "18:59",
+    "time": "19:14",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-22:event:c70055520ae1c4da:1",
+    "id": "2026-11-22:event:729a188f7d08eadb:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "c70055520ae1c4da37cffd398d1df2453b55e865cf759c4fcae104e74c488301"
+     "sha256": "729a188f7d08eadb050e81ec31b4b794acadfdaa4238f7d355f54e2390a03a16"
     },
     "type": "inventory",
-    "time": "18:59",
+    "time": "19:14",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 18:49.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 18:49.\"}]"
    },
    {
-    "id": "2026-11-22:event:d7e7f260b1e6920c:1",
+    "id": "2026-11-22:event:c5bf23faa42bde9b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "d7e7f260b1e6920c50a632be0057788c61c5d4f99ea4d8ad37dd0f487ae10716"
+     "sha256": "c5bf23faa42bde9bbb621cf38eb3dabe5e9ee75b7f5e1eb7245136cd0fbd69f5"
     },
     "type": "inventory",
-    "time": "18:59",
+    "time": "19:14",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2369,7 +2532,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "18:59",
+    "time": "19:14",
     "place": null
    }
   ]
