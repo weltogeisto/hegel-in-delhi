@@ -44,6 +44,8 @@ For each thought, the procedure of 6 November unchanged (`world/restyle.py`: the
 | The gain is not the second pass: occasions in which he likes the plain rewrite most | Fewer than the adapter's |
 | Ordinary moments in which he likes the adapter's version least | At most a quarter |
 
+**Mixed weights, declared 20 November before any key was opened:** a rewrite that both marking readers mark E or C counts as **substantive** if at least one of them calls it substantive, and as **minor** only if both call it minor. It counts once, under one of the two. The plain rewrites are counted by the same rule. The stricter reading is chosen because the first bar protects what happened and what he will do.
+
 The adapter passes on all five. The development set is marked first and reported in full. It gates nothing; it shows whether the marking works before the held-back days are opened.
 
 **Reads, not bars.** Notions of his system per 100 words in each version (`tools.prompt_screen.DOCTRINE`). How often the marking readers pick out the adapter's version: if they can tell it by its register, the blindness is thin and the result says so. The days on the old instructions beside the days on the new.

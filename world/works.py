@@ -131,7 +131,18 @@ def manuscripts(state):
     return " Your manuscripts so far: " + "; ".join(shelf) + "." if shelf else ""
 
 
-def ask(state, d=None):
+LETTER_REGISTER = (
+    "If this sitting is a private letter to someone close to you, write it as such a letter is written on the evening of a day: "
+    "say what you did, where you went, whom you met and what they said, what you saw, ate and paid, with the names, hours, prices and places the record gives; "
+    "give your own short verdicts on people, food, performances and sights, as a sharp-eyed traveller does; "
+    "answer what the last letter to you said or asked, if there was one; "
+    "let it be uneven and particular: a complaint, a joke or a half-finished thought is better than a rounded paragraph. "
+    "Philosophy may come in as a passing remark, never as the subject, and do not end on a moral or a lesson drawn from the day. "
+    "Speak of home and family only as much as you have something to say about them. "
+)   # HEGEL_LETTER_REGISTER (DECISIONS 60): Paris stage 2 found his letters to be essays with a family frame, 24 of 24
+
+
+def ask(state, d=None, letter_register=False):
     """A chat writing request, kept after the full identity and situation by Engine.write_chat.
 
     The date comes from the simulation clock. The evidence distinction is an
@@ -147,7 +158,7 @@ def ask(state, d=None):
         "A private letter may be practical, affectionate or irritated without becoming a philosophical lecture. "
     )
     # The distiller recognises WRITE_ASK at the beginning of this request.
-    return WRITE_ASK + manuscripts(state) + " " + dated + grounding + WRITE_FORMAT
+    return WRITE_ASK + manuscripts(state) + " " + dated + grounding + (LETTER_REGISTER if letter_register else "") + WRITE_FORMAT
 
 
 

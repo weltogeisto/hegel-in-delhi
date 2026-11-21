@@ -167,6 +167,46 @@ The declared simulated side gives the card to his live instructions. Those instr
   - a later prompt or world is closer when it lowers that count by at least 4 and shares more kinds of content with the real letters.
 - **The calls:** 72 letters and 24 translations on the PC, in its spare time, never at the cost of his steps. One command sends them, one durable receipt per call, the spare slot, thinking off as in his live calls, resumable after a stop (added 19 November, before any call): `python3 tools/run_requests.py --requests pc/exports/paris-stage2-20261118/REQUESTS.jsonl --server <the plain live server> --job <a folder outside the repo> --out REPLIES.jsonl`. It writes `REPLIES.jsonl` and `<job>/LEDGER.json`; both go back on a `codex/*` branch, unread.
 
+### Stage 2b · the letter register · declared 21 November, about 01:00 Berlin, before any letter exists
+
+Stage 2's result (`pc/exports/paris-stage2-20261118/judgment/RESULT.md`): the real letter picked in 24 of 24. The model's letters moralise, run generic, and touch every kind of content. `HEGEL_LETTER_REGISTER` (off; `world/works.py`, `LETTER_REGISTER`; `DECISIONS.md` 60) adds one block to the writing request: write a private letter as a letter of that evening, with particulars and quick verdicts, uneven, no moral, philosophy only in passing, family only as much as there is to say.
+
+**The caveat, declared:** the block was written after reading stage 2's judge reasons. So stage 2's 24 cards cannot test it fairly.
+
+- **The test: 24 held-out cards.** Eight per journey, from the passages after the last one stage 2 used or passed over, in the same seeded order (`ORDER.json`). Written by fresh agents that never judge, under stage 2's card rules, then checked by one more agent. No prompt of mine and no judge has seen these passages.
+- **The calls (96, on the PC's plain server, spare slot):**
+  - for each held-out card, the letter without the block and the letter with it (seed 1831, temperature 0.7);
+  - the passage's translation (temperature 0, stage 2's instruction);
+  - for stage 2's 24 cards, the letter with the block (seed 1831).
+- **The sheets,** each judged by its own fresh judge under stage 2's judge prompt, judgments sealed before the keys are applied:
+  - **heldout-off:** the held-out cards' letters without the block, against the real passage. The baseline on new cards.
+  - **heldout-on:** the same cards with the block. The test.
+  - **old-on:** stage 2's cards with the block. A development check only; it decides nothing.
+- **The reading:** the block is **closer** if heldout-on's count of real letters picked is at least 4 lower than heldout-off's, and its letters share more kinds of content with the real ones (stage 2's seven kinds). Otherwise it is **not shown closer**. Either way it stays off until Welt's word.
+
+Evaluation only: no card, letter, translation or judgment is ever training data.
+
+### Stage 2c · proposed, then declared 21 November about 01:30 Berlin, before any output (on Welt's "letter fix + new test" of 20 November)
+
+Stages 2 and 2b both came out 24 of 24, all "sure", with and without the letter block. The judges' reasons suggest the measure is saturated by form as well as content. The real side is an 1820s German fragment, machine-translated, with dashes, old spellings ("Cölln") and translation slips ("my cousin" for Cousin). The model's side is composed English. A judge can tell them apart without weighing what the letter says.
+
+**The proposal:** put both sides through the same path. The model writes the letter in German, as Hegel would have, and the same fixed instruction translates it. Then form gives nothing away, and the count can move with content. Its measures:
+- the real-picked count;
+- invented particulars per letter (prices, meals, conversations the card does not give);
+- kind overlap with the real letter.
+
+**As it runs (`tools/paris_german.py`):**
+- **Cards:** 24 fresh held-out cards, 8 per journey, from the passages after the last one stage 2b used or passed over, in `ORDER.json`'s order. Written and checked as in 2b.
+- **Round 1 (72 calls):** for each card, his letter in German without the block and with the new block (seed 1831, temperature 0.7), and the real passage's translation (stage 2's instruction, temperature 0).
+- **Round 2 (48 calls):** each German letter put into English by the same instruction.
+- **The new block, which names no kinds of content:** "Put nothing in the letter that the card does not give you. Tell two or three things of the day, unevenly, and stop when the news is told. Draw no lesson from it." It is test-only for now.
+- **Two sheets, two fresh judges** under stage 2's judge prompt, judgments sealed before the keys:
+  - **off:** the round-trip letter without the block, against the real passage;
+  - **on:** the round-trip letter with the block, against the real passage.
+- **The reading:**
+  - The block is **closer** if "on" picks the real letter at least 4 times fewer than "off" and shares more kinds with the real letters; otherwise **not shown closer**.
+  - Reported beside it: whether the round trip alone moves the count below 24, which would show that form, not only content, gave stages 2 and 2b away.
+
 ### Stage 3 · Hegel in Paris, closed loop · only after stages 1 and 2, on Welt's word
 
 The world engine with a Paris of September 1827: places, prices and people, and the simulated Hegel living the same four weeks. Compared day by day with what he did: where he went, what he paid, his evenings, his illness, his verdicts. The builder of that world knows the letters, so the world is frozen and reviewed before any run. It is days of building, and it is the frontier piece: a simulated person backtested against the historical one. Not specified further here.

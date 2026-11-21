@@ -228,6 +228,6 @@ Every Friday at 10:17 Berlin time, a scheduled run of the Claude session that wr
 1. runs the script;
 2. reads the candidates and keeps what bears on the project;
 3. writes `research/watch/<date>.md`, saying for each kept paper what it found, which question it bears on and whether it changes an experiment above;
-4. commits to its working branch, and sends Welt a phone notification with the top finds.
+4. merges the digest into `main` through a pull request (Welt's decision of 20 November), and sends Welt a phone notification with the top finds.
 
-Nothing goes into `main` or the shadow world without Welt. The search terms live in `TOPICS` at the top of the script; change them there.
+Only the digest, the seen-list and the search terms reach `main` this way; nothing else goes into `main` or the shadow world without Welt. The search terms live in `TOPICS` at the top of the script; change them there.

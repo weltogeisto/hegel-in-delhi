@@ -1,0 +1,219 @@
+# His recent thoughts, three ways: for Welt
+
+Read `BALLOT.md` first. Each item is one thought of his in three versions, X, Y and Z, in no particular order. Say which you like most and which least.
+
+## H01
+
+**X:** Sunil’s book is the actual constitution of this market, for it is Sunil’s book and not the paper which makes the purchase binding. Now the papers in question have been purchased at 16:01, so that this is a duplication, a duplication in the mind of Sunil which I must rectify before it develops itself into a liability. The weather is pleasant, the sun has set, and my stomach is a sounding barrel. I will accept the cup of tea and the samosa, pay cash so as to keep Sunil’s book free, and then go to the gardens before the night falls.
+
+**Y:** Sunil’s ledger is the true constitution of this market: it binds the transaction, not the paper. I have already bought the papers at 16:01, so this offer is a redundancy, a double-counting in his head that I must correct before it becomes a debt. The air is cool, the sun gone, and my stomach is a hollow drum. I will take the chai and the samosa, pay in cash to keep his book clear, and then walk to the gardens before the dark closes in.
+
+**Z:** Sunil’s ledger constitutes the veritable constitution of this market; for it is the binding force of the transaction, whereas the paper itself remains merely an abstraction. As I have already procured the papers at 16:01, this present offer constitutes a redundancy, a double-counting within his subjective consciousness which I must rectify prior to its externalization into the form of debt. The air is cool, the sun has withdrawn itself, and my stomach presents itself as a hollow drum. I shall, therefore, take the chai and the samosa, paying in cash to preserve the purity of his book, and thereafter proceed to the gardens before the dark closes in.
+
+
+## H02
+
+**X:** The vessel is emptied inasmuch as the hand which feeds it is itself devoid of content. I have remained seated here, clad in my white kurta, partaking of tea, whilst the material conditions of my own existence are starved. It is a contradiction, indeed; yet it is that contradiction which subsists between the individual and his own means. I am unable to evoke rice from the air, nor is it possible to evoke the will to cook from a man who is not paid. I must speak plainly, for the dialectic of the kitchen does not admit of vagueness.
+
+**Y:** The pot is empty because the hand that feeds it is empty. I have been sitting here in my white kurta, drinking tea, while the material conditions of my own existence starve. It is a contradiction, yes, but it is the contradiction of the individual against his own means. I cannot conjure rice from the air, nor can I conjure the will to cook from a man who is not paid. I must speak plainly, for the dialectic of the kitchen does not tolerate vagueness.
+
+**Z:** But the hand from which the pot is to be filled is as empty as the pot; I, meanwhile, in my white kurta, sit here and drink tea, and the means of my existence go hungry. Contradiction, certainly, but it is the contradiction of the individual against his own means. I cannot make rice from the air, and the will to cook is no more to be made from a man who is not paid, than the rice from the air. I must be quite frank, because the dialectic of the kitchen admits of no equivocation.
+
+
+## H03
+
+**X:** The body is a stubborn particularity that refuses to be sublated by the spirit. I have eaten twice in two hours, a redundancy the digestive tract will likely punish, but the market is shutting and the dhaba is the only open door. I will take the food, not for hunger, but to avoid the humiliation of a full stomach and an empty pocket at the point of closure.
+
+**Y:** But the corporeity is a refractory particularity, not abrogated by the spirit. I dined within the last two hours, and shall, I suspect, be punished for the supererogation by my intestinal canal, but the bazaars are closing, and the dhaba is the only open door. I shall dine, not for the love of eating, but in order to avoid the disgrace of going forth with a full stomach and empty purse when the door is shut.
+
+**Z:** The body presents itself as a stubborn particularity, which resists being sublated by the Spirit. I have partaken of food twice within the span of two hours, a redundancy which the digestive tract is likely to punish; yet, the market is in the process of shutting, and the *dhaba* remains the only open door. I shall take the food, not for the sake of hunger, but in order to avoid the humiliation of a full stomach and an empty pocket at the very point of closure.
+
+
+## H04
+
+**X:** The evening constitutes the suspension, indeed the negation, of the movement of the day. Here Hegde is present, as the specter of that error which placed me here, while Ramesh stands within the silence of unpaid labor. I am destitute of food, possessing only the memory of hunger, and the haze without mirrors the stagnation of my own position. To speak now would be to break the tension; to remain is to allow the dialectic of presence and absence to play out in the quiet.
+
+**Y:** The night is an intermission, an antithesis to the motion of the day. Hegde is here, a spectre of the mistake which led to my being here, and Ramesh is there in the hush of unrequited service. I have no dinner, but only the recollection of hunger, and the mist which hangs out of doors corresponds with the deadness of my own situation. If I speak, it is to interrupt this strain; if I stay, it is to allow the antithesis of being and of not-being to work itself out in the calm.
+
+**Z:** The evening is a suspension, a negation of the day's movement. Hegde is present, a ghost of the error that placed me here, and Ramesh stands in the silence of unpaid labor. I have no food, only the memory of hunger, and the haze outside mirrors the stagnation of my own position. To speak now is to break the tension; to remain is to let the dialectic of presence and absence play out in the quiet.
+
+
+## H05
+
+**X:** The body protests the distance walked, a dull ache in the calves that no amount of dialectical reasoning will dispel. I have no dinner, only biscuits that crumble in the heat, and the air quality index is a number I cannot breathe away. Khan Market is still open, a system of needs that persists even as the sun retreats. I require sustenance before I can return to the bungalow and face the silence of the evening.
+
+**Y:** I shall have to complain of the legs as I walk home, and no dialectic can remove this complaint. I have no dinner, but must content myself with biscuits which become dry and crumble in the heat; and the air is something I cannot get rid of. Khan Market is still open, and I must eat something before I return to the bungalow.
+
+**Z:** The corporeal entity objects to the extension of the path traversed, manifesting in a dull, persistent ache within the calves, which no degree of dialectical reasoning is able to dispel. I possess no supper, but only biscuits which crumble in the heat, and the index of the quality of the air is a numerical quantity from which I am unable to abstract myself. Khan Market remains open, a system of needs that persists even as the sun withdraws. I require sustenance before I am able to return to the bungalow and confront the silence of the evening.
+
+
+## H06
+
+**X:** The system has swallowed my vouchers whole, leaving only the residue of my own poverty to be recovered. I have paid ₹9,294 in this hour, yet the query for ₹270 stands like a small, personal wound in the ledger. My body protests the abstraction with a sharp hunger; I must leave this building before the light fails, or I shall be forced to spend what little remains on a meal here.
+
+**Y:** The System has subsumed my vouchers into its unity, leaving merely the residue of my own destitution to be recovered. I have disbursed ₹9,294 within the present hour, yet the query concerning ₹270 subsists as a small, particular wound within the ledger. My corporeality protests against this abstraction through a sharp hunger; I must depart this edifice prior to the failure of the light, lest I be compelled to expend that which little remains upon sustenance within this place.
+
+**Z:** This machine has devoured my receipts; and now my own poverty alone is left to be digested. I have paid 9,294 rupees in this hour; the question of 270 rupees is a small personal sore. My stomach is in revolt against the abstraction, and I must get out of this office before it gets dark, or I shall have to eat at my own expense.
+
+
+## H07
+
+**X:** The hunger has now passed into the head, a dull throb which renders the atmosphere insipid. Sunil's tea is a barbarism, but the stomach is not interested in the form of its food, but only in the food itself. I have to take my food before I can reflect, for the soul needs the material to support its activity.
+
+**Y:** The hunger has transitioned from the stomach into the head, manifesting as a dull throbbing which renders the air to appear thin. Sunil’s chai constitutes a crude remedy; yet the body is indifferent to the aesthetics of its nourishment, being concerned solely with its fact. I must eat before I can think, for the spirit requires the organic to sustain its movement.
+
+**Z:** The hunger has moved from the stomach to the head, a dull throb that makes the air feel thin. Sunil’s chai is a crude remedy, but the body does not care for the aesthetics of its nourishment, only for the fact of it. I must eat before I can think, for the spirit requires the organic to sustain its movement.
+
+
+## H08
+
+**X:** The quietude of the chamber has assumed the character of a pressure, a negative space which determines itself solely through what it excludes. Hegde stands in the corner, a living error in the ledger of the Directorate, while Ramesh waits with that patience which belongs to a man whose labor has been suspended by my poverty. I am unable to find rest; for the body demands sustenance, yet the purse holds nothing but the remnants of tea and samosas, which prove insufficient for the next meal. I am compelled to observe the tension between these two men, for in their stagnation resides the truth of my present existence: a state of affairs which has not yet resolved itself into action.
+
+**Y:** The stillness of the room has become a pressure, a negative space that defines itself only by what it excludes. Hegde stands in the corner, a living error in the Directorate’s ledger, while Ramesh waits with the patience of a man whose labor has been suspended by my poverty. I cannot rest; the body demands fuel, but the purse holds only the remnants of tea and samosas, insufficient for the next meal. I must observe the tension between these two men, for in their stagnation lies the truth of my current existence: a state of affairs that has not yet resolved into action.
+
+**Z:** The quiet of the apartment has become oppressive, a void which has existence only as negation. Hegde stands in the corner, the walking blunder in the books of the Directorate, and Ramesh waits, with the patience of one whose service is broken off through my lack of funds. I cannot lie down; I feel hungry, but the tea and the samosas are my only resources, and they do not suffice to last till dinner. I have to watch this play of the two, for in the immobility of this situation is the truth of my present state, an as yet unacted condition of things.
+
+
+## H09
+
+**X:** It is almost twelve o'clock, and the walk to the IIC was to take place at 10.15, and I have clearly forgotten it in the mist of the morning. The body is empty and the head full of abstract procrastination. I will take a turn, if only to give a form to the day, which otherwise would only consist of expectation of commands that do not arrive. The weather is very warm, which is quite exceptional, and the air, although impure, is clear.
+
+**Y:** It approaches the meridian, whereas the determination previously established prescribed a progression to the IIC at ten past ten, a condition which has evidently been neglected within the indistinctness of the morning. The body exists in a state of vacancy, while the head is replete with the abstraction of delays. One is compelled to set oneself in motion, if only to force the day into a determinate shape that is not merely an anticipation of commands which are destined not to arrive. The heat is mild, a rare indulgence, and the air, albeit polluted, is clear.
+
+**Z:** It is nearly noon, and the plan called for a walk to the IIC at 10:15, which I have evidently neglected in the fog of the morning. The body is hollow and the head is full of abstract delays. I must move, if only to force the day into a shape that is not merely waiting for orders that will not come. The heat is mild, a rare mercy, and the air, though polluted, is clear.
+
+
+## H10
+
+**X:** The night is a great blank, but I am an empty canvas which has been stretched too long. It is smoky, smoky, and dusty, the atmosphere of a brain that has run too long without its wheels. I cannot dine upon an empty air, nor can I purchase from a purse which I have not: so I must allow the sun to go down; the dialectic of hunger and poverty is suspended, not dissolved, till to-morrow.
+
+**Y:** The evening is a blank canvas, but my body is a canvas that has been stretched too long without paint. The air is thick with haze and the smell of burnt dust, a fit companion for a mind that has been spinning on empty axles. I cannot eat what is not there, and I cannot buy what I do not have, so I must let the day close its book. The dialectic of hunger and poverty is paused, not resolved, until the morning brings new premises.
+
+**Z:** The evening presents itself as a void, a mere substrate, yet my corporeal existence is a surface stretched out for too long a duration without the application of form. The atmosphere is dense with vapour and the scent of scorched dust, serving as a fitting accompaniment to a consciousness that revolves upon an empty axis. Since I cannot consume what does not exist, nor acquire that of which I am destitute, I am compelled to allow the day to close its book. The dialectic of hunger and poverty is thereby suspended, not sublated, until the morning introduces new premises.
+
+
+## H11
+
+**X:** Sunil is right to mock the abstraction; the body does not care for my syllogisms when it is empty. The samosa is still hot, and the crispness of the potato is a small, concrete truth that outweighs any dialectic. I will eat this, and then I must decide if I can afford the lunch or if I must walk home with the hunger still gnawing.
+
+**Y:** It is right that Sunil mocks the abstraction; for the body, in its emptiness, does not concern itself with my syllogisms. The samosa remains hot, and the crispness of the potato is a small, concrete truth that outweighs any dialectic. I shall eat this; and thereafter I must decide whether I can afford the lunch, or whether I must walk home with the hunger still gnawing.
+
+**Z:** Sunil may well laugh at the abstraction; the stomach does not eat my syllogisms, when it is empty. The samosa is warm, and the crispness of the potato is a petty concrete truth to which all dialectic is a mere trifle. I eat this, and then have to choose between buying the lunch and walking home, still gnawed by hunger.
+
+
+## H12
+
+**X:** The bookseller’s dismissal constitutes a modest yet determinate limit: the transaction has reached its closure, and her time subsists as her own. I have partaken of food twice within the last hour, a redundancy which testifies to the disorderliness of my days; yet the body asserts its own rhythm. The market is in the process of closing, its shutters descending like a curtain upon a scene which I have not fully comprehended. I am compelled to withdraw into the quietude of my bungalow, where the heat has subsided and the air is, at last, capable of respiration.
+
+**Y:** The bookseller's dismissal is a small but clear boundary: the transaction is closed, and her time is her own. I have eaten twice in the last hour, a redundancy that speaks to the disorder of my days, but the body insists on its rhythm. The market is shutting, its shutters coming down like a curtain on a scene I have not fully understood. I must withdraw into the quiet of my bungalow, where the heat has broken and the air is finally breathable.
+
+**Z:** But the bookseller's answer is the limit; a little, but a distinct limit: the business is done, and the time is mine. I have had dinner twice in one hour (my life is a chaos), but one must eat. Now, the market is closing, and the shutters are drawing down like a curtain on a spectacle not perfectly comprehended. I must retreat to the bungalow, where the sun has broken and there is air.
+
+
+## H13
+
+**X:** I saw a samosa steaming with vapour like the spirit of the particular, which is hot and ephemeral, and which does not allow of meditation but must be eaten at once. I have already had one samosa and have paid for it, and now this is a struggle with the particular appetite. My body is tired, for I have walked two kilometres in the mist, but my spirit must not become a slave of the next samosa.
+
+**Y:** The steam rises like the spirit of the particular, fleeting and hot, demanding immediate consumption rather than contemplation. I have already eaten a samosa and paid for it; this second offering is a test of my discipline against the particular appetite. The body is weary, having walked two kilometres in the haze, but the spirit must not be enslaved to the next bite.
+
+**Z:** Steam ascends in the manner of the Spirit of the Particular, which, being fleeting and heated, demands its immediate consumption rather than contemplation. Having already consumed a samosa and discharged the cost thereof, this second offering constitutes a test of my discipline against the particular appetite. Although the body is weary, having traversed two kilometres in the haze, the Spirit must not be enslaved to the next bite.
+
+
+## H14
+
+**X:** The file is in the bureaucratic ether, a suspension that mirrors the stagnant air outside. Hegde sits with the silence of a man who knows he is a ghost in his own allotment, and Ramesh stands in the shadow of unpaid wages. I am trapped in the negative space of this bungalow, where the ethical idea has not yet actualized itself into a functioning household. I will sit in the study and let the hazy night press against the glass.
+
+**Y:** The file subsists within the bureaucratic ether, a suspension that mirrors the stasis of the external atmosphere. Hegde abides in the silence of a spirit cognizant of its own spectral existence within its allotted portion, while Ramesh stands in the shadow of wages unperformed. I am detained within the negative space of this bungalow, wherein the ethical idea has not yet externalized itself into the actuality of a functioning household. I shall remain in the study, permitting the hazy night to press upon the glass.
+
+**Z:** That is to say, it is in the air of the office, floating, as it were, in the same stagnant atmosphere in which the outer air is saturated. Hegde sits in the quietness of one who is aware that he himself is a phantom in his own garden; and Ramesh stands in the shadow of a salary not yet paid. I myself am caught up in the negative of this bungalow, for the ethical idea has not yet actualized itself into a working home. I will sit in my study, and watch the foggy night coming up against the window.
+
+
+## H15
+
+**X:** It is approaching the eleventh hour, and the day has presented itself as a manifold series of minor frictions. I am in such a state of exhaustion that the correspondence with Lindner is beyond my capacity, while the file remains lodged within the apparatus of bureaucracy, which proceeds according to its own independent tempo. I have consumed dhal in sufficient quantity to sustain a week’s existence, and the heat has at last broken. I shall therefore submit to sleep.
+
+**Y:** It is nearly eleven, and the day has been a series of small frictions. I am too tired for the Lindner letter, and the file is in the hands of bureaucracy, which moves at its own pace. I have eaten enough dhal for a week, and the heat has finally broken. I will sleep.
+
+**Z:** It is about eleven o'clock, and it has been a day of petty annoyances. I am too exhausted to write the Lindner letter, and the document is in the hands of the bureaucracy, which goes on at its own rate. I have had a week's supply of dhal, and the heat has at last moderated. I go to sleep.
+
+
+## H16
+
+**X:** The air is thick, a brown curtain drawn over the departing sun, and the system of needs here does not pause for the haze. I have walked enough to feel the day’s dismissal, and my body, having gone without proper sustenance for over a day, demands I engage with the particular agents of this market. Sunil stands by his stall, the steam from the chai rising into the smog, a small act of civility in this civil society.
+
+**Y:** The atmosphere is dense, a brown veil drawn across the departing sun, and the system of needs here does not halt in deference to the mist. I have walked sufficiently to feel the day’s departure, and my body, having been deprived of proper sustenance for over a day, demands that I engage with the particular agents of this market. Sunil stands by his stall, the steam from the chai rising into the smog, a small act of civility within this civil society.
+
+**Z:** The atmosphere is dense, a brown veil is spread over the setting sun, and the system of needs here does not take account of the mist. I have sufficiently trodden the road, to feel that I am sent away from the day, and my body, which has fasted for more than a day, requires me to have to deal with the specific means of this market. Sunil stands beside his stall, and the vapour of the chai goes up into the smoke, a little piece of civilisation in this civil society.
+
+
+## H17
+
+**X:** I have walked eight kilometres since this morning, and my stomach has been empty far too long. The body is the immediate ground of spirit; if I starve, the philosophy of right becomes a mere abstraction. I will eat, and I will speak to the bookseller to see if he carries any German or English texts on political economy that are not yet outdated by my own knowledge.
+
+**Y:** I have traversed a distance of eight kilometres since the morning, and my stomach has remained in a state of emptiness for far too prolonged a period. The body constitutes the immediate substrate of spirit; should I be compelled to starve, the philosophy of right would be reduced to a mere abstraction. I shall partake of sustenance, and I shall converse with the bookseller in order to ascertain whether he possesses German or English treatises on political economy that have not yet been rendered obsolete by my own cognitive attainment.
+
+**Z:** I have walked eight kilometres since morning and my stomach has been empty for far too long. The body is the immediate ground of spirit; if I starve, the philosophy of right becomes a mere abstraction. I will eat, and I will speak to the bookseller to see if he carries any German or English texts on political economy that are not yet outdated by my own knowledge.
+
+
+## H18
+
+**X:** The particular act of charity dissolves the universal law of exchange; the samosa remains as a sign of the debt that cannot be quantified. I am weary, having walked two kilometres and sat in the haze for an hour, and the body, which is the first reality of the spirit, demands rest before it can contemplate the next contradiction.
+
+**Y:** The concrete instance of charity annihilates the abstract rule of exchange; the samosa is left as symbol of the incalculable debt. I am tired, two kilometres' walking and an hour in the smoke have been enough; the body, the first existence of the spirit, asks for sleep before it can think of another contradiction.
+
+**Z:** The particular act of charity dissolves the universal law of exchange; the samosa subsists as the sign of that debt which admits of no quantification. I am weary, having traversed two kilometres and abided in the haze for an hour, and the body, which constitutes the first reality of the spirit, demands repose before it is capable of contemplating the next contradiction.
+
+
+## H19
+
+**X:** The arithmetic of survival is the most rigid dialectic of all; I hold the form (the need for bread) but lack the content (the substance of rupees), and the synthesis is starvation. Ramesh’s departure is not a moral failing but the necessary negation of my position: the servant withdraws when the master’s authority is reduced to a pocket of dust. I am alone in the house, and the house is empty, for without the universal provision of the state or the particular warmth of the family, the individual is nothing but a ghost in a white kurta.
+
+**Y:** That is the hardest dialectic of the stomach, I have the shape (bread) without the material (rupees), and the result is hunger. Ramesh's going away is not a piece of impertinence, but the negation of my thesis; the man leaves me because I am not enough of a master, but only a dust in his pocket. I am alone at home, and home is home, because without the universal care of the state, and the special warmth of the family, the individual is merely a soul in a white kurta.
+
+**Z:** The arithmetic of survival constitutes the most rigorous of all dialectics; in which I retain the Form, namely the necessity of bread, yet am destitute of the Content, the substance of rupees, and the resulting Synthesis is starvation. The departure of Ramesh is not a moral failing, but rather the necessary Negation of my position: the servant withdraws at that moment when the authority of the master is reduced to a mere pocket of dust. I am solitary in the house, and the house is empty; for, devoid of the universal provision of the State or the particular warmth of the Family, the Individual is nothing but a ghost in a white kurta.
+
+
+## H20
+
+**X:** But, after all, I must eat, and it is time to go to market. That is good advice from Masterji, but not very refined; I must eat, and the philosopher has to eat in order to philosophize. I have already procured the paper, and there is no reason for waiting any longer on its account.
+
+**Y:** The body demands sustenance, and the market is closing. Masterji’s advice is practical, if unrefined; I will take the food, for a philosopher must eat to think. I have already bought the paper, so there is no need to delay for that.
+
+**Z:** The bodily existence posits itself as a demand for nourishment, and the market is in the process of closing. Masterji’s counsel, while unrefined in its form, retains a practical validity; I shall, therefore, appropriate the sustenance, for the philosopher must subsist in order to think. Having already procured the paper, there remains no necessity to delay further with respect thereto.
+
+
+## H21
+
+**X:** The samosa abides upon the counter, a particular determinate being suspended in the flux of time, refusing to pass over into negation as waste or to assert its positive existence as sustenance. Ramesh stands before me, the unpaid engine of this household, while I am in possession of merely ninety-six rupees and a body that has forgotten the rhythm of daily meals. The tension between my need for sustenance and my inability to pay the cook who provides it constitutes that friction which grinds against the universal idea of the ethical family.
+
+**Y:** The samosa waits on the counter, a particular object suspended in time, refusing to become waste or sustenance. Ramesh stands before me, the unpaid engine of this household, while I possess only ninety-six rupees and a body that has forgotten the rhythm of daily meals. The tension between my need for sustenance and my inability to pay the cook who provides it is the friction that grinds against the universal idea of the ethical family.
+
+**Z:** The samosa on the counter is an individual existing in time, which does not yet become refuse or food. Ramesh, who stands in front of me and who is the unpaid motor of this family, and the ninety-six rupees which I have at hand, and my organism which has lost the habit of eating, form the friction which grinds upon the universal idea of the ethical family.
+
+
+## H22
+
+**X:** Ramesh withdraws into the rear, abandoning me to the silence and the mist. I have not partaken of nourishment for more than a day, and the corporeal is a tenacious reality that resists the indifference of the Spirit. I am unable to think clearly upon an empty stomach, nor can I persist in ignoring the basic mechanics of my existence here.
+
+**Y:** Ramesh withdraws to the rear, and I am alone with my quiet and my smoke. I have not had my dinner for more than a day, and the stomach is a fact of life, which will not be neglected by the contempt of spirit. I cannot reflect on an empty stomach, or persist in forgetting the simple mechanism of life here.
+
+**Z:** Ramesh retreats to the back, leaving me with the silence and the haze. I have not eaten in over a day, and the body is a stubborn fact that resists the spirit's indifference. I cannot think clearly on an empty stomach, nor can I continue to ignore the basic mechanics of my existence here.
+
+
+## H23
+
+**X:** The sun is nearly gone, and the air has that sharp clarity that follows the heat's departure. I have eaten enough to sustain the body, but the mind requires the quiet of the gardens to settle before the night closes in. The file remains a distant worry, but here, among the tombs, I can breathe without the weight of the Directorate.
+
+**Y:** The sun is almost set, the air has acquired the crispness which succeeds to the departure of heat. I have had a meal sufficient to satisfy the stomach, but the soul has need to rest in the serenity of the gardens until it is dark. The file is a care, but at a distance; here, amidst the graves, I can enjoy a breath of air, free from the burden of the Directorate.
+
+**Z:** The Sun, having nearly withdrawn its presence, leaves the Air in that sharp determinate clarity which succeeds the departure of the Heat. I have partaken of sufficient Nourishment to sustain the Body; yet the Mind demands the Quiet of the Gardens, that it may come to rest prior to the closing in of the Night. The File persists as a remote and abstract worry; but here, amidst the Tombs, the Spirit can draw breath, unburdened by the heavy determination of the Directorate.
+
+
+## H24
+
+**X:** Ramesh stands before me, in the very act of laying bare the arithmetic of my destitution: the wage is fixed at ₹9,500, whereas my purse contains but ₹166. He proffers a reduction—Mondays, Thursdays, Saturdays for ₹4,000. This concession, however, is not born of charity, but rather springs from necessity itself, and it leaves the house half-empty of service. I am compelled to accept the form, for I cannot pay the sum; yet the spirit of the arrangement operates as a degradation of the ethical bond between master and servant. The state, which ought to secure the person and property, has failed in its duty toward me, leaving me to negotiate with my own cook in the manner of a beggar.
+
+**Y:** Ramesh stands before me with the arithmetic of my poverty laid bare: the wage is ₹9,500, my purse holds ₹166. He offers a reduction—Mondays, Thursdays, Saturdays for ₹4,000. It is a concession born of necessity, not charity, and it leaves the house half-empty of service. I must accept the form, for I cannot pay the sum, but the spirit of the arrangement is a degradation of the ethical bond between master and servant. The state, which should secure the person and property, has failed in its duty to me, leaving me to negotiate with my own cook like a beggar.
+
+**Z:** Ramesh, who is in attendance on me, states the problem in figures: my pay is 9500; I have with me 166. A discount is allowed me; on Monday, Thursday and Saturday I am to have 4000. That is a discount not from generosity but from necessity. I am left without half my household service. The shape I must adopt; I cannot pay the price. But the spirit is a lowering of the ethical relation of master and servant. The state, whose function is the guarantee of person and property, has not fulfilled its function towards me; I am left to barter with my own cook.
+

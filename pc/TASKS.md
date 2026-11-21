@@ -84,6 +84,9 @@ Declared in `pc/VOICE-REPAIRS-CHECK.md`. `HEGEL_VOICE_REPAIRS` is off and stays 
 3. Push the replies with the arm hidden in a key that stays on the PC until the labels are sealed, as for W4. The readers and the result are Claude's.
 It comes after W8, W3 and the three things still owed for W4 (the two keys, arm P's act records, the who-answers table).
 
+### W10 · PC seat · the fast lane, night 1: the museums off and on · OPEN for the night of 21 to 22 November (`DECISIONS.md` 61)
+Declared in `pc/FAST-LANE-NIGHT1.md` before any run. After the 21:15 merge and `HEGEL_CULTURE=1`: the noise band (Day 51's morning, seed 1831, culture off, twice, `fork_diff`), then block 1, 48 one-day runs: the saved mornings of Days 50, 51 and 52, culture off and on, eight seeds, in the declared order. **Every slot while he sleeps** (Welt's yes, `DECISIONS.md` 62), the noise band measured at that concurrency. Then block 2, the file's next act rehearsed: 24 runs from the mornings of Days 51 and 52, culture and `HEGEL_FILE_ACT` on, 12 seeds. Then block 3, if the night allows: block 1 with eight more seeds. The live server is never restarted. No run starts after 07:30 Berlin; 8082 is checked after the last. Push to `codex/fast-lane-night1-20261121` and post DONE on PR #1. A measurement, not a gate: the read is Claude's, in the morning.
+
 ## The order, day by day (Claude in the cloud, 18 November)
 
 One change goes on at a time, each after the previous one's first full day (`DECISIONS.md` 31, 34, 47, 50). The PC is on from about 09:00 to 21:00 Berlin, so each switch is set on the Pi in the morning, after the PC starts and before he wakes at about 09:15. Day numbers are his. His calendar runs a day ahead of Berlin's: Day 49 is lived on Berlin's Wednesday 18 November.
@@ -565,7 +568,7 @@ When Welt says so: Codex sets `HEGEL_CLOCK_SHIFT_MIN` to 0 and points the Pi's w
 - **G6 · Claude, then Astra · after T39:** different plans, not different words (verbalized sampling in the morning plan).
 
 ### The literature watch · Claude · STANDING, Fridays 10:17 Berlin
-`tools/arxiv_watch.py` lists the week's new arXiv papers; Claude keeps what matters, writes `research/watch/<date>.md`, and tells Welt in one line (`research/watch/README.md`).
+`tools/arxiv_watch.py` lists the week's new arXiv papers; Claude keeps what matters, writes `research/watch/<date>.md`, merges it into `main` through a pull request (Welt, 20 November), and tells Welt in one line (`research/watch/README.md`).
 
 ## Parked
 - A local cybersecurity model for Welt (his wish, 28 October), after the Qwen trial: the best open security model and abliterated variants, run through the same sealed harness on security tasks (CTF-style challenges in the sandbox, code audit, log analysis), measuring skill, refusals, and what abliteration costs in quality. It would follow injected orders more readily (T3), so it gets tools only inside a sandbox, never Hermes's or the PC's.

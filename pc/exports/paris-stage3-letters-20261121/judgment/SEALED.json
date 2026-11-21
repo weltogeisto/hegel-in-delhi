@@ -1,0 +1,21 @@
+{
+ "sealed": "2026-11-21, before any key is applied",
+ "judges": "three fresh agents, one per sheet; each made one tool call, reading its own sheet and nothing else (audited)",
+ "arms": {
+  "heldout-off": {
+   "sheet_sha256": "d5685208e112b3934f689c66018c8314634b405d5512982c0cc4db2f3969c62a",
+   "judgments_sha256": "65821b8a708e312c9bf47b84e8acf593e09d0beb6e352686eff169908fcf7a8a",
+   "key_sha256_expected": "02afc377b5cfc418df385a326afdeb53ff611ff1a74837c097a85d1287837fdb"
+  },
+  "heldout-on": {
+   "sheet_sha256": "a363803f23d334a196e6d19cf906df2a4754983598afe65d9269333f787740d0",
+   "judgments_sha256": "34e3aedd373c40de83547a92036e91ab8fcd6a75b851528326aab76ff20a3e44",
+   "key_sha256_expected": "6abec52b6c6159426de6b2e4c593e895704a72ecc4a05ff3bc36333a314b1ff9"
+  },
+  "old-on": {
+   "sheet_sha256": "02fbf6950bc9e93fd06a080f9666a0bd66e0211be2ac6d3990cc47c09761d8db",
+   "judgments_sha256": "25de1aada796cf28778d0dfc2817fd28fd33f426baa77b05f9b659a6012a224d",
+   "key_sha256_expected": "72e4bc901ca0270cb10fee83e39c6fd5a1547aa3da2e4d1bca0b3955cb936289"
+  }
+ }
+}
