@@ -285,6 +285,13 @@
    "mode": "walk",
    "a": "home",
    "b": "iic"
+  },
+  {
+   "from": "17:37",
+   "to": "17:52",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -391,6 +398,37 @@
    "sprite": "bandhgala",
    "t": "17:15",
    "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The brown haze has turned the evening into a murky soup, but the IIC is a clear room in this chaos. I am here to prepare for Tuesday, to sharpen the blade of my argument before it cuts. The guard stands by the door, a fixed point in the shifting air. I must find the programme officer and confirm the details of my talk, for a constitution, like a speech, is grown, not made in the last minute.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Middle Ages"
+    }
+   ],
+   "t": "17:37",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "Good evening. I am looking for the programme officer. I have a talk scheduled for Tuesday evening and I wish to ensure the arrangements are in order. It is a matter of substance, and I dislike sloppiness in the presentation of ideas.",
+   "to": "the guard at the library and the programme officer",
+   "t": "17:37",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The programme officer",
+   "to": "Hegel",
+   "text": "Good evening, you must be Shri Hegel. I am the Programme Officer; you can find me right here. We are just finishing up the audio checks for the main hall, so give me a moment to pull up the Tuesday file on my phone.",
+   "t": "17:37",
+   "place": "iic"
   }
  ],
  "steps": [
@@ -537,6 +575,73 @@
      "text": "Colebrooke says:—“No department of science or of literature has taken up the attention of the Indians more than the Nyaya; and the fruit of this study is an infinite number of writings, included in which there may be found the works of very celebrated men of learning."
     }
    ]
+  },
+  {
+   "t": "17:37",
+   "end": "17:52",
+   "event": "You arrive at India International Centre. It closes at 21:30.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The brown haze has turned the evening into a murky soup, but the IIC is a clear room in this chaos. I am here to prepare for Tuesday, to sharpen the blade of my argument before it cuts. The guard stands by the door, a fixed point in the shifting air. I must find the programme officer and confirm the details of my talk, for a constitution, like a speech, is grown, not made in the last minute.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 15,
+    "says": "Good evening. I am looking for the programme officer. I have a talk scheduled for Tuesday evening and I wish to ensure the arrangements are in order. It is a matter of substance, and I dislike sloppiness in the presentation of ideas.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 21 °C, a brown haze. Air quality index: 333.",
+    "You arrive at India International Centre. It closes at 21:30."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "arrive"
+   ],
+   "voice": {
+    "by": "The programme officer",
+    "says": "Good evening, you must be Shri Hegel. I am the Programme Officer; you can find me right here. We are just finishing up the audio checks for the main hall, so give me a moment to pull up the Tuesday file on my phone.",
+    "does": "She gestures towards the small office door and checks the time on her watch."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "id": "haldane-3:385"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Middle Ages",
+     "id": "sibree-history:1177"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "text": "If we cast a glance back over the period just traversed, we find that in it a turning-point had been reached, that the Christian religion had placed its absolute content in the mind and will of man, and that it was thus, as a divine and supersensuous content, separated from the world and shut up within itself in the centre-point of the individual."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Middle Ages",
+     "text": "But Piety [or Religious Feeling] as such, has nothing to do with the Secular: it may make its appearance in that sphere on a mission of mercy, but this stops short of a strict socially ethical connection with it — does not come up to the idea of Freedom."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -544,7 +649,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-22T17:37+05:30",
+  "until": "2026-11-22T17:52+05:30",
   "asleep": false,
   "imprest": 16416,
   "wearing": "bandhgala",
@@ -634,6 +739,10 @@
    "seen": {
     "home": [
      "ramesh"
+    ],
+    "iic": [
+     "guard",
+     "officer"
     ]
    },
    "walked": 1650,
@@ -754,7 +863,8 @@
     "2026-11-06",
     "2026-11-17",
     "2026-11-18",
-    "2026-11-20"
+    "2026-11-20",
+    "2026-11-22"
    ],
    "safdarjung": [
     "2026-10-28"
@@ -1016,7 +1126,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-22",
-  "source_sha256": "a24ddfb02df17d83ed3028d5f0bc5fa2b422154cf2633c4df7eb3ba06f684b9b",
+  "source_sha256": "11b71dff358d3ca273e30a6dfc82c45aa6c96096976b217870f17b68c6d5fa16",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1156,6 +1266,36 @@
     "place": "home"
    },
    {
+    "id": "2026-11-22:statement:0616852f85c6e1d5:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 12,
+     "sha256": "0616852f85c6e1d5c8d885ab004d5e3c581a2b902f7f21ec882d8114447cea7f"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "Good evening. I am looking for the programme officer. I have a talk scheduled for Tuesday evening and I wish to ensure the arrangements are in order. It is a matter of substance, and I dislike sloppiness in the presentation of ideas.",
+    "verified": false,
+    "time": "17:37",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-22:statement:7d977a5661f7c98e:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 13,
+     "sha256": "7d977a5661f7c98e81413111b50480f0c4df7c96b30e4dbbf6829a3a784d304e"
+    },
+    "speaker": "The programme officer",
+    "recipient": "Hegel",
+    "words": "Good evening, you must be Shri Hegel. I am the Programme Officer; you can find me right here. We are just finishing up the audio checks for the main hall, so give me a moment to pull up the Tuesday file on my phone.",
+    "verified": false,
+    "time": "17:37",
+    "place": "iic"
+   },
+   {
     "id": "2026-11-22:event:4529910829b3e850:1",
     "kind": "event",
     "source": {
@@ -1282,68 +1422,114 @@
     "text": "Weather: 21 °C, a brown haze. Air quality index: 333."
    },
    {
-    "id": "2026-11-22:event:b7a4300e59c40523:1",
+    "id": "2026-11-22:event:fca964a168361dd6:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 3,
+     "sha256": "fca964a168361dd600dab58ee978f651aeb374c1bcbd00e273b0acd787db65bc"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "17:37",
+    "end": "17:52",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-22:event:fdf67438446962df:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      3,
+      0
+     ],
+     "sha256": "fdf67438446962dfa62ed5cf1930d1bb90d0e02acff0ff0776869d89dd962e77"
+    },
+    "type": "observation",
+    "time": "17:37",
+    "place": "iic",
+    "text": "Weather: 21 °C, a brown haze. Air quality index: 333."
+   },
+   {
+    "id": "2026-11-22:event:9783bfaa4b9687d6:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      3,
+      1
+     ],
+     "sha256": "9783bfaa4b9687d6e91c528bb0aa0889b4db7c29d7dd151f5b42bf02bfb8d917"
+    },
+    "type": "observation",
+    "time": "17:37",
+    "place": "iic",
+    "text": "You arrive at India International Centre. It closes at 21:30."
+   },
+   {
+    "id": "2026-11-22:event:0b316d6828db8c56:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "b7a4300e59c40523346038ca90dd2b110449253d1cd615330ff9557b3447e2de"
+     "sha256": "0b316d6828db8c5617252ae1500faa6dc43fa9726d5af2edcd32c5037f3f3571"
     },
     "type": "cash",
-    "time": "17:37",
+    "time": "17:52",
     "amount": 16416,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-22:event:d5e61e825581fcf4:1",
+    "id": "2026-11-22:event:11b70704c89e4f50:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "d5e61e825581fcf4ffeaf7799b158dd62621299bd15fa97e53f07e86074c980d"
+     "sha256": "11b70704c89e4f50979497ea209612d673b97e82ce05066f46b323b125495f4a"
     },
     "type": "location",
-    "time": "17:37",
+    "time": "17:52",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-22:event:78a1cb9bde8dfff9:1",
+    "id": "2026-11-22:event:d0a7074b511246dd:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "78a1cb9bde8dfff9ffaed01f3984209491d5c3c3ebbcffe23e108047c533385e"
+     "sha256": "d0a7074b511246ddbf7aeb18c1a2dc5433d1b1d9ddbd9e923d564ad179203d56"
     },
     "type": "inventory",
-    "time": "17:37",
+    "time": "17:52",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-22:event:8b9d51c95a3e81e5:1",
+    "id": "2026-11-22:event:4a20b4786de4ad8b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "8b9d51c95a3e81e5b7230dd1ebc330389f901b4cf3e26079bb352c040b58d93c"
+     "sha256": "4a20b4786de4ad8bab76947ac0bd034321921835ff77a9b5608d38a125b48479"
     },
     "type": "inventory",
-    "time": "17:37",
+    "time": "17:52",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 17:15.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 17:15.\"}]"
    },
    {
-    "id": "2026-11-22:event:82bdae47b7cce99d:1",
+    "id": "2026-11-22:event:bb8050f2167b35e9:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "82bdae47b7cce99d25f3d763191704a724adc7bc745b9e6b3fcbbf3d0d315b03"
+     "sha256": "bb8050f2167b35e90e94b92c2423c8315f753350607d0c5a547406a44678270e"
     },
     "type": "inventory",
-    "time": "17:37",
+    "time": "17:52",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -1362,7 +1548,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "17:37",
+    "time": "17:52",
     "place": null
    }
   ]
