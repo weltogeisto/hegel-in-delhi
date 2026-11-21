@@ -78,7 +78,11 @@ def identify(folder):
     run = json.loads((folder / "RUN.json").read_text(encoding="utf-8")) if (folder / "RUN.json").exists() else {}
     parts = folder.name.split("-")
     morning, arm, seed = (parts + [None, None, None])[:3] if len(parts) >= 3 else (None, None, None)
+    if isinstance(morning, str) and morning.startswith("day"):
+        morning = morning[3:]                                  # the PC seat's names: day50-off-1831
     sw = run.get("switches") or {}
+    if isinstance(sw, list):                                   # ["HEGEL_CULTURE=1", ...]
+        sw = dict(x.split("=", 1) for x in sw if "=" in x)
     if isinstance(sw, dict) and "HEGEL_CULTURE" in sw:
         arm = str(sw["HEGEL_CULTURE"])
     if isinstance(sw, dict) and str(sw.get("HEGEL_FILE_ACT", "0")).lower() in ("1", "yes", "true"):
@@ -86,7 +90,8 @@ def identify(folder):
     arm = ARM.get(str(run.get("arm", arm)).lower())
     if arm is None:
         raise ValueError(f"{folder.name}: no arm (off/on or 0/1)")
-    morning = str(run.get("morning", morning))
+    m = run.get("morning_day", run.get("morning"))
+    morning = str(m if isinstance(m, (str, int)) else morning)
     seed = int(run.get("seed", seed))
     return morning, arm, seed, run
 
