@@ -186,6 +186,17 @@ Stage 2's result (`pc/exports/paris-stage2-20261118/judgment/RESULT.md`): the re
 
 Evaluation only: no card, letter, translation or judgment is ever training data.
 
+### Stage 2c · a proposal, not declared (21 November)
+
+Stages 2 and 2b both came out 24 of 24, all "sure", with and without the letter block. The judges' reasons suggest the measure is saturated by form as well as content. The real side is an 1820s German fragment, machine-translated, with dashes, old spellings ("Cölln") and translation slips ("my cousin" for Cousin). The model's side is composed English. A judge can tell them apart without weighing what the letter says.
+
+**The proposal:** put both sides through the same path. The model writes the letter in German, as Hegel would have, and the same fixed instruction translates it. Then form gives nothing away, and the count can move with content. Its measures:
+- the real-picked count;
+- invented particulars per letter (prices, meals, conversations the card does not give);
+- kind overlap with the real letter.
+
+A letter block for it would name no kinds of content; it would say only what to leave out. It needs fresh held-out cards, since stage 2b's 24 have now been seen. For Welt to decide.
+
 ### Stage 3 · Hegel in Paris, closed loop · only after stages 1 and 2, on Welt's word
 
 The world engine with a Paris of September 1827: places, prices and people, and the simulated Hegel living the same four weeks. Compared day by day with what he did: where he went, what he paid, his evenings, his illness, his verdicts. The builder of that world knows the letters, so the world is frozen and reviewed before any run. It is days of building, and it is the frontier piece: a simulated person backtested against the historical one. Not specified further here.
