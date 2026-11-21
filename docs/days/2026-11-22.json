@@ -278,6 +278,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "17:15",
+   "to": "17:37",
+   "mode": "walk",
+   "a": "home",
+   "b": "iic"
   }
  ],
  "entries": [
@@ -344,6 +351,45 @@
    "k": "world",
    "text": "Ramesh puts a plate together: a plate of khichdi with ghee.",
    "t": "16:55",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s caution is wise; the air outside is a solid wall of brown, and I have no business braving it when the latch is secure. I am still light on my feet, having walked nothing today, and the IIC opens until late enough for a short visit. A walk to the IIC, perhaps, to sit in the cool of the reading room and let the mind settle before tomorrow’s talk, though the haze makes the distance feel shorter and more oppressive.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Indian Philosophy"
+    }
+   ],
+   "t": "17:15",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Very well, Ramesh. I shall stay in for now, but I may venture out to the IIC later if the air permits. Keep the tea ready.",
+   "to": "Ramesh",
+   "t": "17:15",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir. I’ll keep the kettle on, but the haze won’t clear by evening. Better to wait until the wind shifts.",
+   "t": "17:15",
+   "place": "home"
+  },
+  {
+   "k": "wear",
+   "item": "Bandhgala, charcoal",
+   "status": "Worn from 17:15.",
+   "sprite": "bandhgala",
+   "t": "17:15",
    "place": "home"
   }
  ],
@@ -425,17 +471,83 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "17:15",
+   "end": "17:37",
+   "event": "Ramesh says: “Yes sir. The latch is tight, no one is coming. You stay inside, the toast is still warm.” He straightens the edge of the tablecloth and steps back, hands clasped behind his back.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh’s caution is wise; the air outside is a solid wall of brown, and I have no business braving it when the latch is secure. I am still light on my feet, having walked nothing today, and the IIC opens until late enough for a short visit. A walk to the IIC, perhaps, to sit in the cool of the reading room and let the mind settle before tomorrow’s talk, though the haze makes the distance feel shorter and more oppressive.",
+    "action": "walk",
+    "place": "iic",
+    "minutes": 45,
+    "says": "Very well, Ramesh. I shall stay in for now, but I may venture out to the IIC later if the air permits. Keep the tea ready.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "iic",
+   "observations": [
+    "Weather: 21 °C, a brown haze. Air quality index: 333."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir. I’ll keep the kettle on, but the haze won’t clear by evening. Better to wait until the wind shifts.",
+    "does": "Ramesh nods once and turns to check the latch on the back door."
+   },
+   "left": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:23"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Indian Philosophy",
+     "id": "haldane-1:386"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state. The government has, up till now, shown such confidence in the scholars in this department as to leave the subject matter of philosophy wholly in their hands."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Indian Philosophy",
+     "text": "Colebrooke says:—“No department of science or of literature has taken up the attention of the Indians more than the Nyaya; and the fruit of this study is an infinite number of writings, included in which there may be found the works of very celebrated men of learning."
+    }
+   ]
   }
  ],
  "funnel": {},
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-22T17:15+05:30",
+  "place": "iic",
+  "until": "2026-11-22T17:37+05:30",
   "asleep": false,
   "imprest": 16416,
-  "wearing": "kurta",
+  "wearing": "bandhgala",
   "wardrobe": [
    {
     "id": "frock",
@@ -455,12 +567,12 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Worn from 19:39."
+    "status": "Taken off at 17:15."
    },
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Worn from 14:44."
+    "status": "Worn from 17:15."
    }
   ],
   "people": [
@@ -523,7 +635,9 @@
     "home": [
      "ramesh"
     ]
-   }
+   },
+   "walked": 1650,
+   "strain": 1650
   },
   "account": {
    "advance": 15000,
@@ -902,7 +1016,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-22",
-  "source_sha256": "dd07f94083f9b771bfc5280d98525e7b728d2e404fcf91eb65d766e6f9bf5b09",
+  "source_sha256": "a24ddfb02df17d83ed3028d5f0bc5fa2b422154cf2633c4df7eb3ba06f684b9b",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -994,6 +1108,51 @@
     "type": "world",
     "text": "Ramesh puts a plate together: a plate of khichdi with ghee.",
     "time": "16:55",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-22:statement:4d22f7cc4dfc07ad:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 8,
+     "sha256": "4d22f7cc4dfc07add18525f5ebefd5116cc8f8a5bd5a3626ae6adb6f364701c9"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Very well, Ramesh. I shall stay in for now, but I may venture out to the IIC later if the air permits. Keep the tea ready.",
+    "verified": false,
+    "time": "17:15",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-22:statement:9bdb5b7de0e4ecc4:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 9,
+     "sha256": "9bdb5b7de0e4ecc4ebfbb3b1962a7b9a35760a658244e8c99a2f379d46f27f9d"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes sir. I’ll keep the kettle on, but the haze won’t clear by evening. Better to wait until the wind shifts.",
+    "verified": false,
+    "time": "17:15",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-22:event:7883f344474591db:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 10,
+     "sha256": "7883f344474591dbd184301ab06ab328411cf45f7dd30db45cf4165da192c7fa"
+    },
+    "type": "wear",
+    "item": "Bandhgala, charcoal",
+    "status": "Worn from 17:15.",
+    "gone": false,
+    "time": "17:15",
     "place": "home"
    },
    {
@@ -1091,68 +1250,100 @@
     "text": "Ramesh is here."
    },
    {
-    "id": "2026-11-22:event:6300ac5aec47c52e:1",
+    "id": "2026-11-22:event:b8bdb62e7f2c3289:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 2,
+     "sha256": "b8bdb62e7f2c3289860654e783d2db56b13fe87c5f86662620c9affdf0df3cb1"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "17:15",
+    "end": "17:37",
+    "place": null,
+    "origin": "home",
+    "destination": "iic"
+   },
+   {
+    "id": "2026-11-22:event:fdf67438446962df:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      2,
+      0
+     ],
+     "sha256": "fdf67438446962dfa62ed5cf1930d1bb90d0e02acff0ff0776869d89dd962e77"
+    },
+    "type": "observation",
+    "time": "17:15",
+    "place": "home",
+    "text": "Weather: 21 °C, a brown haze. Air quality index: 333."
+   },
+   {
+    "id": "2026-11-22:event:b7a4300e59c40523:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "6300ac5aec47c52e2dcfc50b2de4d26d89db8835a3bbc331c9a8431db92a6e79"
+     "sha256": "b7a4300e59c40523346038ca90dd2b110449253d1cd615330ff9557b3447e2de"
     },
     "type": "cash",
-    "time": "17:15",
+    "time": "17:37",
     "amount": 16416,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-22:event:4c7bd34a83830034:1",
+    "id": "2026-11-22:event:d5e61e825581fcf4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "4c7bd34a83830034ee9d0a620c92e91237aa0ca817153ff60bd9abdf8c52350a"
+     "sha256": "d5e61e825581fcf4ffeaf7799b158dd62621299bd15fa97e53f07e86074c980d"
     },
     "type": "location",
-    "time": "17:15",
-    "place": "home",
+    "time": "17:37",
+    "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-22:event:cc53f2fd7c884b7d:1",
+    "id": "2026-11-22:event:78a1cb9bde8dfff9:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "cc53f2fd7c884b7d00b7f0ea192b231f8c1b4a6ca4cb56fc3cd4e84a663732e4"
+     "sha256": "78a1cb9bde8dfff9ffaed01f3984209491d5c3c3ebbcffe23e108047c533385e"
     },
     "type": "inventory",
-    "time": "17:15",
+    "time": "17:37",
     "place": null,
-    "text": "Recorded wearing at this horizon only: \"kurta\""
+    "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-22:event:3b18dab9a6023f14:1",
+    "id": "2026-11-22:event:8b9d51c95a3e81e5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "3b18dab9a6023f143a49e76f518452bbe565344e846381ec297dcc06d9e5aa06"
+     "sha256": "8b9d51c95a3e81e5b7230dd1ebc330389f901b4cf3e26079bb352c040b58d93c"
     },
     "type": "inventory",
-    "time": "17:15",
+    "time": "17:37",
     "place": null,
-    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 19:39.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 14:44.\"}]"
+    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 17:15.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 17:15.\"}]"
    },
    {
-    "id": "2026-11-22:event:a1ec3f36f85d075d:1",
+    "id": "2026-11-22:event:82bdae47b7cce99d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "a1ec3f36f85d075d81c8fe2d5009468e4d09017b730b7e401f1f73ee2f3b707f"
+     "sha256": "82bdae47b7cce99d25f3d763191704a724adc7bc745b9e6b3fcbbf3d0d315b03"
     },
     "type": "inventory",
-    "time": "17:15",
+    "time": "17:37",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -1171,7 +1362,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "17:15",
+    "time": "17:37",
     "place": null
    }
   ]
