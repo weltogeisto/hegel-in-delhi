@@ -186,7 +186,7 @@ Stage 2's result (`pc/exports/paris-stage2-20261118/judgment/RESULT.md`): the re
 
 Evaluation only: no card, letter, translation or judgment is ever training data.
 
-### Stage 2c · a proposal, not declared (21 November)
+### Stage 2c · proposed, then declared 21 November about 01:30 Berlin, before any output (on Welt's "letter fix + new test" of 20 November)
 
 Stages 2 and 2b both came out 24 of 24, all "sure", with and without the letter block. The judges' reasons suggest the measure is saturated by form as well as content. The real side is an 1820s German fragment, machine-translated, with dashes, old spellings ("Cölln") and translation slips ("my cousin" for Cousin). The model's side is composed English. A judge can tell them apart without weighing what the letter says.
 
@@ -195,7 +195,17 @@ Stages 2 and 2b both came out 24 of 24, all "sure", with and without the letter 
 - invented particulars per letter (prices, meals, conversations the card does not give);
 - kind overlap with the real letter.
 
-A letter block for it would name no kinds of content; it would say only what to leave out. It needs fresh held-out cards, since stage 2b's 24 have now been seen. For Welt to decide.
+**As it runs (`tools/paris_german.py`):**
+- **Cards:** 24 fresh held-out cards, 8 per journey, from the passages after the last one stage 2b used or passed over, in `ORDER.json`'s order. Written and checked as in 2b.
+- **Round 1 (72 calls):** for each card, his letter in German without the block and with the new block (seed 1831, temperature 0.7), and the real passage's translation (stage 2's instruction, temperature 0).
+- **Round 2 (48 calls):** each German letter put into English by the same instruction.
+- **The new block, which names no kinds of content:** "Put nothing in the letter that the card does not give you. Tell two or three things of the day, unevenly, and stop when the news is told. Draw no lesson from it." It is test-only for now.
+- **Two sheets, two fresh judges** under stage 2's judge prompt, judgments sealed before the keys:
+  - **off:** the round-trip letter without the block, against the real passage;
+  - **on:** the round-trip letter with the block, against the real passage.
+- **The reading:**
+  - The block is **closer** if "on" picks the real letter at least 4 times fewer than "off" and shares more kinds with the real letters; otherwise **not shown closer**.
+  - Reported beside it: whether the round trip alone moves the count below 24, which would show that form, not only content, gave stages 2 and 2b away.
 
 ### Stage 3 · Hegel in Paris, closed loop · only after stages 1 and 2, on Welt's word
 
