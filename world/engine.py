@@ -189,6 +189,8 @@ class Engine:
     # ── one step ────────────────────────────────────────────────────
     def step(self, day, t):
         st = day["state"]
+        if getattr(self.cfg, "seed_streams", False) and callable(getattr(self.mind, "at", None)):
+            self.mind.at(t.isoformat(timespec="minutes"))       # HEGEL_SEED_STREAMS: this moment's calls draw from its own stream
         if "account" not in st:
             self.migrate(day, st)               # a day file from before the economy: its books are made on first need
         prev = next((s for s in reversed(day["steps"]) if "decision" in s), None)
@@ -833,6 +835,8 @@ class Engine:
         weekday = datetime.fromisoformat(day["date"]).strftime("%A")
         n = st.get("depesche_n", 0) + 1 if weekday == self.cfg.depesche_day else None
         known = self.memory.known_before(day["date"]) + "\n" + encountered_text(day)
+        if getattr(self.cfg, "seed_streams", False) and callable(getattr(self.owl_mind, "at", None)):
+            self.owl_mind.at(f"owl|{day['date']}")
         written = owl.write(self.cfg, day, st, self.owl_mind, depesche_n=n, problems=lambda text: self.world.problems(text, known),
                             flag=self.world.flag, topic=self.world.topic, claim_guard=self.claim_guard,
                             notebook=getattr(self.cfg, "notebook", False))
