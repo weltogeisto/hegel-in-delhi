@@ -114,6 +114,15 @@ class Night1Test(unittest.TestCase):
         self.assertEqual(eff["pooled"]["home_share"]["n_on"], 7)
         self.assertIn("Blocks 1 and 3 pooled", text)
 
+    def test_the_pc_seats_names_and_run_json_are_read(self):
+        put(self.root, "day52-act-2027", day("2026-11-22", 9, 21), run={"name": "day52-act-2027", "morning_day": 52, "morning": {"commit": "x"},
+            "arm": "act", "seed": 2027, "switches": ["HEGEL_CULTURE=1", "HEGEL_FILE_ACT=1"]}, nested=False)
+        put(self.root, "day52-off-1831", day("2026-11-22", 9, 21), run={"morning_day": 52, "morning": {"commit": "y"}, "arm": "off",
+            "seed": 1831, "switches": ["HEGEL_CULTURE=0"]}, nested=False)
+        r = {x["run"]: x for x in nr.load(self.root)}
+        self.assertEqual((r["day52-act-2027"]["morning"], r["day52-act-2027"]["arm"], r["day52-act-2027"]["seed"]), ("52", "act", 2027))
+        self.assertEqual((r["day52-off-1831"]["morning"], r["day52-off-1831"]["arm"]), ("52", "off"))
+
     def test_the_command_line_writes_the_result(self):
         out = Path(self.td.name) / "out"
         self.assertEqual(nr.main(["--runs", str(self.root), "--out", str(out), "--boot", "100"]), 0)
