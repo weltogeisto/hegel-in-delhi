@@ -320,6 +320,13 @@
    "mode": "walk",
    "a": "iic",
    "b": "home"
+  },
+  {
+   "from": "18:49",
+   "to": "18:59",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -557,6 +564,51 @@
    ],
    "t": "18:27",
    "place": "iic"
+  },
+  {
+   "k": "world",
+   "text": "From somewhere beyond the trees a brass band plays a film tune, the drums carrying further than the horns, and the sound swells and fades as the procession moves.",
+   "t": "18:49",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The brass band plays a film tune, the drums cutting through the haze with a mechanical regularity that feels strangely ordered. It is a sound of civil society in motion, a procession of needs and pleasures passing by, yet it does not touch the file on my desk or the query from the Directorate. Ramesh stands by, silent, waiting for a command or a dismissal, while the air remains thick with dust and the smell of ghee.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature"
+    }
+   ],
+   "t": "18:49",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, the band is loud. Do you know whose wedding or festival this is? The sound carries strangely in the haze tonight. I am not yet ready for dinner, but I would like a glass of water and the evening paper, if you have fetched it.",
+   "to": "Ramesh",
+   "t": "18:49",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Probably a function at the club, sir. The noise gets muffled, then hits you all at once. I haven't fetched the paper today, but I’ll bring the water.",
+   "t": "18:49",
+   "place": "home"
+  },
+  {
+   "k": "wear",
+   "item": "White cotton kurta",
+   "status": "Worn from 18:49.",
+   "sprite": "kurta",
+   "t": "18:49",
+   "place": "home"
   }
  ],
  "steps": [
@@ -1028,6 +1080,72 @@
      "text": "It would be a wearisome task to pursue the wars of the Romans in Italy; partly because they are in themselves unimportant-— even the often empty rhetoric of the generals in Livy cannot very much increase the interest — partly on account of the unintelligent character of the Roman annalists…"
     }
    ]
+  },
+  {
+   "t": "18:49",
+   "end": "18:59",
+   "event": "From somewhere beyond the trees a brass band plays a film tune, the drums carrying further than the horns, and the sound swells and fades as the procession moves.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The brass band plays a film tune, the drums cutting through the haze with a mechanical regularity that feels strangely ordered. It is a sound of civil society in motion, a procession of needs and pleasures passing by, yet it does not touch the file on my desk or the query from the Directorate. Ramesh stands by, silent, waiting for a command or a dismissal, while the air remains thick with dust and the smell of ghee.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Ramesh, the band is loud. Do you know whose wedding or festival this is? The sound carries strangely in the haze tonight. I am not yet ready for dinner, but I would like a glass of water and the evening paper, if you have fetched it.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 331.",
+    "From somewhere beyond the trees a brass band plays a film tune, the drums carrying further than the horns, and the sound swells and fades as the procession moves."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "street:home_wedding_band"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Probably a function at the club, sir. The noise gets muffled, then hits you all at once. I haven't fetched the paper today, but I’ll bring the water.",
+    "does": "Ramesh turns to fetch a glass of water from the cooler."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "id": "sibree-history:325"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "id": "haldane-2:413"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "text": "Every idea thrown into the mind of the Negro is caught up and realized with the whole energy of his will; but this realization involves a wholesale destruction. These people continue long at rest, but suddenly their passions ferment, and then they are quite besides themselves."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "text": "The absolute substance, the moving immovable, the existent ground of heaven which we saw as end, is, on the contrary, both activity itself and the content and object of activity. But Aristotle distinguishes from this what falls under the form of this opposition, “That moving is also moved which has movement as a capacity, and whose immobility is rest."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1035,10 +1153,10 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-22T18:49+05:30",
+  "until": "2026-11-22T18:59+05:30",
   "asleep": false,
   "imprest": 16416,
-  "wearing": "bandhgala",
+  "wearing": "kurta",
   "wardrobe": [
    {
     "id": "frock",
@@ -1058,12 +1176,12 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Taken off at 17:15."
+    "status": "Worn from 18:49."
    },
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Worn from 17:15."
+    "status": "Taken off at 18:49."
    }
   ],
   "people": [
@@ -1507,13 +1625,14 @@
    "home_water_tanker": "2026-11-21",
    "home_peahen": "2026-11-21",
    "home_monkey_wall": "2026-11-21",
-   "iic_seminar_voice": "2026-11-22"
+   "iic_seminar_voice": "2026-11-22",
+   "home_wedding_band": "2026-11-22"
   }
  },
  "records": {
   "version": 2,
   "date": "2026-11-22",
-  "source_sha256": "ff21744ae11296e43ac006d51a1e5b668751ebe99fff11ea4f831402c3069d0d",
+  "source_sha256": "a1e5d2cbf0300784f56f857d46620a393b771f1651ad3daa9763f64c758c2d2a",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1754,6 +1873,64 @@
     "text": "Through the closed door of a seminar room comes the even voice of a speaker reading a paper aloud, and now and then the rustle of many pages turning.",
     "time": "18:27",
     "place": "iic"
+   },
+   {
+    "id": "2026-11-22:event:19a25b92f8d4a529:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 23,
+     "sha256": "19a25b92f8d4a529f52e4c5290ce63355f4c15f76810c02c7062e675b7452e81"
+    },
+    "type": "world",
+    "text": "From somewhere beyond the trees a brass band plays a film tune, the drums carrying further than the horns, and the sound swells and fades as the procession moves.",
+    "time": "18:49",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-22:statement:513e2b0688311491:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 25,
+     "sha256": "513e2b0688311491a118868e69b039cd0db19093415f4876932575d5ae6b02ba"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, the band is loud. Do you know whose wedding or festival this is? The sound carries strangely in the haze tonight. I am not yet ready for dinner, but I would like a glass of water and the evening paper, if you have fetched it.",
+    "verified": false,
+    "time": "18:49",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-22:statement:22322a6170af90dc:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 26,
+     "sha256": "22322a6170af90dc7f9fb751ecee8649902f5819a7450f92c277ee53440ce296"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Probably a function at the club, sir. The noise gets muffled, then hits you all at once. I haven't fetched the paper today, but I’ll bring the water.",
+    "verified": false,
+    "time": "18:49",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-22:event:99dc0d47dd235e56:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 27,
+     "sha256": "99dc0d47dd235e5662e561167aae9a7048a0246dc7568a4b50d61efa95bd941a"
+    },
+    "type": "wear",
+    "item": "White cotton kurta",
+    "status": "Worn from 18:49.",
+    "gone": false,
+    "time": "18:49",
+    "place": "home"
    },
    {
     "id": "2026-11-22:event:4529910829b3e850:1",
@@ -2066,68 +2243,114 @@
     "text": "Through the closed door of a seminar room comes the even voice of a speaker reading a paper aloud, and now and then the rustle of many pages turning."
    },
    {
-    "id": "2026-11-22:event:b576a33b2758e75c:1",
+    "id": "2026-11-22:event:f4f91589f6de6164:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 8,
+     "sha256": "f4f91589f6de61646c913750827ec061f703d9a293e9b6b3f6797968829ba57d"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "18:49",
+    "end": "18:59",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-22:event:b2702d8f5c37e2b5:4",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      8,
+      0
+     ],
+     "sha256": "b2702d8f5c37e2b5255765e346a9ef0aa06240216f720c3b9b6979138bec4d5f"
+    },
+    "type": "observation",
+    "time": "18:49",
+    "place": "home",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 331."
+   },
+   {
+    "id": "2026-11-22:event:d716e29d39c90dcd:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      8,
+      1
+     ],
+     "sha256": "d716e29d39c90dcd36a8d98401e314ebbbec34d35e8b1228fdc976e882b4e4f7"
+    },
+    "type": "observation",
+    "time": "18:49",
+    "place": "home",
+    "text": "From somewhere beyond the trees a brass band plays a film tune, the drums carrying further than the horns, and the sound swells and fades as the procession moves."
+   },
+   {
+    "id": "2026-11-22:event:513f2368663917ff:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "b576a33b2758e75c3786ad45437607ad92d711c2a8ce4c520f15fd120cddbf32"
+     "sha256": "513f2368663917ffaeb0829edc6fdfec22fbb871e7230f39ac7faa6e448f05da"
     },
     "type": "cash",
-    "time": "18:49",
+    "time": "18:59",
     "amount": 16416,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-22:event:b5dcd920a8a77bc6:1",
+    "id": "2026-11-22:event:6e6a0af9cfb7750a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "b5dcd920a8a77bc619bbc69ce35afe0d9a31b0174a7d01864c19a397bc7291dd"
+     "sha256": "6e6a0af9cfb7750a288da0d7b79e353555d78f6da6f44557e53872ab87f8ddc4"
     },
     "type": "location",
-    "time": "18:49",
+    "time": "18:59",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-22:event:d0a036499b0ebb19:1",
+    "id": "2026-11-22:event:cf28d6bb8b8c2c98:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "d0a036499b0ebb19ff03538450addfbe23b0e95603ab1434434275e575fe70b3"
+     "sha256": "cf28d6bb8b8c2c9836b5e9d99d18226906e6dbb70132c3965abf29a190b648ec"
     },
     "type": "inventory",
-    "time": "18:49",
+    "time": "18:59",
     "place": null,
-    "text": "Recorded wearing at this horizon only: \"bandhgala\""
+    "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-22:event:1e02e2f7255f04d1:1",
+    "id": "2026-11-22:event:c70055520ae1c4da:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "1e02e2f7255f04d18edb9f73d8c12e882c982c5116a349ae54654e3812b0022c"
+     "sha256": "c70055520ae1c4da37cffd398d1df2453b55e865cf759c4fcae104e74c488301"
     },
     "type": "inventory",
-    "time": "18:49",
+    "time": "18:59",
     "place": null,
-    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 17:15.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 17:15.\"}]"
+    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 18:49.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 18:49.\"}]"
    },
    {
-    "id": "2026-11-22:event:d98e0d45517fafda:1",
+    "id": "2026-11-22:event:d7e7f260b1e6920c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "d98e0d45517fafdac50826229a528ddf6e5360a4b41ba602f4cb6cf88e64fd7b"
+     "sha256": "d7e7f260b1e6920c50a632be0057788c61c5d4f99ea4d8ad37dd0f487ae10716"
     },
     "type": "inventory",
-    "time": "18:49",
+    "time": "18:59",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2146,7 +2369,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "18:49",
+    "time": "18:59",
     "place": null
    }
   ]
