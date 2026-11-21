@@ -60,7 +60,8 @@ def make_mind(cfg, which, wake=True):
     return HTTPMind(url, wake=cfg.wake if wake else None, timeout=cfg.timeout, voice_adapter_scale=cfg.voice_adapter_scale,
                     writing_reasoning_tokens=cfg.writing_reasoning_tokens, writing_adapter_scale=cfg.writing_adapter_scale,
                     decision_reasoning_tokens=cfg.decision_reasoning_tokens, decision_adapter_scale=cfg.decision_adapter_scale,
-                    decision_dry=getattr(cfg, "decision_dry", 0.0), seed=getattr(cfg, "seed", None), cache_prompt=getattr(cfg, "cache_prompt", None))
+                    decision_dry=getattr(cfg, "decision_dry", 0.0), seed=getattr(cfg, "seed", None), cache_prompt=getattr(cfg, "cache_prompt", None),
+                    seed_streams=getattr(cfg, "seed_streams", False))
 
 
 def make_world(cfg):
