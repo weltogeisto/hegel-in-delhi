@@ -12,7 +12,7 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 18,
+    "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 315
@@ -48,7 +48,7 @@
     "aqi": 325
    },
    {
-    "temp": 15,
+    "temp": 16,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 327
@@ -60,7 +60,7 @@
     "aqi": 330
    },
    {
-    "temp": 17,
+    "temp": 18,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 333
@@ -78,12 +78,6 @@
     "aqi": 335
    },
    {
-    "temp": 23,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 335
-   },
-   {
     "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
@@ -108,7 +102,13 @@
     "aqi": 335
    },
    {
-    "temp": 23,
+    "temp": 24,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 335
+   },
+   {
+    "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 334
@@ -144,7 +144,7 @@
     "aqi": 322
    },
    {
-    "temp": 17,
+    "temp": 18,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 318
@@ -355,6 +355,15 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "20:44",
+   "to": "24:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Asleep.",
+   "asleep": true,
+   "owl": true
   }
  ],
  "entries": [
@@ -745,6 +754,22 @@
    "to": "Hegel",
    "text": "Sir, pulao is getting cold. I suggest you stop thinking about the state and start eating the food.",
    "t": "19:59",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh has gone, leaving the curd and the silence. The brown haze presses against the glass, a solid brown wall that seals the city in. It is twenty past eight; the day has dismissed me with a finality that feels less like rest and more like a verdict. I am tired, and the query regarding my identity feels heavier in the quiet than it did in the noise. I must sleep to face the Directorate again tomorrow.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§573"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The More Important of the Followers of Fichte"
+    }
+   ],
+   "t": "20:44",
    "place": "home"
   }
  ],
@@ -1544,6 +1569,66 @@
      "text": "But what makes us specially at home with the Greeks is that they made their world their home; the common spirit of homeliness unites us both. In ordinary life we like best the men and families that are homely and contented in themselves, not desiring what is outside and above them, and so it is with the Greeks."
     }
    ]
+  },
+  {
+   "t": "20:44",
+   "end": "24:00",
+   "event": "Ramesh says: “Sir, pulao is getting cold. I suggest you stop thinking about the state and start eating the food.” Places the plate of vegetable pulao and raita on the table in front of him. Ramesh has gone.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Ramesh has gone, leaving the curd and the silence. The brown haze presses against the glass, a solid brown wall that seals the city in. It is twenty past eight; the day has dismissed me with a finality that feels less like rest and more like a verdict. I am tired, and the query regarding my identity feels heavier in the quiet than it did in the noise. I must sleep to face the Directorate again tomorrow.",
+    "action": "sleep",
+    "place": "home",
+    "minutes": 240,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 19 °C, a brown haze. Air quality index: 326."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 8.6,
+    "draws": {
+     "n": 2,
+     "refused": 1,
+     "echo": 0,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§573",
+     "id": "wallace-mind:438"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The More Important of the Followers of Fichte",
+     "id": "haldane-3:1247"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§573",
+     "text": "The fault of all these modes of thought and systems is that they stop short of defining substance as subject and as mind. These systems and modes of pictorial conception originate from the one need common to all philosophies and all religions of getting an idea of God, and, secondly, of the relationship of God and the world."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The More Important of the Followers of Fichte",
+     "text": "On the other hand the ego finds in the subjectivity and individuality of the personal view of things the height of all its vanity—its Religion. All the various individualities have God within themselves. Dialectic is the last thing to arise and to maintain its place."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1551,8 +1636,8 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-22T20:44+05:30",
-  "asleep": false,
+  "until": "2026-11-23T00:00+05:30",
+  "asleep": true,
   "imprest": 16416,
   "wearing": "kurta",
   "wardrobe": [
@@ -2033,7 +2118,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-22",
-  "source_sha256": "276038108ea58a5db9c29758671839a7ba5c39787d9704e7586db5c35f5b88d0",
+  "source_sha256": "b22e06c3f106a77db762e11f5854609360ffe01438b8070dce8540ff1813219a",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2948,68 +3033,98 @@
     "text": "Ramesh serves dinner before he goes home: vegetable pulao and raita."
    },
    {
-    "id": "2026-11-22:event:34dc2f3c8bdf7493:1",
+    "id": "2026-11-22:event:f35a1507ec85127c:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 13,
+     "sha256": "f35a1507ec85127c6b6a8f7f9a0c50ad01f36134ae86d4062101d31aa456486a"
+    },
+    "type": "action",
+    "action": "sleep",
+    "time": "20:44",
+    "end": "24:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-22:event:7ec69c5960f9c7be:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      13,
+      0
+     ],
+     "sha256": "7ec69c5960f9c7beac147e9631c3198fc271e94aa6ee6b5c4a4385956f99fa58"
+    },
+    "type": "observation",
+    "time": "20:44",
+    "place": "home",
+    "text": "Weather: 19 °C, a brown haze. Air quality index: 326."
+   },
+   {
+    "id": "2026-11-22:event:0de795e5c10fb6b8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "34dc2f3c8bdf749311621a7c4d43c5da28764631bfdd97e3fbc5504bf3abe314"
+     "sha256": "0de795e5c10fb6b86d042d8bf35c3f5e9b361df2810064477c45c92ed2e43f50"
     },
     "type": "cash",
-    "time": "20:44",
+    "time": "00:00",
     "amount": 16416,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-22:event:2d7b9c17951f0059:1",
+    "id": "2026-11-22:event:8cdc3c465e5eecce:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "2d7b9c17951f00596b836828746f29994bab437ee557251e0cecd2fcc5697cf9"
+     "sha256": "8cdc3c465e5eecce26b64bf4d7548e0834fc14c168cd42e072e5389ece9bf195"
     },
     "type": "location",
-    "time": "20:44",
+    "time": "00:00",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-22:event:0b68433a50656d72:1",
+    "id": "2026-11-22:event:a254e34625e321c8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "0b68433a50656d723e0bed16a95cdc960941fbaa9fa285442642ccaa7335c25c"
+     "sha256": "a254e34625e321c862886b91e57c8fcd9ed7a46c6c4a9fac4700ed0fa7ef4866"
     },
     "type": "inventory",
-    "time": "20:44",
+    "time": "00:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-22:event:84395aaa93c03fa7:1",
+    "id": "2026-11-22:event:26659ab0c0a9444c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "84395aaa93c03fa750e541c263b60281bbd4b2b495bc2623d94737c02f9c7f94"
+     "sha256": "26659ab0c0a9444cd780538378a3f0142e1fe62bcf0657e57f0367dc05da6770"
     },
     "type": "inventory",
-    "time": "20:44",
+    "time": "00:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 18:49.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 18:49.\"}]"
    },
    {
-    "id": "2026-11-22:event:0c4c4914761343fe:1",
+    "id": "2026-11-22:event:930c8dd9a9868f82:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "0c4c4914761343fe6ccc81339adc75e4ae33780233e10c6f722b829a5b318983"
+     "sha256": "930c8dd9a9868f82b78e65972fd411db524dfa4617d7489c0994d0654d1a6fa3"
     },
     "type": "inventory",
-    "time": "20:44",
+    "time": "00:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3028,7 +3143,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "20:44",
+    "time": "00:00",
     "place": null
    }
   ]
