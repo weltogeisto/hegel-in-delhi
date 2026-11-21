@@ -299,6 +299,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "18:07",
+   "to": "18:22",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -466,6 +473,37 @@
    "to": "Hegel",
    "text": "Madam, he is back again. I told him to come tomorrow morning for coffee, but here he is. You handle the logistics, I will just make sure he doesn't wander into the restricted stacks.",
    "t": "17:52",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s address to 'Madam' is a persistent error, a small friction that I must smooth over to maintain the fiction of Shri G. Hegde. I cannot afford the distraction of a bureaucratic scandal on the eve of my lecture. I will let the programme officer take the logistics; my role here is to be present, not to manage the machinery.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§541"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Alexandrian Philosophy, Proclus"
+    }
+   ],
+   "t": "18:07",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "I am Shri Hegde, not Madam. But please, let the officer handle the arrangements. I have a lecture tomorrow that requires my full attention, and the haze makes me prefer the quiet of my quarters.",
+   "to": "the guard at the library and the programme officer",
+   "t": "18:07",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Sorry, Shri Hegde, my mistake. The officer is already with him, so just go ahead and find her. And watch the steps near the stacks, the floor gets slippery in this humidity.",
+   "t": "18:07",
    "place": "iic"
   }
  ],
@@ -746,6 +784,72 @@
      "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
     }
    ]
+  },
+  {
+   "t": "18:07",
+   "end": "18:22",
+   "event": "The guard at the library says: “Madam, he is back again. I told him to come tomorrow morning for coffee, but here he is. You handle the logistics, I will just make sure he doesn't wander into the restricted stacks.” He nods to the programme officer and steps aside to let her pass through the office door.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s address to 'Madam' is a persistent error, a small friction that I must smooth over to maintain the fiction of Shri G. Hegde. I cannot afford the distraction of a bureaucratic scandal on the eve of my lecture. I will let the programme officer take the logistics; my role here is to be present, not to manage the machinery.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 15,
+    "says": "I am Shri Hegde, not Madam. But please, let the officer handle the arrangements. I have a lecture tomorrow that requires my full attention, and the haze makes me prefer the quiet of my quarters.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 331."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Sorry, Shri Hegde, my mistake. The officer is already with him, so just go ahead and find her. And watch the steps near the stacks, the floor gets slippery in this humidity.",
+    "does": "He gestures towards the main corridor with a thumb and turns back to his desk."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§541",
+     "id": "wallace-mind:310"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Alexandrian Philosophy, Proclus",
+     "id": "haldane-2:1120"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§541",
+     "text": "The division of these powers has been treated as the condition of political equilibrium, meaning by division their independence one of another in existence,—subject always however to the above-mentioned subsumption of the powers of the individual under the power of the general."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Alexandrian Philosophy, Proclus",
+     "text": "The second is likewise enduring, and at the same time steps forward;” the living appears, but is in so doing led back to unity. “The third after progression shifts and turns the intelligible limit back to the beginning, and bends the order back into itself; for the understanding is the turning back to what is thought” (to unity), “and the giving of conformity with it."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -753,7 +857,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-22T18:07+05:30",
+  "until": "2026-11-22T18:22+05:30",
   "asleep": false,
   "imprest": 16416,
   "wearing": "bandhgala",
@@ -1230,7 +1334,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-22",
-  "source_sha256": "0224caf8f383fcd1c4347acc0d646d66402b477aa6630698c63e1f8b9ff17de2",
+  "source_sha256": "446d061a61036021aeb27180706c4d6f9c893e3c3b016e652c1b26fc677f49dd",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1427,6 +1531,36 @@
     "words": "Madam, he is back again. I told him to come tomorrow morning for coffee, but here he is. You handle the logistics, I will just make sure he doesn't wander into the restricted stacks.",
     "verified": false,
     "time": "17:52",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-22:statement:4e991beb64ef770c:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 18,
+     "sha256": "4e991beb64ef770cdfa91c94b8b7646502290d818960a299cff2b3c7c892faf7"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "I am Shri Hegde, not Madam. But please, let the officer handle the arrangements. I have a lecture tomorrow that requires my full attention, and the haze makes me prefer the quiet of my quarters.",
+    "verified": false,
+    "time": "18:07",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-22:statement:9f248784bae59160:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 19,
+     "sha256": "9f248784bae59160789a329465b36444752e6066ad0d0caf12f253d78487da4c"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Sorry, Shri Hegde, my mistake. The officer is already with him, so just go ahead and find her. And watch the steps near the stacks, the floor gets slippery in this humidity.",
+    "verified": false,
+    "time": "18:07",
     "place": "iic"
    },
    {
@@ -1632,68 +1766,98 @@
     "text": "Weather: 21 °C, a brown haze. Air quality index: 333."
    },
    {
-    "id": "2026-11-22:event:f5cb075bb0d1f3bc:1",
+    "id": "2026-11-22:event:864c6febddc65b93:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 5,
+     "sha256": "864c6febddc65b93553591a39bea4c5317f64df04f7dece694f928e35ea2ced3"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "18:07",
+    "end": "18:22",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-22:event:b2702d8f5c37e2b5:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      5,
+      0
+     ],
+     "sha256": "b2702d8f5c37e2b5255765e346a9ef0aa06240216f720c3b9b6979138bec4d5f"
+    },
+    "type": "observation",
+    "time": "18:07",
+    "place": "iic",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 331."
+   },
+   {
+    "id": "2026-11-22:event:400c5258ee46ed7a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "f5cb075bb0d1f3bc49768de3bec622d2c9d553904ca59d00b0833d9bb77a332f"
+     "sha256": "400c5258ee46ed7a4c5884d1c94c541c7d028269db0aa23a024afe8d1ddca8ea"
     },
     "type": "cash",
-    "time": "18:07",
+    "time": "18:22",
     "amount": 16416,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-22:event:e1e1034bec71b9a9:1",
+    "id": "2026-11-22:event:640e3dee5312b5ea:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "e1e1034bec71b9a94333e3f236b7bdfb73a0ca83b2fc76fb6a14c28f750e8528"
+     "sha256": "640e3dee5312b5ead6dbb536baed47d2bbe151b23dac55845d2bc2aa29c4d84f"
     },
     "type": "location",
-    "time": "18:07",
+    "time": "18:22",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-22:event:6ad88586bf199ab4:1",
+    "id": "2026-11-22:event:fb71162b24dcb76e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "6ad88586bf199ab49a6b6aec6ba03a55bac33db04a69dee43697c815546634a1"
+     "sha256": "fb71162b24dcb76e5c3d775661c3bae0d7457490aa195974979960ee54cd5fe6"
     },
     "type": "inventory",
-    "time": "18:07",
+    "time": "18:22",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-22:event:0b3ed0708e54aba3:1",
+    "id": "2026-11-22:event:8f83c5aebcfa6905:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "0b3ed0708e54aba3019a50da22b1df1c0df719504aa6de8d9f8b6103090dec86"
+     "sha256": "8f83c5aebcfa6905338d37bc7661428c960e76d189195ca44310ebec079b14a1"
     },
     "type": "inventory",
-    "time": "18:07",
+    "time": "18:22",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 17:15.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 17:15.\"}]"
    },
    {
-    "id": "2026-11-22:event:d09bd95e5976e793:1",
+    "id": "2026-11-22:event:b7eb4ccb559f9442:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "d09bd95e5976e793999c004c3ec8ddf75e0063307ad3f5cfabc69c399712c601"
+     "sha256": "b7eb4ccb559f9442e6200c7f47ec7f38cc8c43b5437993a17be2e17deaf31a8d"
     },
     "type": "inventory",
-    "time": "18:07",
+    "time": "18:22",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -1712,7 +1876,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "18:07",
+    "time": "18:22",
     "place": null
    }
   ]
