@@ -54,6 +54,7 @@ class HTTPMind:
         self.seed, self.calls = seed, 0          # a base seed (HEGEL_SEED, --seed) and the number of chat and complete calls so far
         self.seed_streams = bool(seed_streams)   # HEGEL_SEED_STREAMS: a call's seed from (base, moment, kind, draw), not its running number
         self.stream_at, self._stream_n, self._kind = None, {}, None
+        self.recorder, self.last_kind = None, None   # HEGEL_RECORD_CALLS: every request and reply written down in order (world/calls.py)
 
     def health(self, timeout=3):
         try:
@@ -84,11 +85,7 @@ class HTTPMind:
         This is metadata only: no model generation and no tokenizer package.
         """
         self.ensure_awake()
-        def post(path, payload):
-            request = urllib.request.Request(self.url + path, data=json.dumps(payload).encode('utf-8'),
-                                             headers={'Content-Type': 'application/json'})
-            with urllib.request.urlopen(request, timeout=self.timeout) as response:
-                return json.load(response)
+        post = lambda path, payload: self._post(path, payload, "tokens")
         if isinstance(value, list):
             value = post('/apply-template', dict(messages=value,
                          chat_template_kwargs=dict(enable_thinking=thinking)))['prompt']
@@ -123,6 +120,7 @@ class HTTPMind:
         part (pc/FAST-LANE.md, C)."""
         self.calls += 1
         kind, self._kind = self._kind or "chat", None
+        self.last_kind = kind
         if own is not None or self.seed is None:
             return own
         if not self.seed_streams:
@@ -202,11 +200,8 @@ class HTTPMind:
         for constrained in ((True, False) if schema else (False,)):
             if not constrained:
                 payload.pop("response_format", None)
-            req = urllib.request.Request(self.url + "/v1/chat/completions", data=json.dumps(payload).encode("utf-8"),
-                                         headers={"Content-Type": "application/json"})
             try:
-                with urllib.request.urlopen(req, timeout=self.timeout) as r:
-                    data = json.loads(r.read().decode("utf-8"))
+                data = self._post("/v1/chat/completions", payload, self.last_kind)
                 return (data["choices"][0]["message"].get("content") or "").strip()
             except urllib.error.HTTPError as e:
                 if constrained and schema and e.code in (400, 422, 500):
@@ -231,18 +226,42 @@ class HTTPMind:
             payload["cache_prompt"] = self.cache_prompt         # complete() sends False on its own when this is None
         if self.adapter_configured():           # his prose in plain mode is not the voices': the base model, whatever the server holds
             payload["lora"] = [{"id": 0, "scale": 0}]
-        req = urllib.request.Request(self.url + "/completion", data=json.dumps(payload).encode("utf-8"), headers={"Content-Type": "application/json"})
         try:
-            with urllib.request.urlopen(req, timeout=self.timeout) as r:
-                content = json.loads(r.read().decode("utf-8"))["content"]
+            content = self._post("/completion", payload, self.last_kind)["content"]
             return content if isinstance(content, str) else ""
         except urllib.error.HTTPError as e:
             raise MindAway(f"HTTP {e.code} from the mind")
         except (urllib.error.URLError, OSError, ValueError, KeyError, TypeError) as e:
             raise MindAway(f"mind request failed: {e}")
 
+    def _send(self, path, payload):
+        """One request to the server, and its JSON reply."""
+        req = urllib.request.Request(self.url + path, data=json.dumps(payload).encode("utf-8"), headers={"Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=self.timeout) as r:
+            return json.loads(r.read().decode("utf-8"))
+
+    def _post(self, path, payload, kind=None):
+        """_send, written down in order with its moment and kind when a recorder is set (HEGEL_RECORD_CALLS): the reply, or the error
+        it raised. Errors are raised as they were, so the callers' fallbacks run as before."""
+        if self.recorder is None:
+            return self._send(path, payload)
+        try:
+            data = self._send(path, payload)
+        except Exception as e:
+            self.recorder.call(self.stream_at, kind, path, payload, error=error_record(e))
+            raise
+        self.recorder.call(self.stream_at, kind, path, payload, reply=data)
+        return data
+
     def decide(self, messages, sit):
         return self.chat_decision(messages, decision_schema(sit))
+
+
+def error_record(e):
+    """An exception as the record keeps it: an HTTP status, or the kind of failure and its words."""
+    if isinstance(e, urllib.error.HTTPError):
+        return {"http": e.code}
+    return {"error": type(e).__name__, "words": str(e)[:300]}
 
 
 THOUGHTS = [
