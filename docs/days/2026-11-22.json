@@ -292,6 +292,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "17:52",
+   "to": "18:07",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -428,6 +435,37 @@
    "to": "Hegel",
    "text": "Good evening, you must be Shri Hegel. I am the Programme Officer; you can find me right here. We are just finishing up the audio checks for the main hall, so give me a moment to pull up the Tuesday file on my phone.",
    "t": "17:37",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The air is thick, but the office offers a reprieve. I will use this moment to clarify the administrative confusion before the evening wears on, for a clear beginning is essential for the work of Tuesday.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    }
+   ],
+   "t": "17:52",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "Good evening. I am indeed Shri Hegel, though the clerical error regarding my identity has persisted. I am here to review the logistics for Tuesday's talk. Please, let us ensure the file is in order.",
+   "to": "the guard at the library and the programme officer",
+   "t": "17:52",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Madam, he is back again. I told him to come tomorrow morning for coffee, but here he is. You handle the logistics, I will just make sure he doesn't wander into the restricted stacks.",
+   "t": "17:52",
    "place": "iic"
   }
  ],
@@ -642,6 +680,72 @@
      "text": "But Piety [or Religious Feeling] as such, has nothing to do with the Secular: it may make its appearance in that sphere on a mission of mercy, but this stops short of a strict socially ethical connection with it — does not come up to the idea of Freedom."
     }
    ]
+  },
+  {
+   "t": "17:52",
+   "end": "18:07",
+   "event": "The programme officer says: “Good evening, you must be Shri Hegel. I am the Programme Officer; you can find me right here. We are just finishing up the audio checks for the main hall, so give me a moment to pull up the Tuesday file on my phone.” She gestures towards the small office door and checks the time on her watch.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The air is thick, but the office offers a reprieve. I will use this moment to clarify the administrative confusion before the evening wears on, for a clear beginning is essential for the work of Tuesday.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 15,
+    "says": "Good evening. I am indeed Shri Hegel, though the clerical error regarding my identity has persisted. I am here to review the logistics for Tuesday's talk. Please, let us ensure the file is in order.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 21 °C, a brown haze. Air quality index: 333."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Madam, he is back again. I told him to come tomorrow morning for coffee, but here he is. You handle the logistics, I will just make sure he doesn't wander into the restricted stacks.",
+    "does": "He nods to the programme officer and steps aside to let her pass through the office door."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 12.9,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "id": "wallace-mind:330"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "text": "To give the name of a law to the annual fixing of financial requirements only serves—with the presupposed separation of legislative from executive—to keep up the illusion of that separation having real existence, and to conceal the fact that the legislative power, when it makes a decree about finance, is really engaged with strict executive business."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -649,7 +753,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-22T17:52+05:30",
+  "until": "2026-11-22T18:07+05:30",
   "asleep": false,
   "imprest": 16416,
   "wearing": "bandhgala",
@@ -1126,7 +1230,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-22",
-  "source_sha256": "11b71dff358d3ca273e30a6dfc82c45aa6c96096976b217870f17b68c6d5fa16",
+  "source_sha256": "0224caf8f383fcd1c4347acc0d646d66402b477aa6630698c63e1f8b9ff17de2",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1293,6 +1397,36 @@
     "words": "Good evening, you must be Shri Hegel. I am the Programme Officer; you can find me right here. We are just finishing up the audio checks for the main hall, so give me a moment to pull up the Tuesday file on my phone.",
     "verified": false,
     "time": "17:37",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-22:statement:e37c03d9115f3e5f:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 15,
+     "sha256": "e37c03d9115f3e5ff56bc7f90507130c17b32d3d17d229ac726a012ca89aa0cb"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "Good evening. I am indeed Shri Hegel, though the clerical error regarding my identity has persisted. I am here to review the logistics for Tuesday's talk. Please, let us ensure the file is in order.",
+    "verified": false,
+    "time": "17:52",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-22:statement:8e01723cb4ec2239:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 16,
+     "sha256": "8e01723cb4ec2239e14f74d8a364b77fa0ebcb2964aef42bd0546d0a959c4a76"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Madam, he is back again. I told him to come tomorrow morning for coffee, but here he is. You handle the logistics, I will just make sure he doesn't wander into the restricted stacks.",
+    "verified": false,
+    "time": "17:52",
     "place": "iic"
    },
    {
@@ -1468,68 +1602,98 @@
     "text": "You arrive at India International Centre. It closes at 21:30."
    },
    {
-    "id": "2026-11-22:event:0b316d6828db8c56:1",
+    "id": "2026-11-22:event:248d3ed25b131718:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 4,
+     "sha256": "248d3ed25b1317185f017fb191e3ba39fb8433bdf0ee5ae1423b21bdd1f8b729"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "17:52",
+    "end": "18:07",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-22:event:fdf67438446962df:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      4,
+      0
+     ],
+     "sha256": "fdf67438446962dfa62ed5cf1930d1bb90d0e02acff0ff0776869d89dd962e77"
+    },
+    "type": "observation",
+    "time": "17:52",
+    "place": "iic",
+    "text": "Weather: 21 °C, a brown haze. Air quality index: 333."
+   },
+   {
+    "id": "2026-11-22:event:f5cb075bb0d1f3bc:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "0b316d6828db8c5617252ae1500faa6dc43fa9726d5af2edcd32c5037f3f3571"
+     "sha256": "f5cb075bb0d1f3bc49768de3bec622d2c9d553904ca59d00b0833d9bb77a332f"
     },
     "type": "cash",
-    "time": "17:52",
+    "time": "18:07",
     "amount": 16416,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-22:event:11b70704c89e4f50:1",
+    "id": "2026-11-22:event:e1e1034bec71b9a9:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "11b70704c89e4f50979497ea209612d673b97e82ce05066f46b323b125495f4a"
+     "sha256": "e1e1034bec71b9a94333e3f236b7bdfb73a0ca83b2fc76fb6a14c28f750e8528"
     },
     "type": "location",
-    "time": "17:52",
+    "time": "18:07",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-22:event:d0a7074b511246dd:1",
+    "id": "2026-11-22:event:6ad88586bf199ab4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "d0a7074b511246ddbf7aeb18c1a2dc5433d1b1d9ddbd9e923d564ad179203d56"
+     "sha256": "6ad88586bf199ab49a6b6aec6ba03a55bac33db04a69dee43697c815546634a1"
     },
     "type": "inventory",
-    "time": "17:52",
+    "time": "18:07",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-22:event:4a20b4786de4ad8b:1",
+    "id": "2026-11-22:event:0b3ed0708e54aba3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "4a20b4786de4ad8bab76947ac0bd034321921835ff77a9b5608d38a125b48479"
+     "sha256": "0b3ed0708e54aba3019a50da22b1df1c0df719504aa6de8d9f8b6103090dec86"
     },
     "type": "inventory",
-    "time": "17:52",
+    "time": "18:07",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 17:15.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 17:15.\"}]"
    },
    {
-    "id": "2026-11-22:event:bb8050f2167b35e9:1",
+    "id": "2026-11-22:event:d09bd95e5976e793:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "bb8050f2167b35e90e94b92c2423c8315f753350607d0c5a547406a44678270e"
+     "sha256": "d09bd95e5976e793999c004c3ec8ddf75e0063307ad3f5cfabc69c399712c601"
     },
     "type": "inventory",
-    "time": "17:52",
+    "time": "18:07",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -1548,7 +1712,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "17:52",
+    "time": "18:07",
     "place": null
    }
   ]
