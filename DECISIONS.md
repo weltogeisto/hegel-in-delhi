@@ -174,6 +174,8 @@ Welt, the night of 18 November: "dont get stuck waiting on me not answering, i t
 
 61. **Day 53 gets the merge and the museums; the PC stays on at night; the fast lane stays local** (Welt, 21 November, about 17:40 Berlin). Day 52 lost his mind from 09:13 to 16:55: the live server, restarted from inside a WSL session after the night's jobs, died with that session at 01:34. Welt's word: before Day 53's waking, merge main into shadow and set `HEGEL_CULTURE=1`, overriding the rule that a switch waits a day after a broken day. The PC stays on at night for offline rehearsals (the fast lane, `pc/FAST-LANE.md` v2), on the home GPU only: no rented GPUs ("we have a gpu, why use another external? thats the entire reason we have local ai"), and no delayed publication. Not yet decided: every slot at night (the spare slot only until then), statistical gates in place of live-day gates, the dead-man alert and catch-up mode. The live server is started only by its Windows starter, never from a shell, and port 8082 is checked after every night job.
 
+62. **Every slot at night** (Welt, 21 November, about 20:40 Berlin: "yes, every slot"). While he sleeps, the fast lane's forks use every slot of the live server, not only the spare one. The server is never restarted for it. The forks start once the day is complete and 8082 answers, and they stop by 07:45. This settles the first of 61's open points. Statistical gates, the dead-man alert and catch-up mode remain open. Night 1 (`pc/FAST-LANE-NIGHT1.md`) uses it: block 1, the museums off and on, then block 2, the file's next act rehearsed, then block 3, more seeds, if the night allows.
+
 ## Still open
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.
