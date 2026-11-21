@@ -306,6 +306,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "18:22",
+   "to": "18:27",
+   "mode": "inside",
+   "at": "iic",
+   "now": "At the IIC."
   }
  ],
  "entries": [
@@ -504,6 +511,22 @@
    "to": "Hegel",
    "text": "Sorry, Shri Hegde, my mistake. The officer is already with him, so just go ahead and find her. And watch the steps near the stacks, the floor gets slippery in this humidity.",
    "t": "18:07",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s apology is a small concession, but the friction of being 'Shri Hegde' remains a daily test of my composure. I must find the programme officer before the humidity claims the floor, and before my identity dissolves entirely into the paperwork. The corridor is a liminal space; I shall traverse it with the care of a man walking through his own reflection.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction"
+    }
+   ],
+   "t": "18:22",
    "place": "iic"
   }
  ],
@@ -850,6 +873,70 @@
      "text": "The second is likewise enduring, and at the same time steps forward;” the living appears, but is in so doing led back to unity. “The third after progression shifts and turns the intelligible limit back to the beginning, and bends the order back into itself; for the understanding is the turning back to what is thought” (to unity), “and the giving of conformity with it."
     }
    ]
+  },
+  {
+   "t": "18:22",
+   "end": "18:27",
+   "event": "The guard at the library says: “Sorry, Shri Hegde, my mistake. The officer is already with him, so just go ahead and find her. And watch the steps near the stacks, the floor gets slippery in this humidity.” He gestures towards the main corridor with a thumb and turns back to his desk.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s apology is a small concession, but the friction of being 'Shri Hegde' remains a daily test of my composure. I must find the programme officer before the humidity claims the floor, and before my identity dissolves entirely into the paperwork. The corridor is a liminal space; I shall traverse it with the care of a man walking through his own reflection.",
+    "action": "stay",
+    "place": "iic",
+    "minutes": 5,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 331."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "id": "dyde-right:740"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction",
+     "id": "sibree-history:203"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "text": "The lower concrete civil life must be governed from below in a concrete way. And yet the work must be divided into its abstract branches, specially officered by middlemen, whose activity in connection with those below them must from the lowest to the highest executive offices take the form of a continuous concrete oversight."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction",
+     "text": "It strikes every one, in beginning to form an acquaintance with the treasures of Indian literature, that a land so rich in intellectual products, and those of the profoundest order of thought, has no History; and in this respect contrasts most strongly with China — an empire possessing one so remarkable, one going back to the most ancient times."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -857,7 +944,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-22T18:22+05:30",
+  "until": "2026-11-22T18:27+05:30",
   "asleep": false,
   "imprest": 16416,
   "wearing": "bandhgala",
@@ -1334,7 +1421,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-22",
-  "source_sha256": "446d061a61036021aeb27180706c4d6f9c893e3c3b016e652c1b26fc677f49dd",
+  "source_sha256": "7967de8b29b0bb325f999fb19bad746317c48dffc0578115838a6fbb34eec232",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1796,68 +1883,98 @@
     "text": "Weather: 20 °C, a brown haze. Air quality index: 331."
    },
    {
-    "id": "2026-11-22:event:400c5258ee46ed7a:1",
+    "id": "2026-11-22:event:6ca2f5a9499ad193:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 6,
+     "sha256": "6ca2f5a9499ad193c106cef69adbeb52e4623feb71214d271ba1985805a3d7ac"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "18:22",
+    "end": "18:27",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-22:event:b2702d8f5c37e2b5:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      6,
+      0
+     ],
+     "sha256": "b2702d8f5c37e2b5255765e346a9ef0aa06240216f720c3b9b6979138bec4d5f"
+    },
+    "type": "observation",
+    "time": "18:22",
+    "place": "iic",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 331."
+   },
+   {
+    "id": "2026-11-22:event:f8dd96c463a29fbd:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "400c5258ee46ed7a4c5884d1c94c541c7d028269db0aa23a024afe8d1ddca8ea"
+     "sha256": "f8dd96c463a29fbd1c00480b0cd67bbde2b862c1298b87700c91c561b5442fa2"
     },
     "type": "cash",
-    "time": "18:22",
+    "time": "18:27",
     "amount": 16416,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-22:event:640e3dee5312b5ea:1",
+    "id": "2026-11-22:event:ae4b222bddac33d2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "640e3dee5312b5ead6dbb536baed47d2bbe151b23dac55845d2bc2aa29c4d84f"
+     "sha256": "ae4b222bddac33d2bdf1c3a1b66bcc49ca4486c39c73edc3074be5c43f07d468"
     },
     "type": "location",
-    "time": "18:22",
+    "time": "18:27",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-22:event:fb71162b24dcb76e:1",
+    "id": "2026-11-22:event:fcd58f096ad765ca:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "fb71162b24dcb76e5c3d775661c3bae0d7457490aa195974979960ee54cd5fe6"
+     "sha256": "fcd58f096ad765ca403838486f6a22c91395474014a5436d319c7949b9d2c529"
     },
     "type": "inventory",
-    "time": "18:22",
+    "time": "18:27",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-22:event:8f83c5aebcfa6905:1",
+    "id": "2026-11-22:event:c09ef0d039598f47:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "8f83c5aebcfa6905338d37bc7661428c960e76d189195ca44310ebec079b14a1"
+     "sha256": "c09ef0d039598f47d82a9c441928e4355829a160591ebe02d05fad4bd64d61a2"
     },
     "type": "inventory",
-    "time": "18:22",
+    "time": "18:27",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 17:15.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 17:15.\"}]"
    },
    {
-    "id": "2026-11-22:event:b7eb4ccb559f9442:1",
+    "id": "2026-11-22:event:6425ad652476d93a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "b7eb4ccb559f9442e6200c7f47ec7f38cc8c43b5437993a17be2e17deaf31a8d"
+     "sha256": "6425ad652476d93a48eb9ba9af9cbaaa616db61d3e72aaaa476d894a2c6d7d9d"
     },
     "type": "inventory",
-    "time": "18:22",
+    "time": "18:27",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -1876,7 +1993,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "18:22",
+    "time": "18:27",
     "place": null
    }
   ]
