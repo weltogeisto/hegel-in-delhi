@@ -1633,7 +1633,7 @@
  ],
  "funnel": {},
  "owl": null,
- "complete": false,
+ "complete": true,
  "state": {
   "place": "home",
   "until": "2026-11-23T00:00+05:30",
@@ -2118,8 +2118,8 @@
  "records": {
   "version": 2,
   "date": "2026-11-22",
-  "source_sha256": "b22e06c3f106a77db762e11f5854609360ffe01438b8070dce8540ff1813219a",
-  "complete": false,
+  "source_sha256": "4683395d3335bd9f3e3058bd6e231abd5b358ec2c917fb60a8ffc90972915b28",
+  "complete": true,
   "steps_present": true,
   "records": [
    {
@@ -3063,68 +3063,68 @@
     "text": "Weather: 19 °C, a brown haze. Air quality index: 326."
    },
    {
-    "id": "2026-11-22:event:0de795e5c10fb6b8:1",
+    "id": "2026-11-22:event:2546745637862d45:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "0de795e5c10fb6b86d042d8bf35c3f5e9b361df2810064477c45c92ed2e43f50"
+     "sha256": "2546745637862d45d1d1d357fb5ae5972a6d5e6a98d8b822d65d99655ac06a37"
     },
     "type": "cash",
-    "time": "00:00",
+    "time": "24:00",
     "amount": 16416,
-    "at_close": false,
+    "at_close": true,
     "place": null
    },
    {
-    "id": "2026-11-22:event:8cdc3c465e5eecce:1",
+    "id": "2026-11-22:event:a74d1aaad47da134:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "8cdc3c465e5eecce26b64bf4d7548e0834fc14c168cd42e072e5389ece9bf195"
+     "sha256": "a74d1aaad47da134ef0d6ce3c5167409963f18482f2141a6dc9c6d385ea431b9"
     },
     "type": "location",
-    "time": "00:00",
+    "time": "24:00",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-22:event:a254e34625e321c8:1",
+    "id": "2026-11-22:event:7cf091019518158f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "a254e34625e321c862886b91e57c8fcd9ed7a46c6c4a9fac4700ed0fa7ef4866"
+     "sha256": "7cf091019518158f99317500745fdf90d1388da4b7e5dafdfe3dcb8baad35fd5"
     },
     "type": "inventory",
-    "time": "00:00",
+    "time": "24:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-22:event:26659ab0c0a9444c:1",
+    "id": "2026-11-22:event:d81ce22497c35ea9:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "26659ab0c0a9444cd780538378a3f0142e1fe62bcf0657e57f0367dc05da6770"
+     "sha256": "d81ce22497c35ea91a787c4f8c41980521eb1e5d1e018d449d1b71ecae3ff1e3"
     },
     "type": "inventory",
-    "time": "00:00",
+    "time": "24:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 18:49.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 18:49.\"}]"
    },
    {
-    "id": "2026-11-22:event:930c8dd9a9868f82:1",
+    "id": "2026-11-22:event:319415a6697a23be:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "930c8dd9a9868f82b78e65972fd411db524dfa4617d7489c0994d0654d1a6fa3"
+     "sha256": "319415a6697a23beae1fe4f64b6870ce86eeb626e5240109791a873256516af8"
     },
     "type": "inventory",
-    "time": "00:00",
+    "time": "24:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3143,7 +3143,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "00:00",
+    "time": "24:00",
     "place": null
    }
   ]
