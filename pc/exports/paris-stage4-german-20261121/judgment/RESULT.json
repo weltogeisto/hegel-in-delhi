@@ -1,0 +1,74 @@
+{
+ "off": {
+  "real_picked": 24,
+  "of": 24,
+  "sureness": {
+   "sure": 24
+  },
+  "german_only": {
+   "real_picked": 21,
+   "of": 21
+  },
+  "kinds_real": {
+   "people": 18,
+   "places": 22,
+   "prices": 1,
+   "food": 9,
+   "sights": 18,
+   "health": 14,
+   "family": 16
+  },
+  "kinds_model": {
+   "people": 17,
+   "places": 23,
+   "prices": 0,
+   "food": 12,
+   "sights": 16,
+   "health": 19,
+   "family": 24
+  },
+  "kinds_per_letter_model": 4.62,
+  "kinds_per_letter_real": 4.08,
+  "kind_overlap_jaccard_mean": 0.765
+ },
+ "on": {
+  "real_picked": 24,
+  "of": 24,
+  "sureness": {
+   "sure": 24
+  },
+  "german_only": {
+   "real_picked": 20,
+   "of": 20
+  },
+  "kinds_real": {
+   "people": 18,
+   "places": 23,
+   "prices": 1,
+   "food": 9,
+   "sights": 19,
+   "health": 10,
+   "family": 13
+  },
+  "kinds_model": {
+   "people": 15,
+   "places": 24,
+   "prices": 0,
+   "food": 8,
+   "sights": 17,
+   "health": 22,
+   "family": 18
+  },
+  "kinds_per_letter_model": 4.33,
+  "kinds_per_letter_real": 3.88,
+  "kind_overlap_jaccard_mean": 0.66
+ },
+ "reading": {
+  "count_drop": 0,
+  "overlap_off": 0.765,
+  "overlap_on": 0.66,
+  "verdict": "not shown closer",
+  "round_trip_alone": "off picks the real letter in 24 of 24 (stages 2 and 2b: 24 of 24)"
+ },
+ "training_eligible": false
+}
