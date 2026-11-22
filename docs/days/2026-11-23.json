@@ -402,6 +402,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "14:19",
+   "to": "14:29",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -1034,6 +1041,37 @@
    "to": "Hegel",
    "text": "Evening engagement, ja. Just make sure you sign before you leave, or I'll have to come find you in the corridor to finish the form. Go on, get out of my sight.",
    "t": "14:09",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "The dismissal is brisk, but the warning is precise: the form is the bridge between my presence and my permission to be here. I cannot leave without the ink. It is a small bureaucratic ritual, but in the state, the sign is the act of will made visible. I will sign, and then I will walk.",
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§541"
+    }
+   ],
+   "t": "14:19",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "I will sign the form before I go, Mr. Saxena. It is only fair. Do I have a pen?",
+   "to": "Mr. Saxena",
+   "t": "14:19",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Second drawer, left side. Don't use the red ink, it smears on the carbon copy.",
+   "t": "14:19",
    "place": "estates"
   }
  ],
@@ -2217,6 +2255,71 @@
      "text": "And again, the matter of a small body and a large is the same, because at one time a greater proceeds from a smaller, and at another time a smaller from a greater."
     }
    ]
+  },
+  {
+   "t": "14:19",
+   "end": "14:29",
+   "event": "Mr. Saxena says: “Evening engagement, ja. Just make sure you sign before you leave, or I'll have to come find you in the corridor to finish the form. Go on, get out of my sight.”",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The dismissal is brisk, but the warning is precise: the form is the bridge between my presence and my permission to be here. I cannot leave without the ink. It is a small bureaucratic ritual, but in the state, the sign is the act of will made visible. I will sign, and then I will walk.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 10,
+    "says": "I will sign the form before I go, Mr. Saxena. It is only fair. Do I have a pen?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 204."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Second drawer, left side. Don't use the red ink, it smears on the carbon copy.",
+    "does": "He taps the edge of the lower drawer with a knuckle and pushes the steel tumbler of tea back onto the saucer."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "id": "wallace-logic:71"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§541",
+     "id": "wallace-mind:310"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "text": "A slothful mind finds it natural to say: 'Don't let it be supposed that we mean to be in earnest with our philosophy. We shall be glad inter alia to study Logic: but Logic must be sure to leave us as we were before.' People have a feeling that, if thinking passes the ordinary range of our ideas and impressions, it cannot but be on the evil road."
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§541",
+     "text": "The division of these powers has been treated as the condition of political equilibrium, meaning by division their independence one of another in existence,—subject always however to the above-mentioned subsumption of the powers of the individual under the power of the general."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2224,7 +2327,7 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-23T14:19+05:30",
+  "until": "2026-11-23T14:29+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "bandhgala",
@@ -2678,7 +2781,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "3f45f789ae426ebbf2fa2cba1943c039cad56e1a1d2d6adecc6bb111cd113fba",
+  "source_sha256": "c2342bd69a2c7c73e246d2bf6ec824816a196e467d17bc5cf333697d9da62797",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3311,6 +3414,36 @@
     "words": "Evening engagement, ja. Just make sure you sign before you leave, or I'll have to come find you in the corridor to finish the form. Go on, get out of my sight.",
     "verified": false,
     "time": "14:09",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:4ab51838c6a7cbaf:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 61,
+     "sha256": "4ab51838c6a7cbaf7587dbd175250d72c30f9c597fc5077037ad2548d7928053"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "I will sign the form before I go, Mr. Saxena. It is only fair. Do I have a pen?",
+    "verified": false,
+    "time": "14:19",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:3d747b351511a689:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 62,
+     "sha256": "3d747b351511a6891bf146ed3474e76cdc8fef56d557e1e295b1f0553e7e4bbf"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "Second drawer, left side. Don't use the red ink, it smears on the carbon copy.",
+    "verified": false,
+    "time": "14:19",
     "place": "estates"
    },
    {
@@ -4096,68 +4229,98 @@
     "text": "Weather: 24 °C, a brown haze. Air quality index: 204."
    },
    {
-    "id": "2026-11-23:event:d5fe122e422e6c22:1",
+    "id": "2026-11-23:event:f9750e34a9dd8418:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 18,
+     "sha256": "f9750e34a9dd8418512a99384e71f59cd767a9dd87230c4e71f05a21c4eb4e06"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "14:19",
+    "end": "14:29",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:event:e544876347d09a9b:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      18,
+      0
+     ],
+     "sha256": "e544876347d09a9ba55f1d9b0d7f59953c7b7d543bb792d7f3b199a0da487aa9"
+    },
+    "type": "observation",
+    "time": "14:19",
+    "place": "estates",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 204."
+   },
+   {
+    "id": "2026-11-23:event:d8dcbd9b6132b984:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "d5fe122e422e6c22ce4dd32681cf86c0fd100d5062a4dc85d1d6fd627f85a89e"
+     "sha256": "d8dcbd9b6132b9840a90e76e9e632fdb6daa9aee163a80020bb0afa124d4ec01"
     },
     "type": "cash",
-    "time": "14:19",
+    "time": "14:29",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:01d4953fe39fd859:1",
+    "id": "2026-11-23:event:fdb4055c16ff5af4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "01d4953fe39fd85956045554524311a1ab39b0cd9b2d6cc7d118e02e333103f5"
+     "sha256": "fdb4055c16ff5af4e3c3aa15f0a47247fd8bd54fec92181f31528c12c96ae8cb"
     },
     "type": "location",
-    "time": "14:19",
+    "time": "14:29",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:d93a0f9d8c9a6266:1",
+    "id": "2026-11-23:event:aca9816084e74ebb:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "d93a0f9d8c9a62662e4a2fba95eb5794f46eb6230c90a257910769c4d2e8e17a"
+     "sha256": "aca9816084e74ebb11911078fb7f2a255e4ad4e52ae125aa54bf85ceaca76b53"
     },
     "type": "inventory",
-    "time": "14:19",
+    "time": "14:29",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:1ff3af05a97535c0:1",
+    "id": "2026-11-23:event:e07e8d883722d168:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "1ff3af05a97535c01f33e3a7a103e700755c0f75bb2edce0b40b5f462c14b9b4"
+     "sha256": "e07e8d883722d168efe8a9d8d78a990c9fa376511965d0559e69a485c5e71cc6"
     },
     "type": "inventory",
-    "time": "14:19",
+    "time": "14:29",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 12:43.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 12:43.\"}]"
    },
    {
-    "id": "2026-11-23:event:92945f755fb9ec60:1",
+    "id": "2026-11-23:event:1782827246d1e349:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "92945f755fb9ec605ea2150fe1eb6ba7b65671dbf618c662c2213dac91f5b20b"
+     "sha256": "1782827246d1e3496061548f8e42a59d0c311b69f752cb37234b23ede6f17942"
     },
     "type": "inventory",
-    "time": "14:19",
+    "time": "14:29",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -4176,7 +4339,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "14:19",
+    "time": "14:29",
     "place": null
    }
   ]
