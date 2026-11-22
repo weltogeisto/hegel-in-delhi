@@ -395,6 +395,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "14:09",
+   "to": "14:19",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -996,6 +1003,37 @@
    "to": "Hegel",
    "text": "Finally, some sense. Drink it hot, it’s the only good thing in this office anyway. And keep your philosophical mumbling for the corridor, not my desk.",
    "t": "13:59",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "The tea is a small act of grace in a system that otherwise runs on friction. I will drink it hot, as he says, and let the warmth settle into my hands before I make my exit. He is marking the file, which means the immediate crisis is contained, and I am free to return to the bungalow to prepare for the evening. The state, I am beginning to suspect, is less a finished idea and more a constant negotiation of such small, human frictions.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature"
+    }
+   ],
+   "t": "14:09",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Mr. Saxena. You are right; it is the only good thing here. I shall keep my thoughts for the corridor, as you wish. I must go now to prepare for my evening engagement.",
+   "to": "Mr. Saxena",
+   "t": "14:09",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Evening engagement, ja. Just make sure you sign before you leave, or I'll have to come find you in the corridor to finish the form. Go on, get out of my sight.",
+   "t": "14:09",
    "place": "estates"
   }
  ],
@@ -2114,6 +2152,71 @@
      "text": "They, as individuals, aim at their own self-preservation as individuals in eating, drinking, &c., but what they thereby bring to pass is genus. Individuals sublate themselves, but genus is that which is ever brought forth; plants bring forth only the same plants whose ground is the universal."
     }
    ]
+  },
+  {
+   "t": "14:09",
+   "end": "14:19",
+   "event": "Mr. Saxena says: “Finally, some sense. Drink it hot, it’s the only good thing in this office anyway. And keep your philosophical mumbling for the corridor, not my desk.” He slides the steel tumbler across the desk and picks up the pen to mark the file.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The tea is a small act of grace in a system that otherwise runs on friction. I will drink it hot, as he says, and let the warmth settle into my hands before I make my exit. He is marking the file, which means the immediate crisis is contained, and I am free to return to the bungalow to prepare for the evening. The state, I am beginning to suspect, is less a finished idea and more a constant negotiation of such small, human frictions.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 10,
+    "says": "Thank you, Mr. Saxena. You are right; it is the only good thing here. I shall keep my thoughts for the corridor, as you wish. I must go now to prepare for my evening engagement.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 204."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Evening engagement, ja. Just make sure you sign before you leave, or I'll have to come find you in the corridor to finish the form. Go on, get out of my sight.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "id": "haldane-2:425"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "text": "And again, the matter of a small body and a large is the same, because at one time a greater proceeds from a smaller, and at another time a smaller from a greater."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2121,7 +2224,7 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-23T14:09+05:30",
+  "until": "2026-11-23T14:19+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "bandhgala",
@@ -2575,7 +2678,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "df580e33a499531c7bf2eae652fb469831de4bef56fccd6a8b5f377dcafeddf0",
+  "source_sha256": "3f45f789ae426ebbf2fa2cba1943c039cad56e1a1d2d6adecc6bb111cd113fba",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3178,6 +3281,36 @@
     "words": "Finally, some sense. Drink it hot, it’s the only good thing in this office anyway. And keep your philosophical mumbling for the corridor, not my desk.",
     "verified": false,
     "time": "13:59",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:672281d5f41a00b3:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 58,
+     "sha256": "672281d5f41a00b359b8d42e910cc49fe9323f27a0730413ee09d015dceb429a"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "Thank you, Mr. Saxena. You are right; it is the only good thing here. I shall keep my thoughts for the corridor, as you wish. I must go now to prepare for my evening engagement.",
+    "verified": false,
+    "time": "14:09",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:5ba9e42805099efb:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 59,
+     "sha256": "5ba9e42805099efb356ff911ef4e371ee3f4581eb3a91674404d264bb9fc6936"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "Evening engagement, ja. Just make sure you sign before you leave, or I'll have to come find you in the corridor to finish the form. Go on, get out of my sight.",
+    "verified": false,
+    "time": "14:09",
     "place": "estates"
    },
    {
@@ -3933,68 +4066,98 @@
     "text": "Weather: 23 °C, a brown haze. Air quality index: 208."
    },
    {
-    "id": "2026-11-23:event:85bbc6340bccc048:1",
+    "id": "2026-11-23:event:ee678fd55f3de324:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 17,
+     "sha256": "ee678fd55f3de324350a32821989cc52e92456db7912ed54594694223fd6d904"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "14:09",
+    "end": "14:19",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:event:e544876347d09a9b:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      17,
+      0
+     ],
+     "sha256": "e544876347d09a9ba55f1d9b0d7f59953c7b7d543bb792d7f3b199a0da487aa9"
+    },
+    "type": "observation",
+    "time": "14:09",
+    "place": "estates",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 204."
+   },
+   {
+    "id": "2026-11-23:event:d5fe122e422e6c22:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "85bbc6340bccc04828ec766508404df0243d93f0f0f8fe49232c6a08c2125878"
+     "sha256": "d5fe122e422e6c22ce4dd32681cf86c0fd100d5062a4dc85d1d6fd627f85a89e"
     },
     "type": "cash",
-    "time": "14:09",
+    "time": "14:19",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:8d718ae76bb73926:1",
+    "id": "2026-11-23:event:01d4953fe39fd859:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "8d718ae76bb739261c9989769835a6a927dbf2a117d562aaf122598555cb9d1c"
+     "sha256": "01d4953fe39fd85956045554524311a1ab39b0cd9b2d6cc7d118e02e333103f5"
     },
     "type": "location",
-    "time": "14:09",
+    "time": "14:19",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:0f4f61dbabbf8fb7:1",
+    "id": "2026-11-23:event:d93a0f9d8c9a6266:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "0f4f61dbabbf8fb7d8e008b0877337ee513ec8952e9b0c5cdd636c2255eb6f01"
+     "sha256": "d93a0f9d8c9a62662e4a2fba95eb5794f46eb6230c90a257910769c4d2e8e17a"
     },
     "type": "inventory",
-    "time": "14:09",
+    "time": "14:19",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:552f40a734bf16ae:1",
+    "id": "2026-11-23:event:1ff3af05a97535c0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "552f40a734bf16ae5c0028ffc9cbd1f6b7d4a5eb00a3e875f6083aeea8100015"
+     "sha256": "1ff3af05a97535c01f33e3a7a103e700755c0f75bb2edce0b40b5f462c14b9b4"
     },
     "type": "inventory",
-    "time": "14:09",
+    "time": "14:19",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 12:43.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 12:43.\"}]"
    },
    {
-    "id": "2026-11-23:event:21d77770f44f33d2:1",
+    "id": "2026-11-23:event:92945f755fb9ec60:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "21d77770f44f33d29b1295b48e3a28138b85b39b8ffd2b82a32ac17a650c449b"
+     "sha256": "92945f755fb9ec605ea2150fe1eb6ba7b65671dbf618c662c2213dac91f5b20b"
     },
     "type": "inventory",
-    "time": "14:09",
+    "time": "14:19",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -4013,7 +4176,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "14:09",
+    "time": "14:19",
     "place": null
    }
   ]
