@@ -38,6 +38,27 @@
       "cheque": {"from": "the India International Centre", "amount": 10000, "item": "Honorarium for the talk at the IIC", "after_min": 60, "at": "iic"}
     },
     {
+      "id": "iic_talk_again", "switch": "keep_time", "after": ["iic_talk"], "if_missed": "iic_talk_day", "window": ["09:00", "17:00"], "where": "home", "needs": ["ramesh"],
+      "kind": "world",
+      "prompt": "Ramesh brings a note that came by hand from the India International Centre. The programme officer writes that the lecture hall waited for you until a quarter past seven. The Centre would still like to hear you, and offers the hall again this evening at half past six, on the same terms: ₹10,000 by cheque after the talk.",
+      "public": "A note by hand from the IIC: the lecture hall waited for him until a quarter past seven. The Centre offers it again this evening at 18:30, on the same terms.",
+      "choice": {
+        "question": "Did you agree to give your talk at the IIC this evening at 18:30?",
+        "yes": {
+          "public": "He accepts. The talk is this evening at 18:30.",
+          "schedule": {"in_days": 0, "t": "18:30", "what": "your talk at the IIC, offered a second time", "beat": "iic_talk_day2"}
+        },
+        "no": {"public": "He sends word to the Centre that he will not speak."}
+      }
+    },
+    {
+      "id": "iic_talk_day2", "switch": "keep_time", "after": ["iic_talk_again"], "on_appointment": true, "at": "18:30", "window": ["18:30", "19:15"], "where": "iic",
+      "brings": ["officer"], "kind": "world",
+      "prompt": "The programme officer shows you into the lecture hall. The seats are filling. The talk is yours, for about an hour.",
+      "public": "Half past six: he gives his talk in the lecture hall of the IIC, an hour, to a full room.",
+      "cheque": {"from": "the India International Centre", "amount": 10000, "item": "Honorarium for the talk at the IIC", "after_min": 60, "at": "iic"}
+    },
+    {
       "id": "sell_frock", "kind": "world", "where": "khan", "needs": ["masterji"],
       "when": {"since_day": 5, "wardrobe": "frock"},
       "prompt": "Masterji says that a dealer in Sunder Nagar would pay ₹12,000, in cash, for a genuine Berlin frock coat. Yours hangs in the wardrobe at the bungalow.",

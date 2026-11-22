@@ -16,7 +16,7 @@ from world.world import at_dt  # noqa: E402
 START, DAYS = date(2026, 10, 3), 10
 VOCABULARY = {"reply", "read", "papers", "listings", "late", "beat", "offer", "session", "post", "stranger", "greeting", "power", "rain",
               "air", "sight", "part", "arrive", "closing", "closes", "meal", "tea", "kitchen", "hunger", "felt", "purse",
-              "wake", "here"}          # the last two are not in the spec's table: the wake-up line without headlines, a known person come into sight
+              "wake", "here", "time"}          # the last two are not in the spec's table: the wake-up line without headlines, a known person come into sight
 _RUN = []
 REFERENCE = REPO / "tests/data/opened_reference.json"
 ADDED = {"step": ("opened",), "day": ("funnel",)}       # fields that are only ever added to the record, and say nothing he is told: taken out before hashing

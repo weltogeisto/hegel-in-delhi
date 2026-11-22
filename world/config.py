@@ -55,6 +55,7 @@ class Config:
         self.world_repairs = v.get("HEGEL_WORLD_REPAIRS", "0").strip().lower() in ("1", "yes", "true")   # five repairs from the review of Days 47–49 (DECISIONS 57); off until switched on
         self.ramesh_days = v.get("HEGEL_RAMESH_DAYS", "0").strip().lower() in ("1", "yes", "true")   # Ramesh may offer to come every day again (DECISIONS 47); off until switched on
         self.file_act = v.get("HEGEL_FILE_ACT", "0").strip().lower() in ("1", "yes", "true")   # the file moves after the query: three doors and a copy (pc/FILE-NEXT-ACT.md, part 1); off until switched on
+        self.keep_time = v.get("HEGEL_KEEP_TIME", "0").strip().lower() in ("1", "yes", "true")   # an appointment elsewhere ends what he is doing in time to walk there, and a missed talk at the IIC is offered once more (Day 53); off until switched on
         self.promises = v.get("HEGEL_PROMISES", "0").strip().lower() in ("1", "yes", "true")   # a promise is a record: the voice may make one in `act`, the engine keeps it (pc/WORLD-2-WEEK1.md P1); off until switched on
         self.consumed = v.get("HEGEL_CONSUMED", "0").strip().lower() in ("1", "yes", "true")   # what he ate is an entry of its own, which the page shows and the owl reads (DECISIONS 48); off until someone has looked at what they do with it
         self.pause_away = v.get("HEGEL_PAUSE_AWAY", "0").strip().lower() in ("1", "yes", "true")   # hold his world at waking while the PC is away (pc/PAUSE.md); off until switched on

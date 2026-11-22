@@ -58,7 +58,7 @@ WORDS = (("papers", re.compile(r"Headlines: ")),
          ("post", re.compile(r"brings the post: |The post has come: ")))
 # The kinds in `opened` that count as brought, and the ones that only answer.
 BROUGHT_KINDS = {"beat", "offer", "session", "papers", "listings", "post", "stranger", "greeting", "power", "rain", "air",
-                 "sight", "part", "street", "promise"}
+                 "sight", "part", "street", "promise", "time"}
 ANSWERED_KINDS = {"reply", "read"}
 
 
