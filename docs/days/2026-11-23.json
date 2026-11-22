@@ -472,6 +472,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "17:55",
+   "to": "18:55",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1389,6 +1396,25 @@
    "to": "Hegel",
    "text": "Of course, sir. The bed is made and the fan is on low. Just rest, I won't disturb you until dinner time.",
    "t": "16:55",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh has secured my rest, and the door is closed against the day. The fan hums, a mechanical substitute for the breeze that is not here. I am tired, yet the mind does not sleep; it turns over the evening's task. The state is the ethical idea, but how does it appear in this place where the individual is swallowed by the family and the caste?",
+   "sensitive": true,
+   "why": "caste",
+   "topic": "caste",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    }
+   ],
+   "t": "17:55",
    "place": "home"
   }
  ],
@@ -3208,6 +3234,66 @@
      "text": "Hence it would not be necessary to bring it under public control, if the state did not require deeper teaching and insight, and expect science to satisfy the need. Yet this shallowness, notwithstanding its seeming innocence, does bear upon social life, right and duty generally, advancing principles which are the very essence of superficiality."
     }
    ]
+  },
+  {
+   "t": "17:55",
+   "end": "18:55",
+   "event": "Ramesh says: “Of course, sir. The bed is made and the fan is on low. Just rest, I won't disturb you until dinner time.” He nods once and quietly slips out of the room, closing the door behind him.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh has secured my rest, and the door is closed against the day. The fan hums, a mechanical substitute for the breeze that is not here. I am tired, yet the mind does not sleep; it turns over the evening's task. The state is the ethical idea, but how does it appear in this place where the individual is swallowed by the family and the caste?",
+    "action": "rest",
+    "place": "home",
+    "minutes": 60,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, clear, hazy. Air quality index: 193."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 6.5,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:656"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:23"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "Naturally, the advantage lay with the advocate of the Copernican system.. But since Galileo did not decide between them, and gave every possible weight to the objections of the follower of Ptolemaus, he had a right to expect that he would not be disturbed in the enjoyment of that rest which his great age and services deserved."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state. The government has, up till now, shown such confidence in the scholars in this department as to leave the subject matter of philosophy wholly in their hands."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -3215,7 +3301,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-23T17:55+05:30",
+  "until": "2026-11-23T18:55+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "kurta",
@@ -3671,7 +3757,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "ced69b6c73888c9e2948d8c1216240b86b879a70a0fad47721ad95536a842699",
+  "source_sha256": "5a8f6356bad148d4363c1b0b2be9d7fe4907ef784c8d24700b4500948853baca",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -5690,68 +5776,98 @@
     "text": "Weather: 22 °C, clear, hazy. Air quality index: 197."
    },
    {
-    "id": "2026-11-23:event:584e768de6873edd:1",
+    "id": "2026-11-23:event:b0926fdc9fe8a506:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 28,
+     "sha256": "b0926fdc9fe8a50642139798ffb854936ee1e536bfc23d8bb7fc28b2b61a242e"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "17:55",
+    "end": "18:55",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:event:c2fdbf9012a82cef:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      28,
+      0
+     ],
+     "sha256": "c2fdbf9012a82ceffac9872750c713fe3f0d1b6e0ca819ba42701249c82493d3"
+    },
+    "type": "observation",
+    "time": "17:55",
+    "place": "home",
+    "text": "Weather: 20 °C, clear, hazy. Air quality index: 193."
+   },
+   {
+    "id": "2026-11-23:event:30aa23a5a7bd68ac:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "584e768de6873edda60bf40675b1952631f1220e0f2775e5ce07c2f692429065"
+     "sha256": "30aa23a5a7bd68acef1e9a7031f1f5f3449299fff5c03d25e582272b00eb28b2"
     },
     "type": "cash",
-    "time": "17:55",
+    "time": "18:55",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:970e1ed6bc3537ea:1",
+    "id": "2026-11-23:event:775b51fa5823ec7c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "970e1ed6bc3537ea4408c6a66300902f7ec4244915ca93a0f0afe88cb8057813"
+     "sha256": "775b51fa5823ec7cf1cfd6c4e2ff071336b8efdb70eef3ba370d6ee540a520db"
     },
     "type": "location",
-    "time": "17:55",
+    "time": "18:55",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:79f774812833674a:1",
+    "id": "2026-11-23:event:be4f9a88950537a8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "79f774812833674a7fdfb80f768ed77cf1b16e97e23bf2b6c9e183a810bbd668"
+     "sha256": "be4f9a88950537a8fa75a4988e3bc636e01f6257bb43094faa5da750859a1dbc"
     },
     "type": "inventory",
-    "time": "17:55",
+    "time": "18:55",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-23:event:cf219975a23132ee:1",
+    "id": "2026-11-23:event:141277fc1d1c6d5a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "cf219975a23132eed320c38d85207d7faca13a2d37a5c5d52c8c891f35c17b4d"
+     "sha256": "141277fc1d1c6d5adf94a4f65b5b4be779b956584d240b41a487c36ba4666fa4"
     },
     "type": "inventory",
-    "time": "17:55",
+    "time": "18:55",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 15:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 15:10.\"}]"
    },
    {
-    "id": "2026-11-23:event:d68581677950af17:1",
+    "id": "2026-11-23:event:16b7859569d56bad:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "d68581677950af175c05ada9872ae9fe6d9b85bf56911e1de96d82fc6353a17c"
+     "sha256": "16b7859569d56bad679e8e9ea470f699c85ee6729871ec7911090a8b4f9b3f66"
     },
     "type": "inventory",
-    "time": "17:55",
+    "time": "18:55",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -5770,7 +5886,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "17:55",
+    "time": "18:55",
     "place": null
    }
   ]
