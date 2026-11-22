@@ -514,6 +514,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "20:27",
+   "to": "20:42",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library at the IIC."
   }
  ],
  "entries": [
@@ -1613,6 +1620,37 @@
    "to": "Hegel",
    "text": "Sir, aapka naam file mein 'Hegde' likha hai, na ki 'Hegel'. Officer ko dikhao, wo hi bataayenge ki kya karna hai.",
    "t": "19:42",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The guard is a leaf in the wind, pointing me toward the trunk. He knows nothing of the distinction, only that the ink on the page does not match the man in the bandhgala. I must go to the source of the error, the Programme Officer, before the night closes the library and the conversation with me. The identity is a knot that must be untied by the one who tied it.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…"
+    }
+   ],
+   "t": "20:27",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "Thank you. I will go to the Programme Officer now.",
+   "to": "the guard at the library",
+   "t": "20:27",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Saab, desk thodi door hai, seedha wahan jao. Koi ruko nahi hai abhi, bas file dikhao aur baat karo.",
+   "t": "20:27",
    "place": "iic"
   }
  ],
@@ -3825,6 +3863,71 @@
      "text": "On these principles private rights were on the one hand despotically contravened, but on the other hand such contravention was the instrument of carrying out the general objects of the State in opposition to mere positive or pre- scriptive claims."
     }
    ]
+  },
+  {
+   "t": "20:27",
+   "end": "20:42",
+   "event": "The guard at the library says: “Sir, aapka naam file mein 'Hegde' likha hai, na ki 'Hegel'. Officer ko dikhao, wo hi bataayenge ki kya karna hai.” He shrugs helplessly and points towards the Programme Officer's desk.",
+   "present": [
+    "the guard at the library"
+   ],
+   "decision": {
+    "thought": "The guard is a leaf in the wind, pointing me toward the trunk. He knows nothing of the distinction, only that the ink on the page does not match the man in the bandhgala. I must go to the source of the error, the Programme Officer, before the night closes the library and the conversation with me. The identity is a knot that must be untied by the one who tied it.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 15,
+    "says": "Thank you. I will go to the Programme Officer now.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, clear, hazy. Air quality index: 178."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Saab, desk thodi door hai, seedha wahan jao. Koi ruko nahi hai abhi, bas file dikhao aur baat karo.",
+    "does": "I gesture vaguely towards the inner office with a thumb and turn back to my logbook."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "id": "sibree-history:412"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "id": "phaen:385"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "text": "Na independent classes or orders, as in India, have interests of their own to defend. All is directed and superintended from above. All legal relations are definitely settled by rules; free sentiment — the moral stand-point generally — is thereby thoroughly obliterated."
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "text": "Nicht der Unterschied, welcher sich als bestimmtes Ding, oder als Bewußtsein eines bestimmten natürlichen Daseins, als ein Gefühl, oder als Begierde und Zweck für dieselbe, ob er durch das eigene oder durch ein fremdes Bewußtsein gesetzt sei, hat mehr Wesenheit, sondern allein der Unterschied, der ein gedachter, oder unmittelbar nicht von Mir unterschieden ist."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -3832,7 +3935,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-23T20:27+05:30",
+  "until": "2026-11-23T20:42+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "bandhgala",
@@ -4293,7 +4396,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "44b55365109872ae391bc97fd4a4633a7289ddfeb9d6adee4592803a96b41b24",
+  "source_sha256": "63fb4b7e149a3e9a3a05ed6142f9fbfc89c0273836567e786225555543bfaee1",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -5342,6 +5445,36 @@
     "words": "Sir, aapka naam file mein 'Hegde' likha hai, na ki 'Hegel'. Officer ko dikhao, wo hi bataayenge ki kya karna hai.",
     "verified": false,
     "time": "19:42",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-23:statement:9544911da9fa98e9:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 105,
+     "sha256": "9544911da9fa98e9b17ab3b6fe9d8ededd667ad56c8ea18b5e92cc776cec5d05"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library",
+    "words": "Thank you. I will go to the Programme Officer now.",
+    "verified": false,
+    "time": "20:27",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-23:statement:628f19b3b0721c74:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 106,
+     "sha256": "628f19b3b0721c746c01930764f6b6869ca1270e857b7c70cd25aa5398698239"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Saab, desk thodi door hai, seedha wahan jao. Koi ruko nahi hai abhi, bas file dikhao aur baat karo.",
+    "verified": false,
+    "time": "20:27",
     "place": "iic"
    },
    {
@@ -6691,68 +6824,98 @@
     "text": "Weather: 19 °C, clear, hazy. Air quality index: 183."
    },
    {
-    "id": "2026-11-23:event:5e5a6c786e9836a0:1",
+    "id": "2026-11-23:event:eb6b01be88d4d4a0:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 34,
+     "sha256": "eb6b01be88d4d4a0a6108b570c48bd425c4db603bba9489ffe8b9cec72a0f346"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "20:27",
+    "end": "20:42",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-23:event:60ec99158d6d8215:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      34,
+      0
+     ],
+     "sha256": "60ec99158d6d8215c50933c6295c9ee425f75fbbe605eb1fee4d9819afad6987"
+    },
+    "type": "observation",
+    "time": "20:27",
+    "place": "iic",
+    "text": "Weather: 18 °C, clear, hazy. Air quality index: 178."
+   },
+   {
+    "id": "2026-11-23:event:88c43c3bf2999f6e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "5e5a6c786e9836a05ac0615ef1c3925470e903b4ea707c4a90ab7bb65d73251e"
+     "sha256": "88c43c3bf2999f6e638c90d44fd0729b6f291c2b618db5f1506903ea21dcc822"
     },
     "type": "cash",
-    "time": "20:27",
+    "time": "20:42",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:9b4362e35b1f6a6e:1",
+    "id": "2026-11-23:event:a65f491026d45126:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "9b4362e35b1f6a6e2c05d88118606d36e808ef700e2ff06072d06bf3457892f6"
+     "sha256": "a65f491026d45126370d85891f83aacbba1b3df57ca97f5b02f2ad4b3021462e"
     },
     "type": "location",
-    "time": "20:27",
+    "time": "20:42",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:566a8a1b6166142a:1",
+    "id": "2026-11-23:event:95d1aad89db2e84b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "566a8a1b6166142a1b28c3cbcfefa45925d667719e9229acd5c9cc31e2103e58"
+     "sha256": "95d1aad89db2e84b11ee269352758caa92c83a66e433fea28a32296be8e67449"
     },
     "type": "inventory",
-    "time": "20:27",
+    "time": "20:42",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:0748c43c64f95bdf:1",
+    "id": "2026-11-23:event:bd6774bf4a366d32:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "0748c43c64f95bdf87d9bc5e482bbcbc5e6385b139d9500ab3bb1d63a7b75f7c"
+     "sha256": "bd6774bf4a366d32168aebc99abd713baf36f4aa2f3e8c882b8795d0d5f5ed0d"
     },
     "type": "inventory",
-    "time": "20:27",
+    "time": "20:42",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 18:55.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 18:55.\"}]"
    },
    {
-    "id": "2026-11-23:event:fe160cb401633af2:1",
+    "id": "2026-11-23:event:093d88cfe664fdc4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "fe160cb401633af20525a125876f5240152d7294e668d197a72ca93c2a170ef1"
+     "sha256": "093d88cfe664fdc453ed4a883dbec3b12163f0cb6a3f9f1d5fffb86feb66e927"
     },
     "type": "inventory",
-    "time": "20:27",
+    "time": "20:42",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -6771,7 +6934,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "20:27",
+    "time": "20:42",
     "place": null
    }
   ]
