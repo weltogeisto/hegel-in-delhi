@@ -17,7 +17,7 @@ Three saved mornings (Days 50, 51 and 52: Friday, Saturday, Sunday) and eight se
 - The drop sits on the weekend mornings, when he otherwise stays in. Medians: Saturday 82% → 68%, Sunday 52% → 38%.
 - On the Friday he was out most of the day anyway (29% → 30%).
 
-**4. He spends more.** From ₹174 a day to ₹545 (+₹371; 95% interval +₹157 to +₹579): tickets, the Habitat's food, the way there. Over weeks this matters to his purse. At this rate a month costs about ₹16,000, close to the ₹17,900 he held on Day 51's evening. The money story should be watched once the museums are on.
+**4. He spends more.** From ₹174 a day to ₹545 (+₹371; 95% interval +₹157 to +₹579): tickets, food at the Habitat and on the way. Over weeks this matters to his purse. At this rate a month costs about ₹16,000, close to the ₹17,900 he held on Day 51's evening. The money story should be watched once the museums are on.
 
 **5. A little more of the lecture hall.** Doctrine terms per thought rose from 0.64 to 0.80 (+0.16; 95% interval +0.03 to +0.30). The galleries give him something to philosophise about. Stage 1's question is whether art returns to what he writes, and the owl's evenings will show it.
 
