@@ -176,6 +176,8 @@ Welt, the night of 18 November: "dont get stuck waiting on me not answering, i t
 
 62. **Every slot at night** (Welt, 21 November, about 20:40 Berlin: "yes, every slot"). While he sleeps, the fast lane's forks use every slot of the live server, not only the spare one. The server is never restarted for it. The forks start once the day is complete and 8082 answers, and they stop by 07:45. This settles the first of 61's open points. Statistical gates, the dead-man alert and catch-up mode remain open. Night 1 (`pc/FAST-LANE-NIGHT1.md`) uses it: block 1, the museums off and on, then block 2, the file's next act rehearsed, then block 3, more seeds, if the night allows.
 
+63. **The file's next act goes on as written, on Day 54** (Welt, 22 November, about 08:10 Berlin, answering "go as written or hold for an edit": "1", go as written). Night 1 rehearsed it on 24 days (`pc/FAST-LANE-NIGHT1-RESULT.md`): Shri Hegde's letter opens, and he agrees every time. Welt takes the act as it is. `HEGEL_FILE_ACT=1` before Day 54's waking, if Day 53 is a whole day, as 59 ordered.
+
 ## Still open
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.
