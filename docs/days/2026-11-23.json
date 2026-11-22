@@ -318,6 +318,13 @@
    "mode": "walk",
    "a": "estates",
    "b": "home"
+  },
+  {
+   "from": "11:13",
+   "to": "12:13",
+   "mode": "inside",
+   "at": "home",
+   "now": "Reading at home."
   }
  ],
  "entries": [
@@ -578,6 +585,30 @@
    "text": "Do keep them in order, sir. And do not stand in that corridor again; the air is worse than the paperwork.",
    "t": "10:47",
    "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "The air is thick with the haze, a brown suspension that seals the city in. I am back at the bungalow, the file query unresolved, the vouchers still a point of friction between my person and the state's account. The next meal is not until thirteen, but the heat is settling and the mind needs a pause before the evening's labor. I shall sit with the newspaper and the silence.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§551"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    }
+   ],
+   "t": "11:13",
+   "place": "home"
+  },
+  {
+   "k": "wear",
+   "item": "White cotton kurta",
+   "status": "Worn from 11:13.",
+   "sprite": "kurta",
+   "t": "11:13",
+   "place": "home"
   }
  ],
  "steps": [
@@ -985,6 +1016,65 @@
      "text": "When Lord Shaftesbury became Lord Chancellor of England, Locke received an office from him, which, however, he soon lost by a change of ministry. Owing to his dread of falling a prey to consumption, he betook himself in 1675 to Montpellier for the benefit of his health."
     }
    ]
+  },
+  {
+   "t": "11:13",
+   "end": "12:13",
+   "event": "Nothing in particular happens. The morning goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The air is thick with the haze, a brown suspension that seals the city in. I am back at the bungalow, the file query unresolved, the vouchers still a point of friction between my person and the state's account. The next meal is not until thirteen, but the heat is settling and the mind needs a pause before the evening's labor. I shall sit with the newspaper and the silence.",
+    "action": "read",
+    "place": "home",
+    "minutes": 60,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 21 °C, a brown haze. Air quality index: 205.",
+    "Nothing in particular happens. The morning goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.5,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§551",
+     "id": "wallace-mind:351"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:23"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§551",
+     "text": "To such extent as this business of actuality appears as an action, and therefore as a work of individuals, these individuals, as regards the substantial issue of their labour, are instruments, and their subjectivity, which is what is peculiar to them, is the empty form of activity."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state. The government has, up till now, shown such confidence in the scholars in this department as to leave the subject matter of philosophy wholly in their hands."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -992,10 +1082,10 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-23T11:13+05:30",
+  "until": "2026-11-23T12:13+05:30",
   "asleep": false,
   "imprest": 15456,
-  "wearing": "bandhgala",
+  "wearing": "kurta",
   "wardrobe": [
    {
     "id": "frock",
@@ -1015,12 +1105,12 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Taken off at 10:11."
+    "status": "Worn from 11:13."
    },
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Worn from 10:11."
+    "status": "Taken off at 11:13."
    }
   ],
   "people": [
@@ -1087,8 +1177,7 @@
    },
    "breakfast": true,
    "walked": 3900,
-   "strain": 3900,
-   "recouped": true
+   "strain": 3900
   },
   "account": {
    "advance": 15000,
@@ -1447,7 +1536,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "c31c8d706782fad278d4cb621b00525574b3d2b185fa7eeed91bb882747fec48",
+  "source_sha256": "2cf877eaaa2692e95b0b792b9b25e91859b26b2af46e053fcb887acab40a4957",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1721,6 +1810,21 @@
     "verified": false,
     "time": "10:47",
     "place": "estates"
+   },
+   {
+    "id": "2026-11-23:event:29aed2c27d796879:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 25,
+     "sha256": "29aed2c27d796879c942aabc5b1707178711b61ff2a56c872c4dccb1e06ec94e"
+    },
+    "type": "wear",
+    "item": "White cotton kurta",
+    "status": "Worn from 11:13.",
+    "gone": false,
+    "time": "11:13",
+    "place": "home"
    },
    {
     "id": "2026-11-23:event:357a6d7340019a11:1",
@@ -2095,68 +2199,114 @@
     "text": "Weather: 19 °C, a brown haze. Air quality index: 207."
    },
    {
-    "id": "2026-11-23:event:aa7e126782e8d7aa:1",
+    "id": "2026-11-23:event:5d2b2ac27080b9a4:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 6,
+     "sha256": "5d2b2ac27080b9a46a11e05fc2d370dab86a18c51cfe22c2b845109f981712e5"
+    },
+    "type": "action",
+    "action": "read",
+    "time": "11:13",
+    "end": "12:13",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:event:21cca5a5ecb54f0f:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      6,
+      0
+     ],
+     "sha256": "21cca5a5ecb54f0f5706d15c1c56c91024dbbb726ee606acdcced8e59584f9ee"
+    },
+    "type": "observation",
+    "time": "11:13",
+    "place": "home",
+    "text": "Weather: 21 °C, a brown haze. Air quality index: 205."
+   },
+   {
+    "id": "2026-11-23:event:8323bf6d941fbde8:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      6,
+      1
+     ],
+     "sha256": "8323bf6d941fbde8ec8205e0dea55e42b640c2c5c010e35edd2cb0a7e77b6f34"
+    },
+    "type": "observation",
+    "time": "11:13",
+    "place": "home",
+    "text": "Nothing in particular happens. The morning goes on."
+   },
+   {
+    "id": "2026-11-23:event:0f32f075559db369:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "aa7e126782e8d7aa33d6fa31728f680dbf709defc2697d7f63637da0a5849c47"
+     "sha256": "0f32f075559db3693da84ffeb2495dbbf20103a53a27e760986d1b95a90ea5cd"
     },
     "type": "cash",
-    "time": "11:13",
+    "time": "12:13",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:3a371b66264c6ede:1",
+    "id": "2026-11-23:event:1f201ab56ff2b539:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "3a371b66264c6ede0ade02cafbc750b674135d6b63e3d7dddc78990c7cdff753"
+     "sha256": "1f201ab56ff2b53966ea22734f6c8501a4740d7f22dced55cac2b60cf4859714"
     },
     "type": "location",
-    "time": "11:13",
+    "time": "12:13",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:1b737735399a9f21:1",
+    "id": "2026-11-23:event:47a6e7c98e24fa7b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "1b737735399a9f21374ba6bfcc1ebef8d130c52bf7b29dca750c7af10351df9e"
+     "sha256": "47a6e7c98e24fa7b8fd6ef73670afb51eaeeac0a6659b30f350dfc38634ad18f"
     },
     "type": "inventory",
-    "time": "11:13",
+    "time": "12:13",
     "place": null,
-    "text": "Recorded wearing at this horizon only: \"bandhgala\""
+    "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-23:event:d3df9b78434aac75:1",
+    "id": "2026-11-23:event:7ab919cbd89af6db:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "d3df9b78434aac7502f8507246b9e61131ea092dcb37048afe9c630978bd9ec5"
+     "sha256": "7ab919cbd89af6db4de0be95432fb753a39973514625425e9f119a302ae44a27"
     },
     "type": "inventory",
-    "time": "11:13",
+    "time": "12:13",
     "place": null,
-    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 10:11.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 10:11.\"}]"
+    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:13.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 11:13.\"}]"
    },
    {
-    "id": "2026-11-23:event:7fd8b97dcb8648a3:1",
+    "id": "2026-11-23:event:ceda747b091c3a10:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "7fd8b97dcb8648a38762e127cf89cff9fbe667638c0d7b548342dd541d2537af"
+     "sha256": "ceda747b091c3a10d69c100274b2cf61459863fc6a3bee8f78cc0e6c17688890"
     },
     "type": "inventory",
-    "time": "11:13",
+    "time": "12:13",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2175,7 +2325,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "11:13",
+    "time": "12:13",
     "place": null
    }
   ]
