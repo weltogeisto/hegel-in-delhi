@@ -423,6 +423,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "14:39",
+   "to": "14:44",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -1148,6 +1155,37 @@
    "to": "Hegel",
    "text": "Beti, stop with the 'shall ensures' and just do it. I have three files to clear before the tea breaks, so don't make me wait.",
    "t": "14:34",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "He calls me 'Beti'—a term of endearment for a daughter, or perhaps a young girl—while simultaneously scolding me for my grammar. It is a strange inversion of the master-servant dynamic; he asserts authority through familiarity and impatience. The system runs on such friction, the universal procedure ground down by the particular, irritable individual. I must not let the confusion of the address delay the necessary act. I will sign.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§317"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316 Zusatz"
+    }
+   ],
+   "t": "14:39",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "At once, Mr. Saxena.",
+   "to": "Mr. Saxena",
+   "t": "14:39",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Fine. Go, then. And mind the door latch; it sticks if you don't push hard.",
+   "t": "14:39",
    "place": "estates"
   }
  ],
@@ -2526,6 +2564,71 @@
      "text": "And the technical term is the well-known tabula rasa, which is to be found wherever Aristotle is spoken of: Aristotle is said to have alleged that the mind is a blank page, on which characters are first traced by external objects, so that thinking thus comes to it from without. But that is the very opposite of what Aristotle says."
     }
    ]
+  },
+  {
+   "t": "14:39",
+   "end": "14:44",
+   "event": "Mr. Saxena says: “Beti, stop with the 'shall ensures' and just do it. I have three files to clear before the tea breaks, so don't make me wait.” He waves a dismissive hand and turns back to the pile of papers on his desk.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "He calls me 'Beti'—a term of endearment for a daughter, or perhaps a young girl—while simultaneously scolding me for my grammar. It is a strange inversion of the master-servant dynamic; he asserts authority through familiarity and impatience. The system runs on such friction, the universal procedure ground down by the particular, irritable individual. I must not let the confusion of the address delay the necessary act. I will sign.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 5,
+    "says": "At once, Mr. Saxena.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 204."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Fine. Go, then. And mind the door latch; it sticks if you don't push hard.",
+    "does": "He picks up the steel tumbler and takes a sip of lukewarm tea."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 12.2,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§317",
+     "id": "dyde-right:798"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316 Zusatz",
+     "id": "rechts:1044"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§317",
+     "text": "Public opinion contains therefore the eternal substantive principles of justice, the true content a,nd result of the whole constitution, of legislation, and of the universal condition in general. It exists in the form of sound human understanding, that is, of an ethical principle which in the shape of prepossessions runs through everything."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316 Zusatz",
+     "text": "Was sich wirklich im Staate geltend macht, muß sich freilich auf organische Weise betätigen, und dies ist in der Verfassung der Fall. Aber zu allen Zeiten war die öffentliche Meinung eine große Macht und ist es besonders in unserer Zeit, wo das Prinzip der subjektiven Freiheit diese Wichtigkeit und Bedeutung hat."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2533,7 +2636,7 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-23T14:39+05:30",
+  "until": "2026-11-23T14:44+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "bandhgala",
@@ -2987,7 +3090,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "46d2bedd29586a386ad0502d5603b0adcc436f6b6f83c336b00b763cde0f9833",
+  "source_sha256": "97ec7fe6c4a14c06d94b0b5c6820e3c20d869b3c5fcb02eab70f4b3b32932a59",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3710,6 +3813,36 @@
     "words": "Beti, stop with the 'shall ensures' and just do it. I have three files to clear before the tea breaks, so don't make me wait.",
     "verified": false,
     "time": "14:34",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:51ba19ae25a30f7a:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 70,
+     "sha256": "51ba19ae25a30f7aca7fcf307186ef91f62b7d69ba06506a2ff01d345f85f9a8"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "At once, Mr. Saxena.",
+    "verified": false,
+    "time": "14:39",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:bf97300cf8649480:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 71,
+     "sha256": "bf97300cf8649480f07602f196198a0854209276ede4396a979badc9620a29d4"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "Fine. Go, then. And mind the door latch; it sticks if you don't push hard.",
+    "verified": false,
+    "time": "14:39",
     "place": "estates"
    },
    {
@@ -4585,68 +4718,98 @@
     "text": "Weather: 24 °C, a brown haze. Air quality index: 204."
    },
    {
-    "id": "2026-11-23:event:0ac9604a8265e9f7:1",
+    "id": "2026-11-23:event:998a46579623463b:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 21,
+     "sha256": "998a46579623463bb4a3c29a773dc16674bace699328eb1630bd7d3e6865c230"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "14:39",
+    "end": "14:44",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:event:e544876347d09a9b:5",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      21,
+      0
+     ],
+     "sha256": "e544876347d09a9ba55f1d9b0d7f59953c7b7d543bb792d7f3b199a0da487aa9"
+    },
+    "type": "observation",
+    "time": "14:39",
+    "place": "estates",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 204."
+   },
+   {
+    "id": "2026-11-23:event:3220fdaae323013c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "0ac9604a8265e9f7d1ea99b25ef0cb6546bfdfc54d30bc7f176ea6cb749d7617"
+     "sha256": "3220fdaae323013cf1bb4a90c9af634246533b31fdb1bfdfa20ac92820f5ff3e"
     },
     "type": "cash",
-    "time": "14:39",
+    "time": "14:44",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:9d048d41596e2b59:1",
+    "id": "2026-11-23:event:228e9664f1350301:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "9d048d41596e2b5953dcc4aee392112b970fa11f7379e5a7cd687c194124e599"
+     "sha256": "228e9664f135030126eeb57e609e5e95c692e0b19404ff6bad276aad15c462bd"
     },
     "type": "location",
-    "time": "14:39",
+    "time": "14:44",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:381fb5b44ff15a2f:1",
+    "id": "2026-11-23:event:02da45ea59621f83:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "381fb5b44ff15a2f034f0e58469d9d34be70fd8fb5db1c8e2e2a25bcc5bf76a6"
+     "sha256": "02da45ea59621f8331a295eb1b06b5dc660cf1616ee974f2eb2d26a845641551"
     },
     "type": "inventory",
-    "time": "14:39",
+    "time": "14:44",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:478edd703a940a6b:1",
+    "id": "2026-11-23:event:14f66f37a0993b2e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "478edd703a940a6badf9566e6c3d89a9b4187fbc12a23cbc3cf610c86c873a5a"
+     "sha256": "14f66f37a0993b2e3c61bee02433fc614339fd11a0cc1592151c889d90e93a92"
     },
     "type": "inventory",
-    "time": "14:39",
+    "time": "14:44",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 12:43.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 12:43.\"}]"
    },
    {
-    "id": "2026-11-23:event:ed9551fcfdc40e7a:1",
+    "id": "2026-11-23:event:3e28241c9235575a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "ed9551fcfdc40e7a36535c2adc71f6f148d89735ad934e94c327bae30b1325a4"
+     "sha256": "3e28241c9235575a0badd987e729ca6db589636abb72dd063d7d597d08461f9c"
     },
     "type": "inventory",
-    "time": "14:39",
+    "time": "14:44",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -4665,7 +4828,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "14:39",
+    "time": "14:44",
     "place": null
    }
   ]
