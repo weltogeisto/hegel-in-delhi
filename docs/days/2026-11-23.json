@@ -409,6 +409,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "14:29",
+   "to": "14:34",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -1072,6 +1079,37 @@
    "to": "Hegel",
    "text": "Second drawer, left side. Don't use the red ink, it smears on the carbon copy.",
    "t": "14:19",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "The specific instruction is the only thing that matters now; the red ink is a trap for the unwary. I will sign the exit register with the blue pen, retrieve the envelope from my breast pocket, and place it exactly where he indicated. The system runs on the friction of such details, and I intend to provide none.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme"
+    }
+   ],
+   "t": "14:29",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "Noted. I shall use the blue ink and leave the envelope in the second drawer, left side.",
+   "to": "Mr. Saxena",
+   "t": "14:29",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Blue is fine. Just don't forget to put the envelope back where you found it, and do it before you go.",
+   "t": "14:29",
    "place": "estates"
   }
  ],
@@ -2320,6 +2358,71 @@
      "text": "The division of these powers has been treated as the condition of political equilibrium, meaning by division their independence one of another in existence,—subject always however to the above-mentioned subsumption of the powers of the individual under the power of the general."
     }
    ]
+  },
+  {
+   "t": "14:29",
+   "end": "14:34",
+   "event": "Mr. Saxena says: “Second drawer, left side. Don't use the red ink, it smears on the carbon copy.” He taps the edge of the lower drawer with a knuckle and pushes the steel tumbler of tea back onto the saucer.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The specific instruction is the only thing that matters now; the red ink is a trap for the unwary. I will sign the exit register with the blue pen, retrieve the envelope from my breast pocket, and place it exactly where he indicated. The system runs on the friction of such details, and I intend to provide none.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 5,
+    "says": "Noted. I shall use the blue ink and leave the envelope in the second drawer, left side.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 204."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Blue is fine. Just don't forget to put the envelope back where you found it, and do it before you go.",
+    "does": "He taps the desk twice with a pen to emphasize the point, then pushes the steel tumbler slightly further away."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 3,
+    "latency_s": 15.4,
+    "draws": {
+     "n": 3,
+     "refused": 0,
+     "echo": 2,
+     "picked": 2
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "id": "dyde-right:740"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "id": "haldane-3:497"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "text": "The lower concrete civil life must be governed from below in a concrete way. And yet the work must be divided into its abstract branches, specially officered by middlemen, whose activity in connection with those below them must from the lowest to the highest executive offices take the form of a continuous concrete oversight."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "text": "Hence of the second step Boehme says that a separation must have taken place in this temperament. “No thing can become manifest to itself without opposition; for if it has nothing to withstand it, it always goes forward on its own account and does not go back within itself."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2327,7 +2430,7 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-23T14:29+05:30",
+  "until": "2026-11-23T14:34+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "bandhgala",
@@ -2781,7 +2884,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "c2342bd69a2c7c73e246d2bf6ec824816a196e467d17bc5cf333697d9da62797",
+  "source_sha256": "06ea4eabeaaf8c78233f34c41c49667ccfd6e56b0587e8d331232484019f5ab1",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3444,6 +3547,36 @@
     "words": "Second drawer, left side. Don't use the red ink, it smears on the carbon copy.",
     "verified": false,
     "time": "14:19",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:e2d687fc342f7a60:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 64,
+     "sha256": "e2d687fc342f7a60a4e4727380c015cb34679c37fc40bb721f4a91764f450433"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "Noted. I shall use the blue ink and leave the envelope in the second drawer, left side.",
+    "verified": false,
+    "time": "14:29",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:d2fc0c0ecaea3870:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 65,
+     "sha256": "d2fc0c0ecaea3870dbe2da2012878b0072f7d7107a4b7b40583e6d7e1f90fc0b"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "Blue is fine. Just don't forget to put the envelope back where you found it, and do it before you go.",
+    "verified": false,
+    "time": "14:29",
     "place": "estates"
    },
    {
@@ -4259,68 +4392,98 @@
     "text": "Weather: 24 °C, a brown haze. Air quality index: 204."
    },
    {
-    "id": "2026-11-23:event:d8dcbd9b6132b984:1",
+    "id": "2026-11-23:event:42129dc251eebdf8:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 19,
+     "sha256": "42129dc251eebdf8bb092d938f2f0cf43b1a9e3e95fad719f69ed6b2eaff783b"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "14:29",
+    "end": "14:34",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:event:e544876347d09a9b:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      19,
+      0
+     ],
+     "sha256": "e544876347d09a9ba55f1d9b0d7f59953c7b7d543bb792d7f3b199a0da487aa9"
+    },
+    "type": "observation",
+    "time": "14:29",
+    "place": "estates",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 204."
+   },
+   {
+    "id": "2026-11-23:event:e158ce8fbc6cb178:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "d8dcbd9b6132b9840a90e76e9e632fdb6daa9aee163a80020bb0afa124d4ec01"
+     "sha256": "e158ce8fbc6cb178e540f72010ae5e0f43e526d308181421bbdb2c69509dbf6e"
     },
     "type": "cash",
-    "time": "14:29",
+    "time": "14:34",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:fdb4055c16ff5af4:1",
+    "id": "2026-11-23:event:6a75857992fdf684:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "fdb4055c16ff5af4e3c3aa15f0a47247fd8bd54fec92181f31528c12c96ae8cb"
+     "sha256": "6a75857992fdf68435c3f0ba285777b821332a7a29bf45ebbfdeea4e04a455ea"
     },
     "type": "location",
-    "time": "14:29",
+    "time": "14:34",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:aca9816084e74ebb:1",
+    "id": "2026-11-23:event:9f6a95a5a39758f0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "aca9816084e74ebb11911078fb7f2a255e4ad4e52ae125aa54bf85ceaca76b53"
+     "sha256": "9f6a95a5a39758f0bfc6f0a0cf98b32009d1c7b399b9ac65017b3f84848a5031"
     },
     "type": "inventory",
-    "time": "14:29",
+    "time": "14:34",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:e07e8d883722d168:1",
+    "id": "2026-11-23:event:d44cbc4c860581e3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "e07e8d883722d168efe8a9d8d78a990c9fa376511965d0559e69a485c5e71cc6"
+     "sha256": "d44cbc4c860581e35ee9c99a1623ff475fac63df7e4461967f672e8418700673"
     },
     "type": "inventory",
-    "time": "14:29",
+    "time": "14:34",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 12:43.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 12:43.\"}]"
    },
    {
-    "id": "2026-11-23:event:1782827246d1e349:1",
+    "id": "2026-11-23:event:7f9bdf3753e9bf01:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "1782827246d1e3496061548f8e42a59d0c311b69f752cb37234b23ede6f17942"
+     "sha256": "7f9bdf3753e9bf011212ab94cf9705bd4502091dd5734790cabd0900c0745056"
     },
     "type": "inventory",
-    "time": "14:29",
+    "time": "14:34",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -4339,7 +4502,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "14:29",
+    "time": "14:34",
     "place": null
    }
   ]
