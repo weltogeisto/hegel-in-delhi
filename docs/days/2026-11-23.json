@@ -48,7 +48,7 @@
     "aqi": 236
    },
    {
-    "temp": 13,
+    "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 230
@@ -444,6 +444,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "15:25",
+   "to": "15:45",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -1255,6 +1262,28 @@
    "status": "Worn from 15:10.",
    "sprite": "kurta",
    "t": "15:10",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Seven kilometres and a day of administrative friction have hollowed me out. Ramesh’s silence is a mercy; he knows that to argue with a man who has just returned from the Directorate is to invite a lecture. I will eat the parathas not as a meal, but as a necessary suspension of the spirit’s labor in the body.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme"
+    }
+   ],
+   "t": "15:25",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "Ramesh puts a plate together: parathas kept from the morning, with curd and pickle.",
+   "t": "15:25",
    "place": "home"
   }
  ],
@@ -2824,6 +2853,66 @@
      "text": "Through work and labour, however, this consciousness of the bondsman comes to itself. In the moment which corresponds to desire in the case of the master's consciousness, the aspect of the non-essential relation to the thing seemed to fall to the lot of the servant, since the thing there retained its independence."
     }
    ]
+  },
+  {
+   "t": "15:25",
+   "end": "15:45",
+   "event": "Ramesh says: “Yes sir. The parathas are still warm. I will bring the curd and pickle right away. Please, eat slowly.” He nods once and turns toward the kitchen without a word.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Seven kilometres and a day of administrative friction have hollowed me out. Ramesh’s silence is a mercy; he knows that to argue with a man who has just returned from the Directorate is to invite a lecture. I will eat the parathas not as a meal, but as a necessary suspension of the spirit’s labor in the body.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 201."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "id": "haldane-1:113"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "id": "haldane-3:508"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "text": "But it must be considered in regard to the slow progress of the world-spirit, that there is no need for it to hasten:—“A thousand years are in Thy sight as one day.” It has time enough just because it is itself outside of time, because it is eternal."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "text": "Without those two, which are continually in strife, all things would be a nothing, and would stand still without movement. If the eternal will did not itself flow from itself and introduce itself into receptibility, there would be no form nor distinction, for all powers would” then “be one power."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2831,7 +2920,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-23T15:25+05:30",
+  "until": "2026-11-23T15:45+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "kurta",
@@ -3177,7 +3266,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-23T09:56+05:30",
+  "last_meal": "2026-11-23T15:25+05:30",
   "snacks": 0,
   "works": [
    {
@@ -3286,7 +3375,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "ca84124e27844a6f4c9daca287ad54ac4c325264f170cf578bc920fee5776dae",
+  "source_sha256": "980de52a01a4275f1494e63de1b0d9cd86313ddb0ac9ebb586a84e98ea1d0609",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4084,6 +4173,19 @@
     "status": "Worn from 15:10.",
     "gone": false,
     "time": "15:10",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:event:e57cf9e5d0298bd5:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 78,
+     "sha256": "e57cf9e5d0298bd5f8e3d1e38bb76094f425622a9b1e2a643afa24b7239b65c0"
+    },
+    "type": "world",
+    "text": "Ramesh puts a plate together: parathas kept from the morning, with curd and pickle.",
+    "time": "15:25",
     "place": "home"
    },
    {
@@ -5067,68 +5169,98 @@
     "text": "You are hungry."
    },
    {
-    "id": "2026-11-23:event:b34812bd67636046:1",
+    "id": "2026-11-23:event:c77cab0b25445df0:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 24,
+     "sha256": "c77cab0b25445df0074dc5878506f0f55f44f6ee9984c08e352e2945242903fd"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "15:25",
+    "end": "15:45",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:event:341a49dd3f9f2b7b:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      24,
+      0
+     ],
+     "sha256": "341a49dd3f9f2b7bb03caa44f06948894acb91904e1cfcb5907e27165a7c1869"
+    },
+    "type": "observation",
+    "time": "15:25",
+    "place": "home",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 201."
+   },
+   {
+    "id": "2026-11-23:event:074577aaeabda3d3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "b34812bd676360461223fd1eb0a4c8ac413e1004d8d4cf9e3cc91679bfc7cb35"
+     "sha256": "074577aaeabda3d3308dfbc85ac52594c0a2b4a747d807fdd7a73c8e0a340c25"
     },
     "type": "cash",
-    "time": "15:25",
+    "time": "15:45",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:e426178ee8f192f1:1",
+    "id": "2026-11-23:event:f071ec0c27526d20:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "e426178ee8f192f1d9e3014e88a9c2b0dce1ec2a419092aaced9ea56ff31717b"
+     "sha256": "f071ec0c27526d20f93a40e78fa8b6d1b42e2517f5a7215c7149a5945e037a46"
     },
     "type": "location",
-    "time": "15:25",
+    "time": "15:45",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:2af57488cc7ddd9c:1",
+    "id": "2026-11-23:event:e8fe6a1568c29cd0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "2af57488cc7ddd9c92a74ff56d08521e301930922abe54c1592ec523382bfac2"
+     "sha256": "e8fe6a1568c29cd09b35ebf6987860b0eff635739eb707535c125044ebfc2799"
     },
     "type": "inventory",
-    "time": "15:25",
+    "time": "15:45",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-23:event:ab49c681f2968957:1",
+    "id": "2026-11-23:event:ffe75e9f57f211c2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "ab49c681f29689570380ce150c5ed27e2023dd3bac7a84cc3643c1c5c62b0481"
+     "sha256": "ffe75e9f57f211c2d787a767f031295e5cfb31a65c5aab08e22e30d25f2cb6f8"
     },
     "type": "inventory",
-    "time": "15:25",
+    "time": "15:45",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 15:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 15:10.\"}]"
    },
    {
-    "id": "2026-11-23:event:83535015131c9d81:1",
+    "id": "2026-11-23:event:6b43404cea62eee3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "83535015131c9d81312fbd7b9cb46f2ae1a9a9a15fd50bc8b524642d9bff029a"
+     "sha256": "6b43404cea62eee3406a41c53474e9ca1daeb3253aa0c7496504ccce4392bc05"
     },
     "type": "inventory",
-    "time": "15:25",
+    "time": "15:45",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -5147,7 +5279,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "15:25",
+    "time": "15:45",
     "place": null
    }
   ]
