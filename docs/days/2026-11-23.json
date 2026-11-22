@@ -388,6 +388,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "13:59",
+   "to": "14:09",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -958,6 +965,37 @@
    "to": "Hegel",
    "text": "File moving or not, if you don't drink it now, I am pouring it into the plant. Just sign and be done with it.",
    "t": "13:49",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "The tumbler is a small, steel vessel, but in this moment it is the pivot on which the afternoon turns. He is right: the bureaucracy runs on the rhythm of tea and stamps. I will drink it, sign the paper, and end this friction before it calcifies into a habit of resentment. The air is indeed thick, but the tea is colder.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras"
+    }
+   ],
+   "t": "13:59",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "You are correct, sir. The universal requires its particular moments. I will drink, and I will sign.",
+   "to": "Mr. Saxena",
+   "t": "13:59",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Finally, some sense. Drink it hot, it’s the only good thing in this office anyway. And keep your philosophical mumbling for the corridor, not my desk.",
+   "t": "13:59",
    "place": "estates"
   }
  ],
@@ -2011,6 +2049,71 @@
      "text": "Or a finite line consists of an infinite number of points; and yet the line is present here and determined; the “beyond” of the infinite number of points, which are not complete, is in it complete and called back into unity."
     }
    ]
+  },
+  {
+   "t": "13:59",
+   "end": "14:09",
+   "event": "Mr. Saxena says: “File moving or not, if you don't drink it now, I am pouring it into the plant. Just sign and be done with it.” Taps the steel tumbler twice with a finger to emphasize the point.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The tumbler is a small, steel vessel, but in this moment it is the pivot on which the afternoon turns. He is right: the bureaucracy runs on the rhythm of tea and stamps. I will drink it, sign the paper, and end this friction before it calcifies into a habit of resentment. The air is indeed thick, but the tea is colder.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 10,
+    "says": "You are correct, sir. The universal requires its particular moments. I will drink, and I will sign.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 208."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Finally, some sense. Drink it hot, it’s the only good thing in this office anyway. And keep your philosophical mumbling for the corridor, not my desk.",
+    "does": "He slides the steel tumbler across the desk and picks up the pen to mark the file."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World",
+     "id": "baillie-2:19"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "id": "haldane-1:841"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World",
+     "text": "The content of the ethical act must be substantial in character, or must be entire and universal; hence it can only stand in relation to the entire individual, to the individual qua universal."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "text": "They, as individuals, aim at their own self-preservation as individuals in eating, drinking, &c., but what they thereby bring to pass is genus. Individuals sublate themselves, but genus is that which is ever brought forth; plants bring forth only the same plants whose ground is the universal."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2018,7 +2121,7 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-23T13:59+05:30",
+  "until": "2026-11-23T14:09+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "bandhgala",
@@ -2472,7 +2575,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "605d8e953b3e2dd2a1a1433d3ee9c7f1dd7ca2bdc04ca96c8db103605ddfa9fa",
+  "source_sha256": "df580e33a499531c7bf2eae652fb469831de4bef56fccd6a8b5f377dcafeddf0",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3045,6 +3148,36 @@
     "words": "File moving or not, if you don't drink it now, I am pouring it into the plant. Just sign and be done with it.",
     "verified": false,
     "time": "13:49",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:1d6ecd6406630ada:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 55,
+     "sha256": "1d6ecd6406630ada77d06c6e71a7a05d32ecd6bcb90c26b8a38c0c5ca06d1287"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "You are correct, sir. The universal requires its particular moments. I will drink, and I will sign.",
+    "verified": false,
+    "time": "13:59",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:d14a97e026a3f47d:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 56,
+     "sha256": "d14a97e026a3f47de52339e8364abaa1f1117f6192a6cd216b8743545c827eb4"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "Finally, some sense. Drink it hot, it’s the only good thing in this office anyway. And keep your philosophical mumbling for the corridor, not my desk.",
+    "verified": false,
+    "time": "13:59",
     "place": "estates"
    },
    {
@@ -3770,68 +3903,98 @@
     "text": "Weather: 23 °C, a brown haze. Air quality index: 208."
    },
    {
-    "id": "2026-11-23:event:d0f66d1986ccb6cc:1",
+    "id": "2026-11-23:event:dc92db2e5e9bdb40:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 16,
+     "sha256": "dc92db2e5e9bdb4075a809589e4f450d36f2631029ae16ebfe1d5214bb2ede38"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "13:59",
+    "end": "14:09",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:event:543a5765f477ad58:6",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      16,
+      0
+     ],
+     "sha256": "543a5765f477ad5884612d57a4832bc8d9e2f348492d914513b6e21f7379cd4b"
+    },
+    "type": "observation",
+    "time": "13:59",
+    "place": "estates",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 208."
+   },
+   {
+    "id": "2026-11-23:event:85bbc6340bccc048:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "d0f66d1986ccb6cc1b0cef432aa9271f43fbdc43947783cd8884f960706d9b29"
+     "sha256": "85bbc6340bccc04828ec766508404df0243d93f0f0f8fe49232c6a08c2125878"
     },
     "type": "cash",
-    "time": "13:59",
+    "time": "14:09",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:04fe6a3c826e94ad:1",
+    "id": "2026-11-23:event:8d718ae76bb73926:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "04fe6a3c826e94ade98f22e43fb1b37909fc6cfcc97b72a7d00f401cd0b558cf"
+     "sha256": "8d718ae76bb739261c9989769835a6a927dbf2a117d562aaf122598555cb9d1c"
     },
     "type": "location",
-    "time": "13:59",
+    "time": "14:09",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:5be74e435be1d678:1",
+    "id": "2026-11-23:event:0f4f61dbabbf8fb7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "5be74e435be1d6784aa03717971f1512305d9239b79d3b5e0c7cb66edc41e96c"
+     "sha256": "0f4f61dbabbf8fb7d8e008b0877337ee513ec8952e9b0c5cdd636c2255eb6f01"
     },
     "type": "inventory",
-    "time": "13:59",
+    "time": "14:09",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:04c340cd28109ffa:1",
+    "id": "2026-11-23:event:552f40a734bf16ae:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "04c340cd28109ffade4daa3d5bb17885a2517ea626c46a1eee74a7ade890b56c"
+     "sha256": "552f40a734bf16ae5c0028ffc9cbd1f6b7d4a5eb00a3e875f6083aeea8100015"
     },
     "type": "inventory",
-    "time": "13:59",
+    "time": "14:09",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 12:43.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 12:43.\"}]"
    },
    {
-    "id": "2026-11-23:event:4b3e2ed3da70c1da:1",
+    "id": "2026-11-23:event:21d77770f44f33d2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "4b3e2ed3da70c1da8c0d35bee5764d536468d9d8bb6a92814b69e07e807760e3"
+     "sha256": "21d77770f44f33d29b1295b48e3a28138b85b39b8ffd2b82a32ac17a650c449b"
     },
     "type": "inventory",
-    "time": "13:59",
+    "time": "14:09",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3850,7 +4013,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "13:59",
+    "time": "14:09",
     "place": null
    }
   ]
