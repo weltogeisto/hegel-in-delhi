@@ -493,6 +493,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "19:27",
+   "to": "19:32",
+   "mode": "inside",
+   "at": "iic",
+   "now": "At the IIC."
   }
  ],
  "entries": [
@@ -1499,6 +1506,37 @@
    "to": "Hegel",
    "text": "Haze is getting worse every year, sir. Just watch your step on the stairs, the floor is still slippery from the humidity.",
    "t": "19:17",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The guard’s warning about the slippery floor is a mundane caution, but his remark about the haze worsening every year carries a weight of accumulated observation. I am standing in the lobby, the air thick with that brown suspension, and I must not let my attention drift to the metaphysics of the atmosphere while my body is still in the middle of the physical world. I need to move to the hall where my talk is to begin, or perhaps it has already started, for I am already late.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    }
+   ],
+   "t": "19:27",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, sir. I shall take care.",
+   "to": "the guard at the library and the programme officer",
+   "t": "19:27",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Aapka swagat hai, sir. Coffee ho ya chai, main bhej deta hoon? Aapki table upar wale floor pe ready hai.",
+   "t": "19:27",
    "place": "iic"
   }
  ],
@@ -3510,6 +3548,75 @@
      "text": "India, moreover, was the centre of emigration for all the western world; but this external historical relation is to be regarded rather as a merely physical diffusion of peoples from this point."
     }
    ]
+  },
+  {
+   "t": "19:27",
+   "end": "19:32",
+   "event": "The guard at the library says: “Haze is getting worse every year, sir. Just watch your step on the stairs, the floor is still slippery from the humidity.” Glances towards the main lobby before looking back at him.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard’s warning about the slippery floor is a mundane caution, but his remark about the haze worsening every year carries a weight of accumulated observation. I am standing in the lobby, the air thick with that brown suspension, and I must not let my attention drift to the metaphysics of the atmosphere while my body is still in the middle of the physical world. I need to move to the hall where my talk is to begin, or perhaps it has already started, for I am already late.",
+    "action": "stay",
+    "place": "iic",
+    "minutes": 5,
+    "says": "Thank you, sir. I shall take care.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 19 °C, clear, hazy. Air quality index: 183."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Aapka swagat hai, sir. Coffee ho ya chai, main bhej deta hoon? Aapki table upar wale floor pe ready hai.",
+    "does": "He nods and turns to check the security monitor on the desk."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "id": "baillie-1:220"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:525"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "text": "But just as lordship showed its essential nature to be the reverse of what it wants to be, so, too, bondage will, when completed, pass into the opposite of what it immediately is: being a consciousness repressed within itself, it will enter into itself, and change round into real and true independence. We have seen what bondage is only in relation to lordship."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "Bentley's researches at length placed Vicrajnaditya in the twelfth century B.C. But still more recently it has been discovered that there were five, or even eight or nine kings of that name in India; so that on this point also we are thrown back into utter uncertainty."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -3517,7 +3624,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-23T19:27+05:30",
+  "until": "2026-11-23T19:32+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "bandhgala",
@@ -3978,7 +4085,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "35527947f583b91de3677c4af7c4bdd8e5124f86be3092067a33f2545dc5511f",
+  "source_sha256": "041b5e316c82f44e70495d81b0aa8cb93d230b20827af3521598c13b61aab2ee",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4937,6 +5044,36 @@
     "words": "Haze is getting worse every year, sir. Just watch your step on the stairs, the floor is still slippery from the humidity.",
     "verified": false,
     "time": "19:17",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-23:statement:1dcc0761512a7eab:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 96,
+     "sha256": "1dcc0761512a7eab36110219edc5a615a6dba27b5182a2f23284b3e6a1d7e8b7"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "Thank you, sir. I shall take care.",
+    "verified": false,
+    "time": "19:27",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-23:statement:6beac6f025dfb696:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 97,
+     "sha256": "6beac6f025dfb6965f06110e6bdad112cb147c21eb0dbc530f42375acb74bdd5"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Aapka swagat hai, sir. Coffee ho ya chai, main bhej deta hoon? Aapki table upar wale floor pe ready hai.",
+    "verified": false,
+    "time": "19:27",
     "place": "iic"
    },
    {
@@ -6196,68 +6333,98 @@
     "text": "You arrive at India International Centre. It closes at 21:30."
    },
    {
-    "id": "2026-11-23:event:7f9b2a5eecfa3662:1",
+    "id": "2026-11-23:event:4703301ca4820358:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 31,
+     "sha256": "4703301ca4820358730b9b41943cfe540fcf3d2eb51222dcfa9bffdfb72d7672"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "19:27",
+    "end": "19:32",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-23:event:d96037a43cb869cb:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      31,
+      0
+     ],
+     "sha256": "d96037a43cb869cb30811fe1f4564b6a0202ac8bd3a660de87e427b309e5f7ed"
+    },
+    "type": "observation",
+    "time": "19:27",
+    "place": "iic",
+    "text": "Weather: 19 °C, clear, hazy. Air quality index: 183."
+   },
+   {
+    "id": "2026-11-23:event:f120fb1045052b6d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "7f9b2a5eecfa3662bbacd4c39a1ae0a4b6768943000874e5b595c5278eedd1a2"
+     "sha256": "f120fb1045052b6dc3b55edd4438b75e36277b27d983f78f81eadf3776667b28"
     },
     "type": "cash",
-    "time": "19:27",
+    "time": "19:32",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:22086a892edd46b8:1",
+    "id": "2026-11-23:event:46fed0f97534037e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "22086a892edd46b8ad7fcd7ff7521f3ca0aef2e19c1d3742c58dc81867dc4f92"
+     "sha256": "46fed0f97534037e250b9b9eba1098ab4cae35f18a3bc233334b6f4ee9981a18"
     },
     "type": "location",
-    "time": "19:27",
+    "time": "19:32",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:5f1da9fedcbc83a2:1",
+    "id": "2026-11-23:event:74521972b2034b87:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "5f1da9fedcbc83a2e10b167bb2f337b9285c2e9695c193cfdd6cc4b40460476b"
+     "sha256": "74521972b2034b8776a189f68b7f0b21f71f6d5040b844ce72a524ef5b1c2aac"
     },
     "type": "inventory",
-    "time": "19:27",
+    "time": "19:32",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:790f071b4390b310:1",
+    "id": "2026-11-23:event:92eb86997605f98e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "790f071b4390b310eb1fb9f802d8a5a58a9bf58fdc9235e2fe600db79bd2dde4"
+     "sha256": "92eb86997605f98eb393342963042fbe2166680d50b34d485acadea509f61cbc"
     },
     "type": "inventory",
-    "time": "19:27",
+    "time": "19:32",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 18:55.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 18:55.\"}]"
    },
    {
-    "id": "2026-11-23:event:de9071b76674a081:1",
+    "id": "2026-11-23:event:c8201e6aecfaec8c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "de9071b76674a08142314b9ea57ba40f84c3a2787dc63faa1b8c1f72421ce364"
+     "sha256": "c8201e6aecfaec8c4c43a475509b29808357ed138a35724d29da3f970956312b"
     },
     "type": "inventory",
-    "time": "19:27",
+    "time": "19:32",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -6276,7 +6443,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "19:27",
+    "time": "19:32",
     "place": null
    }
   ]
