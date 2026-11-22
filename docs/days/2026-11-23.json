@@ -311,6 +311,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "10:47",
+   "to": "11:13",
+   "mode": "walk",
+   "a": "estates",
+   "b": "home"
   }
  ],
  "entries": [
@@ -539,6 +546,37 @@
    "to": "Hegel",
    "text": "The file is still with the Ministry, sir. Please keep those vouchers safe; the recovery order for the personal expenses will be issued separately once the audit is clear.",
    "t": "10:37",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "The bureaucratic machine grinds on with its own logic; the personal is severed from the state, and the vouchers are to be kept safe against a future audit. I have done what is required of me here. The haze outside is still thick, and my stomach begins to murmur, but the main business of the morning is concluded. I must return to the bungalow to rest and prepare my mind for the evening's lecture, where I must confront the very nature of the state I am currently being processed by.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§46"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Second Division"
+    }
+   ],
+   "t": "10:47",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Mr. Saxena. I shall keep the vouchers in order.",
+   "to": "Mr. Saxena",
+   "t": "10:47",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Do keep them in order, sir. And do not stand in that corridor again; the air is worse than the paperwork.",
+   "t": "10:47",
    "place": "estates"
   }
  ],
@@ -881,14 +919,80 @@
      "text": "This may all the more easily happen, the more trivial from the universal side of the state is the mismanaged affair, especially when the mismanagement stands of itself in direct relation to the satisfaction and opinion, which are derived from it. In the business of the executive also there is a division of labour (§ 198)."
     }
    ]
+  },
+  {
+   "t": "10:47",
+   "end": "11:13",
+   "event": "Mr. Saxena says: “The file is still with the Ministry, sir. Please keep those vouchers safe; the recovery order for the personal expenses will be issued separately once the audit is clear.” He stamps the query sheet and slides it into the file, then lifts the receiver of the middle telephone.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The bureaucratic machine grinds on with its own logic; the personal is severed from the state, and the vouchers are to be kept safe against a future audit. I have done what is required of me here. The haze outside is still thick, and my stomach begins to murmur, but the main business of the morning is concluded. I must return to the bungalow to rest and prepare my mind for the evening's lecture, where I must confront the very nature of the state I am currently being processed by.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 45,
+    "says": "Thank you, Mr. Saxena. I shall keep the vouchers in order.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "observations": [
+    "Weather: 19 °C, a brown haze. Air quality index: 207."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Do keep them in order, sir. And do not stand in that corridor again; the air is worse than the paperwork.",
+    "does": "Mr. Saxena hangs up the middle telephone and turns back to his stamped file."
+   },
+   "left": "estates",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§46",
+     "id": "dyde-right:156"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Second Division",
+     "id": "haldane-3:715"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§46",
+     "text": "Since property makes objective my personal individual will, it is rightly described as a private possession. On the other hand, common property, which may be possessed by a number of separate individuals, is a mark of a loosely joined company, in which a man may or may not allow his share to remain at his own choice."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Second Division",
+     "text": "When Lord Shaftesbury became Lord Chancellor of England, Locke received an office from him, which, however, he soon lost by a change of ministry. Owing to his dread of falling a prey to consumption, he betook himself in 1675 to Montpellier for the benefit of his health."
+    }
+   ]
   }
  ],
  "funnel": {},
  "owl": null,
  "complete": false,
  "state": {
-  "place": "estates",
-  "until": "2026-11-23T10:47+05:30",
+  "place": "home",
+  "until": "2026-11-23T11:13+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "bandhgala",
@@ -982,8 +1086,8 @@
     ]
    },
    "breakfast": true,
-   "walked": 1950,
-   "strain": 1950,
+   "walked": 3900,
+   "strain": 3900,
    "recouped": true
   },
   "account": {
@@ -1343,7 +1447,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "d96ffa7f2e11f7d04dd92971ff476d8cf852746236d7b1fe4fd8c53b37cc8544",
+  "source_sha256": "c31c8d706782fad278d4cb621b00525574b3d2b185fa7eeed91bb882747fec48",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1586,6 +1690,36 @@
     "words": "The file is still with the Ministry, sir. Please keep those vouchers safe; the recovery order for the personal expenses will be issued separately once the audit is clear.",
     "verified": false,
     "time": "10:37",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:12f18dfed758e32b:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 22,
+     "sha256": "12f18dfed758e32becac14e57b2a48e16aab4a8d60d39885760574824f1f51f1"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "Thank you, Mr. Saxena. I shall keep the vouchers in order.",
+    "verified": false,
+    "time": "10:47",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:c190f6e1003b92ce:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 23,
+     "sha256": "c190f6e1003b92ce4356a35af3f150d996ab3eef6ed354eecb0f87eaf6b12c4e"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "Do keep them in order, sir. And do not stand in that corridor again; the air is worse than the paperwork.",
+    "verified": false,
+    "time": "10:47",
     "place": "estates"
    },
    {
@@ -1929,68 +2063,100 @@
     "text": "Mr. Saxena is here."
    },
    {
-    "id": "2026-11-23:event:63d692f2b28aeed1:1",
+    "id": "2026-11-23:event:80c10b4dec48ea63:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 5,
+     "sha256": "80c10b4dec48ea632eafd3b170c824a63ddb1f6429fad3808ada185cfcd432c0"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "10:47",
+    "end": "11:13",
+    "place": null,
+    "origin": "estates",
+    "destination": "home"
+   },
+   {
+    "id": "2026-11-23:event:756957eed5075765:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      5,
+      0
+     ],
+     "sha256": "756957eed5075765162fe0dead849ae400ddf994d415696362df1ac00cefe00c"
+    },
+    "type": "observation",
+    "time": "10:47",
+    "place": "estates",
+    "text": "Weather: 19 °C, a brown haze. Air quality index: 207."
+   },
+   {
+    "id": "2026-11-23:event:aa7e126782e8d7aa:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "63d692f2b28aeed1b8a17e100591a663de62e7d8b73eeb529e896dc0b7a70db8"
+     "sha256": "aa7e126782e8d7aa33d6fa31728f680dbf709defc2697d7f63637da0a5849c47"
     },
     "type": "cash",
-    "time": "10:47",
+    "time": "11:13",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:2f61929ee43ce896:1",
+    "id": "2026-11-23:event:3a371b66264c6ede:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "2f61929ee43ce8964a241e4a69815882f199108762e504d4c4801d0f6c322590"
+     "sha256": "3a371b66264c6ede0ade02cafbc750b674135d6b63e3d7dddc78990c7cdff753"
     },
     "type": "location",
-    "time": "10:47",
-    "place": "estates",
+    "time": "11:13",
+    "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:d526fb17c358ba71:1",
+    "id": "2026-11-23:event:1b737735399a9f21:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "d526fb17c358ba71ce400ea7cdceaea086b60b4bf175c681fe7208e299b6d0d6"
+     "sha256": "1b737735399a9f21374ba6bfcc1ebef8d130c52bf7b29dca750c7af10351df9e"
     },
     "type": "inventory",
-    "time": "10:47",
+    "time": "11:13",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:bb2f7ca05804ed84:1",
+    "id": "2026-11-23:event:d3df9b78434aac75:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "bb2f7ca05804ed84d542d7bd23c73fec35e1e845373146778f1a6ee510e5232e"
+     "sha256": "d3df9b78434aac7502f8507246b9e61131ea092dcb37048afe9c630978bd9ec5"
     },
     "type": "inventory",
-    "time": "10:47",
+    "time": "11:13",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 10:11.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 10:11.\"}]"
    },
    {
-    "id": "2026-11-23:event:5b59979578d02e79:1",
+    "id": "2026-11-23:event:7fd8b97dcb8648a3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "5b59979578d02e79f70b9ba9d31ec27c23bace121419e71a0e21eb8e7dce934f"
+     "sha256": "7fd8b97dcb8648a38762e127cf89cff9fbe667638c0d7b548342dd541d2537af"
     },
     "type": "inventory",
-    "time": "10:47",
+    "time": "11:13",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2009,7 +2175,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "10:47",
+    "time": "11:13",
     "place": null
    }
   ]
