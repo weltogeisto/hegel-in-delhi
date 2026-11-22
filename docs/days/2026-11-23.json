@@ -500,6 +500,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "At the IIC."
+  },
+  {
+   "from": "19:32",
+   "to": "19:42",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -1537,6 +1544,37 @@
    "to": "Hegel",
    "text": "Aapka swagat hai, sir. Coffee ho ya chai, main bhej deta hoon? Aapki table upar wale floor pe ready hai.",
    "t": "19:27",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The guard offers coffee or tea, but I am not here to sit and drink; I am here to resolve the identity query before the library closes. I will decline the beverage and ask the programme officer to join me so I can present my documents directly.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "19:32",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "No, thank you. I am here to speak with the programme officer regarding the Directorate's query on my identity. Please bring him to me, or let me know where he is.",
+   "to": "the guard at the library and the programme officer",
+   "t": "19:32",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The programme officer",
+   "to": "Hegel",
+   "text": "You are looking at me, sir. I am the Programme Officer here. Please, sit down properly; we can discuss the Directorate's paperwork right here.",
+   "t": "19:32",
    "place": "iic"
   }
  ],
@@ -3617,6 +3655,72 @@
      "text": "Bentley's researches at length placed Vicrajnaditya in the twelfth century B.C. But still more recently it has been discovered that there were five, or even eight or nine kings of that name in India; so that on this point also we are thrown back into utter uncertainty."
     }
    ]
+  },
+  {
+   "t": "19:32",
+   "end": "19:42",
+   "event": "The guard at the library says: “Aapka swagat hai, sir. Coffee ho ya chai, main bhej deta hoon? Aapki table upar wale floor pe ready hai.” He nods and turns to check the security monitor on the desk.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard offers coffee or tea, but I am not here to sit and drink; I am here to resolve the identity query before the library closes. I will decline the beverage and ask the programme officer to join me so I can present my documents directly.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 10,
+    "says": "No, thank you. I am here to speak with the programme officer regarding the Directorate's query on my identity. Please bring him to me, or let me know where he is.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 19 °C, clear, hazy. Air quality index: 183."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "The programme officer",
+    "says": "You are looking at me, sir. I am the Programme Officer here. Please, sit down properly; we can discuss the Directorate's paperwork right here.",
+    "does": "She gestures to the chair opposite her desk and waits for him to sit."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "id": "sibree-history:288"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "text": "Only when, as in Europe, the direct increase of agriculturists is checked, •will the inhabitants, instead of pressing outwards to occupy the fields, press inwards upon each other, — pursuing town occupations, and trading with their fellow citizens; and so form a compact system of civil society, and require an organized state."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -3624,7 +3728,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-23T19:32+05:30",
+  "until": "2026-11-23T19:42+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "bandhgala",
@@ -4085,7 +4189,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "041b5e316c82f44e70495d81b0aa8cb93d230b20827af3521598c13b61aab2ee",
+  "source_sha256": "05ea5643ab5ae11589c92a4ccbdb47a55a1125dd493c0b0c1598b3c807c55b4f",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -5074,6 +5178,36 @@
     "words": "Aapka swagat hai, sir. Coffee ho ya chai, main bhej deta hoon? Aapki table upar wale floor pe ready hai.",
     "verified": false,
     "time": "19:27",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-23:statement:b2d33d1a4dbf8046:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 99,
+     "sha256": "b2d33d1a4dbf80461e97ac0f0c2ffd793a5e4468e4c9391fd745344801f8a318"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "No, thank you. I am here to speak with the programme officer regarding the Directorate's query on my identity. Please bring him to me, or let me know where he is.",
+    "verified": false,
+    "time": "19:32",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-23:statement:ff03a8f456a1c428:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 100,
+     "sha256": "ff03a8f456a1c4289921f78135d16b4ed7ddbf9308bf0c149316ed178907b40b"
+    },
+    "speaker": "The programme officer",
+    "recipient": "Hegel",
+    "words": "You are looking at me, sir. I am the Programme Officer here. Please, sit down properly; we can discuss the Directorate's paperwork right here.",
+    "verified": false,
+    "time": "19:32",
     "place": "iic"
    },
    {
@@ -6363,68 +6497,98 @@
     "text": "Weather: 19 °C, clear, hazy. Air quality index: 183."
    },
    {
-    "id": "2026-11-23:event:f120fb1045052b6d:1",
+    "id": "2026-11-23:event:db84b4a8827b86b1:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 32,
+     "sha256": "db84b4a8827b86b13e76f821130a5c88d8f418013c0e907c2ad3d257ee73d6e7"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "19:32",
+    "end": "19:42",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-23:event:d96037a43cb869cb:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      32,
+      0
+     ],
+     "sha256": "d96037a43cb869cb30811fe1f4564b6a0202ac8bd3a660de87e427b309e5f7ed"
+    },
+    "type": "observation",
+    "time": "19:32",
+    "place": "iic",
+    "text": "Weather: 19 °C, clear, hazy. Air quality index: 183."
+   },
+   {
+    "id": "2026-11-23:event:f011d23524a4950e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "f120fb1045052b6dc3b55edd4438b75e36277b27d983f78f81eadf3776667b28"
+     "sha256": "f011d23524a4950edc8e79b7d10aa8330e5249c8871efb946502879d20d3b1ed"
     },
     "type": "cash",
-    "time": "19:32",
+    "time": "19:42",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:46fed0f97534037e:1",
+    "id": "2026-11-23:event:5bfda3297a7c1766:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "46fed0f97534037e250b9b9eba1098ab4cae35f18a3bc233334b6f4ee9981a18"
+     "sha256": "5bfda3297a7c17668650d033eb80783f2f337d124ba3cb54d6847d02a7479e3b"
     },
     "type": "location",
-    "time": "19:32",
+    "time": "19:42",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:74521972b2034b87:1",
+    "id": "2026-11-23:event:358f6fcd7be130ad:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "74521972b2034b8776a189f68b7f0b21f71f6d5040b844ce72a524ef5b1c2aac"
+     "sha256": "358f6fcd7be130adddb5c319490459ffaf181169a742cd8ee326c04d8178be0c"
     },
     "type": "inventory",
-    "time": "19:32",
+    "time": "19:42",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:92eb86997605f98e:1",
+    "id": "2026-11-23:event:2d8c99a33f09f991:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "92eb86997605f98eb393342963042fbe2166680d50b34d485acadea509f61cbc"
+     "sha256": "2d8c99a33f09f99180fb44d7dd06fd61a5cfc9c2ededb6a82fafeafe8225b1ca"
     },
     "type": "inventory",
-    "time": "19:32",
+    "time": "19:42",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 18:55.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 18:55.\"}]"
    },
    {
-    "id": "2026-11-23:event:c8201e6aecfaec8c:1",
+    "id": "2026-11-23:event:1a2e2646a6ec9b79:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "c8201e6aecfaec8c4c43a475509b29808357ed138a35724d29da3f970956312b"
+     "sha256": "1a2e2646a6ec9b794c833e5152de22c16fc66e20e174bbd7f97fbd04657b43c9"
     },
     "type": "inventory",
-    "time": "19:32",
+    "time": "19:42",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -6443,7 +6607,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "19:32",
+    "time": "19:42",
     "place": null
    }
   ]
