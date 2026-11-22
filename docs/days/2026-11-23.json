@@ -346,6 +346,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "12:43",
+   "to": "13:09",
+   "mode": "walk",
+   "a": "home",
+   "b": "estates"
   }
  ],
  "entries": [
@@ -722,6 +729,45 @@
    "to": "Hegel",
    "text": "Yes sir. I will tell the cook to keep your portion aside. The table will be set for you whenever you return.",
    "t": "12:33",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The meal waits, but the file does not. The Directorate will not care that I am hungry; the state demands the proof of identity. I must walk now, before the haze thickens further and the heat of the midday sun becomes a physical assault on the spirit.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…"
+    }
+   ],
+   "t": "12:43",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. I shall be back before the tea is cold.",
+   "to": "Ramesh",
+   "t": "12:43",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Tea waits, sir. I'll keep the samovar hot.",
+   "t": "12:43",
+   "place": "home"
+  },
+  {
+   "k": "wear",
+   "item": "Bandhgala, charcoal",
+   "status": "Worn from 12:43.",
+   "sprite": "bandhgala",
+   "t": "12:43",
    "place": "home"
   }
  ],
@@ -1383,17 +1429,83 @@
      "text": "' In this -work Mr. Hugo says (5th edition § 53) that \" Cicero praises the twelve tables with a side glance at philosophy,\" \" but the philosopher Phavorinus treats them exactly as many a great philosopher since has treated positive right.\""
     }
    ]
+  },
+  {
+   "t": "12:43",
+   "end": "13:09",
+   "event": "Ramesh says: “Yes sir. I will tell the cook to keep your portion aside. The table will be set for you whenever you return.” He sets the wet cloth down on the table and straightens his kurta.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The meal waits, but the file does not. The Directorate will not care that I am hungry; the state demands the proof of identity. I must walk now, before the haze thickens further and the heat of the midday sun becomes a physical assault on the spirit.",
+    "action": "walk",
+    "place": "estates",
+    "minutes": 25,
+    "says": "Thank you, Ramesh. I shall be back before the tea is cold.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "estates",
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 212."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Tea waits, sir. I'll keep the samovar hot.",
+    "does": null
+   },
+   "left": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "id": "phaen:385"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence. So also it is not a matter merely external and particular, the performance of which is intrusted to him."
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "text": "Nicht der Unterschied, welcher sich als bestimmtes Ding, oder als Bewußtsein eines bestimmten natürlichen Daseins, als ein Gefühl, oder als Begierde und Zweck für dieselbe, ob er durch das eigene oder durch ein fremdes Bewußtsein gesetzt sei, hat mehr Wesenheit, sondern allein der Unterschied, der ein gedachter, oder unmittelbar nicht von Mir unterschieden ist."
+    }
+   ]
   }
  ],
  "funnel": {},
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-23T12:43+05:30",
+  "place": "estates",
+  "until": "2026-11-23T13:09+05:30",
   "asleep": false,
   "imprest": 15456,
-  "wearing": "kurta",
+  "wearing": "bandhgala",
   "wardrobe": [
    {
     "id": "frock",
@@ -1413,12 +1525,12 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Worn from 11:13."
+    "status": "Taken off at 12:43."
    },
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Taken off at 11:13."
+    "status": "Worn from 12:43."
    }
   ],
   "people": [
@@ -1484,8 +1596,8 @@
     ]
    },
    "breakfast": true,
-   "walked": 3900,
-   "strain": 3900
+   "walked": 5850,
+   "strain": 5850
   },
   "account": {
    "advance": 15000,
@@ -1844,7 +1956,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "5ccf1258c365accbd313075d3d892d3c1aa0f13af813944a35c46a50a93918fe",
+  "source_sha256": "bd1c058c6d667e36a31d08d63c02b93acb15fb943a07ed47c3516208f63bb2d1",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2222,6 +2334,51 @@
     "words": "Yes sir. I will tell the cook to keep your portion aside. The table will be set for you whenever you return.",
     "verified": false,
     "time": "12:33",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:statement:8726eb7242b363db:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 36,
+     "sha256": "8726eb7242b363db69bbf6b071e0c44e536b0c9a8acd61cbd6cd5c8a3179403d"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Thank you, Ramesh. I shall be back before the tea is cold.",
+    "verified": false,
+    "time": "12:43",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:statement:8aec5a2e11c385c3:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 37,
+     "sha256": "8aec5a2e11c385c39c81abcba99e27a62b008449cca4e0c66d0092d724397341"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Tea waits, sir. I'll keep the samovar hot.",
+    "verified": false,
+    "time": "12:43",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:event:fe813046e07b25f9:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 38,
+     "sha256": "fe813046e07b25f9d0871cdeebea8f2d3f787e715a69c63afdc3ded5824d8588"
+    },
+    "type": "wear",
+    "item": "Bandhgala, charcoal",
+    "status": "Worn from 12:43.",
+    "gone": false,
+    "time": "12:43",
     "place": "home"
    },
    {
@@ -2749,68 +2906,100 @@
     "text": "Weather: 22 °C, a brown haze. Air quality index: 212."
    },
    {
-    "id": "2026-11-23:event:fe42d4a4df401b50:1",
+    "id": "2026-11-23:event:00819141ba42903d:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 10,
+     "sha256": "00819141ba42903d31b24d0ac2cd0d0343918214cd4df41877ecda99cbf86ac0"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "12:43",
+    "end": "13:09",
+    "place": null,
+    "origin": "home",
+    "destination": "estates"
+   },
+   {
+    "id": "2026-11-23:event:7d2bb55ca61db591:4",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      10,
+      0
+     ],
+     "sha256": "7d2bb55ca61db5913c59f5f4f5d35aa47dff14a2d813591fa562b2b8ff35a597"
+    },
+    "type": "observation",
+    "time": "12:43",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 212."
+   },
+   {
+    "id": "2026-11-23:event:afd07e6a96ca085d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "fe42d4a4df401b5018b3e7be482661bc186b93c67f794c56bc07fd7a3ae41763"
+     "sha256": "afd07e6a96ca085d27697bccedf6de337dd4a7d14f23dda5498aa7e3e74fc8f7"
     },
     "type": "cash",
-    "time": "12:43",
+    "time": "13:09",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:5538700f71ae8d75:1",
+    "id": "2026-11-23:event:93bd45dfcf619654:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "5538700f71ae8d75cb94dcebb091e2f55a22885787d805971d5e33a0afe737b6"
+     "sha256": "93bd45dfcf61965471eef352c8815db4fcdfcf26f0b70502b0a54cc11d37d52b"
     },
     "type": "location",
-    "time": "12:43",
-    "place": "home",
+    "time": "13:09",
+    "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:8708a2fa230e33f2:1",
+    "id": "2026-11-23:event:12daaa9c117e36ac:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "8708a2fa230e33f269abe649cfcf0f5b37e7fbc6492d089c5203c61a8c494998"
+     "sha256": "12daaa9c117e36ace4ab8986a68d59599d7e94a25faf9cb4077559cea2841a15"
     },
     "type": "inventory",
-    "time": "12:43",
+    "time": "13:09",
     "place": null,
-    "text": "Recorded wearing at this horizon only: \"kurta\""
+    "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:82a8f2575a8b5669:1",
+    "id": "2026-11-23:event:a9d5fb348574bb66:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "82a8f2575a8b5669c33e1d58cae30cec018d3c2e60e103e026f6f52f6a81bd3a"
+     "sha256": "a9d5fb348574bb669f718d6643936b8cb4ac66f60509844dbe8b8c67c779148d"
     },
     "type": "inventory",
-    "time": "12:43",
+    "time": "13:09",
     "place": null,
-    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:13.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 11:13.\"}]"
+    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 12:43.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 12:43.\"}]"
    },
    {
-    "id": "2026-11-23:event:db99cbed5fd33376:1",
+    "id": "2026-11-23:event:fd7df282f01b6247:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "db99cbed5fd33376f0b1cb453a898c045cf132faea39def5d28551d096954bb9"
+     "sha256": "fd7df282f01b62477c8a9fff616ab3a7e5c7b68a0f9018ebeafc16481d955c24"
     },
     "type": "inventory",
-    "time": "12:43",
+    "time": "13:09",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2829,7 +3018,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "12:43",
+    "time": "13:09",
     "place": null
    }
   ]
