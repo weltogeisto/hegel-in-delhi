@@ -290,6 +290,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "09:56",
+   "to": "10:11",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -387,6 +394,37 @@
    "to": "Hegel",
    "text": "It is in the top drawer, sir. The parathas are still warm if you want one before the car leaves.",
    "t": "09:26",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The file is in the top drawer, just as I suspected; the bureaucracy of my own household mirrors the Directorate’s. I will take one more paratha, for the walk to the estates office will be under a brown sky, and the body requires its fuel to sustain the spirit’s labor. Ramesh’s indifference is a kind of service; he knows his place, and I am learning mine.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "09:56",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Yes, Ramesh. And fetch the file from the top drawer. I must see what the Directorate has written against my name.",
+   "to": "Ramesh",
+   "t": "09:56",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "You are already holding it, sir. I placed it in your hand moments ago.",
+   "t": "09:56",
    "place": "home"
   }
  ],
@@ -527,6 +565,71 @@
      "text": "Moreover, in the third place, we must first take a general survey before we descend to particulars, else the whole is not seen for the mere details—the wood is not seen for the trees, nor Philosophy for mere philosophies. We require to have a general idea of the nature and aim of the whole in order to know what to look for."
     }
    ]
+  },
+  {
+   "t": "09:56",
+   "end": "10:11",
+   "event": "Ramesh says: “It is in the top drawer, sir. The parathas are still warm if you want one before the car leaves.”",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The file is in the top drawer, just as I suspected; the bureaucracy of my own household mirrors the Directorate’s. I will take one more paratha, for the walk to the estates office will be under a brown sky, and the body requires its fuel to sustain the spirit’s labor. Ramesh’s indifference is a kind of service; he knows his place, and I am learning mine.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 15,
+    "says": "Yes, Ramesh. And fetch the file from the top drawer. I must see what the Directorate has written against my name.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 17 °C, a brown haze. Air quality index: 211."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "You are already holding it, sir. I placed it in your hand moments ago.",
+    "does": "He points a finger toward the man's chest to indicate the file is already in his possession."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -534,7 +637,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-23T09:56+05:30",
+  "until": "2026-11-23T10:11+05:30",
   "asleep": false,
   "imprest": 16416,
   "wearing": "kurta",
@@ -901,7 +1004,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-23T09:26+05:30",
+  "last_meal": "2026-11-23T09:56+05:30",
   "snacks": 0,
   "works": [
    {
@@ -1009,7 +1112,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "d89d472a4ef94bc06f04715c450490a02c1b1f6a6ecc81ebaebf1292ef02d36b",
+  "source_sha256": "1d11d27d537ca4e7aaf5328520f79e8c33d49128a5a1f278838fa636c302ab87",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1097,6 +1200,36 @@
     "words": "It is in the top drawer, sir. The parathas are still warm if you want one before the car leaves.",
     "verified": false,
     "time": "09:26",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:statement:880db1e5f05eed60:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 10,
+     "sha256": "880db1e5f05eed60083332311c252f9c0051d5f85c2bc9083d9a9b202b5ecaa9"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Yes, Ramesh. And fetch the file from the top drawer. I must see what the Directorate has written against my name.",
+    "verified": false,
+    "time": "09:56",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:statement:7dced4eefcbd3a68:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 11,
+     "sha256": "7dced4eefcbd3a6807ad40c75a677fd33d69564176ea78e10d0942714579774f"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "You are already holding it, sir. I placed it in your hand moments ago.",
+    "verified": false,
+    "time": "09:56",
     "place": "home"
    },
    {
@@ -1284,68 +1417,98 @@
     "text": "Ramesh has laid out breakfast: aloo parathas, curd and pickle."
    },
    {
-    "id": "2026-11-23:event:c443d5baf83943a9:1",
+    "id": "2026-11-23:event:ecc3f03b9b9025fc:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 2,
+     "sha256": "ecc3f03b9b9025fc31815c19b980c84b60bdb70d506aa3d91cd085aa43181265"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "09:56",
+    "end": "10:11",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:event:abc83d122288c863:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      2,
+      0
+     ],
+     "sha256": "abc83d122288c8631199ee8dbce054e2146773455ef40592cb4c236302842397"
+    },
+    "type": "observation",
+    "time": "09:56",
+    "place": "home",
+    "text": "Weather: 17 °C, a brown haze. Air quality index: 211."
+   },
+   {
+    "id": "2026-11-23:event:21fe8bc577024114:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "c443d5baf83943a999bb269c728e92c8b8ffcbb9633a817a649378d6bc3f482a"
+     "sha256": "21fe8bc5770241146a9861127b28a005e2c0c59c910704500c3347832057bc6f"
     },
     "type": "cash",
-    "time": "09:56",
+    "time": "10:11",
     "amount": 16416,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:25fafccfbddab8f6:1",
+    "id": "2026-11-23:event:f724eaadc79fce58:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "25fafccfbddab8f6f8b3b7d78ca27d26c27768bfd126cbf839541ef60aca7241"
+     "sha256": "f724eaadc79fce58e37140f845d540889da34534caa64b6e2332bfdc8ca1071c"
     },
     "type": "location",
-    "time": "09:56",
+    "time": "10:11",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:f8506b06c9282e39:1",
+    "id": "2026-11-23:event:2af47ac78b65dd94:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "f8506b06c9282e39c7d36d561161b3126c2c14f9e80478ec6b2f604baf070dbe"
+     "sha256": "2af47ac78b65dd943dbc78b79bcd5575cf792bb20fce21e6ecf586c0448b8b52"
     },
     "type": "inventory",
-    "time": "09:56",
+    "time": "10:11",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-23:event:0d5622b7f872abf6:1",
+    "id": "2026-11-23:event:82db60fab611dc56:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "0d5622b7f872abf62a4989104863a91df1c6a0d812ff6ddf1c4923874962e22e"
+     "sha256": "82db60fab611dc5634576e78b2ce8f25ee2c4945874805162cc4b862b18f106a"
     },
     "type": "inventory",
-    "time": "09:56",
+    "time": "10:11",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 18:49.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 18:49.\"}]"
    },
    {
-    "id": "2026-11-23:event:7d5c22773ff9c90e:1",
+    "id": "2026-11-23:event:b17e9a0ec6aa0a3c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "7d5c22773ff9c90e9d6945d52f7cd82b6eb11d327d66c939aaf514576a4c35fe"
+     "sha256": "b17e9a0ec6aa0a3c0f8ed519e34bda56025cbc853d998d10369df7a74a627c79"
     },
     "type": "inventory",
-    "time": "09:56",
+    "time": "10:11",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -1364,7 +1527,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "09:56",
+    "time": "10:11",
     "place": null
    }
   ]
