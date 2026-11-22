@@ -521,6 +521,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library at the IIC."
+  },
+  {
+   "from": "20:42",
+   "to": "20:57",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library at the IIC."
   }
  ],
  "entries": [
@@ -1651,6 +1658,37 @@
    "to": "Hegel",
    "text": "Saab, desk thodi door hai, seedha wahan jao. Koi ruko nahi hai abhi, bas file dikhao aur baat karo.",
    "t": "20:27",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The guard gestures toward the inner office with the casual authority of a man who has seen a thousand files pass through his hands. I am tired, but the bureaucracy is the skeleton of the state; if I do not address this query, the mistake will calcify into a permanent obstruction. I must speak to the officer directly to clear the air, or rather, to clear the file.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289"
+    }
+   ],
+   "t": "20:42",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "Thank you. I will proceed to the desk to speak with the officer regarding the identity query.",
+   "to": "the guard at the library",
+   "t": "20:42",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Haan, haan, aage badhiye. Bas light wahan thodi dim hai, dhyan se chaliye.",
+   "t": "20:42",
    "place": "iic"
   }
  ],
@@ -3928,6 +3966,71 @@
      "text": "Nicht der Unterschied, welcher sich als bestimmtes Ding, oder als Bewußtsein eines bestimmten natürlichen Daseins, als ein Gefühl, oder als Begierde und Zweck für dieselbe, ob er durch das eigene oder durch ein fremdes Bewußtsein gesetzt sei, hat mehr Wesenheit, sondern allein der Unterschied, der ein gedachter, oder unmittelbar nicht von Mir unterschieden ist."
     }
    ]
+  },
+  {
+   "t": "20:42",
+   "end": "20:57",
+   "event": "The guard at the library says: “Saab, desk thodi door hai, seedha wahan jao. Koi ruko nahi hai abhi, bas file dikhao aur baat karo.” I gesture vaguely towards the inner office with a thumb and turn back to my logbook.",
+   "present": [
+    "the guard at the library"
+   ],
+   "decision": {
+    "thought": "The guard gestures toward the inner office with the casual authority of a man who has seen a thousand files pass through his hands. I am tired, but the bureaucracy is the skeleton of the state; if I do not address this query, the mistake will calcify into a permanent obstruction. I must speak to the officer directly to clear the air, or rather, to clear the file.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 15,
+    "says": "Thank you. I will proceed to the desk to speak with the officer regarding the identity query.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, clear, hazy. Air quality index: 178."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Haan, haan, aage badhiye. Bas light wahan thodi dim hai, dhyan se chaliye.",
+    "does": "The guard taps the logbook with a pen and watches him walk away."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "id": "dyde-right:740"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "text": "This may all the more easily happen, the more trivial from the universal side of the state is the mismanaged affair, especially when the mismanagement stands of itself in direct relation to the satisfaction and opinion, which are derived from it. In the business of the executive also there is a division of labour (§ 198)."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -3935,7 +4038,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-23T20:42+05:30",
+  "until": "2026-11-23T20:57+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "bandhgala",
@@ -4396,7 +4499,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "63fb4b7e149a3e9a3a05ed6142f9fbfc89c0273836567e786225555543bfaee1",
+  "source_sha256": "d477109de7fba96f160418a5eca4ca33c5d78c9029b5f6344b1052c8f977ef7a",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -5475,6 +5578,36 @@
     "words": "Saab, desk thodi door hai, seedha wahan jao. Koi ruko nahi hai abhi, bas file dikhao aur baat karo.",
     "verified": false,
     "time": "20:27",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-23:statement:04549199feaf7c18:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 108,
+     "sha256": "04549199feaf7c18a8dff3f75fef3f37ab5d85e3d8a8c7c1e0b0f59855aca1ae"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library",
+    "words": "Thank you. I will proceed to the desk to speak with the officer regarding the identity query.",
+    "verified": false,
+    "time": "20:42",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-23:statement:50f6cf0f8fd4d4f7:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 109,
+     "sha256": "50f6cf0f8fd4d4f70f4cfe33f213233cfced5bd3a5dbd994039924baa66eb2fa"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Haan, haan, aage badhiye. Bas light wahan thodi dim hai, dhyan se chaliye.",
+    "verified": false,
+    "time": "20:42",
     "place": "iic"
    },
    {
@@ -6854,68 +6987,98 @@
     "text": "Weather: 18 °C, clear, hazy. Air quality index: 178."
    },
    {
-    "id": "2026-11-23:event:88c43c3bf2999f6e:1",
+    "id": "2026-11-23:event:ae169db7c8882f8a:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 35,
+     "sha256": "ae169db7c8882f8a0f839d3856e3277ea323037eb7a6db40958c2fc9bce3ed00"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "20:42",
+    "end": "20:57",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-23:event:60ec99158d6d8215:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      35,
+      0
+     ],
+     "sha256": "60ec99158d6d8215c50933c6295c9ee425f75fbbe605eb1fee4d9819afad6987"
+    },
+    "type": "observation",
+    "time": "20:42",
+    "place": "iic",
+    "text": "Weather: 18 °C, clear, hazy. Air quality index: 178."
+   },
+   {
+    "id": "2026-11-23:event:f2824ac6e2739fb5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "88c43c3bf2999f6e638c90d44fd0729b6f291c2b618db5f1506903ea21dcc822"
+     "sha256": "f2824ac6e2739fb525b458f1870d9c75173f09dc95aa7c977ea2d7f5414b192f"
     },
     "type": "cash",
-    "time": "20:42",
+    "time": "20:57",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:a65f491026d45126:1",
+    "id": "2026-11-23:event:f8a2a524e1eb3c82:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "a65f491026d45126370d85891f83aacbba1b3df57ca97f5b02f2ad4b3021462e"
+     "sha256": "f8a2a524e1eb3c8246ddc695de4527691ec63579dd65133f12c5742026a0c6f4"
     },
     "type": "location",
-    "time": "20:42",
+    "time": "20:57",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:95d1aad89db2e84b:1",
+    "id": "2026-11-23:event:36b9dab9f2f900ed:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "95d1aad89db2e84b11ee269352758caa92c83a66e433fea28a32296be8e67449"
+     "sha256": "36b9dab9f2f900ed7b3034693ebab6ac40c695457bfcd8fed1242789687c7a85"
     },
     "type": "inventory",
-    "time": "20:42",
+    "time": "20:57",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:bd6774bf4a366d32:1",
+    "id": "2026-11-23:event:e33451cb3d19263d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "bd6774bf4a366d32168aebc99abd713baf36f4aa2f3e8c882b8795d0d5f5ed0d"
+     "sha256": "e33451cb3d19263da0fb8a4446546fc5f962b9805de673ce48e335b7affd1a43"
     },
     "type": "inventory",
-    "time": "20:42",
+    "time": "20:57",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 18:55.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 18:55.\"}]"
    },
    {
-    "id": "2026-11-23:event:093d88cfe664fdc4:1",
+    "id": "2026-11-23:event:984dad5637e39fea:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "093d88cfe664fdc453ed4a883dbec3b12163f0cb6a3f9f1d5fffb86feb66e927"
+     "sha256": "984dad5637e39fea6521e07ba004bc7928bb45dd1994534c6a059c784cd2b185"
     },
     "type": "inventory",
-    "time": "20:42",
+    "time": "20:57",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -6934,7 +7097,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "20:42",
+    "time": "20:57",
     "place": null
    }
   ]
