@@ -15,145 +15,145 @@
     "temp": 16,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 300
+    "aqi": 295
    },
    {
     "temp": 16,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 284
+    "aqi": 277
    },
    {
     "temp": 15,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 270
+    "aqi": 263
    },
    {
     "temp": 15,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 258
+    "aqi": 252
    },
    {
     "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 249
+    "aqi": 243
    },
    {
     "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 242
+    "aqi": 236
    },
    {
     "temp": 13,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 234
+    "aqi": 230
    },
    {
     "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 225
+    "aqi": 224
    },
    {
     "temp": 15,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 217
+    "aqi": 219
    },
    {
     "temp": 17,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 211
+    "aqi": 216
    },
    {
     "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 207
+    "aqi": 214
    },
    {
     "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 205
+    "aqi": 214
    },
    {
     "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 203
+    "aqi": 212
    },
    {
     "temp": 23,
-    "sky": "clear, hazy",
+    "sky": "a brown haze",
     "rain": 0,
-    "aqi": 199
+    "aqi": 208
    },
    {
     "temp": 24,
-    "sky": "clear, hazy",
+    "sky": "a brown haze",
     "rain": 0,
-    "aqi": 195
+    "aqi": 204
    },
    {
     "temp": 24,
-    "sky": "clear, hazy",
+    "sky": "a brown haze",
     "rain": 0,
-    "aqi": 190
+    "aqi": 201
    },
    {
     "temp": 22,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 186
+    "aqi": 197
    },
    {
     "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 182
+    "aqi": 193
    },
    {
     "temp": 19,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 176
+    "aqi": 188
    },
    {
     "temp": 19,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 170
+    "aqi": 183
    },
    {
     "temp": 18,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 165
+    "aqi": 178
    },
    {
     "temp": 17,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 160
+    "aqi": 173
    },
    {
     "temp": 17,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 155
+    "aqi": 170
    },
    {
     "temp": 16,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 150
+    "aqi": 165
    }
   ]
  },
@@ -325,6 +325,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Reading at home."
+  },
+  {
+   "from": "12:13",
+   "to": "12:28",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -608,6 +615,37 @@
    "status": "Worn from 11:13.",
    "sprite": "kurta",
    "t": "11:13",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The haze still presses against the glass, a brown lid sealing the city in. I have been reading the Philosophy of Right, but the air is too thick for deep thought now. It is past twelve, and the heat is beginning to rise despite the low temperature reading. I should wait for the lunch service at thirteen, but first I must address the file query with Ramesh, as planned earlier, to ensure the Directorate does not find fault with my 'identity'.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202"
+    }
+   ],
+   "t": "12:13",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, the Directorate returned my file with a query regarding proof of identity as Shri G. Hegde. Do you have the original allotment letter or any document from the Estates office that confirms this specific name, not just my own? I need to show them something that bridges the gap between Hegel and Hegde before they decide I am a ghost or a fraud.",
+   "to": "Ramesh",
+   "t": "12:13",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, I keep the keys and the tea, not the files. The allotment letter was with the last gentleman; I only saw the name 'Hegel' on the doorplate. You must check the Estates office yourself.",
+   "t": "12:13",
    "place": "home"
   }
  ],
@@ -1075,6 +1113,70 @@
      "text": "With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state. The government has, up till now, shown such confidence in the scholars in this department as to leave the subject matter of philosophy wholly in their hands."
     }
    ]
+  },
+  {
+   "t": "12:13",
+   "end": "12:28",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The haze still presses against the glass, a brown lid sealing the city in. I have been reading the Philosophy of Right, but the air is too thick for deep thought now. It is past twelve, and the heat is beginning to rise despite the low temperature reading. I should wait for the lunch service at thirteen, but first I must address the file query with Ramesh, as planned earlier, to ensure the Directorate does not find fault with my 'identity'.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, the Directorate returned my file with a query regarding proof of identity as Shri G. Hegde. Do you have the original allotment letter or any document from the Estates office that confirms this specific name, not just my own? I need to show them something that bridges the gap between Hegel and Hegde before they decide I am a ghost or a fraud.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 212.",
+    "Nothing in particular happens. The afternoon goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Sir, I keep the keys and the tea, not the files. The allotment letter was with the last gentleman; I only saw the name 'Hegel' on the doorplate. You must check the Estates office yourself.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 13.5,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202",
+     "id": "dyde-right:486"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202",
+     "id": "dyde-right:483"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202",
+     "text": "For that which it produces and enjoys it has to thank mainly its own activity. — Its field of action is again divided into three parts: — (i.) Labour for individual wants of the more concrete kind, and at the request of particular persons. This is manual labour, or the work: of single artisans, (ii.)"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202",
+     "text": "The soil is capable of being an exclusive, private possession, and demands not merely the taking from it what it bears naturally, but an objective working up. Since the returns of labour depend on the seasons, and harvests are influenced by variable weather and other natural conditions, provision for wants must take account of the future."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1082,7 +1184,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-23T12:13+05:30",
+  "until": "2026-11-23T12:28+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "kurta",
@@ -1536,7 +1638,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "2cf877eaaa2692e95b0b792b9b25e91859b26b2af46e053fcb887acab40a4957",
+  "source_sha256": "b3b67b265d2b67a5066f8a1f90c8db11eb9ff8c7fb782e6acbe5c603c5bb4fd9",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1824,6 +1926,36 @@
     "status": "Worn from 11:13.",
     "gone": false,
     "time": "11:13",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:statement:a3f17c5ad492dcea:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 27,
+     "sha256": "a3f17c5ad492dcea2944bd7a5330282334f38b9998a5b4f165523bbde1b2df1c"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, the Directorate returned my file with a query regarding proof of identity as Shri G. Hegde. Do you have the original allotment letter or any document from the Estates office that confirms this specific name, not just my own? I need to show them something that bridges the gap between Hegel and Hegde before they decide I am a ghost or a fraud.",
+    "verified": false,
+    "time": "12:13",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:statement:6d78ff50bdeeb2b0:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 28,
+     "sha256": "6d78ff50bdeeb2b0c295e4ded5353b47decb6929b328e433a05320b2f0452cd3"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Sir, I keep the keys and the tea, not the files. The allotment letter was with the last gentleman; I only saw the name 'Hegel' on the doorplate. You must check the Estates office yourself.",
+    "verified": false,
+    "time": "12:13",
     "place": "home"
    },
    {
@@ -2245,68 +2377,114 @@
     "text": "Nothing in particular happens. The morning goes on."
    },
    {
-    "id": "2026-11-23:event:0f32f075559db369:1",
+    "id": "2026-11-23:event:b4e4ec84d2984427:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 7,
+     "sha256": "b4e4ec84d2984427d0fb2f849893a46709fc5db7048f55336f61f5c783b798d0"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "12:13",
+    "end": "12:28",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:event:7d2bb55ca61db591:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      7,
+      0
+     ],
+     "sha256": "7d2bb55ca61db5913c59f5f4f5d35aa47dff14a2d813591fa562b2b8ff35a597"
+    },
+    "type": "observation",
+    "time": "12:13",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 212."
+   },
+   {
+    "id": "2026-11-23:event:a77f13cd004dc58e:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      7,
+      1
+     ],
+     "sha256": "a77f13cd004dc58e92ee3fd09257ac61887e5229b3f41685577fbace3df64cce"
+    },
+    "type": "observation",
+    "time": "12:13",
+    "place": "home",
+    "text": "Nothing in particular happens. The afternoon goes on."
+   },
+   {
+    "id": "2026-11-23:event:3a535d70342f65b9:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "0f32f075559db3693da84ffeb2495dbbf20103a53a27e760986d1b95a90ea5cd"
+     "sha256": "3a535d70342f65b92bcf87e47db38b32729381e3f0d84006b31d915111f3688b"
     },
     "type": "cash",
-    "time": "12:13",
+    "time": "12:28",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:1f201ab56ff2b539:1",
+    "id": "2026-11-23:event:ae8f3c32de57503d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "1f201ab56ff2b53966ea22734f6c8501a4740d7f22dced55cac2b60cf4859714"
+     "sha256": "ae8f3c32de57503d2f3b322582358ef6900b8bb1c9bae283a68dcc2b115e4ac4"
     },
     "type": "location",
-    "time": "12:13",
+    "time": "12:28",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:47a6e7c98e24fa7b:1",
+    "id": "2026-11-23:event:8c01cd1b57000d42:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "47a6e7c98e24fa7b8fd6ef73670afb51eaeeac0a6659b30f350dfc38634ad18f"
+     "sha256": "8c01cd1b57000d42940ddf7a0f95ee7dde28d4cd0f135cb68c826961594f1a45"
     },
     "type": "inventory",
-    "time": "12:13",
+    "time": "12:28",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-23:event:7ab919cbd89af6db:1",
+    "id": "2026-11-23:event:965bfcadb1aa6706:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "7ab919cbd89af6db4de0be95432fb753a39973514625425e9f119a302ae44a27"
+     "sha256": "965bfcadb1aa67065651a76dd45d615526c93bfabc670814028f9bac85d1183d"
     },
     "type": "inventory",
-    "time": "12:13",
+    "time": "12:28",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:13.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 11:13.\"}]"
    },
    {
-    "id": "2026-11-23:event:ceda747b091c3a10:1",
+    "id": "2026-11-23:event:0969ab9923bca9b2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "ceda747b091c3a10d69c100274b2cf61459863fc6a3bee8f78cc0e6c17688890"
+     "sha256": "0969ab9923bca9b2e29a5b6b7e2352f0fe0417b0fce14173a39580f3aa84cf3e"
     },
     "type": "inventory",
-    "time": "12:13",
+    "time": "12:28",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2325,7 +2503,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "12:13",
+    "time": "12:28",
     "place": null
    }
   ]
