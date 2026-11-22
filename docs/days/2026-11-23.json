@@ -12,7 +12,7 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 17,
+    "temp": 16,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 300
@@ -24,7 +24,7 @@
     "aqi": 284
    },
    {
-    "temp": 16,
+    "temp": 15,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 270
@@ -36,7 +36,7 @@
     "aqi": 258
    },
    {
-    "temp": 15,
+    "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 249
@@ -48,7 +48,7 @@
     "aqi": 242
    },
    {
-    "temp": 14,
+    "temp": 13,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 234
@@ -60,19 +60,19 @@
     "aqi": 225
    },
    {
-    "temp": 16,
+    "temp": 15,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 217
    },
    {
-    "temp": 18,
+    "temp": 17,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 211
    },
    {
-    "temp": 20,
+    "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 207
@@ -84,13 +84,13 @@
     "aqi": 205
    },
    {
-    "temp": 23,
+    "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 203
    },
    {
-    "temp": 24,
+    "temp": 23,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 199
@@ -108,7 +108,7 @@
     "aqi": 190
    },
    {
-    "temp": 23,
+    "temp": 22,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 186
@@ -120,7 +120,7 @@
     "aqi": 182
    },
    {
-    "temp": 20,
+    "temp": 19,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 176
@@ -138,7 +138,7 @@
     "aqi": 165
    },
    {
-    "temp": 18,
+    "temp": 17,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 160
@@ -276,17 +276,161 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "09:11",
+   "to": "09:26",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
- "entries": [],
- "steps": [],
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Hemant Soren writes to CJI to urgently appoint Jharkhand HC Chief Justice successor” · “Strained ties, visits and a meet in August: How Nepal came around, planned Balen Shah visit” · “Man sentenced to 10 year rigorous imprisonment for raping home-alone woman”",
+   "t": "09:11",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "Today's listings: 18:30 at the Habitat Centre: a recital of Hindustani vocal music, raga Yaman, free.",
+   "t": "09:11",
+   "place": "home"
+  },
+  {
+   "k": "plan",
+   "items": [
+    {
+     "time": "09:15",
+     "intention": "Speak to Ramesh regarding the identity query and breakfast."
+    },
+    {
+     "time": "10:00",
+     "intention": "Walk to the Directorate to address the file query."
+    },
+    {
+     "time": "14:00",
+     "intention": "Return home to rest and prepare for the evening talk."
+    },
+    {
+     "time": "18:30",
+     "intention": "Attend the IIC talk on the state and freedom."
+    }
+   ],
+   "t": "09:11"
+  },
+  {
+   "k": "diary",
+   "text": "The brown haze again, a lid on the city. Ramesh stands with the papers, and the query from the Directorate is a knot that must be untied before I can walk. I am not Hegde, but the file says I am, and the state demands proof of a fiction. I will eat first; the body requires its universal support before the spirit can engage in the particular absurdity of bureaucratic identity.",
+   "shelf": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Artistic Beauty, The End of Art"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§224"
+    }
+   ],
+   "t": "09:11",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, bring the breakfast. And set aside the file regarding the identity query; I must address it at the Directorate before the heat settles. Do I look like a Joint Secretary, or merely a man in a white kurta?",
+   "to": "Ramesh",
+   "t": "09:11",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Breakfast is already on the verandah, sir, just as I left it. I don't know what a Joint Secretary looks like, but that file is in the drawer, ready when you are.",
+   "t": "09:11",
+   "place": "home"
+  }
+ ],
+ "steps": [
+  {
+   "t": "09:11",
+   "end": "09:26",
+   "event": "You wake. A brown haze, 17 °C. Ramesh has left the papers on the verandah. Headlines: Hemant Soren writes to CJI to urgently appoint Jharkhand HC Chief Justice successor; Strained ties, visits and a meet in August: How Nepal came around, planned Balen Shah visit; Man sentenced to 10 year rigorous imprisonment for raping home-alone woman. Today's listings: 18:30 at the Habitat Centre: a recital of Hindustani vocal music, raga Yaman, free. Ramesh is here.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The brown haze again, a lid on the city. Ramesh stands with the papers, and the query from the Directorate is a knot that must be untied before I can walk. I am not Hegde, but the file says I am, and the state demands proof of a fiction. I will eat first; the body requires its universal support before the spirit can engage in the particular absurdity of bureaucratic identity.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, bring the breakfast. And set aside the file regarding the identity query; I must address it at the Directorate before the heat settles. Do I look like a Joint Secretary, or merely a man in a white kurta?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 17 °C, a brown haze. Air quality index: 211.",
+    "You wake. A brown haze, 17 °C. Ramesh has left the papers on the verandah. Headlines: Hemant Soren writes to CJI to urgently appoint Jharkhand HC Chief Justice successor; Strained ties, visits and a meet in August: How Nepal came around, planned Balen Shah visit; Man sentenced to 10 year rigorous imprisonment for raping home-alone woman.",
+    "Today's listings: 18:30 at the Habitat Centre: a recital of Hindustani vocal music, raga Yaman, free.",
+    "Ramesh is here."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "papers",
+    "listings",
+    "here"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Breakfast is already on the verandah, sir, just as I left it. I don't know what a Joint Secretary looks like, but that file is in the drawer, ready when you are.",
+    "does": "He gestures with a hand toward the tray of idlis and chutney sitting on the wooden table."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 16.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Artistic Beauty, The End of Art",
+     "id": "bosanquet-art:147"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§224",
+     "id": "rechts:490"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Artistic Beauty, The End of Art",
+     "text": "We then recognize in it nothing but a conjuring trick, neither the free production of nature, nor a work of art; for we expect from the free productive capacity of human beings something quite other than such music as this, which only interests us when, as is the case with the nightingale's note, it gushes forth from the creature's own vitality without special purpose…"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§224",
+     "text": "Deliberationen der Mitglieder des Gerichts über das zu fällende Urteil unter sich sind Äußerungen der noch besonderen Meinungen und Ansichten, also ihrer Natur nach nichts öffentliches."
+    }
+   ]
+  }
+ ],
  "funnel": {},
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-23T09:11+05:30",
-  "asleep": true,
+  "until": "2026-11-23T09:26+05:30",
+  "asleep": false,
   "imprest": 16416,
   "wearing": "kurta",
   "wardrobe": [
@@ -368,7 +512,14 @@
    }
   ],
   "depesche_n": 4,
-  "today": {},
+  "today": {
+   "woke": "09:11",
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -442,7 +593,8 @@
     "2026-11-19",
     "2026-11-20",
     "2026-11-21",
-    "2026-11-22"
+    "2026-11-22",
+    "2026-11-23"
    ],
    "lodhi": [
     "2026-10-02",
@@ -549,7 +701,8 @@
     "2026-11-16",
     "2026-11-19",
     "2026-11-21",
-    "2026-11-22"
+    "2026-11-22",
+    "2026-11-23"
    ],
    "malhotra": [
     "2026-10-02",
@@ -750,73 +903,267 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "1ce98a052047d4fd073391d9d028656ef5dceaf02b22a5ba085c5ffe754d85ba",
+  "source_sha256": "65811fe7cc83a5b819c9f46e9296edbe7bb1480e11ec0db51bc19bab3603b372",
   "complete": false,
   "steps_present": true,
   "records": [
    {
-    "id": "2026-11-23:event:3dcbb3ca784490e9:1",
+    "id": "2026-11-23:event:15effc6e6a80ea33:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 0,
+     "sha256": "15effc6e6a80ea3309bff94cb0ee60b08c078ae925738ef4bada2853bf1eb81f"
+    },
+    "type": "world",
+    "text": "Morning papers: “Hemant Soren writes to CJI to urgently appoint Jharkhand HC Chief Justice successor” · “Strained ties, visits and a meet in August: How Nepal came around, planned Balen Shah visit” · “Man sentenced to 10 year rigorous imprisonment for raping home-alone woman”",
+    "time": "09:11",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:event:6967eb70994f77a9:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 1,
+     "sha256": "6967eb70994f77a94da6d3ca25e3a1eaa1542ad0016083d10bd748328e0af1c4"
+    },
+    "type": "world",
+    "text": "Today's listings: 18:30 at the Habitat Centre: a recital of Hindustani vocal music, raga Yaman, free.",
+    "time": "09:11",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:statement:bfa697b4c3e1baa9:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 4,
+     "sha256": "bfa697b4c3e1baa97dcc133ec8688de71c671dbee7916e7f1d8656c7e0feae96"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, bring the breakfast. And set aside the file regarding the identity query; I must address it at the Directorate before the heat settles. Do I look like a Joint Secretary, or merely a man in a white kurta?",
+    "verified": false,
+    "time": "09:11",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:statement:7b8f6825898889af:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 5,
+     "sha256": "7b8f6825898889af288978a96a431e8ebfcf159e9ea2f67e54aacfb4d5f1f7a8"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Breakfast is already on the verandah, sir, just as I left it. I don't know what a Joint Secretary looks like, but that file is in the drawer, ready when you are.",
+    "verified": false,
+    "time": "09:11",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:event:357a6d7340019a11:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 0,
+     "sha256": "357a6d7340019a11d71bd403972cd3419c78added23bff8b7240842b330d71a2"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:11",
+    "intended_time": "09:15",
+    "place": null,
+    "text": "Speak to Ramesh regarding the identity query and breakfast."
+   },
+   {
+    "id": "2026-11-23:event:cb3e38daa837476b:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 1,
+     "sha256": "cb3e38daa837476b392a3ac7a8e428a40a44f15acf8c437dca3bffc56d04575b"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:11",
+    "intended_time": "10:00",
+    "place": null,
+    "text": "Walk to the Directorate to address the file query."
+   },
+   {
+    "id": "2026-11-23:event:47adff497558e40f:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 2,
+     "sha256": "47adff497558e40f7d9b555ec772fc76e2827a641030dd33b4cab28e1a61fdfd"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:11",
+    "intended_time": "14:00",
+    "place": null,
+    "text": "Return home to rest and prepare for the evening talk."
+   },
+   {
+    "id": "2026-11-23:event:5d5a5373757b9a32:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 3,
+     "sha256": "5d5a5373757b9a3220731a7123fa7c1271bb3e626097abade11e9e9323077bee"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:11",
+    "intended_time": "18:30",
+    "place": null,
+    "text": "Attend the IIC talk on the state and freedom."
+   },
+   {
+    "id": "2026-11-23:event:84cddff424c84978:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 0,
+     "sha256": "84cddff424c84978938f8fbd013ceae55d5d06bcd5451e042be22a13ae8dadeb"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "09:11",
+    "end": "09:26",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:event:abc83d122288c863:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      0
+     ],
+     "sha256": "abc83d122288c8631199ee8dbce054e2146773455ef40592cb4c236302842397"
+    },
+    "type": "observation",
+    "time": "09:11",
+    "place": "home",
+    "text": "Weather: 17 °C, a brown haze. Air quality index: 211."
+   },
+   {
+    "id": "2026-11-23:event:a738bef8a07c19d5:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      1
+     ],
+     "sha256": "a738bef8a07c19d5ed0b877d1e73a9a9e424a8786020bf20c4c6eda5f393d4ce"
+    },
+    "type": "observation",
+    "time": "09:11",
+    "place": "home",
+    "text": "You wake. A brown haze, 17 °C. Ramesh has left the papers on the verandah. Headlines: Hemant Soren writes to CJI to urgently appoint Jharkhand HC Chief Justice successor; Strained ties, visits and a meet in August: How Nepal came around, planned Balen Shah visit; Man sentenced to 10 year rigorous imprisonment for raping home-alone woman."
+   },
+   {
+    "id": "2026-11-23:event:c8c089a456b01768:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      2
+     ],
+     "sha256": "c8c089a456b017689b6c40826d0ee6862d412a9cb6bf6a7bfcee3e073ccb3e1f"
+    },
+    "type": "observation",
+    "time": "09:11",
+    "place": "home",
+    "text": "Today's listings: 18:30 at the Habitat Centre: a recital of Hindustani vocal music, raga Yaman, free."
+   },
+   {
+    "id": "2026-11-23:event:7484978535b3016a:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      3
+     ],
+     "sha256": "7484978535b3016a1b3d5eed5ad84ca87ae93f3f2d90914df6d3ff88b95c2cbd"
+    },
+    "type": "observation",
+    "time": "09:11",
+    "place": "home",
+    "text": "Ramesh is here."
+   },
+   {
+    "id": "2026-11-23:event:c99f854b4379a8bc:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "3dcbb3ca784490e9dfb86660084ce48c71f421279b4d4810a186a39255f2eab2"
+     "sha256": "c99f854b4379a8bc807bc6062eea19413402c538da98bccd7df2ca8c11a423e0"
     },
     "type": "cash",
-    "time": "09:11",
+    "time": "09:26",
     "amount": 16416,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:d87877896e5ba6e5:1",
+    "id": "2026-11-23:event:67dcc136f1b40b17:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "d87877896e5ba6e582d6e0b93a441fd8a20d9dfb8681db6c30f8917f44894907"
+     "sha256": "67dcc136f1b40b17345a37dfc9cc1cd0667983b1cecc9e1c41e0cce59ab515eb"
     },
     "type": "location",
-    "time": "09:11",
+    "time": "09:26",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:dc2ff30424c29d56:1",
+    "id": "2026-11-23:event:40d8f2357e066e65:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "dc2ff30424c29d56dca04d4927aa038877b8d269831e2b08effbfcaaef4034f9"
+     "sha256": "40d8f2357e066e651a41d65062caf1bece34749383e4adc02440f50c3eb8b896"
     },
     "type": "inventory",
-    "time": "09:11",
+    "time": "09:26",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-23:event:aed2387ea23f3e8e:1",
+    "id": "2026-11-23:event:b8505713846a2066:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "aed2387ea23f3e8e50406d0a4df57c2659bbd0c8e3e1fe507bec605e8eb7a685"
+     "sha256": "b8505713846a20661f8cc96b3216ba5ce344d4a2a17e37588bf830277ae63c5c"
     },
     "type": "inventory",
-    "time": "09:11",
+    "time": "09:26",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 18:49.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 18:49.\"}]"
    },
    {
-    "id": "2026-11-23:event:1a71422809d0603a:1",
+    "id": "2026-11-23:event:bb5f19a62b503956:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "1a71422809d0603ab5729e67a3b7350c8973fe00200baabbf0e4528c2583001a"
+     "sha256": "bb5f19a62b5039562de102a3693c81d40d855c5372cc6b11b90c095a4b343a2b"
     },
     "type": "inventory",
-    "time": "09:11",
+    "time": "09:26",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -835,8 +1182,29 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "09:11",
+    "time": "09:26",
     "place": null
+   }
+  ]
+ },
+ "plan": {
+  "written": "09:11",
+  "items": [
+   {
+    "time": "09:15",
+    "intention": "Speak to Ramesh regarding the identity query and breakfast."
+   },
+   {
+    "time": "10:00",
+    "intention": "Walk to the Directorate to address the file query."
+   },
+   {
+    "time": "14:00",
+    "intention": "Return home to rest and prepare for the evening talk."
+   },
+   {
+    "time": "18:30",
+    "intention": "Attend the IIC talk on the state and freedom."
    }
   ]
  }
