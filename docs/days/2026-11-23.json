@@ -479,6 +479,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "18:55",
+   "to": "19:17",
+   "mode": "walk",
+   "a": "home",
+   "b": "iic"
   }
  ],
  "entries": [
@@ -1415,6 +1422,45 @@
     }
    ],
    "t": "17:55",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The haze is thick at 18:55, but I have a talk at the IIC at 18:30. I am already late. I must leave this house immediately to make up the time, for a man who is late to his own convictions is late to the truth. Ramesh, I must go.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§324"
+    }
+   ],
+   "t": "18:55",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, I must depart at once. I am behind schedule for the evening assembly.",
+   "to": "Ramesh",
+   "t": "18:55",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, I am just finishing the tea; it will be ready in a moment. Do you need me to call an auto for you?",
+   "t": "18:55",
+   "place": "home"
+  },
+  {
+   "k": "wear",
+   "item": "Bandhgala, charcoal",
+   "status": "Worn from 18:55.",
+   "sprite": "bandhgala",
+   "t": "18:55",
    "place": "home"
   }
  ],
@@ -3294,17 +3340,82 @@
      "text": "With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state. The government has, up till now, shown such confidence in the scholars in this department as to leave the subject matter of philosophy wholly in their hands."
     }
    ]
+  },
+  {
+   "t": "18:55",
+   "end": "19:17",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The haze is thick at 18:55, but I have a talk at the IIC at 18:30. I am already late. I must leave this house immediately to make up the time, for a man who is late to his own convictions is late to the truth. Ramesh, I must go.",
+    "action": "walk",
+    "place": "iic",
+    "minutes": 20,
+    "says": "Ramesh, I must depart at once. I am behind schedule for the evening assembly.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "iic",
+   "observations": [
+    "Weather: 19 °C, clear, hazy. Air quality index: 188.",
+    "Nothing in particular happens. The evening goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Sir, I am just finishing the tea; it will be ready in a moment. Do you need me to call an auto for you?",
+    "does": "He sets down the teapot and checks the time on the wall clock."
+   },
+   "left": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:641"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§324",
+     "id": "dyde-right:819"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "So far as the ecclesiastical body owns property, performs overt acts of worship, and maintains individuals for this service, it leaves the inner realm and enters that of the world. Hence it places itself directly under the jurisdiction of the state."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§324",
+     "text": "So, too, peoples, who have been unwilling or afraid to endure internal sovereignty, have been subjugated by others, and in their struggles for independence have had honour and success small in proportion to their failure to establish within themselves a central political power; their freedom died through their fear of its dying."
+    }
+   ]
   }
  ],
  "funnel": {},
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-23T18:55+05:30",
+  "place": "iic",
+  "until": "2026-11-23T19:17+05:30",
   "asleep": false,
   "imprest": 15456,
-  "wearing": "kurta",
+  "wearing": "bandhgala",
   "wardrobe": [
    {
     "id": "frock",
@@ -3324,12 +3435,12 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Worn from 15:10."
+    "status": "Taken off at 18:55."
    },
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Taken off at 15:10."
+    "status": "Worn from 18:55."
    }
   ],
   "people": [
@@ -3395,8 +3506,8 @@
     ]
    },
    "breakfast": true,
-   "walked": 7800,
-   "strain": 7800,
+   "walked": 9450,
+   "strain": 9450,
    "tea": true
   },
   "account": {
@@ -3757,7 +3868,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "5a8f6356bad148d4363c1b0b2be9d7fe4907ef784c8d24700b4500948853baca",
+  "source_sha256": "11db06d2c260cf8cd8efe7ea4306aa632a78de089c8202b236c2a3f95e550375",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4641,6 +4752,51 @@
     "words": "Of course, sir. The bed is made and the fan is on low. Just rest, I won't disturb you until dinner time.",
     "verified": false,
     "time": "16:55",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:statement:1ef97e0a0dc084a1:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 89,
+     "sha256": "1ef97e0a0dc084a188a372ba6833e25653098acdd3ab0f60a21cc9df18124f0e"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, I must depart at once. I am behind schedule for the evening assembly.",
+    "verified": false,
+    "time": "18:55",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:statement:35efd920ecb89908:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 90,
+     "sha256": "35efd920ecb89908bcc59f0d70ec364c63c4ec2656070234079b442828cb6fcc"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Sir, I am just finishing the tea; it will be ready in a moment. Do you need me to call an auto for you?",
+    "verified": false,
+    "time": "18:55",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:event:cd32e2bfdee6b775:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 91,
+     "sha256": "cd32e2bfdee6b775cac2051b6a625e8bef5cc3d345716b06992929a948261238"
+    },
+    "type": "wear",
+    "item": "Bandhgala, charcoal",
+    "status": "Worn from 18:55.",
+    "gone": false,
+    "time": "18:55",
     "place": "home"
    },
    {
@@ -5806,68 +5962,116 @@
     "text": "Weather: 20 °C, clear, hazy. Air quality index: 193."
    },
    {
-    "id": "2026-11-23:event:30aa23a5a7bd68ac:1",
+    "id": "2026-11-23:event:dc0213e14edc8cc2:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 29,
+     "sha256": "dc0213e14edc8cc267ff9dbd7eac544893037521d723934da6453bc55d8103ad"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "18:55",
+    "end": "19:17",
+    "place": null,
+    "origin": "home",
+    "destination": "iic"
+   },
+   {
+    "id": "2026-11-23:event:a27a84f6370938f4:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      29,
+      0
+     ],
+     "sha256": "a27a84f6370938f43b86839ed2754affb77b5a7da6baa76fc302ec030a0a03a4"
+    },
+    "type": "observation",
+    "time": "18:55",
+    "place": "home",
+    "text": "Weather: 19 °C, clear, hazy. Air quality index: 188."
+   },
+   {
+    "id": "2026-11-23:event:f0883d583a8f0cb4:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      29,
+      1
+     ],
+     "sha256": "f0883d583a8f0cb4f513e9e7918f61a4da92f5f5c5ffd125af87394140064d60"
+    },
+    "type": "observation",
+    "time": "18:55",
+    "place": "home",
+    "text": "Nothing in particular happens. The evening goes on."
+   },
+   {
+    "id": "2026-11-23:event:d7d471eb7d82488d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "30aa23a5a7bd68acef1e9a7031f1f5f3449299fff5c03d25e582272b00eb28b2"
+     "sha256": "d7d471eb7d82488dfaf74625944e4d99530bb987d61224c9d2609f131280aa56"
     },
     "type": "cash",
-    "time": "18:55",
+    "time": "19:17",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:775b51fa5823ec7c:1",
+    "id": "2026-11-23:event:1f9d9fd2e9aa3a7d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "775b51fa5823ec7cf1cfd6c4e2ff071336b8efdb70eef3ba370d6ee540a520db"
+     "sha256": "1f9d9fd2e9aa3a7d824369409d7c7eacbbd7a0204979081321d2ed4ef80312b1"
     },
     "type": "location",
-    "time": "18:55",
-    "place": "home",
+    "time": "19:17",
+    "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:be4f9a88950537a8:1",
+    "id": "2026-11-23:event:4586168da4d8d54c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "be4f9a88950537a8fa75a4988e3bc636e01f6257bb43094faa5da750859a1dbc"
+     "sha256": "4586168da4d8d54c0369d53dbf8cce6d5ab1b0e2341063b4355674c326619694"
     },
     "type": "inventory",
-    "time": "18:55",
+    "time": "19:17",
     "place": null,
-    "text": "Recorded wearing at this horizon only: \"kurta\""
+    "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:141277fc1d1c6d5a:1",
+    "id": "2026-11-23:event:bd7ba9aae8c44335:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "141277fc1d1c6d5adf94a4f65b5b4be779b956584d240b41a487c36ba4666fa4"
+     "sha256": "bd7ba9aae8c44335a362cf176a9501659956fcefd707c72490f8aafa592ac0a6"
     },
     "type": "inventory",
-    "time": "18:55",
+    "time": "19:17",
     "place": null,
-    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 15:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 15:10.\"}]"
+    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 18:55.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 18:55.\"}]"
    },
    {
-    "id": "2026-11-23:event:16b7859569d56bad:1",
+    "id": "2026-11-23:event:5feac76eb4945448:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "16b7859569d56bad679e8e9ea470f699c85ee6729871ec7911090a8b4f9b3f66"
+     "sha256": "5feac76eb4945448cee43639a9069f88c7c478ad2cd136774112166440f67883"
     },
     "type": "inventory",
-    "time": "18:55",
+    "time": "19:17",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -5886,7 +6090,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "18:55",
+    "time": "19:17",
     "place": null
    }
   ]
