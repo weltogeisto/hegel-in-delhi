@@ -430,6 +430,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "14:44",
+   "to": "15:10",
+   "mode": "walk",
+   "a": "estates",
+   "b": "home"
   }
  ],
  "entries": [
@@ -1186,6 +1193,22 @@
    "to": "Hegel",
    "text": "Fine. Go, then. And mind the door latch; it sticks if you don't push hard.",
    "t": "14:39",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "The latch sticks because the wood has swollen in the humidity, a small physical resistance to the flow of affairs. I will push hard as instructed, not out of obedience to a clerk, but because the door must yield. I have rested long enough; the heat is rising, and my mind requires the movement of air and the structure of a walk to prepare for the evening's discourse on the state.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§398"
+    }
+   ],
+   "t": "14:44",
    "place": "estates"
   }
  ],
@@ -2629,14 +2652,74 @@
      "text": "Was sich wirklich im Staate geltend macht, muß sich freilich auf organische Weise betätigen, und dies ist in der Verfassung der Fall. Aber zu allen Zeiten war die öffentliche Meinung eine große Macht und ist es besonders in unserer Zeit, wo das Prinzip der subjektiven Freiheit diese Wichtigkeit und Bedeutung hat."
     }
    ]
+  },
+  {
+   "t": "14:44",
+   "end": "15:10",
+   "event": "Mr. Saxena says: “Fine. Go, then. And mind the door latch; it sticks if you don't push hard.” He picks up the steel tumbler and takes a sip of lukewarm tea.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The latch sticks because the wood has swollen in the humidity, a small physical resistance to the flow of affairs. I will push hard as instructed, not out of obedience to a clerk, but because the door must yield. I have rested long enough; the heat is rising, and my mind requires the movement of air and the structure of a walk to prepare for the evening's discourse on the state.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 204."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "id": "haldane-1:1030"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§398",
+     "id": "wallace-mind:34"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "text": "But to know the universal in its determination, i.e. the limitation of the universal which comes to us as fixed and not contingent, is only possible in connection with the whole system of actuality. Thus if with Socrates the content has become spiritualized, yet manifold independent grounds have merely taken the place of manifold laws."
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§398",
+     "text": "The distinction between sleep and waking is one of those posers, as they may be called, which are often addressed to philosophy:—Napoleon, e.g., on a visit to the University of Pavia, put this question to the class of ideology."
+    }
+   ]
   }
  ],
  "funnel": {},
  "owl": null,
  "complete": false,
  "state": {
-  "place": "estates",
-  "until": "2026-11-23T14:44+05:30",
+  "place": "home",
+  "until": "2026-11-23T15:10+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "bandhgala",
@@ -2730,8 +2813,8 @@
     ]
    },
    "breakfast": true,
-   "walked": 5850,
-   "strain": 5850
+   "walked": 7800,
+   "strain": 7800
   },
   "account": {
    "advance": 15000,
@@ -3090,7 +3173,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "97ec7fe6c4a14c06d94b0b5c6820e3c20d869b3c5fcb02eab70f4b3b32932a59",
+  "source_sha256": "71936208618fcedc0c5b9e25a375ffd23117612eed5469fee2a662a96059c680",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4748,68 +4831,100 @@
     "text": "Weather: 24 °C, a brown haze. Air quality index: 204."
    },
    {
-    "id": "2026-11-23:event:3220fdaae323013c:1",
+    "id": "2026-11-23:event:340a601e527c0e03:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 22,
+     "sha256": "340a601e527c0e03b66dcaa6b7e4b7130ff59a2189e81b5a5568dd4d3b53e391"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "14:44",
+    "end": "15:10",
+    "place": null,
+    "origin": "estates",
+    "destination": "home"
+   },
+   {
+    "id": "2026-11-23:event:e544876347d09a9b:6",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      22,
+      0
+     ],
+     "sha256": "e544876347d09a9ba55f1d9b0d7f59953c7b7d543bb792d7f3b199a0da487aa9"
+    },
+    "type": "observation",
+    "time": "14:44",
+    "place": "estates",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 204."
+   },
+   {
+    "id": "2026-11-23:event:34a5aa5b4f4fe5a3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "3220fdaae323013cf1bb4a90c9af634246533b31fdb1bfdfa20ac92820f5ff3e"
+     "sha256": "34a5aa5b4f4fe5a37ad541f249b34f01e96d5cc7952108e6d51e60401d598b7b"
     },
     "type": "cash",
-    "time": "14:44",
+    "time": "15:10",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:228e9664f1350301:1",
+    "id": "2026-11-23:event:75cb5cbab7d84568:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "228e9664f135030126eeb57e609e5e95c692e0b19404ff6bad276aad15c462bd"
+     "sha256": "75cb5cbab7d84568906c317c04982e7e4a540dde5785fdfbe42f22e32f3bedb8"
     },
     "type": "location",
-    "time": "14:44",
-    "place": "estates",
+    "time": "15:10",
+    "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:02da45ea59621f83:1",
+    "id": "2026-11-23:event:6a86d0d855493cb0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "02da45ea59621f8331a295eb1b06b5dc660cf1616ee974f2eb2d26a845641551"
+     "sha256": "6a86d0d855493cb081ead79ab600780744de95ff33ae1c368daf48917e4b1d77"
     },
     "type": "inventory",
-    "time": "14:44",
+    "time": "15:10",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:14f66f37a0993b2e:1",
+    "id": "2026-11-23:event:5eac5f27ea74acae:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "14f66f37a0993b2e3c61bee02433fc614339fd11a0cc1592151c889d90e93a92"
+     "sha256": "5eac5f27ea74acaecdf869378ea75aca0a242e10e00921a1b8c38a6cfcb458f2"
     },
     "type": "inventory",
-    "time": "14:44",
+    "time": "15:10",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 12:43.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 12:43.\"}]"
    },
    {
-    "id": "2026-11-23:event:3e28241c9235575a:1",
+    "id": "2026-11-23:event:50b5b4b3f89799bc:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "3e28241c9235575a0badd987e729ca6db589636abb72dd063d7d597d08461f9c"
+     "sha256": "50b5b4b3f89799bc8ab2ddd866842be048fc07f307d9d96319d18c1db65e667d"
     },
     "type": "inventory",
-    "time": "14:44",
+    "time": "15:10",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -4828,7 +4943,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "14:44",
+    "time": "15:10",
     "place": null
    }
   ]
