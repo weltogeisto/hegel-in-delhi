@@ -297,6 +297,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "10:11",
+   "to": "10:37",
+   "mode": "walk",
+   "a": "home",
+   "b": "estates"
   }
  ],
  "entries": [
@@ -425,6 +432,45 @@
    "to": "Hegel",
    "text": "You are already holding it, sir. I placed it in your hand moments ago.",
    "t": "09:56",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh gestures to the document in my hand as if the physical possession of the paper were proof of the person holding it. It is a bureaucratic sleight of hand: the file is the query, yet he treats it as the answer. I must not let the day slip away; I am already ten minutes behind my schedule for the Directorate.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Modern Time, The Reformation"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§80 Addition"
+    }
+   ],
+   "t": "10:11",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, I see it is here. I must take this to the Directorate now. Keep the house in order; I will return by two.",
+   "to": "Ramesh",
+   "t": "10:11",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir. The house will be fine. I will boil the water for tea when you get back.",
+   "t": "10:11",
+   "place": "home"
+  },
+  {
+   "k": "wear",
+   "item": "Bandhgala, charcoal",
+   "status": "Worn from 10:11.",
+   "sprite": "bandhgala",
+   "t": "10:11",
    "place": "home"
   }
  ],
@@ -630,17 +676,83 @@
      "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
     }
    ]
+  },
+  {
+   "t": "10:11",
+   "end": "10:37",
+   "event": "Ramesh says: “You are already holding it, sir. I placed it in your hand moments ago.” He points a finger toward the man's chest to indicate the file is already in his possession.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh gestures to the document in my hand as if the physical possession of the paper were proof of the person holding it. It is a bureaucratic sleight of hand: the file is the query, yet he treats it as the answer. I must not let the day slip away; I am already ten minutes behind my schedule for the Directorate.",
+    "action": "walk",
+    "place": "estates",
+    "minutes": 30,
+    "says": "Ramesh, I see it is here. I must take this to the Directorate now. Keep the house in order; I will return by two.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "estates",
+   "observations": [
+    "Weather: 19 °C, a brown haze. Air quality index: 207."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir. The house will be fine. I will boil the water for tea when you get back.",
+    "does": null
+   },
+   "left": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.5,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Modern Time, The Reformation",
+     "id": "sibree-history:1340"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§80 Addition",
+     "id": "dyde-right:222"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Modern Time, The Reformation",
+     "text": "Thus, then, royal possession no longer denotes a kind of private property, private possession of estates, demesnes, jurisdiction, &c., but has become a State-property — a function pertaining to and involved with the State."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§80 Addition",
+     "text": "In contract it was said that by means of an agreement a property becomes mine, although I have not possession as yet and shall have possession only by performing my part. If I am out-and-out owner of the object, the intention of a pledge is to place me at once in possession of its value; thus already in the engagement the possession is guaranteed."
+    }
+   ]
   }
  ],
  "funnel": {},
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-23T10:11+05:30",
+  "place": "estates",
+  "until": "2026-11-23T10:37+05:30",
   "asleep": false,
   "imprest": 16416,
-  "wearing": "kurta",
+  "wearing": "bandhgala",
   "wardrobe": [
    {
     "id": "frock",
@@ -660,12 +772,12 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Worn from 18:49."
+    "status": "Taken off at 10:11."
    },
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Taken off at 18:49."
+    "status": "Worn from 10:11."
    }
   ],
   "people": [
@@ -727,7 +839,9 @@
      "ramesh"
     ]
    },
-   "breakfast": true
+   "breakfast": true,
+   "walked": 1950,
+   "strain": 1950
   },
   "account": {
    "advance": 15000,
@@ -1112,7 +1226,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "1d11d27d537ca4e7aaf5328520f79e8c33d49128a5a1f278838fa636c302ab87",
+  "source_sha256": "f3553742d001d40b6e73d42e8d5a59c1d11768574b5e0217c38feeaef704615f",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1230,6 +1344,51 @@
     "words": "You are already holding it, sir. I placed it in your hand moments ago.",
     "verified": false,
     "time": "09:56",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:statement:cb6f7252569c68c7:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 13,
+     "sha256": "cb6f7252569c68c70afb3bebd13e27dd1e2a4e4fdf3bf4d200aaa122a9f8fa52"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, I see it is here. I must take this to the Directorate now. Keep the house in order; I will return by two.",
+    "verified": false,
+    "time": "10:11",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:statement:0e2e37609ecf105f:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 14,
+     "sha256": "0e2e37609ecf105f81ad2846b4ed8c2c501953ead9795a392ce2a1e9d73ee858"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes sir. The house will be fine. I will boil the water for tea when you get back.",
+    "verified": false,
+    "time": "10:11",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:event:748724a2e213f1e2:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 15,
+     "sha256": "748724a2e213f1e2f1f00b466d806061843cc8845cd43e2ebc1e3cf99a320b8b"
+    },
+    "type": "wear",
+    "item": "Bandhgala, charcoal",
+    "status": "Worn from 10:11.",
+    "gone": false,
+    "time": "10:11",
     "place": "home"
    },
    {
@@ -1447,68 +1606,100 @@
     "text": "Weather: 17 °C, a brown haze. Air quality index: 211."
    },
    {
-    "id": "2026-11-23:event:21fe8bc577024114:1",
+    "id": "2026-11-23:event:1af772df97503069:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 3,
+     "sha256": "1af772df97503069ce9700b39e9cf94ff41dadb3d283a5187f3392ad3f114884"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "10:11",
+    "end": "10:37",
+    "place": null,
+    "origin": "home",
+    "destination": "estates"
+   },
+   {
+    "id": "2026-11-23:event:756957eed5075765:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      3,
+      0
+     ],
+     "sha256": "756957eed5075765162fe0dead849ae400ddf994d415696362df1ac00cefe00c"
+    },
+    "type": "observation",
+    "time": "10:11",
+    "place": "home",
+    "text": "Weather: 19 °C, a brown haze. Air quality index: 207."
+   },
+   {
+    "id": "2026-11-23:event:c3cfcb533d756cc6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "21fe8bc5770241146a9861127b28a005e2c0c59c910704500c3347832057bc6f"
+     "sha256": "c3cfcb533d756cc604b10e116f12a526dc76aebf2206157c37c24a6532b31fec"
     },
     "type": "cash",
-    "time": "10:11",
+    "time": "10:37",
     "amount": 16416,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:f724eaadc79fce58:1",
+    "id": "2026-11-23:event:4c8eed3f8a215fb8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "f724eaadc79fce58e37140f845d540889da34534caa64b6e2332bfdc8ca1071c"
+     "sha256": "4c8eed3f8a215fb87e1f688244aa0c8e9ad2e7bafd11c1da480e045ffad4c1fe"
     },
     "type": "location",
-    "time": "10:11",
-    "place": "home",
+    "time": "10:37",
+    "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:2af47ac78b65dd94:1",
+    "id": "2026-11-23:event:c97297c9b35d341e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "2af47ac78b65dd943dbc78b79bcd5575cf792bb20fce21e6ecf586c0448b8b52"
+     "sha256": "c97297c9b35d341e63d0920ce4bd78a68a50dc1baca8f157d9831fdfe90a8e33"
     },
     "type": "inventory",
-    "time": "10:11",
+    "time": "10:37",
     "place": null,
-    "text": "Recorded wearing at this horizon only: \"kurta\""
+    "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:82db60fab611dc56:1",
+    "id": "2026-11-23:event:8b5ecd2a91c651ae:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "82db60fab611dc5634576e78b2ce8f25ee2c4945874805162cc4b862b18f106a"
+     "sha256": "8b5ecd2a91c651ae5d7dc9980b4b01e427cf63d8f76c2de982b3e2cb91615605"
     },
     "type": "inventory",
-    "time": "10:11",
+    "time": "10:37",
     "place": null,
-    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 18:49.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 18:49.\"}]"
+    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 10:11.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 10:11.\"}]"
    },
    {
-    "id": "2026-11-23:event:b17e9a0ec6aa0a3c:1",
+    "id": "2026-11-23:event:77fe0b55a7263877:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "b17e9a0ec6aa0a3c0f8ed519e34bda56025cbc853d998d10369df7a74a627c79"
+     "sha256": "77fe0b55a726387786d38b1bf2e281de0ec7110f4f6751fbd9b0d002fc99d48a"
     },
     "type": "inventory",
-    "time": "10:11",
+    "time": "10:37",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -1527,7 +1718,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "10:11",
+    "time": "10:37",
     "place": null
    }
   ]
