@@ -381,6 +381,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "13:49",
+   "to": "13:59",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -920,6 +927,37 @@
    "to": "Hegel",
    "text": "Don't make me repeat the form number, sir. Sign the dotted line, not the margin, and hand over the envelope. The tea is getting cold.",
    "t": "13:44",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "The bureaucratic gesture is complete; the signature is the act that binds the individual to the universal mechanism of the state, even if that state is merely a file cabinet. The tea is indeed cold, a symbol of the cooling of our exchange, so I shall conclude this administrative ritual before the patience of the section officer evaporates entirely.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "First Division, Spinoza"
+    }
+   ],
+   "t": "13:49",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "Very well, Mr. Saxena. The dotted line is where the will of the subject meets the requirement of the administration. I shall sign there, and you shall have the envelope. The tea can wait; the file must move.",
+   "to": "Mr. Saxena",
+   "t": "13:49",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "File moving or not, if you don't drink it now, I am pouring it into the plant. Just sign and be done with it.",
+   "t": "13:49",
    "place": "estates"
   }
  ],
@@ -1908,6 +1946,71 @@
      "text": "If we follow the so-called law of Identity, and say,--The sea is the sea, The air is the air, The moon is the moon, these objects pass for having no bearing on one another. What we have before us therefore is not Identity, but Difference. We do not stop at this point however, or regard things merely as different."
     }
    ]
+  },
+  {
+   "t": "13:49",
+   "end": "13:59",
+   "event": "Mr. Saxena says: “Don't make me repeat the form number, sir. Sign the dotted line, not the margin, and hand over the envelope. The tea is getting cold.” Mr. Saxena slides the pen across the desk and points to the specific line on the register.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The bureaucratic gesture is complete; the signature is the act that binds the individual to the universal mechanism of the state, even if that state is merely a file cabinet. The tea is indeed cold, a symbol of the cooling of our exchange, so I shall conclude this administrative ritual before the patience of the section officer evaporates entirely.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 10,
+    "says": "Very well, Mr. Saxena. The dotted line is where the will of the subject meets the requirement of the administration. I shall sign there, and you shall have the envelope. The tea can wait; the file must move.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 208."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "File moving or not, if you don't drink it now, I am pouring it into the plant. Just sign and be done with it.",
+    "does": "Taps the steel tumbler twice with a finger to emphasize the point."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution",
+     "id": "sibree-history:1411"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "First Division, Spinoza",
+     "id": "haldane-3:627"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution",
+     "text": "The first Constitutional form of Government in France was one which recognized Royalty; the monarch was to stand at the head of the State, and on him in conjunction with his Mimisters was to devolve the executive power; the legislative body on the other hand were to make the laws."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "First Division, Spinoza",
+     "text": "Or a finite line consists of an infinite number of points; and yet the line is present here and determined; the “beyond” of the infinite number of points, which are not complete, is in it complete and called back into unity."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1915,7 +2018,7 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-23T13:49+05:30",
+  "until": "2026-11-23T13:59+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "bandhgala",
@@ -2369,7 +2472,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "cb84c21efb213b9041e0e3fa64b8dd2781735f011c96b2b7b723c160e4122113",
+  "source_sha256": "605d8e953b3e2dd2a1a1433d3ee9c7f1dd7ca2bdc04ca96c8db103605ddfa9fa",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2912,6 +3015,36 @@
     "words": "Don't make me repeat the form number, sir. Sign the dotted line, not the margin, and hand over the envelope. The tea is getting cold.",
     "verified": false,
     "time": "13:44",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:603bdd76d472f5d0:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 52,
+     "sha256": "603bdd76d472f5d0a559d21c10acf68efbf7291f38f3c9bd82a5653a333ca6fe"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "Very well, Mr. Saxena. The dotted line is where the will of the subject meets the requirement of the administration. I shall sign there, and you shall have the envelope. The tea can wait; the file must move.",
+    "verified": false,
+    "time": "13:49",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:0b06eaf49f62d88d:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 53,
+     "sha256": "0b06eaf49f62d88d00b4f65f73e047c09049ca52689c471a22ba6e7f62823007"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "File moving or not, if you don't drink it now, I am pouring it into the plant. Just sign and be done with it.",
+    "verified": false,
+    "time": "13:49",
     "place": "estates"
    },
    {
@@ -3607,68 +3740,98 @@
     "text": "Weather: 23 °C, a brown haze. Air quality index: 208."
    },
    {
-    "id": "2026-11-23:event:dad9286f71f99273:1",
+    "id": "2026-11-23:event:23545e58fce15cc2:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 15,
+     "sha256": "23545e58fce15cc24601383869122567817ae94153cd5f94dc64332a0d473d7c"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "13:49",
+    "end": "13:59",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:event:543a5765f477ad58:5",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      15,
+      0
+     ],
+     "sha256": "543a5765f477ad5884612d57a4832bc8d9e2f348492d914513b6e21f7379cd4b"
+    },
+    "type": "observation",
+    "time": "13:49",
+    "place": "estates",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 208."
+   },
+   {
+    "id": "2026-11-23:event:d0f66d1986ccb6cc:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "dad9286f71f992731a540eab0df07bd2caaed3132dabe6dc6b430479a9b5a92f"
+     "sha256": "d0f66d1986ccb6cc1b0cef432aa9271f43fbdc43947783cd8884f960706d9b29"
     },
     "type": "cash",
-    "time": "13:49",
+    "time": "13:59",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:fd945a158c635343:1",
+    "id": "2026-11-23:event:04fe6a3c826e94ad:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "fd945a158c63534310e74aa96386e8031168ed836b3faeb5d26ba15acbb26d5d"
+     "sha256": "04fe6a3c826e94ade98f22e43fb1b37909fc6cfcc97b72a7d00f401cd0b558cf"
     },
     "type": "location",
-    "time": "13:49",
+    "time": "13:59",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:1f3efc590fd6296c:1",
+    "id": "2026-11-23:event:5be74e435be1d678:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "1f3efc590fd6296cfe64a6467dac0b48dd7f32a659a38f6728837516f65f4040"
+     "sha256": "5be74e435be1d6784aa03717971f1512305d9239b79d3b5e0c7cb66edc41e96c"
     },
     "type": "inventory",
-    "time": "13:49",
+    "time": "13:59",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:21b14367d41958f9:1",
+    "id": "2026-11-23:event:04c340cd28109ffa:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "21b14367d41958f9ea4f27072b71a9a6f741d33bff6859d42f38c7ede8df5304"
+     "sha256": "04c340cd28109ffade4daa3d5bb17885a2517ea626c46a1eee74a7ade890b56c"
     },
     "type": "inventory",
-    "time": "13:49",
+    "time": "13:59",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 12:43.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 12:43.\"}]"
    },
    {
-    "id": "2026-11-23:event:c335a4633de5cd13:1",
+    "id": "2026-11-23:event:4b3e2ed3da70c1da:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "c335a4633de5cd1329e851c76902bcc01bdf7df57b870cf8355c63a721a9aa51"
+     "sha256": "4b3e2ed3da70c1da8c0d35bee5764d536468d9d8bb6a92814b69e07e807760e3"
     },
     "type": "inventory",
-    "time": "13:49",
+    "time": "13:59",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3687,7 +3850,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "13:49",
+    "time": "13:59",
     "place": null
    }
   ]
