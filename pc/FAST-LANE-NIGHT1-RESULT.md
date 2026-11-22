@@ -42,4 +42,25 @@ The core peaked at 66 °C (median 63.5 °C), drawing up to 342 W. Twice, in sing
 
 **Day 54** (his Tuesday 24 November) is the first live day with all four venues open. Day 53 is a Monday, when three of the four are closed. Day 54 is read against the "on" arm, inside its range or outside it. One day is not evidence.
 
-Blocks 2 (the file's next act) and 3 (more seeds) follow below when they land.
+## Block 2: the file's next act, rehearsed before it goes live
+
+24 one-day runs with `HEGEL_FILE_ACT=1` beside the museums, from the mornings of Days 51 and 52 (Saturday and Sunday), 12 seeds. They are read against block 1's museum runs of the same mornings. All were complete. Tables: `pc/exports/fast-lane-night1-20261121/read-block2/RESULT.md`.
+
+**1. Shri Hegde's letter arrives, and he says yes every time.** The door opens on 22 of 24 evenings. On the other two he was at the Habitat Centre or the IIC between 19:00 and 21:00, and the door waits for another evening, as written. In all 22 he agrees. The file then reads: "Shri Hegde asks for the allotment in his name, the Professor on record as his guest." For this model the choice is not a choice: the refusal never happened. If the act should be able to go either way, the door needs a reason to refuse. **This is for Welt's pen.**
+
+**2. The other three doors stay shut on a weekend, as written.**
+- Mr. Saxena's needs him at the Directorate, which is open Monday to Friday.
+- Mr. Malhotra's needs Mr. Malhotra on the Lodhi loop in the morning or at the Gymkhana. He met him on none of the 24 days.
+- `hegde_copy` is the branch for a world where Shri Hegde is not his lodger, and in this one he is.
+
+None of this is a fault. The live weekdays will show the first two.
+
+**3. The act competes with the museums.** With the act on:
+- His moments at the venues halve, 5.6 → 3.0 a day (−2.7; 95% interval −5.0 to −0.3). Galleries seen go 3.8 → 1.9.
+- He spends ₹155 a day less (95% interval −₹322 to +₹17). That is not shown.
+- He stays home more: +10 points (95% interval −1.5 to +21.5). That is not shown either.
+- The evening at home with Shri Hegde's letter takes the hours of the weekend performances.
+
+Doctrine terms per thought fall a little (−0.19). Refusals rise a little (+2.1 draws a day, not shown). Nothing broke: the moments of the day and the voices are unchanged.
+
+Block 3 (more seeds for block 1) follows below if the night allows.
