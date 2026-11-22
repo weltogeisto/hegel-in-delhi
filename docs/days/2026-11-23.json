@@ -374,6 +374,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "13:44",
+   "to": "13:49",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -882,6 +889,37 @@
    "to": "Hegel",
    "text": "A ghost? Sir, ghosts don't need to show up at 13:00 for identity verification. Just sign here, please, and stop making it poetic.",
    "t": "13:34",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "He is right to be impatient; the poetic ghost is a distraction from the mechanical necessity of the signature. The state does not care for the soul, only for the mark on the paper. I will sign, for the file must move, even if the identity it verifies remains a philosophical puzzle.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§190"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§117"
+    }
+   ],
+   "t": "13:44",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "You are correct, Mr. Saxena. The ghost is merely the shadow of the man who must sign. Here.",
+   "to": "Mr. Saxena",
+   "t": "13:44",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Don't make me repeat the form number, sir. Sign the dotted line, not the margin, and hand over the envelope. The tea is getting cold.",
+   "t": "13:44",
    "place": "estates"
   }
  ],
@@ -1805,6 +1843,71 @@
      "text": "The present work covers the same ground in a more detailed and systematic way. But now that these outlines are to be printed and given to the general public, there is an opportunity of explaining points which in lecturing would be commented on orally."
     }
    ]
+  },
+  {
+   "t": "13:44",
+   "end": "13:49",
+   "event": "Mr. Saxena says: “A ghost? Sir, ghosts don't need to show up at 13:00 for identity verification. Just sign here, please, and stop making it poetic.” He points a pen at the exit register and taps the desk lightly.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "He is right to be impatient; the poetic ghost is a distraction from the mechanical necessity of the signature. The state does not care for the soul, only for the mark on the paper. I will sign, for the file must move, even if the identity it verifies remains a philosophical puzzle.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 5,
+    "says": "You are correct, Mr. Saxena. The ghost is merely the shadow of the man who must sign. Here.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 208."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Don't make me repeat the form number, sir. Sign the dotted line, not the margin, and hand over the envelope. The tea is getting cold.",
+    "does": "Mr. Saxena slides the pen across the desk and points to the specific line on the register."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§190",
+     "id": "dyde-right:469"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§117",
+     "id": "wallace-logic:548"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§190",
+     "text": "It is in the end not the appetite, but the opinion which has to be satisfied. It is the province of education or culture to dissect the concrete need into its elements. When wants are multiplied, the mere appetites are restricted; for, when man uses many things, the propulsion to any one of them is not so strong, a sign that the force of physical need in general is diminished."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§117",
+     "text": "If we follow the so-called law of Identity, and say,--The sea is the sea, The air is the air, The moon is the moon, these objects pass for having no bearing on one another. What we have before us therefore is not Identity, but Difference. We do not stop at this point however, or regard things merely as different."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1812,7 +1915,7 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-23T13:44+05:30",
+  "until": "2026-11-23T13:49+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "bandhgala",
@@ -2266,7 +2369,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "34d40d6a5e14b160ec02c03f4a7e29fbc4168a498be122a3a6501b93729e6236",
+  "source_sha256": "cb84c21efb213b9041e0e3fa64b8dd2781735f011c96b2b7b723c160e4122113",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2779,6 +2882,36 @@
     "words": "A ghost? Sir, ghosts don't need to show up at 13:00 for identity verification. Just sign here, please, and stop making it poetic.",
     "verified": false,
     "time": "13:34",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:04409a3ffeb7dd94:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 49,
+     "sha256": "04409a3ffeb7dd94dbca3b6df4e17b5cdb1c9fcde4afdc55b8450b2390f4f2de"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "You are correct, Mr. Saxena. The ghost is merely the shadow of the man who must sign. Here.",
+    "verified": false,
+    "time": "13:44",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:887080df9734ae14:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 50,
+     "sha256": "887080df9734ae1424d94e3a51e9912fa6f183d51faa52ab4c86eaf51282ec10"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "Don't make me repeat the form number, sir. Sign the dotted line, not the margin, and hand over the envelope. The tea is getting cold.",
+    "verified": false,
+    "time": "13:44",
     "place": "estates"
    },
    {
@@ -3444,68 +3577,98 @@
     "text": "Weather: 23 °C, a brown haze. Air quality index: 208."
    },
    {
-    "id": "2026-11-23:event:cf20091e1543f0c5:1",
+    "id": "2026-11-23:event:ae59cbec35e065bb:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 14,
+     "sha256": "ae59cbec35e065bb6ca7bf2a9e5a9631a3dc84bd3e783fd5d1a2524dbedd3bc7"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "13:44",
+    "end": "13:49",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:event:543a5765f477ad58:4",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      14,
+      0
+     ],
+     "sha256": "543a5765f477ad5884612d57a4832bc8d9e2f348492d914513b6e21f7379cd4b"
+    },
+    "type": "observation",
+    "time": "13:44",
+    "place": "estates",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 208."
+   },
+   {
+    "id": "2026-11-23:event:dad9286f71f99273:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "cf20091e1543f0c56d3f59c2d2de9522ef9102f6ea4890e236ddce4843a93e85"
+     "sha256": "dad9286f71f992731a540eab0df07bd2caaed3132dabe6dc6b430479a9b5a92f"
     },
     "type": "cash",
-    "time": "13:44",
+    "time": "13:49",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:148ee87859f7ae88:1",
+    "id": "2026-11-23:event:fd945a158c635343:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "148ee87859f7ae88100334c83fbb17941163fc1d3bffc1e7edf8986eff6457cd"
+     "sha256": "fd945a158c63534310e74aa96386e8031168ed836b3faeb5d26ba15acbb26d5d"
     },
     "type": "location",
-    "time": "13:44",
+    "time": "13:49",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:0db99a80a8084d98:1",
+    "id": "2026-11-23:event:1f3efc590fd6296c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "0db99a80a8084d98dab88b456cfe575fde191d085469a8e0777d5326f24363f4"
+     "sha256": "1f3efc590fd6296cfe64a6467dac0b48dd7f32a659a38f6728837516f65f4040"
     },
     "type": "inventory",
-    "time": "13:44",
+    "time": "13:49",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:7eb6091ca3cd5201:1",
+    "id": "2026-11-23:event:21b14367d41958f9:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "7eb6091ca3cd5201851fa9542d7dded5b80d7025f6c0d6d4cf8ec62f63f29e8c"
+     "sha256": "21b14367d41958f9ea4f27072b71a9a6f741d33bff6859d42f38c7ede8df5304"
     },
     "type": "inventory",
-    "time": "13:44",
+    "time": "13:49",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 12:43.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 12:43.\"}]"
    },
    {
-    "id": "2026-11-23:event:4a24b39c5b201ad3:1",
+    "id": "2026-11-23:event:c335a4633de5cd13:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "4a24b39c5b201ad358b2df4584dac5c7107435479e9c38212b237500c0a28c22"
+     "sha256": "c335a4633de5cd1329e851c76902bcc01bdf7df57b870cf8355c63a721a9aa51"
     },
     "type": "inventory",
-    "time": "13:44",
+    "time": "13:49",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3524,7 +3687,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "13:44",
+    "time": "13:49",
     "place": null
    }
   ]
