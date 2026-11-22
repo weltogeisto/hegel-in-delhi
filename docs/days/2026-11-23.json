@@ -332,6 +332,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "12:28",
+   "to": "12:33",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -646,6 +653,37 @@
    "to": "Hegel",
    "text": "Sir, I keep the keys and the tea, not the files. The allotment letter was with the last gentleman; I only saw the name 'Hegel' on the doorplate. You must check the Estates office yourself.",
    "t": "12:13",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh is right to draw the line: he holds the keys to the house, not the keys to the state. The file is a matter of the ethical idea, which resides in the Directorate, not in the kitchen. I must go there to resolve this confusion, even if the air outside is thick as soup.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History"
+    }
+   ],
+   "t": "12:28",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "You are correct, Ramesh. The state’s business is not for the household. I will proceed to the Directorate to attend to the matter.",
+   "to": "Ramesh",
+   "t": "12:28",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir. The road is clear enough, just watch the dust.",
+   "t": "12:28",
    "place": "home"
   }
  ],
@@ -1177,6 +1215,71 @@
      "text": "The soil is capable of being an exclusive, private possession, and demands not merely the taking from it what it bears naturally, but an objective working up. Since the returns of labour depend on the seasons, and harvests are influenced by variable weather and other natural conditions, provision for wants must take account of the future."
     }
    ]
+  },
+  {
+   "t": "12:28",
+   "end": "12:33",
+   "event": "Ramesh says: “Sir, I keep the keys and the tea, not the files. The allotment letter was with the last gentleman; I only saw the name 'Hegel' on the doorplate. You must check the Estates office yourself.”",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh is right to draw the line: he holds the keys to the house, not the keys to the state. The file is a matter of the ethical idea, which resides in the Directorate, not in the kitchen. I must go there to resolve this confusion, even if the air outside is thick as soup.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 5,
+    "says": "You are correct, Ramesh. The state’s business is not for the household. I will proceed to the Directorate to attend to the matter.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 212."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir. The road is clear enough, just watch the dust.",
+    "does": "He picks up a wet cloth and starts wiping the wooden console table."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "id": "wallace-mind:330"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "id": "sibree-history:288"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "text": "To give the name of a law to the annual fixing of financial requirements only serves—with the presupposed separation of legislative from executive—to keep up the illusion of that separation having real existence, and to conceal the fact that the legislative power, when it makes a decree about finance, is really engaged with strict executive business."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "text": "Only when, as in Europe, the direct increase of agriculturists is checked, •will the inhabitants, instead of pressing outwards to occupy the fields, press inwards upon each other, — pursuing town occupations, and trading with their fellow citizens; and so form a compact system of civil society, and require an organized state."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1184,7 +1287,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-23T12:28+05:30",
+  "until": "2026-11-23T12:33+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "kurta",
@@ -1638,7 +1741,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "b3b67b265d2b67a5066f8a1f90c8db11eb9ff8c7fb782e6acbe5c603c5bb4fd9",
+  "source_sha256": "2c1531f4bf978dde2a01f292b46d74dc29c4119afb37fbb5ccf97eca60e255e3",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1956,6 +2059,36 @@
     "words": "Sir, I keep the keys and the tea, not the files. The allotment letter was with the last gentleman; I only saw the name 'Hegel' on the doorplate. You must check the Estates office yourself.",
     "verified": false,
     "time": "12:13",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:statement:49fa6299d239a25a:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 30,
+     "sha256": "49fa6299d239a25a6d5ecac1d53662241677f2c23ee8809dbe22263b18db91a2"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "You are correct, Ramesh. The state’s business is not for the household. I will proceed to the Directorate to attend to the matter.",
+    "verified": false,
+    "time": "12:28",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:statement:94f50a8fe9aeaf4b:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 31,
+     "sha256": "94f50a8fe9aeaf4b610b5bef702ce2cabb1d64ee7de3ecc4f4fcc397680e011f"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes sir. The road is clear enough, just watch the dust.",
+    "verified": false,
+    "time": "12:28",
     "place": "home"
    },
    {
@@ -2423,68 +2556,98 @@
     "text": "Nothing in particular happens. The afternoon goes on."
    },
    {
-    "id": "2026-11-23:event:3a535d70342f65b9:1",
+    "id": "2026-11-23:event:256ac8aeb6e44fec:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 8,
+     "sha256": "256ac8aeb6e44fec6690759dc9e5ffd7a584e1401b15d397d755c244a377d762"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "12:28",
+    "end": "12:33",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:event:7d2bb55ca61db591:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      8,
+      0
+     ],
+     "sha256": "7d2bb55ca61db5913c59f5f4f5d35aa47dff14a2d813591fa562b2b8ff35a597"
+    },
+    "type": "observation",
+    "time": "12:28",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 212."
+   },
+   {
+    "id": "2026-11-23:event:55548a10c0bfef8e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "3a535d70342f65b92bcf87e47db38b32729381e3f0d84006b31d915111f3688b"
+     "sha256": "55548a10c0bfef8e7513d5845972b9f22773aa83ae88108064031f0b0255b22e"
     },
     "type": "cash",
-    "time": "12:28",
+    "time": "12:33",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:ae8f3c32de57503d:1",
+    "id": "2026-11-23:event:da76075ebd34fbea:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "ae8f3c32de57503d2f3b322582358ef6900b8bb1c9bae283a68dcc2b115e4ac4"
+     "sha256": "da76075ebd34fbea9cd4abd00483ef2902cbf825030612b8447be8a539408e59"
     },
     "type": "location",
-    "time": "12:28",
+    "time": "12:33",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:8c01cd1b57000d42:1",
+    "id": "2026-11-23:event:82f7de265748c1fb:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "8c01cd1b57000d42940ddf7a0f95ee7dde28d4cd0f135cb68c826961594f1a45"
+     "sha256": "82f7de265748c1fbcc8e2afd4e75b0bf79ef51735ca3e3f5c1e0c80d29dd05b1"
     },
     "type": "inventory",
-    "time": "12:28",
+    "time": "12:33",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-23:event:965bfcadb1aa6706:1",
+    "id": "2026-11-23:event:41ae2e2318e2f7f2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "965bfcadb1aa67065651a76dd45d615526c93bfabc670814028f9bac85d1183d"
+     "sha256": "41ae2e2318e2f7f294d150b0ace903aa38747b6559cf16e9b82606ceb976b960"
     },
     "type": "inventory",
-    "time": "12:28",
+    "time": "12:33",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 11:13.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 11:13.\"}]"
    },
    {
-    "id": "2026-11-23:event:0969ab9923bca9b2:1",
+    "id": "2026-11-23:event:d40a70a885ea2045:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "0969ab9923bca9b2e29a5b6b7e2352f0fe0417b0fce14173a39580f3aa84cf3e"
+     "sha256": "d40a70a885ea20453f7678a47b3529e23a461f0eec1466eaa9fa17638f21a5af"
     },
     "type": "inventory",
-    "time": "12:28",
+    "time": "12:33",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2503,7 +2666,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "12:28",
+    "time": "12:33",
     "place": null
    }
   ]
