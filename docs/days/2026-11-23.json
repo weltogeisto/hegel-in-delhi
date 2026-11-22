@@ -353,6 +353,13 @@
    "mode": "walk",
    "a": "home",
    "b": "estates"
+  },
+  {
+   "from": "13:09",
+   "to": "13:29",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -769,6 +776,37 @@
    "sprite": "bandhgala",
    "t": "12:43",
    "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Mr. Saxena stands before the file, the file before the Ministry, and the Ministry before its own clock. I am merely the variable that has not yet resolved. The audit is a mechanism of self-purification; it must digest the error before it can expel it. I will wait, for the state, like the stomach, works by slow peristalsis, not by the will of the man in the chair.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§527"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289"
+    }
+   ],
+   "t": "13:09",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "Mr. Saxena, I understand the procedure. The audit requires its time to distinguish the state’s money from the individual’s. I will keep the vouchers in a separate envelope, marked clearly, until the recovery order arrives. In the meantime, is there any further documentation I can provide to expedite the identity verification for Shri G. Hegde, or must I simply await the Ministry’s reply?",
+   "to": "Mr. Saxena",
+   "t": "13:09",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Sir, the identity verification is already flagged for priority, so there is nothing more you can submit to speed it up. Just sit back, drink your tea, and let the Ministry do its slow work; I will inform you the moment it clears.",
+   "t": "13:09",
+   "place": "estates"
   }
  ],
  "steps": [
@@ -1495,6 +1533,72 @@
      "text": "Nicht der Unterschied, welcher sich als bestimmtes Ding, oder als Bewußtsein eines bestimmten natürlichen Daseins, als ein Gefühl, oder als Begierde und Zweck für dieselbe, ob er durch das eigene oder durch ein fremdes Bewußtsein gesetzt sei, hat mehr Wesenheit, sondern allein der Unterschied, der ein gedachter, oder unmittelbar nicht von Mir unterschieden ist."
     }
    ]
+  },
+  {
+   "t": "13:09",
+   "end": "13:29",
+   "event": "You arrive at Directorate of Estates, Nirman Bhawan. It closes at 17:30.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "Mr. Saxena stands before the file, the file before the Ministry, and the Ministry before its own clock. I am merely the variable that has not yet resolved. The audit is a mechanism of self-purification; it must digest the error before it can expel it. I will wait, for the state, like the stomach, works by slow peristalsis, not by the will of the man in the chair.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 20,
+    "says": "Mr. Saxena, I understand the procedure. The audit requires its time to distinguish the state’s money from the individual’s. I will keep the vouchers in a separate envelope, marked clearly, until the recovery order arrives. In the meantime, is there any further documentation I can provide to expedite the identity verification for Shri G. Hegde, or must I simply await the Ministry’s reply?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 208.",
+    "You arrive at Directorate of Estates, Nirman Bhawan. It closes at 17:30."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "arrive"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Sir, the identity verification is already flagged for priority, so there is nothing more you can submit to speed it up. Just sit back, drink your tea, and let the Ministry do its slow work; I will inform you the moment it clears.",
+    "does": "He lifts the steel tumbler to his lips and takes a small sip."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§527",
+     "id": "wallace-mind:275"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "id": "dyde-right:740"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§527",
+     "text": "Where civil society, and with it the State, exists, there arise the several estates in their difference: for the universal substance, as vital, exists only so far as it organically particularises itself."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "text": "The lower concrete civil life must be governed from below in a concrete way. And yet the work must be divided into its abstract branches, specially officered by middlemen, whose activity in connection with those below them must from the lowest to the highest executive offices take the form of a continuous concrete oversight."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1502,7 +1606,7 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-23T13:09+05:30",
+  "until": "2026-11-23T13:29+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "bandhgala",
@@ -1956,7 +2060,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "bd1c058c6d667e36a31d08d63c02b93acb15fb943a07ed47c3516208f63bb2d1",
+  "source_sha256": "bc07f81f60b4b3e74e3f39c0be62853c3c3d903686e390c61c42e4df0a9d81c9",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2380,6 +2484,36 @@
     "gone": false,
     "time": "12:43",
     "place": "home"
+   },
+   {
+    "id": "2026-11-23:statement:914d238386d6117d:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 40,
+     "sha256": "914d238386d6117d6b86ea2c50e6551bb9987a934df50906dba2eb60b80fbccc"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "Mr. Saxena, I understand the procedure. The audit requires its time to distinguish the state’s money from the individual’s. I will keep the vouchers in a separate envelope, marked clearly, until the recovery order arrives. In the meantime, is there any further documentation I can provide to expedite the identity verification for Shri G. Hegde, or must I simply await the Ministry’s reply?",
+    "verified": false,
+    "time": "13:09",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:1dbf6c018414984f:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 41,
+     "sha256": "1dbf6c018414984f1b9a94d53d78adc8882f1ede9853a2af13a2e73ebf10b3f2"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "Sir, the identity verification is already flagged for priority, so there is nothing more you can submit to speed it up. Just sit back, drink your tea, and let the Ministry do its slow work; I will inform you the moment it clears.",
+    "verified": false,
+    "time": "13:09",
+    "place": "estates"
    },
    {
     "id": "2026-11-23:event:357a6d7340019a11:1",
@@ -2938,68 +3072,114 @@
     "text": "Weather: 22 °C, a brown haze. Air quality index: 212."
    },
    {
-    "id": "2026-11-23:event:afd07e6a96ca085d:1",
+    "id": "2026-11-23:event:4664cc513a1b3d2d:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 11,
+     "sha256": "4664cc513a1b3d2d2b841f172513c605209012305ae3a439d046a1e06f6e6552"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "13:09",
+    "end": "13:29",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:event:543a5765f477ad58:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      11,
+      0
+     ],
+     "sha256": "543a5765f477ad5884612d57a4832bc8d9e2f348492d914513b6e21f7379cd4b"
+    },
+    "type": "observation",
+    "time": "13:09",
+    "place": "estates",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 208."
+   },
+   {
+    "id": "2026-11-23:event:1c82d6777161a098:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      11,
+      1
+     ],
+     "sha256": "1c82d6777161a09889a6fe55607ccfeb4086f0f4dd03802887833c0e6c4d2ea2"
+    },
+    "type": "observation",
+    "time": "13:09",
+    "place": "estates",
+    "text": "You arrive at Directorate of Estates, Nirman Bhawan. It closes at 17:30."
+   },
+   {
+    "id": "2026-11-23:event:ba34d08e02ed6fe2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "afd07e6a96ca085d27697bccedf6de337dd4a7d14f23dda5498aa7e3e74fc8f7"
+     "sha256": "ba34d08e02ed6fe24eeada7bd66411faba516e45246749e6ac8f7296f2190332"
     },
     "type": "cash",
-    "time": "13:09",
+    "time": "13:29",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:93bd45dfcf619654:1",
+    "id": "2026-11-23:event:00a08119ea19ebe4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "93bd45dfcf61965471eef352c8815db4fcdfcf26f0b70502b0a54cc11d37d52b"
+     "sha256": "00a08119ea19ebe47f2f96f16c4cb14ab9f356ee94010d962b465b62a6256520"
     },
     "type": "location",
-    "time": "13:09",
+    "time": "13:29",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:12daaa9c117e36ac:1",
+    "id": "2026-11-23:event:78c53d5d4dc86529:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "12daaa9c117e36ace4ab8986a68d59599d7e94a25faf9cb4077559cea2841a15"
+     "sha256": "78c53d5d4dc86529f0734b0d550a07e3c652fe3db024183928bfdf4e1f0c3384"
     },
     "type": "inventory",
-    "time": "13:09",
+    "time": "13:29",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:a9d5fb348574bb66:1",
+    "id": "2026-11-23:event:32f7ed57a036b090:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "a9d5fb348574bb669f718d6643936b8cb4ac66f60509844dbe8b8c67c779148d"
+     "sha256": "32f7ed57a036b090dc9180d8d81c2b96a83b94aa59fcf9efa844d008e6ee4928"
     },
     "type": "inventory",
-    "time": "13:09",
+    "time": "13:29",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 12:43.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 12:43.\"}]"
    },
    {
-    "id": "2026-11-23:event:fd7df282f01b6247:1",
+    "id": "2026-11-23:event:a83525b5e3e23d34:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "fd7df282f01b62477c8a9fff616ab3a7e5c7b68a0f9018ebeafc16481d955c24"
+     "sha256": "a83525b5e3e23d3459b6f87c714e119e6301616f9da51fcbb400e47366de62aa"
     },
     "type": "inventory",
-    "time": "13:09",
+    "time": "13:29",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3018,7 +3198,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "13:09",
+    "time": "13:29",
     "place": null
    }
   ]
