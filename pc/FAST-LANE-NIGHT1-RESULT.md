@@ -63,4 +63,37 @@ None of this is a fault. The live weekdays will show the first two.
 
 Doctrine terms per thought fall a little (−0.19). Refusals rise a little (+2.1 draws a day, not shown). Nothing broke: the moments of the day and the voices are unchanged.
 
-Block 3 (more seeds for block 1) follows below if the night allows.
+## Block 3, and blocks 1 and 3 pooled: the museums, with more seeds
+
+Block 3 ran block 1 again with eight more seeds, until 07:30. It completed 40 of 48 runs: six seeds whole, and the seventh on two of its three mornings. None failed. Pooled with block 1, as declared, that is 44 days with the museums on and 44 without. Tables: `pc/exports/fast-lane-night1-20261121/read-final/RESULT.md`.
+
+**The primary measure is now shown.** He is home less with the museums on: 55% of his moments → 47% (−7.8 points; 95% interval −13.8 to −1.9).
+
+Block 1 alone pointed the same way without showing it (−6.8 points; 95% interval −14.8 to +1.2). The extra seeds brought the interval off zero.
+
+Pooled, on against off:
+- **He goes.** He reaches a venue on 32 of 44 days: the National Museum on 21, the Habitat Centre on 6, Kamani on 6, the Gallery of Modern Art on 4. He sees 2.9 galleries a day.
+- **The world brings more:** +2.9 moments a day (95% interval +1.9 to +3.9).
+- **Fewer empty moments:** −3.0 points (95% interval −5.2 to −0.8). This is new with the larger sample.
+- **More places:** place entropy +0.20 bits (95% interval +0.06 to +0.35).
+- **He spends more:** +₹308 a day (95% interval +₹160 to +₹453).
+- **More doctrine:** +0.24 terms per thought (95% interval +0.14 to +0.34).
+- **Fewer extreme days:** a day spent almost wholly at home or almost wholly out (80% or more of his moments, or 20% or less, at home) came 12 times in 44 without the museums, 5 in 44 with them.
+- **Unchanged:** the moments of the day, the voices that spoke, refusals and calls per decision. No day fell under the floor.
+
+## The night
+
+Night 1 ran from 21:25 to 07:34 Berlin and made 114 one-day runs: the band of 2, then 48, 24 and 40. None failed. They took about 610 GPU-minutes on the home card, on the live server, which was never restarted. The port answered after the last run.
+
+The GPU:
+- **Core:** 66 °C at most (median 64 °C), drawing up to 346 W.
+- **Memory:** it throttled the card in 5 one-minute samples over the night.
+- **Concurrency:** 3 runs at once until 00:32, then 2.
+
+## What it means
+
+1. **The museums do what they were for.** He goes out, sees things, and the world brings him more. His days are less often all at home or all away. The cost is money (about ₹300 a day) and a little more lecturing.
+2. **The money needs watching.** At the "on" rate a month costs about ₹15,000, close to what he holds. The money story will come to a head sooner with the museums on.
+3. **The file's next act works, but its first door has only one answer.** Shri Hegde's letter opens, and he says yes every time. That is for Welt's pen before `HEGEL_FILE_ACT` goes on (`DECISIONS.md` 59: after the museums' first full day, so Day 54 at the earliest).
+4. **The act and the museums compete for his evenings.** With both on, the museum visits halve. That is no fault, but the first days of the act will show fewer galleries than the museums' days alone.
+5. **The live days become smoke tests.** Day 54, the first live day with all four venues open, is read against this night's "on" arm as a smoke test.
