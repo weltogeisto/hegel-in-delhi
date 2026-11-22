@@ -304,6 +304,13 @@
    "mode": "walk",
    "a": "home",
    "b": "estates"
+  },
+  {
+   "from": "10:37",
+   "to": "10:47",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -472,6 +479,67 @@
    "sprite": "bandhgala",
    "t": "10:11",
    "place": "home"
+  },
+  {
+   "k": "expense",
+   "item": "Queried vouchers",
+   "amount": 960,
+   "to": "the Directorate of Estates",
+   "why": "queried vouchers",
+   "settles": true,
+   "text": "Paid to the Directorate of Estates.",
+   "charge_id": "charge:3",
+   "since": "2026-11-20",
+   "t": "10:37",
+   "place": "estates"
+  },
+  {
+   "k": "file",
+   "text": "Mr. Saxena queries ₹290 of personal expenditure on the imprest: recovery from the allottee.",
+   "owe": {
+    "to": "the Directorate of Estates",
+    "amount": 290,
+    "why": "queried vouchers",
+    "since": "2026-11-23",
+    "charge_id": "charge:8"
+   },
+   "recoup": {
+    "admitted": 0,
+    "queried": 290
+   },
+   "t": "10:37",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "The query stands: ₹290 of my own money is treated as the state's, to be recovered. The file for Shri G. Hegde remains open, a ghost that I must continue to wear. I have done what I could with the vouchers; the rest is a matter of time and bureaucratic inertia. I must leave before the day closes and the corridors empty, or I shall be trapped in this machinery.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289"
+    }
+   ],
+   "t": "10:37",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "Mr. Saxena, I understand the procedure. I will await the file's return. Thank you for your time.",
+   "to": "Mr. Saxena",
+   "t": "10:37",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "The file is still with the Ministry, sir. Please keep those vouchers safe; the recovery order for the personal expenses will be issued separately once the audit is clear.",
+   "t": "10:37",
+   "place": "estates"
   }
  ],
  "steps": [
@@ -742,6 +810,77 @@
      "text": "In contract it was said that by means of an agreement a property becomes mine, although I have not possession as yet and shall have possession only by performing my part. If I am out-and-out owner of the object, the intention of a pledge is to place me at once in possession of its value; thus already in the engagement the possession is guaranteed."
     }
    ]
+  },
+  {
+   "t": "10:37",
+   "end": "10:47",
+   "event": "You arrive at Directorate of Estates, Nirman Bhawan. It closes at 17:30. You pay the Directorate of Estates ₹960 for queried vouchers. Mr. Saxena goes through your vouchers: nothing is admitted; ₹290 is queried as personal and will be recovered from you. Mr. Saxena is here.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The query stands: ₹290 of my own money is treated as the state's, to be recovered. The file for Shri G. Hegde remains open, a ghost that I must continue to wear. I have done what I could with the vouchers; the rest is a matter of time and bureaucratic inertia. I must leave before the day closes and the corridors empty, or I shall be trapped in this machinery.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 10,
+    "says": "Mr. Saxena, I understand the procedure. I will await the file's return. Thank you for your time.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 19 °C, a brown haze. Air quality index: 207.",
+    "You arrive at Directorate of Estates, Nirman Bhawan. It closes at 17:30.",
+    "You pay the Directorate of Estates ₹960 for queried vouchers.",
+    "Mr. Saxena goes through your vouchers: nothing is admitted; ₹290 is queried as personal and will be recovered from you.",
+    "Mr. Saxena is here."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "arrive",
+    "purse",
+    "here"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "The file is still with the Ministry, sir. Please keep those vouchers safe; the recovery order for the personal expenses will be issued separately once the audit is clear.",
+    "does": "He stamps the query sheet and slides it into the file, then lifts the receiver of the middle telephone."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299",
+     "id": "dyde-right:757"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "id": "dyde-right:740"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299",
+     "text": "Money is, in fact, not a special kind of wealth, but the universal element in all kinds, in so far as they in production are given such an external reality as can be apprehended as an object."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "text": "This may all the more easily happen, the more trivial from the universal side of the state is the mismanaged affair, especially when the mismanagement stands of itself in direct relation to the satisfaction and opinion, which are derived from it. In the business of the executive also there is a division of labour (§ 198)."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -749,9 +888,9 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-23T10:37+05:30",
+  "until": "2026-11-23T10:47+05:30",
   "asleep": false,
-  "imprest": 16416,
+  "imprest": 15456,
   "wearing": "bandhgala",
   "wardrobe": [
    {
@@ -837,46 +976,21 @@
    "seen": {
     "home": [
      "ramesh"
+    ],
+    "estates": [
+     "saxena"
     ]
    },
    "breakfast": true,
    "walked": 1950,
-   "strain": 1950
+   "strain": 1950,
+   "recouped": true
   },
   "account": {
    "advance": 15000,
-   "vouchers": [
-    {
-     "date": "2026-11-20",
-     "t": "13:54",
-     "item": "Chai, a cup",
-     "price": 20,
-     "office": false
-    },
-    {
-     "date": "2026-11-20",
-     "t": "13:54",
-     "item": "Samosa",
-     "price": 30,
-     "office": false
-    },
-    {
-     "date": "2026-11-20",
-     "t": "14:09",
-     "item": "Chai, a cup",
-     "price": 20,
-     "office": false
-    },
-    {
-     "date": "2026-11-20",
-     "t": "14:19",
-     "item": "Lunch at a dhaba: dal, rice, roti",
-     "price": 220,
-     "office": false
-    }
-   ],
+   "vouchers": [],
    "admitted": 820,
-   "queried": 10524
+   "queried": 10814
   },
   "visits": {
    "home": [
@@ -970,19 +1084,20 @@
     "2026-11-06",
     "2026-11-16",
     "2026-11-18",
-    "2026-11-20"
+    "2026-11-20",
+    "2026-11-23"
    ]
   },
   "owed": [
    {
     "to": "the Directorate of Estates",
-    "amount": 960,
+    "amount": 290,
     "why": "queried vouchers",
-    "since": "2026-11-20",
+    "since": "2026-11-23",
     "at": "estates",
     "with": "saxena",
-    "after": "2026-11-21",
-    "charge_id": "charge:3"
+    "after": "2026-11-24",
+    "charge_id": "charge:8"
    }
   ],
   "cheques": [],
@@ -1107,7 +1222,8 @@
     "2026-11-06",
     "2026-11-16",
     "2026-11-18",
-    "2026-11-20"
+    "2026-11-20",
+    "2026-11-23"
    ]
   },
   "refused": {
@@ -1207,9 +1323,10 @@
    "charge:6",
    "charge:7",
    "cost:dhobi:2026-11-21",
-   "cost:groceries:2026-11-22"
+   "cost:groceries:2026-11-22",
+   "charge:3"
   ],
-  "charge_seq": 7,
+  "charge_seq": 8,
   "street": {
    "home_vegetable_cart": "2026-11-20",
    "estates_bench": "2026-11-20",
@@ -1226,7 +1343,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "f3553742d001d40b6e73d42e8d5a59c1d11768574b5e0217c38feeaef704615f",
+  "source_sha256": "d96ffa7f2e11f7d04dd92971ff476d8cf852746236d7b1fe4fd8c53b37cc8544",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1390,6 +1507,86 @@
     "gone": false,
     "time": "10:11",
     "place": "home"
+   },
+   {
+    "id": "2026-11-23:payment:c01de80ebb258eb2:1",
+    "kind": "payment",
+    "source": {
+     "collection": "entries",
+     "index": 16,
+     "sha256": "c01de80ebb258eb25e7fd47b6247eae9c41b0a7b106058881de7708ad8c32edc"
+    },
+    "canonical_id": "charge:3",
+    "item": "Queried vouchers",
+    "amount": 960,
+    "direction": "out",
+    "settled": true,
+    "medium": "cash",
+    "creditor": "the Directorate of Estates",
+    "payer": null,
+    "time": "10:37",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:event:d90994f7550280fb:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 17,
+     "sha256": "d90994f7550280fbd0c0f22550ee8d06f46248aa9f5e95cbc4ca5185e810b8e1"
+    },
+    "type": "file",
+    "text": "Mr. Saxena queries ₹290 of personal expenditure on the imprest: recovery from the allottee.",
+    "time": "10:37",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:payment:d90994f7550280fb:1",
+    "kind": "payment",
+    "source": {
+     "collection": "entries",
+     "index": 17,
+     "sha256": "d90994f7550280fbd0c0f22550ee8d06f46248aa9f5e95cbc4ca5185e810b8e1"
+    },
+    "canonical_id": "charge:8",
+    "item": "queried vouchers",
+    "amount": 290,
+    "direction": "out",
+    "settled": false,
+    "creditor": "the Directorate of Estates",
+    "obligation": true,
+    "time": "10:37",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:dbd1eef542154bf0:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 19,
+     "sha256": "dbd1eef542154bf091e9e8b341038f375dfe8da30460df27249d2b4432c84184"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "Mr. Saxena, I understand the procedure. I will await the file's return. Thank you for your time.",
+    "verified": false,
+    "time": "10:37",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:ecba49b9d8442efd:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 20,
+     "sha256": "ecba49b9d8442efd9a1896a1d415963c4493474d17c064806e51130b233045eb"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "The file is still with the Ministry, sir. Please keep those vouchers safe; the recovery order for the personal expenses will be issued separately once the audit is clear.",
+    "verified": false,
+    "time": "10:37",
+    "place": "estates"
    },
    {
     "id": "2026-11-23:event:357a6d7340019a11:1",
@@ -1638,87 +1835,181 @@
     "text": "Weather: 19 °C, a brown haze. Air quality index: 207."
    },
    {
-    "id": "2026-11-23:event:c3cfcb533d756cc6:1",
+    "id": "2026-11-23:event:e2d9152abff36641:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 4,
+     "sha256": "e2d9152abff36641a6728759ec84215a015f8e63ac6b81afb9aa244e979f835a"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "10:37",
+    "end": "10:47",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:event:756957eed5075765:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      4,
+      0
+     ],
+     "sha256": "756957eed5075765162fe0dead849ae400ddf994d415696362df1ac00cefe00c"
+    },
+    "type": "observation",
+    "time": "10:37",
+    "place": "estates",
+    "text": "Weather: 19 °C, a brown haze. Air quality index: 207."
+   },
+   {
+    "id": "2026-11-23:event:1c82d6777161a098:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      4,
+      1
+     ],
+     "sha256": "1c82d6777161a09889a6fe55607ccfeb4086f0f4dd03802887833c0e6c4d2ea2"
+    },
+    "type": "observation",
+    "time": "10:37",
+    "place": "estates",
+    "text": "You arrive at Directorate of Estates, Nirman Bhawan. It closes at 17:30."
+   },
+   {
+    "id": "2026-11-23:event:3f5e8a3d4a9092cb:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      4,
+      2
+     ],
+     "sha256": "3f5e8a3d4a9092cb6211512091f47869152dd8630c6e151f6793261b6d8c03ba"
+    },
+    "type": "observation",
+    "time": "10:37",
+    "place": "estates",
+    "text": "You pay the Directorate of Estates ₹960 for queried vouchers."
+   },
+   {
+    "id": "2026-11-23:event:80e2fe0a8222a262:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      4,
+      3
+     ],
+     "sha256": "80e2fe0a8222a262319069f037890a5263cd1d09e5e8a3fe98680917d710c423"
+    },
+    "type": "observation",
+    "time": "10:37",
+    "place": "estates",
+    "text": "Mr. Saxena goes through your vouchers: nothing is admitted; ₹290 is queried as personal and will be recovered from you."
+   },
+   {
+    "id": "2026-11-23:event:b6f4865dfa31f5ff:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      4,
+      4
+     ],
+     "sha256": "b6f4865dfa31f5ffa6451eae12b37ffb0f68c9b515f4863f9dbac08db152365d"
+    },
+    "type": "observation",
+    "time": "10:37",
+    "place": "estates",
+    "text": "Mr. Saxena is here."
+   },
+   {
+    "id": "2026-11-23:event:63d692f2b28aeed1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "c3cfcb533d756cc604b10e116f12a526dc76aebf2206157c37c24a6532b31fec"
+     "sha256": "63d692f2b28aeed1b8a17e100591a663de62e7d8b73eeb529e896dc0b7a70db8"
     },
     "type": "cash",
-    "time": "10:37",
-    "amount": 16416,
+    "time": "10:47",
+    "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:4c8eed3f8a215fb8:1",
+    "id": "2026-11-23:event:2f61929ee43ce896:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "4c8eed3f8a215fb87e1f688244aa0c8e9ad2e7bafd11c1da480e045ffad4c1fe"
+     "sha256": "2f61929ee43ce8964a241e4a69815882f199108762e504d4c4801d0f6c322590"
     },
     "type": "location",
-    "time": "10:37",
+    "time": "10:47",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:c97297c9b35d341e:1",
+    "id": "2026-11-23:event:d526fb17c358ba71:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "c97297c9b35d341e63d0920ce4bd78a68a50dc1baca8f157d9831fdfe90a8e33"
+     "sha256": "d526fb17c358ba71ce400ea7cdceaea086b60b4bf175c681fe7208e299b6d0d6"
     },
     "type": "inventory",
-    "time": "10:37",
+    "time": "10:47",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:8b5ecd2a91c651ae:1",
+    "id": "2026-11-23:event:bb2f7ca05804ed84:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "8b5ecd2a91c651ae5d7dc9980b4b01e427cf63d8f76c2de982b3e2cb91615605"
+     "sha256": "bb2f7ca05804ed84d542d7bd23c73fec35e1e845373146778f1a6ee510e5232e"
     },
     "type": "inventory",
-    "time": "10:37",
+    "time": "10:47",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 10:11.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 10:11.\"}]"
    },
    {
-    "id": "2026-11-23:event:77fe0b55a7263877:1",
+    "id": "2026-11-23:event:5b59979578d02e79:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "77fe0b55a726387786d38b1bf2e281de0ec7110f4f6751fbd9b0d002fc99d48a"
+     "sha256": "5b59979578d02e79f70b9ba9d31ec27c23bace121419e71a0e21eb8e7dce934f"
     },
     "type": "inventory",
-    "time": "10:37",
+    "time": "10:47",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
    {
-    "id": "2026-11-23:payment:5b472c45aebb7690:1",
+    "id": "2026-11-23:payment:d5e99110e69dd328:1",
     "kind": "payment",
     "source": {
      "collection": "state.owed",
      "index": 0,
-     "sha256": "5b472c45aebb7690a2e75e40f44a3152eb43c9f27e8f5d70461e5efbda70396a"
+     "sha256": "d5e99110e69dd328c5564c6b22f516d5cf9e5cd7727d29f408e50645ac5f274e"
     },
-    "canonical_id": "charge:3",
+    "canonical_id": "charge:8",
     "item": "queried vouchers",
-    "amount": 960,
+    "amount": 290,
     "direction": "out",
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "10:37",
+    "time": "10:47",
     "place": null
    }
   ]
