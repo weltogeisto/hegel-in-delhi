@@ -486,6 +486,13 @@
    "mode": "walk",
    "a": "home",
    "b": "iic"
+  },
+  {
+   "from": "19:17",
+   "to": "19:27",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -1462,6 +1469,37 @@
    "sprite": "bandhgala",
    "t": "18:55",
    "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "I am five minutes late, and the air in this bungalow is thick with the dust of the city, though the temperature is pleasant. The talk on the state and freedom is a test of my convictions, which have lately wavered in the face of this place's stubborn reality. I must enter and speak, for silence would be a confession of defeat.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Macedonian Empire"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    }
+   ],
+   "t": "19:17",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "Excuse the delay. The haze on the road was thicker than the one in the room.",
+   "to": "the guard at the library and the programme officer",
+   "t": "19:17",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Haze is getting worse every year, sir. Just watch your step on the stairs, the floor is still slippery from the humidity.",
+   "t": "19:17",
+   "place": "iic"
   }
  ],
  "steps": [
@@ -3405,6 +3443,73 @@
      "text": "So, too, peoples, who have been unwilling or afraid to endure internal sovereignty, have been subjugated by others, and in their struggles for independence have had honour and success small in proportion to their failure to establish within themselves a central political power; their freedom died through their fear of its dying."
     }
    ]
+  },
+  {
+   "t": "19:17",
+   "end": "19:27",
+   "event": "You arrive at India International Centre. It closes at 21:30.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "I am five minutes late, and the air in this bungalow is thick with the dust of the city, though the temperature is pleasant. The talk on the state and freedom is a test of my convictions, which have lately wavered in the face of this place's stubborn reality. I must enter and speak, for silence would be a confession of defeat.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 10,
+    "says": "Excuse the delay. The haze on the road was thicker than the one in the room.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 19 °C, clear, hazy. Air quality index: 183.",
+    "You arrive at India International Centre. It closes at 21:30."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "arrive"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Haze is getting worse every year, sir. Just watch your step on the stairs, the floor is still slippery from the humidity.",
+    "does": "Glances towards the main lobby before looking back at him."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Macedonian Empire",
+     "id": "sibree-history:860"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:456"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Macedonian Empire",
+     "text": "The Greek dominion spread itself over northern India, and Sandrokottus (Chandraguptas) is mentioned as the first who emancipated himself from it. The same name presents itself indeed among the Hindoos, but for reasons already stated, we can place very little dependence upon such mention. Other Greek Kingdoms arose in Asia Minor, in Armenia, in Syria and Babylonia."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "India, moreover, was the centre of emigration for all the western world; but this external historical relation is to be regarded rather as a merely physical diffusion of peoples from this point."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -3412,7 +3517,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-23T19:17+05:30",
+  "until": "2026-11-23T19:27+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "bandhgala",
@@ -3503,6 +3608,10 @@
     ],
     "estates": [
      "saxena"
+    ],
+    "iic": [
+     "guard",
+     "officer"
     ]
    },
    "breakfast": true,
@@ -3598,7 +3707,8 @@
     "2026-11-17",
     "2026-11-18",
     "2026-11-20",
-    "2026-11-22"
+    "2026-11-22",
+    "2026-11-23"
    ],
    "safdarjung": [
     "2026-10-28"
@@ -3868,7 +3978,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "11db06d2c260cf8cd8efe7ea4306aa632a78de089c8202b236c2a3f95e550375",
+  "source_sha256": "35527947f583b91de3677c4af7c4bdd8e5124f86be3092067a33f2545dc5511f",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4798,6 +4908,36 @@
     "gone": false,
     "time": "18:55",
     "place": "home"
+   },
+   {
+    "id": "2026-11-23:statement:c9e0dc809bf4cfad:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 93,
+     "sha256": "c9e0dc809bf4cfad52526f2361bdd7aefbef3b15709c368d00e13fadd00eaaf8"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "Excuse the delay. The haze on the road was thicker than the one in the room.",
+    "verified": false,
+    "time": "19:17",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-23:statement:549bf383f2325e39:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 94,
+     "sha256": "549bf383f2325e39997cd11eec69e1ce8346c9fbc514566b8d9697bbe0bcd016"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Haze is getting worse every year, sir. Just watch your step on the stairs, the floor is still slippery from the humidity.",
+    "verified": false,
+    "time": "19:17",
+    "place": "iic"
    },
    {
     "id": "2026-11-23:event:357a6d7340019a11:1",
@@ -6010,68 +6150,114 @@
     "text": "Nothing in particular happens. The evening goes on."
    },
    {
-    "id": "2026-11-23:event:d7d471eb7d82488d:1",
+    "id": "2026-11-23:event:f3602d769dad578d:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 30,
+     "sha256": "f3602d769dad578def11a2cc0497c67c18623ac965fa40a1e1d618adb9827127"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "19:17",
+    "end": "19:27",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-23:event:d96037a43cb869cb:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      30,
+      0
+     ],
+     "sha256": "d96037a43cb869cb30811fe1f4564b6a0202ac8bd3a660de87e427b309e5f7ed"
+    },
+    "type": "observation",
+    "time": "19:17",
+    "place": "iic",
+    "text": "Weather: 19 °C, clear, hazy. Air quality index: 183."
+   },
+   {
+    "id": "2026-11-23:event:9783bfaa4b9687d6:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      30,
+      1
+     ],
+     "sha256": "9783bfaa4b9687d6e91c528bb0aa0889b4db7c29d7dd151f5b42bf02bfb8d917"
+    },
+    "type": "observation",
+    "time": "19:17",
+    "place": "iic",
+    "text": "You arrive at India International Centre. It closes at 21:30."
+   },
+   {
+    "id": "2026-11-23:event:7f9b2a5eecfa3662:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "d7d471eb7d82488dfaf74625944e4d99530bb987d61224c9d2609f131280aa56"
+     "sha256": "7f9b2a5eecfa3662bbacd4c39a1ae0a4b6768943000874e5b595c5278eedd1a2"
     },
     "type": "cash",
-    "time": "19:17",
+    "time": "19:27",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:1f9d9fd2e9aa3a7d:1",
+    "id": "2026-11-23:event:22086a892edd46b8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "1f9d9fd2e9aa3a7d824369409d7c7eacbbd7a0204979081321d2ed4ef80312b1"
+     "sha256": "22086a892edd46b8ad7fcd7ff7521f3ca0aef2e19c1d3742c58dc81867dc4f92"
     },
     "type": "location",
-    "time": "19:17",
+    "time": "19:27",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:4586168da4d8d54c:1",
+    "id": "2026-11-23:event:5f1da9fedcbc83a2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "4586168da4d8d54c0369d53dbf8cce6d5ab1b0e2341063b4355674c326619694"
+     "sha256": "5f1da9fedcbc83a2e10b167bb2f337b9285c2e9695c193cfdd6cc4b40460476b"
     },
     "type": "inventory",
-    "time": "19:17",
+    "time": "19:27",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:bd7ba9aae8c44335:1",
+    "id": "2026-11-23:event:790f071b4390b310:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "bd7ba9aae8c44335a362cf176a9501659956fcefd707c72490f8aafa592ac0a6"
+     "sha256": "790f071b4390b310eb1fb9f802d8a5a58a9bf58fdc9235e2fe600db79bd2dde4"
     },
     "type": "inventory",
-    "time": "19:17",
+    "time": "19:27",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 18:55.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 18:55.\"}]"
    },
    {
-    "id": "2026-11-23:event:5feac76eb4945448:1",
+    "id": "2026-11-23:event:de9071b76674a081:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "5feac76eb4945448cee43639a9069f88c7c478ad2cd136774112166440f67883"
+     "sha256": "de9071b76674a08142314b9ea57ba40f84c3a2787dc63faa1b8c1f72421ce364"
     },
     "type": "inventory",
-    "time": "19:17",
+    "time": "19:27",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -6090,7 +6276,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "19:17",
+    "time": "19:27",
     "place": null
    }
   ]
