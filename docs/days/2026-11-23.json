@@ -507,6 +507,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "19:42",
+   "to": "20:27",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -1575,6 +1582,37 @@
    "to": "Hegel",
    "text": "You are looking at me, sir. I am the Programme Officer here. Please, sit down properly; we can discuss the Directorate's paperwork right here.",
    "t": "19:32",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The Programme Officer invites me to sit and discuss the Directorate's paperwork directly. I will oblige, for efficiency is a virtue of the state, and I have no desire to return to the Directorate for a minor administrative hurdle. I shall present my case clearly, relying on the reality of my residence and the confusion in the records, rather than on any mystical notion of identity.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution"
+    }
+   ],
+   "t": "19:42",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Madam. I appreciate the offer. I am here to resolve a matter of identity. The Directorate has sent a query regarding my status as 'Shri G. Hegde'. I am, in fact, Hegel, and I reside in the bungalow allotted to me by the Directorate. I believe this is a clerical error, and I wish to have it corrected so that my vouchers and residence are regularized. Can we look at the file together?",
+   "to": "the guard at the library and the programme officer",
+   "t": "19:42",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Sir, aapka naam file mein 'Hegde' likha hai, na ki 'Hegel'. Officer ko dikhao, wo hi bataayenge ki kya karna hai.",
+   "t": "19:42",
    "place": "iic"
   }
  ],
@@ -3721,6 +3759,72 @@
      "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
     }
    ]
+  },
+  {
+   "t": "19:42",
+   "end": "20:27",
+   "event": "The programme officer says: “You are looking at me, sir. I am the Programme Officer here. Please, sit down properly; we can discuss the Directorate's paperwork right here.” She gestures to the chair opposite her desk and waits for him to sit.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The Programme Officer invites me to sit and discuss the Directorate's paperwork directly. I will oblige, for efficiency is a virtue of the state, and I have no desire to return to the Directorate for a minor administrative hurdle. I shall present my case clearly, relying on the reality of my residence and the confusion in the records, rather than on any mystical notion of identity.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 45,
+    "says": "Thank you, Madam. I appreciate the offer. I am here to resolve a matter of identity. The Directorate has sent a query regarding my status as 'Shri G. Hegde'. I am, in fact, Hegel, and I reside in the bungalow allotted to me by the Directorate. I believe this is a clerical error, and I wish to have it corrected so that my vouchers and residence are regularized. Can we look at the file together?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 19 °C, clear, hazy. Air quality index: 183."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Sir, aapka naam file mein 'Hegde' likha hai, na ki 'Hegel'. Officer ko dikhao, wo hi bataayenge ki kya karna hai.",
+    "does": "He shrugs helplessly and points towards the Programme Officer's desk."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 14.3,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "id": "sibree-history:376"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution",
+     "id": "sibree-history:1383"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "text": "WITH the Empire of China History has to begin, for it is the oldest, as far as history gives us any information; and its principle has such substantiality, that for the empire in question it is at once the oldest and the newest."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution",
+     "text": "On these principles private rights were on the one hand despotically contravened, but on the other hand such contravention was the instrument of carrying out the general objects of the State in opposition to mere positive or pre- scriptive claims."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -3728,7 +3832,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-23T19:42+05:30",
+  "until": "2026-11-23T20:27+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "bandhgala",
@@ -4189,7 +4293,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "05ea5643ab5ae11589c92a4ccbdb47a55a1125dd493c0b0c1598b3c807c55b4f",
+  "source_sha256": "44b55365109872ae391bc97fd4a4633a7289ddfeb9d6adee4592803a96b41b24",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -5208,6 +5312,36 @@
     "words": "You are looking at me, sir. I am the Programme Officer here. Please, sit down properly; we can discuss the Directorate's paperwork right here.",
     "verified": false,
     "time": "19:32",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-23:statement:7a2f1ec45c5f38f9:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 102,
+     "sha256": "7a2f1ec45c5f38f9f79d52eb6937748922bc434fd05b581d378af758bfb60c00"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "Thank you, Madam. I appreciate the offer. I am here to resolve a matter of identity. The Directorate has sent a query regarding my status as 'Shri G. Hegde'. I am, in fact, Hegel, and I reside in the bungalow allotted to me by the Directorate. I believe this is a clerical error, and I wish to have it corrected so that my vouchers and residence are regularized. Can we look at the file together?",
+    "verified": false,
+    "time": "19:42",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-23:statement:5befed83cbea52c2:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 103,
+     "sha256": "5befed83cbea52c2f16f84363435390934d1680a1ae6cb22bc853bff0e7efbaa"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Sir, aapka naam file mein 'Hegde' likha hai, na ki 'Hegel'. Officer ko dikhao, wo hi bataayenge ki kya karna hai.",
+    "verified": false,
+    "time": "19:42",
     "place": "iic"
    },
    {
@@ -6527,68 +6661,98 @@
     "text": "Weather: 19 °C, clear, hazy. Air quality index: 183."
    },
    {
-    "id": "2026-11-23:event:f011d23524a4950e:1",
+    "id": "2026-11-23:event:5547b05148f7a1d2:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 33,
+     "sha256": "5547b05148f7a1d274f0abe9026f170ca64aa9cc4afedec95d878c37ba3779ce"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "19:42",
+    "end": "20:27",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-23:event:d96037a43cb869cb:4",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      33,
+      0
+     ],
+     "sha256": "d96037a43cb869cb30811fe1f4564b6a0202ac8bd3a660de87e427b309e5f7ed"
+    },
+    "type": "observation",
+    "time": "19:42",
+    "place": "iic",
+    "text": "Weather: 19 °C, clear, hazy. Air quality index: 183."
+   },
+   {
+    "id": "2026-11-23:event:5e5a6c786e9836a0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "f011d23524a4950edc8e79b7d10aa8330e5249c8871efb946502879d20d3b1ed"
+     "sha256": "5e5a6c786e9836a05ac0615ef1c3925470e903b4ea707c4a90ab7bb65d73251e"
     },
     "type": "cash",
-    "time": "19:42",
+    "time": "20:27",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:5bfda3297a7c1766:1",
+    "id": "2026-11-23:event:9b4362e35b1f6a6e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "5bfda3297a7c17668650d033eb80783f2f337d124ba3cb54d6847d02a7479e3b"
+     "sha256": "9b4362e35b1f6a6e2c05d88118606d36e808ef700e2ff06072d06bf3457892f6"
     },
     "type": "location",
-    "time": "19:42",
+    "time": "20:27",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:358f6fcd7be130ad:1",
+    "id": "2026-11-23:event:566a8a1b6166142a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "358f6fcd7be130adddb5c319490459ffaf181169a742cd8ee326c04d8178be0c"
+     "sha256": "566a8a1b6166142a1b28c3cbcfefa45925d667719e9229acd5c9cc31e2103e58"
     },
     "type": "inventory",
-    "time": "19:42",
+    "time": "20:27",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:2d8c99a33f09f991:1",
+    "id": "2026-11-23:event:0748c43c64f95bdf:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "2d8c99a33f09f99180fb44d7dd06fd61a5cfc9c2ededb6a82fafeafe8225b1ca"
+     "sha256": "0748c43c64f95bdf87d9bc5e482bbcbc5e6385b139d9500ab3bb1d63a7b75f7c"
     },
     "type": "inventory",
-    "time": "19:42",
+    "time": "20:27",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 18:55.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 18:55.\"}]"
    },
    {
-    "id": "2026-11-23:event:1a2e2646a6ec9b79:1",
+    "id": "2026-11-23:event:fe160cb401633af2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "1a2e2646a6ec9b794c833e5152de22c16fc66e20e174bbd7f97fbd04657b43c9"
+     "sha256": "fe160cb401633af20525a125876f5240152d7294e668d197a72ca93c2a170ef1"
     },
     "type": "inventory",
-    "time": "19:42",
+    "time": "20:27",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -6607,7 +6771,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "19:42",
+    "time": "20:27",
     "place": null
    }
   ]
