@@ -437,6 +437,13 @@
    "mode": "walk",
    "a": "estates",
    "b": "home"
+  },
+  {
+   "from": "15:10",
+   "to": "15:25",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -1210,6 +1217,45 @@
    ],
    "t": "14:44",
    "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "The hunger is a sharp reminder of the body's independence from the spirit; I have walked seven kilometres and the sun has burned off the morning's light. Ramesh is here, and the parathas are kept from the morning. It is better to eat now and be prepared for the talk at the IIC, than to arrive at the institution faint.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness"
+    }
+   ],
+   "t": "15:10",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, I am hungry. Please bring the parathas, the curd, and the pickle. I must be fit for the evening.",
+   "to": "Ramesh",
+   "t": "15:10",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir. The parathas are still warm. I will bring the curd and pickle right away. Please, eat slowly.",
+   "t": "15:10",
+   "place": "home"
+  },
+  {
+   "k": "wear",
+   "item": "White cotton kurta",
+   "status": "Worn from 15:10.",
+   "sprite": "kurta",
+   "t": "15:10",
+   "place": "home"
   }
  ],
  "steps": [
@@ -2712,6 +2758,72 @@
      "text": "The distinction between sleep and waking is one of those posers, as they may be called, which are often addressed to philosophy:—Napoleon, e.g., on a visit to the University of Pavia, put this question to the class of ideology."
     }
    ]
+  },
+  {
+   "t": "15:10",
+   "end": "15:25",
+   "event": "You are hungry.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The hunger is a sharp reminder of the body's independence from the spirit; I have walked seven kilometres and the sun has burned off the morning's light. Ramesh is here, and the parathas are kept from the morning. It is better to eat now and be prepared for the talk at the IIC, than to arrive at the institution faint.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, I am hungry. Please bring the parathas, the curd, and the pickle. I must be fit for the evening.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 201.",
+    "You are hungry."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "hunger"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir. The parathas are still warm. I will bring the curd and pickle right away. Please, eat slowly.",
+    "does": "He nods once and turns toward the kitchen without a word."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "id": "haldane-3:1108"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "id": "baillie-1:223"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "text": "There is no man so foolish as that philosophy; when a man feels hungry, he does not call up the imagination of food, but sets about satisfying his hunger. All activity is a conception which does not yet exist, but whose subjectivity is abrogated."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "text": "Through work and labour, however, this consciousness of the bondsman comes to itself. In the moment which corresponds to desire in the case of the master's consciousness, the aspect of the non-essential relation to the thing seemed to fall to the lot of the servant, since the thing there retained its independence."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -2719,10 +2831,10 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-23T15:10+05:30",
+  "until": "2026-11-23T15:25+05:30",
   "asleep": false,
   "imprest": 15456,
-  "wearing": "bandhgala",
+  "wearing": "kurta",
   "wardrobe": [
    {
     "id": "frock",
@@ -2742,12 +2854,12 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Taken off at 12:43."
+    "status": "Worn from 15:10."
    },
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Worn from 12:43."
+    "status": "Taken off at 15:10."
    }
   ],
   "people": [
@@ -2814,7 +2926,8 @@
    },
    "breakfast": true,
    "walked": 7800,
-   "strain": 7800
+   "strain": 7800,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
@@ -3173,7 +3286,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "71936208618fcedc0c5b9e25a375ffd23117612eed5469fee2a662a96059c680",
+  "source_sha256": "ca84124e27844a6f4c9daca287ad54ac4c325264f170cf578bc920fee5776dae",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3927,6 +4040,51 @@
     "verified": false,
     "time": "14:39",
     "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:2974441e57aac2a1:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 74,
+     "sha256": "2974441e57aac2a1217eb185488ae3cac386156210fd21b6fd525e0664f08549"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, I am hungry. Please bring the parathas, the curd, and the pickle. I must be fit for the evening.",
+    "verified": false,
+    "time": "15:10",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:statement:da04b3b664310cef:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 75,
+     "sha256": "da04b3b664310cef4606bdd6d6cf9da9f1a8228c341ddeb9250f75b6af067bc9"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes sir. The parathas are still warm. I will bring the curd and pickle right away. Please, eat slowly.",
+    "verified": false,
+    "time": "15:10",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:event:661f5ae40fc246d2:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 76,
+     "sha256": "661f5ae40fc246d2c54ed70bf0792325bfa033e1a7447aff2909ee79bbcd060b"
+    },
+    "type": "wear",
+    "item": "White cotton kurta",
+    "status": "Worn from 15:10.",
+    "gone": false,
+    "time": "15:10",
+    "place": "home"
    },
    {
     "id": "2026-11-23:event:357a6d7340019a11:1",
@@ -4863,68 +5021,114 @@
     "text": "Weather: 24 °C, a brown haze. Air quality index: 204."
    },
    {
-    "id": "2026-11-23:event:34a5aa5b4f4fe5a3:1",
+    "id": "2026-11-23:event:1aad4262d70d83da:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 23,
+     "sha256": "1aad4262d70d83da08c60e0b7f0254be5608d21a635953a3d4e7ce00c7b59a42"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "15:10",
+    "end": "15:25",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:event:341a49dd3f9f2b7b:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      23,
+      0
+     ],
+     "sha256": "341a49dd3f9f2b7bb03caa44f06948894acb91904e1cfcb5907e27165a7c1869"
+    },
+    "type": "observation",
+    "time": "15:10",
+    "place": "home",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 201."
+   },
+   {
+    "id": "2026-11-23:event:db3ff12517f16edc:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      23,
+      1
+     ],
+     "sha256": "db3ff12517f16edc1aa01a8fc0ae5caeb6285a44e5c2c7e2f3ddc18e6acec5ed"
+    },
+    "type": "observation",
+    "time": "15:10",
+    "place": "home",
+    "text": "You are hungry."
+   },
+   {
+    "id": "2026-11-23:event:b34812bd67636046:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "34a5aa5b4f4fe5a37ad541f249b34f01e96d5cc7952108e6d51e60401d598b7b"
+     "sha256": "b34812bd676360461223fd1eb0a4c8ac413e1004d8d4cf9e3cc91679bfc7cb35"
     },
     "type": "cash",
-    "time": "15:10",
+    "time": "15:25",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:75cb5cbab7d84568:1",
+    "id": "2026-11-23:event:e426178ee8f192f1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "75cb5cbab7d84568906c317c04982e7e4a540dde5785fdfbe42f22e32f3bedb8"
+     "sha256": "e426178ee8f192f1d9e3014e88a9c2b0dce1ec2a419092aaced9ea56ff31717b"
     },
     "type": "location",
-    "time": "15:10",
+    "time": "15:25",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:6a86d0d855493cb0:1",
+    "id": "2026-11-23:event:2af57488cc7ddd9c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "6a86d0d855493cb081ead79ab600780744de95ff33ae1c368daf48917e4b1d77"
+     "sha256": "2af57488cc7ddd9c92a74ff56d08521e301930922abe54c1592ec523382bfac2"
     },
     "type": "inventory",
-    "time": "15:10",
+    "time": "15:25",
     "place": null,
-    "text": "Recorded wearing at this horizon only: \"bandhgala\""
+    "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-23:event:5eac5f27ea74acae:1",
+    "id": "2026-11-23:event:ab49c681f2968957:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "5eac5f27ea74acaecdf869378ea75aca0a242e10e00921a1b8c38a6cfcb458f2"
+     "sha256": "ab49c681f29689570380ce150c5ed27e2023dd3bac7a84cc3643c1c5c62b0481"
     },
     "type": "inventory",
-    "time": "15:10",
+    "time": "15:25",
     "place": null,
-    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 12:43.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 12:43.\"}]"
+    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 15:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 15:10.\"}]"
    },
    {
-    "id": "2026-11-23:event:50b5b4b3f89799bc:1",
+    "id": "2026-11-23:event:83535015131c9d81:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "50b5b4b3f89799bc8ab2ddd866842be048fc07f307d9d96319d18c1db65e667d"
+     "sha256": "83535015131c9d81312fbd7b9cb46f2ae1a9a9a15fd50bc8b524642d9bff029a"
     },
     "type": "inventory",
-    "time": "15:10",
+    "time": "15:25",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -4943,7 +5147,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "15:10",
+    "time": "15:25",
     "place": null
    }
   ]
