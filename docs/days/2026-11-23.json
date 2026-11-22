@@ -535,6 +535,22 @@
    "mode": "inside",
    "at": "iic",
    "now": "At the IIC."
+  },
+  {
+   "from": "21:00",
+   "to": "21:22",
+   "mode": "walk",
+   "a": "iic",
+   "b": "home"
+  },
+  {
+   "from": "21:22",
+   "to": "24:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Asleep.",
+   "asleep": true,
+   "owl": true
   }
  ],
  "entries": [
@@ -4137,15 +4153,47 @@
      "text": "The spread of Indian culture is pre-historical, for History is limited to that which makes an essential epoch in the development of Spirit. On the whole, the diffusion of Indian culture is only a dumb, deedless expansion; that is, it presents no political action."
     }
    ]
+  },
+  {
+   "t": "21:00",
+   "end": "24:00",
+   "event": "The guard at the library says: “Chalo chalo, koi baat nahi. Bas file theek se rakh dena desk par.” India International Centre closes at 21:30.",
+   "present": [
+    "the guard at the library"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "sleep",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 17 °C, clear, hazy. Air quality index: 173.",
+    "India International Centre closes at 21:30."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply",
+    "closes"
+   ],
+   "mind": {
+    "source": "bedtime",
+    "attempts": 0,
+    "latency_s": 0.0
+   }
   }
  ],
  "funnel": {},
  "owl": null,
  "complete": false,
  "state": {
-  "place": "iic",
-  "until": "2026-11-23T21:00+05:30",
-  "asleep": false,
+  "place": "home",
+  "until": "2026-11-24T00:00+05:30",
+  "asleep": true,
   "imprest": 15456,
   "wearing": "bandhgala",
   "wardrobe": [
@@ -4242,8 +4290,8 @@
     ]
    },
    "breakfast": true,
-   "walked": 9450,
-   "strain": 9450,
+   "walked": 11100,
+   "strain": 11100,
    "tea": true
   },
   "account": {
@@ -4605,7 +4653,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "4b68ede8fb478952873ffdadb9985fd3c37e54c2d743a6f6b93c7072c3a119f5",
+  "source_sha256": "9c16ade0b1c36d57fd26a08d5598260350cb4eb8d00d75c7c6acf8840d8e43db",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -7183,68 +7231,114 @@
     "text": "Weather: 18 °C, clear, hazy. Air quality index: 178."
    },
    {
-    "id": "2026-11-23:event:839341cf3b82b931:1",
+    "id": "2026-11-23:event:7510ad8637068c1f:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 37,
+     "sha256": "7510ad8637068c1ffbb1c3a7d272a419a1b96c545cfded8bc121f7a8f2f0bbdf"
+    },
+    "type": "action",
+    "action": "sleep",
+    "time": "21:22",
+    "end": "24:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:event:c9d88709d5060f55:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      37,
+      0
+     ],
+     "sha256": "c9d88709d5060f558ed13ae46d75b70e4bef3dd5ff41d7e366a119bdd4d05c56"
+    },
+    "type": "observation",
+    "time": "21:00",
+    "place": "iic",
+    "text": "Weather: 17 °C, clear, hazy. Air quality index: 173."
+   },
+   {
+    "id": "2026-11-23:event:407ba4b20cfae801:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      37,
+      1
+     ],
+     "sha256": "407ba4b20cfae8017bec4f154fd582553a13724487388dfa89f15be1f685b8f6"
+    },
+    "type": "observation",
+    "time": "21:00",
+    "place": "iic",
+    "text": "India International Centre closes at 21:30."
+   },
+   {
+    "id": "2026-11-23:event:f27f97a245c498bc:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "839341cf3b82b9317d10d8610a3460c837e83bb75b08823c43166715b759e906"
+     "sha256": "f27f97a245c498bc21afb5e8d6088e06f84433e93b17b0ace725a986756d066d"
     },
     "type": "cash",
-    "time": "21:00",
+    "time": "00:00",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:4685df804769a0b8:1",
+    "id": "2026-11-23:event:5e082c60867535a5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "4685df804769a0b8100ffd4a071c9d36ee48bc4d41db865ca58a51213cbcfb17"
+     "sha256": "5e082c60867535a57488a7c2bdc5d04d9b134ee06fe0d35d4e20a18cc23638a7"
     },
     "type": "location",
-    "time": "21:00",
-    "place": "iic",
+    "time": "00:00",
+    "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:94b6068bc24f099f:1",
+    "id": "2026-11-23:event:703a654696996905:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "94b6068bc24f099fe7c80770c120685b47dbf6237815e829d98cc6b5e5cf96a7"
+     "sha256": "703a6546969969058fba21d34bf3a698adadd76808226ebcd5e36c26ea0d4dcb"
     },
     "type": "inventory",
-    "time": "21:00",
+    "time": "00:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:182b340aef359b4c:1",
+    "id": "2026-11-23:event:f24b7754e48261f4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "182b340aef359b4c4009832caf9bbc158ca2c02c855f6e1220f053f43bae6619"
+     "sha256": "f24b7754e48261f4e587dcc1e2c724cda9c2c6dd7838a4d0eba80c7686b1ce63"
     },
     "type": "inventory",
-    "time": "21:00",
+    "time": "00:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 18:55.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 18:55.\"}]"
    },
    {
-    "id": "2026-11-23:event:6fb8cc0b31ccacd6:1",
+    "id": "2026-11-23:event:f30c15c87e32c95d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "6fb8cc0b31ccacd6dfe4f3ef5df619ddb88b3298991ee162c880f80de7eb09f7"
+     "sha256": "f30c15c87e32c95d9b81d7f892295ff88eba04e89d9c49b03f84f73f7fb29511"
     },
     "type": "inventory",
-    "time": "21:00",
+    "time": "00:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -7263,7 +7357,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "21:00",
+    "time": "00:00",
     "place": null
    }
   ]
