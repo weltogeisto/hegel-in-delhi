@@ -36,6 +36,8 @@ WALK_M, HOT_C = 75, 33                  # metres a minute; from this temperature
 NUMBERS = "zero one two three four five six seven eight nine ten eleven twelve".split()
 PLAN_TIME = re.compile(r"(\d{1,2}):(\d{2})$")
 RECENT_CHARS, PURCHASE_CHARS = 480, 240  # bounded current recall; full records stay on disk
+LEAVE_SPARE = 10        # HEGEL_KEEP_TIME: minutes to spare when he is woken to walk to an appointment elsewhere
+TIME_AHEAD = 180        # HEGEL_KEEP_TIME: within these minutes of an appointment, his mind says how long is left
 PROMISES_KEPT = 20      # the last resolved promises the state keeps; the open ones all
 GREET_P = 0.35          # a person he knows, seen for the first time that day at a place, speaks first with this chance
 
@@ -96,7 +98,8 @@ def names(lst):
 
 class World(Economy):
     def __init__(self, feeds=None, culture=False, street_on=False, street_file=None, promises=False, ramesh_days=False, consumed=False, file_act=False,
-                 repairs=False):
+                 repairs=False, keep_time=False):
+        self.keep_time = bool(keep_time)                      # HEGEL_KEEP_TIME: an appointment elsewhere ends what he is doing in time to walk there (Day 53); off until switched on
         self.repairs = bool(repairs)                          # HEGEL_WORLD_REPAIRS: five repairs from the review of Days 47–49 (DECISIONS 57); off until switched on
         self.consumed = bool(consumed)                        # HEGEL_CONSUMED: what he ate is an entry of its own (`consumed`); off until switched on (DECISIONS 48)
         p = load("places.json")
@@ -110,7 +113,7 @@ class World(Economy):
         self.promises = bool(promises)                        # HEGEL_PROMISES: a promise is a record (data/promises.json); nobody has a menu while it is off
         self.menu = load("promises.json")["people"] if self.promises else {}
         self.cast = load("cast.json")["cast"]
-        switched = {"ramesh_days"} if ramesh_days else set()   # HEGEL_RAMESH_DAYS: an offer that names a switch exists only while it is on
+        switched = ({"ramesh_days"} if ramesh_days else set()) | ({"keep_time"} if self.keep_time else set())   # HEGEL_RAMESH_DAYS: an offer that names a switch exists only while it is on
         offers = [o for o in load("offers.json")["offers"] if not o.get("switch") or o["switch"] in switched]
         self.file_act = bool(file_act)                         # HEGEL_FILE_ACT: the file's next act, four beats (data/plot_file_act.json); off until switched on
         self.beats = load("plot.json")["beats"] + (load("plot_file_act.json")["beats"] if self.file_act else []) + offers
@@ -561,6 +564,31 @@ class World(Economy):
     def beat(self, bid):
         return next(b for b in self.beats if b["id"] == bid)
 
+    def due_elsewhere(self, t, state, pid):
+        """HEGEL_KEEP_TIME: today's fixed appointments at another place than pid, as (appointment, beat, start, walk minutes, leave)."""
+        out = []
+        if not self.keep_time:
+            return out
+        for a in state["appointments"]:
+            b = next((x for x in self.beats if x["id"] == a["beat"]), None)
+            if not b or not b.get("at") or a["date"] != t.date().isoformat() or not b.get("where") or b["where"] == pid:
+                continue
+            try:
+                walk = self.walk(pid, b["where"])
+            except KeyError:
+                continue
+            start = at_dt(t.date(), hm(b["at"]))
+            out.append((a, b, start, walk, start - timedelta(minutes=walk + LEAVE_SPARE)))
+        return out
+
+    def leave_by(self, t0, end, state, pid):
+        """HEGEL_KEEP_TIME: what he does at pid ends when he must set out for an appointment elsewhere (Day 53: two hours'
+        rest at home ran past his talk at the IIC; interrupt() wakes him only for what happens where he is)."""
+        for _, _, _, _, leave in self.due_elsewhere(t0, state, pid):
+            if t0 < leave < end:
+                end = leave
+        return end
+
     def eligible(self, b, t, state, pid=None, timed=True, placed=True):
         """Does beat b want to fire at time t with Hegel at pid? With timed=False the time window is ignored; with
         placed=False so are his place and the people it needs. It changes nothing but makes the books on first need (ledger)."""
@@ -735,6 +763,12 @@ class World(Economy):
                 kind("session:" + beat["session"])
             else:
                 kind(("offer:" if beat["id"] in self.offer_ids else "beat:") + beat["id"])
+        if not state.get("asleep"):
+            for a, b, start, walk, leave in self.due_elsewhere(t, state, pid):     # HEGEL_KEEP_TIME: time to set out
+                if leave <= t < start:
+                    events.append((f"It is {fmt(m)}. {a['what'][0].upper() + a['what'][1:]} begins at {b['at']}, {self.places[b['where']]['at']}; "
+                                   f"the walk from here takes about {walk} minutes.", None))
+                    kind("time")
         if state.get("post"):                                 # HEGEL_CORRESPONDENT: a letter from Munich has come
             letter = post.event(state, present, self.post_card())
             events += letter
@@ -860,7 +894,12 @@ class World(Economy):
         on_mind = [f"The file: {state['file']}"]
         for a in state["appointments"]:
             when = datetime.fromisoformat(a["date"]).date()
-            on_mind.append(f"{WEEKDAYS[when.weekday()]} {when.day} {when.strftime('%B')}{' ' + a['t'] if a.get('t') else ''}: {a['what']}.")
+            line = f"{WEEKDAYS[when.weekday()]} {when.day} {when.strftime('%B')}{' ' + a['t'] if a.get('t') else ''}: {a['what']}."
+            if self.keep_time and when in (d, d + timedelta(days=1)):     # HEGEL_KEEP_TIME: today or tomorrow, and how long is left
+                line = ("Today, " if when == d else "Tomorrow, ") + line      # Day 53: he read Tuesday's talk as Monday's
+                if a.get("t") and when == d and 0 < hm(a["t"]) - m <= TIME_AHEAD:
+                    line = line[:-1] + f", in {hm(a['t']) - m} minutes."
+            on_mind.append(line)
         on_mind += self.engagement_lines(t, state)
         on_mind += [f"{self.cast[p['by']]['name']} has promised {self.menu[p['by']][p['what']]['says']} by {p['due'][11:16]}."
                     for p in state.get("promises", []) if p["status"] == "open"]          # HEGEL_PROMISES: his side of the record
@@ -1196,6 +1235,7 @@ class World(Economy):
                 if close is not None and dest != "home":
                     end = min(end, at_dt(d, close))
                 end = self.interrupt(t, end, state, dest)
+                end = self.leave_by(t, end, state, dest)
                 end = min(end, midnight)
                 if not asleep and minute_of(t) < BED_M:
                     end = min(end, at_dt(d, BED_M))                 # bedtime ends what he is doing, as a closing hour does
