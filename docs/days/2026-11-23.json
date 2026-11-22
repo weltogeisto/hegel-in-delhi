@@ -465,6 +465,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "16:55",
+   "to": "17:55",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1351,6 +1358,37 @@
    "to": "Hegel",
    "text": "Yes sir, the samosas will stay warm. I will tell the dhobi you are paying on Saturday, no need to worry about the coins right now.",
    "t": "16:45",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The samosas are a small comfort, but the body is tired from the walk and the heat. I have an hour before the talk at the IIC, which is the only reason to leave this house tonight. It is better to rest now than to struggle through the haze later.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Pythagoras and the Pythagoreans"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    }
+   ],
+   "t": "16:55",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "That is kind of you, Ramesh. I shall retire for a short rest before heading out.",
+   "to": "Ramesh",
+   "t": "16:55",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Of course, sir. The bed is made and the fan is on low. Just rest, I won't disturb you until dinner time.",
+   "t": "16:55",
    "place": "home"
   }
  ],
@@ -3105,6 +3143,71 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "16:55",
+   "end": "17:55",
+   "event": "Ramesh says: “Yes sir, the samosas will stay warm. I will tell the dhobi you are paying on Saturday, no need to worry about the coins right now.”",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The samosas are a small comfort, but the body is tired from the walk and the heat. I have an hour before the talk at the IIC, which is the only reason to leave this house tonight. It is better to rest now than to struggle through the haze later.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 60,
+    "says": "That is kind of you, Ramesh. I shall retire for a short rest before heading out.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, clear, hazy. Air quality index: 197."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Of course, sir. The bed is made and the fan is on low. Just rest, I won't disturb you until dinner time.",
+    "does": "He nods once and quietly slips out of the room, closing the door behind him."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Pythagoras and the Pythagoreans",
+     "id": "haldane-1:511"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:25"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Pythagoras and the Pythagoreans",
+     "text": "The Spartans had, at an earlier period, given assistance to the others, for, as Thucydides says (I. 18), to them thanks were generally ascribed for having abolished the rule of the few, and caused a reversion to the system of giving public power to the people; later on they did the opposite, abolishing democracy and introducing aristocracy."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "Hence it would not be necessary to bring it under public control, if the state did not require deeper teaching and insight, and expect science to satisfy the need. Yet this shallowness, notwithstanding its seeming innocence, does bear upon social life, right and duty generally, advancing principles which are the very essence of superficiality."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -3112,7 +3215,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-23T16:55+05:30",
+  "until": "2026-11-23T17:55+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "kurta",
@@ -3568,7 +3671,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "d7bb37056b4a0c89b6e14c53bebfe498dde264034294a53e1574dcb4d7bba393",
+  "source_sha256": "ced69b6c73888c9e2948d8c1216240b86b879a70a0fad47721ad95536a842699",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4422,6 +4525,36 @@
     "words": "Yes sir, the samosas will stay warm. I will tell the dhobi you are paying on Saturday, no need to worry about the coins right now.",
     "verified": false,
     "time": "16:45",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:statement:4a5d40ea572faebe:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 85,
+     "sha256": "4a5d40ea572faebeb9713914d2b2ed802d482b6bc9e939eb7838e50047208079"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "That is kind of you, Ramesh. I shall retire for a short rest before heading out.",
+    "verified": false,
+    "time": "16:55",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:statement:56d2488894ed3c15:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 86,
+     "sha256": "56d2488894ed3c150d36a1f992b90cd25278e3d1a6b4efaa25029e34b4387a72"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Of course, sir. The bed is made and the fan is on low. Just rest, I won't disturb you until dinner time.",
+    "verified": false,
+    "time": "16:55",
     "place": "home"
    },
    {
@@ -5527,68 +5660,98 @@
     "text": "Ramesh brings tea: tea and a few samosas from the market."
    },
    {
-    "id": "2026-11-23:event:cd702e37a2c07133:1",
+    "id": "2026-11-23:event:4549242e29a9ba21:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 27,
+     "sha256": "4549242e29a9ba21576650140f8f0b3ca8aa4ce4cdaeb804f6a3398934d705f2"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "16:55",
+    "end": "17:55",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:event:0e3ec9f001f26792:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      27,
+      0
+     ],
+     "sha256": "0e3ec9f001f267922c8f3d34aff5bf45df09cafcb7f8c74476cced907632ae8c"
+    },
+    "type": "observation",
+    "time": "16:55",
+    "place": "home",
+    "text": "Weather: 22 °C, clear, hazy. Air quality index: 197."
+   },
+   {
+    "id": "2026-11-23:event:584e768de6873edd:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "cd702e37a2c07133f8c9b06ef62a6228947d40c90147de9d8e481d8ab05419ad"
+     "sha256": "584e768de6873edda60bf40675b1952631f1220e0f2775e5ce07c2f692429065"
     },
     "type": "cash",
-    "time": "16:55",
+    "time": "17:55",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:e68d44ecda1c9c96:1",
+    "id": "2026-11-23:event:970e1ed6bc3537ea:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "e68d44ecda1c9c9675bf73ca8277eeaf3cb4ff98bb87c61d489736581d7e9768"
+     "sha256": "970e1ed6bc3537ea4408c6a66300902f7ec4244915ca93a0f0afe88cb8057813"
     },
     "type": "location",
-    "time": "16:55",
+    "time": "17:55",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:1dc996bb1c2dd0ac:1",
+    "id": "2026-11-23:event:79f774812833674a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "1dc996bb1c2dd0ac343ebfcaf336488219d9678f100ce766cc4d81ffd46b7881"
+     "sha256": "79f774812833674a7fdfb80f768ed77cf1b16e97e23bf2b6c9e183a810bbd668"
     },
     "type": "inventory",
-    "time": "16:55",
+    "time": "17:55",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-23:event:8a636c1dd6d6ad11:1",
+    "id": "2026-11-23:event:cf219975a23132ee:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "8a636c1dd6d6ad11aeb1f16c13c04d7ea2c0d7bacb2b541f3b669182dff08dc0"
+     "sha256": "cf219975a23132eed320c38d85207d7faca13a2d37a5c5d52c8c891f35c17b4d"
     },
     "type": "inventory",
-    "time": "16:55",
+    "time": "17:55",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 15:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 15:10.\"}]"
    },
    {
-    "id": "2026-11-23:event:7c2c058236b176e6:1",
+    "id": "2026-11-23:event:d68581677950af17:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "7c2c058236b176e6f8b89383250f03c1058c457fcf0f6a727f4fc9078057e6ec"
+     "sha256": "d68581677950af175c05ada9872ae9fe6d9b85bf56911e1de96d82fc6353a17c"
     },
     "type": "inventory",
-    "time": "16:55",
+    "time": "17:55",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -5607,7 +5770,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "16:55",
+    "time": "17:55",
     "place": null
    }
   ]
