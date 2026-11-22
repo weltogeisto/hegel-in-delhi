@@ -367,6 +367,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "13:34",
+   "to": "13:44",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -844,6 +851,37 @@
    "to": "Hegel",
    "text": "A lecture? In this heat? Very well, sir. Please sign the exit register on the way out, and do not forget the envelope with the vouchers.",
    "t": "13:29",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "The file is not closed, merely paused, and the state waits for its paper. I must not let the heat or the haze make me forget the procedure; the envelope with the vouchers is the bridge between my existence here and the recognition of my identity. I will sign the register and take the envelope, for the state is the actuality of the ethical idea, and it requires its documents.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§79"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    }
+   ],
+   "t": "13:34",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "I shall be careful with the envelope, Mr. Saxena. It is the only thing that proves I am not a ghost in your files. I will sign the register now.",
+   "to": "Mr. Saxena",
+   "t": "13:34",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "A ghost? Sir, ghosts don't need to show up at 13:00 for identity verification. Just sign here, please, and stop making it poetic.",
+   "t": "13:34",
    "place": "estates"
   }
  ],
@@ -1702,6 +1740,71 @@
      "text": "Dieses muß sich an sich vernünftig sein, auch wenn er von der subjektiv Meinung nicht anerkannt würde; er muß an sich gerecht.gei ' auch mehr und weniger mit Einsicht, so daß sich der Begri darin befriedigen kann. Aus diesen wesentlichen Momenten folgt, daß, indem der Staat sich als diese Natur entwickel alle Momente der Idee selbst entwickelt und herausgeboren sind."
     }
    ]
+  },
+  {
+   "t": "13:34",
+   "end": "13:44",
+   "event": "Mr. Saxena says: “A lecture? In this heat? Very well, sir. Please sign the exit register on the way out, and do not forget the envelope with the vouchers.” He waves the steel tumbler away and picks up the exit register from the desk.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The file is not closed, merely paused, and the state waits for its paper. I must not let the heat or the haze make me forget the procedure; the envelope with the vouchers is the bridge between my existence here and the recognition of my identity. I will sign the register and take the envelope, for the state is the actuality of the ethical idea, and it requires its documents.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 10,
+    "says": "I shall be careful with the envelope, Mr. Saxena. It is the only thing that proves I am not a ghost in your files. I will sign the register now.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 208."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "A ghost? Sir, ghosts don't need to show up at 13:00 for identity verification. Just sign here, please, and stop making it poetic.",
+    "does": "He points a pen at the exit register and taps the desk lightly."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 12.6,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§79",
+     "id": "dyde-right:216"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:0"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§79",
+     "text": "As stipulation involves the will, it contains, from the standpoint of right, the substance of contract. In contrast with this substantive contract the possession, which remains till the contract is fully carried out, has no reality outside of the agreement. I have given up a possession and my private control over it, and it has already become the property of another."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "The present work covers the same ground in a more detailed and systematic way. But now that these outlines are to be printed and given to the general public, there is an opportunity of explaining points which in lecturing would be commented on orally."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1709,7 +1812,7 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-23T13:34+05:30",
+  "until": "2026-11-23T13:44+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "bandhgala",
@@ -2163,7 +2266,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "81ba0b005ba6fafec3e02b0cb003b53543627ceb9b734f14cf3e3426ba9b772f",
+  "source_sha256": "34d40d6a5e14b160ec02c03f4a7e29fbc4168a498be122a3a6501b93729e6236",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2646,6 +2749,36 @@
     "words": "A lecture? In this heat? Very well, sir. Please sign the exit register on the way out, and do not forget the envelope with the vouchers.",
     "verified": false,
     "time": "13:29",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:ba7d93da9f3305be:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 46,
+     "sha256": "ba7d93da9f3305bebecab78eaeeaf8fff313d82d9b62f9220065f5691c2d1b0f"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "I shall be careful with the envelope, Mr. Saxena. It is the only thing that proves I am not a ghost in your files. I will sign the register now.",
+    "verified": false,
+    "time": "13:34",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:fba1701f15b2328d:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 47,
+     "sha256": "fba1701f15b2328dd1aab7e0fcaabff3495043fdc6cefce59e7da5d35a203c56"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "A ghost? Sir, ghosts don't need to show up at 13:00 for identity verification. Just sign here, please, and stop making it poetic.",
+    "verified": false,
+    "time": "13:34",
     "place": "estates"
    },
    {
@@ -3281,68 +3414,98 @@
     "text": "Weather: 23 °C, a brown haze. Air quality index: 208."
    },
    {
-    "id": "2026-11-23:event:226c934d20309935:1",
+    "id": "2026-11-23:event:bab0fdcb0d11e6d4:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 13,
+     "sha256": "bab0fdcb0d11e6d43540912b393e16cb683f9e70dd7ee2284c912a9003ae1ba0"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "13:34",
+    "end": "13:44",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:event:543a5765f477ad58:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      13,
+      0
+     ],
+     "sha256": "543a5765f477ad5884612d57a4832bc8d9e2f348492d914513b6e21f7379cd4b"
+    },
+    "type": "observation",
+    "time": "13:34",
+    "place": "estates",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 208."
+   },
+   {
+    "id": "2026-11-23:event:cf20091e1543f0c5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "226c934d2030993554d0c9fe627d0aaea92560feaa18f3b7bd506ad24bb87910"
+     "sha256": "cf20091e1543f0c56d3f59c2d2de9522ef9102f6ea4890e236ddce4843a93e85"
     },
     "type": "cash",
-    "time": "13:34",
+    "time": "13:44",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:80945e93c461e71f:1",
+    "id": "2026-11-23:event:148ee87859f7ae88:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "80945e93c461e71f3a024f3f732b8ea45729b1be0b7b44bb08d0428ad2275a3f"
+     "sha256": "148ee87859f7ae88100334c83fbb17941163fc1d3bffc1e7edf8986eff6457cd"
     },
     "type": "location",
-    "time": "13:34",
+    "time": "13:44",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:8dc86efae5170f8b:1",
+    "id": "2026-11-23:event:0db99a80a8084d98:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "8dc86efae5170f8b6eb52c14323d2382acc32c17f4dabd5c70605600f257e812"
+     "sha256": "0db99a80a8084d98dab88b456cfe575fde191d085469a8e0777d5326f24363f4"
     },
     "type": "inventory",
-    "time": "13:34",
+    "time": "13:44",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:e15ac04a248a13be:1",
+    "id": "2026-11-23:event:7eb6091ca3cd5201:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "e15ac04a248a13be2de6eb27c71d8ed35d9c13d753d032d7e0cfa2eef4e793bf"
+     "sha256": "7eb6091ca3cd5201851fa9542d7dded5b80d7025f6c0d6d4cf8ec62f63f29e8c"
     },
     "type": "inventory",
-    "time": "13:34",
+    "time": "13:44",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 12:43.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 12:43.\"}]"
    },
    {
-    "id": "2026-11-23:event:12d951820a3273cd:1",
+    "id": "2026-11-23:event:4a24b39c5b201ad3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "12d951820a3273cd2c5dc7fcb4f30751e6fd7c75739f55f2aeac86eb63cdd2fd"
+     "sha256": "4a24b39c5b201ad358b2df4584dac5c7107435479e9c38212b237500c0a28c22"
     },
     "type": "inventory",
-    "time": "13:34",
+    "time": "13:44",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3361,7 +3524,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "13:34",
+    "time": "13:44",
     "place": null
    }
   ]
