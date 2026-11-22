@@ -283,6 +283,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "09:26",
+   "to": "09:56",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -349,6 +356,37 @@
    "to": "Hegel",
    "text": "Breakfast is already on the verandah, sir, just as I left it. I don't know what a Joint Secretary looks like, but that file is in the drawer, ready when you are.",
    "t": "09:11",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh serves the parathas with the quiet indifference of a man who has learned that a Joint Secretary is a function, not a face. I must address the query before I can breathe freely; the file is the knot that binds my presence here to a name that is not mine. I will eat, then walk to the Directorate to untie it.",
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§147"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction"
+    }
+   ],
+   "t": "09:26",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. I shall be in the study for a moment, then I will be off to the Directorate. Do ensure the file is in the drawer, as you say.",
+   "to": "Ramesh",
+   "t": "09:26",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "It is in the top drawer, sir. The parathas are still warm if you want one before the car leaves.",
+   "t": "09:26",
    "place": "home"
   }
  ],
@@ -422,6 +460,73 @@
      "text": "Deliberationen der Mitglieder des Gerichts über das zu fällende Urteil unter sich sind Äußerungen der noch besonderen Meinungen und Ansichten, also ihrer Natur nach nichts öffentliches."
     }
    ]
+  },
+  {
+   "t": "09:26",
+   "end": "09:56",
+   "event": "Ramesh says: “Breakfast is already on the verandah, sir, just as I left it. I don't know what a Joint Secretary looks like, but that file is in the drawer, ready when you are.” He gestures with a hand toward the tray of idlis and chutney sitting on the wooden table. Ramesh has laid out breakfast: aloo parathas, curd and pickle.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh serves the parathas with the quiet indifference of a man who has learned that a Joint Secretary is a function, not a face. I must address the query before I can breathe freely; the file is the knot that binds my presence here to a name that is not mine. I will eat, then walk to the Directorate to untie it.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": "Thank you, Ramesh. I shall be in the study for a moment, then I will be off to the Directorate. Do ensure the file is in the drawer, as you say.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 17 °C, a brown haze. Air quality index: 211.",
+    "Ramesh has laid out breakfast: aloo parathas, curd and pickle."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply",
+    "meal"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "It is in the top drawer, sir. The parathas are still warm if you want one before the car leaves.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§147",
+     "id": "wallace-logic:691"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "id": "haldane-1:27"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§147",
+     "text": "Here there is no contrast to be seen, and therefore no sense of bondage, no pain, and no sorrow. True, indeed, as already remarked, this attitude towards destiny is void of consolation. But then, on the other hand, it is a frame of mind which does not need consolation, so long as personal subjectivity has not acquired its infinite significance."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "text": "Moreover, in the third place, we must first take a general survey before we descend to particulars, else the whole is not seen for the mere details—the wood is not seen for the trees, nor Philosophy for mere philosophies. We require to have a general idea of the nature and aim of the whole in order to know what to look for."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -429,7 +534,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-23T09:26+05:30",
+  "until": "2026-11-23T09:56+05:30",
   "asleep": false,
   "imprest": 16416,
   "wearing": "kurta",
@@ -518,7 +623,8 @@
     "home": [
      "ramesh"
     ]
-   }
+   },
+   "breakfast": true
   },
   "account": {
    "advance": 15000,
@@ -795,7 +901,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-22T19:59+05:30",
+  "last_meal": "2026-11-23T09:26+05:30",
   "snacks": 0,
   "works": [
    {
@@ -903,7 +1009,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "65811fe7cc83a5b819c9f46e9296edbe7bb1480e11ec0db51bc19bab3603b372",
+  "source_sha256": "d89d472a4ef94bc06f04715c450490a02c1b1f6a6ecc81ebaebf1292ef02d36b",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -961,6 +1067,36 @@
     "words": "Breakfast is already on the verandah, sir, just as I left it. I don't know what a Joint Secretary looks like, but that file is in the drawer, ready when you are.",
     "verified": false,
     "time": "09:11",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:statement:81524a3b02d9e700:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 7,
+     "sha256": "81524a3b02d9e700af369307925603eb4a5ddb695351569852267977be8d465d"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Thank you, Ramesh. I shall be in the study for a moment, then I will be off to the Directorate. Do ensure the file is in the drawer, as you say.",
+    "verified": false,
+    "time": "09:26",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:statement:b946cf7bf94432bf:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 8,
+     "sha256": "b946cf7bf94432bf66f43397a059229205736ad101170dd8596678befabc5862"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "It is in the top drawer, sir. The parathas are still warm if you want one before the car leaves.",
+    "verified": false,
+    "time": "09:26",
     "place": "home"
    },
    {
@@ -1102,68 +1238,114 @@
     "text": "Ramesh is here."
    },
    {
-    "id": "2026-11-23:event:c99f854b4379a8bc:1",
+    "id": "2026-11-23:event:66241ebc760d6a45:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 1,
+     "sha256": "66241ebc760d6a45a2d711dfed81a88b8f68fc28fa3c6d9cfdb5d5df0e95cfd7"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "09:26",
+    "end": "09:56",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-23:event:abc83d122288c863:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      1,
+      0
+     ],
+     "sha256": "abc83d122288c8631199ee8dbce054e2146773455ef40592cb4c236302842397"
+    },
+    "type": "observation",
+    "time": "09:26",
+    "place": "home",
+    "text": "Weather: 17 °C, a brown haze. Air quality index: 211."
+   },
+   {
+    "id": "2026-11-23:event:a62119608a7735bc:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      1,
+      1
+     ],
+     "sha256": "a62119608a7735bc4ad71f07cec85552d003c8537cfc4558ed97c6f0ed8131ae"
+    },
+    "type": "observation",
+    "time": "09:26",
+    "place": "home",
+    "text": "Ramesh has laid out breakfast: aloo parathas, curd and pickle."
+   },
+   {
+    "id": "2026-11-23:event:c443d5baf83943a9:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "c99f854b4379a8bc807bc6062eea19413402c538da98bccd7df2ca8c11a423e0"
+     "sha256": "c443d5baf83943a999bb269c728e92c8b8ffcbb9633a817a649378d6bc3f482a"
     },
     "type": "cash",
-    "time": "09:26",
+    "time": "09:56",
     "amount": 16416,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:67dcc136f1b40b17:1",
+    "id": "2026-11-23:event:25fafccfbddab8f6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "67dcc136f1b40b17345a37dfc9cc1cd0667983b1cecc9e1c41e0cce59ab515eb"
+     "sha256": "25fafccfbddab8f6f8b3b7d78ca27d26c27768bfd126cbf839541ef60aca7241"
     },
     "type": "location",
-    "time": "09:26",
+    "time": "09:56",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:40d8f2357e066e65:1",
+    "id": "2026-11-23:event:f8506b06c9282e39:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "40d8f2357e066e651a41d65062caf1bece34749383e4adc02440f50c3eb8b896"
+     "sha256": "f8506b06c9282e39c7d36d561161b3126c2c14f9e80478ec6b2f604baf070dbe"
     },
     "type": "inventory",
-    "time": "09:26",
+    "time": "09:56",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-23:event:b8505713846a2066:1",
+    "id": "2026-11-23:event:0d5622b7f872abf6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "b8505713846a20661f8cc96b3216ba5ce344d4a2a17e37588bf830277ae63c5c"
+     "sha256": "0d5622b7f872abf62a4989104863a91df1c6a0d812ff6ddf1c4923874962e22e"
     },
     "type": "inventory",
-    "time": "09:26",
+    "time": "09:56",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 18:49.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 18:49.\"}]"
    },
    {
-    "id": "2026-11-23:event:bb5f19a62b503956:1",
+    "id": "2026-11-23:event:7d5c22773ff9c90e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "bb5f19a62b5039562de102a3693c81d40d855c5372cc6b11b90c095a4b343a2b"
+     "sha256": "7d5c22773ff9c90e9d6945d52f7cd82b6eb11d327d66c939aaf514576a4c35fe"
     },
     "type": "inventory",
-    "time": "09:26",
+    "time": "09:56",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -1182,7 +1364,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "09:26",
+    "time": "09:56",
     "place": null
    }
   ]
