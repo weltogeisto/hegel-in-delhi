@@ -528,6 +528,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library at the IIC."
+  },
+  {
+   "from": "20:57",
+   "to": "21:00",
+   "mode": "inside",
+   "at": "iic",
+   "now": "At the IIC."
   }
  ],
  "entries": [
@@ -1689,6 +1696,37 @@
    "to": "Hegel",
    "text": "Haan, haan, aage badhiye. Bas light wahan thodi dim hai, dhyan se chaliye.",
    "t": "20:42",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The guard's caution is merely a gesture of duty; the dimness he warns of is likely just the failing of the electric arc, not a metaphysical darkness. I am here to prepare for tomorrow's address, not to be cowed by the lighting of a municipal building. I will proceed to the inner office to ensure my materials are in order before the library closes.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    }
+   ],
+   "t": "20:57",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "Dhanyavaad.",
+   "to": "the guard at the library",
+   "t": "20:57",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Chalo chalo, koi baat nahi. Bas file theek se rakh dena desk par.",
+   "t": "20:57",
    "place": "iic"
   }
  ],
@@ -4031,6 +4069,74 @@
      "text": "This may all the more easily happen, the more trivial from the universal side of the state is the mismanaged affair, especially when the mismanagement stands of itself in direct relation to the satisfaction and opinion, which are derived from it. In the business of the executive also there is a division of labour (§ 198)."
     }
    ]
+  },
+  {
+   "t": "20:57",
+   "end": "21:00",
+   "event": "The guard at the library says: “Haan, haan, aage badhiye. Bas light wahan thodi dim hai, dhyan se chaliye.” The guard taps the logbook with a pen and watches him walk away.",
+   "present": [
+    "the guard at the library"
+   ],
+   "decision": {
+    "thought": "The guard's caution is merely a gesture of duty; the dimness he warns of is likely just the failing of the electric arc, not a metaphysical darkness. I am here to prepare for tomorrow's address, not to be cowed by the lighting of a municipal building. I will proceed to the inner office to ensure my materials are in order before the library closes.",
+    "action": "stay",
+    "place": "iic",
+    "minutes": 10,
+    "says": "Dhanyavaad.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, clear, hazy. Air quality index: 178."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Chalo chalo, koi baat nahi. Bas file theek se rakh dena desk par.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 6.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:551"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:457"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "With the Persian Empire we first enter on continuous History. The Persians are the first Historical People; Persia was the first Empire that passed away. While China and India remain stationary, and perpetuate a natural vegetative existence even to the present time, this land has been subject to those developments and revolutions, which alone manifest a historical condition."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "The spread of Indian culture is pre-historical, for History is limited to that which makes an essential epoch in the development of Spirit. On the whole, the diffusion of Indian culture is only a dumb, deedless expansion; that is, it presents no political action."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -4038,7 +4144,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-23T20:57+05:30",
+  "until": "2026-11-23T21:00+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "bandhgala",
@@ -4499,7 +4605,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "d477109de7fba96f160418a5eca4ca33c5d78c9029b5f6344b1052c8f977ef7a",
+  "source_sha256": "4b68ede8fb478952873ffdadb9985fd3c37e54c2d743a6f6b93c7072c3a119f5",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -5608,6 +5714,36 @@
     "words": "Haan, haan, aage badhiye. Bas light wahan thodi dim hai, dhyan se chaliye.",
     "verified": false,
     "time": "20:42",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-23:statement:24cd1c8abd4926f9:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 111,
+     "sha256": "24cd1c8abd4926f969e5f7db4eef8a14533bb408db7ca9d39208d8be0c352868"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library",
+    "words": "Dhanyavaad.",
+    "verified": false,
+    "time": "20:57",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-23:statement:2646d39617582a22:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 112,
+     "sha256": "2646d39617582a22df5fe372a1dcf322762321ae25904d0eafbcdc93b8744d1f"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Chalo chalo, koi baat nahi. Bas file theek se rakh dena desk par.",
+    "verified": false,
+    "time": "20:57",
     "place": "iic"
    },
    {
@@ -7017,68 +7153,98 @@
     "text": "Weather: 18 °C, clear, hazy. Air quality index: 178."
    },
    {
-    "id": "2026-11-23:event:f2824ac6e2739fb5:1",
+    "id": "2026-11-23:event:7a0d3f0f97c26eb7:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 36,
+     "sha256": "7a0d3f0f97c26eb7820bf9f4676b755715a254ac9c0b06006c2fe8633b8f026c"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "20:57",
+    "end": "21:00",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-23:event:60ec99158d6d8215:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      36,
+      0
+     ],
+     "sha256": "60ec99158d6d8215c50933c6295c9ee425f75fbbe605eb1fee4d9819afad6987"
+    },
+    "type": "observation",
+    "time": "20:57",
+    "place": "iic",
+    "text": "Weather: 18 °C, clear, hazy. Air quality index: 178."
+   },
+   {
+    "id": "2026-11-23:event:839341cf3b82b931:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "f2824ac6e2739fb525b458f1870d9c75173f09dc95aa7c977ea2d7f5414b192f"
+     "sha256": "839341cf3b82b9317d10d8610a3460c837e83bb75b08823c43166715b759e906"
     },
     "type": "cash",
-    "time": "20:57",
+    "time": "21:00",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:f8a2a524e1eb3c82:1",
+    "id": "2026-11-23:event:4685df804769a0b8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "f8a2a524e1eb3c8246ddc695de4527691ec63579dd65133f12c5742026a0c6f4"
+     "sha256": "4685df804769a0b8100ffd4a071c9d36ee48bc4d41db865ca58a51213cbcfb17"
     },
     "type": "location",
-    "time": "20:57",
+    "time": "21:00",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:36b9dab9f2f900ed:1",
+    "id": "2026-11-23:event:94b6068bc24f099f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "36b9dab9f2f900ed7b3034693ebab6ac40c695457bfcd8fed1242789687c7a85"
+     "sha256": "94b6068bc24f099fe7c80770c120685b47dbf6237815e829d98cc6b5e5cf96a7"
     },
     "type": "inventory",
-    "time": "20:57",
+    "time": "21:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:e33451cb3d19263d:1",
+    "id": "2026-11-23:event:182b340aef359b4c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "e33451cb3d19263da0fb8a4446546fc5f962b9805de673ce48e335b7affd1a43"
+     "sha256": "182b340aef359b4c4009832caf9bbc158ca2c02c855f6e1220f053f43bae6619"
     },
     "type": "inventory",
-    "time": "20:57",
+    "time": "21:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 18:55.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 18:55.\"}]"
    },
    {
-    "id": "2026-11-23:event:984dad5637e39fea:1",
+    "id": "2026-11-23:event:6fb8cc0b31ccacd6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "984dad5637e39fea6521e07ba004bc7928bb45dd1994534c6a059c784cd2b185"
+     "sha256": "6fb8cc0b31ccacd6dfe4f3ef5df619ddb88b3298991ee162c880f80de7eb09f7"
     },
     "type": "inventory",
-    "time": "20:57",
+    "time": "21:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -7097,7 +7263,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "20:57",
+    "time": "21:00",
     "place": null
    }
   ]
