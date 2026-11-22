@@ -360,6 +360,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "13:29",
+   "to": "13:34",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -806,6 +813,37 @@
    "to": "Hegel",
    "text": "Sir, the identity verification is already flagged for priority, so there is nothing more you can submit to speed it up. Just sit back, drink your tea, and let the Ministry do its slow work; I will inform you the moment it clears.",
    "t": "13:09",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "The bureaucracy is a mechanism of waiting, and I am merely a cog caught in its gears. He offers tea as an opiate for the delay, but I have already eaten, and the heat is rising even through the haze. I must leave this corridor; the air here is worse than the paperwork, as he rightly noted, and I need to prepare my mind for the evening.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die germanische Welt"
+    }
+   ],
+   "t": "13:29",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "I appreciate your diligence, Mr. Saxena, but I find I have no appetite for tea after my meal. I shall take my leave to rest, for I have a lecture to deliver this evening.",
+   "to": "Mr. Saxena",
+   "t": "13:29",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "A lecture? In this heat? Very well, sir. Please sign the exit register on the way out, and do not forget the envelope with the vouchers.",
+   "t": "13:29",
    "place": "estates"
   }
  ],
@@ -1599,6 +1637,71 @@
      "text": "The lower concrete civil life must be governed from below in a concrete way. And yet the work must be divided into its abstract branches, specially officered by middlemen, whose activity in connection with those below them must from the lowest to the highest executive offices take the form of a continuous concrete oversight."
     }
    ]
+  },
+  {
+   "t": "13:29",
+   "end": "13:34",
+   "event": "Mr. Saxena says: “Sir, the identity verification is already flagged for priority, so there is nothing more you can submit to speed it up. Just sit back, drink your tea, and let the Ministry do its slow work; I will inform you the moment it clears.” He lifts the steel tumbler to his lips and takes a small sip.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The bureaucracy is a mechanism of waiting, and I am merely a cog caught in its gears. He offers tea as an opiate for the delay, but I have already eaten, and the heat is rising even through the haze. I must leave this corridor; the air here is worse than the paperwork, as he rightly noted, and I need to prepare my mind for the evening.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 5,
+    "says": "I appreciate your diligence, Mr. Saxena, but I find I have no appetite for tea after my meal. I shall take my leave to rest, for I have a lecture to deliver this evening.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 208."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "A lecture? In this heat? Very well, sir. Please sign the exit register on the way out, and do not forget the envelope with the vouchers.",
+    "does": "He waves the steel tumbler away and picks up the exit register from the desk."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 13.0,
+    "draws": {
+     "n": 2,
+     "refused": 1,
+     "echo": 0,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution",
+     "id": "sibree-history:1421"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die germanische Welt",
+     "id": "welt-4:10"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution",
+     "text": "The will of the Many expels the Ministry from power, and those who had formed the Opposition fill the vacant places; but the latter having now become the Government, meet with hostility from the Many, and share the same fate. Thus agitation and unrest is perpetuated."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die germanische Welt",
+     "text": "Dieses muß sich an sich vernünftig sein, auch wenn er von der subjektiv Meinung nicht anerkannt würde; er muß an sich gerecht.gei ' auch mehr und weniger mit Einsicht, so daß sich der Begri darin befriedigen kann. Aus diesen wesentlichen Momenten folgt, daß, indem der Staat sich als diese Natur entwickel alle Momente der Idee selbst entwickelt und herausgeboren sind."
+    }
+   ]
   }
  ],
  "funnel": {},
@@ -1606,7 +1709,7 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-23T13:29+05:30",
+  "until": "2026-11-23T13:34+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "bandhgala",
@@ -2060,7 +2163,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-23",
-  "source_sha256": "bc07f81f60b4b3e74e3f39c0be62853c3c3d903686e390c61c42e4df0a9d81c9",
+  "source_sha256": "81ba0b005ba6fafec3e02b0cb003b53543627ceb9b734f14cf3e3426ba9b772f",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2513,6 +2616,36 @@
     "words": "Sir, the identity verification is already flagged for priority, so there is nothing more you can submit to speed it up. Just sit back, drink your tea, and let the Ministry do its slow work; I will inform you the moment it clears.",
     "verified": false,
     "time": "13:09",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:e8445b331afed8da:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 43,
+     "sha256": "e8445b331afed8da701bdf03afe2df57057f3a164d941a8ab406178c934f2b78"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "I appreciate your diligence, Mr. Saxena, but I find I have no appetite for tea after my meal. I shall take my leave to rest, for I have a lecture to deliver this evening.",
+    "verified": false,
+    "time": "13:29",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:statement:de902bf34aeda22b:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 44,
+     "sha256": "de902bf34aeda22b982dd54ece16f3a27b27343a0eeb23dc04eda78a4b39469e"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "A lecture? In this heat? Very well, sir. Please sign the exit register on the way out, and do not forget the envelope with the vouchers.",
+    "verified": false,
+    "time": "13:29",
     "place": "estates"
    },
    {
@@ -3118,68 +3251,98 @@
     "text": "You arrive at Directorate of Estates, Nirman Bhawan. It closes at 17:30."
    },
    {
-    "id": "2026-11-23:event:ba34d08e02ed6fe2:1",
+    "id": "2026-11-23:event:3a9c0f16b28ebb86:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 12,
+     "sha256": "3a9c0f16b28ebb86de389f92e9d31f8d4d9dd0abb2ba83a5b171ae8a861b22a9"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "13:29",
+    "end": "13:34",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-23:event:543a5765f477ad58:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      12,
+      0
+     ],
+     "sha256": "543a5765f477ad5884612d57a4832bc8d9e2f348492d914513b6e21f7379cd4b"
+    },
+    "type": "observation",
+    "time": "13:29",
+    "place": "estates",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 208."
+   },
+   {
+    "id": "2026-11-23:event:226c934d20309935:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "ba34d08e02ed6fe24eeada7bd66411faba516e45246749e6ac8f7296f2190332"
+     "sha256": "226c934d2030993554d0c9fe627d0aaea92560feaa18f3b7bd506ad24bb87910"
     },
     "type": "cash",
-    "time": "13:29",
+    "time": "13:34",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-23:event:00a08119ea19ebe4:1",
+    "id": "2026-11-23:event:80945e93c461e71f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "00a08119ea19ebe47f2f96f16c4cb14ab9f356ee94010d962b465b62a6256520"
+     "sha256": "80945e93c461e71f3a024f3f732b8ea45729b1be0b7b44bb08d0428ad2275a3f"
     },
     "type": "location",
-    "time": "13:29",
+    "time": "13:34",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-23:event:78c53d5d4dc86529:1",
+    "id": "2026-11-23:event:8dc86efae5170f8b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "78c53d5d4dc86529f0734b0d550a07e3c652fe3db024183928bfdf4e1f0c3384"
+     "sha256": "8dc86efae5170f8b6eb52c14323d2382acc32c17f4dabd5c70605600f257e812"
     },
     "type": "inventory",
-    "time": "13:29",
+    "time": "13:34",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-23:event:32f7ed57a036b090:1",
+    "id": "2026-11-23:event:e15ac04a248a13be:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "32f7ed57a036b090dc9180d8d81c2b96a83b94aa59fcf9efa844d008e6ee4928"
+     "sha256": "e15ac04a248a13be2de6eb27c71d8ed35d9c13d753d032d7e0cfa2eef4e793bf"
     },
     "type": "inventory",
-    "time": "13:29",
+    "time": "13:34",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 12:43.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 12:43.\"}]"
    },
    {
-    "id": "2026-11-23:event:a83525b5e3e23d34:1",
+    "id": "2026-11-23:event:12d951820a3273cd:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "a83525b5e3e23d3459b6f87c714e119e6301616f9da51fcbb400e47366de62aa"
+     "sha256": "12d951820a3273cd2c5dc7fcb4f30751e6fd7c75739f55f2aeac86eb63cdd2fd"
     },
     "type": "inventory",
-    "time": "13:29",
+    "time": "13:34",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3198,7 +3361,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "13:29",
+    "time": "13:34",
     "place": null
    }
   ]
