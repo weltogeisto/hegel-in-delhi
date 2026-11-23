@@ -70,7 +70,7 @@ def make_world(cfg):
                  street_file=getattr(cfg, "street_file", None), promises=getattr(cfg, "promises", False),
                  ramesh_days=getattr(cfg, "ramesh_days", False), consumed=getattr(cfg, "consumed", False),
                  file_act=getattr(cfg, "file_act", False), repairs=getattr(cfg, "world_repairs", False),
-                 keep_time=getattr(cfg, "keep_time", False))
+                 keep_time=getattr(cfg, "keep_time", False), talk_scene=getattr(cfg, "talk_scene", False))
 
 
 def cmd_tick(cfg, args):
