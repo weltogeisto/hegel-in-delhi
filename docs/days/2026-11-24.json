@@ -380,6 +380,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "18:30",
+   "to": "19:30",
+   "mode": "inside",
+   "at": "iic",
+   "now": "Talking with the guard at the library and the programme officer at the IIC."
   }
  ],
  "entries": [
@@ -1007,6 +1014,43 @@
    "to": "Hegel",
    "text": "Officer aaj nahi aayega, sir. Aaj Guru Nanak Jayanti hai, toh library 9:30 tak band hai. Kal se normal timing par aa jayenge.",
    "t": "18:20",
+   "place": "iic"
+  },
+  {
+   "k": "world",
+   "text": "Half past six: he speaks in the lecture hall of the IIC, an hour, to a full room.",
+   "t": "18:30",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The guard's warning is moot; the officer has already opened the door to the real thing. The seats are filling, a small assembly of minds ready to be moved, and I must not let the holiday spirit or the heat soften my delivery. I step into the hall, the bandhgala tight against my chest, ready to speak of the spirit as it is, not as they wish it to be.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Alexandrian Philosophy"
+    },
+    {
+     "work": "Über die Bhagavad-Gita",
+     "ref": "Zweiter Artikel"
+    }
+   ],
+   "t": "18:30",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "Good evening. We are gathered here on a day of celebration, but let us not let the festival obscure the structure of the world we inhabit.",
+   "to": "the guard at the library and the programme officer",
+   "t": "18:30",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Sir, aap baith jaiye na, hum log sun rahe hain. Thoda shor hai par koshish kar rahe hain.",
+   "t": "18:30",
    "place": "iic"
   }
  ],
@@ -2255,6 +2299,75 @@
      "text": "The Greek dominion spread itself over northern India, and Sandrokottus (Chandraguptas) is mentioned as the first who emancipated himself from it. The same name presents itself indeed among the Hindoos, but for reasons already stated, we can place very little dependence upon such mention. Other Greek Kingdoms arose in Asia Minor, in Armenia, in Syria and Babylonia."
     }
    ]
+  },
+  {
+   "t": "18:30",
+   "end": "19:30",
+   "event": "The guard at the library says: “Officer aaj nahi aayega, sir. Aaj Guru Nanak Jayanti hai, toh library 9:30 tak band hai. Kal se normal timing par aa jayenge.” He shakes his head and points towards the closed main doors. The programme officer shows you into the lecture hall. The seats are filling. The talk is yours, for about an hour.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard's warning is moot; the officer has already opened the door to the real thing. The seats are filling, a small assembly of minds ready to be moved, and I must not let the holiday spirit or the heat soften my delivery. I step into the hall, the bandhgala tight against my chest, ready to speak of the spirit as it is, not as they wish it to be.",
+    "action": "talk",
+    "place": "iic",
+    "minutes": 60,
+    "says": "Good evening. We are gathered here on a day of celebration, but let us not let the festival obscure the structure of the world we inhabit.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, clear. Air quality index: 99.",
+    "The programme officer shows you into the lecture hall. The seats are filling. The talk is yours, for about an hour."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply",
+    "offer:iic_talk_day"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Sir, aap baith jaiye na, hum log sun rahe hain. Thoda shor hai par koshish kar rahe hain.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Alexandrian Philosophy",
+     "id": "haldane-2:999"
+    },
+    {
+     "work": "Über die Bhagavad-Gita",
+     "ref": "Zweiter Artikel",
+     "id": "gita:75"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Alexandrian Philosophy",
+     "text": "For Alexandria had for some time past, mainly through the Ptolemies, become the principal seat of the sciences. Here, as if in their centre-point, all the popular religions and mythologies of the East and West, and likewise their history, came into touch and intermingled with one another in various forms and shapes."
+    },
+    {
+     "work": "Über die Bhagavad-Gita",
+     "ref": "Zweiter Artikel",
+     "text": "Die dazwischen liegende ist sonach konstante Devotion; wir können den Ausdruck devotio assiduitatis umkehren und sie die Assiduität der Devotion nennen. Ihre weitere Bestimmung geben Theils Beschreibungen auch der Bhagavad-Gita selbst, Theils aber ist es die Stufe, welche für sich nothwendig das Auffallendste für Alle gewesen ist, welche von Indischem berichtet haben."
+    }
+   ],
+   "beat": "iic_talk_day"
   }
  ],
  "funnel": {
@@ -2281,8 +2394,8 @@
   },
   "iic_talk_day": {
    "live": 1,
-   "eligible": 0,
-   "shown": 0,
+   "eligible": 1,
+   "shown": 1,
    "yes": 0,
    "no": 0
   }
@@ -2291,7 +2404,7 @@
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-24T18:30+05:30",
+  "until": "2026-11-24T19:30+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "bandhgala",
@@ -2346,21 +2459,15 @@
    "diwali_bakshish",
    "iic_talk",
    "saxena_query",
-   "ramesh_fulltime"
+   "ramesh_fulltime",
+   "iic_talk_day"
   ],
   "flags": {
    "bandhgala": "collected",
    "hegde_lodger": true,
    "ramesh_parttime": false
   },
-  "appointments": [
-   {
-    "date": "2026-11-24",
-    "t": "18:30",
-    "what": "your talk at the IIC",
-    "beat": "iic_talk_day"
-   }
-  ],
+  "appointments": [],
   "theses": [
    {
     "id": "india",
@@ -2510,7 +2617,17 @@
    }
   ],
   "cheques": [],
-  "receipts": [],
+  "receipts": [
+   {
+    "from": "the India International Centre",
+    "amount": 10000,
+    "item": "Honorarium for the talk at the IIC",
+    "cheque": true,
+    "after": "2026-11-24T19:30+05:30",
+    "charge_id": "charge:9",
+    "at": "iic"
+   }
+  ],
   "engagements": [],
   "costs": {
    "wage": "2026-11-01",
@@ -2737,7 +2854,7 @@
    "cost:groceries:2026-11-22",
    "charge:3"
   ],
-  "charge_seq": 8,
+  "charge_seq": 9,
   "street": {
    "home_vegetable_cart": "2026-11-20",
    "estates_bench": "2026-11-20",
@@ -2754,7 +2871,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-24",
-  "source_sha256": "936b1f398d68908592efdb26bf499562a18366cd99a9d730e5f1f67aa1d85700",
+  "source_sha256": "df91f3d01743535e5449f869710d72787b805fe2f9d0698003ae760389a08676",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3322,6 +3439,49 @@
     "words": "Officer aaj nahi aayega, sir. Aaj Guru Nanak Jayanti hai, toh library 9:30 tak band hai. Kal se normal timing par aa jayenge.",
     "verified": false,
     "time": "18:20",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-24:event:748d0115c36baeeb:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 58,
+     "sha256": "748d0115c36baeebf6487104f18ae20684cf484559ea868acfec99b3afd2b7e7"
+    },
+    "type": "world",
+    "text": "Half past six: he speaks in the lecture hall of the IIC, an hour, to a full room.",
+    "time": "18:30",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-24:statement:f3f0d84f87f339f8:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 60,
+     "sha256": "f3f0d84f87f339f8903f886251d994fc26ee251dd066d6eab928259615a24b21"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "Good evening. We are gathered here on a day of celebration, but let us not let the festival obscure the structure of the world we inhabit.",
+    "verified": false,
+    "time": "18:30",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-24:statement:e0705d0cac791f74:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 61,
+     "sha256": "e0705d0cac791f74cda6573a3a3ba6e64acc4226644b70a32ffd2f286ef257ff"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Sir, aap baith jaiye na, hum log sun rahe hain. Thoda shor hai par koshish kar rahe hain.",
+    "verified": false,
+    "time": "18:30",
     "place": "iic"
    },
    {
@@ -4164,68 +4324,114 @@
     "text": "You arrive at India International Centre. It closes at 21:30."
    },
    {
-    "id": "2026-11-24:event:a8d90be300cd31fd:1",
+    "id": "2026-11-24:event:857d755972a45c33:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 19,
+     "sha256": "857d755972a45c33b85306754eb90fca0abddc1184d81a1e2350ddb784f0109f"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "18:30",
+    "end": "19:30",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-24:event:6111125fa3e1e8b7:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      19,
+      0
+     ],
+     "sha256": "6111125fa3e1e8b78b236e3f62a88bfb675d627ec10dc26b5d5731bdc7dc119a"
+    },
+    "type": "observation",
+    "time": "18:30",
+    "place": "iic",
+    "text": "Weather: 20 °C, clear. Air quality index: 99."
+   },
+   {
+    "id": "2026-11-24:event:7dfe64b012b8e7aa:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      19,
+      1
+     ],
+     "sha256": "7dfe64b012b8e7aa951aa99f92fb4f032c4a550439f095fae5687d3c0587119f"
+    },
+    "type": "observation",
+    "time": "18:30",
+    "place": "iic",
+    "text": "The programme officer shows you into the lecture hall. The seats are filling. The talk is yours, for about an hour."
+   },
+   {
+    "id": "2026-11-24:event:a6ec60d11a560a6e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "a8d90be300cd31fdb649237ab426c356cfa38c35248766e9e99a6f99f3e55a33"
+     "sha256": "a6ec60d11a560a6e749256f4631d8bbdc8d47353f7c350c1d79746db264eaaba"
     },
     "type": "cash",
-    "time": "18:30",
+    "time": "19:30",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-24:event:cc76d306da7e060b:1",
+    "id": "2026-11-24:event:adf1b15eb0c3c831:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "cc76d306da7e060b8c294622e9d398fbc5a119713f109480384bc6e509da031f"
+     "sha256": "adf1b15eb0c3c8315048237eceddde7ba728231f10374e136c636fa40a8c5874"
     },
     "type": "location",
-    "time": "18:30",
+    "time": "19:30",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-24:event:a885163ca790465a:1",
+    "id": "2026-11-24:event:e49e434bbdce69bb:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "a885163ca790465a24ca6c5315253cb79708b5529104535d2e8aa6653d7c77b4"
+     "sha256": "e49e434bbdce69bb3d4bb41d0f6f5dcfd34c98b2d2211e189fba6305d4581a49"
     },
     "type": "inventory",
-    "time": "18:30",
+    "time": "19:30",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-24:event:e7fc95e719312f11:1",
+    "id": "2026-11-24:event:c5da5eb2bc40ce75:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "e7fc95e719312f11fbdd4c8782dac0502df777028ee250ad69c0ce37ac3b596a"
+     "sha256": "c5da5eb2bc40ce75d4ba018b5a879603e598917a48d9d3c4b2c0ead031e4caf7"
     },
     "type": "inventory",
-    "time": "18:30",
+    "time": "19:30",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 17:58.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 17:58.\"}]"
    },
    {
-    "id": "2026-11-24:event:8838de36ccb795e0:1",
+    "id": "2026-11-24:event:8275aeb1b1011ee4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "8838de36ccb795e063eea53dbce7a5d5253f85c5c411c5a5b56cb5fd52fa6edf"
+     "sha256": "8275aeb1b1011ee490aea4642c1fef44adb70612b75e6442ceb9259cff3848c9"
     },
     "type": "inventory",
-    "time": "18:30",
+    "time": "19:30",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -4244,7 +4450,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "18:30",
+    "time": "19:30",
     "place": null
    }
   ]
