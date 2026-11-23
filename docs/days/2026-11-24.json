@@ -289,6 +289,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "10:59",
+   "to": "12:59",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -536,6 +543,37 @@
    "to": "Hegel",
    "text": "State rests, sir. You eat. Ramesh brings more tea when it gets cold.",
    "t": "10:29",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh speaks with the quiet certainty of a man who has outlived the confusion of his employer. The Directorate is closed, a fact of nature as immutable as the sun's path, and my impatience is merely a private inconvenience that the public machinery does not recognize. I will not chase a ghost that is not there to be caught. I shall accept the tea and the rest, for the evening at the IIC demands a clear head, not a frantic heart.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato, Philosophy of Mind"
+    }
+   ],
+   "t": "10:59",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Ramesh. The state rests, and so shall I. Bring the tea when it is ready.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "10:59",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes, sir. It will be ready in a moment.",
+   "t": "10:59",
    "place": "home"
   }
  ],
@@ -954,6 +992,72 @@
      "text": "So, too, peoples, who have been unwilling or afraid to endure internal sovereignty, have been subjugated by others, and in their struggles for independence have had honour and success small in proportion to their failure to establish within themselves a central political power; their freedom died through their fear of its dying."
     }
    ]
+  },
+  {
+   "t": "10:59",
+   "end": "12:59",
+   "event": "Ramesh says: “State rests, sir. You eat. Ramesh brings more tea when it gets cold.” He glances at the empty bowl, then back at Hegel.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Ramesh speaks with the quiet certainty of a man who has outlived the confusion of his employer. The Directorate is closed, a fact of nature as immutable as the sun's path, and my impatience is merely a private inconvenience that the public machinery does not recognize. I will not chase a ghost that is not there to be caught. I shall accept the tea and the rest, for the evening at the IIC demands a clear head, not a frantic heart.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 120,
+    "says": "You are right, Ramesh. The state rests, and so shall I. Bring the tea when it is ready.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 19 °C, clear. Air quality index: 103."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes, sir. It will be ready in a moment.",
+    "does": "He turns away and walks quietly towards the kitchen."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 4,
+    "latency_s": 21.5,
+    "draws": {
+     "n": 4,
+     "refused": 2,
+     "echo": 2,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "id": "haldane-1:113"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato, Philosophy of Mind",
+     "id": "haldane-2:263"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "text": "As the best of what is in the world is that which Thought produces, it is unreasonable to believe that reason only is in Nature, and not in Mind. That man who believes that what, like the philosophies, belongs to the region of mind must be merely contingent, is insincere in his belief in divine rule, and what he says of it is but empty talk."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato, Philosophy of Mind",
+     "text": "Anger corresponds with the class of the brave defenders in the state; as these grasp their weapons in behalf of reason within the state, so does anger take the part of reason, if it has not been perverted by an evil up-bringing. Therefore wisdom in the state is the same as in the individual, and this is true of courage also."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -990,7 +1094,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-24T10:59+05:30",
+  "until": "2026-11-24T12:59+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "kurta",
@@ -1444,7 +1548,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-24",
-  "source_sha256": "16aa3819ced7eeec66c43fb93d0de862b81c66a8e1f78b121c3a3b271eb20224",
+  "source_sha256": "fd98e99ff9713c5b370f4deaea9132dfee9bd7a5d602893be29d1e4e8c401043",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1695,6 +1799,36 @@
     "words": "State rests, sir. You eat. Ramesh brings more tea when it gets cold.",
     "verified": false,
     "time": "10:29",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:14c2c985199f11a8:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 25,
+     "sha256": "14c2c985199f11a837a5d59a16451710fd8549c155c2c241a2e3a8fd1c02e431"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh and Shri G. Hegde",
+    "words": "You are right, Ramesh. The state rests, and so shall I. Bring the tea when it is ready.",
+    "verified": false,
+    "time": "10:59",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:05ed1c717db9d170:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 26,
+     "sha256": "05ed1c717db9d170851ba93ba6fa22223f56d8cfc8f8865d063a895238369540"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes, sir. It will be ready in a moment.",
+    "verified": false,
+    "time": "10:59",
     "place": "home"
    },
    {
@@ -2033,68 +2167,98 @@
     "text": "Weather: 19 °C, clear. Air quality index: 103."
    },
    {
-    "id": "2026-11-24:event:69f26a7df7096fb8:1",
+    "id": "2026-11-24:event:bfbd77c1728cb07d:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 6,
+     "sha256": "bfbd77c1728cb07dd08713ad6a9223fda4c83200ac1bdffd9ee8587efed9a533"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "10:59",
+    "end": "12:59",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:55480c60e9775d3d:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      6,
+      0
+     ],
+     "sha256": "55480c60e9775d3d817d69e68690502e96e132113f1ce72cc45f5829835aa477"
+    },
+    "type": "observation",
+    "time": "10:59",
+    "place": "home",
+    "text": "Weather: 19 °C, clear. Air quality index: 103."
+   },
+   {
+    "id": "2026-11-24:event:90bbff3b8b63b070:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "69f26a7df7096fb8973707a59ca9f9f659681d0c186ecf58e6fcbed203cafeda"
+     "sha256": "90bbff3b8b63b0707877dd55db5262cd402a15abbc0cc9562b2bab475d3f6934"
     },
     "type": "cash",
-    "time": "10:59",
+    "time": "12:59",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-24:event:ab67f2b787f6b221:1",
+    "id": "2026-11-24:event:320c9dc633237510:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "ab67f2b787f6b221c80391b0693efc763116116174db11844d04150c3f634f5f"
+     "sha256": "320c9dc633237510ccf257ccdf2f1a8f1e9be5bf56ad0da471aa9e28338ec97b"
     },
     "type": "location",
-    "time": "10:59",
+    "time": "12:59",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-24:event:13f151bae418e06f:1",
+    "id": "2026-11-24:event:feebb1cd5b0796bf:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "13f151bae418e06fe188ced21c79efb32ceecc264edecd3c74296c73535d418f"
+     "sha256": "feebb1cd5b0796bfcded76887162d214ced596ee2c45c78879ce478206df13c9"
     },
     "type": "inventory",
-    "time": "10:59",
+    "time": "12:59",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-24:event:bfb2f2ab2c915fd3:1",
+    "id": "2026-11-24:event:62d980c34c1c1006:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "bfb2f2ab2c915fd33910425ff6f68869f02d87eff2db45810dcdd017d1adf436"
+     "sha256": "62d980c34c1c1006225dbf2f15763b3a36191726693ce0713bdb6823e149c01e"
     },
     "type": "inventory",
-    "time": "10:59",
+    "time": "12:59",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:14.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:14.\"}]"
    },
    {
-    "id": "2026-11-24:event:38b5a073ba2f313b:1",
+    "id": "2026-11-24:event:09f6202b64c4a5ff:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "38b5a073ba2f313b22e4f2efc33ec8718a9ad4b2af6cef75ded481fcfb7e92f2"
+     "sha256": "09f6202b64c4a5ffd7c50cb7f8bf3399bb13c523f9b1d2309d0d49a6cbf47194"
     },
     "type": "inventory",
-    "time": "10:59",
+    "time": "12:59",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2113,7 +2277,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "10:59",
+    "time": "12:59",
     "place": null
    }
   ]
