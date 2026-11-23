@@ -22,9 +22,10 @@ def fake():
            + "".join(letter(f"Goethe an Hegel, Weimar {1820 + i}", words(150, f"g{i}x")) for i in range(3))
            + letter("Hegel an Niethammer, Berlin 1821", words(90, "n"))
            + letter("Hegel an seine Frau, Berlin 1823", words(110, "f"))
-           + "## Reise nach den Niederlanden, 1822\n\nAus Hegels Briefen an seine Frau\n\nCassel, den 18. Sept. 22.\n\n"
-           + words(100, "k") + "\n\n" + words(30, "kurz") + "\n\nCölln, den 28. Sept. 1822.\n\n" + words(400, "c").replace(" c200 ", " c200. C201x ")
-           + "\n\n## Reise nach Wien, 1824\n\nWien, den 21. Sept. 24.\n\n" + words(95, "w")
+           + "## Reise nach den Niederlanden, 1822\n\nAus Hegels Briefen an seine Frau\n\nCassel, den 18. Sept. 22.\n\n" + words(95, "w")
+           + "\n\n## Reise nach Wien, 1824\n\nAus Hegels Briefen an seine Frau\n\nPrag, den 18. Sept. 24.\n\n"
+           + words(100, "k") + "\n\n" + words(30, "kurz") + "\n\nWien, den 21. Sept. 1824.\n\n" + words(400, "c").replace(" c200 ", " c200. C201x ")
+           + "\n\nWien, den 25. Sept. 1824.\n\n" + words(95, "v")
            + "\n\n## Reise nach Paris, 1827\n\nParis, den 3. Sept. 27.\n\n" + words(95, "p") + "\n")
     return {"briefe-1": one, "briefe-2": two}
 
@@ -55,6 +56,18 @@ class CorpusTest(unittest.TestCase):
         self.assertEqual(sum(l["by"] == "other" for l in self.letters), 3)
         self.assertFalse(any("Reise" in l["head"] for l in self.letters))
 
+    def test_the_training_journey_and_the_diaries_join_the_pool(self):
+        journey = v.training_journey(fake())
+        self.assertEqual([(p["head"], p["near"], p["year"]) for p in journey], [("Hegel an seine Frau, Cassel, den 18. Sept. 22", True, 1822)])
+        book = {"rosenkranz-urkunden": "## Tagebuch der Reise in die Berner Oberalpen\n\n" + " ".join(["Wir gingen und der Weg war steil und das Tal lag tief."] * 12)
+                + "\n\n## Hegel's Tagebuch aus der Gymnasialzeit\n\n" + " ".join(["Primo intersui hodie divino cultui orationique sacrae quam concionatus est."] * 12)
+                + "\n\n" + " ".join(["Ich machte die Bemerkung, daß der Lehrer nicht kam und wir zu Hause blieben."] * 8)
+                + "\n\n## Fragmente\n\n" + words(100, "x")}
+        got = v.diaries(book)
+        self.assertEqual([(d["head"][:8], d["near"]) for d in got], [("Tagebuch", True), ("Hegel's ", False)])
+        self.assertFalse(any("Primo" in d["text"] for d in got))        # the Latin entries stay out
+        self.assertEqual(v.diaries(fake()), [])
+
     def test_every_tenth_of_his_letters_is_held_out(self):
         pool, held, others = v.split(self.letters)
         self.assertEqual((len(pool), len(held), len(others)), (13, 1, 3))
@@ -63,9 +76,9 @@ class CorpusTest(unittest.TestCase):
     def test_the_development_passages_fall_under_their_date_lines_and_leave_paris_out(self):
         dev = v.development(fake())
         self.assertEqual({p["journey"] for p in dev}, set(v.DEVELOPMENT))
-        cassel = [p for p in dev if p["dated"].startswith("Cassel")]
-        self.assertEqual([p["words"] for p in cassel], [130])           # the short paragraph joins the one before it
-        self.assertEqual(len([p for p in dev if p["dated"].startswith("Cölln")]), 2)
+        prag = [p for p in dev if p["dated"].startswith("Prag")]
+        self.assertEqual([p["words"] for p in prag], [130])             # the short paragraph joins the one before it
+        self.assertEqual(len([p for p in dev if p["dated"].startswith("Wien, den 21")]), 2)
         self.assertTrue(all(v.LO <= p["words"] <= v.HI for p in dev))
 
 
@@ -126,7 +139,8 @@ class NightTest(unittest.TestCase):
         plan = json.loads((self.f / "EXEMPLARS.json").read_text())
         self.assertEqual((len(plan[f"P0|{card['id']}"]), len(plan[f"P1|{card['id']}"])), (0, 3))
         near = {p["id"] for p in v.rows(self.f / "POOL.jsonl") if p["near"]}
-        self.assertTrue(near and near <= set(plan[f"P1|{card['id']}"]))                # a letter to his wife stands first
+        self.assertEqual(len(near), 2)                                                 # his letter to his wife, and the training journey
+        self.assertTrue(near <= set(plan[f"P1|{card['id']}"]))                         # what is of the journeys' kind stands first
         self.assertGreater(len(plan[f"P2|{card['id']}"]), 3)
         pool = {p["id"]: p["letter"] for p in v.rows(self.f / "POOL.jsonl")}
         shown = plan[f"P2|{card['id']}"]
@@ -202,11 +216,14 @@ class ShelfTest(unittest.TestCase):
             res = v.cmd_passages(d)
             dev = v.rows(Path(d) / "PASSAGES.jsonl")
             self.assertEqual({p["journey"] for p in dev}, set(v.DEVELOPMENT))
-            self.assertGreater(len(dev), 60)
-            self.assertGreater(res["pool"]["rows"], 400)
+            self.assertGreater(len(dev), 30)
+            self.assertGreater(res["pool"]["rows"], 500)
+            self.assertGreater(res["passages"]["journey"], 20)
             texts = {p["text"] for p in v.rows(Path(d) / "POOL.jsonl")} | {p["text"] for p in v.rows(Path(d) / "CONTROLS.jsonl")}
-            self.assertFalse(texts & {p["text"] for p in dev})
-            self.assertFalse(any("Marienburg" in t or "Louvre" in t for t in texts))  # words of the journeys
+            kept = {p["text"] for p in v.development(names=("Vienna 1824", "Paris 1827"))}
+            self.assertFalse(texts & kept)                                            # Vienna and Paris are in no pool and no control
+            joined = " ".join(texts)
+            self.assertFalse(any(p[:60] in joined for p in kept))
 
 
 if __name__ == "__main__":
