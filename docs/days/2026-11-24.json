@@ -18,7 +18,7 @@
     "aqi": 195
    },
    {
-    "temp": 15,
+    "temp": 16,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 186
@@ -30,7 +30,7 @@
     "aqi": 177
    },
    {
-    "temp": 14,
+    "temp": 15,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 169
@@ -48,7 +48,7 @@
     "aqi": 152
    },
    {
-    "temp": 13,
+    "temp": 14,
     "sky": "clear",
     "rain": 0,
     "aqi": 144
@@ -84,13 +84,13 @@
     "aqi": 109
    },
    {
-    "temp": 22,
+    "temp": 23,
     "sky": "clear",
     "rain": 0,
     "aqi": 105
    },
    {
-    "temp": 23,
+    "temp": 24,
     "sky": "clear",
     "rain": 0,
     "aqi": 103
@@ -114,6 +114,12 @@
     "aqi": 99
    },
    {
+    "temp": 21,
+    "sky": "clear",
+    "rain": 0,
+    "aqi": 99
+   },
+   {
     "temp": 20,
     "sky": "clear",
     "rain": 0,
@@ -121,12 +127,6 @@
    },
    {
     "temp": 19,
-    "sky": "clear",
-    "rain": 0,
-    "aqi": 99
-   },
-   {
-    "temp": 18,
     "sky": "clear",
     "rain": 0,
     "aqi": 99
@@ -151,7 +151,7 @@
    },
    {
     "temp": 16,
-    "sky": "overcast",
+    "sky": "clear",
     "rain": 0,
     "aqi": 105
    }
@@ -338,6 +338,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Writing at home."
+  },
+  {
+   "from": "16:29",
+   "to": "16:39",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -773,6 +780,22 @@
    "why": "Oriental",
    "topic": "the ranking of peoples",
    "t": "15:44",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "It is 16:29, and my talk at the IIC begins at 18:30. The plan was to depart at 17:30, but the air is clear and cool at 23 degrees, a pleasant contrast to the recent haze. I have finished my writing and the room is in order. I should not sit idle for another full hour; the walk takes time, and I wish to arrive with composure, not haste. I will rise and prepare to leave in ten minutes.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§88"
+    }
+   ],
+   "t": "16:29",
    "place": "home"
   }
  ],
@@ -1632,6 +1655,65 @@
      "text": "The members of civil society as such are rather people who find their nearest duty in their private interest and (as especially in the feudal society) in the interest of their privileged corporation. Take the case of England which, because private persons have a predominant share in public affairs, has been regarded as having the freest of all constitutions."
     }
    ]
+  },
+  {
+   "t": "16:29",
+   "end": "16:39",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "It is 16:29, and my talk at the IIC begins at 18:30. The plan was to depart at 17:30, but the air is clear and cool at 23 degrees, a pleasant contrast to the recent haze. I have finished my writing and the room is in order. I should not sit idle for another full hour; the walk takes time, and I wish to arrive with composure, not haste. I will rise and prepare to leave in ten minutes.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 10,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, clear. Air quality index: 99.",
+    "Nothing in particular happens. The afternoon goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:25"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§88",
+     "id": "wallace-logic:419"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "Hence it would not be necessary to bring it under public control, if the state did not require deeper teaching and insight, and expect science to satisfy the need. Yet this shallowness, notwithstanding its seeming innocence, does bear upon social life, right and duty generally, advancing principles which are the very essence of superficiality."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§88",
+     "text": "Idea. Even Becoming however, taken at its best on its own ground, is an extremely poor term: it needs to grow in depth and weight of meaning. Such deepened force we find e.g. in Life. Life is a Becoming; but that is not enough to exhaust the notion of life. A still higher form is found in Mind. Here too is Becoming, but richer and more intensive than mere logical Becoming."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1668,7 +1750,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-24T16:29+05:30",
+  "until": "2026-11-24T16:39+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "kurta",
@@ -2123,7 +2205,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-24",
-  "source_sha256": "afaf1890485c66445afeee82921b1ccee0312d68a2f10b101c16c308e3008b94",
+  "source_sha256": "2df8e2004297058712225d973de296b9db2ee9a8e4986181d02765070ded9929",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3092,68 +3174,114 @@
     "text": "Nothing in particular happens. The afternoon goes on."
    },
    {
-    "id": "2026-11-24:event:0ab60b08926bcd63:1",
+    "id": "2026-11-24:event:9f72064a5f646ba6:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 13,
+     "sha256": "9f72064a5f646ba68d35d09d77f47ef419ba0a407d81f245574bdee093b998b1"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "16:29",
+    "end": "16:39",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:7927f3d348912ded:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      13,
+      0
+     ],
+     "sha256": "7927f3d348912ded403838d40fb741511629c423288af3f9836fbf5965d26994"
+    },
+    "type": "observation",
+    "time": "16:29",
+    "place": "home",
+    "text": "Weather: 23 °C, clear. Air quality index: 99."
+   },
+   {
+    "id": "2026-11-24:event:a77f13cd004dc58e:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      13,
+      1
+     ],
+     "sha256": "a77f13cd004dc58e92ee3fd09257ac61887e5229b3f41685577fbace3df64cce"
+    },
+    "type": "observation",
+    "time": "16:29",
+    "place": "home",
+    "text": "Nothing in particular happens. The afternoon goes on."
+   },
+   {
+    "id": "2026-11-24:event:84e7bc595a858fba:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "0ab60b08926bcd63043a044a3e491134826d55e96eb60302d7244cff0e918622"
+     "sha256": "84e7bc595a858fba28ca2f6db6678d4a342284b0310a1f1cbe31f75ae03772c6"
     },
     "type": "cash",
-    "time": "16:29",
+    "time": "16:39",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-24:event:466787ced8177cb8:1",
+    "id": "2026-11-24:event:2aba488a55b85960:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "466787ced8177cb894710d2276a0256d2ce6a8ee045934bb09723f6e0877a902"
+     "sha256": "2aba488a55b859605537e7314835a2d7285483a4cb158beb40173f4c0a3c82d8"
     },
     "type": "location",
-    "time": "16:29",
+    "time": "16:39",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-24:event:93b4f29a0e561ef9:1",
+    "id": "2026-11-24:event:18bd534fdae5d5bb:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "93b4f29a0e561ef92d4c3804ae4d9b7f210058f51586af7ed53062315734c7b5"
+     "sha256": "18bd534fdae5d5bb3f3dc23d946d3845c228bebe5891a00a40c86b4ffd1e20a2"
     },
     "type": "inventory",
-    "time": "16:29",
+    "time": "16:39",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-24:event:3af4a8be6ebd43ef:1",
+    "id": "2026-11-24:event:567e65b2aed2e8ef:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "3af4a8be6ebd43efbc8e8f745ffe2bb3b0408e55278a94cde392ff48b16447fc"
+     "sha256": "567e65b2aed2e8efd3f597aac47aceb18eddb7d0e73f9b980ba6d677edcdd36a"
     },
     "type": "inventory",
-    "time": "16:29",
+    "time": "16:39",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:14.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:14.\"}]"
    },
    {
-    "id": "2026-11-24:event:7abbb4ffa0faa5a9:1",
+    "id": "2026-11-24:event:db9f9067f0563561:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "7abbb4ffa0faa5a9021787a71dfdb0d556cddeca5176d2e1d5e542180593c15b"
+     "sha256": "db9f9067f056356189ac23bd3efe1cb7293a07304f400ec6ee675ead5c11de7f"
     },
     "type": "inventory",
-    "time": "16:29",
+    "time": "16:39",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3172,7 +3300,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "16:29",
+    "time": "16:39",
     "place": null
    }
   ]
