@@ -13,7 +13,8 @@ cannot reuse it. `--out` gets {"id", "reply"} lines in the file's order, and `<j
 `--latency-observation` (and `--latency-limit`) stop new calls when his own steps are slower than their limit
 (recorded_llama.LatencyGuard). `--limit N` sends at most N new calls this run.
 
-Evaluation only: no reply here is ever training data."""
+Replies are evaluation material, except that Training 4's card inputs are also made through this tool (tools/voice4_train.py):
+a reply is never a training target."""
 import argparse
 import hashlib
 import json
