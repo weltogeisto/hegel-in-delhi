@@ -303,6 +303,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "13:14",
+   "to": "13:59",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -597,6 +604,37 @@
     }
    ],
    "t": "12:59",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The dal is yellow and the bhindi cut thin, a simple geometry of sustenance. I have sat in stillness for two hours, and the mind grows rigid without the motion of the limbs. I will eat, for the body is the vessel in which the spirit must reside, and a hungry philosopher argues poorly.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Reformation"
+    }
+   ],
+   "t": "13:14",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "It is good, Ramesh. The bhindi is prepared with care.",
+   "to": "Ramesh",
+   "t": "13:14",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes, sir. The bhindi was fresh this morning. I will leave the room so you can eat in peace.",
+   "t": "13:14",
    "place": "home"
   }
  ],
@@ -1141,6 +1179,72 @@
      "text": "Each of these two sides takes the other to be the perversion of the truth. For the naive consciousness to give itself up completely and straight away to science is to make an attempt, induced by some unkno-wm influence, all at once to walk on its head."
     }
    ]
+  },
+  {
+   "t": "13:14",
+   "end": "13:59",
+   "event": "Ramesh has laid out lunch: dal, rice, bhindi and curd.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The dal is yellow and the bhindi cut thin, a simple geometry of sustenance. I have sat in stillness for two hours, and the mind grows rigid without the motion of the limbs. I will eat, for the body is the vessel in which the spirit must reside, and a hungry philosopher argues poorly.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 45,
+    "says": "It is good, Ramesh. The bhindi is prepared with care.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, clear. Air quality index: 103.",
+    "Ramesh has laid out lunch: dal, rice, bhindi and curd."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "meal"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes, sir. The bhindi was fresh this morning. I will leave the room so you can eat in peace.",
+    "does": "He places the empty tea glass on the tray and steps back toward the door."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Reformation",
+     "id": "haldane-3:368"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence. So also it is not a matter merely external and particular, the performance of which is intrusted to him."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Reformation",
+     "text": "His feelings, his faith, the inmost certainty of himself, in short, all that belongs to him is laid claim to, and this alone can truly come under consideration: man must himself repent from his heart and experience contrition; his own heart must be filled with the Holy Ghost."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1177,7 +1281,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-24T13:14+05:30",
+  "until": "2026-11-24T13:59+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "kurta",
@@ -1268,7 +1372,8 @@
      "ramesh"
     ]
    },
-   "breakfast": true
+   "breakfast": true,
+   "lunch": true
   },
   "account": {
    "advance": 15000,
@@ -1522,7 +1627,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-24T10:14+05:30",
+  "last_meal": "2026-11-24T13:14+05:30",
   "snacks": 0,
   "works": [
    {
@@ -1631,7 +1736,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-24",
-  "source_sha256": "e734bdf9e12ab2bafdb49bb1f88a96decdc15caca523865b7a8c2f6f9c98398c",
+  "source_sha256": "788db315db292bfe6b443f7bf6834908722b36aa2b977d170b9f6273ef4b874a",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1912,6 +2017,36 @@
     "words": "Yes, sir. It will be ready in a moment.",
     "verified": false,
     "time": "10:59",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:7b82cd444830c454:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 29,
+     "sha256": "7b82cd444830c4542a015cbb6e38228bd9e29c9295eefd02fc20a3b85cb8001f"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "It is good, Ramesh. The bhindi is prepared with care.",
+    "verified": false,
+    "time": "13:14",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:b2f46f8d0a7206bc:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 30,
+     "sha256": "b2f46f8d0a7206bce488c81d41fb039dbb05683aabca2b3cc4e4c8bbaec905c5"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes, sir. The bhindi was fresh this morning. I will leave the room so you can eat in peace.",
+    "verified": false,
+    "time": "13:14",
     "place": "home"
    },
    {
@@ -2310,68 +2445,114 @@
     "text": "Weather: 22 °C, clear. Air quality index: 105."
    },
    {
-    "id": "2026-11-24:event:91db77c7fff665a0:1",
+    "id": "2026-11-24:event:1e46826764a1e688:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 8,
+     "sha256": "1e46826764a1e68896526b967857bfced26e7362690fd04c782f930aab7c9469"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "13:14",
+    "end": "13:59",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:24de835ab34d013c:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      8,
+      0
+     ],
+     "sha256": "24de835ab34d013c0a28eabfc098b89eff74f620913773a2ee9d3fbdf4c1fa40"
+    },
+    "type": "observation",
+    "time": "13:14",
+    "place": "home",
+    "text": "Weather: 23 °C, clear. Air quality index: 103."
+   },
+   {
+    "id": "2026-11-24:event:10dff22c5b53113e:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      8,
+      1
+     ],
+     "sha256": "10dff22c5b53113e72c9da91dd8a9861de84e8f11bbd745e75659a0a233d70b6"
+    },
+    "type": "observation",
+    "time": "13:14",
+    "place": "home",
+    "text": "Ramesh has laid out lunch: dal, rice, bhindi and curd."
+   },
+   {
+    "id": "2026-11-24:event:d30a8db17170f2c0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "91db77c7fff665a0b20e00fb77ba5b4afe745195bfea5719751896b049c060bf"
+     "sha256": "d30a8db17170f2c042f9c0462069206a9025f00028986fc7406abe43b0f53808"
     },
     "type": "cash",
-    "time": "13:14",
+    "time": "13:59",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-24:event:453bc94e1e4d1804:1",
+    "id": "2026-11-24:event:f99b3dddece43999:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "453bc94e1e4d1804dc1765c50c39b5bc9757d2336aed649d46ef613e36b46e3e"
+     "sha256": "f99b3dddece439998c07427586b350311abae2e75811e31370325e1a25900d5b"
     },
     "type": "location",
-    "time": "13:14",
+    "time": "13:59",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-24:event:bfe47e757cc427ee:1",
+    "id": "2026-11-24:event:d27beaa70edd3e09:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "bfe47e757cc427ee0fc3ea150422b5b5b2479484030d117b53aa1e3105d2286a"
+     "sha256": "d27beaa70edd3e0909ab1182b0bcad7e8f69a03576db37e693b4081229fc9b07"
     },
     "type": "inventory",
-    "time": "13:14",
+    "time": "13:59",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-24:event:84b50e24039c86aa:1",
+    "id": "2026-11-24:event:c6b1ce65653d673c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "84b50e24039c86aad8c6231ba23bbc7f7110266bec600b97ee08f8d9884c9fea"
+     "sha256": "c6b1ce65653d673cb98af032988a8f9055102cca193e88488b1ac5755a3d30d3"
     },
     "type": "inventory",
-    "time": "13:14",
+    "time": "13:59",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:14.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:14.\"}]"
    },
    {
-    "id": "2026-11-24:event:190a50910a560775:1",
+    "id": "2026-11-24:event:918c703a6bd5bf63:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "190a50910a5607757173fe409569d43888c128b459b3b1d2b9175c0017c3ec96"
+     "sha256": "918c703a6bd5bf633c166f07c6e8efdf782afbcf4bcfe9c245253d6a38ee405b"
     },
     "type": "inventory",
-    "time": "13:14",
+    "time": "13:59",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2390,7 +2571,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "13:14",
+    "time": "13:59",
     "place": null
    }
   ]
