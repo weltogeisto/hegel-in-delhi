@@ -36,6 +36,7 @@ WALK_M, HOT_C = 75, 33                  # metres a minute; from this temperature
 NUMBERS = "zero one two three four five six seven eight nine ten eleven twelve".split()
 PLAN_TIME = re.compile(r"(\d{1,2}):(\d{2})$")
 RECENT_CHARS, PURCHASE_CHARS = 480, 240  # bounded current recall; full records stay on disk
+TALK_GRACE = 30        # HEGEL_TALK_SCENE: minutes after a talk ends in which the programme officer still answers him
 LEAVE_SPARE = 10        # HEGEL_KEEP_TIME: minutes to spare when he is woken to walk to an appointment elsewhere
 TIME_AHEAD = 180        # HEGEL_KEEP_TIME: within these minutes of an appointment, his mind says how long is left
 PROMISES_KEPT = 20      # the last resolved promises the state keeps; the open ones all
@@ -98,7 +99,8 @@ def names(lst):
 
 class World(Economy):
     def __init__(self, feeds=None, culture=False, street_on=False, street_file=None, promises=False, ramesh_days=False, consumed=False, file_act=False,
-                 repairs=False, keep_time=False):
+                 repairs=False, keep_time=False, talk_scene=False):
+        self.talk_scene = bool(talk_scene)                    # HEGEL_TALK_SCENE: a talk at the IIC is a scene (pc/TALK-SCENE.md); off until switched on
         self.keep_time = bool(keep_time)                      # HEGEL_KEEP_TIME: an appointment elsewhere ends what he is doing in time to walk there (Day 53); off until switched on
         self.repairs = bool(repairs)                          # HEGEL_WORLD_REPAIRS: five repairs from the review of Days 47–49 (DECISIONS 57); off until switched on
         self.consumed = bool(consumed)                        # HEGEL_CONSUMED: what he ate is an entry of its own (`consumed`); off until switched on (DECISIONS 48)
@@ -112,8 +114,8 @@ class World(Economy):
         self.deck = street.load_deck(street_file) if self.street else []
         self.promises = bool(promises)                        # HEGEL_PROMISES: a promise is a record (data/promises.json); nobody has a menu while it is off
         self.menu = load("promises.json")["people"] if self.promises else {}
-        self.cast = load("cast.json")["cast"]
-        switched = ({"ramesh_days"} if ramesh_days else set()) | ({"keep_time"} if self.keep_time else set())   # HEGEL_RAMESH_DAYS: an offer that names a switch exists only while it is on
+        self.cast = {k: c for k, c in load("cast.json")["cast"].items() if not c.get("switch") or (c["switch"] == "talk_scene" and self.talk_scene)}   # a person who names a switch exists only while it is on
+        switched = ({"ramesh_days"} if ramesh_days else set()) | ({"keep_time"} if self.keep_time else set()) | ({"talk_scene"} if self.talk_scene else set())   # HEGEL_RAMESH_DAYS: an offer that names a switch exists only while it is on
         offers = [o for o in load("offers.json")["offers"] if not o.get("switch") or o["switch"] in switched]
         self.file_act = bool(file_act)                         # HEGEL_FILE_ACT: the file's next act, four beats (data/plot_file_act.json); off until switched on
         self.beats = load("plot.json")["beats"] + (load("plot_file_act.json")["beats"] if self.file_act else []) + offers
@@ -666,7 +668,47 @@ class World(Economy):
             self.appoint(state, beat["appointment"], t)
         if beat.get("session"):
             self.attend(beat, t, state)
+        if self.talk_scene and beat.get("talk"):
+            self.begin_talk(beat, t, state)
         return out + self.effects(beat, t, state)
+
+    # ── a talk (HEGEL_TALK_SCENE) ───────────────────────────────────
+    def begin_talk(self, beat, t, state):
+        """A talk beat fired: write down where, until when, and whom the beat brought, so that the voices know it is on."""
+        state["talk"] = {"beat": beat["id"], "place": beat.get("where"), "by": list(beat.get("brings", [])),
+                         "until": (t + timedelta(minutes=beat["talk"]["minutes"] + TALK_GRACE)).isoformat(timespec="minutes")}
+
+    def talk_on(self, state, t, pid):
+        """The talk that is still on for him at pid at time t, or None. Once he has left its place, or its time and the grace are over,
+        it is forgotten."""
+        talk = state.get("talk")
+        if talk and (talk["place"] != pid or t.isoformat(timespec="minutes") > talk["until"]):
+            del state["talk"]
+            return None
+        return talk
+
+    def in_the_hall(self, present, state, t, pid):
+        """Who may answer him while a talk is on: not a background person who merely works here (the guard at the library), but the
+        people the beat brought and the people he knows. `present` itself when no talk is on or nobody would be left."""
+        talk = self.talk_on(state, t, pid) if self.talk_scene else None
+        if not talk:
+            return present
+        mine = [c for c in present if c in talk["by"] or not self.cast[c].get("background")]
+        return mine or present
+
+    def open_line(self, pid, t):
+        """One line of fact from the world's own data, for a voice at pid: today's holiday, and whether the place is open and until when."""
+        d, m, name = t.date(), minute_of(t), self.places[pid]["name"]
+        hol = self.holiday(d)
+        line = f"Today is {hol['name']}. " if hol else ""
+        h = self.hours(pid, d)
+        if h == "always":
+            return line.strip()
+        if h is None:
+            return line + f"{name} is closed all day today."
+        a, b = h
+        return line + (f"{name} is open until {fmt(b)} today." if a <= m < b else
+                       f"{name} opens at {fmt(a)} today." if m < a else f"{name} closed at {fmt(b)} today.")
 
     def appoint(self, state, ap, t):
         """Put an appointment on his mind: for a weekday, or in_days days from now, for the beat that follows."""
@@ -703,6 +745,8 @@ class World(Economy):
         today = state.setdefault("today", {})
         wx = self.wx_at(t)
         present = self.present_ids(pid, t, state)
+        if self.talk_scene:
+            self.talk_on(state, t, pid)                    # a talk he has left, or that is over, is forgotten
         events = []          # (prompt, public entry or None)
         opened = []          # what opened the moment: one kind for each event that has words, each once, in order
 
@@ -725,6 +769,10 @@ class World(Economy):
             gone = "" if not self.repairs or any(self.cast[c]["name"].casefold() == said["by"].casefold() for c in present) else f" {said['by']} has gone."
             events.append((voices.heard(said) + gone, None))       # they answered when he spoke; by the step's end their hours may be over
             kind("reply")                                          # their answer to what he said, as the step ends
+        asked = (prev_step or {}).get("hall")
+        if asked and prev_step.get("end") == fmt(m) and not prev_step.get("left"):
+            events.append((voices.heard(asked), None))             # the question from the hall, as the step ends
+            kind("reply")
         # A step that took him elsewhere ends where he went: the answer stays with that step, in the record, and
         # does not follow him (a bookseller's line reached him at home at 38:25 and 45:25).
 
@@ -1210,6 +1258,13 @@ class World(Economy):
             self.mark(next(x for x in state["works"] if x["id"] == e["work"]), e["title"], w["to"])      # a title can be sensitive too
             for x in self.on_writing(state, e["words"], t0):                                           # a magazine's fee for a sitting long enough
                 entry(t0, x)
+        if ctx.get("lecture"):                       # HEGEL_TALK_SCENE: the lecture he gave, filed like his other writings, with no fee for a sitting
+            w = ctx["lecture"]
+            e = works.file(state, w, d)
+            entry(t0, self.mark(e, w["title"], w["text"], w.get("about")))
+            self.mark(next(x for x in state["works"] if x["id"] == e["work"]), e["title"])
+        if ctx.get("question"):
+            voiced(ctx["question"])                  # and one listener asked him one question
         if ctx.get("read") and ctx["read"].get("text"):                                                 # he looked something up on his phone
             r = ctx["read"]
             entry(t0, self.mark({"k": "read", "title": r["title"], "text": r["text"], "source": r["source"], "url": r["url"]}, r["title"], r["text"]))
@@ -1345,6 +1400,8 @@ class World(Economy):
             step["voice"] = ctx["reply"]            # opens the next situation, unless he left
             if plan["moves"]:
                 step["left"] = cur                  # he spoke as he left: the answer was given there, not where he arrives
+        if ctx.get("question"):
+            step["hall"] = ctx["question"]          # HEGEL_TALK_SCENE: opens the next situation, as the answer does
         if ctx.get("read"):
             step["read"] = ctx["read"]              # what he looked up: opens the next situation
         return step

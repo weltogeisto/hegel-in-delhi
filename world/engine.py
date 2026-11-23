@@ -13,7 +13,7 @@ import random
 import time
 from datetime import date, datetime, timedelta
 
-from . import calls, claim_check, contract, lookup, owl, post, prefer, prompt_budget, records, report, shelf, voices, works
+from . import calls, claim_check, contract, lookup, owl, post, prefer, prompt_budget, records, report, shelf, talk, voices, works
 from .clock import day_number, fmt, hm, long_date, minute_of, sun
 from .memory import Memory, encountered_text
 from .money import ADVANCE
@@ -308,6 +308,8 @@ class Engine:
                 ctx["purchases"] = plan["buys"] + [{"item": e["item"], "price": e["amount"]}
                                                        for e in ctx["public"] if e.get("k") == "expense" and e.get("settles") is True]
                 ctx["reply"] = self.reply(day, sit, ctx, ans["says"], recipient=ans.get("speaks_to"))
+            if beat and "beat_entries" in ctx and beat.get("talk") and self.world.talk_scene:
+                self.give_talk(day, sit, ctx, self.plain(messages), self.unwish(raw), st)
             if ans["action"] == "write":
                 ctx["manuscripts"] = self.memory.manuscripts(day, before_time=fmt(minute_of(t)))
                 letter = post.last_letter(st, self.post_card()) if st.get("post") else None
@@ -463,7 +465,7 @@ class Engine:
         """HEGEL_VOICE_REPAIRS (config.py): is the switch on."""
         return getattr(getattr(self, "cfg", None), "voice_repairs", False) is True
 
-    def voice(self, cid, day, sit, says, purchases=None):
+    def voice(self, cid, day, sit, says, purchases=None, lead=None):
         """One call: the person cid answers what he said, or speaks first when says is None. {by, says, does}, or None
         when the answer is unusable. MindAway goes up."""
         c = self.world.cast[cid]
@@ -484,7 +486,9 @@ class Engine:
         facts += voices.paid_here(self.world.places[sit["place"]], day.get("entries", []))
         if getattr(getattr(self, 'cfg', None), 'outcome_memory', False):
             facts += voices.recorded_receipts(day, sit['place'])
-        messages = [{"role": "system", "content": self.voice_prompt}, {"role": "user", "content": voices.render(c, sit, where, says, remember, first_meeting=first_meeting, purchases=purchases, meal_status=meal_status, world_facts=facts, **({"voice_facts": True} if vf else {}), **({"menu": menu} if menu else {}), **({"repairs": True} if vr else {}))}]
+        if self.world.talk_scene:
+            facts += [x for x in [self.world.open_line(sit["place"], at_dt(date.fromisoformat(day["date"]), hm(sit["time"])))] if x]       # HEGEL_TALK_SCENE: the holiday, and whether this place is open
+        messages = [{"role": "system", "content": self.voice_prompt}, {"role": "user", "content": voices.render(c, sit, where, says, remember, first_meeting=first_meeting, purchases=purchases, meal_status=meal_status, world_facts=facts, **({"voice_facts": True} if vf else {}), **({"menu": menu} if menu else {}), **({"repairs": True} if vr else {}), **({"lead": lead} if lead else {}))}]
         voice_chat = getattr(type(self.mind), "chat_voice", None)
         ask = (lambda msgs: voice_chat(self.mind, msgs, schema, max_tokens=250)) if voice_chat else (lambda msgs: self.mind.chat(msgs, schema, max_tokens=250))
         reply = ask(messages)
@@ -556,7 +560,11 @@ class Engine:
                 more.update(purchases=ctx.get("purchases"), entries=day.get("entries"), segments=day.get("segments"), place=sit["place"])
             if self.voice_repairs():
                 more["repairs"] = self.reply_facts(ctx)
-            who = voices.pick(self.world.cast, says, ctx["present"], recipient=recipient, **more)
+            present = ctx["present"]
+            if self.world.talk_scene:                        # HEGEL_TALK_SCENE: in the hall the officer answers, not the guard
+                present = self.world.in_the_hall(present, day["state"], ctx["t"], sit["place"])
+                recipient = recipient if recipient in present else None
+            who = voices.pick(self.world.cast, says, present, recipient=recipient, **more)
             said = self.voice(who, day, sit, says, purchases=ctx.get("purchases"))
             if said and said.get("promise"):
                 ctx.setdefault("promised", []).append(said.pop("promise"))
@@ -583,6 +591,48 @@ class Engine:
         if w:
             log.info("writing by chat call: %s", w["title"])
         return self.check_writing(w,ctx)
+
+    def give_talk(self, day, sit, ctx, messages, raw, st):
+        """HEGEL_TALK_SCENE: the talk beat has fired. He gives the lecture (ctx["lecture"]), and one listener asks one question about it
+        (ctx["question"]). Neither is there if the mind is away or its answer is unusable: the talk has still happened."""
+        w = self.lecture(day, ctx, messages, raw)
+        if not w:
+            return
+        ctx["lecture"] = w
+        lead = talk.question_lead(w["title"], talk.last_paragraph(w["text"]))
+        try:
+            ctx["question"] = self.voice("hall_listener", day, sit, None, lead=lead)
+        except MindAway as e:
+            log.warning("mind away for the question from the hall: %s", e)
+
+    def lecture(self, day, ctx, messages, raw):
+        """One writing call for the lecture, as write_chat makes one for a sitting: {title, kind, to, continues, text, about}, or None. What he
+        draws on is the excerpts of his latest manuscripts (memory.manuscripts) and the index of his works. Names from after 1831 that he has
+        not met: he is asked once to give it again without them, then it is dropped. The claim guard sees it as it sees any writing."""
+        st = day["state"]
+        request = talk.LECTURE_ASK + works.manuscripts(st)
+        excerpts = self.memory.manuscripts(day, before_time=fmt(minute_of(ctx["t"])), limit=6000)
+        if excerpts:
+            request += "\n\n" + excerpts
+        msgs = for_task(messages + [dict(role="assistant", content=raw), dict(role="user", content=request + "\n\n" + talk.LECTURE_FORMAT)], "writing")
+        for attempt in range(2):
+            try:
+                reply = getattr(self.mind, "chat_writing", self.mind.chat)(msgs, talk.LECTURE_SCHEMA, max_tokens=talk.TOKENS)
+            except MindAway as e:
+                log.warning("mind away for the lecture: %s", e)
+                return None
+            w = talk.clean(contract.extract_json(reply))
+            if not w:
+                log.warning("lecture dropped: unusable JSON or too short")
+                return None
+            wrong = self.world.unmet(w["title"] + "\n" + w["text"], ctx["known_text"])
+            if not wrong:
+                return self.check_writing(w, ctx)
+            msgs += [{"role": "assistant", "content": reply}, {"role": "user", "content":
+                     "Give it again without " + ", ".join(f"'{x}'" for x in wrong) + ": you have not met them in Delhi, and in 1831 you could not know them. "
+                     "Answer with the JSON object only."}]
+        log.info("lecture dropped: %s", "; ".join(wrong))
+        return None
 
     def check_writing(self,w,ctx):
         if w and self.claim_guard:

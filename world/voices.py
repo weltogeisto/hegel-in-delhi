@@ -289,8 +289,9 @@ def own_presence_out(c, event):
     return event
 
 
-def render(c, sit, where, says, remember, first_meeting=None, purchases=None, meal_status=None, world_facts=None, voice_facts=False, menu=None, repairs=False):
-    """The user message for one voice. `where` is the place's name; `says` is what he said to them, or None when they speak first."""
+def render(c, sit, where, says, remember, first_meeting=None, purchases=None, meal_status=None, world_facts=None, voice_facts=False, menu=None, repairs=False, lead=None):
+    """The user message for one voice. `where` is the place's name; `says` is what he said to them, or None when they speak first.
+    `lead` (HEGEL_TALK_SCENE) stands in place of both: what the voice is asked to do."""
     text = f"You are {c['name']}, {c['role']}." + (f" {c['card']}" if c.get("card") else "")
     if voice_facts and c.get("pronoun"):
         who = c["name"][0].upper() + c["name"][1:]
@@ -326,7 +327,7 @@ def render(c, sit, where, says, remember, first_meeting=None, purchases=None, me
     text += f"What is happening (told from his side, so 'you' there means him): {event[:EVENT_CAP]}\n"
     if remember:
         text += "\nWhat has passed between you and him:\n" + "".join(f"- {x}\n" for x in remember)
-    text += f"\nHe says: “{says}”\n" if says else "\nYou have just caught sight of him. You speak first.\n"
+    text += f"\n{lead}\n" if lead else f"\nHe says: “{says}”\n" if says else "\nYou have just caught sight of him. You speak first.\n"
     return text + "\n" + (VOICE_ASK_ACT if menu else VOICE_ASK)
 
 
