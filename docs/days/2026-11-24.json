@@ -359,6 +359,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Writing at home."
+  },
+  {
+   "from": "17:54",
+   "to": "17:58",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -885,6 +892,37 @@
    "why": "conquerors",
    "topic": "empire and colonies",
    "t": "17:09",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "It is nearly six. I have an hour to reach the IIC, and the road is clear for the first time in days. I must not dawdle here; yesterday’s lateness was a blemish on my reputation that I intend not to repeat. Ramesh, see me to the gate and ensure the house is secure; I shall be back before the dinner service begins.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, Egypt"
+    }
+   ],
+   "t": "17:54",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, show me out. I have a lecture at the Institute in forty-five minutes. Do not let the house stand empty for long after I leave, and have the lights in the drawing room on when I return.",
+   "to": "Ramesh",
+   "t": "17:54",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes, sir. I will keep the lights on in the drawing room. The house is never truly empty with me here.",
+   "t": "17:54",
    "place": "home"
   }
  ],
@@ -1934,6 +1972,70 @@
      "text": "He also ascribes this to Plato, that “instead of showing the undetermined to be simple (ἀντὶ τοῦ ἀπείρου ὡς ἑνός), he made of it a duality—the great and small.” (γ) Further consideration of this opposition, in which Pythagoreans differ from one another, shows us the imperfect beginning of a table of categories which were then brought forward by them, as later on by Aristotle."
     }
    ]
+  },
+  {
+   "t": "17:54",
+   "end": "17:58",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "It is nearly six. I have an hour to reach the IIC, and the road is clear for the first time in days. I must not dawdle here; yesterday’s lateness was a blemish on my reputation that I intend not to repeat. Ramesh, see me to the gate and ensure the house is secure; I shall be back before the dinner service begins.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 5,
+    "says": "Ramesh, show me out. I have a lecture at the Institute in forty-five minutes. Do not let the house stand empty for long after I leave, and have the lights in the drawing room on when I return.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 21 °C, clear. Air quality index: 99.",
+    "Nothing in particular happens. The evening goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes, sir. I will keep the lights on in the drawing room. The house is never truly empty with me here.",
+    "does": "He nods briefly and straightens the collar of his white kurta before walking towards the door."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, Egypt",
+     "id": "sibree-history:677"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, Egypt",
+     "text": "Jt is not splendour, amusement, pleasure, or the like that it seeks. The force which urges it is the impulse of self-comprehension; and it has no other material or ground to work on, in order to teach itself what it is — to realize itself for itself — than this working out its thoughts in stone; and what it engraves on the stone are its enigmas,— these hieroglyphs."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1970,7 +2072,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-24T17:54+05:30",
+  "until": "2026-11-24T17:58+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "kurta",
@@ -2426,7 +2528,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-24",
-  "source_sha256": "c637b62ed16a5380dd9c4acfc69d91ab011e6ecf1b8ae3dfc160d0371a634276",
+  "source_sha256": "c94b211d82b38a6153e3b819845ccb4d55debaf56c538f0f1f6c3386163ee61e",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2889,6 +2991,36 @@
     "status": "draft",
     "sitting": 8,
     "time": "17:09",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:1d232a66612a2673:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 49,
+     "sha256": "1d232a66612a267317f468e54b5e0f230d257e5ffd733f832fbc879918b7987b"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, show me out. I have a lecture at the Institute in forty-five minutes. Do not let the house stand empty for long after I leave, and have the lights in the drawing room on when I return.",
+    "verified": false,
+    "time": "17:54",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:cbc6a648d1efe211:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 50,
+     "sha256": "cbc6a648d1efe211c0cb4d2cd7d49c0377af5e1f1c0a2ac802def9a1ef8e4885"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes, sir. I will keep the lights on in the drawing room. The house is never truly empty with me here.",
+    "verified": false,
+    "time": "17:54",
     "place": "home"
    },
    {
@@ -3591,68 +3723,114 @@
     "text": "Weather: 21 °C, clear. Air quality index: 99."
    },
    {
-    "id": "2026-11-24:event:342d37658dd65a1e:1",
+    "id": "2026-11-24:event:96979b98f0afaafc:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 16,
+     "sha256": "96979b98f0afaafc605207835e1ea4a2d26bc0dd0b170ddecdaa4d2a477fb559"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "17:54",
+    "end": "17:58",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:b2821f1ce983ef41:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      16,
+      0
+     ],
+     "sha256": "b2821f1ce983ef41c2e7629d12811ed6945f80268b48fb1fdf0b27c4ece29c07"
+    },
+    "type": "observation",
+    "time": "17:54",
+    "place": "home",
+    "text": "Weather: 21 °C, clear. Air quality index: 99."
+   },
+   {
+    "id": "2026-11-24:event:f0883d583a8f0cb4:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      16,
+      1
+     ],
+     "sha256": "f0883d583a8f0cb4f513e9e7918f61a4da92f5f5c5ffd125af87394140064d60"
+    },
+    "type": "observation",
+    "time": "17:54",
+    "place": "home",
+    "text": "Nothing in particular happens. The evening goes on."
+   },
+   {
+    "id": "2026-11-24:event:a0c86a450269d603:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "342d37658dd65a1ebd4c4ac393f58581971c7d378821ca3a908a4adbb504268d"
+     "sha256": "a0c86a450269d60334a74a7654a2b71658c3f67f90dfa16979c6d1895df6f65d"
     },
     "type": "cash",
-    "time": "17:54",
+    "time": "17:58",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-24:event:f8da60681bb6ae9e:1",
+    "id": "2026-11-24:event:5aefb94eafeee38b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "f8da60681bb6ae9ec204e4effc96615c73e01755e9a91310ec7da0b0c49dbf16"
+     "sha256": "5aefb94eafeee38bae6fc0be2c7da5fe75313a2691afd33ef15266c3123d1766"
     },
     "type": "location",
-    "time": "17:54",
+    "time": "17:58",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-24:event:4f22485e31c68375:1",
+    "id": "2026-11-24:event:11306a3183363256:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "4f22485e31c68375415085e70317c30dd3d12e2f6c0798b24fa4432ea34dd971"
+     "sha256": "11306a31833632560b2bbc8c25b0762d33656d3ee3f4ab5dc9a5d53e38f16bb8"
     },
     "type": "inventory",
-    "time": "17:54",
+    "time": "17:58",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-24:event:70f474c4ca9fc53b:1",
+    "id": "2026-11-24:event:681a31d384b3c8f4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "70f474c4ca9fc53b7cd8549e129117e61bb577ebbdaa67874fc3461d25b17f9b"
+     "sha256": "681a31d384b3c8f4892638644ca9fecc16e299d13ebf98de4260c4f0bf0e2aa5"
     },
     "type": "inventory",
-    "time": "17:54",
+    "time": "17:58",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:14.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:14.\"}]"
    },
    {
-    "id": "2026-11-24:event:18e4220b6c229192:1",
+    "id": "2026-11-24:event:df5828ca7c7552ba:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "18e4220b6c22919208ea456e12008258f493dc1b718bf0761d1a73ff7f234848"
+     "sha256": "df5828ca7c7552ba9c7461dd3f643759f7573fcbc92957f0f1f45b5926e3d732"
     },
     "type": "inventory",
-    "time": "17:54",
+    "time": "17:58",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3671,7 +3849,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "17:54",
+    "time": "17:58",
     "place": null
    }
   ]
