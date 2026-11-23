@@ -107,6 +107,11 @@ def intent_paths(intent):
     return {name: root / name for name in ("training", "benchmark", "converted", "children", "telemetry", "sheets")}
 
 
+def adapter_dir(intent):
+    """Where the finished adapter is: the training folder itself, or (Training 4's intent names a subfolder) a folder inside it."""
+    return intent_paths(intent)["training"] / intent.get("adapter_subdir", "")
+
+
 def load_intent(path, expected=None):
     path = Path(path).resolve()
     raw = path.read_bytes()
@@ -777,7 +782,7 @@ class Backend:
     def phase_c(self):
         self.paths["converted"].mkdir(parents=True, exist_ok=False)
         target = self.paths["converted"] / "adapter-f16.gguf"
-        command = [self.data["python"], self.data["converter"], str(self.paths["training"]),
+        command = [self.data["python"], self.data["converter"], str(adapter_dir(self.data)),
                    "--base", self.data["converter_base"], "--outtype", "f16", "--outfile", str(target)]
         child = OwnedChild(self, "convert", command, {"CUDA_VISIBLE_DEVICES": ""})
         child.wait(min(time.time() + 1200, self.check_time()))
@@ -986,7 +991,7 @@ def verify_conversion(data):
     write_new(Path(data["run_dir"]) / "CONVERTED.json",
               dict(utc=utc(), path=str(target), bytes=target.stat().st_size, sha256=filehash(target),
                    metadata=metadata, tensors=len(adapter.tensors),
-                   input_adapter_sha256=filehash(paths["training"] / "adapter_model.safetensors")))
+                   input_adapter_sha256=filehash(adapter_dir(data) / "adapter_model.safetensors")))
 
 
 def rehearsal_cases(plan, guard, client, dest):
