@@ -275,6 +275,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh and Shri G. Hegde at home."
+  },
+  {
+   "from": "10:14",
+   "to": "10:29",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -454,6 +461,43 @@
    "to": "Hegel",
    "text": "Proof of what, sir? That you are sitting? The poha is just poha, and the file is just a file. Don't make it a philosophy lecture before I have even taken a sip of tea.",
    "t": "09:54",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Shri Hegde is right to be irritated by the absurdity of the bureaucracy; his ease contrasts sharply with my own entrapment in the name 'Hegde'. I must eat, for the body requires its sustenance before the mind can wrestle with the state, and I am already running behind my schedule to reach the Directorate. I will take the poha, if only to silence the immediate hunger and the immediate objection.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188"
+    }
+   ],
+   "t": "10:14",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Shri Hegde. It is merely a file, and I am merely a man sitting in it. I shall eat, and then I shall go to make the state see me as it wishes to see me, or not at all.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "10:14",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Aaj ki baat karo, sir. Poha kha lo, thanda ho jayega. State dekhne ka intezaar karega, aapki pet ki nahi.",
+   "t": "10:14",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "Ramesh puts a plate together: parathas kept from the morning, with curd and pickle.",
+   "t": "10:14",
    "place": "home"
   }
  ],
@@ -729,6 +773,72 @@
      "text": "Socrates explains this in the following way: “It appears to me to be as if some one were to say that Socrates performs all his actions with understanding, and then in going on to give the reasons for each of my actions, were to say that I sit here because my body consists of bones and muscles; the bones are fixed and have joints that divide them (διαφυὰς)…"
     }
    ]
+  },
+  {
+   "t": "10:14",
+   "end": "10:29",
+   "event": "Shri G. Hegde says: “Proof of what, sir? That you are sitting? The poha is just poha, and the file is just a file. Don't make it a philosophy lecture before I have even taken a sip of tea.” He pours the chai and slides the plate of poha across the table.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Shri Hegde is right to be irritated by the absurdity of the bureaucracy; his ease contrasts sharply with my own entrapment in the name 'Hegde'. I must eat, for the body requires its sustenance before the mind can wrestle with the state, and I am already running behind my schedule to reach the Directorate. I will take the poha, if only to silence the immediate hunger and the immediate objection.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 15,
+    "says": "You are right, Shri Hegde. It is merely a file, and I am merely a man sitting in it. I shall eat, and then I shall go to make the state see me as it wishes to see me, or not at all.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 19 °C, clear. Air quality index: 103."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Aaj ki baat karo, sir. Poha kha lo, thanda ho jayega. State dekhne ka intezaar karega, aapki pet ki nahi.",
+    "does": "She pushes the small bowl of chutney closer to him."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "id": "dyde-right:549"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "id": "rechts:432"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "text": "Note. — In contrast with freedom of business and trade in the civic community stands the other extreme of the establishment and direction of the work of all by means of official regulation. Under this head comes perhaps the construction of the pyramids and other monstrous Egyptian and Asiatic works."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§188",
+     "text": "Die bürgerliche Gesellschaft enthält die drei Momente: A. Die Vermittel ung des Bedürfnisses und die Befriedigung des Einzelnen durch seine Arbeit und durch die Arbeit und Befriedigung der Bedürfnisse aller Übrigen, — das System der Bedürfnisse. B. Die Wirklichkeit des darin enthaltenen Allgemeinen der Freiheit, der Schutz des Eigentums durch die Rechtspflege."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -765,7 +875,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-24T10:14+05:30",
+  "until": "2026-11-24T10:29+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "kurta",
@@ -1110,8 +1220,8 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-23T15:25+05:30",
-  "snacks": 1,
+  "last_meal": "2026-11-24T10:14+05:30",
+  "snacks": 0,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
@@ -1214,13 +1324,12 @@
    "home_monkey_wall": "2026-11-21",
    "iic_seminar_voice": "2026-11-22",
    "home_wedding_band": "2026-11-22"
-  },
-  "fed_at": "2026-11-23T16:45+05:30"
+  }
  },
  "records": {
   "version": 2,
   "date": "2026-11-24",
-  "source_sha256": "22eb09f292d047028107a35c341c04f32fbb63ff926a41d92ecfc6937f3bc05f",
+  "source_sha256": "ab38ce66bce0ce8ed3316e7c14a38b010aa7bf34603a03d65d48b81842bbbefa",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1398,6 +1507,49 @@
     "words": "Proof of what, sir? That you are sitting? The poha is just poha, and the file is just a file. Don't make it a philosophy lecture before I have even taken a sip of tea.",
     "verified": false,
     "time": "09:54",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:9dccef72489ef745:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 18,
+     "sha256": "9dccef72489ef745740dd3befee47d7b3bdfe1ccc4ca610de7b89534eb64c7bb"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh and Shri G. Hegde",
+    "words": "You are right, Shri Hegde. It is merely a file, and I am merely a man sitting in it. I shall eat, and then I shall go to make the state see me as it wishes to see me, or not at all.",
+    "verified": false,
+    "time": "10:14",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:6b3e7ab9cc24592c:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 19,
+     "sha256": "6b3e7ab9cc24592c9581cce271267f9357b7da418f0e403a8523e39d440b6b47"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "Aaj ki baat karo, sir. Poha kha lo, thanda ho jayega. State dekhne ka intezaar karega, aapki pet ki nahi.",
+    "verified": false,
+    "time": "10:14",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:6110c1217baf0322:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 20,
+     "sha256": "6110c1217baf03229e16796b6bb4daf971b256ad066eedc14fbce3be03d9f5c8"
+    },
+    "type": "world",
+    "text": "Ramesh puts a plate together: parathas kept from the morning, with curd and pickle.",
+    "time": "10:14",
     "place": "home"
    },
    {
@@ -1676,68 +1828,98 @@
     "text": "Weather: 17 °C, clear. Air quality index: 110."
    },
    {
-    "id": "2026-11-24:event:5baccf1fefdcee8d:1",
+    "id": "2026-11-24:event:222a420a7167dd71:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 4,
+     "sha256": "222a420a7167dd712356dfdb583f7317a36088cabaabe546cadfa7a5e7e58b3b"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "10:14",
+    "end": "10:29",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:55480c60e9775d3d:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      4,
+      0
+     ],
+     "sha256": "55480c60e9775d3d817d69e68690502e96e132113f1ce72cc45f5829835aa477"
+    },
+    "type": "observation",
+    "time": "10:14",
+    "place": "home",
+    "text": "Weather: 19 °C, clear. Air quality index: 103."
+   },
+   {
+    "id": "2026-11-24:event:c91e376e94147be7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "5baccf1fefdcee8df98a7fe44d17c088321f4e541dfcd9c13ba30d9194d029ad"
+     "sha256": "c91e376e94147be7a4ab937bc6270d679567ae7bfa018b08477bcbacc23fdada"
     },
     "type": "cash",
-    "time": "10:14",
+    "time": "10:29",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-24:event:d8219d17cb21c74b:1",
+    "id": "2026-11-24:event:5cf8c6dc23b32892:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "d8219d17cb21c74b6c30927ae58c675b145980e80bd0d551ea4bef2a4745a2a3"
+     "sha256": "5cf8c6dc23b3289264e57feb9cd0a25903354066834732f9eee15142b0d4165e"
     },
     "type": "location",
-    "time": "10:14",
+    "time": "10:29",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-24:event:0e2bcd5c2715fbcb:1",
+    "id": "2026-11-24:event:fe9e59d89f4ba603:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "0e2bcd5c2715fbcbf3307ff5b76c761437fa6705ab863f8af6de21ab833223b3"
+     "sha256": "fe9e59d89f4ba60353b78c324bea03b22b06e98261093b7060083a47e7a7ad46"
     },
     "type": "inventory",
-    "time": "10:14",
+    "time": "10:29",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-24:event:a6ac47d0879648c1:1",
+    "id": "2026-11-24:event:feef80967d5149d5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "a6ac47d0879648c1bf08fd1b6eee13e68480043fc55cab47b1adff2e8e984eab"
+     "sha256": "feef80967d5149d54f3c70db403096a2c3b1b768c4b071cd7abc3bd391b18015"
     },
     "type": "inventory",
-    "time": "10:14",
+    "time": "10:29",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:14.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:14.\"}]"
    },
    {
-    "id": "2026-11-24:event:66a04023cda305e2:1",
+    "id": "2026-11-24:event:6102085e26b019e4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "66a04023cda305e2d4c9ba49311c3d06c10160b6930ba2082dc2f03b2cdf653b"
+     "sha256": "6102085e26b019e462354db0e8cc19448e45f751d2b344919c2204d3ec2629c5"
     },
     "type": "inventory",
-    "time": "10:14",
+    "time": "10:29",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -1756,7 +1938,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "10:14",
+    "time": "10:29",
     "place": null
    }
   ]
