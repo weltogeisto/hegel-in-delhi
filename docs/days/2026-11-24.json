@@ -366,6 +366,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "17:58",
+   "to": "18:20",
+   "mode": "walk",
+   "a": "home",
+   "b": "iic"
   }
  ],
  "entries": [
@@ -923,6 +930,45 @@
    "to": "Hegel",
    "text": "Yes, sir. I will keep the lights on in the drawing room. The house is never truly empty with me here.",
    "t": "17:54",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s presence is a comfort, but the clock is not. I have thirty-two minutes for a twenty-two minute walk, and I must not be late again. The identity file waits for a signature I cannot yet give, but the evening talk demands a man who is on time. I must go.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§17"
+    }
+   ],
+   "t": "17:58",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Very well, Ramesh. I will be back before dinner. Keep the light on.",
+   "to": "Ramesh",
+   "t": "17:58",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes, sir. The light will stay on. I will keep the house ready for your return.",
+   "t": "17:58",
+   "place": "home"
+  },
+  {
+   "k": "wear",
+   "item": "Bandhgala, charcoal",
+   "status": "Worn from 17:58.",
+   "sprite": "bandhgala",
+   "t": "17:58",
    "place": "home"
   }
  ],
@@ -2036,6 +2082,74 @@
      "text": "Jt is not splendour, amusement, pleasure, or the like that it seeks. The force which urges it is the impulse of self-comprehension; and it has no other material or ground to work on, in order to teach itself what it is — to realize itself for itself — than this working out its thoughts in stone; and what it engraves on the stone are its enigmas,— these hieroglyphs."
     }
    ]
+  },
+  {
+   "t": "17:58",
+   "end": "18:20",
+   "event": "Ramesh says: “Yes, sir. I will keep the lights on in the drawing room. The house is never truly empty with me here.” He nods briefly and straightens the collar of his white kurta before walking towards the door. It is 17:58. Your talk at the IIC begins at 18:30, at the IIC; the walk from here takes about 22 minutes.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh’s presence is a comfort, but the clock is not. I have thirty-two minutes for a twenty-two minute walk, and I must not be late again. The identity file waits for a signature I cannot yet give, but the evening talk demands a man who is on time. I must go.",
+    "action": "walk",
+    "place": "iic",
+    "minutes": 25,
+    "says": "Very well, Ramesh. I will be back before dinner. Keep the light on.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "iic",
+   "observations": [
+    "Weather: 21 °C, clear. Air quality index: 99.",
+    "It is 17:58. Your talk at the IIC begins at 18:30, at the IIC; the walk from here takes about 22 minutes."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply",
+    "time"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes, sir. The light will stay on. I will keep the house ready for your return.",
+    "does": "Ramesh nods and steps aside to let him pass through the door."
+   },
+   "left": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1189"
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§17",
+     "id": "enzyklopaedie:137"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "For “when Antisthenes turned outside a hole in his cloak, Socrates said to him, I see thy vanity through the hole in thy cloak.” Clothing is not a thing of rational import, but is regulated through needs that arise of themselves. In the North the clothing must be different from that in Central Africa; and in winter we do not wear cotton garments."
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§17",
+     "text": "§ 18. Wie von einer Philosophie nicht eine vorläufige allgemeine Vorstellung gegeben werden kann, denn nur das Ganze der Wissenschaft ist die Darstellung der Idee, so kann auch ihre Eintheilung nur erst aus dieser begriffen werden; sie ist wie diese, aus der sie zu nehmen ist, etwas Anticipirtes."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2071,11 +2185,11 @@
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-24T17:58+05:30",
+  "place": "iic",
+  "until": "2026-11-24T18:20+05:30",
   "asleep": false,
   "imprest": 15456,
-  "wearing": "kurta",
+  "wearing": "bandhgala",
   "wardrobe": [
    {
     "id": "frock",
@@ -2095,12 +2209,12 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Worn from 09:14."
+    "status": "Taken off at 17:58."
    },
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Taken off at 09:14."
+    "status": "Worn from 17:58."
    }
   ],
   "people": [
@@ -2165,7 +2279,9 @@
    },
    "breakfast": true,
    "lunch": true,
-   "tea": true
+   "tea": true,
+   "walked": 1650,
+   "strain": 1650
   },
   "account": {
    "advance": 15000,
@@ -2528,7 +2644,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-24",
-  "source_sha256": "c94b211d82b38a6153e3b819845ccb4d55debaf56c538f0f1f6c3386163ee61e",
+  "source_sha256": "adb243bd13d8d4e788a0a4b09eab7feb0eb56a7914f5af39abf0c91dfe3bda91",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3021,6 +3137,51 @@
     "words": "Yes, sir. I will keep the lights on in the drawing room. The house is never truly empty with me here.",
     "verified": false,
     "time": "17:54",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:d9ffb2ba8d859b12:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 52,
+     "sha256": "d9ffb2ba8d859b12f8d69d704e5ea6ca761418718e1d7e7c48de6a59ff8a74f8"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Very well, Ramesh. I will be back before dinner. Keep the light on.",
+    "verified": false,
+    "time": "17:58",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:123532a97310d24b:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 53,
+     "sha256": "123532a97310d24b7be41221376df45817d38a66fbbaf3038ce8f7cba4bd409d"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes, sir. The light will stay on. I will keep the house ready for your return.",
+    "verified": false,
+    "time": "17:58",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:0cfcb76325e4850a:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 54,
+     "sha256": "0cfcb76325e4850ae1aabeb6c5a502cb3a51d267a3b03011444a59db82505eaa"
+    },
+    "type": "wear",
+    "item": "Bandhgala, charcoal",
+    "status": "Worn from 17:58.",
+    "gone": false,
+    "time": "17:58",
     "place": "home"
    },
    {
@@ -3769,68 +3930,116 @@
     "text": "Nothing in particular happens. The evening goes on."
    },
    {
-    "id": "2026-11-24:event:a0c86a450269d603:1",
+    "id": "2026-11-24:event:4d0345b15111be9b:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 17,
+     "sha256": "4d0345b15111be9babc221420d5bd6d79552cf319cafbb2e2ebfc5088c1f890a"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "17:58",
+    "end": "18:20",
+    "place": null,
+    "origin": "home",
+    "destination": "iic"
+   },
+   {
+    "id": "2026-11-24:event:b2821f1ce983ef41:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      17,
+      0
+     ],
+     "sha256": "b2821f1ce983ef41c2e7629d12811ed6945f80268b48fb1fdf0b27c4ece29c07"
+    },
+    "type": "observation",
+    "time": "17:58",
+    "place": "home",
+    "text": "Weather: 21 °C, clear. Air quality index: 99."
+   },
+   {
+    "id": "2026-11-24:event:fe4b2c273cc742c7:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      17,
+      1
+     ],
+     "sha256": "fe4b2c273cc742c7557c3df33003052a5ccb41584351b030fd472aea677fc8a8"
+    },
+    "type": "observation",
+    "time": "17:58",
+    "place": "home",
+    "text": "It is 17:58. Your talk at the IIC begins at 18:30, at the IIC; the walk from here takes about 22 minutes."
+   },
+   {
+    "id": "2026-11-24:event:fcd6780b54211ecf:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "a0c86a450269d60334a74a7654a2b71658c3f67f90dfa16979c6d1895df6f65d"
+     "sha256": "fcd6780b54211ecfb403e54b8601274d8e2b14347e36bbe0b006c1a1c16d997b"
     },
     "type": "cash",
-    "time": "17:58",
+    "time": "18:20",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-24:event:5aefb94eafeee38b:1",
+    "id": "2026-11-24:event:2209bbb1ef97cbde:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "5aefb94eafeee38bae6fc0be2c7da5fe75313a2691afd33ef15266c3123d1766"
+     "sha256": "2209bbb1ef97cbde244a892683cd7b3015307145c10de1455763e5d968e1c2db"
     },
     "type": "location",
-    "time": "17:58",
-    "place": "home",
+    "time": "18:20",
+    "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-24:event:11306a3183363256:1",
+    "id": "2026-11-24:event:e58fe0c3c720bbc6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "11306a31833632560b2bbc8c25b0762d33656d3ee3f4ab5dc9a5d53e38f16bb8"
+     "sha256": "e58fe0c3c720bbc64b8b1968d1e36fd215a5ffc3925cec58255da9f2aa9f0934"
     },
     "type": "inventory",
-    "time": "17:58",
+    "time": "18:20",
     "place": null,
-    "text": "Recorded wearing at this horizon only: \"kurta\""
+    "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-24:event:681a31d384b3c8f4:1",
+    "id": "2026-11-24:event:b9c07ee7076c7499:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "681a31d384b3c8f4892638644ca9fecc16e299d13ebf98de4260c4f0bf0e2aa5"
+     "sha256": "b9c07ee7076c74993afb87ef7477f910d6793923e833a1d938859318112fb7b0"
     },
     "type": "inventory",
-    "time": "17:58",
+    "time": "18:20",
     "place": null,
-    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:14.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:14.\"}]"
+    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 17:58.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 17:58.\"}]"
    },
    {
-    "id": "2026-11-24:event:df5828ca7c7552ba:1",
+    "id": "2026-11-24:event:8567332dad77fa72:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "df5828ca7c7552ba9c7461dd3f643759f7573fcbc92957f0f1f45b5926e3d732"
+     "sha256": "8567332dad77fa720d11d6973b91072896352b440e72f6bb645e80afb2f5b40e"
     },
     "type": "inventory",
-    "time": "17:58",
+    "time": "18:20",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3849,7 +4058,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "17:58",
+    "time": "18:20",
     "place": null
    }
   ]
