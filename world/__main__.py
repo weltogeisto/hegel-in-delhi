@@ -60,7 +60,8 @@ def make_mind(cfg, which, wake=True):
     return HTTPMind(url, wake=cfg.wake if wake else None, timeout=cfg.timeout, voice_adapter_scale=cfg.voice_adapter_scale,
                     writing_reasoning_tokens=cfg.writing_reasoning_tokens, writing_adapter_scale=cfg.writing_adapter_scale,
                     decision_reasoning_tokens=cfg.decision_reasoning_tokens, decision_adapter_scale=cfg.decision_adapter_scale,
-                    decision_dry=getattr(cfg, "decision_dry", 0.0), seed=getattr(cfg, "seed", None), cache_prompt=getattr(cfg, "cache_prompt", None))
+                    decision_dry=getattr(cfg, "decision_dry", 0.0), seed=getattr(cfg, "seed", None), cache_prompt=getattr(cfg, "cache_prompt", None),
+                    seed_streams=getattr(cfg, "seed_streams", False))
 
 
 def make_world(cfg):
@@ -68,7 +69,8 @@ def make_world(cfg):
     return World(Feeds(cfg), culture=getattr(cfg, "culture", False), street_on=getattr(cfg, "street", False),
                  street_file=getattr(cfg, "street_file", None), promises=getattr(cfg, "promises", False),
                  ramesh_days=getattr(cfg, "ramesh_days", False), consumed=getattr(cfg, "consumed", False),
-                 file_act=getattr(cfg, "file_act", False), repairs=getattr(cfg, "world_repairs", False))
+                 file_act=getattr(cfg, "file_act", False), repairs=getattr(cfg, "world_repairs", False),
+                 keep_time=getattr(cfg, "keep_time", False))
 
 
 def cmd_tick(cfg, args):

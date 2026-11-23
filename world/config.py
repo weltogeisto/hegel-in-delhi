@@ -55,6 +55,7 @@ class Config:
         self.world_repairs = v.get("HEGEL_WORLD_REPAIRS", "0").strip().lower() in ("1", "yes", "true")   # five repairs from the review of Days 47–49 (DECISIONS 57); off until switched on
         self.ramesh_days = v.get("HEGEL_RAMESH_DAYS", "0").strip().lower() in ("1", "yes", "true")   # Ramesh may offer to come every day again (DECISIONS 47); off until switched on
         self.file_act = v.get("HEGEL_FILE_ACT", "0").strip().lower() in ("1", "yes", "true")   # the file moves after the query: three doors and a copy (pc/FILE-NEXT-ACT.md, part 1); off until switched on
+        self.keep_time = v.get("HEGEL_KEEP_TIME", "0").strip().lower() in ("1", "yes", "true")   # an appointment elsewhere ends what he is doing in time to walk there, and a missed talk at the IIC is offered once more (Day 53); off until switched on
         self.promises = v.get("HEGEL_PROMISES", "0").strip().lower() in ("1", "yes", "true")   # a promise is a record: the voice may make one in `act`, the engine keeps it (pc/WORLD-2-WEEK1.md P1); off until switched on
         self.consumed = v.get("HEGEL_CONSUMED", "0").strip().lower() in ("1", "yes", "true")   # what he ate is an entry of its own, which the page shows and the owl reads (DECISIONS 48); off until someone has looked at what they do with it
         self.pause_away = v.get("HEGEL_PAUSE_AWAY", "0").strip().lower() in ("1", "yes", "true")   # hold his world at waking while the PC is away (pc/PAUSE.md); off until switched on
@@ -101,6 +102,8 @@ class Config:
         if not 1 <= self.decision_draws <= 6:
             raise ValueError("HEGEL_DECISION_DRAWS must be from 1 to 6")
         self.seed = int(v["HEGEL_SEED"]) if v.get("HEGEL_SEED", "").strip() else None                    # a base seed: every call to the mind sends one derived from it (world/mind.py); unset, none is sent
+        self.record_calls = v.get("HEGEL_RECORD_CALLS", "0").strip().lower() in ("1", "yes", "true")   # every request to the mind and its reply written down in order (world/calls.py); off until switched on
+        self.seed_streams = v.get("HEGEL_SEED_STREAMS", "0").strip().lower() in ("1", "yes", "true")    # seeds by (moment, kind, draw), not by running call number (pc/FAST-LANE.md, C); off until switched on
         cache = v.get("HEGEL_CACHE_PROMPT", "").strip().lower()                                          # the server's prompt cache, per request: unset leaves the field out; 0 sends false, 1 true (a same-seed rehearsal needs false)
         if cache not in ("", "0", "no", "false", "1", "yes", "true"):
             raise ValueError("HEGEL_CACHE_PROMPT must be empty, 0/no/false or 1/yes/true")

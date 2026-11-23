@@ -28,7 +28,8 @@ class HTTPMind:
 
     def __init__(self, url, wake=None, timeout=300, temperature=0.7, voice_adapter_scale=None,
                  writing_reasoning_tokens=0, writing_adapter_scale=None,
-                 decision_reasoning_tokens=0, decision_adapter_scale=None, decision_dry=0.0, seed=None, cache_prompt=None):
+                 decision_reasoning_tokens=0, decision_adapter_scale=None, decision_dry=0.0, seed=None, cache_prompt=None,
+                 seed_streams=False):
         self.url, self.wake, self.timeout, self.temperature = url.rstrip("/"), wake, timeout, temperature
         if not 0 <= decision_dry <= 2:
             raise ValueError("decision_dry must be from 0 to 2")
@@ -51,6 +52,9 @@ class HTTPMind:
         self.cache_prompt = cache_prompt          # None: say nothing (chat) or keep complete's own False; True/False: every request names it, so that a same-seed rehearsal is the same day
         self.ready = False
         self.seed, self.calls = seed, 0          # a base seed (HEGEL_SEED, --seed) and the number of chat and complete calls so far
+        self.seed_streams = bool(seed_streams)   # HEGEL_SEED_STREAMS: a call's seed from (base, moment, kind, draw), not its running number
+        self.stream_at, self._stream_n, self._kind = None, {}, None
+        self.recorder, self.last_kind = None, None   # HEGEL_RECORD_CALLS: every request and reply written down in order (world/calls.py)
 
     def health(self, timeout=3):
         try:
@@ -81,11 +85,7 @@ class HTTPMind:
         This is metadata only: no model generation and no tokenizer package.
         """
         self.ensure_awake()
-        def post(path, payload):
-            request = urllib.request.Request(self.url + path, data=json.dumps(payload).encode('utf-8'),
-                                             headers={'Content-Type': 'application/json'})
-            with urllib.request.urlopen(request, timeout=self.timeout) as response:
-                return json.load(response)
+        post = lambda path, payload: self._post(path, payload, "tokens")
         if isinstance(value, list):
             value = post('/apply-template', dict(messages=value,
                          chat_template_kwargs=dict(enable_thinking=thinking)))['prompt']
@@ -103,8 +103,8 @@ class HTTPMind:
         set, preserves the previous behaviour.
         """
         if self.voice_adapter_scale is None:
-            return self.chat(messages, schema, max_tokens=max_tokens)
-        return self.chat(messages, schema, max_tokens=max_tokens, adapter_scale=self.voice_adapter_scale)
+            return self._as("voice", lambda: self.chat(messages, schema, max_tokens=max_tokens))
+        return self._as("voice", lambda: self.chat(messages, schema, max_tokens=max_tokens, adapter_scale=self.voice_adapter_scale))
 
     def adapter_configured(self):
         """True when any of the three adapter scales is set. Then every request names its adapter; otherwise none does."""
@@ -112,11 +112,34 @@ class HTTPMind:
 
     def next_seed(self, own=None):
         """The seed to send with the next call: its own if it was given one, else derived from the base seed and this call's running number
-        (a stable hash, not Python's randomised hash()), else None. Counts every call, so the same run asks the same questions in the same order."""
+        (a stable hash, not Python's randomised hash()), else None. Counts every call, so the same run asks the same questions in the same order.
+
+        With seed streams on (HEGEL_SEED_STREAMS), the seed comes from the base seed, the moment the engine named last (`at`), the
+        kind of call (decision, voice, writing, complete, chat) and how many calls of that kind that moment has made: one extra call
+        (a retry, a fourth draw, a voice that speaks) then moves no seed but its own, and two forks keep drawing alike until they
+        part (pc/FAST-LANE.md, C)."""
         self.calls += 1
+        kind, self._kind = self._kind or "chat", None
+        self.last_kind = kind
         if own is not None or self.seed is None:
             return own
-        return int.from_bytes(hashlib.sha256(f"{self.seed}:{self.calls}".encode()).digest()[:4], "big") & 0x7FFFFFFF
+        if not self.seed_streams:
+            return int.from_bytes(hashlib.sha256(f"{self.seed}:{self.calls}".encode()).digest()[:4], "big") & 0x7FFFFFFF
+        key = (self.stream_at, kind)
+        n = self._stream_n[key] = self._stream_n.get(key, 0) + 1
+        return int.from_bytes(hashlib.sha256(f"{self.seed}|{self.stream_at}|{kind}|{n}".encode()).digest()[:4], "big") & 0x7FFFFFFF
+
+    def at(self, when):
+        """The moment the next calls belong to (an ISO time, or a label such as "owl|2026-11-22"): the stream their seeds come from."""
+        self.stream_at = when
+
+    def _as(self, kind, call):
+        """Run call() with its seed drawn from `kind`'s stream; the kind is cleared after, whether or not the call drew a seed."""
+        self._kind = kind
+        try:
+            return call()
+        finally:
+            self._kind = None
 
     @staticmethod
     def _check_reasoning_budget(tokens):
@@ -131,10 +154,10 @@ class HTTPMind:
         """
         dry = {"dry": self.decision_dry} if self.decision_dry else {}       # only when set: subclasses may keep the older chat()
         if not self.decision_reasoning_tokens and self.decision_adapter_scale is None:
-            return self.chat(messages, schema, max_tokens=max_tokens, **dry)
-        return self.chat(messages, schema, max_tokens=max_tokens + self.decision_reasoning_tokens,
-                         reasoning_budget=self.decision_reasoning_tokens,
-                         adapter_scale=self.decision_adapter_scale, **dry)
+            return self._as("decision", lambda: self.chat(messages, schema, max_tokens=max_tokens, **dry))
+        return self._as("decision", lambda: self.chat(messages, schema, max_tokens=max_tokens + self.decision_reasoning_tokens,
+                                                      reasoning_budget=self.decision_reasoning_tokens,
+                                                      adapter_scale=self.decision_adapter_scale, **dry))
 
     def chat_writing(self, messages, schema=None, max_tokens=1100):
         """Optionally reserve bounded reasoning time for the manuscript call only.
@@ -145,10 +168,10 @@ class HTTPMind:
         Defaults preserve the previous non-thinking, inherited-adapter path.
         """
         if not self.writing_reasoning_tokens and self.writing_adapter_scale is None:
-            return self.chat(messages, schema, max_tokens=max_tokens)
-        return self.chat(messages, schema, max_tokens=max_tokens + self.writing_reasoning_tokens,
-                         reasoning_budget=self.writing_reasoning_tokens,
-                         adapter_scale=self.writing_adapter_scale)
+            return self._as("writing", lambda: self.chat(messages, schema, max_tokens=max_tokens))
+        return self._as("writing", lambda: self.chat(messages, schema, max_tokens=max_tokens + self.writing_reasoning_tokens,
+                                                     reasoning_budget=self.writing_reasoning_tokens,
+                                                     adapter_scale=self.writing_adapter_scale))
 
     def chat(self, messages, schema=None, max_tokens=700, temperature=None, *, adapter_scale=None,
              reasoning_budget=0, dry=0.0, seed=None):
@@ -177,11 +200,8 @@ class HTTPMind:
         for constrained in ((True, False) if schema else (False,)):
             if not constrained:
                 payload.pop("response_format", None)
-            req = urllib.request.Request(self.url + "/v1/chat/completions", data=json.dumps(payload).encode("utf-8"),
-                                         headers={"Content-Type": "application/json"})
             try:
-                with urllib.request.urlopen(req, timeout=self.timeout) as r:
-                    data = json.loads(r.read().decode("utf-8"))
+                data = self._post("/v1/chat/completions", payload, self.last_kind)
                 return (data["choices"][0]["message"].get("content") or "").strip()
             except urllib.error.HTTPError as e:
                 if constrained and schema and e.code in (400, 422, 500):
@@ -195,6 +215,7 @@ class HTTPMind:
         """The text that continues prompt, from llama-server's /completion: the raw prompt, no chat template, no system prompt and no stop
         string (a model that opens with a blank line would stop before its first word), so the caller cleans up. It is sampled against loops
         (repeat penalty, DRY). MindAway as for chat()."""
+        self._kind = "complete"
         seed = self.next_seed(seed)
         self.ensure_awake()
         payload = {"prompt": prompt, "n_predict": max_tokens, "temperature": self.temperature if temperature is None else temperature,
@@ -205,18 +226,42 @@ class HTTPMind:
             payload["cache_prompt"] = self.cache_prompt         # complete() sends False on its own when this is None
         if self.adapter_configured():           # his prose in plain mode is not the voices': the base model, whatever the server holds
             payload["lora"] = [{"id": 0, "scale": 0}]
-        req = urllib.request.Request(self.url + "/completion", data=json.dumps(payload).encode("utf-8"), headers={"Content-Type": "application/json"})
         try:
-            with urllib.request.urlopen(req, timeout=self.timeout) as r:
-                content = json.loads(r.read().decode("utf-8"))["content"]
+            content = self._post("/completion", payload, self.last_kind)["content"]
             return content if isinstance(content, str) else ""
         except urllib.error.HTTPError as e:
             raise MindAway(f"HTTP {e.code} from the mind")
         except (urllib.error.URLError, OSError, ValueError, KeyError, TypeError) as e:
             raise MindAway(f"mind request failed: {e}")
 
+    def _send(self, path, payload):
+        """One request to the server, and its JSON reply."""
+        req = urllib.request.Request(self.url + path, data=json.dumps(payload).encode("utf-8"), headers={"Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=self.timeout) as r:
+            return json.loads(r.read().decode("utf-8"))
+
+    def _post(self, path, payload, kind=None):
+        """_send, written down in order with its moment and kind when a recorder is set (HEGEL_RECORD_CALLS): the reply, or the error
+        it raised. Errors are raised as they were, so the callers' fallbacks run as before."""
+        if self.recorder is None:
+            return self._send(path, payload)
+        try:
+            data = self._send(path, payload)
+        except Exception as e:
+            self.recorder.call(self.stream_at, kind, path, payload, error=error_record(e))
+            raise
+        self.recorder.call(self.stream_at, kind, path, payload, reply=data)
+        return data
+
     def decide(self, messages, sit):
         return self.chat_decision(messages, decision_schema(sit))
+
+
+def error_record(e):
+    """An exception as the record keeps it: an HTTP status, or the kind of failure and its words."""
+    if isinstance(e, urllib.error.HTTPError):
+        return {"http": e.code}
+    return {"error": type(e).__name__, "words": str(e)[:300]}
 
 
 THOUGHTS = [

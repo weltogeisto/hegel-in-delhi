@@ -176,6 +176,8 @@ Welt, the night of 18 November: "dont get stuck waiting on me not answering, i t
 
 62. **Every slot at night** (Welt, 21 November, about 20:40 Berlin: "yes, every slot"). While he sleeps, the fast lane's forks use every slot of the live server, not only the spare one. The server is never restarted for it. The forks start once the day is complete and 8082 answers, and they stop by 07:45. This settles the first of 61's open points. Statistical gates, the dead-man alert and catch-up mode remain open. Night 1 (`pc/FAST-LANE-NIGHT1.md`) uses it: block 1, the museums off and on, then block 2, the file's next act rehearsed, then block 3, more seeds, if the night allows.
 
+63. **The file's next act goes on as written, on Day 54** (Welt, 22 November, about 08:10 Berlin, answering "go as written or hold for an edit": "1", go as written). Night 1 rehearsed it on 24 days (`pc/FAST-LANE-NIGHT1-RESULT.md`): Shri Hegde's letter opens, and he agrees every time. Welt takes the act as it is. `HEGEL_FILE_ACT=1` before Day 54's waking, if Day 53 is a whole day, as 59 ordered.
+
 ## Still open
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.
@@ -186,4 +188,5 @@ Welt, the night of 18 November: "dont get stuck waiting on me not answering, i t
 ## Ideas, not yet decided
 
 - **A notebook of the age** (built, off: decision 56). The owl keeps a short running summary (about 1,000–1,500 characters) of what he has come to understand about this century: machines, institutions, events, people, and how his view of each has shifted. It enters his prompt every day, so what he learned weeks ago stays in front of him. It records only what he met and thought; it never steers him. Reason: today his prompt remembers only the last moments and the owl's gist of three nights, so older discoveries are allowed by the 1831 gate but fade from view.
+- **His future, fifty days in a row** (Welt, 21 November: kept as an idea; night 1 stays as declared). One slot lives his next ~50 days straight from a saved morning, the owl after each, while the other slots run the night's blocks. It shows what only time breaks: money running out, repetition, the story running dry. A single sequence cannot be split across slots, so about 50 days fit a night.
 - **An inbox.** People can send him emails, which he reads on a device in the world and may answer. Open questions: how mail gets in (a real address the Pi reads, a form, or Welt forwarding by hand), who approves it, whether his answers are public, and how he comes by an address in the world.
