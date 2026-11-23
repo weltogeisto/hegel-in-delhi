@@ -327,7 +327,7 @@ def cmd_merge(folder, rnd):
     res = {"round": rnd, "complete": len(done), "open": len(still), "dropped": len(dropped)}
     if not still:
         passages = {p["id"]: p for p in rows(folder / "PASSAGES.jsonl")}
-        final = [{**{k: passages[pid][k] for k in ("id", "journey", "dated", "words")}, "card": "\n".join(lines)}
+        final = [{**{k: v for k, v in passages[pid].items() if k != "text"}, "card": "\n".join(lines)}
                  for pid, lines in sorted(done.items())]
         res["cards"] = put(folder / "CARDS.jsonl", final)
         no_card = sorted(set(passages) - set(done) - {d["id"] for d in dropped})

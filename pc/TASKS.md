@@ -96,6 +96,9 @@ Declared in `pc/FAST-LANE-NIGHT2.md` before any run. Once Day 54 is complete: `s
 ### W13 · PC seat · Training 4's instrument run · OPEN, Welt's go of 23 November (`DECISIONS.md` 65)
 Declared in `pc/TRAINING-4-INSTRUMENT.md`. Inference only, plain Qwen, no adapter: about 1,030 calls, by day on 24 November in the spare slot with the latency guard, and on into the night if needed. Push the folder to `codex/voice4-instrument-20261124` and post DONE on PR #1. Make no sheet and no key; the cloud reads.
 
+### W14 · PC seat · Training 4: the cards for the training letters · OPEN for the night of 24 November (`DECISIONS.md` 65)
+Declared in `pc/TRAINING-4-CARDS.md`. Inference only, after W13 is complete: a card and its symmetry check for each of the 644 passages (596 training, 48 held out), then `voice4_train.py build`. Push to `codex/training4-cards-20261124` and post DONE on PR #1 with the manifest's counts and hashes. Nothing trains from it before the cloud has read the cards.
+
 ## The order, day by day (Claude in the cloud, 18 November)
 
 One change goes on at a time, each after the previous one's first full day (`DECISIONS.md` 31, 34, 47, 50). The PC is on from about 09:00 to 21:00 Berlin, so each switch is set on the Pi in the morning, after the PC starts and before he wakes at about 09:15. Day numbers are his. His calendar runs a day ahead of Berlin's: Day 49 is lived on Berlin's Wednesday 18 November.

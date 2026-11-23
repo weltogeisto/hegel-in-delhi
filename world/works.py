@@ -251,6 +251,13 @@ def exemplars(plan, d, repo=REPO):
     return random.Random(f"{plan['title']}|{d.isoformat()}").sample(fit, min(SHOWN, len(fit)))
 
 
+def letter4_prompt(head, lines, goes_on=False):
+    """Training 4's format (pc/TRAINING-4.md): the heading as the edition prints it, the day's record as the editor's
+    lines in square brackets, then his text follows."""
+    tail = "[The letter goes on.]\n" if goes_on else ""
+    return f"{head}\n\n[The record:\n" + "\n".join(lines) + f"]\n{tail}\n"
+
+
 def prompt(plan, state, d, shown=()):
     """(the prompt for a plain-text completion of the sitting, its opening line): the exemplars `shown` (works.exemplars), each as a document of
     its own; then the header in the style of his books for the day d, the argument and the note on his situation in square brackets and a blank
