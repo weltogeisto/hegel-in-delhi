@@ -261,6 +261,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "09:39",
+   "to": "09:54",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -378,6 +385,37 @@
    "to": "Hegel",
    "text": "Yes, sir. I’ll keep it on the stove. The poha is ready if you want to eat before you go.",
    "t": "09:29",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The ghost of my name has entered the house. Shri G. Hegde stands before me, the man for whom this bungalow was truly meant, or perhaps the man who believes it is. To see him is to see the error made flesh, the bureaucratic collision that has displaced me. I must be polite, for he is a Joint Secretary, but I must also assert my presence in this room, which is now mine by virtue of my occupancy and his absence from the record of my life.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras"
+    }
+   ],
+   "t": "09:39",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde. You are early. Or am I late? The file suggests we are both in the wrong place, though I find I have grown quite accustomed to this verandah. Ramesh, bring us both tea. Hegde, sit. The poha is hot, and the day is clear, which is a rarity for this time of year.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "09:39",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "You always find a way to make a simple breakfast sound like a seminar, sir. Sit down, I’ll pour it; don't worry about the time, the file can wait until the poha is finished.",
+   "t": "09:39",
    "place": "home"
   }
  ],
@@ -519,6 +557,74 @@
      "text": "They are so identified in physics, when difference of specific gravity is explained by saying, that a body, with a specific gravity twice that of another, contains within the same space twice as many material parts (or atoms) as the other."
     }
    ]
+  },
+  {
+   "t": "09:39",
+   "end": "09:54",
+   "event": "Ramesh says: “Yes, sir. I’ll keep it on the stove. The poha is ready if you want to eat before you go.” He covers the tea pot with a cloth to keep the heat in. Shri G. Hegde is here.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The ghost of my name has entered the house. Shri G. Hegde stands before me, the man for whom this bungalow was truly meant, or perhaps the man who believes it is. To see him is to see the error made flesh, the bureaucratic collision that has displaced me. I must be polite, for he is a Joint Secretary, but I must also assert my presence in this room, which is now mine by virtue of my occupancy and his absence from the record of my life.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Shri Hegde. You are early. Or am I late? The file suggests we are both in the wrong place, though I find I have grown quite accustomed to this verandah. Ramesh, bring us both tea. Hegde, sit. The poha is hot, and the day is clear, which is a rarity for this time of year.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 17 °C, clear. Air quality index: 110.",
+    "Shri G. Hegde is here."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply",
+    "here"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "You always find a way to make a simple breakfast sound like a seminar, sir. Sit down, I’ll pour it; don't worry about the time, the file can wait until the poha is finished.",
+    "does": "He pulls out a chair for Hegel and gestures for him to sit."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 15.3,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1189"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "id": "haldane-1:837"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "For “when Antisthenes turned outside a hole in his cloak, Socrates said to him, I see thy vanity through the hole in thy cloak.” Clothing is not a thing of rational import, but is regulated through needs that arise of themselves. In the North the clothing must be different from that in Central Africa; and in winter we do not wear cotton garments."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "text": "The end of trees is said to be that their fruit may be consumed and that they should give us wood for heat; many animals have skins for warm clothing; the sea in northern climates floats timber to the shores because on these shores themselves no wood grows, and the inhabitants can hence obtain it, and so on."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -555,7 +661,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-24T09:39+05:30",
+  "until": "2026-11-24T09:54+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "kurta",
@@ -642,6 +748,7 @@
    "woke": "09:14",
    "seen": {
     "home": [
+     "hegde",
      "ramesh"
     ]
    },
@@ -875,7 +982,8 @@
     "2026-11-19",
     "2026-11-20",
     "2026-11-21",
-    "2026-11-22"
+    "2026-11-22",
+    "2026-11-24"
    ],
    "kapoor": [
     "2026-10-28",
@@ -1008,7 +1116,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-24",
-  "source_sha256": "e90b67942f2054313bc869d40c92d2d1107b66880770308bda614ca6b62a77c5",
+  "source_sha256": "dc561418f7262525b2cb5113d35aada319332946992de092ea63129689ba1d14",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1126,6 +1234,36 @@
     "words": "Yes, sir. I’ll keep it on the stove. The poha is ready if you want to eat before you go.",
     "verified": false,
     "time": "09:29",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:a64b5e6bee071811:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 12,
+     "sha256": "a64b5e6bee071811478457d66a996c473f6a11001dd1545bef172ba5e8d7c4fc"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh and Shri G. Hegde",
+    "words": "Shri Hegde. You are early. Or am I late? The file suggests we are both in the wrong place, though I find I have grown quite accustomed to this verandah. Ramesh, bring us both tea. Hegde, sit. The poha is hot, and the day is clear, which is a rarity for this time of year.",
+    "verified": false,
+    "time": "09:39",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:a82a6db6228960fe:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 13,
+     "sha256": "a82a6db6228960fe2d96988fa0f711acf802a9c03cd882fc71e445c169c01205"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "You always find a way to make a simple breakfast sound like a seminar, sir. Sit down, I’ll pour it; don't worry about the time, the file can wait until the poha is finished.",
+    "verified": false,
+    "time": "09:39",
     "place": "home"
    },
    {
@@ -1328,68 +1466,114 @@
     "text": "Ramesh has laid out breakfast: poha with peanuts and a pot of tea."
    },
    {
-    "id": "2026-11-24:event:c07b6a82346d0528:1",
+    "id": "2026-11-24:event:f34899e2afb4653f:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 2,
+     "sha256": "f34899e2afb4653ffc022ea75d97c0f5b2c07f71c49f17bc4018b2f6ca0a7109"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "09:39",
+    "end": "09:54",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:eb9bb0d188b7f137:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      2,
+      0
+     ],
+     "sha256": "eb9bb0d188b7f137df02e681a0a863ab3f0c34c9b6298193f4603f36c693b36d"
+    },
+    "type": "observation",
+    "time": "09:39",
+    "place": "home",
+    "text": "Weather: 17 °C, clear. Air quality index: 110."
+   },
+   {
+    "id": "2026-11-24:event:62bb1c36d0c7c817:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      2,
+      1
+     ],
+     "sha256": "62bb1c36d0c7c81705f4b6b26667224595edeaced7771eb5f38e8f57651b3a25"
+    },
+    "type": "observation",
+    "time": "09:39",
+    "place": "home",
+    "text": "Shri G. Hegde is here."
+   },
+   {
+    "id": "2026-11-24:event:db2a27db39ec7792:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "c07b6a82346d0528441ebf89f54221f1e0f9fb77e98a417a4bb2f7ab70d3c214"
+     "sha256": "db2a27db39ec77926c95ab51bf5b34e35b3008e4beeab504b952c35af6bfc64d"
     },
     "type": "cash",
-    "time": "09:39",
+    "time": "09:54",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-24:event:65d94d4335e6fb75:1",
+    "id": "2026-11-24:event:09fd992a20a84ab1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "65d94d4335e6fb7571822d9b3055dc8cee09bd5f903745f4611e3a68892005f0"
+     "sha256": "09fd992a20a84ab1be2511e1d10ddc665bbffc1bb77ccb9aa8faac00feeb81a2"
     },
     "type": "location",
-    "time": "09:39",
+    "time": "09:54",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-24:event:55c3571836d1b065:1",
+    "id": "2026-11-24:event:8daa5d1e62e48bb7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "55c3571836d1b06545e0677e9014dfd9ceae09d28f4d506da53c8ff01f649ba3"
+     "sha256": "8daa5d1e62e48bb736043dad43ed16a2a838cc8f69845c8e156499a6150cdeff"
     },
     "type": "inventory",
-    "time": "09:39",
+    "time": "09:54",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-24:event:ec1c64d5f4336233:1",
+    "id": "2026-11-24:event:9399e985482d075b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "ec1c64d5f4336233cf6bca75890c899fcfec58080d2cd608005b3a021271f9ed"
+     "sha256": "9399e985482d075b38d7ef8de87bf01a307343340c63805359b0e80537d15ef8"
     },
     "type": "inventory",
-    "time": "09:39",
+    "time": "09:54",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:14.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:14.\"}]"
    },
    {
-    "id": "2026-11-24:event:497755a66c16c0e2:1",
+    "id": "2026-11-24:event:6dc7d7ef3343f4e6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "497755a66c16c0e277808a2ce6bf6b4b240105cc13ff23da129b2c9a80b10e96"
+     "sha256": "6dc7d7ef3343f4e62e55b4397c00ca6646eda0bcde362a08766b3726c837d344"
     },
     "type": "inventory",
-    "time": "09:39",
+    "time": "09:54",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -1408,7 +1592,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "09:39",
+    "time": "09:54",
     "place": null
    }
   ]
