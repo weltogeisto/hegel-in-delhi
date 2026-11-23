@@ -345,6 +345,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "16:39",
+   "to": "17:09",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -796,6 +803,49 @@
     }
    ],
    "t": "16:29",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "Ramesh brings tea.",
+   "t": "16:39",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The air is clear today, a rare sight that makes the mind feel unburdened, unlike the suffocating haze of the last few days. Ramesh brings the tea and toast, a simple act that grounds me in the present moment. I have an hour and a half before I must depart for the IIC, and the clarity of the evening light suggests a different kind of reflection is possible than the murky thoughts of the morning.",
+   "shelf": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Methods of Science"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…"
+    }
+   ],
+   "t": "16:39",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. The air is clear today; it is a relief to see the sky without the brown lid.",
+   "to": "Ramesh",
+   "t": "16:39",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes, sir. The sky is nice today, no dust. I have brought the toast and tea as you like it.",
+   "t": "16:39",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "Ramesh puts a plate together: an omelette, toast and a pot of tea.",
+   "t": "16:39",
    "place": "home"
   }
  ],
@@ -1714,6 +1764,72 @@
      "text": "Idea. Even Becoming however, taken at its best on its own ground, is an extremely poor term: it needs to grow in depth and weight of meaning. Such deepened force we find e.g. in Life. Life is a Becoming; but that is not enough to exhaust the notion of life. A still higher form is found in Mind. Here too is Becoming, but richer and more intensive than mere logical Becoming."
     }
    ]
+  },
+  {
+   "t": "16:39",
+   "end": "17:09",
+   "event": "Ramesh brings tea: tea and toast with butter.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The air is clear today, a rare sight that makes the mind feel unburdened, unlike the suffocating haze of the last few days. Ramesh brings the tea and toast, a simple act that grounds me in the present moment. I have an hour and a half before I must depart for the IIC, and the clarity of the evening light suggests a different kind of reflection is possible than the murky thoughts of the morning.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": "Thank you, Ramesh. The air is clear today; it is a relief to see the sky without the brown lid.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, clear. Air quality index: 99.",
+    "Ramesh brings tea: tea and toast with butter."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "tea"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes, sir. The sky is nice today, no dust. I have brought the toast and tea as you like it.",
+    "does": "He places the tray on the small table and steps back."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Methods of Science",
+     "id": "bosanquet-art:52"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "id": "haldane-1:113"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Methods of Science",
+     "text": "In this aspect, Home's \"Elements of Criticism,\" the writings of Batteux, and Ramler's \"Introduction to the Fine Arts,\" were works much read in their day. Taste in this sense has to do with arrangement and treatment, the harmony and finish of what belongs to the external aspect of a work of art."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "text": "A long time is undoubtedly required by Mind in working out Philosophy, and when one first reflects on it, the length of the time may seem astonishing, like the immensity of the space spoken of in astronomy. But it must be considered in regard to the slow progress of the world-spirit, that there is no need for it to hasten:—“A thousand years are in Thy sight as one day.”"
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1750,7 +1866,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-24T16:39+05:30",
+  "until": "2026-11-24T17:09+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "kurta",
@@ -1842,7 +1958,8 @@
     ]
    },
    "breakfast": true,
-   "lunch": true
+   "lunch": true,
+   "tea": true
   },
   "account": {
    "advance": 15000,
@@ -2096,7 +2213,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-24T13:14+05:30",
+  "last_meal": "2026-11-24T16:39+05:30",
   "snacks": 0,
   "works": [
    {
@@ -2205,7 +2322,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-24",
-  "source_sha256": "2df8e2004297058712225d973de296b9db2ee9a8e4986181d02765070ded9929",
+  "source_sha256": "107588123ee277514740b192f430d35fc6647d9643a86383127d987477800b6e",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2594,6 +2711,62 @@
     "status": "draft",
     "sitting": 7,
     "time": "15:44",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:350f086607133837:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 41,
+     "sha256": "350f0866071338370e563cf253cc1557791244c6294c901078506b796c6b88a0"
+    },
+    "type": "world",
+    "text": "Ramesh brings tea.",
+    "time": "16:39",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:4a2ec7d1097a4c01:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 43,
+     "sha256": "4a2ec7d1097a4c01bd31d8a472fc06581c4163a237ed141b111c282dbbeac118"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Thank you, Ramesh. The air is clear today; it is a relief to see the sky without the brown lid.",
+    "verified": false,
+    "time": "16:39",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:7ec555500ed4ff7a:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 44,
+     "sha256": "7ec555500ed4ff7a0025b25e5fa3d6b644bd23858fb2b321bc3e96cb1ebfa8c4"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes, sir. The sky is nice today, no dust. I have brought the toast and tea as you like it.",
+    "verified": false,
+    "time": "16:39",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:bc5fd192c40a55f0:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 45,
+     "sha256": "bc5fd192c40a55f0458b6b446bab748814d682f82e42549f0b09078d39d450f5"
+    },
+    "type": "world",
+    "text": "Ramesh puts a plate together: an omelette, toast and a pot of tea.",
+    "time": "16:39",
     "place": "home"
    },
    {
@@ -3220,68 +3393,114 @@
     "text": "Nothing in particular happens. The afternoon goes on."
    },
    {
-    "id": "2026-11-24:event:84e7bc595a858fba:1",
+    "id": "2026-11-24:event:cef3fbe1bb957e69:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 14,
+     "sha256": "cef3fbe1bb957e69eeab8eb499021cadaf3b843569e377bd6bcd2227ef0710d3"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "16:39",
+    "end": "17:09",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:7927f3d348912ded:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      14,
+      0
+     ],
+     "sha256": "7927f3d348912ded403838d40fb741511629c423288af3f9836fbf5965d26994"
+    },
+    "type": "observation",
+    "time": "16:39",
+    "place": "home",
+    "text": "Weather: 23 °C, clear. Air quality index: 99."
+   },
+   {
+    "id": "2026-11-24:event:20c56943d2643254:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      14,
+      1
+     ],
+     "sha256": "20c56943d2643254067a0847bc18ea810b54e737cfbddf19481659023c1367d0"
+    },
+    "type": "observation",
+    "time": "16:39",
+    "place": "home",
+    "text": "Ramesh brings tea: tea and toast with butter."
+   },
+   {
+    "id": "2026-11-24:event:a0719941653e3964:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "84e7bc595a858fba28ca2f6db6678d4a342284b0310a1f1cbe31f75ae03772c6"
+     "sha256": "a0719941653e39641d611ab385be7b438a069596c54da6e3675cb19d03d22e35"
     },
     "type": "cash",
-    "time": "16:39",
+    "time": "17:09",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-24:event:2aba488a55b85960:1",
+    "id": "2026-11-24:event:aba3e11a64e0c259:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "2aba488a55b859605537e7314835a2d7285483a4cb158beb40173f4c0a3c82d8"
+     "sha256": "aba3e11a64e0c2599209d2c7f5965d0b3e453930c57ac623caf2d8f8316000ff"
     },
     "type": "location",
-    "time": "16:39",
+    "time": "17:09",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-24:event:18bd534fdae5d5bb:1",
+    "id": "2026-11-24:event:d11abff3f497edd2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "18bd534fdae5d5bb3f3dc23d946d3845c228bebe5891a00a40c86b4ffd1e20a2"
+     "sha256": "d11abff3f497edd2ac8fdff194e128bef584bd972b7bead1fd4bce732b67eeec"
     },
     "type": "inventory",
-    "time": "16:39",
+    "time": "17:09",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-24:event:567e65b2aed2e8ef:1",
+    "id": "2026-11-24:event:e11d0cfc7b39008d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "567e65b2aed2e8efd3f597aac47aceb18eddb7d0e73f9b980ba6d677edcdd36a"
+     "sha256": "e11d0cfc7b39008de3788b1a72c2d554bd63b8e98468fdf30ac7dff4b04e1e8e"
     },
     "type": "inventory",
-    "time": "16:39",
+    "time": "17:09",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:14.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:14.\"}]"
    },
    {
-    "id": "2026-11-24:event:db9f9067f0563561:1",
+    "id": "2026-11-24:event:2afc82e365ecd125:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "db9f9067f056356189ac23bd3efe1cb7293a07304f400ec6ee675ead5c11de7f"
+     "sha256": "2afc82e365ecd1254535ca45df2a77d9d207ea4bf319639fbc31e08c179d8391"
     },
     "type": "inventory",
-    "time": "16:39",
+    "time": "17:09",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -3300,7 +3519,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "16:39",
+    "time": "17:09",
     "place": null
    }
   ]
