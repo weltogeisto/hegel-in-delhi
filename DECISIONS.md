@@ -178,6 +178,8 @@ Welt, the night of 18 November: "dont get stuck waiting on me not answering, i t
 
 63. **The file's next act goes on as written, on Day 54** (Welt, 22 November, about 08:10 Berlin, answering "go as written or hold for an edit": "1", go as written). Night 1 rehearsed it on 24 days (`pc/FAST-LANE-NIGHT1-RESULT.md`): Shri Hegde's letter opens, and he agrees every time. Welt takes the act as it is. `HEGEL_FILE_ACT=1` before Day 54's waking, if Day 53 is a whole day, as 59 ordered.
 
+64. **Keeping time goes on with the file's next act, for Day 54** (Welt, 23 November, about 08:45 Berlin, in the PC session: "merge"). On Day 53 he walked to the IIC for a talk that is on Day 54, having read Tuesday's line as Monday's. And no rest ended for an appointment elsewhere. `HEGEL_KEEP_TIME` (#140) ends what he does in time to walk there, says Today or Tomorrow and the minutes left, and offers a missed IIC talk once more the next day. It went on beside `HEGEL_FILE_ACT` (63) at 08:52 Berlin, shadow `307b9cd`. That is two switches in one night, against the one-at-a-time rule, on the cloud's advice: the talk is on Day 54, and the two touch different things. Day 53 was whole: 38 decisions, 37 from the mind.
+
 ## Still open
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.
