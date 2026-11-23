@@ -324,6 +324,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "14:14",
+   "to": "15:44",
+   "mode": "inside",
+   "at": "home",
+   "now": "Reading at home."
   }
  ],
  "entries": [
@@ -711,6 +718,22 @@
    "to": "Hegel",
    "text": "Yes, sir. I have already placed it on the desk with the pen. The room is ready for when you return.",
    "t": "14:04",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The room is ready, a small victory of order over the chaos of the file query. I have an hour and a half before I must depart for the IIC. To stand idle is to let the mind wander into idleness; I will sit at the desk and review my notes, ensuring the evening discourse is as tight as a syllogism, for I have no patience for the rambling of yesterday.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Middle Ages"
+    }
+   ],
+   "t": "14:14",
    "place": "home"
   }
  ],
@@ -1451,6 +1474,66 @@
      "text": "He studied in Geneva and Paris, associating in the former place with Bonnet and in the latter with Diderot. Jacobi was a man of the highest character and culture. He was long occupied with State affairs, and in Düsseldorf he held a public office which was connected with the administration of the finance department in the State."
     }
    ]
+  },
+  {
+   "t": "14:14",
+   "end": "15:44",
+   "event": "Ramesh says: “Yes, sir. I have already placed it on the desk with the pen. The room is ready for when you return.” Ramesh nods briefly and steps out, closing the door softly behind him.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The room is ready, a small victory of order over the chaos of the file query. I have an hour and a half before I must depart for the IIC. To stand idle is to let the mind wander into idleness; I will sit at the desk and review my notes, ensuring the evening discourse is as tight as a syllogism, for I have no patience for the rambling of yesterday.",
+    "action": "read",
+    "place": "home",
+    "minutes": 90,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, clear. Air quality index: 101."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Middle Ages",
+     "id": "sibree-history:1149"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Middle Ages",
+     "text": "The whole social condition therefore, being founded on individual sovereignty, it might be supposed that the advance to a State would be possible only through the return of those individual sovereignties to an official relationship."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1487,7 +1570,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-24T14:14+05:30",
+  "until": "2026-11-24T15:44+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "kurta",
@@ -1942,7 +2025,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-24",
-  "source_sha256": "87d438aa35801b145c7c8e0e2de5ca3c92810db9ff446a18e24744c08a6b4f65",
+  "source_sha256": "0608f5bd478b49da99431c5f26eac5df76f8af827edf1f0d6296a8219fe3ad26",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2817,68 +2900,98 @@
     "text": "Weather: 24 °C, clear. Air quality index: 101."
    },
    {
-    "id": "2026-11-24:event:4bfdf43e0ccca638:1",
+    "id": "2026-11-24:event:1b9e070b329f728e:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 11,
+     "sha256": "1b9e070b329f728e64e27661d9998404cef97312473a7091c6ad420b4244b921"
+    },
+    "type": "action",
+    "action": "read",
+    "time": "14:14",
+    "end": "15:44",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:55b9b5400680540e:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      11,
+      0
+     ],
+     "sha256": "55b9b5400680540ed7344b7297e765f0e97e02084b367d30b592999afd3e3dd5"
+    },
+    "type": "observation",
+    "time": "14:14",
+    "place": "home",
+    "text": "Weather: 24 °C, clear. Air quality index: 101."
+   },
+   {
+    "id": "2026-11-24:event:f534bbe303f9c2ee:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "4bfdf43e0ccca638f1af33757efb2f5ca67fc5b6607dbca2885dff183e7693da"
+     "sha256": "f534bbe303f9c2eeb2651b2156d2c03fc392478f13b5cd900af8b306e1f49eb7"
     },
     "type": "cash",
-    "time": "14:14",
+    "time": "15:44",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-24:event:ae07f684ce6d02c1:1",
+    "id": "2026-11-24:event:96162efafe6dd8a6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "ae07f684ce6d02c1051f28a4beec4682e0aa302ac9845b9d1546e9d14b5814dc"
+     "sha256": "96162efafe6dd8a6e1ad8e7c756215f3742f70ae8fae7089c3b80960a88324b4"
     },
     "type": "location",
-    "time": "14:14",
+    "time": "15:44",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-24:event:363fc7e7b6ea171b:1",
+    "id": "2026-11-24:event:a2a1f244fb69588c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "363fc7e7b6ea171bc96c78a6f57242013c147bc7267b6a34bb8d813680e54f25"
+     "sha256": "a2a1f244fb69588c5ad089d2d3aad01e3b2efb89ca5b40fa6aa764546f0a7771"
     },
     "type": "inventory",
-    "time": "14:14",
+    "time": "15:44",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-24:event:44721cff3c804029:1",
+    "id": "2026-11-24:event:64c5885868c70959:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "44721cff3c80402932dc9560f44ade5d872ab8320c38616d2d75b222fe9b6b80"
+     "sha256": "64c5885868c70959b52cbb393a74b05bc0633f1b7f964e461439a97706362e83"
     },
     "type": "inventory",
-    "time": "14:14",
+    "time": "15:44",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:14.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:14.\"}]"
    },
    {
-    "id": "2026-11-24:event:3c230ef9eb1bc445:1",
+    "id": "2026-11-24:event:8a88965c038b6910:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "3c230ef9eb1bc445bf246106fc3d150c449068215f61f112da54040f29ff4350"
+     "sha256": "8a88965c038b6910ca98e20d0656f7ab81c7ae275f3244044d484a4e243b156b"
     },
     "type": "inventory",
-    "time": "14:14",
+    "time": "15:44",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2897,7 +3010,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "14:14",
+    "time": "15:44",
     "place": null
    }
   ]
