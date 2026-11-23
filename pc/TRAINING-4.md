@@ -67,6 +67,11 @@ Two facts shape everything below:
   - The adapter can therefore learn how he writes a letter. It cannot learn from them what a traveller tells his wife.
   - That content has to come from his days, which is the world's work. The museums are on, and night 1 showed that he goes.
 
+**Measured on 23 November, before any GPU** (`tools/voice4.py`, the classifier on the German originals):
+- **His travel letters are a kind of their own.** The classifier tells the journeys' passages from his other letters 9 times in 10. On the road he narrates: three times as many dashes, and "dann", "Uhr", "heute", "nach" where the other letters have "daß", "zu", "werden".
+- **That gap is as wide as the gap between him and other writers.** It tells him from his correspondents 85% of the time on texts of 600 words.
+- **So the letters that would teach the right register best are the sealed ones.** This is decision 7 below.
+
 ## The instrument, built and validated before any training
 
 One night of inference, plain Qwen only (allowed at night by `DECISIONS.md` 30).
@@ -81,8 +86,9 @@ One night of inference, plain Qwen only (allowed at night by `DECISIONS.md` 30).
 - **Blind pairs.** The model writes the letter in German from the card. Both the real passage and the model's letter go through stage 2's fixed translation, and two judge families (fresh Claude sessions, and Sol) pick the real one. Positions are swapped, and judgments are sealed before the keys.
   - The measure is the judges' accuracy. Plain Qwen stands at 100% today. 50% would mean no reader can tell; the literature says to expect something in between.
   - The judges only tell real from made. They are never asked which reads better: a judge leans towards familiar, low-surprise prose (Sources, 5).
-- **A classifier's accuracy** at telling the two sides apart: five folds, character and function-word features, and the Delta the Hegelizer's dashboard already uses, on the translated texts and on the German with the spelling normalised by rule. It runs on every checkpoint, and no judge's taste enters it.
-  - **It must qualify first.** It counts only if it tells his held-out letters from his correspondents' letters, and from plain Qwen's pastiche. A measure that cannot tell Hegel from Niethammer measures "a German letter of the 1820s", not him.
+- **A classifier's accuracy** at telling the two sides apart: Burrows's Delta over the most frequent words and marks, each text judged against the two sides without it, on the translated texts. It runs on every checkpoint, and no judge's taste enters it.
+  - **It must qualify first.** It counts only if it tells his letters from his correspondents' letters. A measure that cannot tell Hegel from Niethammer measures "a German letter of the 1820s", not him.
+  - **It needs about 600 words.** On the German originals it tells him from his correspondents 85% of the time at 600 words (95% interval 79 to 89), and only 6 times in 10 on single passages. So letters are read in bundles of 600 words, and the qualification is repeated on the translations before any arm is read.
 - **Stage 1's profile** of what the letters tell: kinds of content, and doctrine terms per 100 words.
 
 **3. The fact measures.**
@@ -98,7 +104,7 @@ One night of inference, plain Qwen only (allowed at night by `DECISIONS.md` 30).
 
 **4. The rungs without training,** on the same cards:
 - **P0:** plain Qwen, writing in German.
-- **P1:** plain Qwen with three of his letters in front of the header. The plain writing path already puts book passages there (`world/works.py`); this arm puts letters from the training pool in their place.
+- **P1:** plain Qwen with three of his letters in front of the request, as the plain writing path already puts book passages in front (`world/works.py`). Letters to his wife come first, being the journeys' kind, so that the rung gets its best chance.
 - **P2:** the same with twenty letters, as many as fit in 12,000 tokens. This is the strongest in-context arm the literature reports, and the one that copies content from its examples (Sources, 2), which the invented-particulars rule will show.
 
 The best of the three on the two axes is the arm the adapter must beat.
@@ -166,7 +172,7 @@ The lecture he prepared and never gave is the same asymmetry in the world. A tal
 
 | When | What | Needs |
 |---|---|---|
-| Night of 24 November | The instrument night: cards, the judge's validation, the classifier's qualification, P0 to P2, the baselines | nothing new: inference only |
+| Night of 24 November | The instrument night (`pc/TRAINING-4-INSTRUMENT.md`): cards, the judge's validation, the classifier's qualification, P0 to P2, the baselines | Welt's go; inference only |
 | 25 and 26 November | Cards for the training letters, in the spare slot and at night. The manifest frozen. The launcher's rehearsal | Welt's word on the questions below |
 | The first night after | Training 4, two to four hours while he sleeps, then the checkpoints served and measured | Welt's go for the run and for the adapter that night |
 | The next night | The Paris confirmation. Welt's page. The fork night with the adapter writing | Welt's ten minutes |
@@ -186,6 +192,10 @@ If each word comes the same day, a first candidate is measured by the weekend.
 4. **Training 3 reopened** with a data night, and whether a doctrine-terms rule may choose among his answers.
 5. **A power cap of about 75% for training nights.** Training is the hottest load the card gets, and its memory already throttled during inference.
 6. **Go for the instrument night.** It trains nothing and loads no adapter.
+7. **One journey for training.** The Netherlands journey (about 7,400 words) joins the training letters. Vienna stays for development and Paris stays sealed.
+   - Recommended. The journeys are the register the test asks for, and the measurement above shows how far his other letters are from it.
+   - The cost: the development set falls from 77 passages to 43, and `DECISIONS.md` 26 changes for one journey of three.
+   - Without it, the adapter learns the correspondent and is tested on the traveller. His two diaries and five letters to his wife are then all it has of that kind.
 
 ## Not in this round, and why
 
