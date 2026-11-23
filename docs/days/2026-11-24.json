@@ -15,145 +15,145 @@
     "temp": 16,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 185
+    "aqi": 195
    },
    {
     "temp": 15,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 175
+    "aqi": 186
    },
    {
     "temp": 15,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 166
+    "aqi": 177
    },
    {
     "temp": 14,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 156
+    "aqi": 169
    },
    {
     "temp": 14,
-    "sky": "clear",
+    "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 147
+    "aqi": 160
    },
    {
     "temp": 14,
-    "sky": "clear",
+    "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 139
+    "aqi": 152
    },
    {
     "temp": 13,
     "sky": "clear",
     "rain": 0,
-    "aqi": 131
+    "aqi": 144
    },
    {
     "temp": 14,
     "sky": "clear",
     "rain": 0,
-    "aqi": 124
+    "aqi": 136
    },
    {
     "temp": 15,
     "sky": "clear",
     "rain": 0,
-    "aqi": 117
+    "aqi": 128
    },
    {
     "temp": 17,
     "sky": "clear",
     "rain": 0,
-    "aqi": 110
+    "aqi": 120
    },
    {
     "temp": 19,
     "sky": "clear",
     "rain": 0,
-    "aqi": 103
+    "aqi": 114
    },
    {
     "temp": 21,
     "sky": "clear",
     "rain": 0,
-    "aqi": 99
+    "aqi": 109
    },
    {
     "temp": 22,
     "sky": "clear",
     "rain": 0,
-    "aqi": 98
+    "aqi": 105
    },
    {
     "temp": 23,
     "sky": "clear",
     "rain": 0,
-    "aqi": 97
+    "aqi": 103
    },
    {
     "temp": 24,
     "sky": "clear",
     "rain": 0,
-    "aqi": 96
+    "aqi": 101
    },
    {
     "temp": 24,
     "sky": "clear",
     "rain": 0,
-    "aqi": 95
+    "aqi": 100
    },
    {
     "temp": 23,
     "sky": "clear",
     "rain": 0,
-    "aqi": 95
+    "aqi": 99
    },
    {
     "temp": 20,
     "sky": "clear",
     "rain": 0,
-    "aqi": 94
+    "aqi": 99
    },
    {
     "temp": 19,
     "sky": "clear",
     "rain": 0,
-    "aqi": 93
+    "aqi": 99
    },
    {
     "temp": 18,
     "sky": "clear",
     "rain": 0,
-    "aqi": 93
+    "aqi": 99
    },
    {
     "temp": 18,
     "sky": "clear",
     "rain": 0,
-    "aqi": 93
+    "aqi": 100
    },
    {
     "temp": 17,
     "sky": "clear",
     "rain": 0,
-    "aqi": 93
+    "aqi": 100
    },
    {
     "temp": 17,
     "sky": "clear",
     "rain": 0,
-    "aqi": 93
+    "aqi": 102
    },
    {
     "temp": 16,
     "sky": "overcast",
     "rain": 0,
-    "aqi": 94
+    "aqi": 105
    }
   ]
  },
@@ -293,6 +293,13 @@
   {
    "from": "10:59",
    "to": "12:59",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
+  },
+  {
+   "from": "12:59",
+   "to": "13:14",
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
@@ -574,6 +581,22 @@
    "to": "Hegel",
    "text": "Yes, sir. It will be ready in a moment.",
    "t": "10:59",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s silence is the only honest thing in this house. He knows I am not the man they think I am, and he does not say it. I will wait for the tea, for my head is light and the heat is already pressing against the shutters. The Directorate will wait; it has all the time in the world, which is a luxury I do not have.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Preface"
+    }
+   ],
+   "t": "12:59",
    "place": "home"
   }
  ],
@@ -1058,6 +1081,66 @@
      "text": "Anger corresponds with the class of the brave defenders in the state; as these grasp their weapons in behalf of reason within the state, so does anger take the part of reason, if it has not been perverted by an evil up-bringing. Therefore wisdom in the state is the same as in the individual, and this is true of courage also."
     }
    ]
+  },
+  {
+   "t": "12:59",
+   "end": "13:14",
+   "event": "Ramesh says: “Yes, sir. It will be ready in a moment.” He turns away and walks quietly towards the kitchen.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh’s silence is the only honest thing in this house. He knows I am not the man they think I am, and he does not say it. I will wait for the tea, for my head is light and the heat is already pressing against the shutters. The Directorate will wait; it has all the time in the world, which is a luxury I do not have.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, clear. Air quality index: 105."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:23"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Preface",
+     "id": "baillie-1:51"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "Nor can it be taken ill, if honest men become impatient, when the subject is broached. Still less is it a surprise that the government has at last turned its attention to this false philosophizing. With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Preface",
+     "text": "Each of these two sides takes the other to be the perversion of the truth. For the naive consciousness to give itself up completely and straight away to science is to make an attempt, induced by some unkno-wm influence, all at once to walk on its head."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1094,7 +1177,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-24T12:59+05:30",
+  "until": "2026-11-24T13:14+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "kurta",
@@ -1548,7 +1631,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-24",
-  "source_sha256": "fd98e99ff9713c5b370f4deaea9132dfee9bd7a5d602893be29d1e4e8c401043",
+  "source_sha256": "e734bdf9e12ab2bafdb49bb1f88a96decdc15caca523865b7a8c2f6f9c98398c",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2197,68 +2280,98 @@
     "text": "Weather: 19 °C, clear. Air quality index: 103."
    },
    {
-    "id": "2026-11-24:event:90bbff3b8b63b070:1",
+    "id": "2026-11-24:event:afce6f47d35771dd:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 7,
+     "sha256": "afce6f47d35771dd8a61f624673a8de236a0aeda9452a24f7162a3e82f1d6ca2"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "12:59",
+    "end": "13:14",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:ec43faec4f1c2d53:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      7,
+      0
+     ],
+     "sha256": "ec43faec4f1c2d53379e2d58507de8b3326360ec2a0fd3f4cf9b4e7b07406f2f"
+    },
+    "type": "observation",
+    "time": "12:59",
+    "place": "home",
+    "text": "Weather: 22 °C, clear. Air quality index: 105."
+   },
+   {
+    "id": "2026-11-24:event:91db77c7fff665a0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "90bbff3b8b63b0707877dd55db5262cd402a15abbc0cc9562b2bab475d3f6934"
+     "sha256": "91db77c7fff665a0b20e00fb77ba5b4afe745195bfea5719751896b049c060bf"
     },
     "type": "cash",
-    "time": "12:59",
+    "time": "13:14",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-24:event:320c9dc633237510:1",
+    "id": "2026-11-24:event:453bc94e1e4d1804:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "320c9dc633237510ccf257ccdf2f1a8f1e9be5bf56ad0da471aa9e28338ec97b"
+     "sha256": "453bc94e1e4d1804dc1765c50c39b5bc9757d2336aed649d46ef613e36b46e3e"
     },
     "type": "location",
-    "time": "12:59",
+    "time": "13:14",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-24:event:feebb1cd5b0796bf:1",
+    "id": "2026-11-24:event:bfe47e757cc427ee:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "feebb1cd5b0796bfcded76887162d214ced596ee2c45c78879ce478206df13c9"
+     "sha256": "bfe47e757cc427ee0fc3ea150422b5b5b2479484030d117b53aa1e3105d2286a"
     },
     "type": "inventory",
-    "time": "12:59",
+    "time": "13:14",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-24:event:62d980c34c1c1006:1",
+    "id": "2026-11-24:event:84b50e24039c86aa:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "62d980c34c1c1006225dbf2f15763b3a36191726693ce0713bdb6823e149c01e"
+     "sha256": "84b50e24039c86aad8c6231ba23bbc7f7110266bec600b97ee08f8d9884c9fea"
     },
     "type": "inventory",
-    "time": "12:59",
+    "time": "13:14",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:14.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:14.\"}]"
    },
    {
-    "id": "2026-11-24:event:09f6202b64c4a5ff:1",
+    "id": "2026-11-24:event:190a50910a560775:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "09f6202b64c4a5ffd7c50cb7f8bf3399bb13c523f9b1d2309d0d49a6cbf47194"
+     "sha256": "190a50910a5607757173fe409569d43888c128b459b3b1d2b9175c0017c3ec96"
     },
     "type": "inventory",
-    "time": "12:59",
+    "time": "13:14",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2277,7 +2390,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "12:59",
+    "time": "13:14",
     "place": null
    }
   ]
