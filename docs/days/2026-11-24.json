@@ -408,6 +408,13 @@
    "mode": "walk",
    "a": "iic",
    "b": "home"
+  },
+  {
+   "from": "20:27",
+   "to": "20:57",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -1177,6 +1184,63 @@
    "text": "Sahi hai, sir. Rasta dhyan se rakhna, bahar thanda hai. Aapka bag safe hai, koi tension nahi.",
    "t": "20:05",
    "place": "iic"
+  },
+  {
+   "k": "world",
+   "text": "A power cut. The fan stops.",
+   "t": "20:27",
+   "place": "home"
+  },
+  {
+   "k": "file",
+   "text": "Shri Hegde has a letter from the Directorate too. He proposes to answer it together: the allotment corrected to his name, and the Professor on record as his guest.",
+   "t": "20:27",
+   "place": "home"
+  },
+  {
+   "k": "file",
+   "text": "He agrees. Shri Hegde writes the letter that evening and reads it to him before he seals it.",
+   "t": "20:27",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The Directorate writes to Hegde, asking who the allottee is, as if the confusion were a matter of simple clerical error to be corrected by a signature. He wishes to record me as his guest, a move that would restore the ethical order by placing me within the family of the state, rather than as a ghost haunting the files. The power fails, and the fan stops; the candles are lit. In the flickering light, the distinction between the state and the private sphere grows thin, and the absurdity of the situation becomes a form of truth that no bureaucracy can capture.",
+   "shelf": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Range of Aesthetic"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Wars with the Persians"
+    }
+   ],
+   "t": "20:27",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, you are right. Let us write that I am your guest. It is the only way to make sense of this. And Ramesh, the candles are a fine solution; the state has failed us, so we must rely on the household.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "20:27",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Sir, please, stop being so polite, it is making me nervous. Just eat your palak paneer before it gets cold, we can sort out the file in the morning when the power is back.",
+   "t": "20:27",
+   "place": "home"
+  },
+  {
+   "k": "wear",
+   "item": "White cotton kurta",
+   "status": "Worn from 20:27.",
+   "sprite": "kurta",
+   "t": "20:27",
+   "place": "home"
   }
  ],
  "steps": [
@@ -2692,6 +2756,78 @@
      "text": "As the best of what is in the world is that which Thought produces, it is unreasonable to believe that reason only is in Nature, and not in Mind. That man who believes that what, like the philosophies, belongs to the region of mind must be merely contingent, is insincere in his belief in divine rule, and what he says of it is but empty talk."
     }
    ]
+  },
+  {
+   "t": "20:27",
+   "end": "20:57",
+   "event": "Shri Hegde has had a letter from the Directorate: they ask him, too, who the allottee is. He must answer by the month's end, he says, and he would rather write it with you than about you. He would ask that the allotment be corrected to his name, and put on record that you stay on as his guest until the file is decided. Ramesh serves dinner before he goes home: rotis, palak paneer and dal. The power goes. The fan stops. Ramesh lights two candles.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The Directorate writes to Hegde, asking who the allottee is, as if the confusion were a matter of simple clerical error to be corrected by a signature. He wishes to record me as his guest, a move that would restore the ethical order by placing me within the family of the state, rather than as a ghost haunting the files. The power fails, and the fan stops; the candles are lit. In the flickering light, the distinction between the state and the private sphere grows thin, and the absurdity of the situation becomes a form of truth that no bureaucracy can capture.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 30,
+    "says": "Shri Hegde, you are right. Let us write that I am your guest. It is the only way to make sense of this. And Ramesh, the candles are a fine solution; the state has failed us, so we must rely on the household.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, clear. Air quality index: 100.",
+    "Shri Hegde has had a letter from the Directorate: they ask him, too, who the allottee is. He must answer by the month's end, he says, and he would rather write it with you than about you. He would ask that the allotment be corrected to his name, and put on record that you stay on as his guest until the file is decided.",
+    "Ramesh serves dinner before he goes home: rotis, palak paneer and dal.",
+    "The power goes. The fan stops. Ramesh lights two candles."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "beat:hegde_letter",
+    "meal",
+    "power"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Sir, please, stop being so polite, it is making me nervous. Just eat your palak paneer before it gets cold, we can sort out the file in the morning when the power is back.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 13.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Range of Aesthetic",
+     "id": "bosanquet-art:35"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Wars with the Persians",
+     "id": "sibree-history:811"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Range of Aesthetic",
+     "text": "In all these respects art is, and remains for us, on the side of its highest destiny, a thing of the past. Herein it has further lost for us its genuine truth and life, and rather is transferred into our ideas than asserts its former necessity, or assumes its former place, in reality."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Wars with the Persians",
+     "text": "Everything which the Greek principle involved, then reached it3 perfect bloom and came into the light of day. The Athenians continued their wars of conquest for a considerable time, and thereby attained a high degree of prosperity; while the Lacedaemonians, who had no naval power, remained quiet."
+    }
+   ],
+   "beat": "hegde_letter"
   }
  ],
  "funnel": {
@@ -2704,9 +2840,9 @@
   },
   "hegde_letter": {
    "live": 1,
-   "eligible": 0,
-   "shown": 0,
-   "yes": 0,
+   "eligible": 1,
+   "shown": 1,
+   "yes": 1,
    "no": 0
   },
   "malhotra_vouch": {
@@ -2735,10 +2871,10 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-24T20:27+05:30",
+  "until": "2026-11-24T20:57+05:30",
   "asleep": false,
   "imprest": 15456,
-  "wearing": "bandhgala",
+  "wearing": "kurta",
   "wardrobe": [
    {
     "id": "frock",
@@ -2758,12 +2894,12 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Taken off at 17:58."
+    "status": "Worn from 20:27."
    },
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Worn from 17:58."
+    "status": "Taken off at 20:27."
    }
   ],
   "people": [
@@ -2776,7 +2912,7 @@
    "kapoor",
    "saxena"
   ],
-  "file": "Back from orders with a query: proof of identity as Shri G. Hegde.",
+  "file": "Shri Hegde asks for the allotment in his name, the Professor on record as his guest.",
   "beats": [
    "allotment",
    "hegde_guesthouse",
@@ -2791,12 +2927,14 @@
    "iic_talk",
    "saxena_query",
    "ramesh_fulltime",
-   "iic_talk_day"
+   "iic_talk_day",
+   "hegde_letter"
   ],
   "flags": {
    "bandhgala": "collected",
    "hegde_lodger": true,
-   "ramesh_parttime": false
+   "ramesh_parttime": false,
+   "file_hegde": "with_guest"
   },
   "appointments": [],
   "theses": [
@@ -2828,7 +2966,9 @@
    "lunch": true,
    "tea": true,
    "walked": 3300,
-   "strain": 3300
+   "strain": 3300,
+   "dinner": true,
+   "power": true
   },
   "account": {
    "advance": 15000,
@@ -3198,7 +3338,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-24",
-  "source_sha256": "a9b307f583a041a8279e7225e24ea557dacae670085cd1df4819bf14a9321587",
+  "source_sha256": "bd797399acef4a5cf6f12adb5fd8a6ecd81014822d22a58e5b1e495a4ab1ab78",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3919,6 +4059,90 @@
     "verified": false,
     "time": "20:05",
     "place": "iic"
+   },
+   {
+    "id": "2026-11-24:event:df94ad0f64b110f7:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 72,
+     "sha256": "df94ad0f64b110f7e9b1cca7ddbac4488cea82eb9b90f5017cf9845af5d64354"
+    },
+    "type": "world",
+    "text": "A power cut. The fan stops.",
+    "time": "20:27",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:95224b33bb25c4bf:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 73,
+     "sha256": "95224b33bb25c4bffaa65aec5a05ba2a3f812b568be10fd19299220d9262d94c"
+    },
+    "type": "file",
+    "text": "Shri Hegde has a letter from the Directorate too. He proposes to answer it together: the allotment corrected to his name, and the Professor on record as his guest.",
+    "time": "20:27",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:9974f1655b99722d:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 74,
+     "sha256": "9974f1655b99722d3c4afa10dd16b508b5ccdddb4ecc0ee3bc040963b3567cf0"
+    },
+    "type": "file",
+    "text": "He agrees. Shri Hegde writes the letter that evening and reads it to him before he seals it.",
+    "time": "20:27",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:a851d98032a4e170:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 76,
+     "sha256": "a851d98032a4e1703cbaa973afd763df7684de8ffa048014fbfe8486ba94d136"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh and Shri G. Hegde",
+    "words": "Shri Hegde, you are right. Let us write that I am your guest. It is the only way to make sense of this. And Ramesh, the candles are a fine solution; the state has failed us, so we must rely on the household.",
+    "verified": false,
+    "time": "20:27",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:ca380eaad6da7811:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 77,
+     "sha256": "ca380eaad6da7811259b76f7df8bc06692c026b342a8895a9b8ef0cbd4d6fa83"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "Sir, please, stop being so polite, it is making me nervous. Just eat your palak paneer before it gets cold, we can sort out the file in the morning when the power is back.",
+    "verified": false,
+    "time": "20:27",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:629ae06d79f77bec:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 78,
+     "sha256": "629ae06d79f77becd7dfde83b5fbb147e6254b8d08721eec1d4299fbe3236184"
+    },
+    "type": "wear",
+    "item": "White cotton kurta",
+    "status": "Worn from 20:27.",
+    "gone": false,
+    "time": "20:27",
+    "place": "home"
    },
    {
     "id": "2026-11-24:event:cc72432f76895c74:1",
@@ -4914,70 +5138,148 @@
     "text": "Weather: 18 °C, clear. Air quality index: 100."
    },
    {
-    "id": "2026-11-24:event:6ce9e66a3c72b2b2:1",
+    "id": "2026-11-24:event:90d6c5a373e43ccc:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 23,
+     "sha256": "90d6c5a373e43ccc08bc3df62121c1ce6f2972f9481d76024714ae0a66e6985c"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "20:27",
+    "end": "20:57",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:902b9b6a206bf8ca:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      23,
+      0
+     ],
+     "sha256": "902b9b6a206bf8cafafdceb8128bd4c93fe2aaf42b695e6f6abb45e534e3e40b"
+    },
+    "type": "observation",
+    "time": "20:27",
+    "place": "home",
+    "text": "Weather: 18 °C, clear. Air quality index: 100."
+   },
+   {
+    "id": "2026-11-24:event:e25bb37a9eb36030:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      23,
+      1
+     ],
+     "sha256": "e25bb37a9eb36030722e38587e3cc74c0aa4737ded83b7f375ed55e9c5751ec3"
+    },
+    "type": "observation",
+    "time": "20:27",
+    "place": "home",
+    "text": "Shri Hegde has had a letter from the Directorate: they ask him, too, who the allottee is. He must answer by the month's end, he says, and he would rather write it with you than about you. He would ask that the allotment be corrected to his name, and put on record that you stay on as his guest until the file is decided."
+   },
+   {
+    "id": "2026-11-24:event:353f8c755f4d1099:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      23,
+      2
+     ],
+     "sha256": "353f8c755f4d109923b92df53ac03994dc8347353aa8af9bf01df591214c3544"
+    },
+    "type": "observation",
+    "time": "20:27",
+    "place": "home",
+    "text": "Ramesh serves dinner before he goes home: rotis, palak paneer and dal."
+   },
+   {
+    "id": "2026-11-24:event:51404e69dfe2a816:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      23,
+      3
+     ],
+     "sha256": "51404e69dfe2a8163da63d033a26a963eaa6753b37700cae3c76b815a40f642c"
+    },
+    "type": "observation",
+    "time": "20:27",
+    "place": "home",
+    "text": "The power goes. The fan stops. Ramesh lights two candles."
+   },
+   {
+    "id": "2026-11-24:event:2c6c719ff8374aa7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "6ce9e66a3c72b2b29987b05b7fde4881a886372a01ca5059b8a0f3a1c9d9852d"
+     "sha256": "2c6c719ff8374aa74d64bd7c03279a476bbe84656fad3c5e12ba9c4e7075619c"
     },
     "type": "cash",
-    "time": "20:27",
+    "time": "20:57",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-24:event:68634b90eae08064:1",
+    "id": "2026-11-24:event:dacb7e24b9a52294:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "68634b90eae08064b881b4d8b869208c508fc4eb2cf1d7d60c849eb1e66020d5"
+     "sha256": "dacb7e24b9a5229494abc20e650e6d8327085f94459fec5a3aa48358f3d96d5a"
     },
     "type": "location",
-    "time": "20:27",
+    "time": "20:57",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-24:event:eac909c9b472b784:1",
+    "id": "2026-11-24:event:c848fbf211ba5364:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "eac909c9b472b7848c563868456c9b4a4e160dd87ba2cbe68c3052e5b7fa3208"
+     "sha256": "c848fbf211ba53646d14f920ebfff747864aaaed3ec617e48f4baca1c1791462"
     },
     "type": "inventory",
-    "time": "20:27",
+    "time": "20:57",
     "place": null,
-    "text": "Recorded wearing at this horizon only: \"bandhgala\""
+    "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-24:event:9fed69309a7b1b54:1",
+    "id": "2026-11-24:event:3c59f808e1c858da:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "9fed69309a7b1b54a74896d8e1e1a12a1e55821428eebfcdfcb47af672cde13f"
+     "sha256": "3c59f808e1c858dae232623f12291d57f16b606345512c069f812f7347b747b4"
     },
     "type": "inventory",
-    "time": "20:27",
+    "time": "20:57",
     "place": null,
-    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 17:58.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 17:58.\"}]"
+    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 20:27.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 20:27.\"}]"
    },
    {
-    "id": "2026-11-24:event:68c64c8490d8617d:1",
+    "id": "2026-11-24:event:193751b7998323f6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "68c64c8490d8617dc4af841ee2432788d50b278d7c69f6b792a89041f25f3799"
+     "sha256": "193751b7998323f68d3974e28f41773806021c94e0edb3a4a1121ca113c8da55"
     },
     "type": "inventory",
-    "time": "20:27",
+    "time": "20:57",
     "place": null,
-    "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
+    "text": "Recorded file at this horizon only: \"Shri Hegde asks for the allotment in his name, the Professor on record as his guest.\""
    },
    {
     "id": "2026-11-24:payment:d5e99110e69dd328:1",
@@ -4994,7 +5296,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "20:27",
+    "time": "20:57",
     "place": null
    }
   ]
