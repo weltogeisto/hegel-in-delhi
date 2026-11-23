@@ -268,6 +268,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh and Shri G. Hegde at home."
+  },
+  {
+   "from": "09:54",
+   "to": "10:14",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -416,6 +423,37 @@
    "to": "Hegel",
    "text": "You always find a way to make a simple breakfast sound like a seminar, sir. Sit down, I’ll pour it; don't worry about the time, the file can wait until the poha is finished.",
    "t": "09:39",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Shri Hegde pulls out a chair with the easy authority of a man who has never had his identity questioned by the state. He speaks of the file as a mere administrative nuisance, a 'simple breakfast' matter, whereas for me it is the ontological status of my existence in this world. I sit, not because I am hungry, though I am, but because to refuse the hospitality of the man who shares my name would be to reject the very identity that keeps me housed. The poha steams on the table, a universal dish in a particular moment of confusion.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras"
+    }
+   ],
+   "t": "09:54",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Shri Hegde. The file can wait. It is a document, and documents are dead things; I am still alive, and the poha is hot. Thank you for the chair. It is a small thing, but in this house, where every name is a mistake, a chair is a kind of proof.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "09:54",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Proof of what, sir? That you are sitting? The poha is just poha, and the file is just a file. Don't make it a philosophy lecture before I have even taken a sip of tea.",
+   "t": "09:54",
    "place": "home"
   }
  ],
@@ -625,6 +663,72 @@
      "text": "The end of trees is said to be that their fruit may be consumed and that they should give us wood for heat; many animals have skins for warm clothing; the sea in northern climates floats timber to the shores because on these shores themselves no wood grows, and the inhabitants can hence obtain it, and so on."
     }
    ]
+  },
+  {
+   "t": "09:54",
+   "end": "10:14",
+   "event": "Shri G. Hegde says: “You always find a way to make a simple breakfast sound like a seminar, sir. Sit down, I’ll pour it; don't worry about the time, the file can wait until the poha is finished.” He pulls out a chair for Hegel and gestures for him to sit.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Shri Hegde pulls out a chair with the easy authority of a man who has never had his identity questioned by the state. He speaks of the file as a mere administrative nuisance, a 'simple breakfast' matter, whereas for me it is the ontological status of my existence in this world. I sit, not because I am hungry, though I am, but because to refuse the hospitality of the man who shares my name would be to reject the very identity that keeps me housed. The poha steams on the table, a universal dish in a particular moment of confusion.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 20,
+    "says": "You are right, Shri Hegde. The file can wait. It is a document, and documents are dead things; I am still alive, and the poha is hot. Thank you for the chair. It is a small thing, but in this house, where every name is a mistake, a chair is a kind of proof.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 17 °C, clear. Air quality index: 110."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Proof of what, sir? That you are sitting? The poha is just poha, and the file is just a file. Don't make it a philosophy lecture before I have even taken a sip of tea.",
+    "does": "He pours the chai and slides the plate of poha across the table."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "id": "haldane-2:56"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "id": "haldane-1:832"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "text": "In history, the Idea, as the absolute power, has certainly to realize itself; in other words, God rules in the world. But history is the Idea working itself out in a natural way, and not with the consciousness of the Idea."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "text": "Socrates explains this in the following way: “It appears to me to be as if some one were to say that Socrates performs all his actions with understanding, and then in going on to give the reasons for each of my actions, were to say that I sit here because my body consists of bones and muscles; the bones are fixed and have joints that divide them (διαφυὰς)…"
+    }
+   ]
   }
  ],
  "funnel": {
@@ -661,7 +765,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-24T09:54+05:30",
+  "until": "2026-11-24T10:14+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "kurta",
@@ -1116,7 +1220,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-24",
-  "source_sha256": "dc561418f7262525b2cb5113d35aada319332946992de092ea63129689ba1d14",
+  "source_sha256": "22eb09f292d047028107a35c341c04f32fbb63ff926a41d92ecfc6937f3bc05f",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1264,6 +1368,36 @@
     "words": "You always find a way to make a simple breakfast sound like a seminar, sir. Sit down, I’ll pour it; don't worry about the time, the file can wait until the poha is finished.",
     "verified": false,
     "time": "09:39",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:21e5a648f57a6f80:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 15,
+     "sha256": "21e5a648f57a6f803cbfc8341c8886ea79fea533f0e9971fd65174bf1c812e9c"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh and Shri G. Hegde",
+    "words": "You are right, Shri Hegde. The file can wait. It is a document, and documents are dead things; I am still alive, and the poha is hot. Thank you for the chair. It is a small thing, but in this house, where every name is a mistake, a chair is a kind of proof.",
+    "verified": false,
+    "time": "09:54",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:53b70ab3fa75a962:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 16,
+     "sha256": "53b70ab3fa75a962469c62431c44f330aae1393e38f6318bc5adc7a0476e12ac"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "Proof of what, sir? That you are sitting? The poha is just poha, and the file is just a file. Don't make it a philosophy lecture before I have even taken a sip of tea.",
+    "verified": false,
+    "time": "09:54",
     "place": "home"
    },
    {
@@ -1512,68 +1646,98 @@
     "text": "Shri G. Hegde is here."
    },
    {
-    "id": "2026-11-24:event:db2a27db39ec7792:1",
+    "id": "2026-11-24:event:64bd3376615acfad:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 3,
+     "sha256": "64bd3376615acfad95b5e7e439a98e7d91dd6be545c51dd687838cfc94a3006c"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "09:54",
+    "end": "10:14",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:eb9bb0d188b7f137:4",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      3,
+      0
+     ],
+     "sha256": "eb9bb0d188b7f137df02e681a0a863ab3f0c34c9b6298193f4603f36c693b36d"
+    },
+    "type": "observation",
+    "time": "09:54",
+    "place": "home",
+    "text": "Weather: 17 °C, clear. Air quality index: 110."
+   },
+   {
+    "id": "2026-11-24:event:5baccf1fefdcee8d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "db2a27db39ec77926c95ab51bf5b34e35b3008e4beeab504b952c35af6bfc64d"
+     "sha256": "5baccf1fefdcee8df98a7fe44d17c088321f4e541dfcd9c13ba30d9194d029ad"
     },
     "type": "cash",
-    "time": "09:54",
+    "time": "10:14",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-24:event:09fd992a20a84ab1:1",
+    "id": "2026-11-24:event:d8219d17cb21c74b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "09fd992a20a84ab1be2511e1d10ddc665bbffc1bb77ccb9aa8faac00feeb81a2"
+     "sha256": "d8219d17cb21c74b6c30927ae58c675b145980e80bd0d551ea4bef2a4745a2a3"
     },
     "type": "location",
-    "time": "09:54",
+    "time": "10:14",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-24:event:8daa5d1e62e48bb7:1",
+    "id": "2026-11-24:event:0e2bcd5c2715fbcb:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "8daa5d1e62e48bb736043dad43ed16a2a838cc8f69845c8e156499a6150cdeff"
+     "sha256": "0e2bcd5c2715fbcbf3307ff5b76c761437fa6705ab863f8af6de21ab833223b3"
     },
     "type": "inventory",
-    "time": "09:54",
+    "time": "10:14",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-24:event:9399e985482d075b:1",
+    "id": "2026-11-24:event:a6ac47d0879648c1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "9399e985482d075b38d7ef8de87bf01a307343340c63805359b0e80537d15ef8"
+     "sha256": "a6ac47d0879648c1bf08fd1b6eee13e68480043fc55cab47b1adff2e8e984eab"
     },
     "type": "inventory",
-    "time": "09:54",
+    "time": "10:14",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:14.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:14.\"}]"
    },
    {
-    "id": "2026-11-24:event:6dc7d7ef3343f4e6:1",
+    "id": "2026-11-24:event:66a04023cda305e2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "6dc7d7ef3343f4e62e55b4397c00ca6646eda0bcde362a08766b3726c837d344"
+     "sha256": "66a04023cda305e2d4c9ba49311c3d06c10160b6930ba2082dc2f03b2cdf653b"
     },
     "type": "inventory",
-    "time": "09:54",
+    "time": "10:14",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -1592,7 +1756,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "09:54",
+    "time": "10:14",
     "place": null
    }
   ]
