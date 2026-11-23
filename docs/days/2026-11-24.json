@@ -254,6 +254,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "09:29",
+   "to": "09:39",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -341,6 +348,37 @@
    "sprite": "kurta",
    "t": "09:14",
    "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh has the file, the blue one with the red tape, and the poha is laid out. The crisp air makes the heat bearable, but the file is the urgent matter. I must go to the Directorate to face the query about my identity before the day slips away.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§103"
+    }
+   ],
+   "t": "09:29",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, thank you. I will take this file with me. Please keep my tea warm; I shall be back by midday, God willing.",
+   "to": "Ramesh",
+   "t": "09:29",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes, sir. I’ll keep it on the stove. The poha is ready if you want to eat before you go.",
+   "t": "09:29",
+   "place": "home"
   }
  ],
  "steps": [
@@ -414,6 +452,73 @@
      "text": "Deliberationen der Mitglieder des Gerichts über das zu fällende Urteil unter sich sind Äußerungen der noch besonderen Meinungen und Ansichten, also ihrer Natur nach nichts öffentliches."
     }
    ]
+  },
+  {
+   "t": "09:29",
+   "end": "09:39",
+   "event": "Ramesh says: “Sir, that file is the third one from the left, the blue cover with the red tape. I kept it separate because it was the only one you asked for twice.” He picks up the specific blue file from the stack and places it in Hegel's hand. Ramesh has laid out breakfast: poha with peanuts and a pot of tea.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh has the file, the blue one with the red tape, and the poha is laid out. The crisp air makes the heat bearable, but the file is the urgent matter. I must go to the Directorate to face the query about my identity before the day slips away.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Ramesh, thank you. I will take this file with me. Please keep my tea warm; I shall be back by midday, God willing.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 17 °C, clear. Air quality index: 110.",
+    "Ramesh has laid out breakfast: poha with peanuts and a pot of tea."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply",
+    "meal"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes, sir. I’ll keep it on the stove. The poha is ready if you want to eat before you go.",
+    "does": "He covers the tea pot with a cloth to keep the heat in."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§103",
+     "id": "wallace-logic:483"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence. So also it is not a matter merely external and particular, the performance of which is intrusted to him."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§103",
+     "text": "They are so identified in physics, when difference of specific gravity is explained by saying, that a body, with a specific gravity twice that of another, contains within the same space twice as many material parts (or atoms) as the other."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -450,7 +555,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-24T09:29+05:30",
+  "until": "2026-11-24T09:39+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "kurta",
@@ -539,7 +644,8 @@
     "home": [
      "ramesh"
     ]
-   }
+   },
+   "breakfast": true
   },
   "account": {
    "advance": 15000,
@@ -902,7 +1008,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-24",
-  "source_sha256": "d4616792af070fcb3fc75c5cc90f4c4e497b74b89035dede6cb61082229bbb05",
+  "source_sha256": "e90b67942f2054313bc869d40c92d2d1107b66880770308bda614ca6b62a77c5",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -990,6 +1096,36 @@
     "status": "Worn from 09:14.",
     "gone": false,
     "time": "09:14",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:34a18bf6ccf9ae2f:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 9,
+     "sha256": "34a18bf6ccf9ae2fe7fc3a5b6f0cbe83fa01fc4b2f413dab757ed296d4649064"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, thank you. I will take this file with me. Please keep my tea warm; I shall be back by midday, God willing.",
+    "verified": false,
+    "time": "09:29",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:8af3f3369395a20e:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 10,
+     "sha256": "8af3f3369395a20ee58afe48050f144b426e145d65b331f10fcd01d92856be0c"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes, sir. I’ll keep it on the stove. The poha is ready if you want to eat before you go.",
+    "verified": false,
+    "time": "09:29",
     "place": "home"
    },
    {
@@ -1146,68 +1282,114 @@
     "text": "Ramesh is here."
    },
    {
-    "id": "2026-11-24:event:2ea2f112629e90ea:1",
+    "id": "2026-11-24:event:40957db92828e868:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 1,
+     "sha256": "40957db92828e8689325c71dbaf07f348df8a59b94197bb337a5a8a72bd9355e"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "09:29",
+    "end": "09:39",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:eb9bb0d188b7f137:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      1,
+      0
+     ],
+     "sha256": "eb9bb0d188b7f137df02e681a0a863ab3f0c34c9b6298193f4603f36c693b36d"
+    },
+    "type": "observation",
+    "time": "09:29",
+    "place": "home",
+    "text": "Weather: 17 °C, clear. Air quality index: 110."
+   },
+   {
+    "id": "2026-11-24:event:a41b9c3f945df7ad:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      1,
+      1
+     ],
+     "sha256": "a41b9c3f945df7ad10962df3f9a7250257f1229786a85f91d2e6508af792b246"
+    },
+    "type": "observation",
+    "time": "09:29",
+    "place": "home",
+    "text": "Ramesh has laid out breakfast: poha with peanuts and a pot of tea."
+   },
+   {
+    "id": "2026-11-24:event:c07b6a82346d0528:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "2ea2f112629e90eab4e7d3d2212fbdc415eafdc3b3720f97d2d76ce3216528f4"
+     "sha256": "c07b6a82346d0528441ebf89f54221f1e0f9fb77e98a417a4bb2f7ab70d3c214"
     },
     "type": "cash",
-    "time": "09:29",
+    "time": "09:39",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-24:event:ac32320d5bec168c:1",
+    "id": "2026-11-24:event:65d94d4335e6fb75:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "ac32320d5bec168c66b0b04b3de169506e1672848be912587de2d2815170bee0"
+     "sha256": "65d94d4335e6fb7571822d9b3055dc8cee09bd5f903745f4611e3a68892005f0"
     },
     "type": "location",
-    "time": "09:29",
+    "time": "09:39",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-24:event:8d5e5b3f7fc34a41:1",
+    "id": "2026-11-24:event:55c3571836d1b065:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "8d5e5b3f7fc34a41fab83eb98d78aa6cbbe01255b8930765fcf8b64318a7e172"
+     "sha256": "55c3571836d1b06545e0677e9014dfd9ceae09d28f4d506da53c8ff01f649ba3"
     },
     "type": "inventory",
-    "time": "09:29",
+    "time": "09:39",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-24:event:32cdf74ace30b16b:1",
+    "id": "2026-11-24:event:ec1c64d5f4336233:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "32cdf74ace30b16b5811de64cf6d6075b97a8fb749a8347f67035c30f9922eba"
+     "sha256": "ec1c64d5f4336233cf6bca75890c899fcfec58080d2cd608005b3a021271f9ed"
     },
     "type": "inventory",
-    "time": "09:29",
+    "time": "09:39",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:14.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:14.\"}]"
    },
    {
-    "id": "2026-11-24:event:0dc94210e3ec8d49:1",
+    "id": "2026-11-24:event:497755a66c16c0e2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "0dc94210e3ec8d498f9fada38e70b7a6d723b06d1a9cc887d48ef2bd7c45cf08"
+     "sha256": "497755a66c16c0e277808a2ce6bf6b4b240105cc13ff23da129b2c9a80b10e96"
     },
     "type": "inventory",
-    "time": "09:29",
+    "time": "09:39",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -1226,7 +1408,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "09:29",
+    "time": "09:39",
     "place": null
    }
   ]
