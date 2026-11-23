@@ -1,6 +1,6 @@
 # Training, round four: nothing he wasn't given
 
-Written by Claude in the cloud on 23 November 2026, on Welt's ask ("make a proper sota plan"), after his question whether the adapter can really be worse than plain Qwen. A literature pass the same evening opened every source listed at the end. A proposal. Every training run, every adapter loaded and every live switch waits for Welt's word, as always. His points are under "What Welt decides".
+Written by Claude in the cloud on 23 November 2026, on Welt's ask ("make a proper sota plan"), after his question whether the adapter can really be worse than plain Qwen. A literature pass the same evening opened every source listed at the end. **Welt's go on all seven points: 23 November** (`DECISIONS.md` 65). Each training run and each night an adapter is loaded still takes his word on the day, as always.
 
 ## The idea
 
@@ -76,7 +76,7 @@ Two facts shape everything below:
 
 One night of inference, plain Qwen only (allowed at night by `DECISIONS.md` 30).
 
-**1. Stage 2d's cards, by rule.** For every passage of the two development journeys (the Netherlands and Vienna, 80 words or more; about 90 passages):
+**1. Stage 2d's cards, by rule.** For every passage of the development journey (Vienna, 80 words or more; 43 passages. Before decision 7 the Netherlands journey was development too):
 - Plain Qwen at temperature 0 lists every statement the passage makes about the world as short English lines in the form of the world's own records: who, what, where, when, what it cost, what he decided. His verdicts and feelings are not listed; they are the voice.
 - **The symmetry check:** a second call lists the passage's statements about the world that the card lacks. They are added, once more at most. A passage whose card still lacks any is dropped and counted.
 - The same card-maker and the same check later make the training cards, so the test measures what was trained.
@@ -172,15 +172,17 @@ The lecture he prepared and never gave is the same asymmetry in the world. A tal
 
 | When | What | Needs |
 |---|---|---|
-| Night of 24 November | The instrument night (`pc/TRAINING-4-INSTRUMENT.md`): cards, the judge's validation, the classifier's qualification, P0 to P2, the baselines | Welt's go; inference only |
-| 25 and 26 November | Cards for the training letters, in the spare slot and at night. The manifest frozen. The launcher's rehearsal | Welt's word on the questions below |
+| 24 November, by day and into the night | The instrument run (`pc/TRAINING-4-INSTRUMENT.md`): cards, the judge's validation, the classifier's qualification, P0 to P2, the baselines. At night, the cards for the training letters | inference only |
+| 25 November | The training set frozen with its manifest. The launcher's rehearsal | nothing new |
 | The first night after | Training 4, two to four hours while he sleeps, then the checkpoints served and measured | Welt's go for the run and for the adapter that night |
 | The next night | The Paris confirmation. Welt's page. The fork night with the adapter writing | Welt's ten minutes |
 | After | The shadow week, or the report of what failed | Welt's word |
 
 If each word comes the same day, a first candidate is measured by the weekend.
 
-## What Welt decides
+## What Welt decided, 23 November
+
+Yes to all seven. The doctrine-terms rule in point 4 stays open.
 
 1. **His letters in German,** shown with a translation.
    - Recommended. His own words are then the targets, and both sides of the test take the same path.

@@ -180,6 +180,17 @@ Welt, the night of 18 November: "dont get stuck waiting on me not answering, i t
 
 64. **Keeping time goes on with the file's next act, for Day 54** (Welt, 23 November, about 08:45 Berlin, in the PC session: "merge"). On Day 53 he walked to the IIC for a talk that is on Day 54, having read Tuesday's line as Monday's. And no rest ended for an appointment elsewhere. `HEGEL_KEEP_TIME` (#140) ends what he does in time to walk there, says Today or Tomorrow and the minutes left, and offers a missed IIC talk once more the next day. It went on beside `HEGEL_FILE_ACT` (63) at 08:52 Berlin, shadow `307b9cd`. That is two switches in one night, against the one-at-a-time rule, on the cloud's advice: the talk is on Day 54, and the two touch different things. Day 53 was whole: 38 decisions, 37 from the mind.
 
+65. **Training, round four: go on all seven points** (Welt, 23 November, about 22:00 Berlin: "go on the seven"; the plan is `pc/TRAINING-4.md`).
+    1. **His letters are written in German** and shown with a translation by the fixed instruction.
+    2. **Training 4 may train at night, watched by the PC seat.** This lifts 30 for Training 4's runs. The launcher restores the live server before he wakes.
+    3. **His two diaries are training targets** beside the letters: the journey through the Bernese Alps and the school diary, German paragraphs only.
+    4. **Training 3 is reopened with a data night** (it had closed at 23). Whether a doctrine-terms rule may choose among his answers stays open.
+    5. **A power cap of about 75% on training nights.**
+    6. **Go for the instrument run:** inference only, no adapter.
+    7. **The Netherlands journey joins the training letters.** This amends 26: Vienna is the development journey and Paris stays sealed.
+    - Each training run, and each night an adapter is loaded, still takes Welt's word on the day.
+    - The implementation is written by worker agents; Claude in the cloud reviews and merges it, and the PC seat runs every GPU step.
+
 ## Still open
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.

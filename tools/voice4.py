@@ -2,7 +2,7 @@
 """Training 4's instrument (pc/TRAINING-4.md): full-fact cards by rule, the rungs without training, blind pairs and the
 rule for invented particulars. Plain Qwen only; nothing here trains or loads an adapter.
 
-    python3 tools/voice4.py passages --out F                 # no GPU: the development passages, the exemplar pool, the controls
+    python3 tools/voice4.py passages --out F                 # no GPU: the development passages (Vienna), the pool, the controls
     python3 tools/voice4.py cards --folder F                 # requests: a card for each development passage
     python3 tools/voice4.py check --folder F --round 1       # after the cards' replies: the symmetry check
     python3 tools/voice4.py merge --folder F --round 1       # after the check's replies: lines added (then check and merge --round 2)
@@ -20,8 +20,9 @@ Each requests file goes to the PC with tools/run_requests.py; its replies come b
   lists what the passage states and the card lacks; those lines are added, once more at most, and a passage whose card
   still lacks any is dropped and counted. A card then carries every fact its passage states.
 - **Arms:** the same request for each, in German, as long as the real passage. P0 plain; P1 with three of his letters in
-  front; P2 with as many as twenty, within a word budget. The letters come from the pool: his letters outside the three
-  journeys and outside the tenth held out. Letters to his wife come first, being the journeys' kind.
+  front; P2 with as many as twenty, within a word budget. The letters come from the pool: his letters outside the tenth
+  held out, the training journey (the Netherlands) and his two diaries. What is of the journeys' kind comes first: the
+  letters to his wife, the training journey and the diary of the Alps.
 - **Controls:** passages of his letters and of his correspondents', for the classifier's qualification.
 - **Particulars:** numbers and names in a letter's English that its card lacks. The real passage's own count against its
   card is the rule's floor.
@@ -52,7 +53,10 @@ from tools.travel_register import JOURNEYS, journeys, work  # noqa: E402
 
 SEED = 1831
 STAGE2 = REPO / "pc/exports/paris-stage2-20261118"
-DEVELOPMENT = ("Netherlands 1822", "Vienna 1824")          # Paris 1827 is the sealed confirmation
+DEVELOPMENT = ("Vienna 1824",)                              # Paris 1827 is the sealed confirmation
+TRAINING_JOURNEY = "Netherlands 1822"                       # one journey joins the training letters (DECISIONS.md 65)
+DIARIES = {"Tagebuch der Reise in die Berner Oberalpen": True, "Hegel's Tagebuch aus der Gymnasialzeit": False}   # his diaries: is it the journeys' kind?
+GERMAN = re.compile(r"\b(der|die|das|und|ich|nicht|ein|eine|zu|den|mit|von|ist|war|wir|auf|sich|so|als|daß)\b", re.I)
 LO, HI = 80, 350                                            # words a passage holds
 HELD_EVERY = 10                                             # every tenth of his letters, by year, is held out
 CONTROLS = 150                                              # passages a side for the classifier's qualification
@@ -201,7 +205,8 @@ def passages_of(letter_list, kind):
 
 
 def development(volumes=None, names=DEVELOPMENT):
-    """The passages of the development journeys, each under the date line or heading it falls under."""
+    """The passages of the named journeys (the development journey unless said otherwise), each under the date line or
+    heading it falls under."""
     out = []
     for name, text in journeys((volumes or {}).get("briefe-2") or work("briefe-2")).items():
         if name not in names:
@@ -225,6 +230,31 @@ def development(volumes=None, names=DEVELOPMENT):
     return out
 
 
+def training_journey(volumes=None):
+    """The training journey's passages in the pool's form: each date line is a letter to his wife."""
+    return [{"id": p["id"], "letter": hashlib.sha256(f"{p['journey']}|{p['dated']}".encode()).hexdigest()[:10],
+             "head": f"Hegel an seine Frau, {p['dated'].rstrip('.')}", "year": YEAR[p["journey"]], "kind": "hegel", "near": True,
+             "words": p["words"], "text": p["text"]} for p in development(volumes, (TRAINING_JOURNEY,))]
+
+
+def diaries(volumes=None):
+    """His two diaries in the pool's form (`rosenkranz-urkunden`): German paragraphs only, since the schoolboy also wrote
+    Latin. Each passage stands for itself. The journey through the Alps is the journeys' kind."""
+    text = volumes.get("rosenkranz-urkunden", "") if volumes is not None else work("rosenkranz-urkunden")
+    out = []
+    for part in re.split(r"^## ", text, flags=re.M)[1:]:
+        head, _, body = part.partition("\n")
+        head = head.strip()
+        if head not in DIARIES:
+            continue
+        german = [p for p in paragraphs(body) if len(GERMAN.findall(p)) >= 0.08 * n_words(p)]
+        for n, chunk in enumerate(chunks(german)):
+            pid = hashlib.sha256(f"{head}|{n}|{chunk}".encode()).hexdigest()[:10]
+            out.append({"id": pid, "letter": pid, "head": head, "year": None, "kind": "hegel", "near": DIARIES[head],
+                        "words": n_words(chunk), "text": chunk})
+    return out
+
+
 def cmd_passages(out, volumes=None):
     out = Path(out)
     pool, held, others = split(letters(volumes))
@@ -232,9 +262,10 @@ def cmd_passages(out, volumes=None):
     hp, op = passages_of(pool + held, "hegel"), passages_of(others, "other")
     controls = sorted(rng.sample(hp, min(CONTROLS, len(hp))) + rng.sample(op, min(CONTROLS, len(op))), key=lambda r: (r["kind"], r["letter"], r["id"]))
     res = {"development": put(out / "PASSAGES.jsonl", development(volumes)),
-           "pool": put(out / "POOL.jsonl", passages_of(pool, "hegel")),
+           "pool": put(out / "POOL.jsonl", passages_of(pool, "hegel") + training_journey(volumes) + diaries(volumes)),
            "controls": put(out / "CONTROLS.jsonl", controls),
-           "letters": {"pool": len(pool), "held": len(held), "others": len(others)}}
+           "letters": {"pool": len(pool), "held": len(held), "others": len(others)},
+           "passages": {"journey": len(training_journey(volumes)), "diaries": len(diaries(volumes))}}
     (out / "PASSAGES-MANIFEST.json").write_text(json.dumps(res, indent=1) + "\n", encoding="utf-8")
     return res
 
