@@ -387,6 +387,13 @@
    "mode": "inside",
    "at": "iic",
    "now": "Talking with the guard at the library and the programme officer at the IIC."
+  },
+  {
+   "from": "19:30",
+   "to": "20:00",
+   "mode": "inside",
+   "at": "iic",
+   "now": "At the IIC."
   }
  ],
  "entries": [
@@ -1051,6 +1058,48 @@
    "to": "Hegel",
    "text": "Sir, aap baith jaiye na, hum log sun rahe hain. Thoda shor hai par koshish kar rahe hain.",
    "t": "18:30",
+   "place": "iic"
+  },
+  {
+   "k": "income",
+   "item": "Honorarium for the talk at the IIC",
+   "amount": 10000,
+   "from": "the India International Centre",
+   "charge_id": "charge:9",
+   "cheque": true,
+   "text": "The India International Centre hands you a cheque for ₹10,000. You have no bank account to put it in.",
+   "t": "19:30",
+   "place": "iic"
+  },
+  {
+   "k": "diary",
+   "text": "The guard's Hindi is a rough approximation of courtesy, but the gesture is clear: sit. I accept the chair. The cheque for ten thousand rupees sits in my hand, a weight of paper that I cannot yet convert into coin, a symbol of credit that has no bank to receive it. I am a man of substance in a country that deals in dreams, holding the future in my palm while the present demands only my silence.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Philo"
+    }
+   ],
+   "t": "19:30",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, sir. I am comfortable here. Please, continue.",
+   "to": "the guard at the library and the programme officer",
+   "t": "19:30",
+   "place": "iic"
+  },
+  {
+   "k": "said",
+   "by": "The guard at the library",
+   "to": "Hegel",
+   "text": "Aapka shukriya, sir. Bas ek second, main upar se ek chota sa announcement de raha hoon taaki baaki log bhi shant ho jayein.",
+   "t": "19:30",
    "place": "iic"
   }
  ],
@@ -2368,6 +2417,74 @@
     }
    ],
    "beat": "iic_talk_day"
+  },
+  {
+   "t": "19:30",
+   "end": "20:00",
+   "event": "The guard at the library says: “Sir, aap baith jaiye na, hum log sun rahe hain. Thoda shor hai par koshish kar rahe hain.” The India International Centre hands you a cheque for ₹10,000. You have no bank account to put it in.",
+   "present": [
+    "the guard at the library",
+    "the programme officer"
+   ],
+   "decision": {
+    "thought": "The guard's Hindi is a rough approximation of courtesy, but the gesture is clear: sit. I accept the chair. The cheque for ten thousand rupees sits in my hand, a weight of paper that I cannot yet convert into coin, a symbol of credit that has no bank to receive it. I am a man of substance in a country that deals in dreams, holding the future in my palm while the present demands only my silence.",
+    "action": "stay",
+    "place": "iic",
+    "minutes": 30,
+    "says": "Thank you, sir. I am comfortable here. Please, continue.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 19 °C, clear. Air quality index: 99.",
+    "The India International Centre hands you a cheque for ₹10,000. You have no bank account to put it in."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "reply",
+    "purse"
+   ],
+   "voice": {
+    "by": "The guard at the library",
+    "says": "Aapka shukriya, sir. Bas ek second, main upar se ek chota sa announcement de raha hoon taaki baaki log bhi shant ho jayein.",
+    "does": "The guard adjusts the microphone stand and steps back slightly."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:482"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Philo",
+     "id": "haldane-2:988"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "The whole sea-shore is already strewed with the bodies of persons who have thus immolated themselves. Infanticide is also very common in India. Mothers throw their children into the Ganges, or let them pine away under the rays of the sun. The morality which is involved in respect for human life, is not found among the Hindoos."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Philo",
+     "text": "Philo now proceeds according to the Mosaic record. In the Old Testament history of creation, grass, plants, and trees are created on the third day, and on the fourth day lights in the firmament of heaven, the sun and moon. Philo therefore says (De mundi opificio, pp. 9, 10) that on the fourth day a number adorned the heavens, the four, the tetractys, the most perfect, &c."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2398,13 +2515,20 @@
    "shown": 1,
    "yes": 0,
    "no": 0
+  },
+  "allotment_letter": {
+   "live": 1,
+   "eligible": 0,
+   "shown": 0,
+   "yes": 0,
+   "no": 0
   }
  },
  "owl": null,
  "complete": false,
  "state": {
   "place": "iic",
-  "until": "2026-11-24T19:30+05:30",
+  "until": "2026-11-24T20:00+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "bandhgala",
@@ -2616,18 +2740,14 @@
     "charge_id": "charge:8"
    }
   ],
-  "cheques": [],
-  "receipts": [
+  "cheques": [
    {
     "from": "the India International Centre",
     "amount": 10000,
-    "item": "Honorarium for the talk at the IIC",
-    "cheque": true,
-    "after": "2026-11-24T19:30+05:30",
-    "charge_id": "charge:9",
-    "at": "iic"
+    "since": "2026-11-24"
    }
   ],
+  "receipts": [],
   "engagements": [],
   "costs": {
    "wage": "2026-11-01",
@@ -2871,7 +2991,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-24",
-  "source_sha256": "df91f3d01743535e5449f869710d72787b805fe2f9d0698003ae760389a08676",
+  "source_sha256": "6f0befe1feeeef7a0a2947ad76988b50b077929f2c65a55c14be48e2a83db106",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3482,6 +3602,55 @@
     "words": "Sir, aap baith jaiye na, hum log sun rahe hain. Thoda shor hai par koshish kar rahe hain.",
     "verified": false,
     "time": "18:30",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-24:payment:cfa5ad8a0fa25bb1:1",
+    "kind": "payment",
+    "source": {
+     "collection": "entries",
+     "index": 62,
+     "sha256": "cfa5ad8a0fa25bb12337b6be1117a53a36190781736cc48f665d2a85923e4b2a"
+    },
+    "canonical_id": "charge:9",
+    "item": "Honorarium for the talk at the IIC",
+    "amount": 10000,
+    "direction": "in",
+    "settled": false,
+    "medium": "cheque",
+    "creditor": null,
+    "payer": "the India International Centre",
+    "time": "19:30",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-24:statement:b56bc062ac790204:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 64,
+     "sha256": "b56bc062ac7902040b05bc54914d21fb22c322d84729806ad1bd5f4e03d7331c"
+    },
+    "speaker": "Hegel",
+    "recipient": "the guard at the library and the programme officer",
+    "words": "Thank you, sir. I am comfortable here. Please, continue.",
+    "verified": false,
+    "time": "19:30",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-24:statement:862634a1a3fb6771:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 65,
+     "sha256": "862634a1a3fb67717a00e3ccd979db76c8684de783b6d30b1e8ab97a55ba26c7"
+    },
+    "speaker": "The guard at the library",
+    "recipient": "Hegel",
+    "words": "Aapka shukriya, sir. Bas ek second, main upar se ek chota sa announcement de raha hoon taaki baaki log bhi shant ho jayein.",
+    "verified": false,
+    "time": "19:30",
     "place": "iic"
    },
    {
@@ -4370,68 +4539,114 @@
     "text": "The programme officer shows you into the lecture hall. The seats are filling. The talk is yours, for about an hour."
    },
    {
-    "id": "2026-11-24:event:a6ec60d11a560a6e:1",
+    "id": "2026-11-24:event:c8d02bc610d6333e:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 20,
+     "sha256": "c8d02bc610d6333ed50977ecae1d1d23ab1527c19ca87bd326eefc0a2ff8028c"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "19:30",
+    "end": "20:00",
+    "place": "iic"
+   },
+   {
+    "id": "2026-11-24:event:47fca6376cc61e68:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      20,
+      0
+     ],
+     "sha256": "47fca6376cc61e68ba0ed96f3231ee8db0b755e8c1957ce49bf7c3edb641765f"
+    },
+    "type": "observation",
+    "time": "19:30",
+    "place": "iic",
+    "text": "Weather: 19 °C, clear. Air quality index: 99."
+   },
+   {
+    "id": "2026-11-24:event:872a54183b318e84:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      20,
+      1
+     ],
+     "sha256": "872a54183b318e8402a257f581655aa0ffb9f2f6bc222fad67e43251047d87f5"
+    },
+    "type": "observation",
+    "time": "19:30",
+    "place": "iic",
+    "text": "The India International Centre hands you a cheque for ₹10,000. You have no bank account to put it in."
+   },
+   {
+    "id": "2026-11-24:event:124c645e6837e67e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "a6ec60d11a560a6e749256f4631d8bbdc8d47353f7c350c1d79746db264eaaba"
+     "sha256": "124c645e6837e67e7a4be0e790f553ef2756823cfc10f2e732f8ee4152b598ab"
     },
     "type": "cash",
-    "time": "19:30",
+    "time": "20:00",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-24:event:adf1b15eb0c3c831:1",
+    "id": "2026-11-24:event:a805e1c41c77eddb:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "adf1b15eb0c3c8315048237eceddde7ba728231f10374e136c636fa40a8c5874"
+     "sha256": "a805e1c41c77eddb2a4546dd2f88c6c4fa6c73cae52c5ea92a79f42736d17d4e"
     },
     "type": "location",
-    "time": "19:30",
+    "time": "20:00",
     "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-24:event:e49e434bbdce69bb:1",
+    "id": "2026-11-24:event:c2c587b7dccb5d87:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "e49e434bbdce69bb3d4bb41d0f6f5dcfd34c98b2d2211e189fba6305d4581a49"
+     "sha256": "c2c587b7dccb5d87fc17dd8498137a6771cefc473606ba78814aff51cf96c2f8"
     },
     "type": "inventory",
-    "time": "19:30",
+    "time": "20:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-24:event:c5da5eb2bc40ce75:1",
+    "id": "2026-11-24:event:58af14670c0d8985:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "c5da5eb2bc40ce75d4ba018b5a879603e598917a48d9d3c4b2c0ead031e4caf7"
+     "sha256": "58af14670c0d8985601f125ab22b038b8f6490e842f320d997a10b5a6e2b613d"
     },
     "type": "inventory",
-    "time": "19:30",
+    "time": "20:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 17:58.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 17:58.\"}]"
    },
    {
-    "id": "2026-11-24:event:8275aeb1b1011ee4:1",
+    "id": "2026-11-24:event:4b5a3a949fba3e25:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "8275aeb1b1011ee490aea4642c1fef44adb70612b75e6442ceb9259cff3848c9"
+     "sha256": "4b5a3a949fba3e251eaf1428a30d88bf10cfee0bf5c64b3ca1a628788813e2cb"
     },
     "type": "inventory",
-    "time": "19:30",
+    "time": "20:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -4450,7 +4665,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "19:30",
+    "time": "20:00",
     "place": null
    }
   ]
