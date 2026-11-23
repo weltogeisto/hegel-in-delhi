@@ -16,10 +16,16 @@ It prints the row counts. It must not print "NOT ok". The token lengths are chec
 
 ## Before the first rehearsal
 
-Read-only, by day. Post what you find on PR #1 before any intent is written.
+What the PC seat found on 23 November, read-only, and what answers each point.
 
-- **The live server's starter.** Since 21 November the live server is started only by its Windows starter, never from a shell: a server started inside a WSL session died with that session and cost him eight hours. The launcher puts the original server back through the machine configuration's `original.launcher`. Check that this is the Windows starter, or a path that survives the launcher's own exit. If it is not, stop and say so.
-- **The power record.** The launcher reads the Guard's state and a verified receipt, and changes nothing. The limit is 24 hours now, and Welt renews at about 21:30. Check that the cutoff will lie at least 15 minutes after the restore deadline.
+- **The live server's starter.** Since 21 November the live server is started only by its Windows starter: a server started inside a WSL session died with that session and cost him eight hours. Training 1's configuration puts the server back by running its start script from the launcher's own WSL process, which is that path.
+  - **So the machine configuration names the starter:** `"original": {..., "starter_argv": ["/mnt/c/Windows/System32/schtasks.exe", "/Run", "/TN", "Hegel Qwen 8082 GPU"]}`. With it, the launcher runs that command and then asks the server itself for its health and its three slots of 16,384 (`run_training1.start_original`).
+  - **After the rehearsal has restored:** let every WSL job end, wait ten minutes, and check that 8082 still answers. Only then is the real intent written.
+- **The power record.** The launcher wants a receipt with status VERIFIED that carries the Guard's current request id. The receipt of 6 November was written for the twelve-hour boot state and no longer fits.
+  - **Welt renews first,** on the power page. Then: `python3 -m pc.power_receipt --state <the Guard's state.json> --out <new receipt.json> --restore-by ISO_TIME`. It reads the state and writes the receipt, or refuses. It renews nothing.
+  - **Nobody renews while a run is on.** The launcher stops and restores when the state it froze has changed.
+- **`windows_pwsh`** in Training 1's configuration points at a program that is gone. It only serves a memory reading that may fail. Use `/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe`.
+- **The other fields** of Training 1's intent serve as they are. `chapter_splits`, `legacy_trial` and `confirmation_seal` are not read on Training 4's path.
 - **The power cap** of about 75% on training nights is Welt's own command (`DECISIONS.md` 65). The launcher never sets it.
 - **Order of the night.** The training set must be frozen first, because the real run needs the same bytes as the rehearsal. So the rehearsal and the real run go in the same night, one after the other, on Welt's yes for that night.
 - **After a restoration,** the launcher's Pi probe is the gate. The first natural decision from the mind the next morning is posted as the evidence that Training 3's launcher waited for.

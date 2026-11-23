@@ -112,6 +112,44 @@ def adapter_dir(intent):
     return intent_paths(intent)["training"] / intent.get("adapter_subdir", "")
 
 
+def start_original(old, root, run=subprocess.run, get=None, wait=240, pause=time.sleep):
+    """Start the original server and return its report, {"outcome": "GPU_READY", "slots": [...]}.
+
+    With `starter_argv` in the intent's `original`, that command starts it: since 21 November the live server is started only by its
+    Windows starter (the scheduled task, run from WSL through interop), because a server started inside a WSL session died with that
+    session and cost him eight hours. The task says nothing on our stdout, so the server itself is then asked for its health and its
+    slots. Without `starter_argv` the launcher script is run and its own report is read, as before."""
+    if not old.get("starter_argv"):
+        r = run(["/usr/bin/python3", "-B", old["launcher"]], cwd=old["cwd"], capture_output=True, timeout=240)
+        write_new(root / "RESTORE.stdout", r.stdout, True)
+        write_new(root / "RESTORE.stderr", r.stderr, True)
+        ready = json.loads(r.stdout)
+        if r.returncode:
+            raise RuntimeError("original Qwen restoration unconfirmed")
+        return ready
+    get = get or http
+    r = run(list(old["starter_argv"]), cwd=old["cwd"], capture_output=True, timeout=60)
+    write_new(root / "RESTORE.stdout", r.stdout, True)
+    write_new(root / "RESTORE.stderr", r.stderr, True)
+    if r.returncode:
+        raise RuntimeError("the original server's starter failed")
+    end = time.monotonic() + wait
+    while True:
+        try:
+            status, raw = get(8082)
+            if status == 200 and json.loads(raw).get("status") == "ok":
+                break
+        except (OSError, RuntimeError, ValueError):
+            pass                                    # not up yet
+        if time.monotonic() >= end:
+            raise RuntimeError("original Qwen did not answer after its starter")
+        pause(3)
+    status, raw = get(8082, "/slots")
+    if status != 200:
+        raise RuntimeError("restored Qwen's slots cannot be read")
+    return {"outcome": "GPU_READY", "via": "starter_argv", "slots": [{"id": s.get("id"), "n_ctx": s.get("n_ctx")} for s in json.loads(raw)]}
+
+
 def load_intent(path, expected=None):
     path = Path(path).resolve()
     raw = path.read_bytes()
@@ -865,12 +903,8 @@ class Backend:
             fcntl.flock(self.startlock, fcntl.LOCK_UN)
             self.startlock.close()
             self.startlock = None
-        r = subprocess.run(["/usr/bin/python3", "-B", old["launcher"]],
-                           cwd=old["cwd"], capture_output=True, timeout=240)
-        write_new(self.root / "RESTORE.stdout", r.stdout, True)
-        write_new(self.root / "RESTORE.stderr", r.stderr, True)
-        ready = json.loads(r.stdout)
-        if r.returncode or ready.get("outcome") != "GPU_READY":
+        ready = start_original(old, self.root)
+        if ready.get("outcome") != "GPU_READY":
             raise RuntimeError("original Qwen restoration unconfirmed")
         slots = ready.get("slots", [])
         if len(slots) != 3 or any(s["n_ctx"] != 16384 for s in slots):
