@@ -422,6 +422,15 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Shri G. Hegde at home."
+  },
+  {
+   "from": "21:00",
+   "to": "24:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Asleep.",
+   "asleep": true,
+   "owl": true
   }
  ],
  "entries": [
@@ -2936,6 +2945,36 @@
      "text": "Secondly, it carries back both, and the whole disposition and action of the individual—whose tendency is to become a centre of his own—into the life of the universal substance; and, in this direction, as a free power it interferes with those subordinate spheres and retains them in substantial immanence."
     }
    ]
+  },
+  {
+   "t": "21:00",
+   "end": "24:00",
+   "event": "Shri G. Hegde says: “Sir, I am Ramesh, the driver. You are confusing me with someone else. The food is in the kitchen because you have not asked for it, not because I am hiding it.”",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "sleep",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 17 °C, clear. Air quality index: 100."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "bedtime",
+    "attempts": 0,
+    "latency_s": 0.0
+   }
   }
  ],
  "funnel": {
@@ -2979,8 +3018,8 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-24T21:00+05:30",
-  "asleep": false,
+  "until": "2026-11-25T00:00+05:30",
+  "asleep": true,
   "imprest": 15456,
   "wearing": "kurta",
   "wardrobe": [
@@ -3446,7 +3485,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-24",
-  "source_sha256": "cdfb972f05a8c75c45704da26369df8b2939dc26ddfc07b7729dcf60629220d9",
+  "source_sha256": "16b18fcc1f5eaeb0ceb6c292466cfeef66def413432d8d97ab7d39ddc9569a96",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -5384,68 +5423,98 @@
     "text": "Weather: 18 °C, clear. Air quality index: 100."
    },
    {
-    "id": "2026-11-24:event:e87158f24b89694c:1",
+    "id": "2026-11-24:event:5f5e8ab0405f5c5b:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 25,
+     "sha256": "5f5e8ab0405f5c5b470c3591f4a056287ac867909b7119b3712f4dfae02f49f1"
+    },
+    "type": "action",
+    "action": "sleep",
+    "time": "21:00",
+    "end": "24:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:f53970fe198c3d80:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      25,
+      0
+     ],
+     "sha256": "f53970fe198c3d800236d7119547d30785a425d4f6afd01fdb846cd05449b539"
+    },
+    "type": "observation",
+    "time": "21:00",
+    "place": "home",
+    "text": "Weather: 17 °C, clear. Air quality index: 100."
+   },
+   {
+    "id": "2026-11-24:event:24b56d8829b50883:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "e87158f24b89694c03c4dd37b688761ea8e6f7e790b0fc63c508e0d3db12180f"
+     "sha256": "24b56d8829b508831f11dbbf1729189716351b58812495b9ff14ee1add40070f"
     },
     "type": "cash",
-    "time": "21:00",
+    "time": "00:00",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-24:event:48b2792893010893:1",
+    "id": "2026-11-24:event:119a7da366f6bfcd:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "48b2792893010893571f00fc314904a5f8a2fb3f1f87972ec9b24e1e781c02ad"
+     "sha256": "119a7da366f6bfcd6ffc406d32280884b96c290d359627dcba03233faa48f1b0"
     },
     "type": "location",
-    "time": "21:00",
+    "time": "00:00",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-24:event:d603adc0c550ce2c:1",
+    "id": "2026-11-24:event:0065f6d8af057ffa:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "d603adc0c550ce2c0fd9b3e9e228438c84406a3d27954db70a8e1a9502ad5eec"
+     "sha256": "0065f6d8af057ffa522fc0c84027ca299a8126708565e537cbdc356c723bdca7"
     },
     "type": "inventory",
-    "time": "21:00",
+    "time": "00:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-24:event:6b2f657b61b7315c:1",
+    "id": "2026-11-24:event:49de90367e32a093:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "6b2f657b61b7315cdfae3217f0bba0327c618666cbc6fc1b88a93f94e972e54e"
+     "sha256": "49de90367e32a093ad07f7d19c612fa4fd15e7347f9c68ad7c2976d1fa945c89"
     },
     "type": "inventory",
-    "time": "21:00",
+    "time": "00:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 20:27.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 20:27.\"}]"
    },
    {
-    "id": "2026-11-24:event:6c69fa03db04a6fc:1",
+    "id": "2026-11-24:event:261017dca5483470:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "6c69fa03db04a6fc36273e58035e08753c8b2e12d701f40521eceb80f29519e3"
+     "sha256": "261017dca5483470e46164b5b5955a6ce391290a4cd2007faa000139d0b9b383"
     },
     "type": "inventory",
-    "time": "21:00",
+    "time": "00:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"Shri Hegde asks for the allotment in his name, the Professor on record as his guest.\""
    },
@@ -5464,7 +5533,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "21:00",
+    "time": "00:00",
     "place": null
    }
   ]
