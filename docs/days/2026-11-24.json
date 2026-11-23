@@ -415,6 +415,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh and Shri G. Hegde at home."
+  },
+  {
+   "from": "20:57",
+   "to": "21:00",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -1240,6 +1247,37 @@
    "status": "Worn from 20:27.",
    "sprite": "kurta",
    "t": "20:27",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Hegde insists I eat, but Ramesh is absent and there is no household meal prepared. I cannot eat what is not there. I will accept his hospitality by sitting with him, but I must clarify that the food is not ready, or simply decline the meal and keep talking about the file, as the power is out and the morning is the only time to sort it out.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§537"
+    }
+   ],
+   "t": "20:57",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, Ramesh is not here to serve the meal. The kitchen is silent. I cannot eat cold palak paneer that is not on the table. Let us speak of the file while the power is out, for the morning is when the Directorate will listen.",
+   "to": "Shri G. Hegde",
+   "t": "20:57",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Sir, I am Ramesh, the driver. You are confusing me with someone else. The food is in the kitchen because you have not asked for it, not because I am hiding it.",
+   "t": "20:57",
    "place": "home"
   }
  ],
@@ -2828,6 +2866,76 @@
     }
    ],
    "beat": "hegde_letter"
+  },
+  {
+   "t": "20:57",
+   "end": "21:00",
+   "event": "Shri G. Hegde says: “Sir, please, stop being so polite, it is making me nervous. Just eat your palak paneer before it gets cold, we can sort out the file in the morning when the power is back.”",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Hegde insists I eat, but Ramesh is absent and there is no household meal prepared. I cannot eat what is not there. I will accept his hospitality by sitting with him, but I must clarify that the food is not ready, or simply decline the meal and keep talking about the file, as the power is out and the morning is the only time to sort it out.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 20,
+    "says": "Shri Hegde, Ramesh is not here to serve the meal. The kitchen is silent. I cannot eat cold palak paneer that is not on the table. Let us speak of the file while the power is out, for the morning is when the Directorate will listen.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, clear. Air quality index: 100."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Sir, I am Ramesh, the driver. You are confusing me with someone else. The food is in the kitchen because you have not asked for it, not because I am hiding it.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 5,
+    "latency_s": 28.0,
+    "draws": {
+     "n": 4,
+     "refused": 4,
+     "echo": 0,
+     "picked": 0
+    },
+    "refused": [
+     [
+      "No household meal is available while Ramesh is absent. Choose an available activity; a request for food is not a completed meal."
+     ]
+    ]
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "id": "haldane-1:967"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§537",
+     "id": "wallace-mind:293"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "text": "This is not a moderation which exists in the least possible enjoyment, no aimless abstemiousness and self-mortification, but a power belonging to consciousness, which keeps its self-possession in bodily excess. We see from this that we have not to think of Socrates throughout after the fashion of the litany of moral virtues."
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§537",
+     "text": "Secondly, it carries back both, and the whole disposition and action of the individual—whose tendency is to become a centre of his own—into the life of the universal substance; and, in this direction, as a free power it interferes with those subordinate spheres and retains them in substantial immanence."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2871,7 +2979,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-24T20:57+05:30",
+  "until": "2026-11-24T21:00+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "kurta",
@@ -3338,7 +3446,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-24",
-  "source_sha256": "bd797399acef4a5cf6f12adb5fd8a6ecd81014822d22a58e5b1e495a4ab1ab78",
+  "source_sha256": "cdfb972f05a8c75c45704da26369df8b2939dc26ddfc07b7729dcf60629220d9",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4142,6 +4250,36 @@
     "status": "Worn from 20:27.",
     "gone": false,
     "time": "20:27",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:97044459198bafb2:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 80,
+     "sha256": "97044459198bafb23b6ba8a3878de5b4fba09e575ea50785d02ba0cbd3c4a1d2"
+    },
+    "speaker": "Hegel",
+    "recipient": "Shri G. Hegde",
+    "words": "Shri Hegde, Ramesh is not here to serve the meal. The kitchen is silent. I cannot eat cold palak paneer that is not on the table. Let us speak of the file while the power is out, for the morning is when the Directorate will listen.",
+    "verified": false,
+    "time": "20:57",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:933865ba061b6784:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 81,
+     "sha256": "933865ba061b6784ebd0f12f815489962442b92d55aa594ac3abafaf3268795a"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "Sir, I am Ramesh, the driver. You are confusing me with someone else. The food is in the kitchen because you have not asked for it, not because I am hiding it.",
+    "verified": false,
+    "time": "20:57",
     "place": "home"
    },
    {
@@ -5216,68 +5354,98 @@
     "text": "The power goes. The fan stops. Ramesh lights two candles."
    },
    {
-    "id": "2026-11-24:event:2c6c719ff8374aa7:1",
+    "id": "2026-11-24:event:30a7afb58d128661:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 24,
+     "sha256": "30a7afb58d1286618d43603c2a5f0c64e87992069ec01cff12c529a11d4bd989"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "20:57",
+    "end": "21:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:902b9b6a206bf8ca:4",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      24,
+      0
+     ],
+     "sha256": "902b9b6a206bf8cafafdceb8128bd4c93fe2aaf42b695e6f6abb45e534e3e40b"
+    },
+    "type": "observation",
+    "time": "20:57",
+    "place": "home",
+    "text": "Weather: 18 °C, clear. Air quality index: 100."
+   },
+   {
+    "id": "2026-11-24:event:e87158f24b89694c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "2c6c719ff8374aa74d64bd7c03279a476bbe84656fad3c5e12ba9c4e7075619c"
+     "sha256": "e87158f24b89694c03c4dd37b688761ea8e6f7e790b0fc63c508e0d3db12180f"
     },
     "type": "cash",
-    "time": "20:57",
+    "time": "21:00",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-24:event:dacb7e24b9a52294:1",
+    "id": "2026-11-24:event:48b2792893010893:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "dacb7e24b9a5229494abc20e650e6d8327085f94459fec5a3aa48358f3d96d5a"
+     "sha256": "48b2792893010893571f00fc314904a5f8a2fb3f1f87972ec9b24e1e781c02ad"
     },
     "type": "location",
-    "time": "20:57",
+    "time": "21:00",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-24:event:c848fbf211ba5364:1",
+    "id": "2026-11-24:event:d603adc0c550ce2c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "c848fbf211ba53646d14f920ebfff747864aaaed3ec617e48f4baca1c1791462"
+     "sha256": "d603adc0c550ce2c0fd9b3e9e228438c84406a3d27954db70a8e1a9502ad5eec"
     },
     "type": "inventory",
-    "time": "20:57",
+    "time": "21:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-24:event:3c59f808e1c858da:1",
+    "id": "2026-11-24:event:6b2f657b61b7315c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "3c59f808e1c858dae232623f12291d57f16b606345512c069f812f7347b747b4"
+     "sha256": "6b2f657b61b7315cdfae3217f0bba0327c618666cbc6fc1b88a93f94e972e54e"
     },
     "type": "inventory",
-    "time": "20:57",
+    "time": "21:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 20:27.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 20:27.\"}]"
    },
    {
-    "id": "2026-11-24:event:193751b7998323f6:1",
+    "id": "2026-11-24:event:6c69fa03db04a6fc:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "193751b7998323f68d3974e28f41773806021c94e0edb3a4a1121ca113c8da55"
+     "sha256": "6c69fa03db04a6fc36273e58035e08753c8b2e12d701f40521eceb80f29519e3"
     },
     "type": "inventory",
-    "time": "20:57",
+    "time": "21:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"Shri Hegde asks for the allotment in his name, the Professor on record as his guest.\""
    },
@@ -5296,7 +5464,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "20:57",
+    "time": "21:00",
     "place": null
    }
   ]
