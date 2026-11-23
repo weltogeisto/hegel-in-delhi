@@ -155,6 +155,13 @@ class BuildTest(unittest.TestCase):
         again = t.cmd_build(self.f, volumes())
         self.assertEqual(again, man)                                                        # same input, same bytes
 
+    def test_the_trainer_accepts_what_the_builder_writes(self):
+        from pc import train_letters
+        self.run_cards()
+        t.cmd_build(self.f, volumes())
+        train, held = train_letters.validate(self.f / "TRAIN.jsonl", self.f / "HELDOUT.jsonl")   # ids, fields, the blank line, no target in both
+        self.assertEqual((len(train), len(held)), (len(v.rows(self.f / "TRAIN.jsonl")), len(v.rows(self.f / "HELDOUT.jsonl"))))
+
     def test_a_card_of_one_line_has_one_row(self):
         v.cmd_cards(self.f)
         self.reply("cards", lambda r: "- one thing")

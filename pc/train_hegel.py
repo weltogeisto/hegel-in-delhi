@@ -303,7 +303,7 @@ def load_model(args, adapter=None):
     from unsloth import FastModel
     # Load on the single training GPU before Unsloth offloads embeddings to RAM;
     # automatic placement can dispatch the quantized tail to unsupported CPU storage.
-    seq = args.seq_restyle if args.phase == "restyle" else max(args.seq_corpus, args.seq_format)
+    seq = getattr(args, "seq", None) or (args.seq_restyle if args.phase == "restyle" else max(args.seq_corpus, args.seq_format))   # `seq`: an explicit length (pc/train_letters.py)
     model, tokenizer = FastModel.from_pretrained(model_name=args.base, max_seq_length=seq,
                                                  load_in_4bit=not args.bf16, full_finetuning=False, offload_embedding=not args.bf16,
                                                  device_map={"": 0}, text_only=args.text_only)
