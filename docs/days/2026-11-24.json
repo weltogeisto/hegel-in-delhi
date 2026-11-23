@@ -310,6 +310,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "13:59",
+   "to": "14:04",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -635,6 +642,37 @@
    "to": "Hegel",
    "text": "Yes, sir. The bhindi was fresh this morning. I will leave the room so you can eat in peace.",
    "t": "13:14",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The bhindi was indeed cut with a precision that suggests the cook has a sense of geometry, if not of history. I have finished the meal, and the tray is empty. Ramesh waits by the door, his silence a polite barrier. I must address the identity query before the heat of the afternoon sets in, for the Directorate is open and my file is a knot that will not untie itself.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§241"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China"
+    }
+   ],
+   "t": "13:59",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, the file from the Directorate returned with a query regarding my identity. I must go to the office to present whatever proof I can muster. I shall be back before the sun fully retreats. Do you have any news of the postman, or letters for the wrong Hegel?",
+   "to": "Ramesh",
+   "t": "13:59",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "No letters, sir. The postman came this morning but only left a bill for the electricity. You go to your office, I will keep the keys.",
+   "t": "13:59",
    "place": "home"
   }
  ],
@@ -1245,6 +1283,71 @@
      "text": "His feelings, his faith, the inmost certainty of himself, in short, all that belongs to him is laid claim to, and this alone can truly come under consideration: man must himself repent from his heart and experience contrition; his own heart must be filled with the Holy Ghost."
     }
    ]
+  },
+  {
+   "t": "13:59",
+   "end": "14:04",
+   "event": "Ramesh says: “Yes, sir. The bhindi was fresh this morning. I will leave the room so you can eat in peace.” He places the empty tea glass on the tray and steps back toward the door.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The bhindi was indeed cut with a precision that suggests the cook has a sense of geometry, if not of history. I have finished the meal, and the tray is empty. Ramesh waits by the door, his silence a polite barrier. I must address the identity query before the heat of the afternoon sets in, for the Directorate is open and my file is a knot that will not untie itself.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 5,
+    "says": "Ramesh, the file from the Directorate returned with a query regarding my identity. I must go to the office to present whatever proof I can muster. I shall be back before the sun fully retreats. Do you have any news of the postman, or letters for the wrong Hegel?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, clear. Air quality index: 103."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "No letters, sir. The postman came this morning but only left a bill for the electricity. You go to your office, I will keep the keys.",
+    "does": "He straightens the tray and moves toward the door."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§241",
+     "id": "dyde-right:558"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "id": "sibree-history:391"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§241",
+     "text": "Amongst the poor the public power takes the place of the family in regard to their immediate need, dislike of work, bad disposition, and other vices, which spring out of poverty and the sense of wrong. § 242."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "text": "The duties of the Family are absolutely binding, and established and regulated by law. The son may not accost the father, when he comes into the room; he must seem to contract himself to nothing at the side of the door, and may not leave the room without his father's permission. When the father dies, the son must mourn for three years — abstaining from meat and wine."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1281,7 +1384,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-24T13:59+05:30",
+  "until": "2026-11-24T14:04+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "kurta",
@@ -1736,7 +1839,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-24",
-  "source_sha256": "788db315db292bfe6b443f7bf6834908722b36aa2b977d170b9f6273ef4b874a",
+  "source_sha256": "5700b8ad38eca5563a4f35245c755ce22f604955d12aa0150e5dcd1761b508ac",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2047,6 +2150,36 @@
     "words": "Yes, sir. The bhindi was fresh this morning. I will leave the room so you can eat in peace.",
     "verified": false,
     "time": "13:14",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:57bc371a6a01f02e:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 32,
+     "sha256": "57bc371a6a01f02e5670258665088e7f87705f8b426aa47b88d7649380481e64"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, the file from the Directorate returned with a query regarding my identity. I must go to the office to present whatever proof I can muster. I shall be back before the sun fully retreats. Do you have any news of the postman, or letters for the wrong Hegel?",
+    "verified": false,
+    "time": "13:59",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:d17e106eb2ace64a:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 33,
+     "sha256": "d17e106eb2ace64a04b99b90043acc6d337252a0a58c6c01f099fd792b86e0ff"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "No letters, sir. The postman came this morning but only left a bill for the electricity. You go to your office, I will keep the keys.",
+    "verified": false,
+    "time": "13:59",
     "place": "home"
    },
    {
@@ -2491,68 +2624,98 @@
     "text": "Ramesh has laid out lunch: dal, rice, bhindi and curd."
    },
    {
-    "id": "2026-11-24:event:d30a8db17170f2c0:1",
+    "id": "2026-11-24:event:12fbdc0adad53745:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 9,
+     "sha256": "12fbdc0adad537452783af0765e717e59a6faf85b9350def05344f7be36e7fa7"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "13:59",
+    "end": "14:04",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:24de835ab34d013c:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      9,
+      0
+     ],
+     "sha256": "24de835ab34d013c0a28eabfc098b89eff74f620913773a2ee9d3fbdf4c1fa40"
+    },
+    "type": "observation",
+    "time": "13:59",
+    "place": "home",
+    "text": "Weather: 23 °C, clear. Air quality index: 103."
+   },
+   {
+    "id": "2026-11-24:event:e46c44e60aeb6d11:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "d30a8db17170f2c042f9c0462069206a9025f00028986fc7406abe43b0f53808"
+     "sha256": "e46c44e60aeb6d113fdba8ddb668085298b8999a76bc613617e8eede7aa621e7"
     },
     "type": "cash",
-    "time": "13:59",
+    "time": "14:04",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-24:event:f99b3dddece43999:1",
+    "id": "2026-11-24:event:81e2904166f72da5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "f99b3dddece439998c07427586b350311abae2e75811e31370325e1a25900d5b"
+     "sha256": "81e2904166f72da53ea8b4aaed70b1628ac4df48071e37149cef734a43ed143b"
     },
     "type": "location",
-    "time": "13:59",
+    "time": "14:04",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-24:event:d27beaa70edd3e09:1",
+    "id": "2026-11-24:event:6aca918ca99121b8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "d27beaa70edd3e0909ab1182b0bcad7e8f69a03576db37e693b4081229fc9b07"
+     "sha256": "6aca918ca99121b8e504680f5d4481a41e350efac7ae49148c57410ef8322b74"
     },
     "type": "inventory",
-    "time": "13:59",
+    "time": "14:04",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-24:event:c6b1ce65653d673c:1",
+    "id": "2026-11-24:event:d53a6fbbbc003cb1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "c6b1ce65653d673cb98af032988a8f9055102cca193e88488b1ac5755a3d30d3"
+     "sha256": "d53a6fbbbc003cb17d86dfffc86b7bcd335276c613210ec69487057e2b1e237d"
     },
     "type": "inventory",
-    "time": "13:59",
+    "time": "14:04",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:14.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:14.\"}]"
    },
    {
-    "id": "2026-11-24:event:918c703a6bd5bf63:1",
+    "id": "2026-11-24:event:cfa7a98b1bfb3dda:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "918c703a6bd5bf633c166f07c6e8efdf782afbcf4bcfe9c245253d6a38ee405b"
+     "sha256": "cfa7a98b1bfb3dda0dc53ebbbe49cc04550f0db0d57494cacfd9a88d2f839325"
     },
     "type": "inventory",
-    "time": "13:59",
+    "time": "14:04",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2571,7 +2734,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "13:59",
+    "time": "14:04",
     "place": null
    }
   ]
