@@ -317,6 +317,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "14:04",
+   "to": "14:14",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -673,6 +680,37 @@
    "to": "Hegel",
    "text": "No letters, sir. The postman came this morning but only left a bill for the electricity. You go to your office, I will keep the keys.",
    "t": "13:59",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The electricity bill is a small but necessary intrusion of civil society into the bungalow; the state's money in my keeping demands vouchers, so I must settle this today to keep my accounts clear. Ramesh is leaving, and I have a talk at the IIC at 18:30, which means I must depart by 17:30 at the latest. It is currently 14:04, so I have a few hours to prepare, but I should not linger too long in idleness.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi"
+    }
+   ],
+   "t": "14:04",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, please leave the electricity bill on the desk. I will settle it from the imprest fund and file the voucher. You may go.",
+   "to": "Ramesh",
+   "t": "14:04",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes, sir. I have already placed it on the desk with the pen. The room is ready for when you return.",
+   "t": "14:04",
    "place": "home"
   }
  ],
@@ -1348,6 +1386,71 @@
      "text": "The duties of the Family are absolutely binding, and established and regulated by law. The son may not accost the father, when he comes into the room; he must seem to contract himself to nothing at the side of the door, and may not leave the room without his father's permission. When the father dies, the son must mourn for three years — abstaining from meat and wine."
     }
    ]
+  },
+  {
+   "t": "14:04",
+   "end": "14:14",
+   "event": "Ramesh says: “No letters, sir. The postman came this morning but only left a bill for the electricity. You go to your office, I will keep the keys.” He straightens the tray and moves toward the door.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The electricity bill is a small but necessary intrusion of civil society into the bungalow; the state's money in my keeping demands vouchers, so I must settle this today to keep my accounts clear. Ramesh is leaving, and I have a talk at the IIC at 18:30, which means I must depart by 17:30 at the latest. It is currently 14:04, so I have a few hours to prepare, but I should not linger too long in idleness.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Ramesh, please leave the electricity bill on the desk. I will settle it from the imprest fund and file the voucher. You may go.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, clear. Air quality index: 101."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes, sir. I have already placed it on the desk with the pen. The room is ready for when you return.",
+    "does": "Ramesh nods briefly and steps out, closing the door softly behind him."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "id": "dyde-right:740"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "id": "haldane-3:1001"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§289",
+     "text": "The lower concrete civil life must be governed from below in a concrete way. And yet the work must be divided into its abstract branches, specially officered by middlemen, whose activity in connection with those below them must from the lowest to the highest executive offices take the form of a continuous concrete oversight."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "text": "He studied in Geneva and Paris, associating in the former place with Bonnet and in the latter with Diderot. Jacobi was a man of the highest character and culture. He was long occupied with State affairs, and in Düsseldorf he held a public office which was connected with the administration of the finance department in the State."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1384,7 +1487,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-24T14:04+05:30",
+  "until": "2026-11-24T14:14+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "kurta",
@@ -1839,7 +1942,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-24",
-  "source_sha256": "5700b8ad38eca5563a4f35245c755ce22f604955d12aa0150e5dcd1761b508ac",
+  "source_sha256": "87d438aa35801b145c7c8e0e2de5ca3c92810db9ff446a18e24744c08a6b4f65",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2180,6 +2283,36 @@
     "words": "No letters, sir. The postman came this morning but only left a bill for the electricity. You go to your office, I will keep the keys.",
     "verified": false,
     "time": "13:59",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:22e60e19d7278f1d:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 35,
+     "sha256": "22e60e19d7278f1d33528364ebbd22630b2b6b88344e45fad0f86cd296f6e9e9"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, please leave the electricity bill on the desk. I will settle it from the imprest fund and file the voucher. You may go.",
+    "verified": false,
+    "time": "14:04",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:statement:f88252357bd203f0:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 36,
+     "sha256": "f88252357bd203f09a68c78777add55b680711025624c129dad92fee1eafad14"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes, sir. I have already placed it on the desk with the pen. The room is ready for when you return.",
+    "verified": false,
+    "time": "14:04",
     "place": "home"
    },
    {
@@ -2654,68 +2787,98 @@
     "text": "Weather: 23 °C, clear. Air quality index: 103."
    },
    {
-    "id": "2026-11-24:event:e46c44e60aeb6d11:1",
+    "id": "2026-11-24:event:d56e35b0eba6340c:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 10,
+     "sha256": "d56e35b0eba6340c25e41b16080aa02a882a8dd08ee197136e8b8fa5ec9d436b"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "14:04",
+    "end": "14:14",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-24:event:55b9b5400680540e:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      10,
+      0
+     ],
+     "sha256": "55b9b5400680540ed7344b7297e765f0e97e02084b367d30b592999afd3e3dd5"
+    },
+    "type": "observation",
+    "time": "14:04",
+    "place": "home",
+    "text": "Weather: 24 °C, clear. Air quality index: 101."
+   },
+   {
+    "id": "2026-11-24:event:4bfdf43e0ccca638:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "e46c44e60aeb6d113fdba8ddb668085298b8999a76bc613617e8eede7aa621e7"
+     "sha256": "4bfdf43e0ccca638f1af33757efb2f5ca67fc5b6607dbca2885dff183e7693da"
     },
     "type": "cash",
-    "time": "14:04",
+    "time": "14:14",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-24:event:81e2904166f72da5:1",
+    "id": "2026-11-24:event:ae07f684ce6d02c1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "81e2904166f72da53ea8b4aaed70b1628ac4df48071e37149cef734a43ed143b"
+     "sha256": "ae07f684ce6d02c1051f28a4beec4682e0aa302ac9845b9d1546e9d14b5814dc"
     },
     "type": "location",
-    "time": "14:04",
+    "time": "14:14",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-24:event:6aca918ca99121b8:1",
+    "id": "2026-11-24:event:363fc7e7b6ea171b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "6aca918ca99121b8e504680f5d4481a41e350efac7ae49148c57410ef8322b74"
+     "sha256": "363fc7e7b6ea171bc96c78a6f57242013c147bc7267b6a34bb8d813680e54f25"
     },
     "type": "inventory",
-    "time": "14:04",
+    "time": "14:14",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-24:event:d53a6fbbbc003cb1:1",
+    "id": "2026-11-24:event:44721cff3c804029:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "d53a6fbbbc003cb17d86dfffc86b7bcd335276c613210ec69487057e2b1e237d"
+     "sha256": "44721cff3c80402932dc9560f44ade5d872ab8320c38616d2d75b222fe9b6b80"
     },
     "type": "inventory",
-    "time": "14:04",
+    "time": "14:14",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:14.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:14.\"}]"
    },
    {
-    "id": "2026-11-24:event:cfa7a98b1bfb3dda:1",
+    "id": "2026-11-24:event:3c230ef9eb1bc445:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "cfa7a98b1bfb3dda0dc53ebbbe49cc04550f0db0d57494cacfd9a88d2f839325"
+     "sha256": "3c230ef9eb1bc445bf246106fc3d150c449068215f61f112da54040f29ff4350"
     },
     "type": "inventory",
-    "time": "14:04",
+    "time": "14:14",
     "place": null,
     "text": "Recorded file at this horizon only: \"Back from orders with a query: proof of identity as Shri G. Hegde.\""
    },
@@ -2734,7 +2897,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "14:04",
+    "time": "14:14",
     "place": null
    }
   ]
