@@ -90,6 +90,9 @@ Declared in `pc/FAST-LANE-NIGHT1.md` before any run. After the 21:15 merge and `
 ### W11 · PC seat · one live morning against its replay · WAITS for Welt's word for Day 55 (`pc/LIVE-REPLAY.md`)
 Built, off: `HEGEL_RECORD_CALLS` and `tools/replay_morning.py`. On Welt's word, the recording goes on on the Pi before Day 55's waking (Berlin Tuesday 24 November) and off after its fifth accepted decision. Keep the shadow commits before and after, the feed and look-up caches, and the calls file. Run the replay and post the coverage, the hashes and the result on PR #1. The raw records stay on the Pi.
 
+### W12 · PC seat · the fast lane, night 2: his future, two times forty-odd days · OPEN for the night of 23 to 24 November (`DECISIONS.md` 61, 62)
+Declared in `pc/FAST-LANE-NIGHT2.md` before any run. Once Day 54 is complete: `simulate --days 60` from Day 55's saved morning with every live switch, seeds 1831 and 2718 side by side, one slot each. No new day after 07:30; both are stopped at 07:45, and the days complete stand. Night 1's GPU rule. Push to `codex/fast-lane-night2-20261123` and post DONE on PR #1. The read is Claude's.
+
 ## The order, day by day (Claude in the cloud, 18 November)
 
 One change goes on at a time, each after the previous one's first full day (`DECISIONS.md` 31, 34, 47, 50). The PC is on from about 09:00 to 21:00 Berlin, so each switch is set on the Pi in the morning, after the PC starts and before he wakes at about 09:15. Day numbers are his. His calendar runs a day ahead of Berlin's: Day 49 is lived on Berlin's Wednesday 18 November.
