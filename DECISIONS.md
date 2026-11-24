@@ -191,6 +191,10 @@ Welt, the night of 18 November: "dont get stuck waiting on me not answering, i t
     - Each training run, and each night an adapter is loaded, still takes Welt's word on the day.
     - The implementation is written by worker agents; Claude in the cloud reviews and merges it, and the PC seat runs every GPU step.
 
+66. **The world, phase three** (Welt, 24 November, in the PC session, relayed by the PC seat on PR #1: "so basically we need to do serious world building", and to the PC seat's list: "yes, do it, all of the worldbuilding points"; on the papers: "I also don't think he is properly reading the papers and they don't seem to change any long-term behaviour"). The order is `WORLD-3.md`: what he does comes back to him. Seven packets, each built off, rehearsed on a night of futures and scored (`tools/world_score.py`) before it is put to Welt. Each packet's go stays Welt's.
+
+67. **He is not to starve; the shortage stays, and the ways out cost him work** (Welt, 24 November, about 10:20 Berlin, relayed by the PC seat: "I don't want him to starve, I want him to see this as a problem and the world offers options for him to solve it, but he has to work for it"). This answers the question night 2 left open (`pc/FAST-LANE-NIGHT2-RESULT.md`). The weeks without a meal are a fault. Packet 3 of `WORLD-3.md` (`HEGEL_EXITS`) carries the answer: the week's dues said once at waking, a plain kitchen as the floor, a second pupil and a course of lectures as paid work, Ramesh speaking first about the wage, a small sum on Sunil's slate once, and Shri Hegde noticing. No gift pays his debts. Which way out he takes stays his own choice. Its night comes before Training 4's measures, because his 1 December is Berlin's Monday 30 November.
+
 ## Still open
 
 - The ten calls under "What Welt decides" in `WORLD-2.md`, beyond week 0.
