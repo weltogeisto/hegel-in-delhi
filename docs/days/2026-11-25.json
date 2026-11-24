@@ -407,6 +407,13 @@
    "mode": "walk",
    "a": "estates",
    "b": "lodhi"
+  },
+  {
+   "from": "17:36",
+   "to": "17:46",
+   "mode": "stroll",
+   "at": "lodhi",
+   "now": "Shopping in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -1167,6 +1174,53 @@
    "text": "Save it. The file goes under my lock, so don't come asking for the carbon copy. Good day.",
    "t": "16:54",
    "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "The haze is still thick, a lid on the city that makes the air feel like old wool. I am exhausted, my stomach a hollow drum after twenty-five hours of fasting, and Mrs. Kapoor stands before me like a question I am not ready to answer. I need sustenance before I can contemplate the spirit; the body must be satisfied before the mind can be free.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Common Ideas Regarding the History of Philosophy"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die griechische Welt, Die besonderen Götter"
+    }
+   ],
+   "t": "17:36",
+   "place": "lodhi"
+  },
+  {
+   "k": "said",
+   "text": "Good evening, Mrs. Kapoor. I confess I am famished; may I trouble the stall for a roasted corn and some water? The air here is heavy, and my constitution is not yet acclimatised to its hospitality.",
+   "to": "Mrs. Kapoor",
+   "t": "17:36",
+   "place": "lodhi"
+  },
+  {
+   "k": "said",
+   "by": "Mrs. Kapoor",
+   "to": "Hegel",
+   "text": "You talk in circles, just like you do in your books. Go on, buy your corn and water; it is forty rupees for the corn and twenty for the bottle, and pay the man yourself.",
+   "t": "17:36",
+   "place": "lodhi"
+  },
+  {
+   "k": "bag",
+   "item": "Roasted corn on the cob",
+   "price": 40,
+   "charge_id": "charge:10",
+   "t": "17:36",
+   "place": "lodhi"
+  },
+  {
+   "k": "bag",
+   "item": "Bottle of water",
+   "price": 20,
+   "charge_id": "charge:11",
+   "t": "17:36",
+   "place": "lodhi"
   }
  ],
  "steps": [
@@ -2624,6 +2678,87 @@
      "text": "The significance of these facts for the authorities will not be obscured by the claim that the holder of these perilous doctrines should be trusted, or by the immunity of office."
     }
    ]
+  },
+  {
+   "t": "17:36",
+   "end": "17:46",
+   "event": "You arrive at Lodhi Gardens. It closes at 19:30. Mrs. Kapoor is here. You are very hungry. You are tired.",
+   "present": [
+    "Mrs. Kapoor, a retired schoolteacher"
+   ],
+   "decision": {
+    "thought": "The haze is still thick, a lid on the city that makes the air feel like old wool. I am exhausted, my stomach a hollow drum after twenty-five hours of fasting, and Mrs. Kapoor stands before me like a question I am not ready to answer. I need sustenance before I can contemplate the spirit; the body must be satisfied before the mind can be free.",
+    "action": "buy",
+    "place": "lodhi",
+    "minutes": 10,
+    "says": "Good evening, Mrs. Kapoor. I confess I am famished; may I trouble the stall for a roasted corn and some water? The air here is heavy, and my constitution is not yet acclimatised to its hospitality.",
+    "buys": [
+     {
+      "item": "Roasted corn on the cob",
+      "price_inr": 40
+     },
+     {
+      "item": "Bottle of water",
+      "price_inr": 20
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, clear, hazy. Air quality index: 187.",
+    "You arrive at Lodhi Gardens. It closes at 19:30.",
+    "Mrs. Kapoor is here.",
+    "You are very hungry.",
+    "You are tired."
+   ],
+   "observed_at": "lodhi",
+   "opened": [
+    "arrive",
+    "here",
+    "hunger",
+    "felt"
+   ],
+   "voice": {
+    "by": "Mrs. Kapoor",
+    "says": "You talk in circles, just like you do in your books. Go on, buy your corn and water; it is forty rupees for the corn and twenty for the bottle, and pay the man yourself.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.5,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Common Ideas Regarding the History of Philosophy",
+     "id": "haldane-1:63"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die griechische Welt, Die besonderen Götter",
+     "id": "welt-3:190"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Common Ideas Regarding the History of Philosophy",
+     "text": "Hence the thought expressed in such an utterance reveals the fact that it is dead understanding; for it is only death which fasts and yet rests satisfied. But neither physical life nor intellectual remains content with mere abstention; as desire it presses on through hunger and through thirst towards Truth, towards knowledge itself."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die griechische Welt, Die besonderen Götter",
+     "text": "Wir haben den Despotismus im Orient in glänzender Ausbildung als eine dem Morgenland entsprechende Gestaltung gesehen; nicht minder ist die demokratische Form in Griechenland die welthistorische Bestimmung."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2667,9 +2802,9 @@
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-11-25T17:36+05:30",
+  "until": "2026-11-25T17:46+05:30",
   "asleep": false,
-  "imprest": 15166,
+  "imprest": 15106,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -2764,16 +2899,39 @@
      "masterji",
      "nidhi",
      "sunil"
+    ],
+    "lodhi": [
+     "kapoor"
     ]
    },
    "walked": 12075,
    "strain": 12075,
    "lunch": true,
-   "hunger": 1
+   "hunger": 2,
+   "tired": true,
+   "bought_food": {
+    "place": "lodhi",
+    "t": "2026-11-25T17:36+05:30"
+   }
   },
   "account": {
    "advance": 15000,
-   "vouchers": [],
+   "vouchers": [
+    {
+     "date": "2026-11-25",
+     "t": "17:36",
+     "item": "Roasted corn on the cob",
+     "price": 40,
+     "office": false
+    },
+    {
+     "date": "2026-11-25",
+     "t": "17:36",
+     "item": "Bottle of water",
+     "price": 20,
+     "office": false
+    }
+   ],
    "admitted": 820,
    "queried": 10814
   },
@@ -2831,7 +2989,8 @@
     "2026-11-16",
     "2026-11-18",
     "2026-11-19",
-    "2026-11-21"
+    "2026-11-21",
+    "2026-11-25"
    ],
    "gandhi": [
     "2026-10-02",
@@ -3022,7 +3181,8 @@
    ],
    "kapoor": [
     "2026-10-28",
-    "2026-11-19"
+    "2026-11-19",
+    "2026-11-25"
    ],
    "saxena": [
     "2026-11-05",
@@ -3045,7 +3205,7 @@
    "sim": false
   },
   "last_meal": "2026-11-24T16:39+05:30",
-  "snacks": 0,
+  "snacks": 1,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
@@ -3146,9 +3306,11 @@
    "cost:dhobi:2026-11-21",
    "cost:groceries:2026-11-22",
    "charge:3",
-   "charge:8"
+   "charge:8",
+   "charge:10",
+   "charge:11"
   ],
-  "charge_seq": 9,
+  "charge_seq": 11,
   "street": {
    "home_vegetable_cart": "2026-11-20",
    "estates_bench": "2026-11-20",
@@ -3160,12 +3322,13 @@
    "home_monkey_wall": "2026-11-21",
    "iic_seminar_voice": "2026-11-22",
    "home_wedding_band": "2026-11-22"
-  }
+  },
+  "fed_at": "2026-11-25T14:36+05:30"
  },
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "ae55d89bcfb4ddd7c7e4d573f60237bdfde4e24c1f3301a00c0e05c8aeb13f0d",
+  "source_sha256": "27fd8469e0efd2fea6e173b69bc71eb59bd372ac6b5744b75332a20847ca3ac1",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3920,6 +4083,74 @@
     "verified": false,
     "time": "16:54",
     "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:b2327ea183b26e87:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 75,
+     "sha256": "b2327ea183b26e87a50286fcc778469dfe955c8b6c176122795c905a8e11721a"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mrs. Kapoor",
+    "words": "Good evening, Mrs. Kapoor. I confess I am famished; may I trouble the stall for a roasted corn and some water? The air here is heavy, and my constitution is not yet acclimatised to its hospitality.",
+    "verified": false,
+    "time": "17:36",
+    "place": "lodhi"
+   },
+   {
+    "id": "2026-11-25:statement:7a1b53483be34bb3:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 76,
+     "sha256": "7a1b53483be34bb38c34c6c4cd2cc89b7138ca0b79c2985c6e405b41b5205b8d"
+    },
+    "speaker": "Mrs. Kapoor",
+    "recipient": "Hegel",
+    "words": "You talk in circles, just like you do in your books. Go on, buy your corn and water; it is forty rupees for the corn and twenty for the bottle, and pay the man yourself.",
+    "verified": false,
+    "time": "17:36",
+    "place": "lodhi"
+   },
+   {
+    "id": "2026-11-25:payment:0cb70e69ef1ff218:1",
+    "kind": "payment",
+    "source": {
+     "collection": "entries",
+     "index": 77,
+     "sha256": "0cb70e69ef1ff2180e533b41ac830028c80e3533526c6868b88c59efa82cdeb2"
+    },
+    "canonical_id": "charge:10",
+    "item": "Roasted corn on the cob",
+    "amount": 40,
+    "direction": "out",
+    "settled": true,
+    "medium": "cash",
+    "creditor": null,
+    "payer": null,
+    "time": "17:36",
+    "place": "lodhi"
+   },
+   {
+    "id": "2026-11-25:payment:426e889a70d12ebb:1",
+    "kind": "payment",
+    "source": {
+     "collection": "entries",
+     "index": 78,
+     "sha256": "426e889a70d12ebb32ab170d6c98f157e8d963e5c23ad1eb523b378278e5d98e"
+    },
+    "canonical_id": "charge:11",
+    "item": "Bottle of water",
+    "amount": 20,
+    "direction": "out",
+    "settled": true,
+    "medium": "cash",
+    "creditor": null,
+    "payer": null,
+    "time": "17:36",
+    "place": "lodhi"
    },
    {
     "id": "2026-11-25:event:cabd1f00db8a97c2:1",
@@ -4907,68 +5138,162 @@
     "text": "Weather: 23 °C, clear, hazy. Air quality index: 184."
    },
    {
-    "id": "2026-11-25:event:82b6c7be3ce4f7f1:1",
+    "id": "2026-11-25:event:7dbdb0917428688e:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 22,
+     "sha256": "7dbdb0917428688e16de996888859d9e94da12ab759712eeeba9de3454de4176"
+    },
+    "type": "action",
+    "action": "buy",
+    "time": "17:36",
+    "end": "17:46",
+    "place": "lodhi"
+   },
+   {
+    "id": "2026-11-25:event:8bccf0255bde2c73:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      22,
+      0
+     ],
+     "sha256": "8bccf0255bde2c735040e34d110c8aa5567d5ed6f6f50e065a530475ed5bda07"
+    },
+    "type": "observation",
+    "time": "17:36",
+    "place": "lodhi",
+    "text": "Weather: 20 °C, clear, hazy. Air quality index: 187."
+   },
+   {
+    "id": "2026-11-25:event:c5fde5a7b058005b:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      22,
+      1
+     ],
+     "sha256": "c5fde5a7b058005b0fd2c5beda490598a396c89cee6534961cabb31f62874020"
+    },
+    "type": "observation",
+    "time": "17:36",
+    "place": "lodhi",
+    "text": "You arrive at Lodhi Gardens. It closes at 19:30."
+   },
+   {
+    "id": "2026-11-25:event:f4a51917895eba1c:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      22,
+      2
+     ],
+     "sha256": "f4a51917895eba1c3471ceff4ec204f9aab0f0f0bb180d2309d0f11907dda806"
+    },
+    "type": "observation",
+    "time": "17:36",
+    "place": "lodhi",
+    "text": "Mrs. Kapoor is here."
+   },
+   {
+    "id": "2026-11-25:event:f6ddf035ec711956:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      22,
+      3
+     ],
+     "sha256": "f6ddf035ec711956fd479c1514c0d6a620af212af4f080b46f8fec4045f0f107"
+    },
+    "type": "observation",
+    "time": "17:36",
+    "place": "lodhi",
+    "text": "You are very hungry."
+   },
+   {
+    "id": "2026-11-25:event:1a36cbd625e89297:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      22,
+      4
+     ],
+     "sha256": "1a36cbd625e89297a2ca61bd4a3b92783ebc4c1d6311dab469edfc22e8946eaf"
+    },
+    "type": "observation",
+    "time": "17:36",
+    "place": "lodhi",
+    "text": "You are tired."
+   },
+   {
+    "id": "2026-11-25:event:cf12e9a52d7653c4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "82b6c7be3ce4f7f1eab5f343b44ca0b6b96bb1e054598652004811a6ce125f5c"
+     "sha256": "cf12e9a52d7653c4d61fa946dbac203cbb4d276d119219de3fb91d912d683033"
     },
     "type": "cash",
-    "time": "17:36",
-    "amount": 15166,
+    "time": "17:46",
+    "amount": 15106,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:73ce9ad483869995:1",
+    "id": "2026-11-25:event:ec599a423c6356f1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "73ce9ad4838699955cb5a591a95b21ce09aa33a048ac75c71be3066b515ad977"
+     "sha256": "ec599a423c6356f124b63735f54513f9edf98b095907ed6ac828cdaf435993a5"
     },
     "type": "location",
-    "time": "17:36",
+    "time": "17:46",
     "place": "lodhi",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:8f51d44cb11f3b76:1",
+    "id": "2026-11-25:event:0ec24c4f7a70336d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "8f51d44cb11f3b76d4a8545d08e53618a4e4fd853c60435fd5f0f9272261d55d"
+     "sha256": "0ec24c4f7a70336dd40a3641bab1fc64003e97b40f5f3e315fd0b1ae7ddeec4d"
     },
     "type": "inventory",
-    "time": "17:36",
+    "time": "17:46",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-25:event:940eaa9857ef63bf:1",
+    "id": "2026-11-25:event:c763e8e0573acb62:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "940eaa9857ef63bf38f0e13999806d145f2d92e785d2cb8024f474f425e935ab"
+     "sha256": "c763e8e0573acb6274661784d72c4878c6e04ea24ab081b8772d3e7d99db9f70"
     },
     "type": "inventory",
-    "time": "17:36",
+    "time": "17:46",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 14:22.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 14:22.\"}]"
    },
    {
-    "id": "2026-11-25:event:659a550f783c8ca0:1",
+    "id": "2026-11-25:event:22b9c8e83393570b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "659a550f783c8ca0ebef279b19b0c1ee248f852366a9c0599653849673000fad"
+     "sha256": "22b9c8e83393570bd64128759a790648333bbc66308ee74c3b84d78dbe9fa2be"
     },
     "type": "inventory",
-    "time": "17:36",
+    "time": "17:46",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
