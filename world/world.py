@@ -846,7 +846,7 @@ class World(Economy):
         if read and prev_step.get("end") == fmt(m) and read.get("paper"):     # HEGEL_PAPERS: a piece of the papers; its text comes from the state folder, never from the day file
             piece = self.feeds.piece(date.fromisoformat(read["date"]), read["i"]) if self.feeds else None
             if piece:
-                paper = piece["summary"]
+                paper = piece.get("body") or piece["summary"]
                 events.append((f"At home you take up {read['source']} and read: {read['title']}.", None))
                 kind("read")
         elif read and prev_step.get("end") == fmt(m) and read.get("by"):       # HEGEL_BORROWED_LOOKUP: what someone looked up on their phone for him

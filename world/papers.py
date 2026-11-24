@@ -58,5 +58,5 @@ def read_text(readings, feeds):
     out = []
     for r in readings or []:
         p = feeds.piece(date.fromisoformat(r["piece"][0]), r["piece"][1]) if feeds and r.get("piece") else None
-        out.append(r["title"] + (" " + p["summary"] if p else ""))
+        out.append(r["title"] + (" " + (p.get("body") or p["summary"]) if p else ""))
     return "\n".join(out)

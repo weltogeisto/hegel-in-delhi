@@ -65,6 +65,7 @@ class Config:
         self.borrowed_lookup = v.get("HEGEL_BORROWED_LOOKUP", "0").strip().lower() in ("1", "yes", "true")   # with no phone of his own, someone he knows who is with him looks a thing up on theirs (pc/BORROWED-LOOKUP.md); off until switched on
         self.papers_record = v.get("HEGEL_PAPERS_RECORD", "0").strip().lower() in ("1", "yes", "true")   # the day's papers kept in full in the state folder, nothing he is told changes (pc/PAPERS.md); off until switched on
         self.papers = v.get("HEGEL_PAPERS", "0").strip().lower() in ("1", "yes", "true")   # `read` at home gives him the next piece of the day's papers, and what he read is remembered (pc/PAPERS.md); off until switched on
+        self.papers_body = v.get("HEGEL_PAPERS_BODY", "0").strip().lower() in ("1", "yes", "true")   # with the record, the text of each piece the paper itself marks free to read is kept too (pc/PAPERS.md); off until switched on
         self.papers_archive = v.get("HEGEL_PAPERS_ARCHIVE", "").strip() or None   # a rehearsal's papers: a folder of papers-*.json, cycled by day (pc/PAPERS.md)
         self.news_feeds = [u.strip() for u in v.get("NEWS_FEEDS", (
             "https://www.thehindu.com/news/national/feeder/default.rss,"

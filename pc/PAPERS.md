@@ -33,11 +33,31 @@ If the day's `news-<date>.json` already exists when the switch is turned on, tha
   name. A block "What you have read lately" (the latest five, each with his line) is added to `Memory.manuscripts`, so a writing and a lecture
   draw on it.
 
+## `HEGEL_PAPERS_BODY` (the text behind the headline; off by default)
+
+Only together with `HEGEL_PAPERS_RECORD`; it changes nothing he is told unless `HEGEL_PAPERS` is on too. When the record keeps a day's pieces
+(never for a day already cached), the headlines are settled and cached first, and then, for each kept piece with a link, the page is fetched
+once: one request at a time, 1.5 seconds apart, the engine's User-Agent, a 15-second timeout, at most 12 pages a morning. The text is read
+from the page's `application/ld+json` blocks (an object, a list, or an object with `@graph`; a block that does not parse is skipped): the first
+article object with a non-empty `articleBody`.
+
+- **Only what the paper marks free to read.** An article object on the page with `isAccessibleForFree` false (`false`, `"False"`, `"false"`)
+  means no body, and so does the key being absent: free must be said (`true`, `"True"`, `"true"`). The Hindu says false; the Indian Express
+  says `"True"`.
+- The body is made plain (entities unescaped, tags and whitespace folded), cut at a sentence end to 1800 characters, and kept on the piece as
+  `"body"` with `"free": true`. A page that fails, has no block, or a body under 400 characters is a piece without a body; it keeps its summary.
+- **What he reads.** With `HEGEL_PAPERS` on, a piece with a body is shown with its body in "The piece, as the paper prints it", and the body
+  (instead of the summary) is what counts as met (`papers.read_text`). A piece without one is shown with its summary. The order is as before.
+- Stored in `<state>/feeds/papers-<date>.json` and shown in his prompt only; the day file, the public entry and the step record never hold it
+  (`test_the_body_counts_as_met_and_the_day_file_holds_no_body_text`). A rehearsal's archive gives the files as they are, body included.
+- `tools/collect_papers.py --body` sets the switch for its own run; its line gains `"with_body": n`. Off, every file is byte for byte as before.
+- The fetching happens in the same call as the headlines, after they are cached, so a morning with the switch on takes up to about twenty seconds longer.
+
 ## What is stored where
 
 | What | Where |
 |---|---|
-| Full pieces (title, summary, link, source) | `<state>/feeds/papers-<date>.json`; never in the repo |
+| Full pieces (title, summary, link, source; with `HEGEL_PAPERS_BODY`, `body` and `free` where the paper marks it free) | `<state>/feeds/papers-<date>.json`; never in the repo |
 | Which pieces today he has read | `state["today"]["papers_read"]` (day file: indexes only) |
 | The trace: title, source, his line, `[date, index]` | `state["readings"]` (day file) |
 | The public entry | `{"k": "read", title, source, url, date, i, text: "In the paper, at home."}`: headline, paper and link only |
@@ -59,8 +79,6 @@ its own start). The titles of the day's pieces are its headlines when no feed wa
 
 ## Left for later
 
-- **The body of a piece.** An RSS summary is a sentence or two. The article behind the link would give him more to think about. It means
-  fetching the page on the Pi each morning and keeping its first paragraphs in the state folder, under the same page rule. Welt's call.
 - A reviewed exhibition (or a lecture, a film) in the papers becoming a place he can go to (packet 7).
 - Using what he read in a thought, a letter or a talk is not yet counted (the "Came back" measure of the score).
 - Pieces for a day whose headlines were cached before the record was switched on; papers from before the switch.
