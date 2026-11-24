@@ -295,6 +295,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "12:41",
+   "to": "12:51",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -571,6 +578,37 @@
    "to": "Hegel",
    "text": "G. Hegde. Very well, I will note that in the margin, though you know I will not put it on the official letterhead. I can type the allotment confirmation for the bank, yes, but I will need your identity proof and a passport-sized photograph before I send it out. As for the cash, bring it to the counter, not to my desk; I have three phones ringing and no time for a private exchange.",
    "t": "12:21",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "He has given me a provisional name, 'G. Hegde (provisional),' which is a dialectical step: the individual is subsumed into the universal category of 'officer,' yet the particular remains suspended. I need to move the cash to the counter as ordered, but I must also secure the photograph and identity proof he demands. The air quality is poor, and I am hungry; I should not linger in this bureaucratic haze.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Modern Time, The Reformation"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§278 Addition"
+    }
+   ],
+   "t": "12:41",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "Understood. I will proceed to the counter for the disbursement. However, I must ask: where in this complex is a photographer to be found, and what specific document serves as 'identity proof' for a man who has not yet arrived in this jurisdiction? I cannot produce a passport that does not exist, nor a photograph of a man who was not there.",
+   "to": "Mr. Saxena",
+   "t": "12:41",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "The photographer is in the basement, next to the canteen, though I doubt he cares about your philosophical quandaries. For identity proof, bring your residence verification or a self-declaration on a non-judicial stamp paper; you cannot expect us to conjure a passport that isn't there, sir.",
+   "t": "12:41",
    "place": "estates"
   }
  ],
@@ -974,6 +1012,71 @@
     }
    ],
    "beat": "allotment_letter"
+  },
+  {
+   "t": "12:41",
+   "end": "12:51",
+   "event": "Mr. Saxena says: “G. Hegde. Very well, I will note that in the margin, though you know I will not put it on the official letterhead. I can type the allotment confirmation for the bank, yes, but I will need your identity proof and a passport-sized photograph before I send it out. As for the cash, bring it to the counter, not to my desk; I have three phones ringing and no time for a private exchange.” He picks up the pen, scribbles 'G. Hegde (provisional)' in the file margin, and slides the paper across the desk.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "He has given me a provisional name, 'G. Hegde (provisional),' which is a dialectical step: the individual is subsumed into the universal category of 'officer,' yet the particular remains suspended. I need to move the cash to the counter as ordered, but I must also secure the photograph and identity proof he demands. The air quality is poor, and I am hungry; I should not linger in this bureaucratic haze.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 10,
+    "says": "Understood. I will proceed to the counter for the disbursement. However, I must ask: where in this complex is a photographer to be found, and what specific document serves as 'identity proof' for a man who has not yet arrived in this jurisdiction? I cannot produce a passport that does not exist, nor a photograph of a man who was not there.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, partly cloudy, hazy. Air quality index: 175."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "The photographer is in the basement, next to the canteen, though I doubt he cares about your philosophical quandaries. For identity proof, bring your residence verification or a self-declaration on a non-judicial stamp paper; you cannot expect us to conjure a passport that isn't there, sir.",
+    "does": "He taps the pen against the desk and glances at the clock."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 12.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Modern Time, The Reformation",
+     "id": "sibree-history:1340"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§278 Addition",
+     "id": "dyde-right:720"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Modern Time, The Reformation",
+     "text": "Equally important, and connected with that just noticed, is the change of executive powers, functions, duties and rights, which naturally belong to the State, but which had become private property and private contracts or obligations— into possession conferred by the State."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§278 Addition",
+     "text": "In a completed organization we have to do with nothing but the extreme of formal decision, and that for this office is needed only a man who says \" Yes,\" and so puts the dot upon the \" i.\" The pinnacle of state must be such that the private character of its occupant shall be of ho significance."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -997,13 +1100,20 @@
    "shown": 1,
    "yes": 1,
    "no": 0
+  },
+  "bank_account": {
+   "live": 1,
+   "eligible": 0,
+   "shown": 0,
+   "yes": 0,
+   "no": 0
   }
  },
  "owl": null,
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-25T12:41+05:30",
+  "until": "2026-11-25T12:51+05:30",
   "asleep": false,
   "imprest": 15166,
   "wearing": "bandhgala",
@@ -1471,7 +1581,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "93a3149dc9cc814ef54c2801d54f7a7d5ca1c54655988c7ef0a581c8dd461548",
+  "source_sha256": "fad7872ba526b2b7296ca500e6026b1dac4688443777c21d127b10836c8994ba",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1768,6 +1878,36 @@
     "words": "G. Hegde. Very well, I will note that in the margin, though you know I will not put it on the official letterhead. I can type the allotment confirmation for the bank, yes, but I will need your identity proof and a passport-sized photograph before I send it out. As for the cash, bring it to the counter, not to my desk; I have three phones ringing and no time for a private exchange.",
     "verified": false,
     "time": "12:21",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:5b70b1734d2c988c:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 28,
+     "sha256": "5b70b1734d2c988cfe6dde54e14991949ee5e83423d9d720bc4426eee5e24f1f"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "Understood. I will proceed to the counter for the disbursement. However, I must ask: where in this complex is a photographer to be found, and what specific document serves as 'identity proof' for a man who has not yet arrived in this jurisdiction? I cannot produce a passport that does not exist, nor a photograph of a man who was not there.",
+    "verified": false,
+    "time": "12:41",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:9fb11942c12dad58:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 29,
+     "sha256": "9fb11942c12dad58c7bcfc82232957d174a72d043ae6499d672568bb3d2d5bed"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "The photographer is in the basement, next to the canteen, though I doubt he cares about your philosophical quandaries. For identity proof, bring your residence verification or a self-declaration on a non-judicial stamp paper; you cannot expect us to conjure a passport that isn't there, sir.",
+    "verified": false,
+    "time": "12:41",
     "place": "estates"
    },
    {
@@ -2156,68 +2296,98 @@
     "text": "Mr. Saxena sees the cheque among your papers: without a bank account it is only paper. The State Bank in Khan Market wants proof of address, and he could type a letter confirming your allotment."
    },
    {
-    "id": "2026-11-25:event:c7952fbab6e276cc:1",
+    "id": "2026-11-25:event:128b971a53254bff:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 6,
+     "sha256": "128b971a53254bff05bf53d47498803087ac8fa651c6d94ad28cbdf724bfa9fa"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "12:41",
+    "end": "12:51",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:event:ed143abcdacf2a70:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      6,
+      0
+     ],
+     "sha256": "ed143abcdacf2a700be3e9d2449b955927401e3a4499ca91c460caca93b5fc98"
+    },
+    "type": "observation",
+    "time": "12:41",
+    "place": "estates",
+    "text": "Weather: 23 °C, partly cloudy, hazy. Air quality index: 175."
+   },
+   {
+    "id": "2026-11-25:event:d40cc5463fd46eaf:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "c7952fbab6e276ccfb298b0429c25da965cfadd27042b56ad6fbba2aa4ee4d73"
+     "sha256": "d40cc5463fd46eaf2a200f5aa00e26943bd37ee4737ee27a724b60156bab1003"
     },
     "type": "cash",
-    "time": "12:41",
+    "time": "12:51",
     "amount": 15166,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:b467ad64fd8ae089:1",
+    "id": "2026-11-25:event:9391b32ce9d324fc:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "b467ad64fd8ae0891e4e67edad81676de69951d56b877668182d74c60a191c9d"
+     "sha256": "9391b32ce9d324fc050005de4a2b7d1e706a1edfb3e2cae46d5f2f68dc22f99b"
     },
     "type": "location",
-    "time": "12:41",
+    "time": "12:51",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:526b76952d6cab79:1",
+    "id": "2026-11-25:event:f51e4b077ba39e89:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "526b76952d6cab79644002e62c9426a93966222b23a6e3b98df0ded911ef35aa"
+     "sha256": "f51e4b077ba39e89ddf990bb76cb080035cc578d6e4b430b96bb80370d736517"
     },
     "type": "inventory",
-    "time": "12:41",
+    "time": "12:51",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-25:event:f03a129bf2b4f83f:1",
+    "id": "2026-11-25:event:ee0141d7481d70db:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "f03a129bf2b4f83f4eae8232f186bf78710030e7eeabad870b929b863064140c"
+     "sha256": "ee0141d7481d70db1e18f1e322e540ff6b2a215f1f531b7b74043957b5ad930b"
     },
     "type": "inventory",
-    "time": "12:41",
+    "time": "12:51",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 11:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 11:10.\"}]"
    },
    {
-    "id": "2026-11-25:event:0ec64232601b3e32:1",
+    "id": "2026-11-25:event:fd18fc3bbbaa6db8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "0ec64232601b3e329da2b6846dbb6998eed57e42f52eba732b53d2eaafc48dc8"
+     "sha256": "fd18fc3bbbaa6db873460bd1c505c74fcf806a638df8ac95782797dc413b659d"
     },
     "type": "inventory",
-    "time": "12:41",
+    "time": "12:51",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
