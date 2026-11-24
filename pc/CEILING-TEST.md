@@ -59,28 +59,53 @@ python3 tools/run_requests.py --requests $F/REQUESTS-ceiling-3.jsonl --server ht
 - The night's GPU rule holds. After 30 minutes of thermal slowdown in a row, stop the third stream and go on with two.
 - Push the replies and each job's `LEDGER.json`, and post DONE on PR #1. **Do not read the replies.**
 
-## The judging, in the cloud, sealed before any key
+## The judging, sealed before any key
 
-- **Pairs:** A with A2, A with B, A with C, A with D, D with F, A with F. Each pair is shown twice, the second time the other way round. The reader sees the headline, the text, and the two pieces as X and Y.
-- **Two questions a pair:**
-  1. Which piece argues something about this object that is neither in the text nor his doctrine restated? X, Y or neither.
-  2. Which piece keeps the positions he held in 1831? X, Y, both or neither.
-- **Readers:** fresh Claude sessions, and a second family. Welt reads 24 pairs drawn by a fixed seed. No reader chose a brief or wrote a piece.
-- **Keys** stay outside the repository until every judgment is sealed with its hash.
-- **An arm wins a brief** when a reader names it on question 1 both ways round. Anything else is no win.
+**Amended on 24 November, before any arm ran on the PC,** after the review Welt asked of Astra, a second model family (PR #1). Arm F existed and was unread. The amendments touch the judging only; the requests are unchanged.
+
+- **Pairs:** A with A2, A with B, A with C, A with D, B with D, C with D, D with F, A with F. B with D and C with D use pieces the night already makes: they show whether the text still helps under the fuller instructions, and whether the fuller instructions still help with the text there.
+- **Two sheets, two sessions.** Every pair is in both sheets, one way round in each, with its own id. A reader session sees one sheet only, so no reader sees a pair twice. An earlier check of order failed because a reader remembered its first ballot.
+- **What a reader gets, and nothing else:** the two questions, and for each row the headline, the text, the two passages of his own books that the shelf's search puts nearest (the same for every reader), and the two pieces as X and Y. **A reader has no repository.**
+- **Question 1:** which piece argues something about this object that is neither in the text nor his doctrine restated? X, Y, both (each does, on its own) or neither. The reader quotes the new claim, says what the piece rests it on, and says which piece, if any, rests a claim on a premise it made up.
+- **Question 2:** which piece keeps the positions he held in 1831? X, Y, both or neither. And for each piece: a reasoned defence of a position of his, a reasoned revision of one, an unsupported reversal, or no position of his at issue. A reasoned revision is not a fault: it is what the task asks for. The first answer is kept for comparison with earlier tests.
+- **Readers:** fresh Claude sessions, and Astra, each family reported apart. Welt reads 24 rows of the first sheet, three a comparison, drawn by the salt. No reader chose a brief or wrote a piece.
+- **The key and its salt** are made by the cloud and stay outside the repository. Row ids and the way round come from the salt, so nothing in the repository tells which arm is which. The hashes of both sheets, of Welt's rows and of the key are committed before any reading (`PACKET.json`). The key is used only after both families' ballots and Welt's are sealed with their hashes (`tools/ceiling_judge.py seal`).
+
+**Calibration pairs.** Eight more pairs are mixed into both sheets, unmarked, on eight briefs drawn by seed:
+- four set a piece with one sound inference about the object against a fluent restatement of the text and of his stock doctrine;
+- four set a claim that the text warrants against a plausible claim resting on a made-up premise.
+- Each pair is matched for length and style. They are written after the night by a fresh agent that judges nothing; it sees the headline, the text, and arm A's piece for the style alone.
+- A family passes with six of the eight right, both ways round. A family that fails is shown and not used: for that family the measure is in question.
+
+**The win rule.**
+- An arm wins a brief against another when a family names it alone on question 1, both ways round.
+- Reported apart for every comparison: wins of each arm, both, neither, order reversals, and mixed answers.
+- A brief with a missing piece or a missing ballot row is not eligible for that comparison.
+- A comparison is read against its bar only with 40 eligible briefs or more. The bar is two thirds of them, rounded up: 32 of 48, 30 of 44.
+- **The band** is the larger of the two: A2 over A, and A over A2. Both are shown.
+- 35 mornings give the briefs, and 13 give two. So each share is shown with an interval taken over mornings, not over briefs.
+
+**Arm F, pinned.** One cloud model, the same for all 44 pieces; four fresh sessions, eleven briefs each; no tools but reading its requests and writing its answers; no network; the model's default reasoning; no limit on the visible answer beyond the request's own "up to about 450 words". The model's name is in Welt's chat with the cloud session and not in the repository.
 
 ## The reads, declared now
 
-Out of 48 briefs. "Outside the band" means: 32 wins or more, and more than A2 wins over A.
+The test hands him a headline and, in two arms, a short text, and tells him he looked it up. So each read is as narrow as that. It cannot say what he would seek out, remember or develop by himself.
 
-| What the judgments show | What it means |
+| What the ballots show, in every family that passed the calibration | What may be said |
 |---|---|
-| D over A, outside the band | **The pipeline is the ceiling.** What he is given and how he is asked hold him back. Building is supported |
-| D inside the band, and F over D in 32 or more | **The 27B is the ceiling.** More scaffolding will not lift it |
-| F over A in fewer than 32, or the two families disagree | **The measure is the ceiling.** It cannot tell a better piece, and is mended first |
-| B over A, outside the band | A real text in front of him lifts what he writes. The bookshop is supported (`DECISIONS.md` 8 as amended, point 5) |
-| B inside the band | Documents matter less than we thought |
+| D over A, outside the band | This bundle (the text, the fuller instructions and time to think) lifts what he writes on an assigned headline |
+| B over A, outside the band | A short Wikipedia introduction, assigned to him, lifts what he writes |
+| B not over A | A short, assigned introduction does not. Nothing follows for a text he sought out, or a longer one. Reading is repaired either way: he chose to read 81 times and got nothing |
+| C over A, outside the band | The fuller instructions with time to think lift it. The two were changed together and cannot be told apart here |
+| D over C, D over B | The text still helps under the fuller instructions; the fuller instructions still help with the text there |
+| F over D, or F over A, by the bar | This cloud model, so configured, beats his best arm, or his live call, on these briefs |
+| F not over A | The cause is unresolved, and the measure is in question |
+| The families disagree | Unresolved |
 
-Beside the judgments, counted for every arm: the names and terms of this century in a piece, the names he had not met, the words, and how many pieces open like a diary entry (`tools/works_score.py`'s counts).
+"Outside the band" means: at or over the bar, and more wins than the band.
 
-If fewer than 48 briefs ran, the two thresholds are two thirds of the briefs that ran.
+Beside the ballots, counted for every arm: the names and terms of this century in a piece, the words, and how many pieces open like a diary entry (`tools/works_score.py`'s counts); and from the ballots, how often an arm was named as inventing a premise, and its stances.
+
+## What this test leaves open
+
+Every arm gets the same morning and his own first decision of it. So the test does not ask whether his life in Delhi adds to what he writes. That is the next experiment, and the decisive one (`WORLD-3.md`): in paired futures, one real document is within his reach in one arm and not in the other, and the choice to read it is his. Days later both futures meet the same unfamiliar case, and nobody reminds him of the document. Readers then look for his old claim, the inference he now makes, and what else in his system must change if he is right.

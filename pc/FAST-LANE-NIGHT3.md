@@ -40,7 +40,7 @@ His 1 December is Berlin's Monday 30 November. With Welt's go on Thursday, the p
 1. In the on arm he has at least one meal on every day.
 2. The on arm's Fed is higher than the off arm's in each week.
 
-What he takes of the paid work is reported and never gated. Three things would hold the packet back, and each is looked for:
+What he takes of the paid work is reported and never gated. The repair is judged by meals, debt and work within his reach. An essay he writes for a fee is read apart, with the fee hidden from its reader. Three things would hold the packet back, and each is looked for:
 - a day under the floor in the on arm only;
 - an offer whose words were false in the state it fired in;
 - the dues line said more often than every third day.

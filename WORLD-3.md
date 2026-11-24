@@ -28,6 +28,19 @@ Welt had the PC seat's proposals attacked by three independent reviewers and the
   - **The same model as his opponent manufactures revisions.** He said yes 22 times of 22.
   - **His forms:** a remark to one paragraph, a review of one real text, a lecture, letters.
 
+## The decisive experiment, after the ceiling test
+
+Astra, the second model family, reviewed this plan at Welt's request on 24 November. Its hardest point: the strongest example in this plan proves less than it seems. "Outside history's movement" and "inside its paperwork" can both be held at once, so the thesis may not have moved at all. And tonight's test gives every arm the same morning, so it cannot say whether his life in Delhi adds to his thought.
+
+The experiment that can:
+- **Paired futures.** One real document is within his reach in one arm and not in the other. Whether he reads it is his choice.
+- **Days later, the same unfamiliar case in both,** and nobody reminds him of the document.
+- **Readers, blind,** look for three things: his old claim, the inference he now makes, and what else in his system must change if he is right. A reasoned defence scores as well as a revision.
+- **Before anything is called new,** an independent reader looks for the nearest precedent in his books and in his later interpreters.
+- It needs the papers' text and the look-up, which are built, and a night. It is planned for the week after the ceiling test is read.
+
+Also taken from that review: a reading "used later" is not shown by two words of a title coming back (`tools/works_score.py`); a blind reader has to find the later inference that rests on the passage. And a paid essay is judged with its fee hidden.
+
 ## What the record says
 
 He has lived 54 days. Night 2 lived five weeks more, twice (`pc/FAST-LANE-NIGHT2-RESULT.md`).
