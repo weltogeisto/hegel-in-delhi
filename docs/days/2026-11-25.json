@@ -309,6 +309,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "13:11",
+   "to": "13:21",
+   "mode": "inside",
+   "at": "estates",
+   "now": "At the Directorate of Estates."
   }
  ],
  "entries": [
@@ -647,6 +654,37 @@
    "to": "Hegel",
    "text": "It is a simple statement of your name, father's name, and current address, sworn before a notary. The stamp paper costs ten rupees, but the notary shop is on the first floor, so I suggest you get the paper signed there first, then come back to me. Do not waste my time with a blank sheet.",
    "t": "12:51",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "The bureaucracy of the state is not a barrier to the ethical idea but its necessary form; the document is the thing, not the person. I must accept this verification as the moment where my abstract identity becomes a concrete right. I will go up to the notary, for the paper must be signed before it can be sworn.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "13:11",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "Yes, Mr. Saxena. I shall return with the signed paper.",
+   "to": "Mr. Saxena",
+   "t": "13:11",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "See that you do. First floor, left turn, don't get lost in the corridors. I have a meeting with the under-secretary in twenty minutes, so be quick.",
+   "t": "13:11",
    "place": "estates"
   }
  ],
@@ -1180,6 +1218,74 @@
      "text": "Money is, in fact, not a special kind of wealth, but the universal element in all kinds, in so far as they in production are given such an external reality as can be apprehended as an object."
     }
    ]
+  },
+  {
+   "t": "13:11",
+   "end": "13:21",
+   "event": "Mr. Saxena says: “It is a simple statement of your name, father's name, and current address, sworn before a notary. The stamp paper costs ten rupees, but the notary shop is on the first floor, so I suggest you get the paper signed there first, then come back to me. Do not waste my time with a blank sheet.” He slides a plain A4 sheet of paper across the desk and taps the 'Notary Room' sign on his wall chart.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The bureaucracy of the state is not a barrier to the ethical idea but its necessary form; the document is the thing, not the person. I must accept this verification as the moment where my abstract identity becomes a concrete right. I will go up to the notary, for the paper must be signed before it can be sworn.",
+    "action": "stay",
+    "place": "estates",
+    "minutes": 10,
+    "says": "Yes, Mr. Saxena. I shall return with the signed paper.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, partly cloudy, hazy. Air quality index: 177."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "See that you do. First floor, left turn, don't get lost in the corridors. I have a meeting with the under-secretary in twenty minutes, so be quick.",
+    "does": "Mr. Saxena adjusts his bandhgala collar and picks up the receiver of the middle telephone."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "id": "wallace-mind:321"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "text": "Thus, it may be—if we look only to the fact that the will of one individual stands at the head of the state—oriental despotism is included under the vague name monarchy,—as also feudal monarchy, to which indeed even the favourite name of “constitutional monarchy” cannot be refused."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1216,7 +1322,7 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-25T13:11+05:30",
+  "until": "2026-11-25T13:21+05:30",
   "asleep": false,
   "imprest": 15166,
   "wearing": "bandhgala",
@@ -1684,7 +1790,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "60296801d9ad075e8e0ccc01013892be276b7eb89a29d5bc36ee553fa8e4e301",
+  "source_sha256": "5f5414bfbb8823ae58f3170787f8d6c43601cbf381c5f03c7c6a38a5b07c4f6a",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2041,6 +2147,36 @@
     "words": "It is a simple statement of your name, father's name, and current address, sworn before a notary. The stamp paper costs ten rupees, but the notary shop is on the first floor, so I suggest you get the paper signed there first, then come back to me. Do not waste my time with a blank sheet.",
     "verified": false,
     "time": "12:51",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:77f7a6f152d64a31:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 34,
+     "sha256": "77f7a6f152d64a31beebb073911f438377b8df3f480f39eebcb83f9ed452609b"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "Yes, Mr. Saxena. I shall return with the signed paper.",
+    "verified": false,
+    "time": "13:11",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:da509b3f21cdc017:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 35,
+     "sha256": "da509b3f21cdc0173de59fd2af38b9cb7bea3bf30958de0a50987cfd6eff192f"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "See that you do. First floor, left turn, don't get lost in the corridors. I have a meeting with the under-secretary in twenty minutes, so be quick.",
+    "verified": false,
+    "time": "13:11",
     "place": "estates"
    },
    {
@@ -2489,68 +2625,98 @@
     "text": "Weather: 23 °C, partly cloudy, hazy. Air quality index: 175."
    },
    {
-    "id": "2026-11-25:event:09f308d1221e6c2c:1",
+    "id": "2026-11-25:event:a8ad6adf08a33341:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 8,
+     "sha256": "a8ad6adf08a333413a1a9738130ff32027341889555c50fdcb2e108d536378de"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "13:11",
+    "end": "13:21",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:event:d2a905388ab44c35:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      8,
+      0
+     ],
+     "sha256": "d2a905388ab44c35d16d6027abd0b4aad2a5f83f5cade83d29bad379d155c9de"
+    },
+    "type": "observation",
+    "time": "13:11",
+    "place": "estates",
+    "text": "Weather: 23 °C, partly cloudy, hazy. Air quality index: 177."
+   },
+   {
+    "id": "2026-11-25:event:1cbdaf95159eed65:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "09f308d1221e6c2c907d2463f30763b04cc673a2239338642fcbda7953effc95"
+     "sha256": "1cbdaf95159eed65fee518221ee22ac49c78352f3b853323b255ca8b078ab5b7"
     },
     "type": "cash",
-    "time": "13:11",
+    "time": "13:21",
     "amount": 15166,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:41009739cfd3a01d:1",
+    "id": "2026-11-25:event:6219ff7ca4b362a0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "41009739cfd3a01dbb97f4a38cbb429a69cbc9245b437778c429026a92a67642"
+     "sha256": "6219ff7ca4b362a039840449ea4363bc0c499c20bc6c0ea1b459935deb79e92f"
     },
     "type": "location",
-    "time": "13:11",
+    "time": "13:21",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:b09909e4338e2785:1",
+    "id": "2026-11-25:event:dd853ac2f35d5069:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "b09909e4338e278566fb4991ed342d646976bba515c73e5fadb53ada99af4fb7"
+     "sha256": "dd853ac2f35d5069da380f223831dbbb642102cd2c55c06cd78d41ba66b47da2"
     },
     "type": "inventory",
-    "time": "13:11",
+    "time": "13:21",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-25:event:139814efe245a081:1",
+    "id": "2026-11-25:event:3fa1e6892d7dce3c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "139814efe245a0817898d3382318cf1ad60d4831225dccc0daac5ef0cb6e173c"
+     "sha256": "3fa1e6892d7dce3c137d13b996d2df58d178d0a9f8c00a49c16f9d892d83cd67"
     },
     "type": "inventory",
-    "time": "13:11",
+    "time": "13:21",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 11:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 11:10.\"}]"
    },
    {
-    "id": "2026-11-25:event:2e1c887715998353:1",
+    "id": "2026-11-25:event:339e706354dbbc95:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "2e1c8877159983530fcfb8bdfd82e10e2c3f38e5f9a96d0c0eebf2e333a7b9a2"
+     "sha256": "339e706354dbbc9547c22fbafc33a4db28df67b91b12af1d148463d0cbb7ca65"
     },
     "type": "inventory",
-    "time": "13:11",
+    "time": "13:21",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
