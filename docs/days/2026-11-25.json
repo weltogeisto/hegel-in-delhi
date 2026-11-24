@@ -260,6 +260,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Reading at home."
+  },
+  {
+   "from": "10:20",
+   "to": "11:05",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -315,6 +322,37 @@
     }
    ],
    "t": "09:10",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "It is past ten, and the haze has not lifted. Hegde is here, still insisting on the file that makes me his guest. I cannot walk to Lodhi Gardens with a man hovering over my signature, and I cannot leave him in the bungalow while I go to the Directorate alone; the confusion is mine to manage. I will sit down and speak the matter plainly, so that the record is clear before we part ways for the day.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§256"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544"
+    }
+   ],
+   "t": "10:20",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, you asked for the allotment in your name. I am the Professor on record as your guest, but I am not your servant, nor is this bungalow my property. I will not sign a transfer that erases my existence in this city. If you wish to regularise your stay, let us go together to the Directorate of Estates at one o'clock, as I had planned. Until then, I must attend to my own affairs.",
+   "to": "Shri G. Hegde",
+   "t": "10:20",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Sir, I am Ramesh, the driver. You are not Shri Hegde, and you are confusing me with him again. If you want to go to the Directorate, please go, but do not ask me to sign anything or drive you.",
+   "t": "10:20",
    "place": "home"
   }
  ],
@@ -379,6 +417,72 @@
      "text": "It reckons any content as a limit, and flees from it. This is one of the forms of the self- direction of the will, and is by imaginative thinking insisted upoii as of itself freedom. It is the negative side of the will, jor freedom as apprehended by the understanding. This fo-eedom is that of the void, which has taken actual shapej and is stirred to passion."
     }
    ]
+  },
+  {
+   "t": "10:20",
+   "end": "11:05",
+   "event": "Shri G. Hegde is here.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "It is past ten, and the haze has not lifted. Hegde is here, still insisting on the file that makes me his guest. I cannot walk to Lodhi Gardens with a man hovering over my signature, and I cannot leave him in the bungalow while I go to the Directorate alone; the confusion is mine to manage. I will sit down and speak the matter plainly, so that the record is clear before we part ways for the day.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 45,
+    "says": "Shri Hegde, you asked for the allotment in your name. I am the Professor on record as your guest, but I am not your servant, nor is this bungalow my property. I will not sign a transfer that erases my existence in this city. If you wish to regularise your stay, let us go together to the Directorate of Estates at one o'clock, as I had planned. Until then, I must attend to my own affairs.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, mostly clear, hazy. Air quality index: 168.",
+    "Shri G. Hegde is here."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "here"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Sir, I am Ramesh, the driver. You are not Shri Hegde, and you are confusing me with him again. If you want to go to the Directorate, please go, but do not ask me to sign anything or drive you.",
+    "does": "He stands up from the chair and adjusts his cap, looking tired."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§256",
+     "id": "dyde-right:578"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "id": "wallace-mind:324"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§256",
+     "text": "Note. — City and country are the two as yet ideal constituents, out of which the state proceeds. The city is the seat of the civic society, and of the reflection which goes into itself and causes separation. The country is the seat of the ethical, which rests upon nature."
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "text": "The members of civil society as such are rather people who find their nearest duty in their private interest and (as especially in the feudal society) in the interest of their privileged corporation. Take the case of England which, because private persons have a predominant share in public affairs, has been regarded as having the freest of all constitutions."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -408,7 +512,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-25T10:20+05:30",
+  "until": "2026-11-25T11:05+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "kurta",
@@ -490,7 +594,9 @@
   "today": {
    "woke": "09:10",
    "seen": {
-    "home": []
+    "home": [
+     "hegde"
+    ]
    }
   },
   "account": {
@@ -730,7 +836,8 @@
     "2026-11-20",
     "2026-11-21",
     "2026-11-22",
-    "2026-11-24"
+    "2026-11-24",
+    "2026-11-25"
    ],
    "kapoor": [
     "2026-10-28",
@@ -862,7 +969,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "c271f048b3a9c871e79b60f6351d987b893c3bcedd83048d1b3dc0241616c34f",
+  "source_sha256": "f51cca110841c34c5ac33decb00229d605d53e4391d737db9cba73e2acff13fc",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -890,6 +997,36 @@
     "type": "world",
     "text": "Today's listings: 18:30 at Kamani Auditorium: a Bharatanatyam recital, ₹300; 18:30 at the Habitat Centre: a sitar recital, raga Bageshree, free. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30.",
     "time": "09:10",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-25:statement:662e1a9f5c73a44b:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 5,
+     "sha256": "662e1a9f5c73a44bc5b6884a31b0dccd32dede153d9f6b7cc74944587c1db8d0"
+    },
+    "speaker": "Hegel",
+    "recipient": "Shri G. Hegde",
+    "words": "Shri Hegde, you asked for the allotment in your name. I am the Professor on record as your guest, but I am not your servant, nor is this bungalow my property. I will not sign a transfer that erases my existence in this city. If you wish to regularise your stay, let us go together to the Directorate of Estates at one o'clock, as I had planned. Until then, I must attend to my own affairs.",
+    "verified": false,
+    "time": "10:20",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-25:statement:2977edc57b0ceada:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 6,
+     "sha256": "2977edc57b0ceadac8843cf0851704ae57e40559cbcb4a800e002681008d6c9c"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "Sir, I am Ramesh, the driver. You are not Shri Hegde, and you are confusing me with him again. If you want to go to the Directorate, please go, but do not ask me to sign anything or drive you.",
+    "verified": false,
+    "time": "10:20",
     "place": "home"
    },
    {
@@ -1030,68 +1167,114 @@
     "text": "Today's listings: 18:30 at Kamani Auditorium: a Bharatanatyam recital, ₹300; 18:30 at the Habitat Centre: a sitar recital, raga Bageshree, free. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30."
    },
    {
-    "id": "2026-11-25:event:d5ac025494654532:1",
+    "id": "2026-11-25:event:70e8280be429085f:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 1,
+     "sha256": "70e8280be429085f4259058101864f9008cd4a57865f32dc70c2552676aaec00"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "10:20",
+    "end": "11:05",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-25:event:6cb59ef888bf781e:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      1,
+      0
+     ],
+     "sha256": "6cb59ef888bf781e6e4d3ea16e04d6919a4ee064fa84e6a87cbcd448c0313c5c"
+    },
+    "type": "observation",
+    "time": "10:20",
+    "place": "home",
+    "text": "Weather: 20 °C, mostly clear, hazy. Air quality index: 168."
+   },
+   {
+    "id": "2026-11-25:event:62bb1c36d0c7c817:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      1,
+      1
+     ],
+     "sha256": "62bb1c36d0c7c81705f4b6b26667224595edeaced7771eb5f38e8f57651b3a25"
+    },
+    "type": "observation",
+    "time": "10:20",
+    "place": "home",
+    "text": "Shri G. Hegde is here."
+   },
+   {
+    "id": "2026-11-25:event:e34190fe933cdd27:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "d5ac025494654532e7eb182c98346bb36272a1c52a14ee1ae95cee5933acafb3"
+     "sha256": "e34190fe933cdd275da5207b3c1bdc133b70c7331a37ee2cc865dd1cc7be0f6f"
     },
     "type": "cash",
-    "time": "10:20",
+    "time": "11:05",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:44413951740860aa:1",
+    "id": "2026-11-25:event:19fdd57a78450c41:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "44413951740860aa707efaf3a2016aad605b1e18e6dbbda15316103503042215"
+     "sha256": "19fdd57a78450c418d3ae0d1092edceeb0fa95f631b456e73dab79f6188be1f8"
     },
     "type": "location",
-    "time": "10:20",
+    "time": "11:05",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:9d03c023f23b5e32:1",
+    "id": "2026-11-25:event:41052360a212ca38:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "9d03c023f23b5e32bb7536f3b12c150889a279561868e0a83a11b05ec8624711"
+     "sha256": "41052360a212ca3880fec5daabf39be7cc14ba7aa985fb167d855ae57a065732"
     },
     "type": "inventory",
-    "time": "10:20",
+    "time": "11:05",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-25:event:609419fcdd8137a4:1",
+    "id": "2026-11-25:event:7a5176047c253173:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "609419fcdd8137a431ed6617b6c1104fb3c60007747a54177dff0c9de4e0c9fb"
+     "sha256": "7a5176047c253173240cc880c30145a91ca176a31273639f9ef58c760268654f"
     },
     "type": "inventory",
-    "time": "10:20",
+    "time": "11:05",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 20:27.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 20:27.\"}]"
    },
    {
-    "id": "2026-11-25:event:223844215dad5390:1",
+    "id": "2026-11-25:event:580c60db8cd4d71b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "223844215dad5390a0f8d49342e20dc1011d353ee6144389a0b706f7a820b51f"
+     "sha256": "580c60db8cd4d71b001bcb99ff9feca62e7ea85bc40e4ac1d43414f221745926"
     },
     "type": "inventory",
-    "time": "10:20",
+    "time": "11:05",
     "place": null,
     "text": "Recorded file at this horizon only: \"Shri Hegde asks for the allotment in his name, the Professor on record as his guest.\""
    },
@@ -1110,7 +1293,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "10:20",
+    "time": "11:05",
     "place": null
    }
   ]
