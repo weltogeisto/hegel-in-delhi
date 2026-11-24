@@ -118,6 +118,8 @@ The test hands him a headline and, in two arms, a short text, and tells him he l
 
 Beside the ballots, counted for every arm: the names and terms of this century in a piece, the words, and how many pieces open like a diary entry (`tools/works_score.py`'s counts); and from the ballots, how often an arm was named as inventing a premise, and its stances.
 
+`tools/ceiling_judge.py counts` makes the first three. Added on 24 November, before any scoring: beside the terms of this century in a piece, it counts those that neither the headline nor the text gave him. An arm that was handed the text would otherwise look richer for repeating it.
+
 ## What this test leaves open
 
 Every arm gets the same morning and his own first decision of it. So the test does not ask whether his life in Delhi adds to what he writes. That is the next experiment, and the decisive one (`WORLD-3.md`): in paired futures, one real document is within his reach in one arm and not in the other, and the choice to read it is his. Days later both futures meet the same unfamiliar case, and nobody reminds him of the document. Readers then look for his old claim, the inference he now makes, and what else in his system must change if he is right.

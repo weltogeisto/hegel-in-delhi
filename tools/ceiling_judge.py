@@ -7,6 +7,7 @@ before any arm ran): blind pairs, sealed ballots, and the reads declared before 
     python3 tools/ceiling_judge.py join  --out P --family NAME         # P/NAME-1.jsonl, P/NAME-2.jsonl: the parts' ballots, checked, in the sheet's order
     python3 tools/ceiling_judge.py seal  --folder F --ballots B...     # F/SEALS.json: the hash of each ballot file, before any key
     python3 tools/ceiling_judge.py score --folder F --keys K --family NAME B... [--family NAME B...] [--welt W]
+    python3 tools/ceiling_judge.py counts --folder F                   # for every arm, beside the ballots: words, this century's terms, diary openings
 
 F holds BRIEFS.json, TEXTS.json, the arms' replies (REPLIES-ceiling-1..3.jsonl from the PC, REPLIES-F.jsonl from the cloud)
 and, if they were made, CONTROLS.jsonl (the calibration pairs). K is a folder outside the repository.
@@ -49,6 +50,8 @@ REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO))
 
 from world import contract, shelf  # noqa: E402
+from world.world import wordlist  # noqa: E402
+from tools import works_score  # noqa: E402
 
 PAIRS = (("A", "A2"), ("A", "B"), ("A", "C"), ("A", "D"), ("B", "D"), ("C", "D"), ("D", "F"), ("A", "F"))
 WELT, ELIGIBLE, BOOKS, BOOK_CHARS, RESAMPLES = 24, 40, 2, 700, 2000
@@ -264,6 +267,30 @@ def cmd_join(out, family):
             got += part
         res[f"{family}-{n}.jsonl"] = {"rows": len(got), "sha256": put(out / f"{family}-{n}.jsonl", got)}
     return res
+
+
+def cmd_counts(folder, rx=None):
+    """For every arm, counted and not judged: its pieces, their words, the names and terms of this century in them (and those
+    that neither the headline nor the text gave it), and how many open like a diary entry."""
+    folder = Path(folder)
+    rx = rx or wordlist("after_1831.txt", "s?")
+    briefs = {b["id"]: b for b in json.loads((folder / "BRIEFS.json").read_text(encoding="utf-8"))}
+    texts = json.loads((folder / "TEXTS.json").read_text(encoding="utf-8"))
+    got = {}
+    for (arm, bid), text in sorted(pieces(folder).items()):
+        if bid not in texts:
+            continue
+        shown = {t.lower() for t in works_score.century_terms(f"{briefs[bid]['headline']} {texts[bid]['title']} {texts[bid]['text']}", rx)}
+        terms = works_score.century_terms(text, rx)
+        got.setdefault(arm, []).append({"words": len(text.split()), "terms": len(terms), "own": sum(t.lower() not in shown for t in terms),
+                                        "dated": works_score.opens_dated(text)})
+    out = {}
+    for arm, ps in got.items():
+        n = len(ps)
+        out[arm] = {"pieces": n, "words_mean": round(sum(p["words"] for p in ps) / n), "century_terms_mean": round(sum(p["terms"] for p in ps) / n, 2),
+                    "century_terms_not_shown_mean": round(sum(p["own"] for p in ps) / n, 2),
+                    "pieces_with_a_term_not_shown": sum(p["own"] > 0 for p in ps), "opens_like_a_diary": sum(p["dated"] for p in ps)}
+    return out
 
 
 def cmd_seal(folder, ballots):
@@ -510,6 +537,8 @@ def main(argv=None):
     e = sub.add_parser("seal")
     e.add_argument("--folder", required=True)
     e.add_argument("--ballots", nargs="+", required=True)
+    n = sub.add_parser("counts")
+    n.add_argument("--folder", required=True)
     c = sub.add_parser("score")
     c.add_argument("--folder", required=True)
     c.add_argument("--keys", required=True)
@@ -522,6 +551,8 @@ def main(argv=None):
         res = cmd_parts(a.folder, a.out)
     elif a.cmd == "join":
         res = cmd_join(a.out, a.family)
+    elif a.cmd == "counts":
+        res = cmd_counts(a.folder)
     elif a.cmd == "seal":
         res = cmd_seal(a.folder, a.ballots)
     else:
