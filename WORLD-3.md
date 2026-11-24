@@ -10,22 +10,22 @@ Welt, 24 November: "the entire ousia of this simulation is to have Hegel resurre
 
 ## What the record says
 
-He has lived 55 days. Night 2 lived five weeks more, twice (`pc/FAST-LANE-NIGHT2-RESULT.md`).
+He has lived 54 days. Night 2 lived five weeks more, twice (`pc/FAST-LANE-NIGHT2-RESULT.md`).
 
 | What | Count | Where |
 |---|---|---|
 | Names and terms from after 1831 in everything he has written | 0 in 12 sittings. 0 again in 54 rehearsed sittings, about 24,000 words | the day files; `world/data/after_1831.txt` |
 | He chose to read | 10 times in 15 days, and 81 times in the rehearsed five weeks. No reading returned text | the day files; night 2 |
 | The papers | three headlines in the waking line, nothing behind them | `world/world.py` |
-| His one long manuscript | 8 sittings, 4,146 words in 43 days. Every sitting opens with the date and the weather. One formula stands in 7 of the 8 | "On the Ethical Substance and the Dream of the East" |
+| His one long manuscript | 8 sittings, 4,146 words in six weeks. Every sitting opens with the date and the weather. One formula stands in 7 of the 8 | "On the Ethical Substance and the Dream of the East" |
 | What he writes in the rehearsed December, once that manuscript stops | "Notes on the Voucher Register", "The Kettle and the Gate", "The Empty Pantry and the Abstract Right" | night 2 |
-| Paid writing | The Yamuna Review offered ₹6,000 for an essay on Day 16. The record took a no, while he said aloud "I am open to the negotiation". The offer never returns, and the column behind it, ₹4,000 a fortnight, never opens | 28 October; `world/data/offers.json` |
+| Paid writing | The Yamuna Review offered ₹6,000 for an essay on Day 27. The record took a no, while he said aloud "I am open to the negotiation". The offer never returns, and the column behind it, ₹4,000 a fortnight, never opens | 28 October; `world/data/offers.json` |
 | His memory of a day | the people, the place and 90 characters a night for three nights | `world/memory.py` |
 | Moments the world brings, a day | 6.8 in the first third of the futures, 4.3 in the last | night 2 |
 | Ways out of the money trouble that the world offered | the frock coat: declined 6 times of 6. The bank account: declined 14 of 15 | night 2 |
 | The same question, the same answer | Shri Hegde's letter: yes, 23 of 23. Mr. Saxena's door: no, 8 of 8 | nights 1 and 2 |
 
-**One thing in the record did move.** On Day 1 he wrote that India "stands at the dawn of that history, outside its movement". On Day 55, after six weeks of the Directorate's file: "I am no longer outside the movement of history; I am inside its paperwork." His thesis moved in the one place where the world had substance and consequences. Nowhere else has the world given him anything to think about, so the rest of what he writes is the weather, the purse and the kettle.
+**One thing in the record did move.** On Day 12, in the manuscript's first sitting, he wrote that India "stands at the dawn of that history, outside its movement". On Day 54, after six weeks of the Directorate's file: "I am no longer outside the movement of history; I am inside its paperwork." His thesis moved in the one place where the world had substance and consequences. Nowhere else has the world given him anything to think about, so the rest of what he writes is the weather, the purse and the kettle.
 
 ## What a mind needs to think something new
 
@@ -89,7 +89,7 @@ Each is built off, tested, rehearsed on a night, and then put to Welt.
 - **The household notices.** Ramesh speaks of the wage before it falls due. Sunil lets a small sum stand, once. Shri Hegde sets a second plate: company, not rescue.
 - **Two repairs of the file's act:** a refusal at Mr. Saxena's no longer wipes Mr. Malhotra's letter from the file's line; and the hearing, part 2, is drafted for Welt's pen (`pc/FILE-HEARING-SHEET.md`).
 
-**4. Matter, second part: the library of the century** (`HEGEL_LIBRARY`). The reading room at the IIC, which he asked for on Day 16 and the world did not have, and the bookseller at Khan Market.
+**4. Matter, second part: the library of the century** (`HEGEL_LIBRARY`). The reading room at the IIC, which he asked for on Day 27 and the world did not have, and the bookseller at Khan Market.
 - **Real texts in the public domain,** cut into passages as his own shelf is, and put before him when he reads there:
   - **India makes its own state:** Rammohan Roy, Macaulay's minute, Marx on British rule in India, Vivekananda, Gandhi's *Hind Swaraj*, Tagore's *Nationalism*, the Constitution.
   - **What became of his philosophy:** Marx's afterword on the dialectic, Schopenhauer, Darwin, Nietzsche, William James, Croce's *What is Living and What is Dead of the Philosophy of Hegel*.
