@@ -1,5 +1,5 @@
 {
-  "note": "Offers, and the beats that follow them: the same shape as plot.json. 'when' holds an offer's conditions (met_days: days he has met them; visits: days he has been in a place; known: people he has met; since_day: days since day 1; cash_below, cash_min; flags (each must equal its value); flags_in (a flag must be one of a list of values, null in the list accepting it unset); flags_not (a flag must not be a value or any of a list of values; unset passes unless null is listed); wardrobe: a garment he still owns; words: a manuscript of that many words; on: one date; owes: a cost he owes and his cash cannot meet; cheques: cheques he holds; days: days of the week). Effects, in a beat or in a choice's yes or no: pay (money to him now, or after_min later, at a place 'at', or at his next sitting of 'write' words), cheque (the same, but a cheque he cannot bank), owe, sell (a garment, and what it fetches where 'at'), schedule (a standing engagement with 'days', or an appointment in_days for a beat that follows), reprice (a debt that stands owed is changed), bank (an account: cheques then clear in three days), commission (work that recurs every N days, one piece asked for at a time). A pay with 'flag' sets that flag when it is paid. 'again_days': a refused offer comes back after that many days. owes_none: none of these costs may stand owed or fall due at that moment; net_min: cash less all he owes and all that falls due at that moment. A choice branch's 'reopens' lets the named offers be made again. 'switch': the offer exists only while that switch is on (ramesh_days: HEGEL_RAMESH_DAYS). Every offer is made by someone present; every price is simulated.",
+  "note": "Offers, and the beats that follow them: the same shape as plot.json. 'when' holds an offer's conditions (met_days: days he has met them; visits: days he has been in a place; known: people he has met; since_day: days since day 1; cash_below, cash_min; flags (each must equal its value); flags_in (a flag must be one of a list of values, null in the list accepting it unset); flags_not (a flag must not be a value or any of a list of values; unset passes unless null is listed); wardrobe: a garment he still owns; words: a manuscript of that many words; on: one date; owes: a cost he owes and his cash cannot meet; cheques: cheques he holds; days: days of the week). Effects, in a beat or in a choice's yes or no: pay (money to him now, or after_min later, at a place 'at', or at his next sitting of 'write' words), cheque (the same, but a cheque he cannot bank), owe, sell (a garment, and what it fetches where 'at'), schedule (a standing engagement with 'days', or an appointment in_days for a beat that follows), reprice (a debt that stands owed is changed), bank (an account: cheques then clear in three days), commission (work that recurs every N days, one piece asked for at a time). A pay with 'flag' sets that flag when it is paid. 'again_days': a refused offer comes back after that many days. owes_none: none of these costs may stand owed or fall due at that moment; net_min: cash less all he owes and all that falls due at that moment. A choice branch's 'reopens' lets the named offers be made again. 'switch': the offer exists only while that switch is on (ramesh_days: HEGEL_RAMESH_DAYS).  HEGEL_EXITS adds: running (an engagement kept, with that many sessions held), fired_before (a beat fired on an earlier day), due_within (a cost falls due within that many days, and his cash is below it), plain_days (the kitchen on the plain meal for that many days); 'like': an offer made as another is, with its own words and conditions; a schedule may be a list; 'feed' (a meal given him by a person of the house); 'repeat': with again_days, an offer taken may come again too. piece_out (a piece of his that went out, a talk given or a piece paid for, at least after_days ago and not yet thanked, and no gift in the last gap_days); 'gift': an envelope with that sum, its words filled with the piece it names, which may come again; a pay's 'ask' stays on his mind until the piece is written. Every offer is made by someone present; every price is simulated.",
   "offers": [
     {
       "id": "tutoring_german", "kind": "world", "needs": ["nidhi"], "again_days": 14,
@@ -217,6 +217,136 @@
                          "ask": "The Yamuna Review asks for your next column: ₹4,000 in cash, at your next sitting of three hundred words or more."}
         },
         "no": {"public": "He declines the column."}
+      }
+    },
+    {
+      "id": "exits_second_pupil", "switch": "exits", "kind": "world", "needs": ["nidhi"], "again_days": 14,
+      "when": {"running": {"tutoring_german": 4}, "cash_below": 3000},
+      "prompt": "Nidhi says that a friend of hers, Vikram, would learn German too, if there were a third day in the week: Wednesdays at five, here at the bungalow, ₹1,000 a lesson in cash, the same as Ananya.",
+      "public": "Nidhi says a friend of hers, Vikram, would learn German too: a third lesson a week, on Wednesdays at five at the bungalow, ₹1,000 in cash.",
+      "choice": {
+        "question": "Did you agree to give Nidhi's friend Vikram a German lesson on Wednesdays at five at the bungalow, for ₹1,000 in cash?",
+        "yes": {
+          "public": "He agrees. Vikram will come to the bungalow on Wednesdays at five.",
+          "schedule": {"id": "tutoring_german_2", "days": "Wed", "t": "17:00", "minutes": 60, "place": "home", "with": "vikram",
+                       "what": "German lesson", "pay": 1000, "cancel_after": 2}
+        },
+        "no": {"public": "He declines. Nidhi says she will tell her friend."}
+      }
+    },
+    {
+      "id": "exits_course", "switch": "exits", "kind": "world", "again_days": 14,
+      "when": {"fired_before": ["iic_talk_day", "iic_talk_day2"]},
+      "variants": {
+        "iic": {
+          "needs": ["officer"],
+          "prompt": "The programme officer says the Centre was glad of your talk. It would like a course of four evenings, one a week, in the lecture hall at half past six: ₹3,000 an evening, paid in cash at the door."
+        },
+        "home": {
+          "needs": ["ramesh"],
+          "prompt": "Ramesh brings a note from the India International Centre. The Centre was glad of your talk, the programme officer writes. It would like a course of four evenings, one a week, in the lecture hall at half past six: ₹3,000 an evening, paid in cash at the door."
+        }
+      },
+      "public": "The programme officer of the IIC offers him a course of four evenings, one a week at 18:30, at ₹3,000 an evening in cash at the door.",
+      "choice": {
+        "question": "Did you agree to give a course of four lectures at the IIC, one evening a week at 18:30, for ₹3,000 an evening in cash?",
+        "yes": {
+          "public": "He accepts. The first evening is in seven days, at 18:30; the others follow, a week apart.",
+          "schedule": [
+            {"in_days": 7, "t": "18:30", "what": "your first lecture of the course at the IIC", "beat": "exits_course_1"},
+            {"in_days": 14, "t": "18:30", "what": "your second lecture of the course at the IIC", "beat": "exits_course_2"},
+            {"in_days": 21, "t": "18:30", "what": "your third lecture of the course at the IIC", "beat": "exits_course_3"},
+            {"in_days": 28, "t": "18:30", "what": "your fourth lecture of the course at the IIC", "beat": "exits_course_4"}
+          ]
+        },
+        "no": {"public": "He declines the course."}
+      }
+    },
+    {
+      "id": "exits_course_1", "switch": "exits", "after": ["exits_course"], "on_appointment": true, "at": "18:30", "window": ["18:30", "19:15"], "where": "iic",
+      "brings": ["officer"], "kind": "world", "talk": {"minutes": 60},
+      "prompt": "The programme officer shows you into the lecture hall for the first evening of the course. The seats are filling. The lecture is yours, for about an hour.",
+      "public": "Half past six: he gives the first lecture of his course in the hall of the IIC, an hour.",
+      "pay": {"from": "the India International Centre", "amount": 3000, "item": "Fee for an evening's lecture", "after_min": 60, "at": "iic"}
+    },
+    {
+      "id": "exits_course_2", "switch": "exits", "after": ["exits_course"], "on_appointment": true, "at": "18:30", "window": ["18:30", "19:15"], "where": "iic",
+      "brings": ["officer"], "kind": "world", "talk": {"minutes": 60},
+      "prompt": "The programme officer shows you into the lecture hall for the second evening of the course. The seats are filling. The lecture is yours, for about an hour.",
+      "public": "Half past six: he gives the second lecture of his course in the hall of the IIC, an hour.",
+      "pay": {"from": "the India International Centre", "amount": 3000, "item": "Fee for an evening's lecture", "after_min": 60, "at": "iic"}
+    },
+    {
+      "id": "exits_course_3", "switch": "exits", "after": ["exits_course"], "on_appointment": true, "at": "18:30", "window": ["18:30", "19:15"], "where": "iic",
+      "brings": ["officer"], "kind": "world", "talk": {"minutes": 60},
+      "prompt": "The programme officer shows you into the lecture hall for the third evening of the course. The seats are filling. The lecture is yours, for about an hour.",
+      "public": "Half past six: he gives the third lecture of his course in the hall of the IIC, an hour.",
+      "pay": {"from": "the India International Centre", "amount": 3000, "item": "Fee for an evening's lecture", "after_min": 60, "at": "iic"}
+    },
+    {
+      "id": "exits_course_4", "switch": "exits", "after": ["exits_course"], "on_appointment": true, "at": "18:30", "window": ["18:30", "19:15"], "where": "iic",
+      "brings": ["officer"], "kind": "world", "talk": {"minutes": 60},
+      "prompt": "The programme officer shows you into the lecture hall for the fourth evening of the course. The seats are filling. The lecture is yours, for about an hour.",
+      "public": "Half past six: he gives the fourth lecture of his course in the hall of the IIC, an hour.",
+      "pay": {"from": "the India International Centre", "amount": 3000, "item": "Fee for an evening's lecture", "after_min": 60, "at": "iic"}
+    },
+    {
+      "id": "exits_essay_again", "switch": "exits", "kind": "world", "after": ["essay_fee"], "again_days": 14,
+      "when": {"flags_not": {"essay_paid": true}, "words": 3000},
+      "variants": {
+        "home": {
+          "needs": ["ramesh"],
+          "prompt": "Ramesh brings a letter from the editor of the Yamuna Review. She asks again for an essay of yours: ₹6,000 in cash, on your next sitting of at least three hundred words. This time she names her question: you taught that India has no history of its own making, and you have now lived in its capital. Does the sentence stand?"
+        },
+        "iic": {
+          "needs": ["officer"],
+          "prompt": "The programme officer has a message from the editor of the Yamuna Review. She asks again for an essay of yours: ₹6,000 in cash, on your next sitting of at least three hundred words. This time she names her question: you taught that India has no history of its own making, and you have now lived in its capital. Does the sentence stand?"
+        },
+        "khan": {
+          "needs": ["nidhi"],
+          "prompt": "Nidhi has a message from her friend, the editor of the Yamuna Review. She asks again for an essay of yours: ₹6,000 in cash, on your next sitting of at least three hundred words. This time she names her question: you taught that India has no history of its own making, and you have now lived in its capital. Does the sentence stand?"
+        }
+      },
+      "public": "The editor of the Yamuna Review asks again for an essay, ₹6,000 in cash, and names her question: does his sentence stand, that India has no history of its own making?",
+      "choice": {
+        "question": "Did you agree to write the essay for the Yamuna Review, on the editor's question, for ₹6,000 in cash at your next sitting of three hundred words or more?",
+        "yes": {
+          "public": "He agrees to write the essay for the Yamuna Review.",
+          "pay": {"from": "the Yamuna Review", "amount": 6000, "item": "Fee for an essay", "write": 300, "flag": "essay_paid",
+                  "ask": "The Yamuna Review waits for your essay: ₹6,000 in cash at your next sitting of three hundred words or more. The editor's question: you taught that India has no history of its own making, and you have now lived in its capital. Does the sentence stand?"}
+        },
+        "no": {"public": "He declines the essay. The editor says she will ask again."}
+      }
+    },
+    {
+      "id": "exits_gift", "switch": "exits", "kind": "world", "where": "home", "needs": ["ramesh"], "window": ["09:30", "20:30"],
+      "when": {"piece_out": {"after_days": 2, "gap_days": 10}},
+      "gift": {"from": "an admirer who gives no name", "amount": 2000, "item": "A gift, left at the gate",
+               "pieces": {"iic_talk_day": "your talk at the Centre", "iic_talk_day2": "your talk at the Centre",
+                          "exits_course_1": "the first evening of your course", "exits_course_2": "the second evening of your course",
+                          "exits_course_3": "the third evening of your course", "exits_course_4": "the fourth evening of your course",
+                          "Fee for an essay": "your essay in the Yamuna Review", "Fee for a column": "your column in the Yamuna Review"}},
+      "prompt": "Ramesh brings an envelope that was left at the gate, with no name on it. Inside are ₹2,000 and a card in a careful hand: 'For {piece}. I have thought of it every day since. This city has need of what you think, and of what you think next. What comes next?'",
+      "public": "An envelope left at the gate, with no name: ₹2,000, and a card that thanks him for {piece} and asks what comes next."
+    },
+    {
+      "id": "exits_ramesh_early", "switch": "exits", "like": "ramesh_parttime", "where": "home", "needs": ["ramesh"], "again_days": 7,
+      "when": {"due_within": {"wage": 5}, "flags_not": {"ramesh_parttime": true}},
+      "prompt": "Ramesh knows the wage falls due on the first, and that the purse will not hold it, he says, without looking at it. He could come on Mondays, Thursdays and Saturdays only, from now, and the wage would be ₹4,000 a month.",
+      "public": "Ramesh offers, before the wage falls due, to come three days a week, Mondays, Thursdays and Saturdays, for ₹4,000 a month instead of ₹8,000."
+    },
+    {
+      "id": "exits_hegde_plate", "switch": "exits", "kind": "world", "repeat": true, "where": "home", "needs": ["hegde"], "again_days": 3, "window": ["19:00", "21:30"],
+      "when": {"plain_days": 2},
+      "prompt": "For two days there has been only the one plain meal at home. Shri Hegde has brought food from outside, in a covered steel tin, and sets a second plate on the table.",
+      "public": "Shri Hegde has brought food from outside, and sets a second plate on the table.",
+      "choice": {
+        "question": "Did you sit down and eat with Shri Hegde?",
+        "yes": {
+          "public": "He sits down and eats with Shri Hegde.",
+          "feed": {"by": "hegde", "what": "food Shri Hegde brought from outside"}
+        },
+        "no": {"public": "He thanks Shri Hegde and does not eat. The tin is covered again."}
       }
     }
   ]

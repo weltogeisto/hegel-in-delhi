@@ -818,7 +818,7 @@ class Engine:
         if it is open when he gets there and he has the cash."""
         if not self.wants_food(st, t):
             return False
-        if "ramesh" in self.world.present_ids("home", t, st) and not self.world.kitchen(st):
+        if "ramesh" in self.world.present_ids("home", t, st) and not self.world.kitchen(st, t):
             return False
         arrival = t + timedelta(minutes=self.world.walk("home", self.EAT_OUT))
         return self.dhaba(st, arrival) is not None
