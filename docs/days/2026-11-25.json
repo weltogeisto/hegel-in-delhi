@@ -400,6 +400,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "16:54",
+   "to": "17:36",
+   "mode": "walk",
+   "a": "estates",
+   "b": "lodhi"
   }
  ],
  "entries": [
@@ -1128,6 +1135,37 @@
    "to": "Hegel",
    "text": "Don't trust it, just do it. If the machine spits it out, you'll be back here at nine in the morning, and I won't have the patience for a second round of this nonsense.",
    "t": "16:44",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "He speaks with the irritation of a man who has been denied by his own tools. I have no patience for his impatience, nor the energy to return tomorrow to argue with a scanner. The file remains a dead weight, and the hour is nearly lost. I will leave the building to the dust and the bureaucracy, and walk toward the garden where the air is at least honest.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    }
+   ],
+   "t": "16:54",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "Very well. I will not trouble you again this evening. Good day, Mr. Saxena.",
+   "to": "Mr. Saxena",
+   "t": "16:54",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Save it. The file goes under my lock, so don't come asking for the carbon copy. Good day.",
+   "t": "16:54",
    "place": "estates"
   }
  ],
@@ -2520,6 +2558,72 @@
      "text": "The monarcliical gives the final decision, and the executive element advises. The executive element has concrete knowledge and oversight of the whole in its many sides and in the actual principles firmly rooted in them. It has also acquaintance with the wants of the oflices of state. In the legislature are at last represented the different classes or estates."
     }
    ]
+  },
+  {
+   "t": "16:54",
+   "end": "17:36",
+   "event": "Mr. Saxena says: “Don't trust it, just do it. If the machine spits it out, you'll be back here at nine in the morning, and I won't have the patience for a second round of this nonsense.” He leans back in his chair, tapping the pen holder once more for emphasis.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "He speaks with the irritation of a man who has been denied by his own tools. I have no patience for his impatience, nor the energy to return tomorrow to argue with a scanner. The file remains a dead weight, and the hour is nearly lost. I will leave the building to the dust and the bureaucracy, and walk toward the garden where the air is at least honest.",
+    "action": "walk",
+    "place": "lodhi",
+    "minutes": 15,
+    "says": "Very well. I will not trouble you again this evening. Good day, Mr. Saxena.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "lodhi",
+   "observations": [
+    "Weather: 23 °C, clear, hazy. Air quality index: 184."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Save it. The file goes under my lock, so don't come asking for the carbon copy. Good day.",
+    "does": "Saxena slides the folder into the bottom drawer and locks it with a sharp click."
+   },
+   "left": "estates",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:525"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:26"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "Bentley's researches at length placed Vicrajnaditya in the twelfth century B.C. But still more recently it has been discovered that there were five, or even eight or nine kings of that name in India; so that on this point also we are thrown back into utter uncertainty."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "The significance of these facts for the authorities will not be obscured by the claim that the holder of these perilous doctrines should be trusted, or by the immunity of office."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2562,8 +2666,8 @@
  "owl": null,
  "complete": false,
  "state": {
-  "place": "estates",
-  "until": "2026-11-25T16:54+05:30",
+  "place": "lodhi",
+  "until": "2026-11-25T17:36+05:30",
   "asleep": false,
   "imprest": 15166,
   "wearing": "kurta",
@@ -2662,8 +2766,8 @@
      "sunil"
     ]
    },
-   "walked": 8925,
-   "strain": 8925,
+   "walked": 12075,
+   "strain": 12075,
    "lunch": true,
    "hunger": 1
   },
@@ -3061,7 +3165,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "999ccdafc619fcfec27ff211667ebb40da71fd507f81ef32b816ecdb13dc32aa",
+  "source_sha256": "ae55d89bcfb4ddd7c7e4d573f60237bdfde4e24c1f3301a00c0e05c8aeb13f0d",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3785,6 +3889,36 @@
     "words": "Don't trust it, just do it. If the machine spits it out, you'll be back here at nine in the morning, and I won't have the patience for a second round of this nonsense.",
     "verified": false,
     "time": "16:44",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:79add3cc056a2f6f:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 72,
+     "sha256": "79add3cc056a2f6fb05515cd9d05e98af6d6cd542ef270bf75ddf15ba360b58a"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "Very well. I will not trouble you again this evening. Good day, Mr. Saxena.",
+    "verified": false,
+    "time": "16:54",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:8d94f145726f65f8:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 73,
+     "sha256": "8d94f145726f65f8465a5143a90f94d0ba8712f33447e2a1ae07353e70b13166"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "Save it. The file goes under my lock, so don't come asking for the carbon copy. Good day.",
+    "verified": false,
+    "time": "16:54",
     "place": "estates"
    },
    {
@@ -4741,68 +4875,100 @@
     "text": "Weather: 23 °C, clear, hazy. Air quality index: 184."
    },
    {
-    "id": "2026-11-25:event:1a2a14bae85a20c4:1",
+    "id": "2026-11-25:event:5d45eec56250ec83:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 21,
+     "sha256": "5d45eec56250ec835057dd2a13324258bf5d0c4396b8c81936e040fd799136e3"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "16:54",
+    "end": "17:36",
+    "place": null,
+    "origin": "estates",
+    "destination": "lodhi"
+   },
+   {
+    "id": "2026-11-25:event:dfaa95db4b7c13b9:4",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      21,
+      0
+     ],
+     "sha256": "dfaa95db4b7c13b95db892f65239175873997f447aee5bd4d63bd8826af102f8"
+    },
+    "type": "observation",
+    "time": "16:54",
+    "place": "estates",
+    "text": "Weather: 23 °C, clear, hazy. Air quality index: 184."
+   },
+   {
+    "id": "2026-11-25:event:82b6c7be3ce4f7f1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "1a2a14bae85a20c49f7265fa18160a6c1270d8ca159fc60d956d544dd9aed459"
+     "sha256": "82b6c7be3ce4f7f1eab5f343b44ca0b6b96bb1e054598652004811a6ce125f5c"
     },
     "type": "cash",
-    "time": "16:54",
+    "time": "17:36",
     "amount": 15166,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:cd6ad28708a7bc1e:1",
+    "id": "2026-11-25:event:73ce9ad483869995:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "cd6ad28708a7bc1e657f6c923e7ea09e1570c35f1d8720c630f8bdcfe838f5e0"
+     "sha256": "73ce9ad4838699955cb5a591a95b21ce09aa33a048ac75c71be3066b515ad977"
     },
     "type": "location",
-    "time": "16:54",
-    "place": "estates",
+    "time": "17:36",
+    "place": "lodhi",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:bf20d7671dde5ecd:1",
+    "id": "2026-11-25:event:8f51d44cb11f3b76:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "bf20d7671dde5ecdfca257fb6e331ce8e6f9ff06c3df04778fa1de5e787a282d"
+     "sha256": "8f51d44cb11f3b76d4a8545d08e53618a4e4fd853c60435fd5f0f9272261d55d"
     },
     "type": "inventory",
-    "time": "16:54",
+    "time": "17:36",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-25:event:866a4f54bd311ccc:1",
+    "id": "2026-11-25:event:940eaa9857ef63bf:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "866a4f54bd311ccc89426e84052c45a531065697aa053dd893e2bb650d89ae56"
+     "sha256": "940eaa9857ef63bf38f0e13999806d145f2d92e785d2cb8024f474f425e935ab"
     },
     "type": "inventory",
-    "time": "16:54",
+    "time": "17:36",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 14:22.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 14:22.\"}]"
    },
    {
-    "id": "2026-11-25:event:1b9b980b3bea329d:1",
+    "id": "2026-11-25:event:659a550f783c8ca0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "1b9b980b3bea329d68ee444980e1a8611fa4acffa0792685f1268557fa9821be"
+     "sha256": "659a550f783c8ca0ebef279b19b0c1ee248f852366a9c0599653849673000fad"
     },
     "type": "inventory",
-    "time": "16:54",
+    "time": "17:36",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
