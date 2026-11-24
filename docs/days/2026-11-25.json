@@ -3596,7 +3596,7 @@
   }
  },
  "owl": null,
- "complete": false,
+ "complete": true,
  "state": {
   "place": "home",
   "until": "2026-11-26T00:00+05:30",
@@ -4129,8 +4129,8 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "caca6b9a0268a0570448a3191f98dbf4a2c0f01ff4144d93a6503c11976d27a1",
-  "complete": false,
+  "source_sha256": "b22eb83b4e591716bad03f74f117c042a88705b0ac3399da7c862d0fb31dc742",
+  "complete": true,
   "steps_present": true,
   "records": [
    {
@@ -6506,68 +6506,68 @@
     "text": "You arrive at India International Centre. It closes at 21:30."
    },
    {
-    "id": "2026-11-25:event:07a09f8fb119d86e:1",
+    "id": "2026-11-25:event:3c0df68cfbf4ba9b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "07a09f8fb119d86ea4d6c0a259fed6d1b266ca3222181688d6306247e23c653b"
+     "sha256": "3c0df68cfbf4ba9b4b28a9c994b603b58e3dbb670bd6a540ddeed5555f35c99c"
     },
     "type": "cash",
-    "time": "00:00",
+    "time": "24:00",
     "amount": 15106,
-    "at_close": false,
+    "at_close": true,
     "place": null
    },
    {
-    "id": "2026-11-25:event:3de31497a0984016:1",
+    "id": "2026-11-25:event:4889fc49260bd079:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "3de31497a098401600bc5e4265fa6128ea5cc721fa964de1c664f226078ef763"
+     "sha256": "4889fc49260bd079064bdede1145c5a6226785c5d8fb9d2fcda009a818e679eb"
     },
     "type": "location",
-    "time": "00:00",
+    "time": "24:00",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:5d682cc2087ab602:1",
+    "id": "2026-11-25:event:042369daeac49489:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "5d682cc2087ab6024e352f4c39cadbd576c566f8ad7dd409da36d1bbf2fb3c38"
+     "sha256": "042369daeac49489ecb55261eb1ad9661ae8d6d41a8fbd3159490f8e1cbc1724"
     },
     "type": "inventory",
-    "time": "00:00",
+    "time": "24:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-25:event:1e56a36902955427:1",
+    "id": "2026-11-25:event:0b2e1508eb361dfd:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "1e56a369029554275c9e3e9b045b99709687f14b5e4de57f48c5a38428ca98a9"
+     "sha256": "0b2e1508eb361dfd12b0f606090ad3afedbd85dc80735cab429886eae825af80"
     },
     "type": "inventory",
-    "time": "00:00",
+    "time": "24:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 20:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 20:46.\"}]"
    },
    {
-    "id": "2026-11-25:event:48636d3634bafbe9:1",
+    "id": "2026-11-25:event:10739e2d7d76e859:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "48636d3634bafbe9ac660da02e60d2d3604e6274d682f6db07b5c88594f099de"
+     "sha256": "10739e2d7d76e859208eddffb7216c0367f314e321150f284e3f1bdcac05f09b"
     },
     "type": "inventory",
-    "time": "00:00",
+    "time": "24:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
