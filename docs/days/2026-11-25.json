@@ -442,6 +442,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "20:06",
+   "to": "20:11",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -1330,6 +1337,37 @@
     }
    ],
    "t": "19:21",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Twenty-seven hours without a proper meal and the body begins to protest with a dull, persistent ache. Hegde is still here, his face unreadable in the dim light, waiting for me to speak or move. I am too tired to argue the ontology of hunger, and the file can wait another hour; I need to eat, but the household is empty and Ramesh is gone. Khan Market is open until twenty-thirty, and the walk will clear the head as much as the plate.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    }
+   ],
+   "t": "20:06",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, I must ask your pardon. The body has its own dialectic, and I find myself in need of sustenance. I shall take a walk to Khan Market to see what remains open. Do you have any preference for the evening's company, or shall I return in an hour?",
+   "to": "Shri G. Hegde",
+   "t": "20:06",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Sir, please stop with that philosophy and just eat. Khan Market is a zoo at this hour, and I am not leaving you to wander that haze alone. I am ordering the food right now; you stay put.",
+   "t": "20:06",
    "place": "home"
   }
  ],
@@ -3108,6 +3146,72 @@
      "text": "A slothful mind finds it natural to say: 'Don't let it be supposed that we mean to be in earnest with our philosophy. We shall be glad inter alia to study Logic: but Logic must be sure to leave us as we were before.' People have a feeling that, if thinking passes the ordinary range of our ideas and impressions, it cannot but be on the evil road."
     }
    ]
+  },
+  {
+   "t": "20:06",
+   "end": "20:11",
+   "event": "You are hungry.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Twenty-seven hours without a proper meal and the body begins to protest with a dull, persistent ache. Hegde is still here, his face unreadable in the dim light, waiting for me to speak or move. I am too tired to argue the ontology of hunger, and the file can wait another hour; I need to eat, but the household is empty and Ramesh is gone. Khan Market is open until twenty-thirty, and the walk will clear the head as much as the plate.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 5,
+    "says": "Shri Hegde, I must ask your pardon. The body has its own dialectic, and I find myself in need of sustenance. I shall take a walk to Khan Market to see what remains open. Do you have any preference for the evening's company, or shall I return in an hour?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, a brown haze. Air quality index: 207.",
+    "You are hungry."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "hunger"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Sir, please stop with that philosophy and just eat. Khan Market is a zoo at this hour, and I am not leaving you to wander that haze alone. I am ordering the food right now; you stay put.",
+    "does": "He pulls out his phone and scrolls through a delivery app with visible irritation."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "id": "haldane-3:1108"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "text": "There is no man so foolish as that philosophy; when a man feels hungry, he does not call up the imagination of food, but sets about satisfying his hunger. All activity is a conception which does not yet exist, but whose subjectivity is abrogated."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -3151,7 +3255,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-25T20:06+05:30",
+  "until": "2026-11-25T20:11+05:30",
   "asleep": false,
   "imprest": 15106,
   "wearing": "kurta",
@@ -3260,7 +3364,8 @@
    "bought_food": {
     "place": "lodhi",
     "t": "2026-11-25T17:36+05:30"
-   }
+   },
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
@@ -3676,7 +3781,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "8fe4008447e1236954e16e8a8c2ac3f55df3f6acb1df807637f26434ed41626c",
+  "source_sha256": "08992d91b798d6959979aa5eb24c72f7c43b7f1a7a7a07e5dccb406f51f7c318",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4529,6 +4634,36 @@
     "verified": false,
     "time": "17:46",
     "place": "lodhi"
+   },
+   {
+    "id": "2026-11-25:statement:9192e76fd30bbcbd:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 86,
+     "sha256": "9192e76fd30bbcbd7aa4b1c7934a8dcb1ba971875e53be892d19620253732989"
+    },
+    "speaker": "Hegel",
+    "recipient": "Shri G. Hegde",
+    "words": "Shri Hegde, I must ask your pardon. The body has its own dialectic, and I find myself in need of sustenance. I shall take a walk to Khan Market to see what remains open. Do you have any preference for the evening's company, or shall I return in an hour?",
+    "verified": false,
+    "time": "20:06",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-25:statement:e0e983f3b3b17bdf:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 87,
+     "sha256": "e0e983f3b3b17bdf80ea151cd75ca3e31d5f59646a22aedefa3fcba93cb1f150"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "Sir, please stop with that philosophy and just eat. Khan Market is a zoo at this hour, and I am not leaving you to wander that haze alone. I am ordering the food right now; you stay put.",
+    "verified": false,
+    "time": "20:06",
+    "place": "home"
    },
    {
     "id": "2026-11-25:event:cabd1f00db8a97c2:1",
@@ -5764,68 +5899,114 @@
     "text": "Nothing in particular happens. The evening goes on."
    },
    {
-    "id": "2026-11-25:event:127077db66891168:1",
+    "id": "2026-11-25:event:4b4504dff5fd2a21:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 27,
+     "sha256": "4b4504dff5fd2a21fc2111bb542aaea62d430f45ec657a857cd44a1addece7fa"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "20:06",
+    "end": "20:11",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-25:event:997583ea9732c0f5:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      27,
+      0
+     ],
+     "sha256": "997583ea9732c0f5595e4ea29ad95cccfe77c4cac974ea655a71d59722735e0e"
+    },
+    "type": "observation",
+    "time": "20:06",
+    "place": "home",
+    "text": "Weather: 18 °C, a brown haze. Air quality index: 207."
+   },
+   {
+    "id": "2026-11-25:event:db3ff12517f16edc:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      27,
+      1
+     ],
+     "sha256": "db3ff12517f16edc1aa01a8fc0ae5caeb6285a44e5c2c7e2f3ddc18e6acec5ed"
+    },
+    "type": "observation",
+    "time": "20:06",
+    "place": "home",
+    "text": "You are hungry."
+   },
+   {
+    "id": "2026-11-25:event:d67d3d1469fc33b9:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "127077db668911688d3eac28ff7c93eea0b332143cc85205d8c5b3ec01821415"
+     "sha256": "d67d3d1469fc33b9bbba3933377073828a4a21738cc8a7a7ce6185fbf0b6f8d0"
     },
     "type": "cash",
-    "time": "20:06",
+    "time": "20:11",
     "amount": 15106,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:09309050110c2368:1",
+    "id": "2026-11-25:event:f3bd2ec1e9ba0961:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "09309050110c236875f26c3c4795d8581aaf752f53a7287c60f48646cb4643c4"
+     "sha256": "f3bd2ec1e9ba0961954065d634c1968fd5244e1e977cd283d819c7e9001288a6"
     },
     "type": "location",
-    "time": "20:06",
+    "time": "20:11",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:456db371ecd96ef7:1",
+    "id": "2026-11-25:event:97ccf874a967e3bb:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "456db371ecd96ef7943ae500fe7d6cd4b3b4d80a5417ab21fe055a58dbeaf713"
+     "sha256": "97ccf874a967e3bb3568cf472f050d9e242a22e6ce74bee23e69c29de0de1d02"
     },
     "type": "inventory",
-    "time": "20:06",
+    "time": "20:11",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-25:event:9a38ec7b49bfb8f0:1",
+    "id": "2026-11-25:event:66a638f7a44da13d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "9a38ec7b49bfb8f0c30e134e71f5aef623898232a53b681b649e802205760f1a"
+     "sha256": "66a638f7a44da13df2942f1b86e440220d95c378460bd2931594ddc890940110"
     },
     "type": "inventory",
-    "time": "20:06",
+    "time": "20:11",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 14:22.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 14:22.\"}]"
    },
    {
-    "id": "2026-11-25:event:6fa2a282fcd5c6e9:1",
+    "id": "2026-11-25:event:892120b7b1f9611f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "6fa2a282fcd5c6e93bc75832bea2494d68a18b1bb4dd0ad8634127685c1b6787"
+     "sha256": "892120b7b1f9611f4c8b1e2d517784133825be73607d4f4cb45c4b48bb07228a"
     },
     "type": "inventory",
-    "time": "20:06",
+    "time": "20:11",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
