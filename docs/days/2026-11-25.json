@@ -351,6 +351,13 @@
    "mode": "walk",
    "a": "home",
    "b": "khan"
+  },
+  {
+   "from": "14:49",
+   "to": "14:59",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Talking with Masterji, Nidhi Rao and Sunil at Khan Market."
   }
  ],
  "entries": [
@@ -854,6 +861,49 @@
    "sprite": "kurta",
    "t": "14:22",
    "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "Nidhi asks whether he would teach her cousin Ananya German before a semester in Leipzig: two lessons a week at ₹1,000 each, Tuesdays and Fridays at five, at the bungalow.",
+   "t": "14:49",
+   "place": "khan"
+  },
+  {
+   "k": "world",
+   "text": "He agrees. Ananya will come to the bungalow on Tuesdays and Fridays at five.",
+   "t": "14:49",
+   "place": "khan"
+  },
+  {
+   "k": "diary",
+   "text": "A doctoral student in philosophy asking for German lessons. It is a small income, but it is also an opportunity to see how the mind works when it is forced to articulate what it knows in a foreign tongue. I am curious, and I have time. The cash will help with the dhobi and the electricity, and the intellectual exchange might be more valuable than the rupees.",
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "14:49",
+   "place": "khan"
+  },
+  {
+   "k": "said",
+   "text": "Nidhi, that is a reasonable offer. I accept. Two lessons a week, Tuesdays and Fridays at five, at my bungalow. We shall begin with the grammar, but do not expect me to be a mere grammarian; language is the substance of thought, and you must learn to think in German, not just speak it. I will see you next Tuesday.",
+   "to": "Masterji, Nidhi Rao and Sunil",
+   "t": "14:49",
+   "place": "khan"
+  },
+  {
+   "k": "said",
+   "by": "Nidhi Rao",
+   "to": "Hegel",
+   "text": "Ananya is going to Leipzig, not writing a dissertation on the *Phenomenology*, so please stop trying to turn a preposition lesson into a metaphysical crisis. And don't call me 'Nidhi' like I'm your student; I'm the one checking your German.",
+   "t": "14:49",
+   "place": "khan"
   }
  ],
  "steps": [
@@ -1773,6 +1823,81 @@
      "text": "WITH the Empire of China History has to begin, for it is the oldest, as far as history gives us any information; and its principle has such substantiality, that for the empire in question it is at once the oldest and the newest."
     }
    ]
+  },
+  {
+   "t": "14:49",
+   "end": "14:59",
+   "event": "You arrive at Khan Market. It closes at 20:30. Nidhi says her cousin Ananya needs German before a semester in Leipzig. Would you give her two lessons a week, ₹1,000 each in cash, Tuesdays and Fridays at five, here at the bungalow, an hour each? Masterji is here. Nidhi Rao is here. Sunil is here.",
+   "present": [
+    "Masterji, the tailor",
+    "Nidhi Rao, doctoral student in philosophy",
+    "Sunil, who sells chai",
+    "the bookseller",
+    "the bank clerk"
+   ],
+   "decision": {
+    "thought": "A doctoral student in philosophy asking for German lessons. It is a small income, but it is also an opportunity to see how the mind works when it is forced to articulate what it knows in a foreign tongue. I am curious, and I have time. The cash will help with the dhobi and the electricity, and the intellectual exchange might be more valuable than the rupees.",
+    "action": "talk",
+    "place": "khan",
+    "minutes": 10,
+    "says": "Nidhi, that is a reasonable offer. I accept. Two lessons a week, Tuesdays and Fridays at five, at my bungalow. We shall begin with the grammar, but do not expect me to be a mere grammarian; language is the substance of thought, and you must learn to think in German, not just speak it. I will see you next Tuesday.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, clear, hazy. Air quality index: 179.",
+    "You arrive at Khan Market. It closes at 20:30.",
+    "Nidhi says her cousin Ananya needs German before a semester in Leipzig. Would you give her two lessons a week, ₹1,000 each in cash, Tuesdays and Fridays at five, here at the bungalow, an hour each?",
+    "Masterji is here. Nidhi Rao is here. Sunil is here."
+   ],
+   "observed_at": "khan",
+   "opened": [
+    "arrive",
+    "offer:tutoring_german",
+    "here"
+   ],
+   "voice": {
+    "by": "Nidhi Rao",
+    "says": "Ananya is going to Leipzig, not writing a dissertation on the *Phenomenology*, so please stop trying to turn a preposition lesson into a metaphysical crisis. And don't call me 'Nidhi' like I'm your student; I'm the one checking your German.",
+    "does": "She taps her pen against the edge of the table and glances at her phone to check the time."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 14.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "id": "wallace-logic:882"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§198",
+     "text": "Like the solar system, so for example in the practical sphere the state is a system of three syllogisms. (1) The Individual or person, through his particularity or physical or mental needs (which when carried out to their full development give civil society), is coupled with the universal, i.e. with society, law, right, government."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ],
+   "beat": "tutoring_german"
   }
  ],
  "funnel": {
@@ -1799,9 +1924,16 @@
   },
   "bank_account": {
    "live": 1,
-   "eligible": 0,
+   "eligible": 1,
    "shown": 0,
    "yes": 0,
+   "no": 0
+  },
+  "tutoring_german": {
+   "live": 1,
+   "eligible": 1,
+   "shown": 1,
+   "yes": 1,
    "no": 0
   }
  },
@@ -1809,7 +1941,7 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-25T14:49+05:30",
+  "until": "2026-11-25T14:59+05:30",
   "asleep": false,
   "imprest": 15166,
   "wearing": "kurta",
@@ -1867,7 +1999,8 @@
    "ramesh_fulltime",
    "iic_talk_day",
    "hegde_letter",
-   "allotment_letter"
+   "allotment_letter",
+   "tutoring_german"
   ],
   "flags": {
    "bandhgala": "collected",
@@ -1898,6 +2031,13 @@
     ],
     "estates": [
      "saxena"
+    ],
+    "khan": [
+     "bank_clerk",
+     "bookseller",
+     "masterji",
+     "nidhi",
+     "sunil"
     ]
    },
    "walked": 5925,
@@ -1984,7 +2124,8 @@
     "2026-11-15",
     "2026-11-17",
     "2026-11-18",
-    "2026-11-20"
+    "2026-11-20",
+    "2026-11-25"
    ],
    "gym": [
     "2026-10-02"
@@ -2021,7 +2162,22 @@
    }
   ],
   "receipts": [],
-  "engagements": [],
+  "engagements": [
+   {
+    "id": "tutoring_german",
+    "days": "Tue,Fri",
+    "t": "17:00",
+    "minutes": 60,
+    "place": "home",
+    "with": "ananya",
+    "what": "German lesson",
+    "pay": 1000,
+    "cancel_after": 2,
+    "from": "2026-11-26",
+    "checked": "2026-11-25",
+    "missed": 0
+   }
+  ],
   "costs": {
    "wage": "2026-11-01",
    "groceries": "2026-11-22",
@@ -2078,10 +2234,12 @@
     "2026-11-14",
     "2026-11-17",
     "2026-11-18",
-    "2026-11-20"
+    "2026-11-20",
+    "2026-11-25"
    ],
    "nidhi": [
-    "2026-10-02"
+    "2026-10-02",
+    "2026-11-25"
    ],
    "sunil": [
     "2026-10-13",
@@ -2095,7 +2253,8 @@
     "2026-11-16",
     "2026-11-17",
     "2026-11-18",
-    "2026-11-20"
+    "2026-11-20",
+    "2026-11-25"
    ],
    "hegde": [
     "2026-10-02",
@@ -2279,7 +2438,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "0bc808af7358f52d5f64ad61943dd821c8411f638210448c4e9947f63219d9bb",
+  "source_sha256": "345dcceb2ccd7f1b0f0504036913bdc8149dd87ff5e0472b62c0aee2f1d7ae63",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2772,6 +2931,62 @@
     "gone": false,
     "time": "14:22",
     "place": "home"
+   },
+   {
+    "id": "2026-11-25:event:689494f0b7fb6b40:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 48,
+     "sha256": "689494f0b7fb6b400bc1dc0adcb205757bb2d5ab82bf6c39a59f33dca295ca4a"
+    },
+    "type": "world",
+    "text": "Nidhi asks whether he would teach her cousin Ananya German before a semester in Leipzig: two lessons a week at ₹1,000 each, Tuesdays and Fridays at five, at the bungalow.",
+    "time": "14:49",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-25:event:4d96015c0a5ba083:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 49,
+     "sha256": "4d96015c0a5ba0832cea4e8d8e3e773a6814ab4cf59940c20a3f6ea6af5d68eb"
+    },
+    "type": "world",
+    "text": "He agrees. Ananya will come to the bungalow on Tuesdays and Fridays at five.",
+    "time": "14:49",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-25:statement:9692ffc6a67e10af:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 51,
+     "sha256": "9692ffc6a67e10af4e8624cd2fdd47dd81992ac38a6337641c7154c2807ef30f"
+    },
+    "speaker": "Hegel",
+    "recipient": "Masterji, Nidhi Rao and Sunil",
+    "words": "Nidhi, that is a reasonable offer. I accept. Two lessons a week, Tuesdays and Fridays at five, at my bungalow. We shall begin with the grammar, but do not expect me to be a mere grammarian; language is the substance of thought, and you must learn to think in German, not just speak it. I will see you next Tuesday.",
+    "verified": false,
+    "time": "14:49",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-25:statement:369a7c0a9693c71f:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 52,
+     "sha256": "369a7c0a9693c71f3e3fa3e07c5ce4149aa106ba005a3c9d220b0d94033d2599"
+    },
+    "speaker": "Nidhi Rao",
+    "recipient": "Hegel",
+    "words": "Ananya is going to Leipzig, not writing a dissertation on the *Phenomenology*, so please stop trying to turn a preposition lesson into a metaphysical crisis. And don't call me 'Nidhi' like I'm your student; I'm the one checking your German.",
+    "verified": false,
+    "time": "14:49",
+    "place": "khan"
    },
    {
     "id": "2026-11-25:event:cabd1f00db8a97c2:1",
@@ -3435,68 +3650,146 @@
     "text": "You are hungry."
    },
    {
-    "id": "2026-11-25:event:9b9296a8adfa04d1:1",
+    "id": "2026-11-25:event:fe63a62b445a5a69:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 14,
+     "sha256": "fe63a62b445a5a699722c21386615679b5365294201593155d016e4088096c38"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "14:49",
+    "end": "14:59",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-25:event:98a9679763dfca90:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      14,
+      0
+     ],
+     "sha256": "98a9679763dfca9030ceececeee4ba69904c50dadb8567f68f211d99cddfd023"
+    },
+    "type": "observation",
+    "time": "14:49",
+    "place": "khan",
+    "text": "Weather: 24 °C, clear, hazy. Air quality index: 179."
+   },
+   {
+    "id": "2026-11-25:event:58b399e7f6970857:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      14,
+      1
+     ],
+     "sha256": "58b399e7f6970857cb6b635781a338097740c05f53d38d40aafc16d84f082c5a"
+    },
+    "type": "observation",
+    "time": "14:49",
+    "place": "khan",
+    "text": "You arrive at Khan Market. It closes at 20:30."
+   },
+   {
+    "id": "2026-11-25:event:c91d7a8f3922f9c4:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      14,
+      2
+     ],
+     "sha256": "c91d7a8f3922f9c4e84ec482e184ce3532d97daeae8765c848a62a5c1b7cc2bf"
+    },
+    "type": "observation",
+    "time": "14:49",
+    "place": "khan",
+    "text": "Nidhi says her cousin Ananya needs German before a semester in Leipzig. Would you give her two lessons a week, ₹1,000 each in cash, Tuesdays and Fridays at five, here at the bungalow, an hour each?"
+   },
+   {
+    "id": "2026-11-25:event:b31e283a43e11ce4:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      14,
+      3
+     ],
+     "sha256": "b31e283a43e11ce44f6959b6cd22f03de82d28fd8d2a9657ad555a5d979f0a77"
+    },
+    "type": "observation",
+    "time": "14:49",
+    "place": "khan",
+    "text": "Masterji is here. Nidhi Rao is here. Sunil is here."
+   },
+   {
+    "id": "2026-11-25:event:dfb9aa54063cfb9b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "9b9296a8adfa04d1ce5d7fe12278a3c059d76ca2b2f7788c002de0fe508719ca"
+     "sha256": "dfb9aa54063cfb9b181d3e9614c1557ddefa424018848c62a6781bec5053ab45"
     },
     "type": "cash",
-    "time": "14:49",
+    "time": "14:59",
     "amount": 15166,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:d19dea7578effb6b:1",
+    "id": "2026-11-25:event:0ba2ffa23b7c99fd:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "d19dea7578effb6bc47551c7b8f982360870dfae830688c0a5c203c8dbfe8996"
+     "sha256": "0ba2ffa23b7c99fda78ba32fecfafbad2886a0b1d787617c37dde319aedfdf42"
     },
     "type": "location",
-    "time": "14:49",
+    "time": "14:59",
     "place": "khan",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:5cbfe1687a828880:1",
+    "id": "2026-11-25:event:e9a1332e55eaab1d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "5cbfe1687a8288807ee765a75840e08ce617228ce0cdc357a835151fa83421dc"
+     "sha256": "e9a1332e55eaab1ded713af6cc94503cc4244da7d2f2f7d39d3f0a0cf5f49e66"
     },
     "type": "inventory",
-    "time": "14:49",
+    "time": "14:59",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-25:event:9c657af035c69afb:1",
+    "id": "2026-11-25:event:1bfaa0e74cc07c61:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "9c657af035c69afb3f269389c7326ee2ff3e0938421a0437f49d802fb553f651"
+     "sha256": "1bfaa0e74cc07c6179de87c875d96f6316e462c793fbe3288d95147e18829388"
     },
     "type": "inventory",
-    "time": "14:49",
+    "time": "14:59",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 14:22.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 14:22.\"}]"
    },
    {
-    "id": "2026-11-25:event:5e36cbd5f432c2aa:1",
+    "id": "2026-11-25:event:e7123b43976b2da7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "5e36cbd5f432c2aaf4ed4c152000d3bf024d78ba57a3bfa72e83f0c1a72c5e22"
+     "sha256": "e7123b43976b2da73b958c1de0139fef83f98050b476a7d87fd59a3f990fed96"
     },
     "type": "inventory",
-    "time": "14:49",
+    "time": "14:59",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
