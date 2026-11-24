@@ -344,6 +344,13 @@
    "mode": "walk",
    "a": "estates",
    "b": "home"
+  },
+  {
+   "from": "14:22",
+   "to": "14:49",
+   "mode": "walk",
+   "a": "home",
+   "b": "khan"
   }
  ],
  "entries": [
@@ -823,6 +830,30 @@
    ],
    "t": "13:56",
    "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "The query at the Directorate has been addressed, but the body remains a stubborn fact. I have not eaten since yesterday, and the air is thick with particulate matter that settles in the lungs. A man cannot philosophize about the state on an empty stomach; even Jacobi admits that hunger demands satisfaction, not imagination. I will walk to Khan Market; the system of needs does not close, and I require sustenance before the evening reflection.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China"
+    }
+   ],
+   "t": "14:22",
+   "place": "home"
+  },
+  {
+   "k": "wear",
+   "item": "White cotton kurta",
+   "status": "Worn from 14:22.",
+   "sprite": "kurta",
+   "t": "14:22",
+   "place": "home"
   }
  ],
  "steps": [
@@ -1681,6 +1712,67 @@
      "text": "In the Quæstionibus theosophicis Boehme makes particular use of the form of Yes and No for the separator, for this opposition. He says: “The reader must know that in Yes and No all things consist, whether divine, devilish, earthly, or what they may be called. The One as the Yes is pure power and life, and it is the truth of God or God Himself."
     }
    ]
+  },
+  {
+   "t": "14:22",
+   "end": "14:49",
+   "event": "Ramesh has his day off. There is no lunch at home today. You are hungry.",
+   "present": [],
+   "decision": {
+    "thought": "The query at the Directorate has been addressed, but the body remains a stubborn fact. I have not eaten since yesterday, and the air is thick with particulate matter that settles in the lungs. A man cannot philosophize about the state on an empty stomach; even Jacobi admits that hunger demands satisfaction, not imagination. I will walk to Khan Market; the system of needs does not close, and I require sustenance before the evening reflection.",
+    "action": "walk",
+    "place": "khan",
+    "minutes": 25,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "khan",
+   "observations": [
+    "Weather: 24 °C, clear, hazy. Air quality index: 179.",
+    "Ramesh has his day off. There is no lunch at home today.",
+    "You are hungry."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "meal",
+    "hunger"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "id": "haldane-3:1108"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "id": "sibree-history:376"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacobi",
+     "text": "There is no man so foolish as that philosophy; when a man feels hungry, he does not call up the imagination of food, but sets about satisfying his hunger. All activity is a conception which does not yet exist, but whose subjectivity is abrogated."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "text": "WITH the Empire of China History has to begin, for it is the oldest, as far as history gives us any information; and its principle has such substantiality, that for the empire in question it is at once the oldest and the newest."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1716,11 +1808,11 @@
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-25T14:22+05:30",
+  "place": "khan",
+  "until": "2026-11-25T14:49+05:30",
   "asleep": false,
   "imprest": 15166,
-  "wearing": "bandhgala",
+  "wearing": "kurta",
   "wardrobe": [
    {
     "id": "frock",
@@ -1740,12 +1832,12 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Taken off at 11:10."
+    "status": "Worn from 14:22."
    },
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Worn from 11:10."
+    "status": "Taken off at 14:22."
    }
   ],
   "people": [
@@ -1808,8 +1900,10 @@
      "saxena"
     ]
    },
-   "walked": 3900,
-   "strain": 3900
+   "walked": 5925,
+   "strain": 5925,
+   "lunch": true,
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
@@ -2185,7 +2279,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "1be63c4e0f6636193b9fabc391fd2796afc71f868020e19256818349e26954c5",
+  "source_sha256": "0bc808af7358f52d5f64ad61943dd821c8411f638210448c4e9947f63219d9bb",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2663,6 +2757,21 @@
     "verified": false,
     "time": "13:41",
     "place": "estates"
+   },
+   {
+    "id": "2026-11-25:event:a71b1122f90ed3b0:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 47,
+     "sha256": "a71b1122f90ed3b0a9988dd43703a80cf179edbf39f81456ae75ab22a6af9ba4"
+    },
+    "type": "wear",
+    "item": "White cotton kurta",
+    "status": "Worn from 14:22.",
+    "gone": false,
+    "time": "14:22",
+    "place": "home"
    },
    {
     "id": "2026-11-25:event:cabd1f00db8a97c2:1",
@@ -3262,68 +3371,132 @@
     "text": "Weather: 23 °C, partly cloudy, hazy. Air quality index: 177."
    },
    {
-    "id": "2026-11-25:event:453fa374c24656a6:1",
+    "id": "2026-11-25:event:9d57b695a7fba734:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 13,
+     "sha256": "9d57b695a7fba7342b8d90190a83d343e2f75552c4d8f5b1a75166490aba9a61"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "14:22",
+    "end": "14:49",
+    "place": null,
+    "origin": "home",
+    "destination": "khan"
+   },
+   {
+    "id": "2026-11-25:event:98a9679763dfca90:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      13,
+      0
+     ],
+     "sha256": "98a9679763dfca9030ceececeee4ba69904c50dadb8567f68f211d99cddfd023"
+    },
+    "type": "observation",
+    "time": "14:22",
+    "place": "home",
+    "text": "Weather: 24 °C, clear, hazy. Air quality index: 179."
+   },
+   {
+    "id": "2026-11-25:event:3c913f7bc24d7402:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      13,
+      1
+     ],
+     "sha256": "3c913f7bc24d7402d4a8169986d39f3a0659e11dc66e9c36335d664498bcd9aa"
+    },
+    "type": "observation",
+    "time": "14:22",
+    "place": "home",
+    "text": "Ramesh has his day off. There is no lunch at home today."
+   },
+   {
+    "id": "2026-11-25:event:db3ff12517f16edc:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      13,
+      2
+     ],
+     "sha256": "db3ff12517f16edc1aa01a8fc0ae5caeb6285a44e5c2c7e2f3ddc18e6acec5ed"
+    },
+    "type": "observation",
+    "time": "14:22",
+    "place": "home",
+    "text": "You are hungry."
+   },
+   {
+    "id": "2026-11-25:event:9b9296a8adfa04d1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "453fa374c24656a6096e920f0c2acc5ac7c6266179e94aac45328afe0e071c55"
+     "sha256": "9b9296a8adfa04d1ce5d7fe12278a3c059d76ca2b2f7788c002de0fe508719ca"
     },
     "type": "cash",
-    "time": "14:22",
+    "time": "14:49",
     "amount": 15166,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:c29c4efd8cb049e3:1",
+    "id": "2026-11-25:event:d19dea7578effb6b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "c29c4efd8cb049e3da53208623ed90e613632528759cc94f2d7ba4467c0b85cf"
+     "sha256": "d19dea7578effb6bc47551c7b8f982360870dfae830688c0a5c203c8dbfe8996"
     },
     "type": "location",
-    "time": "14:22",
-    "place": "home",
+    "time": "14:49",
+    "place": "khan",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:e7ccb1d96150cc4d:1",
+    "id": "2026-11-25:event:5cbfe1687a828880:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "e7ccb1d96150cc4d993314f2ba6b94a3e545d92cf1533dc5be99e8e241f439ce"
+     "sha256": "5cbfe1687a8288807ee765a75840e08ce617228ce0cdc357a835151fa83421dc"
     },
     "type": "inventory",
-    "time": "14:22",
+    "time": "14:49",
     "place": null,
-    "text": "Recorded wearing at this horizon only: \"bandhgala\""
+    "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-25:event:65538842eaa7ef55:1",
+    "id": "2026-11-25:event:9c657af035c69afb:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "65538842eaa7ef55a705ec485322ed8744209e62c743f4b0d0001a78d5a0fa96"
+     "sha256": "9c657af035c69afb3f269389c7326ee2ff3e0938421a0437f49d802fb553f651"
     },
     "type": "inventory",
-    "time": "14:22",
+    "time": "14:49",
     "place": null,
-    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 11:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 11:10.\"}]"
+    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 14:22.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 14:22.\"}]"
    },
    {
-    "id": "2026-11-25:event:36926521de1683b6:1",
+    "id": "2026-11-25:event:5e36cbd5f432c2aa:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "36926521de1683b6ffc5138573b68437b4f5061aaaff050be8c1d6ed52799874"
+     "sha256": "5e36cbd5f432c2aaf4ed4c152000d3bf024d78ba57a3bfa72e83f0c1a72c5e22"
     },
     "type": "inventory",
-    "time": "14:22",
+    "time": "14:49",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
