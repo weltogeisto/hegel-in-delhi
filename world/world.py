@@ -125,11 +125,12 @@ class World(Economy):
         self.menu = load("promises.json")["people"] if self.promises else {}
         switched = ({"ramesh_days"} if ramesh_days else set()) | ({"keep_time"} if self.keep_time else set()) | ({"talk_scene"} if self.talk_scene else set()) \
             | ({"exits"} if self.exits else set())            # HEGEL_RAMESH_DAYS: an offer that names a switch exists only while it is on
-        self.cast = {k: c for k, c in load("cast.json")["cast"].items() if not c.get("switch") or c["switch"] in {"talk_scene", "exits"} & switched}   # a person who names a switch exists only while it is on
+        self.cast = {k: dict(c, where=[w for w in c["where"] if not w.get("switch") or w["switch"] in switched])        # so do the hours a person keeps (Nidhi's, HEGEL_EXITS)
+                     for k, c in load("cast.json")["cast"].items() if not c.get("switch") or c["switch"] in {"talk_scene", "exits"} & switched}   # a person who names a switch exists only while it is on
         every = load("offers.json")["offers"]
         by_id = {o["id"]: o for o in every}
-        offers = [{**by_id[o["like"]], **{k: v for k, v in o.items() if k != "like"}} if o.get("like") else o
-                  for o in every if not o.get("switch") or o["switch"] in switched]       # 'like': the offer of that id, with this one's own words and conditions
+        offers = [{**{k: v for k, v in by_id[o["like"]].items() if k != "unless_switch"}, **{k: v for k, v in o.items() if k != "like"}} if o.get("like") else o
+                  for o in every if (not o.get("switch") or o["switch"] in switched) and o.get("unless_switch") not in switched]       # 'like': the offer of that id, with this one's own words and conditions; 'unless_switch': gone while that switch is on
         self.file_act = bool(file_act)                         # HEGEL_FILE_ACT: the file's next act, four beats (data/plot_file_act.json); off until switched on
         self.beats = load("plot.json")["beats"] + (load("plot_file_act.json")["beats"] if self.file_act else []) + offers
         self.offer_ids = {o["id"] for o in offers}             # which beats come from offers.json: `opened` names them offer:<id>
@@ -1353,7 +1354,8 @@ class World(Economy):
             e = works.file(state, w, d)
             entry(t0, self.mark(e, w["title"], w["text"], w["to"], w.get("about")))
             self.mark(next(x for x in state["works"] if x["id"] == e["work"]), e["title"], w["to"])      # a title can be sensitive too
-            for x in self.on_writing(state, e["words"], t0):                                           # a magazine's fee for a sitting long enough
+            piece = {"kind": e["kind"], "title": e["title"], "started": next(x for x in state["works"] if x["id"] == e["work"])["started"]}
+            for x in self.on_writing(state, e["words"], t0, piece):                                    # a magazine's fee for a sitting long enough
                 entry(t0, x)
         if ctx.get("lecture"):                       # HEGEL_TALK_SCENE: the lecture he gave, filed like his other writings, with no fee for a sitting
             w = ctx["lecture"]

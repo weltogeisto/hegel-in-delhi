@@ -258,7 +258,7 @@ class Economy:
         r = {"from": spec["from"], "amount": spec["amount"], "item": spec["item"], "cheque": cheque,
              "after": (t + timedelta(minutes=spec.get("after_min", 0))).isoformat(timespec="minutes")}
         r['charge_id']=self.new_charge(st)
-        r.update({k: spec[k] for k in ("at", "write", "flag", "commission", "ask") if spec.get(k)})      # ask (HEGEL_EXITS): what stays on his mind until it is written
+        r.update({k: spec[k] for k in ("at", "write", "flag", "commission", "ask", "piece") if spec.get(k)})      # ask (HEGEL_EXITS): what stays on his mind until it is written; piece: the kind of sitting the fee is for
         if r["after"] == t.isoformat(timespec="minutes") and not (r.get("at") or r.get("write")):
             return [self.pay(st, r, t)]
         st["receipts"].append(r)
@@ -275,15 +275,19 @@ class Economy:
             lines.append(entries[-1]["text"])
         return lines, entries
 
-    def on_writing(self, st, words, t):
-        """A sitting of enough words earns what a magazine promised. Returns entries."""
+    def on_writing(self, st, words, t, piece=None):
+        """A sitting of enough words earns what a magazine promised. A fee that names its piece (HEGEL_EXITS: `piece`, a kind of
+        writing) is earned only by a sitting of that kind on a manuscript begun on or after the day he agreed: the fee is for the
+        piece that was asked for, not for whatever he writes next. Returns entries."""
         out = []
         for r in list(st["receipts"]):
             if r.get("write") and words >= r["write"]:
+                if r.get("piece") and not (piece and piece["kind"] == r["piece"] and piece["started"] >= r["after"][:10]):
+                    continue
                 st["receipts"].remove(r)
                 out.append(self.pay(st, r, t))
                 if self.exits:
-                    st.setdefault("out", []).append({"id": r["item"], "date": t.date().isoformat()})      # HEGEL_EXITS: a piece of his went out
+                    st.setdefault("out", []).append({"id": r["item"], "date": t.date().isoformat(), **({"title": piece["title"]} if piece else {})})      # HEGEL_EXITS: a piece of his went out
                 for c in st.get("commissions", []):
                     if c["id"] == r.get("commission"):
                         c["next"] = (t.date() + timedelta(days=c["every"])).isoformat()       # the next piece, a fortnight on

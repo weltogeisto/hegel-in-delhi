@@ -34,7 +34,10 @@
       "where": [
         {"place": "khan", "days": "Wed,Sat", "from": "13:00", "to": "16:30", "p": 0.5},
         {"place": "lodhi", "days": "Fri,Sun", "from": "09:30", "to": "10:30", "p": 0.5},
-        {"place": "iic", "days": "Mon,Thu", "from": "15:00", "to": "18:30", "p": 0.5}
+        {"place": "iic", "days": "Mon,Thu", "from": "15:00", "to": "18:30", "p": 0.5},
+        {"place": "khan", "days": "daily", "from": "13:00", "to": "19:00", "p": 0.5, "switch": "exits"},
+        {"place": "iic", "days": "Mon-Fri", "from": "12:00", "to": "18:30", "p": 0.5, "switch": "exits"},
+        {"place": "lodhi", "days": "daily", "from": "08:00", "to": "10:30", "p": 0.4, "switch": "exits"}
       ]
     },
     "kapoor": {

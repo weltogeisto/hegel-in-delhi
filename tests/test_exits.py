@@ -138,6 +138,8 @@ class CourseByNote(unittest.TestCase):
 
 class EssayAgain(unittest.TestCase):
     """Day 27: the Review's essay took a no and could never come back, and the column behind it never opened."""
+    ESSAY = {"kind": "essay", "title": "On the Republic", "started": "2026-11-27"}
+
     def declined(self, words=4146):
         st = fresh(settled=LATER)
         st["beats"].append("essay_fee")                                               # offered once, and declined: no flag
@@ -145,12 +147,20 @@ class EssayAgain(unittest.TestCase):
                         "sittings": 8, "last": "2026-11-24", "tail": ""}]
         return st
 
-    def test_the_editor_asks_again_with_a_question_once_the_pages_have_grown(self):
+    def agreed(self):
+        st = self.declined()
+        at(ON, at_dt(NOV(26), 11 * 60), st, "home", ["ramesh"])
+        return st
+
+    def test_the_editor_asks_again_once_the_pages_have_grown_and_names_no_question(self):
         st = self.declined()
         with There(home=["ramesh"]):
             sit, ctx = look(ON, at_dt(NOV(26), 11 * 60), st, "home")
         self.assertEqual(ctx["beat"]["id"], "exits_essay_again")
-        self.assertIn("This time she names her question: you taught that India has no history of its own making", sit["event"])
+        self.assertIn("She asks again for an essay of yours, on a subject of your own choosing: ₹6,000 in cash when it is written", sit["event"])
+        for b in (ON.beat("exits_essay_again"), ON.beat("exits_column")):             # DECISIONS 69: no invented person argues at him
+            said = [v["prompt"] for v in b["variants"].values()] + [b["public"]]
+            self.assertFalse([x for x in said if "?" in x or "you taught" in x or "your sentence" in x])
         self.assertNotEqual(at(ON, at_dt(NOV(26), 11 * 60), self.declined(words=2000), "home", ["ramesh"])[0], "exits_essay_again")
         paid = self.declined()
         paid["flags"]["essay_paid"] = True
@@ -159,34 +169,94 @@ class EssayAgain(unittest.TestCase):
         self.assertNotEqual(at(ON, at_dt(NOV(26), 11 * 60), never, "home", ["ramesh"])[0], "exits_essay_again")       # the first offer never came
         self.assertNotEqual(at(OFF, at_dt(NOV(26), 11 * 60), self.declined(), "home", ["ramesh"])[0], "exits_essay_again")
 
-    def test_yes_keeps_the_question_on_his_mind_until_the_piece_is_written_and_then_the_column_opens(self):
-        st = self.declined()
-        at(ON, at_dt(NOV(26), 11 * 60), st, "home", ["ramesh"])
+    def test_yes_keeps_the_essay_on_his_mind_until_it_is_written(self):
+        st = self.agreed()
         with There(home=[]):
             sit, _ = look(ON, at_dt(NOV(26), 12 * 60), st, "home")
-        self.assertTrue(any(x.startswith("The Yamuna Review waits for your essay") and "Does the sentence stand?" in x for x in sit["on_mind"]))
+        self.assertIn("The Yamuna Review waits for your essay: ₹6,000 in cash when it is written, an essay of three hundred words or more, begun after you agreed.", sit["on_mind"])
         cash = st["imprest"]
-        ON.on_writing(st, 450, at_dt(NOV(27), 15 * 60))
+        ON.on_writing(st, 450, at_dt(NOV(27), 15 * 60), self.ESSAY)
         self.assertEqual(st["imprest"], cash + 6000)
         self.assertIs(st["flags"]["essay_paid"], True)
-        self.assertEqual(st["out"], [{"id": "Fee for an essay", "date": "2026-11-27"}])            # a piece of his went out
+        self.assertEqual(st["out"], [{"id": "Fee for an essay", "date": "2026-11-27", "title": "On the Republic"}])       # a piece of his went out
         with There(home=[]):
             self.assertFalse(any("Yamuna Review waits" in x for x in look(ON, at_dt(NOV(27), 16 * 60), st, "home")[0]["on_mind"]))
-        with There(khan=["nidhi"]):
-            self.assertIsNotNone(ON.eligible(ON.beat("column"), at_dt(NOV(28), 13 * 60), st, "khan"))      # the old offer, open at last
-            self.assertIsNone(ON.eligible(ON.beat("column"), at_dt(NOV(28), 13 * 60), self.declined(), "khan"))
 
-    def test_no_brings_her_back_after_a_fortnight_and_off_nothing_is_kept(self):
+    def test_the_fee_is_for_the_essay_and_not_for_whatever_he_writes_next(self):
+        for piece in ({"kind": "notes", "title": "Notes on the Kettle", "started": "2026-11-27"},          # notes on his day
+                      {"kind": "letter", "title": "Letter to Dr. Lindner", "started": "2026-11-27"},        # a letter
+                      {"kind": "essay", "title": "An older essay", "started": "2026-11-20"},                # begun before he agreed
+                      None):
+            st = self.agreed()
+            cash = st["imprest"]
+            self.assertEqual(ON.on_writing(st, 500, at_dt(NOV(27), 15 * 60), piece), [])
+            self.assertEqual(st["imprest"], cash)
+            self.assertEqual(len(st["receipts"]), 1)                                  # the Review still waits
+        st = self.agreed()
+        self.assertEqual(ON.on_writing(st, 250, at_dt(NOV(27), 15 * 60), self.ESSAY), [])                   # too short
+        self.assertEqual(len(ON.on_writing(st, 320, at_dt(NOV(26), 18 * 60), dict(self.ESSAY, started="2026-11-26"))), 1)   # the day he agreed counts
+
+    def test_through_a_sitting_as_the_world_files_it(self):
+        st = self.agreed()
+        w = {"title": "On the Republic", "kind": "essay", "to": None, "continues": False, "text": "word " * 400}
+        st["place"], day = "home", {"segments": [], "entries": [], "steps": []}
+        with There(home=[]):
+            sit, ctx = ON.situation(at_dt(NOV(27), 15 * 60), st, day, None)
+            errors, _, rep = ON.check(answer(action="write", place="home", minutes=60), sit, ctx, st)
+            self.assertEqual(errors, [])
+            ctx["writing"] = w
+            ON.apply(rep[0], rep[1], sit, ctx, st, day)
+        self.assertEqual([e["amount"] for e in day["entries"] if e["k"] == "income"], [6000])
+        self.assertEqual(st["out"][0]["title"], "On the Republic")
+
+    def test_the_old_offer_keeps_its_old_rule(self):
+        for w in (ON, OFF):
+            st = fresh(settled=LATER)
+            st["receipts"].append({"from": "the Yamuna Review", "amount": 6000, "item": "Fee for an essay", "cheque": False, "write": 300,
+                                   "after": "2026-11-26T11:00", "flag": "essay_paid", "charge_id": "c1"})       # as `essay_fee` makes it: no piece named
+            self.assertEqual(len(w.on_writing(st, 450, at_dt(NOV(27), 15 * 60), {"kind": "notes", "title": "Notes", "started": "2026-10-13"})), 1)
+            self.assertEqual("out" in st, w is ON)
+
+    def test_the_column_opens_behind_the_essay_in_its_own_words(self):
+        st = self.agreed()
+        ON.on_writing(st, 450, at_dt(NOV(27), 15 * 60), self.ESSAY)
+        self.assertNotIn("column", ON.offer_ids)                                      # with the switch on the old offer is gone
+        self.assertIn("column", OFF.offer_ids)
+        self.assertNotIn("exits_column", OFF.offer_ids)
+        with There(home=["ramesh"]):
+            sit, ctx = look(ON, at_dt(NOV(29), 11 * 60), st, "home")
+            self.assertEqual(ctx["beat"]["id"], "exits_column")
+            self.assertIn("asks for a column: an essay every fortnight, three hundred words or more, ₹4,000 in cash for each", sit["event"])
+            ON.fire(ctx["beat"], at_dt(NOV(29), 11 * 60), st)
+            ON.settle_choice(ctx["beat"], True, st, at_dt(NOV(29), 11 * 60))
+        (r,) = [x for x in st["receipts"] if x.get("commission") == "column"]
+        self.assertEqual((r["piece"], r["amount"]), ("essay", 4000))
+        self.assertEqual(ON.on_writing(st, 400, at_dt(NOV(30), 15 * 60), {"kind": "notes", "title": "Notes", "started": "2026-11-30"}), [])
+        self.assertEqual(len(ON.on_writing(st, 400, at_dt(NOV(30), 16 * 60), {"kind": "essay", "title": "On Air", "started": "2026-11-30"})), 1)
+        self.assertEqual(st["commissions"][0]["next"], "2026-12-14")                  # the next piece, a fortnight on
+
+    def test_no_brings_her_back_after_a_fortnight(self):
         st = self.declined()
         with There(home=["ramesh"]):
             offer(ON, at_dt(NOV(26), 11 * 60), st, "home", yes=False)
             self.assertIsNone(look(ON, at_dt(date(2026, 12, 5), 11 * 60), st, "home")[1]["beat"])
             self.assertEqual(look(ON, at_dt(date(2026, 12, 10), 11 * 60), st, "home")[1]["beat"]["id"], "exits_essay_again")
-        off = self.declined()
-        off["receipts"].append({"from": "the Yamuna Review", "amount": 6000, "item": "Fee for an essay", "cheque": False, "write": 300,
-                                "after": "2026-11-26T11:00", "flag": "essay_paid", "charge_id": "c1"})
-        OFF.on_writing(off, 450, at_dt(NOV(27), 15 * 60))
-        self.assertNotIn("out", off)
+
+
+class NidhiOut(unittest.TestCase):
+    """She has been in the cast from the start, and he met her on Day 1 only: her hours were not his."""
+    def test_she_keeps_three_more_rows_of_hours_only_with_the_switch(self):
+        on, off = ON.cast["nidhi"]["where"], OFF.cast["nidhi"]["where"]
+        self.assertEqual(len(off), 3)
+        self.assertEqual([{k: v for k, v in w.items()} for w in on[:3]], off)          # her old hours stand, in their old order
+        self.assertEqual([(w["place"], w["days"], w["from"], w["to"]) for w in on[3:]],
+                         [("khan", "daily", "13:00", "19:00"), ("iic", "Mon-Fri", "12:00", "18:30"), ("lodhi", "daily", "08:00", "10:30")])
+
+    def test_she_is_at_khan_market_on_days_she_never_was(self):
+        days = [date(2026, 11, n) for n in range(2, 30) if date(2026, 11, n).strftime("%a") not in ("Wed", "Sat")]
+        seen = lambda w: sum("nidhi" in w.present_ids("khan", at_dt(d, 15 * 60), fresh()) for d in days)
+        self.assertEqual(seen(OFF), 0)
+        self.assertGreater(seen(ON), 5)                                               # about one day in two, by her own chance
 
 
 class Gift(unittest.TestCase):

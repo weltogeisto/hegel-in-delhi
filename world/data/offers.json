@@ -1,5 +1,5 @@
 {
-  "note": "Offers, and the beats that follow them: the same shape as plot.json. 'when' holds an offer's conditions (met_days: days he has met them; visits: days he has been in a place; known: people he has met; since_day: days since day 1; cash_below, cash_min; flags (each must equal its value); flags_in (a flag must be one of a list of values, null in the list accepting it unset); flags_not (a flag must not be a value or any of a list of values; unset passes unless null is listed); wardrobe: a garment he still owns; words: a manuscript of that many words; on: one date; owes: a cost he owes and his cash cannot meet; cheques: cheques he holds; days: days of the week). Effects, in a beat or in a choice's yes or no: pay (money to him now, or after_min later, at a place 'at', or at his next sitting of 'write' words), cheque (the same, but a cheque he cannot bank), owe, sell (a garment, and what it fetches where 'at'), schedule (a standing engagement with 'days', or an appointment in_days for a beat that follows), reprice (a debt that stands owed is changed), bank (an account: cheques then clear in three days), commission (work that recurs every N days, one piece asked for at a time). A pay with 'flag' sets that flag when it is paid. 'again_days': a refused offer comes back after that many days. owes_none: none of these costs may stand owed or fall due at that moment; net_min: cash less all he owes and all that falls due at that moment. A choice branch's 'reopens' lets the named offers be made again. 'switch': the offer exists only while that switch is on (ramesh_days: HEGEL_RAMESH_DAYS).  HEGEL_EXITS adds: running (an engagement kept, with that many sessions held), fired_before (a beat fired on an earlier day), due_within (a cost falls due within that many days, and his cash is below it), plain_days (the kitchen on the plain meal for that many days); 'like': an offer made as another is, with its own words and conditions; a schedule may be a list; 'feed' (a meal given him by a person of the house); 'repeat': with again_days, an offer taken may come again too. piece_out (a piece of his that went out, a talk given or a piece paid for, at least after_days ago and not yet thanked, and no gift in the last gap_days); 'gift': an envelope with that sum, its words filled with the piece it names, which may come again; a pay's 'ask' stays on his mind until the piece is written. Every offer is made by someone present; every price is simulated.",
+  "note": "Offers, and the beats that follow them: the same shape as plot.json. 'when' holds an offer's conditions (met_days: days he has met them; visits: days he has been in a place; known: people he has met; since_day: days since day 1; cash_below, cash_min; flags (each must equal its value); flags_in (a flag must be one of a list of values, null in the list accepting it unset); flags_not (a flag must not be a value or any of a list of values; unset passes unless null is listed); wardrobe: a garment he still owns; words: a manuscript of that many words; on: one date; owes: a cost he owes and his cash cannot meet; cheques: cheques he holds; days: days of the week). Effects, in a beat or in a choice's yes or no: pay (money to him now, or after_min later, at a place 'at', or at his next sitting of 'write' words), cheque (the same, but a cheque he cannot bank), owe, sell (a garment, and what it fetches where 'at'), schedule (a standing engagement with 'days', or an appointment in_days for a beat that follows), reprice (a debt that stands owed is changed), bank (an account: cheques then clear in three days), commission (work that recurs every N days, one piece asked for at a time). A pay with 'flag' sets that flag when it is paid. 'again_days': a refused offer comes back after that many days. owes_none: none of these costs may stand owed or fall due at that moment; net_min: cash less all he owes and all that falls due at that moment. A choice branch's 'reopens' lets the named offers be made again. 'switch': the offer exists only while that switch is on (ramesh_days: HEGEL_RAMESH_DAYS).  HEGEL_EXITS adds: running (an engagement kept, with that many sessions held), fired_before (a beat fired on an earlier day), due_within (a cost falls due within that many days, and his cash is below it), plain_days (the kitchen on the plain meal for that many days); 'like': an offer made as another is, with its own words and conditions; a schedule may be a list; 'feed' (a meal given him by a person of the house); 'repeat': with again_days, an offer taken may come again too. piece_out (a piece of his that went out, a talk given or a piece paid for, at least after_days ago and not yet thanked, and no gift in the last gap_days); 'gift': an envelope with that sum, its words filled with the piece it names, which may come again; a pay's 'ask' stays on his mind until the piece is written. A pay's 'piece' binds the fee to a sitting of that kind on a manuscript begun after he agreed. 'unless_switch': the offer does not exist while that switch is on (the column, which HEGEL_EXITS offers in its own words). Every offer is made by someone present; every price is simulated.",
   "offers": [
     {
       "id": "tutoring_german", "kind": "world", "needs": ["nidhi"], "again_days": 14,
@@ -189,7 +189,7 @@
       }
     },
     {
-      "id": "column", "kind": "world", "after": ["essay_fee"], "again_days": 14,
+      "id": "column", "unless_switch": "exits", "kind": "world", "after": ["essay_fee"], "again_days": 14,
       "when": {"flags": {"essay_paid": true}},
       "variants": {
         "iic": {
@@ -296,26 +296,55 @@
       "variants": {
         "home": {
           "needs": ["ramesh"],
-          "prompt": "Ramesh brings a letter from the editor of the Yamuna Review. She asks again for an essay of yours: ₹6,000 in cash, on your next sitting of at least three hundred words. This time she names her question: you taught that India has no history of its own making, and you have now lived in its capital. Does the sentence stand?"
+          "prompt": "Ramesh brings a letter from the editor of the Yamuna Review. She asks again for an essay of yours, on a subject of your own choosing: ₹6,000 in cash when it is written, three hundred words or more."
         },
         "iic": {
           "needs": ["officer"],
-          "prompt": "The programme officer has a message from the editor of the Yamuna Review. She asks again for an essay of yours: ₹6,000 in cash, on your next sitting of at least three hundred words. This time she names her question: you taught that India has no history of its own making, and you have now lived in its capital. Does the sentence stand?"
+          "prompt": "The programme officer has a message from the editor of the Yamuna Review. She asks again for an essay of yours, on a subject of your own choosing: ₹6,000 in cash when it is written, three hundred words or more."
         },
         "khan": {
           "needs": ["nidhi"],
-          "prompt": "Nidhi has a message from her friend, the editor of the Yamuna Review. She asks again for an essay of yours: ₹6,000 in cash, on your next sitting of at least three hundred words. This time she names her question: you taught that India has no history of its own making, and you have now lived in its capital. Does the sentence stand?"
+          "prompt": "Nidhi has a message from her friend, the editor of the Yamuna Review. She asks again for an essay of yours, on a subject of your own choosing: ₹6,000 in cash when it is written, three hundred words or more."
         }
       },
-      "public": "The editor of the Yamuna Review asks again for an essay, ₹6,000 in cash, and names her question: does his sentence stand, that India has no history of its own making?",
+      "public": "The editor of the Yamuna Review asks again for an essay, ₹6,000 in cash.",
       "choice": {
-        "question": "Did you agree to write the essay for the Yamuna Review, on the editor's question, for ₹6,000 in cash at your next sitting of three hundred words or more?",
+        "question": "Did you agree to write an essay for the Yamuna Review, for ₹6,000 in cash when it is written?",
         "yes": {
           "public": "He agrees to write the essay for the Yamuna Review.",
-          "pay": {"from": "the Yamuna Review", "amount": 6000, "item": "Fee for an essay", "write": 300, "flag": "essay_paid",
-                  "ask": "The Yamuna Review waits for your essay: ₹6,000 in cash at your next sitting of three hundred words or more. The editor's question: you taught that India has no history of its own making, and you have now lived in its capital. Does the sentence stand?"}
+          "pay": {"from": "the Yamuna Review", "amount": 6000, "item": "Fee for an essay", "write": 300, "flag": "essay_paid", "piece": "essay",
+                  "ask": "The Yamuna Review waits for your essay: ₹6,000 in cash when it is written, an essay of three hundred words or more, begun after you agreed."}
         },
         "no": {"public": "He declines the essay. The editor says she will ask again."}
+      }
+    },
+    {
+      "id": "exits_column", "switch": "exits", "kind": "world", "after": ["essay_fee"], "again_days": 14,
+      "when": {"flags": {"essay_paid": true}},
+      "variants": {
+        "home": {
+          "needs": ["ramesh"],
+          "prompt": "Ramesh brings a letter from the editor of the Yamuna Review. She liked your essay and asks for a column: an essay every fortnight, three hundred words or more, ₹4,000 in cash for each."
+        },
+        "iic": {
+          "needs": ["officer"],
+          "prompt": "The programme officer says the editor of the Yamuna Review liked your essay and asks for a column: an essay every fortnight, three hundred words or more, ₹4,000 in cash for each."
+        },
+        "khan": {
+          "needs": ["nidhi"],
+          "prompt": "Nidhi says the editor of the Yamuna Review liked your essay and asks for a column: an essay every fortnight, three hundred words or more, ₹4,000 in cash for each."
+        }
+      },
+      "public": "The Yamuna Review asks him for a fortnightly column at ₹4,000 a piece.",
+      "choice": {
+        "question": "Did you agree to write a column for the Yamuna Review, an essay every fortnight at ₹4,000 in cash?",
+        "yes": {
+          "public": "He agrees to write a fortnightly column for the Yamuna Review.",
+          "commission": {"id": "column", "every": 14,
+                         "pay": {"from": "the Yamuna Review", "amount": 4000, "item": "Fee for a column", "write": 300, "piece": "essay"},
+                         "ask": "The Yamuna Review asks for your next column: ₹4,000 in cash for an essay of three hundred words or more."}
+        },
+        "no": {"public": "He declines the column."}
       }
     },
     {
