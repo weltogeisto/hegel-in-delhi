@@ -337,6 +337,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "13:56",
+   "to": "14:22",
+   "mode": "walk",
+   "a": "estates",
+   "b": "home"
   }
  ],
  "entries": [
@@ -799,6 +806,22 @@
    "to": "Hegel",
    "text": "Hegde? Yes, I have seen that name in the archives, but I am not a notary, sir. I will make a small note, but please do not wait. The under-secretary is at his desk and I have three other files to push through before lunch.",
    "t": "13:41",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "He is not a notary, but a section officer; the distinction is not merely technical but ontological. The state does not recognize the soul, only the document. I must leave him to his three files and the lukewarm tea, for the ethical idea is not served by waiting on a man who is already looking at the door.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme"
+    }
+   ],
+   "t": "13:56",
    "place": "estates"
   }
  ],
@@ -1598,6 +1621,66 @@
      "text": "This is the descent of the spirit of the world into itself, the free perfection by virtue of which the idea sets loose from itself its own elements, and nothing but its own elements, and makes them totalities; at the same time it holds them within the unity of the conception, in which is found their real rationality."
     }
    ]
+  },
+  {
+   "t": "13:56",
+   "end": "14:22",
+   "event": "Mr. Saxena says: “Hegde? Yes, I have seen that name in the archives, but I am not a notary, sir. I will make a small note, but please do not wait. The under-secretary is at his desk and I have three other files to push through before lunch.” He picks up the steel tumbler, takes a sip of the lukewarm tea, and points a pen at the door.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "He is not a notary, but a section officer; the distinction is not merely technical but ontological. The state does not recognize the soul, only the document. I must leave him to his three files and the lukewarm tea, for the ethical idea is not served by waiting on a man who is already looking at the door.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "observations": [
+    "Weather: 23 °C, partly cloudy, hazy. Air quality index: 177."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "id": "haldane-3:509"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "id": "haldane-3:507"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "text": "The will which has flowed out wills dissimilarity, so that it may be distinguished from similarity and be its own something—and that something may exist, that the eternal seeing may see and feel. And from the individual will arises the No, for it brings itself into ownness, i.e. receptivity of self."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "text": "In the Quæstionibus theosophicis Boehme makes particular use of the form of Yes and No for the separator, for this opposition. He says: “The reader must know that in Yes and No all things consist, whether divine, devilish, earthly, or what they may be called. The One as the Yes is pure power and life, and it is the truth of God or God Himself."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1633,8 +1716,8 @@
  "owl": null,
  "complete": false,
  "state": {
-  "place": "estates",
-  "until": "2026-11-25T13:56+05:30",
+  "place": "home",
+  "until": "2026-11-25T14:22+05:30",
   "asleep": false,
   "imprest": 15166,
   "wearing": "bandhgala",
@@ -1725,8 +1808,8 @@
      "saxena"
     ]
    },
-   "walked": 1950,
-   "strain": 1950
+   "walked": 3900,
+   "strain": 3900
   },
   "account": {
    "advance": 15000,
@@ -2102,7 +2185,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "d0431816f70964bfd6e608812d6f30ccedbfb8a8943389eae55e4aa75143a51a",
+  "source_sha256": "1be63c4e0f6636193b9fabc391fd2796afc71f868020e19256818349e26954c5",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3147,68 +3230,100 @@
     "text": "Weather: 23 °C, partly cloudy, hazy. Air quality index: 177."
    },
    {
-    "id": "2026-11-25:event:29173e21d18bdade:1",
+    "id": "2026-11-25:event:65c1cd2fbbe45616:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 12,
+     "sha256": "65c1cd2fbbe45616d76de4b4eb3a7a27bfbb2ed994b402bcf8944de6f119d6e1"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "13:56",
+    "end": "14:22",
+    "place": null,
+    "origin": "estates",
+    "destination": "home"
+   },
+   {
+    "id": "2026-11-25:event:d2a905388ab44c35:5",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      12,
+      0
+     ],
+     "sha256": "d2a905388ab44c35d16d6027abd0b4aad2a5f83f5cade83d29bad379d155c9de"
+    },
+    "type": "observation",
+    "time": "13:56",
+    "place": "estates",
+    "text": "Weather: 23 °C, partly cloudy, hazy. Air quality index: 177."
+   },
+   {
+    "id": "2026-11-25:event:453fa374c24656a6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "29173e21d18bdadec96d8a5059c494a3ad6ee300e6d3fb54c82cb36eba1dfd5c"
+     "sha256": "453fa374c24656a6096e920f0c2acc5ac7c6266179e94aac45328afe0e071c55"
     },
     "type": "cash",
-    "time": "13:56",
+    "time": "14:22",
     "amount": 15166,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:b1ab38364ce6c6b4:1",
+    "id": "2026-11-25:event:c29c4efd8cb049e3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "b1ab38364ce6c6b4eeb1db9cab34b881dcefe4d27b424daad7bcefb8b0299e83"
+     "sha256": "c29c4efd8cb049e3da53208623ed90e613632528759cc94f2d7ba4467c0b85cf"
     },
     "type": "location",
-    "time": "13:56",
-    "place": "estates",
+    "time": "14:22",
+    "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:1aca263592c57b93:1",
+    "id": "2026-11-25:event:e7ccb1d96150cc4d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "1aca263592c57b931d6021430272de3700fd25497a1d75e0afeeb42dea7381df"
+     "sha256": "e7ccb1d96150cc4d993314f2ba6b94a3e545d92cf1533dc5be99e8e241f439ce"
     },
     "type": "inventory",
-    "time": "13:56",
+    "time": "14:22",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-25:event:a940b7c07932dabf:1",
+    "id": "2026-11-25:event:65538842eaa7ef55:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "a940b7c07932dabf58d62c4cd4e0c9b06eb66f5d673d51d99ccef92651abe2a4"
+     "sha256": "65538842eaa7ef55a705ec485322ed8744209e62c743f4b0d0001a78d5a0fa96"
     },
     "type": "inventory",
-    "time": "13:56",
+    "time": "14:22",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 11:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 11:10.\"}]"
    },
    {
-    "id": "2026-11-25:event:9a185eaad95c12b2:1",
+    "id": "2026-11-25:event:36926521de1683b6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "9a185eaad95c12b293fa91460aa8ad7045bf470fd32b7707b66de65f04e13099"
+     "sha256": "36926521de1683b6ffc5138573b68437b4f5061aaaff050be8c1d6ed52799874"
     },
     "type": "inventory",
-    "time": "13:56",
+    "time": "14:22",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
