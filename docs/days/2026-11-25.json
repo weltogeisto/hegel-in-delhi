@@ -463,6 +463,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "20:46",
+   "to": "21:08",
+   "mode": "walk",
+   "a": "home",
+   "b": "iic"
   }
  ],
  "entries": [
@@ -1444,6 +1451,30 @@
    "to": "Hegel",
    "text": "A ghost, is it? Fine. I’m going for the biryani from that place in Hauz Khas, the one with the four stars. If it’s not a ghost by the time it arrives, I’ll eat it myself.",
    "t": "20:31",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "He is gone, leaving his phone in his pocket like a talisman against the void. I am left with the brown haze and the empty plate. The state demands a body, a name, a signature; it does not demand a meal, yet my body is the one thing that cannot be argued away. I will not starve for the sake of a file.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70 Addition"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Modern Time, The Reformation"
+    }
+   ],
+   "t": "20:46",
+   "place": "home"
+  },
+  {
+   "k": "wear",
+   "item": "Bandhgala, charcoal",
+   "status": "Worn from 20:46.",
+   "sprite": "bandhgala",
+   "t": "20:46",
    "place": "home"
   }
  ],
@@ -3418,6 +3449,66 @@
      "text": "Besides the imperial dignity there is properly no elevated rank, no nobility among the Chinese; only the princes of the imperial house, and the sons of the ministers enjoy any precedence of the kind, and they rather by their position than by their birth. Otherwise all are equal, and only those have a share in the administration of affairs who have ability for it."
     }
    ]
+  },
+  {
+   "t": "20:46",
+   "end": "21:08",
+   "event": "Shri G. Hegde says: “A ghost, is it? Fine. I’m going for the biryani from that place in Hauz Khas, the one with the four stars. If it’s not a ghost by the time it arrives, I’ll eat it myself.” He taps the screen firmly and slides his phone into his kurta pocket.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "He is gone, leaving his phone in his pocket like a talisman against the void. I am left with the brown haze and the empty plate. The state demands a body, a name, a signature; it does not demand a meal, yet my body is the one thing that cannot be argued away. I will not starve for the sake of a file.",
+    "action": "walk",
+    "place": "iic",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "iic",
+   "observations": [
+    "Weather: 18 °C, a brown haze. Air quality index: 207."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.5,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70 Addition",
+     "id": "dyde-right:205"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Modern Time, The Reformation",
+     "id": "sibree-history:1337"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70 Addition",
+     "text": "The particular person is really a subordinate, who must devote his life to the service of the ethical fabric; when the state demands his life, he must yield it up. But should the man take his own life? Suicide may at first glance be looked upon as bravery, although it be the poor bravery of tailors and maid-servants."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Modern Time, The Reformation",
+     "text": "While these changes were going forward, the entire body of private obligations and rights which had been handed down from the Middle Age, still retained validity. Infinitely important is this form of private rights, which the organic constituents of the executive power of the State have assumed."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -3460,11 +3551,11 @@
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-25T20:46+05:30",
+  "place": "iic",
+  "until": "2026-11-25T21:08+05:30",
   "asleep": false,
   "imprest": 15106,
-  "wearing": "kurta",
+  "wearing": "bandhgala",
   "wardrobe": [
    {
     "id": "frock",
@@ -3484,12 +3575,12 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Worn from 14:22."
+    "status": "Taken off at 20:46."
    },
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Taken off at 14:22."
+    "status": "Worn from 20:46."
    }
   ],
   "people": [
@@ -3563,8 +3654,8 @@
      "kapoor"
     ]
    },
-   "walked": 13575,
-   "strain": 13575,
+   "walked": 15225,
+   "strain": 15225,
    "lunch": true,
    "tired": true,
    "bought_food": {
@@ -3987,7 +4078,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "38f103a8cfa2b1d483463d5b32b8e349c79c9a69af38821ea13f0225805fab42",
+  "source_sha256": "a0c9e072f47ccf04562757ff4959d4dc19b90ed2f50fd443e7a1005fc4388c29",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4929,6 +5020,21 @@
     "words": "A ghost, is it? Fine. I’m going for the biryani from that place in Hauz Khas, the one with the four stars. If it’s not a ghost by the time it arrives, I’ll eat it myself.",
     "verified": false,
     "time": "20:31",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-25:event:03e90036cc43ea41:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 95,
+     "sha256": "03e90036cc43ea41480f9d05aa778a5b7bb001790b592ec2e950706fc8d47099"
+    },
+    "type": "wear",
+    "item": "Bandhgala, charcoal",
+    "status": "Worn from 20:46.",
+    "gone": false,
+    "time": "20:46",
     "place": "home"
    },
    {
@@ -6271,68 +6377,100 @@
     "text": "Weather: 18 °C, a brown haze. Air quality index: 207."
    },
    {
-    "id": "2026-11-25:event:4857c3a190c0ddba:1",
+    "id": "2026-11-25:event:ec297e85843cf3f6:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 30,
+     "sha256": "ec297e85843cf3f6d2ed088ccc00bc1ae70ed0357b42f9aadf765b90918728d0"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "20:46",
+    "end": "21:08",
+    "place": null,
+    "origin": "home",
+    "destination": "iic"
+   },
+   {
+    "id": "2026-11-25:event:997583ea9732c0f5:4",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      30,
+      0
+     ],
+     "sha256": "997583ea9732c0f5595e4ea29ad95cccfe77c4cac974ea655a71d59722735e0e"
+    },
+    "type": "observation",
+    "time": "20:46",
+    "place": "home",
+    "text": "Weather: 18 °C, a brown haze. Air quality index: 207."
+   },
+   {
+    "id": "2026-11-25:event:c30d7ec923d08811:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "4857c3a190c0ddba12bc60da90a706cc072538f81de2e996913b10438b2ce78d"
+     "sha256": "c30d7ec923d088117ad519b4f3014d059c3c47e1b3ad4e1e51715d84f72e9ec1"
     },
     "type": "cash",
-    "time": "20:46",
+    "time": "21:08",
     "amount": 15106,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:4c149f946feb6704:1",
+    "id": "2026-11-25:event:03b3802bc1557ca2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "4c149f946feb670475da8d66fb159fb3caec58574a80e5bc99ce162dd4427ac8"
+     "sha256": "03b3802bc1557ca24c124f43981d72babbfea9c5898b9c0a5733945fda4a3881"
     },
     "type": "location",
-    "time": "20:46",
-    "place": "home",
+    "time": "21:08",
+    "place": "iic",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:8b8d3d4e3c2b94a9:1",
+    "id": "2026-11-25:event:86635a8733ffc64f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "8b8d3d4e3c2b94a98b9edad00b37f5fcc5a6335632775fe5a30bcef250c30ecb"
+     "sha256": "86635a8733ffc64f1cf63e9a864065a383d3c5f2f414b9f80953a3d3a174eb76"
     },
     "type": "inventory",
-    "time": "20:46",
+    "time": "21:08",
     "place": null,
-    "text": "Recorded wearing at this horizon only: \"kurta\""
+    "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-25:event:e9a8e0ef1105824d:1",
+    "id": "2026-11-25:event:002624c45f97f76d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "e9a8e0ef1105824d9b0c3887f9d1200eec5d101af73a56706a2392a4972ff513"
+     "sha256": "002624c45f97f76d162720dc00766d14eee0541a6ba22d5010bf9bd28a910600"
     },
     "type": "inventory",
-    "time": "20:46",
+    "time": "21:08",
     "place": null,
-    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 14:22.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 14:22.\"}]"
+    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 20:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 20:46.\"}]"
    },
    {
-    "id": "2026-11-25:event:1997e10b375bb5ff:1",
+    "id": "2026-11-25:event:33f0977121faf408:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "1997e10b375bb5ffed57bdfebc11c73732a4300d57434f26e4a44ae708810bfa"
+     "sha256": "33f0977121faf4089a644343b8f1b125d0780bb9a252b772c7a9775ecc82c515"
     },
     "type": "inventory",
-    "time": "20:46",
+    "time": "21:08",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
