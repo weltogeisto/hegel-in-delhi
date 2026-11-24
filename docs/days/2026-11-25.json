@@ -365,6 +365,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with Masterji, Nidhi Rao and Sunil at Khan Market."
+  },
+  {
+   "from": "15:09",
+   "to": "15:49",
+   "mode": "walk",
+   "a": "khan",
+   "b": "estates"
   }
  ],
  "entries": [
@@ -953,6 +960,22 @@
    "to": "Hegel",
    "text": "Finally, some clarity from the man who writes about it. Just remember, the clerk won't care about your dialectic, only the signature. I'm heading out to check the account, don't be late on Tuesday.",
    "t": "14:59",
+   "place": "khan"
+  },
+  {
+   "k": "diary",
+   "text": "She is gone, leaving behind the sharp edge of her correction. The clerk, as she says, will care only for the signature, a flat fact that resists the movement of the spirit I try to inject into our conversation. I must take this practical lesson to heart: the state is not a poem, but a machine of administration, and I must feed it the right paper to keep it turning.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics"
+    }
+   ],
+   "t": "15:09",
    "place": "khan"
   }
  ],
@@ -2020,6 +2043,70 @@
     }
    ],
    "beat": "bank_account"
+  },
+  {
+   "t": "15:09",
+   "end": "15:49",
+   "event": "Nidhi Rao says: “Finally, some clarity from the man who writes about it. Just remember, the clerk won't care about your dialectic, only the signature. I'm heading out to check the account, don't be late on Tuesday.” She stands up, grabs her bag, and checks the time on her phone again.",
+   "present": [
+    "Masterji, the tailor",
+    "Nidhi Rao, doctoral student in philosophy",
+    "Sunil, who sells chai",
+    "the bookseller",
+    "the bank clerk"
+   ],
+   "decision": {
+    "thought": "She is gone, leaving behind the sharp edge of her correction. The clerk, as she says, will care only for the signature, a flat fact that resists the movement of the spirit I try to inject into our conversation. I must take this practical lesson to heart: the state is not a poem, but a machine of administration, and I must feed it the right paper to keep it turning.",
+    "action": "walk",
+    "place": "estates",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "estates",
+   "observations": [
+    "Weather: 23 °C, clear, hazy. Air quality index: 181."
+   ],
+   "observed_at": "khan",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.5,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "id": "dyde-right:549"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics",
+     "id": "haldane-2:595"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§236",
+     "text": "Note. — In contrast with freedom of business and trade in the civic community stands the other extreme of the establishment and direction of the work of all by means of official regulation. Under this head comes perhaps the construction of the pyramids and other monstrous Egyptian and Asiatic works."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics",
+     "text": "But although Zeno principally cultivated dialectic and practical philosophy, he did not, like other Socratics, neglect physical philosophy, for he studied very specially Heraclitus’ work on Nature, and finally came forward as an independent teacher in a porch called Poecile (στοὰ ποικίλη), which was decorated with the paintings of Polygnotus."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2062,8 +2149,8 @@
  "owl": null,
  "complete": false,
  "state": {
-  "place": "khan",
-  "until": "2026-11-25T15:09+05:30",
+  "place": "estates",
+  "until": "2026-11-25T15:49+05:30",
   "asleep": false,
   "imprest": 15166,
   "wearing": "kurta",
@@ -2162,8 +2249,8 @@
      "sunil"
     ]
    },
-   "walked": 5925,
-   "strain": 5925,
+   "walked": 8925,
+   "strain": 8925,
    "lunch": true,
    "hunger": 1
   },
@@ -2561,7 +2648,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "718dabd939ed25454149a9a8cd2b8b4d0bbe84739d010e2c6e514b9f201e392b",
+  "source_sha256": "ece88e345bf94caa37ab487069672a19f7d3be858a84d1a19f33af5f42e61ef6",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3953,68 +4040,100 @@
     "text": "With Mr. Saxena's letter, the clerk at the State Bank would open a savings account today. A cheque paid in clears in three days."
    },
    {
-    "id": "2026-11-25:event:dc794ec1cfea72c2:1",
+    "id": "2026-11-25:event:bd33d01499dfb7ce:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 16,
+     "sha256": "bd33d01499dfb7ce4a5dfcb013445b9bb40d9f0c3406971d3848c96e2b0f5fc6"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "15:09",
+    "end": "15:49",
+    "place": null,
+    "origin": "khan",
+    "destination": "estates"
+   },
+   {
+    "id": "2026-11-25:event:333354dd3b817544:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      16,
+      0
+     ],
+     "sha256": "333354dd3b81754405710d7e18238d2e9b2b5da93d5b486f44c8a6f67ebd178b"
+    },
+    "type": "observation",
+    "time": "15:09",
+    "place": "khan",
+    "text": "Weather: 23 °C, clear, hazy. Air quality index: 181."
+   },
+   {
+    "id": "2026-11-25:event:a27c6e0dc692921c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "dc794ec1cfea72c2d279d6582db95a52c82572109dcb408a591e068901e740b6"
+     "sha256": "a27c6e0dc692921c2a959e4415b979c61e042ff3cc89bc7810e321a2dbbddfca"
     },
     "type": "cash",
-    "time": "15:09",
+    "time": "15:49",
     "amount": 15166,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:5257834a92537ee4:1",
+    "id": "2026-11-25:event:a9279e08937272ab:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "5257834a92537ee49a6dd16cc9c60e25740c42e5d376d86f6aec55248bb958a3"
+     "sha256": "a9279e08937272abadedfe02842c7ae0f676c2f17ed70bfd2891fc43fb3c0a21"
     },
     "type": "location",
-    "time": "15:09",
-    "place": "khan",
+    "time": "15:49",
+    "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:6fda67ed1625e3fd:1",
+    "id": "2026-11-25:event:b3f898f0f5426898:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "6fda67ed1625e3fd3cc1f7355a58877f2602a0bb9d74dca53e6ce2de44afa19d"
+     "sha256": "b3f898f0f5426898ebb19db186e8e670105875c095436f7b6f3893194db3d500"
     },
     "type": "inventory",
-    "time": "15:09",
+    "time": "15:49",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-25:event:ee122de088ee4f1f:1",
+    "id": "2026-11-25:event:8f56ff9d1ecd3149:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "ee122de088ee4f1f47d962aeea58d4a523221fead8d51ac6d546f8ef771d78a6"
+     "sha256": "8f56ff9d1ecd314919364730681b73c4556e621fc287082b6d7053bcac71cf15"
     },
     "type": "inventory",
-    "time": "15:09",
+    "time": "15:49",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 14:22.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 14:22.\"}]"
    },
    {
-    "id": "2026-11-25:event:5bc4bdd21591c729:1",
+    "id": "2026-11-25:event:2581bad695730b83:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "5bc4bdd21591c729beb01cb0ae922cf8cc21fa8e1c3f0a55ff9a0de8c89c7905"
+     "sha256": "2581bad695730b83c21238938399eeed12c767f72d955a66de834e261bf05da7"
     },
     "type": "inventory",
-    "time": "15:09",
+    "time": "15:49",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
