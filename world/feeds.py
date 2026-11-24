@@ -32,6 +32,8 @@ STRIFE = re.compile(r"\b(wars?|warfare|armies|army|military|troops|soldiers?|cea
                     r"militant\w*|clash\w*|conflict\w*|unrest|curfew|protest\w*|riot\w*|communal|coup|rebels?|invasion|invad\w*|battle\w*|"
                     r"air ?strikes?|(?:military|missile|drone|rocket|artillery) strikes?)", re.I)
 SUMMARY = 600           # characters of a paper's summary kept (HEGEL_PAPERS_RECORD)
+BODY, BODY_MIN, BODY_PAGES, BODY_PAUSE = 1800, 400, 12, 1.5   # HEGEL_PAPERS_BODY: characters of a body kept, the least that counts, pages a morning, seconds between them
+LDJSON = re.compile(r"<script[^>]*type=[\"']application/ld\+json[\"'][^>]*>(.*?)</script>", re.I | re.S)
 PM10 = [(0, 50, 0, 50), (50, 100, 50, 100), (100, 250, 100, 200), (250, 350, 200, 300), (350, 430, 300, 400), (430, 600, 400, 500)]
 
 
@@ -40,12 +42,45 @@ def fit_for_papers(title):
     return not CRIME.search(title) or bool(STRIFE.search(title))
 
 
+def plain(x):
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", x or ""))).strip()
+
+
 def piece_of(item, source):
     """One RSS item as a piece of the papers: {title, summary, link, source}. The summary is the item's description, plain and short."""
-    def plain(x):
-        return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", x or ""))).strip()
     return {"title": plain(item.findtext("title")), "summary": cut(plain(item.findtext("description")), SUMMARY),
             "link": (item.findtext("link") or "").strip(), "source": source}
+
+
+def articles(node):
+    """The article objects (those with an articleBody or an Article type) in one ld+json value: an object, a list, or an object with @graph."""
+    if isinstance(node, list):
+        return [a for x in node for a in articles(x)]
+    if not isinstance(node, dict):
+        return []
+    kind = node.get("@type")
+    kinds = kind if isinstance(kind, list) else [kind]
+    own = [node] if "articleBody" in node or any(isinstance(k, str) and k.endswith("Article") for k in kinds) else []
+    return own + articles(node.get("@graph"))
+
+
+def body_of(page):
+    """The text of the article on an HTML page, only when the paper itself marks it free to read (isAccessibleForFree true, and
+    no article object on the page saying otherwise); else None. Plain, cut at a sentence end to BODY; None if shorter than BODY_MIN."""
+    found = []
+    for block in LDJSON.findall(page):
+        try:
+            found += articles(json.loads(block, strict=False))
+        except ValueError:
+            continue
+    free = [str(a.get("isAccessibleForFree")).strip().lower() for a in found if "isAccessibleForFree" in a]
+    if "true" not in free or any(f != "true" for f in free):
+        return None
+    for a in found:
+        text = plain(a["articleBody"]) if isinstance(a.get("articleBody"), str) else ""
+        if text:
+            return cut(text, BODY) if len(text) >= BODY_MIN else None
+    return None
 
 
 def get(url, timeout=15):
@@ -120,6 +155,7 @@ class Feeds:
         self.cfg = cfg
         self.dir = cfg.state / "feeds"
         self.online = cfg.feeds
+        self.body = getattr(cfg, "papers_body", False)          # HEGEL_PAPERS_BODY: with the record, the text of each piece the paper marks free to read
         self.record = getattr(cfg, "papers_record", False)      # HEGEL_PAPERS_RECORD: the day's papers kept in full beside the headlines
         self.archive = getattr(cfg, "papers_archive", None) if getattr(cfg, "papers", False) else None   # HEGEL_PAPERS_ARCHIVE: a rehearsal's papers
         self.first = cfg.get("HEGEL_PAPERS_FROM") if hasattr(cfg, "get") else None   # a rehearsal's first day (set by rehearsal_setup)
@@ -224,8 +260,29 @@ class Feeds:
         if not items and self.archive:
             items = [p["title"] for p in self.pieces(d)]
         if rows:
-            self.keep_papers(d, [rows[t] for t in items if t in rows])       # every piece fetched: the first n are the headlines he is shown, the rest are the inside pages
+            kept = [rows[t] for t in items if t in rows]
+            self.keep_papers(d, kept)       # every piece fetched: the first n are the headlines he is shown, the rest are the inside pages
+            if self.body:                   # only after the headlines are settled and cached; rows is empty for a day already cached
+                self.add_bodies(d, kept)
         return items[:n]
+
+    def add_bodies(self, d, pieces):
+        """HEGEL_PAPERS_BODY: fetch the page of each kept piece (one at a time, BODY_PAUSE apart, at most BODY_PAGES) and keep its body when the
+        paper marks it free to read. A page that fails is a piece without a body. The pieces are written again only if some got one."""
+        got = 0
+        for k, p in enumerate([p for p in pieces if p.get("link")][:BODY_PAGES]):
+            if k:
+                time.sleep(BODY_PAUSE)
+            try:
+                text = body_of(get(p["link"]).decode("utf-8", "replace"))
+            except Exception as e:
+                log.warning("page %s failed: %s", p["link"], e)
+                continue
+            if text:
+                p["body"], p["free"] = text, True
+                got += 1
+        if got:
+            self.keep_papers(d, pieces)
 
     def keep_papers(self, d, pieces):
         """The day's pieces, in the order of the headlines, in the state folder. Never in the day file (WORLD-3 rule 3)."""
