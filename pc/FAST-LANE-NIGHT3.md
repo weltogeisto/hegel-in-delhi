@@ -65,7 +65,7 @@ It posts DONE on PR #1 with the head and the days each future reached.
 Packet 2 (`HEGEL_PAPERS`) needs real pieces for its own night. They are collected on the PC, in a folder of its own, and nothing live changes:
 
 ```sh
-python3 tools/collect_papers.py --state ~/hegel-eval/papers-archive
+python3 tools/collect_papers.py --state ~/hegel-eval/papers-archive --body
 ```
 
 Once an evening, after his day is complete. It writes `feeds/papers-<his next date>.json` there. The folder stays on the PC: a paper's text is not pushed (`WORLD-3.md`, rule 4).
