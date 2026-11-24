@@ -71,7 +71,8 @@ def make_world(cfg):
                  ramesh_days=getattr(cfg, "ramesh_days", False), consumed=getattr(cfg, "consumed", False),
                  file_act=getattr(cfg, "file_act", False), repairs=getattr(cfg, "world_repairs", False),
                  keep_time=getattr(cfg, "keep_time", False), talk_scene=getattr(cfg, "talk_scene", False),
-                 papers=getattr(cfg, "papers", False), exits=getattr(cfg, "exits", False))
+                 papers=getattr(cfg, "papers", False), exits=getattr(cfg, "exits", False),
+                 borrowed_lookup=getattr(cfg, "borrowed_lookup", False))
 
 
 def cmd_tick(cfg, args):

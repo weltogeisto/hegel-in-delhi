@@ -106,7 +106,8 @@ def names(lst):
 
 class World(Economy):
     def __init__(self, feeds=None, culture=False, street_on=False, street_file=None, promises=False, ramesh_days=False, consumed=False, file_act=False,
-                 repairs=False, keep_time=False, talk_scene=False, papers=False, exits=False):
+                 repairs=False, keep_time=False, talk_scene=False, papers=False, exits=False, borrowed_lookup=False):
+        self.borrowed_lookup = bool(borrowed_lookup)          # HEGEL_BORROWED_LOOKUP: someone with a phone who is with him looks a thing up for him (pc/BORROWED-LOOKUP.md); off until switched on
         self.papers = bool(papers)                            # HEGEL_PAPERS: `read` at home gives the next piece of the day's papers (pc/PAPERS.md); off until switched on
         self.talk_scene = bool(talk_scene)                    # HEGEL_TALK_SCENE: a talk at the IIC is a scene (pc/TALK-SCENE.md); off until switched on
         self.keep_time = bool(keep_time)                      # HEGEL_KEEP_TIME: an appointment elsewhere ends what he is doing in time to walk there (Day 53); off until switched on
@@ -230,6 +231,19 @@ class World(Economy):
         return {"source": w["source"], "hours": [{k: h[k] for k in ("temp", "sky", "rain", "aqi")} for h in w["hours"]]}
 
     # ── people ──────────────────────────────────────────────────────
+    def phone_holder(self, present):
+        """HEGEL_BORROWED_LOOKUP: the first of those present (in the order listed) who carries a phone he may ask, or None."""
+        return next((c for c in present if self.borrowed_lookup and self.cast.get(c, {}).get("phone")), None)
+
+    def phone_line(self, state, present):
+        """What is on his mind when he has no phone but someone with one is here: a fact of the moment, no advice."""
+        by = self.phone_holder(present)
+        if not by or (state["tech"]["phone"] and state["tech"]["sim"]):
+            return None
+        c = self.cast[by]
+        her, him = ("her", "her") if c["pronoun"] == "she" else ("his", "him")
+        return f"{c['name']} has {her} phone: you may ask {him} to look something up (looks_up)."
+
     def present_ids(self, pid, t, state):
         out = []
         d, m = t.date(), minute_of(t)
@@ -835,6 +849,12 @@ class World(Economy):
                 paper = piece["summary"]
                 events.append((f"At home you take up {read['source']} and read: {read['title']}.", None))
                 kind("read")
+        elif read and prev_step.get("end") == fmt(m) and read.get("by"):       # HEGEL_BORROWED_LOOKUP: what someone looked up on their phone for him
+            c = self.cast[read["by"]]
+            her = "her" if c["pronoun"] == "she" else "his"
+            events.append((f"{c['name']} looks it up on {her} phone and reads it to you: {read['title']}. {read['text']}" if read.get("text")
+                           else f"{c['name']} tries {her} phone: {read['note']}", None))
+            kind("read")
         elif read and prev_step.get("end") == fmt(m):                # what he looked up on his phone, as the step ends
             events.append((f"On your phone you read: {read['title']}. {read['text']}" if read.get("text") else read["note"], None))
             kind("read")
@@ -1068,6 +1088,8 @@ class World(Economy):
             on_mind.append("Recorded purchases/payments today: " + "; ".join(reversed(paid)) + ".")
         if state["tech"]["phone"] and state["tech"]["sim"]:
             on_mind.append("You have a phone with a SIM: you may look something up (looks_up).")
+        elif self.phone_line(state, present):
+            on_mind.append(self.phone_line(state, present))
         if pid == "home":
             on_mind.append("Household: " + self.meal_status(t, state))
         on_mind.append(body)
@@ -1366,7 +1388,10 @@ class World(Economy):
             voiced(ctx["question"])                  # and one listener asked him one question
         if ctx.get("read") and ctx["read"].get("text"):                                                 # he looked something up on his phone
             r = ctx["read"]
-            entry(t0, self.mark({"k": "read", "title": r["title"], "text": r["text"], "source": r["source"], "url": r["url"]}, r["title"], r["text"]))
+            e = {"k": "read", "title": r["title"], "text": r["text"], "source": r["source"], "url": r["url"]}
+            if r.get("by"):
+                e["by"] = self.cast[r["by"]]["name"]            # HEGEL_BORROWED_LOOKUP: whose phone it was
+            entry(t0, self.mark(e, r["title"], r["text"]))
         elif ctx.get("read") and ctx["read"].get("paper"):                                               # a piece of the papers: the page gets the headline and the link only
             r = ctx["read"]
             entry(t0, self.mark({"k": "read", "title": r["title"], "text": "In the paper, at home.", "source": r["source"], "url": r["url"],
