@@ -185,8 +185,12 @@ def recorded_facts(world, cid, state, voice_facts=False, today=None):
                               "Only this recorded balance remains due; do not add a second charge."))
     if today and getattr(world, "promises", False) and cid in world.menu:
         facts += promise_facts(world, cid, state, today)
+    if getattr(world, "exits", False) and cid == "sunil":
+        facts += [f"He took {o['why']} on {o['since']}: ₹{o['amount']:,} stands owed to you, recorded, unpaid." for o in state.get("owed", []) if o.get("slate")]
     if voice_facts and cid == "hegde":
         facts += hegde_facts(state)
+    if getattr(world, "exits", False) and cid == "hegde":
+        facts += [f"On {x['date']} you brought him food from outside and he ate with you." for x in state.get("fed_by", []) if x["by"] == "hegde"][-1:]
     if voice_facts and cid == "saxena":
         facts += saxena_facts(world, state)
     return facts

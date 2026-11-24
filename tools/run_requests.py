@@ -8,6 +8,12 @@ Each line of the requests file is {"id", "messages", and "params" or "settings"}
 thinking off, through tools/recorded_llama.RecordedClient: a call whose end was not saved is never sent again, so a
 stopped run is resumed by running the same command; it reuses every saved reply and asks to reconcile an unknown one.
 
+Two things a request may add (the ceiling test, tools/ceiling.py): `reasoning_budget_tokens` among its params, which turns
+thinking on for that call with that budget, as his own writing call does when HEGEL_WRITE_REASONING_TOKENS is set; and a
+"schema" beside its messages, sent as the response's JSON schema, as his own calls send theirs. And one thing the night may
+add: `--night --slot 0` (or 2) runs a second or third stream on the slots that are his by day, only while he sleeps
+(DECISIONS 62); each stream has its own requests file and its own job folder.
+
 `--job` holds the receipts and the frozen plan (the requests file's sha256 and its ids); a different requests file
 cannot reuse it. `--out` gets {"id", "reply"} lines in the file's order, and `<job>/LEDGER.json` the counts and hashes.
 `--latency-observation` (and `--latency-limit`) stop new calls when his own steps are slower than their limit
@@ -27,6 +33,7 @@ sys.path.insert(0, str(REPO))
 from tools.recorded_llama import LatencyGuard, RecordedClient, TransportError, UnknownRequest, freeze_plan, json_bytes  # noqa: E402
 
 KEYS = ("seed", "temperature", "max_tokens", "cache_prompt")
+MORE = ("reasoning_budget_tokens",)          # optional: thinking on for this call, with this budget
 
 
 def load(path):
@@ -37,15 +44,25 @@ def load(path):
         raise ValueError("request ids repeat")
     for r in rows:
         p = r.get("params", r.get("settings"))
-        if not isinstance(r.get("messages"), list) or not isinstance(p, dict) or set(p) - set(KEYS) or "max_tokens" not in p:
+        if not isinstance(r.get("messages"), list) or not isinstance(p, dict) or set(p) - set(KEYS + MORE) or "max_tokens" not in p:
             raise ValueError(f"request {r.get('id')} needs messages and params of {', '.join(KEYS)}")
+        if "schema" in r and not isinstance(r["schema"], dict):
+            raise ValueError(f"request {r.get('id')}: schema must be a JSON schema")
+        budget = p.get("reasoning_budget_tokens")
+        if budget is not None and (not isinstance(budget, int) or not 0 < budget <= 4096 or p["max_tokens"] <= budget):
+            raise ValueError(f"request {r.get('id')}: reasoning_budget_tokens must be 1 to 4096 and less than max_tokens")
     return raw, rows
 
 
 def payload(row, model="qwen"):
     p = row.get("params", row.get("settings"))
-    return {"model": model, "messages": row["messages"], **{k: p[k] for k in KEYS if k in p},
-            "chat_template_kwargs": {"enable_thinking": False}}
+    out = {"model": model, "messages": row["messages"], **{k: p[k] for k in KEYS if k in p},
+           "chat_template_kwargs": {"enable_thinking": bool(p.get("reasoning_budget_tokens"))}}
+    if p.get("reasoning_budget_tokens"):
+        out["reasoning_budget_tokens"] = p["reasoning_budget_tokens"]
+    if row.get("schema"):
+        out["response_format"] = {"type": "json_schema", "json_schema": {"name": "answer", "schema": row["schema"]}}
+    return out
 
 
 def text_of(result):
@@ -58,14 +75,16 @@ def text_of(result):
     return text
 
 
-def run(requests, server, job, out, limit=None, before_request=None, opener=None):
+def run(requests, server, job, out, limit=None, before_request=None, opener=None, slot=1, night=False, timeout=300):
     raw, rows = load(requests)
     job = Path(job)
     job.mkdir(parents=True, exist_ok=True)
+    thinking = any((r.get("params", r.get("settings")) or {}).get("reasoning_budget_tokens") for r in rows)
     plan = {"requests_sha256": hashlib.sha256(raw).hexdigest(), "ids": [r["id"] for r in rows], "server": server.rstrip("/"),
-            "thinking": False, "slot": 1}
+            "thinking": thinking, "slot": slot}
+    client = RecordedClient(server, job / "receipts", before_request=before_request, opener=opener, slot=slot, any_slot=night,
+                            timeout=timeout)                      # a slot that is refused leaves no plan behind
     plan_sha = freeze_plan(job / "PLAN.json", plan)
-    client = RecordedClient(server, job / "receipts", before_request=before_request, opener=opener)
     replies, sent, reused, failed, stopped = {}, 0, 0, [], None
     for r in rows:
         done = Path(str(client.stem(r["id"])) + ".done.json").exists()
@@ -105,9 +124,14 @@ def main(argv=None):
     ap.add_argument("--limit", type=int)
     ap.add_argument("--latency-observation")
     ap.add_argument("--latency-limit", type=float)
+    ap.add_argument("--slot", type=int, default=1, help="the server slot; 0 and 2 are his by day and need --night")
+    ap.add_argument("--night", action="store_true", help="he sleeps: slots 0 and 2 may be used (DECISIONS 62)")
+    ap.add_argument("--timeout", type=int, default=300, help="seconds to wait for one call")
     a = ap.parse_args(argv)
+    if a.night and a.latency_observation:
+        ap.error("--night is for his sleep: there is no step of his to guard")
     guard = LatencyGuard(a.latency_observation, limit=a.latency_limit) if a.latency_observation else None
-    ledger = run(a.requests, a.server, a.job, a.out, limit=a.limit, before_request=guard)
+    ledger = run(a.requests, a.server, a.job, a.out, limit=a.limit, before_request=guard, slot=a.slot, night=a.night, timeout=a.timeout)
     print(json.dumps(ledger, indent=1))
     return 0 if ledger["complete"] else 1
 

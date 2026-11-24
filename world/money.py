@@ -11,6 +11,8 @@ SESSION_WAIT = 30               # minutes a person waits for him at a standing e
 HOME_GIFT = (50, 5000)          # what a gift or payment to a person at home may come to
 CLEAR_DAYS = 3                  # a cheque paid in at the State Bank clears in this many days
 BANK = "the State Bank, Khan Market"
+EXIT_KEYS = ("running", "fired_before", "due_within", "plain_days", "piece_out")      # the `when` keys of HEGEL_EXITS
+DUES_DAYS, DUES_EVERY = 14, 3   # HEGEL_EXITS: the days ahead that the dues are counted for; the dues line is said at most every third day
 
 
 def cap(text):
@@ -193,12 +195,34 @@ class Economy:
                 lines.append(f"{cap(o['to'])} asks for ₹{o['amount']:,} ({o['why']}), and you have only ₹{st['imprest']:,}.")
         return lines, entries
 
-    def kitchen(self, st):
-        """Why nothing is cooked at home just now (an unpaid wage or unpaid groceries), or None."""
-        for c in self.costs:
-            if c.get("lapse") and any(o.get("cost") == c["id"] for o in st.get("owed", [])):
-                return c["lapse"]
-        return None
+    def shut(self, st):
+        """The first cost that stands owed and stops the kitchen at home (an unpaid wage or unpaid groceries), or None."""
+        return next((c for c in self.costs if c.get("lapse") and any(o.get("cost") == c["id"] for o in st.get("owed", []))), None)
+
+    def kitchen(self, st, t=None):
+        """Why nothing is cooked at home just now, or None. With HEGEL_EXITS a cost with a `plain` line leaves Ramesh's one plain
+        dinner a day: at dinner time (t given) the kitchen is open, and at other times the plain line says what is left."""
+        c = self.shut(st)
+        if not c:
+            return None
+        if not self.exits or not c.get("plain"):
+            return c["lapse"]
+        return None if t is not None and self.dinner_time(t) else c["plain"]
+
+    def due_soon(self, st, t, days=DUES_DAYS):
+        """HEGEL_EXITS: what falls due in the next `days` days and is not yet owed, as (date, cost as it stands), by date.
+        A cost that recurs in that time is there each time."""
+        d, out = t.date(), []
+        for c in (self.cost_of(c, st) for c in self.costs):
+            for i in range(days):
+                x = d + timedelta(days=i)
+                if self.last_due(c["when"], x, st) == x and x.isoformat() > (st["costs"].get(c["id"]) or ""):
+                    out.append((x, c))
+        return sorted(out, key=lambda e: (e[0], e[1]["id"]))
+
+    def short_by(self, st, t):
+        """HEGEL_EXITS: by how much the fortnight's dues exceed the cash he holds; 0 when the purse carries them."""
+        return max(0, sum(c["amount"] for _, c in self.due_soon(st, t)) - st["imprest"])
 
     # ── money that is due to him ────────────────────────────────────
     def pay(self, st, r, t):
@@ -234,7 +258,7 @@ class Economy:
         r = {"from": spec["from"], "amount": spec["amount"], "item": spec["item"], "cheque": cheque,
              "after": (t + timedelta(minutes=spec.get("after_min", 0))).isoformat(timespec="minutes")}
         r['charge_id']=self.new_charge(st)
-        r.update({k: spec[k] for k in ("at", "write", "flag", "commission") if spec.get(k)})
+        r.update({k: spec[k] for k in ("at", "write", "flag", "commission", "ask", "piece") if spec.get(k)})      # ask (HEGEL_EXITS): what stays on his mind until it is written; piece: the kind of sitting the fee is for
         if r["after"] == t.isoformat(timespec="minutes") and not (r.get("at") or r.get("write")):
             return [self.pay(st, r, t)]
         st["receipts"].append(r)
@@ -251,13 +275,19 @@ class Economy:
             lines.append(entries[-1]["text"])
         return lines, entries
 
-    def on_writing(self, st, words, t):
-        """A sitting of enough words earns what a magazine promised. Returns entries."""
+    def on_writing(self, st, words, t, piece=None):
+        """A sitting of enough words earns what a magazine promised. A fee that names its piece (HEGEL_EXITS: `piece`, a kind of
+        writing) is earned only by a sitting of that kind on a manuscript begun on or after the day he agreed: the fee is for the
+        piece that was asked for, not for whatever he writes next. Returns entries."""
         out = []
         for r in list(st["receipts"]):
             if r.get("write") and words >= r["write"]:
+                if r.get("piece") and not (piece and piece["kind"] == r["piece"] and piece["started"] >= r["after"][:10]):
+                    continue
                 st["receipts"].remove(r)
                 out.append(self.pay(st, r, t))
+                if self.exits:
+                    st.setdefault("out", []).append({"id": r["item"], "date": t.date().isoformat(), **({"title": piece["title"]} if piece else {})})      # HEGEL_EXITS: a piece of his went out
                 for c in st.get("commissions", []):
                     if c["id"] == r.get("commission"):
                         c["next"] = (t.date() + timedelta(days=c["every"])).isoformat()       # the next piece, a fortnight on
@@ -361,6 +391,8 @@ class Economy:
             return False
         if day_number(d) < w.get("since_day", 0) or net >= w.get("cash_below", 10 ** 9) or cash < w.get("cash_min", 0):
             return False
+        if any(not self.exit_ok(k, v, t, st) for k, v in w.items() if k in EXIT_KEYS):
+            return False
         if any(len(st["met_days"].get(c, [])) < n for c, n in w.get("met_days", {}).items()):
             return False
         if any(len(st["visits"].get(p, [])) < n for p, n in w.get("visits", {}).items()):
@@ -385,6 +417,55 @@ class Economy:
             return False
         return not w.get("words") or any(x["words"] >= w["words"] for x in st.get("works", []))
 
+    def exit_ok(self, key, v, t, st):
+        """The conditions HEGEL_EXITS adds to an offer's `when`. running: {engagement: n}, kept and at least n of its sessions held;
+        fired_before: any of these beats fired on an earlier day; due_within: {cost: days}, it falls due within that many days (not yet
+        owed) and the fortnight's dues are more than his cash; plain_days: n, the record began early enough and the kitchen stood on the plain meal on each of the last n days."""
+        d = t.date()
+        if key == "running":
+            return all(any(e["id"] == i for e in st.get("engagements", [])) and sum(b.startswith(i + "@") for b in st["beats"]) >= n for i, n in v.items())
+        if key == "fired_before":
+            return any(i in st["beats"] and st.get("fired_on", {}).get(i, "") < d.isoformat() for i in v)
+        if key == "due_within":
+            for cid, days in v.items():
+                c = self.cost_of(next(x for x in self.costs if x["id"] == cid), st)
+                nd = self.next_due(c["when"], d, st)
+                if not nd or (nd - d).days > days or any(o.get("cost") == cid for o in st["owed"]):
+                    return False
+            return self.short_by(st, t) > 0                            # the purse may hold this cost and still not the fortnight
+        if key == "piece_out":
+            return self.piece_due(st, t, v) is not None
+        book = st.get("plain")                                      # plain_days
+        days = [(d - timedelta(days=i)).isoformat() for i in range(v)]
+        return bool(book) and book["from"] <= days[-1] and all(x in book["days"] for x in days)
+
+    def piece_due(self, st, t, rule):
+        """HEGEL_EXITS: the newest piece of his that went out (a talk given, a piece a magazine paid for) at least after_days ago and
+        not yet thanked, provided no gift came in the last gap_days; None otherwise. A talk given before the switch has no date."""
+        d, gifts = t.date(), st.get("gifts", [])
+        if gifts and (d - date.fromisoformat(gifts[-1]["date"])).days < rule["gap_days"]:
+            return None
+        out = st.get("out") or [{"id": b, "date": None} for b in ("iic_talk_day2", "iic_talk_day") if b in st["beats"]][:1]
+        thanked = {(g["piece"], g.get("of")) for g in gifts}
+        for p in reversed(out):
+            if (p["id"], p["date"]) not in thanked and (p["date"] is None or (d - date.fromisoformat(p["date"])).days >= rule["after_days"]):
+                return p
+        return None
+
+    def give(self, st, beat, t):
+        """HEGEL_EXITS: the envelope. The sum in cash, and the record of which piece it thanked, so that no piece is thanked twice."""
+        g, p = beat["gift"], beat["thanked"]
+        e = self.pay(st, {"from": g["from"], "amount": g["amount"], "item": g["item"], "after": t.isoformat(timespec="minutes")}, t)
+        e["text"] = f"The envelope holds ₹{g['amount']:,}."
+        st.setdefault("gifts", []).append({"date": t.date().isoformat(), "piece": p["id"], "of": p["date"], "amount": g["amount"]})
+        return [e]
+
+    def fed_by(self, st, spec, t):
+        """A meal given him by a person of the house (HEGEL_EXITS): the world's own feed, and the record of who gave it."""
+        self.feed(st, t, "meal")
+        st.setdefault("fed_by", []).append({"by": spec["by"], "date": t.date().isoformat(), "t": fmt(minute_of(t))})
+        return [{"k": "consumed", "item": spec["what"], "food": "meal", "source": spec["by"]}] if self.consumed else []
+
     def effects(self, spec, t, st):
         """The economy's effects of a beat, or of one answer to its choice: owe, pay, cheque, sell, schedule, reprice (a debt
         that stands owed is changed), bank (an account opened), commission (work that recurs). Returns entries."""
@@ -404,8 +485,10 @@ class Economy:
             st["owed"].append(o)
             out.append({"k": "world", "text": f"You owe {o['to']} ₹{o['amount']:,}: {o['why']}.",
                         "owe": {k: o[k] for k in ("to", "amount", "why", "since", "charge_id")}})
-        if spec.get("schedule"):
-            self.schedule(st, spec["schedule"], t)
+        for one in spec["schedule"] if isinstance(spec.get("schedule"), list) else [spec["schedule"]] if spec.get("schedule") else []:
+            self.schedule(st, one, t)                               # a list: several appointments (a course)
+        if spec.get("feed"):
+            out += self.fed_by(st, spec["feed"], t)
         if spec.get("reprice"):
             r = spec["reprice"]
             for o in st["owed"]:

@@ -13,7 +13,7 @@
       "name": "Mr. R. K. Malhotra", "short": "Mr. R. K. Malhotra, retired IAS",
       "role": "retired from the Indian Administrative Service",
       "card": "Thirty-four years in the service, most of them among files. Walks the Lodhi loop at half past nine, after the papers, plays bridge at the Gymkhana in the evening, and has opinions on the state and on his partner's bidding. Dry, courteous, not easily impressed.",
-      "pronoun": "he",
+      "pronoun": "he", "phone": true,
       "where": [
         {"place": "lodhi", "days": "daily", "from": "09:30", "to": "10:45", "p": 0.7},
         {"place": "gym", "days": "Tue,Thu,Fri,Sat", "from": "17:00", "to": "19:30", "p": 0.9}
@@ -30,11 +30,14 @@
       "name": "Nidhi Rao", "short": "Nidhi Rao, doctoral student in philosophy",
       "role": "doctoral student in philosophy, JNU",
       "card": "Writing her doctorate on Hegel. Reads him in German and in English with a pencil, and has views on what he wrote about India that she does not keep to herself. Quick, sardonic, short of money by the end of the month.",
-      "pronoun": "she",
+      "pronoun": "she", "phone": true,
       "where": [
         {"place": "khan", "days": "Wed,Sat", "from": "13:00", "to": "16:30", "p": 0.5},
         {"place": "lodhi", "days": "Fri,Sun", "from": "09:30", "to": "10:30", "p": 0.5},
-        {"place": "iic", "days": "Mon,Thu", "from": "15:00", "to": "18:30", "p": 0.5}
+        {"place": "iic", "days": "Mon,Thu", "from": "15:00", "to": "18:30", "p": 0.5},
+        {"place": "khan", "days": "daily", "from": "13:00", "to": "19:00", "p": 0.5, "switch": "exits"},
+        {"place": "iic", "days": "Mon-Fri", "from": "12:00", "to": "18:30", "p": 0.5, "switch": "exits"},
+        {"place": "lodhi", "days": "daily", "from": "08:00", "to": "10:30", "p": 0.4, "switch": "exits"}
       ]
     },
     "kapoor": {
@@ -96,14 +99,18 @@
     },
     "ananya": {
       "name": "Ananya", "short": "Ananya, Nidhi's cousin", "role": "Nidhi's cousin, a student who needs German before a semester in Leipzig", "background": true,
-      "pronoun": "she",
+      "pronoun": "she", "phone": true,
       "where": []
+    },
+    "vikram": {
+      "name": "Vikram", "short": "Vikram, a friend of Nidhi's", "role": "a friend of Nidhi's, a student who wants German", "background": true, "switch": "exits",
+      "pronoun": "he", "where": []
     },
     "hegde": {
       "name": "Shri G. Hegde", "short": "Shri G. Hegde",
       "role": "Joint Secretary, transferring from Bengaluru",
       "card": "The man the bungalow was meant for. Courteous, tired, and carrying the patience of a career spent in files.",
-      "pronoun": "he",
+      "pronoun": "he", "phone": true,
       "where": [
         {"place": "home", "days": "daily", "from": "09:30", "to": "11:30", "p": 0.8, "if": "hegde_lodger"},
         {"place": "home", "days": "daily", "from": "19:00", "to": "22:00", "p": 0.8, "if": "hegde_lodger"}

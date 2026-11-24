@@ -78,7 +78,7 @@ One night of inference, plain Qwen only (allowed at night by `DECISIONS.md` 30).
 
 **1. Stage 2d's cards, by rule.** For every passage of the development journey (Vienna, 80 words or more; 43 passages. Before decision 7 the Netherlands journey was development too):
 - Plain Qwen at temperature 0 lists every statement the passage makes about the world as short English lines in the form of the world's own records: who, what, where, when, what it cost, what he decided. His verdicts and feelings are not listed; they are the voice.
-- **The symmetry check:** a second call lists the passage's statements about the world that the card lacks. They are added, once more at most. A passage whose card still lacks any is dropped and counted.
+- **The symmetry check:** a second call lists the passage's statements about the world that the card lacks. What is new is added, once more at most, and the card is kept. A line that only restates the card is not added. (Changed on 24 November: the first run dropped 38 of 43 passages, because a model asked what a list lacks nearly always names something. Re-merged by the new rule, all 43 are kept: 77 lines added to 33 cards in the first round, 20 to 10 in the second.)
 - The same card-maker and the same check later make the training cards, so the test measures what was trained.
 - **Delhi cards beside them:** the records of his own recent days, in the same form. No real letter answers them, so they measure facts and era only (see 3).
 

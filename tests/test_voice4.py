@@ -98,7 +98,8 @@ class NightTest(unittest.TestCase):
         return reqs
 
     def cards(self):
-        """Cards for the four development passages: the first is complete, the second gains a line, the third is dropped."""
+        """Cards for the four development passages: the first and the fourth are complete at once, the second gains a line in round one, and the
+        third gains one in each round and is kept."""
         v.cmd_cards(self.f)
         self.reply("cards", lambda r: "- arrived at 11\n- saw the gallery")
         v.cmd_check(self.f, 1)
@@ -115,15 +116,33 @@ class NightTest(unittest.TestCase):
         self.assertTrue(all(p["kind"] == "hegel" for p in pool))
         self.assertEqual({p["kind"] for p in v.rows(self.f / "CONTROLS.jsonl")}, {"hegel", "other"})
 
-    def test_a_card_gains_what_it_lacked_and_is_dropped_if_it_still_lacks(self):
+    def test_a_card_gains_what_it_lacked_in_both_rounds_and_is_kept(self):
         ids, one, two = self.cards()
         self.assertEqual((one["complete"], one["open"]), (2, 2))
-        self.assertEqual((two["complete"], two["open"], two["dropped"]), (3, 0, 1))
+        self.assertEqual((two["complete"], two["open"], two["dropped"]), (4, 0, 0))
         cards = {c["id"]: c for c in v.rows(self.f / "CARDS.jsonl")}
-        self.assertEqual(set(cards), {ids[0], ids[1], ids[3]})
+        self.assertEqual(set(cards), set(ids))                                       # 24 November: the old rule dropped 38 of 43
         self.assertEqual(cards[ids[1]]["card"], "- arrived at 11\n- saw the gallery\n- paid 3 thalers")
-        self.assertEqual(json.loads((self.f / "DROPPED.json").read_text())["lacking_after_two_rounds"][0]["id"], ids[2])
+        self.assertEqual(cards[ids[2]]["card"], "- arrived at 11\n- saw the gallery\n- paid 3 thalers\n- met Creuzer")
+        self.assertEqual(json.loads((self.f / "DROPPED.json").read_text()), {"lacking_after_two_rounds": [], "no_card": []})
+        settled = json.loads((self.f / "SETTLED.json").read_text())
+        self.assertEqual((settled["cards"], settled["round_1"]["added_to"], settled["round_2"]["added_to"]), (4, 2, 1))
         self.assertEqual(len(v.rows(self.f / "REQUESTS-check2.jsonl")), 2)          # only the open cards are checked again
+
+    def test_a_restatement_is_not_a_new_line_and_does_not_open_a_card(self):
+        card = ["- The writer went to the Belvedere this morning.", "- The writer went to the post office to collect letters."]
+        self.assertEqual(v.fresh_lines(card, ["- The writer plans to go to the Belvedere and the post office this morning."]), [])
+        self.assertEqual(v.fresh_lines(card, ["- The suburbs do not form one continuous city like Berlin."]),
+                         ["- The suburbs do not form one continuous city like Berlin."])
+        twice = ["- He wrote by the light of a few thin candles.", "- He wrote by the light of thin candles."]
+        self.assertEqual(v.fresh_lines(card, twice), twice[:1])                      # the second repeats the first
+        v.cmd_cards(self.f)
+        self.reply("cards", lambda r: "- arrived at 11\n- saw the gallery")
+        v.cmd_check(self.f, 1)
+        self.reply("check1", lambda r: "- The writer saw the gallery after he arrived.")
+        one = v.cmd_merge(self.f, 1)
+        self.assertEqual((one["complete"], one["open"], one["restated"], one["added"]), (4, 0, 4, 0))
+        self.assertTrue((self.f / "CARDS.jsonl").exists())                           # nothing is open: the cards are final after round one
 
     def test_the_arms_ask_alike_and_differ_in_what_stands_in_front(self):
         self.cards()
@@ -157,7 +176,7 @@ class NightTest(unittest.TestCase):
         keys = Path(self.td.name) / "keys"
         a = v.cmd_sheet(self.f, "P1", keys)
         b = v.cmd_sheet(self.f, "P1", keys, mirror=True)
-        self.assertEqual(a["pairs"], 3)
+        self.assertEqual(a["pairs"], 4)                                              # every card is kept
         ka, kb = json.loads((keys / "KEY-P1.json").read_text()), json.loads((keys / "KEY-P1-mirror.json").read_text())
         self.assertTrue(all(ka[p]["real"] != kb[p]["real"] for p in ka))             # the mirror shows each pair the other way round
         self.assertFalse(any(p.name.startswith("KEY") for p in self.f.iterdir()))
@@ -168,7 +187,7 @@ class NightTest(unittest.TestCase):
         table = v.cmd_particulars(self.f)
         self.assertEqual(table["real"]["per_letter"], 0)
         self.assertEqual(table["P0"]["per_letter"], 2)                                # 9 francs and Schulze are in no card
-        self.assertEqual(table["P0"]["with_any"], 3)
+        self.assertEqual(table["P0"]["with_any"], 4)
 
 
 class MeasureTest(unittest.TestCase):

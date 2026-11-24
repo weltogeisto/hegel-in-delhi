@@ -47,6 +47,39 @@ class RunRequestsTest(unittest.TestCase):
     def go(self, opener, **kw):
         return run_requests.run(self.req, "http://127.0.0.1:8082", self.job, self.out, opener=opener, **kw)
 
+    def test_a_reasoning_budget_turns_thinking_on_for_that_call_and_a_schema_is_sent(self):
+        rows = [{"id": "think", "messages": [{"role": "user", "content": "one"}], "schema": {"type": "object", "properties": {"text": {"type": "string"}}},
+                 "params": {"seed": 3, "temperature": 0.7, "max_tokens": 3148, "cache_prompt": False, "reasoning_budget_tokens": 2048}},
+                {"id": "plain", "messages": [{"role": "user", "content": "two"}], "params": {"seed": 3, "max_tokens": 1100}}]
+        self.req.write_text("".join(json.dumps(r) + "\n" for r in rows))
+        opener = mock.Mock(side_effect=echo)
+        ledger = self.go(opener)
+        self.assertTrue(ledger["complete"])
+        first, second = (json.loads(c.args[0].data) for c in opener.call_args_list)
+        self.assertEqual((first["chat_template_kwargs"], first["reasoning_budget_tokens"], first["max_tokens"]), ({"enable_thinking": True}, 2048, 3148))
+        self.assertEqual(first["response_format"]["json_schema"]["schema"], rows[0]["schema"])
+        self.assertEqual(second["chat_template_kwargs"], {"enable_thinking": False})
+        self.assertNotIn("reasoning_budget_tokens", second)
+        self.assertNotIn("response_format", second)
+        self.assertIs(json.loads((self.job / "PLAN.json").read_text())["thinking"], True)
+
+    def test_a_budget_must_leave_room_for_the_answer(self):
+        bad = {"id": "x", "messages": [{"role": "user", "content": "one"}], "params": {"max_tokens": 2048, "reasoning_budget_tokens": 2048}}
+        self.req.write_text(json.dumps(bad) + "\n")
+        with self.assertRaises(ValueError):
+            self.go(mock.Mock(side_effect=echo))
+
+    def test_the_other_slots_only_at_night(self):
+        with self.assertRaises(ValueError):
+            self.go(mock.Mock(side_effect=echo), slot=0)                         # by day slot 0 is his
+        opener = mock.Mock(side_effect=echo)
+        ledger = self.go(opener, slot=2, night=True)
+        self.assertTrue(ledger["complete"])
+        self.assertEqual(json.loads(opener.call_args_list[0].args[0].data)["id_slot"], 2)
+        self.assertEqual(json.loads((self.job / "PLAN.json").read_text())["slot"], 2)
+        with self.assertRaises(ValueError):
+            run_requests.run(self.req, "http://127.0.0.1:8082", self.dir / "job3", self.dir / "R3.jsonl", opener=opener, slot=3, night=True)
+
     def test_every_call_once_in_order_on_the_spare_slot_with_thinking_off(self):
         opener = mock.Mock(side_effect=echo)
         ledger = self.go(opener)

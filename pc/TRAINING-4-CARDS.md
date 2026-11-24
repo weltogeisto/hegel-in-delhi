@@ -14,7 +14,7 @@ The training set of Training 4: for each passage of his own writing, a card of w
 | **Training, together** | **596** | **112,795** |
 | Held out, for early stopping | 48 | 8,617 |
 
-- **The cards** come from the instrument's own card-maker and symmetry check (`tools/voice4.py`): at most two rounds, and a passage whose card still lacks a statement is dropped and counted.
+- **The cards** come from the instrument's own card-maker and symmetry check (`tools/voice4.py`): at most two rounds. What a check finds new is added and the card is kept; a line that only restates the card is not added. `SETTLED.json` says how the cards settled (rule of 24 November).
 - **The pairs:** each training passage gives one pair with the card's lines in order and one with the same lines shuffled by a seed. Each held-out passage gives one.
 - **The leak check** runs twice, in `passages` and in `build`: no passage may share 12 words in a row with the Vienna or the Paris journey. It raises an error.
 

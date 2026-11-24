@@ -136,7 +136,10 @@ def render(s, ask=ASK):
         text += "\nFrom your shelf:\n" + "".join(f"- {x['label']}: “{x['text']}”\n" for x in s["shelf"])
     if s.get('reconcile_payments') and ask == ASK:
         ask = PAYMENT_ASK + ask
-    text += f"\nWhat happens: {s['event']}\n\n{ask}"
+    text += f"\nWhat happens: {s['event']}"
+    if s.get("paper"):
+        text += f"\nThe piece, as the paper prints it: {s['paper']}"
+    text += f"\n\n{ask}"
     return text
 
 

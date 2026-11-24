@@ -13,7 +13,7 @@ import random
 import time
 from datetime import date, datetime, timedelta
 
-from . import calls, claim_check, contract, lookup, owl, post, prefer, prompt_budget, records, report, shelf, talk, voices, works
+from . import calls, claim_check, contract, lookup, owl, papers, post, prefer, prompt_budget, records, report, shelf, talk, voices, works
 from .clock import day_number, fmt, hm, long_date, minute_of, sun
 from .memory import Memory, encountered_text
 from .money import ADVANCE
@@ -104,6 +104,10 @@ class Engine:
                     m.recorder = self.recorder
         if getattr(cfg, "consumed", False):
             world.consumed = True           # HEGEL_CONSUMED reaches the entries however the world was built
+        if getattr(cfg, "papers", False):
+            world.papers = True             # HEGEL_PAPERS likewise
+        if getattr(cfg, "borrowed_lookup", False):
+            world.borrowed_lookup = True    # HEGEL_BORROWED_LOOKUP likewise
         self.days = Days(cfg.docs, getattr(cfg, "clock_shift_min", 0))
         self.memory = Memory(self.days, world)
         self.lookup = lookup.find           # (query, cache folder) -> the page he reads, or a note; tests put a stand-in here
@@ -317,8 +321,12 @@ class Engine:
                     ctx["manuscripts"] = ((ctx["manuscripts"] or "") + "\n\n" + letter).strip()
                 ctx["writing"] = self.write(self.plain(messages), self.unwish(raw), ctx, st)
             if ans.get("looks_up"):
-                ctx["read"] = self.look(ans["looks_up"], st)
+                ctx["read"] = self.look(ans["looks_up"], st, ctx["present"])
+            elif self.world.papers and ans["action"] == "read" and ans["place"] == st["place"] == "home":
+                ctx["read"] = self.paper(t, st)
         step = self.world.apply(ans, plan, sit, ctx, st, day)
+        if ctx.get("paper") and source in ("mind", "stub") and ans.get("thought"):
+            papers.trace(st, ctx["paper"], ans["thought"])          # the piece that opened this moment, and his first sentence about it
         if ctx.get("writing") and st.get("post"):
             post.written(st, ctx["writing"], t.date(), self.post_card())          # a letter to Munich goes to the post tomorrow
         if wish and sit.get("wants") and source in ("mind", "stub"):
@@ -742,11 +750,25 @@ class Engine:
         log.info("writing dropped: %s", "; ".join(wrong))
         return None
 
-    def look(self, query, st):
-        """He looks something up on his phone: the page he reads, {title, text, source, url}, or {note} for what went wrong."""
+    def look(self, query, st, present=()):
+        """He looks something up on his phone: the page he reads, {title, text, source, url}, or {note} for what went wrong.
+        HEGEL_BORROWED_LOOKUP: with no phone of his own, whoever with a phone is with him looks it up, and the answer says who ("by")."""
         if not (st["tech"]["phone"] and st["tech"]["sim"]):
-            return {"note": "You have nothing to look it up on."}
+            by = self.world.phone_holder(present)
+            if not by:
+                return {"note": "You have nothing to look it up on."}
+            return dict(self.lookup(query, self.cfg.state / "lookup"), by=by)
         return self.lookup(query, self.cfg.state / "lookup")
+
+    def paper(self, t, st):
+        """HEGEL_PAPERS: the next piece of today's papers that he has not read, as {paper, title, source, url, date, i}: no text, which
+        the next situation takes from the state folder. None when the papers are read or were not kept."""
+        d, done = t.date(), (st.get("today") or {}).get("papers_read", [])
+        for i, p in enumerate(self.world.feeds.pieces(d) if self.world.feeds else []):
+            if i not in done:
+                st.setdefault("today", {})["papers_read"] = done + [i]
+                return {"paper": True, "title": p["title"], "source": p["source"], "url": p["link"], "date": d.isoformat(), "i": i}
+        return None
 
     QUIET_OUT = 2           # quiet steps he may stay out before he goes home: an hour
     EAT_OUT = "khan"        # where he eats when nothing is cooked at home: a dhaba in Khan Market
@@ -802,7 +824,7 @@ class Engine:
         if it is open when he gets there and he has the cash."""
         if not self.wants_food(st, t):
             return False
-        if "ramesh" in self.world.present_ids("home", t, st) and not self.world.kitchen(st):
+        if "ramesh" in self.world.present_ids("home", t, st) and not self.world.kitchen(st, t):
             return False
         arrival = t + timedelta(minutes=self.world.walk("home", self.EAT_OUT))
         return self.dhaba(st, arrival) is not None

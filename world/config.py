@@ -57,10 +57,16 @@ class Config:
         self.file_act = v.get("HEGEL_FILE_ACT", "0").strip().lower() in ("1", "yes", "true")   # the file moves after the query: three doors and a copy (pc/FILE-NEXT-ACT.md, part 1); off until switched on
         self.keep_time = v.get("HEGEL_KEEP_TIME", "0").strip().lower() in ("1", "yes", "true")   # an appointment elsewhere ends what he is doing in time to walk there, and a missed talk at the IIC is offered once more (Day 53); off until switched on
         self.talk_scene = v.get("HEGEL_TALK_SCENE", "0").strip().lower() in ("1", "yes", "true")   # a talk at the IIC is a scene: the programme officer answers, a voice is told whether its place is open today, the lecture is given and one question comes from the hall (pc/TALK-SCENE.md); off until switched on
+        self.exits = v.get("HEGEL_EXITS", "0").strip().lower() in ("1", "yes", "true")   # ways out of the money trouble: a second pupil, a course of lectures, Ramesh's early offer, Sunil's slate, Shri Hegde's plate (pc/EXITS.md); off until switched on
         self.promises = v.get("HEGEL_PROMISES", "0").strip().lower() in ("1", "yes", "true")   # a promise is a record: the voice may make one in `act`, the engine keeps it (pc/WORLD-2-WEEK1.md P1); off until switched on
         self.consumed = v.get("HEGEL_CONSUMED", "0").strip().lower() in ("1", "yes", "true")   # what he ate is an entry of its own, which the page shows and the owl reads (DECISIONS 48); off until someone has looked at what they do with it
         self.pause_away = v.get("HEGEL_PAUSE_AWAY", "0").strip().lower() in ("1", "yes", "true")   # hold his world at waking while the PC is away (pc/PAUSE.md); off until switched on
         self.wants = v.get("HEGEL_WANTS", "0").strip().lower() in ("1", "yes", "true")   # he may name what he wishes the city had (pc/WANTS-SCREEN.md); written down, no effect; off until switched on
+        self.borrowed_lookup = v.get("HEGEL_BORROWED_LOOKUP", "0").strip().lower() in ("1", "yes", "true")   # with no phone of his own, someone he knows who is with him looks a thing up on theirs (pc/BORROWED-LOOKUP.md); off until switched on
+        self.papers_record = v.get("HEGEL_PAPERS_RECORD", "0").strip().lower() in ("1", "yes", "true")   # the day's papers kept in full in the state folder, nothing he is told changes (pc/PAPERS.md); off until switched on
+        self.papers = v.get("HEGEL_PAPERS", "0").strip().lower() in ("1", "yes", "true")   # `read` at home gives him the next piece of the day's papers, and what he read is remembered (pc/PAPERS.md); off until switched on
+        self.papers_body = v.get("HEGEL_PAPERS_BODY", "0").strip().lower() in ("1", "yes", "true")   # with the record, the text of each piece the paper itself marks free to read is kept too (pc/PAPERS.md); off until switched on
+        self.papers_archive = v.get("HEGEL_PAPERS_ARCHIVE", "").strip() or None   # a rehearsal's papers: a folder of papers-*.json, cycled by day (pc/PAPERS.md)
         self.news_feeds = [u.strip() for u in v.get("NEWS_FEEDS", (
             "https://www.thehindu.com/news/national/feeder/default.rss,"
             "https://indianexpress.com/section/india/feed/")).split(",") if u.strip()]

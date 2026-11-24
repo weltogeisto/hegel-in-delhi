@@ -5,7 +5,7 @@ The Engine owns this, so that the World stays free of file I/O. Past days are re
 import re
 from datetime import date, timedelta
 
-from . import contract, owl
+from . import contract, owl, papers
 from .clock import WEEKDAYS
 
 DAYNAMES = [w[:3] for w in WEEKDAYS]
@@ -216,6 +216,11 @@ class Memory:
         boundaries. The current in-memory day wins over its saved copy. No future
         day or later sitting is eligible. No generated summary changes the text.
         """
+        got = self.own_manuscripts(day, before_time, limit)
+        read = papers.block(day.get("state", {}).get("readings")) if getattr(self.world, "papers", False) else ""
+        return (got + "\n\n" + read).strip() if read else got
+
+    def own_manuscripts(self, day, before_time, limit):
         works = (day.get("state", {}).get("works") or [])[-3:]
         ids = {w.get("id") for w in works if w.get("id")}
         if not ids:
@@ -266,4 +271,5 @@ class Memory:
     def known_text(self, day, sit):
         """Past and current exposure; recalled thoughts and intentions are not new evidence."""
         current = {k: v for k, v in sit.items() if k not in {"on_mind", "remember", "earlier"}}
-        return "\n".join([self.known_before(day["date"]), encountered_text(day), contract.render(current)])
+        read = papers.read_text(day.get("state", {}).get("readings"), self.world.feeds) if getattr(self.world, "papers", False) else ""
+        return "\n".join([self.known_before(day["date"]), encountered_text(day), contract.render(current)] + ([read] if read else []))
