@@ -99,8 +99,11 @@ Declared in `pc/TRAINING-4-INSTRUMENT.md`. **24 November: the first merge kept 5
 ### W14 · PC seat · Training 4: the cards for the training letters · OPEN for the night of 24 November (`DECISIONS.md` 65)
 Declared in `pc/TRAINING-4-CARDS.md`. Inference only, after W13 is complete: a card and its symmetry check for each of the 644 passages (596 training, 48 held out), then `voice4_train.py build`. Push to `codex/training4-cards-20261124` and post DONE on PR #1 with the manifest's counts and hashes. Nothing trains from it before the cloud has read the cards.
 
-### W15 · PC seat · the fast lane, night 3: the money packet, off and on · OPEN for the night of Thursday 26 November (`DECISIONS.md` 67, 68)
-Declared in `pc/FAST-LANE-NIGHT3.md` before any run. From Day 58's saved morning, `simulate --days 14`: seeds 1831 and 2718, each with `HEGEL_EXITS` off and on, the two arms of a seed side by side; seed 4242 if the night allows. The engine is main in the rehearsal's own checkout; nothing is merged into shadow. Push to `codex/fast-lane-night3-20261126` and post DONE on PR #1. The read is Claude's, by the rule declared there. It moves to Wednesday if the training run has no word from Welt.
+### W17 · PC seat · the ceiling test · OPEN for the night of 24 November, ahead of everything else (Welt, 24 November: "ceiling test tonight")
+Declared in `pc/CEILING-TEST.md` before any run. By day, no GPU: `tools/ceiling.py texts` and `requests` in `pc/exports/ceiling-20261124`, pushed to `codex/ceiling-20261124` so that the cloud can compare the hashes. From his sleep: the three requests files, one a slot, with `tools/run_requests.py --night`. 240 calls. Push the replies and post DONE on PR #1 without reading them. Then W13's rest, then W14.
+
+### W15 · PC seat · the fast lane, night 3: the paid work and the money, off and on · OPEN for the night of Wednesday 25 November (`DECISIONS.md` 67, 68, 70)
+Declared in `pc/FAST-LANE-NIGHT3.md` before any run. From Day 57's saved morning, `simulate --days 14`: seeds 1831 and 2718, each with `HEGEL_EXITS` off and on, the two arms of a seed side by side; seed 4242 if the night allows. The engine is main in the rehearsal's own checkout; nothing is merged into shadow. Push to `codex/fast-lane-night3-20261125` and post DONE on PR #1. The read is Claude's, by the rule declared there.
 
 ### W16 · PC seat · the day's papers, collected each evening · OPEN from 24 November
 `python3 tools/collect_papers.py --state ~/hegel-eval/papers-archive`, once an evening after his day is complete. It writes one file a day into a folder of its own and changes nothing of his. The folder stays on the PC and is not pushed. It is the archive for the papers' own night (`pc/PAPERS.md`, `HEGEL_PAPERS_ARCHIVE`).

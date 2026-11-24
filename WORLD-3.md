@@ -8,6 +8,26 @@ Welt, 24 November: "the entire ousia of this simulation is to have Hegel resurre
 
 **The idea in one line: he thinks about what the world puts in front of him, so phase three puts the century there.**
 
+## What the adversarial pass changed (24 November, afternoon)
+
+Welt had the PC seat's proposals attacked by three independent reviewers and then ruled (`DECISIONS.md` 69 and 70). This plan is held to the same result. Where a section below says otherwise, this section stands.
+
+- **The test comes before the building.** In this repository's own results, scaffolding has not moved his arguing, and the situation he is put in has. The ceiling test (`pc/CEILING-TEST.md`) runs on the night of 24 November. Until it is read, the library (packet 4) and the long work (packet 5) are held.
+- **Struck:** the invented scholar (packet 6), the hall's set question, the editor's confronting question, and the list of questions as something put to him. No invented person argues at him.
+- **First, the mechanical faults** that keep this century from reaching him by his own doing:
+  - He has no phone and no SIM (₹9,300 together), so he has never been able to look anything up.
+  - The headlines have no text behind them. `HEGEL_PAPERS` is built, and the feeds give one sentence.
+  - Nidhi, a doctoral student on Hegel with views on what he wrote about India, has been in the cast from the start. He met her on Day 1 only.
+  - Offers come once. The Review's essay closed on one answer.
+- **Before his 1 December:** the paid work his world already offers is unlocked (packet 3).
+- **Balanced:** half of the real documents he can find flatter this century, and half indict it.
+- **Corrected here:** the look-up was never open to him; and the life test is replaced by the ceiling test, which also sets his piece against a stronger model given the same material.
+- **Still to answer, from the reviewers:**
+  - **What a pass is.** Three tiers: applying a category he has; revising or defending one located paragraph, resting on two dated events of his record and naming its cost elsewhere in the system; a new category.
+  - **Recycled reception** shows as words he never used, and as conversions that cost his system nothing.
+  - **The same model as his opponent manufactures revisions.** He said yes 22 times of 22.
+  - **His forms:** a remark to one paragraph, a review of one real text, a lecture, letters.
+
 ## What the record says
 
 He has lived 54 days. Night 2 lived five weeks more, twice (`pc/FAST-LANE-NIGHT2-RESULT.md`).
@@ -77,7 +97,7 @@ One line is drawn again. The travel letters are the compass for his letters: muc
 | Chose | How many offers were taken, and how many get the same answer every time? | 2 and 3 offers with one answer |
 | Wrote | Sittings and words | 8 and 11 sittings |
 
-**The life test** (to build). One question, two answers: his, with his record and his reading behind him, and the bare model's. Blind pairs for readers of two families and for Welt. It asks whether the world adds to the thought.
+**The ceiling test** (`tools/ceiling.py`, `pc/CEILING-TEST.md`; it replaces the life test of the third version). 48 of his mornings, one headline and one real text each; his own writing call in five arms and a stronger model's answer as a sixth; blind pairs for readers of two families and for Welt. It asks where the limit is: in what he is given, in the model, or in the measure.
 
 **The works' measure** (`tools/works_score.py`, in build). For each sitting: does it open like a diary; how much of it he has said before; how many of its words are new to his pages; which names and terms of this century it holds; which of his readings it uses.
 
@@ -87,13 +107,13 @@ Each is built off, tested, rehearsed on a night, and then put to Welt.
 
 **1. The instruments.** The score is built. The works' measure follows it.
 
-**2. Matter, first part: the papers** (`HEGEL_PAPERS`, built, in review).
+**2. Matter, first part: the papers** (`HEGEL_PAPERS`, built, off).
 - **Papers he can open.** `read`, where the papers are, gives him the next piece he has not read: the headline, the paper, the summary.
 - **A trace the engine keeps:** the title, the date, and one line in his own words, taken from the thought that follows.
 - **Stories that run for days.** When a new headline continues one he has read, the waking line says so and gives his own line back.
 - **Reading that leads somewhere.** What he has read counts as met, and it joins what his manuscripts and a talk may draw on.
 
-**3. A public, first part: money and the task as one** (`HEGEL_EXITS`, in build).
+**3. A public, first part: money and the task as one** (`HEGEL_EXITS`, built, off; reworked for `DECISIONS.md` 69 and 70: the editor names no question, and the fee is bound to the commissioned piece).
 - **He sees it coming.** When what falls due within the week is more than he holds, the waking line gives the figures once, and no advice.
 - **A plain kitchen, the floor.** While the wage or the groceries stand unpaid, Ramesh still cooks one plain meal a day. The debt stands and grows.
 - **He earns by thinking in public:**
@@ -104,17 +124,17 @@ Each is built off, tested, rehearsed on a night, and then put to Welt.
 - **The household notices.** Ramesh speaks of the wage before it falls due. Sunil lets a small sum stand, once. Shri Hegde sets a second plate: company, not rescue.
 - **Two repairs of the file's act:** a refusal at Mr. Saxena's no longer wipes Mr. Malhotra's letter from the file's line; and the hearing, part 2, is drafted for Welt's pen (`pc/FILE-HEARING-SHEET.md`).
 
-**4. Matter, second part: the library of the century** (`HEGEL_LIBRARY`). The reading room at the IIC, which he asked for on Day 27 and the world did not have, and the bookseller at Khan Market.
+**4. Matter, second part: the library of the century** (`HEGEL_LIBRARY`). **Held until the ceiling test is read.** Its shelf is to be half and half. The reading room at the IIC, which he asked for on Day 27 and the world did not have, and the bookseller at Khan Market.
 - **Real texts in the public domain,** cut into passages as his own shelf is, and put before him when he reads there:
   - **India makes its own state:** Rammohan Roy, Macaulay's minute, Marx on British rule in India, Vivekananda, Gandhi's *Hind Swaraj*, Tagore's *Nationalism*, the Constitution.
   - **What became of his philosophy:** Marx's afterword on the dialectic, Schopenhauer, Darwin, Nietzsche, William James, Croce's *What is Living and What is Dead of the Philosophy of Hegel*.
   - **His own review answered:** the Gita in English, and Aurobindo's *Essays on the Gita*.
 - **Study, with a bookmark.** A book he takes up is read in order, the next pages at each reading, and the engine keeps his note on each. He can also look a thing up across the shelf.
 - **The same trace as the papers,** so that books and papers feed his works alike, and what he has read counts as met.
-- **The encyclopaedia at a terminal there.** The look-up on his phone exists and he hardly uses it: one day in his whole record. The reading room puts it at his elbow.
+- **The encyclopaedia at a terminal there.** He has no phone, so the look-up has never been open to him. The reading room gives him one.
 - **Not yet free under the shelf's rule:** Ambedkar, until 1 January 2027. What was written after about 1950 reaches him only through the papers and the encyclopaedia.
 
-**5. A question, and room: a work he can build** (`HEGEL_LONG_WORK`).
+**5. A question, and room: a work he can build** (`HEGEL_LONG_WORK`). **Held until the ceiling test is read. Its first point, questions put to him, is struck.**
 - **The questions of the century,** each put to him by someone in the world: the Review's column, the four evenings of the course, a pupil. Welt writes the list. A first draft of it is the cloud's to make, from where his books and this century meet: a state made by the people he said had none; minds made by machines; nature that answers back in the air he breathes; the market grown larger than any state; what became of the end of history.
 - **A plan in his own words.** When a manuscript reaches its third sitting, he is asked once for its thesis and its parts. The engine keeps them.
 - **The lamp hour.** The long work is written at night, after the owl, in passes: what the sitting is to establish, a draft, his own severest reading of it, a revision. Each pass has a reasoning budget. By day he reads, makes notes and says what he means to write.
@@ -122,7 +142,7 @@ Each is built off, tested, rehearsed on a night, and then put to Welt.
 - **A ledger of what he holds.** His theses in his own words, the day each changed, and what moved it. The notebook of the age (`HEGEL_NOTEBOOK`, built, off) is its first half.
 - **A work can be finished and sent:** to the Review, to the scholar, to Munich. That is what the public and the opponent answer.
 
-**6. An opponent: India answers back** (`HEGEL_REPLY`). He judged India unseen, in the lectures and in the review of 1827.
+**6. An opponent: India answers back** (`HEGEL_REPLY`). **Struck in this form** (`DECISIONS.md` 69): no invented person argues at him. What stands of it is Nidhi, who is in his world already, and real documents. He judged India unseen, in the lectures and in the review of 1827.
 - **A scholar of Sanskrit, invented,** who has read that review and disagrees. Letters first, then meetings, then a public disputation at the IIC, which the talk scene can carry (`HEGEL_TALK_SCENE`, built, off).
 - **The hall asks one hard question** after each lecture, and an editor answers each piece.
 - Claude drafts the thread with several endings, none of them chosen. Welt edits it, as he did the file's act.
@@ -139,25 +159,22 @@ The card has one night at a time. The money has a date: his 1 December is Berlin
 
 | Night (Berlin) | On the PC | In the cloud next morning |
 |---|---|---|
-| Tuesday 24 November | Training 4: the cards (W14) | The cards read, the training set frozen |
-| Wednesday 25 | Training 4: the run, on Welt's word that day. Without it, packet 3's night moves here | The run's record |
-| Thursday 26 | **Packet 3's night:** off and on, from one saved morning, through his first week of December | Both scores; put to Welt on Friday |
-| Friday 27 | Training 4: its measures | With Welt's go, packet 3 is live before his 29 November wakes |
-| Saturday 28 | Packet 2's night: the papers | Both scores; put to Welt |
-| The week after | The library, the long work, the scholar: one night each | |
+| Tuesday 24 November | The ceiling test, then Training 4's instrument, then its cards as far as the night goes | The test judged, sealed before keys; the instrument read |
+| Wednesday 25 | **Packet 3's night:** the paid work off and on, through his first fortnight of December | Both scores; put to Welt on Thursday |
+| Thursday 26 | Training 4's cards, if any are left; the run on Welt's word that day | With Welt's go, packet 3 is live before his 28 November wakes |
+| From Friday 27 | What the ceiling test supports, one night a packet | |
 
-Training 4 teaches the voice of his letters and nothing else. Under the task, a night is worth more to the library and the long work than to the letters' voice. Wednesday's choice is Welt's.
+Training 4 teaches the voice of his letters and nothing else. Its run waits for its cards and for Welt's word.
 
 ## What Welt decides
 
-1. **Each packet's go,** after its night.
-2. **The questions of the century** (packet 5): the list is his.
-3. **The library's shelf:** the list above, and whether Ambedkar waits for January.
-4. **The scholar** (packet 6): Claude drafts, Welt edits.
+1. **Each packet's go,** after its night. The first is packet 3, on Thursday.
+2. **The ceiling test's 24 pairs:** his own reading, on a page, on Wednesday.
+3. **What is built after the test:** the library, the long work, or neither, by what it shows.
+4. **How he comes to look things up:** a phone he cannot afford, a terminal in a reading room, or the phone of someone he is with.
 5. **The Sunday question** (packet 7). It touches his prompt once a week.
 6. **The hearing's words** (`pc/FILE-HEARING-SHEET.md`).
-7. **Wednesday's night:** the training run, or packet 3 a day early.
 
-Decided on 24 November: the world building as a whole (66), the money (67), the task and the gifts (68), and the five points of the PC seat as his word: intake, a work he can build, thinking time, opposition, money and task as one.
+Decided on 24 November: the world building as a whole (66), the money (67), the task and the gifts (68), decision 8 kept for invented people and loosened for real documents (69), the ceiling test first and the paid work unlocked before his 1 December (70).
 
 Evaluation rule as before: a night's futures and his live record are never training data.

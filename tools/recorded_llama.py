@@ -78,13 +78,13 @@ class LatencyGuard:
 
 
 class RecordedClient:
-    def __init__(self, url, root, timeout=300, slot=1, lora=None, model="qwen", before_request=None, opener=None):
+    def __init__(self, url, root, timeout=300, slot=1, lora=None, model="qwen", before_request=None, opener=None, any_slot=False):
         self.url, self.root = url.rstrip("/"), Path(root)
         self.timeout, self.slot, self.lora, self.model = timeout, slot, lora, model
         self.before_request = before_request
         self.opener = opener or urllib.request.urlopen
-        if slot != 1:
-            raise ValueError("round-two work uses spare slot1 only")
+        if slot != 1 and not (any_slot and slot in (0, 2)):
+            raise ValueError("round-two work uses spare slot1 only")       # any_slot: every slot while he sleeps (DECISIONS 62)
 
     def stem(self, request_id):
         return self.root / hashlib.sha256(request_id.encode("utf-8")).hexdigest()

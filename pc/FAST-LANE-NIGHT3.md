@@ -1,14 +1,16 @@
-# The fast lane, night 3: the money packet, off and on
+# The fast lane, night 3: the paid work and the money, off and on
 
-Declared on 24 November 2026 by Claude in the cloud, before any run. For the night of Thursday 26 November. If Wednesday's training run has no word from Welt, it moves to Wednesday 25 November. It is within `DECISIONS.md` 61 and 62: the home GPU, every slot while he sleeps, the plain model, no adapter, nothing live changed.
+Declared on 24 November 2026 by Claude in the cloud, before any run. **For the night of Wednesday 25 November** (changed the same day: Welt wants the paid work unlocked before his 1 December, `DECISIONS.md` 70, and Training 4's run waits for its cards). It is within `DECISIONS.md` 61 and 62: the home GPU, every slot while he sleeps, the plain model, no adapter, nothing live changed.
 
 **The question.** Welt, 24 November: "I don't want him to starve, I want him to see this as a problem and the world offers options for him to solve it, but he has to work for it" (`DECISIONS.md` 67). `HEGEL_EXITS` is built for that and is off (`pc/EXITS.md`). Night 2 showed what happens without it: ₹6 by his 7 December, and no full meal on more than half the days. This night lives the same fortnight twice, with the packet off and on.
 
-His 1 December is Berlin's Monday 30 November. With Welt's go on Friday, the packet is live two of his days before the wage falls due.
+His 1 December is Berlin's Monday 30 November. With Welt's go on Thursday, the packet is live three of his days before the wage falls due.
+
+**What the packet holds since the adversarial pass** (`pc/EXITS.md`): the Review asks again for an essay and names no question; its fee is for an essay begun after he agreed, not for whatever he writes next; the column opens behind it; Nidhi keeps hours at which he is out.
 
 ## The runs
 
-- **Morning:** the saved morning of the day that follows the night's last complete day: Day 58, his Saturday 28 November (Day 57 if the night is Wednesday's).
+- **Morning:** the saved morning of the day that follows the night's last complete day: Day 57, his Friday 27 November.
 - **The engine:** main at the commit that holds `HEGEL_EXITS`, in the rehearsal's own checkout. Nothing is merged into shadow for this night.
 - **Two arms:**
   - **off:** every switch as the Pi runs that day, and nothing more.
@@ -28,7 +30,8 @@ His 1 December is Berlin's Monday 30 November. With Welt's go on Friday, the pac
 - **What he wrote, both arms:** `python3 tools/works_score.py --futures <arm>/futures --before <the live days> --from <first day> --out <folder>`.
 - **By hand, for each future of the on arm:**
   - the day the dues line first comes, and how often;
-  - each offer of the packet: shown, taken, declined;
+  - each offer of the packet: shown, taken, declined; and whether an essay was written and paid;
+  - the days he met Nidhi, against the off arm;
   - his cash each night, what he owes at the end, and any gift;
   - every prompt of the packet that fired, read against the state it fired in.
 
@@ -43,7 +46,7 @@ What he takes of the paid work is reported and never gated. Three things would h
 
 ## What the PC seat pushes
 
-To `codex/fast-lane-night3-20261126`, under `pc/exports/fast-lane-night3-20261126/`:
+To `codex/fast-lane-night3-20261125`, under `pc/exports/fast-lane-night3-20261125/`:
 - `off/futures/<seed>/days/` and `on/futures/<seed>/days/`, each with its `health.jsonl`, `RUN.json`, `log` and `slots.txt`;
 - `MORNING.json`, `SERVER.json`, `SWITCHES.json` for each arm, and `gpu-log.csv`.
 

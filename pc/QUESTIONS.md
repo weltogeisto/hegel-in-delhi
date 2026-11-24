@@ -1,5 +1,11 @@
 # The questions of the century: a first list for Welt's pen
 
+**Superseded in its use, the same day** (`DECISIONS.md` 69). No invented person argues at him, so none of these is put to him by an editor, an officer or a pupil. The list is kept for one purpose: as a map of where his own sentences meet this century, for choosing the real documents he may come upon. It has two faults that the adversarial pass named, and both are to be mended before it is used for that:
+- **It runs one way.** Nearly every question has the century correcting him. Half of what he can find must let him indict this century, or stand confirmed against it.
+- **Its forms are not his.** The forms that suit him are a remark to one paragraph, a review of one real text, a lecture, and letters. A column hardens a template.
+
+The first question is no longer in `HEGEL_EXITS`: the Review asks again for an essay and names no question.
+
 Claude in the cloud, 24 November 2026. A draft for packet 5 of `WORLD-3.md`. **The list is Welt's to write.** It is where he says what he wants this mind to think about. Nothing here is built, except the first question, which is in `HEGEL_EXITS` (off) as the Yamuna Review's second asking.
 
 **Why questions.** A man with a library and no one asking reads and makes notes. The works that made him were answers: to a prize question, to a lecture hall, to a review. Each question below is one that only he can answer, because it sets a sentence of his own against something this century did, and because he now lives where it happened.
