@@ -1,0 +1,52 @@
+{
+ "arms": [
+  "A",
+  "A2",
+  "B",
+  "C",
+  "D"
+ ],
+ "briefs": 44,
+ "files": {
+  "REQUESTS-ceiling-1.jsonl": {
+   "requests": 75,
+   "sha256": "ad2efce8d20da1de5cb2a435e79dc178f17631ce91cff1c45322aecdbdbc30d7"
+  },
+  "REQUESTS-ceiling-2.jsonl": {
+   "requests": 75,
+   "sha256": "2e9c06455b721829af4ca0182b40b0d549aed7dd1ae59205876faa96faeab61c"
+  },
+  "REQUESTS-ceiling-3.jsonl": {
+   "requests": 70,
+   "sha256": "923521d05b99789071c01632b3aae0cf67c94233994d577f43357c0f34e31447"
+  }
+ },
+ "left_out_for_no_text": [
+  "b12",
+  "b27",
+  "b45",
+  "b46"
+ ],
+ "max_tokens": 1100,
+ "reasoning_budget_tokens": 2048,
+ "requests": 220,
+ "sha256": {
+  "BRIEFS.json": "c9ccb8563896964bc3cc156445a1c73ce2db167c57b8e876052be2588d47fbee",
+  "TEXTS.json": "b6d15c31b1c381a75a9d772b70389f8b2dcf1cf126a357ce0974962235cd7005",
+  "mind/soul-ordinary.md": "ca1217afcaea6a11502561b3a25bc8d62db3d2ddbf0850aba64fd50dc06792b9",
+  "mind/soul.md": "256e8a1c5aedfd8edc7b9147a60a10a3ee387efdd6fba2d0a32b818c2c6d1cee"
+ },
+ "switches": {
+  "HEGEL_CORRESPONDENT": "1",
+  "HEGEL_CULTURE": "1",
+  "HEGEL_FILE_ACT": "1",
+  "HEGEL_KEEP_TIME": "1",
+  "HEGEL_RAMESH_DAYS": "1",
+  "HEGEL_SHELF_ADDITIONS": "1",
+  "HEGEL_SOUL_FILE": "mind/soul-ordinary.md",
+  "HEGEL_STREET": "1",
+  "HEGEL_WORLD_REPAIRS": "1"
+ },
+ "temperature": 0.7,
+ "training_eligible": false
+}
