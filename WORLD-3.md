@@ -1,6 +1,6 @@
 # The world, phase three: the century in front of him
 
-Written by Claude in the cloud on 24 November 2026, on Welt's words of that morning in the PC session, relayed by the PC seat on PR #1: "so basically we need to do serious world building", and to the PC seat's list, "yes, do it, all of the worldbuilding points". This is the second version, of the same day, written after Welt named the task. Nothing in it goes live without Welt's word.
+Written by Claude in the cloud on 24 November 2026, on Welt's words of that morning in the PC session, relayed by the PC seat on PR #1: "so basically we need to do serious world building", and to the PC seat's list, "yes, do it, all of the worldbuilding points". This is the third version, of the same day: the second followed Welt's naming of the task, and the third his question whether that was all ("or should we think hardest about this"). Nothing in it goes live without Welt's word.
 
 ## The task
 
@@ -31,12 +31,25 @@ He has lived 54 days. Night 2 lived five weeks more, twice (`pc/FAST-LANE-NIGHT2
 
 | It needs | Today | Phase three |
 |---|---|---|
-| **Matter:** this century, in substance | three headlines, and his own books | papers he can open; a library of what was written after him |
-| **Room:** time and continuity for an argument | about 500 words a sitting, each starting again with the date | a work with a plan, and sittings that go on from what stands |
+| **Matter:** this century, in substance | three headlines, and his own books | papers he can open; a library of what was written after him, read as study |
+| **A question:** something asked of him that only he can answer | nobody has asked him anything about this century | an editor, a hall and a student who put the century's questions to him |
+| **Room:** time and continuity for an argument | about 500 words a sitting, each starting again with the date | a work with a plan, written at night in several passes, with time to think |
 | **An opponent** | nobody objects to anything he thinks | a scholar who has read him, a hall that asks, an editor |
 | **A public** | nothing he writes goes anywhere | pieces that go out and come back: a fee, a reply, a gift that asks for the next |
 
 Money belongs to the last row. Welt, the same morning: "I don't want him to starve, I want him to see this as a problem and the world offers options for him to solve it, but he has to work for it"; and: "gifts of secret admirers may occur, but they need to remind him of the continuous value he needs to bring to this world" (`DECISIONS.md` 67 and 68).
+
+## Thought hardest: five things the first plan lacked
+
+Welt, to the PC seat, 24 November: "is this all? run adversarial against you, is this what we can do? or should we think hardest about this". The PC seat is attacking its own five points with independent reviewers. This is the cloud's attack on this plan.
+
+1. **Matter is not yet a question.** A man with a library and no one asking reads and writes notes. The works that made him were answers: to a prize question, to a lecture hall, to a review. So each commission names a question of this century that his own books bear on, and a person in the world asks it for a reason of their own. Welt writes the list. It is where he says what he wants this mind to think about.
+2. **A summary is not study.** Six hundred characters of a paper give him a fact. To answer Marx or Aurobindo he has to read them through: a book with a bookmark, the next pages each time he reads, and his own note after each. The notes are what a work is made from.
+3. **The day is the wrong hour for the work.** By day a sitting must fit between his steps: one call, about 500 words, thinking off. At night the card is free. The owl already writes then, with the whole day in view. The long work moves to that hour: what he means to establish, a draft, his own severest reading of it, a revision, each with time to think.
+4. **A position has to be kept to be changed.** His thesis on India moved, and nothing in his state knows it. The engine keeps what he holds, in his words, with the day it changed and what moved it. That ledger is the simulation's real product, and the page can show it.
+5. **Does the life add anything?** The test of the whole premise: the same question put to him, with his fifty days and his reading behind him, and to the bare model told to write as Hegel. Blind readers of two families, then Welt. If they cannot tell the two apart, the world is decoration and the plan is wrong. This test comes before the long work is trusted.
+
+Two more are named and not planned yet: **a real public** (his finished pieces as fair copies on the page, and real readers' replies reaching him through Welt's hand), and **the mind itself** (plain Qwen with time to think is the bet; an adapter trained on his books would pull his prose towards his formulas, which the task does not want).
 
 ## The rules
 
@@ -63,6 +76,8 @@ One line is drawn again. The travel letters are the compass for his letters: muc
 | Came back | How often was something he read, said or began brought back later, and used? | 0 |
 | Chose | How many offers were taken, and how many get the same answer every time? | 2 and 3 offers with one answer |
 | Wrote | Sittings and words | 8 and 11 sittings |
+
+**The life test** (to build). One question, two answers: his, with his record and his reading behind him, and the bare model's. Blind pairs for readers of two families and for Welt. It asks whether the world adds to the thought.
 
 **The works' measure** (`tools/works_score.py`, in build). For each sitting: does it open like a diary; how much of it he has said before; how many of its words are new to his pages; which names and terms of this century it holds; which of his readings it uses.
 
@@ -94,14 +109,17 @@ Each is built off, tested, rehearsed on a night, and then put to Welt.
   - **India makes its own state:** Rammohan Roy, Macaulay's minute, Marx on British rule in India, Vivekananda, Gandhi's *Hind Swaraj*, Tagore's *Nationalism*, the Constitution.
   - **What became of his philosophy:** Marx's afterword on the dialectic, Schopenhauer, Darwin, Nietzsche, William James, Croce's *What is Living and What is Dead of the Philosophy of Hegel*.
   - **His own review answered:** the Gita in English, and Aurobindo's *Essays on the Gita*.
+- **Study, with a bookmark.** A book he takes up is read in order, the next pages at each reading, and the engine keeps his note on each. He can also look a thing up across the shelf.
 - **The same trace as the papers,** so that books and papers feed his works alike, and what he has read counts as met.
-- **The encyclopaedia at a terminal there.** The look-up exists, and under his present instructions he does not know of it. The room tells him.
+- **The encyclopaedia at a terminal there.** The look-up on his phone exists and he hardly uses it: one day in his whole record. The reading room puts it at his elbow.
 - **Not yet free under the shelf's rule:** Ambedkar, until 1 January 2027. What was written after about 1950 reaches him only through the papers and the encyclopaedia.
 
-**5. Room: a work he can build** (`HEGEL_LONG_WORK`).
+**5. A question, and room: a work he can build** (`HEGEL_LONG_WORK`).
+- **The questions of the century,** each put to him by someone in the world: the Review's column, the four evenings of the course, a pupil. Welt writes the list. A first draft of it is the cloud's to make, from where his books and this century meet: a state made by the people he said had none; minds made by machines; nature that answers back in the air he breathes; the market grown larger than any state; what became of the end of history.
 - **A plan in his own words.** When a manuscript reaches its third sitting, he is asked once for its thesis and its parts. The engine keeps them.
-- **Each sitting ends with one line of his:** what it established. The next sitting sees the plan, those lines and the last page, and goes on from there.
-- **Thinking time.** A reasoning budget for sittings, which exists and is set to zero, and a longer sitting for a planned work.
+- **The lamp hour.** The long work is written at night, after the owl, in passes: what the sitting is to establish, a draft, his own severest reading of it, a revision. Each pass has a reasoning budget. By day he reads, makes notes and says what he means to write.
+- **Each sitting ends with one line of his:** what it established. The next sitting sees the plan, those lines, his notes and the last page, and goes on from there.
+- **A ledger of what he holds.** His theses in his own words, the day each changed, and what moved it. The notebook of the age (`HEGEL_NOTEBOOK`, built, off) is its first half.
 - **A work can be finished and sent:** to the Review, to the scholar, to Munich. That is what the public and the opponent answer.
 
 **6. An opponent: India answers back** (`HEGEL_REPLY`). He judged India unseen, in the lectures and in the review of 1827.
@@ -133,12 +151,13 @@ Training 4 teaches the voice of his letters and nothing else. Under the task, a 
 ## What Welt decides
 
 1. **Each packet's go,** after its night.
-2. **The library's shelf:** the list above, and whether Ambedkar waits for January.
-3. **The scholar** (packet 6): Claude drafts, Welt edits.
-4. **The Sunday question** (packet 7). It touches his prompt once a week.
-5. **The hearing's words** (`pc/FILE-HEARING-SHEET.md`).
-6. **Wednesday's night:** the training run, or packet 3 a day early.
+2. **The questions of the century** (packet 5): the list is his.
+3. **The library's shelf:** the list above, and whether Ambedkar waits for January.
+4. **The scholar** (packet 6): Claude drafts, Welt edits.
+5. **The Sunday question** (packet 7). It touches his prompt once a week.
+6. **The hearing's words** (`pc/FILE-HEARING-SHEET.md`).
+7. **Wednesday's night:** the training run, or packet 3 a day early.
 
-Decided on 24 November: the world building as a whole (66), the money (67), the task and the gifts (68).
+Decided on 24 November: the world building as a whole (66), the money (67), the task and the gifts (68), and the five points of the PC seat as his word: intake, a work he can build, thinking time, opposition, money and task as one.
 
 Evaluation rule as before: a night's futures and his live record are never training data.
