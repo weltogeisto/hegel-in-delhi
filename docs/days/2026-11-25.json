@@ -281,6 +281,13 @@
    "mode": "walk",
    "a": "home",
    "b": "estates"
+  },
+  {
+   "from": "11:36",
+   "to": "12:21",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Writing at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -438,6 +445,83 @@
    "sprite": "bandhgala",
    "t": "11:10",
    "place": "home"
+  },
+  {
+   "k": "expense",
+   "item": "Queried vouchers",
+   "amount": 290,
+   "to": "the Directorate of Estates",
+   "why": "queried vouchers",
+   "settles": true,
+   "text": "Paid to the Directorate of Estates.",
+   "charge_id": "charge:8",
+   "since": "2026-11-23",
+   "t": "11:36",
+   "place": "estates"
+  },
+  {
+   "k": "file",
+   "text": "Mr. Saxena: the query wants a reply within thirty days. He may give a representation in his own name, on plain paper.",
+   "t": "11:36",
+   "place": "estates"
+  },
+  {
+   "k": "file",
+   "text": "He gives nothing in writing. The query stands.",
+   "t": "11:36",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Hegel sahab, you are right on time. Here is the file; the query is due in thirty days, so get that representation on plain paper to me. Who you are, since when you occupy—keep it simple.",
+   "t": "11:36",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "The bureaucracy demands a fixed point in a fluid existence. I must state who I am, as if I were a stone in a river. I will write this representation now, here, before the ink dries and the haze thickens.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70 Addition"
+    }
+   ],
+   "t": "11:36",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "Mr. Saxena, I shall draft it immediately. I am Georg Wilhelm Friedrich Hegel, occupying this bungalow since the 1st of this month, by virtue of an administrative error which I am now rectifying.",
+   "to": "Mr. Saxena",
+   "t": "11:36",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "One month? That is hardly an 'occupancy' in our books, sir. You write 'since 1st November' and leave it at that; the error is in the system, not in your name. Do not make me read a philosophy lecture into a revenue file.",
+   "t": "11:36",
+   "place": "estates"
+  },
+  {
+   "k": "writing",
+   "title": "Representation on Record",
+   "kind": "letter",
+   "to": "Mr. Saxena, Section Officer, Directorate of Estates",
+   "sitting": 1,
+   "text": "25 November 2026\n\nTo the Section Officer,\nDirectorate of Estates,\nNirman Bhawan.\n\nSubject: Representation regarding Allotment File for Tughlak Road Bungalow.\n\nSir,\n\nIn compliance with the query raised by your office, and in response to the instruction given by Mr. Saxena this morning, I submit this representation on plain paper to clarify the status of the occupancy of the bungalow on Tughlak Road.\n\nI am Georg Wilhelm Friedrich Hegel. I have occupied the premises since the 1st of November, 2026. My presence here is the result of an administrative error wherein the allotment was issued in the name of Shri G. Hegde, a Joint Secretary transferring from Bengaluru. Shri Hegde visited the residence on the 20th of November, confirmed the discrepancy, and has requested that the file be corrected to reflect his name as the rightful allottee, with myself recorded as a guest in the interim.\n\nI acknowledge the payment of ₹290 towards queried vouchers, which I have settled this morning. I ask that the record be updated to reflect the following facts: 1. The intended allottee is Shri G. Hegde. 2. I am currently residing at the property as a guest. 3. I am prepared to vacate or adjust my status as per the Directorate’s final order.\n\nI hold that the state’s authority rests upon the clarity of its records. A record that contradicts the physical reality of its occupants is a contradiction in the ethical substance of the administration itself. I offer this document not as a challenge to the system, but as a contribution to its rational functioning. The particular (my presence) must be sublated into the universal (the correct file) so that the system may proceed without friction.\n\nI remain,\n\nYour obedient servant,\n\nGeorg Wilhelm Friedrich Hegel\nResident, Tughlak Road",
+   "work": "representation-on-record",
+   "words": 294,
+   "mode": "chat",
+   "t": "11:36",
+   "place": "estates"
   }
  ],
  "steps": [
@@ -698,15 +782,89 @@
      "text": "To give the name of a law to the annual fixing of financial requirements only serves—with the presupposed separation of legislative from executive—to keep up the illusion of that separation having real existence, and to conceal the fact that the legislative power, when it makes a decree about finance, is really engaged with strict executive business."
     }
    ]
+  },
+  {
+   "t": "11:36",
+   "end": "12:21",
+   "event": "You arrive at Directorate of Estates, Nirman Bhawan. It closes at 17:30. Mr. Saxena turns the file towards you. A query wants its reply within thirty days, he says. 'You may give a representation in your own name. Plain paper. Who you are, and since when you occupy. I will put it up.' You pay the Directorate of Estates ₹290 for queried vouchers. Mr. Saxena is here. Mr. Saxena says: “Hegel sahab, you are right on time. Here is the file; the query is due in thirty days, so get that representation on plain paper to me. Who you are, since when you occupy—keep it simple.” He slides the file across the desk and takes a sip from his steel tumbler.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The bureaucracy demands a fixed point in a fluid existence. I must state who I am, as if I were a stone in a river. I will write this representation now, here, before the ink dries and the haze thickens.",
+    "action": "write",
+    "place": "estates",
+    "minutes": 45,
+    "says": "Mr. Saxena, I shall draft it immediately. I am Georg Wilhelm Friedrich Hegel, occupying this bungalow since the 1st of this month, by virtue of an administrative error which I am now rectifying.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, mostly clear, hazy. Air quality index: 171.",
+    "You arrive at Directorate of Estates, Nirman Bhawan. It closes at 17:30.",
+    "Mr. Saxena turns the file towards you. A query wants its reply within thirty days, he says. 'You may give a representation in your own name. Plain paper. Who you are, and since when you occupy. I will put it up.'",
+    "You pay the Directorate of Estates ₹290 for queried vouchers.",
+    "Mr. Saxena is here."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "arrive",
+    "beat:saxena_reply",
+    "purse",
+    "here",
+    "greeting:saxena"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "One month? That is hardly an 'occupancy' in our books, sir. You write 'since 1st November' and leave it at that; the error is in the system, not in your name. Do not make me read a philosophy lecture into a revenue file.",
+    "does": "He taps the file cover with a pen and pushes it back slightly."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 31.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "id": "haldane-1:957"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70 Addition",
+     "id": "dyde-right:205"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "text": "At the time when the democratic constitution of Athens hitherto existing, was taken away by the Lacedemonians, who now introduced everywhere an aristocratic and indeed tyrannical rule, whereby they in great measure put themselves at the head of affairs, he was chosen for the council, which, as a representative body, took the place of the people."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70 Addition",
+     "text": "Have I any right to kill myself? The answer is that I, as this individual am not lord over my life, since the comprehensive totality of one's activity, the life, falls within the direct and present personality. To speak of the right of a person over his life is a contradiction, since it implies a right of a person over himself. But no one can stand above and execute himself."
+    }
+   ],
+   "beat": "saxena_reply"
   }
  ],
  "funnel": {
   "saxena_reply": {
    "live": 1,
-   "eligible": 0,
-   "shown": 0,
+   "eligible": 1,
+   "shown": 1,
    "yes": 0,
-   "no": 0
+   "no": 1
   },
   "malhotra_vouch": {
    "live": 1,
@@ -717,7 +875,7 @@
   },
   "allotment_letter": {
    "live": 1,
-   "eligible": 0,
+   "eligible": 1,
    "shown": 0,
    "yes": 0,
    "no": 0
@@ -727,9 +885,9 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-25T11:36+05:30",
+  "until": "2026-11-25T12:21+05:30",
   "asleep": false,
-  "imprest": 15456,
+  "imprest": 15166,
   "wearing": "bandhgala",
   "wardrobe": [
    {
@@ -768,7 +926,7 @@
    "kapoor",
    "saxena"
   ],
-  "file": "Shri Hegde asks for the allotment in his name, the Professor on record as his guest.",
+  "file": "The query stands unanswered: proof of identity as Shri G. Hegde.",
   "beats": [
    "allotment",
    "hegde_guesthouse",
@@ -811,6 +969,9 @@
    "seen": {
     "home": [
      "hegde"
+    ],
+    "estates": [
+     "saxena"
     ]
    },
    "walked": 1950,
@@ -919,21 +1080,11 @@
     "2026-11-16",
     "2026-11-18",
     "2026-11-20",
-    "2026-11-23"
+    "2026-11-23",
+    "2026-11-25"
    ]
   },
-  "owed": [
-   {
-    "to": "the Directorate of Estates",
-    "amount": 290,
-    "why": "queried vouchers",
-    "since": "2026-11-23",
-    "at": "estates",
-    "with": "saxena",
-    "after": "2026-11-24",
-    "charge_id": "charge:8"
-   }
-  ],
+  "owed": [],
   "cheques": [
    {
     "from": "the India International Centre",
@@ -1066,12 +1217,14 @@
     "2026-11-16",
     "2026-11-18",
     "2026-11-20",
-    "2026-11-23"
+    "2026-11-23",
+    "2026-11-25"
    ]
   },
   "refused": {
    "sell_frock_again": "2026-11-14",
-   "ramesh_parttime": "2026-11-05"
+   "ramesh_parttime": "2026-11-05",
+   "saxena_reply": "2026-11-25"
   },
   "tech": {
    "phone": false,
@@ -1123,6 +1276,17 @@
     "sittings": 1,
     "last": "2026-11-20",
     "tail": "universal authority of the administration, I must submit to a particular lie. I must become Hegde.\n\nSaxena taps the desk. 'I am not in the habit of doing your paperwork for you.' He is right. The official's will is bounded by the form. He cannot will my existence; he can only process its documentation. The ethical idea, in this office, is reduced to a carbon copy. The freedom of the state is the freedom to demand a form that I cannot truthfully fill.\n\nI pick up the pen. I will write 'G. Hegde' in the name field. It is a surrender, but also a recognition. The state is not the dream; it is the machine. And the machine grinds. I am the grain. I fill the form. The haze outside is 290, a brown fog that mirrors the opacity of this administrative logic. I am not Hegel here. I am Hegde. I sign."
+   },
+   {
+    "id": "representation-on-record",
+    "title": "Representation on Record",
+    "kind": "letter",
+    "to": "Mr. Saxena, Section Officer, Directorate of Estates",
+    "started": "2026-11-25",
+    "words": 294,
+    "sittings": 1,
+    "last": "2026-11-25",
+    "tail": "morning. I ask that the record be updated to reflect the following facts: 1. The intended allottee is Shri G. Hegde. 2. I am currently residing at the property as a guest. 3. I am prepared to vacate or adjust my status as per the Directorate’s final order.\n\nI hold that the state’s authority rests upon the clarity of its records. A record that contradicts the physical reality of its occupants is a contradiction in the ethical substance of the administration itself. I offer this document not as a challenge to the system, but as a contribution to its rational functioning. The particular (my presence) must be sublated into the universal (the correct file) so that the system may proceed without friction.\n\nI remain,\n\nYour obedient servant,\n\nGeorg Wilhelm Friedrich Hegel\nResident, Tughlak Road"
    }
   ],
   "missed": [
@@ -1167,7 +1331,8 @@
    "charge:7",
    "cost:dhobi:2026-11-21",
    "cost:groceries:2026-11-22",
-   "charge:3"
+   "charge:3",
+   "charge:8"
   ],
   "charge_seq": 9,
   "street": {
@@ -1186,7 +1351,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "1ae03290cf617b2dc738f3cf2b9b6765082884500ce1e997fa4e2c34915a625e",
+  "source_sha256": "c638ea2ea2173efbd2016a4d934bfe50d8259abbeb1a199b9de211f113765053",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1320,6 +1485,114 @@
     "gone": false,
     "time": "11:10",
     "place": "home"
+   },
+   {
+    "id": "2026-11-25:payment:204b822439996cc2:1",
+    "kind": "payment",
+    "source": {
+     "collection": "entries",
+     "index": 14,
+     "sha256": "204b822439996cc2c5c65d5ad036f2c4c4e263007c07b645c46a8c7999efba0f"
+    },
+    "canonical_id": "charge:8",
+    "item": "Queried vouchers",
+    "amount": 290,
+    "direction": "out",
+    "settled": true,
+    "medium": "cash",
+    "creditor": "the Directorate of Estates",
+    "payer": null,
+    "time": "11:36",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:event:0aa071d3cfd45921:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 15,
+     "sha256": "0aa071d3cfd459218b37c817da733183c8f98315d9f7225365ff4ead100abb80"
+    },
+    "type": "file",
+    "text": "Mr. Saxena: the query wants a reply within thirty days. He may give a representation in his own name, on plain paper.",
+    "time": "11:36",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:event:ca1f650a9503abb2:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 16,
+     "sha256": "ca1f650a9503abb2f5bf07b6ac93a888f08d53b2609ef1b2e8bcba7bed190e4a"
+    },
+    "type": "file",
+    "text": "He gives nothing in writing. The query stands.",
+    "time": "11:36",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:e458bf0433624009:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 17,
+     "sha256": "e458bf0433624009d78f6293d60b6208e13049d4c27f36fc84f1af97e454b6e8"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "Hegel sahab, you are right on time. Here is the file; the query is due in thirty days, so get that representation on plain paper to me. Who you are, since when you occupy—keep it simple.",
+    "verified": false,
+    "time": "11:36",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:c07ad57309410bad:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 19,
+     "sha256": "c07ad57309410bad7e0b978c47c15bd5d23f5387754d4fbad1da2f8601035696"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "Mr. Saxena, I shall draft it immediately. I am Georg Wilhelm Friedrich Hegel, occupying this bungalow since the 1st of this month, by virtue of an administrative error which I am now rectifying.",
+    "verified": false,
+    "time": "11:36",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:020cdb02bfbd0077:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 20,
+     "sha256": "020cdb02bfbd00779e54d16421c3a4a9f2637adc4012b349cb122a5218d3a69d"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "One month? That is hardly an 'occupancy' in our books, sir. You write 'since 1st November' and leave it at that; the error is in the system, not in your name. Do not make me read a philosophy lecture into a revenue file.",
+    "verified": false,
+    "time": "11:36",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:work:2d01881c11abec3b:1",
+    "kind": "work",
+    "source": {
+     "collection": "entries",
+     "index": 21,
+     "sha256": "2d01881c11abec3b0ad61524f9d5851b55ed0cd9f23f70cb740750fbbe18a1b7"
+    },
+    "work_id": "representation-on-record",
+    "title": "Representation on Record",
+    "genre": "letter",
+    "recipient": "Mr. Saxena, Section Officer, Directorate of Estates",
+    "text": "25 November 2026\n\nTo the Section Officer,\nDirectorate of Estates,\nNirman Bhawan.\n\nSubject: Representation regarding Allotment File for Tughlak Road Bungalow.\n\nSir,\n\nIn compliance with the query raised by your office, and in response to the instruction given by Mr. Saxena this morning, I submit this representation on plain paper to clarify the status of the occupancy of the bungalow on Tughlak Road.\n\nI am Georg Wilhelm Friedrich Hegel. I have occupied the premises since the 1st of November, 2026. My presence here is the result of an administrative error wherein the allotment was issued in the name of Shri G. Hegde, a Joint Secretary transferring from Bengaluru. Shri Hegde visited the residence on the 20th of November, confirmed the discrepancy, and has requested that the file be corrected to reflect his name as the rightful allottee, with myself recorded as a guest in the interim.\n\nI acknowledge the payment of ₹290 towards queried vouchers, which I have settled this morning. I ask that the record be updated to reflect the following facts: 1. The intended allottee is Shri G. Hegde. 2. I am currently residing at the property as a guest. 3. I am prepared to vacate or adjust my status as per the Directorate’s final order.\n\nI hold that the state’s authority rests upon the clarity of its records. A record that contradicts the physical reality of its occupants is a contradiction in the ethical substance of the administration itself. I offer this document not as a challenge to the system, but as a contribution to its rational functioning. The particular (my presence) must be sublated into the universal (the correct file) so that the system may proceed without friction.\n\nI remain,\n\nYour obedient servant,\n\nGeorg Wilhelm Friedrich Hegel\nResident, Tughlak Road",
+    "status": "draft",
+    "sitting": 1,
+    "time": "11:36",
+    "place": "estates"
    },
    {
     "id": "2026-11-25:event:cabd1f00db8a97c2:1",
@@ -1567,88 +1840,164 @@
     "text": "Weather: 22 °C, mostly clear, hazy. Air quality index: 171."
    },
    {
-    "id": "2026-11-25:event:a88183fe8b2717c3:1",
+    "id": "2026-11-25:event:c6e6130d9331dc77:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 4,
+     "sha256": "c6e6130d9331dc778f305d55d835e36306aadb2b4fdff1761f515da8059081cb"
+    },
+    "type": "action",
+    "action": "write",
+    "time": "11:36",
+    "end": "12:21",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:event:35961ae9e1ad2368:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      4,
+      0
+     ],
+     "sha256": "35961ae9e1ad2368772f17dd96eeb8b6583c76b2e576ea68ba3b799f3b0c1187"
+    },
+    "type": "observation",
+    "time": "11:36",
+    "place": "estates",
+    "text": "Weather: 22 °C, mostly clear, hazy. Air quality index: 171."
+   },
+   {
+    "id": "2026-11-25:event:1c82d6777161a098:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      4,
+      1
+     ],
+     "sha256": "1c82d6777161a09889a6fe55607ccfeb4086f0f4dd03802887833c0e6c4d2ea2"
+    },
+    "type": "observation",
+    "time": "11:36",
+    "place": "estates",
+    "text": "You arrive at Directorate of Estates, Nirman Bhawan. It closes at 17:30."
+   },
+   {
+    "id": "2026-11-25:event:778ffd0697ed4fb5:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      4,
+      2
+     ],
+     "sha256": "778ffd0697ed4fb5f2d29bf7539b4c7338514cfdedc140d76ad575f1b8a1e25c"
+    },
+    "type": "observation",
+    "time": "11:36",
+    "place": "estates",
+    "text": "Mr. Saxena turns the file towards you. A query wants its reply within thirty days, he says. 'You may give a representation in your own name. Plain paper. Who you are, and since when you occupy. I will put it up.'"
+   },
+   {
+    "id": "2026-11-25:event:747ef9d74fb13369:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      4,
+      3
+     ],
+     "sha256": "747ef9d74fb13369b36bef0bf320441758093ee5aa745a486391febd1fe36316"
+    },
+    "type": "observation",
+    "time": "11:36",
+    "place": "estates",
+    "text": "You pay the Directorate of Estates ₹290 for queried vouchers."
+   },
+   {
+    "id": "2026-11-25:event:b6f4865dfa31f5ff:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      4,
+      4
+     ],
+     "sha256": "b6f4865dfa31f5ffa6451eae12b37ffb0f68c9b515f4863f9dbac08db152365d"
+    },
+    "type": "observation",
+    "time": "11:36",
+    "place": "estates",
+    "text": "Mr. Saxena is here."
+   },
+   {
+    "id": "2026-11-25:event:9197e50db072228c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "a88183fe8b2717c3528ad4d79455b846345654f65245e1e1b44b2500af03ba5f"
+     "sha256": "9197e50db072228c487ada6421e1ff24a19ecaebb76322ce05de281f580ee058"
     },
     "type": "cash",
-    "time": "11:36",
-    "amount": 15456,
+    "time": "12:21",
+    "amount": 15166,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:5969faadf2c2f9f0:1",
+    "id": "2026-11-25:event:c906d6e45ebcc990:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "5969faadf2c2f9f05076730804aad37b43fde8d89ff66a249e897bfe7af37fae"
+     "sha256": "c906d6e45ebcc990e961a34239c5fbe8ddfb1f4bfa50ab3261ef0ac412579727"
     },
     "type": "location",
-    "time": "11:36",
+    "time": "12:21",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:a58ebc2d404b592d:1",
+    "id": "2026-11-25:event:c781bd19bbbb5d1b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "a58ebc2d404b592d2ea31bb974f1880fa39e6dae2c3ad07aad61cff11724a886"
+     "sha256": "c781bd19bbbb5d1b98fe414877448aaa30aa1525f557fe09c437dea0b327e6c1"
     },
     "type": "inventory",
-    "time": "11:36",
+    "time": "12:21",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-25:event:83a8dda7f1ec5e03:1",
+    "id": "2026-11-25:event:d2fb73bb07fc31b2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "83a8dda7f1ec5e03136f764ae9a26ba2165c8ed5c55b08212dbb77899198bc02"
+     "sha256": "d2fb73bb07fc31b2586ff74dc666cce7b2171a1d4e0f09b8fa29d207a1c4a8fe"
     },
     "type": "inventory",
-    "time": "11:36",
+    "time": "12:21",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 11:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 11:10.\"}]"
    },
    {
-    "id": "2026-11-25:event:f3afb6950bdadc32:1",
+    "id": "2026-11-25:event:1659105bb5383827:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "f3afb6950bdadc322f65e102c22343424d5cafcd377b54d856311cd3eec4bad7"
+     "sha256": "1659105bb5383827f2b9b4159c449348b06a894ee99ca4aa086ceae5f95d0205"
     },
     "type": "inventory",
-    "time": "11:36",
+    "time": "12:21",
     "place": null,
-    "text": "Recorded file at this horizon only: \"Shri Hegde asks for the allotment in his name, the Professor on record as his guest.\""
-   },
-   {
-    "id": "2026-11-25:payment:d5e99110e69dd328:1",
-    "kind": "payment",
-    "source": {
-     "collection": "state.owed",
-     "index": 0,
-     "sha256": "d5e99110e69dd328c5564c6b22f516d5cf9e5cd7727d29f408e50645ac5f274e"
-    },
-    "canonical_id": "charge:8",
-    "item": "queried vouchers",
-    "amount": 290,
-    "direction": "out",
-    "settled": false,
-    "creditor": "the Directorate of Estates",
-    "obligation": true,
-    "time": "11:36",
-    "place": null
+    "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
   ]
  },
