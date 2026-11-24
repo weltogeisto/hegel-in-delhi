@@ -15,10 +15,10 @@ Welt had the PC seat's proposals attacked by three independent reviewers and the
 - **The test comes before the building.** In this repository's own results, scaffolding has not moved his arguing, and the situation he is put in has. The ceiling test (`pc/CEILING-TEST.md`) runs on the night of 24 November. Until it is read, the library (packet 4) and the long work (packet 5) are held.
 - **Struck:** the invented scholar (packet 6), the hall's set question, the editor's confronting question, and the list of questions as something put to him. No invented person argues at him.
 - **First, the mechanical faults** that keep this century from reaching him by his own doing:
-  - He has no phone and no SIM (₹9,300 together), so he has never been able to look anything up.
+  - He has no phone and no SIM (₹9,300 together), so he has never been able to look anything up. Built, off: `HEGEL_BORROWED_LOOKUP`, someone he knows who is with him looks it up on their phone (`pc/BORROWED-LOOKUP.md`).
   - The headlines have no text behind them. `HEGEL_PAPERS` is built, and the feeds give one sentence.
-  - Nidhi, a doctoral student on Hegel with views on what he wrote about India, has been in the cast from the start. He met her on Day 1 only.
-  - Offers come once. The Review's essay closed on one answer.
+  - Nidhi, a doctoral student on Hegel with views on what he wrote about India, has been in the cast from the start. He met her on Day 1 only. Built, off, in `HEGEL_EXITS`: she keeps hours at which he is out.
+  - Offers come once. The Review's essay closed on one answer. Built, off, in `HEGEL_EXITS`: the Review asks again, and the column opens behind the essay.
 - **Before his 1 December:** the paid work his world already offers is unlocked (packet 3).
 - **Balanced:** half of the real documents he can find flatter this century, and half indict it.
 - **Corrected here:** the look-up was never open to him; and the life test is replaced by the ceiling test, which also sets his piece against a stronger model given the same material.
