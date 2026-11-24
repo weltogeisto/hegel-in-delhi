@@ -379,6 +379,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "16:19",
+   "to": "16:29",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -1014,6 +1021,37 @@
    "to": "Hegel",
    "text": "You have been in the room for twenty minutes, sir. If you are the occupant, you know the file number better than I do. Stop reciting your name and tell me which page has the wrong entry.",
    "t": "15:49",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "His impatience is the friction of a system that has no category for a man who is not the man in the file. I am not a criminal, yet I am treated as an anomaly to be corrected rather than a citizen to be recognized. I will not yield to his demand for a page number I do not have; I will state the error plainly and leave the consequence to his discretion.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§501"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§101"
+    }
+   ],
+   "t": "16:19",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "Mr. Saxena, I am not reciting my name to bore you; I am stating a fact that contradicts your records. The allotment is in the name of Shri G. Hegde. I am Georg Wilhelm Friedrich Hegel. The error is on the first page of the allotment order, where the name was transcribed incorrectly. I cannot tell you which page to cross out because I am not the clerk who made the mistake; I am the person it was made against. If you wish to verify my identity, you must do so, but do not ask me to perform a clerical function I am not equipped for.",
+   "to": "Mr. Saxena",
+   "t": "16:19",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "I do not care about your philosophy, sir, only the stamp on the paper. If the name is wrong, you sign the correction slip over there and I will process it; do not make me wait for your identity card.",
+   "t": "16:19",
    "place": "estates"
   }
  ],
@@ -2211,6 +2249,71 @@
      "text": "Equally important, and connected with that just noticed, is the change of executive powers, functions, duties and rights, which naturally belong to the State, but which had become private property and private contracts or obligations— into possession conferred by the State."
     }
    ]
+  },
+  {
+   "t": "16:19",
+   "end": "16:29",
+   "event": "Mr. Saxena says: “You have been in the room for twenty minutes, sir. If you are the occupant, you know the file number better than I do. Stop reciting your name and tell me which page has the wrong entry.” He taps the steel tumbler against the desk to signal impatience.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "His impatience is the friction of a system that has no category for a man who is not the man in the file. I am not a criminal, yet I am treated as an anomaly to be corrected rather than a citizen to be recognized. I will not yield to his demand for a page number I do not have; I will state the error plainly and leave the consequence to his discretion.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 10,
+    "says": "Mr. Saxena, I am not reciting my name to bore you; I am stating a fact that contradicts your records. The allotment is in the name of Shri G. Hegde. I am Georg Wilhelm Friedrich Hegel. The error is on the first page of the allotment order, where the name was transcribed incorrectly. I cannot tell you which page to cross out because I am not the clerk who made the mistake; I am the person it was made against. If you wish to verify my identity, you must do so, but do not ask me to perform a clerical function I am not equipped for.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, clear, hazy. Air quality index: 184."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "I do not care about your philosophy, sir, only the stamp on the paper. If the name is wrong, you sign the correction slip over there and I will process it; do not make me wait for your identity card.",
+    "does": "He slides a blank correction form across the desk towards him."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§501",
+     "id": "wallace-mind:246"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§101",
+     "id": "dyde-right:250"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§501",
+     "text": "This negation of right has its existence in the will of the criminal; and consequently revenge or punishment directs itself against the person or property of the criminal and exercises coercion upon him."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§101",
+     "text": "The doing away with crime is retribution, in so far as retribution is in its conception injury of an injury, implying that as crime has a definite qualitative and quantitative context, its negation should be similarly definite. This identity, involved in the very nature of the case, is not literal equality, but equality in the inherent nature of the injury, namely, its value."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2254,7 +2357,7 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-25T16:19+05:30",
+  "until": "2026-11-25T16:29+05:30",
   "asleep": false,
   "imprest": 15166,
   "wearing": "kurta",
@@ -2752,7 +2855,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "9f4151f0885bc39b057bbe45dcd5454c8bd968894e2a1f73e25bad8628efb37a",
+  "source_sha256": "b637ff9cfdee895226ce4040d78497cb10c7474f6af1ce41e294bbfbe2134481",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3386,6 +3489,36 @@
     "words": "You have been in the room for twenty minutes, sir. If you are the occupant, you know the file number better than I do. Stop reciting your name and tell me which page has the wrong entry.",
     "verified": false,
     "time": "15:49",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:966a91b49b34caea:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 63,
+     "sha256": "966a91b49b34caea77028e386a667b7c13fb30ee8962f566002ff95d1e796f8a"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "Mr. Saxena, I am not reciting my name to bore you; I am stating a fact that contradicts your records. The allotment is in the name of Shri G. Hegde. I am Georg Wilhelm Friedrich Hegel. The error is on the first page of the allotment order, where the name was transcribed incorrectly. I cannot tell you which page to cross out because I am not the clerk who made the mistake; I am the person it was made against. If you wish to verify my identity, you must do so, but do not ask me to perform a clerical function I am not equipped for.",
+    "verified": false,
+    "time": "16:19",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:b10d048bbbaf872b:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 64,
+     "sha256": "b10d048bbbaf872b644d2ee790f8bba1346420644e427520b0c3586bb4dbf7e5"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "I do not care about your philosophy, sir, only the stamp on the paper. If the name is wrong, you sign the correction slip over there and I will process it; do not make me wait for your identity card.",
+    "verified": false,
+    "time": "16:19",
     "place": "estates"
    },
    {
@@ -4252,68 +4385,98 @@
     "text": "You arrive at Directorate of Estates, Nirman Bhawan. It closes at 17:30."
    },
    {
-    "id": "2026-11-25:event:6e3840207846508a:1",
+    "id": "2026-11-25:event:cfc273363354148b:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 18,
+     "sha256": "cfc273363354148be37ba589cb9c78876993cb2bdba8cf7b05bf4bab9ce48167"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "16:19",
+    "end": "16:29",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:event:dfaa95db4b7c13b9:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      18,
+      0
+     ],
+     "sha256": "dfaa95db4b7c13b95db892f65239175873997f447aee5bd4d63bd8826af102f8"
+    },
+    "type": "observation",
+    "time": "16:19",
+    "place": "estates",
+    "text": "Weather: 23 °C, clear, hazy. Air quality index: 184."
+   },
+   {
+    "id": "2026-11-25:event:0cfec1dab503dbb7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "6e3840207846508a4ed48ff064f84a3575716bb5d0c117870c17f52d9663957b"
+     "sha256": "0cfec1dab503dbb78085c42c9b694998b8fcedd9f0d00c6627cd9bc3b9a36639"
     },
     "type": "cash",
-    "time": "16:19",
+    "time": "16:29",
     "amount": 15166,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:85ce71e85107c4af:1",
+    "id": "2026-11-25:event:fe1b9869ca657f12:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "85ce71e85107c4af60711f900c4a462e1c5cfb7b1540bac76ec9a1964265a79e"
+     "sha256": "fe1b9869ca657f12dda1e5de654d0627d04f5337b431bfc6b444d078c510c20c"
     },
     "type": "location",
-    "time": "16:19",
+    "time": "16:29",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:3dedb04b65d16a66:1",
+    "id": "2026-11-25:event:11f45268ac702d1c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "3dedb04b65d16a6607d35c1dc84d5b9953a3ab3fd5b1778f32ea291e68f32c3a"
+     "sha256": "11f45268ac702d1cf3a69d2f545a6e4431dbe01d2a6c5b12d65f7a69c4eafe2e"
     },
     "type": "inventory",
-    "time": "16:19",
+    "time": "16:29",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-25:event:b8332228ff48448e:1",
+    "id": "2026-11-25:event:6eac5b1f922fd0d5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "b8332228ff48448e9866691ab39b0bf35aed82e2071482cf7fce4ab97fa39530"
+     "sha256": "6eac5b1f922fd0d54de2ac78d9ca9d9f45b881534cfa9eab497ca2dcbcd1d2b1"
     },
     "type": "inventory",
-    "time": "16:19",
+    "time": "16:29",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 14:22.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 14:22.\"}]"
    },
    {
-    "id": "2026-11-25:event:a7a174b4639f7bc2:1",
+    "id": "2026-11-25:event:d11933a12d0d3700:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "a7a174b4639f7bc2aab780f8d77484701a5b89e9cecc609392549388e086761b"
+     "sha256": "d11933a12d0d3700527e6b8c99f8247e4ff11a3ee7c5597629cb1781fc2a75c3"
     },
     "type": "inventory",
-    "time": "16:19",
+    "time": "16:29",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
