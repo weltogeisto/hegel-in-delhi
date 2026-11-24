@@ -70,7 +70,8 @@ def make_world(cfg):
                  street_file=getattr(cfg, "street_file", None), promises=getattr(cfg, "promises", False),
                  ramesh_days=getattr(cfg, "ramesh_days", False), consumed=getattr(cfg, "consumed", False),
                  file_act=getattr(cfg, "file_act", False), repairs=getattr(cfg, "world_repairs", False),
-                 keep_time=getattr(cfg, "keep_time", False), talk_scene=getattr(cfg, "talk_scene", False))
+                 keep_time=getattr(cfg, "keep_time", False), talk_scene=getattr(cfg, "talk_scene", False),
+                 papers=getattr(cfg, "papers", False))
 
 
 def cmd_tick(cfg, args):
@@ -294,6 +295,8 @@ def rehearsal_setup(cfg, date_str, out, feeds=False, sets=None, docs=None):
         for sub in ("lookup", "feeds"):
             if (src_root / "state" / sub).is_dir():
                 shutil.copytree(src_root / "state" / sub, out / "state" / sub, dirs_exist_ok=True)
+    if (sets or {}).get("HEGEL_PAPERS_ARCHIVE") or cfg.get("HEGEL_PAPERS_ARCHIVE"):
+        sets = {**(sets or {}), "HEGEL_PAPERS_FROM": date_str}       # the archive's papers cycle from the rehearsal's first day
     return rehearsal_config(out, feeds, sets)
 
 

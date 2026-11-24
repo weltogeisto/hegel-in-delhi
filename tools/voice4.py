@@ -279,6 +279,36 @@ def lines_of(reply):
     return [re.sub(r"^\s*[-•*]\s*", "- ", l).rstrip() for l in (reply or "").splitlines() if re.match(r"\s*[-•*]\s+\S", l)]
 
 
+NEW_WORDS = 2           # a line the check gives is new when at least this many of its content words stand nowhere in the card
+IDLE_CARD = set("""writer went goes going this that with from have been were will would there their they them into also very much more most
+some such than then when where which while about after before over under upon only other each every says said plan plans planned today""".split())
+
+
+def card_words(line):
+    """The content words of a card's line: words of four letters or more that are not idle, and figures."""
+    return {w for w in re.findall(r"[a-zäöüß]+|\d+", line.lower()) if (w.isdigit() or len(w) >= 4) and w not in IDLE_CARD}
+
+
+def card_names(line):
+    """The names and figures of a card's line: capitalised words after its first word, and numbers."""
+    body = re.sub(r"^\s*-\s*\S+\s*", "", line)
+    return {m.lower() for m in re.findall(r"\b[A-ZÄÖÜ][a-zäöüß]+\b|\d+", body)}
+
+
+def fresh_lines(lines, more):
+    """The lines of `more` that are new to the card `lines`: at least NEW_WORDS content words that stand nowhere in it (nor in a
+    line of `more` already taken), or one such word that is a name or a figure. The first instrument run (24 November 2026) showed why: asked what a list lacks, the model
+    nearly always names something, and most of what it names the second time restates a line the card already has."""
+    have = set().union(*map(card_words, lines)) if lines else set()
+    out = []
+    for m in more:
+        w = card_words(m)
+        if len(w - have) >= NEW_WORDS or (w - have) & card_names(m):
+            out.append(m)
+            have |= w
+    return out
+
+
 def cmd_cards(folder):
     folder = Path(folder)
     reqs = [{"id": f"card|{p['id']}", "messages": [{"role": "system", "content": CARD}, {"role": "user", "content": p["text"]}],
@@ -305,34 +335,39 @@ def cmd_check(folder, rnd):
 
 
 def cmd_merge(folder, rnd):
-    """Round 1: lines the check found are added, and those cards are open for round 2. Round 2: a card that still lacks
-    a line is dropped. The final cards are written after round 2 (or after round 1 when none is open)."""
+    """Round 1: the new lines the check found are added, and those cards are open for round 2. Round 2: its new lines are added
+    too, and the card is kept. A line is new by fresh_lines; a restatement is not added and does not open a card. No card is
+    dropped for lacking: the first run dropped 38 of 43 that way, because the check hardly ever answers NONE. SETTLED.json says
+    how the cards settled. The final cards are written after round 2 (or after round 1 when none is open)."""
     folder = Path(folder)
     cards = state(folder, rnd)
     missing = {r["id"].split("|", 1)[1]: lines_of(r["reply"]) for r in rows(folder / f"REPLIES-check{rnd}.jsonl")}
-    after, dropped = [], []
+    after, restated = [], 0
     for pid, lines in sorted(cards.items()):
         more = missing.get(pid)
         if more is None:
             raise ValueError(f"no check reply for {pid}")
-        if more and rnd == 2:
-            dropped.append({"id": pid, "lacking": more})
-            continue
-        after.append({"id": pid, "lines": lines + more, "open": bool(more)})
+        new = fresh_lines(lines, more)
+        restated += len(more) - len(new)
+        after.append({"id": pid, "lines": lines + new, "open": bool(new) and rnd == 1, "added": len(new)})
     put(folder / f"CARDS-after-{rnd}.jsonl", after)
     done = {}
     for r in range(1, rnd + 1):
         done.update({x["id"]: x["lines"] for x in rows(folder / f"CARDS-after-{r}.jsonl") if not x["open"]})
     still = [x["id"] for x in after if x["open"]]
-    res = {"round": rnd, "complete": len(done), "open": len(still), "dropped": len(dropped)}
+    res = {"round": rnd, "complete": len(done), "open": len(still), "dropped": 0, "restated": restated,
+           "added": sum(x["added"] for x in after), "cards_added_to": sum(1 for x in after if x["added"])}
     if not still:
         passages = {p["id"]: p for p in rows(folder / "PASSAGES.jsonl")}
         final = [{**{k: v for k, v in passages[pid].items() if k != "text"}, "card": "\n".join(lines)}
                  for pid, lines in sorted(done.items())]
         res["cards"] = put(folder / "CARDS.jsonl", final)
-        no_card = sorted(set(passages) - set(done) - {d["id"] for d in dropped})
-        (folder / "DROPPED.json").write_text(json.dumps({"lacking_after_two_rounds": dropped, "no_card": no_card}, ensure_ascii=False,
+        no_card = sorted(set(passages) - set(done))
+        (folder / "DROPPED.json").write_text(json.dumps({"lacking_after_two_rounds": [], "no_card": no_card}, ensure_ascii=False,
                                                         indent=1) + "\n", encoding="utf-8")
+        settled = {f"round_{r}": {"checked": len(x), "added_to": sum(1 for c in x if c.get("added")), "lines_added": sum(c.get("added", 0) for c in x)}
+                   for r in range(1, rnd + 1) for x in [rows(folder / f"CARDS-after-{r}.jsonl")]}
+        (folder / "SETTLED.json").write_text(json.dumps({"cards": len(final), "no_card": len(no_card), **settled}, indent=1) + "\n", encoding="utf-8")
     return res
 
 

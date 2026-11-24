@@ -8,9 +8,11 @@ import time
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
-from datetime import timedelta
+from datetime import date, timedelta
+from pathlib import Path
 
 from .clock import LAT, LON
+from .works import cut
 
 log = logging.getLogger("world")
 UA = {"User-Agent": "hegel-in-delhi/1.0 (+https://weltogeisto.github.io/hegel-in-delhi/)"}
@@ -29,12 +31,21 @@ CRIME = re.compile(r"\b(kill\w*|dead|death\w*|die[sd]?|dying|murder\w*|rape\w*|s
 STRIFE = re.compile(r"\b(wars?|warfare|armies|army|military|troops|soldiers?|ceasefire|missiles?|drones?|shelling|border|insurgen\w*|"
                     r"militant\w*|clash\w*|conflict\w*|unrest|curfew|protest\w*|riot\w*|communal|coup|rebels?|invasion|invad\w*|battle\w*|"
                     r"air ?strikes?|(?:military|missile|drone|rocket|artillery) strikes?)", re.I)
+SUMMARY = 600           # characters of a paper's summary kept (HEGEL_PAPERS_RECORD)
 PM10 = [(0, 50, 0, 50), (50, 100, 50, 100), (100, 250, 100, 200), (250, 350, 200, 300), (350, 430, 300, 400), (430, 600, 400, 500)]
 
 
 def fit_for_papers(title):
     """A headline the morning papers may carry: not about crime or violence, unless it is about war or civil strife."""
     return not CRIME.search(title) or bool(STRIFE.search(title))
+
+
+def piece_of(item, source):
+    """One RSS item as a piece of the papers: {title, summary, link, source}. The summary is the item's description, plain and short."""
+    def plain(x):
+        return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", x or ""))).strip()
+    return {"title": plain(item.findtext("title")), "summary": cut(plain(item.findtext("description")), SUMMARY),
+            "link": (item.findtext("link") or "").strip(), "source": source}
 
 
 def get(url, timeout=15):
@@ -109,6 +120,9 @@ class Feeds:
         self.cfg = cfg
         self.dir = cfg.state / "feeds"
         self.online = cfg.feeds
+        self.record = getattr(cfg, "papers_record", False)      # HEGEL_PAPERS_RECORD: the day's papers kept in full beside the headlines
+        self.archive = getattr(cfg, "papers_archive", None) if getattr(cfg, "papers", False) else None   # HEGEL_PAPERS_ARCHIVE: a rehearsal's papers
+        self.first = cfg.get("HEGEL_PAPERS_FROM") if hasattr(cfg, "get") else None   # a rehearsal's first day (set by rehearsal_setup)
 
     def _cache(self, name, max_age, fetch):
         path = self.dir / name
@@ -175,7 +189,10 @@ class Feeds:
         return {"source": "open-meteo", "hours": hours}
 
     def headlines(self, d, n=3):
-        """Up to n real headlines for the morning papers, or [] when the feeds are down."""
+        """Up to n real headlines for the morning papers, or [] when the feeds are down.
+        With HEGEL_PAPERS_RECORD the same pass also keeps the pieces behind them (papers-<date>.json)."""
+        rows = {}           # title -> piece, filled by the fetch when it runs and the record is on
+
         def fetch():
             seen, papers = set(), []
             for url in self.cfg.news_feeds:
@@ -184,6 +201,7 @@ class Feeds:
                 except Exception as e:
                     log.warning("news feed %s failed: %s", url, e)
                     continue
+                source = " ".join((root.findtext("channel/title") or "").split()) or urllib.parse.urlparse(url).netloc
                 titles = []
                 for item in root.iter("item"):
                     title = html.unescape(re.sub(r"<[^>]+>", "", item.findtext("title") or "")).strip()
@@ -192,6 +210,8 @@ class Feeds:
                     if 20 <= len(title) <= 160 and key not in seen and fit_for_papers(title):
                         seen.add(key)
                         titles.append(title)
+                        if self.record:
+                            rows[title] = dict(piece_of(item, source), title=title)
                     if len(titles) >= 6:
                         break
                 papers.append(titles)
@@ -201,4 +221,46 @@ class Feeds:
                 raise RuntimeError("no headlines from any feed")
             return out
         items = self._cache(f"news-{d.isoformat()}.json", None, fetch) or []
+        if not items and self.archive:
+            items = [p["title"] for p in self.pieces(d)]
+        if rows:
+            self.keep_papers(d, [rows[t] for t in items if t in rows])       # every piece fetched: the first n are the headlines he is shown, the rest are the inside pages
         return items[:n]
+
+    def keep_papers(self, d, pieces):
+        """The day's pieces, in the order of the headlines, in the state folder. Never in the day file (WORLD-3 rule 3)."""
+        try:
+            self.dir.mkdir(parents=True, exist_ok=True)
+            (self.dir / f"papers-{d.isoformat()}.json").write_text(json.dumps(pieces, ensure_ascii=False), encoding="utf-8")
+        except OSError as e:
+            log.warning("papers of %s not kept: %s", d, e)
+
+    def pieces(self, d):
+        """The papers of date d as kept, [{title, summary, link, source}], or [] when none were. Reads files only, never the network.
+        With an archive, the papers of the day that d maps to (see archived)."""
+        if self.archive:
+            return self.archived(d)
+        return self.load_pieces(self.dir / f"papers-{d.isoformat()}.json")
+
+    def piece(self, d, i):
+        """Piece i of the papers of date d, or None."""
+        got = self.pieces(d)
+        return got[i] if 0 <= i < len(got) else None
+
+    @staticmethod
+    def load_pieces(path):
+        try:
+            got = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            return []
+        return [p for p in got if isinstance(p, dict) and p.get("title")] if isinstance(got, list) else []
+
+    def archived(self, d):
+        """The archive's papers-*.json files in date order, cycled by the days since the rehearsal's first day:
+        its first day reads the first file, the next the second, and after the last the first again."""
+        files = sorted(Path(self.archive).expanduser().glob("papers-*.json"))
+        if not files:
+            return []
+        if not self.first:
+            self.first = d.isoformat()                  # no stated first day: the first day asked for
+        return self.load_pieces(files[(d - date.fromisoformat(self.first)).days % len(files)])

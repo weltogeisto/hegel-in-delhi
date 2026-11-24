@@ -107,7 +107,7 @@ class BuildTest(unittest.TestCase):
         (self.f / f"REPLIES-{name}.jsonl").write_text("".join(json.dumps({"id": r["id"], "reply": answer(r)}) + "\n" for r in reqs))
 
     def run_cards(self):
-        """Every passage gets three lines; the first passage is dropped for lacking a line after two rounds."""
+        """Every passage gets three lines; the first gains a line in each round and is kept (no card is dropped for lacking)."""
         v.cmd_cards(self.f)
         self.reply("cards", lambda r: "- arrived at 11\n- saw the gallery\n- paid 3 thalers")
         v.cmd_check(self.f, 1)
@@ -115,25 +115,26 @@ class BuildTest(unittest.TestCase):
         self.reply("check1", lambda r: "- met Creuzer" if r["id"].endswith(first) else "NONE")
         v.cmd_merge(self.f, 1)
         v.cmd_check(self.f, 2)
-        self.reply("check2", lambda r: "- still more")
+        self.reply("check2", lambda r: "- heard the opera")
         return first, v.cmd_merge(self.f, 2)
 
     def test_two_rows_a_training_passage_and_one_a_held_passage(self):
         first, merged = self.run_cards()
-        self.assertEqual((merged["complete"], merged["dropped"]), (len(self.rows) - 1, 1))
+        self.assertEqual((merged["complete"], merged["dropped"]), (len(self.rows), 0))
         man = t.cmd_build(self.f, volumes())
         train, held = v.rows(self.f / "TRAIN.jsonl"), v.rows(self.f / "HELDOUT.jsonl")
         passages = {r["id"]: r for r in self.rows}
-        n_train = sum(r["set"] == "train" for r in self.rows) - 1
+        n_train = sum(r["set"] == "train" for r in self.rows)
         b_rows = sum(r["id"].endswith("|b") for r in train)
         self.assertEqual((man["passages"], man["pairs"], man["held"]), (n_train, n_train + b_rows, sum(r["set"] == "held" for r in self.rows)))
         self.assertGreater(b_rows, n_train // 2)               # a shuffle of three lines is the original one time in six, and then has no second row
-        self.assertNotIn(first, {r["id"].split("|")[0] for r in train})                 # the dropped passage is absent
+        self.assertIn(first, {r["id"].split("|")[0] for r in train + held})             # the passage that gained lines twice is kept
         for r in train + held:
             p = passages[r["id"].split("|")[0]]
             self.assertEqual(r["target"], p["text"])                                       # his words, byte for byte
             lines = r["prompt"].split("[The record:\n")[1].split("]\n")[0].split("\n")
-            self.assertEqual(sorted(lines), ["- arrived at 11", "- paid 3 thalers", "- saw the gallery"])
+            more = ["- heard the opera", "- met Creuzer"] if r["id"].split("|")[0] == first else []
+            self.assertEqual(sorted(lines), sorted(["- arrived at 11", "- paid 3 thalers", "- saw the gallery"] + more))
             self.assertEqual("[The letter goes on.]" in r["prompt"], not p["first"])
             self.assertTrue(r["prompt"].startswith(p["head"] + "\n\n[The record:\n") and r["prompt"].endswith("]\n\n"))
         a = {r["id"][:-2]: r for r in train if r["id"].endswith("|a")}
@@ -146,7 +147,7 @@ class BuildTest(unittest.TestCase):
     def test_the_manifest_counts_and_hashes(self):
         self.run_cards()
         man = t.cmd_build(self.f, volumes())
-        self.assertEqual(man["dropped"], {"ocr": 0, "no_card": 0, "lacking_after_two_rounds": 1})
+        self.assertEqual(man["dropped"], {"ocr": 0, "no_card": 0, "lacking_after_two_rounds": 0})
         self.assertEqual(man["sha256"]["TRAIN.jsonl"], t.sha(self.f / "TRAIN.jsonl"))
         self.assertEqual(man["sha256"]["HELDOUT.jsonl"], t.sha(self.f / "HELDOUT.jsonl"))
         self.assertEqual(man["note"], t.SENTENCE)

@@ -7,7 +7,7 @@ Declared on 23 November 2026 by Claude in the cloud, before any call. The plan i
 | Step | Calls | What it gives |
 |---|---:|---|
 | Cards for the 43 development passages | 43 | what each passage states about the world |
-| The symmetry check, at most twice | up to 86 | cards that lack nothing, or the passage dropped |
+| The symmetry check, at most twice | up to 86 | cards that hold what two checks found; none is dropped for lacking (rule of 24 November) |
 | Letters P0, P1 and P2 in German | 129 | the three rungs without training |
 | The real passages and the 300 controls into English | 343 | the real side, and the classifier's qualification |
 | The letters into English | 129 | both sides through one translation |
@@ -33,6 +33,7 @@ python3 tools/voice4.py judge --folder $F        # run REQUESTS-judge.jsonl     
 ```
 
 - If round 1's merge leaves no card open, it writes `CARDS.jsonl` itself, and round 2 is skipped.
+- **The re-merge of 24 November.** The first run's merge kept 5 of 43 cards. The rule is changed (`tools/voice4.py`, `fresh_lines`): no new calls are needed. On main with the new rule, run `merge --round 1` and then `merge --round 2` again over the replies already there. It must give 43 cards, and `CARDS.jsonl` with sha256 `3494741055043c817024cbfde1004bfe51e0e04194a3f4f1bcd63bfbdef73b08`; stop if it differs. Then `arms` again: requests whose text is unchanged keep their replies, the others are run.
 - At night the stop is the fast lane's: no new requests file after 07:15 Berlin, the stream stopped by 07:45, 8082 checked after.
 - Push the folder to `codex/voice4-instrument-20261124` and post DONE on PR #1 with the head and the counts of each step.
 - **Do not read the letters, and make no sheet and no key.** The cloud makes the sheets, keeps the keys outside the repository, and seals the judgments before any key is applied.
