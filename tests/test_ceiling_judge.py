@@ -206,6 +206,24 @@ class JudgeTest(unittest.TestCase):
         self.assertEqual(a["A"]["defence"] + a["A"]["revision"], a["A"]["shown"])
         self.assertEqual(sum(t["invented"] for t in a.values()), 2 * N * 8)           # one side of every row
 
+    def test_welts_rows_stand_beside_the_families(self):
+        self.sheet()
+        fam = self.ballots("claude", lambda k: "second")
+        mine = []
+        for r in cj.rows(self.f / "WELT-24.jsonl"):
+            k = self.key[r["pair"]]
+            mine.append({"pair": r["pair"], "q1": ("X" if k["X"] == "D" else "Y") if (k["first"], k["second"]) == ("A", "D") else "neither"})
+        w = Path(self.td.name) / "welt.jsonl"
+        w.write_text("".join(json.dumps(x) + "\n" for x in mine))
+        cj.cmd_seal(self.f, fam + [w])
+        res = cj.cmd_score(self.f, self.k, {"claude": fam}, welt=w)
+        self.assertEqual(res["welt"]["A-D"], {"read": 3, "first": 0, "second": 3, "both": 0, "neither": 0})
+        self.assertEqual(res["welt"]["A-B"], {"read": 3, "first": 0, "second": 0, "both": 0, "neither": 3})
+        self.assertIn("## Welt's rows", (self.f / "RESULT.md").read_text())
+        w.write_text(w.read_text().replace("neither", "X", 1))
+        with self.assertRaises(ValueError):
+            cj.cmd_score(self.f, self.k, {"claude": fam}, welt=w)             # changed after its seal
+
     def test_the_interval_is_taken_over_mornings(self):
         lo, hi = cj.interval([True] * 20 + [False] * 20, [f"m{i // 2}" for i in range(40)])
         self.assertTrue(0.25 < lo < 0.5 < hi < 0.75)

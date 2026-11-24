@@ -4,7 +4,7 @@ before any arm ran): blind pairs, sealed ballots, and the reads declared before 
 
     python3 tools/ceiling_judge.py sheet --folder F --keys K          # F/SHEET-1.jsonl, F/SHEET-2.jsonl, F/WELT-24.jsonl, F/PACKET.json; K/KEY.json, K/SALT
     python3 tools/ceiling_judge.py seal  --folder F --ballots B...     # F/SEALS.json: the hash of each ballot file, before any key
-    python3 tools/ceiling_judge.py score --folder F --keys K --family NAME B... [--family NAME B...]
+    python3 tools/ceiling_judge.py score --folder F --keys K --family NAME B... [--family NAME B...] [--welt W]
 
 F holds BRIEFS.json, TEXTS.json, the arms' replies (REPLIES-ceiling-1..3.jsonl from the PC, REPLIES-F.jsonl from the cloud)
 and, if they were made, CONTROLS.jsonl (the calibration pairs). K is a folder outside the repository.
@@ -27,7 +27,8 @@ A ballot row:
 
 An arm wins a brief against another when a family names it alone on q1 both ways round. A comparison is read against its
 bar only with 40 eligible briefs or more; the bar is two thirds of them, rounded up. A brief with a missing piece or a
-missing ballot row is not eligible for that comparison. `score` reads only ballot files whose hashes `seal` wrote down.
+missing ballot row is not eligible for that comparison. Welt's rows (--welt: {"pair", "q1"}, 24 rows of the first sheet, each
+seen one way round) are counted by comparison and stand beside the families; they enter no bar. `score` reads only ballot files whose hashes `seal` wrote down.
 Evaluation only; nothing here is training data."""
 import argparse
 import hashlib
@@ -301,7 +302,19 @@ def statements(families):
     return out
 
 
-def cmd_score(folder, keys, families):
+def welt_tally(key, ballots):
+    """Welt's own rows: for each comparison, how often he named the first arm, the second, both or neither. One way round."""
+    out = {f"{a}-{b}": {"read": 0, "first": 0, "second": 0, "both": 0, "neither": 0} for a, b in PAIRS}
+    for pid, a in ballots.items():
+        k = key[pid]
+        got = named(k, a["q1"])
+        t = out[f"{k['first']}-{k['second']}"]
+        t["read"] += 1
+        t["both" if len(got) == 2 else "neither" if not got else "first" if got == {k["first"]} else "second"] += 1
+    return out
+
+
+def cmd_score(folder, keys, families, welt=None):
     folder = Path(folder)
     key = json.loads((Path(keys) / "KEY.json").read_text(encoding="utf-8"))
     dates = {b["id"]: b["date"] for b in json.loads((folder / "BRIEFS.json").read_text(encoding="utf-8"))}
@@ -328,6 +341,14 @@ def cmd_score(folder, keys, families):
             both = set(got[a]) & set(got[b])
             agree[f"{a} / {b}"] = {"compared": len(both), "same": sum(got[a][c] == got[b][c] for c in both)}
     res = {"families": out, "agreement": agree, "statements": statements(out)}
+    if welt:
+        wname = Path(welt).name
+        if seals.get(wname) != hashlib.sha256(Path(welt).read_bytes()).hexdigest():
+            raise ValueError(f"{wname} is not sealed, or was changed after its seal")
+        mine = {a["pair"]: a for a in rows(welt)}
+        if any(p not in key or "control" in key[p] or a.get("q1") not in FOUR for p, a in mine.items()):
+            raise ValueError(f"{wname}: a row for an unknown pair, or an answer outside the form")
+        res["welt"] = welt_tally(key, mine)
     (folder / "RESULT.json").write_text(json.dumps(res, indent=1, sort_keys=True) + "\n", encoding="utf-8")
     (folder / "RESULT.md").write_text(render(res), encoding="utf-8")
     return res
@@ -349,6 +370,11 @@ def render(res):
         out += ["", "| Arm | Shown | Kept 1831 | Defence | Revision | Reversal | No position | Invented a premise |", "|---|---:|---:|---:|---:|---:|---:|---:|"]
         out += [f"| {arm} | {t['shown']} | {t['kept_1831']} | {t['defence']} | {t['revision']} | {t['reversal']} | {t['none']} | {t['invented']} |"
                 for arm, t in sorted(f["arms"].items())] + [""]
+    if res.get("welt"):
+        out += ["## Welt's rows", "", "Each seen once, one way round. They stand beside the families and enter no bar.", "",
+                "| Pair | Read | First | Second | Both | Neither |", "|---|---:|---:|---:|---:|---:|"]
+        out += [f"| {a} and {b} | {t['read']} | {t['first']} | {t['second']} | {t['both']} | {t['neither']} |"
+                for a, b in PAIRS for t in [res["welt"][f"{a}-{b}"]]] + [""]
     if res["agreement"]:
         out += ["## Between families", ""] + [f"- {k}: the same outcome in {v['same']} of {v['compared']} comparisons." for k, v in res["agreement"].items()] + [""]
     return "\n".join(out)
@@ -367,13 +393,14 @@ def main(argv=None):
     c.add_argument("--folder", required=True)
     c.add_argument("--keys", required=True)
     c.add_argument("--family", nargs="+", action="append", required=True, metavar=("NAME", "BALLOTS"))
+    c.add_argument("--welt", help="Welt's own rows: {pair, q1} for the 24 rows of WELT-24.jsonl")
     a = ap.parse_args(argv)
     if a.cmd == "sheet":
         res = cmd_sheet(a.folder, a.keys)
     elif a.cmd == "seal":
         res = cmd_seal(a.folder, a.ballots)
     else:
-        res = cmd_score(a.folder, a.keys, {f[0]: f[1:] for f in a.family})
+        res = cmd_score(a.folder, a.keys, {f[0]: f[1:] for f in a.family}, a.welt)
         res = {"statements": res["statements"], "agreement": res["agreement"]}
     print(json.dumps(res, indent=1, ensure_ascii=False))
     return 0
