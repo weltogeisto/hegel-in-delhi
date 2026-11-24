@@ -267,6 +267,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Shri G. Hegde at home."
+  },
+  {
+   "from": "11:05",
+   "to": "11:10",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -353,6 +360,37 @@
    "to": "Hegel",
    "text": "Sir, I am Ramesh, the driver. You are not Shri Hegde, and you are confusing me with him again. If you want to go to the Directorate, please go, but do not ask me to sign anything or drive you.",
    "t": "10:20",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh is right. I have been projecting the name onto the man who serves me, confusing the driver with the bureaucrat who holds the file. It is a small error of perception, but it reveals how the mind clings to its own categories even when the world offers a different one. I must correct myself before I correct the state.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§533"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    }
+   ],
+   "t": "11:05",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Ramesh. I have been muddled. I am not Shri Hegde, and you are not him. I will go to the Directorate myself; I do not require your signature or your car.",
+   "to": "Shri G. Hegde",
+   "t": "11:05",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Thank you, sir. Please make sure you have your ID card, the traffic is a mess near the Secretariat today. I will keep the car ready if you change your mind, but for now, I am going to eat my lunch.",
+   "t": "11:05",
    "place": "home"
   }
  ],
@@ -483,6 +521,71 @@
      "text": "The members of civil society as such are rather people who find their nearest duty in their private interest and (as especially in the feudal society) in the interest of their privileged corporation. Take the case of England which, because private persons have a predominant share in public affairs, has been regarded as having the freest of all constitutions."
     }
    ]
+  },
+  {
+   "t": "11:05",
+   "end": "11:10",
+   "event": "Shri G. Hegde says: “Sir, I am Ramesh, the driver. You are not Shri Hegde, and you are confusing me with him again. If you want to go to the Directorate, please go, but do not ask me to sign anything or drive you.” He stands up from the chair and adjusts his cap, looking tired.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Ramesh is right. I have been projecting the name onto the man who serves me, confusing the driver with the bureaucrat who holds the file. It is a small error of perception, but it reveals how the mind clings to its own categories even when the world offers a different one. I must correct myself before I correct the state.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 5,
+    "says": "You are right, Ramesh. I have been muddled. I am not Shri Hegde, and you are not him. I will go to the Directorate myself; I do not require your signature or your car.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, mostly clear, hazy. Air quality index: 171."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Thank you, sir. Please make sure you have your ID card, the traffic is a mess near the Secretariat today. I will keep the car ready if you change your mind, but for now, I am going to eat my lunch.",
+    "does": "He pulls out his mobile phone to check the map app."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.5,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§533",
+     "id": "wallace-mind:288"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§533",
+     "text": "In civil society the sole end is to satisfy want—and that, because it is man’s want, in a uniform general way, so as to secure this satisfaction. But the machinery of social necessity leaves in many ways a casualness about this satisfaction. This is due to the variability of the wants themselves, in which opinion and subjective good-pleasure play a great part."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "That which the public servant has to perform is as it stands of absolute value. Hence positive injury or non-performance, either being opposed to the essence of service, is a wrong to the universal content (§ 95, a negative-infinite judgment), and therefore a fault or crime."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -512,7 +615,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-25T11:05+05:30",
+  "until": "2026-11-25T11:10+05:30",
   "asleep": false,
   "imprest": 15456,
   "wearing": "kurta",
@@ -969,7 +1072,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "f51cca110841c34c5ac33decb00229d605d53e4391d737db9cba73e2acff13fc",
+  "source_sha256": "4400a5f0d9bfa69bf7bcae97fcefed2e7b7f6759ac636588629a6e62dbd3a5ca",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1027,6 +1130,36 @@
     "words": "Sir, I am Ramesh, the driver. You are not Shri Hegde, and you are confusing me with him again. If you want to go to the Directorate, please go, but do not ask me to sign anything or drive you.",
     "verified": false,
     "time": "10:20",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-25:statement:65b0f13527619112:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 8,
+     "sha256": "65b0f13527619112793b32ad673017f33c064f28b28ea0a7759e394555b8a307"
+    },
+    "speaker": "Hegel",
+    "recipient": "Shri G. Hegde",
+    "words": "You are right, Ramesh. I have been muddled. I am not Shri Hegde, and you are not him. I will go to the Directorate myself; I do not require your signature or your car.",
+    "verified": false,
+    "time": "11:05",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-25:statement:0373da4ca62f408c:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 9,
+     "sha256": "0373da4ca62f408c47e916c483478b6cd168f31149ba9a98f5dc2798d3947d51"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "Thank you, sir. Please make sure you have your ID card, the traffic is a mess near the Secretariat today. I will keep the car ready if you change your mind, but for now, I am going to eat my lunch.",
+    "verified": false,
+    "time": "11:05",
     "place": "home"
    },
    {
@@ -1213,68 +1346,98 @@
     "text": "Shri G. Hegde is here."
    },
    {
-    "id": "2026-11-25:event:e34190fe933cdd27:1",
+    "id": "2026-11-25:event:5559b248a233d12b:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 2,
+     "sha256": "5559b248a233d12bf28eab0cde87f2990ba6be6cfbc6ffe05be951bf2d6296aa"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "11:05",
+    "end": "11:10",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-25:event:35961ae9e1ad2368:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      2,
+      0
+     ],
+     "sha256": "35961ae9e1ad2368772f17dd96eeb8b6583c76b2e576ea68ba3b799f3b0c1187"
+    },
+    "type": "observation",
+    "time": "11:05",
+    "place": "home",
+    "text": "Weather: 22 °C, mostly clear, hazy. Air quality index: 171."
+   },
+   {
+    "id": "2026-11-25:event:b21b3e85a46c7abf:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "e34190fe933cdd275da5207b3c1bdc133b70c7331a37ee2cc865dd1cc7be0f6f"
+     "sha256": "b21b3e85a46c7abf2660bc323949d770aaa9162eef6821333205bcee685fb94b"
     },
     "type": "cash",
-    "time": "11:05",
+    "time": "11:10",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:19fdd57a78450c41:1",
+    "id": "2026-11-25:event:2f916365c350bc66:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "19fdd57a78450c418d3ae0d1092edceeb0fa95f631b456e73dab79f6188be1f8"
+     "sha256": "2f916365c350bc669f7449a66695e583cf14ec34ecf096570d99e165f6d4f42e"
     },
     "type": "location",
-    "time": "11:05",
+    "time": "11:10",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:41052360a212ca38:1",
+    "id": "2026-11-25:event:cf3f4a8a96bc8c03:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "41052360a212ca3880fec5daabf39be7cc14ba7aa985fb167d855ae57a065732"
+     "sha256": "cf3f4a8a96bc8c03871f21bf77f4ce0474c722eba9122bea7b633325cb95df42"
     },
     "type": "inventory",
-    "time": "11:05",
+    "time": "11:10",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-25:event:7a5176047c253173:1",
+    "id": "2026-11-25:event:20d9f376ed7b025f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "7a5176047c253173240cc880c30145a91ca176a31273639f9ef58c760268654f"
+     "sha256": "20d9f376ed7b025f8cdf7042c74b8a845762c7b64215beb28b5e2c36d52b7d90"
     },
     "type": "inventory",
-    "time": "11:05",
+    "time": "11:10",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 20:27.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 20:27.\"}]"
    },
    {
-    "id": "2026-11-25:event:580c60db8cd4d71b:1",
+    "id": "2026-11-25:event:14ceeefd685536e6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "580c60db8cd4d71b001bcb99ff9feca62e7ea85bc40e4ac1d43414f221745926"
+     "sha256": "14ceeefd685536e6d60ff957562a082405b5786bbbf58a8944edf1b4d494ac38"
     },
     "type": "inventory",
-    "time": "11:05",
+    "time": "11:10",
     "place": null,
     "text": "Recorded file at this horizon only: \"Shri Hegde asks for the allotment in his name, the Professor on record as his guest.\""
    },
@@ -1293,7 +1456,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "11:05",
+    "time": "11:10",
     "place": null
    }
   ]
