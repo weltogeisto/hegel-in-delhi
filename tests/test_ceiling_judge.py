@@ -147,6 +147,21 @@ class JudgeTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             cj.cmd_join(out, "astra")
 
+    def test_the_arms_are_counted_beside_the_ballots(self):
+        import re
+        rows = [{"id": "A|b01", "reply": json.dumps({"title": "Notes", "text": "21 October 2026, 06:16. Delhi. The airport and the internet."})},
+                {"id": "A|b02", "reply": json.dumps({"title": "On the thing", "text": "The concept moves."})},
+                {"id": "B|b01", "reply": json.dumps({"title": "On it", "text": "The airport serves the city."})}]
+        (self.f / "REPLIES-ceiling-1.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
+        (self.f / "REPLIES-F.jsonl").write_text("")
+        (self.f / "TEXTS.json").write_text(json.dumps({"b01": {"title": "An airport", "text": "The airport."}, "b02": {"title": "A thing", "text": "A thing."}}))
+        got = cj.cmd_counts(self.f, rx=re.compile(r"\b(airport|internet)s?\b", re.I))
+        self.assertEqual(got["A"]["pieces"], 2)
+        self.assertEqual(got["A"]["opens_like_a_diary"], 1)
+        self.assertEqual(got["A"]["century_terms_mean"], 1.0)                 # two terms in one piece, none in the other
+        self.assertEqual(got["A"]["pieces_with_a_term_not_shown"], 1)         # "internet": the text gave him only the airport
+        self.assertEqual(got["B"]["century_terms_not_shown_mean"], 0.0)
+
     def test_a_ballot_must_be_sealed_and_is_not_changed_after(self):
         self.sheet()
         files = self.ballots("claude", lambda k: "second")
