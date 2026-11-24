@@ -428,6 +428,13 @@
    "mode": "walk",
    "a": "lodhi",
    "b": "home"
+  },
+  {
+   "from": "18:36",
+   "to": "19:21",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1285,6 +1292,22 @@
    ],
    "t": "18:16",
    "place": "lodhi"
+  },
+  {
+   "k": "diary",
+   "text": "The query from the Directorate hangs over me like the haze over the city: I am Shri G. Hegde, a name that belongs to another, yet the state insists I fit its file. I have walked thirteen kilometers, my legs heavy, my stomach hollow since yesterday. The air is thick at 192, a suffocating blanket that makes the mind turn inward. I will sit on the step, not to read, but to let the day’s friction settle, and to watch the dark come over Tughlak Road.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Ionic Philosophy"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273"
+    }
+   ],
+   "t": "18:36",
+   "place": "home"
   }
  ],
  "steps": [
@@ -2946,6 +2969,63 @@
      "text": "“The first cause of perplexity is, what hinders nature from not operating for the sake of an end, and because it is better so to operate, but” being, for example, “like Jupiter, who rains, not that the corn may grow, but from necessity. The vapour driven upwards cools, and the water resulting from this cooling falls as rain, and it happens that the corn is thereby made to grow."
     }
    ]
+  },
+  {
+   "t": "18:36",
+   "end": "19:21",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [],
+   "decision": {
+    "thought": "The query from the Directorate hangs over me like the haze over the city: I am Shri G. Hegde, a name that belongs to another, yet the state insists I fit its file. I have walked thirteen kilometers, my legs heavy, my stomach hollow since yesterday. The air is thick at 192, a suffocating blanket that makes the mind turn inward. I will sit on the step, not to read, but to let the day’s friction settle, and to watch the dark come over Tughlak Road.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 45,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, clear, hazy. Air quality index: 192.",
+    "Nothing in particular happens. The evening goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Ionic Philosophy",
+     "id": "haldane-1:462"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273",
+     "id": "dyde-right:681"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Ionic Philosophy",
+     "text": "Since Plutarch gives more definite grounds for holding that water is the simple essence of things, we must see whether things, in so far as they are simple essence, are water, (α) The germ of the animal, of moist nature, is undoubtedly the animal as the simple actual, or as the essence of its actuality, or undeveloped actuality."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273",
+     "text": "This is the descent of the spirit of the world into itself, the free perfection by virtue of which the idea sets loose from itself its own elements, and nothing but its own elements, and makes them totalities; at the same time it holds them within the unity of the conception, in which is found their real rationality."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2989,7 +3069,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-25T18:36+05:30",
+  "until": "2026-11-25T19:21+05:30",
   "asleep": false,
   "imprest": 15106,
   "wearing": "kurta",
@@ -3514,7 +3594,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "d9ee16157d8449ce83f89b5972a091d242027492498bb19cc8709946c541ce34",
+  "source_sha256": "908921c6d22b81ca3c2d42bb3395ffd0851b6d510380085f5559358729c087f2",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -5510,68 +5590,114 @@
     "text": "Weather: 20 °C, clear, hazy. Air quality index: 192."
    },
    {
-    "id": "2026-11-25:event:33c55336e911279c:1",
+    "id": "2026-11-25:event:f53b9189f1fdff41:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 25,
+     "sha256": "f53b9189f1fdff4137e460fab6ea7a5e5f66b01d06a4ce46f137c9ff9d12c469"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "18:36",
+    "end": "19:21",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-25:event:545bbedbc88a702f:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      25,
+      0
+     ],
+     "sha256": "545bbedbc88a702f2ac3763971bcb05f515659ef8ee79f25df055db1383d8333"
+    },
+    "type": "observation",
+    "time": "18:36",
+    "place": "home",
+    "text": "Weather: 20 °C, clear, hazy. Air quality index: 192."
+   },
+   {
+    "id": "2026-11-25:event:f0883d583a8f0cb4:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      25,
+      1
+     ],
+     "sha256": "f0883d583a8f0cb4f513e9e7918f61a4da92f5f5c5ffd125af87394140064d60"
+    },
+    "type": "observation",
+    "time": "18:36",
+    "place": "home",
+    "text": "Nothing in particular happens. The evening goes on."
+   },
+   {
+    "id": "2026-11-25:event:e854917da2bb0b3e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "33c55336e911279c700f18259cfe85c0636d172882511830a9b56661a44f6430"
+     "sha256": "e854917da2bb0b3e5aa4af7ef911cbda230af04225fa9f8aa9fc12f36f6e3af1"
     },
     "type": "cash",
-    "time": "18:36",
+    "time": "19:21",
     "amount": 15106,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:34d1ad5cec4dffcf:1",
+    "id": "2026-11-25:event:7ddc7334a2776a4a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "34d1ad5cec4dffcf4874ced59dd050984c1afa294d92c6cd2c74c4247e6c1bf0"
+     "sha256": "7ddc7334a2776a4ad53fe7316447149687ef7e5815a042b231bc54b3c92b50c4"
     },
     "type": "location",
-    "time": "18:36",
+    "time": "19:21",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:b4acc12ecc6d1eab:1",
+    "id": "2026-11-25:event:5d4ae656b23f6961:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "b4acc12ecc6d1eab9360275c1100b85f0bb3c34335b60b10d2d4b835c1f8a4f0"
+     "sha256": "5d4ae656b23f696125362d77bc8fc7e3938780db065c002858b786a12fde51a2"
     },
     "type": "inventory",
-    "time": "18:36",
+    "time": "19:21",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-25:event:9ba89668eee5bf0d:1",
+    "id": "2026-11-25:event:5d9796913e0bcbf8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "9ba89668eee5bf0d0b84ee1ca36146637c4635d77f0655c94b5be20c5db3436d"
+     "sha256": "5d9796913e0bcbf8c2c69ba8030e33cc2fb985446b64dea0d8d25f3abe4b0632"
     },
     "type": "inventory",
-    "time": "18:36",
+    "time": "19:21",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 14:22.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 14:22.\"}]"
    },
    {
-    "id": "2026-11-25:event:e02ca59d0e8b0c7d:1",
+    "id": "2026-11-25:event:6bd73c22122a705e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "e02ca59d0e8b0c7d5f652d782047c47d345a1ec1d531f8eea89239f8990fe4bc"
+     "sha256": "6bd73c22122a705e33341fa2cf27c2ec20471342efd943a30bd28b410e67093c"
     },
     "type": "inventory",
-    "time": "18:36",
+    "time": "19:21",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
