@@ -12,20 +12,20 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 15,
-    "sky": "mostly clear",
+    "temp": 16,
+    "sky": "clear",
     "rain": 0,
     "aqi": 117
    },
    {
     "temp": 15,
-    "sky": "partly cloudy",
+    "sky": "mostly clear",
     "rain": 0,
     "aqi": 120
    },
    {
-    "temp": 14,
-    "sky": "clear",
+    "temp": 15,
+    "sky": "mostly clear",
     "rain": 0,
     "aqi": 124
    },
@@ -36,7 +36,7 @@
     "aqi": 129
    },
    {
-    "temp": 13,
+    "temp": 14,
     "sky": "overcast",
     "rain": 0,
     "aqi": 134
@@ -61,37 +61,37 @@
    },
    {
     "temp": 15,
-    "sky": "mostly clear, hazy",
+    "sky": "clear, hazy",
     "rain": 0,
     "aqi": 160
    },
    {
     "temp": 18,
-    "sky": "mostly clear, hazy",
+    "sky": "clear, hazy",
     "rain": 0,
     "aqi": 166
    },
    {
     "temp": 20,
-    "sky": "mostly clear, hazy",
+    "sky": "clear, hazy",
     "rain": 0,
     "aqi": 170
    },
    {
     "temp": 22,
-    "sky": "mostly clear, hazy",
+    "sky": "clear, hazy",
     "rain": 0,
     "aqi": 173
    },
    {
     "temp": 23,
-    "sky": "partly cloudy, hazy",
+    "sky": "clear, hazy",
     "rain": 0,
     "aqi": 175
    },
    {
-    "temp": 23,
-    "sky": "partly cloudy, hazy",
+    "temp": 24,
+    "sky": "clear, hazy",
     "rain": 0,
     "aqi": 177
    },
@@ -102,13 +102,13 @@
     "aqi": 179
    },
    {
-    "temp": 23,
+    "temp": 24,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 181
    },
    {
-    "temp": 22,
+    "temp": 23,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 184
@@ -120,13 +120,13 @@
     "aqi": 187
    },
    {
-    "temp": 19,
+    "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 192
    },
    {
-    "temp": 18,
+    "temp": 19,
     "sky": "clear, hazy",
     "rain": 0,
     "aqi": 199
@@ -372,6 +372,13 @@
    "mode": "walk",
    "a": "khan",
    "b": "estates"
+  },
+  {
+   "from": "15:49",
+   "to": "16:19",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -977,6 +984,37 @@
    ],
    "t": "15:09",
    "place": "khan"
+  },
+  {
+   "k": "diary",
+   "text": "The heat is a physical weight, pressing against the white cotton, and the air is thick with particulate matter. I am here to resolve the administrative knot that has become my daily existence. Mr. Saxena is present; I must address the query regarding my identity as Shri G. Hegde, though the distinction is a bureaucratic absurdity I find increasingly difficult to sustain with dignity.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Modern Time, The Reformation"
+    }
+   ],
+   "t": "15:49",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "Mr. Saxena, I have returned to address the query regarding the allotment. I am not Shri G. Hegde, but I am the one who has occupied the residence. The confusion in the records must be rectified, or at least clarified, so that I may continue my tenure without further legal or administrative friction.",
+   "to": "Mr. Saxena",
+   "t": "15:49",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "You have been in the room for twenty minutes, sir. If you are the occupant, you know the file number better than I do. Stop reciting your name and tell me which page has the wrong entry.",
+   "t": "15:49",
+   "place": "estates"
   }
  ],
  "steps": [
@@ -2107,6 +2145,72 @@
      "text": "But although Zeno principally cultivated dialectic and practical philosophy, he did not, like other Socratics, neglect physical philosophy, for he studied very specially Heraclitus’ work on Nature, and finally came forward as an independent teacher in a porch called Poecile (στοὰ ποικίλη), which was decorated with the paintings of Polygnotus."
     }
    ]
+  },
+  {
+   "t": "15:49",
+   "end": "16:19",
+   "event": "You arrive at Directorate of Estates, Nirman Bhawan. It closes at 17:30.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The heat is a physical weight, pressing against the white cotton, and the air is thick with particulate matter. I am here to resolve the administrative knot that has become my daily existence. Mr. Saxena is present; I must address the query regarding my identity as Shri G. Hegde, though the distinction is a bureaucratic absurdity I find increasingly difficult to sustain with dignity.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 30,
+    "says": "Mr. Saxena, I have returned to address the query regarding the allotment. I am not Shri G. Hegde, but I am the one who has occupied the residence. The confusion in the records must be rectified, or at least clarified, so that I may continue my tenure without further legal or administrative friction.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, clear, hazy. Air quality index: 181.",
+    "You arrive at Directorate of Estates, Nirman Bhawan. It closes at 17:30."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "arrive"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "You have been in the room for twenty minutes, sir. If you are the occupant, you know the file number better than I do. Stop reciting your name and tell me which page has the wrong entry.",
+    "does": "He taps the steel tumbler against the desk to signal impatience."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Modern Time, The Reformation",
+     "id": "sibree-history:1340"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence. So also it is not a matter merely external and particular, the performance of which is intrusted to him."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Modern Time, The Reformation",
+     "text": "Equally important, and connected with that just noticed, is the change of executive powers, functions, duties and rights, which naturally belong to the State, but which had become private property and private contracts or obligations— into possession conferred by the State."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2150,7 +2254,7 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-25T15:49+05:30",
+  "until": "2026-11-25T16:19+05:30",
   "asleep": false,
   "imprest": 15166,
   "wearing": "kurta",
@@ -2648,7 +2752,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "ece88e345bf94caa37ab487069672a19f7d3be858a84d1a19f33af5f42e61ef6",
+  "source_sha256": "9f4151f0885bc39b057bbe45dcd5454c8bd968894e2a1f73e25bad8628efb37a",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3253,6 +3357,36 @@
     "verified": false,
     "time": "14:59",
     "place": "khan"
+   },
+   {
+    "id": "2026-11-25:statement:6056fe2334049b73:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 60,
+     "sha256": "6056fe2334049b731f8049af93278552d592fa8fadecae387b76f7c5865475c0"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "Mr. Saxena, I have returned to address the query regarding the allotment. I am not Shri G. Hegde, but I am the one who has occupied the residence. The confusion in the records must be rectified, or at least clarified, so that I may continue my tenure without further legal or administrative friction.",
+    "verified": false,
+    "time": "15:49",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:44c7a123be5e1cea:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 61,
+     "sha256": "44c7a123be5e1cea9c7a4dec73c6b2ffcf55ae0919467605c4ae1776bd25806c"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "You have been in the room for twenty minutes, sir. If you are the occupant, you know the file number better than I do. Stop reciting your name and tell me which page has the wrong entry.",
+    "verified": false,
+    "time": "15:49",
+    "place": "estates"
    },
    {
     "id": "2026-11-25:event:cabd1f00db8a97c2:1",
@@ -4072,68 +4206,114 @@
     "text": "Weather: 23 °C, clear, hazy. Air quality index: 181."
    },
    {
-    "id": "2026-11-25:event:a27c6e0dc692921c:1",
+    "id": "2026-11-25:event:ef4d203361b2fba7:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 17,
+     "sha256": "ef4d203361b2fba7b2466fff82f61e61172ff694f0b781b30619d0e945ecbc2d"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "15:49",
+    "end": "16:19",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:event:7420de80e03b13e1:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      17,
+      0
+     ],
+     "sha256": "7420de80e03b13e1819eac51d844b8f05d65a48955549312c20659d3adffb1ca"
+    },
+    "type": "observation",
+    "time": "15:49",
+    "place": "estates",
+    "text": "Weather: 24 °C, clear, hazy. Air quality index: 181."
+   },
+   {
+    "id": "2026-11-25:event:1c82d6777161a098:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      17,
+      1
+     ],
+     "sha256": "1c82d6777161a09889a6fe55607ccfeb4086f0f4dd03802887833c0e6c4d2ea2"
+    },
+    "type": "observation",
+    "time": "15:49",
+    "place": "estates",
+    "text": "You arrive at Directorate of Estates, Nirman Bhawan. It closes at 17:30."
+   },
+   {
+    "id": "2026-11-25:event:6e3840207846508a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "a27c6e0dc692921c2a959e4415b979c61e042ff3cc89bc7810e321a2dbbddfca"
+     "sha256": "6e3840207846508a4ed48ff064f84a3575716bb5d0c117870c17f52d9663957b"
     },
     "type": "cash",
-    "time": "15:49",
+    "time": "16:19",
     "amount": 15166,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:a9279e08937272ab:1",
+    "id": "2026-11-25:event:85ce71e85107c4af:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "a9279e08937272abadedfe02842c7ae0f676c2f17ed70bfd2891fc43fb3c0a21"
+     "sha256": "85ce71e85107c4af60711f900c4a462e1c5cfb7b1540bac76ec9a1964265a79e"
     },
     "type": "location",
-    "time": "15:49",
+    "time": "16:19",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:b3f898f0f5426898:1",
+    "id": "2026-11-25:event:3dedb04b65d16a66:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "b3f898f0f5426898ebb19db186e8e670105875c095436f7b6f3893194db3d500"
+     "sha256": "3dedb04b65d16a6607d35c1dc84d5b9953a3ab3fd5b1778f32ea291e68f32c3a"
     },
     "type": "inventory",
-    "time": "15:49",
+    "time": "16:19",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-25:event:8f56ff9d1ecd3149:1",
+    "id": "2026-11-25:event:b8332228ff48448e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "8f56ff9d1ecd314919364730681b73c4556e621fc287082b6d7053bcac71cf15"
+     "sha256": "b8332228ff48448e9866691ab39b0bf35aed82e2071482cf7fce4ab97fa39530"
     },
     "type": "inventory",
-    "time": "15:49",
+    "time": "16:19",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 14:22.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 14:22.\"}]"
    },
    {
-    "id": "2026-11-25:event:2581bad695730b83:1",
+    "id": "2026-11-25:event:a7a174b4639f7bc2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "2581bad695730b83c21238938399eeed12c767f72d955a66de834e261bf05da7"
+     "sha256": "a7a174b4639f7bc2aab780f8d77484701a5b89e9cecc609392549388e086761b"
     },
     "type": "inventory",
-    "time": "15:49",
+    "time": "16:19",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
