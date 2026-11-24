@@ -358,6 +358,13 @@
    "mode": "stroll",
    "at": "khan",
    "now": "Talking with Masterji, Nidhi Rao and Sunil at Khan Market."
+  },
+  {
+   "from": "14:59",
+   "to": "15:09",
+   "mode": "stroll",
+   "at": "khan",
+   "now": "Talking with Masterji, Nidhi Rao and Sunil at Khan Market."
   }
  ],
  "entries": [
@@ -903,6 +910,49 @@
    "to": "Hegel",
    "text": "Ananya is going to Leipzig, not writing a dissertation on the *Phenomenology*, so please stop trying to turn a preposition lesson into a metaphysical crisis. And don't call me 'Nidhi' like I'm your student; I'm the one checking your German.",
    "t": "14:49",
+   "place": "khan"
+  },
+  {
+   "k": "world",
+   "text": "At the State Bank branch in Khan Market the clerk offers to open a savings account against Mr. Saxena's letter.",
+   "t": "14:59",
+   "place": "khan"
+  },
+  {
+   "k": "world",
+   "text": "He declines: not today.",
+   "t": "14:59",
+   "place": "khan"
+  },
+  {
+   "k": "diary",
+   "text": "She corrects me with the precision of a scalpel, and I accept it. The distinction between the teacher and the student is not merely a matter of title but of the relation of the spirit to itself; I was indeed imposing a metaphysical weight on a grammatical preposition. The bank clerk’s offer is a practical necessity: I must convert this paper cheque into cash to meet my obligations, and a savings account is the only way to do so without the friction of daily queries.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§3"
+    }
+   ],
+   "t": "14:59",
+   "place": "khan"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Nidhi. I confused the universal with the particular in that moment. As for the bank, I accept your advice. I will take the cheque to the State Bank now to open an account and clear it.",
+   "to": "Masterji, Nidhi Rao and Sunil",
+   "t": "14:59",
+   "place": "khan"
+  },
+  {
+   "k": "said",
+   "by": "Nidhi Rao",
+   "to": "Hegel",
+   "text": "Finally, some clarity from the man who writes about it. Just remember, the clerk won't care about your dialectic, only the signature. I'm heading out to check the account, don't be late on Tuesday.",
+   "t": "14:59",
    "place": "khan"
   }
  ],
@@ -1898,6 +1948,78 @@
     }
    ],
    "beat": "tutoring_german"
+  },
+  {
+   "t": "14:59",
+   "end": "15:09",
+   "event": "Nidhi Rao says: “Ananya is going to Leipzig, not writing a dissertation on the *Phenomenology*, so please stop trying to turn a preposition lesson into a metaphysical crisis. And don't call me 'Nidhi' like I'm your student; I'm the one checking your German.” She taps her pen against the edge of the table and glances at her phone to check the time. With Mr. Saxena's letter, the clerk at the State Bank would open a savings account today. A cheque paid in clears in three days.",
+   "present": [
+    "Masterji, the tailor",
+    "Nidhi Rao, doctoral student in philosophy",
+    "Sunil, who sells chai",
+    "the bookseller",
+    "the bank clerk"
+   ],
+   "decision": {
+    "thought": "She corrects me with the precision of a scalpel, and I accept it. The distinction between the teacher and the student is not merely a matter of title but of the relation of the spirit to itself; I was indeed imposing a metaphysical weight on a grammatical preposition. The bank clerk’s offer is a practical necessity: I must convert this paper cheque into cash to meet my obligations, and a savings account is the only way to do so without the friction of daily queries.",
+    "action": "talk",
+    "place": "khan",
+    "minutes": 10,
+    "says": "You are right, Nidhi. I confused the universal with the particular in that moment. As for the bank, I accept your advice. I will take the cheque to the State Bank now to open an account and clear it.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, clear, hazy. Air quality index: 179.",
+    "With Mr. Saxena's letter, the clerk at the State Bank would open a savings account today. A cheque paid in clears in three days."
+   ],
+   "observed_at": "khan",
+   "opened": [
+    "reply",
+    "offer:bank_account"
+   ],
+   "voice": {
+    "by": "Nidhi Rao",
+    "says": "Finally, some clarity from the man who writes about it. Just remember, the clerk won't care about your dialectic, only the signature. I'm heading out to check the account, don't be late on Tuesday.",
+    "does": "She stands up, grabs her bag, and checks the time on her phone again."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 12.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "id": "dyde-right:464"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§3",
+     "id": "dyde-right:57"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "text": "The civic community contains three elements: A. The recasting of want, and the satisfaction of the individual through his work, through the work of all others, and through the satisfaction of their wants. This is a system of wants. B. Actualization of the general freedom required for this, i.e., the protection of property by the administration of justice."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§3",
+     "text": "' In this -work Mr. Hugo says (5th edition § 53) that \" Cicero praises the twelve tables with a side glance at philosophy,\" \" but the philosopher Phavorinus treats them exactly as many a great philosopher since has treated positive right.\""
+    }
+   ],
+   "beat": "bank_account"
   }
  ],
  "funnel": {
@@ -1924,10 +2046,10 @@
   },
   "bank_account": {
    "live": 1,
-   "eligible": 1,
-   "shown": 0,
+   "eligible": 2,
+   "shown": 1,
    "yes": 0,
-   "no": 0
+   "no": 1
   },
   "tutoring_german": {
    "live": 1,
@@ -1941,7 +2063,7 @@
  "complete": false,
  "state": {
   "place": "khan",
-  "until": "2026-11-25T14:59+05:30",
+  "until": "2026-11-25T15:09+05:30",
   "asleep": false,
   "imprest": 15166,
   "wearing": "kurta",
@@ -2311,7 +2433,8 @@
   "refused": {
    "sell_frock_again": "2026-11-14",
    "ramesh_parttime": "2026-11-05",
-   "saxena_reply": "2026-11-25"
+   "saxena_reply": "2026-11-25",
+   "bank_account": "2026-11-25"
   },
   "tech": {
    "phone": false,
@@ -2438,7 +2561,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "345dcceb2ccd7f1b0f0504036913bdc8149dd87ff5e0472b62c0aee2f1d7ae63",
+  "source_sha256": "718dabd939ed25454149a9a8cd2b8b4d0bbe84739d010e2c6e514b9f201e392b",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2986,6 +3109,62 @@
     "words": "Ananya is going to Leipzig, not writing a dissertation on the *Phenomenology*, so please stop trying to turn a preposition lesson into a metaphysical crisis. And don't call me 'Nidhi' like I'm your student; I'm the one checking your German.",
     "verified": false,
     "time": "14:49",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-25:event:f699381562f0b179:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 53,
+     "sha256": "f699381562f0b1795152cc37eb6e5348147452a06ddf964b8264b9bd318a0777"
+    },
+    "type": "world",
+    "text": "At the State Bank branch in Khan Market the clerk offers to open a savings account against Mr. Saxena's letter.",
+    "time": "14:59",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-25:event:474348a50147051d:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 54,
+     "sha256": "474348a50147051d3863d2d558d69d266e31d616bc94ea831773dc565e89b29c"
+    },
+    "type": "world",
+    "text": "He declines: not today.",
+    "time": "14:59",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-25:statement:27c3c0625b7e7711:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 56,
+     "sha256": "27c3c0625b7e7711efe51c9af666f8f599f0a3d44d7cffda477d2d605d3eeb61"
+    },
+    "speaker": "Hegel",
+    "recipient": "Masterji, Nidhi Rao and Sunil",
+    "words": "You are right, Nidhi. I confused the universal with the particular in that moment. As for the bank, I accept your advice. I will take the cheque to the State Bank now to open an account and clear it.",
+    "verified": false,
+    "time": "14:59",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-25:statement:9787785bc9407df5:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 57,
+     "sha256": "9787785bc9407df5b684e1b0116e32858623597a9c3c8bdc67ed70cfd1abd159"
+    },
+    "speaker": "Nidhi Rao",
+    "recipient": "Hegel",
+    "words": "Finally, some clarity from the man who writes about it. Just remember, the clerk won't care about your dialectic, only the signature. I'm heading out to check the account, don't be late on Tuesday.",
+    "verified": false,
+    "time": "14:59",
     "place": "khan"
    },
    {
@@ -3728,68 +3907,114 @@
     "text": "Masterji is here. Nidhi Rao is here. Sunil is here."
    },
    {
-    "id": "2026-11-25:event:dfb9aa54063cfb9b:1",
+    "id": "2026-11-25:event:0a98723b6be155b1:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 15,
+     "sha256": "0a98723b6be155b10e6ef77b65dbab50b5fe267c48763ebbea1ea85379ef3cc4"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "14:59",
+    "end": "15:09",
+    "place": "khan"
+   },
+   {
+    "id": "2026-11-25:event:98a9679763dfca90:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      15,
+      0
+     ],
+     "sha256": "98a9679763dfca9030ceececeee4ba69904c50dadb8567f68f211d99cddfd023"
+    },
+    "type": "observation",
+    "time": "14:59",
+    "place": "khan",
+    "text": "Weather: 24 °C, clear, hazy. Air quality index: 179."
+   },
+   {
+    "id": "2026-11-25:event:441fa4302fc30d4f:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      15,
+      1
+     ],
+     "sha256": "441fa4302fc30d4fb3daeb48dcf86c841f67c6e5f687944d56e1ada9ce7d2ecb"
+    },
+    "type": "observation",
+    "time": "14:59",
+    "place": "khan",
+    "text": "With Mr. Saxena's letter, the clerk at the State Bank would open a savings account today. A cheque paid in clears in three days."
+   },
+   {
+    "id": "2026-11-25:event:dc794ec1cfea72c2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "dfb9aa54063cfb9b181d3e9614c1557ddefa424018848c62a6781bec5053ab45"
+     "sha256": "dc794ec1cfea72c2d279d6582db95a52c82572109dcb408a591e068901e740b6"
     },
     "type": "cash",
-    "time": "14:59",
+    "time": "15:09",
     "amount": 15166,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:0ba2ffa23b7c99fd:1",
+    "id": "2026-11-25:event:5257834a92537ee4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "0ba2ffa23b7c99fda78ba32fecfafbad2886a0b1d787617c37dde319aedfdf42"
+     "sha256": "5257834a92537ee49a6dd16cc9c60e25740c42e5d376d86f6aec55248bb958a3"
     },
     "type": "location",
-    "time": "14:59",
+    "time": "15:09",
     "place": "khan",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:e9a1332e55eaab1d:1",
+    "id": "2026-11-25:event:6fda67ed1625e3fd:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "e9a1332e55eaab1ded713af6cc94503cc4244da7d2f2f7d39d3f0a0cf5f49e66"
+     "sha256": "6fda67ed1625e3fd3cc1f7355a58877f2602a0bb9d74dca53e6ce2de44afa19d"
     },
     "type": "inventory",
-    "time": "14:59",
+    "time": "15:09",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-25:event:1bfaa0e74cc07c61:1",
+    "id": "2026-11-25:event:ee122de088ee4f1f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "1bfaa0e74cc07c6179de87c875d96f6316e462c793fbe3288d95147e18829388"
+     "sha256": "ee122de088ee4f1f47d962aeea58d4a523221fead8d51ac6d546f8ef771d78a6"
     },
     "type": "inventory",
-    "time": "14:59",
+    "time": "15:09",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 14:22.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 14:22.\"}]"
    },
    {
-    "id": "2026-11-25:event:e7123b43976b2da7:1",
+    "id": "2026-11-25:event:5bc4bdd21591c729:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "e7123b43976b2da73b958c1de0139fef83f98050b476a7d87fd59a3f990fed96"
+     "sha256": "5bc4bdd21591c729beb01cb0ae922cf8cc21fa8e1c3f0a55ff9a0de8c89c7905"
     },
     "type": "inventory",
-    "time": "14:59",
+    "time": "15:09",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
