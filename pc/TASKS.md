@@ -106,7 +106,7 @@ Declared in `pc/CEILING-TEST.md` before any run. By day, no GPU: `tools/ceiling.
 Declared in `pc/FAST-LANE-NIGHT3.md` before any run. From Day 57's saved morning, `simulate --days 14`: seeds 1831 and 2718, each with `HEGEL_EXITS` off and on, the two arms of a seed side by side; then seed 1831 once more with `HEGEL_EXITS` and `HEGEL_BORROWED_LOOKUP`; seed 4242 if the night allows. The engine is main at `b204baf0` or later in the rehearsal's own checkout; nothing is merged into shadow. Push to `codex/fast-lane-night3-20261125` and post DONE on PR #1. The read is Claude's, by the rule declared there.
 
 ### W16 · PC seat · the day's papers, collected each evening · OPEN from 24 November
-`python3 tools/collect_papers.py --state ~/hegel-eval/papers-archive`, once an evening after his day is complete. It writes one file a day into a folder of its own and changes nothing of his. The folder stays on the PC and is not pushed. It is the archive for the papers' own night (`pc/PAPERS.md`, `HEGEL_PAPERS_ARCHIVE`).
+`python3 tools/collect_papers.py --state ~/hegel-eval/papers-archive --body`, once an evening after his day is complete (`--body` since 24 November: it also keeps the text of each piece the paper marks free to read). It writes one file a day into a folder of its own and changes nothing of his. The folder stays on the PC and is not pushed. It is the archive for the papers' own night (`pc/PAPERS.md`, `HEGEL_PAPERS_ARCHIVE`).
 
 ## The order, day by day (Claude in the cloud, 18 November)
 
