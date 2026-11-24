@@ -316,6 +316,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "At the Directorate of Estates."
+  },
+  {
+   "from": "13:21",
+   "to": "13:31",
+   "mode": "inside",
+   "at": "estates",
+   "now": "At the Directorate of Estates."
   }
  ],
  "entries": [
@@ -685,6 +692,37 @@
    "to": "Hegel",
    "text": "See that you do. First floor, left turn, don't get lost in the corridors. I have a meeting with the under-secretary in twenty minutes, so be quick.",
    "t": "13:11",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "Twenty minutes is a span of time, not a distance, but in a bureaucracy the distance is measured in steps and the time in the patience of the clerk. I will take the first floor, left turn, as instructed, and hope the corridors do not swallow me. The document must meet the man who holds the pen.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The German World, The Barbarian Migrations"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19"
+    }
+   ],
+   "t": "13:21",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Mr. Saxena. I will be brief.",
+   "to": "Mr. Saxena",
+   "t": "13:21",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Brief is fine, but do not be late. The under-secretary does not wait for anyone, foreign or otherwise.",
+   "t": "13:21",
    "place": "estates"
   }
  ],
@@ -1286,6 +1324,74 @@
      "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
     }
    ]
+  },
+  {
+   "t": "13:21",
+   "end": "13:31",
+   "event": "Mr. Saxena says: “See that you do. First floor, left turn, don't get lost in the corridors. I have a meeting with the under-secretary in twenty minutes, so be quick.” Mr. Saxena adjusts his bandhgala collar and picks up the receiver of the middle telephone.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "Twenty minutes is a span of time, not a distance, but in a bureaucracy the distance is measured in steps and the time in the patience of the clerk. I will take the first floor, left turn, as instructed, and hope the corridors do not swallow me. The document must meet the man who holds the pen.",
+    "action": "stay",
+    "place": "estates",
+    "minutes": 10,
+    "says": "Thank you, Mr. Saxena. I will be brief.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, partly cloudy, hazy. Air quality index: 177."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Brief is fine, but do not be late. The under-secretary does not wait for anyone, foreign or otherwise.",
+    "does": "He glances at the wall clock before picking up the receiver."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The German World, The Barbarian Migrations",
+     "id": "sibree-history:1100"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "id": "wallace-logic:71"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The German World, The Barbarian Migrations",
+     "text": "The latter does not need a long process, and we see it produced rapidly, even suddenly, in the first half of the seventh century, in Mahometanism."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "text": "Pilate asked 'What is truth?' with the air of a man who had settled accounts with everything long ago, and concluded that nothing particularly matters:--he meant much the same as Solomon when he says: 'All is vanity.' When it comes to this, nothing is left but self-conceit. The knowledge of the truth meets an additional obstacle in timidity."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1322,7 +1428,7 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-25T13:21+05:30",
+  "until": "2026-11-25T13:31+05:30",
   "asleep": false,
   "imprest": 15166,
   "wearing": "bandhgala",
@@ -1790,7 +1896,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "5f5414bfbb8823ae58f3170787f8d6c43601cbf381c5f03c7c6a38a5b07c4f6a",
+  "source_sha256": "94e940f4518131c90cd1427c7114b19769fbb03a14c47a6fd5d3d7a145a92d3a",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2177,6 +2283,36 @@
     "words": "See that you do. First floor, left turn, don't get lost in the corridors. I have a meeting with the under-secretary in twenty minutes, so be quick.",
     "verified": false,
     "time": "13:11",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:134ceb4a356c60ba:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 37,
+     "sha256": "134ceb4a356c60badf9659a6efdd5a13e399e0af7f5a7520403041dc08203c9f"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "Thank you, Mr. Saxena. I will be brief.",
+    "verified": false,
+    "time": "13:21",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:c1cb78155ab975a4:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 38,
+     "sha256": "c1cb78155ab975a422599745e161c4b20502792d523653d1b272c5967bb10c05"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "Brief is fine, but do not be late. The under-secretary does not wait for anyone, foreign or otherwise.",
+    "verified": false,
+    "time": "13:21",
     "place": "estates"
    },
    {
@@ -2655,68 +2791,98 @@
     "text": "Weather: 23 °C, partly cloudy, hazy. Air quality index: 177."
    },
    {
-    "id": "2026-11-25:event:1cbdaf95159eed65:1",
+    "id": "2026-11-25:event:940c0b1c9a042b1d:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 9,
+     "sha256": "940c0b1c9a042b1d96a8a1cb7aedfa5448b0376d4661b86abc5ab673099592ec"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "13:21",
+    "end": "13:31",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:event:d2a905388ab44c35:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      9,
+      0
+     ],
+     "sha256": "d2a905388ab44c35d16d6027abd0b4aad2a5f83f5cade83d29bad379d155c9de"
+    },
+    "type": "observation",
+    "time": "13:21",
+    "place": "estates",
+    "text": "Weather: 23 °C, partly cloudy, hazy. Air quality index: 177."
+   },
+   {
+    "id": "2026-11-25:event:02ae7e244a3f7494:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "1cbdaf95159eed65fee518221ee22ac49c78352f3b853323b255ca8b078ab5b7"
+     "sha256": "02ae7e244a3f7494eac6ee85c8873bd795b05ded424ad984b86fe8616845aa71"
     },
     "type": "cash",
-    "time": "13:21",
+    "time": "13:31",
     "amount": 15166,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:6219ff7ca4b362a0:1",
+    "id": "2026-11-25:event:3ece1e0ce00c8b8f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "6219ff7ca4b362a039840449ea4363bc0c499c20bc6c0ea1b459935deb79e92f"
+     "sha256": "3ece1e0ce00c8b8ff2a702e813b209b5aa19f3809d4806c6ff06bd5cfaae5b4e"
     },
     "type": "location",
-    "time": "13:21",
+    "time": "13:31",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:dd853ac2f35d5069:1",
+    "id": "2026-11-25:event:81db2022dd5d6827:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "dd853ac2f35d5069da380f223831dbbb642102cd2c55c06cd78d41ba66b47da2"
+     "sha256": "81db2022dd5d6827ab5b3102fdff9cc826a9997a8ced51beb4cef61f8f87ef21"
     },
     "type": "inventory",
-    "time": "13:21",
+    "time": "13:31",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-25:event:3fa1e6892d7dce3c:1",
+    "id": "2026-11-25:event:e25acf911a37186c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "3fa1e6892d7dce3c137d13b996d2df58d178d0a9f8c00a49c16f9d892d83cd67"
+     "sha256": "e25acf911a37186c5bbb24a36cf23634a3d1aafaa0c05f8005b21b04e65bba20"
     },
     "type": "inventory",
-    "time": "13:21",
+    "time": "13:31",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 11:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 11:10.\"}]"
    },
    {
-    "id": "2026-11-25:event:339e706354dbbc95:1",
+    "id": "2026-11-25:event:7539ee4c4956b1b4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "339e706354dbbc9547c22fbafc33a4db28df67b91b12af1d148463d0cbb7ca65"
+     "sha256": "7539ee4c4956b1b4881457062f898679870903154e965d068ab71d8ee2adfead"
     },
     "type": "inventory",
-    "time": "13:21",
+    "time": "13:31",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
