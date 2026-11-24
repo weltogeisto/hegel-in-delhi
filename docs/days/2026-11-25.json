@@ -15,77 +15,71 @@
     "temp": 15,
     "sky": "mostly clear",
     "rain": 0,
-    "aqi": 113
+    "aqi": 117
    },
    {
     "temp": 15,
     "sky": "partly cloudy",
     "rain": 0,
-    "aqi": 117
+    "aqi": 120
    },
    {
     "temp": 14,
     "sky": "clear",
     "rain": 0,
-    "aqi": 122
+    "aqi": 124
    },
    {
     "temp": 14,
     "sky": "overcast",
     "rain": 0,
-    "aqi": 127
+    "aqi": 129
    },
    {
     "temp": 13,
     "sky": "overcast",
     "rain": 0,
-    "aqi": 132
+    "aqi": 134
    },
    {
     "temp": 13,
     "sky": "overcast",
     "rain": 0,
-    "aqi": 137
+    "aqi": 139
    },
    {
     "temp": 13,
     "sky": "partly cloudy",
     "rain": 0,
-    "aqi": 143
+    "aqi": 145
    },
    {
     "temp": 13,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 151
+    "aqi": 153
    },
    {
     "temp": 15,
     "sky": "mostly clear, hazy",
     "rain": 0,
-    "aqi": 158
+    "aqi": 160
    },
    {
     "temp": 18,
     "sky": "mostly clear, hazy",
     "rain": 0,
-    "aqi": 164
+    "aqi": 166
    },
    {
     "temp": 20,
     "sky": "mostly clear, hazy",
     "rain": 0,
-    "aqi": 168
+    "aqi": 170
    },
    {
     "temp": 22,
     "sky": "mostly clear, hazy",
-    "rain": 0,
-    "aqi": 171
-   },
-   {
-    "temp": 23,
-    "sky": "partly cloudy, hazy",
     "rain": 0,
     "aqi": 173
    },
@@ -96,64 +90,70 @@
     "aqi": 175
    },
    {
+    "temp": 23,
+    "sky": "partly cloudy, hazy",
+    "rain": 0,
+    "aqi": 177
+   },
+   {
     "temp": 24,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 178
+    "aqi": 179
    },
    {
     "temp": 23,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 180
+    "aqi": 181
    },
    {
     "temp": 22,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 183
+    "aqi": 184
    },
    {
     "temp": 20,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 186
+    "aqi": 187
    },
    {
     "temp": 19,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 191
+    "aqi": 192
    },
    {
     "temp": 18,
     "sky": "clear, hazy",
     "rain": 0,
-    "aqi": 196
+    "aqi": 199
    },
    {
     "temp": 18,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 203
+    "aqi": 207
    },
    {
     "temp": 17,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 209
+    "aqi": 215
    },
    {
     "temp": 16,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 214
+    "aqi": 223
    },
    {
     "temp": 16,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 218
+    "aqi": 231
    }
   ]
  },
@@ -288,6 +288,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Writing at the Directorate of Estates."
+  },
+  {
+   "from": "12:21",
+   "to": "12:41",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -521,6 +528,49 @@
    "words": 294,
    "mode": "chat",
    "t": "11:36",
+   "place": "estates"
+  },
+  {
+   "k": "world",
+   "text": "Mr. Saxena offers a letter confirming the allotment, so that he can open a bank account for his cheque.",
+   "t": "12:21",
+   "place": "estates"
+  },
+  {
+   "k": "world",
+   "text": "He accepts. Mr. Saxena types the letter, signs it and stamps it twice: proof of address, pending the file.",
+   "t": "12:21",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "He is right to be irritated; I have been treating the file as a philosophical object rather than an administrative one. The cheque is indeed useless until I have a bank account, and he holds the key to that. I must trade my pride for a letter of address. I will ask him to type it, and in exchange, I will stop trying to justify my name and simply accept the error as a fact of the system.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Acquaintanceship with Aristotelian Writings"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "12:21",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "You are correct, Mr. Saxena. The name is a matter of record, not of identity. I will sign as G. Hegde for now. Regarding the cheque: I have no bank account. Could you type a letter confirming my allotment to the State Bank in Khan Market? I will bring the cheque to you once it is cleared, or rather, I will bring the cash.",
+   "to": "Mr. Saxena",
+   "t": "12:21",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "G. Hegde. Very well, I will note that in the margin, though you know I will not put it on the official letterhead. I can type the allotment confirmation for the bank, yes, but I will need your identity proof and a passport-sized photograph before I send it out. As for the cash, bring it to the counter, not to my desk; I have three phones ringing and no time for a private exchange.",
+   "t": "12:21",
    "place": "estates"
   }
  ],
@@ -856,6 +906,74 @@
     }
    ],
    "beat": "saxena_reply"
+  },
+  {
+   "t": "12:21",
+   "end": "12:41",
+   "event": "Mr. Saxena says: “One month? That is hardly an 'occupancy' in our books, sir. You write 'since 1st November' and leave it at that; the error is in the system, not in your name. Do not make me read a philosophy lecture into a revenue file.” He taps the file cover with a pen and pushes it back slightly. Mr. Saxena sees the cheque among your papers: without a bank account it is only paper. The State Bank in Khan Market wants proof of address, and he could type a letter confirming your allotment.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "He is right to be irritated; I have been treating the file as a philosophical object rather than an administrative one. The cheque is indeed useless until I have a bank account, and he holds the key to that. I must trade my pride for a letter of address. I will ask him to type it, and in exchange, I will stop trying to justify my name and simply accept the error as a fact of the system.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 20,
+    "says": "You are correct, Mr. Saxena. The name is a matter of record, not of identity. I will sign as G. Hegde for now. Regarding the cheque: I have no bank account. Could you type a letter confirming my allotment to the State Bank in Khan Market? I will bring the cheque to you once it is cleared, or rather, I will bring the cash.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, partly cloudy, hazy. Air quality index: 175.",
+    "Mr. Saxena sees the cheque among your papers: without a bank account it is only paper. The State Bank in Khan Market wants proof of address, and he could type a letter confirming your allotment."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply",
+    "offer:allotment_letter"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "G. Hegde. Very well, I will note that in the margin, though you know I will not put it on the official letterhead. I can type the allotment confirmation for the bank, yes, but I will need your identity proof and a passport-sized photograph before I send it out. As for the cash, bring it to the counter, not to my desk; I have three phones ringing and no time for a private exchange.",
+    "does": "He picks up the pen, scribbles 'G. Hegde (provisional)' in the file margin, and slides the paper across the desk."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 13.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Acquaintanceship with Aristotelian Writings",
+     "id": "haldane-3:192"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Acquaintanceship with Aristotelian Writings",
+     "text": "Pope Gregory, in a bull issued to the University of Paris in 1231, without mentioning metaphysics, forbade the books of the Physics to be read until they had been examined and purified from all suspicion of error."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ],
+   "beat": "allotment_letter"
   }
  ],
  "funnel": {
@@ -875,9 +993,9 @@
   },
   "allotment_letter": {
    "live": 1,
-   "eligible": 1,
-   "shown": 0,
-   "yes": 0,
+   "eligible": 2,
+   "shown": 1,
+   "yes": 1,
    "no": 0
   }
  },
@@ -885,7 +1003,7 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-25T12:21+05:30",
+  "until": "2026-11-25T12:41+05:30",
   "asleep": false,
   "imprest": 15166,
   "wearing": "bandhgala",
@@ -942,13 +1060,15 @@
    "saxena_query",
    "ramesh_fulltime",
    "iic_talk_day",
-   "hegde_letter"
+   "hegde_letter",
+   "allotment_letter"
   ],
   "flags": {
    "bandhgala": "collected",
    "hegde_lodger": true,
    "ramesh_parttime": false,
-   "file_hegde": "with_guest"
+   "file_hegde": "with_guest",
+   "allotment_letter": true
   },
   "appointments": [],
   "theses": [
@@ -1351,7 +1471,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "c638ea2ea2173efbd2016a4d934bfe50d8259abbeb1a199b9de211f113765053",
+  "source_sha256": "93a3149dc9cc814ef54c2801d54f7a7d5ca1c54655988c7ef0a581c8dd461548",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1592,6 +1712,62 @@
     "status": "draft",
     "sitting": 1,
     "time": "11:36",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:event:a249c957629b5e61:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 22,
+     "sha256": "a249c957629b5e61b7c2c00b7ab6a48d164e7ff96815a3168f34cefcf42cd8fd"
+    },
+    "type": "world",
+    "text": "Mr. Saxena offers a letter confirming the allotment, so that he can open a bank account for his cheque.",
+    "time": "12:21",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:event:5b712e2d24416880:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 23,
+     "sha256": "5b712e2d24416880818bdb8ed10377c7492dc123fa40f459342998b5a1673177"
+    },
+    "type": "world",
+    "text": "He accepts. Mr. Saxena types the letter, signs it and stamps it twice: proof of address, pending the file.",
+    "time": "12:21",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:0c421c6a4e64cbde:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 25,
+     "sha256": "0c421c6a4e64cbdecf5b33d71629b4a42cd0eb6ec26d7740015be05f60ae2942"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "You are correct, Mr. Saxena. The name is a matter of record, not of identity. I will sign as G. Hegde for now. Regarding the cheque: I have no bank account. Could you type a letter confirming my allotment to the State Bank in Khan Market? I will bring the cheque to you once it is cleared, or rather, I will bring the cash.",
+    "verified": false,
+    "time": "12:21",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:963c0a57464d7ba1:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 26,
+     "sha256": "963c0a57464d7ba103eddfe93b1de13f0563eb5c6fa84c8aae873cad84f48f65"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "G. Hegde. Very well, I will note that in the margin, though you know I will not put it on the official letterhead. I can type the allotment confirmation for the bank, yes, but I will need your identity proof and a passport-sized photograph before I send it out. As for the cash, bring it to the counter, not to my desk; I have three phones ringing and no time for a private exchange.",
+    "verified": false,
+    "time": "12:21",
     "place": "estates"
    },
    {
@@ -1934,68 +2110,114 @@
     "text": "Mr. Saxena is here."
    },
    {
-    "id": "2026-11-25:event:9197e50db072228c:1",
+    "id": "2026-11-25:event:7753bbb27179e912:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 5,
+     "sha256": "7753bbb27179e91200cd105144a16d4ab799e82d8e9eb61020297b717ba3d0a8"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "12:21",
+    "end": "12:41",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:event:ed143abcdacf2a70:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      5,
+      0
+     ],
+     "sha256": "ed143abcdacf2a700be3e9d2449b955927401e3a4499ca91c460caca93b5fc98"
+    },
+    "type": "observation",
+    "time": "12:21",
+    "place": "estates",
+    "text": "Weather: 23 °C, partly cloudy, hazy. Air quality index: 175."
+   },
+   {
+    "id": "2026-11-25:event:b128387f4c3ddde3:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      5,
+      1
+     ],
+     "sha256": "b128387f4c3ddde3c4a6365b8d42abb161099360c5533edeb94875f90753dbe1"
+    },
+    "type": "observation",
+    "time": "12:21",
+    "place": "estates",
+    "text": "Mr. Saxena sees the cheque among your papers: without a bank account it is only paper. The State Bank in Khan Market wants proof of address, and he could type a letter confirming your allotment."
+   },
+   {
+    "id": "2026-11-25:event:c7952fbab6e276cc:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "9197e50db072228c487ada6421e1ff24a19ecaebb76322ce05de281f580ee058"
+     "sha256": "c7952fbab6e276ccfb298b0429c25da965cfadd27042b56ad6fbba2aa4ee4d73"
     },
     "type": "cash",
-    "time": "12:21",
+    "time": "12:41",
     "amount": 15166,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:c906d6e45ebcc990:1",
+    "id": "2026-11-25:event:b467ad64fd8ae089:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "c906d6e45ebcc990e961a34239c5fbe8ddfb1f4bfa50ab3261ef0ac412579727"
+     "sha256": "b467ad64fd8ae0891e4e67edad81676de69951d56b877668182d74c60a191c9d"
     },
     "type": "location",
-    "time": "12:21",
+    "time": "12:41",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:c781bd19bbbb5d1b:1",
+    "id": "2026-11-25:event:526b76952d6cab79:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "c781bd19bbbb5d1b98fe414877448aaa30aa1525f557fe09c437dea0b327e6c1"
+     "sha256": "526b76952d6cab79644002e62c9426a93966222b23a6e3b98df0ded911ef35aa"
     },
     "type": "inventory",
-    "time": "12:21",
+    "time": "12:41",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-25:event:d2fb73bb07fc31b2:1",
+    "id": "2026-11-25:event:f03a129bf2b4f83f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "d2fb73bb07fc31b2586ff74dc666cce7b2171a1d4e0f09b8fa29d207a1c4a8fe"
+     "sha256": "f03a129bf2b4f83f4eae8232f186bf78710030e7eeabad870b929b863064140c"
     },
     "type": "inventory",
-    "time": "12:21",
+    "time": "12:41",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 11:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 11:10.\"}]"
    },
    {
-    "id": "2026-11-25:event:1659105bb5383827:1",
+    "id": "2026-11-25:event:0ec64232601b3e32:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "1659105bb5383827f2b9b4159c449348b06a894ee99ca4aa086ceae5f95d0205"
+     "sha256": "0ec64232601b3e329da2b6846dbb6998eed57e42f52eba732b53d2eaafc48dc8"
     },
     "type": "inventory",
-    "time": "12:21",
+    "time": "12:41",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
