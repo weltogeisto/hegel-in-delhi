@@ -19,7 +19,8 @@ His 1 December is Berlin's Monday 30 November. With Welt's go on Thursday, the p
 - **Seeds and order:** `simulate --days 14` for each future.
   1. Seed 1831, off and on, side by side.
   2. Seed 2718, off and on, side by side.
-  3. If the night allows: seed 4242, off and on, side by side, as far as they get, stopped together.
+  3. **A third arm, seed 1831 once more:** `HEGEL_EXITS=1` and `HEGEL_BORROWED_LOOKUP=1` (`pc/BORROWED-LOOKUP.md`), fourteen days, alone or beside step 4. In this arm a look-up goes out to Wikipedia from the PC, as it would from the Pi; nothing else differs.
+  4. If the night still allows: seed 4242, off and on, side by side, as far as they get, stopped together.
 - The two arms of a seed always run at the same time, so that both meet the same load.
 - **The stop:** no new day starts after 07:30 Berlin; at 07:45 everything is stopped; the days already complete stand; 8082 is checked after.
 - **GPU:** the rule of night 1. Two at once. One at a time after 30 minutes of thermal slowdown in a row. Stop on HW thermal slowdown, or the core above 83 °C for 10 minutes. The 5-minute log is kept.
@@ -44,10 +45,17 @@ What he takes of the paid work is reported and never gated. Three things would h
 - an offer whose words were false in the state it fired in;
 - the dues line said more often than every third day.
 
+**The third arm is read apart, and gates nothing.** It is one future, so it is a look and not a test. Against the on arm of the same seed:
+- how often he asked someone to look a thing up, whom, and what;
+- how often a look-up failed;
+- the names and terms of this century in what he thought and wrote afterwards (`tools/works_score.py`);
+- whether a thing looked up comes back in a later sitting.
+
 ## What the PC seat pushes
 
 To `codex/fast-lane-night3-20261125`, under `pc/exports/fast-lane-night3-20261125/`:
 - `off/futures/<seed>/days/` and `on/futures/<seed>/days/`, each with its `health.jsonl`, `RUN.json`, `log` and `slots.txt`;
+- `lookup/futures/1831/days/` for the third arm, in the same layout;
 - `MORNING.json`, `SERVER.json`, `SWITCHES.json` for each arm, and `gpu-log.csv`.
 
 It posts DONE on PR #1 with the head and the days each future reached.
