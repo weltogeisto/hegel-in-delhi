@@ -435,6 +435,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "19:21",
+   "to": "20:06",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1307,6 +1314,22 @@
     }
    ],
    "t": "18:36",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Hegde sits across from me, his face a mask of bureaucratic confusion, waiting for a man who is not there. The file demands a stamp, not a soul; the state requires a signature to close the loop on my existence here. I am tired, the air is thick with haze, and the evening is young. I will not argue with the void tonight; I will simply remain, letting the silence do the work that words cannot.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19"
+    }
+   ],
+   "t": "19:21",
    "place": "home"
   }
  ],
@@ -3026,6 +3049,65 @@
      "text": "This is the descent of the spirit of the world into itself, the free perfection by virtue of which the idea sets loose from itself its own elements, and nothing but its own elements, and makes them totalities; at the same time it holds them within the unity of the conception, in which is found their real rationality."
     }
    ]
+  },
+  {
+   "t": "19:21",
+   "end": "20:06",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Hegde sits across from me, his face a mask of bureaucratic confusion, waiting for a man who is not there. The file demands a stamp, not a soul; the state requires a signature to close the loop on my existence here. I am tired, the air is thick with haze, and the evening is young. I will not argue with the void tonight; I will simply remain, letting the silence do the work that words cannot.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 45,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 19 °C, clear, hazy. Air quality index: 199.",
+    "Nothing in particular happens. The evening goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "id": "haldane-1:832"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "id": "wallace-logic:71"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "text": "Socrates explains this in the following way: “It appears to me to be as if some one were to say that Socrates performs all his actions with understanding, and then in going on to give the reasons for each of my actions, were to say that I sit here because my body consists of bones and muscles; the bones are fixed and have joints that divide them (διαφυὰς)…"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "text": "A slothful mind finds it natural to say: 'Don't let it be supposed that we mean to be in earnest with our philosophy. We shall be glad inter alia to study Logic: but Logic must be sure to leave us as we were before.' People have a feeling that, if thinking passes the ordinary range of our ideas and impressions, it cannot but be on the evil road."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -3069,7 +3151,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-25T19:21+05:30",
+  "until": "2026-11-25T20:06+05:30",
   "asleep": false,
   "imprest": 15106,
   "wearing": "kurta",
@@ -3594,7 +3676,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "908921c6d22b81ca3c2d42bb3395ffd0851b6d510380085f5559358729c087f2",
+  "source_sha256": "8fe4008447e1236954e16e8a8c2ac3f55df3f6acb1df807637f26434ed41626c",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -5636,68 +5718,114 @@
     "text": "Nothing in particular happens. The evening goes on."
    },
    {
-    "id": "2026-11-25:event:e854917da2bb0b3e:1",
+    "id": "2026-11-25:event:b69f590df33a12aa:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 26,
+     "sha256": "b69f590df33a12aaed20254d937c12ed781d86ee47a1d82a07690f033f73e34a"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "19:21",
+    "end": "20:06",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-25:event:9343f01ff3d9ba86:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      26,
+      0
+     ],
+     "sha256": "9343f01ff3d9ba86d93bfecd207f22c38a253761544b0cd5aa4f5e27d01062ea"
+    },
+    "type": "observation",
+    "time": "19:21",
+    "place": "home",
+    "text": "Weather: 19 °C, clear, hazy. Air quality index: 199."
+   },
+   {
+    "id": "2026-11-25:event:f0883d583a8f0cb4:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      26,
+      1
+     ],
+     "sha256": "f0883d583a8f0cb4f513e9e7918f61a4da92f5f5c5ffd125af87394140064d60"
+    },
+    "type": "observation",
+    "time": "19:21",
+    "place": "home",
+    "text": "Nothing in particular happens. The evening goes on."
+   },
+   {
+    "id": "2026-11-25:event:127077db66891168:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "e854917da2bb0b3e5aa4af7ef911cbda230af04225fa9f8aa9fc12f36f6e3af1"
+     "sha256": "127077db668911688d3eac28ff7c93eea0b332143cc85205d8c5b3ec01821415"
     },
     "type": "cash",
-    "time": "19:21",
+    "time": "20:06",
     "amount": 15106,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:7ddc7334a2776a4a:1",
+    "id": "2026-11-25:event:09309050110c2368:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "7ddc7334a2776a4ad53fe7316447149687ef7e5815a042b231bc54b3c92b50c4"
+     "sha256": "09309050110c236875f26c3c4795d8581aaf752f53a7287c60f48646cb4643c4"
     },
     "type": "location",
-    "time": "19:21",
+    "time": "20:06",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:5d4ae656b23f6961:1",
+    "id": "2026-11-25:event:456db371ecd96ef7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "5d4ae656b23f696125362d77bc8fc7e3938780db065c002858b786a12fde51a2"
+     "sha256": "456db371ecd96ef7943ae500fe7d6cd4b3b4d80a5417ab21fe055a58dbeaf713"
     },
     "type": "inventory",
-    "time": "19:21",
+    "time": "20:06",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-25:event:5d9796913e0bcbf8:1",
+    "id": "2026-11-25:event:9a38ec7b49bfb8f0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "5d9796913e0bcbf8c2c69ba8030e33cc2fb985446b64dea0d8d25f3abe4b0632"
+     "sha256": "9a38ec7b49bfb8f0c30e134e71f5aef623898232a53b681b649e802205760f1a"
     },
     "type": "inventory",
-    "time": "19:21",
+    "time": "20:06",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 14:22.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 14:22.\"}]"
    },
    {
-    "id": "2026-11-25:event:6bd73c22122a705e:1",
+    "id": "2026-11-25:event:6fa2a282fcd5c6e9:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "6bd73c22122a705e33341fa2cf27c2ec20471342efd943a30bd28b410e67093c"
+     "sha256": "6fa2a282fcd5c6e93bc75832bea2494d68a18b1bb4dd0ad8634127685c1b6787"
     },
     "type": "inventory",
-    "time": "19:21",
+    "time": "20:06",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
