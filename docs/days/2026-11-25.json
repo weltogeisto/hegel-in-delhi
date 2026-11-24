@@ -470,6 +470,22 @@
    "mode": "walk",
    "a": "home",
    "b": "iic"
+  },
+  {
+   "from": "21:08",
+   "to": "21:30",
+   "mode": "walk",
+   "a": "iic",
+   "b": "home"
+  },
+  {
+   "from": "21:30",
+   "to": "24:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Asleep.",
+   "asleep": true,
+   "owl": true
   }
  ],
  "entries": [
@@ -3509,6 +3525,37 @@
      "text": "While these changes were going forward, the entire body of private obligations and rights which had been handed down from the Middle Age, still retained validity. Infinitely important is this form of private rights, which the organic constituents of the executive power of the State have assumed."
     }
    ]
+  },
+  {
+   "t": "21:08",
+   "end": "24:00",
+   "event": "You arrive at India International Centre. It closes at 21:30.",
+   "present": [
+    "the guard at the library"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "sleep",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 17 °C, a brown haze. Air quality index: 215.",
+    "You arrive at India International Centre. It closes at 21:30."
+   ],
+   "observed_at": "iic",
+   "opened": [
+    "arrive"
+   ],
+   "mind": {
+    "source": "bedtime",
+    "attempts": 0,
+    "latency_s": 0.0
+   }
   }
  ],
  "funnel": {
@@ -3551,9 +3598,9 @@
  "owl": null,
  "complete": false,
  "state": {
-  "place": "iic",
-  "until": "2026-11-25T21:08+05:30",
-  "asleep": false,
+  "place": "home",
+  "until": "2026-11-26T00:00+05:30",
+  "asleep": true,
   "imprest": 15106,
   "wearing": "bandhgala",
   "wardrobe": [
@@ -3652,10 +3699,13 @@
     ],
     "lodhi": [
      "kapoor"
+    ],
+    "iic": [
+     "guard"
     ]
    },
-   "walked": 15225,
-   "strain": 15225,
+   "walked": 16875,
+   "strain": 16875,
    "lunch": true,
    "tired": true,
    "bought_food": {
@@ -3773,7 +3823,8 @@
     "2026-11-20",
     "2026-11-22",
     "2026-11-23",
-    "2026-11-24"
+    "2026-11-24",
+    "2026-11-25"
    ],
    "safdarjung": [
     "2026-10-28"
@@ -4078,7 +4129,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "a0c9e072f47ccf04562757ff4959d4dc19b90ed2f50fd443e7a1005fc4388c29",
+  "source_sha256": "caca6b9a0268a0570448a3191f98dbf4a2c0f01ff4144d93a6503c11976d27a1",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -6409,68 +6460,114 @@
     "text": "Weather: 18 °C, a brown haze. Air quality index: 207."
    },
    {
-    "id": "2026-11-25:event:c30d7ec923d08811:1",
+    "id": "2026-11-25:event:fd5e1ea0a9d40032:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 31,
+     "sha256": "fd5e1ea0a9d40032e67cdf06c611357d05316011142e7e26680d55ec947b27f9"
+    },
+    "type": "action",
+    "action": "sleep",
+    "time": "21:30",
+    "end": "24:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-25:event:44476bf1df89141f:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      31,
+      0
+     ],
+     "sha256": "44476bf1df89141f91bc586cc16152a21c141831212128581bdd374a80e32c42"
+    },
+    "type": "observation",
+    "time": "21:08",
+    "place": "iic",
+    "text": "Weather: 17 °C, a brown haze. Air quality index: 215."
+   },
+   {
+    "id": "2026-11-25:event:9783bfaa4b9687d6:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      31,
+      1
+     ],
+     "sha256": "9783bfaa4b9687d6e91c528bb0aa0889b4db7c29d7dd151f5b42bf02bfb8d917"
+    },
+    "type": "observation",
+    "time": "21:08",
+    "place": "iic",
+    "text": "You arrive at India International Centre. It closes at 21:30."
+   },
+   {
+    "id": "2026-11-25:event:07a09f8fb119d86e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "c30d7ec923d088117ad519b4f3014d059c3c47e1b3ad4e1e51715d84f72e9ec1"
+     "sha256": "07a09f8fb119d86ea4d6c0a259fed6d1b266ca3222181688d6306247e23c653b"
     },
     "type": "cash",
-    "time": "21:08",
+    "time": "00:00",
     "amount": 15106,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:03b3802bc1557ca2:1",
+    "id": "2026-11-25:event:3de31497a0984016:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "03b3802bc1557ca24c124f43981d72babbfea9c5898b9c0a5733945fda4a3881"
+     "sha256": "3de31497a098401600bc5e4265fa6128ea5cc721fa964de1c664f226078ef763"
     },
     "type": "location",
-    "time": "21:08",
-    "place": "iic",
+    "time": "00:00",
+    "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:86635a8733ffc64f:1",
+    "id": "2026-11-25:event:5d682cc2087ab602:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "86635a8733ffc64f1cf63e9a864065a383d3c5f2f414b9f80953a3d3a174eb76"
+     "sha256": "5d682cc2087ab6024e352f4c39cadbd576c566f8ad7dd409da36d1bbf2fb3c38"
     },
     "type": "inventory",
-    "time": "21:08",
+    "time": "00:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-25:event:002624c45f97f76d:1",
+    "id": "2026-11-25:event:1e56a36902955427:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "002624c45f97f76d162720dc00766d14eee0541a6ba22d5010bf9bd28a910600"
+     "sha256": "1e56a369029554275c9e3e9b045b99709687f14b5e4de57f48c5a38428ca98a9"
     },
     "type": "inventory",
-    "time": "21:08",
+    "time": "00:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 20:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 20:46.\"}]"
    },
    {
-    "id": "2026-11-25:event:33f0977121faf408:1",
+    "id": "2026-11-25:event:48636d3634bafbe9:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "33f0977121faf4089a644343b8f1b125d0780bb9a252b772c7a9775ecc82c515"
+     "sha256": "48636d3634bafbe9ac660da02e60d2d3604e6274d682f6db07b5c88594f099de"
     },
     "type": "inventory",
-    "time": "21:08",
+    "time": "00:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
