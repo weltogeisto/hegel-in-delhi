@@ -274,6 +274,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Shri G. Hegde at home."
+  },
+  {
+   "from": "11:10",
+   "to": "11:36",
+   "mode": "walk",
+   "a": "home",
+   "b": "estates"
   }
  ],
  "entries": [
@@ -391,6 +398,45 @@
    "to": "Hegel",
    "text": "Thank you, sir. Please make sure you have your ID card, the traffic is a mess near the Secretariat today. I will keep the car ready if you change your mind, but for now, I am going to eat my lunch.",
    "t": "11:05",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The haze is thick, but the file at the Directorate waits for no man's comfort. I have the ID in my kurta pocket and the cash in my hand; the car is a luxury for those who have not yet learned to walk. I will go on foot, as is proper for a man who intends to be counted by his deeds, not his conveyance.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Peloponnesian War"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544"
+    }
+   ],
+   "t": "11:10",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Shri Hegde. I shall walk. The air is thin enough to think in, and the walk will do for my digestion, which has been waiting for a meal since yesterday.",
+   "to": "Shri G. Hegde",
+   "t": "11:10",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Sir, you are walking into that haze? Please, just take the auto. It is only two rupees more than your pride.",
+   "t": "11:10",
+   "place": "home"
+  },
+  {
+   "k": "wear",
+   "item": "Bandhgala, charcoal",
+   "status": "Worn from 11:10.",
+   "sprite": "bandhgala",
+   "t": "11:10",
    "place": "home"
   }
  ],
@@ -586,6 +632,72 @@
      "text": "That which the public servant has to perform is as it stands of absolute value. Hence positive injury or non-performance, either being opposed to the essence of service, is a wrong to the universal content (§ 95, a negative-infinite judgment), and therefore a fault or crime."
     }
    ]
+  },
+  {
+   "t": "11:10",
+   "end": "11:36",
+   "event": "Shri G. Hegde says: “Thank you, sir. Please make sure you have your ID card, the traffic is a mess near the Secretariat today. I will keep the car ready if you change your mind, but for now, I am going to eat my lunch.” He pulls out his mobile phone to check the map app.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The haze is thick, but the file at the Directorate waits for no man's comfort. I have the ID in my kurta pocket and the cash in my hand; the car is a luxury for those who have not yet learned to walk. I will go on foot, as is proper for a man who intends to be counted by his deeds, not his conveyance.",
+    "action": "walk",
+    "place": "estates",
+    "minutes": 25,
+    "says": "Thank you, Shri Hegde. I shall walk. The air is thin enough to think in, and the walk will do for my digestion, which has been waiting for a meal since yesterday.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "estates",
+   "observations": [
+    "Weather: 22 °C, mostly clear, hazy. Air quality index: 171."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Sir, you are walking into that haze? Please, just take the auto. It is only two rupees more than your pride.",
+    "does": "He shrugs and turns back toward the bungalow gate."
+   },
+   "left": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Peloponnesian War",
+     "id": "sibree-history:835"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "id": "wallace-mind:330"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Peloponnesian War",
+     "text": "Xenophon says: \" Who does not stand in need of Athens? Is she not indispensable to all lands that are rich in corn and herds, in oil and wine — to all who wish to traffic either in money or in mind? — to craftsmen, sophists, philosophers, poets, and all who desire what is worth seeing or hearing in sacred and public matters?\""
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "text": "To give the name of a law to the annual fixing of financial requirements only serves—with the presupposed separation of legislative from executive—to keep up the illusion of that separation having real existence, and to conceal the fact that the legislative power, when it makes a decree about finance, is really engaged with strict executive business."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -614,11 +726,11 @@
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-25T11:10+05:30",
+  "place": "estates",
+  "until": "2026-11-25T11:36+05:30",
   "asleep": false,
   "imprest": 15456,
-  "wearing": "kurta",
+  "wearing": "bandhgala",
   "wardrobe": [
    {
     "id": "frock",
@@ -638,12 +750,12 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Worn from 20:27."
+    "status": "Taken off at 11:10."
    },
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Taken off at 20:27."
+    "status": "Worn from 11:10."
    }
   ],
   "people": [
@@ -700,7 +812,9 @@
     "home": [
      "hegde"
     ]
-   }
+   },
+   "walked": 1950,
+   "strain": 1950
   },
   "account": {
    "advance": 15000,
@@ -1072,7 +1186,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "4400a5f0d9bfa69bf7bcae97fcefed2e7b7f6759ac636588629a6e62dbd3a5ca",
+  "source_sha256": "1ae03290cf617b2dc738f3cf2b9b6765082884500ce1e997fa4e2c34915a625e",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1160,6 +1274,51 @@
     "words": "Thank you, sir. Please make sure you have your ID card, the traffic is a mess near the Secretariat today. I will keep the car ready if you change your mind, but for now, I am going to eat my lunch.",
     "verified": false,
     "time": "11:05",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-25:statement:f07570572313d81c:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 11,
+     "sha256": "f07570572313d81c4d364d02a605959b75da71704312bfd795bbf268de170fe1"
+    },
+    "speaker": "Hegel",
+    "recipient": "Shri G. Hegde",
+    "words": "Thank you, Shri Hegde. I shall walk. The air is thin enough to think in, and the walk will do for my digestion, which has been waiting for a meal since yesterday.",
+    "verified": false,
+    "time": "11:10",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-25:statement:ab7b9c0505dbdea5:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 12,
+     "sha256": "ab7b9c0505dbdea5193748dc3197e71d89942e04392aa988009f2f7033a96136"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "Sir, you are walking into that haze? Please, just take the auto. It is only two rupees more than your pride.",
+    "verified": false,
+    "time": "11:10",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-25:event:e21dc5136346778b:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 13,
+     "sha256": "e21dc5136346778b9167ea9eb8da1228cd1010a1b476ab28473eb49800633cb3"
+    },
+    "type": "wear",
+    "item": "Bandhgala, charcoal",
+    "status": "Worn from 11:10.",
+    "gone": false,
+    "time": "11:10",
     "place": "home"
    },
    {
@@ -1376,68 +1535,100 @@
     "text": "Weather: 22 °C, mostly clear, hazy. Air quality index: 171."
    },
    {
-    "id": "2026-11-25:event:b21b3e85a46c7abf:1",
+    "id": "2026-11-25:event:ab0a819b1f586766:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 3,
+     "sha256": "ab0a819b1f586766d501abc0e53a899994e627123ab4aad6e66f6efb137bc4c0"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "11:10",
+    "end": "11:36",
+    "place": null,
+    "origin": "home",
+    "destination": "estates"
+   },
+   {
+    "id": "2026-11-25:event:35961ae9e1ad2368:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      3,
+      0
+     ],
+     "sha256": "35961ae9e1ad2368772f17dd96eeb8b6583c76b2e576ea68ba3b799f3b0c1187"
+    },
+    "type": "observation",
+    "time": "11:10",
+    "place": "home",
+    "text": "Weather: 22 °C, mostly clear, hazy. Air quality index: 171."
+   },
+   {
+    "id": "2026-11-25:event:a88183fe8b2717c3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "b21b3e85a46c7abf2660bc323949d770aaa9162eef6821333205bcee685fb94b"
+     "sha256": "a88183fe8b2717c3528ad4d79455b846345654f65245e1e1b44b2500af03ba5f"
     },
     "type": "cash",
-    "time": "11:10",
+    "time": "11:36",
     "amount": 15456,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:2f916365c350bc66:1",
+    "id": "2026-11-25:event:5969faadf2c2f9f0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "2f916365c350bc669f7449a66695e583cf14ec34ecf096570d99e165f6d4f42e"
+     "sha256": "5969faadf2c2f9f05076730804aad37b43fde8d89ff66a249e897bfe7af37fae"
     },
     "type": "location",
-    "time": "11:10",
-    "place": "home",
+    "time": "11:36",
+    "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:cf3f4a8a96bc8c03:1",
+    "id": "2026-11-25:event:a58ebc2d404b592d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "cf3f4a8a96bc8c03871f21bf77f4ce0474c722eba9122bea7b633325cb95df42"
+     "sha256": "a58ebc2d404b592d2ea31bb974f1880fa39e6dae2c3ad07aad61cff11724a886"
     },
     "type": "inventory",
-    "time": "11:10",
+    "time": "11:36",
     "place": null,
-    "text": "Recorded wearing at this horizon only: \"kurta\""
+    "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-25:event:20d9f376ed7b025f:1",
+    "id": "2026-11-25:event:83a8dda7f1ec5e03:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "20d9f376ed7b025f8cdf7042c74b8a845762c7b64215beb28b5e2c36d52b7d90"
+     "sha256": "83a8dda7f1ec5e03136f764ae9a26ba2165c8ed5c55b08212dbb77899198bc02"
     },
     "type": "inventory",
-    "time": "11:10",
+    "time": "11:36",
     "place": null,
-    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 20:27.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 20:27.\"}]"
+    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 11:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 11:10.\"}]"
    },
    {
-    "id": "2026-11-25:event:14ceeefd685536e6:1",
+    "id": "2026-11-25:event:f3afb6950bdadc32:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "14ceeefd685536e6d60ff957562a082405b5786bbbf58a8944edf1b4d494ac38"
+     "sha256": "f3afb6950bdadc322f65e102c22343424d5cafcd377b54d856311cd3eec4bad7"
     },
     "type": "inventory",
-    "time": "11:10",
+    "time": "11:36",
     "place": null,
     "text": "Recorded file at this horizon only: \"Shri Hegde asks for the allotment in his name, the Professor on record as his guest.\""
    },
@@ -1456,7 +1647,7 @@
     "settled": false,
     "creditor": "the Directorate of Estates",
     "obligation": true,
-    "time": "11:10",
+    "time": "11:36",
     "place": null
    }
   ]
