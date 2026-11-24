@@ -53,11 +53,11 @@ rec = {"seed": int(seed), "commit": (base / "ENGINE").read_text().split()[0], "m
 t = dest / "futures" / seed
 (t / "days").mkdir(parents=True, exist_ok=True)
 for p in complete:
-    shutil.copy(p, t / "days" / p.name)
+    shutil.copyfile(p, t / "days" / p.name)
 (t / "health.jsonl").write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows), encoding="utf-8")
 (t / "RUN.json").write_text(json.dumps(rec, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
 for f in ("logs/%s.log" % seed, "logs/%s.slots.txt" % seed):
     if (base / f).exists():
-        shutil.copy(base / f, t / Path(f).name.replace(seed + ".", ""))
+        shutil.copyfile(base / f, t / Path(f).name.replace(seed + ".", ""))
 print("FINISH", json.dumps({"seed": int(seed), "days_complete": len(complete), "first": rec["first_day"], "last": rec["last_day"],
                             "dropped": rec["dropped"], "health_errors": sum(1 for r in rows if "error" in r)}))
