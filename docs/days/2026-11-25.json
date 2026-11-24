@@ -449,6 +449,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Shri G. Hegde at home."
+  },
+  {
+   "from": "20:11",
+   "to": "20:31",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -1368,6 +1375,37 @@
    "to": "Hegel",
    "text": "Sir, please stop with that philosophy and just eat. Khan Market is a zoo at this hour, and I am not leaving you to wander that haze alone. I am ordering the food right now; you stay put.",
    "t": "20:06",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "He is right, in a way I do not like admitting. The body has spoken its protest, and to ignore it would be a kind of stubbornness that serves no purpose. If the state demands I exist as Hegde, then I must at least maintain the vessel in which that existence is housed. I will sit still and let him perform this act of care, however annoyingly he does it.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§263 Addition"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "20:11",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Very well, Shri Hegde. You may order. I will sit here and wait, though I confess I prefer my own kitchen, or at least the dignity of a restaurant.",
+   "to": "Shri G. Hegde",
+   "t": "20:11",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Dignity won't fill your stomach, Sir. I'm trying to find something that doesn't look like it expired in 2024. Just sit there and try not to philosophize about the delivery boy.",
+   "t": "20:11",
    "place": "home"
   }
  ],
@@ -3212,6 +3250,71 @@
      "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
     }
    ]
+  },
+  {
+   "t": "20:11",
+   "end": "20:31",
+   "event": "Shri G. Hegde says: “Sir, please stop with that philosophy and just eat. Khan Market is a zoo at this hour, and I am not leaving you to wander that haze alone. I am ordering the food right now; you stay put.” He pulls out his phone and scrolls through a delivery app with visible irritation.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "He is right, in a way I do not like admitting. The body has spoken its protest, and to ignore it would be a kind of stubbornness that serves no purpose. If the state demands I exist as Hegde, then I must at least maintain the vessel in which that existence is housed. I will sit still and let him perform this act of care, however annoyingly he does it.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 20,
+    "says": "Very well, Shri Hegde. You may order. I will sit here and wait, though I confess I prefer my own kitchen, or at least the dignity of a restaurant.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, a brown haze. Air quality index: 207."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Dignity won't fill your stomach, Sir. I'm trying to find something that doesn't look like it expired in 2024. Just sit there and try not to philosophize about the delivery boy.",
+    "does": "She squints at the screen, scrolling past the curry options with a grimace."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 3,
+    "latency_s": 17.9,
+    "draws": {
+     "n": 3,
+     "refused": 0,
+     "echo": 2,
+     "picked": 2
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§263 Addition",
+     "id": "dyde-right:615"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§263 Addition",
+     "text": "These two form a system of their own, and there are lower orders of animals, in which this system alone is developed, being without that unity of feeling which marks the complete soul. If we compare these facts of nature with the facts of spirit, we may place together family and sensibility on the one side, civic community and irritability on the other."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -3255,7 +3358,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-25T20:11+05:30",
+  "until": "2026-11-25T20:31+05:30",
   "asleep": false,
   "imprest": 15106,
   "wearing": "kurta",
@@ -3781,7 +3884,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "08992d91b798d6959979aa5eb24c72f7c43b7f1a7a7a07e5dccb406f51f7c318",
+  "source_sha256": "c7d5f23d15ee577f27f5ed4534fe485662e1c5ef6a8772f1a316a82ac4615af5",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4663,6 +4766,36 @@
     "words": "Sir, please stop with that philosophy and just eat. Khan Market is a zoo at this hour, and I am not leaving you to wander that haze alone. I am ordering the food right now; you stay put.",
     "verified": false,
     "time": "20:06",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-25:statement:be906d87d4546087:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 89,
+     "sha256": "be906d87d45460873873ddcb3b4e233a90352a8cc30925440fecd8024f58cb3c"
+    },
+    "speaker": "Hegel",
+    "recipient": "Shri G. Hegde",
+    "words": "Very well, Shri Hegde. You may order. I will sit here and wait, though I confess I prefer my own kitchen, or at least the dignity of a restaurant.",
+    "verified": false,
+    "time": "20:11",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-25:statement:e95823bcba880a0a:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 90,
+     "sha256": "e95823bcba880a0ad43ee103481e54cf85d19b6aab291d78e8cd1de67d81b0f8"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "Dignity won't fill your stomach, Sir. I'm trying to find something that doesn't look like it expired in 2024. Just sit there and try not to philosophize about the delivery boy.",
+    "verified": false,
+    "time": "20:11",
     "place": "home"
    },
    {
@@ -5945,68 +6078,98 @@
     "text": "You are hungry."
    },
    {
-    "id": "2026-11-25:event:d67d3d1469fc33b9:1",
+    "id": "2026-11-25:event:29fdfb17b5d41bdd:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 28,
+     "sha256": "29fdfb17b5d41bddb70ff17ddaf24c9f183242c78d8637ba2eabf6cd6a0b9d12"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "20:11",
+    "end": "20:31",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-25:event:997583ea9732c0f5:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      28,
+      0
+     ],
+     "sha256": "997583ea9732c0f5595e4ea29ad95cccfe77c4cac974ea655a71d59722735e0e"
+    },
+    "type": "observation",
+    "time": "20:11",
+    "place": "home",
+    "text": "Weather: 18 °C, a brown haze. Air quality index: 207."
+   },
+   {
+    "id": "2026-11-25:event:bffd5615697f33af:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "d67d3d1469fc33b9bbba3933377073828a4a21738cc8a7a7ce6185fbf0b6f8d0"
+     "sha256": "bffd5615697f33af331af550aa22017a1cf74514680b655c88e25e46326f0245"
     },
     "type": "cash",
-    "time": "20:11",
+    "time": "20:31",
     "amount": 15106,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:f3bd2ec1e9ba0961:1",
+    "id": "2026-11-25:event:a60f587ef472e0d3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "f3bd2ec1e9ba0961954065d634c1968fd5244e1e977cd283d819c7e9001288a6"
+     "sha256": "a60f587ef472e0d36def2ca14ba258fc8b8558d6bcc5bb4136507cb5a90f7aab"
     },
     "type": "location",
-    "time": "20:11",
+    "time": "20:31",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:97ccf874a967e3bb:1",
+    "id": "2026-11-25:event:98cd08fbd6e988a7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "97ccf874a967e3bb3568cf472f050d9e242a22e6ce74bee23e69c29de0de1d02"
+     "sha256": "98cd08fbd6e988a7b25f40cdbce17b4559d29085098aedf35c8e9061620f4401"
     },
     "type": "inventory",
-    "time": "20:11",
+    "time": "20:31",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-25:event:66a638f7a44da13d:1",
+    "id": "2026-11-25:event:17261f5c655dd55c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "66a638f7a44da13df2942f1b86e440220d95c378460bd2931594ddc890940110"
+     "sha256": "17261f5c655dd55ccbcefe926dc2e7e2a30289687fd7841e8b2762eb7987eefe"
     },
     "type": "inventory",
-    "time": "20:11",
+    "time": "20:31",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 14:22.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 14:22.\"}]"
    },
    {
-    "id": "2026-11-25:event:892120b7b1f9611f:1",
+    "id": "2026-11-25:event:fa0a613e634c95ce:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "892120b7b1f9611f4c8b1e2d517784133825be73607d4f4cb45c4b48bb07228a"
+     "sha256": "fa0a613e634c95ce99e0939975d08d01717224fde4b1a1b9aa5a35229692650a"
     },
     "type": "inventory",
-    "time": "20:11",
+    "time": "20:31",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
