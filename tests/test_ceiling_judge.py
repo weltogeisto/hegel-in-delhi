@@ -1,4 +1,4 @@
-"""tools/ceiling_judge.py: blind pairs both ways round, sealed judgments, and the reads declared before the run."""
+"""tools/ceiling_judge.py: blind pairs in two sheets, sealed ballots, calibration pairs, and the reads declared before the run."""
 import json
 import tempfile
 import unittest
@@ -7,11 +7,20 @@ from pathlib import Path
 from tools import ceiling_judge as cj
 
 ARMS = ("A", "A2", "B", "C", "D", "F")
-N = 6
+N = 40
 
 
 def reply(arm, brief):
     return json.dumps({"title": f"On the matter {brief}", "kind": "essay", "to": None, "continues": False, "text": f"PIECE-{arm}-{brief} argues."})
+
+
+class Books:
+    """A stand-in for his shelf: the same two passages for every search, one of them German."""
+    def search(self, parts, n=40):
+        return [{"label": "Philosophy of Right §63", "text": "Money represents things. " * 60, "lang": "en"},
+                {"label": "Philosophie des Rechts §63", "text": "Das Geld.", "lang": "de"},
+                {"label": "Philosophy of History, India", "text": "India.", "lang": "en"},
+                {"label": "A third", "text": "x", "lang": "en"}]
 
 
 class JudgeTest(unittest.TestCase):
@@ -19,107 +28,189 @@ class JudgeTest(unittest.TestCase):
         self.td = tempfile.TemporaryDirectory()
         self.f, self.k = Path(self.td.name) / "F", Path(self.td.name) / "keys"
         self.f.mkdir()
-        ids = [f"b{i:02d}" for i in range(1, N + 1)]
-        (self.f / "BRIEFS.json").write_text(json.dumps([{"id": b, "date": "2026-11-20", "headline": f"Headline {b}"} for b in ids]))
-        (self.f / "TEXTS.json").write_text(json.dumps({b: {"title": f"Article {b}", "text": f"The article on {b}."} for b in ids}))
-        local = [{"id": f"{a}|{b}", "reply": reply(a, b)} for b in ids for a in ARMS[:5]]
-        local[0]["reply"] = "not the writing object"                                  # A|b01 is unusable
+        self.ids = [f"b{i:02d}" for i in range(1, N + 1)]
+        (self.f / "BRIEFS.json").write_text(json.dumps([{"id": b, "date": f"2026-11-{1 + i // 2:02d}", "headline": f"Headline {b}", "object": "a thing"}
+                                                        for i, b in enumerate(self.ids)]))                      # twenty mornings, two briefs each
+        (self.f / "TEXTS.json").write_text(json.dumps({b: {"title": f"Article {b}", "text": f"The article on {b}."} for b in self.ids}))
+        local = [{"id": f"{a}|{b}", "reply": reply(a, b)} for b in self.ids for a in ARMS[:5]]
         (self.f / "REPLIES-ceiling-1.jsonl").write_text("".join(json.dumps(r) + "\n" for r in local))
-        (self.f / "REPLIES-F.jsonl").write_text("".join(json.dumps({"id": f"F|{b}", "reply": reply("F", b)}) + "\n" for b in ids))
-        self.res = cj.cmd_sheet(self.f, self.k)
-        self.key = json.loads((self.k / "KEY.json").read_text())
-        self.sheet = cj.rows(self.f / "SHEET.jsonl")
+        (self.f / "REPLIES-F.jsonl").write_text("".join(json.dumps({"id": f"F|{b}", "reply": reply("F", b)}) + "\n" for b in self.ids))
 
     def tearDown(self):
         self.td.cleanup()
 
-    def judge(self, name, pick):
-        """A reader who answers each row by pick(key row) -> the arm it names on q1, or None."""
-        out = []
-        for r in self.sheet:
-            k = self.key[r["pair"]]
-            arm = pick(k)
-            out.append({"pair": r["pair"], "q1": "X" if k["X"] == arm else "Y" if k["Y"] == arm else "neither", "q2": "both"})
-        p = Path(self.td.name) / name
-        p.write_text("".join(json.dumps(x) + "\n" for x in out))
-        return p
+    def sheet(self, controls=0):
+        if controls:
+            rows = [{"id": f"c{i:02d}", "type": "inference" if i % 2 else "invention", "brief": self.ids[i], "good": f"GOOD-{i}", "bad": f"BAD-{i}"} for i in range(controls)]
+            (self.f / "CONTROLS.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
+        self.res = cj.cmd_sheet(self.f, self.k, books=Books())
+        self.key = json.loads((self.k / "KEY.json").read_text())
+        self.sheets = [cj.rows(self.f / "SHEET-1.jsonl"), cj.rows(self.f / "SHEET-2.jsonl")]
+        return self.res
 
-    def test_every_pair_is_there_twice_and_a_brief_without_a_piece_is_left_out_of_its_pairs(self):
-        self.assertEqual(self.res["rows"], 2 * (N * len(cj.PAIRS) - 5))               # b01 has no A: its five pairs with A are gone
-        self.assertEqual(sorted(self.res["pairs_lacking_a_piece"]), sorted(f"A-{x}|b01" for x in ("A2", "B", "C", "D", "F")))
-        ways = {}
+    def ballots(self, family, pick, ways=(1, 2), invented=lambda k: "neither"):
+        """Ballot files of one family, a file a sheet: pick(key row) -> "first" | "second" | "both" | "neither"."""
+        files = []
+        for n in ways:
+            out = []
+            for r in self.sheets[n - 1]:
+                k = self.key[r["pair"]]
+                want = pick(k)
+                arm = {"first": k["first"], "second": k["second"]}.get(want)
+                q1 = want if want in ("both", "neither") else "X" if k["X"] == arm else "Y"
+                out.append({"pair": r["pair"], "q1": q1, "claim": "" if q1 == "neither" else "the claim", "warrant": "" if q1 == "neither" else "its warrant",
+                            "invented": invented(k), "fidelity": "both", "stance_X": "defence", "stance_Y": "revision"})
+            p = Path(self.td.name) / f"{family}-{n}.jsonl"
+            p.write_text("".join(json.dumps(x) + "\n" for x in out))
+            files.append(p)
+        return files
+
+    def score(self, **families):
+        cj.cmd_seal(self.f, [p for files in families.values() for p in files])
+        return cj.cmd_score(self.f, self.k, families)
+
+    def test_every_pair_is_in_both_sheets_once_and_the_other_way_round(self):
+        self.sheet()
+        self.assertEqual(self.res["rows_a_sheet"], N * len(cj.PAIRS))
+        self.assertEqual(len(cj.PAIRS), 8)                                            # B with D and C with D are there too
+        both = {}
         for pid, k in self.key.items():
-            ways.setdefault((k["brief"], k["first"], k["second"]), []).append((k["X"], k["Y"]))
-        self.assertTrue(all(len(v) == 2 and v[0] == v[1][::-1] for v in ways.values()))
-        row = self.sheet[0]
-        self.assertEqual(set(row), {"pair", "headline", "about", "text", "X", "Y"})   # nothing in a row says which arm is which
-        self.assertTrue(row["X"].startswith("On the matter"))
-        self.assertFalse(any(p.name.startswith("KEY") for p in self.f.iterdir()))     # the key is outside the folder
+            both.setdefault((k["brief"], k["first"], k["second"]), {})[k["sheet"]] = (k["X"], k["Y"])
+        self.assertTrue(all(set(v) == {1, 2} and v[1] == v[2][::-1] for v in both.values()))
+        self.assertEqual({r["pair"] for r in self.sheets[0]} & {r["pair"] for r in self.sheets[1]}, set())      # fresh ids in each sheet
+        first_is_x = sum(k["X"] == k["first"] for k in self.key.values() if k["sheet"] == 1)
+        self.assertTrue(0.3 < first_is_x / (N * 8) < 0.7)                             # which way goes into the first sheet is a draw
 
-    def test_welts_rows_are_a_fixed_draw_one_way_round(self):
+    def test_a_row_shows_the_brief_his_books_and_two_pieces_and_nothing_else(self):
+        self.sheet()
+        row = self.sheets[0][0]
+        self.assertEqual(set(row), {"pair", "headline", "about", "text", "his_books", "X", "Y"})
+        self.assertEqual([b["from"] for b in row["his_books"]], ["Philosophy of Right §63", "Philosophy of History, India"])      # English, the two nearest
+        self.assertLessEqual(len(row["his_books"][0]["text"]), cj.BOOK_CHARS)
+        self.assertFalse(any(p.name in ("KEY.json", "SALT") for p in self.f.iterdir()))                      # key and salt are outside the folder
+        packet = json.loads((self.f / "PACKET.json").read_text())
+        self.assertEqual(set(packet["sha256"]), {"SHEET-1.jsonl", "SHEET-2.jsonl", "WELT-24.jsonl", "KEY.json"})
+
+    def test_the_ids_cannot_be_worked_out_from_the_repository(self):
+        self.sheet()
+        again = cj.cmd_sheet(self.f, self.k, books=Books())
+        self.assertEqual(again["sha256"], self.res["sha256"])                         # the same salt gives the same packet
+        other = Path(self.td.name) / "other-keys"
+        self.assertNotEqual(cj.cmd_sheet(self.f, other, books=Books())["sha256"]["SHEET-1.jsonl"], self.res["sha256"]["SHEET-1.jsonl"])
+        self.assertNotEqual((other / "SALT").read_text(), (self.k / "SALT").read_text())
+
+    def test_welts_rows_are_three_a_comparison_from_one_sheet_without_controls(self):
+        self.sheet(controls=8)
         welt = cj.rows(self.f / "WELT-24.jsonl")
         self.assertEqual(len(welt), 24)
-        self.assertTrue(all(self.key[r["pair"]]["X"] == self.key[r["pair"]]["first"] for r in welt))
-        again = cj.cmd_sheet(self.f, self.k)
-        self.assertEqual((again["sheet_sha256"], again["welt_sha256"], again["key_sha256"]),
-                         (self.res["sheet_sha256"], self.res["welt_sha256"], self.res["key_sha256"]))
+        ks = [self.key[r["pair"]] for r in welt]
+        self.assertTrue(all(k["sheet"] == 1 and "control" not in k for k in ks))
+        self.assertEqual({(k["first"], k["second"]) for k in ks}, set(cj.PAIRS))
 
-    def test_a_judgment_must_be_sealed_before_it_is_scored_and_is_not_changed_after(self):
-        j = self.judge("reader-1.jsonl", lambda k: k["second"])
+    def test_a_ballot_must_be_sealed_and_is_not_changed_after(self):
+        self.sheet()
+        files = self.ballots("claude", lambda k: "second")
         with self.assertRaises(ValueError):
-            cj.cmd_score(self.f, self.k, [j])
-        cj.cmd_seal(self.f, [j])
-        cj.cmd_score(self.f, self.k, [j])
-        j.write_text(j.read_text().replace('"q2": "both"', '"q2": "neither"', 1))
+            cj.cmd_score(self.f, self.k, {"claude": files})
+        self.score(claude=files)
+        files[0].write_text(files[0].read_text().replace('"fidelity": "both"', '"fidelity": "neither"', 1))
         with self.assertRaises(ValueError):
-            cj.cmd_score(self.f, self.k, [j])
+            cj.cmd_score(self.f, self.k, {"claude": files})
         with self.assertRaises(ValueError):
-            cj.cmd_seal(self.f, [j])
+            cj.cmd_seal(self.f, files)
 
-    def test_a_win_needs_the_same_arm_both_ways_round(self):
-        first_way_only = lambda k: k["second"] if k["X"] == k["first"] else None       # names the second arm one way round only
-        j = self.judge("reader-1.jsonl", first_way_only)
-        cj.cmd_seal(self.f, [j])
-        t = cj.cmd_score(self.f, self.k, [j])["readers"]["reader-1.jsonl"]["tally"]
-        self.assertEqual((t["A-D"]["D"], t["A-D"]["A"], t["A-D"]["none"], t["A-D"]["briefs"]), (0, 0, 5, 5))
-
-    def test_the_pipeline_is_the_ceiling_when_d_wins_outside_the_band(self):
-        pick = lambda k: {("A", "A2"): None, ("A", "B"): "B", ("A", "C"): None, ("A", "D"): "D", ("D", "F"): "F", ("A", "F"): "F"}[(k["first"], k["second"])]
-        j1, j2 = self.judge("reader-1.jsonl", pick), self.judge("reader-2.jsonl", pick)
-        cj.cmd_seal(self.f, [j1, j2])
-        res = cj.cmd_score(self.f, self.k, [j1, j2])
-        r = res["readers"]["reader-1.jsonl"]
-        self.assertEqual((r["tally"]["A-D"]["D"], r["reads"]["needed"]["A-D"], r["reads"]["band_A2_over_A"]), (5, 4, 0))
-        self.assertTrue(r["reads"]["D_over_A_outside_the_band"] and r["reads"]["B_over_A_outside_the_band"])
-        self.assertFalse(r["reads"]["C_over_A_outside_the_band"])
-        self.assertTrue(res["verdict"].startswith("The pipeline is the ceiling"))
-        self.assertEqual(res["agreement"]["reader-1.jsonl / reader-2.jsonl"], {"compared": 31, "same": 31})
-        self.assertEqual(r["kept_1831"]["A"], {"shown": 50, "named": 50})             # five pairs with A, five briefs, both ways round
-        self.assertIn("| A and D | 5 | 0 | 5 | 0 | 4 |", (self.f / "RESULT.md").read_text())
-
-    def test_the_model_is_the_ceiling_when_d_stays_in_the_band_and_f_wins(self):
-        pick = lambda k: "F" if "F" in (k["first"], k["second"]) else "A2" if k["second"] == "A2" else k["second"]
-        j = self.judge("reader-1.jsonl", pick)                                        # every second arm wins, A2 too: D is inside the band
-        cj.cmd_seal(self.f, [j])
-        res = cj.cmd_score(self.f, self.k, [j])
-        self.assertFalse(res["readers"]["reader-1.jsonl"]["reads"]["D_over_A_outside_the_band"])
-        self.assertTrue(res["verdict"].startswith("The 27B is the ceiling"))
-
-    def test_the_measure_is_the_ceiling_when_readers_disagree_or_f_does_not_win(self):
-        a = self.judge("reader-1.jsonl", lambda k: "D" if (k["first"], k["second"]) == ("A", "D") else "F" if k["second"] == "F" else None)
-        b = self.judge("reader-2.jsonl", lambda k: "F" if k["second"] == "F" else None)
-        cj.cmd_seal(self.f, [a, b])
-        self.assertTrue(cj.cmd_score(self.f, self.k, [a, b])["verdict"].startswith("The measure is the ceiling"))
-        c = self.judge("reader-3.jsonl", lambda k: None)                              # nobody ever wins
-        cj.cmd_seal(self.f, [c])
-        self.assertTrue(cj.cmd_score(self.f, self.k, [c])["verdict"].startswith("The measure is the ceiling"))
-
-    def test_an_answer_outside_the_form_is_refused(self):
-        j = self.judge("reader-1.jsonl", lambda k: k["second"])
-        j.write_text(j.read_text().replace('"q1": "X"', '"q1": "the first"', 1))
-        cj.cmd_seal(self.f, [j])
+    def test_a_row_outside_the_form_is_refused(self):
+        self.sheet()
+        files = self.ballots("claude", lambda k: "second")
+        files[0].write_text(files[0].read_text().replace('"claim": "the claim"', '"claim": ""', 1))        # a piece named, and no claim quoted
+        cj.cmd_seal(self.f, files)
         with self.assertRaises(ValueError):
-            cj.cmd_score(self.f, self.k, [j])
+            cj.cmd_score(self.f, self.k, {"claude": files})
+
+    def test_the_outcomes_are_told_apart(self):
+        self.sheet()
+        how = {0: "second", 1: "first", 2: "both", 3: "neither"}
+        def pick(k):
+            if (k["first"], k["second"]) != ("A", "D"):
+                return "neither"
+            i = int(k["brief"][1:]) % 6
+            if i == 4:
+                return "first" if k["sheet"] == 1 else "second"           # another piece each way round
+            if i == 5:
+                return "both" if k["sheet"] == 1 else "second"
+            return how[i]
+        t = self.score(claude=self.ballots("claude", pick))["families"]["claude"]["tally"]["A-D"]
+        self.assertEqual((t["eligible"], t["second"], t["first"], t["both"], t["neither"], t["reversal"], t["mixed"]), (40, 6, 7, 7, 7, 7, 6))
+        self.assertEqual(t["bar"], 27)
+
+    def test_one_way_round_alone_is_not_eligible_and_under_forty_nothing_is_declared(self):
+        self.sheet()
+        files = self.ballots("claude", lambda k: "second")
+        keep = [r for r in cj.rows(files[1]) if int(self.key[r["pair"]]["brief"][1:]) > 5]                  # five briefs judged one way round only
+        files[1].write_text("".join(json.dumps(r) + "\n" for r in keep))
+        res = self.score(claude=files)
+        t = res["families"]["claude"]["tally"]["A-D"]
+        self.assertEqual((t["eligible"], t["second"], t["bar"]), (35, 35, None))
+        self.assertIsNone(res["families"]["claude"]["reads"]["bundle_lifts_him"])
+        self.assertTrue(any(s.startswith("Not declared (fewer than 40 eligible briefs)") for s in res["statements"]))
+
+    def test_the_band_is_the_larger_of_the_two_ways_and_the_bundle_must_clear_it(self):
+        self.sheet()
+        def pick(k):
+            pair, i = (k["first"], k["second"]), int(k["brief"][1:])
+            if pair == ("A", "A2"):
+                return "first" if i <= 30 else "second"                   # A over A2 in 30 briefs: the band is 30
+            if pair == ("A", "D"):
+                return "second" if i <= 29 else "neither"                 # D over A in 29: over the bar of 27, inside the band
+            if pair == ("A", "B"):
+                return "second" if i <= 35 else "neither"                 # B over A in 35: outside
+            return "second" if "F" in pair else "neither"
+        res = self.score(claude=self.ballots("claude", pick))
+        r = res["families"]["claude"]["reads"]
+        self.assertEqual(r["band"], {"A2_over_A": 10, "A_over_A2": 30, "taken": 30})
+        self.assertEqual((r["bundle_lifts_him"], r["text_lifts_him"], r["cloud_over_his_best"], r["cloud_over_his_live"]), (False, True, True, True))
+        self.assertIn("A short Wikipedia introduction, assigned to him, lifts what he writes.", res["statements"])
+        self.assertIn("The bundle does not win outside the band.", res["statements"])
+        self.assertIn("The cloud model, as it was configured, beats his best arm on these briefs.", res["statements"])
+
+    def test_families_that_disagree_leave_it_unresolved(self):
+        self.sheet()
+        yes = self.ballots("claude", lambda k: "second" if (k["first"], k["second"]) != ("A", "A2") else "neither")
+        no = self.ballots("astra", lambda k: "neither")
+        res = self.score(claude=yes, astra=no)
+        self.assertTrue(any(s.startswith("The families disagree on this, so it is unresolved: With the text, the fuller instructions") for s in res["statements"]))
+        self.assertEqual(res["agreement"]["astra / claude"], {"compared": 320, "same": 40})                  # they agree on A with A2 only
+
+    def test_the_calibration_pairs_can_fail_a_family(self):
+        self.sheet(controls=8)
+        self.assertEqual((self.res["controls"], self.res["rows_a_sheet"]), (8, N * 8 + 8))
+        good = lambda k: "first" if "control" in k else "second" if (k["first"], k["second"]) != ("A", "A2") else "neither"
+        fooled = lambda k: "second"                                                   # names the bad piece of every control
+        flags = lambda k: ("X" if k["X"] == "bad" else "Y") if k.get("control") == "invention" else "neither"
+        res = self.score(claude=self.ballots("claude", good, invented=flags), astra=self.ballots("astra", fooled))
+        c = res["families"]["claude"]["calibration"]
+        self.assertEqual((c["controls"], c["right"], c["inventions_flagged"], c["passed"]), (8, 8, 4, True))
+        self.assertIs(res["families"]["astra"]["calibration"]["passed"], False)
+        self.assertTrue(res["statements"][0].startswith("astra failed the calibration pairs"))
+        self.assertIn("With the text, the fuller instructions and time to think together, he wins outside the band: this bundle lifts what he writes on an assigned headline.", res["statements"])
+        self.assertEqual(res["families"]["claude"]["tally"]["A-D"]["eligible"], 40)   # the controls are not counted among the briefs
+        md = (self.f / "RESULT.md").read_text()
+        self.assertIn("Calibration: 8 of 8 controls right, 4 inventions flagged: passed.", md)
+
+    def test_the_arms_table_counts_stances_fidelity_and_inventions(self):
+        self.sheet()
+        res = self.score(claude=self.ballots("claude", lambda k: "second", invented=lambda k: "X"))
+        a = res["families"]["claude"]["arms"]
+        self.assertEqual(sum(t["shown"] for t in a.values()), 2 * 2 * N * 8)
+        self.assertEqual(a["A"]["shown"], a["A"]["kept_1831"])                        # "both" keeps both
+        self.assertEqual(a["A"]["defence"] + a["A"]["revision"], a["A"]["shown"])
+        self.assertEqual(sum(t["invented"] for t in a.values()), 2 * N * 8)           # one side of every row
+
+    def test_the_interval_is_taken_over_mornings(self):
+        lo, hi = cj.interval([True] * 20 + [False] * 20, [f"m{i // 2}" for i in range(40)])
+        self.assertTrue(0.25 < lo < 0.5 < hi < 0.75)
+        self.assertEqual(cj.interval([True] * 6, ["m"] * 6), [1.0, 1.0])
+        self.assertIsNone(cj.interval([], []))
 
 
 if __name__ == "__main__":
