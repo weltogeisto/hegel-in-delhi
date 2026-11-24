@@ -330,6 +330,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "At the Directorate of Estates."
+  },
+  {
+   "from": "13:41",
+   "to": "13:56",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -761,6 +768,37 @@
    "to": "Hegel",
    "text": "That is all I ask. Third floor, room 304. Do not let them confuse you with the other Hegel in the records, if there is one.",
    "t": "13:31",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "He has made the distinction for me: one Hegel is a ghost in the system, the other is the man in the bandhgala. I must hold this thread tight. The state demands precision; it does not care for my history, only for the paper trail. I will not leave until the file reflects this reality, or at least until I have exhausted the patience of this section officer.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Inaugural Address"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273"
+    }
+   ],
+   "t": "13:41",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "Mr. Saxena, you are quite right to be wary. But I am here, and I am not Shri Hegde. I am Mr. Hegel. The error was in the name, not the person. Please note my identity clearly in the file so that no further confusion arises. I am willing to wait here until it is done.",
+   "to": "Mr. Saxena",
+   "t": "13:41",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Hegde? Yes, I have seen that name in the archives, but I am not a notary, sir. I will make a small note, but please do not wait. The under-secretary is at his desk and I have three other files to push through before lunch.",
+   "t": "13:41",
    "place": "estates"
   }
  ],
@@ -1495,6 +1533,71 @@
      "text": "And if anyone were to take him out of the prison into the light itself, he would be dazzled by the light and could see nothing; and he would hate the person who brought him to the light, as having taken away what was to him the truth, and prepared only pain and evil in its place.”"
     }
    ]
+  },
+  {
+   "t": "13:41",
+   "end": "13:56",
+   "event": "Mr. Saxena says: “That is all I ask. Third floor, room 304. Do not let them confuse you with the other Hegel in the records, if there is one.” He sets the receiver down and returns to the file on his desk, tapping the edge of a folder with his finger.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "He has made the distinction for me: one Hegel is a ghost in the system, the other is the man in the bandhgala. I must hold this thread tight. The state demands precision; it does not care for my history, only for the paper trail. I will not leave until the file reflects this reality, or at least until I have exhausted the patience of this section officer.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 15,
+    "says": "Mr. Saxena, you are quite right to be wary. But I am here, and I am not Shri Hegde. I am Mr. Hegel. The error was in the name, not the person. Please note my identity clearly in the file so that no further confusion arises. I am willing to wait here until it is done.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, partly cloudy, hazy. Air quality index: 177."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Hegde? Yes, I have seen that name in the archives, but I am not a notary, sir. I will make a small note, but please do not wait. The under-secretary is at his desk and I have three other files to push through before lunch.",
+    "does": "He picks up the steel tumbler, takes a sip of the lukewarm tea, and points a pen at the door."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Inaugural Address",
+     "id": "haldane-1:5"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273",
+     "id": "dyde-right:681"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Inaugural Address",
+     "text": "Let us together greet the dawn of a better time in which the spirit, hitherto a prey to externalities, may return within itself, come to itself again, and win space and room for a kingdom of its own, where true minds will rise above the interests of the moment, and obtain the power to receive the true, eternal and divine, the power to consider and to grasp the highest."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273",
+     "text": "This is the descent of the spirit of the world into itself, the free perfection by virtue of which the idea sets loose from itself its own elements, and nothing but its own elements, and makes them totalities; at the same time it holds them within the unity of the conception, in which is found their real rationality."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1531,7 +1634,7 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-25T13:41+05:30",
+  "until": "2026-11-25T13:56+05:30",
   "asleep": false,
   "imprest": 15166,
   "wearing": "bandhgala",
@@ -1999,7 +2102,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "d11aca97e5c02b0e93f3ab23dcb638cc9ccf4e0041a628bf7bc274a37f628ba2",
+  "source_sha256": "d0431816f70964bfd6e608812d6f30ccedbfb8a8943389eae55e4aa75143a51a",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2446,6 +2549,36 @@
     "words": "That is all I ask. Third floor, room 304. Do not let them confuse you with the other Hegel in the records, if there is one.",
     "verified": false,
     "time": "13:31",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:a6d11e7174ceb2b2:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 43,
+     "sha256": "a6d11e7174ceb2b2f731a278a226b66cd16041219123163ed78278365f465a44"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "Mr. Saxena, you are quite right to be wary. But I am here, and I am not Shri Hegde. I am Mr. Hegel. The error was in the name, not the person. Please note my identity clearly in the file so that no further confusion arises. I am willing to wait here until it is done.",
+    "verified": false,
+    "time": "13:41",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:6cd8c4b1f45b3f47:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 44,
+     "sha256": "6cd8c4b1f45b3f47075f0c7792b281a78cbc0dfbb1ca70634875f825f8fa57be"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "Hegde? Yes, I have seen that name in the archives, but I am not a notary, sir. I will make a small note, but please do not wait. The under-secretary is at his desk and I have three other files to push through before lunch.",
+    "verified": false,
+    "time": "13:41",
     "place": "estates"
    },
    {
@@ -2984,68 +3117,98 @@
     "text": "Weather: 23 °C, partly cloudy, hazy. Air quality index: 177."
    },
    {
-    "id": "2026-11-25:event:2fe697a619a65446:1",
+    "id": "2026-11-25:event:345c5ede8e794a75:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 11,
+     "sha256": "345c5ede8e794a75da5886d9815c8fda0064e0347e07fed58bd3e386b32e9bf5"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "13:41",
+    "end": "13:56",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:event:d2a905388ab44c35:4",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      11,
+      0
+     ],
+     "sha256": "d2a905388ab44c35d16d6027abd0b4aad2a5f83f5cade83d29bad379d155c9de"
+    },
+    "type": "observation",
+    "time": "13:41",
+    "place": "estates",
+    "text": "Weather: 23 °C, partly cloudy, hazy. Air quality index: 177."
+   },
+   {
+    "id": "2026-11-25:event:29173e21d18bdade:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "2fe697a619a65446b7fc9ee251b010e8e8416aa80acfb128c871dbd1a8b9f61a"
+     "sha256": "29173e21d18bdadec96d8a5059c494a3ad6ee300e6d3fb54c82cb36eba1dfd5c"
     },
     "type": "cash",
-    "time": "13:41",
+    "time": "13:56",
     "amount": 15166,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:eba3bd39bc036229:1",
+    "id": "2026-11-25:event:b1ab38364ce6c6b4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "eba3bd39bc0362295fe7782a7ecfbafd73a875a86f557d4177e18201c5247d87"
+     "sha256": "b1ab38364ce6c6b4eeb1db9cab34b881dcefe4d27b424daad7bcefb8b0299e83"
     },
     "type": "location",
-    "time": "13:41",
+    "time": "13:56",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:af46d770d83df265:1",
+    "id": "2026-11-25:event:1aca263592c57b93:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "af46d770d83df2656671fd27198ec4d8a5ccb1a59b75fee90687e03c13befc58"
+     "sha256": "1aca263592c57b931d6021430272de3700fd25497a1d75e0afeeb42dea7381df"
     },
     "type": "inventory",
-    "time": "13:41",
+    "time": "13:56",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-25:event:a5df32ee7369c7d2:1",
+    "id": "2026-11-25:event:a940b7c07932dabf:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "a5df32ee7369c7d2732e1642bf209ac22eade7be7d6dcb535a1157e0885db0bb"
+     "sha256": "a940b7c07932dabf58d62c4cd4e0c9b06eb66f5d673d51d99ccef92651abe2a4"
     },
     "type": "inventory",
-    "time": "13:41",
+    "time": "13:56",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 11:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 11:10.\"}]"
    },
    {
-    "id": "2026-11-25:event:a78e30a3eae3a473:1",
+    "id": "2026-11-25:event:9a185eaad95c12b2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "a78e30a3eae3a473ce035b828509547588266cab0bfb1113782adaa9bf9f4645"
+     "sha256": "9a185eaad95c12b293fa91460aa8ad7045bf470fd32b7707b66de65f04e13099"
     },
     "type": "inventory",
-    "time": "13:41",
+    "time": "13:56",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
