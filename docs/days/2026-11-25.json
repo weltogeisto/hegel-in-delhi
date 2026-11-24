@@ -393,6 +393,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "16:44",
+   "to": "16:54",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -1090,6 +1097,37 @@
    "to": "Hegel",
    "text": "Good. Now sign in the box, not on the line, and press the ink firmly or the scanner will reject it. I will put this on the pile for tomorrow's batch.",
    "t": "16:29",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "The scanner does not recognise the soul, only the ink. To be rejected by the machine is the final negation of the individual in the administrative state. I will press the ink firmly, as he demands, and sign the box, allowing the system to consume my name without resistance. It is a small humiliation, but the file must move.",
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§22"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299"
+    }
+   ],
+   "t": "16:44",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "Yes. I will sign in the box and press firmly. I trust the scanner will accept it this time.",
+   "to": "Mr. Saxena",
+   "t": "16:44",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Don't trust it, just do it. If the machine spits it out, you'll be back here at nine in the morning, and I won't have the patience for a second round of this nonsense.",
+   "t": "16:44",
    "place": "estates"
   }
  ],
@@ -2417,6 +2455,71 @@
      "text": "The division of these powers has been treated as the condition of political equilibrium, meaning by division their independence one of another in existence,—subject always however to the above-mentioned subsumption of the powers of the individual under the power of the general."
     }
    ]
+  },
+  {
+   "t": "16:44",
+   "end": "16:54",
+   "event": "Mr. Saxena says: “Good. Now sign in the box, not on the line, and press the ink firmly or the scanner will reject it. I will put this on the pile for tomorrow's batch.” Mr. Saxena taps the pen holder on his desk to indicate the ink pad.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The scanner does not recognise the soul, only the ink. To be rejected by the machine is the final negation of the individual in the administrative state. I will press the ink firmly, as he demands, and sign the box, allowing the system to consume my name without resistance. It is a small humiliation, but the file must move.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 10,
+    "says": "Yes. I will sign in the box and press firmly. I trust the scanner will accept it this time.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, clear, hazy. Air quality index: 184."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Don't trust it, just do it. If the machine spits it out, you'll be back here at nine in the morning, and I won't have the patience for a second round of this nonsense.",
+    "does": "He leans back in his chair, tapping the pen holder once more for emphasis."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.5,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§22",
+     "id": "wallace-logic:101"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299",
+     "id": "dyde-right:760"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§22",
+     "text": "Modern views, on the contrary, put great value on the mere fact of conviction, and hold that to be convinced is good for its own sake, whatever be the burden of our conviction,--there being no standard by which we can measure its truth."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§299",
+     "text": "The monarcliical gives the final decision, and the executive element advises. The executive element has concrete knowledge and oversight of the whole in its many sides and in the actual principles firmly rooted in them. It has also acquaintance with the wants of the oflices of state. In the legislature are at last represented the different classes or estates."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2460,7 +2563,7 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-25T16:44+05:30",
+  "until": "2026-11-25T16:54+05:30",
   "asleep": false,
   "imprest": 15166,
   "wearing": "kurta",
@@ -2958,7 +3061,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "71cfc9cea12cd2e961ff4f251ebb7da8b9402b9b63091fb6395bcfde8cb439e0",
+  "source_sha256": "999ccdafc619fcfec27ff211667ebb40da71fd507f81ef32b816ecdb13dc32aa",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3652,6 +3755,36 @@
     "words": "Good. Now sign in the box, not on the line, and press the ink firmly or the scanner will reject it. I will put this on the pile for tomorrow's batch.",
     "verified": false,
     "time": "16:29",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:f8e30fb5f8569ae4:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 69,
+     "sha256": "f8e30fb5f8569ae445088943ad07cf761d7b115e9cdcb900d3b2a28e5054bd48"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "Yes. I will sign in the box and press firmly. I trust the scanner will accept it this time.",
+    "verified": false,
+    "time": "16:44",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:438215d80365b060:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 70,
+     "sha256": "438215d80365b060becbcc00accbe6b7b9b34112ce7ab56565c52f4e4e1f21d4"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "Don't trust it, just do it. If the machine spits it out, you'll be back here at nine in the morning, and I won't have the patience for a second round of this nonsense.",
+    "verified": false,
+    "time": "16:44",
     "place": "estates"
    },
    {
@@ -4578,68 +4711,98 @@
     "text": "Weather: 23 °C, clear, hazy. Air quality index: 184."
    },
    {
-    "id": "2026-11-25:event:200f24c4ab848fac:1",
+    "id": "2026-11-25:event:501fdc01095cebb6:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 20,
+     "sha256": "501fdc01095cebb68dd070b7778d9f48714a63aad552efa13b3a076041cd3590"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "16:44",
+    "end": "16:54",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:event:dfaa95db4b7c13b9:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      20,
+      0
+     ],
+     "sha256": "dfaa95db4b7c13b95db892f65239175873997f447aee5bd4d63bd8826af102f8"
+    },
+    "type": "observation",
+    "time": "16:44",
+    "place": "estates",
+    "text": "Weather: 23 °C, clear, hazy. Air quality index: 184."
+   },
+   {
+    "id": "2026-11-25:event:1a2a14bae85a20c4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "200f24c4ab848fac46bf96d6b6e3d34b0fe6f6bfdded7684a625962887658cbc"
+     "sha256": "1a2a14bae85a20c49f7265fa18160a6c1270d8ca159fc60d956d544dd9aed459"
     },
     "type": "cash",
-    "time": "16:44",
+    "time": "16:54",
     "amount": 15166,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:79b57e702f4a34da:1",
+    "id": "2026-11-25:event:cd6ad28708a7bc1e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "79b57e702f4a34dabd83ad06b189eab6064e93fb5247cde823ea6a7fbb1438da"
+     "sha256": "cd6ad28708a7bc1e657f6c923e7ea09e1570c35f1d8720c630f8bdcfe838f5e0"
     },
     "type": "location",
-    "time": "16:44",
+    "time": "16:54",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:5c7dc1dfede0bd0d:1",
+    "id": "2026-11-25:event:bf20d7671dde5ecd:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "5c7dc1dfede0bd0d2f24c891c0f0e1c980754cab06801f7ba7683f30653639dd"
+     "sha256": "bf20d7671dde5ecdfca257fb6e331ce8e6f9ff06c3df04778fa1de5e787a282d"
     },
     "type": "inventory",
-    "time": "16:44",
+    "time": "16:54",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-25:event:195eb3c670e35a99:1",
+    "id": "2026-11-25:event:866a4f54bd311ccc:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "195eb3c670e35a99572e800f83f3d566dc71a44167a3a6187b175f869e63d39c"
+     "sha256": "866a4f54bd311ccc89426e84052c45a531065697aa053dd893e2bb650d89ae56"
     },
     "type": "inventory",
-    "time": "16:44",
+    "time": "16:54",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 14:22.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 14:22.\"}]"
    },
    {
-    "id": "2026-11-25:event:d2c85c5ce11aee8f:1",
+    "id": "2026-11-25:event:1b9b980b3bea329d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "d2c85c5ce11aee8fbbd60e7074b5c32a3fc3cdd9099475ea1b61a02d38fbef09"
+     "sha256": "1b9b980b3bea329d68ee444980e1a8611fa4acffa0792685f1268557fa9821be"
     },
     "type": "inventory",
-    "time": "16:44",
+    "time": "16:54",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
