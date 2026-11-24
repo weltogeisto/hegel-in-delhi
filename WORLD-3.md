@@ -62,14 +62,16 @@ Each is built off, tested, rehearsed on a night, and then put to Welt.
 - **Reading that leads somewhere.** What he has read counts as met, so that he may write and speak of it and the claim guard lets it stand. It also joins what his manuscripts and a talk may draw on. A reviewed exhibition that becomes a place comes later, with packet 7.
 - **The measure:** how often something read is used later, in a thought, a letter or a talk. Today it is zero.
 
-**3. Money as choices** (`HEGEL_EXITS`).
-- **Ways out that fit him**, each a choice the record gives reasons for:
+**3. Money as choices** (`HEGEL_EXITS`). Welt's word of 24 November governs it: "I don't want him to starve, I want him to see this as a problem and the world offers options for him to solve it, but he has to work for it" (`DECISIONS.md` 67).
+- **He sees it coming.** When what falls due within the week is more than he holds, the waking line gives the figures once, and no advice.
+- **A plain kitchen, the floor.** While the wage or the groceries stand unpaid, Ramesh still cooks one plain meal a day, dal and rice in the evening. Breakfast and lunch at home stop as they do today. The debt stands and grows.
+- **Ways out that cost him work**, each a choice the record gives reasons for:
   - a second pupil through Nidhi once the lessons run;
   - a course of lectures after a talk that went well;
   - the review's column;
   - Ramesh on part time, offered before the wage falls due when the purse cannot carry it.
 - **Credit with standing.** Sunil and Ramesh may let a small sum stand, once, and the record holds it. A second time depends on whether the first was paid.
-- **The household notices.** A man who lives in the house sees that nothing is cooked. Shri Hegde may share a meal or speak of it. The engine decides when, and the model only what he says.
+- **The household notices.** A man who lives in the house sees that the kitchen is on the plain meal. Shri Hegde may set a second plate or speak of it: company and notice, not rescue. The engine decides when, and the model only what he says.
 - **Two repairs of the file's act:** a refusal at Mr. Saxena's no longer wipes Mr. Malhotra's letter from the file's line, and the hearing (part 2) is drafted for Welt's pen.
 
 **4. India answers back** (`HEGEL_REPLY`). He judged India unseen, in the lectures and in his review of 1827 on the Bhagavad Gita.
@@ -88,17 +90,20 @@ Each is built off, tested, rehearsed on a night, and then put to Welt.
 
 ## The nights
 
-The card has one night at a time, and Training 4 holds the next three (`pc/TRAINING-4.md`). So the packets are built now and rehearsed from the weekend:
+The card has one night at a time. Training 4 was to hold three of them (`pc/TRAINING-4.md`), and the money has a date: his 1 December is Berlin's Monday 30 November. So packet 3 takes a night ahead of Training 4's measures:
 
-| When | In the cloud | On the PC at night |
+| Night (Berlin) | On the PC | In the cloud next morning |
 |---|---|---|
-| 24 to 26 November | The score. Packets 2 and 3 built and reviewed | Training 4: cards, the run, its measures |
-| From 27 November | Packets 4 and 5 drafted for Welt's pen | Packet 2's night, then packet 3's |
-| The week after | Packets 6 and 7 | One night a packet |
+| Tuesday 24 November | Training 4: the cards (W14) | The cards read, the training set frozen |
+| Wednesday 25 | Training 4: the run, on Welt's word that day. Without it, packet 3's night moves here | The run's record |
+| Thursday 26 | **Packet 3's night:** the exits off and on, from one saved morning, through his first week of December | The score, off against on; put to Welt on Friday |
+| Friday 27 | Training 4: its measures | With Welt's go, packet 3 is live before his 29 November wakes |
+| Saturday 28 | Packet 2's night: the papers off and on | The score; put to Welt |
+| The week after | One night a packet: 4 to 7 | |
 
 ## What Welt decides
 
-1. **The money trouble that is six days away.** His 1 December is Berlin's Monday 30 November. No packet above is live by then. Either it runs its course as the futures showed, or one existing lever is moved first: Ramesh on part time, or a letter from Munich.
+1. **The money trouble: decided, 24 November** (`DECISIONS.md` 67). He is not to starve, he is to see the problem, and the ways out cost him work. Packet 3 carries it and takes Thursday's night, so that it can be live before his 1 December. What is left for Welt is packet 3's go, on Friday, after its night.
 2. **The scholar and the afterlife** (packet 4): Claude drafts, Welt edits.
 3. **The Sunday question** (packet 5). It touches his prompt once a week.
 4. **The page shows the headline and a link,** never a paper's text.
