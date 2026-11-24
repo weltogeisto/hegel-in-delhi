@@ -11,6 +11,7 @@ from pathlib import Path
 from . import contract, street, voices, works, post
 from .clock import DAYNAMES, WEEKDAYS, at_dt, days_match, fmt, hm, minute_of, sun
 from .memory import names_of
+from .papers import story as papers_story
 from .money import HOME_GIFT, Economy
 
 DATA = Path(__file__).resolve().parent / "data"
@@ -99,7 +100,8 @@ def names(lst):
 
 class World(Economy):
     def __init__(self, feeds=None, culture=False, street_on=False, street_file=None, promises=False, ramesh_days=False, consumed=False, file_act=False,
-                 repairs=False, keep_time=False, talk_scene=False):
+                 repairs=False, keep_time=False, talk_scene=False, papers=False):
+        self.papers = bool(papers)                            # HEGEL_PAPERS: `read` at home gives the next piece of the day's papers (pc/PAPERS.md); off until switched on
         self.talk_scene = bool(talk_scene)                    # HEGEL_TALK_SCENE: a talk at the IIC is a scene (pc/TALK-SCENE.md); off until switched on
         self.keep_time = bool(keep_time)                      # HEGEL_KEEP_TIME: an appointment elsewhere ends what he is doing in time to walk there (Day 53); off until switched on
         self.repairs = bool(repairs)                          # HEGEL_WORLD_REPAIRS: five repairs from the review of Days 47–49 (DECISIONS 57); off until switched on
@@ -760,8 +762,14 @@ class World(Economy):
             if c not in present:
                 present.append(c)
 
-        read = (prev_step or {}).get("read")
-        if read and prev_step.get("end") == fmt(m):                # what he looked up on his phone, as the step ends
+        read, paper = (prev_step or {}).get("read"), None
+        if read and prev_step.get("end") == fmt(m) and read.get("paper"):     # HEGEL_PAPERS: a piece of the papers; its text comes from the state folder, never from the day file
+            piece = self.feeds.piece(date.fromisoformat(read["date"]), read["i"]) if self.feeds else None
+            if piece:
+                paper = piece["summary"]
+                events.append((f"At home you take up {read['source']} and read: {read['title']}.", None))
+                kind("read")
+        elif read and prev_step.get("end") == fmt(m):                # what he looked up on his phone, as the step ends
             events.append((f"On your phone you read: {read['title']}. {read['text']}" if read.get("text") else read["note"], None))
             kind("read")
         said = (prev_step or {}).get("voice")
@@ -785,10 +793,16 @@ class World(Economy):
                 line += f" Today is {hol['name']}, a national holiday." + (" A dry day: no alcohol is sold." if hol.get("dry") else "")
             papers = self.feeds.headlines(d) if self.feeds else []
             where = "Ramesh has left the papers on the verandah." if "ramesh" in present else "The papers lie on the step where the hawker threw them."
+            note = papers_story(state.get("readings"), papers, d) if papers and self.papers else None    # a story he read of that runs on
             if papers:
-                line += f" {where} Headlines: " + "; ".join(papers) + "."
+                shown = [h + (" " + note[1] if note and note[0] == i else "") for i, h in enumerate(papers)]
+                line += f" {where} Headlines: " + "; ".join(shown) + "."
+                if self.papers and self.feeds.pieces(d):
+                    line += " The papers are on the verandah table." if "ramesh" in present else " The papers are on the step, there to be read."
             events.append((line, {"k": "world", "text": "Morning papers: " + " · ".join(f"“{x}”" for x in papers)} if papers else None))
             kind("papers" if papers else "wake")
+            if note:
+                kind("story")
             listing = self.listings(d) if self.culture else None
             if listing:
                 events.append((listing, {"k": "world", "text": listing}))
@@ -1023,9 +1037,13 @@ class World(Economy):
         if self.culture:
             sit["places"] = list(self.places)                 # the decision's place list widens with the venues
         self.show_plan(sit, day)
+        if paper:
+            sit["paper"] = paper                              # what he reads: in his prompt, never in the step's event
         ctx = {"t": t, "present": present, "beat": beat, "public": [e for _, e in events if e], "opened": opened,
                "fresh": [c for c in new if c in known],
                "observations": [f"Weather: {sit['weather']}. Air quality index: {sit['aqi']}."] + [prompt for prompt, _ in events[carried:] if prompt], "observed_at": pid}
+        if paper:
+            ctx["paper"] = {"date": d.isoformat(), "title": read["title"], "source": read["source"], "piece": [read["date"], read["i"]]}
         if card:
             ctx["street"] = {"id": card["id"], "text": card["text"], "empty": nothing}      # recorded in apply, and only if a mind decided
         return sit, ctx
@@ -1268,6 +1286,10 @@ class World(Economy):
         if ctx.get("read") and ctx["read"].get("text"):                                                 # he looked something up on his phone
             r = ctx["read"]
             entry(t0, self.mark({"k": "read", "title": r["title"], "text": r["text"], "source": r["source"], "url": r["url"]}, r["title"], r["text"]))
+        elif ctx.get("read") and ctx["read"].get("paper"):                                               # a piece of the papers: the page gets the headline and the link only
+            r = ctx["read"]
+            entry(t0, self.mark({"k": "read", "title": r["title"], "text": "In the paper, at home.", "source": r["source"], "url": r["url"],
+                                 "date": r["date"], "i": r["i"]}, r["title"]))
 
         t = t0
         if plan["moves"]:
