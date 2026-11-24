@@ -107,6 +107,46 @@ class JudgeTest(unittest.TestCase):
         self.assertTrue(all(k["sheet"] == 1 and "control" not in k for k in ks))
         self.assertEqual({(k["first"], k["second"]) for k in ks}, set(cj.PAIRS))
 
+    def test_a_sheet_is_read_in_parts_and_each_part_is_all_a_reader_gets(self):
+        self.sheet()
+        out = Path(self.td.name) / "parts"
+        got = cj.cmd_parts(self.f, out)
+        self.assertEqual(sum(n for name, n in got.items() if name.startswith("s1-")), len(self.sheets[0]))
+        self.assertTrue(all(n <= cj.PART for n in got.values()))
+        d = out / "s2-01"
+        self.assertEqual(sorted(x.name for x in d.iterdir()), ["PROMPT.md", "check.py", "s2-01.pairs", "s2-01.txt"])
+        text, prompt = (d / "s2-01.txt").read_text(), (d / "PROMPT.md").read_text()
+        first = self.sheets[1][0]
+        self.assertIn(f"pair: {first['pair']}", text)
+        self.assertIn(first["X"], text)
+        self.assertEqual((d / "s2-01.pairs").read_text().split(), [r["pair"] for r in self.sheets[1][:cj.PART]])
+        self.assertIn("`s2-01.txt`", prompt)
+        self.assertIn("python3 check.py s2-01", prompt)
+        for arm in ARMS:                                                    # nothing a reader gets names an arm
+            self.assertNotIn(f'"{arm}"', text + prompt)
+
+    def test_a_changed_sheet_is_not_cut(self):
+        self.sheet()
+        (self.f / "SHEET-1.jsonl").write_text((self.f / "SHEET-1.jsonl").read_text().replace("PIECE-A-", "PIECE-Z-", 1))
+        with self.assertRaises(ValueError):
+            cj.cmd_parts(self.f, Path(self.td.name) / "parts")
+
+    def test_the_parts_join_into_a_sheets_ballots_and_a_wrong_part_stops_it(self):
+        self.sheet()
+        out = Path(self.td.name) / "parts"
+        cj.cmd_parts(self.f, out)
+        answer = lambda pid: {"pair": pid, "q1": "neither", "claim": "", "warrant": "", "invented": "neither", "fidelity": "both", "stance_X": "none", "stance_Y": "none"}
+        for d in out.iterdir():
+            (d / f"{d.name}.out.jsonl").write_text("".join(json.dumps(answer(pid)) + "\n" for pid in (d / f"{d.name}.pairs").read_text().split()))
+        res = cj.cmd_join(out, "astra")
+        self.assertEqual([a["pair"] for a in cj.rows(out / "astra-2.jsonl")], [r["pair"] for r in self.sheets[1]])
+        self.assertEqual(res["astra-1.jsonl"]["rows"], len(self.sheets[0]))
+        self.score(astra=[out / "astra-1.jsonl", out / "astra-2.jsonl"])
+        last = out / "s1-02" / "s1-02.out.jsonl"
+        last.write_text("".join(last.read_text().splitlines(True)[:-1]))                # a part one row short
+        with self.assertRaises(ValueError):
+            cj.cmd_join(out, "astra")
+
     def test_a_ballot_must_be_sealed_and_is_not_changed_after(self):
         self.sheet()
         files = self.ballots("claude", lambda k: "second")

@@ -3,6 +3,8 @@
 before any arm ran): blind pairs, sealed ballots, and the reads declared before the run.
 
     python3 tools/ceiling_judge.py sheet --folder F --keys K          # F/SHEET-1.jsonl, F/SHEET-2.jsonl, F/WELT-24.jsonl, F/PACKET.json; K/KEY.json, K/SALT
+    python3 tools/ceiling_judge.py parts --folder F --out P            # P/s1-01/ ... P/s2-14/: a sheet cut into parts one reader session can hold
+    python3 tools/ceiling_judge.py join  --out P --family NAME         # P/NAME-1.jsonl, P/NAME-2.jsonl: the parts' ballots, checked, in the sheet's order
     python3 tools/ceiling_judge.py seal  --folder F --ballots B...     # F/SEALS.json: the hash of each ballot file, before any key
     python3 tools/ceiling_judge.py score --folder F --keys K --family NAME B... [--family NAME B...] [--welt W]
 
@@ -14,6 +16,10 @@ and the two passages of his own books that the shelf's search puts nearest (the 
 both sheets, one way round in each; the two sheets are read in separate sessions, so that no reader sees a pair twice. Row
 ids and the way round come from a salt that is kept with the key, so that nothing in the repository tells which arm is which.
 A reader must not have the repository: the packet is all a reader gets.
+
+A sheet is too long for one reader session, so it is read in parts of 25 rows, each by a fresh session that is given its
+part's folder and nothing else: the rows as plain text, the instructions (PROMPT.md), and a script that checks the form of
+its answers. Both families read the same parts under the same instructions. P is a folder outside the repository.
 
 A ballot row:
   {"pair", "q1": "X"|"Y"|"both"|"neither",          which piece argues something about this object that is neither in the
@@ -53,6 +59,63 @@ Q1 = ("Which piece argues something about this object that is neither in the tex
 Q2 = ("Which piece keeps the positions he held in 1831? X, Y, both or neither. And for each piece: a reasoned defence of a "
       "position of his, a reasoned revision of one, an unsupported reversal, or no position of his at issue.")
 FOUR, STANCES = ("X", "Y", "both", "neither"), ("defence", "revision", "reversal", "none")
+PART = 25                               # rows a reader session reads
+PROMPT = """You are a reader in a blind reading test. You are given one file of rows and these instructions, and nothing else.
+
+**Read only your input file.** Do not open, list or search any other file or folder, and nothing on the web. Do not look at any git repository. Do not try to find out how a piece was made. The only other things you may touch are your output file and the check script named below.
+
+Input: `{input}` (plain text, about 1,000 lines; read all of it, in parts if needed). It holds rows, each beginning with a line `################ ROW n ################` and then:
+- `pair:` the row's id;
+- `HEADLINE:` a newspaper headline of a morning in Delhi in the autumn of 2026;
+- `THE TEXT (...)`: the title and the introduction of an encyclopedia article on what the headline concerns. The writer of a piece may or may not have had this text before him;
+- `HIS BOOKS:` two passages from G. W. F. Hegel's own books, for your reference;
+- `PIECE X` and `PIECE Y`: two pieces about the headline. Each is written in the first person by a simulated Hegel, who died in 1831 and has woken in Delhi in 2026. The two were written under different conditions. You are not told which.
+
+## Two questions for every row
+
+**Question 1.** Which piece argues something about this object that is neither in the text nor his doctrine restated? X, Y, both (each does, on its own) or neither.
+- "This object" is what the headline and the text are about.
+- "His doctrine" is what Hegel taught up to 1831, as his books have it. A piece that applies a formula of his to the object and concludes nothing more has restated his doctrine.
+- If you name a piece, quote the new claim from it, and say in a sentence what the piece rests it on.
+- Say which piece, if any, rests a claim on a premise it made up: a fact about the object that is not in the text and that the piece gives no ground for.
+
+**Question 2.** Which piece keeps the positions he held in 1831? X, Y, both or neither. And for each piece, one of:
+- `defence`: it defends a position of his, with reasons;
+- `revision`: it revises a position of his, with reasons;
+- `reversal`: it gives a position of his up, without reasons;
+- `none`: no position of his is at issue in it.
+
+A reasoned revision is not a fault. Length is not a merit. "Neither" is a full answer.
+
+Judge each row on its own. Do not carry a judgment from one row to another, and do not go back to change a row after reading a later one.
+
+## What to write
+
+Output: `{output}`: one line for every row, in the file's order, each a JSON object:
+
+`{{"pair": "<the row's id>", "q1": "X" | "Y" | "both" | "neither", "claim": "<the new claim, quoted from the piece; empty if neither>", "warrant": "<what the piece rests it on; empty if neither>", "invented": "X" | "Y" | "both" | "neither", "fidelity": "X" | "Y" | "both" | "neither", "stance_X": "defence" | "revision" | "reversal" | "none", "stance_Y": "defence" | "revision" | "reversal" | "none"}}`
+
+Then run `{check}` and fix the form of any line it names (never your judgment for the sake of the script) until it prints `ALL OK`.
+
+Report back only: the output path and the check's last line. Do not describe the pieces or your judgments."""
+CHECK = '''"""Check one reader's ballots: python3 check.py <part>   (e.g. s1-03)"""
+import json, sys
+from pathlib import Path
+here = Path(__file__).resolve().parent
+part = sys.argv[1]
+want = (here / f"{part}.pairs").read_text().split()
+rows = [json.loads(l) for l in (here / f"{part}.out.jsonl").read_text().splitlines() if l.strip()]
+FOUR, ST = ("X", "Y", "both", "neither"), ("defence", "revision", "reversal", "none")
+errs = []
+if [r.get("pair") for r in rows] != want:
+    errs.append(f"pair ids differ: {len(rows)} lines for {len(want)} rows, or another order")
+for r in rows:
+    if r.get("q1") not in FOUR or r.get("invented") not in FOUR or r.get("fidelity") not in FOUR or r.get("stance_X") not in ST or r.get("stance_Y") not in ST:
+        errs.append(f"{r.get('pair')}: an answer outside the form")
+    elif r["q1"] != "neither" and not (str(r.get("claim") or "").strip() and str(r.get("warrant") or "").strip()):
+        errs.append(f"{r.get('pair')}: a piece is named and the claim or its warrant is empty")
+print("ALL OK" if not errs else "\\n".join(errs))
+'''
 
 
 def rows(path):
@@ -148,6 +211,58 @@ def cmd_sheet(folder, keys, books="load"):
     (keys / "KEY.json").write_bytes(data)
     res["sha256"]["KEY.json"] = hashlib.sha256(data).hexdigest()
     (folder / "PACKET.json").write_text(json.dumps({"questions": [Q1, Q2], **res}, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+    return res
+
+
+def row_text(r, n):
+    """One row as a reader sees it."""
+    books = "\n\n".join(f"From {b['from']}:\n{b['text']}" for b in r["his_books"])
+    return (f"################ ROW {n} ################\npair: {r['pair']}\n\nHEADLINE: {r['headline']}\n\nTHE TEXT ({r['about']}):\n{r['text']}\n\n"
+            f"HIS BOOKS:\n{books}\n\n======== PIECE X ========\n{r['X']}\n\n======== PIECE Y ========\n{r['Y']}\n\n")
+
+
+def sheet_file(folder, n):
+    """A sheet as the packet holds it, checked against the hash that was committed before any reading."""
+    folder = Path(folder)
+    path = next(p for p in (folder / "packet" / f"session-{n}" / "SHEET.jsonl", folder / f"SHEET-{n}.jsonl") if p.exists())
+    want = json.loads((folder / "PACKET.json").read_text(encoding="utf-8"))["sha256"][f"SHEET-{n}.jsonl"]
+    if hashlib.sha256(path.read_bytes()).hexdigest() != want:
+        raise ValueError(f"{path} is not the sheet whose hash PACKET.json holds")
+    return rows(path)
+
+
+def cmd_parts(folder, out, size=PART):
+    """Cut both sheets into parts, a folder a part: all that one reader session gets."""
+    out, res = Path(out), {}
+    for n in (1, 2):
+        sheet = sheet_file(folder, n)
+        for c in range(0, len(sheet), size):
+            name = f"s{n}-{c // size + 1:02d}"
+            d = out / name
+            d.mkdir(parents=True, exist_ok=True)
+            (d / f"{name}.txt").write_text("".join(row_text(r, i + 1) for i, r in enumerate(sheet[c:c + size])), encoding="utf-8")
+            (d / f"{name}.pairs").write_text("\n".join(r["pair"] for r in sheet[c:c + size]) + "\n", encoding="utf-8")
+            (d / "check.py").write_text(CHECK, encoding="utf-8")
+            (d / "PROMPT.md").write_text(PROMPT.format(input=f"{name}.txt", output=f"{name}.out.jsonl", check=f"python3 check.py {name}") + "\n", encoding="utf-8")
+            res[name] = len(sheet[c:c + size])
+    return res
+
+
+def cmd_join(out, family):
+    """The parts' ballots as one file a sheet, in the sheet's order. A part that is missing, out of order or outside the form stops it."""
+    out, res = Path(out), {}
+    for n in (1, 2):
+        got = []
+        for d in sorted(p for p in out.iterdir() if p.is_dir() and p.name.startswith(f"s{n}-")):
+            want = (d / f"{d.name}.pairs").read_text(encoding="utf-8").split()
+            file = d / f"{d.name}.out.jsonl"
+            part = rows(file) if file.exists() else []
+            if [a.get("pair") for a in part] != want:
+                raise ValueError(f"{d.name}: its ballots are missing, or are not its rows in their order")
+            for a in part:
+                check(a, d.name)
+            got += part
+        res[f"{family}-{n}.jsonl"] = {"rows": len(got), "sha256": put(out / f"{family}-{n}.jsonl", got)}
     return res
 
 
@@ -386,6 +501,12 @@ def main(argv=None):
     s = sub.add_parser("sheet")
     s.add_argument("--folder", required=True)
     s.add_argument("--keys", required=True)
+    p = sub.add_parser("parts")
+    p.add_argument("--folder", required=True)
+    p.add_argument("--out", required=True)
+    j = sub.add_parser("join")
+    j.add_argument("--out", required=True)
+    j.add_argument("--family", required=True)
     e = sub.add_parser("seal")
     e.add_argument("--folder", required=True)
     e.add_argument("--ballots", nargs="+", required=True)
@@ -397,6 +518,10 @@ def main(argv=None):
     a = ap.parse_args(argv)
     if a.cmd == "sheet":
         res = cmd_sheet(a.folder, a.keys)
+    elif a.cmd == "parts":
+        res = cmd_parts(a.folder, a.out)
+    elif a.cmd == "join":
+        res = cmd_join(a.out, a.family)
     elif a.cmd == "seal":
         res = cmd_seal(a.folder, a.ballots)
     else:

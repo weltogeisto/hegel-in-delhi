@@ -99,8 +99,17 @@ Declared in `pc/TRAINING-4-INSTRUMENT.md`. **24 November: the first merge kept 5
 ### W14 · PC seat · Training 4: the cards for the training letters · OPEN for the night of 24 November (`DECISIONS.md` 65)
 Declared in `pc/TRAINING-4-CARDS.md`. Inference only, after W13 is complete: a card and its symmetry check for each of the 644 passages (596 training, 48 held out), then `voice4_train.py build`. Push to `codex/training4-cards-20261124` and post DONE on PR #1 with the manifest's counts and hashes. Nothing trains from it before the cloud has read the cards.
 
-### W17 · PC seat · the ceiling test · OPEN for the night of 24 November, ahead of everything else (Welt, 24 November: "ceiling test tonight")
+### W17 · PC seat · the ceiling test · DONE, 24 November: 220 of 220 calls (`codex/ceiling-20261124`); the reading is W18
 Declared in `pc/CEILING-TEST.md` before any run. By day, no GPU: `tools/ceiling.py texts` and `requests` in `pc/exports/ceiling-20261124`, pushed to `codex/ceiling-20261124` so that the cloud can compare the hashes. From his sleep: the three requests files, one a slot, with `tools/run_requests.py --night`. 240 calls. Push the replies and post DONE on PR #1 without reading them. Then W13's rest, then W14.
+
+### W18 · Astra, started on Welt's word; the PC seat prepares · the ceiling test's second reading · OPEN from 25 November
+Declared in `pc/CEILING-TEST.md` ("The reading, as it is done"). No GPU. The Claude family has read and is sealed; the key stays shut until Astra's ballots and Welt's rows are sealed too.
+1. On main at the commit that holds `tools/ceiling_judge.py parts`: `python3 tools/ceiling_judge.py parts --folder pc/exports/ceiling-20261124 --out ~/hegel-eval/ceiling-astra`. It makes 28 folders outside the repository, `s1-01` to `s2-14`.
+2. **One fresh Astra session for each folder**, started in that folder, with the folder's `PROMPT.md` as its whole message. The session must not be able to read the repository, another part's folder or the web. The same model and settings for all 28, written down. Several at a time is fine.
+3. A part is run again only if its session failed or its check could not reach `ALL OK`, never for what it answered. Say which.
+4. `python3 tools/ceiling_judge.py join --out ~/hegel-eval/ceiling-astra --family astra`. It stops if a part is missing or out of form.
+5. Push `astra-1.jsonl` and `astra-2.jsonl` into `pc/exports/ceiling-20261124/ballots/` on `codex/ceiling-astra-20261125`, with `ASTRA.md`: the model and settings, how a session was kept to its folder, and any part run twice. Post DONE on PR #1.
+- **Whoever starts the sessions reads neither the parts nor the ballots.** No `seal`, no `score`: the cloud seals and scores.
 
 ### W15 · PC seat · the fast lane, night 3: the paid work and the money, off and on · OPEN for the night of Wednesday 25 November (`DECISIONS.md` 67, 68, 70)
 Declared in `pc/FAST-LANE-NIGHT3.md` before any run. From Day 57's saved morning, `simulate --days 14`: seeds 1831 and 2718, each with `HEGEL_EXITS` off and on, the two arms of a seed side by side; then seed 1831 once more with `HEGEL_EXITS` and `HEGEL_BORROWED_LOOKUP`; seed 4242 if the night allows. The engine is main at `b204baf0` or later in the rehearsal's own checkout; nothing is merged into shadow. Push to `codex/fast-lane-night3-20261125` and post DONE on PR #1. The read is Claude's, by the rule declared there.
