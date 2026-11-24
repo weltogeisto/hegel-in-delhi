@@ -38,15 +38,21 @@ Tests: `tests/test_exits.py`, each item on and off.
 - **Condition:** the day's first moment (he wakes), switch on, and the costs that fall due in the next fourteen days (not yet owed, each time they recur, amounts as they stand with `if_flag`) add up to more than his cash (`Economy.due_soon`, `short_by`). One ledger line, figures only, no advice; the moment's `opened` gains `dues`. It is said at most every third day (`state["dues_said"]`), so that a long shortage does not make every morning alike.
 - **Why a fortnight:** with a week's view the line would first come after the wage was paid, when nothing could be done about it.
 
-## 9. The Review asks again, with a question (offer `exits_essay_again`)
+## 9. The Review asks again, and its fee is for the essay (offers `exits_essay_again`, `exits_column`)
 - **The fault it repairs:** on Day 27 the Yamuna Review's essay (`essay_fee`) took a no, while he said aloud "I am open to the negotiation". That offer has no `again_days`, so it never returned, and the column behind it (`column`, ₹4,000 a fortnight) could never open.
 - **Condition:** `essay_fee` was made and the essay was never paid (`flags_not: essay_paid`), and a manuscript of his has reached 3,000 words. At home through Ramesh (a letter), at the IIC through the officer, or at Khan Market through Nidhi. Again after 14 days if refused.
-- **Records:** on yes, the old fee on the old terms (₹6,000 in cash at his next sitting of 300 words, flag `essay_paid`), and the editor's question stays on his mind until the piece is written (`ask` on the receipt, shown with the engagements). When it is paid, the piece is entered in `state["out"]`, and the old `column` offer opens by its own rule.
-- **The question is the first of a list that is Welt's to write** (`WORLD-3.md`, packet 5).
+- **She names no question.** A first draft had the editor put a question to him about his own sentence on India. `DECISIONS.md` 69: no invented person argues at him. She asks for an essay on a subject of his own choosing.
+- **The fee is bound to the piece** (`DECISIONS.md` 70). Until now any sitting of 300 words collected a magazine's fee, whatever it was. A pay that names its `piece` is earned only by a sitting of that kind (an essay) on a manuscript begun on or after the day he agreed (`Economy.on_writing`). Notes on his day, a letter, or a further sitting of an older manuscript do not collect it. The old offers (`essay_fee`, `column`) keep their old rule and their old words.
+- **Records:** on yes, ₹6,000 in cash when the essay is written (flag `essay_paid`), and one line stays on his mind until then (`ask` on the receipt). When it is paid, the piece is entered in `state["out"]` with its title.
+- **The column.** With the switch on, the old `column` offer is replaced by `exits_column` (`unless_switch` on the old one): the same fortnightly ₹4,000, in words that say it is for an essay, bound in the same way, and also offered by a letter at home.
 
 ## 10. A gift that asks for the next piece (beat `exits_gift`)
 - **Condition:** at home with Ramesh, 09:30 to 20:30; a piece of his went out at least two days ago and has not been thanked (`when.piece_out`, `Economy.piece_due`), and no gift came in the last ten days. A piece that went out is a talk given (`state["out"]`, written when a beat with `talk` fires) or a piece a magazine paid for (written in `on_writing`). A talk given before the switch counts once, without a date.
 - **Records:** ₹2,000 in cash, an income entry "The envelope holds ₹2,000.", and `state["gifts"]` gains `{date, piece, of, amount}`. No piece is thanked twice, so there is no second gift without a new piece. The words name the piece: the engine fills `{piece}` from the beat's own table.
+
+## 11. Nidhi keeps hours at which he is out
+- **The fault it repairs:** Nidhi Rao, a doctoral student writing on Hegel, with views on what he wrote about India, has been in the cast from the start. He met her on Day 1 only. She was at Khan Market on two afternoons a week with an even chance, in Lodhi Gardens for an hour on two mornings, and at the IIC on two afternoons. He goes to Khan Market on about one day in three, between one and eight in the evening.
+- **Change, data only:** three more rows of hours for her, which exist only with the switch (`"switch": "exits"` on a row of `where`): Khan Market daily 13:00 to 19:00, the IIC on weekdays 12:00 to 18:30, Lodhi Gardens daily 08:00 to 10:30, each with a chance of about one in two. Her old rows stand. Nothing is said to him about it and nothing is staged: she is simply there more often when he is.
 
 ## Words for Welt's reading
 
@@ -88,11 +94,14 @@ Offers (prompt, then what is shown on the page, then the question put to him, th
    - At dinner: "Ramesh serves the one plain meal of the day before he goes home: dal and rice."
 8. Dues: "Due within the fortnight: ₹11,600 in all. Ramesh's wage ₹8,000 on Tuesday 1 December; groceries ₹1,500 on Sunday 29 November and Sunday 6 December; the dhobi ₹300 on Saturday 28 November and Saturday 5 December. You hold ₹2,400." (the costs as the purse names them: "the dhobi", "groceries", "Ramesh's wage", "Ramesh's wage, three days a week", "electricity", "mobile data").
 9. The Review asks again.
-   - At home: "Ramesh brings a letter from the editor of the Yamuna Review. She asks again for an essay of yours: ₹6,000 in cash, on your next sitting of at least three hundred words. This time she names her question: you taught that India has no history of its own making, and you have now lived in its capital. Does the sentence stand?" (At the IIC it begins "The programme officer has a message from the editor of the Yamuna Review."; at Khan Market, "Nidhi has a message from her friend, the editor of the Yamuna Review.")
-   - Page: "The editor of the Yamuna Review asks again for an essay, ₹6,000 in cash, and names her question: does his sentence stand, that India has no history of its own making?"
-   - "Did you agree to write the essay for the Yamuna Review, on the editor's question, for ₹6,000 in cash at your next sitting of three hundred words or more?"
+   - At home: "Ramesh brings a letter from the editor of the Yamuna Review. She asks again for an essay of yours, on a subject of your own choosing: ₹6,000 in cash when it is written, three hundred words or more." (At the IIC it begins "The programme officer has a message from the editor of the Yamuna Review."; at Khan Market, "Nidhi has a message from her friend, the editor of the Yamuna Review.")
+   - Page: "The editor of the Yamuna Review asks again for an essay, ₹6,000 in cash."
+   - "Did you agree to write an essay for the Yamuna Review, for ₹6,000 in cash when it is written?"
    - yes: "He agrees to write the essay for the Yamuna Review." no: "He declines the essay. The editor says she will ask again."
-   - On his mind until it is written: "The Yamuna Review waits for your essay: ₹6,000 in cash at your next sitting of three hundred words or more. The editor's question: you taught that India has no history of its own making, and you have now lived in its capital. Does the sentence stand?"
+   - On his mind until it is written: "The Yamuna Review waits for your essay: ₹6,000 in cash when it is written, an essay of three hundred words or more, begun after you agreed."
+   - The column, at home: "Ramesh brings a letter from the editor of the Yamuna Review. She liked your essay and asks for a column: an essay every fortnight, three hundred words or more, ₹4,000 in cash for each." (At the IIC: "The programme officer says the editor of the Yamuna Review liked your essay and asks for a column: …"; at Khan Market: "Nidhi says the editor …".)
+   - "Did you agree to write a column for the Yamuna Review, an essay every fortnight at ₹4,000 in cash?"
+   - When a column is due: "The Yamuna Review asks for your next column: ₹4,000 in cash for an essay of three hundred words or more."
 10. The gift.
    - "Ramesh brings an envelope that was left at the gate, with no name on it. Inside are ₹2,000 and a card in a careful hand: 'For your talk at the Centre. I have thought of it every day since. This city has need of what you think, and of what you think next. What comes next?'"
    - Page: "An envelope left at the gate, with no name: ₹2,000, and a card that thanks him for your talk at the Centre and asks what comes next."
@@ -102,4 +111,4 @@ Offers (prompt, then what is shown on the page, then the question put to him, th
 
 ## Not done, and why
 
-Credit with Ramesh is not built. The file's hearing (part 2) is drafted for Welt's pen in `pc/FILE-HEARING-SHEET.md` and not built. The questions of the column's later pieces wait for Welt's list.
+Credit with Ramesh is not built. The file's hearing (part 2) is drafted for Welt's pen in `pc/FILE-HEARING-SHEET.md` and not built. No question is put to him by anyone (`DECISIONS.md` 69).
