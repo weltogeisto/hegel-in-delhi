@@ -12,7 +12,7 @@ from . import contract, street, voices, works, post
 from .clock import DAYNAMES, WEEKDAYS, at_dt, days_match, fmt, hm, minute_of, sun
 from .memory import names_of
 from .papers import story as papers_story
-from .money import HOME_GIFT, Economy
+from .money import DUES_EVERY, HOME_GIFT, Economy
 
 DATA = Path(__file__).resolve().parent / "data"
 SPRITES = {"frock": "frock", "shirt": "shirt", "kurta": "kurta", "kurta2": "kurta", "bandhgala": "bandhgala", "nightshirt": "nightshirt"}
@@ -37,6 +37,8 @@ WALK_M, HOT_C = 75, 33                  # metres a minute; from this temperature
 NUMBERS = "zero one two three four five six seven eight nine ten eleven twelve".split()
 PLAN_TIME = re.compile(r"(\d{1,2}):(\d{2})$")
 RECENT_CHARS, PURCHASE_CHARS = 480, 240  # bounded current recall; full records stay on disk
+SLATE_MAX = 60         # HEGEL_EXITS: Sunil lets chai or a samosa of this price or less stand on the slate, one debt at a time
+SLATE_WORDS = ("chai", "tea", "samosa")
 TALK_GRACE = 30        # HEGEL_TALK_SCENE: minutes after a talk ends in which the programme officer still answers him
 LEAVE_SPARE = 10        # HEGEL_KEEP_TIME: minutes to spare when he is woken to walk to an appointment elsewhere
 TIME_AHEAD = 180        # HEGEL_KEEP_TIME: within these minutes of an appointment, his mind says how long is left
@@ -70,6 +72,10 @@ def headings(name):
     return [(h, re.compile(r"\b(" + "|".join(t) + r")s?\b", re.I)) for h, t in groups if h and t]
 
 
+def dinner_time(m):
+    return MEAL_WINDOWS["dinner"][0] <= m < MEAL_WINDOWS["dinner"][1]
+
+
 def meal_at(m):
     """The meal whose window minute m of the day falls in."""
     return next((k for k, (a, b) in MEAL_WINDOWS.items() if a <= m < b), None)
@@ -100,12 +106,13 @@ def names(lst):
 
 class World(Economy):
     def __init__(self, feeds=None, culture=False, street_on=False, street_file=None, promises=False, ramesh_days=False, consumed=False, file_act=False,
-                 repairs=False, keep_time=False, talk_scene=False, papers=False):
+                 repairs=False, keep_time=False, talk_scene=False, papers=False, exits=False):
         self.papers = bool(papers)                            # HEGEL_PAPERS: `read` at home gives the next piece of the day's papers (pc/PAPERS.md); off until switched on
         self.talk_scene = bool(talk_scene)                    # HEGEL_TALK_SCENE: a talk at the IIC is a scene (pc/TALK-SCENE.md); off until switched on
         self.keep_time = bool(keep_time)                      # HEGEL_KEEP_TIME: an appointment elsewhere ends what he is doing in time to walk there (Day 53); off until switched on
         self.repairs = bool(repairs)                          # HEGEL_WORLD_REPAIRS: five repairs from the review of Days 47–49 (DECISIONS 57); off until switched on
         self.consumed = bool(consumed)                        # HEGEL_CONSUMED: what he ate is an entry of its own (`consumed`); off until switched on (DECISIONS 48)
+        self.exits = bool(exits)                              # HEGEL_EXITS: ways out of the money trouble (pc/EXITS.md); off until switched on
         p = load("places.json")
         self.places, self.walks = p["places"], p["walk"]
         self.culture = bool(culture)                          # HEGEL_CULTURE: museums, concerts and plays (data/culture.json)
@@ -116,9 +123,13 @@ class World(Economy):
         self.deck = street.load_deck(street_file) if self.street else []
         self.promises = bool(promises)                        # HEGEL_PROMISES: a promise is a record (data/promises.json); nobody has a menu while it is off
         self.menu = load("promises.json")["people"] if self.promises else {}
-        self.cast = {k: c for k, c in load("cast.json")["cast"].items() if not c.get("switch") or (c["switch"] == "talk_scene" and self.talk_scene)}   # a person who names a switch exists only while it is on
-        switched = ({"ramesh_days"} if ramesh_days else set()) | ({"keep_time"} if self.keep_time else set()) | ({"talk_scene"} if self.talk_scene else set())   # HEGEL_RAMESH_DAYS: an offer that names a switch exists only while it is on
-        offers = [o for o in load("offers.json")["offers"] if not o.get("switch") or o["switch"] in switched]
+        switched = ({"ramesh_days"} if ramesh_days else set()) | ({"keep_time"} if self.keep_time else set()) | ({"talk_scene"} if self.talk_scene else set()) \
+            | ({"exits"} if self.exits else set())            # HEGEL_RAMESH_DAYS: an offer that names a switch exists only while it is on
+        self.cast = {k: c for k, c in load("cast.json")["cast"].items() if not c.get("switch") or c["switch"] in {"talk_scene", "exits"} & switched}   # a person who names a switch exists only while it is on
+        every = load("offers.json")["offers"]
+        by_id = {o["id"]: o for o in every}
+        offers = [{**by_id[o["like"]], **{k: v for k, v in o.items() if k != "like"}} if o.get("like") else o
+                  for o in every if not o.get("switch") or o["switch"] in switched]       # 'like': the offer of that id, with this one's own words and conditions
         self.file_act = bool(file_act)                         # HEGEL_FILE_ACT: the file's next act, four beats (data/plot_file_act.json); off until switched on
         self.beats = load("plot.json")["beats"] + (load("plot_file_act.json")["beats"] if self.file_act else []) + offers
         self.offer_ids = {o["id"] for o in offers}             # which beats come from offers.json: `opened` names them offer:<id>
@@ -261,15 +272,18 @@ class World(Economy):
         return g["item"].split(",")[0].lower() if g else state["wearing"]
 
     # ── the body ────────────────────────────────────────────────────
+    def dinner_time(self, t):
+        return dinner_time(minute_of(t))
+
     def served(self, t, state):
         """The meal Ramesh has laid out at home at time t, if any."""
         name = meal_at(minute_of(t))
-        return name if name and "ramesh" in self.present_ids("home", t, state) and not self.kitchen(state) else None
+        return name if name and "ramesh" in self.present_ids("home", t, state) and not self.kitchen(state, t) else None
 
     def plate(self, t, state):
         """Between the set meals, what Ramesh puts together if he is asked: he is at home, the kitchen is stocked,
         and the last meal was at least three hours ago. None otherwise."""
-        if self.served(t, state) or self.kitchen(state) or "ramesh" not in self.present_ids("home", t, state):
+        if self.served(t, state) or self.kitchen(state, t) or "ramesh" not in self.present_ids("home", t, state):
             return None
         laid = state.get("today", {}).get("laid")
         if laid:
@@ -284,8 +298,8 @@ class World(Economy):
 
     def meal_status(self, t, state):
         """Available household service, independent of an NPC's claim about a tray."""
-        if self.kitchen(state):
-            return self.kitchen(state)
+        if self.kitchen(state, t):
+            return self.kitchen(state, t)
         if "ramesh" not in self.present_ids("home", t, state):
             return "No household meal is available while Ramesh is absent."
         if name := self.served(t, state):
@@ -319,6 +333,42 @@ class World(Economy):
             state["snacks"], state["fed_at"] = state.get("snacks", 0) + 1, min(t, fed).isoformat(timespec="minutes")
         else:
             state["snacks"] = state.get("snacks", 0) + 1
+
+    def dues_line(self, state, t):
+        """HEGEL_EXITS: the ledger's line at waking, figures and no advice, when what falls due within the fortnight is more than
+        the cash he holds. Said at most every DUES_EVERY days (the same morning may say it again). None otherwise."""
+        d = t.date()
+        if not self.short_by(state, t):
+            return None
+        last = state.get("dues_said")
+        if last and last != d.isoformat() and (d - date.fromisoformat(last)).days < DUES_EVERY:
+            return None
+        state["dues_said"] = d.isoformat()
+        by = {}
+        for x, c in self.due_soon(state, t):
+            by.setdefault(c["id"], (c, []))[1].append(x)
+        parts = [f"{c['short']} ₹{c['amount']:,} on " + " and ".join(f"{WEEKDAYS[x.weekday()]} {x.day} {x.strftime('%B')}" for x in xs)
+                 for c, xs in by.values()]
+        total = sum(c["amount"] * len(xs) for c, xs in by.values())
+        return f"Due within the fortnight: ₹{total:,} in all. " + "; ".join(parts) + f". You hold ₹{state['imprest']:,}."
+
+    def keep_kitchen(self, state, t):
+        """HEGEL_EXITS: the record of the days on which the kitchen stood on the plain meal, from the day the record began."""
+        book = state.setdefault("plain", {"from": t.date().isoformat(), "days": []})
+        if self.shut(state) and t.date().isoformat() not in book["days"]:
+            book["days"].append(t.date().isoformat())
+            del book["days"][:-7]
+
+    def slate_buy(self, buys, state, here, where, spent):
+        """HEGEL_EXITS: at Khan Market Sunil lets one cup of chai or one samosa (at most SLATE_MAX) stand on the slate when the cash
+        falls short by no more than its price, and only while no other such debt stands. Returns the buy, marked, or None."""
+        if where != "khan" or "sunil" not in here or any(o.get("slate") for o in state["owed"]):
+            return None
+        for b in reversed(buys):
+            if b["price"] <= SLATE_MAX and any(w in b["item"].lower() for w in SLATE_WORDS) and spent - b["price"] <= state["imprest"]:
+                b["slate"] = True
+                return b
+        return None
 
     def ate_here(self, state, pid, t):
         """He bought food at pid in the last hour and a half: a step of eating it there is the meal he paid for."""
@@ -628,6 +678,12 @@ class World(Economy):
             return None
         if pid is not None and any(c not in self.present_ids(pid, t, state) for c in variant.get("needs", [])):
             return None
+        if variant.get("gift"):                               # HEGEL_EXITS: the envelope names the piece it thanks him for
+            piece = self.piece_due(state, t, b["when"]["piece_out"])
+            name = variant["gift"]["pieces"].get((piece or {}).get("id"))
+            if not name:
+                return None
+            variant.update(prompt=variant["prompt"].format(piece=name), public=variant["public"].format(piece=name), thanked=piece)
         return variant
 
     def due_beat(self, t, state, pid):
@@ -672,6 +728,12 @@ class World(Economy):
             self.attend(beat, t, state)
         if self.talk_scene and beat.get("talk"):
             self.begin_talk(beat, t, state)
+        if self.exits and beat.get("talk"):
+            state.setdefault("fired_on", {})[beat["id"]] = t.date().isoformat()      # HEGEL_EXITS: the day a talk was given, for a course offered on a later visit
+            state.setdefault("out", []).append({"id": beat["id"], "date": t.date().isoformat()})      # and a piece of his that went out
+        if self.exits and beat.get("gift"):
+            out += self.give(state, beat, t)
+            state["beats"].remove(beat["id"])                 # an envelope may come again, for another piece
         return out + self.effects(beat, t, state)
 
     # ── a talk (HEGEL_TALK_SCENE) ───────────────────────────────────
@@ -726,15 +788,16 @@ class World(Economy):
     def settle_choice(self, beat, yes, state, t):
         branch = beat["choice"]["yes" if yes else "no"]
         state["flags"].update(branch.get("flags", {}))
-        if branch.get("file"):
-            state["file"] = branch["file"]
+        line = next((x["file"] for x in branch.get("file_if", []) if all(state["flags"].get(k) == v for k, v in x["flags"].items())), branch.get("file"))
+        if line:
+            state["file"] = line                                  # 'file_if': the first entry whose flags all hold gives the line, else 'file'
         if branch.get("appointment"):
             self.appoint(state, branch["appointment"], t)
         for bid in branch.get("reopens", []):
             if bid in state["beats"]:
                 state["beats"].remove(bid)                       # the opposite offer may be made again (Ramesh's days)
-        if not yes and beat.get("again_days") and beat["id"] in state["beats"]:
-            state["beats"].remove(beat["id"])                    # an offer he refused may be made again
+        if (not yes or beat.get("repeat")) and beat.get("again_days") and beat["id"] in state["beats"]:
+            state["beats"].remove(beat["id"])                    # an offer he refused may be made again (so may one marked 'repeat', taken or not)
             self.ledger(state)["refused"][beat["id"]] = t.date().isoformat()
         out = [{"k": beat.get("kind", "world"), "text": branch["public"]}] if branch.get("public") else []
         return out + self.effects(branch, t, state)
@@ -757,6 +820,8 @@ class World(Economy):
                 opened.append(k)
         self.ledger(state)
         self.track(state, d, pid, present)
+        if self.exits:
+            self.keep_kitchen(state, t)
         beat = self.due_beat(t, state, pid)
         for c in (beat or {}).get("brings", []):
             if c not in present:
@@ -803,6 +868,10 @@ class World(Economy):
             kind("papers" if papers else "wake")
             if note:
                 kind("story")
+            said = self.dues_line(state, t) if self.exits else None      # HEGEL_EXITS: what falls due within the fortnight, when the purse cannot carry it
+            if said:
+                events.append((said, None))
+                kind("dues")
             listing = self.listings(d) if self.culture else None
             if listing:
                 events.append((listing, {"k": "world", "text": listing}))
@@ -851,7 +920,7 @@ class World(Economy):
                 kind("closes")
 
         if pid == "home" and not state.get("asleep"):
-            meal, why = meal_at(m), self.kitchen(state)
+            meal, why = meal_at(m), self.kitchen(state, t)
             if why and meal and "no_meals" not in today:
                 today["no_meals"] = True
                 events.append((why, None))                         # said once a day: the kitchen is shut until it is paid
@@ -873,7 +942,10 @@ class World(Economy):
             elif not why and meal == "dinner" and "dinner" not in today and "ramesh" in present:
                 today["dinner"] = True
                 menu = random.Random(f"dinner|{d}").choice(DINNER)
-                events.append((f"Ramesh serves dinner before he goes home: {menu}.", None))
+                if self.shut(state):                               # HEGEL_EXITS: the plain meal
+                    events.append(("Ramesh serves the one plain meal of the day before he goes home: dal and rice.", None))
+                else:
+                    events.append((f"Ramesh serves dinner before he goes home: {menu}.", None))
                 kind("meal")
             elif not why and TEA_WINDOW[0] <= m < TEA_WINDOW[1] and "tea" not in today and "ramesh" in present:
                 today["tea"] = True                                # tea is brought, not asked for: it holds hunger off two hours
@@ -963,6 +1035,8 @@ class World(Economy):
                     line = line[:-1] + f", in {hm(a['t']) - m} minutes."
             on_mind.append(line)
         on_mind += self.engagement_lines(t, state)
+        if self.exits:
+            on_mind += [r["ask"] for r in state.get("receipts", []) if r.get("write") and r.get("ask")]      # HEGEL_EXITS: a piece he agreed to write, and its question
         on_mind += [f"{self.cast[p['by']]['name']} has promised {self.menu[p['by']][p['what']]['says']} by {p['due'][11:16]}."
                     for p in state.get("promises", []) if p["status"] == "open"]          # HEGEL_PROMISES: his side of the record
         if state.get("post"):
@@ -1168,6 +1242,11 @@ class World(Economy):
             errors.append(f"there is nothing to eat {pl.get('at', 'here')} unless you buy it: " + ("; ".join(foods) if foods else "no food is sold here") +
                           ". Buy food in this step, or choose another activity.")
         spent = sum(b["price"] for b in buys)
+        if self.exits and spent > state["imprest"]:
+            slated = self.slate_buy(buys, state, here, where, spent)
+            if slated:
+                spent -= slated["price"]
+                warnings.append(f"Sunil lets the {slated['item'].lower()} stand on the slate: ₹{slated['price']} owed to him")
         if spent > state["imprest"]:
             errors.append(f"that costs ₹{spent:,} and you have only ₹{state['imprest']:,} in cash")
         if pl.get("entry") and action != "walk" and where not in state.get("today", {}).get("tickets", []):
@@ -1373,6 +1452,16 @@ class World(Economy):
             cid=identities[i]
             if cid in state.setdefault('settled_charges',[]):
                 logging.getLogger('world').warning('duplicate charge suppressed: %s',cid)
+                continue
+            if b.get("slate"):                                       # HEGEL_EXITS: taken now, owed to Sunil, recorded as other debts are
+                o = {"to": "Sunil", "amount": b["price"], "why": f"{b['item'].lower()} on the slate", "since": d.isoformat(), "slate": True,
+                     "at": "khan", "with": "sunil", "item": f"{b['item']}, on the slate", "charge_id": cid}
+                state["owed"].append(o)
+                entry(t, {"k": "world", "text": f"Sunil lets the {b['item'].lower()} stand on the slate: you owe him ₹{b['price']:,}.",
+                          "owe": {k: o[k] for k in ("to", "amount", "why", "since", "charge_id")}})
+                if b.get("food"):
+                    self.feed(state, t, b["food"])
+                    consumed(t, {"item": b["item"], "food": b["food"], "source": "catalogue food execution", "charge_id": cid})
                 continue
             entry(t, dict({"k": "bag", "item": b["item"], "price": b["price"], "charge_id":cid}, **{k: b[k] for k in ("office", "note") if b.get(k)}))
             state.setdefault('settled_charges',[]).append(cid)

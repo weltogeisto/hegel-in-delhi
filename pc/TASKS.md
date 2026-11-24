@@ -94,10 +94,16 @@ Built, off: `HEGEL_RECORD_CALLS` and `tools/replay_morning.py`. On Welt's word, 
 Declared in `pc/FAST-LANE-NIGHT2.md` before any run. Once Day 54 is complete: `simulate --days 60` from Day 55's saved morning with every live switch, seeds 1831 and 2718 side by side, one slot each. No new day after 07:30; both are stopped at 07:45, and the days complete stand. Night 1's GPU rule. Push to `codex/fast-lane-night2-20261123` and post DONE on PR #1. The read is Claude's.
 
 ### W13 · PC seat · Training 4's instrument run · OPEN, Welt's go of 23 November (`DECISIONS.md` 65)
-Declared in `pc/TRAINING-4-INSTRUMENT.md`. Inference only, plain Qwen, no adapter: about 1,030 calls, by day on 24 November in the spare slot with the latency guard, and on into the night if needed. Push the folder to `codex/voice4-instrument-20261124` and post DONE on PR #1. Make no sheet and no key; the cloud reads.
+Declared in `pc/TRAINING-4-INSTRUMENT.md`. **24 November: the first merge kept 5 of 43 cards; the rule is changed on main (#154), and a re-merge with no new calls keeps all 43.** Inference only, plain Qwen, no adapter: about 1,030 calls, by day on 24 November in the spare slot with the latency guard, and on into the night if needed. Push the folder to `codex/voice4-instrument-20261124` and post DONE on PR #1. Make no sheet and no key; the cloud reads.
 
 ### W14 · PC seat · Training 4: the cards for the training letters · OPEN for the night of 24 November (`DECISIONS.md` 65)
 Declared in `pc/TRAINING-4-CARDS.md`. Inference only, after W13 is complete: a card and its symmetry check for each of the 644 passages (596 training, 48 held out), then `voice4_train.py build`. Push to `codex/training4-cards-20261124` and post DONE on PR #1 with the manifest's counts and hashes. Nothing trains from it before the cloud has read the cards.
+
+### W15 · PC seat · the fast lane, night 3: the money packet, off and on · OPEN for the night of Thursday 26 November (`DECISIONS.md` 67, 68)
+Declared in `pc/FAST-LANE-NIGHT3.md` before any run. From Day 58's saved morning, `simulate --days 14`: seeds 1831 and 2718, each with `HEGEL_EXITS` off and on, the two arms of a seed side by side; seed 4242 if the night allows. The engine is main in the rehearsal's own checkout; nothing is merged into shadow. Push to `codex/fast-lane-night3-20261126` and post DONE on PR #1. The read is Claude's, by the rule declared there. It moves to Wednesday if the training run has no word from Welt.
+
+### W16 · PC seat · the day's papers, collected each evening · OPEN from 24 November
+`python3 tools/collect_papers.py --state ~/hegel-eval/papers-archive`, once an evening after his day is complete. It writes one file a day into a folder of its own and changes nothing of his. The folder stays on the PC and is not pushed. It is the archive for the papers' own night (`pc/PAPERS.md`, `HEGEL_PAPERS_ARCHIVE`).
 
 ## The order, day by day (Claude in the cloud, 18 November)
 
