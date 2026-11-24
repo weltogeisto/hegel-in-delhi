@@ -414,6 +414,13 @@
    "mode": "stroll",
    "at": "lodhi",
    "now": "Shopping in Lodhi Gardens."
+  },
+  {
+   "from": "17:46",
+   "to": "18:16",
+   "mode": "stand",
+   "at": "lodhi",
+   "now": "Resting in Lodhi Gardens."
   }
  ],
  "entries": [
@@ -1220,6 +1227,37 @@
    "price": 20,
    "charge_id": "charge:11",
    "t": "17:36",
+   "place": "lodhi"
+  },
+  {
+   "k": "diary",
+   "text": "She cuts through my hesitation with the practicality of a woman who has seen enough men to know when they are posturing. I paid for the corn and water already at 17:36, so her instruction is moot, but I will not correct her out of politeness; I will simply accept the reality of the moment. The haze is lifting slightly as the sun drops, and the air is cooler, though still thick with particulate matter. I have walked 12 kilometers today; my legs ache, and the body demands rest more than it demands further contemplation of the file or the state.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Alexandrian Philosophy, Plotinus"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Alexandrian Philosophy, Plotinus"
+    }
+   ],
+   "t": "17:46",
+   "place": "lodhi"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Mrs. Kapoor. I have already settled the account with the vendor, but I appreciate the directness. It is a relief to be told what to do rather than left to decide.",
+   "to": "Mrs. Kapoor",
+   "t": "17:46",
+   "place": "lodhi"
+  },
+  {
+   "k": "said",
+   "by": "Mrs. Kapoor",
+   "to": "Hegel",
+   "text": "Relief? Pah. I just didn't have the patience for your riddles. Here, take it before the corn gets cold.",
+   "t": "17:46",
    "place": "lodhi"
   }
  ],
@@ -2759,6 +2797,71 @@
      "text": "Wir haben den Despotismus im Orient in glänzender Ausbildung als eine dem Morgenland entsprechende Gestaltung gesehen; nicht minder ist die demokratische Form in Griechenland die welthistorische Bestimmung."
     }
    ]
+  },
+  {
+   "t": "17:46",
+   "end": "18:16",
+   "event": "Mrs. Kapoor says: “You talk in circles, just like you do in your books. Go on, buy your corn and water; it is forty rupees for the corn and twenty for the bottle, and pay the man yourself.”",
+   "present": [
+    "Mrs. Kapoor, a retired schoolteacher"
+   ],
+   "decision": {
+    "thought": "She cuts through my hesitation with the practicality of a woman who has seen enough men to know when they are posturing. I paid for the corn and water already at 17:36, so her instruction is moot, but I will not correct her out of politeness; I will simply accept the reality of the moment. The haze is lifting slightly as the sun drops, and the air is cooler, though still thick with particulate matter. I have walked 12 kilometers today; my legs ache, and the body demands rest more than it demands further contemplation of the file or the state.",
+    "action": "rest",
+    "place": "lodhi",
+    "minutes": 30,
+    "says": "You are right, Mrs. Kapoor. I have already settled the account with the vendor, but I appreciate the directness. It is a relief to be told what to do rather than left to decide.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, clear, hazy. Air quality index: 187."
+   ],
+   "observed_at": "lodhi",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mrs. Kapoor",
+    "says": "Relief? Pah. I just didn't have the patience for your riddles. Here, take it before the corn gets cold.",
+    "does": "She gestures toward the corn in his hand and turns back to the garden path."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 14.9,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Alexandrian Philosophy, Plotinus",
+     "id": "haldane-2:1018"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Alexandrian Philosophy, Plotinus",
+     "id": "haldane-2:1013"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Alexandrian Philosophy, Plotinus",
+     "text": "Porphyrius says in his Life of Plotinus (pp. 3-5, 9, 17-19) that they are unequal. He states that twenty-one of these books were already in written form before he came to Plotinus, which was when the latter was fifty-nine years of age; and in that year and the five following, which Porphyrius spent with Plotinus as his disciple, other four-and-twenty were added."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Alexandrian Philosophy, Plotinus",
+     "text": "At the age of forty he proceeded to Rome, and remained there until his death, twenty-six years later."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2802,7 +2905,7 @@
  "complete": false,
  "state": {
   "place": "lodhi",
-  "until": "2026-11-25T17:46+05:30",
+  "until": "2026-11-25T18:16+05:30",
   "asleep": false,
   "imprest": 15106,
   "wearing": "kurta",
@@ -2907,7 +3010,6 @@
    "walked": 12075,
    "strain": 12075,
    "lunch": true,
-   "hunger": 2,
    "tired": true,
    "bought_food": {
     "place": "lodhi",
@@ -3328,7 +3430,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "27fd8469e0efd2fea6e173b69bc71eb59bd372ac6b5744b75332a20847ca3ac1",
+  "source_sha256": "6504448066b4922047af3c2554460c52cb249494d81635b2593e0b20aa953b1c",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4150,6 +4252,36 @@
     "creditor": null,
     "payer": null,
     "time": "17:36",
+    "place": "lodhi"
+   },
+   {
+    "id": "2026-11-25:statement:739a88bd72ff0997:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 80,
+     "sha256": "739a88bd72ff09977058bab4b87f8f3b716911a935701323401a3fd1a8702cbf"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mrs. Kapoor",
+    "words": "You are right, Mrs. Kapoor. I have already settled the account with the vendor, but I appreciate the directness. It is a relief to be told what to do rather than left to decide.",
+    "verified": false,
+    "time": "17:46",
+    "place": "lodhi"
+   },
+   {
+    "id": "2026-11-25:statement:33dc087e14dbdeac:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 81,
+     "sha256": "33dc087e14dbdeac9258851c110abc674668fa951cf6ddacfdb7078bfb6705f0"
+    },
+    "speaker": "Mrs. Kapoor",
+    "recipient": "Hegel",
+    "words": "Relief? Pah. I just didn't have the patience for your riddles. Here, take it before the corn gets cold.",
+    "verified": false,
+    "time": "17:46",
     "place": "lodhi"
    },
    {
@@ -5232,68 +5364,98 @@
     "text": "You are tired."
    },
    {
-    "id": "2026-11-25:event:cf12e9a52d7653c4:1",
+    "id": "2026-11-25:event:d1f45949739edd8e:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 23,
+     "sha256": "d1f45949739edd8e82e7aafa6c3e28a2e94088069a941fcebafdcf1898bcdc2e"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "17:46",
+    "end": "18:16",
+    "place": "lodhi"
+   },
+   {
+    "id": "2026-11-25:event:8bccf0255bde2c73:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      23,
+      0
+     ],
+     "sha256": "8bccf0255bde2c735040e34d110c8aa5567d5ed6f6f50e065a530475ed5bda07"
+    },
+    "type": "observation",
+    "time": "17:46",
+    "place": "lodhi",
+    "text": "Weather: 20 °C, clear, hazy. Air quality index: 187."
+   },
+   {
+    "id": "2026-11-25:event:42c7445b2e80fbdd:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "cf12e9a52d7653c4d61fa946dbac203cbb4d276d119219de3fb91d912d683033"
+     "sha256": "42c7445b2e80fbddbbc9cad119053022359f6128c87affc9a38f3e75915c4164"
     },
     "type": "cash",
-    "time": "17:46",
+    "time": "18:16",
     "amount": 15106,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:ec599a423c6356f1:1",
+    "id": "2026-11-25:event:662b96a2fdbf0bd3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "ec599a423c6356f124b63735f54513f9edf98b095907ed6ac828cdaf435993a5"
+     "sha256": "662b96a2fdbf0bd370db55e31973f4a1cdc50a82a3d5eb397bffcbaf74d97af9"
     },
     "type": "location",
-    "time": "17:46",
+    "time": "18:16",
     "place": "lodhi",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:0ec24c4f7a70336d:1",
+    "id": "2026-11-25:event:37625192eac495e7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "0ec24c4f7a70336dd40a3641bab1fc64003e97b40f5f3e315fd0b1ae7ddeec4d"
+     "sha256": "37625192eac495e76eb1d2ad59ddd7b3c00e87d101e63a5744d8ce2805496f87"
     },
     "type": "inventory",
-    "time": "17:46",
+    "time": "18:16",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-25:event:c763e8e0573acb62:1",
+    "id": "2026-11-25:event:e9dc0f524f2bc8de:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "c763e8e0573acb6274661784d72c4878c6e04ea24ab081b8772d3e7d99db9f70"
+     "sha256": "e9dc0f524f2bc8deaf1cae4d9aae3c5bd7d98052e96d407e03c4cdc0cf736f3e"
     },
     "type": "inventory",
-    "time": "17:46",
+    "time": "18:16",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 14:22.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 14:22.\"}]"
    },
    {
-    "id": "2026-11-25:event:22b9c8e83393570b:1",
+    "id": "2026-11-25:event:274e3161b2cc1569:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "22b9c8e83393570bd64128759a790648333bbc66308ee74c3b84d78dbe9fa2be"
+     "sha256": "274e3161b2cc15695a367fb6e0d6c5642bc0805d05daa65d4c02cb583e07cd0b"
     },
     "type": "inventory",
-    "time": "17:46",
+    "time": "18:16",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
