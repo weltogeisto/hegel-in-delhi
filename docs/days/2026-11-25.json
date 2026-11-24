@@ -323,6 +323,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "At the Directorate of Estates."
+  },
+  {
+   "from": "13:31",
+   "to": "13:41",
+   "mode": "inside",
+   "at": "estates",
+   "now": "At the Directorate of Estates."
   }
  ],
  "entries": [
@@ -723,6 +730,37 @@
    "to": "Hegel",
    "text": "Brief is fine, but do not be late. The under-secretary does not wait for anyone, foreign or otherwise.",
    "t": "13:21",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "The under-secretary's impatience is a small echo of the state's demand for punctuality over personality. I will use the ten minutes to steady my breathing and prepare my papers, for a man who is late to the ethical idea is late to everything.",
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§88"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato"
+    }
+   ],
+   "t": "13:31",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "I shall be ready, Mr. Saxena.",
+   "to": "Mr. Saxena",
+   "t": "13:31",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "That is all I ask. Third floor, room 304. Do not let them confuse you with the other Hegel in the records, if there is one.",
+   "t": "13:31",
    "place": "estates"
   }
  ],
@@ -1392,6 +1430,71 @@
      "text": "Pilate asked 'What is truth?' with the air of a man who had settled accounts with everything long ago, and concluded that nothing particularly matters:--he meant much the same as Solomon when he says: 'All is vanity.' When it comes to this, nothing is left but self-conceit. The knowledge of the truth meets an additional obstacle in timidity."
     }
    ]
+  },
+  {
+   "t": "13:31",
+   "end": "13:41",
+   "event": "Mr. Saxena says: “Brief is fine, but do not be late. The under-secretary does not wait for anyone, foreign or otherwise.” He glances at the wall clock before picking up the receiver.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "The under-secretary's impatience is a small echo of the state's demand for punctuality over personality. I will use the ten minutes to steady my breathing and prepare my papers, for a man who is late to the ethical idea is late to everything.",
+    "action": "stay",
+    "place": "estates",
+    "minutes": 10,
+    "says": "I shall be ready, Mr. Saxena.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, partly cloudy, hazy. Air quality index: 177."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "That is all I ask. Third floor, room 304. Do not let them confuse you with the other Hegel in the records, if there is one.",
+    "does": "He sets the receiver down and returns to the file on his desk, tapping the edge of a folder with his finger."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§88",
+     "id": "wallace-logic:418"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "id": "haldane-2:66"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§88",
+     "text": "So far then the question regarding the being of God--a being which is in itself concrete above all measure--is of slight importance. As the first concrete thought-term, Becoming is the first adequate vehicle of truth. In the history of philosophy, this stage of the logical Idea finds its analogue in the system of Heraclitus."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "text": "And if anyone were to take him out of the prison into the light itself, he would be dazzled by the light and could see nothing; and he would hate the person who brought him to the light, as having taken away what was to him the truth, and prepared only pain and evil in its place.”"
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1428,7 +1531,7 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-25T13:31+05:30",
+  "until": "2026-11-25T13:41+05:30",
   "asleep": false,
   "imprest": 15166,
   "wearing": "bandhgala",
@@ -1896,7 +1999,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "94e940f4518131c90cd1427c7114b19769fbb03a14c47a6fd5d3d7a145a92d3a",
+  "source_sha256": "d11aca97e5c02b0e93f3ab23dcb638cc9ccf4e0041a628bf7bc274a37f628ba2",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2313,6 +2416,36 @@
     "words": "Brief is fine, but do not be late. The under-secretary does not wait for anyone, foreign or otherwise.",
     "verified": false,
     "time": "13:21",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:f4b5b76bb33314c2:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 40,
+     "sha256": "f4b5b76bb33314c242499f66d49f2ddbfdcee17c074a17ecc8f072272d291083"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "I shall be ready, Mr. Saxena.",
+    "verified": false,
+    "time": "13:31",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:faad8ea727c71c13:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 41,
+     "sha256": "faad8ea727c71c133484d45f3b2c8388bb277e9d30e59f3c3d7ca65705e695a0"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "That is all I ask. Third floor, room 304. Do not let them confuse you with the other Hegel in the records, if there is one.",
+    "verified": false,
+    "time": "13:31",
     "place": "estates"
    },
    {
@@ -2821,68 +2954,98 @@
     "text": "Weather: 23 °C, partly cloudy, hazy. Air quality index: 177."
    },
    {
-    "id": "2026-11-25:event:02ae7e244a3f7494:1",
+    "id": "2026-11-25:event:20fb503237fa42c5:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 10,
+     "sha256": "20fb503237fa42c5624425b4943a93d7b42c3f074f3001327db3483a6ecc105c"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "13:31",
+    "end": "13:41",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:event:d2a905388ab44c35:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      10,
+      0
+     ],
+     "sha256": "d2a905388ab44c35d16d6027abd0b4aad2a5f83f5cade83d29bad379d155c9de"
+    },
+    "type": "observation",
+    "time": "13:31",
+    "place": "estates",
+    "text": "Weather: 23 °C, partly cloudy, hazy. Air quality index: 177."
+   },
+   {
+    "id": "2026-11-25:event:2fe697a619a65446:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "02ae7e244a3f7494eac6ee85c8873bd795b05ded424ad984b86fe8616845aa71"
+     "sha256": "2fe697a619a65446b7fc9ee251b010e8e8416aa80acfb128c871dbd1a8b9f61a"
     },
     "type": "cash",
-    "time": "13:31",
+    "time": "13:41",
     "amount": 15166,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:3ece1e0ce00c8b8f:1",
+    "id": "2026-11-25:event:eba3bd39bc036229:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "3ece1e0ce00c8b8ff2a702e813b209b5aa19f3809d4806c6ff06bd5cfaae5b4e"
+     "sha256": "eba3bd39bc0362295fe7782a7ecfbafd73a875a86f557d4177e18201c5247d87"
     },
     "type": "location",
-    "time": "13:31",
+    "time": "13:41",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:81db2022dd5d6827:1",
+    "id": "2026-11-25:event:af46d770d83df265:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "81db2022dd5d6827ab5b3102fdff9cc826a9997a8ced51beb4cef61f8f87ef21"
+     "sha256": "af46d770d83df2656671fd27198ec4d8a5ccb1a59b75fee90687e03c13befc58"
     },
     "type": "inventory",
-    "time": "13:31",
+    "time": "13:41",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"bandhgala\""
    },
    {
-    "id": "2026-11-25:event:e25acf911a37186c:1",
+    "id": "2026-11-25:event:a5df32ee7369c7d2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "e25acf911a37186c5bbb24a36cf23634a3d1aafaa0c05f8005b21b04e65bba20"
+     "sha256": "a5df32ee7369c7d2732e1642bf209ac22eade7be7d6dcb535a1157e0885db0bb"
     },
     "type": "inventory",
-    "time": "13:31",
+    "time": "13:41",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 11:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 11:10.\"}]"
    },
    {
-    "id": "2026-11-25:event:7539ee4c4956b1b4:1",
+    "id": "2026-11-25:event:a78e30a3eae3a473:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "7539ee4c4956b1b4881457062f898679870903154e965d068ab71d8ee2adfead"
+     "sha256": "a78e30a3eae3a473ce035b828509547588266cab0bfb1113782adaa9bf9f4645"
     },
     "type": "inventory",
-    "time": "13:31",
+    "time": "13:41",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
