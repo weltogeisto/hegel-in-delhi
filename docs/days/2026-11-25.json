@@ -456,6 +456,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Shri G. Hegde at home."
+  },
+  {
+   "from": "20:31",
+   "to": "20:46",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -1406,6 +1413,37 @@
    "to": "Hegel",
    "text": "Dignity won't fill your stomach, Sir. I'm trying to find something that doesn't look like it expired in 2024. Just sit there and try not to philosophize about the delivery boy.",
    "t": "20:11",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "She is right; the body does not care for my dignity, only for its sustenance. The query remains, but hunger is a more immediate form of the ethical demand. I will sit still and let her find something that satisfies both the palate and the date of expiry.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§527"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China"
+    }
+   ],
+   "t": "20:31",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "I shall sit. Find me something that is not yet a ghost.",
+   "to": "Shri G. Hegde",
+   "t": "20:31",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "A ghost, is it? Fine. I’m going for the biryani from that place in Hauz Khas, the one with the four stars. If it’s not a ghost by the time it arrives, I’ll eat it myself.",
+   "t": "20:31",
    "place": "home"
   }
  ],
@@ -3315,6 +3353,71 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "20:31",
+   "end": "20:46",
+   "event": "Shri G. Hegde says: “Dignity won't fill your stomach, Sir. I'm trying to find something that doesn't look like it expired in 2024. Just sit there and try not to philosophize about the delivery boy.” She squints at the screen, scrolling past the curry options with a grimace.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "She is right; the body does not care for my dignity, only for its sustenance. The query remains, but hunger is a more immediate form of the ethical demand. I will sit still and let her find something that satisfies both the palate and the date of expiry.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": "I shall sit. Find me something that is not yet a ghost.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, a brown haze. Air quality index: 207."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "A ghost, is it? Fine. I’m going for the biryani from that place in Hauz Khas, the one with the four stars. If it’s not a ghost by the time it arrives, I’ll eat it myself.",
+    "does": "He taps the screen firmly and slides his phone into his kurta pocket."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§527",
+     "id": "wallace-mind:275"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "id": "sibree-history:401"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§527",
+     "text": "Where civil society, and with it the State, exists, there arise the several estates in their difference: for the universal substance, as vital, exists only so far as it organically particularises itself."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "text": "Besides the imperial dignity there is properly no elevated rank, no nobility among the Chinese; only the princes of the imperial house, and the sons of the ministers enjoy any precedence of the kind, and they rather by their position than by their birth. Otherwise all are equal, and only those have a share in the administration of affairs who have ability for it."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -3358,7 +3461,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-25T20:31+05:30",
+  "until": "2026-11-25T20:46+05:30",
   "asleep": false,
   "imprest": 15106,
   "wearing": "kurta",
@@ -3884,7 +3987,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "c7d5f23d15ee577f27f5ed4534fe485662e1c5ef6a8772f1a316a82ac4615af5",
+  "source_sha256": "38f103a8cfa2b1d483463d5b32b8e349c79c9a69af38821ea13f0225805fab42",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4796,6 +4899,36 @@
     "words": "Dignity won't fill your stomach, Sir. I'm trying to find something that doesn't look like it expired in 2024. Just sit there and try not to philosophize about the delivery boy.",
     "verified": false,
     "time": "20:11",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-25:statement:f5cc77663c415927:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 92,
+     "sha256": "f5cc77663c415927d11f281be6ea24ec93590697fa779f2d9f6d58251810c86f"
+    },
+    "speaker": "Hegel",
+    "recipient": "Shri G. Hegde",
+    "words": "I shall sit. Find me something that is not yet a ghost.",
+    "verified": false,
+    "time": "20:31",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-25:statement:95f3edb3c80dbfe1:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 93,
+     "sha256": "95f3edb3c80dbfe1c5c406759f54955f3db1d959d669ae7f7e204f8f28cdee2f"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "A ghost, is it? Fine. I’m going for the biryani from that place in Hauz Khas, the one with the four stars. If it’s not a ghost by the time it arrives, I’ll eat it myself.",
+    "verified": false,
+    "time": "20:31",
     "place": "home"
    },
    {
@@ -6108,68 +6241,98 @@
     "text": "Weather: 18 °C, a brown haze. Air quality index: 207."
    },
    {
-    "id": "2026-11-25:event:bffd5615697f33af:1",
+    "id": "2026-11-25:event:9015ee3dd295db3a:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 29,
+     "sha256": "9015ee3dd295db3ad93a826a76c96c067bd1405a633652ceb69a319bfb84b73b"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "20:31",
+    "end": "20:46",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-25:event:997583ea9732c0f5:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      29,
+      0
+     ],
+     "sha256": "997583ea9732c0f5595e4ea29ad95cccfe77c4cac974ea655a71d59722735e0e"
+    },
+    "type": "observation",
+    "time": "20:31",
+    "place": "home",
+    "text": "Weather: 18 °C, a brown haze. Air quality index: 207."
+   },
+   {
+    "id": "2026-11-25:event:4857c3a190c0ddba:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "bffd5615697f33af331af550aa22017a1cf74514680b655c88e25e46326f0245"
+     "sha256": "4857c3a190c0ddba12bc60da90a706cc072538f81de2e996913b10438b2ce78d"
     },
     "type": "cash",
-    "time": "20:31",
+    "time": "20:46",
     "amount": 15106,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:a60f587ef472e0d3:1",
+    "id": "2026-11-25:event:4c149f946feb6704:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "a60f587ef472e0d36def2ca14ba258fc8b8558d6bcc5bb4136507cb5a90f7aab"
+     "sha256": "4c149f946feb670475da8d66fb159fb3caec58574a80e5bc99ce162dd4427ac8"
     },
     "type": "location",
-    "time": "20:31",
+    "time": "20:46",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:98cd08fbd6e988a7:1",
+    "id": "2026-11-25:event:8b8d3d4e3c2b94a9:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "98cd08fbd6e988a7b25f40cdbce17b4559d29085098aedf35c8e9061620f4401"
+     "sha256": "8b8d3d4e3c2b94a98b9edad00b37f5fcc5a6335632775fe5a30bcef250c30ecb"
     },
     "type": "inventory",
-    "time": "20:31",
+    "time": "20:46",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-25:event:17261f5c655dd55c:1",
+    "id": "2026-11-25:event:e9a8e0ef1105824d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "17261f5c655dd55ccbcefe926dc2e7e2a30289687fd7841e8b2762eb7987eefe"
+     "sha256": "e9a8e0ef1105824d9b0c3887f9d1200eec5d101af73a56706a2392a4972ff513"
     },
     "type": "inventory",
-    "time": "20:31",
+    "time": "20:46",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 14:22.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 14:22.\"}]"
    },
    {
-    "id": "2026-11-25:event:fa0a613e634c95ce:1",
+    "id": "2026-11-25:event:1997e10b375bb5ff:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "fa0a613e634c95ce99e0939975d08d01717224fde4b1a1b9aa5a35229692650a"
+     "sha256": "1997e10b375bb5ffed57bdfebc11c73732a4300d57434f26e4a44ae708810bfa"
     },
     "type": "inventory",
-    "time": "20:31",
+    "time": "20:46",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
