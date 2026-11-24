@@ -87,6 +87,18 @@ python3 tools/run_requests.py --requests $F/REQUESTS-ceiling-3.jsonl --server ht
 
 **Arm F, pinned.** One cloud model, the same for all 44 pieces; four fresh sessions, eleven briefs each; no tools but reading its requests and writing its answers; no network; the model's default reasoning; no limit on the visible answer beyond the request's own "up to about 450 words". The model's name is in Welt's chat with the cloud session and not in the repository.
 
+## The reading, as it is done
+
+Added on 24 November, after the night's replies and before any key was used.
+
+- **In parts.** A sheet has 347 rows: 339 pairs and the 8 calibration pairs. That is more than one reader session can hold. So each sheet is cut, in its own order, into 14 parts of 25 rows (the last has 22): `tools/ceiling_judge.py parts`. A part's folder holds the rows as plain text, the instructions (`PROMPT.md`: those of `packet/READER.md`, fitted to the text form) and a script that checks the form of the answers. One fresh session reads one part. A part belongs to one sheet, so no session sees a pair twice. Both families read the same parts under the same instructions.
+- **The Claude family read on the night of 24 November.** 28 fresh sessions of one model, started by the cloud session; the model's name is in Welt's chat with the cloud session. Their ballots are `ballots/claude-1.jsonl` and `ballots/claude-2.jsonl`, sealed by hash in `SEALS.json`. Two things fall short of "a reader has no repository", and are stated:
+  - The parts lay side by side in one folder on the cloud's machine, and a session was told, not forced, to read only its own. The record of every session's file and shell use was checked afterwards. Each read its own part, wrote its answers and ran the check, and nothing else.
+  - The cloud session holds the key. When it listed that folder it saw the 25 answers of the first part, before the seal. It changed nothing: the sealed files are the readers' own lines, joined in the sheet's order.
+- **Astra's family reads next** (`pc/TASKS.md`, W18), started on Welt's word: one fresh session for each part, in a folder that holds that part alone.
+- **Welt's 24 rows** are on a private page, one row at a time, with the first question only. An answer is sealed when he goes on to the next row. His rows enter no bar.
+- **The key is opened** when `SEALS.json` holds both families' files and Welt's rows. Until then nothing is scored, by anyone.
+
 ## The reads, declared now
 
 The test hands him a headline and, in two arms, a short text, and tells him he looked it up. So each read is as narrow as that. It cannot say what he would seek out, remember or develop by himself.
