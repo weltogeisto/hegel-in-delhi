@@ -386,6 +386,13 @@
    "mode": "inside",
    "at": "estates",
    "now": "Talking with Mr. Saxena at the Directorate of Estates."
+  },
+  {
+   "from": "16:29",
+   "to": "16:44",
+   "mode": "inside",
+   "at": "estates",
+   "now": "Talking with Mr. Saxena at the Directorate of Estates."
   }
  ],
  "entries": [
@@ -1052,6 +1059,37 @@
    "to": "Hegel",
    "text": "I do not care about your philosophy, sir, only the stamp on the paper. If the name is wrong, you sign the correction slip over there and I will process it; do not make me wait for your identity card.",
    "t": "16:19",
+   "place": "estates"
+  },
+  {
+   "k": "diary",
+   "text": "He demands the stamp, not the man. I am to correct the record, to align my existence with the file. It is a small humiliation to sign a name that is not mine, but the state must be consistent, and I will not be the exception that breaks the pen. I will sign 'Hegde' with a steady hand, for the sake of the order of things.",
+   "shelf": [
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§541"
+    }
+   ],
+   "t": "16:29",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "text": "You are right, Mr. Saxena. The form requires a signature. I shall sign 'Hegde', as the file dictates. Please proceed.",
+   "to": "Mr. Saxena",
+   "t": "16:29",
+   "place": "estates"
+  },
+  {
+   "k": "said",
+   "by": "Mr. Saxena",
+   "to": "Hegel",
+   "text": "Good. Now sign in the box, not on the line, and press the ink firmly or the scanner will reject it. I will put this on the pile for tomorrow's batch.",
+   "t": "16:29",
    "place": "estates"
   }
  ],
@@ -2314,6 +2352,71 @@
      "text": "The doing away with crime is retribution, in so far as retribution is in its conception injury of an injury, implying that as crime has a definite qualitative and quantitative context, its negation should be similarly definite. This identity, involved in the very nature of the case, is not literal equality, but equality in the inherent nature of the injury, namely, its value."
     }
    ]
+  },
+  {
+   "t": "16:29",
+   "end": "16:44",
+   "event": "Mr. Saxena says: “I do not care about your philosophy, sir, only the stamp on the paper. If the name is wrong, you sign the correction slip over there and I will process it; do not make me wait for your identity card.” He slides a blank correction form across the desk towards him.",
+   "present": [
+    "Mr. Saxena, a section officer"
+   ],
+   "decision": {
+    "thought": "He demands the stamp, not the man. I am to correct the record, to align my existence with the file. It is a small humiliation to sign a name that is not mine, but the state must be consistent, and I will not be the exception that breaks the pen. I will sign 'Hegde' with a steady hand, for the sake of the order of things.",
+    "action": "talk",
+    "place": "estates",
+    "minutes": 15,
+    "says": "You are right, Mr. Saxena. The form requires a signature. I shall sign 'Hegde', as the file dictates. Please proceed.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, clear, hazy. Air quality index: 184."
+   ],
+   "observed_at": "estates",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Mr. Saxena",
+    "says": "Good. Now sign in the box, not on the line, and press the ink firmly or the scanner will reject it. I will put this on the pile for tomorrow's batch.",
+    "does": "Mr. Saxena taps the pen holder on his desk to indicate the ink pad."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810",
+     "id": "reden:58"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§541",
+     "id": "wallace-mind:310"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Gymnasialreden",
+     "ref": "Am 14. September 1810",
+     "text": "Studienanstalten sind Theils Institute des Unterrichts, nicht unmittelbar der Erziehung, Theils fangen sie nicht von den ersten Elementen der Bildung, weder der Erkenntniß, noch der Sitten, an."
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§541",
+     "text": "The division of these powers has been treated as the condition of political equilibrium, meaning by division their independence one of another in existence,—subject always however to the above-mentioned subsumption of the powers of the individual under the power of the general."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2357,7 +2460,7 @@
  "complete": false,
  "state": {
   "place": "estates",
-  "until": "2026-11-25T16:29+05:30",
+  "until": "2026-11-25T16:44+05:30",
   "asleep": false,
   "imprest": 15166,
   "wearing": "kurta",
@@ -2855,7 +2958,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-25",
-  "source_sha256": "b637ff9cfdee895226ce4040d78497cb10c7474f6af1ce41e294bbfbe2134481",
+  "source_sha256": "71cfc9cea12cd2e961ff4f251ebb7da8b9402b9b63091fb6395bcfde8cb439e0",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3519,6 +3622,36 @@
     "words": "I do not care about your philosophy, sir, only the stamp on the paper. If the name is wrong, you sign the correction slip over there and I will process it; do not make me wait for your identity card.",
     "verified": false,
     "time": "16:19",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:1ad71695ffad4f6a:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 66,
+     "sha256": "1ad71695ffad4f6af28d8e5f240e55818762e4ec976c3783191f3e46448dcece"
+    },
+    "speaker": "Hegel",
+    "recipient": "Mr. Saxena",
+    "words": "You are right, Mr. Saxena. The form requires a signature. I shall sign 'Hegde', as the file dictates. Please proceed.",
+    "verified": false,
+    "time": "16:29",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:statement:17383b35be240848:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 67,
+     "sha256": "17383b35be2408487fac219d0429c6196d09546d74f1dd3c59fda4241faae5eb"
+    },
+    "speaker": "Mr. Saxena",
+    "recipient": "Hegel",
+    "words": "Good. Now sign in the box, not on the line, and press the ink firmly or the scanner will reject it. I will put this on the pile for tomorrow's batch.",
+    "verified": false,
+    "time": "16:29",
     "place": "estates"
    },
    {
@@ -4415,68 +4548,98 @@
     "text": "Weather: 23 °C, clear, hazy. Air quality index: 184."
    },
    {
-    "id": "2026-11-25:event:0cfec1dab503dbb7:1",
+    "id": "2026-11-25:event:be22dfe7e5932288:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 19,
+     "sha256": "be22dfe7e5932288263e2cfcdea3d8f071cdad7488bb5df96cb9518d5b67d06e"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "16:29",
+    "end": "16:44",
+    "place": "estates"
+   },
+   {
+    "id": "2026-11-25:event:dfaa95db4b7c13b9:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      19,
+      0
+     ],
+     "sha256": "dfaa95db4b7c13b95db892f65239175873997f447aee5bd4d63bd8826af102f8"
+    },
+    "type": "observation",
+    "time": "16:29",
+    "place": "estates",
+    "text": "Weather: 23 °C, clear, hazy. Air quality index: 184."
+   },
+   {
+    "id": "2026-11-25:event:200f24c4ab848fac:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "0cfec1dab503dbb78085c42c9b694998b8fcedd9f0d00c6627cd9bc3b9a36639"
+     "sha256": "200f24c4ab848fac46bf96d6b6e3d34b0fe6f6bfdded7684a625962887658cbc"
     },
     "type": "cash",
-    "time": "16:29",
+    "time": "16:44",
     "amount": 15166,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-25:event:fe1b9869ca657f12:1",
+    "id": "2026-11-25:event:79b57e702f4a34da:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "fe1b9869ca657f12dda1e5de654d0627d04f5337b431bfc6b444d078c510c20c"
+     "sha256": "79b57e702f4a34dabd83ad06b189eab6064e93fb5247cde823ea6a7fbb1438da"
     },
     "type": "location",
-    "time": "16:29",
+    "time": "16:44",
     "place": "estates",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-25:event:11f45268ac702d1c:1",
+    "id": "2026-11-25:event:5c7dc1dfede0bd0d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "11f45268ac702d1cf3a69d2f545a6e4431dbe01d2a6c5b12d65f7a69c4eafe2e"
+     "sha256": "5c7dc1dfede0bd0d2f24c891c0f0e1c980754cab06801f7ba7683f30653639dd"
     },
     "type": "inventory",
-    "time": "16:29",
+    "time": "16:44",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-25:event:6eac5b1f922fd0d5:1",
+    "id": "2026-11-25:event:195eb3c670e35a99:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "6eac5b1f922fd0d54de2ac78d9ca9d9f45b881534cfa9eab497ca2dcbcd1d2b1"
+     "sha256": "195eb3c670e35a99572e800f83f3d566dc71a44167a3a6187b175f869e63d39c"
     },
     "type": "inventory",
-    "time": "16:29",
+    "time": "16:44",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 14:22.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 14:22.\"}]"
    },
    {
-    "id": "2026-11-25:event:d11933a12d0d3700:1",
+    "id": "2026-11-25:event:d2c85c5ce11aee8f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "d11933a12d0d3700527e6b8c99f8247e4ff11a3ee7c5597629cb1781fc2a75c3"
+     "sha256": "d2c85c5ce11aee8fbbd60e7074b5c32a3fc3cdd9099475ea1b61a02d38fbef09"
     },
     "type": "inventory",
-    "time": "16:29",
+    "time": "16:44",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
