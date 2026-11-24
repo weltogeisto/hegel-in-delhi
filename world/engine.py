@@ -106,6 +106,8 @@ class Engine:
             world.consumed = True           # HEGEL_CONSUMED reaches the entries however the world was built
         if getattr(cfg, "papers", False):
             world.papers = True             # HEGEL_PAPERS likewise
+        if getattr(cfg, "borrowed_lookup", False):
+            world.borrowed_lookup = True    # HEGEL_BORROWED_LOOKUP likewise
         self.days = Days(cfg.docs, getattr(cfg, "clock_shift_min", 0))
         self.memory = Memory(self.days, world)
         self.lookup = lookup.find           # (query, cache folder) -> the page he reads, or a note; tests put a stand-in here
@@ -319,7 +321,7 @@ class Engine:
                     ctx["manuscripts"] = ((ctx["manuscripts"] or "") + "\n\n" + letter).strip()
                 ctx["writing"] = self.write(self.plain(messages), self.unwish(raw), ctx, st)
             if ans.get("looks_up"):
-                ctx["read"] = self.look(ans["looks_up"], st)
+                ctx["read"] = self.look(ans["looks_up"], st, ctx["present"])
             elif self.world.papers and ans["action"] == "read" and ans["place"] == st["place"] == "home":
                 ctx["read"] = self.paper(t, st)
         step = self.world.apply(ans, plan, sit, ctx, st, day)
@@ -748,10 +750,14 @@ class Engine:
         log.info("writing dropped: %s", "; ".join(wrong))
         return None
 
-    def look(self, query, st):
-        """He looks something up on his phone: the page he reads, {title, text, source, url}, or {note} for what went wrong."""
+    def look(self, query, st, present=()):
+        """He looks something up on his phone: the page he reads, {title, text, source, url}, or {note} for what went wrong.
+        HEGEL_BORROWED_LOOKUP: with no phone of his own, whoever with a phone is with him looks it up, and the answer says who ("by")."""
         if not (st["tech"]["phone"] and st["tech"]["sim"]):
-            return {"note": "You have nothing to look it up on."}
+            by = self.world.phone_holder(present)
+            if not by:
+                return {"note": "You have nothing to look it up on."}
+            return dict(self.lookup(query, self.cfg.state / "lookup"), by=by)
         return self.lookup(query, self.cfg.state / "lookup")
 
     def paper(self, t, st):

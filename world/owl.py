@@ -71,7 +71,7 @@ def record(day, limit=24000):
         elif k in ("income", "expense"):
             lines.append(f"{e['t']} {'earned' if k == 'income' else 'paid'}: {e['item']}, ₹{e['amount']:,}" + (" (a cheque, not cashed)" if e.get("cheque") else ""))
         elif k == "read":
-            medium = "read" if e.get("source_sha256") else "read at home" if e.get("date") else "read on his phone"
+            medium = "read" if e.get("source_sha256") else "read at home" if e.get("date") else f"read on {e['by']}'s phone" if e.get("by") else "read on his phone"
             lines.append(f"{e['t']} {medium}, from {e['source']}, “{e['title']}”: {e['text']}")
         elif k == "people":
             lines.append(f"{e['t']} met for the first time: {e['name']}, {e['role']}")

@@ -62,6 +62,7 @@ class Config:
         self.consumed = v.get("HEGEL_CONSUMED", "0").strip().lower() in ("1", "yes", "true")   # what he ate is an entry of its own, which the page shows and the owl reads (DECISIONS 48); off until someone has looked at what they do with it
         self.pause_away = v.get("HEGEL_PAUSE_AWAY", "0").strip().lower() in ("1", "yes", "true")   # hold his world at waking while the PC is away (pc/PAUSE.md); off until switched on
         self.wants = v.get("HEGEL_WANTS", "0").strip().lower() in ("1", "yes", "true")   # he may name what he wishes the city had (pc/WANTS-SCREEN.md); written down, no effect; off until switched on
+        self.borrowed_lookup = v.get("HEGEL_BORROWED_LOOKUP", "0").strip().lower() in ("1", "yes", "true")   # with no phone of his own, someone he knows who is with him looks a thing up on theirs (pc/BORROWED-LOOKUP.md); off until switched on
         self.papers_record = v.get("HEGEL_PAPERS_RECORD", "0").strip().lower() in ("1", "yes", "true")   # the day's papers kept in full in the state folder, nothing he is told changes (pc/PAPERS.md); off until switched on
         self.papers = v.get("HEGEL_PAPERS", "0").strip().lower() in ("1", "yes", "true")   # `read` at home gives him the next piece of the day's papers, and what he read is remembered (pc/PAPERS.md); off until switched on
         self.papers_archive = v.get("HEGEL_PAPERS_ARCHIVE", "").strip() or None   # a rehearsal's papers: a folder of papers-*.json, cycled by day (pc/PAPERS.md)
