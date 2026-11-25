@@ -264,6 +264,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "09:25",
+   "to": "09:55",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -355,6 +362,37 @@
    "sprite": "kurta",
    "t": "09:10",
    "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh is right; the caretaker holds the keys, not the soul, and certainly not the identity papers. The state, as I have said, is the actuality of the ethical idea, and it demands proof. I must go to the Directorate to clear this absurd mix-up, but the body must be attended to first. The papaya looks like a small victory over the brown haze.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316 Zusatz"
+    }
+   ],
+   "t": "09:25",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "You are correct, Ramesh. The administration requires its own agents. I shall go to the Directorate today. In the meantime, I will take this breakfast; the body, like the state, requires sustenance to function.",
+   "to": "Ramesh",
+   "t": "09:25",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir. The papaya is ripe, just sliced it this morning. You go to the Directorate, I will keep the place tidy for your return.",
+   "t": "09:25",
+   "place": "home"
   }
  ],
  "steps": [
@@ -428,6 +466,73 @@
      "text": "There were then no places of learning, no books from which men could be taught, for to the ancients, as Plato says, “the chief part of culture” (ραιδείας) “consisted in being skilled” (δεινόν) “in poetry,” just as with us fifty years ago the principal instruction of the people consisted of Bible History and Biblical precepts."
     }
    ]
+  },
+  {
+   "t": "09:25",
+   "end": "09:55",
+   "event": "Ramesh says: “Sir, I am only the caretaker. I do not hold your identity papers, nor do I have the authority to create them. You must go to the Directorate yourself to resolve this matter.” Ramesh straightens the stack of files on the verandah table and steps back. Ramesh has laid out breakfast: toast, butter and a plate of cut papaya.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh is right; the caretaker holds the keys, not the soul, and certainly not the identity papers. The state, as I have said, is the actuality of the ethical idea, and it demands proof. I must go to the Directorate to clear this absurd mix-up, but the body must be attended to first. The papaya looks like a small victory over the brown haze.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": "You are correct, Ramesh. The administration requires its own agents. I shall go to the Directorate today. In the meantime, I will take this breakfast; the body, like the state, requires sustenance to function.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, a brown haze. Air quality index: 263.",
+    "Ramesh has laid out breakfast: toast, butter and a plate of cut papaya."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply",
+    "meal"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir. The papaya is ripe, just sliced it this morning. You go to the Directorate, I will keep the place tidy for your return.",
+    "does": "She gestures towards the plate of cut papaya and steps back to give him space."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316 Zusatz",
+     "id": "rechts:1044"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence. So also it is not a matter merely external and particular, the performance of which is intrusted to him."
+    },
+    {
+     "work": "Philosophie des Rechts",
+     "ref": "§316 Zusatz",
+     "text": "Was sich wirklich im Staate geltend macht, muß sich freilich auf organische Weise betätigen, und dies ist in der Verfassung der Fall. Aber zu allen Zeiten war die öffentliche Meinung eine große Macht und ist es besonders in unserer Zeit, wo das Prinzip der subjektiven Freiheit diese Wichtigkeit und Bedeutung hat."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -443,7 +548,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-26T09:25+05:30",
+  "until": "2026-11-26T09:55+05:30",
   "asleep": false,
   "imprest": 15106,
   "wearing": "kurta",
@@ -531,7 +636,8 @@
     "home": [
      "ramesh"
     ]
-   }
+   },
+   "breakfast": true
   },
   "account": {
    "advance": 15000,
@@ -826,8 +932,8 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-24T16:39+05:30",
-  "snacks": 1,
+  "last_meal": "2026-11-26T09:25+05:30",
+  "snacks": 0,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
@@ -944,13 +1050,12 @@
    "home_monkey_wall": "2026-11-21",
    "iic_seminar_voice": "2026-11-22",
    "home_wedding_band": "2026-11-22"
-  },
-  "fed_at": "2026-11-25T14:36+05:30"
+  }
  },
  "records": {
   "version": 2,
   "date": "2026-11-26",
-  "source_sha256": "5d5067df9813956fa8a9814cd1f45eba00e1b4190d497d708ac92950bd9d0b27",
+  "source_sha256": "b9122d0210fb5f48f309a753b2c6eac5006b2f7f36f009986047809869ead1a6",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1038,6 +1143,36 @@
     "status": "Worn from 09:10.",
     "gone": false,
     "time": "09:10",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:e97a7d05b4504d1a:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 9,
+     "sha256": "e97a7d05b4504d1a677690d4877e1a06b16012066d3563ade02f0cf74623e748"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "You are correct, Ramesh. The administration requires its own agents. I shall go to the Directorate today. In the meantime, I will take this breakfast; the body, like the state, requires sustenance to function.",
+    "verified": false,
+    "time": "09:25",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:a8dc0ba028d6086b:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 10,
+     "sha256": "a8dc0ba028d6086b14b5e1d1f31571ac95764d5b5713108575aaf34164eb032e"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes sir. The papaya is ripe, just sliced it this morning. You go to the Directorate, I will keep the place tidy for your return.",
+    "verified": false,
+    "time": "09:25",
     "place": "home"
    },
    {
@@ -1209,68 +1344,114 @@
     "text": "Ramesh is here."
    },
    {
-    "id": "2026-11-26:event:c59d5c8191030c1e:1",
+    "id": "2026-11-26:event:165bf2e967ef80f0:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 1,
+     "sha256": "165bf2e967ef80f0681bb64362886d59663aca79fd18d70639626767e97dc96b"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "09:25",
+    "end": "09:55",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:event:a3f84e2259a8cb51:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      1,
+      0
+     ],
+     "sha256": "a3f84e2259a8cb514b49876aefd2887bce9301b0e200840a1d3b67be393cb2dd"
+    },
+    "type": "observation",
+    "time": "09:25",
+    "place": "home",
+    "text": "Weather: 18 °C, a brown haze. Air quality index: 263."
+   },
+   {
+    "id": "2026-11-26:event:7eaedd38faaa74a7:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      1,
+      1
+     ],
+     "sha256": "7eaedd38faaa74a7c979abf2985b97f699c1d5bef83f7ee27a8a8974b80f2936"
+    },
+    "type": "observation",
+    "time": "09:25",
+    "place": "home",
+    "text": "Ramesh has laid out breakfast: toast, butter and a plate of cut papaya."
+   },
+   {
+    "id": "2026-11-26:event:98cc33ef1bb57b55:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "c59d5c8191030c1ec58dd96dc0be46045415def6b49a26644222533ca086550b"
+     "sha256": "98cc33ef1bb57b558416b8c75e3b20bf0088aed976faafad5b5fc946216598f0"
     },
     "type": "cash",
-    "time": "09:25",
+    "time": "09:55",
     "amount": 15106,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-26:event:ed73eae27224a6d3:1",
+    "id": "2026-11-26:event:5fed6efa3116105e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "ed73eae27224a6d384739703c08f03b3a481aef13402534d1f44107d799cb37b"
+     "sha256": "5fed6efa3116105e1c505c35f6ee68900e3fc28b04278859eadb7d2d147a800d"
     },
     "type": "location",
-    "time": "09:25",
+    "time": "09:55",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-26:event:92c47f703ad3b086:1",
+    "id": "2026-11-26:event:49386a44cee30894:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "92c47f703ad3b0865ee23a865324f74a409aafec7aea58d4f64f1c81f9ee8b98"
+     "sha256": "49386a44cee30894cf34e2c7954f9291094252bcda48c3b6d14cdcae4234e0d9"
     },
     "type": "inventory",
-    "time": "09:25",
+    "time": "09:55",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-26:event:6913c73a2dcedee0:1",
+    "id": "2026-11-26:event:14fe1446c4693e6d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "6913c73a2dcedee0b989c5111b03a382017511775e3a4939eeb8a3e6f12b22b6"
+     "sha256": "14fe1446c4693e6df49a586d5c4d1d3c4d9dc9ae337b96db5c660490703e69d3"
     },
     "type": "inventory",
-    "time": "09:25",
+    "time": "09:55",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-26:event:ed27960fb114c270:1",
+    "id": "2026-11-26:event:beefd0cba4a7a7f3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "ed27960fb114c2709ff7461df5c540c446242c230a5fde0bcc5a66f2da95e7cb"
+     "sha256": "beefd0cba4a7a7f31c823d02ace8860268b5824cdf98c150cc5bbc430050c478"
     },
     "type": "inventory",
-    "time": "09:25",
+    "time": "09:55",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
