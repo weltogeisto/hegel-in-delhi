@@ -236,7 +236,7 @@
     },
     {
       "id": "exits_course", "switch": "exits", "kind": "world", "again_days": 14,
-      "when": {"fired_before": ["iic_talk_day", "iic_talk_day2"]},
+      "when": {"fired_before": ["iic_talk_day", "iic_talk_day2"], "spaced": true},
       "variants": {
         "iic": {
           "needs": ["officer"],
@@ -292,7 +292,7 @@
     },
     {
       "id": "exits_essay_again", "switch": "exits", "kind": "world", "after": ["essay_fee"], "again_days": 14,
-      "when": {"flags_not": {"essay_paid": true}, "words": 3000},
+      "when": {"flags_not": {"essay_paid": true}, "words": 3000, "spaced": true},
       "variants": {
         "home": {
           "needs": ["ramesh"],
@@ -320,7 +320,7 @@
     },
     {
       "id": "exits_column", "switch": "exits", "kind": "world", "after": ["essay_fee"], "again_days": 14,
-      "when": {"flags": {"essay_paid": true}},
+      "when": {"flags": {"essay_paid": true}, "out_days": {"Fee for an essay": 2}, "spaced": true},
       "variants": {
         "home": {
           "needs": ["ramesh"],
@@ -349,7 +349,7 @@
     },
     {
       "id": "exits_gift", "switch": "exits", "kind": "world", "where": "home", "needs": ["ramesh"], "window": ["09:30", "20:30"],
-      "when": {"piece_out": {"after_days": 2, "gap_days": 10}},
+      "when": {"piece_out": {"after_days": 2, "gap_days": 10}, "spaced": true},
       "gift": {"from": "an admirer who gives no name", "amount": 2000, "item": "A gift, left at the gate",
                "pieces": {"iic_talk_day": "your talk at the Centre", "iic_talk_day2": "your talk at the Centre",
                           "exits_course_1": "the first evening of your course", "exits_course_2": "the second evening of your course",

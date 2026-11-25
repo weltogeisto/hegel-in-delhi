@@ -54,6 +54,14 @@ Tests: `tests/test_exits.py`, each item on and off.
 - **The fault it repairs:** Nidhi Rao, a doctoral student writing on Hegel, with views on what he wrote about India, has been in the cast from the start. He met her on Day 1 only. She was at Khan Market on two afternoons a week with an even chance, in Lodhi Gardens for an hour on two mornings, and at the IIC on two afternoons. He goes to Khan Market on about one day in three, between one and eight in the evening.
 - **Change, data only:** three more rows of hours for her, which exist only with the switch (`"switch": "exits"` on a row of `where`): Khan Market daily 13:00 to 19:00, the IIC on weekdays 12:00 to 18:30, Lodhi Gardens daily 08:00 to 10:30, each with a chance of about one in two. Her old rows stand. Nothing is said to him about it and nothing is staged: she is simply there more often when he is.
 
+## 12. Three repairs after the first future (25 November)
+
+The first future of the night of 24 November lived the packet for fourteen days (seed 1831). It showed three faults, and each is repaired behind the switch.
+
+- **A manuscript earns one fee.** On his 26 November he wrote the commissioned essay and was paid ₹6,000. Two hours later he agreed to the column, wrote a second sitting of the same essay, and was paid ₹4,000 for it as the first column. Now a further sitting on a manuscript that was paid for earns nothing: the column's first piece is a new essay.
+- **The column waits two days.** The editor's letter, "she liked your essay", came two hours after he wrote it. It now comes two days after the essay went out at the earliest (`when.out_days`).
+- **The public's offers come one a day.** The Review's second asking, the course, an envelope and the column all came within a day and a half of the switch, because the talk they follow was weeks old. Now at most one of these four is made on a day (`when.spaced`; the state keeps the day in `public_on`). What the household does when money is short is not spaced: Ramesh's early word, the slate, the plate, the plain kitchen and the dues line come when they are due.
+
 ## Words for Welt's reading
 
 Offers (prompt, then what is shown on the page, then the question put to him, then the answers):
