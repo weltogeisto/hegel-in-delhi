@@ -271,6 +271,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "09:55",
+   "to": "10:15",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -392,6 +399,37 @@
    "to": "Hegel",
    "text": "Yes sir. The papaya is ripe, just sliced it this morning. You go to the Directorate, I will keep the place tidy for your return.",
    "t": "09:25",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The papaya is sweet and the body accepts it, a small rebellion against the administrative void. I must go to the Directorate before the heat becomes a wall; the identity query is a knot that only the state's own hands can untangle, or perhaps it will tighten further.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§64"
+    }
+   ],
+   "t": "09:55",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. It is good. I shall return by one, if the heat permits.",
+   "to": "Ramesh",
+   "t": "09:55",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "One o'clock, sir. I will keep the water ready. The haze is heavy today, so do not walk too fast in the sun.",
+   "t": "09:55",
    "place": "home"
   }
  ],
@@ -533,6 +571,71 @@
      "text": "Was sich wirklich im Staate geltend macht, muß sich freilich auf organische Weise betätigen, und dies ist in der Verfassung der Fall. Aber zu allen Zeiten war die öffentliche Meinung eine große Macht und ist es besonders in unserer Zeit, wo das Prinzip der subjektiven Freiheit diese Wichtigkeit und Bedeutung hat."
     }
    ]
+  },
+  {
+   "t": "09:55",
+   "end": "10:15",
+   "event": "Ramesh says: “Yes sir. The papaya is ripe, just sliced it this morning. You go to the Directorate, I will keep the place tidy for your return.” She gestures towards the plate of cut papaya and steps back to give him space.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The papaya is sweet and the body accepts it, a small rebellion against the administrative void. I must go to the Directorate before the heat becomes a wall; the identity query is a knot that only the state's own hands can untangle, or perhaps it will tighten further.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 20,
+    "says": "Thank you, Ramesh. It is good. I shall return by one, if the heat permits.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, a brown haze. Air quality index: 263."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "One o'clock, sir. I will keep the water ready. The haze is heavy today, so do not walk too fast in the sun.",
+    "does": "He nods once and turns back to the window to watch the brown haze settle over the road."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "id": "wallace-mind:330"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§64",
+     "id": "dyde-right:189"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "text": "To give the name of a law to the annual fixing of financial requirements only serves—with the presupposed separation of legislative from executive—to keep up the illusion of that separation having real existence, and to conceal the fact that the legislative power, when it makes a decree about finance, is really engaged with strict executive business."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§64",
+     "text": "It is founded on the reality of property, in other words upon the necessity that the will, in order to keep a thing, must manifest itself in it. — Public monuments are property of the nation, or rather they, like all works of art intended for use, are living and self-sufficient ends because of their indwelling soul of remembrance and honour."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -548,7 +651,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-26T09:55+05:30",
+  "until": "2026-11-26T10:15+05:30",
   "asleep": false,
   "imprest": 15106,
   "wearing": "kurta",
@@ -932,7 +1035,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-26T09:25+05:30",
+  "last_meal": "2026-11-26T09:55+05:30",
   "snacks": 0,
   "works": [
    {
@@ -1055,7 +1158,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-26",
-  "source_sha256": "b9122d0210fb5f48f309a753b2c6eac5006b2f7f36f009986047809869ead1a6",
+  "source_sha256": "401e8f48ef224590224b543d3f46d6bc0fb82c9301f16643983e8df7e0dce5e9",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1173,6 +1276,36 @@
     "words": "Yes sir. The papaya is ripe, just sliced it this morning. You go to the Directorate, I will keep the place tidy for your return.",
     "verified": false,
     "time": "09:25",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:c0eecce4efe459bc:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 12,
+     "sha256": "c0eecce4efe459bc6b321261261f6037855178b4acd06d5def7dfbcd1a9d564f"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Thank you, Ramesh. It is good. I shall return by one, if the heat permits.",
+    "verified": false,
+    "time": "09:55",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:e7c7e6cfee144925:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 13,
+     "sha256": "e7c7e6cfee1449250271b3cd8a0c0936d936e92ca47e05e44bbf4a4af92c8ceb"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "One o'clock, sir. I will keep the water ready. The haze is heavy today, so do not walk too fast in the sun.",
+    "verified": false,
+    "time": "09:55",
     "place": "home"
    },
    {
@@ -1390,68 +1523,98 @@
     "text": "Ramesh has laid out breakfast: toast, butter and a plate of cut papaya."
    },
    {
-    "id": "2026-11-26:event:98cc33ef1bb57b55:1",
+    "id": "2026-11-26:event:aaab38a96d9647b1:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 2,
+     "sha256": "aaab38a96d9647b1973231b0c0bfd4e3a19258864957102f0d0f84850b420c2b"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "09:55",
+    "end": "10:15",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:event:a3f84e2259a8cb51:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      2,
+      0
+     ],
+     "sha256": "a3f84e2259a8cb514b49876aefd2887bce9301b0e200840a1d3b67be393cb2dd"
+    },
+    "type": "observation",
+    "time": "09:55",
+    "place": "home",
+    "text": "Weather: 18 °C, a brown haze. Air quality index: 263."
+   },
+   {
+    "id": "2026-11-26:event:b8f4319c47abfc15:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "98cc33ef1bb57b558416b8c75e3b20bf0088aed976faafad5b5fc946216598f0"
+     "sha256": "b8f4319c47abfc159b38c3e13c0ffb6fa622e4d24ab618c3fcf7185b54be4ae4"
     },
     "type": "cash",
-    "time": "09:55",
+    "time": "10:15",
     "amount": 15106,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-26:event:5fed6efa3116105e:1",
+    "id": "2026-11-26:event:e290d449967a6b2f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "5fed6efa3116105e1c505c35f6ee68900e3fc28b04278859eadb7d2d147a800d"
+     "sha256": "e290d449967a6b2fb0c36b1de2dcae3d42951d76b4287941e8aeec284de7cbe4"
     },
     "type": "location",
-    "time": "09:55",
+    "time": "10:15",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-26:event:49386a44cee30894:1",
+    "id": "2026-11-26:event:98fd6de6aca59f3e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "49386a44cee30894cf34e2c7954f9291094252bcda48c3b6d14cdcae4234e0d9"
+     "sha256": "98fd6de6aca59f3e7fa55b017bbcde0c619b7565361f99da43125d381c1026b5"
     },
     "type": "inventory",
-    "time": "09:55",
+    "time": "10:15",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-26:event:14fe1446c4693e6d:1",
+    "id": "2026-11-26:event:19c5c120616e6605:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "14fe1446c4693e6df49a586d5c4d1d3c4d9dc9ae337b96db5c660490703e69d3"
+     "sha256": "19c5c120616e66054b576d751e2e26a3a958477efacc9853533ec4321bcb9dad"
     },
     "type": "inventory",
-    "time": "09:55",
+    "time": "10:15",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-26:event:beefd0cba4a7a7f3:1",
+    "id": "2026-11-26:event:014dd8a8b66da945:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "beefd0cba4a7a7f31c823d02ace8860268b5824cdf98c150cc5bbc430050c478"
+     "sha256": "014dd8a8b66da9454c514f003e0f0256dd9d0270fcd564e21a741b7eb1882763"
     },
     "type": "inventory",
-    "time": "09:55",
+    "time": "10:15",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
