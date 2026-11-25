@@ -12,13 +12,13 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 16,
+    "temp": 15,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 267
    },
    {
-    "temp": 15,
+    "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 270
@@ -30,12 +30,6 @@
     "aqi": 272
    },
    {
-    "temp": 14,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 274
-   },
-   {
     "temp": 13,
     "sky": "a brown haze",
     "rain": 0,
@@ -49,6 +43,12 @@
    },
    {
     "temp": 13,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 274
+   },
+   {
+    "temp": 12,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 272
@@ -114,7 +114,7 @@
     "aqi": 242
    },
    {
-    "temp": 21,
+    "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 239
@@ -126,13 +126,13 @@
     "aqi": 237
    },
    {
-    "temp": 18,
+    "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 235
    },
    {
-    "temp": 17,
+    "temp": 18,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 233
@@ -257,19 +257,196 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "09:10",
+   "to": "09:25",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
- "entries": [],
- "steps": [],
- "funnel": {},
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Cloudy Wednesday for Hyderabad; rain recorded in few parts of Rangareddy, Sangareddy” · “‘We aren’t begging’: Congress hits out at SP over UP poll picks amid seat-sharing talks” · “NDA-SAD reunion: Why the Akali Dal severed ties with BJP 6 years ago”",
+   "t": "09:10",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "Today's listings: 18:30 at Kamani Auditorium: Mohan Rakesh's play Ashadh Ka Ek Din, in Hindi, ₹300. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30.",
+   "t": "09:10",
+   "place": "home"
+  },
+  {
+   "k": "plan",
+   "items": [
+    {
+     "time": "09:15",
+     "intention": "Address Ramesh regarding the identity query and review the verandah papers."
+    },
+    {
+     "time": "09:45",
+     "intention": "Eat a substantial breakfast to address the physical neglect from the last day."
+    },
+    {
+     "time": "10:30",
+     "intention": "Visit the Directorate of Estates to submit documents for the Hegde/Hegel mix-up."
+    },
+    {
+     "time": "13:30",
+     "intention": "Return home for lunch and a short rest to recover from the heat."
+    },
+    {
+     "time": "15:00",
+     "intention": "Walk to Safdarjung Tomb to observe the Mughal architecture in the haze."
+    },
+    {
+     "time": "17:00",
+     "intention": "Conduct the German lesson for Ananya and collect the fee."
+    }
+   ],
+   "t": "09:10"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Good morning, sir. The haze is thick today. I have placed the tea on the verandah table, just as you like it.",
+   "t": "09:10",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The haze is a brown lid on the city, but the real fog is the administrative one: I am still Hegel, and the state demands I be Hegde. I must address Ramesh about the query before I can think of anything else, for the body must eat, but the name must be fixed first.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: Classification of Historic Data"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Sophists, Protagoras"
+    }
+   ],
+   "t": "09:10",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, the tea is noted, but I require your attention to the identity file. The Directorate is still waiting for proof that I am Shri G. Hegde. Have you made any progress on the documents, or shall I go to the office myself this morning to clear this up before the heat sets in?",
+   "to": "Ramesh",
+   "t": "09:10",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, I am only the caretaker. I do not hold your identity papers, nor do I have the authority to create them. You must go to the Directorate yourself to resolve this matter.",
+   "t": "09:10",
+   "place": "home"
+  },
+  {
+   "k": "wear",
+   "item": "White cotton kurta",
+   "status": "Worn from 09:10.",
+   "sprite": "kurta",
+   "t": "09:10",
+   "place": "home"
+  }
+ ],
+ "steps": [
+  {
+   "t": "09:10",
+   "end": "09:25",
+   "event": "You wake. A brown haze, 18 °C. Ramesh has left the papers on the verandah. Headlines: Cloudy Wednesday for Hyderabad; rain recorded in few parts of Rangareddy, Sangareddy; ‘We aren’t begging’: Congress hits out at SP over UP poll picks amid seat-sharing talks; NDA-SAD reunion: Why the Akali Dal severed ties with BJP 6 years ago. Today's listings: 18:30 at Kamani Auditorium: Mohan Rakesh's play Ashadh Ka Ek Din, in Hindi, ₹300. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30. Ramesh is here. Ramesh says: “Good morning, sir. The haze is thick today. I have placed the tea on the verandah table, just as you like it.”",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The haze is a brown lid on the city, but the real fog is the administrative one: I am still Hegel, and the state demands I be Hegde. I must address Ramesh about the query before I can think of anything else, for the body must eat, but the name must be fixed first.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, the tea is noted, but I require your attention to the identity file. The Directorate is still waiting for proof that I am Shri G. Hegde. Have you made any progress on the documents, or shall I go to the office myself this morning to clear this up before the heat sets in?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, a brown haze. Air quality index: 263.",
+    "You wake. A brown haze, 18 °C. Ramesh has left the papers on the verandah. Headlines: Cloudy Wednesday for Hyderabad; rain recorded in few parts of Rangareddy, Sangareddy; ‘We aren’t begging’: Congress hits out at SP over UP poll picks amid seat-sharing talks; NDA-SAD reunion: Why the Akali Dal severed ties with BJP 6 years ago.",
+    "Today's listings: 18:30 at Kamani Auditorium: Mohan Rakesh's play Ashadh Ka Ek Din, in Hindi, ₹300. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30.",
+    "Ramesh is here."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "papers",
+    "listings",
+    "here",
+    "greeting:ramesh"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Sir, I am only the caretaker. I do not hold your identity papers, nor do I have the authority to create them. You must go to the Directorate yourself to resolve this matter.",
+    "does": "Ramesh straightens the stack of files on the verandah table and steps back."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 21.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: Classification of Historic Data",
+     "id": "sibree-history:351"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Sophists, Protagoras",
+     "id": "haldane-1:913"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: Classification of Historic Data",
+     "text": "Free individuals are sacrificed to the severe demands of the National objects, to which they must surrender themselves in this service of abstract generalization. The Roman State is not a repetition of such a State of Individuals as the Athenian Polis was. The geniality and joy of soul that existed there have given place to harsh and rigorous toil."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Sophists, Protagoras",
+     "text": "There were then no places of learning, no books from which men could be taught, for to the ancients, as Plato says, “the chief part of culture” (ραιδείας) “consisted in being skilled” (δεινόν) “in poetry,” just as with us fifty years ago the principal instruction of the people consisted of Bible History and Biblical precepts."
+    }
+   ]
+  }
+ ],
+ "funnel": {
+  "malhotra_vouch": {
+   "live": 1,
+   "eligible": 0,
+   "shown": 0,
+   "yes": 0,
+   "no": 0
+  }
+ },
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-26T09:10+05:30",
-  "asleep": true,
+  "until": "2026-11-26T09:25+05:30",
+  "asleep": false,
   "imprest": 15106,
-  "wearing": "bandhgala",
+  "wearing": "kurta",
   "wardrobe": [
    {
     "id": "frock",
@@ -289,12 +466,12 @@
    {
     "id": "kurta",
     "item": "White cotton kurta",
-    "status": "Taken off at 20:46."
+    "status": "Worn from 09:10."
    },
    {
     "id": "bandhgala",
     "item": "Bandhgala, charcoal",
-    "status": "Worn from 20:46."
+    "status": "Taken off at 09:10."
    }
   ],
   "people": [
@@ -348,7 +525,14 @@
    }
   ],
   "depesche_n": 4,
-  "today": {},
+  "today": {
+   "woke": "09:10",
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -411,7 +595,8 @@
     "2026-11-22",
     "2026-11-23",
     "2026-11-24",
-    "2026-11-25"
+    "2026-11-25",
+    "2026-11-26"
    ],
    "lodhi": [
     "2026-10-02",
@@ -495,7 +680,7 @@
     "pay": 1000,
     "cancel_after": 2,
     "from": "2026-11-26",
-    "checked": "2026-11-25",
+    "checked": "2026-11-26",
     "missed": 0
    }
   ],
@@ -537,7 +722,8 @@
     "2026-11-21",
     "2026-11-22",
     "2026-11-23",
-    "2026-11-24"
+    "2026-11-24",
+    "2026-11-26"
    ],
    "malhotra": [
     "2026-10-02",
@@ -764,75 +950,358 @@
  "records": {
   "version": 2,
   "date": "2026-11-26",
-  "source_sha256": "b3353db70f3badcb1a41a6e841a0dd3430bcb635a09e67793294b8a18483ea7b",
+  "source_sha256": "5d5067df9813956fa8a9814cd1f45eba00e1b4190d497d708ac92950bd9d0b27",
   "complete": false,
   "steps_present": true,
   "records": [
    {
-    "id": "2026-11-26:event:0eaf851e7a403a0e:1",
+    "id": "2026-11-26:event:064fb5bba27c5826:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 0,
+     "sha256": "064fb5bba27c582654336c29763847830c7376e4d6e77b6559649afbd9742203"
+    },
+    "type": "world",
+    "text": "Morning papers: “Cloudy Wednesday for Hyderabad; rain recorded in few parts of Rangareddy, Sangareddy” · “‘We aren’t begging’: Congress hits out at SP over UP poll picks amid seat-sharing talks” · “NDA-SAD reunion: Why the Akali Dal severed ties with BJP 6 years ago”",
+    "time": "09:10",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:event:4751e811cfe2b457:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 1,
+     "sha256": "4751e811cfe2b45706a0d4a96aada44dfc36280dec70febbaf86fb63562fb105"
+    },
+    "type": "world",
+    "text": "Today's listings: 18:30 at Kamani Auditorium: Mohan Rakesh's play Ashadh Ka Ek Din, in Hindi, ₹300. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30.",
+    "time": "09:10",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:9f9da94a88d6a108:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 3,
+     "sha256": "9f9da94a88d6a108d459fb0e76317f7dbeb17b17f7c6da6dad688fa4eeea3bb5"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Good morning, sir. The haze is thick today. I have placed the tea on the verandah table, just as you like it.",
+    "verified": false,
+    "time": "09:10",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:7cb179f9be99bc6a:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 5,
+     "sha256": "7cb179f9be99bc6a845c1f058216b1fac6b5854aed1f9b8a644d203d03b799fa"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, the tea is noted, but I require your attention to the identity file. The Directorate is still waiting for proof that I am Shri G. Hegde. Have you made any progress on the documents, or shall I go to the office myself this morning to clear this up before the heat sets in?",
+    "verified": false,
+    "time": "09:10",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:d9d430bc638ec8d1:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 6,
+     "sha256": "d9d430bc638ec8d10c55eff2654c813f042b1ff8525a8cef46e7eab15d128ecd"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Sir, I am only the caretaker. I do not hold your identity papers, nor do I have the authority to create them. You must go to the Directorate yourself to resolve this matter.",
+    "verified": false,
+    "time": "09:10",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:event:503b3a949339cd61:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 7,
+     "sha256": "503b3a949339cd612941e4c4a53aea8bfc21421bec45dc7504706f6d2fd73c95"
+    },
+    "type": "wear",
+    "item": "White cotton kurta",
+    "status": "Worn from 09:10.",
+    "gone": false,
+    "time": "09:10",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:event:670aee41c23b37ff:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 0,
+     "sha256": "670aee41c23b37ffb767cbc9510c82380ed835da93354c0a9c2d4c0c9b51bedd"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:10",
+    "intended_time": "09:15",
+    "place": null,
+    "text": "Address Ramesh regarding the identity query and review the verandah papers."
+   },
+   {
+    "id": "2026-11-26:event:7f5ec1c5e3dd0bc8:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 1,
+     "sha256": "7f5ec1c5e3dd0bc80a41832ec7e6a9d88bdd74e7a89b6fdc30f8ba5d8d9b6029"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:10",
+    "intended_time": "09:45",
+    "place": null,
+    "text": "Eat a substantial breakfast to address the physical neglect from the last day."
+   },
+   {
+    "id": "2026-11-26:event:51ca192350c8e23e:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 2,
+     "sha256": "51ca192350c8e23e02316f21532467b975b967e4db2e16ce7c11cb780aea6ed7"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:10",
+    "intended_time": "10:30",
+    "place": null,
+    "text": "Visit the Directorate of Estates to submit documents for the Hegde/Hegel mix-up."
+   },
+   {
+    "id": "2026-11-26:event:901df08937c55428:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 3,
+     "sha256": "901df08937c55428b4e8737708479f4c4912b5ea82979a2b53e187e4a95ed9aa"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:10",
+    "intended_time": "13:30",
+    "place": null,
+    "text": "Return home for lunch and a short rest to recover from the heat."
+   },
+   {
+    "id": "2026-11-26:event:9acc60fc226d6143:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 4,
+     "sha256": "9acc60fc226d6143a6ec0a6004a15008cf722c3738e2f57359edc484a54616f0"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:10",
+    "intended_time": "15:00",
+    "place": null,
+    "text": "Walk to Safdarjung Tomb to observe the Mughal architecture in the haze."
+   },
+   {
+    "id": "2026-11-26:event:3ae0223af8f9af3b:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 5,
+     "sha256": "3ae0223af8f9af3b2bb8754722a69fe8ec8815195d60ddcfba02ea4e5d8b3a7d"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:10",
+    "intended_time": "17:00",
+    "place": null,
+    "text": "Conduct the German lesson for Ananya and collect the fee."
+   },
+   {
+    "id": "2026-11-26:event:9a9fe5053ca940b8:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 0,
+     "sha256": "9a9fe5053ca940b80211219e91ea8899ef435b0b01eb6cef72a4a6db95697a78"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "09:10",
+    "end": "09:25",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:event:a3f84e2259a8cb51:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      0
+     ],
+     "sha256": "a3f84e2259a8cb514b49876aefd2887bce9301b0e200840a1d3b67be393cb2dd"
+    },
+    "type": "observation",
+    "time": "09:10",
+    "place": "home",
+    "text": "Weather: 18 °C, a brown haze. Air quality index: 263."
+   },
+   {
+    "id": "2026-11-26:event:4909f5833a174660:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      1
+     ],
+     "sha256": "4909f5833a1746604705f7512fa1fcf368603b63f940b73d707b655103a30caf"
+    },
+    "type": "observation",
+    "time": "09:10",
+    "place": "home",
+    "text": "You wake. A brown haze, 18 °C. Ramesh has left the papers on the verandah. Headlines: Cloudy Wednesday for Hyderabad; rain recorded in few parts of Rangareddy, Sangareddy; ‘We aren’t begging’: Congress hits out at SP over UP poll picks amid seat-sharing talks; NDA-SAD reunion: Why the Akali Dal severed ties with BJP 6 years ago."
+   },
+   {
+    "id": "2026-11-26:event:8fa196e9bed75e38:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      2
+     ],
+     "sha256": "8fa196e9bed75e38052c5968c987927eb6cb8500c890f3dc0d535071aff0630a"
+    },
+    "type": "observation",
+    "time": "09:10",
+    "place": "home",
+    "text": "Today's listings: 18:30 at Kamani Auditorium: Mohan Rakesh's play Ashadh Ka Ek Din, in Hindi, ₹300. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30."
+   },
+   {
+    "id": "2026-11-26:event:7484978535b3016a:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      3
+     ],
+     "sha256": "7484978535b3016a1b3d5eed5ad84ca87ae93f3f2d90914df6d3ff88b95c2cbd"
+    },
+    "type": "observation",
+    "time": "09:10",
+    "place": "home",
+    "text": "Ramesh is here."
+   },
+   {
+    "id": "2026-11-26:event:c59d5c8191030c1e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "0eaf851e7a403a0e57f11d3b77b27a173d7710769ad7af386c0462941052b513"
+     "sha256": "c59d5c8191030c1ec58dd96dc0be46045415def6b49a26644222533ca086550b"
     },
     "type": "cash",
-    "time": "09:10",
+    "time": "09:25",
     "amount": 15106,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-26:event:ce1697efb53cb03d:1",
+    "id": "2026-11-26:event:ed73eae27224a6d3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "ce1697efb53cb03da866d65526ecba9ae9bd26d8e1530e67f76b899b3f457b2a"
+     "sha256": "ed73eae27224a6d384739703c08f03b3a481aef13402534d1f44107d799cb37b"
     },
     "type": "location",
-    "time": "09:10",
+    "time": "09:25",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-26:event:82158d4aa9d6be9c:1",
+    "id": "2026-11-26:event:92c47f703ad3b086:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "82158d4aa9d6be9c500f133415f4403d5f97c91dae9942aba8628f0e19b4bf67"
+     "sha256": "92c47f703ad3b0865ee23a865324f74a409aafec7aea58d4f64f1c81f9ee8b98"
     },
     "type": "inventory",
-    "time": "09:10",
+    "time": "09:25",
     "place": null,
-    "text": "Recorded wearing at this horizon only: \"bandhgala\""
+    "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-26:event:dcb4e5bea0e04d9b:1",
+    "id": "2026-11-26:event:6913c73a2dcedee0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "dcb4e5bea0e04d9b1428aba1199d4cb7997eaaf4a402ae0e1d500a7248d66500"
+     "sha256": "6913c73a2dcedee0b989c5111b03a382017511775e3a4939eeb8a3e6f12b22b6"
     },
     "type": "inventory",
-    "time": "09:10",
+    "time": "09:25",
     "place": null,
-    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Taken off at 20:46.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Worn from 20:46.\"}]"
+    "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-26:event:2cc423ca76ce83f5:1",
+    "id": "2026-11-26:event:ed27960fb114c270:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "2cc423ca76ce83f57c5cd1b60dde3e727cb00d85536f470eba22579e72fd2673"
+     "sha256": "ed27960fb114c2709ff7461df5c540c446242c230a5fde0bcc5a66f2da95e7cb"
     },
     "type": "inventory",
-    "time": "09:10",
+    "time": "09:25",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
+   }
+  ]
+ },
+ "plan": {
+  "written": "09:10",
+  "items": [
+   {
+    "time": "09:15",
+    "intention": "Address Ramesh regarding the identity query and review the verandah papers."
+   },
+   {
+    "time": "09:45",
+    "intention": "Eat a substantial breakfast to address the physical neglect from the last day."
+   },
+   {
+    "time": "10:30",
+    "intention": "Visit the Directorate of Estates to submit documents for the Hegde/Hegel mix-up."
+   },
+   {
+    "time": "13:30",
+    "intention": "Return home for lunch and a short rest to recover from the heat."
+   },
+   {
+    "time": "15:00",
+    "intention": "Walk to Safdarjung Tomb to observe the Mughal architecture in the haze."
+   },
+   {
+    "time": "17:00",
+    "intention": "Conduct the German lesson for Ananya and collect the fee."
    }
   ]
  }
