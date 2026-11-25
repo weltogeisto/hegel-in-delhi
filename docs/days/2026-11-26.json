@@ -341,6 +341,13 @@
    "mode": "stand",
    "at": "safdarjung",
    "now": "At Safdarjung's Tomb."
+  },
+  {
+   "from": "17:22",
+   "to": "17:34",
+   "mode": "walk",
+   "a": "safdarjung",
+   "b": "home"
   }
  ],
  "entries": [
@@ -750,6 +757,37 @@
     }
    ],
    "t": "15:22",
+   "place": "safdarjung"
+  },
+  {
+   "k": "diary",
+   "text": "The gate is closing in three minutes, and I have only bought the right to enter, not the time to see. The haze has swallowed the details of the dome, leaving only its silhouette against the brown sky. I must leave now, before the clerk locks the gate and my curiosity is barred out like a trespasser.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, Egypt"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Mose 20, ist sehr hart, wie denn die…"
+    }
+   ],
+   "t": "17:22",
+   "place": "safdarjung"
+  },
+  {
+   "k": "said",
+   "text": "Thank you. I must go, as the gate closes.",
+   "to": "the ticket clerk",
+   "t": "17:22",
+   "place": "safdarjung"
+  },
+  {
+   "k": "said",
+   "by": "The ticket clerk",
+   "to": "Hegel",
+   "text": "Yes sir, 5:25 sharp. Better head inside now or you'll be stuck in the queue.",
+   "t": "17:22",
    "place": "safdarjung"
   }
  ],
@@ -1542,6 +1580,73 @@
      "text": "Equally important, and connected with that just noticed, is the change of executive powers, functions, duties and rights, which naturally belong to the State, but which had become private property and private contracts or obligations— into possession conferred by the State."
     }
    ]
+  },
+  {
+   "t": "17:22",
+   "end": "17:34",
+   "event": "Safdarjung's Tomb closes at 17:25.",
+   "present": [
+    "the ticket clerk"
+   ],
+   "decision": {
+    "thought": "The gate is closing in three minutes, and I have only bought the right to enter, not the time to see. The haze has swallowed the details of the dome, leaving only its silhouette against the brown sky. I must leave now, before the clerk locks the gate and my curiosity is barred out like a trespasser.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 45,
+    "says": "Thank you. I must go, as the gate closes.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 261.",
+    "Safdarjung's Tomb closes at 17:25."
+   ],
+   "observed_at": "safdarjung",
+   "opened": [
+    "closes"
+   ],
+   "voice": {
+    "by": "The ticket clerk",
+    "says": "Yes sir, 5:25 sharp. Better head inside now or you'll be stuck in the queue.",
+    "does": "She points a pen towards the inner gate."
+   },
+   "left": "safdarjung",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 6.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, Egypt",
+     "id": "sibree-history:687"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Mose 20, ist sehr hart, wie denn die…",
+     "id": "welt-2:482"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, Egypt",
+     "text": "But judgment was passed on the dead by the living themselves; and that not merely in the case of private persons, but even of kings. The tomb of a certain king has been discovered — very large, and elaborate in its architecture — in whose hieroglyphs the name of the principal person is obliterated, while in the bas-reliefs and pictorial designs the chief figure is erased."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Mose 20, ist sehr hart, wie denn die…",
+     "text": "Mose 17, und hat die Wahl des Königs in die Hände der Priester gegeben, auch bestimmt, daß er kein Fremder sein, keine starke Kavallerie halten und nicht viele Weiber nehmen darf. Das aber sind dürftige Bestimmungen für einen Staat, der von einer noch nicht einmal republikanischen Verfassung zu königlicher Konstitution übergeht."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1556,8 +1661,8 @@
  "owl": null,
  "complete": false,
  "state": {
-  "place": "safdarjung",
-  "until": "2026-11-26T17:22+05:30",
+  "place": "home",
+  "until": "2026-11-26T17:34+05:30",
   "asleep": false,
   "imprest": 14806,
   "wearing": "kurta",
@@ -1651,8 +1756,8 @@
    },
    "breakfast": true,
    "lunch": true,
-   "walked": 900,
-   "strain": 900,
+   "walked": 1800,
+   "strain": 1800,
    "tickets": [
     "safdarjung"
    ]
@@ -2082,7 +2187,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-26",
-  "source_sha256": "b9bfca85cb0c4845a55015628faff01c919dbc712901e5180ef418b977c182e8",
+  "source_sha256": "48df1cc00dd77247778ed6c98787473e7c648b2b8c09aac86b94d9f9a2b25833",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2459,6 +2564,36 @@
     "creditor": null,
     "payer": null,
     "time": "15:12",
+    "place": "safdarjung"
+   },
+   {
+    "id": "2026-11-26:statement:db6a8b5d7f3509b9:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 39,
+     "sha256": "db6a8b5d7f3509b9380fbf4ddaade2d028eedf3f4d5605238048ca1443a2b57f"
+    },
+    "speaker": "Hegel",
+    "recipient": "the ticket clerk",
+    "words": "Thank you. I must go, as the gate closes.",
+    "verified": false,
+    "time": "17:22",
+    "place": "safdarjung"
+   },
+   {
+    "id": "2026-11-26:statement:e8d2b0e8b1f238b8:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 40,
+     "sha256": "e8d2b0e8b1f238b8e544414a43b78c224b4f8c44248a74fad8eaafe2468bd7f3"
+    },
+    "speaker": "The ticket clerk",
+    "recipient": "Hegel",
+    "words": "Yes sir, 5:25 sharp. Better head inside now or you'll be stuck in the queue.",
+    "verified": false,
+    "time": "17:22",
     "place": "safdarjung"
    },
    {
@@ -3010,68 +3145,116 @@
     "text": "Weather: 24 °C, a brown haze. Air quality index: 264."
    },
    {
-    "id": "2026-11-26:event:c1c7d11448e08489:1",
+    "id": "2026-11-26:event:cf826516cb94287f:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 12,
+     "sha256": "cf826516cb94287f59dcd82f71a01a06043fbdcd9cb53f036b45cc3878b14b1e"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "17:22",
+    "end": "17:34",
+    "place": null,
+    "origin": "safdarjung",
+    "destination": "home"
+   },
+   {
+    "id": "2026-11-26:event:8612cca5cb6581c0:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      12,
+      0
+     ],
+     "sha256": "8612cca5cb6581c0b37a8a91e9a2db9bb7e1556b7e1f087c2a50d27d7c5b892d"
+    },
+    "type": "observation",
+    "time": "17:22",
+    "place": "safdarjung",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 261."
+   },
+   {
+    "id": "2026-11-26:event:9df472cd105490a9:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      12,
+      1
+     ],
+     "sha256": "9df472cd105490a9d20f66cdf3d1ef83c4fbd1b785a539b431e79f125f9a4100"
+    },
+    "type": "observation",
+    "time": "17:22",
+    "place": "safdarjung",
+    "text": "Safdarjung's Tomb closes at 17:25."
+   },
+   {
+    "id": "2026-11-26:event:79f0f913e5394214:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "c1c7d11448e08489b71fa209edee775313448f0c6528d4ce8baf1e3c9a78f478"
+     "sha256": "79f0f913e539421489489b4454379a0e4f4f68cd07279867649019f0951b0c7b"
     },
     "type": "cash",
-    "time": "17:22",
+    "time": "17:34",
     "amount": 14806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-26:event:5456c813dcf24c7e:1",
+    "id": "2026-11-26:event:460b2f79d63ee18e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "5456c813dcf24c7e00ffc404e056c2ecc691436ee86f89d188220d0ac13a6603"
+     "sha256": "460b2f79d63ee18ed30b56a961d87f0f096c2850a2e06cd532920815f52a6eee"
     },
     "type": "location",
-    "time": "17:22",
-    "place": "safdarjung",
+    "time": "17:34",
+    "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-26:event:628520404fa277e4:1",
+    "id": "2026-11-26:event:d56f7986f9cea35f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "628520404fa277e40cbc1468df66d813118f5a111e87678f4a542925e8482430"
+     "sha256": "d56f7986f9cea35f1f0628861d46dd82a45b3d2cb0ba04d36f90a2832752e9a8"
     },
     "type": "inventory",
-    "time": "17:22",
+    "time": "17:34",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-26:event:67df6efcdb99eef9:1",
+    "id": "2026-11-26:event:e5ebee7caf450a83:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "67df6efcdb99eef9a53a038cd64ecb7ecc531727290b7e617bb0fae254245d53"
+     "sha256": "e5ebee7caf450a833b33dc178d36a5c40daac8dc8137bc871f6dfa2e2f5cced5"
     },
     "type": "inventory",
-    "time": "17:22",
+    "time": "17:34",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-26:event:8d3740dadb19798a:1",
+    "id": "2026-11-26:event:c3f6055f77894286:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "8d3740dadb19798aeac80f5330ff190ff6f24aa76bfec2257103802c82d1cc7e"
+     "sha256": "c3f6055f7789428637d5d60f4b37b61a9f0488fed1614cb56df8942f40cf83e1"
     },
     "type": "inventory",
-    "time": "17:22",
+    "time": "17:34",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
