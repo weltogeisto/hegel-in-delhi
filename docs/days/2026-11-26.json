@@ -285,6 +285,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "11:00",
+   "to": "12:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -468,6 +475,37 @@
    "to": "Hegel",
    "text": "Yes sir. I will set the water to boil so it is ready when you get back.",
    "t": "10:15",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The plan was to go to the Directorate by ten-thirty, but I am still on the verandah, and the heat is beginning to press. Ramesh is preparing the water, a small domestic order in the midst of my administrative chaos. I must move, but not yet to the office; the body needs the rest I have been denying it, and the lesson this afternoon demands a clear head.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Heraclitus"
+    }
+   ],
+   "t": "11:00",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. I shall be in.",
+   "to": "Ramesh",
+   "t": "11:00",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir.",
+   "t": "11:00",
    "place": "home"
   }
  ],
@@ -739,6 +777,71 @@
      "text": "(γ) To make sun, moon and the whole world arise through evaporation, like the food of plants, certainly approximates to the idea of the ancients, who did not allow the sun and moon to have obtained independence as we do."
     }
    ]
+  },
+  {
+   "t": "11:00",
+   "end": "12:00",
+   "event": "Ramesh says: “Yes sir. I will set the water to boil so it is ready when you get back.” Ramesh turns away from the window and heads toward the kitchen.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The plan was to go to the Directorate by ten-thirty, but I am still on the verandah, and the heat is beginning to press. Ramesh is preparing the water, a small domestic order in the midst of my administrative chaos. I must move, but not yet to the office; the body needs the rest I have been denying it, and the lesson this afternoon demands a clear head.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 60,
+    "says": "Thank you, Ramesh. I shall be in.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 255."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir.",
+    "does": "Ramesh nods slightly and continues toward the kitchen, holding the door open with his hip."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution",
+     "id": "sibree-history:1411"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Heraclitus",
+     "id": "haldane-1:716"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Enlightenment and the Revolution",
+     "text": "The first Constitutional form of Government in France was one which recognized Royalty; the monarch was to stand at the head of the State, and on him in conjunction with his Mimisters was to devolve the executive power; the legislative body on the other hand were to make the laws."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Heraclitus",
+     "text": "There is a superficial process that does not carry us beyond the determinate nature of substance. They say in reference to it, “water does not change into air but only into moisture, and moisture always condenses back into water again.” But in this they merely fix on a one-sided, insufficient process, and give it out to be the absolute process."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -754,7 +857,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-26T11:00+05:30",
+  "until": "2026-11-26T12:00+05:30",
   "asleep": false,
   "imprest": 15106,
   "wearing": "kurta",
@@ -1261,7 +1364,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-26",
-  "source_sha256": "ee00ee7c174e87f7396695ee6ffc3ad8494fd3a42081fc377789b08858d32c7e",
+  "source_sha256": "4b9fcd958b1bc1c0e37760dd6e1716f9c3db80dd3606989e6ced2b2aba9f37d6",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1439,6 +1542,36 @@
     "words": "Yes sir. I will set the water to boil so it is ready when you get back.",
     "verified": false,
     "time": "10:15",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:3df63bf0fff0b18e:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 18,
+     "sha256": "3df63bf0fff0b18e5216bc946f728508c737c3e26979fd6d79f28a69242d9ade"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Thank you, Ramesh. I shall be in.",
+    "verified": false,
+    "time": "11:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:e2a76657a4074e47:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 19,
+     "sha256": "e2a76657a4074e47a456fe0b6b3fd05b8652c1e3edb4214d9a7365ab39a19252"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes sir.",
+    "verified": false,
+    "time": "11:00",
     "place": "home"
    },
    {
@@ -1716,68 +1849,98 @@
     "text": "Weather: 20 °C, a brown haze. Air quality index: 259."
    },
    {
-    "id": "2026-11-26:event:b71590bb0a617b6c:1",
+    "id": "2026-11-26:event:be5e4c8f7927bb34:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 4,
+     "sha256": "be5e4c8f7927bb340cfb55817cc160c2978283dbf0afa5bd429e2ef3cb204ca2"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "11:00",
+    "end": "12:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:event:97591ba1ba0f2834:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      4,
+      0
+     ],
+     "sha256": "97591ba1ba0f2834dd981e812237678ca1141df723eac50ee8253bb24a0f9abc"
+    },
+    "type": "observation",
+    "time": "11:00",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 255."
+   },
+   {
+    "id": "2026-11-26:event:71a16c8e60bda0ee:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "b71590bb0a617b6c13fb6d91e45ae0c14b24ceea3c8e995e6fb3ee19a6bff87b"
+     "sha256": "71a16c8e60bda0ee1bc798dc23f86c5963fb55dedf314ca87bd33d43810cd583"
     },
     "type": "cash",
-    "time": "11:00",
+    "time": "12:00",
     "amount": 15106,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-26:event:7192441ef8c64288:1",
+    "id": "2026-11-26:event:4e7cc602288ea283:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "7192441ef8c642882b950c9f2a30b1ed88f12821e55e0872fa1c02ecbda8a199"
+     "sha256": "4e7cc602288ea283e2596a37ded81b276388cb5c15c2238519cd1f092d537431"
     },
     "type": "location",
-    "time": "11:00",
+    "time": "12:00",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-26:event:4308154930a193ce:1",
+    "id": "2026-11-26:event:ec9e92dc2131a516:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "4308154930a193ceef91e6289eb6733e117ddd9ae972a57f761c29cb892d5ec7"
+     "sha256": "ec9e92dc2131a516f1f2fe4218e49c86afba7a50bf7b17af2fbd5d8769020a0e"
     },
     "type": "inventory",
-    "time": "11:00",
+    "time": "12:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-26:event:d7c2984b6c39048c:1",
+    "id": "2026-11-26:event:878898e16669403e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "d7c2984b6c39048cd43faded2a3ce11cd9ae3a29958ced765fd37e3d0ca7a4d5"
+     "sha256": "878898e16669403e57642635da37a2c631c66dfb1e38157d401ef09239a88f17"
     },
     "type": "inventory",
-    "time": "11:00",
+    "time": "12:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-26:event:3a4db97ed89fe044:1",
+    "id": "2026-11-26:event:afc710b5b73a9b4c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "3a4db97ed89fe04432d37436d89945a7c21152a93fd6b01b02f4c8e8d7aa56bd"
+     "sha256": "afc710b5b73a9b4ccaa36043ba57f8ccc6228cf61c1c48302e5e16b54a1d149a"
     },
     "type": "inventory",
-    "time": "11:00",
+    "time": "12:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
