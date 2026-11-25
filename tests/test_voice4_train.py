@@ -147,7 +147,7 @@ class BuildTest(unittest.TestCase):
     def test_the_manifest_counts_and_hashes(self):
         self.run_cards()
         man = t.cmd_build(self.f, volumes())
-        self.assertEqual(man["dropped"], {"ocr": 0, "no_card": 0, "lacking_after_two_rounds": 0})
+        self.assertEqual(man["dropped"], {"ocr": 0, "no_card": 0, "lacking_after_two_rounds": 0, "card_copies_his_words": 0, "copied": []})
         self.assertEqual(man["sha256"]["TRAIN.jsonl"], t.sha(self.f / "TRAIN.jsonl"))
         self.assertEqual(man["sha256"]["HELDOUT.jsonl"], t.sha(self.f / "HELDOUT.jsonl"))
         self.assertEqual(man["note"], t.SENTENCE)
@@ -155,6 +155,21 @@ class BuildTest(unittest.TestCase):
         self.assertEqual(json.loads((self.f / "TRAIN-MANIFEST.json").read_text()), man)
         again = t.cmd_build(self.f, volumes())
         self.assertEqual(again, man)                                                        # same input, same bytes
+
+    def test_a_card_that_hands_him_his_own_words_is_not_trained_on(self):
+        words = "wie glücklich ich für mein ganzes übriges Leben mit ihr sein werde und was ich"
+        self.assertTrue(t.copies(["- He writes: " + words], "Du siehst daraus, " + words + " noch sagen will."))     # twelve of his words in a row
+        self.assertTrue(t.copies(["- Er ist nicht zu Hause und die Frau war auf dem Markt."], "anything"))           # a card in German
+        self.assertFalse(t.copies(["- Herr von Merkel is mentioned.", "- The writer reads Der Teutsche Merkur, so he says."], "anything"))
+        self.assertFalse(t.copies(["- The concept of Substanz applies to the empirical Ich."], "anything"))           # his terms, in English lines
+        self.run_cards()
+        cards = v.rows(self.f / "CARDS.jsonl")
+        text = {r["id"]: r["text"] for r in self.rows}[cards[0]["id"]]
+        cards[0]["card"] = cards[0]["card"] + "\n- " + " ".join(text.split()[:12])
+        (self.f / "CARDS.jsonl").write_text("".join(json.dumps(c, ensure_ascii=False) + "\n" for c in cards))
+        man = t.cmd_build(self.f, volumes())
+        self.assertEqual(man["dropped"]["copied"], [cards[0]["id"]])
+        self.assertNotIn(cards[0]["id"], {r["id"].split("|")[0] for r in v.rows(self.f / "TRAIN.jsonl") + v.rows(self.f / "HELDOUT.jsonl")})
 
     def test_the_trainer_accepts_what_the_builder_writes(self):
         from pc import train_letters

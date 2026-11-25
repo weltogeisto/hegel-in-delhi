@@ -96,7 +96,7 @@ Declared in `pc/FAST-LANE-NIGHT2.md` before any run. Once Day 54 is complete: `s
 ### W13 · PC seat · Training 4's instrument run · DONE, 25 November 02:29 Berlin (`codex/voice4-instrument-20261124`); read in `pc/TRAINING-4-INSTRUMENT.md`; the blind pairs are W19
 Declared in `pc/TRAINING-4-INSTRUMENT.md`. **24 November: the first merge kept 5 of 43 cards; the rule is changed on main (#154), and a re-merge with no new calls keeps all 43.** Inference only, plain Qwen, no adapter: about 1,030 calls, by day on 24 November in the spare slot with the latency guard, and on into the night if needed. Push the folder to `codex/voice4-instrument-20261124` and post DONE on PR #1. Make no sheet and no key; the cloud reads.
 
-### W14 · PC seat · Training 4: the cards for the training letters · OPEN for the night of 24 November (`DECISIONS.md` 65)
+### W14 · PC seat · Training 4: the cards for the training letters · DONE, 26 November 00:14 Berlin; read and frozen in `pc/TRAINING-4-CARDS.md` (589 passages, 1,177 rows)
 Declared in `pc/TRAINING-4-CARDS.md`. Inference only, after W13 is complete: a card and its symmetry check for each of the 644 passages (596 training, 48 held out), then `voice4_train.py build`. Push to `codex/training4-cards-20261124` and post DONE on PR #1 with the manifest's counts and hashes. Nothing trains from it before the cloud has read the cards.
 
 ### W17 · PC seat · the ceiling test · DONE, 24 November: 220 of 220 calls (`codex/ceiling-20261124`); the reading is W18

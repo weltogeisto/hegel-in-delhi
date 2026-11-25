@@ -161,15 +161,29 @@ def rows_for(p, lines):
              "prompt": works.letter4_prompt(p["head"], order, goes_on=not p["first"]), "target": p["text"]} for tag, order in orders]
 
 
+GERMAN_RECORD = 4                    # this many different German function words in a card, and the card has kept his German
+NAME_WORDS = {"von", "so"}           # a German name or an English word: not counted
+
+
+def copies(card_lines, text):
+    """Does the card hand him his own words? It shares LEAK_RUN words in a row with the passage, or it is written in German.
+    A row built from such a card teaches the adapter to copy from the prompt, not to write from the facts (25 November)."""
+    card = "\n".join(card_lines)
+    german = {w.lower() for w in voice4.GERMAN.findall(card)} - NAME_WORDS
+    return bool(grams(card) & grams(text)) or len(german) >= GERMAN_RECORD
+
+
 def cmd_build(folder, volumes=None):
     folder = Path(folder)
     passages = voice4.rows(folder / "PASSAGES.jsonl")
     cards = {c["id"]: c["card"].split("\n") for c in voice4.rows(folder / "CARDS.jsonl")}
     if any(p.get("journey") in SEALED for p in passages):
         raise ValueError("a development or sealed journey is among the passages")
-    train, held, used = [], [], []
+    train, held, used, copied = [], [], [], []
     for p in passages:
-        if p["id"] in cards:
+        if p["id"] in cards and copies(cards[p["id"]], p["text"]):
+            copied.append(p["id"])
+        elif p["id"] in cards:
             (train if p["set"] == "train" else held).extend(rows_for(p, cards[p["id"]]))
             used.append(p)
     leak_check([p["text"] for p in used], volumes)
@@ -183,7 +197,8 @@ def cmd_build(folder, volumes=None):
                 "sha256": {"TRAIN.jsonl": res["train"]["sha256"], "HELDOUT.jsonl": res["held"]["sha256"],
                            "PASSAGES.jsonl": sha(folder / "PASSAGES.jsonl"), "CARDS.jsonl": sha(folder / "CARDS.jsonl")},
                 "dropped": {"ocr": len(json.loads(ocr.read_text(encoding="utf-8"))["dropped"]) if ocr.exists() else None,
-                            "no_card": len(lost.get("no_card", [])), "lacking_after_two_rounds": len(lost.get("lacking_after_two_rounds", []))},
+                            "no_card": len(lost.get("no_card", [])), "lacking_after_two_rounds": len(lost.get("lacking_after_two_rounds", [])),
+                            "card_copies_his_words": len(copied), "copied": copied},
                 "constants": {"SEED": SEED, "OCR_KNOWN": OCR_KNOWN, "OCR_SHARE": OCR_SHARE, "LEAK_RUN": LEAK_RUN, "LO": voice4.LO,
                               "HI": voice4.HI, "HELD_EVERY": voice4.HELD_EVERY},
                 "leak_check": f"no run of {LEAK_RUN} words shared with {' or '.join(SEALED)}",
