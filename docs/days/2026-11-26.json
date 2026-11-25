@@ -313,6 +313,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "14:30",
+   "to": "15:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -605,6 +612,37 @@
    "to": "Hegel",
    "text": "Haan sir, dhuan hai bahut aaj. Khana garam hai, bas jaldi karein.",
    "t": "13:45",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The smoke is thick, a brown lid on the city, and the oil lamp wick hisses in the stagnant air. Ramesh’s warning is practical, but I am aware that the next meal is not until 19:30, so the 'hot food' he refers to is likely a leftover or a snack. I have finished my lunch an hour ago, and my plan for 15:00 is to walk to Safdarjung Tomb. It is now 14:30, so I have thirty minutes of preparation and rest before I must go out into that haze. I will use this time to settle my affairs and prepare for the lesson later, rather than engaging in a meal that is not scheduled.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras"
+    }
+   ],
+   "t": "14:30",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Dhanyavaad, Ramesh. I will be out shortly.",
+   "to": "Ramesh",
+   "t": "14:30",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Haan sir. Main chabi table par rakhta hoon. Saaf-suthra rehte hain.",
+   "t": "14:30",
    "place": "home"
   }
  ],
@@ -1132,6 +1170,71 @@
      "text": "' In this -work Mr. Hugo says (5th edition § 53) that \" Cicero praises the twelve tables with a side glance at philosophy,\" \" but the philosopher Phavorinus treats them exactly as many a great philosopher since has treated positive right.\""
     }
    ]
+  },
+  {
+   "t": "14:30",
+   "end": "15:00",
+   "event": "Ramesh says: “Haan sir, dhuan hai bahut aaj. Khana garam hai, bas jaldi karein.” He nods slightly and turns to adjust the wick of the oil lamp on the sideboard.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The smoke is thick, a brown lid on the city, and the oil lamp wick hisses in the stagnant air. Ramesh’s warning is practical, but I am aware that the next meal is not until 19:30, so the 'hot food' he refers to is likely a leftover or a snack. I have finished my lunch an hour ago, and my plan for 15:00 is to walk to Safdarjung Tomb. It is now 14:30, so I have thirty minutes of preparation and rest before I must go out into that haze. I will use this time to settle my affairs and prepare for the lesson later, rather than engaging in a meal that is not scheduled.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": "Dhanyavaad, Ramesh. I will be out shortly.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 266."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Haan sir. Main chabi table par rakhta hoon. Saaf-suthra rehte hain.",
+    "does": "He places the brass key on the small wooden table near the door."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 11.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "id": "haldane-1:793"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "text": "But Plutarch (in Pericle 4, 16) also relates that Anaxagoras came to want because Pericles neglected him—did not supply the illuminating lamp with oil. A more important matter is that Anaxagoras (as happened later with Socrates and many other philosophers) was accused of despising those whom the people accepted as gods."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1147,7 +1250,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-26T14:30+05:30",
+  "until": "2026-11-26T15:00+05:30",
   "asleep": false,
   "imprest": 15106,
   "wearing": "kurta",
@@ -1655,7 +1758,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-26",
-  "source_sha256": "a3c85b6baa91bfc2c46302ee7a8e2af81db461a2943305aa4d0180c99ba3857c",
+  "source_sha256": "b3b983917ca38e810ab876d41784198867296639ddf60d6745e2398a5b15a52f",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1923,6 +2026,36 @@
     "words": "Haan sir, dhuan hai bahut aaj. Khana garam hai, bas jaldi karein.",
     "verified": false,
     "time": "13:45",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:110ff68be1a65c91:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 28,
+     "sha256": "110ff68be1a65c91893a2abe50eb399d646ba56dfa85d6fb7a863617d468a3ca"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Dhanyavaad, Ramesh. I will be out shortly.",
+    "verified": false,
+    "time": "14:30",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:c3543e5659375296:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 29,
+     "sha256": "c3543e565937529673ff7916509bdcd480b6b792f45fe8daa482c2f18547807f"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Haan sir. Main chabi table par rakhta hoon. Saaf-suthra rehte hain.",
+    "verified": false,
+    "time": "14:30",
     "place": "home"
    },
    {
@@ -2336,68 +2469,98 @@
     "text": "Weather: 24 °C, a brown haze. Air quality index: 268."
    },
    {
-    "id": "2026-11-26:event:2450ddaea9eb3672:1",
+    "id": "2026-11-26:event:e94236c9b0152a12:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 8,
+     "sha256": "e94236c9b0152a126a6c543235448cd2965e3d13798b0ebc21e1e9183ec94ef5"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "14:30",
+    "end": "15:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:event:9dcb5166f53364d4:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      8,
+      0
+     ],
+     "sha256": "9dcb5166f53364d4478fc3fd1fbeffd7efe24257ac85d1f6d0d0f2aa56172bf9"
+    },
+    "type": "observation",
+    "time": "14:30",
+    "place": "home",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 266."
+   },
+   {
+    "id": "2026-11-26:event:ab53debc4c9a7321:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "2450ddaea9eb3672ea785d11c014fdcd513055600fcd2f3b426a41c435ea5811"
+     "sha256": "ab53debc4c9a7321ce8c78b5a2fd262d01a7f84aaf0b85cab525daa9c15d7146"
     },
     "type": "cash",
-    "time": "14:30",
+    "time": "15:00",
     "amount": 15106,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-26:event:775ab250f580ea44:1",
+    "id": "2026-11-26:event:6e97acf3adbf18c5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "775ab250f580ea449fffa0edede0b18a71d3d5b29f86c56a376805e8ec3437dc"
+     "sha256": "6e97acf3adbf18c5f9e2997435bc590a6d10fa7bbe68e6ccd7e3c60ab5cba208"
     },
     "type": "location",
-    "time": "14:30",
+    "time": "15:00",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-26:event:d382f3d21bb1ca56:1",
+    "id": "2026-11-26:event:ca8112cde4530810:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "d382f3d21bb1ca564f64419f24aade342230cb10c323873d21a4fdd829e8ce91"
+     "sha256": "ca8112cde453081034dd416f427cf46f2fdb65d842cb196eb4e1e605638037e6"
     },
     "type": "inventory",
-    "time": "14:30",
+    "time": "15:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-26:event:2658fcaf056b8beb:1",
+    "id": "2026-11-26:event:46e45df29c092550:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "2658fcaf056b8beb41f3a4a9c03bd2178d34998b2ee8b276b58ab9f329c79063"
+     "sha256": "46e45df29c092550f15240cc393f047dfac3838c35786f88c21d0cc10ff2c969"
     },
     "type": "inventory",
-    "time": "14:30",
+    "time": "15:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-26:event:44b9b762c0b447e9:1",
+    "id": "2026-11-26:event:a46e02ca577ca059:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "44b9b762c0b447e94a4d4244e2dd7001d36c15eb94e9f1bc150a41535221fb27"
+     "sha256": "a46e02ca577ca059847700c48f970a32317a96339d032cb51ed777bfc29c3cdd"
     },
     "type": "inventory",
-    "time": "14:30",
+    "time": "15:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
