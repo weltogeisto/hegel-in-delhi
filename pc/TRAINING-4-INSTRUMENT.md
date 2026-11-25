@@ -47,4 +47,25 @@ python3 tools/voice4.py judge --folder $F        # run REQUESTS-judge.jsonl     
 - **Blind pairs:** a sheet per arm and its mirror, for two judge families. Judgments are sealed on main before the keys.
 - **The best of P0, P1 and P2 on the two axes** is the arm Training 4's adapter must beat.
 
+## The read, 25 November
+
+W13 was complete at 02:29 Berlin on 25 November. One call ran past the runner's wait while the night's futures shared the slots; it was sent again unchanged, and nothing was chosen by what it said.
+
+- **The cards.** All 43 passages kept a card. The check added 77 lines to 33 cards in the first round and 20 lines to 10 in the second.
+- **The fixed judge may not gate.** It flagged all 17 substantive defects the readers found; the bar is 80%. It also flagged 179 of the 224 rewrites the readers passed, 80% of them; the bar is 10% at most. By the plan, the rule for invented particulars and a blind reading of 48 letters stand in.
+- **The classifier does not qualify.** On the controls' English, in bundles of 600 words, it told his letters from his correspondents' 72.6% of the time (95% interval 62.3 to 81.0). The bar is 75%, with the interval's lower end above 60%. So it is not read on the arms. On the German originals it stood at 85%.
+- **Invented particulars, a letter:** the real passages against their own cards, 1.95; that is the rule's floor. P0 2.58, P1 2.14, P2 2.19. Letters with any: 28 of 43 real, and 34, 35 and 35.
+- **So the voice bar rests on the blind pairs,** and on Welt's ten minutes.
+
+## The blind pairs, as they are read
+
+- **Six sheets:** each arm and its mirror, 43 pairs each. A pair sets the real passage's English beside the arm's letter's English.
+- **Changed on 25 November, before any sheet was made:** row ids and the way round come from a salt that is kept with the keys. Before, both could be worked out from the repository.
+- **A reader session gets one folder** (`tools/voice4.py packet`, in `packet/`): one sheet as plain text, the instructions, and a script that checks the form of the answers. The folders are named r1 to r6; which sheet each is stays with the keys. The real passage of a card is on every sheet, so a session reads one folder only: six fresh sessions a family.
+- **One question:** which text is Hegel's own, X or Y. A reader is never asked which reads better.
+- **Two families,** each reported apart: fresh Claude sessions, and the second family on the PC (`pc/TASKS.md`, W19).
+- **Sealed before the keys.** `PACKET.json` holds the hashes of the six texts and of the keys, committed before any reading. Each ballot file is written down by its hash in `SEALS.json` (`tools/ceiling_judge.py seal`), and `tools/voice4.py pairs-score` reads nothing else.
+- **The measure** is a family's accuracy by arm over both ways round, 86 judgments, with the passages it got right both ways. 50% would mean no reader can tell.
+- **The Claude family read on 25 November:** six fresh sessions of one model, each started in its own folder and told to stay in it. The record of each session's file and shell use shows that it did. Their answers are `ballots/claude-r1.jsonl` to `claude-r6.jsonl`, sealed in `SEALS.json`. No key has been applied.
+
 Evaluation only. No card, letter, translation or judgment of this night is ever training data. The cards for the training letters are made later, by the same instructions, in a run of their own.

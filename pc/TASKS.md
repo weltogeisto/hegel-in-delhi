@@ -93,7 +93,7 @@ Built, off: `HEGEL_RECORD_CALLS` and `tools/replay_morning.py`. On Welt's word, 
 ### W12 · PC seat · the fast lane, night 2: his future, two times forty-odd days · DONE, 24 November: 37 and 36 days; in both his money is gone by 7 December and nothing is cooked at home from the 6th (`pc/FAST-LANE-NIGHT2-RESULT.md`)
 Declared in `pc/FAST-LANE-NIGHT2.md` before any run. Once Day 54 is complete: `simulate --days 60` from Day 55's saved morning with every live switch, seeds 1831 and 2718 side by side, one slot each. No new day after 07:30; both are stopped at 07:45, and the days complete stand. Night 1's GPU rule. Push to `codex/fast-lane-night2-20261123` and post DONE on PR #1. The read is Claude's.
 
-### W13 · PC seat · Training 4's instrument run · OPEN, Welt's go of 23 November (`DECISIONS.md` 65)
+### W13 · PC seat · Training 4's instrument run · DONE, 25 November 02:29 Berlin (`codex/voice4-instrument-20261124`); read in `pc/TRAINING-4-INSTRUMENT.md`; the blind pairs are W19
 Declared in `pc/TRAINING-4-INSTRUMENT.md`. **24 November: the first merge kept 5 of 43 cards; the rule is changed on main (#154), and a re-merge with no new calls keeps all 43.** Inference only, plain Qwen, no adapter: about 1,030 calls, by day on 24 November in the spare slot with the latency guard, and on into the night if needed. Push the folder to `codex/voice4-instrument-20261124` and post DONE on PR #1. Make no sheet and no key; the cloud reads.
 
 ### W14 · PC seat · Training 4: the cards for the training letters · OPEN for the night of 24 November (`DECISIONS.md` 65)
@@ -110,6 +110,14 @@ Declared in `pc/CEILING-TEST.md` ("The reading, as it is done"). No GPU. The Cla
 4. `python3 tools/ceiling_judge.py join --out ~/hegel-eval/ceiling-astra --family astra`. It stops if a part is missing or out of form.
 5. Push `astra-1.jsonl` and `astra-2.jsonl` into `pc/exports/ceiling-20261124/ballots/` on `codex/ceiling-astra-20261125`, with `ASTRA.md`: the model and settings, how a session was kept to its folder, and any part run twice. Post DONE on PR #1.
 - **Whoever starts the sessions reads neither the parts nor the ballots.** No `seal`, no `score`: the cloud seals and scores.
+
+### W19 · the second family, started on Welt's word; the PC seat prepares · the instrument's blind pairs · OPEN from 25 November
+Declared in `pc/TRAINING-4-INSTRUMENT.md` ("The blind pairs, as they are read"). No GPU. It can run with W18, by the same means.
+1. Copy the six folders `pc/exports/voice4-instrument-20261124/packet/r1` to `r6` to a place outside the repository, for example `~/hegel-eval/voice4-pairs/`.
+2. **One fresh session of the second family for each folder,** started in that folder, with its `PROMPT.md` as its whole message. A session must not be able to read the repository, another folder or the web. A session reads one folder only: the real passage is on every sheet. The same model and settings for all six, written down.
+3. A folder is run again only if its session failed or its check could not reach `ALL OK`, never for what it answered. Say which.
+4. Push the six answer files as `pc/exports/voice4-instrument-20261124/ballots/<family>-r1.jsonl` to `<family>-r6.jsonl` (each is its folder's `rN.out.jsonl`) on `codex/voice4-pairs-20261125`, with a note of the model and settings. Post DONE on PR #1.
+- **Whoever starts the sessions reads neither the texts nor the answers.** The cloud seals and scores.
 
 ### W15 · PC seat · the fast lane, night 3: the paid work and the money, off and on · OPEN for the night of Wednesday 25 November (`DECISIONS.md` 67, 68, 70)
 Declared in `pc/FAST-LANE-NIGHT3.md` before any run. From Day 57's saved morning, `simulate --days 14`: seeds 1831 and 2718, each with `HEGEL_EXITS` off and on, the two arms of a seed side by side; then seed 1831 once more with `HEGEL_EXITS` and `HEGEL_BORROWED_LOOKUP`; seed 4242 if the night allows. The engine is main at `b204baf0` or later in the rehearsal's own checkout; nothing is merged into shadow. Push to `codex/fast-lane-night3-20261125` and post DONE on PR #1. The read is Claude's, by the rule declared there.

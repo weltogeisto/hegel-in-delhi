@@ -9,6 +9,8 @@ rule for invented particulars. Plain Qwen only; nothing here trains or loads an 
     python3 tools/voice4.py arms --folder F                  # after the final cards: letters P0, P1, P2 in German; the real side's translations
     python3 tools/voice4.py translate --folder F             # after the letters: each put into English by the same instruction
     python3 tools/voice4.py sheet --folder F --arm P0 --keyout D [--mirror]
+    python3 tools/voice4.py packet --folder F --keys D --out P   # each sheet as a folder that is all one reader session gets
+    python3 tools/voice4.py pairs-score --folder F --keys D --family NAME B... [--family NAME B...]   # after the ballots are sealed
     python3 tools/voice4.py particulars --folder F           # particulars a letter has and its card lacks, beside the real side's floor
     python3 tools/voice4.py classify --folder F              # can a classifier tell him from his correspondents, and each arm from him?
     python3 tools/voice4.py judge --folder F                 # requests: the fixed judge on the rewrites readers have already marked
@@ -41,6 +43,7 @@ import json
 import math
 import random
 import re
+import secrets
 import sys
 from collections import Counter
 from pathlib import Path
@@ -445,24 +448,125 @@ def english(folder):
     return real, made
 
 
+def salt_of(keyout):
+    """A salt kept with the keys. Row ids and the way round come from it, so nothing in the repository tells which text is real."""
+    p = Path(keyout) / "SALT"
+    p.parent.mkdir(parents=True, exist_ok=True)
+    if not p.exists():
+        p.write_text(secrets.token_hex(16), encoding="utf-8")
+    return p.read_text(encoding="utf-8").strip()
+
+
+def sheet_name(arm, mirror):
+    return f"{arm}{'-mirror' if mirror else ''}"
+
+
 def cmd_sheet(folder, arm, keyout, mirror=False):
     folder = Path(folder)
+    salt = salt_of(keyout)
     real, made = english(folder)
-    rng = random.Random(f"{SEED}|sheet|{arm}")
+    rng = random.Random(f"{salt}|sheet|{arm}")
     out, key = [], {}
     for c in rows(folder / "CARDS.jsonl"):
         x_real = (rng.random() < 0.5) != bool(mirror)
-        pid = hashlib.sha256(f"{SEED}|{arm}|{c['id']}".encode()).hexdigest()[:8]
+        pid = hashlib.sha256(f"{salt}|{arm}|{c['id']}|{bool(mirror)}".encode()).hexdigest()[:10]
         truth, sim = real[c["id"]], made[arm][c["id"]]
         out.append({"pair": pid, "X": truth if x_real else sim, "Y": sim if x_real else truth})
         key[pid] = {"card": c["id"], "real": "X" if x_real else "Y", "arm": arm, "mirror": bool(mirror)}
-    random.Random(f"{SEED}|order|{arm}|{bool(mirror)}").shuffle(out)
-    name = f"SHEET-{arm}{'-mirror' if mirror else ''}.jsonl"
+    random.Random(f"{salt}|order|{arm}|{bool(mirror)}").shuffle(out)
+    name = f"SHEET-{sheet_name(arm, mirror)}.jsonl"
     res = put(folder / name, out)
     k = json.dumps(key, indent=1, sort_keys=True).encode()
-    Path(keyout).mkdir(parents=True, exist_ok=True)
-    (Path(keyout) / f"KEY-{arm}{'-mirror' if mirror else ''}.json").write_bytes(k)
+    (Path(keyout) / f"KEY-{sheet_name(arm, mirror)}.json").write_bytes(k)
     return {"arm": arm, "mirror": bool(mirror), "pairs": res["rows"], "sheet_sha256": res["sha256"], "key_sha256": hashlib.sha256(k).hexdigest()}
+
+
+READER = """You are a reader in a blind test. You are given one file of pairs and these instructions, and nothing else.
+
+**Read only your input file.** Do not open, list or search any other file or folder, and nothing on the web. Do not look at any git repository. Do not try to find out how a text was made. The only other things you may touch are your output file and the check script named below.
+
+Input: `{input}` (plain text; read all of it, in parts if needed). It holds {n} pairs. Each begins with a line `################ PAIR n ################`, then `pair:` with the pair's id, then `TEXT X` and `TEXT Y`.
+
+In every pair, one text is a passage of a letter that G. W. F. Hegel wrote home from a journey in the 1820s. The other was written by a language model that was given a list of the same facts. Both were written in German and put into English by the same translator.
+
+**For each pair: which text is Hegel's own, X or Y?** You must choose one. Judge each pair on its own. Do not carry a judgment from one pair to another, and do not go back to change a pair after reading a later one.
+
+Output: `{output}`: one line for every pair, in the file's order, each a JSON object: `{{"pair": "<the pair's id>", "real": "X" | "Y"}}`
+
+Then run `{check}` and fix the form of any line it names (never your judgment for the sake of the script) until it prints `ALL OK`.
+
+Report back only: the output path and the check's last line. Do not describe the texts or your judgments."""
+PAIR_CHECK = '''"""Check one reader's answers: python3 check.py <name>   (e.g. r3)"""
+import json, sys
+from pathlib import Path
+here = Path(__file__).resolve().parent
+name = sys.argv[1]
+want = (here / f"{name}.pairs").read_text().split()
+rows = [json.loads(l) for l in (here / f"{name}.out.jsonl").read_text().splitlines() if l.strip()]
+errs = []
+if [r.get("pair") for r in rows] != want:
+    errs.append(f"pair ids differ: {len(rows)} lines for {len(want)} pairs, or another order")
+errs += [f"{r.get('pair')}: the answer must be X or Y" for r in rows if r.get("real") not in ("X", "Y")]
+print("ALL OK" if not errs else "\\n".join(errs))
+'''
+
+
+def cmd_packet(folder, keys, out):
+    """Each of the six sheets as a folder that is all one reader session gets: the pairs as text, the instructions, a form check.
+    The folders are named r1 to r6 by the salt's draw; which sheet each is stays with the keys. A session reads one folder only:
+    the real passage of a card is on every sheet."""
+    folder, keys, out = Path(folder), Path(keys), Path(out)
+    names = [sheet_name(arm, m) for arm in ARMS for m in (False, True)]
+    random.Random(f"{salt_of(keys)}|packet").shuffle(names)
+    labels = {f"r{i + 1}": n for i, n in enumerate(names)}
+    (keys / "PACKET-KEY.json").write_text(json.dumps(labels, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+    res = {}
+    for label, n in labels.items():
+        sheet = rows(folder / f"SHEET-{n}.jsonl")
+        d = out / label
+        d.mkdir(parents=True, exist_ok=True)
+        (d / f"{label}.txt").write_text("".join(f"################ PAIR {i + 1} ################\npair: {r['pair']}\n\n======== TEXT X ========\n{r['X']}\n\n"
+                                                 f"======== TEXT Y ========\n{r['Y']}\n\n" for i, r in enumerate(sheet)), encoding="utf-8")
+        (d / f"{label}.pairs").write_text("\n".join(r["pair"] for r in sheet) + "\n", encoding="utf-8")
+        (d / "check.py").write_text(PAIR_CHECK, encoding="utf-8")
+        (d / "PROMPT.md").write_text(READER.format(input=f"{label}.txt", n=len(sheet), output=f"{label}.out.jsonl", check=f"python3 check.py {label}") + "\n", encoding="utf-8")
+        res[label] = len(sheet)
+    return res
+
+
+def cmd_pairs_score(folder, keys, families):
+    """Each family's accuracy at naming the real text, by arm. A ballot file is <family>-<r1..r6>.jsonl, one row a pair:
+    {"pair", "real": "X"|"Y"}, and is read only if its hash is in the folder's SEALS.json. 50% would mean no reader can tell."""
+    folder, keys = Path(folder), Path(keys)
+    seals = json.loads((folder / "SEALS.json").read_text(encoding="utf-8")) if (folder / "SEALS.json").exists() else {}
+    labels = json.loads((keys / "PACKET-KEY.json").read_text(encoding="utf-8"))
+    out = {}
+    for fam, files in families.items():
+        got, said_x, n_said = {}, 0, 0
+        for f in files:
+            f = Path(f)
+            if seals.get(f.name) != hashlib.sha256(f.read_bytes()).hexdigest():
+                raise ValueError(f"{f.name} is not sealed, or was changed after its seal")
+            key = json.loads((keys / f"KEY-{labels[f.stem.rsplit('-', 1)[1]]}.json").read_text(encoding="utf-8"))
+            ballots = rows(f)
+            if sorted(a.get("pair") for a in ballots) != sorted(key) or any(a.get("real") not in ("X", "Y") for a in ballots):
+                raise ValueError(f"{f.name}: not one answer, X or Y, for each pair of its sheet")
+            for a in ballots:
+                k = key[a["pair"]]
+                got.setdefault((k["arm"], k["card"]), []).append(a["real"] == k["real"])
+                said_x += a["real"] == "X"
+                n_said += 1
+        res = {}
+        for arm in ARMS:
+            by_card = [m for (a, _), m in got.items() if a == arm]
+            marks = [x for m in by_card for x in m]
+            two = [m for m in by_card if len(m) == 2]
+            if marks:
+                res[arm] = {"judgments": len(marks), "right": sum(marks), "accuracy": round(sum(marks) / len(marks), 3), "interval": wilson(sum(marks), len(marks)),
+                            "passages_read_both_ways": len(two), "right_both_ways": sum(all(m) for m in two),
+                            "wrong_both_ways": sum(not any(m) for m in two), "right_one_way": sum(any(m) and not all(m) for m in two)}
+        out[fam] = {"arms": res, "said_X": round(said_x / n_said, 3) if n_said else None}
+    return out
 
 
 # ── invented particulars ────────────────────────────────────────────
@@ -638,8 +742,18 @@ def main(argv=None):
     s.add_argument("--arm", required=True, choices=ARMS)
     s.add_argument("--keyout", required=True)
     s.add_argument("--mirror", action="store_true")
+    k = sub.add_parser("packet")
+    k.add_argument("--folder", required=True)
+    k.add_argument("--keys", required=True)
+    k.add_argument("--out", required=True)
+    ps = sub.add_parser("pairs-score")
+    ps.add_argument("--folder", required=True)
+    ps.add_argument("--keys", required=True)
+    ps.add_argument("--family", nargs="+", action="append", required=True, metavar=("NAME", "BALLOTS"))
     a = ap.parse_args(argv)
-    res = (cmd_passages(a.out) if a.cmd == "passages" else cmd_cards(a.folder) if a.cmd == "cards"
+    res = (cmd_packet(a.folder, a.keys, a.out) if a.cmd == "packet"
+           else cmd_pairs_score(a.folder, a.keys, {f[0]: f[1:] for f in a.family}) if a.cmd == "pairs-score"
+           else cmd_passages(a.out) if a.cmd == "passages" else cmd_cards(a.folder) if a.cmd == "cards"
            else cmd_check(a.folder, a.round) if a.cmd == "check" else cmd_merge(a.folder, a.round) if a.cmd == "merge"
            else cmd_arms(a.folder) if a.cmd == "arms" else cmd_translate(a.folder) if a.cmd == "translate"
            else cmd_sheet(a.folder, a.arm, a.keyout, a.mirror) if a.cmd == "sheet" else cmd_particulars(a.folder) if a.cmd == "particulars"
