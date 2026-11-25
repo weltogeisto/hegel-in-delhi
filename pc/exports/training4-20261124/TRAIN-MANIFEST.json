@@ -1,0 +1,32 @@
+{
+ "passages": 596,
+ "pairs": 1191,
+ "held": 48,
+ "words": {
+  "train_passages": 112795,
+  "train_targets": 225482,
+  "held_passages": 8617
+ },
+ "sha256": {
+  "TRAIN.jsonl": "606dc5a63318b1ed7ed2d03e4da93e6e6ae14d762beab2dc34082c2256af5f89",
+  "HELDOUT.jsonl": "4a0665bdaecf0d1bd390022902c26262c4ec3b687dbb88dfe7571a8e28529f31",
+  "PASSAGES.jsonl": "26cc124b5b9688a49b5c7ce077e49f72376f5ee0f6005328ab77234bb932b123",
+  "CARDS.jsonl": "20e27c7a399d2e45ab8605756be1cb2ee79bd0da9cd60a3bd4bb271f94c708c1"
+ },
+ "dropped": {
+  "ocr": 0,
+  "no_card": 0,
+  "lacking_after_two_rounds": 0
+ },
+ "constants": {
+  "SEED": 1831,
+  "OCR_KNOWN": 3,
+  "OCR_SHARE": 0.3,
+  "LEAK_RUN": 12,
+  "LO": 80,
+  "HI": 350,
+  "HELD_EVERY": 10
+ },
+ "leak_check": "no run of 12 words shared with Vienna 1824 or Paris 1827",
+ "note": "Targets are his own words; inputs are the local model's cards under fixed instructions (pc/TRAINING-4.md)."
+}
