@@ -18,7 +18,7 @@
     "aqi": 269
    },
    {
-    "temp": 15,
+    "temp": 16,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 273
@@ -30,19 +30,19 @@
     "aqi": 277
    },
    {
-    "temp": 14,
+    "temp": 15,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 280
    },
    {
-    "temp": 13,
+    "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 283
    },
    {
-    "temp": 13,
+    "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 285
@@ -54,13 +54,13 @@
     "aqi": 287
    },
    {
-    "temp": 13,
+    "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 286
    },
    {
-    "temp": 15,
+    "temp": 16,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 283
@@ -84,7 +84,7 @@
     "aqi": 275
    },
    {
-    "temp": 23,
+    "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 271
@@ -404,6 +404,15 @@
    "mode": "inside",
    "at": "home",
    "now": "Writing at home."
+  },
+  {
+   "from": "21:00",
+   "to": "24:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Asleep.",
+   "asleep": true,
+   "owl": true
   }
  ],
  "entries": [
@@ -2382,6 +2391,35 @@
      "text": "The division of these powers has been treated as the condition of political equilibrium, meaning by division their independence one of another in existence,—subject always however to the above-mentioned subsumption of the powers of the individual under the power of the general."
     }
    ]
+  },
+  {
+   "t": "21:00",
+   "end": "24:00",
+   "event": "Nothing in particular happens. The night goes on.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "sleep",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 17 °C, a brown haze. Air quality index: 265.",
+    "Nothing in particular happens. The night goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "mind": {
+    "source": "bedtime",
+    "attempts": 0,
+    "latency_s": 0.0
+   }
   }
  ],
  "funnel": {
@@ -2397,8 +2435,8 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-26T21:00+05:30",
-  "asleep": false,
+  "until": "2026-11-27T00:00+05:30",
+  "asleep": true,
   "imprest": 14806,
   "wearing": "kurta",
   "wardrobe": [
@@ -2926,7 +2964,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-26",
-  "source_sha256": "4fd272188318389d014e184455ee09ae0c3f5e87696732f97521c3bbfa0cf76f",
+  "source_sha256": "a64e91436e015386a3855342e883c74891afa4bee698d7fe43dfbe0a97d148da",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4388,68 +4426,114 @@
     "text": "Nothing in particular happens. The evening goes on."
    },
    {
-    "id": "2026-11-26:event:64a0c79baf77e43f:1",
+    "id": "2026-11-26:event:76213c4bb01a4eef:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 21,
+     "sha256": "76213c4bb01a4eef64de72d34c5b20c671f4fa6bb8d4c6f6c31d057a4c5c2fd6"
+    },
+    "type": "action",
+    "action": "sleep",
+    "time": "21:00",
+    "end": "24:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:event:ec4c2e0fc59ca249:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      21,
+      0
+     ],
+     "sha256": "ec4c2e0fc59ca2498ea2899fc50aec6ba788c5ba63081af8e813e8ce9d2eec2f"
+    },
+    "type": "observation",
+    "time": "21:00",
+    "place": "home",
+    "text": "Weather: 17 °C, a brown haze. Air quality index: 265."
+   },
+   {
+    "id": "2026-11-26:event:4346d60c7ea0b928:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      21,
+      1
+     ],
+     "sha256": "4346d60c7ea0b928d548362b7b4aab5c4b1e2d7ec7b66a89d032c4612c537e3c"
+    },
+    "type": "observation",
+    "time": "21:00",
+    "place": "home",
+    "text": "Nothing in particular happens. The night goes on."
+   },
+   {
+    "id": "2026-11-26:event:f199e2eaf7e3863b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "64a0c79baf77e43f293e274317ecf4c9a0ed49dee75601c11586701e95f9badb"
+     "sha256": "f199e2eaf7e3863bc675e07c4e49a5b39bb8f823926b059f0cb451f101dfdcf6"
     },
     "type": "cash",
-    "time": "21:00",
+    "time": "00:00",
     "amount": 14806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-26:event:a5ef6bc24ae58e4a:1",
+    "id": "2026-11-26:event:959dac6c63f105f0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "a5ef6bc24ae58e4a748c815cab9149908b43e623de04e0fc048e86b314cc7eb2"
+     "sha256": "959dac6c63f105f067fe0108d37d65570c30a890af8236e81571113d6538faef"
     },
     "type": "location",
-    "time": "21:00",
+    "time": "00:00",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-26:event:8c1d92cef991f594:1",
+    "id": "2026-11-26:event:b5301f9fe3804877:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "8c1d92cef991f594dfcd3c6e80d9083ba06a6eab3471fcca2c20a852ffa1cdbc"
+     "sha256": "b5301f9fe3804877b8aa4f72007b81fd90fda6b75bcb43f90f63979354715f31"
     },
     "type": "inventory",
-    "time": "21:00",
+    "time": "00:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-26:event:dc2a6c4f9997a513:1",
+    "id": "2026-11-26:event:9dc773c82ed6bb1d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "dc2a6c4f9997a51376efef3211412cf844325a6357325887173f8c8f3b4b5868"
+     "sha256": "9dc773c82ed6bb1d3a0314fcdf5dbb7263a513678e937287ffb59ba200c290a6"
     },
     "type": "inventory",
-    "time": "21:00",
+    "time": "00:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-26:event:9f4848075b9dc8af:1",
+    "id": "2026-11-26:event:a0c00b7951faaa46:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "9f4848075b9dc8afcfa92e096798e7f981cb4ab279eb888f3ae0c6eb2dd76812"
+     "sha256": "a0c00b7951faaa4649c24b3bdad6fce2c51b1c952001b5986923caf448741c96"
     },
     "type": "inventory",
-    "time": "21:00",
+    "time": "00:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
