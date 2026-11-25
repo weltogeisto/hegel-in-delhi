@@ -219,6 +219,20 @@ class NightTest(unittest.TestCase):
         self.assertEqual(table["P0"]["with_any"], 4)
 
 
+class EvenFormTest(unittest.TestCase):
+    def test_a_letter_loses_its_frame_and_keeps_what_it_says(self):
+        letter = "Prague, Tuesday evening, September 14.\n\nMy dear Marie,\n\nI arrived at eleven. The gallery was closed.\n\nTomorrow I go on to Vienna.\n\nYour faithful G. W. F. Hegel"
+        self.assertEqual(v.even_form(letter), "I arrived at eleven. The gallery was closed. Tomorrow I go on to Vienna.")
+        self.assertEqual(v.even_form("My dear, I am tired. Until then, I remain your faithful Hg."), "I am tired.")
+        self.assertEqual(v.even_form("Vienna, September 25.\nI saw the opera.\nHegel"), "I saw the opera.")
+
+    def test_a_cut_passage_is_left_as_it_is(self):
+        for t in ("Friday, September 17. Yesterday I spent the whole day on a trip to Carlstein; — this morning I visited the churches.",
+                  "And look! the servant brings your letter, my dear, and I read it twice.",
+                  "To continue my account, I went at nine to the Belvedere, where the paintings hang in twenty rooms."):
+            self.assertEqual(v.even_form(t), t)
+
+
 class MeasureTest(unittest.TestCase):
     def test_delta_tells_two_writers_apart_and_not_one_from_himself(self):
         a = [f"the house and the garden ; we went , and the sun was on the wall {i}" for i in range(12)]
