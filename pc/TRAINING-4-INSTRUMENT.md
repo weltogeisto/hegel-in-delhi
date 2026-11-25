@@ -96,4 +96,13 @@ Every reader named Hegel's own passage every time, both ways round. Each family 
 - The rungs without training cannot be ranked: all three stand at 100%. The arm Training 4's adapter must beat is "100%": any reliable fall in the readers' accuracy is a move towards him.
 - As it stands the measure would credit an adapter for dropping greetings and paragraph breaks. That is form, not voice. So before the adapter is measured, the sheets are made again with the form evened out by rule: the letters' paragraphs joined, an opening salutation or date line and a closing sign-off removed. No new model call. Both families read them again. Declared here before any such sheet exists.
 
+## The pairs again, with the form evened out (26 November, before any reading)
+
+- **The rule** (`tools/voice4.py`, `even_form`), applied to both sides: one paragraph; a short greeting or date-and-place line at the head dropped; a short sign-off at the foot dropped; a greeting or sign-off run into the first or last sentence dropped too. What a letter says is kept. The 43 real passages come through unchanged; the letters keep 96 to 97% of their words.
+- **What it does not touch,** because it is his voice: sentence length (41 words a sentence in his passages, 14 to 15 in the letters), dashes, semicolons.
+- **The sheets:** six, as before, with a new salt kept with their keys outside the repository. `packet-even/r1` to `r6`, and `PACKET-EVEN.json` with the hashes of the texts and the keys, committed before any reading.
+- **Read** by the same two families, six fresh sessions each, one folder a session. Ballots `<family>-even-rN.jsonl`, sealed before the keys.
+- **The Claude family read on 26 November:** six fresh sessions, each kept to its own folder (checked in the record of each session afterwards). `ballots/claude-even-r1` to `r6`, sealed. No key applied.
+- **What it shows:** how far the rungs without training stand from him when only the voice can tell them apart. That is the bar for Training 4's adapter.
+
 Evaluation only. No card, letter, translation or judgment of this night is ever training data. The cards for the training letters are made later, by the same instructions, in a run of their own.

@@ -457,14 +457,38 @@ def salt_of(keyout):
     return p.read_text(encoding="utf-8").strip()
 
 
-def sheet_name(arm, mirror):
-    return f"{arm}{'-mirror' if mirror else ''}"
+def sheet_name(arm, mirror, even=False):
+    return f"{arm}{'-mirror' if mirror else ''}{'-even' if even else ''}"
 
 
-def cmd_sheet(folder, arm, keyout, mirror=False):
+MONTHS = r"(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sept?|Oct|Nov|Dec)\.?"
+GREETING = re.compile(r"^(my\s+)?(dear(est)?|beloved|best|good)?\s*(marie|wife|friend|children|ones)?\s*[,!.:]?$|^(my\s+)?(dear(est)?|beloved)\b.{0,30}[,!:]$", re.I)
+DATELINE = re.compile(r"\b(18\d\d|" + MONTHS + r"\s+\d{1,2}|\d{1,2}(st|nd|rd|th)?\s+" + MONTHS + r")\b", re.I)
+SIGNOFF = re.compile(r"\b(Hegel|Georg|G\.\s*W\.?|Hg\.|Your|Yours|faithful|Thy|Ever)\b|^H\.?$|^W\.?$", re.I)
+
+
+def even_form(text):
+    """A text with the form a cut passage has: one paragraph, no greeting, no date or place line at the head, no sign-off at
+    the foot. A head line is dropped only if it is short and a greeting or a date line; a foot line only if it is short and a
+    sign-off. What a letter says is never dropped (25 November: the first sheets were told apart by form)."""
+    lines = [x.strip() for x in (text or "").strip().splitlines() if x.strip()]
+    while len(lines) > 1 and len(lines[0].split()) <= 12 and (GREETING.match(lines[0]) or DATELINE.search(lines[0]) and not lines[0].rstrip().endswith((".", "!", "?")) or (DATELINE.search(lines[0]) and len(lines[0].split()) <= 7)):
+        lines.pop(0)
+    while len(lines) > 1 and len(lines[-1].split()) <= 8 and SIGNOFF.search(lines[-1]):
+        lines.pop()
+    out = re.sub(r"^(my\s+)?(dear(est)?|beloved)( \w+)?\s*[,!]\s*", "", " ".join(lines), flags=re.I)        # a greeting run into the first line
+    last = re.split(r"(?<=[.!?])\s+", out)
+    if len(last) > 1 and len(last[-1].split()) <= 10 and re.search(r"\b(your|yours|thy)\b.*\b(faithful|husband|Hegel|Hg\.|Georg)|\b(Hg|Hegel)\.?$", last[-1], re.I):
+        out = " ".join(last[:-1])                                                                          # a sign-off run into the last line
+    return out[:1].upper() + out[1:]
+
+
+def cmd_sheet(folder, arm, keyout, mirror=False, even=False):
     folder = Path(folder)
     salt = salt_of(keyout)
     real, made = english(folder)
+    if even:
+        real, made = {k: even_form(t) for k, t in real.items()}, {a: {k: even_form(t) for k, t in m.items()} for a, m in made.items()}
     rng = random.Random(f"{salt}|sheet|{arm}")
     out, key = [], {}
     for c in rows(folder / "CARDS.jsonl"):
@@ -474,10 +498,10 @@ def cmd_sheet(folder, arm, keyout, mirror=False):
         out.append({"pair": pid, "X": truth if x_real else sim, "Y": sim if x_real else truth})
         key[pid] = {"card": c["id"], "real": "X" if x_real else "Y", "arm": arm, "mirror": bool(mirror)}
     random.Random(f"{salt}|order|{arm}|{bool(mirror)}").shuffle(out)
-    name = f"SHEET-{sheet_name(arm, mirror)}.jsonl"
+    name = f"SHEET-{sheet_name(arm, mirror, even)}.jsonl"
     res = put(folder / name, out)
     k = json.dumps(key, indent=1, sort_keys=True).encode()
-    (Path(keyout) / f"KEY-{sheet_name(arm, mirror)}.json").write_bytes(k)
+    (Path(keyout) / f"KEY-{sheet_name(arm, mirror, even)}.json").write_bytes(k)
     return {"arm": arm, "mirror": bool(mirror), "pairs": res["rows"], "sheet_sha256": res["sha256"], "key_sha256": hashlib.sha256(k).hexdigest()}
 
 
@@ -511,12 +535,12 @@ print("ALL OK" if not errs else "\\n".join(errs))
 '''
 
 
-def cmd_packet(folder, keys, out):
+def cmd_packet(folder, keys, out, even=False):
     """Each of the six sheets as a folder that is all one reader session gets: the pairs as text, the instructions, a form check.
     The folders are named r1 to r6 by the salt's draw; which sheet each is stays with the keys. A session reads one folder only:
     the real passage of a card is on every sheet."""
     folder, keys, out = Path(folder), Path(keys), Path(out)
-    names = [sheet_name(arm, m) for arm in ARMS for m in (False, True)]
+    names = [sheet_name(arm, m, even) for arm in ARMS for m in (False, True)]
     random.Random(f"{salt_of(keys)}|packet").shuffle(names)
     labels = {f"r{i + 1}": n for i, n in enumerate(names)}
     (keys / "PACKET-KEY.json").write_text(json.dumps(labels, indent=1, sort_keys=True) + "\n", encoding="utf-8")
@@ -742,21 +766,23 @@ def main(argv=None):
     s.add_argument("--arm", required=True, choices=ARMS)
     s.add_argument("--keyout", required=True)
     s.add_argument("--mirror", action="store_true")
+    s.add_argument("--even", action="store_true")
     k = sub.add_parser("packet")
     k.add_argument("--folder", required=True)
     k.add_argument("--keys", required=True)
     k.add_argument("--out", required=True)
+    k.add_argument("--even", action="store_true")
     ps = sub.add_parser("pairs-score")
     ps.add_argument("--folder", required=True)
     ps.add_argument("--keys", required=True)
     ps.add_argument("--family", nargs="+", action="append", required=True, metavar=("NAME", "BALLOTS"))
     a = ap.parse_args(argv)
-    res = (cmd_packet(a.folder, a.keys, a.out) if a.cmd == "packet"
+    res = (cmd_packet(a.folder, a.keys, a.out, a.even) if a.cmd == "packet"
            else cmd_pairs_score(a.folder, a.keys, {f[0]: f[1:] for f in a.family}) if a.cmd == "pairs-score"
            else cmd_passages(a.out) if a.cmd == "passages" else cmd_cards(a.folder) if a.cmd == "cards"
            else cmd_check(a.folder, a.round) if a.cmd == "check" else cmd_merge(a.folder, a.round) if a.cmd == "merge"
            else cmd_arms(a.folder) if a.cmd == "arms" else cmd_translate(a.folder) if a.cmd == "translate"
-           else cmd_sheet(a.folder, a.arm, a.keyout, a.mirror) if a.cmd == "sheet" else cmd_particulars(a.folder) if a.cmd == "particulars"
+           else cmd_sheet(a.folder, a.arm, a.keyout, a.mirror, a.even) if a.cmd == "sheet" else cmd_particulars(a.folder) if a.cmd == "particulars"
            else cmd_classify(a.folder) if a.cmd == "classify" else cmd_judge(a.folder) if a.cmd == "judge" else cmd_judge_score(a.folder))
     print(json.dumps(res))
     return 0
