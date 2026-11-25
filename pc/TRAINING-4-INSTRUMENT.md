@@ -68,4 +68,32 @@ W13 was complete at 02:29 Berlin on 25 November. One call ran past the runner's 
 - **The measure** is a family's accuracy by arm over both ways round, 86 judgments, with the passages it got right both ways. 50% would mean no reader can tell.
 - **The Claude family read on 25 November:** six fresh sessions of one model, each started in its own folder and told to stay in it. The record of each session's file and shell use shows that it did. Their answers are `ballots/claude-r1.jsonl` to `claude-r6.jsonl`, sealed in `SEALS.json`. No key has been applied.
 
+## The blind pairs, scored (25 November, after both families were sealed on main)
+
+Both families' twelve files were sealed on main (#167, #171) before the key was applied. The keys and the texts matched the hashes committed before any reading. The keys are now in `keys/`, beside `PAIRS-SCORE.json`.
+
+| Family | P0 | P1 | P2 |
+|---|---|---|---|
+| Claude (six sessions) | 86 of 86 | 86 of 86 | 86 of 86 |
+| The second family (six sessions) | 86 of 86 | 86 of 86 | 86 of 86 |
+
+Every reader named Hegel's own passage every time, both ways round. Each family said X exactly half the time, as the key does. The 95% interval for each cell runs from 95.7% to 100%.
+
+**What the readers had to go on.** Counted after the key, on the English of the 43 cards:
+
+| | real | P0 | P1 | P2 |
+|---|---:|---:|---:|---:|
+| paragraphs | 1.0 | 5.8 | 5.5 | 5.3 |
+| opens with a salutation | 0% | 60% | 33% | 40% |
+| ends with a sign-off | 0% | 86% | 77% | 56% |
+| dashes | 9.3 | 0.1 | 0.0 | 0.0 |
+| words a sentence | 41 | 12 | 13 | 14 |
+
+- **Two of these are the cut, not his voice.** A real passage is a piece cut from inside a letter, one paragraph with no greeting. The arms were asked for a letter and wrote whole ones. A reader can tell them apart without reading a line of either.
+- **Two are his voice.** His long sentences, run on with semicolons and dashes, came through the translation. The arms write short sentences, and three of his letters in front (P1) or twenty (P2) barely move that.
+
+**What follows, read now and not changed after:**
+- The rungs without training cannot be ranked: all three stand at 100%. The arm Training 4's adapter must beat is "100%": any reliable fall in the readers' accuracy is a move towards him.
+- As it stands the measure would credit an adapter for dropping greetings and paragraph breaks. That is form, not voice. So before the adapter is measured, the sheets are made again with the form evened out by rule: the letters' paragraphs joined, an opening salutation or date line and a closing sign-off removed. No new model call. Both families read them again. Declared here before any such sheet exists.
+
 Evaluation only. No card, letter, translation or judgment of this night is ever training data. The cards for the training letters are made later, by the same instructions, in a run of their own.
