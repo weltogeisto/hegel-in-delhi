@@ -355,6 +355,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "18:04",
+   "to": "18:09",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -832,6 +839,22 @@
    "k": "world",
    "text": "Ramesh puts a plate together: parathas kept from the morning, with curd and pickle.",
    "t": "17:34",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Five minutes is a long time to stand in the brown haze, but it is a short time to sit in the verandah. The parathas will be warm, and the curd cool; it is a small domestic comfort that contrasts with the cold bureaucracy of the Directorate. I shall wait here, watching the light fade behind the smoke.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    }
+   ],
+   "t": "18:04",
    "place": "home"
   }
  ],
@@ -1755,6 +1778,66 @@
      "text": "But just as lordship showed its essential nature to be the reverse of what it wants to be, so, too, bondage will, when completed, pass into the opposite of what it immediately is: being a consciousness repressed within itself, it will enter into itself, and change round into real and true independence."
     }
    ]
+  },
+  {
+   "t": "18:04",
+   "end": "18:09",
+   "event": "Ramesh says: “Sir, parathas are a bit cold now, but I can warm them up in the tawa. Curd is fresh from the fridge. Give me five minutes.” He nods and turns back towards the kitchen corridor.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Five minutes is a long time to stand in the brown haze, but it is a short time to sit in the verandah. The parathas will be warm, and the curd cool; it is a small domestic comfort that contrasts with the cold bureaucracy of the Directorate. I shall wait here, watching the light fade behind the smoke.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 5,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 260."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "id": "haldane-2:440"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:23"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "text": "And these connections follow those first elements, so that thus fire is warm and dry, air warm and moist (vapour), water cold and moist, earth cold and dry.” From this Aristotle now makes the reciprocal transformation of the elements into one another comprehensible thus: Origination and decay proceed from the opposite and into the opposite."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "Nor can it be taken ill, if honest men become impatient, when the subject is broached. Still less is it a surprise that the government has at last turned its attention to this false philosophizing. With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1770,7 +1853,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-26T18:04+05:30",
+  "until": "2026-11-26T18:09+05:30",
   "asleep": false,
   "imprest": 14806,
   "wearing": "kurta",
@@ -2295,7 +2378,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-26",
-  "source_sha256": "39cc3871b636f44587dd05acbde7d2cb1e85ff783ab3c8d0312d0b85b4611793",
+  "source_sha256": "3120d610195b204bdc009de388052f26eb60852d3ed61f4de45c5e1156c45b74",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3390,68 +3473,98 @@
     "text": "Nothing in particular happens. The evening goes on."
    },
    {
-    "id": "2026-11-26:event:b77bc74f1d47a060:1",
+    "id": "2026-11-26:event:4fd67a57d11063a8:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 14,
+     "sha256": "4fd67a57d11063a8a427c11a30590d722a685d8bc599b6c851128cb88bc83ed4"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "18:04",
+    "end": "18:09",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:event:e0a1f48e48233e1b:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      14,
+      0
+     ],
+     "sha256": "e0a1f48e48233e1ba4fac1fc26432d9583856fc610dc195b29404698868ae5bb"
+    },
+    "type": "observation",
+    "time": "18:04",
+    "place": "home",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 260."
+   },
+   {
+    "id": "2026-11-26:event:85409e16828fd0f7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "b77bc74f1d47a060f01d5c2f395b6a10364aac15e696b0daf57c96fbeed9ae84"
+     "sha256": "85409e16828fd0f79101a381ce104d5cfecce065781994a72655793a607c24c2"
     },
     "type": "cash",
-    "time": "18:04",
+    "time": "18:09",
     "amount": 14806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-26:event:5f3e1dcb0442d96e:1",
+    "id": "2026-11-26:event:5dd76f801d509433:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "5f3e1dcb0442d96edcfef6fd81cbeaf9c5782e3e4b49a047de2804b9b3506453"
+     "sha256": "5dd76f801d5094339e72eec24b2859b18337ef13b8fe87973eff8028a9a9e949"
     },
     "type": "location",
-    "time": "18:04",
+    "time": "18:09",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-26:event:e75b8e6990e0d133:1",
+    "id": "2026-11-26:event:83abc2d17f9a3719:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "e75b8e6990e0d133dba324878470bab5217477b078059820b061d91e4e2a03bc"
+     "sha256": "83abc2d17f9a3719a0b1333799c2071025cc4461e6a538cd8c1148dfb6bdc021"
     },
     "type": "inventory",
-    "time": "18:04",
+    "time": "18:09",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-26:event:d56780d767df161f:1",
+    "id": "2026-11-26:event:856ce98340c9834a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "d56780d767df161fba0d27ba159a5ad937ddfb791208f9acf0e94a7fb9f12765"
+     "sha256": "856ce98340c9834a19c43551c6dd7eaa38ae2e996f063918c1be070744a2081b"
     },
     "type": "inventory",
-    "time": "18:04",
+    "time": "18:09",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-26:event:92ab21723b2787f5:1",
+    "id": "2026-11-26:event:38157d04f9b93ac5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "92ab21723b2787f500f714b1d4d7579f9f02f00b7532a052af7577833c269d30"
+     "sha256": "38157d04f9b93ac56aeaef72ea5e9f9ff6390f6232d78342f2386df31a04b268"
     },
     "type": "inventory",
-    "time": "18:04",
+    "time": "18:09",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
