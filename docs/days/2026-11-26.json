@@ -362,6 +362,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "18:09",
+   "to": "18:29",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -855,6 +862,22 @@
     }
    ],
    "t": "18:04",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The air quality index is 260, a number that makes the lungs rebel even before the throat does. I have just eaten, and the verandah offers the only respite from the brown haze that chokes the city. I will sit here, breathing through my mouth if I must, and wait for the official dinner service at 19:30. The state demands a body, but the body demands air.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History"
+    }
+   ],
+   "t": "18:09",
    "place": "home"
   }
  ],
@@ -1838,6 +1861,65 @@
      "text": "Nor can it be taken ill, if honest men become impatient, when the subject is broached. Still less is it a surprise that the government has at last turned its attention to this false philosophizing. With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state."
     }
    ]
+  },
+  {
+   "t": "18:09",
+   "end": "18:29",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The air quality index is 260, a number that makes the lungs rebel even before the throat does. I have just eaten, and the verandah offers the only respite from the brown haze that chokes the city. I will sit here, breathing through my mouth if I must, and wait for the official dinner service at 19:30. The state demands a body, but the body demands air.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 260.",
+    "Nothing in particular happens. The evening goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "id": "sibree-history:269"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "text": "Nature, as contrasted with Spirit, is a quantitative mass, whose power must not be so great as to make its single force omnipotent. In the extreme zones man cannot come to free movement; cold and heat are here too powerful to allow Spirit to build up a world for itself. Aristotle said long ago, \" When pressing needs are satisfied, man turns to the general and more elevated.\""
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1853,7 +1935,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-26T18:09+05:30",
+  "until": "2026-11-26T18:29+05:30",
   "asleep": false,
   "imprest": 14806,
   "wearing": "kurta",
@@ -2378,7 +2460,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-26",
-  "source_sha256": "3120d610195b204bdc009de388052f26eb60852d3ed61f4de45c5e1156c45b74",
+  "source_sha256": "135a8008f329d30ce5f2e6fdee6cf4fcb72a7de970f62803dfd1b4fcc880f0b3",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3503,68 +3585,114 @@
     "text": "Weather: 20 °C, a brown haze. Air quality index: 260."
    },
    {
-    "id": "2026-11-26:event:85409e16828fd0f7:1",
+    "id": "2026-11-26:event:3512db399f6393b9:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 15,
+     "sha256": "3512db399f6393b9916d8161b63b260cc7031887621d9b15fe9bd24552302c9e"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "18:09",
+    "end": "18:29",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:event:e0a1f48e48233e1b:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      15,
+      0
+     ],
+     "sha256": "e0a1f48e48233e1ba4fac1fc26432d9583856fc610dc195b29404698868ae5bb"
+    },
+    "type": "observation",
+    "time": "18:09",
+    "place": "home",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 260."
+   },
+   {
+    "id": "2026-11-26:event:f0883d583a8f0cb4:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      15,
+      1
+     ],
+     "sha256": "f0883d583a8f0cb4f513e9e7918f61a4da92f5f5c5ffd125af87394140064d60"
+    },
+    "type": "observation",
+    "time": "18:09",
+    "place": "home",
+    "text": "Nothing in particular happens. The evening goes on."
+   },
+   {
+    "id": "2026-11-26:event:7eda7ffbe1c02f17:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "85409e16828fd0f79101a381ce104d5cfecce065781994a72655793a607c24c2"
+     "sha256": "7eda7ffbe1c02f174cbaef1eeca2b1a1286db5a087d073a90d92bfbbd5fd4588"
     },
     "type": "cash",
-    "time": "18:09",
+    "time": "18:29",
     "amount": 14806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-26:event:5dd76f801d509433:1",
+    "id": "2026-11-26:event:3f1035d689ce863e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "5dd76f801d5094339e72eec24b2859b18337ef13b8fe87973eff8028a9a9e949"
+     "sha256": "3f1035d689ce863eed9e99b9d2a753e3f81fe9872b8282bc8634650286241168"
     },
     "type": "location",
-    "time": "18:09",
+    "time": "18:29",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-26:event:83abc2d17f9a3719:1",
+    "id": "2026-11-26:event:192276401d5a7bb9:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "83abc2d17f9a3719a0b1333799c2071025cc4461e6a538cd8c1148dfb6bdc021"
+     "sha256": "192276401d5a7bb9d90578c1be428afad97892fb82e295a3c911eb26a76b9631"
     },
     "type": "inventory",
-    "time": "18:09",
+    "time": "18:29",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-26:event:856ce98340c9834a:1",
+    "id": "2026-11-26:event:6f6c6793d4f98b03:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "856ce98340c9834a19c43551c6dd7eaa38ae2e996f063918c1be070744a2081b"
+     "sha256": "6f6c6793d4f98b03a5e9ab6d65b44d369ef18dbd0d0c5a9ed02240048df25d90"
     },
     "type": "inventory",
-    "time": "18:09",
+    "time": "18:29",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-26:event:38157d04f9b93ac5:1",
+    "id": "2026-11-26:event:4b2e74b3bc7ad3f4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "38157d04f9b93ac56aeaef72ea5e9f9ff6390f6232d78342f2386df31a04b268"
+     "sha256": "4b2e74b3bc7ad3f4c38dc2b63b58f6a56f967021e8b892dc393730f064dfa246"
     },
     "type": "inventory",
-    "time": "18:09",
+    "time": "18:29",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
