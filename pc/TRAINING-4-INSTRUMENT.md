@@ -66,5 +66,6 @@ W13 was complete at 02:29 Berlin on 25 November. One call ran past the runner's 
 - **Two families,** each reported apart: fresh Claude sessions, and the second family on the PC (`pc/TASKS.md`, W19).
 - **Sealed before the keys.** `PACKET.json` holds the hashes of the six texts and of the keys, committed before any reading. Each ballot file is written down by its hash in `SEALS.json` (`tools/ceiling_judge.py seal`), and `tools/voice4.py pairs-score` reads nothing else.
 - **The measure** is a family's accuracy by arm over both ways round, 86 judgments, with the passages it got right both ways. 50% would mean no reader can tell.
+- **The Claude family read on 25 November:** six fresh sessions of one model, each started in its own folder and told to stay in it. The record of each session's file and shell use shows that it did. Their answers are `ballots/claude-r1.jsonl` to `claude-r6.jsonl`, sealed in `SEALS.json`. No key has been applied.
 
 Evaluation only. No card, letter, translation or judgment of this night is ever training data. The cards for the training letters are made later, by the same instructions, in a run of their own.
