@@ -320,6 +320,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "15:00",
+   "to": "15:12",
+   "mode": "walk",
+   "a": "home",
+   "b": "safdarjung"
   }
  ],
  "entries": [
@@ -643,6 +650,37 @@
    "to": "Hegel",
    "text": "Haan sir. Main chabi table par rakhta hoon. Saaf-suthra rehte hain.",
    "t": "14:30",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The brass key rests on the wood, a small, cold symbol of the authority I hold in trust, though it does not belong to me. Ramesh speaks the language of the household, clean and orderly, while outside the air is thick with the smoke of a city that burns its own history. I must go to the tomb; the haze is heavy, but the stone must be seen through it, or it remains merely a rumor.",
+   "shelf": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Artistic Beauty, The Work of Art"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Third Section, Leibnitz"
+    }
+   ],
+   "t": "15:00",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. I will be back before the lesson.",
+   "to": "Ramesh",
+   "t": "15:00",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Theek hai sir. Ghar khali hai, toh aap aaram se padhai karein.",
+   "t": "15:00",
    "place": "home"
   }
  ],
@@ -1235,6 +1273,72 @@
      "text": "But Plutarch (in Pericle 4, 16) also relates that Anaxagoras came to want because Pericles neglected him—did not supply the illuminating lamp with oil. A more important matter is that Anaxagoras (as happened later with Socrates and many other philosophers) was accused of despising those whom the people accepted as gods."
     }
    ]
+  },
+  {
+   "t": "15:00",
+   "end": "15:12",
+   "event": "Ramesh says: “Haan sir. Main chabi table par rakhta hoon. Saaf-suthra rehte hain.” He places the brass key on the small wooden table near the door.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The brass key rests on the wood, a small, cold symbol of the authority I hold in trust, though it does not belong to me. Ramesh speaks the language of the household, clean and orderly, while outside the air is thick with the smoke of a city that burns its own history. I must go to the tomb; the haze is heavy, but the stone must be seen through it, or it remains merely a rumor.",
+    "action": "walk",
+    "place": "safdarjung",
+    "minutes": 25,
+    "says": "Thank you, Ramesh. I will be back before the lesson.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "safdarjung",
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 264."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Theek hai sir. Ghar khali hai, toh aap aaram se padhai karein.",
+    "does": "He straightens the brass key on the table before stepping back."
+   },
+   "left": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Artistic Beauty, The Work of Art",
+     "id": "bosanquet-art:123"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Third Section, Leibnitz",
+     "id": "haldane-3:858"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Artistic Beauty, The Work of Art",
+     "text": "In this negative relation desire requires for itself not merely the superficial appearance of external things, but themselves in their concrete sensuous existence. Mere pictures of the wood that it wants to use, or of the animals that it wants to eat, would be of no service to desire."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Third Section, Leibnitz",
+     "text": "Under mathematics, which is the subject of four small volumes, Wolff also treats of architecture and military science. One of the propositions in Architecture is this: “Windows must be wide enough for two persons.” The making of a door is also propounded as a task, and the solution thereof given. The next best example comes from the art of warfare. The “Fourth proposition."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1249,8 +1353,8 @@
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-26T15:00+05:30",
+  "place": "safdarjung",
+  "until": "2026-11-26T15:12+05:30",
   "asleep": false,
   "imprest": 15106,
   "wearing": "kurta",
@@ -1340,7 +1444,9 @@
     ]
    },
    "breakfast": true,
-   "lunch": true
+   "lunch": true,
+   "walked": 900,
+   "strain": 900
   },
   "account": {
    "advance": 15000,
@@ -1758,7 +1864,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-26",
-  "source_sha256": "b3b983917ca38e810ab876d41784198867296639ddf60d6745e2398a5b15a52f",
+  "source_sha256": "5c1a5c326f49968e6001bfdf73ea370765115e87e64f9aecd568cc03c80215b9",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2056,6 +2162,36 @@
     "words": "Haan sir. Main chabi table par rakhta hoon. Saaf-suthra rehte hain.",
     "verified": false,
     "time": "14:30",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:eb2df138e50a10be:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 31,
+     "sha256": "eb2df138e50a10be745b1426fa0c463d7fc7aebc55c774c2e8d25b685c77f68a"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Thank you, Ramesh. I will be back before the lesson.",
+    "verified": false,
+    "time": "15:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:2dcc7cdcbae661ff:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 32,
+     "sha256": "2dcc7cdcbae661ff30fbc87aeed12cb190f8d65a5a133499e7d4e17767441cf8"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Theek hai sir. Ghar khali hai, toh aap aaram se padhai karein.",
+    "verified": false,
+    "time": "15:00",
     "place": "home"
    },
    {
@@ -2499,68 +2635,100 @@
     "text": "Weather: 24 °C, a brown haze. Air quality index: 266."
    },
    {
-    "id": "2026-11-26:event:ab53debc4c9a7321:1",
+    "id": "2026-11-26:event:2da77ec13e91346c:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 9,
+     "sha256": "2da77ec13e91346cd7fc29867282e7e54ed4994f5317f1a8bdeb644f9a727b1c"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "15:00",
+    "end": "15:12",
+    "place": null,
+    "origin": "home",
+    "destination": "safdarjung"
+   },
+   {
+    "id": "2026-11-26:event:e2e6682290f4b4fa:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      9,
+      0
+     ],
+     "sha256": "e2e6682290f4b4faa8a5d1754628c8c51d09c7d546ad8a501914571c222c69c5"
+    },
+    "type": "observation",
+    "time": "15:00",
+    "place": "home",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 264."
+   },
+   {
+    "id": "2026-11-26:event:f62af58098189be6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "ab53debc4c9a7321ce8c78b5a2fd262d01a7f84aaf0b85cab525daa9c15d7146"
+     "sha256": "f62af58098189be6320529f1c25abba4c0a5accc55e61ead94acefb9673eb462"
     },
     "type": "cash",
-    "time": "15:00",
+    "time": "15:12",
     "amount": 15106,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-26:event:6e97acf3adbf18c5:1",
+    "id": "2026-11-26:event:2be09ba71d12e776:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "6e97acf3adbf18c5f9e2997435bc590a6d10fa7bbe68e6ccd7e3c60ab5cba208"
+     "sha256": "2be09ba71d12e776bc7324a0788d9dcf9aeac049e83ae29d9074b5d82d2af59f"
     },
     "type": "location",
-    "time": "15:00",
-    "place": "home",
+    "time": "15:12",
+    "place": "safdarjung",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-26:event:ca8112cde4530810:1",
+    "id": "2026-11-26:event:91c1f1790dd2d425:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "ca8112cde453081034dd416f427cf46f2fdb65d842cb196eb4e1e605638037e6"
+     "sha256": "91c1f1790dd2d4250611ca7a581bc5a3ee7496e877e1ef6afffe78efe073e984"
     },
     "type": "inventory",
-    "time": "15:00",
+    "time": "15:12",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-26:event:46e45df29c092550:1",
+    "id": "2026-11-26:event:8224b1ccaf88e5b0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "46e45df29c092550f15240cc393f047dfac3838c35786f88c21d0cc10ff2c969"
+     "sha256": "8224b1ccaf88e5b011c7ef924153d1f29a7cc597c3184ccc59106621a90e10e1"
     },
     "type": "inventory",
-    "time": "15:00",
+    "time": "15:12",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-26:event:a46e02ca577ca059:1",
+    "id": "2026-11-26:event:32774c93f82d8b56:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "a46e02ca577ca059847700c48f970a32317a96339d032cb51ed777bfc29c3cdd"
+     "sha256": "32774c93f82d8b56d5fa5243300abbb5d5a6de91588114409a60f8416e7c20a7"
     },
     "type": "inventory",
-    "time": "15:00",
+    "time": "15:12",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
