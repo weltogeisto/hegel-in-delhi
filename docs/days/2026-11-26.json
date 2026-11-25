@@ -15,145 +15,145 @@
     "temp": 15,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 267
+    "aqi": 269
    },
    {
     "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 270
+    "aqi": 273
    },
    {
     "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 272
+    "aqi": 277
    },
    {
     "temp": 13,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 274
+    "aqi": 280
    },
    {
     "temp": 13,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 274
+    "aqi": 283
    },
    {
     "temp": 13,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 274
+    "aqi": 285
    },
    {
     "temp": 12,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 272
+    "aqi": 287
    },
    {
     "temp": 13,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 269
+    "aqi": 286
    },
    {
     "temp": 15,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 266
+    "aqi": 283
    },
    {
     "temp": 18,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 263
+    "aqi": 281
    },
    {
     "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 259
+    "aqi": 279
    },
    {
     "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 255
+    "aqi": 275
    },
    {
     "temp": 23,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 251
+    "aqi": 271
    },
    {
     "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 248
+    "aqi": 268
    },
    {
     "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 246
+    "aqi": 266
    },
    {
     "temp": 24,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 244
+    "aqi": 264
    },
    {
     "temp": 23,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 242
+    "aqi": 262
    },
    {
     "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 239
+    "aqi": 261
    },
    {
     "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 237
+    "aqi": 260
    },
    {
     "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 235
+    "aqi": 261
    },
    {
     "temp": 18,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 233
+    "aqi": 262
    },
    {
     "temp": 17,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 232
+    "aqi": 265
    },
    {
     "temp": 16,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 231
+    "aqi": 268
    },
    {
     "temp": 15,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 230
+    "aqi": 270
    }
   ]
  },
@@ -299,6 +299,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "13:00",
+   "to": "13:45",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -529,6 +536,37 @@
     }
    ],
    "t": "12:00",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh has set out the rajma and rice, a quiet act of domestic order in this chaotic tenure. I have neglected my body for three hours, and the stomach is a practical matter that must not be allowed to dictate the philosophy of the day. I will eat, and then I must make a decision about the Directorate, for the heat is no excuse for the neglect of my duties.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Roman World, Rome to the Second Punic War"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "13:00",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Dhanyavaad, Ramesh. It is good.",
+   "to": "Ramesh",
+   "t": "13:00",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Aap khana karein. Thanda mat hone do.",
+   "t": "13:00",
    "place": "home"
   }
  ],
@@ -925,6 +963,72 @@
      "text": "Each separate sphere walls itself in and becomes exclusive, and at last there is a stagnation of mankind. Their particularity becomes more and more fixed and ossified. Unity of the body is essential to health, and where the organs become hard death ensues. Everlasting peace is frequently demanded as the ideal towards which mankind must move."
     }
    ]
+  },
+  {
+   "t": "13:00",
+   "end": "13:45",
+   "event": "Ramesh has laid out lunch: rajma, rice and a cucumber raita.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh has set out the rajma and rice, a quiet act of domestic order in this chaotic tenure. I have neglected my body for three hours, and the stomach is a practical matter that must not be allowed to dictate the philosophy of the day. I will eat, and then I must make a decision about the Directorate, for the heat is no excuse for the neglect of my duties.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 45,
+    "says": "Dhanyavaad, Ramesh. It is good.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 268.",
+    "Ramesh has laid out lunch: rajma, rice and a cucumber raita."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "meal"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Aap khana karein. Thanda mat hone do.",
+    "does": "He steps back to give him space at the table."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Roman World, Rome to the Second Punic War",
+     "id": "sibree-history:923"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Roman World, Rome to the Second Punic War",
+     "text": "The struggle between patricians and plebeians begins; and after this has been set at rest by the concession of the plebeian demands, there ensues a state of contentment in the internal affairs of Home, and it acquires strength to combat victoriously with the nation that preceded it on the stage of general history."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -940,7 +1044,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-26T13:00+05:30",
+  "until": "2026-11-26T13:45+05:30",
   "asleep": false,
   "imprest": 15106,
   "wearing": "kurta",
@@ -1029,7 +1133,8 @@
      "ramesh"
     ]
    },
-   "breakfast": true
+   "breakfast": true,
+   "lunch": true
   },
   "account": {
    "advance": 15000,
@@ -1324,7 +1429,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-26T09:55+05:30",
+  "last_meal": "2026-11-26T13:00+05:30",
   "snacks": 0,
   "works": [
    {
@@ -1447,7 +1552,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-26",
-  "source_sha256": "12e696d36c2917a4d19fa541e907a924f9de562befb8faa0fd2fc23df03bb608",
+  "source_sha256": "17094989031b041009876ae7ee192077f9afefe16bb6341583782d067b5f01c6",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1655,6 +1760,36 @@
     "words": "Yes sir.",
     "verified": false,
     "time": "11:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:25697a2b9870f2d5:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 22,
+     "sha256": "25697a2b9870f2d5ea29648ecf72d277c0aed7c205d8e6f88c08419eca189a76"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Dhanyavaad, Ramesh. It is good.",
+    "verified": false,
+    "time": "13:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:683771578236cf12:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 23,
+     "sha256": "683771578236cf127346e84c493a19aff23cef727fb8e15c7ff15857be50fbb2"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Aap khana karein. Thanda mat hone do.",
+    "verified": false,
+    "time": "13:00",
     "place": "home"
    },
    {
@@ -1992,68 +2127,114 @@
     "text": "Weather: 23 °C, a brown haze. Air quality index: 251."
    },
    {
-    "id": "2026-11-26:event:3a60060988f3ca78:1",
+    "id": "2026-11-26:event:cc49d0a11b5621e8:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 6,
+     "sha256": "cc49d0a11b5621e80fca02833e23e4fdaf59be13ea6de2bc201082dfd6164758"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "13:00",
+    "end": "13:45",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:event:a61cb7a33c73a840:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      6,
+      0
+     ],
+     "sha256": "a61cb7a33c73a8403035c970cd075910a93b6da412b9a6cc9e3fc2bec9d4190e"
+    },
+    "type": "observation",
+    "time": "13:00",
+    "place": "home",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 268."
+   },
+   {
+    "id": "2026-11-26:event:c4ca0d32124bc27c:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      6,
+      1
+     ],
+     "sha256": "c4ca0d32124bc27cd1a87916c6a93ced9d2c3b2b26d65beb4022c54b4b5f6a8f"
+    },
+    "type": "observation",
+    "time": "13:00",
+    "place": "home",
+    "text": "Ramesh has laid out lunch: rajma, rice and a cucumber raita."
+   },
+   {
+    "id": "2026-11-26:event:9ae87aa3064a7f3a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "3a60060988f3ca7896cde1590ec5f8b4ca91ecb341bc607c0f2e149a23fa8431"
+     "sha256": "9ae87aa3064a7f3a775fe75b6e0f87afe614b7a70cd1b623fc04d876ea1d80c8"
     },
     "type": "cash",
-    "time": "13:00",
+    "time": "13:45",
     "amount": 15106,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-26:event:4fef451e21b5126e:1",
+    "id": "2026-11-26:event:25785d63bbb160ae:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "4fef451e21b5126ed4413d3048fe69d0ad42fa647ae7422d9535042edb10c870"
+     "sha256": "25785d63bbb160aef1b85fe81d62aee40ae4f3d4f8f0ba2e01d9372d994929ac"
     },
     "type": "location",
-    "time": "13:00",
+    "time": "13:45",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-26:event:2a9abb38366f0136:1",
+    "id": "2026-11-26:event:841d7b2e9bd078cd:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "2a9abb38366f013647f36990c16f686c9e4d171dbfeb09f3b50d5ac23e761f72"
+     "sha256": "841d7b2e9bd078cddc34420baceeba84dc8c182e4ac2ccb038b63f7b68c48cf2"
     },
     "type": "inventory",
-    "time": "13:00",
+    "time": "13:45",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-26:event:bd25aa57de0d9a29:1",
+    "id": "2026-11-26:event:33d62941d37b3cb6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "bd25aa57de0d9a2934e8b94c1bdacb16a771d312ce7e0a5bd46915583180dc16"
+     "sha256": "33d62941d37b3cb6213440ab5b74e27bf581bc523f3303af0bde8a94e6b03ac3"
     },
     "type": "inventory",
-    "time": "13:00",
+    "time": "13:45",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-26:event:7b79ab34bb3622bb:1",
+    "id": "2026-11-26:event:65364a25242f7f47:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "7b79ab34bb3622bb6953cd56481b1d566b4dcabb72394f1c718d516ced2ab4a0"
+     "sha256": "65364a25242f7f47ea3491f78db8ac354c0ce0c1cd726a564e57f2affe274ed2"
     },
     "type": "inventory",
-    "time": "13:00",
+    "time": "13:45",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
