@@ -334,6 +334,13 @@
    "mode": "stand",
    "at": "safdarjung",
    "now": "Shopping at Safdarjung's Tomb."
+  },
+  {
+   "from": "15:22",
+   "to": "17:22",
+   "mode": "stand",
+   "at": "safdarjung",
+   "now": "At Safdarjung's Tomb."
   }
  ],
  "entries": [
@@ -727,6 +734,22 @@
    "price": 300,
    "charge_id": "charge:12",
    "t": "15:12",
+   "place": "safdarjung"
+  },
+  {
+   "k": "diary",
+   "text": "The transaction is complete, and the ticket is in my hand. The clerk’s warning is precise: two hours and thirteen minutes until the gates close. The brown haze presses against the glass, blurring the distinction between the inside and the outside, but here, within these walls, the architecture is solid. I shall walk the perimeter, observing how the Mughal style adapts to the stone of this region, before the light fails and the dust settles further.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Assyrians, Babylonians, Medes and Persians"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Modern Time, The Reformation"
+    }
+   ],
+   "t": "15:22",
    "place": "safdarjung"
   }
  ],
@@ -1456,6 +1479,69 @@
      "text": "Of these works I will mention no others than those devoted to the dead, and which especially attract our attention."
     }
    ]
+  },
+  {
+   "t": "15:22",
+   "end": "17:22",
+   "event": "The ticket clerk says: “That will be three hundred rupees. Please note the closing time is 5:25, so you have a bit over two hours.” She slides the entry ticket across the counter towards him.",
+   "present": [
+    "the ticket clerk"
+   ],
+   "decision": {
+    "thought": "The transaction is complete, and the ticket is in my hand. The clerk’s warning is precise: two hours and thirteen minutes until the gates close. The brown haze presses against the glass, blurring the distinction between the inside and the outside, but here, within these walls, the architecture is solid. I shall walk the perimeter, observing how the Mughal style adapts to the stone of this region, before the light fails and the dust settles further.",
+    "action": "stay",
+    "place": "safdarjung",
+    "minutes": 120,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 264."
+   ],
+   "observed_at": "safdarjung",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Assyrians, Babylonians, Medes and Persians",
+     "id": "sibree-history:583"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Modern Time, The Reformation",
+     "id": "sibree-history:1340"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Assyrians, Babylonians, Medes and Persians",
+     "text": "On one side of the stream was the temple of Bel, on the other the great palaces of the monarchs. The city is reputed to have had a hundred brazen (i.e. copper) gates, its walls being 100 feet high, and thick in proportion, defended by two hundred and fifty towers. The thoroughfares in the city which led towards the river were closed every night by brazen doors."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Modern Time, The Reformation",
+     "text": "Equally important, and connected with that just noticed, is the change of executive powers, functions, duties and rights, which naturally belong to the State, but which had become private property and private contracts or obligations— into possession conferred by the State."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1471,7 +1557,7 @@
  "complete": false,
  "state": {
   "place": "safdarjung",
-  "until": "2026-11-26T15:22+05:30",
+  "until": "2026-11-26T17:22+05:30",
   "asleep": false,
   "imprest": 14806,
   "wearing": "kurta",
@@ -1996,7 +2082,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-26",
-  "source_sha256": "98249cb98049dcec59c39c74d45b1340b5ed4503a8a5a387fde7ce16eda79209",
+  "source_sha256": "b9bfca85cb0c4845a55015628faff01c919dbc712901e5180ef418b977c182e8",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2894,68 +2980,98 @@
     "text": "You arrive at Safdarjung's Tomb. It closes at 17:25."
    },
    {
-    "id": "2026-11-26:event:a5a3d0c1407dbfa6:1",
+    "id": "2026-11-26:event:cae42cb104900a45:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 11,
+     "sha256": "cae42cb104900a454c1b808cbca0573d28a43733c5b343173e66429dec679de1"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "15:22",
+    "end": "17:22",
+    "place": "safdarjung"
+   },
+   {
+    "id": "2026-11-26:event:e2e6682290f4b4fa:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      11,
+      0
+     ],
+     "sha256": "e2e6682290f4b4faa8a5d1754628c8c51d09c7d546ad8a501914571c222c69c5"
+    },
+    "type": "observation",
+    "time": "15:22",
+    "place": "safdarjung",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 264."
+   },
+   {
+    "id": "2026-11-26:event:c1c7d11448e08489:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "a5a3d0c1407dbfa64b05e986c1f202d23359471ef478e4fe427abd1dfee45af6"
+     "sha256": "c1c7d11448e08489b71fa209edee775313448f0c6528d4ce8baf1e3c9a78f478"
     },
     "type": "cash",
-    "time": "15:22",
+    "time": "17:22",
     "amount": 14806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-26:event:9478f81b437828d6:1",
+    "id": "2026-11-26:event:5456c813dcf24c7e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "9478f81b437828d6468913a75598eb9f7fabd6808be427788697bba9b0c671b3"
+     "sha256": "5456c813dcf24c7e00ffc404e056c2ecc691436ee86f89d188220d0ac13a6603"
     },
     "type": "location",
-    "time": "15:22",
+    "time": "17:22",
     "place": "safdarjung",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-26:event:7e284841e5ae070e:1",
+    "id": "2026-11-26:event:628520404fa277e4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "7e284841e5ae070e21f739767d4eb97a09721b7aed5293af0f39345beeb1d109"
+     "sha256": "628520404fa277e40cbc1468df66d813118f5a111e87678f4a542925e8482430"
     },
     "type": "inventory",
-    "time": "15:22",
+    "time": "17:22",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-26:event:38c188c9164f206f:1",
+    "id": "2026-11-26:event:67df6efcdb99eef9:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "38c188c9164f206f76a0d79d8aeb062c5549c348e49e1ee83e32858540c4644f"
+     "sha256": "67df6efcdb99eef9a53a038cd64ecb7ecc531727290b7e617bb0fae254245d53"
     },
     "type": "inventory",
-    "time": "15:22",
+    "time": "17:22",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-26:event:9f461ed3747f26ca:1",
+    "id": "2026-11-26:event:8d3740dadb19798a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "9f461ed3747f26ca980532ec8f493c6c72583ba89557e4c3353ab23cf064c0b7"
+     "sha256": "8d3740dadb19798aeac80f5330ff190ff6f24aa76bfec2257103802c82d1cc7e"
     },
     "type": "inventory",
-    "time": "15:22",
+    "time": "17:22",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
