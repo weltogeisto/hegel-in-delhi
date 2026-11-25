@@ -94,6 +94,14 @@ class ScoreTest(unittest.TestCase):
         self.write("1831", [self.base(), day(0, meals=("breakfast", "dinner")), varied(1, meals=("breakfast", "lunch", "dinner")), varied(2)])
         f = self.score()[0]["fed"]
         self.assertEqual((f["meals"], f["of"], f["share"]), (5, 9, 0.556))
+        self.assertEqual((f["days_nothing"], f["nothing_on"]), (1, ["2026-11-27"]))         # the third day: no meal at all
+
+    def test_food_he_bought_is_not_a_day_without_food(self):
+        bought = varied(1)
+        bought["state"]["today"]["bought_food"] = {"place": "habitat", "t": "2026-11-26T15:36+05:30"}
+        self.write("1831", [self.base(), day(0, meals=("lunch",)), bought, varied(2)])
+        f = self.score()[0]["fed"]
+        self.assertEqual((f["meals"], f["days_nothing"]), (1, 1))                           # one meal in three days; he ate on two of them
 
     def read_entry(self, title, t="09:00"):
         return {"k": "read", "title": title, "t": t}

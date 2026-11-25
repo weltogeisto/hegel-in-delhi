@@ -11,7 +11,7 @@ His 1 December is Berlin's Monday 30 November. With Welt's go on Thursday, the p
 ## The runs
 
 - **Morning:** the saved morning of the day that follows the night's last complete day: Day 57, his Friday 27 November.
-- **The engine:** main at the commit that holds `HEGEL_EXITS`, in the rehearsal's own checkout. Nothing is merged into shadow for this night.
+- **The engine:** main at `27e90f6f` or later, in the rehearsal's own checkout: it holds the three repairs of 25 November (`pc/EXITS.md`, 12). Nothing is merged into shadow for this night.
 - **Two arms:**
   - **off:** every switch as the Pi runs that day, and nothing more.
   - **on:** the same, with `HEGEL_EXITS=1`.
@@ -36,14 +36,20 @@ His 1 December is Berlin's Monday 30 November. With Welt's go on Thursday, the p
   - his cash each night, what he owes at the end, and any gift;
   - every prompt of the packet that fired, read against the state it fired in.
 
-**The rule for going forward, declared now.** The packet is put to Welt for his go if both hold in both seeds:
-1. In the on arm he has at least one meal on every day.
-2. The on arm's Fed is higher than the off arm's in each week.
+**The rule for going forward.** The packet is put to Welt for his go if both hold in both seeds:
+1. In the on arm he eats on every day.
+2. The on arm's Fed is not lower than the off arm's in any week.
+
+**Changed on 25 November, before this night, after the first future of the night before** (seed 1831 from Day 55's morning, read by the rule as it first stood):
+- "At least one meal on every day" counted breakfast, lunch and dinner only. On his 2 December he had ₹22,296, Ramesh was off, and he bought food at the Habitat Centre at 15:36: none of the three. The score now also counts the days on which he ate nothing at all, neither a meal nor food he bought (`days with nothing eaten`), and point 1 is read on that.
+- "Higher in each week" was written when the off arm starved. In that future the off arm had 16 of 21 meals in the second week, and so had the on arm. A packet does not fail by matching a week in which he was fed.
+- That future, by the first rule, did not pass on either point. It is reported so.
 
 What he takes of the paid work is reported and never gated. The repair is judged by meals, debt and work within his reach. An essay he writes for a fee is read apart, with the fee hidden from its reader. Three things would hold the packet back, and each is looked for:
-- a day under the floor in the on arm only;
+- a day with nothing eaten in the on arm only;
 - an offer whose words were false in the state it fired in;
-- the dues line said more often than every third day.
+- the dues line said more often than every third day;
+- a repair that does not hold: one manuscript paid twice, the column's letter within two days of the essay, or two of the public's four offers on one day.
 
 **The third arm is read apart, and gates nothing.** It is one future, so it is a look and not a test. Against the on arm of the same seed:
 - how often he asked someone to look a thing up, whom, and what;
