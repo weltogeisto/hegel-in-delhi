@@ -12,25 +12,25 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 15,
+    "temp": 16,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 269
    },
    {
-    "temp": 14,
+    "temp": 15,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 273
    },
    {
-    "temp": 14,
+    "temp": 15,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 277
    },
    {
-    "temp": 13,
+    "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 280
@@ -48,7 +48,7 @@
     "aqi": 285
    },
    {
-    "temp": 12,
+    "temp": 13,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 287
@@ -114,13 +114,13 @@
     "aqi": 262
    },
    {
-    "temp": 20,
+    "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 261
    },
    {
-    "temp": 19,
+    "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 260
@@ -150,7 +150,7 @@
     "aqi": 268
    },
    {
-    "temp": 15,
+    "temp": 16,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 270
@@ -348,6 +348,13 @@
    "mode": "walk",
    "a": "safdarjung",
    "b": "home"
+  },
+  {
+   "from": "17:34",
+   "to": "18:04",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -789,6 +796,43 @@
    "text": "Yes sir, 5:25 sharp. Better head inside now or you'll be stuck in the queue.",
    "t": "17:22",
    "place": "safdarjung"
+  },
+  {
+   "k": "diary",
+   "text": "The haze is still thick at five in the evening, a brown lid on the city. I am hungry, though the last meal was four hours ago and the heat has taken its toll. Ramesh is here, and the house is quiet. I will not push the identity query further today; the Directorate is closed, and my mind is too tired to argue with a clerk. I will eat.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Revealed Religion"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness"
+    }
+   ],
+   "t": "17:34",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, please. The parathas, with the curd. I am hungry.",
+   "to": "Ramesh",
+   "t": "17:34",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, parathas are a bit cold now, but I can warm them up in the tawa. Curd is fresh from the fridge. Give me five minutes.",
+   "t": "17:34",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "Ramesh puts a plate together: parathas kept from the morning, with curd and pickle.",
+   "t": "17:34",
+   "place": "home"
   }
  ],
  "steps": [
@@ -1647,6 +1691,70 @@
      "text": "Mose 17, und hat die Wahl des Königs in die Hände der Priester gegeben, auch bestimmt, daß er kein Fremder sein, keine starke Kavallerie halten und nicht viele Weiber nehmen darf. Das aber sind dürftige Bestimmungen für einen Staat, der von einer noch nicht einmal republikanischen Verfassung zu königlicher Konstitution übergeht."
     }
    ]
+  },
+  {
+   "t": "17:34",
+   "end": "18:04",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The haze is still thick at five in the evening, a brown lid on the city. I am hungry, though the last meal was four hours ago and the heat has taken its toll. Ramesh is here, and the house is quiet. I will not push the identity query further today; the Directorate is closed, and my mind is too tired to argue with a clerk. I will eat.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": "Ramesh, please. The parathas, with the curd. I am hungry.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 21 °C, a brown haze. Air quality index: 261.",
+    "Nothing in particular happens. The evening goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Sir, parathas are a bit cold now, but I can warm them up in the tawa. Curd is fresh from the fridge. Give me five minutes.",
+    "does": "He nods and turns back towards the kitchen corridor."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Revealed Religion",
+     "id": "baillie-2:619"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "id": "baillie-1:220"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Revealed Religion",
+     "text": "Our action, therefore, when we enjoy them is not that of worship, through which our conscious life might attaia its complete truth and be satisfied to the full: our action is external; it consists in wiping off some drop of rain or speck of dust from these fruits, and in place of the inner elements composing the reality of the ethical life…"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "text": "But just as lordship showed its essential nature to be the reverse of what it wants to be, so, too, bondage will, when completed, pass into the opposite of what it immediately is: being a consciousness repressed within itself, it will enter into itself, and change round into real and true independence."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1662,7 +1770,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-26T17:34+05:30",
+  "until": "2026-11-26T18:04+05:30",
   "asleep": false,
   "imprest": 14806,
   "wearing": "kurta",
@@ -2063,7 +2171,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-26T13:45+05:30",
+  "last_meal": "2026-11-26T17:34+05:30",
   "snacks": 0,
   "works": [
    {
@@ -2187,7 +2295,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-26",
-  "source_sha256": "48df1cc00dd77247778ed6c98787473e7c648b2b8c09aac86b94d9f9a2b25833",
+  "source_sha256": "39cc3871b636f44587dd05acbde7d2cb1e85ff783ab3c8d0312d0b85b4611793",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2595,6 +2703,49 @@
     "verified": false,
     "time": "17:22",
     "place": "safdarjung"
+   },
+   {
+    "id": "2026-11-26:statement:b4e96c8e503b8db2:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 42,
+     "sha256": "b4e96c8e503b8db2db1251063a0ae5645186d7827ebce3fe91a7112e1acd92aa"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, please. The parathas, with the curd. I am hungry.",
+    "verified": false,
+    "time": "17:34",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:b4f4a6c1914e9960:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 43,
+     "sha256": "b4f4a6c1914e9960ea93cb55fe6ed3ca8d783103642ad07a8e13e415de6b6a6b"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Sir, parathas are a bit cold now, but I can warm them up in the tawa. Curd is fresh from the fridge. Give me five minutes.",
+    "verified": false,
+    "time": "17:34",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:event:b33fa177f9e2d280:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 44,
+     "sha256": "b33fa177f9e2d280fa57f6a6b08f0d7e36895c2e763396d8e9fa1e6dcd208a1a"
+    },
+    "type": "world",
+    "text": "Ramesh puts a plate together: parathas kept from the morning, with curd and pickle.",
+    "time": "17:34",
+    "place": "home"
    },
    {
     "id": "2026-11-26:event:670aee41c23b37ff:1",
@@ -3193,68 +3344,114 @@
     "text": "Safdarjung's Tomb closes at 17:25."
    },
    {
-    "id": "2026-11-26:event:79f0f913e5394214:1",
+    "id": "2026-11-26:event:4f9dc2f8aa34bb6f:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 13,
+     "sha256": "4f9dc2f8aa34bb6f0261a976bcd20bf11ee6ec41e6d353559a70f8b8902f5999"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "17:34",
+    "end": "18:04",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:event:ec7dd52114f52981:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      13,
+      0
+     ],
+     "sha256": "ec7dd52114f52981fcba78138e7c1f01f6dbb7198b4a03b6231cd14589892206"
+    },
+    "type": "observation",
+    "time": "17:34",
+    "place": "home",
+    "text": "Weather: 21 °C, a brown haze. Air quality index: 261."
+   },
+   {
+    "id": "2026-11-26:event:f0883d583a8f0cb4:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      13,
+      1
+     ],
+     "sha256": "f0883d583a8f0cb4f513e9e7918f61a4da92f5f5c5ffd125af87394140064d60"
+    },
+    "type": "observation",
+    "time": "17:34",
+    "place": "home",
+    "text": "Nothing in particular happens. The evening goes on."
+   },
+   {
+    "id": "2026-11-26:event:b77bc74f1d47a060:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "79f0f913e539421489489b4454379a0e4f4f68cd07279867649019f0951b0c7b"
+     "sha256": "b77bc74f1d47a060f01d5c2f395b6a10364aac15e696b0daf57c96fbeed9ae84"
     },
     "type": "cash",
-    "time": "17:34",
+    "time": "18:04",
     "amount": 14806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-26:event:460b2f79d63ee18e:1",
+    "id": "2026-11-26:event:5f3e1dcb0442d96e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "460b2f79d63ee18ed30b56a961d87f0f096c2850a2e06cd532920815f52a6eee"
+     "sha256": "5f3e1dcb0442d96edcfef6fd81cbeaf9c5782e3e4b49a047de2804b9b3506453"
     },
     "type": "location",
-    "time": "17:34",
+    "time": "18:04",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-26:event:d56f7986f9cea35f:1",
+    "id": "2026-11-26:event:e75b8e6990e0d133:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "d56f7986f9cea35f1f0628861d46dd82a45b3d2cb0ba04d36f90a2832752e9a8"
+     "sha256": "e75b8e6990e0d133dba324878470bab5217477b078059820b061d91e4e2a03bc"
     },
     "type": "inventory",
-    "time": "17:34",
+    "time": "18:04",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-26:event:e5ebee7caf450a83:1",
+    "id": "2026-11-26:event:d56780d767df161f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "e5ebee7caf450a833b33dc178d36a5c40daac8dc8137bc871f6dfa2e2f5cced5"
+     "sha256": "d56780d767df161fba0d27ba159a5ad937ddfb791208f9acf0e94a7fb9f12765"
     },
     "type": "inventory",
-    "time": "17:34",
+    "time": "18:04",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-26:event:c3f6055f77894286:1",
+    "id": "2026-11-26:event:92ab21723b2787f5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "c3f6055f7789428637d5d60f4b37b61a9f0488fed1614cb56df8942f40cf83e1"
+     "sha256": "92ab21723b2787f500f714b1d4d7579f9f02f00b7532a052af7577833c269d30"
     },
     "type": "inventory",
-    "time": "17:34",
+    "time": "18:04",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
