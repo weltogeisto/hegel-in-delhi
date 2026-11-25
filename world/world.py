@@ -749,6 +749,8 @@ class World(Economy):
         if self.exits and beat.get("gift"):
             out += self.give(state, beat, t)
             state["beats"].remove(beat["id"])                 # an envelope may come again, for another piece
+        if self.exits and (beat.get("when") or {}).get("spaced"):
+            state["public_on"] = t.date().isoformat()                                 # HEGEL_EXITS: the public's offers come one a day
         return out + self.effects(beat, t, state)
 
     # ── a talk (HEGEL_TALK_SCENE) ───────────────────────────────────

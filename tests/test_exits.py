@@ -235,6 +235,43 @@ class EssayAgain(unittest.TestCase):
         self.assertEqual(len(ON.on_writing(st, 400, at_dt(NOV(30), 16 * 60), {"kind": "essay", "title": "On Air", "started": "2026-11-30"})), 1)
         self.assertEqual(st["commissions"][0]["next"], "2026-12-14")                  # the next piece, a fortnight on
 
+    def test_a_manuscript_earns_one_fee(self):
+        st = self.agreed()
+        ON.on_writing(st, 450, at_dt(NOV(27), 13 * 60), self.ESSAY)                   # the essay, paid
+        with There(home=["ramesh"]):
+            _, ctx = look(ON, at_dt(NOV(29), 11 * 60), st, "home")
+            ON.fire(ctx["beat"], at_dt(NOV(29), 11 * 60), st)
+            ON.settle_choice(ctx["beat"], True, st, at_dt(NOV(29), 11 * 60))          # the column, agreed
+        cash = st["imprest"]
+        self.assertEqual(ON.on_writing(st, 450, at_dt(NOV(29), 15 * 60), self.ESSAY), [])     # more of the essay that was paid for
+        self.assertEqual(st["imprest"], cash)
+        self.assertEqual(len(ON.on_writing(st, 400, at_dt(NOV(29), 17 * 60), {"kind": "essay", "title": "On Air", "started": "2026-11-29"})), 1)
+        self.assertEqual([o["title"] for o in st["out"]], ["On the Republic", "On Air"])
+
+    def test_the_column_waits_until_the_essay_can_have_been_read(self):
+        st = self.agreed()
+        ON.on_writing(st, 450, at_dt(NOV(27), 13 * 60), self.ESSAY)
+        for day_, opens in ((27, False), (28, False), (29, True)):
+            with There(home=["ramesh"]):
+                _, ctx = look(ON, at_dt(NOV(day_), 16 * 60), st, "home")
+            self.assertEqual(bool(ctx.get("beat")) and ctx["beat"]["id"] == "exits_column", opens, day_)
+
+    def test_the_publics_offers_come_one_a_day(self):
+        st = self.agreed()
+        ON.on_writing(st, 450, at_dt(NOV(27), 13 * 60), self.ESSAY)                   # on the 29th the column and an envelope are both due
+        seen = []
+        for day_ in (29, 29, 30):
+            with There(home=["ramesh"]):
+                _, ctx = look(ON, at_dt(NOV(day_), 11 * 60 + 30 * len(seen)), st, "home")
+                seen.append(ctx["beat"]["id"] if ctx.get("beat") else None)
+                if ctx.get("beat"):
+                    ON.fire(ctx["beat"], at_dt(NOV(day_), 11 * 60), st)
+                    if ctx["beat"].get("choice"):
+                        ON.settle_choice(ctx["beat"], True, st, at_dt(NOV(day_), 11 * 60))
+        self.assertEqual(sorted(x for x in (seen[0], seen[2]) if x), ["exits_column", "exits_gift"])
+        self.assertNotIn(seen[1], ("exits_column", "exits_gift", "exits_course", "exits_essay_again"))    # nothing more of the public's that day
+        self.assertNotIn("public_on", fresh(settled=LATER))                           # and the state holds nothing of it until one is made
+
     def test_no_brings_her_back_after_a_fortnight(self):
         st = self.declined()
         with There(home=["ramesh"]):

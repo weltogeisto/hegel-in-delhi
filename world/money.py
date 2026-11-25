@@ -11,7 +11,7 @@ SESSION_WAIT = 30               # minutes a person waits for him at a standing e
 HOME_GIFT = (50, 5000)          # what a gift or payment to a person at home may come to
 CLEAR_DAYS = 3                  # a cheque paid in at the State Bank clears in this many days
 BANK = "the State Bank, Khan Market"
-EXIT_KEYS = ("running", "fired_before", "due_within", "plain_days", "piece_out")      # the `when` keys of HEGEL_EXITS
+EXIT_KEYS = ("running", "fired_before", "due_within", "plain_days", "piece_out", "out_days", "spaced")      # the `when` keys of HEGEL_EXITS
 DUES_DAYS, DUES_EVERY = 14, 3   # HEGEL_EXITS: the days ahead that the dues are counted for; the dues line is said at most every third day
 
 
@@ -278,12 +278,15 @@ class Economy:
     def on_writing(self, st, words, t, piece=None):
         """A sitting of enough words earns what a magazine promised. A fee that names its piece (HEGEL_EXITS: `piece`, a kind of
         writing) is earned only by a sitting of that kind on a manuscript begun on or after the day he agreed: the fee is for the
-        piece that was asked for, not for whatever he writes next. Returns entries."""
+        piece that was asked for, not for whatever he writes next. And a manuscript earns one fee: a further sitting on an essay
+        that was paid for is not the column's first piece. Returns entries."""
         out = []
+        paid = {o.get("title") for o in st.get("out", [])}
         for r in list(st["receipts"]):
             if r.get("write") and words >= r["write"]:
-                if r.get("piece") and not (piece and piece["kind"] == r["piece"] and piece["started"] >= r["after"][:10]):
+                if r.get("piece") and not (piece and piece["kind"] == r["piece"] and piece["started"] >= r["after"][:10] and piece["title"] not in paid):
                     continue
+                paid.add(piece["title"] if piece else None)
                 st["receipts"].remove(r)
                 out.append(self.pay(st, r, t))
                 if self.exits:
@@ -419,9 +422,14 @@ class Economy:
 
     def exit_ok(self, key, v, t, st):
         """The conditions HEGEL_EXITS adds to an offer's `when`. running: {engagement: n}, kept and at least n of its sessions held;
+        spaced: no other spaced offer was made today; out_days: {piece: n}, that piece went out at least n days ago;
         fired_before: any of these beats fired on an earlier day; due_within: {cost: days}, it falls due within that many days (not yet
         owed) and the fortnight's dues are more than his cash; plain_days: n, the record began early enough and the kitchen stood on the plain meal on each of the last n days."""
         d = t.date()
+        if key == "spaced":                                         # the public's offers come one a day, not all at once
+            return st.get("public_on") != d.isoformat()
+        if key == "out_days":                                       # {piece: n}: that piece of his went out at least n days ago
+            return all((d - date.fromisoformat(o["date"])).days >= n for i, n in v.items() for o in st.get("out", []) if o["id"] == i and o["date"])
         if key == "running":
             return all(any(e["id"] == i for e in st.get("engagements", [])) and sum(b.startswith(i + "@") for b in st["beats"]) >= n for i, n in v.items())
         if key == "fired_before":
