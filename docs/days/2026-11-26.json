@@ -369,6 +369,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "18:29",
+   "to": "18:49",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -878,6 +885,28 @@
     }
    ],
    "t": "18:09",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "Parakeets stream over the compound wall in loud green lines, hundreds of them, and drop all at once into the top of one tall tree, screaming until the light goes.",
+   "t": "18:29",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The parakeets descend like a green curtain, screaming their defiance against the brown haze that chokes the city. It is a violent burst of life in a place that seems to be slowly suffocating. Ramesh stands there, waiting for the evening to pass, while I watch the light fail behind the trees.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Roman World, Rome to the Second Punic War"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato"
+    }
+   ],
+   "t": "18:29",
    "place": "home"
   }
  ],
@@ -1920,6 +1949,67 @@
      "text": "Nature, as contrasted with Spirit, is a quantitative mass, whose power must not be so great as to make its single force omnipotent. In the extreme zones man cannot come to free movement; cold and heat are here too powerful to allow Spirit to build up a world for itself. Aristotle said long ago, \" When pressing needs are satisfied, man turns to the general and more elevated.\""
     }
    ]
+  },
+  {
+   "t": "18:29",
+   "end": "18:49",
+   "event": "Parakeets stream over the compound wall in loud green lines, hundreds of them, and drop all at once into the top of one tall tree, screaming until the light goes.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The parakeets descend like a green curtain, screaming their defiance against the brown haze that chokes the city. It is a violent burst of life in a place that seems to be slowly suffocating. Ramesh stands there, waiting for the evening to pass, while I watch the light fail behind the trees.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 260.",
+    "Parakeets stream over the compound wall in loud green lines, hundreds of them, and drop all at once into the top of one tall tree, screaming until the light goes."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "street:home_parakeet_roost"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Roman World, Rome to the Second Punic War",
+     "id": "sibree-history:917"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "id": "haldane-2:65"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Roman World, Rome to the Second Punic War",
+     "text": "A body consisting of hundreds, nay thousands of gladiators, when entering the amphitheatre at a certain, festival to engage in a sham sea-fight, addressed the Emperor with the words: \" Those who are devoted to death salute thee,\" to excite some compassion. In vain! the whole were devoted to mutual slaughter."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "text": "The idea which he makes use of is as follows:—“Let us think of an underground den like a cave with a long entrance opening to the light. Its inhabitants are chained so that they cannot move their necks, and can see only the back of the cave. Far behind their backs a torch burns above them."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1935,7 +2025,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-26T18:29+05:30",
+  "until": "2026-11-26T18:49+05:30",
   "asleep": false,
   "imprest": 14806,
   "wearing": "kurta",
@@ -2454,13 +2544,14 @@
    "home_peahen": "2026-11-21",
    "home_monkey_wall": "2026-11-21",
    "iic_seminar_voice": "2026-11-22",
-   "home_wedding_band": "2026-11-22"
+   "home_wedding_band": "2026-11-22",
+   "home_parakeet_roost": "2026-11-26"
   }
  },
  "records": {
   "version": 2,
   "date": "2026-11-26",
-  "source_sha256": "135a8008f329d30ce5f2e6fdee6cf4fcb72a7de970f62803dfd1b4fcc880f0b3",
+  "source_sha256": "be4a995be0b1a22228f7a5ced763d8928a8f0cb637b81496c3ce0be68bcef00d",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2910,6 +3001,19 @@
     "type": "world",
     "text": "Ramesh puts a plate together: parathas kept from the morning, with curd and pickle.",
     "time": "17:34",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:event:c078a07f935cd5b5:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 47,
+     "sha256": "c078a07f935cd5b582fb6f2a5618c8806e87f66143f3747aebf59609a28f902c"
+    },
+    "type": "world",
+    "text": "Parakeets stream over the compound wall in loud green lines, hundreds of them, and drop all at once into the top of one tall tree, screaming until the light goes.",
+    "time": "18:29",
     "place": "home"
    },
    {
@@ -3631,68 +3735,114 @@
     "text": "Nothing in particular happens. The evening goes on."
    },
    {
-    "id": "2026-11-26:event:7eda7ffbe1c02f17:1",
+    "id": "2026-11-26:event:2df4640e8c3ab99b:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 16,
+     "sha256": "2df4640e8c3ab99b72bfa216110f6be3b740cb1ee32bcc48ece725f32e18554f"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "18:29",
+    "end": "18:49",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:event:e0a1f48e48233e1b:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      16,
+      0
+     ],
+     "sha256": "e0a1f48e48233e1ba4fac1fc26432d9583856fc610dc195b29404698868ae5bb"
+    },
+    "type": "observation",
+    "time": "18:29",
+    "place": "home",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 260."
+   },
+   {
+    "id": "2026-11-26:event:85a2b984d09cc6e6:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      16,
+      1
+     ],
+     "sha256": "85a2b984d09cc6e6ad8c1d9ee610cd2604c1f83b1008b31bc7df10b34249f746"
+    },
+    "type": "observation",
+    "time": "18:29",
+    "place": "home",
+    "text": "Parakeets stream over the compound wall in loud green lines, hundreds of them, and drop all at once into the top of one tall tree, screaming until the light goes."
+   },
+   {
+    "id": "2026-11-26:event:6588d8d8292139ed:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "7eda7ffbe1c02f174cbaef1eeca2b1a1286db5a087d073a90d92bfbbd5fd4588"
+     "sha256": "6588d8d8292139edda834b9da830cee465810c9677caa47119211cc685349215"
     },
     "type": "cash",
-    "time": "18:29",
+    "time": "18:49",
     "amount": 14806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-26:event:3f1035d689ce863e:1",
+    "id": "2026-11-26:event:d1fbdeb29931a69c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "3f1035d689ce863eed9e99b9d2a753e3f81fe9872b8282bc8634650286241168"
+     "sha256": "d1fbdeb29931a69cb88255dc01c1d4bde9963404ca822e02cde8a9f2d4b31449"
     },
     "type": "location",
-    "time": "18:29",
+    "time": "18:49",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-26:event:192276401d5a7bb9:1",
+    "id": "2026-11-26:event:1ea2a04a373c5c47:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "192276401d5a7bb9d90578c1be428afad97892fb82e295a3c911eb26a76b9631"
+     "sha256": "1ea2a04a373c5c472c468d052ddcd781e719eb9e8aba3504accc34265889595c"
     },
     "type": "inventory",
-    "time": "18:29",
+    "time": "18:49",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-26:event:6f6c6793d4f98b03:1",
+    "id": "2026-11-26:event:9752c78d04d53179:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "6f6c6793d4f98b03a5e9ab6d65b44d369ef18dbd0d0c5a9ed02240048df25d90"
+     "sha256": "9752c78d04d531792862c167c93d6fe0021ab5c5ba7e3788ab6483bb86c76a02"
     },
     "type": "inventory",
-    "time": "18:29",
+    "time": "18:49",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-26:event:4b2e74b3bc7ad3f4:1",
+    "id": "2026-11-26:event:d3d3a31d8ce6d4d5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "4b2e74b3bc7ad3f4c38dc2b63b58f6a56f967021e8b892dc393730f064dfa246"
+     "sha256": "d3d3a31d8ce6d4d560e6b036630a135c49a37ceca1b68283000169b458be4a0a"
     },
     "type": "inventory",
-    "time": "18:29",
+    "time": "18:49",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
