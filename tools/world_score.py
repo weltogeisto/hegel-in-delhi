@@ -132,8 +132,11 @@ def score_future(rows, raw, file_before):
             for s in raw[i].get("steps") or []:
                 moved += [k for k in s.get("opened") or [] if k in THREAD_KINDS]
         wk["threads"] = {"count": len(moved), "moved": moved, "ok": len(moved) >= 1}
-        meals = sum(1 for i in idx for m in MEALS if ((raw[i].get("state") or {}).get("today") or {}).get(m))
-        wk["fed"] = {"meals": meals, "of": 3 * days, "share": round(meals / (3 * days), 3)}
+        todays = [((raw[i].get("state") or {}).get("today") or {}) for i in idx]
+        meals = sum(1 for t in todays for m in MEALS if t.get(m))
+        nothing = [raw[i].get("date") for i, t in zip(idx, todays) if not any(t.get(m) for m in MEALS) and not t.get("bought_food")]
+        wk["fed"] = {"meals": meals, "of": 3 * days, "share": round(meals / (3 * days), 3),
+                     "days_nothing": len(nothing), "nothing_on": nothing}       # none of the three meals, and no food bought either
         returns = sum(1 for i in idx for s in raw[i].get("steps") or [] if RETURN_KINDS & set(s.get("opened") or []))
         readings = used = 0
         for i in idx:
@@ -214,6 +217,7 @@ def render(scores, title="The world's score"):
 
 SCALARS = (("brought", lambda w: w["brought"]["mean"]), ("alike (longest run)", lambda w: w["alike"]["longest_run"]),
            ("threads", lambda w: w["threads"]["count"]), ("fed (meals)", lambda w: w["fed"]["meals"]),
+           ("days with nothing eaten", lambda w: w["fed"]["days_nothing"]),
            ("came back (moments)", lambda w: w["came_back"]["returns"]), ("readings used (share)", lambda w: w["came_back"]["used_share"]),
            ("offers shown", lambda w: w["chose"]["shown"]), ("offers taken", lambda w: w["chose"]["taken"]),
            ("same answer every time", lambda w: w["chose"]["same_answer_every_time"]),
