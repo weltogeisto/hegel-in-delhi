@@ -62,6 +62,8 @@ The first future of the night of 24 November lived the packet for fourteen days 
 - **The column waits two days.** The editor's letter, "she liked your essay", came two hours after he wrote it. It now comes two days after the essay went out at the earliest (`when.out_days`).
 - **The public's offers come one a day.** The Review's second asking, the course, an envelope and the column all came within a day and a half of the switch, because the talk they follow was weeks old. Now at most one of these four is made on a day (`when.spaced`; the state keeps the day in `public_on`). What the household does when money is short is not spaced: Ramesh's early word, the slate, the plate, the plain kitchen and the dues line come when they are due.
 
+- **Ramesh's early word, said true (25 November, after all three futures).** In seed 2718 he offered three days a week while the purse held ₹11,976 and the wage was ₹8,000: it held the wage, not the fortnight. His words said the purse "will not hold it". They now say it will not carry the wage with all else that falls due this fortnight, which is what the offer's condition tests.
+
 ## Words for Welt's reading
 
 Offers (prompt, then what is shown on the page, then the question put to him, then the answers):
@@ -80,7 +82,7 @@ Offers (prompt, then what is shown on the page, then the question put to him, th
    - Appointments: "your first lecture of the course at the IIC" (second, third, fourth).
    - Each evening's prompt: "The programme officer shows you into the lecture hall for the first evening of the course. The seats are filling. The lecture is yours, for about an hour." Page: "Half past six: he gives the first lecture of his course in the hall of the IIC, an hour." (second, third, fourth). Fee item: "Fee for an evening's lecture".
 3. Ramesh early.
-   - "Ramesh knows the wage falls due on the first, and that the purse will not hold it, he says, without looking at it. He could come on Mondays, Thursdays and Saturdays only, from now, and the wage would be ₹4,000 a month."
+   - "Ramesh knows the wage falls due on the first, and that the purse will not carry it with all else that falls due this fortnight, he says, without looking at it. He could come on Mondays, Thursdays and Saturdays only, from now, and the wage would be ₹4,000 a month."
    - "Ramesh offers, before the wage falls due, to come three days a week, Mondays, Thursdays and Saturdays, for ₹4,000 a month instead of ₹8,000."
    - The question and the answers are the old offer's own.
 4. Slate.
