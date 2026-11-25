@@ -292,6 +292,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "12:00",
+   "to": "13:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -506,6 +513,22 @@
    "to": "Hegel",
    "text": "Yes sir.",
    "t": "11:00",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "It is noon, and the haze thickens the air until breathing feels like a chore. I am hungry, but the household meal is not ready until one o'clock, and I have no strength to spare for a long wait. Ramesh is heading to the kitchen, likely to begin the preparations. I will stay here in the shade, conserving my energy, and wait for the food to arrive.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§324 Addition"
+    }
+   ],
+   "t": "12:00",
    "place": "home"
   }
  ],
@@ -842,6 +865,66 @@
      "text": "There is a superficial process that does not carry us beyond the determinate nature of substance. They say in reference to it, “water does not change into air but only into moisture, and moisture always condenses back into water again.” But in this they merely fix on a one-sided, insufficient process, and give it out to be the absolute process."
     }
    ]
+  },
+  {
+   "t": "12:00",
+   "end": "13:00",
+   "event": "Ramesh says: “Yes sir.” Ramesh nods slightly and continues toward the kitchen, holding the door open with his hip.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "It is noon, and the haze thickens the air until breathing feels like a chore. I am hungry, but the household meal is not ready until one o'clock, and I have no strength to spare for a long wait. Ramesh is heading to the kitchen, likely to begin the preparations. I will stay here in the shade, conserving my energy, and wait for the food to arrive.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 60,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 251."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202",
+     "id": "dyde-right:483"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§324 Addition",
+     "id": "dyde-right:820"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202",
+     "text": "The soil is capable of being an exclusive, private possession, and demands not merely the taking from it what it bears naturally, but an objective working up. Since the returns of labour depend on the seasons, and harvests are influenced by variable weather and other natural conditions, provision for wants must take account of the future."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§324 Addition",
+     "text": "Each separate sphere walls itself in and becomes exclusive, and at last there is a stagnation of mankind. Their particularity becomes more and more fixed and ossified. Unity of the body is essential to health, and where the organs become hard death ensues. Everlasting peace is frequently demanded as the ideal towards which mankind must move."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -857,7 +940,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-26T12:00+05:30",
+  "until": "2026-11-26T13:00+05:30",
   "asleep": false,
   "imprest": 15106,
   "wearing": "kurta",
@@ -1364,7 +1447,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-26",
-  "source_sha256": "4b9fcd958b1bc1c0e37760dd6e1716f9c3db80dd3606989e6ced2b2aba9f37d6",
+  "source_sha256": "12e696d36c2917a4d19fa541e907a924f9de562befb8faa0fd2fc23df03bb608",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1879,68 +1962,98 @@
     "text": "Weather: 22 °C, a brown haze. Air quality index: 255."
    },
    {
-    "id": "2026-11-26:event:71a16c8e60bda0ee:1",
+    "id": "2026-11-26:event:4bd963a8c0089d73:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 5,
+     "sha256": "4bd963a8c0089d731ed02515515317cf2e76e8d283176880ddc48b042766a378"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "12:00",
+    "end": "13:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:event:4db90adae2c4b08c:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      5,
+      0
+     ],
+     "sha256": "4db90adae2c4b08cf24e77c450a5af94e41c2d37f77b48830b11490f4d01418c"
+    },
+    "type": "observation",
+    "time": "12:00",
+    "place": "home",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 251."
+   },
+   {
+    "id": "2026-11-26:event:3a60060988f3ca78:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "71a16c8e60bda0ee1bc798dc23f86c5963fb55dedf314ca87bd33d43810cd583"
+     "sha256": "3a60060988f3ca7896cde1590ec5f8b4ca91ecb341bc607c0f2e149a23fa8431"
     },
     "type": "cash",
-    "time": "12:00",
+    "time": "13:00",
     "amount": 15106,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-26:event:4e7cc602288ea283:1",
+    "id": "2026-11-26:event:4fef451e21b5126e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "4e7cc602288ea283e2596a37ded81b276388cb5c15c2238519cd1f092d537431"
+     "sha256": "4fef451e21b5126ed4413d3048fe69d0ad42fa647ae7422d9535042edb10c870"
     },
     "type": "location",
-    "time": "12:00",
+    "time": "13:00",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-26:event:ec9e92dc2131a516:1",
+    "id": "2026-11-26:event:2a9abb38366f0136:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "ec9e92dc2131a516f1f2fe4218e49c86afba7a50bf7b17af2fbd5d8769020a0e"
+     "sha256": "2a9abb38366f013647f36990c16f686c9e4d171dbfeb09f3b50d5ac23e761f72"
     },
     "type": "inventory",
-    "time": "12:00",
+    "time": "13:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-26:event:878898e16669403e:1",
+    "id": "2026-11-26:event:bd25aa57de0d9a29:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "878898e16669403e57642635da37a2c631c66dfb1e38157d401ef09239a88f17"
+     "sha256": "bd25aa57de0d9a2934e8b94c1bdacb16a771d312ce7e0a5bd46915583180dc16"
     },
     "type": "inventory",
-    "time": "12:00",
+    "time": "13:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-26:event:afc710b5b73a9b4c:1",
+    "id": "2026-11-26:event:7b79ab34bb3622bb:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "afc710b5b73a9b4ccaa36043ba57f8ccc6228cf61c1c48302e5e16b54a1d149a"
+     "sha256": "7b79ab34bb3622bb6953cd56481b1d566b4dcabb72394f1c718d516ced2ab4a0"
     },
     "type": "inventory",
-    "time": "12:00",
+    "time": "13:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
