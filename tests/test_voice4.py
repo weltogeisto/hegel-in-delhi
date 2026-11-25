@@ -178,7 +178,36 @@ class NightTest(unittest.TestCase):
         b = v.cmd_sheet(self.f, "P1", keys, mirror=True)
         self.assertEqual(a["pairs"], 4)                                              # every card is kept
         ka, kb = json.loads((keys / "KEY-P1.json").read_text()), json.loads((keys / "KEY-P1-mirror.json").read_text())
-        self.assertTrue(all(ka[p]["real"] != kb[p]["real"] for p in ka))             # the mirror shows each pair the other way round
+        side = lambda k: {v_["card"]: v_["real"] for v_ in k.values()}
+        self.assertTrue(all(side(ka)[c] != side(kb)[c] for c in side(ka)))            # the mirror shows each pair the other way round
+        self.assertFalse(set(ka) & set(kb))                                          # and no id links a sheet to its mirror
+        salt = (keys / "SALT").read_text()
+        self.assertNotIn(salt, "".join(p.read_text() for p in self.f.iterdir() if p.is_file()))
+        for arm in ("P0", "P2"):
+            v.cmd_sheet(self.f, arm, keys)
+            v.cmd_sheet(self.f, arm, keys, mirror=True)
+        out = Path(self.td.name) / "packet"
+        self.assertEqual(v.cmd_packet(self.f, keys, out), {f"r{i}": 4 for i in range(1, 7)})
+        self.assertEqual(sorted(x.name for x in (out / "r1").iterdir()), ["PROMPT.md", "check.py", "r1.pairs", "r1.txt"])
+        for arm in v.ARMS:                                                           # nothing a reader gets names an arm
+            self.assertNotIn(arm, (out / "r1" / "PROMPT.md").read_text())
+        labels = json.loads((keys / "PACKET-KEY.json").read_text())
+        files = []
+        for label, name in labels.items():                                           # a family that is right on P0, wrong on P1, and says X on P2
+            key = json.loads((keys / f"KEY-{name}.json").read_text())
+            pick = lambda k: k["real"] if k["arm"] == "P0" else ("Y" if k["real"] == "X" else "X") if k["arm"] == "P1" else "X"
+            f = Path(self.td.name) / f"claude-{label}.jsonl"
+            f.write_text("".join(json.dumps({"pair": pid, "real": pick(key[pid])}) + "\n" for pid in (out / label / f"{label}.pairs").read_text().split()))
+            files.append(f)
+        with self.assertRaises(ValueError):                                          # unsealed ballots are not read
+            v.cmd_pairs_score(self.f, keys, {"claude": files})
+        from tools import ceiling_judge
+        ceiling_judge.cmd_seal(self.f, files)
+        got_pairs = v.cmd_pairs_score(self.f, keys, {"claude": files})["claude"]["arms"]
+        self.assertEqual((got_pairs["P0"]["accuracy"], got_pairs["P1"]["accuracy"], got_pairs["P2"]["accuracy"]), (1.0, 0.0, 0.5))
+        self.assertEqual(got_pairs["P0"]["right_both_ways"], 4)
+        self.assertEqual(got_pairs["P2"]["right_one_way"], 4)                         # always "X" is right one way round and wrong the other
+        (self.f / "SEALS.json").unlink()
         self.assertFalse(any(p.name.startswith("KEY") for p in self.f.iterdir()))
         self.assertEqual(set(v.rows(self.f / "SHEET-P1.jsonl")[0]), {"pair", "X", "Y"})
         got = v.cmd_classify(self.f)
