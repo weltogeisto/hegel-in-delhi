@@ -390,6 +390,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh and Shri G. Hegde at home."
+  },
+  {
+   "from": "19:39",
+   "to": "20:24",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -968,6 +975,22 @@
    "to": "Hegel",
    "text": "Sir, I have a file full of stamps and a stomach full of anxiety, not a philosophy degree. If the Directorate mixed up my name with a ghost, that is their problem, not my tea. Please, let the tea come, and we will look at the papers when the haze clears a little.",
    "t": "19:19",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Hegde’s anxiety is a private matter; the state’s error is public, but the state does not eat dinner. The khichdi is simple, yet it sustains the body that must stand before the Directorate tomorrow. I will eat, and let the haze settle.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§315 Addition"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544"
+    }
+   ],
+   "t": "19:39",
    "place": "home"
   }
  ],
@@ -2197,6 +2220,69 @@
      "text": "It requires but little reflection to see that the services performed by the classes in behalf of the general well-being and public liberty cannot be traced to an insight special to these classes. The highest state of&cials have necessarily deeper and more comprehensive insight into the workings and needs of the state, and also greater skill and wider practical experience."
     }
    ]
+  },
+  {
+   "t": "19:39",
+   "end": "20:24",
+   "event": "Shri G. Hegde says: “Sir, I have a file full of stamps and a stomach full of anxiety, not a philosophy degree. If the Directorate mixed up my name with a ghost, that is their problem, not my tea. Please, let the tea come, and we will look at the papers when the haze clears a little.” She gestures vaguely towards the door while adjusting the shawl around her shoulders. Ramesh serves dinner before he goes home: khichdi with ghee and papad.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Hegde’s anxiety is a private matter; the state’s error is public, but the state does not eat dinner. The khichdi is simple, yet it sustains the body that must stand before the Directorate tomorrow. I will eat, and let the haze settle.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 45,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 19 °C, a brown haze. Air quality index: 261.",
+    "Ramesh serves dinner before he goes home: khichdi with ghee and papad."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply",
+    "meal"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§315 Addition",
+     "id": "dyde-right:796"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "id": "wallace-mind:321"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§315 Addition",
+     "text": "Amongst a people, where publicity is the rule, there is seen quite a different attitude towards the state than in those places where state assemblies are not found or are secret. By the publication of every proceeding, the chambers are first brought into union with the larger general opinion."
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§544",
+     "text": "Thus, it may be—if we look only to the fact that the will of one individual stands at the head of the state—oriental despotism is included under the vague name monarchy,—as also feudal monarchy, to which indeed even the favourite name of “constitutional monarchy” cannot be refused."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2212,7 +2298,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-26T19:39+05:30",
+  "until": "2026-11-26T20:24+05:30",
   "asleep": false,
   "imprest": 14806,
   "wearing": "kurta",
@@ -2311,7 +2397,8 @@
    "strain": 1800,
    "tickets": [
     "safdarjung"
-   ]
+   ],
+   "dinner": true
   },
   "account": {
    "advance": 15000,
@@ -2615,7 +2702,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-26T17:34+05:30",
+  "last_meal": "2026-11-26T19:39+05:30",
   "snacks": 0,
   "works": [
    {
@@ -2740,7 +2827,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-26",
-  "source_sha256": "70936bbd87705bbf7cb8590f51678b250fec1892411806deda89ca33b6f462d1",
+  "source_sha256": "200147b5bb2056c579bb80f94c708c5561202cea2576364c4099700a5e1afdc6",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4092,68 +4179,114 @@
     "text": "Shri G. Hegde is here."
    },
    {
-    "id": "2026-11-26:event:20f3ad57853673f0:1",
+    "id": "2026-11-26:event:907d78cb2e4b55ec:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 19,
+     "sha256": "907d78cb2e4b55ece6d9ed6dbf628c1c77829ae391658c1b34d1dadeb799f1a7"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "19:39",
+    "end": "20:24",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:event:49b7fa4a749876be:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      19,
+      0
+     ],
+     "sha256": "49b7fa4a749876beb63d44ce31bf8fc12024e69acc3834c3c53f8b947a32f63d"
+    },
+    "type": "observation",
+    "time": "19:39",
+    "place": "home",
+    "text": "Weather: 19 °C, a brown haze. Air quality index: 261."
+   },
+   {
+    "id": "2026-11-26:event:6679124e64f97f42:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      19,
+      1
+     ],
+     "sha256": "6679124e64f97f42164226326730e53b415d714b950266afbbd9cea08eb98056"
+    },
+    "type": "observation",
+    "time": "19:39",
+    "place": "home",
+    "text": "Ramesh serves dinner before he goes home: khichdi with ghee and papad."
+   },
+   {
+    "id": "2026-11-26:event:6985e4f195312ca2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "20f3ad57853673f01deb7c85cfbf98b854d27e64a5addc15c9d83bd32c889802"
+     "sha256": "6985e4f195312ca2ecdc0c1c203ba92680e4b679655e0c412f672a0eafb0510f"
     },
     "type": "cash",
-    "time": "19:39",
+    "time": "20:24",
     "amount": 14806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-26:event:3577ead4e57938d3:1",
+    "id": "2026-11-26:event:854ac39511ff25e3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "3577ead4e57938d3f2500c4a9b4cd5e8a13c7d3f579f2c5651f55b33968e8ea3"
+     "sha256": "854ac39511ff25e32cf39cc5f5d8baceeda589187a0c2a129fd4560313dc88f9"
     },
     "type": "location",
-    "time": "19:39",
+    "time": "20:24",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-26:event:329de728173e7de2:1",
+    "id": "2026-11-26:event:472369a1bf088248:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "329de728173e7de2e52b7b5c2134baec3da818fb988e049c501f090186c4439e"
+     "sha256": "472369a1bf088248c50674427f375ba09120489a305be4f4be79d4e33cf84e8d"
     },
     "type": "inventory",
-    "time": "19:39",
+    "time": "20:24",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-26:event:b2404c1f7f02d41e:1",
+    "id": "2026-11-26:event:5db94998108ca6c8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "b2404c1f7f02d41e1b0232285ee8b8c4a256f52ec9c0df8ec5155bee5258b7d5"
+     "sha256": "5db94998108ca6c8cf42277ce20d3e7e31f6ff86fd696b1e36fbf1c3c9b4786c"
     },
     "type": "inventory",
-    "time": "19:39",
+    "time": "20:24",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-26:event:cc7d788bd3153e75:1",
+    "id": "2026-11-26:event:5f8861d31bb7d369:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "cc7d788bd3153e755aed2189eba218a4c7b0ee8b9c22796d294ff7b49c118e3f"
+     "sha256": "5f8861d31bb7d3691a9f70be5f2762e17b5f7f90b2f73cf61cc913779ec6361f"
     },
     "type": "inventory",
-    "time": "19:39",
+    "time": "20:24",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
