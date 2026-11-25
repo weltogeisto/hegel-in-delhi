@@ -102,6 +102,7 @@ Every reader named Hegel's own passage every time, both ways round. Each family 
 - **What it does not touch,** because it is his voice: sentence length (41 words a sentence in his passages, 14 to 15 in the letters), dashes, semicolons.
 - **The sheets:** six, as before, with a new salt kept with their keys outside the repository. `packet-even/r1` to `r6`, and `PACKET-EVEN.json` with the hashes of the texts and the keys, committed before any reading.
 - **Read** by the same two families, six fresh sessions each, one folder a session. Ballots `<family>-even-rN.jsonl`, sealed before the keys.
+- **The Claude family read on 26 November:** six fresh sessions, each kept to its own folder (checked in the record of each session afterwards). `ballots/claude-even-r1` to `r6`, sealed. No key applied.
 - **What it shows:** how far the rungs without training stand from him when only the voice can tell them apart. That is the bar for Training 4's adapter.
 
 Evaluation only. No card, letter, translation or judgment of this night is ever training data. The cards for the training letters are made later, by the same instructions, in a run of their own.
