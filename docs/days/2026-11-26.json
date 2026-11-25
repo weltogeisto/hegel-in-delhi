@@ -306,6 +306,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "13:45",
+   "to": "14:30",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -567,6 +574,37 @@
    "to": "Hegel",
    "text": "Aap khana karein. Thanda mat hone do.",
    "t": "13:00",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh steps back, his attention turning to the cooling food rather than the bureaucratic void. The haze outside presses against the glass, a thick brown lid on the city, but here the domestic order holds. I will eat, for the body requires its fuel before it can march on the Directorate or contemplate the world-spirit.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§3"
+    }
+   ],
+   "t": "13:45",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. The heat makes even the air heavy, but the food is warm.",
+   "to": "Ramesh",
+   "t": "13:45",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Haan sir, dhuan hai bahut aaj. Khana garam hai, bas jaldi karein.",
+   "t": "13:45",
    "place": "home"
   }
  ],
@@ -1029,6 +1067,71 @@
      "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
     }
    ]
+  },
+  {
+   "t": "13:45",
+   "end": "14:30",
+   "event": "Ramesh says: “Aap khana karein. Thanda mat hone do.” He steps back to give him space at the table.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh steps back, his attention turning to the cooling food rather than the bureaucratic void. The haze outside presses against the glass, a thick brown lid on the city, but here the domestic order holds. I will eat, for the body requires its fuel before it can march on the Directorate or contemplate the world-spirit.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 45,
+    "says": "Thank you, Ramesh. The heat makes even the air heavy, but the food is warm.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 268."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Haan sir, dhuan hai bahut aaj. Khana garam hai, bas jaldi karein.",
+    "does": "He nods slightly and turns to adjust the wick of the oil lamp on the sideboard."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "id": "haldane-1:113"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§3",
+     "id": "dyde-right:57"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "text": "A long time is undoubtedly required by Mind in working out Philosophy, and when one first reflects on it, the length of the time may seem astonishing, like the immensity of the space spoken of in astronomy. But it must be considered in regard to the slow progress of the world-spirit, that there is no need for it to hasten:—“A thousand years are in Thy sight as one day.”"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§3",
+     "text": "' In this -work Mr. Hugo says (5th edition § 53) that \" Cicero praises the twelve tables with a side glance at philosophy,\" \" but the philosopher Phavorinus treats them exactly as many a great philosopher since has treated positive right.\""
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1044,7 +1147,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-26T13:45+05:30",
+  "until": "2026-11-26T14:30+05:30",
   "asleep": false,
   "imprest": 15106,
   "wearing": "kurta",
@@ -1429,7 +1532,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-26T13:00+05:30",
+  "last_meal": "2026-11-26T13:45+05:30",
   "snacks": 0,
   "works": [
    {
@@ -1552,7 +1655,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-26",
-  "source_sha256": "17094989031b041009876ae7ee192077f9afefe16bb6341583782d067b5f01c6",
+  "source_sha256": "a3c85b6baa91bfc2c46302ee7a8e2af81db461a2943305aa4d0180c99ba3857c",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1790,6 +1893,36 @@
     "words": "Aap khana karein. Thanda mat hone do.",
     "verified": false,
     "time": "13:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:122ac43368230e4b:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 25,
+     "sha256": "122ac43368230e4bcd1c83c8d20fc560e3d19c015fb4b0d46ff3e37475bb9ac9"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Thank you, Ramesh. The heat makes even the air heavy, but the food is warm.",
+    "verified": false,
+    "time": "13:45",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:11e481648e225b9c:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 26,
+     "sha256": "11e481648e225b9cdbb9d3a33391be8b68338c9640a23b3b58fcde2e1efb1fb0"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Haan sir, dhuan hai bahut aaj. Khana garam hai, bas jaldi karein.",
+    "verified": false,
+    "time": "13:45",
     "place": "home"
    },
    {
@@ -2173,68 +2306,98 @@
     "text": "Ramesh has laid out lunch: rajma, rice and a cucumber raita."
    },
    {
-    "id": "2026-11-26:event:9ae87aa3064a7f3a:1",
+    "id": "2026-11-26:event:082ec8b6667be0c4:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 7,
+     "sha256": "082ec8b6667be0c4bdf81042cf9330d77cb6f0c1ebd2bb84c0361f4d883591e7"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "13:45",
+    "end": "14:30",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:event:a61cb7a33c73a840:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      7,
+      0
+     ],
+     "sha256": "a61cb7a33c73a8403035c970cd075910a93b6da412b9a6cc9e3fc2bec9d4190e"
+    },
+    "type": "observation",
+    "time": "13:45",
+    "place": "home",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 268."
+   },
+   {
+    "id": "2026-11-26:event:2450ddaea9eb3672:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "9ae87aa3064a7f3a775fe75b6e0f87afe614b7a70cd1b623fc04d876ea1d80c8"
+     "sha256": "2450ddaea9eb3672ea785d11c014fdcd513055600fcd2f3b426a41c435ea5811"
     },
     "type": "cash",
-    "time": "13:45",
+    "time": "14:30",
     "amount": 15106,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-26:event:25785d63bbb160ae:1",
+    "id": "2026-11-26:event:775ab250f580ea44:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "25785d63bbb160aef1b85fe81d62aee40ae4f3d4f8f0ba2e01d9372d994929ac"
+     "sha256": "775ab250f580ea449fffa0edede0b18a71d3d5b29f86c56a376805e8ec3437dc"
     },
     "type": "location",
-    "time": "13:45",
+    "time": "14:30",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-26:event:841d7b2e9bd078cd:1",
+    "id": "2026-11-26:event:d382f3d21bb1ca56:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "841d7b2e9bd078cddc34420baceeba84dc8c182e4ac2ccb038b63f7b68c48cf2"
+     "sha256": "d382f3d21bb1ca564f64419f24aade342230cb10c323873d21a4fdd829e8ce91"
     },
     "type": "inventory",
-    "time": "13:45",
+    "time": "14:30",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-26:event:33d62941d37b3cb6:1",
+    "id": "2026-11-26:event:2658fcaf056b8beb:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "33d62941d37b3cb6213440ab5b74e27bf581bc523f3303af0bde8a94e6b03ac3"
+     "sha256": "2658fcaf056b8beb41f3a4a9c03bd2178d34998b2ee8b276b58ab9f329c79063"
     },
     "type": "inventory",
-    "time": "13:45",
+    "time": "14:30",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-26:event:65364a25242f7f47:1",
+    "id": "2026-11-26:event:44b9b762c0b447e9:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "65364a25242f7f47ea3491f78db8ac354c0ce0c1cd726a564e57f2affe274ed2"
+     "sha256": "44b9b762c0b447e94a4d4244e2dd7001d36c15eb94e9f1bc150a41535221fb27"
     },
     "type": "inventory",
-    "time": "13:45",
+    "time": "14:30",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
