@@ -278,6 +278,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "10:15",
+   "to": "11:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -430,6 +437,37 @@
    "to": "Hegel",
    "text": "One o'clock, sir. I will keep the water ready. The haze is heavy today, so do not walk too fast in the sun.",
    "t": "09:55",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "One o'clock. The plan is to reach the Directorate by ten-thirty, but I am already an hour behind, and the body is still settling into its breakfast. Ramesh watches the haze as if it were a character in a play, heavy and slow, while I must move against the clock. I will not rush into the brown air; I will take my time to find the documents, for a man in a hurry is a man who has already lost.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§6"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Ionic Philosophy"
+    }
+   ],
+   "t": "10:15",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "One o'clock, Ramesh. You are correct to be cautious. The air is indeed thick, and haste is the enemy of order. I will prepare the papers.",
+   "to": "Ramesh",
+   "t": "10:15",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir. I will set the water to boil so it is ready when you get back.",
+   "t": "10:15",
    "place": "home"
   }
  ],
@@ -636,6 +674,71 @@
      "text": "It is founded on the reality of property, in other words upon the necessity that the will, in order to keep a thing, must manifest itself in it. — Public monuments are property of the nation, or rather they, like all works of art intended for use, are living and self-sufficient ends because of their indwelling soul of remembrance and honour."
     }
    ]
+  },
+  {
+   "t": "10:15",
+   "end": "11:00",
+   "event": "Ramesh says: “One o'clock, sir. I will keep the water ready. The haze is heavy today, so do not walk too fast in the sun.” He nods once and turns back to the window to watch the brown haze settle over the road.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "One o'clock. The plan is to reach the Directorate by ten-thirty, but I am already an hour behind, and the body is still settling into its breakfast. Ramesh watches the haze as if it were a character in a play, heavy and slow, while I must move against the clock. I will not rush into the brown air; I will take my time to find the documents, for a man in a hurry is a man who has already lost.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 45,
+    "says": "One o'clock, Ramesh. You are correct to be cautious. The air is indeed thick, and haste is the enemy of order. I will prepare the papers.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 259."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir. I will set the water to boil so it is ready when you get back.",
+    "does": "Ramesh turns away from the window and heads toward the kitchen."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§6",
+     "id": "dyde-right:72"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Ionic Philosophy",
+     "id": "haldane-1:462"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§6",
+     "text": "But classification and objective system attain self consciousness only by destroying negative freedom. Negative freedom is actuated by a mere solitary abstract idea, whose realization is nothing but the fury of desolation."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Ionic Philosophy",
+     "text": "(γ) To make sun, moon and the whole world arise through evaporation, like the food of plants, certainly approximates to the idea of the ancients, who did not allow the sun and moon to have obtained independence as we do."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -651,7 +754,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-26T10:15+05:30",
+  "until": "2026-11-26T11:00+05:30",
   "asleep": false,
   "imprest": 15106,
   "wearing": "kurta",
@@ -1158,7 +1261,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-26",
-  "source_sha256": "401e8f48ef224590224b543d3f46d6bc0fb82c9301f16643983e8df7e0dce5e9",
+  "source_sha256": "ee00ee7c174e87f7396695ee6ffc3ad8494fd3a42081fc377789b08858d32c7e",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1306,6 +1409,36 @@
     "words": "One o'clock, sir. I will keep the water ready. The haze is heavy today, so do not walk too fast in the sun.",
     "verified": false,
     "time": "09:55",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:5e5bde946ed5247b:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 15,
+     "sha256": "5e5bde946ed5247b65477cc58ba462d3981f582930678c9cc372c43c5630aed6"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "One o'clock, Ramesh. You are correct to be cautious. The air is indeed thick, and haste is the enemy of order. I will prepare the papers.",
+    "verified": false,
+    "time": "10:15",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:cb2cd10e1b8d3716:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 16,
+     "sha256": "cb2cd10e1b8d37161f0756f4a445b44788f833f2b9b9daf8cfe9ef03ff36d5c7"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes sir. I will set the water to boil so it is ready when you get back.",
+    "verified": false,
+    "time": "10:15",
     "place": "home"
    },
    {
@@ -1553,68 +1686,98 @@
     "text": "Weather: 18 °C, a brown haze. Air quality index: 263."
    },
    {
-    "id": "2026-11-26:event:b8f4319c47abfc15:1",
+    "id": "2026-11-26:event:05fd17b79859d6c5:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 3,
+     "sha256": "05fd17b79859d6c5014732d59b34dd88d2c7ca2d5b6cbfa626b106a64cecefb1"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "10:15",
+    "end": "11:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:event:bf4def7f6bd43bd6:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      3,
+      0
+     ],
+     "sha256": "bf4def7f6bd43bd6f2c6c2e8b359e09e466be276fa10c53af5ba022cb5ac3f48"
+    },
+    "type": "observation",
+    "time": "10:15",
+    "place": "home",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 259."
+   },
+   {
+    "id": "2026-11-26:event:b71590bb0a617b6c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "b8f4319c47abfc159b38c3e13c0ffb6fa622e4d24ab618c3fcf7185b54be4ae4"
+     "sha256": "b71590bb0a617b6c13fb6d91e45ae0c14b24ceea3c8e995e6fb3ee19a6bff87b"
     },
     "type": "cash",
-    "time": "10:15",
+    "time": "11:00",
     "amount": 15106,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-26:event:e290d449967a6b2f:1",
+    "id": "2026-11-26:event:7192441ef8c64288:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "e290d449967a6b2fb0c36b1de2dcae3d42951d76b4287941e8aeec284de7cbe4"
+     "sha256": "7192441ef8c642882b950c9f2a30b1ed88f12821e55e0872fa1c02ecbda8a199"
     },
     "type": "location",
-    "time": "10:15",
+    "time": "11:00",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-26:event:98fd6de6aca59f3e:1",
+    "id": "2026-11-26:event:4308154930a193ce:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "98fd6de6aca59f3e7fa55b017bbcde0c619b7565361f99da43125d381c1026b5"
+     "sha256": "4308154930a193ceef91e6289eb6733e117ddd9ae972a57f761c29cb892d5ec7"
     },
     "type": "inventory",
-    "time": "10:15",
+    "time": "11:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-26:event:19c5c120616e6605:1",
+    "id": "2026-11-26:event:d7c2984b6c39048c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "19c5c120616e66054b576d751e2e26a3a958477efacc9853533ec4321bcb9dad"
+     "sha256": "d7c2984b6c39048cd43faded2a3ce11cd9ae3a29958ced765fd37e3d0ca7a4d5"
     },
     "type": "inventory",
-    "time": "10:15",
+    "time": "11:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-26:event:014dd8a8b66da945:1",
+    "id": "2026-11-26:event:3a4db97ed89fe044:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "014dd8a8b66da9454c514f003e0f0256dd9d0270fcd564e21a741b7eb1882763"
+     "sha256": "3a4db97ed89fe04432d37436d89945a7c21152a93fd6b01b02f4c8e8d7aa56bd"
     },
     "type": "inventory",
-    "time": "10:15",
+    "time": "11:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
