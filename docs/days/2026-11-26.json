@@ -327,6 +327,13 @@
    "mode": "walk",
    "a": "home",
    "b": "safdarjung"
+  },
+  {
+   "from": "15:12",
+   "to": "15:22",
+   "mode": "stand",
+   "at": "safdarjung",
+   "now": "Shopping at Safdarjung's Tomb."
   }
  ],
  "entries": [
@@ -682,6 +689,45 @@
    "text": "Theek hai sir. Ghar khali hai, toh aap aaram se padhai karein.",
    "t": "15:00",
    "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The air here is thick with dust, a brown haze that settles on the white cotton of my kurta. I must secure entry before the light fails entirely, though the heat of the afternoon already presses against the skin. The architecture of the dead often speaks more truly than the living, and I am eager to see how this Mughal structure holds its form against the encroaching darkness.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, Egypt"
+    }
+   ],
+   "t": "15:12",
+   "place": "safdarjung"
+  },
+  {
+   "k": "said",
+   "text": "One ticket, please. I am a foreign visitor.",
+   "to": "the ticket clerk",
+   "t": "15:12",
+   "place": "safdarjung"
+  },
+  {
+   "k": "said",
+   "by": "The ticket clerk",
+   "to": "Hegel",
+   "text": "That will be three hundred rupees. Please note the closing time is 5:25, so you have a bit over two hours.",
+   "t": "15:12",
+   "place": "safdarjung"
+  },
+  {
+   "k": "bag",
+   "item": "Entry ticket, foreign visitors",
+   "price": 300,
+   "charge_id": "charge:12",
+   "t": "15:12",
+   "place": "safdarjung"
   }
  ],
  "steps": [
@@ -1339,6 +1385,77 @@
      "text": "Under mathematics, which is the subject of four small volumes, Wolff also treats of architecture and military science. One of the propositions in Architecture is this: “Windows must be wide enough for two persons.” The making of a door is also propounded as a task, and the solution thereof given. The next best example comes from the art of warfare. The “Fourth proposition."
     }
    ]
+  },
+  {
+   "t": "15:12",
+   "end": "15:22",
+   "event": "You arrive at Safdarjung's Tomb. It closes at 17:25.",
+   "present": [
+    "the ticket clerk"
+   ],
+   "decision": {
+    "thought": "The air here is thick with dust, a brown haze that settles on the white cotton of my kurta. I must secure entry before the light fails entirely, though the heat of the afternoon already presses against the skin. The architecture of the dead often speaks more truly than the living, and I am eager to see how this Mughal structure holds its form against the encroaching darkness.",
+    "action": "buy",
+    "place": "safdarjung",
+    "minutes": 10,
+    "says": "One ticket, please. I am a foreign visitor.",
+    "buys": [
+     {
+      "item": "Entry ticket, foreign visitors",
+      "price_inr": 300
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 264.",
+    "You arrive at Safdarjung's Tomb. It closes at 17:25."
+   ],
+   "observed_at": "safdarjung",
+   "opened": [
+    "arrive"
+   ],
+   "voice": {
+    "by": "The ticket clerk",
+    "says": "That will be three hundred rupees. Please note the closing time is 5:25, so you have a bit over two hours.",
+    "does": "She slides the entry ticket across the counter towards him."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 13.3,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "id": "haldane-2:425"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, Egypt",
+     "id": "sibree-history:679"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle, Philosophy of Nature",
+     "text": "And again, the matter of a small body and a large is the same, because at one time a greater proceeds from a smaller, and at another time a smaller from a greater."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, Egypt",
+     "text": "Of these works I will mention no others than those devoted to the dead, and which especially attract our attention."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1354,9 +1471,9 @@
  "complete": false,
  "state": {
   "place": "safdarjung",
-  "until": "2026-11-26T15:12+05:30",
+  "until": "2026-11-26T15:22+05:30",
   "asleep": false,
-  "imprest": 15106,
+  "imprest": 14806,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -1441,12 +1558,18 @@
    "seen": {
     "home": [
      "ramesh"
+    ],
+    "safdarjung": [
+     "clerk"
     ]
    },
    "breakfast": true,
    "lunch": true,
    "walked": 900,
-   "strain": 900
+   "strain": 900,
+   "tickets": [
+    "safdarjung"
+   ]
   },
   "account": {
    "advance": 15000,
@@ -1463,6 +1586,13 @@
      "t": "17:36",
      "item": "Bottle of water",
      "price": 20,
+     "office": false
+    },
+    {
+     "date": "2026-11-26",
+     "t": "15:12",
+     "item": "Entry ticket, foreign visitors",
+     "price": 300,
      "office": false
     }
    ],
@@ -1562,7 +1692,8 @@
     "2026-11-25"
    ],
    "safdarjung": [
-    "2026-10-28"
+    "2026-10-28",
+    "2026-11-26"
    ],
    "estates": [
     "2026-11-05",
@@ -1845,9 +1976,10 @@
    "charge:3",
    "charge:8",
    "charge:10",
-   "charge:11"
+   "charge:11",
+   "charge:12"
   ],
-  "charge_seq": 11,
+  "charge_seq": 12,
   "street": {
    "home_vegetable_cart": "2026-11-20",
    "estates_bench": "2026-11-20",
@@ -1864,7 +1996,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-26",
-  "source_sha256": "5c1a5c326f49968e6001bfdf73ea370765115e87e64f9aecd568cc03c80215b9",
+  "source_sha256": "98249cb98049dcec59c39c74d45b1340b5ed4503a8a5a387fde7ce16eda79209",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2193,6 +2325,55 @@
     "verified": false,
     "time": "15:00",
     "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:8e5600f091caa95b:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 34,
+     "sha256": "8e5600f091caa95b4d5526bfa2de0f2ee7b72851c34a7c1afdaf15e0dbce54cd"
+    },
+    "speaker": "Hegel",
+    "recipient": "the ticket clerk",
+    "words": "One ticket, please. I am a foreign visitor.",
+    "verified": false,
+    "time": "15:12",
+    "place": "safdarjung"
+   },
+   {
+    "id": "2026-11-26:statement:b2cafa2f64a3c3a7:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 35,
+     "sha256": "b2cafa2f64a3c3a7cfaed287d2a959c7d91aa4cb97ca3badc4cbfe0a441de423"
+    },
+    "speaker": "The ticket clerk",
+    "recipient": "Hegel",
+    "words": "That will be three hundred rupees. Please note the closing time is 5:25, so you have a bit over two hours.",
+    "verified": false,
+    "time": "15:12",
+    "place": "safdarjung"
+   },
+   {
+    "id": "2026-11-26:payment:81bbd1bcce64a7ba:1",
+    "kind": "payment",
+    "source": {
+     "collection": "entries",
+     "index": 36,
+     "sha256": "81bbd1bcce64a7babfcb85c8c026b7de0e477564f33d8c2d8a105e303cb83a0a"
+    },
+    "canonical_id": "charge:12",
+    "item": "Entry ticket, foreign visitors",
+    "amount": 300,
+    "direction": "out",
+    "settled": true,
+    "medium": "cash",
+    "creditor": null,
+    "payer": null,
+    "time": "15:12",
+    "place": "safdarjung"
    },
    {
     "id": "2026-11-26:event:670aee41c23b37ff:1",
@@ -2667,68 +2848,114 @@
     "text": "Weather: 24 °C, a brown haze. Air quality index: 264."
    },
    {
-    "id": "2026-11-26:event:f62af58098189be6:1",
+    "id": "2026-11-26:event:ace1f715e3c61b77:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 10,
+     "sha256": "ace1f715e3c61b77941fe53ae74edfb44c9b105450fd04d1c59e933277b6df34"
+    },
+    "type": "action",
+    "action": "buy",
+    "time": "15:12",
+    "end": "15:22",
+    "place": "safdarjung"
+   },
+   {
+    "id": "2026-11-26:event:e2e6682290f4b4fa:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      10,
+      0
+     ],
+     "sha256": "e2e6682290f4b4faa8a5d1754628c8c51d09c7d546ad8a501914571c222c69c5"
+    },
+    "type": "observation",
+    "time": "15:12",
+    "place": "safdarjung",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 264."
+   },
+   {
+    "id": "2026-11-26:event:a32a7375f804b82d:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      10,
+      1
+     ],
+     "sha256": "a32a7375f804b82d13f8400f00a2bad9a4133a35e0261bfdc8906ea8f1cd00a9"
+    },
+    "type": "observation",
+    "time": "15:12",
+    "place": "safdarjung",
+    "text": "You arrive at Safdarjung's Tomb. It closes at 17:25."
+   },
+   {
+    "id": "2026-11-26:event:a5a3d0c1407dbfa6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "f62af58098189be6320529f1c25abba4c0a5accc55e61ead94acefb9673eb462"
+     "sha256": "a5a3d0c1407dbfa64b05e986c1f202d23359471ef478e4fe427abd1dfee45af6"
     },
     "type": "cash",
-    "time": "15:12",
-    "amount": 15106,
+    "time": "15:22",
+    "amount": 14806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-26:event:2be09ba71d12e776:1",
+    "id": "2026-11-26:event:9478f81b437828d6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "2be09ba71d12e776bc7324a0788d9dcf9aeac049e83ae29d9074b5d82d2af59f"
+     "sha256": "9478f81b437828d6468913a75598eb9f7fabd6808be427788697bba9b0c671b3"
     },
     "type": "location",
-    "time": "15:12",
+    "time": "15:22",
     "place": "safdarjung",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-26:event:91c1f1790dd2d425:1",
+    "id": "2026-11-26:event:7e284841e5ae070e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "91c1f1790dd2d4250611ca7a581bc5a3ee7496e877e1ef6afffe78efe073e984"
+     "sha256": "7e284841e5ae070e21f739767d4eb97a09721b7aed5293af0f39345beeb1d109"
     },
     "type": "inventory",
-    "time": "15:12",
+    "time": "15:22",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-26:event:8224b1ccaf88e5b0:1",
+    "id": "2026-11-26:event:38c188c9164f206f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "8224b1ccaf88e5b011c7ef924153d1f29a7cc597c3184ccc59106621a90e10e1"
+     "sha256": "38c188c9164f206f76a0d79d8aeb062c5549c348e49e1ee83e32858540c4644f"
     },
     "type": "inventory",
-    "time": "15:12",
+    "time": "15:22",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-26:event:32774c93f82d8b56:1",
+    "id": "2026-11-26:event:9f461ed3747f26ca:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "32774c93f82d8b56d5fa5243300abbb5d5a6de91588114409a60f8416e7c20a7"
+     "sha256": "9f461ed3747f26ca980532ec8f493c6c72583ba89557e4c3353ab23cf064c0b7"
     },
     "type": "inventory",
-    "time": "15:12",
+    "time": "15:22",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
