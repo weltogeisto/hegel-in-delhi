@@ -383,6 +383,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Reading at home."
+  },
+  {
+   "from": "19:19",
+   "to": "19:39",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -930,6 +937,37 @@
     }
    ],
    "t": "18:49",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Shri G. Hegde stands in my doorway, the man for whom this bungalow was meant. The confusion that has plagued the Directorate now has a face, and a live one at that. I must speak to him plainly; the administrative fog will not lift until we look each other in the eye and acknowledge the error. Ramesh watches with the quiet attention of a man who has seen too many things go wrong in this house.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301 Addition"
+    }
+   ],
+   "t": "19:19",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, I trust you are well. The Directorate seems to have made a small clerical error in my regard, or rather, in yours. I am here, and you are here, and we are both in possession of the same identity. I would prefer to discuss this before the tea is poured.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "19:19",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Sir, I have a file full of stamps and a stomach full of anxiety, not a philosophy degree. If the Directorate mixed up my name with a ghost, that is their problem, not my tea. Please, let the tea come, and we will look at the papers when the haze clears a little.",
+   "t": "19:19",
    "place": "home"
   }
  ],
@@ -2092,6 +2130,73 @@
      "text": "By this satisfaction of this right it gets its own life quickened, and at the same time breathes fresh life in the administrative officials; who thus have it brought home to them that not merely have they to enforce duties but also to have regard to rights."
     }
    ]
+  },
+  {
+   "t": "19:19",
+   "end": "19:39",
+   "event": "Shri G. Hegde is here.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Shri G. Hegde stands in my doorway, the man for whom this bungalow was meant. The confusion that has plagued the Directorate now has a face, and a live one at that. I must speak to him plainly; the administrative fog will not lift until we look each other in the eye and acknowledge the error. Ramesh watches with the quiet attention of a man who has seen too many things go wrong in this house.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 20,
+    "says": "Shri Hegde, I trust you are well. The Directorate seems to have made a small clerical error in my regard, or rather, in yours. I am here, and you are here, and we are both in possession of the same identity. I would prefer to discuss this before the tea is poured.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 19 °C, a brown haze. Air quality index: 261.",
+    "Shri G. Hegde is here."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "here"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Sir, I have a file full of stamps and a stomach full of anxiety, not a philosophy degree. If the Directorate mixed up my name with a ghost, that is their problem, not my tea. Please, let the tea come, and we will look at the papers when the haze clears a little.",
+    "does": "She gestures vaguely towards the door while adjusting the shawl around her shoulders."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 10.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "id": "baillie-1:223"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301 Addition",
+     "id": "dyde-right:763"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "text": "Through work and labour, however, this consciousness of the bondsman comes to itself. In the moment which corresponds to desire in the case of the master's consciousness, the aspect of the non-essential relation to the thing seemed to fall to the lot of the servant, since the thing there retained its independence."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301 Addition",
+     "text": "It requires but little reflection to see that the services performed by the classes in behalf of the general well-being and public liberty cannot be traced to an insight special to these classes. The highest state of&cials have necessarily deeper and more comprehensive insight into the workings and needs of the state, and also greater skill and wider practical experience."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2107,7 +2212,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-26T19:19+05:30",
+  "until": "2026-11-26T19:39+05:30",
   "asleep": false,
   "imprest": 14806,
   "wearing": "kurta",
@@ -2193,6 +2298,7 @@
    "woke": "09:10",
    "seen": {
     "home": [
+     "hegde",
      "ramesh"
     ],
     "safdarjung": [
@@ -2481,7 +2587,8 @@
     "2026-11-21",
     "2026-11-22",
     "2026-11-24",
-    "2026-11-25"
+    "2026-11-25",
+    "2026-11-26"
    ],
    "kapoor": [
     "2026-10-28",
@@ -2633,7 +2740,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-26",
-  "source_sha256": "c2d719de6ddaafa81a9b8c5a5a70d1a1e6f947966b3505999c7b93b8a5ea439d",
+  "source_sha256": "70936bbd87705bbf7cb8590f51678b250fec1892411806deda89ca33b6f462d1",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3096,6 +3203,36 @@
     "type": "world",
     "text": "Parakeets stream over the compound wall in loud green lines, hundreds of them, and drop all at once into the top of one tall tree, screaming until the light goes.",
     "time": "18:29",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:e8338043094eb38d:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 51,
+     "sha256": "e8338043094eb38d2ab9f52f79382b16541c80f8e05c97f41dc150f3da9a8481"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh and Shri G. Hegde",
+    "words": "Shri Hegde, I trust you are well. The Directorate seems to have made a small clerical error in my regard, or rather, in yours. I am here, and you are here, and we are both in possession of the same identity. I would prefer to discuss this before the tea is poured.",
+    "verified": false,
+    "time": "19:19",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:statement:a92cea63a02f6893:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 52,
+     "sha256": "a92cea63a02f68930a05b8d54f86e129f00286fadd0752c0a3529d67bb3a362f"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "Sir, I have a file full of stamps and a stomach full of anxiety, not a philosophy degree. If the Directorate mixed up my name with a ghost, that is their problem, not my tea. Please, let the tea come, and we will look at the papers when the haze clears a little.",
+    "verified": false,
+    "time": "19:19",
     "place": "home"
    },
    {
@@ -3909,68 +4046,114 @@
     "text": "Nothing in particular happens. The evening goes on."
    },
    {
-    "id": "2026-11-26:event:2798d75ece455cfe:1",
+    "id": "2026-11-26:event:80530330518ba70b:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 18,
+     "sha256": "80530330518ba70b8cb486e694f06ba30b7444963cd5827dfa9f9a3b67a99057"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "19:19",
+    "end": "19:39",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-26:event:49b7fa4a749876be:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      18,
+      0
+     ],
+     "sha256": "49b7fa4a749876beb63d44ce31bf8fc12024e69acc3834c3c53f8b947a32f63d"
+    },
+    "type": "observation",
+    "time": "19:19",
+    "place": "home",
+    "text": "Weather: 19 °C, a brown haze. Air quality index: 261."
+   },
+   {
+    "id": "2026-11-26:event:62bb1c36d0c7c817:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      18,
+      1
+     ],
+     "sha256": "62bb1c36d0c7c81705f4b6b26667224595edeaced7771eb5f38e8f57651b3a25"
+    },
+    "type": "observation",
+    "time": "19:19",
+    "place": "home",
+    "text": "Shri G. Hegde is here."
+   },
+   {
+    "id": "2026-11-26:event:20f3ad57853673f0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "2798d75ece455cfebdd2f9e84734c19a9d845a3644d4844847e7bb6ec97a9699"
+     "sha256": "20f3ad57853673f01deb7c85cfbf98b854d27e64a5addc15c9d83bd32c889802"
     },
     "type": "cash",
-    "time": "19:19",
+    "time": "19:39",
     "amount": 14806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-26:event:e8061715a7ffda67:1",
+    "id": "2026-11-26:event:3577ead4e57938d3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "e8061715a7ffda67e598ab403c656e8879e36e8228ebe24de2c086cba753106b"
+     "sha256": "3577ead4e57938d3f2500c4a9b4cd5e8a13c7d3f579f2c5651f55b33968e8ea3"
     },
     "type": "location",
-    "time": "19:19",
+    "time": "19:39",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-26:event:272e41824dedf732:1",
+    "id": "2026-11-26:event:329de728173e7de2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "272e41824dedf732d45978091dfc65bcb66d44465498826f29e8dd84a0eacf98"
+     "sha256": "329de728173e7de2e52b7b5c2134baec3da818fb988e049c501f090186c4439e"
     },
     "type": "inventory",
-    "time": "19:19",
+    "time": "19:39",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-26:event:5e1981e73204d3b3:1",
+    "id": "2026-11-26:event:b2404c1f7f02d41e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "5e1981e73204d3b3d0df4a29c0447bbd26669055f0f93ea6784c4eb757f0c224"
+     "sha256": "b2404c1f7f02d41e1b0232285ee8b8c4a256f52ec9c0df8ec5155bee5258b7d5"
     },
     "type": "inventory",
-    "time": "19:19",
+    "time": "19:39",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-26:event:a91339d6f938985a:1",
+    "id": "2026-11-26:event:cc7d788bd3153e75:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "a91339d6f938985af66987bb02cbe76124843844b1e8f74d6a4159bebe40008d"
+     "sha256": "cc7d788bd3153e755aed2189eba218a4c7b0ee8b9c22796d294ff7b49c118e3f"
     },
     "type": "inventory",
-    "time": "19:19",
+    "time": "19:39",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
