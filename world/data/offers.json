@@ -361,7 +361,7 @@
     {
       "id": "exits_ramesh_early", "switch": "exits", "like": "ramesh_parttime", "where": "home", "needs": ["ramesh"], "again_days": 7,
       "when": {"due_within": {"wage": 5}, "flags_not": {"ramesh_parttime": true}},
-      "prompt": "Ramesh knows the wage falls due on the first, and that the purse will not hold it, he says, without looking at it. He could come on Mondays, Thursdays and Saturdays only, from now, and the wage would be ₹4,000 a month.",
+      "prompt": "Ramesh knows the wage falls due on the first, and that the purse will not carry it with all else that falls due this fortnight, he says, without looking at it. He could come on Mondays, Thursdays and Saturdays only, from now, and the wage would be ₹4,000 a month.",
       "public": "Ramesh offers, before the wage falls due, to come three days a week, Mondays, Thursdays and Saturdays, for ₹4,000 a month instead of ₹8,000."
     },
     {
