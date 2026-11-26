@@ -348,6 +348,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "15:52",
+   "to": "16:07",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -753,6 +760,37 @@
    "to": "Hegel",
    "text": "The study is already open, sir. I wiped the desk an hour ago and the fan is running on low.",
    "t": "15:42",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s preparation is punctual, a small order in the chaos of the Directorate's error. The study is ready, and the fan cuts through the stagnant, hazy air, but I am not yet prepared to sit. I need to clear my head of the identity question before I face Ananya; the lesson is at 17:00, giving me a window to settle my thoughts.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Commencement of Philosophy and of its History"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19"
+    }
+   ],
+   "t": "15:52",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. The air in here is still thick, but the movement helps. I will take a moment to organize my notes before the hour.",
+   "to": "Ramesh",
+   "t": "15:52",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir. I will leave you to it.",
+   "t": "15:52",
    "place": "home"
   }
  ],
@@ -1546,6 +1584,71 @@
      "text": "In the Kantian philosophy we for the first time have that conception once more awakened in us, for organic nature at least; life has there been made an end to itself."
     }
    ]
+  },
+  {
+   "t": "15:52",
+   "end": "16:07",
+   "event": "Ramesh says: “The study is already open, sir. I wiped the desk an hour ago and the fan is running on low.” He nods once and turns back toward the corridor, his hand resting lightly on the doorframe.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh’s preparation is punctual, a small order in the chaos of the Directorate's error. The study is ready, and the fan cuts through the stagnant, hazy air, but I am not yet prepared to sit. I need to clear my head of the identity question before I face Ananya; the lesson is at 17:00, giving me a window to settle my thoughts.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": "Thank you, Ramesh. The air in here is still thick, but the movement helps. I will take a moment to organize my notes before the hour.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 301."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir. I will leave you to it.",
+    "does": "He nods slightly and steps back into the corridor, closing the study door behind him."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 11.6,
+    "draws": {
+     "n": 2,
+     "refused": 1,
+     "echo": 0,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Commencement of Philosophy and of its History",
+     "id": "haldane-1:280"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "id": "wallace-logic:70"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Commencement of Philosophy and of its History",
+     "text": "I have touched on this elsewhere, for some time ago we for the first time reached a position to judge of it. Earlier a great parade was made about the Indian wisdom without any real knowledge of what it was; now this is for the first time known, and naturally it is found to be in conformity with the rest. c. Beginnings of Philosophy in Greece."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "text": "In all this it is not humility which holds back from the knowledge and study of the truth, but a conviction that we are already in full possession of it. And no doubt the young carry with them the hopes of their elder compeers; on them rests the advance of the world and science."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1568,7 +1671,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-27T15:52+05:30",
+  "until": "2026-11-27T16:07+05:30",
   "asleep": false,
   "imprest": 14806,
   "wearing": "kurta",
@@ -2093,7 +2196,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-27",
-  "source_sha256": "301da872beb4c1b9925773be2a161d7df0de6a008e32d6cad4ad9e57be695683",
+  "source_sha256": "5eddff0866e9e0a46c17289cc16bccfe452ef3bcafd8b244bbb6604b475e262a",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2449,6 +2552,36 @@
     "words": "The study is already open, sir. I wiped the desk an hour ago and the fan is running on low.",
     "verified": false,
     "time": "15:42",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:statement:333af47851bd3ce9:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 39,
+     "sha256": "333af47851bd3ce90bd2ee2498b33d5322b9dd1ad0288618f7c4d1a816b7f6bf"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Thank you, Ramesh. The air in here is still thick, but the movement helps. I will take a moment to organize my notes before the hour.",
+    "verified": false,
+    "time": "15:52",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:statement:ba62ddee4ae93fee:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 40,
+     "sha256": "ba62ddee4ae93feed509a3db6d2664e3995c6181faf998ee89daaa70ef8f6842"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes sir. I will leave you to it.",
+    "verified": false,
+    "time": "15:52",
     "place": "home"
    },
    {
@@ -3015,68 +3148,98 @@
     "text": "The setting sun is a flat orange disc that has lost its edge in the haze, and the far end of the road has gone the colour of weak milk."
    },
    {
-    "id": "2026-11-27:event:54cb714abcc845d5:1",
+    "id": "2026-11-27:event:85718b17ab5417b8:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 12,
+     "sha256": "85718b17ab5417b8d4a5b420fd9b2f537f04f4572be2f1e4605f621643a226ae"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "15:52",
+    "end": "16:07",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:event:7fa9a11e82910520:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      12,
+      0
+     ],
+     "sha256": "7fa9a11e8291052074ba137b33ab3d069834a223752ecf84921e999a125029fe"
+    },
+    "type": "observation",
+    "time": "15:52",
+    "place": "home",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 301."
+   },
+   {
+    "id": "2026-11-27:event:5478406491f3d604:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "54cb714abcc845d5f347dfad0855ef057b79dbb3fd4f8ea7a9f5b2ae10bb5ce0"
+     "sha256": "5478406491f3d6049f6412a747dd29cf2fe73ca6a3201d81e3835ccf66d080c4"
     },
     "type": "cash",
-    "time": "15:52",
+    "time": "16:07",
     "amount": 14806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-27:event:b3999f311d62b046:1",
+    "id": "2026-11-27:event:299ba826a49c251a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "b3999f311d62b046075ddf99ac35604c4c8abd6f671713f36b3a5bd6c5d4d712"
+     "sha256": "299ba826a49c251a753899a14962f6dd1c567cde93398bea207d766b5ac243ad"
     },
     "type": "location",
-    "time": "15:52",
+    "time": "16:07",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-27:event:fdd88b830f69ad56:1",
+    "id": "2026-11-27:event:97ed2e4a1da797e6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "fdd88b830f69ad5670b5711773fb069806a0081b904e3f7e9744ea724784a305"
+     "sha256": "97ed2e4a1da797e6c7187280fcd20563f79a23a95558c29d77a2f81a2d217de5"
     },
     "type": "inventory",
-    "time": "15:52",
+    "time": "16:07",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-27:event:3dc6c197d8e20df0:1",
+    "id": "2026-11-27:event:438d2d5c6ce1a776:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "3dc6c197d8e20df0d75e1f71f325a6ad2d3e22467b3aaf6787ab57e673f1f541"
+     "sha256": "438d2d5c6ce1a77610a3aba04f8b5cc7ef3227904dceac657ec926abd83a5b82"
     },
     "type": "inventory",
-    "time": "15:52",
+    "time": "16:07",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-27:event:eb4c9a366bab65ae:1",
+    "id": "2026-11-27:event:e69a6350ba913b3d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "eb4c9a366bab65ae228dd3a361b9c1a6c5444171524b1ee10013897c0256c000"
+     "sha256": "e69a6350ba913b3deed9924b3bf41bb3404aada3a59cbd6ce6f16845635f0efb"
     },
     "type": "inventory",
-    "time": "15:52",
+    "time": "16:07",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
