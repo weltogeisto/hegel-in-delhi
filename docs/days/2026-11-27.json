@@ -362,6 +362,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Reading at home."
+  },
+  {
+   "from": "16:52",
+   "to": "17:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -814,6 +821,12 @@
     }
    ],
    "t": "16:07",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "Ramesh brings tea.",
+   "t": "16:52",
    "place": "home"
   }
  ],
@@ -1732,6 +1745,54 @@
      "text": "With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state. The government has, up till now, shown such confidence in the scholars in this department as to leave the subject matter of philosophy wholly in their hands."
     }
    ]
+  },
+  {
+   "t": "16:52",
+   "end": "17:00",
+   "event": "Ramesh brings tea: tea and a few samosas from the market.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 301.",
+    "Ramesh brings tea: tea and a few samosas from the market."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "tea"
+   ],
+   "mind": {
+    "source": "quiet",
+    "attempts": 6,
+    "latency_s": 23.7,
+    "draws": {
+     "n": 4,
+     "refused": 4,
+     "echo": 0,
+     "picked": 0
+    },
+    "refused": [
+     [
+      "No household meal is available now; the next service is dinner from 19:30. Choose an available activity; a request for food is not a completed meal."
+     ],
+     [
+      "No household meal is available now; the next service is dinner from 19:30. Choose an available activity; a request for food is not a completed meal."
+     ],
+     [
+      "No household meal is available now; the next service is dinner from 19:30. Choose an available activity; a request for food is not a completed meal."
+     ]
+    ]
+   }
   }
  ],
  "funnel": {
@@ -1754,7 +1815,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-27T16:52+05:30",
+  "until": "2026-11-27T17:00+05:30",
   "asleep": false,
   "imprest": 14806,
   "wearing": "kurta",
@@ -1846,7 +1907,8 @@
    },
    "breakfast": true,
    "bad_air": true,
-   "lunch": true
+   "lunch": true,
+   "tea": true
   },
   "account": {
    "advance": 15000,
@@ -2154,7 +2216,7 @@
    "sim": false
   },
   "last_meal": "2026-11-27T13:57+05:30",
-  "snacks": 0,
+  "snacks": 1,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
@@ -2274,12 +2336,13 @@
    "home_wedding_band": "2026-11-22",
    "home_parakeet_roost": "2026-11-26",
    "home_smog_sunset": "2026-11-27"
-  }
+  },
+  "fed_at": "2026-11-27T15:57+05:30"
  },
  "records": {
   "version": 2,
   "date": "2026-11-27",
-  "source_sha256": "c8c019f9af1f9b7d4f67b64253bb8c4338b717ca4aa1df69785a9c2077a1e433",
+  "source_sha256": "2dd640329ccd1ef74757ab7da7340fe4456164924ab8fe9ad4a787da61dc0ebc",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2665,6 +2728,19 @@
     "words": "Yes sir. I will leave you to it.",
     "verified": false,
     "time": "15:52",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:event:6c0246456bcb3613:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 42,
+     "sha256": "6c0246456bcb361397b86eb47d3ee65870c3959ef9ee0baf0477dc9942a0f11c"
+    },
+    "type": "world",
+    "text": "Ramesh brings tea.",
+    "time": "16:52",
     "place": "home"
    },
    {
@@ -3291,68 +3367,114 @@
     "text": "Weather: 23 °C, a brown haze. Air quality index: 301."
    },
    {
-    "id": "2026-11-27:event:ddcc4e59fa924b2e:1",
+    "id": "2026-11-27:event:85bc82c304ff3a29:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 14,
+     "sha256": "85bc82c304ff3a29064b608c61f9943f6a6dc07b3b095cbd409ce24f9c833712"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "16:52",
+    "end": "17:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:event:36ebf6a51f2bfdf7:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      14,
+      0
+     ],
+     "sha256": "36ebf6a51f2bfdf7ec31e9bad3cc5136bdceb170583fdc9078e5da0eee6d5505"
+    },
+    "type": "observation",
+    "time": "16:52",
+    "place": "home",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 301."
+   },
+   {
+    "id": "2026-11-27:event:95c273d0590b0679:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      14,
+      1
+     ],
+     "sha256": "95c273d0590b06798832dcbe36aa56e108d70e7d0b4bfbf7bbc39c2ac4d4cd2d"
+    },
+    "type": "observation",
+    "time": "16:52",
+    "place": "home",
+    "text": "Ramesh brings tea: tea and a few samosas from the market."
+   },
+   {
+    "id": "2026-11-27:event:51459f775095f6db:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "ddcc4e59fa924b2ee7b4677e4f6573dd548bc44d8aa04205a67bf2766a652737"
+     "sha256": "51459f775095f6db59247fa29d8f7316fa7cd169cebf07bc62b8e233857ff1ad"
     },
     "type": "cash",
-    "time": "16:52",
+    "time": "17:00",
     "amount": 14806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-27:event:2ed5058b48ea59cb:1",
+    "id": "2026-11-27:event:fbd55c287eccc666:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "2ed5058b48ea59cb8e1ce80d1aae895dc1714a896cbc4aafab27e9872574d5f7"
+     "sha256": "fbd55c287eccc666abe568597dcc7c188169ac176905c3bc48ee006346093430"
     },
     "type": "location",
-    "time": "16:52",
+    "time": "17:00",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-27:event:363582bf2db2cbb8:1",
+    "id": "2026-11-27:event:aae3c0a106865542:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "363582bf2db2cbb81f9d93e0f833b2352ba577921071bde2d70533dff0747c5d"
+     "sha256": "aae3c0a10686554280d2a1676212fc7eacb8cb9b02b29278ead72bf4f3708910"
     },
     "type": "inventory",
-    "time": "16:52",
+    "time": "17:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-27:event:0ee9a5cc8305b02f:1",
+    "id": "2026-11-27:event:6678acc09da7e043:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "0ee9a5cc8305b02fa8bb7714e59d3a5cd12450cfdf10a94d746c0414a498e5e9"
+     "sha256": "6678acc09da7e043f6a222ff76c686eae7c78329d9e81f0aa5dd2ee152fbce71"
     },
     "type": "inventory",
-    "time": "16:52",
+    "time": "17:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-27:event:4da29596b1b7cb0f:1",
+    "id": "2026-11-27:event:ea1e3feee17d21ed:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "4da29596b1b7cb0facf4c3e6ea2d777302652ab9fce3a6592e083a9fa451ed1a"
+     "sha256": "ea1e3feee17d21edb723e810408f5323c24980704a7d3ad76daf043c41deb52b"
     },
     "type": "inventory",
-    "time": "16:52",
+    "time": "17:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
