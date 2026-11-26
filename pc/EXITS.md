@@ -64,6 +64,10 @@ The first future of the night of 24 November lived the packet for fourteen days 
 
 - **Ramesh's early word, said true (25 November, after all three futures).** In seed 2718 he offered three days a week while the purse held ₹11,976 and the wage was ₹8,000: it held the wage, not the fortnight. His words said the purse "will not hold it". They now say it will not carry the wage with all else that falls due this fortnight, which is what the offer's condition tests.
 
+## 13. The public's first offers wait until he is short (26 November, `DECISIONS.md` 71)
+
+In every future of two nights the Review's second asking and the course came on his first or second day, before he was ever short, so he never met the problem before its answers. Welt's word of 24 November was that he sees it as a problem first, and the world then offers ways out. Now both wait until the dues line has been said at waking (`when.after_dues`). The envelope and the column follow a piece of his and keep their own conditions. What the household does when money is short is unchanged.
+
 ## Words for Welt's reading
 
 Offers (prompt, then what is shown on the page, then the question put to him, then the answers):

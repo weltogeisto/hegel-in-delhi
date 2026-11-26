@@ -72,9 +72,17 @@ class SecondPupil(unittest.TestCase):
         self.assertNotEqual(at(OFF, at_dt(D(17), 800), lessons(), "khan", ["nidhi"])[0], "exits_second_pupil")
 
 
+
+def told(**kw):
+    """A state in which the dues line has been said: the public's first offers wait for it (Welt, 26 November)."""
+    st = fresh(**kw)
+    st["dues_said"] = "2026-10-20"
+    return st
+
+
 class Course(unittest.TestCase):
     def talked(self):
-        st = fresh(settled=LATER)
+        st = told(settled=LATER)
         st["beats"] += ["iic_talk", "iic_talk_day"]
         return st
 
@@ -83,9 +91,9 @@ class Course(unittest.TestCase):
         st["fired_on"] = {"iic_talk_day": "2026-10-14"}
         self.assertNotEqual(at(ON, at_dt(D(14), 19 * 60), st, "iic", ["officer"])[0], "exits_course")      # the day of the talk itself
         self.assertEqual(at(ON, at_dt(D(15), 11 * 60), self.talked(), "iic", ["officer"])[0], "exits_course")
-        self.assertNotEqual(at(ON, at_dt(D(15), 11 * 60), fresh(settled=LATER), "iic", ["officer"])[0], "exits_course")  # no talk given
+        self.assertNotEqual(at(ON, at_dt(D(15), 11 * 60), told(settled=LATER), "iic", ["officer"])[0], "exits_course")  # no talk given
         self.assertNotEqual(at(ON, at_dt(D(15), 11 * 60), self.talked(), "iic", ["guard"])[0], "exits_course")
-        second = fresh(settled=LATER)
+        second = told(settled=LATER)
         second["beats"] += ["iic_talk_again", "iic_talk_day2"]
         self.assertEqual(at(World(exits=True, keep_time=True), at_dt(D(15), 11 * 60), second, "iic", ["officer"])[0], "exits_course")
 
@@ -126,14 +134,14 @@ class Course(unittest.TestCase):
 
 class CourseByNote(unittest.TestCase):
     def test_the_centre_writes_when_he_does_not_come(self):
-        st = fresh(settled=LATER)
+        st = told(settled=LATER)
         st["beats"] += ["iic_talk", "iic_talk_day"]
         with There(home=["ramesh"]):
             sit, ctx = look(ON, at_dt(D(15), 11 * 60), st, "home")
         self.assertEqual(ctx["beat"]["id"], "exits_course")
         self.assertIn("Ramesh brings a note from the India International Centre.", sit["event"])
         with There(home=[]):
-            self.assertIsNone(look(ON, at_dt(D(15), 11 * 60), fresh(settled=LATER, beats=st["beats"][:]), "home")[1]["beat"])   # nobody to bring it
+            self.assertIsNone(look(ON, at_dt(D(15), 11 * 60), told(settled=LATER, beats=st["beats"][:]), "home")[1]["beat"])   # nobody to bring it
 
 
 class EssayAgain(unittest.TestCase):
@@ -141,7 +149,7 @@ class EssayAgain(unittest.TestCase):
     ESSAY = {"kind": "essay", "title": "On the Republic", "started": "2026-11-27"}
 
     def declined(self, words=4146):
-        st = fresh(settled=LATER)
+        st = told(settled=LATER)
         st["beats"].append("essay_fee")                                               # offered once, and declined: no flag
         st["works"] = [{"id": "w", "title": "On the Ethical Substance", "kind": "notes", "to": None, "started": "2026-10-13", "words": words,
                         "sittings": 8, "last": "2026-11-24", "tail": ""}]
@@ -165,7 +173,7 @@ class EssayAgain(unittest.TestCase):
         paid = self.declined()
         paid["flags"]["essay_paid"] = True
         self.assertNotEqual(at(ON, at_dt(NOV(26), 11 * 60), paid, "home", ["ramesh"])[0], "exits_essay_again")
-        never = fresh(settled=LATER, works=self.declined()["works"])
+        never = told(settled=LATER, works=self.declined()["works"])
         self.assertNotEqual(at(ON, at_dt(NOV(26), 11 * 60), never, "home", ["ramesh"])[0], "exits_essay_again")       # the first offer never came
         self.assertNotEqual(at(OFF, at_dt(NOV(26), 11 * 60), self.declined(), "home", ["ramesh"])[0], "exits_essay_again")
 
@@ -211,7 +219,7 @@ class EssayAgain(unittest.TestCase):
 
     def test_the_old_offer_keeps_its_old_rule(self):
         for w in (ON, OFF):
-            st = fresh(settled=LATER)
+            st = told(settled=LATER)
             st["receipts"].append({"from": "the Yamuna Review", "amount": 6000, "item": "Fee for an essay", "cheque": False, "write": 300,
                                    "after": "2026-11-26T11:00", "flag": "essay_paid", "charge_id": "c1"})       # as `essay_fee` makes it: no piece named
             self.assertEqual(len(w.on_writing(st, 450, at_dt(NOV(27), 15 * 60), {"kind": "notes", "title": "Notes", "started": "2026-10-13"})), 1)
@@ -278,6 +286,24 @@ class EssayAgain(unittest.TestCase):
             offer(ON, at_dt(NOV(26), 11 * 60), st, "home", yes=False)
             self.assertIsNone(look(ON, at_dt(date(2026, 12, 5), 11 * 60), st, "home")[1]["beat"])
             self.assertEqual(look(ON, at_dt(date(2026, 12, 10), 11 * 60), st, "home")[1]["beat"]["id"], "exits_essay_again")
+
+
+class AfterDues(unittest.TestCase):
+    def test_the_review_and_the_course_wait_until_he_has_been_told_he_is_short(self):
+        for told_ in (False, True):
+            st = fresh(settled=LATER)
+            st["beats"] += ["iic_talk", "iic_talk_day"]
+            st.setdefault("fired_on", {})["iic_talk_day"] = "2026-10-20"
+            if told_:
+                st["dues_said"] = "2026-11-24"
+            with There(iic=["officer"]):
+                beat = look(ON, at_dt(NOV(26), 11 * 60), st, "iic")[1].get("beat")
+            self.assertEqual(bool(beat) and beat["id"] == "exits_course", told_)
+        st = EssayAgain().declined()
+        st.pop("dues_said", None)
+        self.assertNotEqual(at(ON, at_dt(NOV(26), 11 * 60), st, "home", ["ramesh"])[0], "exits_essay_again")
+        st["dues_said"] = "2026-11-25"
+        self.assertEqual(at(ON, at_dt(NOV(26), 11 * 60), st, "home", ["ramesh"])[0], "exits_essay_again")
 
 
 class NidhiOut(unittest.TestCase):
