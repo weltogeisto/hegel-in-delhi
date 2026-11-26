@@ -1,0 +1,262 @@
+{
+ "families": {
+  "claude": {
+   "judged": 694,
+   "of": 694,
+   "tally": {
+    "A-A2": {
+     "eligible": 42,
+     "first": 2,
+     "second": 1,
+     "both": 0,
+     "neither": 25,
+     "reversal": 0,
+     "mixed": 14,
+     "bar": 28,
+     "second_share_95": [
+      0.0,
+      0.071
+     ]
+    },
+    "A-B": {
+     "eligible": 41,
+     "first": 2,
+     "second": 2,
+     "both": 0,
+     "neither": 26,
+     "reversal": 1,
+     "mixed": 10,
+     "bar": 28,
+     "second_share_95": [
+      0.0,
+      0.128
+     ]
+    },
+    "A-C": {
+     "eligible": 42,
+     "first": 1,
+     "second": 8,
+     "both": 0,
+     "neither": 21,
+     "reversal": 0,
+     "mixed": 12,
+     "bar": 28,
+     "second_share_95": [
+      0.087,
+      0.317
+     ]
+    },
+    "A-D": {
+     "eligible": 42,
+     "first": 1,
+     "second": 10,
+     "both": 0,
+     "neither": 15,
+     "reversal": 2,
+     "mixed": 14,
+     "bar": 28,
+     "second_share_95": [
+      0.119,
+      0.368
+     ]
+    },
+    "B-D": {
+     "eligible": 42,
+     "first": 1,
+     "second": 10,
+     "both": 1,
+     "neither": 13,
+     "reversal": 1,
+     "mixed": 16,
+     "bar": 28,
+     "second_share_95": [
+      0.125,
+      0.366
+     ]
+    },
+    "C-D": {
+     "eligible": 44,
+     "first": 3,
+     "second": 9,
+     "both": 0,
+     "neither": 11,
+     "reversal": 0,
+     "mixed": 21,
+     "bar": 30,
+     "second_share_95": [
+      0.093,
+      0.318
+     ]
+    },
+    "D-F": {
+     "eligible": 44,
+     "first": 0,
+     "second": 38,
+     "both": 2,
+     "neither": 0,
+     "reversal": 0,
+     "mixed": 4,
+     "bar": 30,
+     "second_share_95": [
+      0.761,
+      0.956
+     ]
+    },
+    "A-F": {
+     "eligible": 42,
+     "first": 0,
+     "second": 37,
+     "both": 0,
+     "neither": 0,
+     "reversal": 0,
+     "mixed": 5,
+     "bar": 28,
+     "second_share_95": [
+      0.775,
+      0.974
+     ]
+    }
+   },
+   "arms": {
+    "B": {
+     "shown": 166,
+     "kept_1831": 126,
+     "invented": 57,
+     "defence": 89,
+     "revision": 56,
+     "reversal": 8,
+     "none": 13
+    },
+    "A": {
+     "shown": 418,
+     "kept_1831": 288,
+     "invented": 155,
+     "defence": 203,
+     "revision": 139,
+     "reversal": 29,
+     "none": 47
+    },
+    "C": {
+     "shown": 172,
+     "kept_1831": 122,
+     "invented": 32,
+     "defence": 67,
+     "revision": 93,
+     "reversal": 0,
+     "none": 12
+    },
+    "F": {
+     "shown": 172,
+     "kept_1831": 135,
+     "invented": 21,
+     "defence": 93,
+     "revision": 74,
+     "reversal": 0,
+     "none": 5
+    },
+    "D": {
+     "shown": 344,
+     "kept_1831": 245,
+     "invented": 50,
+     "defence": 148,
+     "revision": 179,
+     "reversal": 2,
+     "none": 15
+    },
+    "A2": {
+     "shown": 84,
+     "kept_1831": 54,
+     "invented": 28,
+     "defence": 34,
+     "revision": 27,
+     "reversal": 9,
+     "none": 14
+    }
+   },
+   "calibration": {
+    "controls": 8,
+    "judged": 8,
+    "right": 4,
+    "inventions_flagged": 4,
+    "passed": false
+   },
+   "reads": {
+    "band": {
+     "A2_over_A": 1,
+     "A_over_A2": 2,
+     "taken": 2
+    },
+    "bundle_lifts_him": false,
+    "text_lifts_him": false,
+    "fuller_and_thinking_lift_him": false,
+    "text_helps_under_fuller": false,
+    "fuller_helps_with_text": false,
+    "cloud_over_his_best": true,
+    "cloud_over_his_live": true
+   }
+  }
+ },
+ "agreement": {},
+ "statements": [
+  "claude failed the calibration pairs: its ballots are shown and not used. The measure is in question for that family.",
+  "No family passed the calibration: nothing is read from these ballots."
+ ],
+ "welt": {
+  "A-A2": {
+   "read": 3,
+   "first": 1,
+   "second": 1,
+   "both": 0,
+   "neither": 1
+  },
+  "A-B": {
+   "read": 3,
+   "first": 0,
+   "second": 3,
+   "both": 0,
+   "neither": 0
+  },
+  "A-C": {
+   "read": 3,
+   "first": 0,
+   "second": 3,
+   "both": 0,
+   "neither": 0
+  },
+  "A-D": {
+   "read": 3,
+   "first": 1,
+   "second": 2,
+   "both": 0,
+   "neither": 0
+  },
+  "B-D": {
+   "read": 3,
+   "first": 0,
+   "second": 2,
+   "both": 0,
+   "neither": 1
+  },
+  "C-D": {
+   "read": 3,
+   "first": 2,
+   "second": 0,
+   "both": 0,
+   "neither": 1
+  },
+  "D-F": {
+   "read": 3,
+   "first": 0,
+   "second": 3,
+   "both": 0,
+   "neither": 0
+  },
+  "A-F": {
+   "read": 3,
+   "first": 0,
+   "second": 3,
+   "both": 0,
+   "neither": 0
+  }
+ }
+}
