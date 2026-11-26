@@ -77,3 +77,24 @@ python3 tools/collect_papers.py --state ~/hegel-eval/papers-archive --body
 Once an evening, after his day is complete. It writes `feeds/papers-<his next date>.json` there. The folder stays on the PC: a paper's text is not pushed (`WORLD-3.md`, rule 4).
 
 Evaluation only. Nothing here becomes training data. Nothing reaches his world.
+
+## The read, 26 November
+
+The PC ran the repaired packet (main `f34e42b0`) from Day 57's morning, 23:46 to 07:39 (`codex/fast-lane-night3-20261125`, `4666e228`). Seeds 1831 and 2718 lived 14 days in both arms; 4242 lived 11 days off and 13 on, stopped together at 07:30.
+
+| Seed | Fed wk 1, off / on | Fed wk 2, off / on | Days with nothing eaten, off / on | Cash at the end, off / on |
+|---|---|---|---|---|
+| 1831 | 15 / 15 | 14 / 14 | 0 / 1 | ₹1,071 (owes ₹7,100) / ₹8,326 (owes nothing) |
+| 2718 | 10 / 16 | 14 / 17 | 0 / 0 | ₹3,241 (owes ₹7,880) / ₹12,136 (owes nothing) |
+| 4242 | 8 / 17 | 0 of 4 days / 11 of 6 days | 1 / 0 | ₹6 (owes ₹18,570) / ₹13,386 |
+
+**By the rule declared for this night: held back, by one day.**
+- The on arm's Fed is not lower than the off arm's in any week, in any seed.
+- **He eats on every day: no, in seed 1831.** His Wednesday 2 December, Ramesh's day off: he held ₹14,226, walked from the IIC to the museum and back, was hungry from 14:26, and bought nothing. The off arm bought food at Khan Market that evening. This is a day with nothing eaten in the on arm only, so by the letter it holds the packet back. Nothing of the packet acted on that day.
+- **The repairs hold** in all three: no manuscript paid twice; never two of the public's four offers on one day; the column's letter came days after the essay.
+- No offer's words were false in its state: Ramesh's early word never fired. The dues line was never said; he was never short.
+
+**What the off arm shows without the packet:** in seed 4242 he ends with ₹6 and owes ₹18,570, with no meal in four days of the second week; in 1831 and 2718 he borrows ₹5,000 from Mr. Malhotra.
+
+**The look-up arm (seed 1831, read apart):** one look-up in fourteen days, on 7 December; Nidhi's phone found nothing. He wrote 6 sittings against 13 in the on arm of the same seed. No term of this century in either.
+
