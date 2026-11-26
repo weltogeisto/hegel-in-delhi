@@ -97,6 +97,7 @@ Added on 24 November, after the night's replies and before any key was used.
   - The cloud session holds the key. When it listed that folder it saw the 25 answers of the first part, before the seal. It changed nothing: the sealed files are the readers' own lines, joined in the sheet's order.
 - **Astra's family reads next** (`pc/TASKS.md`, W18), started on Welt's word: one fresh session for each part, in a folder that holds that part alone.
 - **Welt's 24 rows** are on a private page, one row at a time, with the first question only. An answer is sealed when he goes on to the next row. His rows enter no bar.
+- **Welt read all 24 rows on 26 November,** 11:51 to 12:07 Berlin: about 20 seconds a row at the median, for rows of about 1,000 words. So his rows are a quick impression, and are reported as that. His answers on the page and the lines he pasted in the chat agree on every row. `ballots/welt.jsonl`, sealed.
 - **The key is opened** when `SEALS.json` holds both families' files and Welt's rows. Until then nothing is scored, by anyone.
 
 ## The reads, declared now
