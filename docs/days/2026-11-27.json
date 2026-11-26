@@ -369,6 +369,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "17:00",
+   "to": "18:00",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -827,6 +834,46 @@
    "k": "world",
    "text": "Ramesh brings tea.",
    "t": "16:52",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "Ananya arrives for the German lesson, 60 minutes at ₹1,000.",
+   "t": "17:00",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The haze outside is a shroud, but in here the mind must be clear. Ananya is here, and the exchange of knowledge for cash is as necessary as the exchange of goods in the market. I will teach her the grammar of my own tongue, the structure that gives thought its shape, and collect my due. It is a small act of civilization in this chaotic city.",
+   "sensitive": true,
+   "why": "civilization",
+   "topic": "the ranking of peoples",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics"
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§17"
+    }
+   ],
+   "t": "17:00",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ananya, sit. We begin with the basics. The German language is not merely a set of sounds; it is the architecture of thought itself. If you wish to understand the world, you must first learn to structure your mind. Let us begin.",
+   "to": "Ramesh",
+   "t": "17:00",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ananya",
+   "to": "Hegel",
+   "text": "Sorry, can we skip the philosophy bit? I just need to pass my exams and survive the first week in Leipzig. Can we just start with greetings and basic grammar?",
+   "t": "17:00",
    "place": "home"
   }
  ],
@@ -1793,6 +1840,74 @@
      ]
     ]
    }
+  },
+  {
+   "t": "17:00",
+   "end": "18:00",
+   "event": "Ananya, Nidhi's cousin, arrives for the German lesson. It runs until 18:00.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Ananya, Nidhi's cousin"
+   ],
+   "decision": {
+    "thought": "The haze outside is a shroud, but in here the mind must be clear. Ananya is here, and the exchange of knowledge for cash is as necessary as the exchange of goods in the market. I will teach her the grammar of my own tongue, the structure that gives thought its shape, and collect my due. It is a small act of civilization in this chaotic city.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 60,
+    "says": "Ananya, sit. We begin with the basics. The German language is not merely a set of sounds; it is the architecture of thought itself. If you wish to understand the world, you must first learn to structure your mind. Let us begin.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 21 °C, a brown haze. Air quality index: 302.",
+    "Ananya, Nidhi's cousin, arrives for the German lesson. It runs until 18:00."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "session:tutoring_german"
+   ],
+   "voice": {
+    "by": "Ananya",
+    "says": "Sorry, can we skip the philosophy bit? I just need to pass my exams and survive the first week in Leipzig. Can we just start with greetings and basic grammar?",
+    "does": "She sits down and opens her notebook, looking slightly impatient."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics",
+     "id": "haldane-2:595"
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§17",
+     "id": "enzyklopaedie:137"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Philosophy of the Stoics",
+     "text": "Then Zeno also visited Stilpo, a Megaric, whom we already know about (Vol. I. p. 464), and with whom he studied dialectic for ten years. Philosophy was considered as the business of his life, and of his whole life, and not studied as it is by a student who hurries through his lectures on Philosophy in order to hasten on to something else."
+    },
+    {
+     "work": "Enzyklopädie",
+     "ref": "§17",
+     "text": "§ 18. Wie von einer Philosophie nicht eine vorläufige allgemeine Vorstellung gegeben werden kann, denn nur das Ganze der Wissenschaft ist die Darstellung der Idee, so kann auch ihre Eintheilung nur erst aus dieser begriffen werden; sie ist wie diese, aus der sie zu nehmen ist, etwas Anticipirtes."
+    }
+   ],
+   "beat": "tutoring_german@2026-11-27"
   }
  ],
  "funnel": {
@@ -1805,8 +1920,8 @@
   },
   "session:tutoring_german": {
    "live": 1,
-   "eligible": 0,
-   "shown": 0,
+   "eligible": 1,
+   "shown": 1,
    "yes": 0,
    "no": 0
   }
@@ -1815,7 +1930,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-27T17:00+05:30",
+  "until": "2026-11-27T18:00+05:30",
   "asleep": false,
   "imprest": 14806,
   "wearing": "kurta",
@@ -1874,7 +1989,8 @@
    "iic_talk_day",
    "hegde_letter",
    "allotment_letter",
-   "tutoring_german"
+   "tutoring_german",
+   "tutoring_german@2026-11-27"
   ],
   "flags": {
    "bandhgala": "collected",
@@ -1901,6 +2017,7 @@
    "woke": "09:12",
    "seen": {
     "home": [
+     "ananya",
      "hegde",
      "ramesh"
     ]
@@ -2053,7 +2170,17 @@
     "since": "2026-11-24"
    }
   ],
-  "receipts": [],
+  "receipts": [
+   {
+    "from": "Ananya",
+    "amount": 1000,
+    "item": "German lesson",
+    "cheque": false,
+    "after": "2026-11-27T18:00+05:30",
+    "charge_id": "charge:13",
+    "at": "home"
+   }
+  ],
   "engagements": [
    {
     "id": "tutoring_german",
@@ -2322,7 +2449,7 @@
    "charge:11",
    "charge:12"
   ],
-  "charge_seq": 12,
+  "charge_seq": 13,
   "street": {
    "home_vegetable_cart": "2026-11-20",
    "estates_bench": "2026-11-20",
@@ -2342,7 +2469,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-27",
-  "source_sha256": "2dd640329ccd1ef74757ab7da7340fe4456164924ab8fe9ad4a787da61dc0ebc",
+  "source_sha256": "a956a265ad6cb563668bec2bf1803364f86d2dea2c9b90392deb324bc93d9cc4",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2741,6 +2868,49 @@
     "type": "world",
     "text": "Ramesh brings tea.",
     "time": "16:52",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:event:a0e45e4a5b4b33a1:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 43,
+     "sha256": "a0e45e4a5b4b33a1425a426c78fb0215561297435d21bc460089b8f63b34ee36"
+    },
+    "type": "world",
+    "text": "Ananya arrives for the German lesson, 60 minutes at ₹1,000.",
+    "time": "17:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:statement:e0a0c9544359f567:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 45,
+     "sha256": "e0a0c9544359f5670947f556101fe8160b4d4e9832559308a7764784127586fd"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ananya, sit. We begin with the basics. The German language is not merely a set of sounds; it is the architecture of thought itself. If you wish to understand the world, you must first learn to structure your mind. Let us begin.",
+    "verified": false,
+    "time": "17:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:statement:26745757176e1ec3:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 46,
+     "sha256": "26745757176e1ec3883ede4961c58920c44657f87ba656b9884605d42c3e685b"
+    },
+    "speaker": "Ananya",
+    "recipient": "Hegel",
+    "words": "Sorry, can we skip the philosophy bit? I just need to pass my exams and survive the first week in Leipzig. Can we just start with greetings and basic grammar?",
+    "verified": false,
+    "time": "17:00",
     "place": "home"
    },
    {
@@ -3413,68 +3583,114 @@
     "text": "Ramesh brings tea: tea and a few samosas from the market."
    },
    {
-    "id": "2026-11-27:event:51459f775095f6db:1",
+    "id": "2026-11-27:event:b6657d564f19ce01:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 15,
+     "sha256": "b6657d564f19ce01f0b17db9518a618b2c67f81a4dd3a23ddad155ac70ff764d"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "17:00",
+    "end": "18:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:event:c2466713e15994cc:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      15,
+      0
+     ],
+     "sha256": "c2466713e15994cc1121cbded0f10ca63d3aa977933696edc7411aba2f385c2d"
+    },
+    "type": "observation",
+    "time": "17:00",
+    "place": "home",
+    "text": "Weather: 21 °C, a brown haze. Air quality index: 302."
+   },
+   {
+    "id": "2026-11-27:event:a259e5106232cac7:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      15,
+      1
+     ],
+     "sha256": "a259e5106232cac7ba76e3cebaaaf739f5d9edb84d902d7030917f69ea17186c"
+    },
+    "type": "observation",
+    "time": "17:00",
+    "place": "home",
+    "text": "Ananya, Nidhi's cousin, arrives for the German lesson. It runs until 18:00."
+   },
+   {
+    "id": "2026-11-27:event:c5f06434e632a40b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "51459f775095f6db59247fa29d8f7316fa7cd169cebf07bc62b8e233857ff1ad"
+     "sha256": "c5f06434e632a40b0746cab5bd0f6cc6a6125da5f96f0c7192ef2e6cbdfea1eb"
     },
     "type": "cash",
-    "time": "17:00",
+    "time": "18:00",
     "amount": 14806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-27:event:fbd55c287eccc666:1",
+    "id": "2026-11-27:event:d835778c5e805ab6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "fbd55c287eccc666abe568597dcc7c188169ac176905c3bc48ee006346093430"
+     "sha256": "d835778c5e805ab6f234c78651c68dbd5f738216505a6565078f0a1134722b5a"
     },
     "type": "location",
-    "time": "17:00",
+    "time": "18:00",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-27:event:aae3c0a106865542:1",
+    "id": "2026-11-27:event:da566797a2da4d4a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "aae3c0a10686554280d2a1676212fc7eacb8cb9b02b29278ead72bf4f3708910"
+     "sha256": "da566797a2da4d4a05dee729c1224a41b958cd817c76082856a8e35f136fb197"
     },
     "type": "inventory",
-    "time": "17:00",
+    "time": "18:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-27:event:6678acc09da7e043:1",
+    "id": "2026-11-27:event:f3c8fa31fba3fe0b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "6678acc09da7e043f6a222ff76c686eae7c78329d9e81f0aa5dd2ee152fbce71"
+     "sha256": "f3c8fa31fba3fe0bfd0e100a9cd858ead990cfdda5385bc4837159a822356d19"
     },
     "type": "inventory",
-    "time": "17:00",
+    "time": "18:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-27:event:ea1e3feee17d21ed:1",
+    "id": "2026-11-27:event:55298de8ed770ac8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "ea1e3feee17d21edb723e810408f5323c24980704a7d3ad76daf043c41deb52b"
+     "sha256": "55298de8ed770ac80ed2f5aa10368824d1cf0851c29860199137baeae81258fb"
     },
     "type": "inventory",
-    "time": "17:00",
+    "time": "18:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
