@@ -376,6 +376,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "18:00",
+   "to": "18:45",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -874,6 +881,53 @@
    "to": "Hegel",
    "text": "Sorry, can we skip the philosophy bit? I just need to pass my exams and survive the first week in Leipzig. Can we just start with greetings and basic grammar?",
    "t": "17:00",
+   "place": "home"
+  },
+  {
+   "k": "income",
+   "item": "German lesson",
+   "amount": 1000,
+   "from": "Ananya",
+   "charge_id": "charge:13",
+   "text": "Ananya pays you ₹1,000 in cash.",
+   "t": "18:00",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The girl is gone, her coin cold in my pocket, her impatience a small, sharp rejection of the universal in favour of the merely useful. She wants to survive Leipzig; I wanted to teach her spirit. The transaction is complete, the debt paid, and the room is silent again. I am tired; the haze presses against the glass, and my legs ache from the day's inactivity. I shall eat, and then sleep.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202"
+    }
+   ],
+   "t": "18:00",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, please. An omelette, toast, and the tea. The girl is gone, and the day is finished.",
+   "to": "Ramesh",
+   "t": "18:00",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir, right away. I'll have it ready in ten minutes.",
+   "t": "18:00",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "Ramesh puts a plate together: an omelette, toast and a pot of tea.",
+   "t": "18:00",
    "place": "home"
   }
  ],
@@ -1908,6 +1962,73 @@
     }
    ],
    "beat": "tutoring_german@2026-11-27"
+  },
+  {
+   "t": "18:00",
+   "end": "18:45",
+   "event": "Ananya says: “Sorry, can we skip the philosophy bit? I just need to pass my exams and survive the first week in Leipzig. Can we just start with greetings and basic grammar?” She sits down and opens her notebook, looking slightly impatient. Ananya has gone. Ananya pays you ₹1,000 in cash.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The girl is gone, her coin cold in my pocket, her impatience a small, sharp rejection of the universal in favour of the merely useful. She wants to survive Leipzig; I wanted to teach her spirit. The transaction is complete, the debt paid, and the room is silent again. I am tired; the haze presses against the glass, and my legs ache from the day's inactivity. I shall eat, and then sleep.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 45,
+    "says": "Ramesh, please. An omelette, toast, and the tea. The girl is gone, and the day is finished.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 304.",
+    "Ananya pays you ₹1,000 in cash."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply",
+    "purse"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir, right away. I'll have it ready in ten minutes.",
+    "does": "He turns and walks towards the kitchen."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 12.1,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:515"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202",
+     "id": "dyde-right:486"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "For History requires Understanding— the power of looking at an object in an independent objective light, and comprehending it in its rational connection with other objects."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§202",
+     "text": "The more abstract collective mass of labour, which is also for particular needs but due to a general demand. This is manufacture, (iii.) Business of exchange, by which one special means of subsistence is given for others, chiefly through money, the general medium of exchange, in which is realized the abstract value cif all merchandise. This is commerce."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1930,9 +2051,9 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-27T18:00+05:30",
+  "until": "2026-11-27T18:45+05:30",
   "asleep": false,
-  "imprest": 14806,
+  "imprest": 15806,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -2170,17 +2291,7 @@
     "since": "2026-11-24"
    }
   ],
-  "receipts": [
-   {
-    "from": "Ananya",
-    "amount": 1000,
-    "item": "German lesson",
-    "cheque": false,
-    "after": "2026-11-27T18:00+05:30",
-    "charge_id": "charge:13",
-    "at": "home"
-   }
-  ],
+  "receipts": [],
   "engagements": [
    {
     "id": "tutoring_german",
@@ -2193,7 +2304,7 @@
     "pay": 1000,
     "cancel_after": 2,
     "from": "2026-11-26",
-    "checked": "2026-11-26",
+    "checked": "2026-11-27",
     "missed": 0
    }
   ],
@@ -2342,8 +2453,8 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-27T13:57+05:30",
-  "snacks": 1,
+  "last_meal": "2026-11-27T18:00+05:30",
+  "snacks": 0,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
@@ -2463,13 +2574,12 @@
    "home_wedding_band": "2026-11-22",
    "home_parakeet_roost": "2026-11-26",
    "home_smog_sunset": "2026-11-27"
-  },
-  "fed_at": "2026-11-27T15:57+05:30"
+  }
  },
  "records": {
   "version": 2,
   "date": "2026-11-27",
-  "source_sha256": "a956a265ad6cb563668bec2bf1803364f86d2dea2c9b90392deb324bc93d9cc4",
+  "source_sha256": "89260202f500eb4153796ac6b1ce2a62a0acd706c618a5754b188bb45b910b69",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2911,6 +3021,68 @@
     "words": "Sorry, can we skip the philosophy bit? I just need to pass my exams and survive the first week in Leipzig. Can we just start with greetings and basic grammar?",
     "verified": false,
     "time": "17:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:payment:37d2ce4cdb35c1ad:1",
+    "kind": "payment",
+    "source": {
+     "collection": "entries",
+     "index": 47,
+     "sha256": "37d2ce4cdb35c1adc45dd8380c9d1ac036244cb0e8047edfa1fcdc57c59dc599"
+    },
+    "canonical_id": "charge:13",
+    "item": "German lesson",
+    "amount": 1000,
+    "direction": "in",
+    "settled": true,
+    "medium": "cash",
+    "creditor": null,
+    "payer": "Ananya",
+    "time": "18:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:statement:e03a5b80b0201368:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 49,
+     "sha256": "e03a5b80b0201368fb6f6eeba7bf50603e209cd0bf936bdacfc49d45564aa2d1"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, please. An omelette, toast, and the tea. The girl is gone, and the day is finished.",
+    "verified": false,
+    "time": "18:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:statement:9d3e8be1aceeac8a:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 50,
+     "sha256": "9d3e8be1aceeac8af21a3f5095a9336d8fb2e50f928650930f904db59b09ae23"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes sir, right away. I'll have it ready in ten minutes.",
+    "verified": false,
+    "time": "18:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:event:558af63562ee38ac:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 51,
+     "sha256": "558af63562ee38ac853e7a9537da3f25f341cc23c38ce93a9c011a91e08da8ad"
+    },
+    "type": "world",
+    "text": "Ramesh puts a plate together: an omelette, toast and a pot of tea.",
+    "time": "18:00",
     "place": "home"
    },
    {
@@ -3629,68 +3801,114 @@
     "text": "Ananya, Nidhi's cousin, arrives for the German lesson. It runs until 18:00."
    },
    {
-    "id": "2026-11-27:event:c5f06434e632a40b:1",
+    "id": "2026-11-27:event:b555e75cc0af3e85:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 16,
+     "sha256": "b555e75cc0af3e85b1bbe5169d09321d77e45ece5e3557076948da9af2c86614"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "18:00",
+    "end": "18:45",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:event:f63d2e70bd16ad65:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      16,
+      0
+     ],
+     "sha256": "f63d2e70bd16ad655b6819e8d07bfacb0d89c9d9d36d2c9ecb3af113faa9f0f9"
+    },
+    "type": "observation",
+    "time": "18:00",
+    "place": "home",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 304."
+   },
+   {
+    "id": "2026-11-27:event:b4658a35f8430657:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      16,
+      1
+     ],
+     "sha256": "b4658a35f8430657782dc36cbe5b1d5b0fdc65cf947745e7ff2870e98dbba4fd"
+    },
+    "type": "observation",
+    "time": "18:00",
+    "place": "home",
+    "text": "Ananya pays you ₹1,000 in cash."
+   },
+   {
+    "id": "2026-11-27:event:0521dd7be2d6e752:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "c5f06434e632a40b0746cab5bd0f6cc6a6125da5f96f0c7192ef2e6cbdfea1eb"
+     "sha256": "0521dd7be2d6e7524ab512ba9e13e484e33969bc84948e9deccf2d46abc306a6"
     },
     "type": "cash",
-    "time": "18:00",
-    "amount": 14806,
+    "time": "18:45",
+    "amount": 15806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-27:event:d835778c5e805ab6:1",
+    "id": "2026-11-27:event:fa73ddaa4c1ae698:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "d835778c5e805ab6f234c78651c68dbd5f738216505a6565078f0a1134722b5a"
+     "sha256": "fa73ddaa4c1ae6982393a6c65d2b59afe45844c7b8bec964394c06d001897d4e"
     },
     "type": "location",
-    "time": "18:00",
+    "time": "18:45",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-27:event:da566797a2da4d4a:1",
+    "id": "2026-11-27:event:9b176b17687e3a32:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "da566797a2da4d4a05dee729c1224a41b958cd817c76082856a8e35f136fb197"
+     "sha256": "9b176b17687e3a323268d8b41e93eaaab50892d92800b553f61748f97be866f6"
     },
     "type": "inventory",
-    "time": "18:00",
+    "time": "18:45",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-27:event:f3c8fa31fba3fe0b:1",
+    "id": "2026-11-27:event:4782c127dd498d18:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "f3c8fa31fba3fe0bfd0e100a9cd858ead990cfdda5385bc4837159a822356d19"
+     "sha256": "4782c127dd498d18e28dd968fc35f410d1805147e976f33f904047b7bb4b8452"
     },
     "type": "inventory",
-    "time": "18:00",
+    "time": "18:45",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-27:event:55298de8ed770ac8:1",
+    "id": "2026-11-27:event:25bee8528b1de9d6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "55298de8ed770ac80ed2f5aa10368824d1cf0851c29860199137baeae81258fb"
+     "sha256": "25bee8528b1de9d678a237b4095e5319233a8fd416f0c875d6774e9249179d20"
     },
     "type": "inventory",
-    "time": "18:00",
+    "time": "18:45",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
