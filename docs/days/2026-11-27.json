@@ -12,25 +12,25 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 16,
+    "temp": 15,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 293
    },
    {
-    "temp": 15,
+    "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 292
    },
    {
-    "temp": 15,
+    "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 291
    },
    {
-    "temp": 14,
+    "temp": 13,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 290
@@ -48,7 +48,7 @@
     "aqi": 289
    },
    {
-    "temp": 13,
+    "temp": 12,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 289
@@ -90,7 +90,7 @@
     "aqi": 303
    },
    {
-    "temp": 24,
+    "temp": 23,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 304
@@ -100,12 +100,6 @@
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 304
-   },
-   {
-    "temp": 24,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 305
    },
    {
     "temp": 23,
@@ -114,25 +108,31 @@
     "aqi": 305
    },
    {
-    "temp": 21,
+    "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 306
+    "aqi": 305
    },
    {
     "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 307
+    "aqi": 306
    },
    {
     "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
+    "aqi": 307
+   },
+   {
+    "temp": 18,
+    "sky": "a brown haze",
+    "rain": 0,
     "aqi": 309
    },
    {
-    "temp": 19,
+    "temp": 18,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 310
@@ -144,7 +144,7 @@
     "aqi": 312
    },
    {
-    "temp": 18,
+    "temp": 17,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 314
@@ -264,17 +264,189 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "09:12",
+   "to": "09:42",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
- "entries": [],
- "steps": [],
- "funnel": {},
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Jo Bachay… government warns Netflix on Pakistani series” · “17 foreign universities get nod to set up campuses in India: Centre” · “Mumbai Police issued Look Out Circular against CJP's Saurav Das: Centre tells Delhi HC”",
+   "t": "09:12",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "Today's listings: 18:00 at the Habitat Centre: a talk with readings: Kalidasa's Shakuntala and its readers in Europe, free; 18:30 at Kamani Auditorium: a dhrupad recital, the oldest form of north Indian classical song, ₹300. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30.",
+   "t": "09:12",
+   "place": "home"
+  },
+  {
+   "k": "plan",
+   "items": [
+    {
+     "time": "09:15",
+     "intention": "Breakfast with Ramesh, then sort the identity file."
+    },
+    {
+     "time": "10:00",
+     "intention": "Visit the National Museum to observe Indian art history."
+    },
+    {
+     "time": "14:00",
+     "intention": "Return home to prepare for the afternoon's work."
+    },
+    {
+     "time": "17:00",
+     "intention": "Teach Ananya German and collect payment."
+    },
+    {
+     "time": "18:00",
+     "intention": "Attend the Habitat Centre talk on Shakuntala in Europe."
+    }
+   ],
+   "t": "09:12"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Subah ki chai taiyaar hai, sir. Aaj thandi hawa hai, upar jaakar peete hain? Khana baad mein bana dunga.",
+   "t": "09:12",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The cold is a mercy after the haze, but the identity file waits on the verandah like an accuser. I must eat first; the body is the vessel of the spirit, and an empty stomach argues poorly. Ramesh’s tea is the immediate reality; the Directorate’s query is the abstract one that will consume the morning.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188"
+    }
+   ],
+   "t": "09:12",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Haan, Ramesh. Upar chalo. The cold is good for the head, even if the air is bad for the lungs. After this, we must look at that file of Hegde’s.",
+   "to": "Ramesh",
+   "t": "09:12",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, the file is already on the verandah. I left it there before I came in. You can take it up whenever you are ready.",
+   "t": "09:12",
+   "place": "home"
+  }
+ ],
+ "steps": [
+  {
+   "t": "09:12",
+   "end": "09:42",
+   "event": "You wake. A brown haze, 18 °C. Ramesh has left the papers on the verandah. Headlines: Jo Bachay… government warns Netflix on Pakistani series; 17 foreign universities get nod to set up campuses in India: Centre; Mumbai Police issued Look Out Circular against CJP's Saurav Das: Centre tells Delhi HC. Today's listings: 18:00 at the Habitat Centre: a talk with readings: Kalidasa's Shakuntala and its readers in Europe, free; 18:30 at Kamani Auditorium: a dhrupad recital, the oldest form of north Indian classical song, ₹300. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30. Ramesh is here. Ramesh says: “Subah ki chai taiyaar hai, sir. Aaj thandi hawa hai, upar jaakar peete hain? Khana baad mein bana dunga.” He holds the steel glass and saucer steady, waiting for the man to nod.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The cold is a mercy after the haze, but the identity file waits on the verandah like an accuser. I must eat first; the body is the vessel of the spirit, and an empty stomach argues poorly. Ramesh’s tea is the immediate reality; the Directorate’s query is the abstract one that will consume the morning.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": "Haan, Ramesh. Upar chalo. The cold is good for the head, even if the air is bad for the lungs. After this, we must look at that file of Hegde’s.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, a brown haze. Air quality index: 301.",
+    "You wake. A brown haze, 18 °C. Ramesh has left the papers on the verandah. Headlines: Jo Bachay… government warns Netflix on Pakistani series; 17 foreign universities get nod to set up campuses in India: Centre; Mumbai Police issued Look Out Circular against CJP's Saurav Das: Centre tells Delhi HC.",
+    "Today's listings: 18:00 at the Habitat Centre: a talk with readings: Kalidasa's Shakuntala and its readers in Europe, free; 18:30 at Kamani Auditorium: a dhrupad recital, the oldest form of north Indian classical song, ₹300. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30.",
+    "Ramesh is here."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "papers",
+    "listings",
+    "here",
+    "greeting:ramesh"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Sir, the file is already on the verandah. I left it there before I came in. You can take it up whenever you are ready.",
+    "does": "Ramesh adjusts the stack of papers on the verandah railing."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 19.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "id": "sibree-history:288"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "id": "dyde-right:464"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "text": "Only when, as in Europe, the direct increase of agriculturists is checked, •will the inhabitants, instead of pressing outwards to occupy the fields, press inwards upon each other, — pursuing town occupations, and trading with their fellow citizens; and so form a compact system of civil society, and require an organized state."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§188",
+     "text": "The civic community contains three elements: A. The recasting of want, and the satisfaction of the individual through his work, through the work of all others, and through the satisfaction of their wants. This is a system of wants. B. Actualization of the general freedom required for this, i.e., the protection of property by the administration of justice."
+    }
+   ]
+  }
+ ],
+ "funnel": {
+  "malhotra_vouch": {
+   "live": 1,
+   "eligible": 0,
+   "shown": 0,
+   "yes": 0,
+   "no": 0
+  },
+  "session:tutoring_german": {
+   "live": 1,
+   "eligible": 0,
+   "shown": 0,
+   "yes": 0,
+   "no": 0
+  }
+ },
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-27T09:12+05:30",
-  "asleep": true,
+  "until": "2026-11-27T09:42+05:30",
+  "asleep": false,
   "imprest": 14806,
   "wearing": "kurta",
   "wardrobe": [
@@ -355,7 +527,14 @@
    }
   ],
   "depesche_n": 4,
-  "today": {},
+  "today": {
+   "woke": "09:12",
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -426,7 +605,8 @@
     "2026-11-23",
     "2026-11-24",
     "2026-11-25",
-    "2026-11-26"
+    "2026-11-26",
+    "2026-11-27"
    ],
    "lodhi": [
     "2026-10-02",
@@ -554,7 +734,8 @@
     "2026-11-22",
     "2026-11-23",
     "2026-11-24",
-    "2026-11-26"
+    "2026-11-26",
+    "2026-11-27"
    ],
    "malhotra": [
     "2026-10-02",
@@ -658,7 +839,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-26T19:39+05:30",
+  "last_meal": "2026-11-27T09:12+05:30",
   "snacks": 0,
   "works": [
    {
@@ -783,75 +964,324 @@
  "records": {
   "version": 2,
   "date": "2026-11-27",
-  "source_sha256": "5a18c860d18bcd962d76aa6676f0840021a882ed7356006902a9de1bb74fa76e",
+  "source_sha256": "6588d40d01e01346f11589552fa28c2ae44dcbd9ad3162c241fe4239c2100f68",
   "complete": false,
   "steps_present": true,
   "records": [
    {
-    "id": "2026-11-27:event:a461d85a7b6ad0fa:1",
+    "id": "2026-11-27:event:9f8a3c174bb9d55d:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 0,
+     "sha256": "9f8a3c174bb9d55dbb69654a8e6cafb1f64660ab4bcf7ec72d80ec0f65685296"
+    },
+    "type": "world",
+    "text": "Morning papers: “Jo Bachay… government warns Netflix on Pakistani series” · “17 foreign universities get nod to set up campuses in India: Centre” · “Mumbai Police issued Look Out Circular against CJP's Saurav Das: Centre tells Delhi HC”",
+    "time": "09:12",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:event:a7693a5e5cf7ed3f:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 1,
+     "sha256": "a7693a5e5cf7ed3f13d818af0ab47f56bf3b3067f96c8780580da9ebd638ea5a"
+    },
+    "type": "world",
+    "text": "Today's listings: 18:00 at the Habitat Centre: a talk with readings: Kalidasa's Shakuntala and its readers in Europe, free; 18:30 at Kamani Auditorium: a dhrupad recital, the oldest form of north Indian classical song, ₹300. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30.",
+    "time": "09:12",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:statement:b2e571aa78a079d0:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 3,
+     "sha256": "b2e571aa78a079d0c822affa22a9c87858f29aaed135092bf8da617a3828b9b3"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Subah ki chai taiyaar hai, sir. Aaj thandi hawa hai, upar jaakar peete hain? Khana baad mein bana dunga.",
+    "verified": false,
+    "time": "09:12",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:statement:ab6b8d1d2414af1e:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 5,
+     "sha256": "ab6b8d1d2414af1e5caf6d5827f3cf6e1e33569b37c2bdce3ebe55b38fd1edaf"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Haan, Ramesh. Upar chalo. The cold is good for the head, even if the air is bad for the lungs. After this, we must look at that file of Hegde’s.",
+    "verified": false,
+    "time": "09:12",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:statement:1c807551e30f3afe:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 6,
+     "sha256": "1c807551e30f3afe2c65a7e4f0c1f2aa58b9a0892d614c6498772ec3b751820b"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Sir, the file is already on the verandah. I left it there before I came in. You can take it up whenever you are ready.",
+    "verified": false,
+    "time": "09:12",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:event:5c39b8592cca3109:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 0,
+     "sha256": "5c39b8592cca31091b8f695f14814ebe43bb9b02b9986855e9a9265133fcd234"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:12",
+    "intended_time": "09:15",
+    "place": null,
+    "text": "Breakfast with Ramesh, then sort the identity file."
+   },
+   {
+    "id": "2026-11-27:event:509ce279b8d70722:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 1,
+     "sha256": "509ce279b8d70722c640bc8674c33bd663e7a4c8076592b504fa9da9eabb735b"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:12",
+    "intended_time": "10:00",
+    "place": null,
+    "text": "Visit the National Museum to observe Indian art history."
+   },
+   {
+    "id": "2026-11-27:event:fd6d1e21a657d2d3:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 2,
+     "sha256": "fd6d1e21a657d2d39358dbee625afc89747d422b25f1f315b774d0be96223c5b"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:12",
+    "intended_time": "14:00",
+    "place": null,
+    "text": "Return home to prepare for the afternoon's work."
+   },
+   {
+    "id": "2026-11-27:event:87dc9ebc2edd91dc:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 3,
+     "sha256": "87dc9ebc2edd91dc70644b7e2e42680dae4c899d8d1f86fbaff77d26d100248c"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:12",
+    "intended_time": "17:00",
+    "place": null,
+    "text": "Teach Ananya German and collect payment."
+   },
+   {
+    "id": "2026-11-27:event:274c277528e6dacd:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 4,
+     "sha256": "274c277528e6dacd2d287729649499c4e54287dd8f5a8fa41f7d876531f99a98"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:12",
+    "intended_time": "18:00",
+    "place": null,
+    "text": "Attend the Habitat Centre talk on Shakuntala in Europe."
+   },
+   {
+    "id": "2026-11-27:event:4f28c0880d281cc7:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 0,
+     "sha256": "4f28c0880d281cc786773f845ddc772091a0db355c31889080ea4f349e1a3d14"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "09:12",
+    "end": "09:42",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:event:12d128518d6a025b:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      0
+     ],
+     "sha256": "12d128518d6a025b57aa4335666859fb952237f38d251febdd4f871fcb08a48e"
+    },
+    "type": "observation",
+    "time": "09:12",
+    "place": "home",
+    "text": "Weather: 18 °C, a brown haze. Air quality index: 301."
+   },
+   {
+    "id": "2026-11-27:event:025e9447cd4be8ef:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      1
+     ],
+     "sha256": "025e9447cd4be8efa3ccda2248b343f00bf8ab2bebca250733ebf5521b8869e0"
+    },
+    "type": "observation",
+    "time": "09:12",
+    "place": "home",
+    "text": "You wake. A brown haze, 18 °C. Ramesh has left the papers on the verandah. Headlines: Jo Bachay… government warns Netflix on Pakistani series; 17 foreign universities get nod to set up campuses in India: Centre; Mumbai Police issued Look Out Circular against CJP's Saurav Das: Centre tells Delhi HC."
+   },
+   {
+    "id": "2026-11-27:event:f6d9bbd5dfb10034:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      2
+     ],
+     "sha256": "f6d9bbd5dfb1003473041f8cb923998df4c040e4ecee61862dc3ae9d7a93322c"
+    },
+    "type": "observation",
+    "time": "09:12",
+    "place": "home",
+    "text": "Today's listings: 18:00 at the Habitat Centre: a talk with readings: Kalidasa's Shakuntala and its readers in Europe, free; 18:30 at Kamani Auditorium: a dhrupad recital, the oldest form of north Indian classical song, ₹300. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30."
+   },
+   {
+    "id": "2026-11-27:event:7484978535b3016a:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      3
+     ],
+     "sha256": "7484978535b3016a1b3d5eed5ad84ca87ae93f3f2d90914df6d3ff88b95c2cbd"
+    },
+    "type": "observation",
+    "time": "09:12",
+    "place": "home",
+    "text": "Ramesh is here."
+   },
+   {
+    "id": "2026-11-27:event:2e7410b259c64278:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "a461d85a7b6ad0fa8cfa2ef23a84947626d9ae31c51b6ea415fbce6091cd785a"
+     "sha256": "2e7410b259c64278ae862809b3c7da2e4935a2bdb2a130b475b6a3d694188af5"
     },
     "type": "cash",
-    "time": "09:12",
+    "time": "09:42",
     "amount": 14806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-27:event:55aa666efad4b33a:1",
+    "id": "2026-11-27:event:ec9e29a9713eeb69:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "55aa666efad4b33a7fa0f9bac101d20b7dba3641111d3b297592dc43fb392ccf"
+     "sha256": "ec9e29a9713eeb69c75dee9b257d44e338f39b6d94571cc81047fdbece3f8cf0"
     },
     "type": "location",
-    "time": "09:12",
+    "time": "09:42",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-27:event:cdce44107bba0cf1:1",
+    "id": "2026-11-27:event:7f6986966b114aaa:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "cdce44107bba0cf15d6c78e6058fab2034656dc7f0de337b34e36f14eebfa20a"
+     "sha256": "7f6986966b114aaa8fecc669a446f7ece82a1e9657fe2f45e1915e9266be9a5a"
     },
     "type": "inventory",
-    "time": "09:12",
+    "time": "09:42",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-27:event:04ac3c72663d4e26:1",
+    "id": "2026-11-27:event:1e843e4409bf63e5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "04ac3c72663d4e26337509877c5c4d12340d57f0017edc4da7ec165b38f8a208"
+     "sha256": "1e843e4409bf63e5d23848f67aadcd79a779184ad0fafbf1ed6c1c0053dca3f6"
     },
     "type": "inventory",
-    "time": "09:12",
+    "time": "09:42",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-27:event:e486c34548cbb1d7:1",
+    "id": "2026-11-27:event:019c53ef3dae751f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "e486c34548cbb1d72a402213f69342f4909155101e41f289f63b9f3e6af1e68f"
+     "sha256": "019c53ef3dae751f6ecc1095c712aafc445d7540bae400678d9acb0f6ce9ec53"
     },
     "type": "inventory",
-    "time": "09:12",
+    "time": "09:42",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
+   }
+  ]
+ },
+ "plan": {
+  "written": "09:12",
+  "items": [
+   {
+    "time": "09:15",
+    "intention": "Breakfast with Ramesh, then sort the identity file."
+   },
+   {
+    "time": "10:00",
+    "intention": "Visit the National Museum to observe Indian art history."
+   },
+   {
+    "time": "14:00",
+    "intention": "Return home to prepare for the afternoon's work."
+   },
+   {
+    "time": "17:00",
+    "intention": "Teach Ananya German and collect payment."
+   },
+   {
+    "time": "18:00",
+    "intention": "Attend the Habitat Centre talk on Shakuntala in Europe."
    }
   ]
  }
