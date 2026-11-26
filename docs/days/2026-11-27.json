@@ -306,6 +306,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh and Shri G. Hegde at home."
+  },
+  {
+   "from": "11:27",
+   "to": "12:27",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -546,6 +553,37 @@
    "to": "Hegel",
    "text": "Sir, that is very kind of you, but I am not a man who leaves his family in the cold for the sake of a stranger's convenience. I will wait here; the file will sort itself out.",
    "t": "11:12",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Hegde is a man of fixed habits, and the state’s error has made his habits a cage. I cannot force a solution from the outside; the file must speak for itself, and I have my own duties. I will leave him to his watch and my house to its silence. The air is too thick for the museum; I will wait for the lunch service to arrive.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    }
+   ],
+   "t": "11:27",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Very well, Shri Hegde. Please make yourself comfortable. I shall return shortly.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "11:27",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Comfortable? Sir, I have a car full of children and a wife who is already asking if we are eating. I am not a man who makes himself comfortable in a government bungalow.",
+   "t": "11:27",
    "place": "home"
   }
  ],
@@ -956,6 +994,72 @@
      "text": "In the North the clothing must be different from that in Central Africa; and in winter we do not wear cotton garments. Anything further is meaningless, and is left to chance and to opinion; in modern times, for instance, old-fashioned clothing had a meaning in relation to patriotism."
     }
    ]
+  },
+  {
+   "t": "11:27",
+   "end": "12:27",
+   "event": "Shri G. Hegde says: “Sir, that is very kind of you, but I am not a man who leaves his family in the cold for the sake of a stranger's convenience. I will wait here; the file will sort itself out.” He tucks his letter back into his kurta pocket and checks his watch again.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Hegde is a man of fixed habits, and the state’s error has made his habits a cage. I cannot force a solution from the outside; the file must speak for itself, and I have my own duties. I will leave him to his watch and my house to its silence. The air is too thick for the museum; I will wait for the lunch service to arrive.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 60,
+    "says": "Very well, Shri Hegde. Please make yourself comfortable. I shall return shortly.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 303."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Comfortable? Sir, I have a car full of children and a wife who is already asking if we are eating. I am not a man who makes himself comfortable in a government bungalow.",
+    "does": "Shri Hegde shifts his weight, looking towards the gate again."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 15.0,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "c. The unity and truth of these two abstract elements. The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -978,7 +1082,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-27T11:27+05:30",
+  "until": "2026-11-27T12:27+05:30",
   "asleep": false,
   "imprest": 14806,
   "wearing": "kurta",
@@ -1501,7 +1605,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-27",
-  "source_sha256": "1d0ea3a43bf0f7335c6a47de3c6a6890c475d7b453ddec6bc1796c926fcd1600",
+  "source_sha256": "7ccc94729504962c5b0c355b87b5972b20349988eaaf515b8425d7eae639a91d",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1724,6 +1828,36 @@
     "words": "Sir, that is very kind of you, but I am not a man who leaves his family in the cold for the sake of a stranger's convenience. I will wait here; the file will sort itself out.",
     "verified": false,
     "time": "11:12",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:statement:f6132824d75fd9c1:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 24,
+     "sha256": "f6132824d75fd9c1688a6a038e64798835de488e8ce78b99d7b7ffcf8597c79d"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh and Shri G. Hegde",
+    "words": "Very well, Shri Hegde. Please make yourself comfortable. I shall return shortly.",
+    "verified": false,
+    "time": "11:27",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:statement:312c52bbf962b2d3:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 25,
+     "sha256": "312c52bbf962b2d308e8836df2fe53285855c3d908866d2a722313bfe3e5cd26"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "Comfortable? Sir, I have a car full of children and a wife who is already asking if we are eating. I am not a man who makes himself comfortable in a government bungalow.",
+    "verified": false,
+    "time": "11:27",
     "place": "home"
    },
    {
@@ -2078,68 +2212,98 @@
     "text": "Weather: 22 °C, a brown haze. Air quality index: 303."
    },
    {
-    "id": "2026-11-27:event:6dc14f249c335668:1",
+    "id": "2026-11-27:event:66f05365ab3d9e72:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 6,
+     "sha256": "66f05365ab3d9e72bb2a61ac8640a58bec569900b2cec9461e806b6a59a1152b"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "11:27",
+    "end": "12:27",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:event:ea9c09e580972d9c:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      6,
+      0
+     ],
+     "sha256": "ea9c09e580972d9ceb7724ca29f2b8de59645461e3d67fd605c72d15ac4111bf"
+    },
+    "type": "observation",
+    "time": "11:27",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 303."
+   },
+   {
+    "id": "2026-11-27:event:47906feebe292f5e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "6dc14f249c335668cc5f32dcbd314ef1141d6f6f61f4380a62a3740cab0aeb95"
+     "sha256": "47906feebe292f5e57c30b38e347779b615d82608e91650b2770228c3724904e"
     },
     "type": "cash",
-    "time": "11:27",
+    "time": "12:27",
     "amount": 14806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-27:event:1292a32cad505d0b:1",
+    "id": "2026-11-27:event:401c4cfa72c93f27:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "1292a32cad505d0bb69892a056d53cc90c52316224f9f4ea6dfb18976c171f49"
+     "sha256": "401c4cfa72c93f276c44a4f7f35396025c2398e4962b7fe91a0a81e7d6d4ea34"
     },
     "type": "location",
-    "time": "11:27",
+    "time": "12:27",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-27:event:4777179e12bfb94e:1",
+    "id": "2026-11-27:event:4b53da26e50cabc3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "4777179e12bfb94e0103fc90b2d9421ec8e57f2ac824732c7db7ad3ed19ce942"
+     "sha256": "4b53da26e50cabc3d95882acbcdf4806c08e71dbebb7a43b86d1d2f5126322ce"
     },
     "type": "inventory",
-    "time": "11:27",
+    "time": "12:27",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-27:event:64e4e0e1a2fe14c0:1",
+    "id": "2026-11-27:event:d8d00e7b4210619e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "64e4e0e1a2fe14c0dae1488ce5009d806aa851a90e4f36998ce9a62a3e035b0e"
+     "sha256": "d8d00e7b4210619ed090744710e48764a9ec8437b1487f40d473eeeba4b71f10"
     },
     "type": "inventory",
-    "time": "11:27",
+    "time": "12:27",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-27:event:e30a9eaaef0f2c81:1",
+    "id": "2026-11-27:event:82cacf481337c27f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "e30a9eaaef0f2c81b4fa0aecf2adda43fcd724732ca998fa97404fbb1929d2dc"
+     "sha256": "82cacf481337c27f8df148e65476e2039df40b63d5189a82a0df01561bb65e84"
     },
     "type": "inventory",
-    "time": "11:27",
+    "time": "12:27",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
