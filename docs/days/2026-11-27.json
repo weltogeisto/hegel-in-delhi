@@ -327,6 +327,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Reading at home."
+  },
+  {
+   "from": "13:57",
+   "to": "14:42",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -645,6 +652,37 @@
     }
    ],
    "t": "12:57",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The haze is 299, a brown shroud that makes the sun a pale coin in a dirty sky. I cannot walk in this, so I shall sit. The rajma is thick, the rice plain, the raita cold; it is food for a body that must be kept alive to think, not for the spirit. I will eat, and I will watch Ramesh, for he is the only reality in this room besides the paperwork that haunts me.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…"
+    }
+   ],
+   "t": "13:57",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, the food is acceptable. The air outside is thick enough to cut with a knife; I shall not venture into it. Sit, if you wish, or tend to your duties. I require only the quiet of this room.",
+   "to": "Ramesh",
+   "t": "13:57",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir. You have the room. I’ll just check the windows are sealed tight before the dust settles further.",
+   "t": "13:57",
    "place": "home"
   }
  ],
@@ -1246,6 +1284,72 @@
      "text": "To which may be added, that, in Nature, when the higher or organic functions are in any way checked or disturbed in their normal efficiency, the otherwise subordinate category of mechanism is immediately seen to take the upper hand."
     }
    ]
+  },
+  {
+   "t": "13:57",
+   "end": "14:42",
+   "event": "Ramesh has laid out lunch: rajma, rice and a cucumber raita.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The haze is 299, a brown shroud that makes the sun a pale coin in a dirty sky. I cannot walk in this, so I shall sit. The rajma is thick, the rice plain, the raita cold; it is food for a body that must be kept alive to think, not for the spirit. I will eat, and I will watch Ramesh, for he is the only reality in this room besides the paperwork that haunts me.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 45,
+    "says": "Ramesh, the food is acceptable. The air outside is thick enough to cut with a knife; I shall not venture into it. Sit, if you wish, or tend to your duties. I require only the quiet of this room.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 299.",
+    "Ramesh has laid out lunch: rajma, rice and a cucumber raita."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "meal"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir. You have the room. I’ll just check the windows are sealed tight before the dust settles further.",
+    "does": "Ramesh nods once, turns, and quietly begins wiping down the window sills with a damp cloth."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.8,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "id": "phaen:385"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "text": "Nicht der Unterschied, welcher sich als bestimmtes Ding, oder als Bewußtsein eines bestimmten natürlichen Daseins, als ein Gefühl, oder als Begierde und Zweck für dieselbe, ob er durch das eigene oder durch ein fremdes Bewußtsein gesetzt sei, hat mehr Wesenheit, sondern allein der Unterschied, der ein gedachter, oder unmittelbar nicht von Mir unterschieden ist."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1268,7 +1372,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-27T13:57+05:30",
+  "until": "2026-11-27T14:42+05:30",
   "asleep": false,
   "imprest": 14806,
   "wearing": "kurta",
@@ -1359,7 +1463,8 @@
     ]
    },
    "breakfast": true,
-   "bad_air": true
+   "bad_air": true,
+   "lunch": true
   },
   "account": {
    "advance": 15000,
@@ -1666,7 +1771,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-27T09:42+05:30",
+  "last_meal": "2026-11-27T13:57+05:30",
   "snacks": 0,
   "works": [
    {
@@ -1791,7 +1896,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-27",
-  "source_sha256": "49744e172e412002a0b51cd7729904a6ab551d6411f6571ed594947b18560365",
+  "source_sha256": "93fbe0807ddae7a14bab13a2cda1aae8e7ffe6b22a36293eeb54e706c61cae6a",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2074,6 +2179,36 @@
     "words": "Yes sir, I will set the table at thirteen hundred sharp. Take your time, the food will be ready when you are.",
     "verified": false,
     "time": "12:27",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:statement:ed62cf7a66250644:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 31,
+     "sha256": "ed62cf7a662506449d44d684f1db199f4d52b51923ba49a45d244000b1606ede"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, the food is acceptable. The air outside is thick enough to cut with a knife; I shall not venture into it. Sit, if you wish, or tend to your duties. I require only the quiet of this room.",
+    "verified": false,
+    "time": "13:57",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:statement:e2a545c46ce8aad0:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 32,
+     "sha256": "e2a545c46ce8aad03fbf889a8d156994ee2318e9502f4b4132465c9471929572"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes sir. You have the room. I’ll just check the windows are sealed tight before the dust settles further.",
+    "verified": false,
+    "time": "13:57",
     "place": "home"
    },
    {
@@ -2518,68 +2653,114 @@
     "text": "Weather: 23 °C, a brown haze. Air quality index: 297."
    },
    {
-    "id": "2026-11-27:event:d65e2dc06fff7463:1",
+    "id": "2026-11-27:event:2e4032411dff79e1:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 9,
+     "sha256": "2e4032411dff79e17641ad8946ea8f32e3e20ec32f42af2c57501ca6a5a0ebd1"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "13:57",
+    "end": "14:42",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:event:0c810335140a62bb:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      9,
+      0
+     ],
+     "sha256": "0c810335140a62bb80a2e2754a1fab59499e885767e7c1212e8ea0ba81ff5820"
+    },
+    "type": "observation",
+    "time": "13:57",
+    "place": "home",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 299."
+   },
+   {
+    "id": "2026-11-27:event:c4ca0d32124bc27c:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      9,
+      1
+     ],
+     "sha256": "c4ca0d32124bc27cd1a87916c6a93ced9d2c3b2b26d65beb4022c54b4b5f6a8f"
+    },
+    "type": "observation",
+    "time": "13:57",
+    "place": "home",
+    "text": "Ramesh has laid out lunch: rajma, rice and a cucumber raita."
+   },
+   {
+    "id": "2026-11-27:event:20971295a1cfa43f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "d65e2dc06fff74636a11d16079482c8f449a2858438b37cf98e58e73f59151fe"
+     "sha256": "20971295a1cfa43f6da63f07e9adfbf1196d6b094f189120f474cb69905992bf"
     },
     "type": "cash",
-    "time": "13:57",
+    "time": "14:42",
     "amount": 14806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-27:event:94368418af806831:1",
+    "id": "2026-11-27:event:a35cbab97dfada94:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "94368418af8068316857b08b32e5887606ca70f449af92a5e83ca4d1d7509b95"
+     "sha256": "a35cbab97dfada945d497b099824824e36e44a871948467cd8bf21fcb1698330"
     },
     "type": "location",
-    "time": "13:57",
+    "time": "14:42",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-27:event:20f6d7e8ce1bf195:1",
+    "id": "2026-11-27:event:5d44033d121c63b1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "20f6d7e8ce1bf195ebe7a22e331acab5bb6eb96c6b8c32a85f9e9248163199df"
+     "sha256": "5d44033d121c63b1c98d242ab6b0cb7b5063ed840ce0b5e4ef4069002ef717e6"
     },
     "type": "inventory",
-    "time": "13:57",
+    "time": "14:42",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-27:event:102ca9e1415beeb7:1",
+    "id": "2026-11-27:event:2c43b6af55d9f4cc:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "102ca9e1415beeb7f0005373a29da8ea7ce313241457b71a5855df47b73e4606"
+     "sha256": "2c43b6af55d9f4cce32a9cbbf1b0eb35e3702830283c8e886ff5b875a7b9f915"
     },
     "type": "inventory",
-    "time": "13:57",
+    "time": "14:42",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-27:event:2a096494f6c7754d:1",
+    "id": "2026-11-27:event:d232e201ba0f6d2f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "2a096494f6c7754d253153c27a8d9662539560b3ec7abdbd42f8ddca04529521"
+     "sha256": "d232e201ba0f6d2f04c8b9c93d1dc2d33951fb710b5bf24a701d82ac3598226e"
     },
     "type": "inventory",
-    "time": "13:57",
+    "time": "14:42",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
