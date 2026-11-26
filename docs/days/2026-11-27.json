@@ -355,6 +355,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "16:07",
+   "to": "16:52",
+   "mode": "inside",
+   "at": "home",
+   "now": "Reading at home."
   }
  ],
  "entries": [
@@ -791,6 +798,22 @@
    "to": "Hegel",
    "text": "Yes sir. I will leave you to it.",
    "t": "15:52",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The door clicking shut is a small mercy; the silence returns, thick with the haze outside. I have forty-three minutes before Ananya arrives, and the identity file still gnaws at me. I must sit with the query unanswered, or at least prepare my posture for it, before the lesson begins.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    }
+   ],
+   "t": "16:07",
    "place": "home"
   }
  ],
@@ -1649,6 +1672,66 @@
      "text": "In all this it is not humility which holds back from the knowledge and study of the truth, but a conviction that we are already in full possession of it. And no doubt the young carry with them the hopes of their elder compeers; on them rests the advance of the world and science."
     }
    ]
+  },
+  {
+   "t": "16:07",
+   "end": "16:52",
+   "event": "Ramesh says: “Yes sir. I will leave you to it.” He nods slightly and steps back into the corridor, closing the study door behind him.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The door clicking shut is a small mercy; the silence returns, thick with the haze outside. I have forty-three minutes before Ananya arrives, and the identity file still gnaws at me. I must sit with the query unanswered, or at least prepare my posture for it, before the lesson begins.",
+    "action": "read",
+    "place": "home",
+    "minutes": 45,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 301."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:23"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state. The government has, up till now, shown such confidence in the scholars in this department as to leave the subject matter of philosophy wholly in their hands."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1671,7 +1754,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-27T16:07+05:30",
+  "until": "2026-11-27T16:52+05:30",
   "asleep": false,
   "imprest": 14806,
   "wearing": "kurta",
@@ -2196,7 +2279,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-27",
-  "source_sha256": "5eddff0866e9e0a46c17289cc16bccfe452ef3bcafd8b244bbb6604b475e262a",
+  "source_sha256": "c8c019f9af1f9b7d4f67b64253bb8c4338b717ca4aa1df69785a9c2077a1e433",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3178,68 +3261,98 @@
     "text": "Weather: 24 °C, a brown haze. Air quality index: 301."
    },
    {
-    "id": "2026-11-27:event:5478406491f3d604:1",
+    "id": "2026-11-27:event:6639d157872e36d1:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 13,
+     "sha256": "6639d157872e36d1cdc581cce9fc839c0b6744d0f45ef7c98baffd1e51d62c10"
+    },
+    "type": "action",
+    "action": "read",
+    "time": "16:07",
+    "end": "16:52",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:event:36ebf6a51f2bfdf7:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      13,
+      0
+     ],
+     "sha256": "36ebf6a51f2bfdf7ec31e9bad3cc5136bdceb170583fdc9078e5da0eee6d5505"
+    },
+    "type": "observation",
+    "time": "16:07",
+    "place": "home",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 301."
+   },
+   {
+    "id": "2026-11-27:event:ddcc4e59fa924b2e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "5478406491f3d6049f6412a747dd29cf2fe73ca6a3201d81e3835ccf66d080c4"
+     "sha256": "ddcc4e59fa924b2ee7b4677e4f6573dd548bc44d8aa04205a67bf2766a652737"
     },
     "type": "cash",
-    "time": "16:07",
+    "time": "16:52",
     "amount": 14806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-27:event:299ba826a49c251a:1",
+    "id": "2026-11-27:event:2ed5058b48ea59cb:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "299ba826a49c251a753899a14962f6dd1c567cde93398bea207d766b5ac243ad"
+     "sha256": "2ed5058b48ea59cb8e1ce80d1aae895dc1714a896cbc4aafab27e9872574d5f7"
     },
     "type": "location",
-    "time": "16:07",
+    "time": "16:52",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-27:event:97ed2e4a1da797e6:1",
+    "id": "2026-11-27:event:363582bf2db2cbb8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "97ed2e4a1da797e6c7187280fcd20563f79a23a95558c29d77a2f81a2d217de5"
+     "sha256": "363582bf2db2cbb81f9d93e0f833b2352ba577921071bde2d70533dff0747c5d"
     },
     "type": "inventory",
-    "time": "16:07",
+    "time": "16:52",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-27:event:438d2d5c6ce1a776:1",
+    "id": "2026-11-27:event:0ee9a5cc8305b02f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "438d2d5c6ce1a77610a3aba04f8b5cc7ef3227904dceac657ec926abd83a5b82"
+     "sha256": "0ee9a5cc8305b02fa8bb7714e59d3a5cd12450cfdf10a94d746c0414a498e5e9"
     },
     "type": "inventory",
-    "time": "16:07",
+    "time": "16:52",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-27:event:e69a6350ba913b3d:1",
+    "id": "2026-11-27:event:4da29596b1b7cb0f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "e69a6350ba913b3deed9924b3bf41bb3404aada3a59cbd6ce6f16845635f0efb"
+     "sha256": "4da29596b1b7cb0facf4c3e6ea2d777302652ab9fce3a6592e083a9fa451ed1a"
     },
     "type": "inventory",
-    "time": "16:07",
+    "time": "16:52",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
