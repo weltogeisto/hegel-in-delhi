@@ -102,7 +102,7 @@ Declared in `pc/TRAINING-4-CARDS.md`. Inference only, after W13 is complete: a c
 ### W17 · PC seat · the ceiling test · DONE, 24 November: 220 of 220 calls (`codex/ceiling-20261124`); the reading is W18
 Declared in `pc/CEILING-TEST.md` before any run. By day, no GPU: `tools/ceiling.py texts` and `requests` in `pc/exports/ceiling-20261124`, pushed to `codex/ceiling-20261124` so that the cloud can compare the hashes. From his sleep: the three requests files, one a slot, with `tools/run_requests.py --night`. 240 calls. Push the replies and post DONE on PR #1 without reading them. Then W13's rest, then W14.
 
-### W18 · Astra, started on Welt's word; the PC seat prepares · the ceiling test's second reading · OPEN from 25 November
+### W18 · Astra, started on Welt's word; the PC seat prepares · the ceiling test's second reading · PARKED, 26 November: read without it (`DECISIONS.md` 72); may still run
 Declared in `pc/CEILING-TEST.md` ("The reading, as it is done"). No GPU. The Claude family has read and is sealed; the key stays shut until Astra's ballots and Welt's rows are sealed too.
 1. On main at the commit that holds `tools/ceiling_judge.py parts`: `python3 tools/ceiling_judge.py parts --folder pc/exports/ceiling-20261124 --out ~/hegel-eval/ceiling-astra`. It makes 28 folders outside the repository, `s1-01` to `s2-14`.
 2. **One fresh Astra session for each folder**, started in that folder, with the folder's `PROMPT.md` as its whole message. The session must not be able to read the repository, another part's folder or the web. The same model and settings for all 28, written down. Several at a time is fine.
