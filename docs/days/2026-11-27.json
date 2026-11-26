@@ -411,6 +411,15 @@
    "mode": "inside",
    "at": "home",
    "now": "Writing at home."
+  },
+  {
+   "from": "21:00",
+   "to": "24:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Asleep.",
+   "asleep": true,
+   "owl": true
   }
  ],
  "entries": [
@@ -2397,6 +2406,35 @@
      "text": "A long time is undoubtedly required by Mind in working out Philosophy, and when one first reflects on it, the length of the time may seem astonishing, like the immensity of the space spoken of in astronomy. But it must be considered in regard to the slow progress of the world-spirit, that there is no need for it to hasten:—“A thousand years are in Thy sight as one day.”"
     }
    ]
+  },
+  {
+   "t": "21:00",
+   "end": "24:00",
+   "event": "Nothing in particular happens. The night goes on.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "sleep",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, a brown haze. Air quality index: 310.",
+    "Nothing in particular happens. The night goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "mind": {
+    "source": "bedtime",
+    "attempts": 0,
+    "latency_s": 0.0
+   }
   }
  ],
  "funnel": {
@@ -2419,8 +2457,8 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-27T21:00+05:30",
-  "asleep": false,
+  "until": "2026-11-28T00:00+05:30",
+  "asleep": true,
   "imprest": 15806,
   "wearing": "kurta",
   "wardrobe": [
@@ -2948,7 +2986,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-27",
-  "source_sha256": "9372a8f5946e7ade52254f38095f33d06fbc4b27d20295601c6d9eba4a56b415",
+  "source_sha256": "a15d8ee141cf367b02f94effde9b90ec0a27edb9994ca5ecde94ac8463cb7eb9",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4416,68 +4454,114 @@
     "text": "Weather: 18 °C, a brown haze. Air quality index: 307."
    },
    {
-    "id": "2026-11-27:event:88ae5f5bdca7df45:1",
+    "id": "2026-11-27:event:330cf310af2875c8:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 21,
+     "sha256": "330cf310af2875c89e37498e815eb155df3c2d0da1b5955ffe9b15379e4d6462"
+    },
+    "type": "action",
+    "action": "sleep",
+    "time": "21:00",
+    "end": "24:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:event:f946298ee09412ab:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      21,
+      0
+     ],
+     "sha256": "f946298ee09412abd72822700352837b7ac40eeaeee915b15887e333640c80b1"
+    },
+    "type": "observation",
+    "time": "21:00",
+    "place": "home",
+    "text": "Weather: 18 °C, a brown haze. Air quality index: 310."
+   },
+   {
+    "id": "2026-11-27:event:4346d60c7ea0b928:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      21,
+      1
+     ],
+     "sha256": "4346d60c7ea0b928d548362b7b4aab5c4b1e2d7ec7b66a89d032c4612c537e3c"
+    },
+    "type": "observation",
+    "time": "21:00",
+    "place": "home",
+    "text": "Nothing in particular happens. The night goes on."
+   },
+   {
+    "id": "2026-11-27:event:56a99234e923e6ea:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "88ae5f5bdca7df45514ab4ef1faee4ef9144d51f3e76493d353bcd363eb57ec7"
+     "sha256": "56a99234e923e6ea95216d701efde21cb118d895fb36969040ed5e6fb1b51a86"
     },
     "type": "cash",
-    "time": "21:00",
+    "time": "00:00",
     "amount": 15806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-27:event:8f07eb3d9619312c:1",
+    "id": "2026-11-27:event:1cb46ddb53404c2d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "8f07eb3d9619312c7c1a8f3df9dd86eca736f89a5ebe7e9d97940e8a60aed7ce"
+     "sha256": "1cb46ddb53404c2dddbc6d32dfc90a3255e66d6733e669c95931b7b7641366bb"
     },
     "type": "location",
-    "time": "21:00",
+    "time": "00:00",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-27:event:d88e6485fed5033b:1",
+    "id": "2026-11-27:event:51420a2e420d1390:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "d88e6485fed5033b3ae7c6386f8627114603c6639bbdbec4092625ce98ceab78"
+     "sha256": "51420a2e420d13901e50468a88cee8b4cb1151c0ed22fe1bac69c9e9639f0de8"
     },
     "type": "inventory",
-    "time": "21:00",
+    "time": "00:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-27:event:f02e15c1ef44451a:1",
+    "id": "2026-11-27:event:8632b0a47300db75:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "f02e15c1ef44451a2892c536043419d0c568b9afa5ad20c1273dc5a8dcd17197"
+     "sha256": "8632b0a47300db753b6d36fd2cb5b1e1b8310908e9211aa9c61d79cbd7821665"
     },
     "type": "inventory",
-    "time": "21:00",
+    "time": "00:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-27:event:dd54e626635284bf:1",
+    "id": "2026-11-27:event:9b51028434854af5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "dd54e626635284bfa27855a8244908af8f046d13e64b8d4b054dfe501ca43e3f"
+     "sha256": "9b51028434854af5c0d42b9cb64d4a0eef3fb0d363fda03555b71a1902172605"
     },
     "type": "inventory",
-    "time": "21:00",
+    "time": "00:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
