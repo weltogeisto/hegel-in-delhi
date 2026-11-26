@@ -236,7 +236,7 @@
     },
     {
       "id": "exits_course", "switch": "exits", "kind": "world", "again_days": 14,
-      "when": {"fired_before": ["iic_talk_day", "iic_talk_day2"], "spaced": true},
+      "when": {"fired_before": ["iic_talk_day", "iic_talk_day2"], "spaced": true, "after_dues": true},
       "variants": {
         "iic": {
           "needs": ["officer"],
@@ -292,7 +292,7 @@
     },
     {
       "id": "exits_essay_again", "switch": "exits", "kind": "world", "after": ["essay_fee"], "again_days": 14,
-      "when": {"flags_not": {"essay_paid": true}, "words": 3000, "spaced": true},
+      "when": {"flags_not": {"essay_paid": true}, "words": 3000, "spaced": true, "after_dues": true},
       "variants": {
         "home": {
           "needs": ["ramesh"],

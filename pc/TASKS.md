@@ -122,7 +122,10 @@ Declared in `pc/TRAINING-4-INSTRUMENT.md` ("The blind pairs, as they are read").
 ### W20 · the second family, on Welt's word; the PC seat prepares · the instrument's pairs with the form evened out · OPEN from 26 November
 As W19 in every step, with `pc/exports/voice4-instrument-20261124/packet-even/r1` to `r6`, ballots named `<family>-even-rN.jsonl`, on `codex/voice4-even-20261126`. Declared in `pc/TRAINING-4-INSTRUMENT.md` ("The pairs again, with the form evened out").
 
-### W15 · PC seat · the fast lane, night 3: the paid work and the money, off and on · OPEN for the night of Wednesday 25 November (`DECISIONS.md` 67, 68, 70)
+### W21 · PC seat · the fast lane, night 4: the paid work, waiting for the problem · OPEN for the night of Thursday 26 November (`DECISIONS.md` 71)
+Declared in `pc/FAST-LANE-NIGHT4.md` before any run. From the newest saved morning, `simulate --days 14`: seeds 1831 and 2718 with `HEGEL_EXITS` off and on, then 4242. Engine: main at the commit that holds `when.after_dues`. Push to `codex/fast-lane-night4-20261126` and post DONE on PR #1. If the cloud's read is clean, `HEGEL_EXITS` goes on for the Pi before Berlin's Monday 30 November.
+
+### W15 · PC seat · the fast lane, night 3: the paid work and the money, off and on · DONE, 26 November; read in `pc/FAST-LANE-NIGHT3.md` (`DECISIONS.md` 67, 68, 70)
 Declared in `pc/FAST-LANE-NIGHT3.md` before any run. From Day 57's saved morning, `simulate --days 14`: seeds 1831 and 2718, each with `HEGEL_EXITS` off and on, the two arms of a seed side by side; then seed 1831 once more with `HEGEL_EXITS` and `HEGEL_BORROWED_LOOKUP`; seed 4242 if the night allows. The engine is main at `27e90f6f` or later in the rehearsal's own checkout (it holds the three repairs of 25 November); nothing is merged into shadow. Push to `codex/fast-lane-night3-20261125` and post DONE on PR #1. The read is Claude's, by the rule declared there.
 
 ### W16 · PC seat · the day's papers, collected each evening · OPEN from 24 November

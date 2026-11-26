@@ -11,7 +11,7 @@ SESSION_WAIT = 30               # minutes a person waits for him at a standing e
 HOME_GIFT = (50, 5000)          # what a gift or payment to a person at home may come to
 CLEAR_DAYS = 3                  # a cheque paid in at the State Bank clears in this many days
 BANK = "the State Bank, Khan Market"
-EXIT_KEYS = ("running", "fired_before", "due_within", "plain_days", "piece_out", "out_days", "spaced")      # the `when` keys of HEGEL_EXITS
+EXIT_KEYS = ("running", "fired_before", "due_within", "plain_days", "piece_out", "out_days", "spaced", "after_dues")      # the `when` keys of HEGEL_EXITS
 DUES_DAYS, DUES_EVERY = 14, 3   # HEGEL_EXITS: the days ahead that the dues are counted for; the dues line is said at most every third day
 
 
@@ -426,6 +426,8 @@ class Economy:
         fired_before: any of these beats fired on an earlier day; due_within: {cost: days}, it falls due within that many days (not yet
         owed) and the fortnight's dues are more than his cash; plain_days: n, the record began early enough and the kitchen stood on the plain meal on each of the last n days."""
         d = t.date()
+        if key == "after_dues":                                     # he has been told, at waking, that the fortnight's dues exceed his cash
+            return bool(st.get("dues_said")) == bool(v)
         if key == "spaced":                                         # the public's offers come one a day, not all at once
             return st.get("public_on") != d.isoformat()
         if key == "out_days":                                       # {piece: n}: that piece of his went out at least n days ago
