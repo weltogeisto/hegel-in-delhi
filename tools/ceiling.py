@@ -270,6 +270,21 @@ def cmd_requests(folder, days, scratch=None):
     return manifest
 
 
+def cmd_rearm(folder, source, arm, template, out):
+    """Another mind on the same messages: every request of arm `source`, as arm `arm`, with these chat-template arguments and
+    no reasoning budget of Qwen's (the room it left in max_tokens stays). The messages are byte for byte the source arm's."""
+    folder, rows = Path(folder), []
+    for p in sorted(folder.glob("REQUESTS-ceiling-*.jsonl")):
+        for line in p.read_text(encoding="utf-8").splitlines():
+            r = json.loads(line) if line.strip() else None
+            if r and r["id"].split("|", 1)[0] == source:
+                params = {k: v for k, v in r["params"].items() if k != "reasoning_budget_tokens"}
+                rows.append(dict(r, id=f"{arm}|{r['id'].split('|', 1)[1]}", params=dict(params, template_kwargs=dict(template))))
+    data = "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in sorted(rows, key=lambda r: r["id"])).encode("utf-8")
+    Path(out).write_bytes(data)
+    return {"arm": arm, "from": source, "requests": len(rows), "sha256": hashlib.sha256(data).hexdigest(), "template_kwargs": template}
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -281,8 +296,15 @@ def main(argv=None):
     r = sub.add_parser("requests")
     r.add_argument("--folder", required=True)
     r.add_argument("--days", required=True)
+    m = sub.add_parser("rearm")
+    m.add_argument("--folder", required=True)
+    m.add_argument("--from", dest="source", required=True)
+    m.add_argument("--arm", required=True)
+    m.add_argument("--template", default="{}", help="chat-template arguments, as JSON")
+    m.add_argument("--out", required=True)
     a = ap.parse_args(argv)
-    res = cmd_candidates(a.days, a.out) if a.cmd == "candidates" else cmd_texts(a.folder) if a.cmd == "texts" else cmd_requests(a.folder, a.days)
+    res = (cmd_rearm(a.folder, a.source, a.arm, json.loads(a.template), a.out) if a.cmd == "rearm" else
+           cmd_candidates(a.days, a.out) if a.cmd == "candidates" else cmd_texts(a.folder) if a.cmd == "texts" else cmd_requests(a.folder, a.days))
     print(json.dumps({k: v for k, v in res.items() if k != "switches"}, ensure_ascii=False, indent=1))
     return 0
 

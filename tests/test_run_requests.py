@@ -63,6 +63,15 @@ class RunRequestsTest(unittest.TestCase):
         self.assertNotIn("response_format", second)
         self.assertIs(json.loads((self.job / "PLAN.json").read_text())["thinking"], True)
 
+    def test_another_models_template_arguments_ride_along(self):
+        row = {"id": "IA|b01", "messages": [{"role": "user", "content": "x"}], "params": {"seed": 1, "temperature": 0.7, "max_tokens": 100,
+               "cache_prompt": False, "template_kwargs": {"reasoning_effort": "none"}}}
+        self.assertEqual(run_requests.payload(row)["chat_template_kwargs"], {"enable_thinking": False, "reasoning_effort": "none"})
+        bad = Path(self.td.name) / "bad.jsonl"
+        bad.write_text(json.dumps(dict(row, params=dict(row["params"], template_kwargs="none"))) + "\n")
+        with self.assertRaises(ValueError):
+            run_requests.load(bad)
+
     def test_a_budget_must_leave_room_for_the_answer(self):
         bad = {"id": "x", "messages": [{"role": "user", "content": "one"}], "params": {"max_tokens": 2048, "reasoning_budget_tokens": 2048}}
         self.req.write_text(json.dumps(bad) + "\n")

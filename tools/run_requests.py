@@ -33,7 +33,7 @@ sys.path.insert(0, str(REPO))
 from tools.recorded_llama import LatencyGuard, RecordedClient, TransportError, UnknownRequest, freeze_plan, json_bytes  # noqa: E402
 
 KEYS = ("seed", "temperature", "max_tokens", "cache_prompt")
-MORE = ("reasoning_budget_tokens",)          # optional: thinking on for this call, with this budget
+MORE = ("reasoning_budget_tokens", "template_kwargs")   # optional: thinking on with this budget; more arguments for the chat template (another model's, such as reasoning_effort)
 
 
 def load(path):
@@ -48,6 +48,8 @@ def load(path):
             raise ValueError(f"request {r.get('id')} needs messages and params of {', '.join(KEYS)}")
         if "schema" in r and not isinstance(r["schema"], dict):
             raise ValueError(f"request {r.get('id')}: schema must be a JSON schema")
+        if "template_kwargs" in p and not isinstance(p["template_kwargs"], dict):
+            raise ValueError(f"request {r.get('id')}: template_kwargs must be an object")
         budget = p.get("reasoning_budget_tokens")
         if budget is not None and (not isinstance(budget, int) or not 0 < budget <= 4096 or p["max_tokens"] <= budget):
             raise ValueError(f"request {r.get('id')}: reasoning_budget_tokens must be 1 to 4096 and less than max_tokens")
@@ -57,7 +59,7 @@ def load(path):
 def payload(row, model="qwen"):
     p = row.get("params", row.get("settings"))
     out = {"model": model, "messages": row["messages"], **{k: p[k] for k in KEYS if k in p},
-           "chat_template_kwargs": {"enable_thinking": bool(p.get("reasoning_budget_tokens"))}}
+           "chat_template_kwargs": {"enable_thinking": bool(p.get("reasoning_budget_tokens")), **p.get("template_kwargs", {})}}
     if p.get("reasoning_budget_tokens"):
         out["reasoning_budget_tokens"] = p["reasoning_budget_tokens"]
     if row.get("schema"):
