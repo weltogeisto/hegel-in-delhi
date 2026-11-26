@@ -397,6 +397,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "19:30",
+   "to": "20:15",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -974,6 +981,37 @@
     }
    ],
    "t": "19:00",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The haze remains a thick, brown shroud outside, making the air feel heavy and oppressive. Ramesh serves the vegetable pulao and raita with efficient silence, a small comfort in this stagnant atmosphere. I will eat, for the body requires its sustenance even when the spirit is weighed down by the query of my identity and the weight of the day.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…"
+    }
+   ],
+   "t": "19:30",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. The meal is sufficient.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "19:30",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Aapka khana khatam, main saaf kar raha hoon. Aap aaram kijiye.",
+   "t": "19:30",
    "place": "home"
   }
  ],
@@ -2195,6 +2233,73 @@
      "text": "Nach dem Geiste der Sitten unserer Zeit ist ohnehin die unmittelbare Zucht nicht, etwa wie bei den Spartanern, eine öffentliche Sache, eine Veranstaltung des Staats, sondern Geschäft und Pflicht der Eltern; — außer in Waisenhäusern oder Seminarien, überhäupt in solchen Anstalten, welche die ganze Existenz eines jungen Menschen umfassen."
     }
    ]
+  },
+  {
+   "t": "19:30",
+   "end": "20:15",
+   "event": "Ramesh serves dinner before he goes home: vegetable pulao and raita.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The haze remains a thick, brown shroud outside, making the air feel heavy and oppressive. Ramesh serves the vegetable pulao and raita with efficient silence, a small comfort in this stagnant atmosphere. I will eat, for the body requires its sustenance even when the spirit is weighed down by the query of my identity and the weight of the day.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 45,
+    "says": "Thank you, Ramesh. The meal is sufficient.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 19 °C, a brown haze. Air quality index: 305.",
+    "Ramesh serves dinner before he goes home: vegetable pulao and raita."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "meal"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Aapka khana khatam, main saaf kar raha hoon. Aap aaram kijiye.",
+    "does": "Ramesh picks up the empty plates and walks toward the kitchen."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 10.7,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "id": "baillie-1:223"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "id": "phaen:385"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "text": "Through work and labour, however, this consciousness of the bondsman comes to itself. In the moment which corresponds to desire in the case of the master's consciousness, the aspect of the non-essential relation to the thing seemed to fall to the lot of the servant, since the thing there retained its independence."
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "text": "Nicht der Unterschied, welcher sich als bestimmtes Ding, oder als Bewußtsein eines bestimmten natürlichen Daseins, als ein Gefühl, oder als Begierde und Zweck für dieselbe, ob er durch das eigene oder durch ein fremdes Bewußtsein gesetzt sei, hat mehr Wesenheit, sondern allein der Unterschied, der ein gedachter, oder unmittelbar nicht von Mir unterschieden ist."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2217,7 +2322,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-27T19:30+05:30",
+  "until": "2026-11-27T20:15+05:30",
   "asleep": false,
   "imprest": 15806,
   "wearing": "kurta",
@@ -2312,7 +2417,8 @@
    "breakfast": true,
    "bad_air": true,
    "lunch": true,
-   "tea": true
+   "tea": true,
+   "dinner": true
   },
   "account": {
    "advance": 15000,
@@ -2619,7 +2725,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-27T18:00+05:30",
+  "last_meal": "2026-11-27T19:30+05:30",
   "snacks": 0,
   "works": [
    {
@@ -2745,7 +2851,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-27",
-  "source_sha256": "b4ea6b1ad9b568525d530bf3913c607e790314cf288c6914287925424ced5f64",
+  "source_sha256": "360edf3d2f5f7add882b98433343c72c9245916b91a2accf869b72ae1ca57d50",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3249,6 +3355,36 @@
     "type": "world",
     "text": "Ramesh puts a plate together: an omelette, toast and a pot of tea.",
     "time": "18:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:statement:c0aa008a3a0e0431:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 55,
+     "sha256": "c0aa008a3a0e0431a5e898fdefd540479c50553fc1c9cef50984aa759c9c82ed"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh and Shri G. Hegde",
+    "words": "Thank you, Ramesh. The meal is sufficient.",
+    "verified": false,
+    "time": "19:30",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:statement:8bf56d878fbcf8d5:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 56,
+     "sha256": "8bf56d878fbcf8d5af496269514363009912dbb42bbaf818b1e14cdf2cf10b8e"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Aapka khana khatam, main saaf kar raha hoon. Aap aaram kijiye.",
+    "verified": false,
+    "time": "19:30",
     "place": "home"
    },
    {
@@ -4089,68 +4225,114 @@
     "text": "Nothing in particular happens. The evening goes on."
    },
    {
-    "id": "2026-11-27:event:11f11f4cafeea7a2:1",
+    "id": "2026-11-27:event:60327751f7938de9:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 19,
+     "sha256": "60327751f7938de9bf1a8dd7e9480f877662b0f20511403437bcf788cd2bc315"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "19:30",
+    "end": "20:15",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:event:ae6412becef43899:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      19,
+      0
+     ],
+     "sha256": "ae6412becef4389922b91cb2af021c305ef59786c2c00eac4793734d2893a58c"
+    },
+    "type": "observation",
+    "time": "19:30",
+    "place": "home",
+    "text": "Weather: 19 °C, a brown haze. Air quality index: 305."
+   },
+   {
+    "id": "2026-11-27:event:cdd8644dc719be08:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      19,
+      1
+     ],
+     "sha256": "cdd8644dc719be084e036748d193e096a3dc594e24fffd2f898db0307662ce2b"
+    },
+    "type": "observation",
+    "time": "19:30",
+    "place": "home",
+    "text": "Ramesh serves dinner before he goes home: vegetable pulao and raita."
+   },
+   {
+    "id": "2026-11-27:event:78501c00e2a06939:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "11f11f4cafeea7a2b723b12811a2026cd00bafe2bf96fda195f9afafbb87a883"
+     "sha256": "78501c00e2a06939a785def167ff7716d13e31946667adc389735b16b63c7eff"
     },
     "type": "cash",
-    "time": "19:30",
+    "time": "20:15",
     "amount": 15806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-27:event:a39afc6b7f13f097:1",
+    "id": "2026-11-27:event:ea585ef2b422122f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "a39afc6b7f13f097e622308ce68f03fad41a31aaaf245b683e630c31e2c3b548"
+     "sha256": "ea585ef2b422122fda770b5c0664ae5725e8322937f9b441b022f8e0a5b56997"
     },
     "type": "location",
-    "time": "19:30",
+    "time": "20:15",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-27:event:555dfee5ac57e395:1",
+    "id": "2026-11-27:event:228e8075c28d1213:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "555dfee5ac57e39587a619af169291302d635fbffe389230622d3172c5c302b9"
+     "sha256": "228e8075c28d1213c3f0fe5a6466dd3bd51271ed28147e730b5206a7c7170bc6"
     },
     "type": "inventory",
-    "time": "19:30",
+    "time": "20:15",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-27:event:6efbdb8ad6684e6b:1",
+    "id": "2026-11-27:event:2c6066285165c497:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "6efbdb8ad6684e6b668735af4ca4f8bd7136319d138c94e3144ed93542299bed"
+     "sha256": "2c6066285165c497734af79123cc0c9842c098213eac87b36c8d6a5d14d9e573"
     },
     "type": "inventory",
-    "time": "19:30",
+    "time": "20:15",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-27:event:171f322c105e6e0d:1",
+    "id": "2026-11-27:event:7db1b4df328cb5ee:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "171f322c105e6e0d20a8f1f685d344dc8b4b2a31bbad2289928dc0af55e29e47"
+     "sha256": "7db1b4df328cb5ee368f2f0c9984eb11e283695bf856ab1aec8b9a674f5cfa69"
     },
     "type": "inventory",
-    "time": "19:30",
+    "time": "20:15",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
