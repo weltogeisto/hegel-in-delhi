@@ -278,6 +278,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "10:12",
+   "to": "10:27",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -387,6 +394,37 @@
    "to": "Hegel",
    "text": "Namaste, sir. I’ll take a minute to finish this paratha before we start the interrogation. Ramesh, keep the tea coming, but don’t rush the man.",
    "t": "09:42",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Hegde’s humor is a relief, though the haze outside remains a philosophical argument made visible. I will not rush the man, nor the paratha, but I will not let the file wait indefinitely. The state’s error is public, but the man’s appetite is private and must be respected before the public matter proceeds.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70 Addition"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato"
+    }
+   ],
+   "t": "10:12",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Namaste, Shri Hegde. Take your time with the paratha. Ramesh, please ensure the tea is hot, but do not let the steam obscure the documents on the table. We have much to clarify regarding the allotment, and I prefer to do it while the bread is still warm and the mind is clear.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "10:12",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Ji, sir. The steam is just steam, but the confusion is real. I will finish this bite, and then we can see why the Directorate thinks a man from Bengaluru fits in a bungalow meant for someone else.",
+   "t": "10:12",
    "place": "home"
   }
  ],
@@ -533,6 +571,72 @@
      "text": "Xenophon says: \" Who does not stand in need of Athens? Is she not indispensable to all lands that are rich in corn and herds, in oil and wine — to all who wish to traffic either in money or in mind? — to craftsmen, sophists, philosophers, poets, and all who desire what is worth seeing or hearing in sacred and public matters?\""
     }
    ]
+  },
+  {
+   "t": "10:12",
+   "end": "10:27",
+   "event": "Shri G. Hegde says: “Namaste, sir. I’ll take a minute to finish this paratha before we start the interrogation. Ramesh, keep the tea coming, but don’t rush the man.”",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Hegde’s humor is a relief, though the haze outside remains a philosophical argument made visible. I will not rush the man, nor the paratha, but I will not let the file wait indefinitely. The state’s error is public, but the man’s appetite is private and must be respected before the public matter proceeds.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "Namaste, Shri Hegde. Take your time with the paratha. Ramesh, please ensure the tea is hot, but do not let the steam obscure the documents on the table. We have much to clarify regarding the allotment, and I prefer to do it while the bread is still warm and the mind is clear.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 302."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Ji, sir. The steam is just steam, but the confusion is real. I will finish this bite, and then we can see why the Directorate thinks a man from Bengaluru fits in a bungalow meant for someone else.",
+    "does": "He folds the last corner of the paratha and wipes his mouth with the back of his hand."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70 Addition",
+     "id": "dyde-right:205"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "id": "haldane-2:56"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70 Addition",
+     "text": "The particular person is really a subordinate, who must devote his life to the service of the ethical fabric; when the state demands his life, he must yield it up. But should the man take his own life? Suicide may at first glance be looked upon as bravery, although it be the poor bravery of tailors and maid-servants."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "text": "As to this demand, it may seem a piece of great presumption to say that philosophers should have the government of states accorded to them, for the territory or ground of history is different from that of Philosophy. In history, the Idea, as the absolute power, has certainly to realize itself; in other words, God rules in the world."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -555,7 +659,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-27T10:12+05:30",
+  "until": "2026-11-27T10:27+05:30",
   "asleep": false,
   "imprest": 14806,
   "wearing": "kurta",
@@ -1078,7 +1182,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-27",
-  "source_sha256": "560e0747c9c5adcbb3a85ccb9b96cbf0ec22372ca989748b75d9fbf781229a0c",
+  "source_sha256": "c391d56a0eff8c34ab09a5540ba846e11e8269d8941c318894c8864cdb7d2174",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1181,6 +1285,36 @@
     "words": "Namaste, sir. I’ll take a minute to finish this paratha before we start the interrogation. Ramesh, keep the tea coming, but don’t rush the man.",
     "verified": false,
     "time": "09:42",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:statement:360d01c2a176a1e2:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 11,
+     "sha256": "360d01c2a176a1e2973f231bc38fc183f596ef253116412649e7f4d93722f938"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh and Shri G. Hegde",
+    "words": "Namaste, Shri Hegde. Take your time with the paratha. Ramesh, please ensure the tea is hot, but do not let the steam obscure the documents on the table. We have much to clarify regarding the allotment, and I prefer to do it while the bread is still warm and the mind is clear.",
+    "verified": false,
+    "time": "10:12",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:statement:f947f22c9fc0adb7:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 12,
+     "sha256": "f947f22c9fc0adb7286a7facd4b2e8422ff47bf5c270f8bbfe419b329745290c"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "Ji, sir. The steam is just steam, but the confusion is real. I will finish this bite, and then we can see why the Directorate thinks a man from Bengaluru fits in a bungalow meant for someone else.",
+    "verified": false,
+    "time": "10:12",
     "place": "home"
    },
    {
@@ -1415,68 +1549,98 @@
     "text": "Shri G. Hegde is here."
    },
    {
-    "id": "2026-11-27:event:5844785c8ff89ca7:1",
+    "id": "2026-11-27:event:713138b1eb8a5831:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 2,
+     "sha256": "713138b1eb8a58314b0841f55abdbe410298bd76b3ff39d27913d4cdf0634103"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "10:12",
+    "end": "10:27",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:event:a9c6191ce3157fd6:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      2,
+      0
+     ],
+     "sha256": "a9c6191ce3157fd6532a7d5b8947a42430460e23721a1f12eaa9d9a2361d0453"
+    },
+    "type": "observation",
+    "time": "10:12",
+    "place": "home",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 302."
+   },
+   {
+    "id": "2026-11-27:event:ec9169085bdea303:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "5844785c8ff89ca70a1c76f641e2159ba17a5b762068df95a99910a68cd51f73"
+     "sha256": "ec9169085bdea3030f4156abff3b6e8c5e4c1fc6f21eb067d651823cee98fde1"
     },
     "type": "cash",
-    "time": "10:12",
+    "time": "10:27",
     "amount": 14806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-27:event:a21e00fce758eed6:1",
+    "id": "2026-11-27:event:a85f86ed8c57b3d0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "a21e00fce758eed607f9cb7cf3c90c5404eceff525e8fa652d14f374db320378"
+     "sha256": "a85f86ed8c57b3d03bd7e07cdd54878ae12073e01111238cb003b054cbb68885"
     },
     "type": "location",
-    "time": "10:12",
+    "time": "10:27",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-27:event:004bef360a3152a4:1",
+    "id": "2026-11-27:event:e2080bff2d806462:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "004bef360a3152a4e34d9777ed09c0d1eb82277eadbafc24a64d5f05efff5a93"
+     "sha256": "e2080bff2d8064622cb62ef5302e82d5310f1b892181472130175c4e27d6ee2e"
     },
     "type": "inventory",
-    "time": "10:12",
+    "time": "10:27",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-27:event:905d804fd244db9e:1",
+    "id": "2026-11-27:event:130db27257d191eb:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "905d804fd244db9eaa1bfae8e311a7cfb409b8dc0106e3608c984ae77399f4af"
+     "sha256": "130db27257d191ebd8d082a1ea6409277dd1044aff5a7b75524b5cfa4bad42a8"
     },
     "type": "inventory",
-    "time": "10:12",
+    "time": "10:27",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-27:event:fe3c7fadf9dbc47d:1",
+    "id": "2026-11-27:event:60759902b194a659:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "fe3c7fadf9dbc47d8f0a352843f72c6f50c3c6be7d0102c15b491839575c3863"
+     "sha256": "60759902b194a659e59c8f0a3839e91f2423018e11949e3fb46ce63f791f82ad"
     },
     "type": "inventory",
-    "time": "10:12",
+    "time": "10:27",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
