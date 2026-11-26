@@ -334,6 +334,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "14:42",
+   "to": "15:42",
+   "mode": "inside",
+   "at": "home",
+   "now": "Reading at home."
   }
  ],
  "entries": [
@@ -683,6 +690,25 @@
    "to": "Hegel",
    "text": "Yes sir. You have the room. I’ll just check the windows are sealed tight before the dust settles further.",
    "t": "13:57",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s diligence is a small comfort in this suffocating air. The query regarding Shri Hegde remains a dead end, a bureaucratic impasse that mirrors the stagnation of the spirit here. I must turn to the task at hand: preparing the German lesson for Ananya at five. The haze outside makes the interior the only viable reality.",
+   "sensitive": true,
+   "why": "stagnation",
+   "topic": "the ranking of peoples",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Revealed Religion"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Certain Attempts in Philosophy, Cardanus"
+    }
+   ],
+   "t": "14:42",
    "place": "home"
   }
  ],
@@ -1350,6 +1376,66 @@
      "text": "Nicht der Unterschied, welcher sich als bestimmtes Ding, oder als Bewußtsein eines bestimmten natürlichen Daseins, als ein Gefühl, oder als Begierde und Zweck für dieselbe, ob er durch das eigene oder durch ein fremdes Bewußtsein gesetzt sei, hat mehr Wesenheit, sondern allein der Unterschied, der ein gedachter, oder unmittelbar nicht von Mir unterschieden ist."
     }
    ]
+  },
+  {
+   "t": "14:42",
+   "end": "15:42",
+   "event": "Ramesh says: “Yes sir. You have the room. I’ll just check the windows are sealed tight before the dust settles further.” Ramesh nods once, turns, and quietly begins wiping down the window sills with a damp cloth.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh’s diligence is a small comfort in this suffocating air. The query regarding Shri Hegde remains a dead end, a bureaucratic impasse that mirrors the stagnation of the spirit here. I must turn to the task at hand: preparing the German lesson for Ananya at five. The haze outside makes the interior the only viable reality.",
+    "action": "read",
+    "place": "home",
+    "minutes": 60,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 24 °C, a brown haze. Air quality index: 300."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Revealed Religion",
+     "id": "baillie-2:619"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Certain Attempts in Philosophy, Cardanus",
+     "id": "haldane-3:294"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Revealed Religion",
+     "text": "Our action, therefore, when we enjoy them is not that of worship, through which our conscious life might attaia its complete truth and be satisfied to the full: our action is external; it consists in wiping off some drop of rain or speck of dust from these fruits, and in place of the inner elements composing the reality of the ethical life…"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Certain Attempts in Philosophy, Cardanus",
+     "text": "The same contradictions were to be seen in his outward demeanour, which was sometimes quiet and decorous, while at other times he behaved as if he were crazy and demented, and that without any external provocation whatever, and in matters the most indifferent. Sometimes he put on decent clothes and made himself neat and trim, at other times he went in rags."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1372,7 +1458,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-27T14:42+05:30",
+  "until": "2026-11-27T15:42+05:30",
   "asleep": false,
   "imprest": 14806,
   "wearing": "kurta",
@@ -1896,7 +1982,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-27",
-  "source_sha256": "93fbe0807ddae7a14bab13a2cda1aae8e7ffe6b22a36293eeb54e706c61cae6a",
+  "source_sha256": "c801aee42ff9ac3c977e5b17be78fde0f6671748d52438f9bc4863faa0e2a0a3",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2699,68 +2785,98 @@
     "text": "Ramesh has laid out lunch: rajma, rice and a cucumber raita."
    },
    {
-    "id": "2026-11-27:event:20971295a1cfa43f:1",
+    "id": "2026-11-27:event:ce81e81080c07c54:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 10,
+     "sha256": "ce81e81080c07c54c62ed481590215c79d2d5365c606bca0cf8ded9a6b0a5cb3"
+    },
+    "type": "action",
+    "action": "read",
+    "time": "14:42",
+    "end": "15:42",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:event:0a2e837287fedb39:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      10,
+      0
+     ],
+     "sha256": "0a2e837287fedb39201b81dfa85efedcad99b91eb2ec609d7306565ab75a057d"
+    },
+    "type": "observation",
+    "time": "14:42",
+    "place": "home",
+    "text": "Weather: 24 °C, a brown haze. Air quality index: 300."
+   },
+   {
+    "id": "2026-11-27:event:56bebef6181dc4cd:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "20971295a1cfa43f6da63f07e9adfbf1196d6b094f189120f474cb69905992bf"
+     "sha256": "56bebef6181dc4cd7513264d04cfbf9e2c9812876ac1c295fa0671e774164520"
     },
     "type": "cash",
-    "time": "14:42",
+    "time": "15:42",
     "amount": 14806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-27:event:a35cbab97dfada94:1",
+    "id": "2026-11-27:event:a67cc527b0162a7f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "a35cbab97dfada945d497b099824824e36e44a871948467cd8bf21fcb1698330"
+     "sha256": "a67cc527b0162a7f26ee141bf613c6978914bfe77dad631bcbf8149d59b3ecd0"
     },
     "type": "location",
-    "time": "14:42",
+    "time": "15:42",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-27:event:5d44033d121c63b1:1",
+    "id": "2026-11-27:event:7b6c9ad585ed5323:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "5d44033d121c63b1c98d242ab6b0cb7b5063ed840ce0b5e4ef4069002ef717e6"
+     "sha256": "7b6c9ad585ed5323b4bd70535fdb14c584a1fccc48de17da81ff66efa09dced9"
     },
     "type": "inventory",
-    "time": "14:42",
+    "time": "15:42",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-27:event:2c43b6af55d9f4cc:1",
+    "id": "2026-11-27:event:f125e91070f04db1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "2c43b6af55d9f4cce32a9cbbf1b0eb35e3702830283c8e886ff5b875a7b9f915"
+     "sha256": "f125e91070f04db144e7fa385104590e56961515da2613b425027680a8eb2491"
     },
     "type": "inventory",
-    "time": "14:42",
+    "time": "15:42",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-27:event:d232e201ba0f6d2f:1",
+    "id": "2026-11-27:event:b8c324b564614b19:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "d232e201ba0f6d2f04c8b9c93d1dc2d33951fb710b5bf24a701d82ac3598226e"
+     "sha256": "b8c324b564614b1992671f2df8ae2d98617cbac351a3e647109b243bab2058df"
     },
     "type": "inventory",
-    "time": "14:42",
+    "time": "15:42",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
