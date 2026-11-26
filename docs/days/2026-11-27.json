@@ -383,6 +383,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "18:45",
+   "to": "19:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -928,6 +935,22 @@
    "k": "world",
    "text": "Ramesh puts a plate together: an omelette, toast and a pot of tea.",
    "t": "18:00",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s efficiency is a small mercy. The air is thick enough to chew, so I shall not risk the walk. I will wait for the meal, then retreat to the desk. The question of identity remains a knot I must untangle, but not with a full stomach and a heavy head.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    }
+   ],
+   "t": "18:45",
    "place": "home"
   }
  ],
@@ -2029,6 +2052,66 @@
      "text": "The more abstract collective mass of labour, which is also for particular needs but due to a general demand. This is manufacture, (iii.) Business of exchange, by which one special means of subsistence is given for others, chiefly through money, the general medium of exchange, in which is realized the abstract value cif all merchandise. This is commerce."
     }
    ]
+  },
+  {
+   "t": "18:45",
+   "end": "19:00",
+   "event": "Ramesh says: “Yes sir, right away. I'll have it ready in ten minutes.” He turns and walks towards the kitchen.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh’s efficiency is a small mercy. The air is thick enough to chew, so I shall not risk the walk. I will wait for the meal, then retreat to the desk. The question of identity remains a knot I must untangle, but not with a full stomach and a heavy head.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 304."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 8.7,
+    "draws": {
+     "n": 2,
+     "refused": 1,
+     "echo": 0,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2051,7 +2134,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-27T18:45+05:30",
+  "until": "2026-11-27T19:00+05:30",
   "asleep": false,
   "imprest": 15806,
   "wearing": "kurta",
@@ -2579,7 +2662,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-27",
-  "source_sha256": "89260202f500eb4153796ac6b1ce2a62a0acd706c618a5754b188bb45b910b69",
+  "source_sha256": "dba00ac821d406ecf130a2409688bf67c0dfe35f859f557f1d869108e1e71aa7",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3847,68 +3930,98 @@
     "text": "Ananya pays you ₹1,000 in cash."
    },
    {
-    "id": "2026-11-27:event:0521dd7be2d6e752:1",
+    "id": "2026-11-27:event:8319f2b6a31d43d7:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 17,
+     "sha256": "8319f2b6a31d43d749766b460a4c27a5d161653a0e57f3de89eab00c2b01e2ce"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "18:45",
+    "end": "19:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:event:f63d2e70bd16ad65:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      17,
+      0
+     ],
+     "sha256": "f63d2e70bd16ad655b6819e8d07bfacb0d89c9d9d36d2c9ecb3af113faa9f0f9"
+    },
+    "type": "observation",
+    "time": "18:45",
+    "place": "home",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 304."
+   },
+   {
+    "id": "2026-11-27:event:a866f13379db082a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "0521dd7be2d6e7524ab512ba9e13e484e33969bc84948e9deccf2d46abc306a6"
+     "sha256": "a866f13379db082a0db909603c4ed28a93d0518c90ee2ba711e5590be0ea446f"
     },
     "type": "cash",
-    "time": "18:45",
+    "time": "19:00",
     "amount": 15806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-27:event:fa73ddaa4c1ae698:1",
+    "id": "2026-11-27:event:53d90663d74c1522:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "fa73ddaa4c1ae6982393a6c65d2b59afe45844c7b8bec964394c06d001897d4e"
+     "sha256": "53d90663d74c152297d3cf20efb9c187d8d629c17bfc9cfab6adee62eb568b78"
     },
     "type": "location",
-    "time": "18:45",
+    "time": "19:00",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-27:event:9b176b17687e3a32:1",
+    "id": "2026-11-27:event:12829e3f2de0c602:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "9b176b17687e3a323268d8b41e93eaaab50892d92800b553f61748f97be866f6"
+     "sha256": "12829e3f2de0c602bd17b500641fcc7033d39b1c756ba09a7e2f453fee77d615"
     },
     "type": "inventory",
-    "time": "18:45",
+    "time": "19:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-27:event:4782c127dd498d18:1",
+    "id": "2026-11-27:event:0a17b688bf31b8e4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "4782c127dd498d18e28dd968fc35f410d1805147e976f33f904047b7bb4b8452"
+     "sha256": "0a17b688bf31b8e4ed0cbf6d40f8e5c0058caa8d6f7d7fdc6996864d37d26810"
     },
     "type": "inventory",
-    "time": "18:45",
+    "time": "19:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-27:event:25bee8528b1de9d6:1",
+    "id": "2026-11-27:event:b3c91631d0c7d3b8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "25bee8528b1de9d678a237b4095e5319233a8fd416f0c875d6774e9249179d20"
+     "sha256": "b3c91631d0c7d3b879585e86412ca7499206b7139cc145c4d1d9d9c07ad67b98"
     },
     "type": "inventory",
-    "time": "18:45",
+    "time": "19:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
