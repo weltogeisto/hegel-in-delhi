@@ -271,6 +271,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "09:42",
+   "to": "10:12",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -350,6 +357,37 @@
    "text": "Sir, the file is already on the verandah. I left it there before I came in. You can take it up whenever you are ready.",
    "t": "09:12",
    "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The file is an obstacle, but Hegde is the key, and the paratha is the fuel. I cannot argue with the state while my stomach growls, so I must eat first. The presence of the man who should be me is a contradiction that demands immediate, polite attention before I can even look at the papers.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Peloponnesian War"
+    }
+   ],
+   "t": "09:42",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Shri Hegde, you are here. Please, sit. Ramesh, bring us tea. We must speak, and then I must look at this file.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "09:42",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Namaste, sir. I’ll take a minute to finish this paratha before we start the interrogation. Ramesh, keep the tea coming, but don’t rush the man.",
+   "t": "09:42",
+   "place": "home"
   }
  ],
  "steps": [
@@ -423,6 +461,78 @@
      "text": "The civic community contains three elements: A. The recasting of want, and the satisfaction of the individual through his work, through the work of all others, and through the satisfaction of their wants. This is a system of wants. B. Actualization of the general freedom required for this, i.e., the protection of property by the administration of justice."
     }
    ]
+  },
+  {
+   "t": "09:42",
+   "end": "10:12",
+   "event": "Ramesh says: “Sir, the file is already on the verandah. I left it there before I came in. You can take it up whenever you are ready.” Ramesh adjusts the stack of papers on the verandah railing. Ramesh has laid out breakfast: aloo parathas, curd and pickle. The air is very poor today: the index stands at 301. Shri G. Hegde is here.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The file is an obstacle, but Hegde is the key, and the paratha is the fuel. I cannot argue with the state while my stomach growls, so I must eat first. The presence of the man who should be me is a contradiction that demands immediate, polite attention before I can even look at the papers.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": "Shri Hegde, you are here. Please, sit. Ramesh, bring us tea. We must speak, and then I must look at this file.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, a brown haze. Air quality index: 301.",
+    "Ramesh has laid out breakfast: aloo parathas, curd and pickle.",
+    "The air is very poor today: the index stands at 301.",
+    "Shri G. Hegde is here."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply",
+    "meal",
+    "air",
+    "here"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Namaste, sir. I’ll take a minute to finish this paratha before we start the interrogation. Ramesh, keep the tea coming, but don’t rush the man.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Peloponnesian War",
+     "id": "sibree-history:835"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Greek World, The Peloponnesian War",
+     "text": "Xenophon says: \" Who does not stand in need of Athens? Is she not indispensable to all lands that are rich in corn and herds, in oil and wine — to all who wish to traffic either in money or in mind? — to craftsmen, sophists, philosophers, poets, and all who desire what is worth seeing or hearing in sacred and public matters?\""
+    }
+   ]
   }
  ],
  "funnel": {
@@ -445,7 +555,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-27T09:42+05:30",
+  "until": "2026-11-27T10:12+05:30",
   "asleep": false,
   "imprest": 14806,
   "wearing": "kurta",
@@ -531,9 +641,12 @@
    "woke": "09:12",
    "seen": {
     "home": [
+     "hegde",
      "ramesh"
     ]
-   }
+   },
+   "breakfast": true,
+   "bad_air": true
   },
   "account": {
    "advance": 15000,
@@ -812,7 +925,8 @@
     "2026-11-22",
     "2026-11-24",
     "2026-11-25",
-    "2026-11-26"
+    "2026-11-26",
+    "2026-11-27"
    ],
    "kapoor": [
     "2026-10-28",
@@ -839,7 +953,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-27T09:12+05:30",
+  "last_meal": "2026-11-27T09:42+05:30",
   "snacks": 0,
   "works": [
    {
@@ -964,7 +1078,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-27",
-  "source_sha256": "6588d40d01e01346f11589552fa28c2ae44dcbd9ad3162c241fe4239c2100f68",
+  "source_sha256": "560e0747c9c5adcbb3a85ccb9b96cbf0ec22372ca989748b75d9fbf781229a0c",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1037,6 +1151,36 @@
     "words": "Sir, the file is already on the verandah. I left it there before I came in. You can take it up whenever you are ready.",
     "verified": false,
     "time": "09:12",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:statement:f215177459f2c88c:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 8,
+     "sha256": "f215177459f2c88c8c5e99f5aad86bc4137b194f40e125091081b8cc7337b452"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh and Shri G. Hegde",
+    "words": "Shri Hegde, you are here. Please, sit. Ramesh, bring us tea. We must speak, and then I must look at this file.",
+    "verified": false,
+    "time": "09:42",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:statement:b37d221469efa398:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 9,
+     "sha256": "b37d221469efa39805c897b78234e84a6ce1750bf47aeeeb750753f1c6d03b0d"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "Namaste, sir. I’ll take a minute to finish this paratha before we start the interrogation. Ramesh, keep the tea coming, but don’t rush the man.",
+    "verified": false,
+    "time": "09:42",
     "place": "home"
    },
    {
@@ -1193,68 +1337,146 @@
     "text": "Ramesh is here."
    },
    {
-    "id": "2026-11-27:event:2e7410b259c64278:1",
+    "id": "2026-11-27:event:01f4e2ce80e6a969:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 1,
+     "sha256": "01f4e2ce80e6a96946f9a470a0457e8cd9ac2ddfe10fe7e16cce2a05984671cc"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "09:42",
+    "end": "10:12",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:event:12d128518d6a025b:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      1,
+      0
+     ],
+     "sha256": "12d128518d6a025b57aa4335666859fb952237f38d251febdd4f871fcb08a48e"
+    },
+    "type": "observation",
+    "time": "09:42",
+    "place": "home",
+    "text": "Weather: 18 °C, a brown haze. Air quality index: 301."
+   },
+   {
+    "id": "2026-11-27:event:a62119608a7735bc:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      1,
+      1
+     ],
+     "sha256": "a62119608a7735bc4ad71f07cec85552d003c8537cfc4558ed97c6f0ed8131ae"
+    },
+    "type": "observation",
+    "time": "09:42",
+    "place": "home",
+    "text": "Ramesh has laid out breakfast: aloo parathas, curd and pickle."
+   },
+   {
+    "id": "2026-11-27:event:2f9725954452ba8d:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      1,
+      2
+     ],
+     "sha256": "2f9725954452ba8d0ed0e4fd7934f5fbeba48cffcb9d93ae21b137f3bfe82b3e"
+    },
+    "type": "observation",
+    "time": "09:42",
+    "place": "home",
+    "text": "The air is very poor today: the index stands at 301."
+   },
+   {
+    "id": "2026-11-27:event:62bb1c36d0c7c817:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      1,
+      3
+     ],
+     "sha256": "62bb1c36d0c7c81705f4b6b26667224595edeaced7771eb5f38e8f57651b3a25"
+    },
+    "type": "observation",
+    "time": "09:42",
+    "place": "home",
+    "text": "Shri G. Hegde is here."
+   },
+   {
+    "id": "2026-11-27:event:5844785c8ff89ca7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "2e7410b259c64278ae862809b3c7da2e4935a2bdb2a130b475b6a3d694188af5"
+     "sha256": "5844785c8ff89ca70a1c76f641e2159ba17a5b762068df95a99910a68cd51f73"
     },
     "type": "cash",
-    "time": "09:42",
+    "time": "10:12",
     "amount": 14806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-27:event:ec9e29a9713eeb69:1",
+    "id": "2026-11-27:event:a21e00fce758eed6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "ec9e29a9713eeb69c75dee9b257d44e338f39b6d94571cc81047fdbece3f8cf0"
+     "sha256": "a21e00fce758eed607f9cb7cf3c90c5404eceff525e8fa652d14f374db320378"
     },
     "type": "location",
-    "time": "09:42",
+    "time": "10:12",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-27:event:7f6986966b114aaa:1",
+    "id": "2026-11-27:event:004bef360a3152a4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "7f6986966b114aaa8fecc669a446f7ece82a1e9657fe2f45e1915e9266be9a5a"
+     "sha256": "004bef360a3152a4e34d9777ed09c0d1eb82277eadbafc24a64d5f05efff5a93"
     },
     "type": "inventory",
-    "time": "09:42",
+    "time": "10:12",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-27:event:1e843e4409bf63e5:1",
+    "id": "2026-11-27:event:905d804fd244db9e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "1e843e4409bf63e5d23848f67aadcd79a779184ad0fafbf1ed6c1c0053dca3f6"
+     "sha256": "905d804fd244db9eaa1bfae8e311a7cfb409b8dc0106e3608c984ae77399f4af"
     },
     "type": "inventory",
-    "time": "09:42",
+    "time": "10:12",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-27:event:019c53ef3dae751f:1",
+    "id": "2026-11-27:event:fe3c7fadf9dbc47d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "019c53ef3dae751f6ecc1095c712aafc445d7540bae400678d9acb0f6ce9ec53"
+     "sha256": "fe3c7fadf9dbc47d8f0a352843f72c6f50c3c6be7d0102c15b491839575c3863"
     },
     "type": "inventory",
-    "time": "09:42",
+    "time": "10:12",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
