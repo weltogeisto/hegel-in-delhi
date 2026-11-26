@@ -320,6 +320,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "12:57",
+   "to": "13:57",
+   "mode": "inside",
+   "at": "home",
+   "now": "Reading at home."
   }
  ],
  "entries": [
@@ -622,6 +629,22 @@
    "to": "Hegel",
    "text": "Yes sir, I will set the table at thirteen hundred sharp. Take your time, the food will be ready when you are.",
    "t": "12:27",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The table will be set at one, giving me an hour to clear my head. The haze is still thick, a brown blanket that refuses to lift, but the house is quiet. I need to sit with the identity file, not to solve it, but to understand the shape of the error. The state has made a mistake, and in that mistake, I am both the error and the one who must correct it.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§272"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§195"
+    }
+   ],
+   "t": "12:57",
    "place": "home"
   }
  ],
@@ -1163,6 +1186,66 @@
      "text": "Note. — That the children of Eoman parents were slaves is one of the facts which most tarnishes the Eoman law. This wounding of the ethical life in its most intimate quarter is an important element in forming an estimate of the world-historical character of the Bomans, as well as of their tendency towards formal right."
     }
    ]
+  },
+  {
+   "t": "12:57",
+   "end": "13:57",
+   "event": "Ramesh says: “Yes sir, I will set the table at thirteen hundred sharp. Take your time, the food will be ready when you are.” Nods briefly and turns to check the kitchen.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The table will be set at one, giving me an hour to clear my head. The haze is still thick, a brown blanket that refuses to lift, but the house is quiet. I need to sit with the identity file, not to solve it, but to understand the shape of the error. The state has made a mistake, and in that mistake, I am both the error and the one who must correct it.",
+    "action": "read",
+    "place": "home",
+    "minutes": 60,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 297."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§272",
+     "id": "dyde-right:677"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§195",
+     "id": "wallace-logic:876"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§272",
+     "text": "From logic, though indeed not of the accepted kind, we know how the conception, and in a concrete way the idea, determine themselves of themselves, and thereby abstractly set up their phases of universality, particularity, and individuality."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§195",
+     "text": "To which may be added, that, in Nature, when the higher or organic functions are in any way checked or disturbed in their normal efficiency, the otherwise subordinate category of mechanism is immediately seen to take the upper hand."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1185,7 +1268,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-27T12:57+05:30",
+  "until": "2026-11-27T13:57+05:30",
   "asleep": false,
   "imprest": 14806,
   "wearing": "kurta",
@@ -1708,7 +1791,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-27",
-  "source_sha256": "7c43449c0a7296072fad34e56d0b1ac16c52013fd8b890b166d06addfca63a38",
+  "source_sha256": "49744e172e412002a0b51cd7729904a6ab551d6411f6571ed594947b18560365",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2405,68 +2488,98 @@
     "text": "Weather: 23 °C, a brown haze. Air quality index: 297."
    },
    {
-    "id": "2026-11-27:event:950328766421b433:1",
+    "id": "2026-11-27:event:aaf234fe9244043f:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 8,
+     "sha256": "aaf234fe9244043f17a9fce9c6ed09c7d8382ae90d3bd593f2c33a0af4040e08"
+    },
+    "type": "action",
+    "action": "read",
+    "time": "12:57",
+    "end": "13:57",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-27:event:be33127b8d7fea58:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      8,
+      0
+     ],
+     "sha256": "be33127b8d7fea5829450b4ed83cf0123dd58144cd5b1bf8ba40d58d6154647e"
+    },
+    "type": "observation",
+    "time": "12:57",
+    "place": "home",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 297."
+   },
+   {
+    "id": "2026-11-27:event:d65e2dc06fff7463:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "950328766421b4336e02d7d53e3399bb404824da3d8fd573efe607adb190ae2b"
+     "sha256": "d65e2dc06fff74636a11d16079482c8f449a2858438b37cf98e58e73f59151fe"
     },
     "type": "cash",
-    "time": "12:57",
+    "time": "13:57",
     "amount": 14806,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-27:event:68d8e18054ac06c7:1",
+    "id": "2026-11-27:event:94368418af806831:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "68d8e18054ac06c705517e030dc1c427fd0c990a0482b2f01bf35d79919367a6"
+     "sha256": "94368418af8068316857b08b32e5887606ca70f449af92a5e83ca4d1d7509b95"
     },
     "type": "location",
-    "time": "12:57",
+    "time": "13:57",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-27:event:f745c9220201a247:1",
+    "id": "2026-11-27:event:20f6d7e8ce1bf195:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "f745c9220201a24768cc922c44fe7bd603e82c77ef487a68961571c8f9f67536"
+     "sha256": "20f6d7e8ce1bf195ebe7a22e331acab5bb6eb96c6b8c32a85f9e9248163199df"
     },
     "type": "inventory",
-    "time": "12:57",
+    "time": "13:57",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-27:event:8569800311e07fe4:1",
+    "id": "2026-11-27:event:102ca9e1415beeb7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "8569800311e07fe4b8d8bb10a86acf31a6556e46ba1d76db92402934219e2224"
+     "sha256": "102ca9e1415beeb7f0005373a29da8ea7ce313241457b71a5855df47b73e4606"
     },
     "type": "inventory",
-    "time": "12:57",
+    "time": "13:57",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-27:event:664382d489aece47:1",
+    "id": "2026-11-27:event:2a096494f6c7754d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "664382d489aece4716b83038a75b420649c881f5c38cf7ea2332612b5512b281"
+     "sha256": "2a096494f6c7754d253153c27a8d9662539560b3ec7abdbd42f8ddca04529521"
     },
     "type": "inventory",
-    "time": "12:57",
+    "time": "13:57",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
