@@ -82,6 +82,21 @@ class CeilingTest(unittest.TestCase):
         self.assertEqual(len(self.asked), 2)                                          # only the brief still missing is tried again
         self.assertGreater(asked, 2)
 
+    def test_another_mind_gets_the_same_messages(self):
+        self.requests()
+        out = Path(self.td.name) / "IA.jsonl" if hasattr(self, "td") else self.f / "IA.jsonl"
+        got = ceiling.cmd_rearm(self.f, "D", "ID", {"reasoning_effort": "medium"}, out)
+        src = {r["id"].split("|", 1)[1]: r for p in sorted(self.f.glob("REQUESTS-ceiling-*.jsonl")) for r in map(json.loads, p.read_text().splitlines()) if r["id"].startswith("D|")}
+        rows = [json.loads(l) for l in out.read_text().splitlines()]
+        self.assertEqual(got["requests"], len(src))
+        for r in rows:
+            b = r["id"].split("|", 1)[1]
+            self.assertTrue(r["id"].startswith("ID|"))
+            self.assertEqual(r["messages"], src[b]["messages"])                                  # byte for byte the same messages
+            self.assertNotIn("reasoning_budget_tokens", r["params"])
+            self.assertEqual(r["params"]["template_kwargs"], {"reasoning_effort": "medium"})
+            self.assertEqual(r["params"]["max_tokens"], src[b]["params"]["max_tokens"])
+
     def requests(self):
         self.texts()
         man = ceiling.cmd_requests(self.f, self.days)
