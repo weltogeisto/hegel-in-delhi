@@ -12,25 +12,25 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 17,
+    "temp": 15,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 332
    },
    {
-    "temp": 16,
+    "temp": 15,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 334
    },
    {
-    "temp": 16,
+    "temp": 15,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 337
    },
    {
-    "temp": 15,
+    "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 339
@@ -42,7 +42,7 @@
     "aqi": 340
    },
    {
-    "temp": 14,
+    "temp": 13,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 342
@@ -66,7 +66,7 @@
     "aqi": 344
    },
    {
-    "temp": 18,
+    "temp": 17,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 345
@@ -78,6 +78,12 @@
     "aqi": 344
    },
    {
+    "temp": 21,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 345
+   },
+   {
     "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
@@ -87,12 +93,6 @@
     "temp": 23,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 345
-   },
-   {
-    "temp": 23,
-    "sky": "a brown haze",
-    "rain": 0,
     "aqi": 346
    },
    {
@@ -102,7 +102,7 @@
     "aqi": 346
    },
    {
-    "temp": 23,
+    "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 347
@@ -126,7 +126,7 @@
     "aqi": 350
    },
    {
-    "temp": 19,
+    "temp": 18,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 351
@@ -138,12 +138,6 @@
     "aqi": 352
    },
    {
-    "temp": 18,
-    "sky": "a brown haze",
-    "rain": 0,
-    "aqi": 352
-   },
-   {
     "temp": 17,
     "sky": "a brown haze",
     "rain": 0,
@@ -151,6 +145,12 @@
    },
    {
     "temp": 17,
+    "sky": "a brown haze",
+    "rain": 0,
+    "aqi": 352
+   },
+   {
+    "temp": 16,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 352
@@ -264,18 +264,200 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "09:14",
+   "to": "09:19",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
- "entries": [],
- "steps": [],
- "funnel": {},
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “No change in DMK’s stand on delimitation, says Stalin; party to hold meeting of MPs on November 28” · “Chennai couple donates Rs 208-crore gold, diamonds to Tirupati temple trust” · “Supreme Court refuses urgent listing of plea against Ranbir Kapoor-starrer Ramayana”",
+   "t": "09:14",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "Today's listings: 17:00 at Kamani Auditorium: Western classical music: Rossini overtures and Beethoven's Seventh Symphony, by a Delhi chamber orchestra, ₹300; 18:30 at the Habitat Centre: a Kathak evening: dance with tabla and sarangi, free. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30.",
+   "t": "09:14",
+   "place": "home"
+  },
+  {
+   "k": "expense",
+   "item": "The dhobi",
+   "amount": 300,
+   "to": "the dhobi",
+   "why": "the washing",
+   "settles": true,
+   "text": "Paid to the dhobi.",
+   "charge_id": "cost:dhobi:2026-11-28",
+   "cost": "dhobi",
+   "since": "2026-11-28",
+   "t": "09:14",
+   "place": "home"
+  },
+  {
+   "k": "plan",
+   "items": [
+    {
+     "time": "09:30",
+     "intention": "Breakfast on the verandah, reading the papers and watching the haze settle over the bungalow."
+    },
+    {
+     "time": "11:00",
+     "intention": "Walk to the National Museum to examine the artifacts and reflect on the nature of Indian history."
+    },
+    {
+     "time": "14:00",
+     "intention": "Return home for lunch and a rest, reviewing the pending query file for Shri G. Hegde."
+    },
+    {
+     "time": "17:00",
+     "intention": "Attend the Western classical music concert at Kamani Auditorium to enjoy the symphony."
+    },
+    {
+     "time": "20:00",
+     "intention": "Dinner and evening contemplation on the tension between the state and the ethical idea."
+    }
+   ],
+   "t": "09:14"
+  },
+  {
+   "k": "diary",
+   "text": "The dhobi is paid; the transaction is closed, a small act of civil society functioning within the walls of the bungalow. Ramesh stands by, waiting for the next instruction, his role as clear as the caste system that binds him to his duty. I must dismiss him so I may eat in peace; the body requires its fuel before the mind can wrestle with the haze and the query.",
+   "sensitive": true,
+   "why": "caste",
+   "topic": "caste",
+   "shelf": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Division of the Subject"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Indien, Der indische Volksgeist"
+    }
+   ],
+   "t": "09:14",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, you may go. The breakfast is ready, is it not? I will take it on the verandah.",
+   "to": "Ramesh",
+   "t": "09:14",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir, right here in the brass tumbler. I’ve set the plates on the verandah too, so you can just step out when you’re ready.",
+   "t": "09:14",
+   "place": "home"
+  }
+ ],
+ "steps": [
+  {
+   "t": "09:14",
+   "end": "09:19",
+   "event": "You wake. A brown haze, 17 °C. Ramesh has left the papers on the verandah. Headlines: No change in DMK’s stand on delimitation, says Stalin; party to hold meeting of MPs on November 28; Chennai couple donates Rs 208-crore gold, diamonds to Tirupati temple trust; Supreme Court refuses urgent listing of plea against Ranbir Kapoor-starrer Ramayana. Today's listings: 17:00 at Kamani Auditorium: Western classical music: Rossini overtures and Beethoven's Seventh Symphony, by a Delhi chamber orchestra, ₹300; 18:30 at the Habitat Centre: a Kathak evening: dance with tabla and sarangi, free. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30. You pay the dhobi ₹300 for the washing. Ramesh is here.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The dhobi is paid; the transaction is closed, a small act of civil society functioning within the walls of the bungalow. Ramesh stands by, waiting for the next instruction, his role as clear as the caste system that binds him to his duty. I must dismiss him so I may eat in peace; the body requires its fuel before the mind can wrestle with the haze and the query.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 5,
+    "says": "Ramesh, you may go. The breakfast is ready, is it not? I will take it on the verandah.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 17 °C, a brown haze. Air quality index: 345.",
+    "You wake. A brown haze, 17 °C. Ramesh has left the papers on the verandah. Headlines: No change in DMK’s stand on delimitation, says Stalin; party to hold meeting of MPs on November 28; Chennai couple donates Rs 208-crore gold, diamonds to Tirupati temple trust; Supreme Court refuses urgent listing of plea against Ranbir Kapoor-starrer Ramayana.",
+    "Today's listings: 17:00 at Kamani Auditorium: Western classical music: Rossini overtures and Beethoven's Seventh Symphony, by a Delhi chamber orchestra, ₹300; 18:30 at the Habitat Centre: a Kathak evening: dance with tabla and sarangi, free. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30.",
+    "You pay the dhobi ₹300 for the washing.",
+    "Ramesh is here."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "papers",
+    "listings",
+    "purse",
+    "here"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir, right here in the brass tumbler. I’ve set the plates on the verandah too, so you can just step out when you’re ready.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 17.5,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Division of the Subject",
+     "id": "bosanquet-art:308"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Indien, Der indische Volksgeist",
+     "id": "welt-2:203"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Division of the Subject",
+     "text": "The classical type of art, on the other hand, finds adequate realization in sculpture, while it treats architecture only as furnishing an enclosure in which it is to operate, and has not acquired the power of developing painting and music as absolute forms for its content."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Indien, Der indische Volksgeist",
+     "text": "Schönheit der Nervenschwäche, in der zwar alles Unebene, Starre-und Widerstrebende aufgelöst ist, die Seele als inner- - lich empfindend erscheint, eine Seele aber, in welcher der Tod des freien und in sich begründeten Geistes erkennbar ist. So stellt sich allerdings die indische Blumenempfindung höchst lieblich dar."
+    }
+   ]
+  }
+ ],
+ "funnel": {
+  "malhotra_vouch": {
+   "live": 1,
+   "eligible": 0,
+   "shown": 0,
+   "yes": 0,
+   "no": 0
+  },
+  "bank_account": {
+   "live": 1,
+   "eligible": 0,
+   "shown": 0,
+   "yes": 0,
+   "no": 0
+  }
+ },
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-28T09:14+05:30",
-  "asleep": true,
-  "imprest": 15806,
+  "until": "2026-11-28T09:19+05:30",
+  "asleep": false,
+  "imprest": 15506,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -356,7 +538,14 @@
    }
   ],
   "depesche_n": 4,
-  "today": {},
+  "today": {
+   "woke": "09:14",
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -428,7 +617,8 @@
     "2026-11-24",
     "2026-11-25",
     "2026-11-26",
-    "2026-11-27"
+    "2026-11-27",
+    "2026-11-28"
    ],
    "lodhi": [
     "2026-10-02",
@@ -513,14 +703,14 @@
     "pay": 1000,
     "cancel_after": 2,
     "from": "2026-11-26",
-    "checked": "2026-11-27",
+    "checked": "2026-11-28",
     "missed": 0
    }
   ],
   "costs": {
    "wage": "2026-11-01",
    "groceries": "2026-11-22",
-   "dhobi": "2026-11-21",
+   "dhobi": "2026-11-28",
    "electricity": "2026-11-10",
    "data": "2026-10-12"
   },
@@ -557,7 +747,8 @@
     "2026-11-23",
     "2026-11-24",
     "2026-11-26",
-    "2026-11-27"
+    "2026-11-27",
+    "2026-11-28"
    ],
    "malhotra": [
     "2026-10-02",
@@ -767,7 +958,8 @@
    "charge:8",
    "charge:10",
    "charge:11",
-   "charge:12"
+   "charge:12",
+   "cost:dhobi:2026-11-28"
   ],
   "charge_seq": 13,
   "street": {
@@ -788,75 +980,344 @@
  "records": {
   "version": 2,
   "date": "2026-11-28",
-  "source_sha256": "5610a22592ede1f027ae6d9034cbdf05ecf5d26a4fffe91eb614cb9f7748c751",
+  "source_sha256": "59e09cce36b3ceac8ca5e7f1912abea2da8451390c4b5655aba2187ddf82b5df",
   "complete": false,
   "steps_present": true,
   "records": [
    {
-    "id": "2026-11-28:event:bb87e3ee96386fa7:1",
+    "id": "2026-11-28:event:b22138e6af39ae57:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 0,
+     "sha256": "b22138e6af39ae5780be41f55968ca803a120845ff2c4983b81afebad8978099"
+    },
+    "type": "world",
+    "text": "Morning papers: “No change in DMK’s stand on delimitation, says Stalin; party to hold meeting of MPs on November 28” · “Chennai couple donates Rs 208-crore gold, diamonds to Tirupati temple trust” · “Supreme Court refuses urgent listing of plea against Ranbir Kapoor-starrer Ramayana”",
+    "time": "09:14",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:event:314984c86ecf3c90:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 1,
+     "sha256": "314984c86ecf3c909f79fe64b05c09a6b7f9edd23e1be28ac6e74072973caa8b"
+    },
+    "type": "world",
+    "text": "Today's listings: 17:00 at Kamani Auditorium: Western classical music: Rossini overtures and Beethoven's Seventh Symphony, by a Delhi chamber orchestra, ₹300; 18:30 at the Habitat Centre: a Kathak evening: dance with tabla and sarangi, free. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30.",
+    "time": "09:14",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:payment:9cd755c2fdb28bd0:1",
+    "kind": "payment",
+    "source": {
+     "collection": "entries",
+     "index": 2,
+     "sha256": "9cd755c2fdb28bd02807fd2035854984014561fa9198893b8df9064642383c66"
+    },
+    "canonical_id": "cost:dhobi:2026-11-28",
+    "item": "The dhobi",
+    "amount": 300,
+    "direction": "out",
+    "settled": true,
+    "medium": "cash",
+    "creditor": "the dhobi",
+    "payer": null,
+    "time": "09:14",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:statement:f9905bb6122846ad:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 5,
+     "sha256": "f9905bb6122846add9a82110f2264450b4e6b22d9cc529718fd66a4d16dc11d9"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, you may go. The breakfast is ready, is it not? I will take it on the verandah.",
+    "verified": false,
+    "time": "09:14",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:statement:d6ab480469ea49da:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 6,
+     "sha256": "d6ab480469ea49da26654487468c64a4a56aff644f4c79a0bfff494a6a6666fa"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes sir, right here in the brass tumbler. I’ve set the plates on the verandah too, so you can just step out when you’re ready.",
+    "verified": false,
+    "time": "09:14",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:event:d4c7e7fccb80148c:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 0,
+     "sha256": "d4c7e7fccb80148c92d4c80f97c0e894146a766ef85d3cd85180574aeee032f2"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:14",
+    "intended_time": "09:30",
+    "place": null,
+    "text": "Breakfast on the verandah, reading the papers and watching the haze settle over the bungalow."
+   },
+   {
+    "id": "2026-11-28:event:92a89527950291c5:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 1,
+     "sha256": "92a89527950291c54fd1e2edbebdbe7fd5daf41a1fb9162c71a21c9d94a59832"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:14",
+    "intended_time": "11:00",
+    "place": null,
+    "text": "Walk to the National Museum to examine the artifacts and reflect on the nature of Indian history."
+   },
+   {
+    "id": "2026-11-28:event:aab0ce1b0f0a6f62:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 2,
+     "sha256": "aab0ce1b0f0a6f624bc2d0e6bbb1a40a4301b5a9bc09296c6f81249e2c1fe98e"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:14",
+    "intended_time": "14:00",
+    "place": null,
+    "text": "Return home for lunch and a rest, reviewing the pending query file for Shri G. Hegde."
+   },
+   {
+    "id": "2026-11-28:event:3ef80988128c1930:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 3,
+     "sha256": "3ef80988128c1930b53cbdd87311359ba1f5e0d64bd73808950d2232396c796e"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:14",
+    "intended_time": "17:00",
+    "place": null,
+    "text": "Attend the Western classical music concert at Kamani Auditorium to enjoy the symphony."
+   },
+   {
+    "id": "2026-11-28:event:9f15912b8c36112f:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 4,
+     "sha256": "9f15912b8c36112fc792d49ee8570ea0d633444f237969e7e6b095eb95de30ee"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:14",
+    "intended_time": "20:00",
+    "place": null,
+    "text": "Dinner and evening contemplation on the tension between the state and the ethical idea."
+   },
+   {
+    "id": "2026-11-28:event:329c230d25382d70:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 0,
+     "sha256": "329c230d25382d70302c4eb264aadffadd13e05173040eeb2b5a3d0892cb170c"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "09:14",
+    "end": "09:19",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:event:c3402fa5fa6233e3:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      0
+     ],
+     "sha256": "c3402fa5fa6233e33b8ab23eda1a7c8f6e2216e96de88de4dc1f72a33eb5978a"
+    },
+    "type": "observation",
+    "time": "09:14",
+    "place": "home",
+    "text": "Weather: 17 °C, a brown haze. Air quality index: 345."
+   },
+   {
+    "id": "2026-11-28:event:c1d679bb934002a1:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      1
+     ],
+     "sha256": "c1d679bb934002a1da163da8416db222b579dac7a4b155022f61e100a4cf823d"
+    },
+    "type": "observation",
+    "time": "09:14",
+    "place": "home",
+    "text": "You wake. A brown haze, 17 °C. Ramesh has left the papers on the verandah. Headlines: No change in DMK’s stand on delimitation, says Stalin; party to hold meeting of MPs on November 28; Chennai couple donates Rs 208-crore gold, diamonds to Tirupati temple trust; Supreme Court refuses urgent listing of plea against Ranbir Kapoor-starrer Ramayana."
+   },
+   {
+    "id": "2026-11-28:event:f82299cd80500c0e:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      2
+     ],
+     "sha256": "f82299cd80500c0e14839fc6e7bbbecd4a4811dcfdd34cfb3f33c75d20a774d2"
+    },
+    "type": "observation",
+    "time": "09:14",
+    "place": "home",
+    "text": "Today's listings: 17:00 at Kamani Auditorium: Western classical music: Rossini overtures and Beethoven's Seventh Symphony, by a Delhi chamber orchestra, ₹300; 18:30 at the Habitat Centre: a Kathak evening: dance with tabla and sarangi, free. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30."
+   },
+   {
+    "id": "2026-11-28:event:a7aba6846a54ab3a:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      3
+     ],
+     "sha256": "a7aba6846a54ab3a17c4951cd7299d40ba962c309221f6595f3892987755a73b"
+    },
+    "type": "observation",
+    "time": "09:14",
+    "place": "home",
+    "text": "You pay the dhobi ₹300 for the washing."
+   },
+   {
+    "id": "2026-11-28:event:7484978535b3016a:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      4
+     ],
+     "sha256": "7484978535b3016a1b3d5eed5ad84ca87ae93f3f2d90914df6d3ff88b95c2cbd"
+    },
+    "type": "observation",
+    "time": "09:14",
+    "place": "home",
+    "text": "Ramesh is here."
+   },
+   {
+    "id": "2026-11-28:event:b810e63675456d4c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "bb87e3ee96386fa7e52c4761fdda7ad7739718ffdf8acc8410e19ba7efc042e2"
+     "sha256": "b810e63675456d4c36af6f7b1702af66e3700b1e048d387eb7f7cb90bf7d71c4"
     },
     "type": "cash",
-    "time": "09:14",
-    "amount": 15806,
+    "time": "09:19",
+    "amount": 15506,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-28:event:cb7e449273d34970:1",
+    "id": "2026-11-28:event:e257ad7f35623d04:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "cb7e449273d349704c0aba867d856797c45f6e0b72ad6438b820f801b56d7313"
+     "sha256": "e257ad7f35623d046e9b099d36aebe2bb052c1c3553c38e51bdd4482d577c562"
     },
     "type": "location",
-    "time": "09:14",
+    "time": "09:19",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-28:event:3bf9a769d0930e9e:1",
+    "id": "2026-11-28:event:d82c74636b2db555:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "3bf9a769d0930e9e5b358a5d10d389ecea437376a77f116d12962ae31e60750b"
+     "sha256": "d82c74636b2db5553fefe666ba3d1ce794cc9f4dd41543d2fb1b549731a0b8e4"
     },
     "type": "inventory",
-    "time": "09:14",
+    "time": "09:19",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-28:event:aaac84e9a9c66c60:1",
+    "id": "2026-11-28:event:da94ddc7fd392bb0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "aaac84e9a9c66c60b762cb22a63e9585d481838f7412e95d754e47609219a21e"
+     "sha256": "da94ddc7fd392bb04207cc702f09f80b30aa8acbfee9a24a6014dc28f0967548"
     },
     "type": "inventory",
-    "time": "09:14",
+    "time": "09:19",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-28:event:717c97a48313b77b:1",
+    "id": "2026-11-28:event:574e20c982353700:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "717c97a48313b77b8ebdfec82abde7b10f097083870d1d4ce830a5c6be773935"
+     "sha256": "574e20c982353700efd224baafc04aa2c41217e68c0ab5cf569637d9f9428d07"
     },
     "type": "inventory",
-    "time": "09:14",
+    "time": "09:19",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
+   }
+  ]
+ },
+ "plan": {
+  "written": "09:14",
+  "items": [
+   {
+    "time": "09:30",
+    "intention": "Breakfast on the verandah, reading the papers and watching the haze settle over the bungalow."
+   },
+   {
+    "time": "11:00",
+    "intention": "Walk to the National Museum to examine the artifacts and reflect on the nature of Indian history."
+   },
+   {
+    "time": "14:00",
+    "intention": "Return home for lunch and a rest, reviewing the pending query file for Shri G. Hegde."
+   },
+   {
+    "time": "17:00",
+    "intention": "Attend the Western classical music concert at Kamani Auditorium to enjoy the symphony."
+   },
+   {
+    "time": "20:00",
+    "intention": "Dinner and evening contemplation on the tension between the state and the ethical idea."
    }
   ]
  }
