@@ -327,6 +327,13 @@
    "mode": "inside",
    "at": "national_museum",
    "now": "At the National Museum."
+  },
+  {
+   "from": "13:10",
+   "to": "13:40",
+   "mode": "inside",
+   "at": "national_museum",
+   "now": "At the National Museum."
   }
  ],
  "entries": [
@@ -623,6 +630,32 @@
    "why": "outside world history",
    "topic": "the ranking of peoples",
    "t": "12:25",
+   "place": "national_museum"
+  },
+  {
+   "k": "diary",
+   "text": "The Buddha wears a halo, and the donors stand in long robes that look like the drapery of a Greek statue. This is not the pure, abstract spirit of the East I described in my lectures, but a hybrid, a meeting of worlds. The idea that India stands entirely outside the movement of history is beginning to fray here in the dust of the Silk Road; it is a borderland, not a void.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The German World, The Barbarian Migrations"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Period of the Thinking Understanding"
+    }
+   ],
+   "t": "13:10",
+   "place": "national_museum"
+  },
+  {
+   "k": "work",
+   "title": "Revision log",
+   "text": "India is not a static, dreamlike stasis but a dynamic borderland where Greek, Persian, and Buddhist forms interpenetrate, complicating the thesis of its exclusion from world history.",
+   "sensitive": true,
+   "why": "Buddhist",
+   "topic": "religion",
+   "t": "13:10",
    "place": "national_museum"
   }
  ],
@@ -1210,6 +1243,65 @@
      "text": "The inward or ideal transition, from Egypt to Greece is as just exhibited. But Egypt became a province of the great Persian kingdom, and the historical transition takes place when the Persian world comes in contact with the Greek. Here, for the first time, an historical transition. meets us, viz. in the fall of an empire."
     }
    ]
+  },
+  {
+   "t": "13:10",
+   "end": "13:40",
+   "event": "In the Central Asian gallery: wall paintings and silk banners brought from the desert towns of the old Silk Road a century ago: a Buddha with a halo, donors in long robes, a fragment of a horse.",
+   "present": [],
+   "decision": {
+    "thought": "The Buddha wears a halo, and the donors stand in long robes that look like the drapery of a Greek statue. This is not the pure, abstract spirit of the East I described in my lectures, but a hybrid, a meeting of worlds. The idea that India stands entirely outside the movement of history is beginning to fray here in the dust of the Silk Road; it is a borderland, not a void.",
+    "action": "stay",
+    "place": "national_museum",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": "India is not a static, dreamlike stasis but a dynamic borderland where Greek, Persian, and Buddhist forms interpenetrate, complicating the thesis of its exclusion from world history."
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 349.",
+    "In the Central Asian gallery: wall paintings and silk banners brought from the desert towns of the old Silk Road a century ago: a Buddha with a halo, donors in long robes, a fragment of a horse."
+   ],
+   "observed_at": "national_museum",
+   "opened": [
+    "sight"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The German World, The Barbarian Migrations",
+     "id": "sibree-history:1100"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Period of the Thinking Understanding",
+     "id": "haldane-3:524"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The German World, The Barbarian Migrations",
+     "text": "The latter does not need a long process, and we see it produced rapidly, even suddenly, in the first half of the seventh century, in Mahometanism."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Period of the Thinking Understanding",
+     "text": "On account of this new beginning to Philosophy we find in the old histories of Philosophy of the seventeenth century—e.g. that of Stanley—the philosophy of the Greeks and Romans only, and Christianity forms the conclusion."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1232,7 +1324,7 @@
  "complete": false,
  "state": {
   "place": "national_museum",
-  "until": "2026-11-28T13:10+05:30",
+  "until": "2026-11-28T13:40+05:30",
   "asleep": false,
   "imprest": 14856,
   "wearing": "kurta",
@@ -1333,7 +1425,7 @@
     "national_museum"
    ],
    "sights": {
-    "national_museum": 3
+    "national_museum": 4
    }
   },
   "account": {
@@ -1782,7 +1874,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-28",
-  "source_sha256": "642d7e9016cc9b49cf41d4cf123a5ba218fdf67cc75a3e0d9cd0e986533f4094",
+  "source_sha256": "485b8ed0c4b062a900acac78dded11d1750ae4fde4c2737f02274f7c7d716cbf",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2524,68 +2616,114 @@
     "text": "In the Gandhara gallery: a standing Buddha in grey schist from the north-west, the robe falling in deep, regular folds like a Greek mantle, the face calm and the eyes half closed."
    },
    {
-    "id": "2026-11-28:event:6dabe0c48b04e9e9:1",
+    "id": "2026-11-28:event:c39025109d33ad68:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 9,
+     "sha256": "c39025109d33ad687749a644c069c2cc77efc1fab9d6b258581cbdf41e2c1e14"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "13:10",
+    "end": "13:40",
+    "place": "national_museum"
+   },
+   {
+    "id": "2026-11-28:event:534f6c0a162a68ec:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      9,
+      0
+     ],
+     "sha256": "534f6c0a162a68ec4139af5f54b852da160b5988a7149c93102cd069969d3d68"
+    },
+    "type": "observation",
+    "time": "13:10",
+    "place": "national_museum",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 349."
+   },
+   {
+    "id": "2026-11-28:event:3102b1e7c973453e:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      9,
+      1
+     ],
+     "sha256": "3102b1e7c973453eec05274934e87d407535f2822cabc4b2792782436a7112db"
+    },
+    "type": "observation",
+    "time": "13:10",
+    "place": "national_museum",
+    "text": "In the Central Asian gallery: wall paintings and silk banners brought from the desert towns of the old Silk Road a century ago: a Buddha with a halo, donors in long robes, a fragment of a horse."
+   },
+   {
+    "id": "2026-11-28:event:344770fb6fcfc8a4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "6dabe0c48b04e9e9746917afa6444f0cb9a9b6ad5509f09be310b60f17d6a94f"
+     "sha256": "344770fb6fcfc8a481ccc01c21ae06c992900d55fad0189db3dd9ad29016c3f0"
     },
     "type": "cash",
-    "time": "13:10",
+    "time": "13:40",
     "amount": 14856,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-28:event:ac9cd23c32d9d154:1",
+    "id": "2026-11-28:event:c3e15fc77b7f4b65:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "ac9cd23c32d9d154b4855ef74e8b1b0d31f89c3454372b3d4508dac5a97f2d45"
+     "sha256": "c3e15fc77b7f4b65c08f7f0af943e569537dc56665f0be03353ec3f85d321cb5"
     },
     "type": "location",
-    "time": "13:10",
+    "time": "13:40",
     "place": "national_museum",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-28:event:2a9490147bad0e3a:1",
+    "id": "2026-11-28:event:8463c3d1f6fd9cd5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "2a9490147bad0e3a3364348bb6a4728d7c98e8957c8599ec97b6acd1a5177554"
+     "sha256": "8463c3d1f6fd9cd5c1563e38dc7e4699e52d0fc52a576dbda65316fc9c189f03"
     },
     "type": "inventory",
-    "time": "13:10",
+    "time": "13:40",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-28:event:d2024068358b2731:1",
+    "id": "2026-11-28:event:666f0726bca6e0cf:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "d2024068358b273137b035d6ebe68aca085bc1496c230e38529a01f99d6751e8"
+     "sha256": "666f0726bca6e0cf869598f0b5b1e9faf0b45219f94c9755fed7c17c5acd9298"
     },
     "type": "inventory",
-    "time": "13:10",
+    "time": "13:40",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-28:event:d79a2b19ac1049b1:1",
+    "id": "2026-11-28:event:866a543ed8c6cd79:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "d79a2b19ac1049b1d3fc1bffaaddda91d030c87c410eb9e69caf2a7b8a5ee3ed"
+     "sha256": "866a543ed8c6cd79c8e1f59bb002eb587fd873914b6c7c565ba834344ba743de"
     },
     "type": "inventory",
-    "time": "13:10",
+    "time": "13:40",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
