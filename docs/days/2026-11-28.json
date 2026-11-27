@@ -439,6 +439,13 @@
    "mode": "walk",
    "a": "lodhi",
    "b": "home"
+  },
+  {
+   "from": "19:31",
+   "to": "20:16",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -1040,6 +1047,22 @@
    ],
    "t": "19:11",
    "place": "lodhi"
+  },
+  {
+   "k": "diary",
+   "text": "The rotis are hot and the dal makhani is a dark, rich comfort against the chill of the evening. I am tired from the walk in the haze, but the food settles the body. It is strange to dine with Hegde, the man who is not me, but the meal is good and the hunger is real. I will eat well before the night takes over.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Bacon"
+    }
+   ],
+   "t": "19:31",
+   "place": "home"
   }
  ],
  "steps": [
@@ -2508,6 +2531,68 @@
      "text": "Wir haben den Despotismus im Orient in glänzender Ausbildung als eine dem Morgenland entsprechende Gestaltung gesehen; nicht minder ist die demokratische Form in Griechenland die welthistorische Bestimmung."
     }
    ]
+  },
+  {
+   "t": "19:31",
+   "end": "20:16",
+   "event": "Ramesh serves dinner before he goes home: rotis, dal makhani and a bowl of curd.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The rotis are hot and the dal makhani is a dark, rich comfort against the chill of the evening. I am tired from the walk in the haze, but the food settles the body. It is strange to dine with Hegde, the man who is not me, but the meal is good and the hunger is real. I will eat well before the night takes over.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 45,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, a brown haze. Air quality index: 354.",
+    "Ramesh serves dinner before he goes home: rotis, dal makhani and a bowl of curd."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "meal"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 8.9,
+    "draws": {
+     "n": 2,
+     "refused": 0,
+     "echo": 1,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "id": "baillie-1:223"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Bacon",
+     "id": "haldane-3:456"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "text": "Through work and labour, however, this consciousness of the bondsman comes to itself. In the moment which corresponds to desire in the case of the master's consciousness, the aspect of the non-essential relation to the thing seemed to fall to the lot of the servant, since the thing there retained its independence."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Bacon",
+     "text": "According to Bacon this has been worked out in innumerable different ways."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2530,7 +2615,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-28T19:31+05:30",
+  "until": "2026-11-28T20:16+05:30",
   "asleep": false,
   "imprest": 14856,
   "wearing": "kurta",
@@ -2634,7 +2719,8 @@
    "sights": {
     "national_museum": 6
    },
-   "tea": true
+   "tea": true,
+   "dinner": true
   },
   "account": {
    "advance": 15000,
@@ -2955,8 +3041,8 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-28T15:01+05:30",
-  "snacks": 1,
+  "last_meal": "2026-11-28T19:31+05:30",
+  "snacks": 0,
   "works": [
    {
     "id": "on-the-ethical-substance-and-the-dream-o",
@@ -3078,13 +3164,12 @@
    "home_wedding_band": "2026-11-22",
    "home_parakeet_roost": "2026-11-26",
    "home_smog_sunset": "2026-11-27"
-  },
-  "fed_at": "2026-11-28T16:36+05:30"
+  }
  },
  "records": {
   "version": 2,
   "date": "2026-11-28",
-  "source_sha256": "a977855ce6330289a8df1da381a8e4d4ae75e5b257d32119fbbac52a5d816f30",
+  "source_sha256": "b6de7ebebfdd4f18dd2bb9fd23431416451b85343da617a5a6247eb6a0509fe1",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4694,68 +4779,114 @@
     "text": "You arrive at Lodhi Gardens. It closes at 19:30."
    },
    {
-    "id": "2026-11-28:event:3b7dc5fa733f5818:1",
+    "id": "2026-11-28:event:485e529ee581729e:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 25,
+     "sha256": "485e529ee581729efa4fb0482d4f2bc67e93df4b50aed7ce519a4126ce539212"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "19:31",
+    "end": "20:16",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:event:e670ebbf82ab1a14:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      25,
+      0
+     ],
+     "sha256": "e670ebbf82ab1a14807e2f2ba406a494ffb0a50229c70a18108e63db96fa8164"
+    },
+    "type": "observation",
+    "time": "19:31",
+    "place": "home",
+    "text": "Weather: 18 °C, a brown haze. Air quality index: 354."
+   },
+   {
+    "id": "2026-11-28:event:dd23de52325affb2:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      25,
+      1
+     ],
+     "sha256": "dd23de52325affb25046fd963c27ac7a1e25e58498608d4b2d7baa3ba3eb985c"
+    },
+    "type": "observation",
+    "time": "19:31",
+    "place": "home",
+    "text": "Ramesh serves dinner before he goes home: rotis, dal makhani and a bowl of curd."
+   },
+   {
+    "id": "2026-11-28:event:be83d68b99ca13bd:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "3b7dc5fa733f581875e727b265cd25c39022a60fe16b67df925bd3671d49058e"
+     "sha256": "be83d68b99ca13bd99139343b56b79305c026fd34caca705b0359f2a5254ee72"
     },
     "type": "cash",
-    "time": "19:31",
+    "time": "20:16",
     "amount": 14856,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-28:event:de1a702d6b6ef1f8:1",
+    "id": "2026-11-28:event:a1af0f6b065acc6c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "de1a702d6b6ef1f8178b36da7deb38ccac31c0f87652bed3d904dd810bb8ecb7"
+     "sha256": "a1af0f6b065acc6cbf25b28f2eaa693e44309eda81e7330dbd89142c6f49f224"
     },
     "type": "location",
-    "time": "19:31",
+    "time": "20:16",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-28:event:ed062a7d521cf156:1",
+    "id": "2026-11-28:event:d3b128deebba2819:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "ed062a7d521cf156dd7019101798413bf4790f177ffef92f74fcd5090a1f5e1b"
+     "sha256": "d3b128deebba28198ef025d74e57a84a320c72c7652a1a5419e88e988a8c663d"
     },
     "type": "inventory",
-    "time": "19:31",
+    "time": "20:16",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-28:event:424a78012ed3e1c0:1",
+    "id": "2026-11-28:event:d337424397882c5f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "424a78012ed3e1c0e61959ac73c235a775fb6af69b8567e51b684b255e8ee604"
+     "sha256": "d337424397882c5f5eedbdb0a23ed81dd227be952779a25b3e8338c8c0183357"
     },
     "type": "inventory",
-    "time": "19:31",
+    "time": "20:16",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-28:event:26e6d6473e1f84b4:1",
+    "id": "2026-11-28:event:074541f8545816a7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "26e6d6473e1f84b471a1363084dcc52aed5309b3776bd491bc5a6b3babc9c09f"
+     "sha256": "074541f8545816a73fcd9dbcb4f46527d1a70f89d36982ac57d29bf133b82d53"
     },
     "type": "inventory",
-    "time": "19:31",
+    "time": "20:16",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
