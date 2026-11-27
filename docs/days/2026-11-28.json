@@ -376,6 +376,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "16:16",
+   "to": "16:36",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -845,6 +852,22 @@
    "to": "Hegel",
    "text": "No rush, sir. I'll just do the latch and leave it to settle on its own.",
    "t": "15:46",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The latch is a trivial thing, but Ramesh treats it with the gravity of a diplomatic incident. I watch him oil it, a small act of maintenance in a house that is not truly mine. The haze outside is thick, but the air inside is still. I have time before the concert, and the silence is an opportunity to think.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    }
+   ],
+   "t": "16:16",
    "place": "home"
   }
  ],
@@ -1862,6 +1885,66 @@
      "text": "In order not to let them get rooted and settled in this isolation and thus break up the whole into fragments and let the common spirit evaporate, government has from time to time to shake them to the very centre by War."
     }
    ]
+  },
+  {
+   "t": "16:16",
+   "end": "16:36",
+   "event": "Ramesh says: “No rush, sir. I'll just do the latch and leave it to settle on its own.” Ramesh pulls a small oil can from his pocket and wets a rag.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The latch is a trivial thing, but Ramesh treats it with the gravity of a diplomatic incident. I watch him oil it, a small act of maintenance in a house that is not truly mine. The haze outside is thick, but the air inside is still. I have time before the concert, and the silence is an opportunity to think.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 351."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "id": "haldane-2:56"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:23"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Plato",
+     "text": "As to this demand, it may seem a piece of great presumption to say that philosophers should have the government of states accorded to them, for the territory or ground of history is different from that of Philosophy. In history, the Idea, as the absolute power, has certainly to realize itself; in other words, God rules in the world."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state. The government has, up till now, shown such confidence in the scholars in this department as to leave the subject matter of philosophy wholly in their hands."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1884,7 +1967,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-28T16:16+05:30",
+  "until": "2026-11-28T16:36+05:30",
   "asleep": false,
   "imprest": 14856,
   "wearing": "kurta",
@@ -2434,7 +2517,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-28",
-  "source_sha256": "cbd23cd7a94be0f39bee37c0777164427ef4eccd42f9bdd40bf15ef89e0be854",
+  "source_sha256": "4f8fdcc58d51f6c7b67731725f53fd6fde33ed86fe6b257018d23b02c77e13ef",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3571,68 +3654,98 @@
     "text": "Weather: 23 °C, a brown haze. Air quality index: 350."
    },
    {
-    "id": "2026-11-28:event:1da24ecc74a3bc1a:1",
+    "id": "2026-11-28:event:529725045bf307f8:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 16,
+     "sha256": "529725045bf307f884cc1a9a4108dbc21173b6d6ec1075ba8c47679a91536a16"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "16:16",
+    "end": "16:36",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:event:78601a920a951bfb:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      16,
+      0
+     ],
+     "sha256": "78601a920a951bfb06344eaff1f2d2a0b73ebf61eb52deb3bcf3fb773155d7a6"
+    },
+    "type": "observation",
+    "time": "16:16",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 351."
+   },
+   {
+    "id": "2026-11-28:event:06d42cfd655af403:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "1da24ecc74a3bc1ad34e0c08605c0306eb3ebc688ee354a20d655d4f6bdb0a76"
+     "sha256": "06d42cfd655af40304d28cf9e2a9e12e113bc7f288116da561aa83296ee0fa91"
     },
     "type": "cash",
-    "time": "16:16",
+    "time": "16:36",
     "amount": 14856,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-28:event:51cadfb7adf30d9d:1",
+    "id": "2026-11-28:event:61f9d179d43cdbc0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "51cadfb7adf30d9d624df15da5421344877c6ad869fa94fd32deddc875b20e2d"
+     "sha256": "61f9d179d43cdbc0eedba81e4a762092ffbf5aaa8f1f08060ed9daa4b92d837e"
     },
     "type": "location",
-    "time": "16:16",
+    "time": "16:36",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-28:event:40888aa9c7680979:1",
+    "id": "2026-11-28:event:0814245f6a9fe5f7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "40888aa9c76809790c67d427dd61020e74b7ecc64aa97dd34a82da63d859b677"
+     "sha256": "0814245f6a9fe5f7003d57879feee4ac5552f3fe397ec6cef3192aa8e53e81b7"
     },
     "type": "inventory",
-    "time": "16:16",
+    "time": "16:36",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-28:event:b82f76c123759cfb:1",
+    "id": "2026-11-28:event:9c72ef31abf2628f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "b82f76c123759cfbe5f6029378fb5fcdb5c4828003e80df784bf3f3c32b9dcc0"
+     "sha256": "9c72ef31abf2628f6c594a21f8b6f6170353748314aa4dc83970343430189352"
     },
     "type": "inventory",
-    "time": "16:16",
+    "time": "16:36",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-28:event:bee973efb6709c9d:1",
+    "id": "2026-11-28:event:d31a6697da177036:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "bee973efb6709c9dc8dfe0558fbd5598a7e524c8455d31097bf11b9912f8b6a1"
+     "sha256": "d31a6697da1770366101a715881edeb6a58fbf683b7834b0b6dccfb9ab774a87"
     },
     "type": "inventory",
-    "time": "16:16",
+    "time": "16:36",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
