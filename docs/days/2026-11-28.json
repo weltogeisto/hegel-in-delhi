@@ -446,6 +446,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "20:16",
+   "to": "21:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -1062,6 +1069,37 @@
     }
    ],
    "t": "19:31",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The brown haze presses against the glass, a thick, suffocating veil that turns the night air into something tangible and heavy. Shri Hegde is in the back room, sorting the very papers that belong to a man I am not, and Ramesh stands by with the quiet patience of a man who has learned to wait for his master's whims. I have eaten, I have walked, and now the day dissolves into this brown soup; I must sit and let the tension of the double life settle into something I can think through.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§406"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…"
+    }
+   ],
+   "t": "20:16",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, leave us. Shri Hegde, I shall return to the back room in a short while; the file requires a calm eye.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "20:16",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir. I’ll be in the kitchen. The parathas are just about ready, sir.",
+   "t": "20:16",
    "place": "home"
   }
  ],
@@ -2593,6 +2631,71 @@
      "text": "According to Bacon this has been worked out in innumerable different ways."
     }
    ]
+  },
+  {
+   "t": "20:16",
+   "end": "21:00",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "The brown haze presses against the glass, a thick, suffocating veil that turns the night air into something tangible and heavy. Shri Hegde is in the back room, sorting the very papers that belong to a man I am not, and Ramesh stands by with the quiet patience of a man who has learned to wait for his master's whims. I have eaten, I have walked, and now the day dissolves into this brown soup; I must sit and let the tension of the double life settle into something I can think through.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 60,
+    "says": "Ramesh, leave us. Shri Hegde, I shall return to the back room in a short while; the file requires a calm eye.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, a brown haze. Air quality index: 354.",
+    "Nothing in particular happens. The evening goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir. I’ll be in the kitchen. The parathas are just about ready, sir.",
+    "does": "Ramesh turns and walks quietly toward the kitchen, leaving the back room."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§406",
+     "id": "wallace-mind:64"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "id": "phaen:385"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§406",
+     "text": "In order to believe in this department even what one sees with these eyes, and still more to understand it, the first requisite is not to be in bondage to the hard and fast categories of the practical intellect."
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "text": "Dies Bewußtsein ist somit negativ gegen das Verhältnis der Herrschaft und Knechtschaft; sein Tun ist, in der Herrschaft nicht seine Wahrheit an dem Knechte zu haben, noch als Knecht seine Wahrheit an dem Willen des Herrn und an seinem Dienen, sondern wie auf dem Throne so in den Fesseln, in aller Abhängigkeit seines einzelnen Daseins frei zu sein…"
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2615,7 +2718,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-28T20:16+05:30",
+  "until": "2026-11-28T21:00+05:30",
   "asleep": false,
   "imprest": 14856,
   "wearing": "kurta",
@@ -3169,7 +3272,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-28",
-  "source_sha256": "b6de7ebebfdd4f18dd2bb9fd23431416451b85343da617a5a6247eb6a0509fe1",
+  "source_sha256": "b8d6e2a2ed84bb4097e2ad010268e84dda5bce4f6c78cfb14cf58a1e231ba224",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3591,6 +3694,36 @@
     "words": "Very well, sir. I will have the parathas ready when you return.",
     "verified": false,
     "time": "18:51",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:statement:29699245725dec59:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 54,
+     "sha256": "29699245725dec5921d360a8ad58aa4ed40c6b38bfdb3f9e9a9b45fd74b03ed6"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh and Shri G. Hegde",
+    "words": "Ramesh, leave us. Shri Hegde, I shall return to the back room in a short while; the file requires a calm eye.",
+    "verified": false,
+    "time": "20:16",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:statement:3cf91a344115a783:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 55,
+     "sha256": "3cf91a344115a78336f89d795bf0495b3f235c3482e71e6c5e666769462fac54"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes sir. I’ll be in the kitchen. The parathas are just about ready, sir.",
+    "verified": false,
+    "time": "20:16",
     "place": "home"
    },
    {
@@ -4825,68 +4958,114 @@
     "text": "Ramesh serves dinner before he goes home: rotis, dal makhani and a bowl of curd."
    },
    {
-    "id": "2026-11-28:event:be83d68b99ca13bd:1",
+    "id": "2026-11-28:event:4334176232f565e1:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 26,
+     "sha256": "4334176232f565e124cd18e248658ea7fc38081c45b1f3b178bed9b35d7672b4"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "20:16",
+    "end": "21:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:event:e670ebbf82ab1a14:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      26,
+      0
+     ],
+     "sha256": "e670ebbf82ab1a14807e2f2ba406a494ffb0a50229c70a18108e63db96fa8164"
+    },
+    "type": "observation",
+    "time": "20:16",
+    "place": "home",
+    "text": "Weather: 18 °C, a brown haze. Air quality index: 354."
+   },
+   {
+    "id": "2026-11-28:event:f0883d583a8f0cb4:5",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      26,
+      1
+     ],
+     "sha256": "f0883d583a8f0cb4f513e9e7918f61a4da92f5f5c5ffd125af87394140064d60"
+    },
+    "type": "observation",
+    "time": "20:16",
+    "place": "home",
+    "text": "Nothing in particular happens. The evening goes on."
+   },
+   {
+    "id": "2026-11-28:event:598d9f167c16b836:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "be83d68b99ca13bd99139343b56b79305c026fd34caca705b0359f2a5254ee72"
+     "sha256": "598d9f167c16b836d52410710c54f80f4ea272d302211e1616c42d976114ab54"
     },
     "type": "cash",
-    "time": "20:16",
+    "time": "21:00",
     "amount": 14856,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-28:event:a1af0f6b065acc6c:1",
+    "id": "2026-11-28:event:d80b98fb568dfe25:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "a1af0f6b065acc6cbf25b28f2eaa693e44309eda81e7330dbd89142c6f49f224"
+     "sha256": "d80b98fb568dfe254ee784b657a4205b5f588ce976687f0587855ee7486720e2"
     },
     "type": "location",
-    "time": "20:16",
+    "time": "21:00",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-28:event:d3b128deebba2819:1",
+    "id": "2026-11-28:event:e160bd5f8b67123f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "d3b128deebba28198ef025d74e57a84a320c72c7652a1a5419e88e988a8c663d"
+     "sha256": "e160bd5f8b67123f8cf5a57bf17729cfedb8822056f230a6387b8d7bc3894828"
     },
     "type": "inventory",
-    "time": "20:16",
+    "time": "21:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-28:event:d337424397882c5f:1",
+    "id": "2026-11-28:event:d04367a50a87902f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "d337424397882c5f5eedbdb0a23ed81dd227be952779a25b3e8338c8c0183357"
+     "sha256": "d04367a50a87902fa6f791c3433081e21605a90e9edf597f23345df107a2e62c"
     },
     "type": "inventory",
-    "time": "20:16",
+    "time": "21:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-28:event:074541f8545816a7:1",
+    "id": "2026-11-28:event:f3cefd871ec3ecd7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "074541f8545816a73fcd9dbcb4f46527d1a70f89d36982ac57d29bf133b82d53"
+     "sha256": "f3cefd871ec3ecd79d459ddfdcf947645305a5862719111463a2c80012b9dcfd"
     },
     "type": "inventory",
-    "time": "20:16",
+    "time": "21:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
