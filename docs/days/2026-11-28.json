@@ -299,6 +299,13 @@
    "mode": "walk",
    "a": "home",
    "b": "national_museum"
+  },
+  {
+   "from": "10:45",
+   "to": "10:55",
+   "mode": "inside",
+   "at": "national_museum",
+   "now": "Shopping at the National Museum."
   }
  ],
  "entries": [
@@ -511,6 +518,30 @@
    "text": "Yes sir, the files are already sorted. I’ll just be in the back room organizing the papers from Bengaluru.",
    "t": "10:14",
    "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The brown haze continues to obscure the sky, making the architecture of the museum appear like a ghost in a fog. I am here to examine the artifacts, to see if the spirit of this land has ever truly articulated itself in stone and bronze, or if it remains, as I have argued, in a state of dreamlike unity with nature. I will enter and see what the collection reveals.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die germanische Welt"
+    }
+   ],
+   "t": "10:45",
+   "place": "national_museum"
+  },
+  {
+   "k": "bag",
+   "item": "Entry ticket, foreign visitors",
+   "price": 650,
+   "charge_id": "charge:14",
+   "t": "10:45",
+   "place": "national_museum"
   }
  ],
  "steps": [
@@ -856,6 +887,70 @@
      "text": "According to Bacon this has been worked out in innumerable different ways."
     }
    ]
+  },
+  {
+   "t": "10:45",
+   "end": "10:55",
+   "event": "You arrive at the National Museum, Janpath. It closes at 18:00.",
+   "present": [],
+   "decision": {
+    "thought": "The brown haze continues to obscure the sky, making the architecture of the museum appear like a ghost in a fog. I am here to examine the artifacts, to see if the spirit of this land has ever truly articulated itself in stone and bronze, or if it remains, as I have argued, in a state of dreamlike unity with nature. I will enter and see what the collection reveals.",
+    "action": "buy",
+    "place": "national_museum",
+    "minutes": 10,
+    "says": null,
+    "buys": [
+     {
+      "item": "Entry ticket, foreign visitors",
+      "price_inr": 650
+     }
+    ],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 344.",
+    "You arrive at the National Museum, Janpath. It closes at 18:00."
+   ],
+   "observed_at": "national_museum",
+   "opened": [
+    "arrive"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 47.5,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction",
+     "id": "sibree-history:254"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die germanische Welt",
+     "id": "welt-4:10"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction",
+     "text": "It is not of the nature of the all-pervading Spirit to die this merely natural death; it does not simply sink into the senile life of mere custom, but — as being a National Spirit belonging to Universal History — attains to the consciousness of what its work is; it attains to a conception of itself."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die germanische Welt",
+     "text": "Dieses muß sich an sich vernünftig sein, auch wenn er von der subjektiv Meinung nicht anerkannt würde; er muß an sich gerecht.gei ' auch mehr und weniger mit Einsicht, so daß sich der Begri darin befriedigen kann. Aus diesen wesentlichen Momenten folgt, daß, indem der Staat sich als diese Natur entwickel alle Momente der Idee selbst entwickelt und herausgeboren sind."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -878,9 +973,9 @@
  "complete": false,
  "state": {
   "place": "national_museum",
-  "until": "2026-11-28T10:45+05:30",
+  "until": "2026-11-28T10:55+05:30",
   "asleep": false,
-  "imprest": 15506,
+  "imprest": 14856,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -968,12 +1063,16 @@
      "dhobi",
      "hegde",
      "ramesh"
-    ]
+    ],
+    "national_museum": []
    },
    "breakfast": true,
    "bad_air": true,
    "walked": 2325,
-   "strain": 2325
+   "strain": 2325,
+   "tickets": [
+    "national_museum"
+   ]
   },
   "account": {
    "advance": 15000,
@@ -997,6 +1096,13 @@
      "t": "15:12",
      "item": "Entry ticket, foreign visitors",
      "price": 300,
+     "office": false
+    },
+    {
+     "date": "2026-11-28",
+     "t": "10:45",
+     "item": "Entry ticket, foreign visitors",
+     "price": 650,
      "office": false
     }
    ],
@@ -1109,6 +1215,9 @@
     "2026-11-20",
     "2026-11-23",
     "2026-11-25"
+   ],
+   "national_museum": [
+    "2026-11-28"
    ]
   },
   "owed": [],
@@ -1389,9 +1498,10 @@
    "charge:10",
    "charge:11",
    "charge:12",
-   "cost:dhobi:2026-11-28"
+   "cost:dhobi:2026-11-28",
+   "charge:14"
   ],
-  "charge_seq": 13,
+  "charge_seq": 14,
   "street": {
    "home_vegetable_cart": "2026-11-20",
    "estates_bench": "2026-11-20",
@@ -1410,7 +1520,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-28",
-  "source_sha256": "1967c7fd9c0cb03dad42dbb91ea25d2ea0754c8b5f18fef72d6ea63a5372abcf",
+  "source_sha256": "3fd074208e06c57b716a804d3d0a75990b36a579379cc499d2cef64fca32df74",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1608,6 +1718,25 @@
     "verified": false,
     "time": "10:14",
     "place": "home"
+   },
+   {
+    "id": "2026-11-28:payment:e1cd91c8466326bf:1",
+    "kind": "payment",
+    "source": {
+     "collection": "entries",
+     "index": 20,
+     "sha256": "e1cd91c8466326bf60acb5d3ded52fa89ce1945328d99c4990b11c714f54844e"
+    },
+    "canonical_id": "charge:14",
+    "item": "Entry ticket, foreign visitors",
+    "amount": 650,
+    "direction": "out",
+    "settled": true,
+    "medium": "cash",
+    "creditor": null,
+    "payer": null,
+    "time": "10:45",
+    "place": "national_museum"
    },
    {
     "id": "2026-11-28:event:d4c7e7fccb80148c:1",
@@ -1949,68 +2078,114 @@
     "text": "Weather: 20 °C, a brown haze. Air quality index: 344."
    },
    {
-    "id": "2026-11-28:event:6f07a8582136d265:1",
+    "id": "2026-11-28:event:bafe08bdca8d6f80:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 5,
+     "sha256": "bafe08bdca8d6f808fc64ff74db8a3847ffc185ccee18fc504132bd83bce8ed3"
+    },
+    "type": "action",
+    "action": "buy",
+    "time": "10:45",
+    "end": "10:55",
+    "place": "national_museum"
+   },
+   {
+    "id": "2026-11-28:event:22305f7d33787178:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      5,
+      0
+     ],
+     "sha256": "22305f7d337871783d2a0f2b80d39db2c3d9caab796659ad225d284ef64c91a6"
+    },
+    "type": "observation",
+    "time": "10:45",
+    "place": "national_museum",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 344."
+   },
+   {
+    "id": "2026-11-28:event:bce40145a31f33c6:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      5,
+      1
+     ],
+     "sha256": "bce40145a31f33c6ab796f4995c57274abfb8149d8904f56913bce5855aa66c1"
+    },
+    "type": "observation",
+    "time": "10:45",
+    "place": "national_museum",
+    "text": "You arrive at the National Museum, Janpath. It closes at 18:00."
+   },
+   {
+    "id": "2026-11-28:event:29a24d760a19edea:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "6f07a8582136d2657f3315dda658bd653242cfd6e0c7c289c1387a856cecc2fd"
+     "sha256": "29a24d760a19edea84ffb04dfa06c1a42405d86d3ff62796ec02adaf1e396cca"
     },
     "type": "cash",
-    "time": "10:45",
-    "amount": 15506,
+    "time": "10:55",
+    "amount": 14856,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-28:event:7aea104e33b96836:1",
+    "id": "2026-11-28:event:1f98e54e281d1462:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "7aea104e33b96836fd528d8d40b77bb7f19dafd761834c1e8c20fe5694bceb35"
+     "sha256": "1f98e54e281d1462ddd4738b0fdf9f3a561ffaa4d780a19ecb11a3a52dd4d87c"
     },
     "type": "location",
-    "time": "10:45",
+    "time": "10:55",
     "place": "national_museum",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-28:event:c68789b16144af35:1",
+    "id": "2026-11-28:event:86baf46fc242fe08:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "c68789b16144af3529c7b47fc336eaab466728026c5c43fdb18f8327cdc5d22d"
+     "sha256": "86baf46fc242fe08830e4fc462c6619dc512d93c01f349714d6daea24859a9ed"
     },
     "type": "inventory",
-    "time": "10:45",
+    "time": "10:55",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-28:event:0932bc79328aaa62:1",
+    "id": "2026-11-28:event:f6cc2a9496de8791:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "0932bc79328aaa6245a402358e19559f146c44cc51c1c2043b0e0213aac305a0"
+     "sha256": "f6cc2a9496de87911008606df762a485976aa8623cab5408b7f539d688b99d1d"
     },
     "type": "inventory",
-    "time": "10:45",
+    "time": "10:55",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-28:event:68fd3943bf5f0d89:1",
+    "id": "2026-11-28:event:2e3ef0ecdfe57b69:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "68fd3943bf5f0d89b7002449a347c9fd4310957e537a7ad3da1123cc594a67a3"
+     "sha256": "2e3ef0ecdfe57b69f2067bd2bb9e9c732d860be48cea6739e766f6dc01c1854e"
     },
     "type": "inventory",
-    "time": "10:45",
+    "time": "10:55",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
