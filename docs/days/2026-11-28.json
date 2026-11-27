@@ -334,6 +334,13 @@
    "mode": "inside",
    "at": "national_museum",
    "now": "At the National Museum."
+  },
+  {
+   "from": "13:40",
+   "to": "14:00",
+   "mode": "inside",
+   "at": "national_museum",
+   "now": "At the National Museum."
   }
  ],
  "entries": [
@@ -656,6 +663,22 @@
    "why": "Buddhist",
    "topic": "religion",
    "t": "13:10",
+   "place": "national_museum"
+  },
+  {
+   "k": "diary",
+   "text": "The lightning is not a natural phenomenon here; it is a gold thread sewn across the black sky by the artist's hand. It is the form that holds the content, the storm and the lovers, in a single, finite image. The particular is not merely subsumed but preserved and elevated in this shape.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Observation of Organic Nature"
+    }
+   ],
+   "t": "13:40",
    "place": "national_museum"
   }
  ],
@@ -1302,6 +1325,65 @@
      "text": "On account of this new beginning to Philosophy we find in the old histories of Philosophy of the seventeenth century—e.g. that of Stanley—the philosophy of the Greeks and Romans only, and Christianity forms the conclusion."
     }
    ]
+  },
+  {
+   "t": "13:40",
+   "end": "14:00",
+   "event": "In the gallery of paintings: a small Pahari painting from the hills: Radha and Krishna under one cloak in a storm, the lightning drawn as a gold thread across a black sky.",
+   "present": [],
+   "decision": {
+    "thought": "The lightning is not a natural phenomenon here; it is a gold thread sewn across the black sky by the artist's hand. It is the form that holds the content, the storm and the lovers, in a single, finite image. The particular is not merely subsumed but preserved and elevated in this shape.",
+    "action": "stay",
+    "place": "national_museum",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 349.",
+    "In the gallery of paintings: a small Pahari painting from the hills: Radha and Krishna under one cloak in a storm, the lightning drawn as a gold thread across a black sky."
+   ],
+   "observed_at": "national_museum",
+   "opened": [
+    "sight"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.5,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "id": "haldane-1:815"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Observation of Organic Nature",
+     "id": "baillie-1:381"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Anaxagoras",
+     "text": "That is, the existent, the individual matter, such as bones, metal, flesh, &c., in itself consists of parts like itself—flesh of small particles of flesh, gold of small gold particles, &c."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Observation of Organic Nature",
+     "text": "But the spherical surface, the world for the individual, carries on the face of it this double meaning: it is in and for itself the actual world and situation, and it is the world of the individual."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1324,7 +1406,7 @@
  "complete": false,
  "state": {
   "place": "national_museum",
-  "until": "2026-11-28T13:40+05:30",
+  "until": "2026-11-28T14:00+05:30",
   "asleep": false,
   "imprest": 14856,
   "wearing": "kurta",
@@ -1425,7 +1507,7 @@
     "national_museum"
    ],
    "sights": {
-    "national_museum": 4
+    "national_museum": 5
    }
   },
   "account": {
@@ -1874,7 +1956,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-28",
-  "source_sha256": "485b8ed0c4b062a900acac78dded11d1750ae4fde4c2737f02274f7c7d716cbf",
+  "source_sha256": "225cd2e3ced2ccad11631c34a5abbe47bd6e8eb9fefd71e990e438bd4d998cd8",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2662,68 +2744,114 @@
     "text": "In the Central Asian gallery: wall paintings and silk banners brought from the desert towns of the old Silk Road a century ago: a Buddha with a halo, donors in long robes, a fragment of a horse."
    },
    {
-    "id": "2026-11-28:event:344770fb6fcfc8a4:1",
+    "id": "2026-11-28:event:f53877f390ed5e93:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 10,
+     "sha256": "f53877f390ed5e93e423ed5e58c78398fa9f73b0966980560298e51623de35a0"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "13:40",
+    "end": "14:00",
+    "place": "national_museum"
+   },
+   {
+    "id": "2026-11-28:event:534f6c0a162a68ec:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      10,
+      0
+     ],
+     "sha256": "534f6c0a162a68ec4139af5f54b852da160b5988a7149c93102cd069969d3d68"
+    },
+    "type": "observation",
+    "time": "13:40",
+    "place": "national_museum",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 349."
+   },
+   {
+    "id": "2026-11-28:event:f474341a4262328e:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      10,
+      1
+     ],
+     "sha256": "f474341a4262328e7a2e420f486d0614524091d5cf5ec1b1a4f3dd48d8d2da4c"
+    },
+    "type": "observation",
+    "time": "13:40",
+    "place": "national_museum",
+    "text": "In the gallery of paintings: a small Pahari painting from the hills: Radha and Krishna under one cloak in a storm, the lightning drawn as a gold thread across a black sky."
+   },
+   {
+    "id": "2026-11-28:event:2a54cd7abf5a2702:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "344770fb6fcfc8a481ccc01c21ae06c992900d55fad0189db3dd9ad29016c3f0"
+     "sha256": "2a54cd7abf5a270263bd49bdc0da19a3afb98b7753879c72ca191eeef3e86aa3"
     },
     "type": "cash",
-    "time": "13:40",
+    "time": "14:00",
     "amount": 14856,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-28:event:c3e15fc77b7f4b65:1",
+    "id": "2026-11-28:event:6ae8763d2936a0c0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "c3e15fc77b7f4b65c08f7f0af943e569537dc56665f0be03353ec3f85d321cb5"
+     "sha256": "6ae8763d2936a0c03bff557e9cb9c4c41d7525acb440a43f08e08a7e200d8419"
     },
     "type": "location",
-    "time": "13:40",
+    "time": "14:00",
     "place": "national_museum",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-28:event:8463c3d1f6fd9cd5:1",
+    "id": "2026-11-28:event:1bbf65274a1907b0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "8463c3d1f6fd9cd5c1563e38dc7e4699e52d0fc52a576dbda65316fc9c189f03"
+     "sha256": "1bbf65274a1907b080de4bc87d0c5a13828e57734174ce3ced484f8eb1520064"
     },
     "type": "inventory",
-    "time": "13:40",
+    "time": "14:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-28:event:666f0726bca6e0cf:1",
+    "id": "2026-11-28:event:542c165934c12c13:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "666f0726bca6e0cf869598f0b5b1e9faf0b45219f94c9755fed7c17c5acd9298"
+     "sha256": "542c165934c12c133c6b6602b00f47c7f68bdf0fb50279d72478432143ae2f83"
     },
     "type": "inventory",
-    "time": "13:40",
+    "time": "14:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-28:event:866a543ed8c6cd79:1",
+    "id": "2026-11-28:event:36befd7904cb42b4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "866a543ed8c6cd79c8e1f59bb002eb587fd873914b6c7c565ba834344ba743de"
+     "sha256": "36befd7904cb42b43b7bae321829db9de518f0fac9d23b30ea152dc808967807"
     },
     "type": "inventory",
-    "time": "13:40",
+    "time": "14:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
