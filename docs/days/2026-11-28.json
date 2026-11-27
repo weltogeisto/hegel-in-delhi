@@ -306,6 +306,13 @@
    "mode": "inside",
    "at": "national_museum",
    "now": "Shopping at the National Museum."
+  },
+  {
+   "from": "10:55",
+   "to": "11:40",
+   "mode": "inside",
+   "at": "national_museum",
+   "now": "Reading at the National Museum."
   }
  ],
  "entries": [
@@ -541,6 +548,22 @@
    "price": 650,
    "charge_id": "charge:14",
    "t": "10:45",
+   "place": "national_museum"
+  },
+  {
+   "k": "diary",
+   "text": "A bronze girl, four and a half millennia old, standing with her hand on her hip in a gallery of dust and haze. She is a fragment of a world that knew no state, no law, no ethical idea, yet her posture is one of absolute, unmediated self-possession. It is a freedom that precedes the struggle for recognition, a spontaneity that history has since had to discipline into shape. The stillness of the bronze contrasts sharply with the chaotic, smog-choked air outside, suggesting a permanence that the modern world, with its burning and its haste, has yet to achieve.",
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§108"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Successors of Proclus"
+    }
+   ],
+   "t": "10:55",
    "place": "national_museum"
   }
  ],
@@ -951,6 +974,65 @@
      "text": "Dieses muß sich an sich vernünftig sein, auch wenn er von der subjektiv Meinung nicht anerkannt würde; er muß an sich gerecht.gei ' auch mehr und weniger mit Einsicht, so daß sich der Begri darin befriedigen kann. Aus diesen wesentlichen Momenten folgt, daß, indem der Staat sich als diese Natur entwickel alle Momente der Idee selbst entwickelt und herausgeboren sind."
     }
    ]
+  },
+  {
+   "t": "10:55",
+   "end": "11:40",
+   "event": "In the Harappan gallery: a bronze girl from Mohenjo-daro, about ten centimetres tall, some four and a half thousand years old, one hand on her hip, her arm full of bangles.",
+   "present": [],
+   "decision": {
+    "thought": "A bronze girl, four and a half millennia old, standing with her hand on her hip in a gallery of dust and haze. She is a fragment of a world that knew no state, no law, no ethical idea, yet her posture is one of absolute, unmediated self-possession. It is a freedom that precedes the struggle for recognition, a spontaneity that history has since had to discipline into shape. The stillness of the bronze contrasts sharply with the chaotic, smog-choked air outside, suggesting a permanence that the modern world, with its burning and its haste, has yet to achieve.",
+    "action": "read",
+    "place": "national_museum",
+    "minutes": 45,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 344.",
+    "In the Harappan gallery: a bronze girl from Mohenjo-daro, about ten centimetres tall, some four and a half thousand years old, one hand on her hip, her arm full of bangles."
+   ],
+   "observed_at": "national_museum",
+   "opened": [
+    "sight"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 6.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§108",
+     "id": "wallace-logic:512"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Successors of Proclus",
+     "id": "haldane-2:1134"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§108",
+     "text": "If we look e.g. at a state with a territory of ten thousand square miles and a population of four millions, we should, without hesitation, admit that a few square miles of land or a few thousand inhabitants more or less could exercise no essential influence on the character of its constitution."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Successors of Proclus",
+     "text": "Hundreds and thousands of years are required by the world-spirit to reach the point which we attain more quickly, because we have the advantage of having objects which are past and of dealing with abstraction."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -973,7 +1055,7 @@
  "complete": false,
  "state": {
   "place": "national_museum",
-  "until": "2026-11-28T10:55+05:30",
+  "until": "2026-11-28T11:40+05:30",
   "asleep": false,
   "imprest": 14856,
   "wearing": "kurta",
@@ -1072,7 +1154,10 @@
    "strain": 2325,
    "tickets": [
     "national_museum"
-   ]
+   ],
+   "sights": {
+    "national_museum": 1
+   }
   },
   "account": {
    "advance": 15000,
@@ -1520,7 +1605,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-28",
-  "source_sha256": "3fd074208e06c57b716a804d3d0a75990b36a579379cc499d2cef64fca32df74",
+  "source_sha256": "289b7f598c2e2295d334ede60a9188cf115c818cc03c5a287c8a53c9476c4ec6",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2124,68 +2209,114 @@
     "text": "You arrive at the National Museum, Janpath. It closes at 18:00."
    },
    {
-    "id": "2026-11-28:event:29a24d760a19edea:1",
+    "id": "2026-11-28:event:84bc00d9aeece9ec:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 6,
+     "sha256": "84bc00d9aeece9ec86c742d6e762ccf5536939dc9948ad554dc144b7cf6b0605"
+    },
+    "type": "action",
+    "action": "read",
+    "time": "10:55",
+    "end": "11:40",
+    "place": "national_museum"
+   },
+   {
+    "id": "2026-11-28:event:22305f7d33787178:4",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      6,
+      0
+     ],
+     "sha256": "22305f7d337871783d2a0f2b80d39db2c3d9caab796659ad225d284ef64c91a6"
+    },
+    "type": "observation",
+    "time": "10:55",
+    "place": "national_museum",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 344."
+   },
+   {
+    "id": "2026-11-28:event:53259158da65bb10:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      6,
+      1
+     ],
+     "sha256": "53259158da65bb10209114f91508da988b9c38ca60a6be8c94c1ea9066629fc5"
+    },
+    "type": "observation",
+    "time": "10:55",
+    "place": "national_museum",
+    "text": "In the Harappan gallery: a bronze girl from Mohenjo-daro, about ten centimetres tall, some four and a half thousand years old, one hand on her hip, her arm full of bangles."
+   },
+   {
+    "id": "2026-11-28:event:011b5f83198c5c03:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "29a24d760a19edea84ffb04dfa06c1a42405d86d3ff62796ec02adaf1e396cca"
+     "sha256": "011b5f83198c5c0365ed064ade838a5a46059d7b3c50ff4868820d5bd8a825d0"
     },
     "type": "cash",
-    "time": "10:55",
+    "time": "11:40",
     "amount": 14856,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-28:event:1f98e54e281d1462:1",
+    "id": "2026-11-28:event:e346d578490c5cbc:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "1f98e54e281d1462ddd4738b0fdf9f3a561ffaa4d780a19ecb11a3a52dd4d87c"
+     "sha256": "e346d578490c5cbc5fe5261da7bf17bd2cd6a3bfd4171adc014b0d6ec3890a33"
     },
     "type": "location",
-    "time": "10:55",
+    "time": "11:40",
     "place": "national_museum",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-28:event:86baf46fc242fe08:1",
+    "id": "2026-11-28:event:beb3c7eb9ab9648d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "86baf46fc242fe08830e4fc462c6619dc512d93c01f349714d6daea24859a9ed"
+     "sha256": "beb3c7eb9ab9648d48cb7ea349a3bff9e6ef0120378d70b2e0afde3ba97d600a"
     },
     "type": "inventory",
-    "time": "10:55",
+    "time": "11:40",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-28:event:f6cc2a9496de8791:1",
+    "id": "2026-11-28:event:87090c9ed6341e92:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "f6cc2a9496de87911008606df762a485976aa8623cab5408b7f539d688b99d1d"
+     "sha256": "87090c9ed6341e92029cbb2690eee6c4eb6497cfe094bc352187bb425598974f"
     },
     "type": "inventory",
-    "time": "10:55",
+    "time": "11:40",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-28:event:2e3ef0ecdfe57b69:1",
+    "id": "2026-11-28:event:de2a970f4201d580:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "2e3ef0ecdfe57b69f2067bd2bb9e9c732d860be48cea6739e766f6dc01c1854e"
+     "sha256": "de2a970f4201d580faf87d175e7fdd41c92b1e7ec936dc6cd8a07ef06bfde3f5"
     },
     "type": "inventory",
-    "time": "10:55",
+    "time": "11:40",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
