@@ -278,6 +278,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "09:24",
+   "to": "10:04",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -396,6 +403,37 @@
    "to": "Hegel",
    "text": "Fresh air? Sir, the index is three-four-five today. I’d keep the window shut if I were you.",
    "t": "09:19",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s caution is practical, not philosophical. The index is a number, but the taste is sulfur and the weight is real. I will keep the shutters closed for now; the verandah will have to do without the breeze. It is time to eat.",
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Third Section, Leibnitz"
+    }
+   ],
+   "t": "09:24",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. I shall keep them shut.",
+   "to": "Ramesh",
+   "t": "09:24",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Very well, sir. Breakfast will be ready on the table in ten minutes, or whenever you prefer.",
+   "t": "09:24",
    "place": "home"
   }
  ],
@@ -540,6 +578,71 @@
      "text": "Somit entsteht im Pöbel das Böse, daß er die Ehre nicht hat, seine Subsistenz durch seine Arbeit zu finden, und doch, seine Subsistenz zu finden, als sein Recht anspricht. Gegen die Natur kann kein Mensch ein Recht behaupten; aber im Zustande der Gesellschaft gewinnt der Mangel sogleich die Form eines Unrechts, was dieser oder jener Klasse angetan wird."
     }
    ]
+  },
+  {
+   "t": "09:24",
+   "end": "10:04",
+   "event": "Ramesh says: “Fresh air? Sir, the index is three-four-five today. I’d keep the window shut if I were you.” He gives a slight nod and turns back toward the kitchen door.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh’s caution is practical, not philosophical. The index is a number, but the taste is sulfur and the weight is real. I will keep the shutters closed for now; the verandah will have to do without the breeze. It is time to eat.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 40,
+    "says": "Thank you, Ramesh. I shall keep them shut.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 17 °C, a brown haze. Air quality index: 345."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Very well, sir. Breakfast will be ready on the table in ten minutes, or whenever you prefer.",
+    "does": "He turns and walks toward the kitchen, pulling the door shut behind him."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "id": "sibree-history:479"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Third Section, Leibnitz",
+     "id": "haldane-3:858"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, India",
+     "text": "Already his nails had almost grown into his hands. The third grade is not always passed through in the same way; generally the Yogi has to spend a day between five fires, that is, between four tires occupying the four quarters of heaven, and the Sun. He must then swing backwards and forwards over the fire, a ceremony occupying three hours and three quarters."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Third Section, Leibnitz",
+     "text": "Under mathematics, which is the subject of four small volumes, Wolff also treats of architecture and military science. One of the propositions in Architecture is this: “Windows must be wide enough for two persons.” The making of a door is also propounded as a task, and the solution thereof given. The next best example comes from the art of warfare."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -562,7 +665,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-28T09:24+05:30",
+  "until": "2026-11-28T10:04+05:30",
   "asleep": false,
   "imprest": 15506,
   "wearing": "kurta",
@@ -962,7 +1065,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-27T19:30+05:30",
+  "last_meal": "2026-11-28T09:24+05:30",
   "snacks": 0,
   "works": [
    {
@@ -1089,7 +1192,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-28",
-  "source_sha256": "4eadc3cce832bde54b2357a3d11f42f5d08558e9c585727b27d458230bc908be",
+  "source_sha256": "2886cdeaf61f53f7cf22ff3f1f00efd6dfb6469c5f149c401b65107b98d0235e",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1196,6 +1299,36 @@
     "words": "Fresh air? Sir, the index is three-four-five today. I’d keep the window shut if I were you.",
     "verified": false,
     "time": "09:19",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:statement:a76c5fa756aec0df:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 11,
+     "sha256": "a76c5fa756aec0df0b9050505c8b693bb3db3237b772c7a2a31560c0031e3e60"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Thank you, Ramesh. I shall keep them shut.",
+    "verified": false,
+    "time": "09:24",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:statement:8f066aa72649a978:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 12,
+     "sha256": "8f066aa72649a978f759b5e561c410cafbc79091f4cb705b021778006f15e50b"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Very well, sir. Breakfast will be ready on the table in ten minutes, or whenever you prefer.",
+    "verified": false,
+    "time": "09:24",
     "place": "home"
    },
    {
@@ -1430,68 +1563,98 @@
     "text": "The air is very poor today: the index stands at 345."
    },
    {
-    "id": "2026-11-28:event:858713922c25eb95:1",
+    "id": "2026-11-28:event:206129bc0324ad7c:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 2,
+     "sha256": "206129bc0324ad7c72cf942dd2c47d609105a1f3d0572e044a54c38fba01b8f9"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "09:24",
+    "end": "10:04",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:event:c3402fa5fa6233e3:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      2,
+      0
+     ],
+     "sha256": "c3402fa5fa6233e33b8ab23eda1a7c8f6e2216e96de88de4dc1f72a33eb5978a"
+    },
+    "type": "observation",
+    "time": "09:24",
+    "place": "home",
+    "text": "Weather: 17 °C, a brown haze. Air quality index: 345."
+   },
+   {
+    "id": "2026-11-28:event:837919309996c32e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "858713922c25eb95719b9fc0b11d8b63e17b5af06776a3e9a81c1e516a83c349"
+     "sha256": "837919309996c32ed9b1929b5b04bdfd4670094261d4179ecab083e89faaea5b"
     },
     "type": "cash",
-    "time": "09:24",
+    "time": "10:04",
     "amount": 15506,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-28:event:e9e4c3dcc986a083:1",
+    "id": "2026-11-28:event:185740499a82f2a7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "e9e4c3dcc986a083a609994ef75e6714b442e9326b808777af9951256360d83e"
+     "sha256": "185740499a82f2a71728c9d58584a490b198f78dbe38be16af17f01e4e9756d3"
     },
     "type": "location",
-    "time": "09:24",
+    "time": "10:04",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-28:event:4454be144b421c0a:1",
+    "id": "2026-11-28:event:7a0183f1bae7e6dc:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "4454be144b421c0a6f3a99474ea8ffd949688c2286975105a1e9c63b0b418d30"
+     "sha256": "7a0183f1bae7e6dcf718f88807dce08d1080dcd8a928e80f2a5e5dd5a6f07ca7"
     },
     "type": "inventory",
-    "time": "09:24",
+    "time": "10:04",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-28:event:7ba9e5d0dbee1398:1",
+    "id": "2026-11-28:event:2f83ee7ebec00ee0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "7ba9e5d0dbee13980163e56b799620da6c730fc153eebe833ad1aa0f0d780644"
+     "sha256": "2f83ee7ebec00ee0692281359f1b64633e477169d08d0b2d381973639b5540bc"
     },
     "type": "inventory",
-    "time": "09:24",
+    "time": "10:04",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-28:event:29de27fcf570e23a:1",
+    "id": "2026-11-28:event:91c419eebb3443a7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "29de27fcf570e23a3ab9576b6c1d4504f7b5d5648ceb80c3f19bfc5954af0ccd"
+     "sha256": "91c419eebb3443a753b04e15c5c32119b48cbe651e79ca08c757a1f3ee8e7098"
     },
     "type": "inventory",
-    "time": "09:24",
+    "time": "10:04",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
