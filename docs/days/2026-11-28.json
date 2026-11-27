@@ -341,6 +341,13 @@
    "mode": "inside",
    "at": "national_museum",
    "now": "At the National Museum."
+  },
+  {
+   "from": "14:00",
+   "to": "14:30",
+   "mode": "inside",
+   "at": "national_museum",
+   "now": "At the National Museum."
   }
  ],
  "entries": [
@@ -679,6 +686,22 @@
     }
    ],
    "t": "13:40",
+   "place": "national_museum"
+  },
+  {
+   "k": "diary",
+   "text": "The relics at Piprahwa sit in a gilded stupa, and the visitors stand before them with folded hands. It is a concrete object of worship, yet the spirit that produced it remains dreamlike, lacking the self-conscious freedom that defines the state. Here is the tension: the form is universal, but the content is still bound to the singular devotion of the individual.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Indien, Das Rechtswesen"
+    }
+   ],
+   "t": "14:00",
    "place": "national_museum"
   }
  ],
@@ -1384,6 +1407,65 @@
      "text": "But the spherical surface, the world for the individual, carries on the face of it this double meaning: it is in and for itself the actual world and situation, and it is the world of the individual."
     }
    ]
+  },
+  {
+   "t": "14:00",
+   "end": "14:30",
+   "event": "In the Buddhist gallery: relics found at Piprahwa, near the Nepal border, held to be the Buddha's own, kept in a gilded shrine shaped like a stupa. Visitors stand before it with folded hands.",
+   "present": [],
+   "decision": {
+    "thought": "The relics at Piprahwa sit in a gilded stupa, and the visitors stand before them with folded hands. It is a concrete object of worship, yet the spirit that produced it remains dreamlike, lacking the self-conscious freedom that defines the state. Here is the tension: the form is universal, but the content is still bound to the singular devotion of the individual.",
+    "action": "stay",
+    "place": "national_museum",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 350.",
+    "In the Buddhist gallery: relics found at Piprahwa, near the Nepal border, held to be the Buddha's own, kept in a gilded shrine shaped like a stupa. Visitors stand before it with folded hands."
+   ],
+   "observed_at": "national_museum",
+   "opened": [
+    "sight"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle",
+     "id": "haldane-2:312"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Indien, Das Rechtswesen",
+     "id": "welt-2:359"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Aristotle",
+     "text": "Was the infinite not also now transplanted into self-consciousness? Fourthly, the Buddhists did not interest Alexander, and in his Indian expedition they do not appear; the destruction of Persepolis is, however, sufficiently justified as a measure of Greek vengeance for the destruction by Xerxes of the temples in Greece, especially in Athens."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Indien, Das Rechtswesen",
+     "text": "Daß Buddhisten damit gemeint sind, erhellt aus dem Namen: Samanä, mit dem Gautama bezeichnet wird. Buddha kommt zunächst als eine der Inkarnationen der Gottheit vor, ferner als einer der lunarischen Könige, denen die solarischen Könige gegenüberstehen, endlich als alter Lehrer. Seine letzten Schüler werden von den Buddhisten “= verehrt."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1406,7 +1488,7 @@
  "complete": false,
  "state": {
   "place": "national_museum",
-  "until": "2026-11-28T14:00+05:30",
+  "until": "2026-11-28T14:30+05:30",
   "asleep": false,
   "imprest": 14856,
   "wearing": "kurta",
@@ -1507,7 +1589,7 @@
     "national_museum"
    ],
    "sights": {
-    "national_museum": 5
+    "national_museum": 6
    }
   },
   "account": {
@@ -1956,7 +2038,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-28",
-  "source_sha256": "225cd2e3ced2ccad11631c34a5abbe47bd6e8eb9fefd71e990e438bd4d998cd8",
+  "source_sha256": "54a74389761b6979858756b7459b3313778a0086c241f4f4adb50a71b8efdb33",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2790,68 +2872,114 @@
     "text": "In the gallery of paintings: a small Pahari painting from the hills: Radha and Krishna under one cloak in a storm, the lightning drawn as a gold thread across a black sky."
    },
    {
-    "id": "2026-11-28:event:2a54cd7abf5a2702:1",
+    "id": "2026-11-28:event:5898d034faf711e0:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 11,
+     "sha256": "5898d034faf711e0cf5dd452389c824c61c5ff8ca2f12340cfaee1b21007ba80"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "14:00",
+    "end": "14:30",
+    "place": "national_museum"
+   },
+   {
+    "id": "2026-11-28:event:f92975fc7d643d42:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      11,
+      0
+     ],
+     "sha256": "f92975fc7d643d42895b6b509da7e0d457c2b1b34e6113fdd53a21109de847d4"
+    },
+    "type": "observation",
+    "time": "14:00",
+    "place": "national_museum",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 350."
+   },
+   {
+    "id": "2026-11-28:event:fb8035c3d5a155c6:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      11,
+      1
+     ],
+     "sha256": "fb8035c3d5a155c6292a425ab887f60c63b68d4f05fe67cd47aaf4b52ecf00f8"
+    },
+    "type": "observation",
+    "time": "14:00",
+    "place": "national_museum",
+    "text": "In the Buddhist gallery: relics found at Piprahwa, near the Nepal border, held to be the Buddha's own, kept in a gilded shrine shaped like a stupa. Visitors stand before it with folded hands."
+   },
+   {
+    "id": "2026-11-28:event:e6911512684b6a3d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "2a54cd7abf5a270263bd49bdc0da19a3afb98b7753879c72ca191eeef3e86aa3"
+     "sha256": "e6911512684b6a3d34bb014dbc70ad131675a5664e00ac06a904878ec23882d8"
     },
     "type": "cash",
-    "time": "14:00",
+    "time": "14:30",
     "amount": 14856,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-28:event:6ae8763d2936a0c0:1",
+    "id": "2026-11-28:event:83011c37c6eabb9f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "6ae8763d2936a0c03bff557e9cb9c4c41d7525acb440a43f08e08a7e200d8419"
+     "sha256": "83011c37c6eabb9fb7a68d57e5a2f042d03907b5e66dc10d278c10640be86a8e"
     },
     "type": "location",
-    "time": "14:00",
+    "time": "14:30",
     "place": "national_museum",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-28:event:1bbf65274a1907b0:1",
+    "id": "2026-11-28:event:e51a9751217195b6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "1bbf65274a1907b080de4bc87d0c5a13828e57734174ce3ced484f8eb1520064"
+     "sha256": "e51a9751217195b63af7ae5f50e239e498666ac9fa5838ff1976a3e8062779fd"
     },
     "type": "inventory",
-    "time": "14:00",
+    "time": "14:30",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-28:event:542c165934c12c13:1",
+    "id": "2026-11-28:event:578b529775023d4f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "542c165934c12c133c6b6602b00f47c7f68bdf0fb50279d72478432143ae2f83"
+     "sha256": "578b529775023d4f04b5be65d175e86d7015db17454941310a04f3ede2514432"
     },
     "type": "inventory",
-    "time": "14:00",
+    "time": "14:30",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-28:event:36befd7904cb42b4:1",
+    "id": "2026-11-28:event:c99cbf0755825ce5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "36befd7904cb42b43b7bae321829db9de518f0fac9d23b30ea152dc808967807"
+     "sha256": "c99cbf0755825ce5ad8693fe4fb8b6fd9ebb22d7d30b85b9184b95930b4d8fd5"
     },
     "type": "inventory",
-    "time": "14:00",
+    "time": "14:30",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
