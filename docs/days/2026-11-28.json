@@ -348,6 +348,13 @@
    "mode": "inside",
    "at": "national_museum",
    "now": "At the National Museum."
+  },
+  {
+   "from": "14:30",
+   "to": "15:01",
+   "mode": "walk",
+   "a": "national_museum",
+   "b": "home"
   }
  ],
  "entries": [
@@ -702,6 +709,22 @@
     }
    ],
    "t": "14:00",
+   "place": "national_museum"
+  },
+  {
+   "k": "diary",
+   "text": "The hunger is a sharp, physical demand that cuts through the haze and the history. I have been walking for hours, and the body does not care for my contemplations of the Piprahwa relics. It is time to return to the bungalow; the file can wait, but the stomach cannot.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§557"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§552"
+    }
+   ],
+   "t": "14:30",
    "place": "national_museum"
   }
  ],
@@ -1466,6 +1489,65 @@
      "text": "Daß Buddhisten damit gemeint sind, erhellt aus dem Namen: Samanä, mit dem Gautama bezeichnet wird. Buddha kommt zunächst als eine der Inkarnationen der Gottheit vor, ferner als einer der lunarischen Könige, denen die solarischen Könige gegenüberstehen, endlich als alter Lehrer. Seine letzten Schüler werden von den Buddhisten “= verehrt."
     }
    ]
+  },
+  {
+   "t": "14:30",
+   "end": "15:01",
+   "event": "You are hungry.",
+   "present": [],
+   "decision": {
+    "thought": "The hunger is a sharp, physical demand that cuts through the haze and the history. I have been walking for hours, and the body does not care for my contemplations of the Piprahwa relics. It is time to return to the bungalow; the file can wait, but the stomach cannot.",
+    "action": "walk",
+    "place": "home",
+    "minutes": 45,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "home",
+   "observations": [
+    "Weather: 23 °C, a brown haze. Air quality index: 350.",
+    "You are hungry."
+   ],
+   "observed_at": "national_museum",
+   "opened": [
+    "hunger"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 4.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§557",
+     "id": "wallace-mind:392"
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§552",
+     "id": "wallace-mind:358"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§557",
+     "text": "But with the stigma of immediacy upon it, the subject’s liberty is only a manner of life, without the infinite self-reflection and the subjective inwardness of conscience. These considerations govern in their further developments the devotion and the worship in the religion of fine art. § 558."
+    },
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§552",
+     "text": "But if the truly moral life is to be a sequel of religion, then perforce religion must have the genuine content; i.e. the idea of God it knows must be the true and real. The ethical life is the divine spirit as indwelling in self-consciousness, as it is actually present in a nation and its individual members."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1487,8 +1569,8 @@
  "owl": null,
  "complete": false,
  "state": {
-  "place": "national_museum",
-  "until": "2026-11-28T14:30+05:30",
+  "place": "home",
+  "until": "2026-11-28T15:01+05:30",
   "asleep": false,
   "imprest": 14856,
   "wearing": "kurta",
@@ -1583,14 +1665,15 @@
    },
    "breakfast": true,
    "bad_air": true,
-   "walked": 2325,
-   "strain": 2325,
+   "walked": 4650,
+   "strain": 4650,
    "tickets": [
     "national_museum"
    ],
    "sights": {
     "national_museum": 6
-   }
+   },
+   "hunger": 1
   },
   "account": {
    "advance": 15000,
@@ -2038,7 +2121,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-28",
-  "source_sha256": "54a74389761b6979858756b7459b3313778a0086c241f4f4adb50a71b8efdb33",
+  "source_sha256": "ad3b0f50e1e1d52b22821783cef70f30158f91d0649f697dcb2484e7bce27c85",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2918,68 +3001,116 @@
     "text": "In the Buddhist gallery: relics found at Piprahwa, near the Nepal border, held to be the Buddha's own, kept in a gilded shrine shaped like a stupa. Visitors stand before it with folded hands."
    },
    {
-    "id": "2026-11-28:event:e6911512684b6a3d:1",
+    "id": "2026-11-28:event:1f423f57d8af51d5:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 12,
+     "sha256": "1f423f57d8af51d56b228ac924bb7dcc21337d5cd20cdfa87d201ec70e460828"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "14:30",
+    "end": "15:01",
+    "place": null,
+    "origin": "national_museum",
+    "destination": "home"
+   },
+   {
+    "id": "2026-11-28:event:f92975fc7d643d42:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      12,
+      0
+     ],
+     "sha256": "f92975fc7d643d42895b6b509da7e0d457c2b1b34e6113fdd53a21109de847d4"
+    },
+    "type": "observation",
+    "time": "14:30",
+    "place": "national_museum",
+    "text": "Weather: 23 °C, a brown haze. Air quality index: 350."
+   },
+   {
+    "id": "2026-11-28:event:db3ff12517f16edc:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      12,
+      1
+     ],
+     "sha256": "db3ff12517f16edc1aa01a8fc0ae5caeb6285a44e5c2c7e2f3ddc18e6acec5ed"
+    },
+    "type": "observation",
+    "time": "14:30",
+    "place": "national_museum",
+    "text": "You are hungry."
+   },
+   {
+    "id": "2026-11-28:event:cef24aa0faa04324:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "e6911512684b6a3d34bb014dbc70ad131675a5664e00ac06a904878ec23882d8"
+     "sha256": "cef24aa0faa04324fc13911b81cbb72f349ac9a071ef7e7e506e1905cfad4cbc"
     },
     "type": "cash",
-    "time": "14:30",
+    "time": "15:01",
     "amount": 14856,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-28:event:83011c37c6eabb9f:1",
+    "id": "2026-11-28:event:19099fcdb2bba013:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "83011c37c6eabb9fb7a68d57e5a2f042d03907b5e66dc10d278c10640be86a8e"
+     "sha256": "19099fcdb2bba0130b1f1e70a5a144ab6625e8f2fb142bc3df813ff355704393"
     },
     "type": "location",
-    "time": "14:30",
-    "place": "national_museum",
+    "time": "15:01",
+    "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-28:event:e51a9751217195b6:1",
+    "id": "2026-11-28:event:d195a4c1fb5b415b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "e51a9751217195b63af7ae5f50e239e498666ac9fa5838ff1976a3e8062779fd"
+     "sha256": "d195a4c1fb5b415b13aae23dee974b8e6d287eaef3fcf7d8f0bd4b871f4623db"
     },
     "type": "inventory",
-    "time": "14:30",
+    "time": "15:01",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-28:event:578b529775023d4f:1",
+    "id": "2026-11-28:event:35e65014252f969c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "578b529775023d4f04b5be65d175e86d7015db17454941310a04f3ede2514432"
+     "sha256": "35e65014252f969cd2d10316eb9f393ccba554cf33317a319aabc185735f429f"
     },
     "type": "inventory",
-    "time": "14:30",
+    "time": "15:01",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-28:event:c99cbf0755825ce5:1",
+    "id": "2026-11-28:event:1be117bf380cb4c0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "c99cbf0755825ce5ad8693fe4fb8b6fd9ebb22d7d30b85b9184b95930b4d8fd5"
+     "sha256": "1be117bf380cb4c03e90eefa5cb9e45aad9e59c6a0a223acc2e97be4f4bddfd2"
     },
     "type": "inventory",
-    "time": "14:30",
+    "time": "15:01",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
