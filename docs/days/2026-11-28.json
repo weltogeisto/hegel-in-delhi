@@ -425,6 +425,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "18:51",
+   "to": "19:11",
+   "mode": "walk",
+   "a": "home",
+   "b": "lodhi"
   }
  ],
  "entries": [
@@ -978,6 +985,37 @@
    "to": "Hegel",
    "text": "Thank you, sir. It’s just a latch.",
    "t": "18:46",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The latch is settled, and with it the small domestic tension of the hour. Dinner is served at 19:30, and I have a good stretch of time before then. The haze outside is thick, but the evening air is cool at 19 degrees, a relief from the day's heat. I intend to take a short walk to clear my head, perhaps towards Lodhi Gardens if the path is clear, to think about the state of this house and my own precarious position within it.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction"
+    }
+   ],
+   "t": "18:51",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Leave it now, Ramesh. I shall be out for a short while before dinner.",
+   "to": "Ramesh",
+   "t": "18:51",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Very well, sir. I will have the parathas ready when you return.",
+   "t": "18:51",
    "place": "home"
   }
  ],
@@ -2322,6 +2360,72 @@
      "text": "Protagoras was not, like other Sophists, merely a teacher of culture, but likewise a deep and solid thinker, a philosopher who reflected on fundamental determinations of an altogether universal kind. The main point in his system of knowledge he expressed thus: “Man is the measure of all things; of that which is, that it is; of that which is not, that it is not.”"
     }
    ]
+  },
+  {
+   "t": "18:51",
+   "end": "19:11",
+   "event": "Ramesh says: “Thank you, sir. It’s just a latch.” Ramesh wipes his hand on his kurta and steps back, leaving the door to settle.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The latch is settled, and with it the small domestic tension of the hour. Dinner is served at 19:30, and I have a good stretch of time before then. The haze outside is thick, but the evening air is cool at 19 degrees, a relief from the day's heat. I intend to take a short walk to clear my head, perhaps towards Lodhi Gardens if the path is clear, to think about the state of this house and my own precarious position within it.",
+    "action": "walk",
+    "place": "lodhi",
+    "minutes": 30,
+    "says": "Leave it now, Ramesh. I shall be out for a short while before dinner.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": "lodhi",
+   "observations": [
+    "Weather: 19 °C, a brown haze. Air quality index: 353."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Very well, sir. I will have the parathas ready when you return.",
+    "does": "He bows slightly and turns to leave, wiping his hands once more on his kurta."
+   },
+   "left": "home",
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1189"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "id": "haldane-3:415"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "For “when Antisthenes turned outside a hole in his cloak, Socrates said to him, I see thy vanity through the hole in thy cloak.” Clothing is not a thing of rational import, but is regulated through needs that arise of themselves. In the North the clothing must be different from that in Central Africa; and in winter we do not wear cotton garments."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "text": "Now, on the contrary, with the higher degree of strength attained by the inward side of the individual, he may hand the external over to chance; just as he leaves clothing to the contingencies of fashion, not considering it worth while to exert his understanding upon it."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2343,8 +2447,8 @@
  "owl": null,
  "complete": false,
  "state": {
-  "place": "home",
-  "until": "2026-11-28T18:51+05:30",
+  "place": "lodhi",
+  "until": "2026-11-28T19:11+05:30",
   "asleep": false,
   "imprest": 14856,
   "wearing": "kurta",
@@ -2439,8 +2543,8 @@
    },
    "breakfast": true,
    "bad_air": true,
-   "walked": 4650,
-   "strain": 4650,
+   "walked": 6150,
+   "strain": 6150,
    "tickets": [
     "national_museum"
    ],
@@ -2896,7 +3000,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-28",
-  "source_sha256": "3e6ab8a0321a068f57cac5dfe08fd807653960997a4b5d894d47eb3a8349956c",
+  "source_sha256": "7f09576aa5787fca17d581e414fb88403d6cb63644cded42dd06f73c469788f4",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3288,6 +3392,36 @@
     "words": "Thank you, sir. It’s just a latch.",
     "verified": false,
     "time": "18:46",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:statement:7784cdf61a065eea:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 49,
+     "sha256": "7784cdf61a065eea088a834e833905a85b279620fa045ac3e2beb59eeea1a932"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Leave it now, Ramesh. I shall be out for a short while before dinner.",
+    "verified": false,
+    "time": "18:51",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:statement:1a1138c4a2deeda6:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 50,
+     "sha256": "1a1138c4a2deeda6dcef34cf52f86a23a5eeb46caf152167549892aa684f8e2a"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Very well, sir. I will have the parathas ready when you return.",
+    "verified": false,
+    "time": "18:51",
     "place": "home"
    },
    {
@@ -4396,68 +4530,100 @@
     "text": "Weather: 19 °C, a brown haze. Air quality index: 353."
    },
    {
-    "id": "2026-11-28:event:4c8655188430471f:1",
+    "id": "2026-11-28:event:66332a74355c9bf0:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 23,
+     "sha256": "66332a74355c9bf0992dd38cfb051c24643d724744bfc49ad2d57785700aa436"
+    },
+    "type": "action",
+    "action": "walk",
+    "time": "18:51",
+    "end": "19:11",
+    "place": null,
+    "origin": "home",
+    "destination": "lodhi"
+   },
+   {
+    "id": "2026-11-28:event:1f08d88a69ea64a1:4",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      23,
+      0
+     ],
+     "sha256": "1f08d88a69ea64a14f5d1b3c2f2751a7af472d2175dde02a5364a82d423b4fec"
+    },
+    "type": "observation",
+    "time": "18:51",
+    "place": "home",
+    "text": "Weather: 19 °C, a brown haze. Air quality index: 353."
+   },
+   {
+    "id": "2026-11-28:event:6af116caa4f21337:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "4c8655188430471f16c747a9f318b865ea231f2632a396a4096c52adf865610a"
+     "sha256": "6af116caa4f21337f0fab67fe7fdf8d7e19dff752e03109a07d2e51304079057"
     },
     "type": "cash",
-    "time": "18:51",
+    "time": "19:11",
     "amount": 14856,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-28:event:c614aa56319e13da:1",
+    "id": "2026-11-28:event:9aa4b3c6a82643fe:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "c614aa56319e13dae3817533df5162662d9258d9a24707a5216cfac05b8fbb90"
+     "sha256": "9aa4b3c6a82643fe7a8b3f02963982978dc8c15c6ba5237ea935a57cfa74702f"
     },
     "type": "location",
-    "time": "18:51",
-    "place": "home",
+    "time": "19:11",
+    "place": "lodhi",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-28:event:d9dc5be5436991d8:1",
+    "id": "2026-11-28:event:fe1fd50308f8b2a8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "d9dc5be5436991d8feda527b0a5d0a3432e2ccde9830d7f4c27f1b7cccc12070"
+     "sha256": "fe1fd50308f8b2a86d37618782594fe17f069c1bae834b5d1a7215be016d3cbd"
     },
     "type": "inventory",
-    "time": "18:51",
+    "time": "19:11",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-28:event:5a8206de1dfd22b9:1",
+    "id": "2026-11-28:event:a01b096cec1a857f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "5a8206de1dfd22b9f27799687fe1173f3012201ba93ce024ef9c076437e185cc"
+     "sha256": "a01b096cec1a857f1733ed3ae36f9e6cbfb8141d261153a1dc31f1f9f87e5735"
     },
     "type": "inventory",
-    "time": "18:51",
+    "time": "19:11",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-28:event:3897357eb245d889:1",
+    "id": "2026-11-28:event:e069fcf345fe04d9:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "3897357eb245d88972cf0fe60ae16be4ca57de78a86ef143b68e0c71d57c85dc"
+     "sha256": "e069fcf345fe04d98e2390c233b7c4d4da670cc2326ad2a054c62ad8d575bc8a"
     },
     "type": "inventory",
-    "time": "18:51",
+    "time": "19:11",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
