@@ -411,6 +411,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "18:36",
+   "to": "18:46",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -902,6 +909,37 @@
    "k": "world",
    "text": "Ramesh brings tea.",
    "t": "16:36",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh stands by with his rag, the oil can in his other hand, waiting for the command to proceed. It is a small act of maintenance, but it restores the order of the household; the door must close, and the latch must catch. I shall watch him work, a brief lesson in the dignity of the particular serving the universal comfort of the home.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "18:36",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Proceed, Ramesh. Let us see if the mechanism yields to oil and attention.",
+   "to": "Ramesh",
+   "t": "18:36",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Sir, you are making it sound like a machine. It is just a door. I will be done in two minutes.",
+   "t": "18:36",
    "place": "home"
   }
  ],
@@ -2117,6 +2155,70 @@
      ]
     ]
    }
+  },
+  {
+   "t": "18:36",
+   "end": "18:46",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh stands by with his rag, the oil can in his other hand, waiting for the command to proceed. It is a small act of maintenance, but it restores the order of the household; the door must close, and the latch must catch. I shall watch him work, a brief lesson in the dignity of the particular serving the universal comfort of the home.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Proceed, Ramesh. Let us see if the mechanism yields to oil and attention.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 19 °C, a brown haze. Air quality index: 353.",
+    "Nothing in particular happens. The evening goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Sir, you are making it sound like a machine. It is just a door. I will be done in two minutes.",
+    "does": "He dips the oiler and works the latch with a firm, practiced twist."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence. So also it is not a matter merely external and particular, the performance of which is intrusted to him."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2139,7 +2241,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-28T18:36+05:30",
+  "until": "2026-11-28T18:46+05:30",
   "asleep": false,
   "imprest": 14856,
   "wearing": "kurta",
@@ -2691,7 +2793,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-28",
-  "source_sha256": "066a8e49c6108c56161755283f461e3d8a0e1dc4699cb5b6f8c93c28f34fedd6",
+  "source_sha256": "32f9673cfff3bff75e7696466bfa9b696f177d7e2e9eb32daaff547b201a7921",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3023,6 +3125,36 @@
     "type": "world",
     "text": "Ramesh brings tea.",
     "time": "16:36",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:statement:0a3914b13d05e32e:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 43,
+     "sha256": "0a3914b13d05e32ebc0541f2f8c8036cf602fe95a6403ae3387d8325e7fdb2e9"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Proceed, Ramesh. Let us see if the mechanism yields to oil and attention.",
+    "verified": false,
+    "time": "18:36",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:statement:47337df98bd459ff:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 44,
+     "sha256": "47337df98bd459ff872de604f9d681bb0c24905362c011f929966cdef143c122"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Sir, you are making it sound like a machine. It is just a door. I will be done in two minutes.",
+    "verified": false,
+    "time": "18:36",
     "place": "home"
    },
    {
@@ -4055,68 +4187,114 @@
     "text": "Nothing in particular happens. The evening goes on."
    },
    {
-    "id": "2026-11-28:event:7fc8a30970286c28:1",
+    "id": "2026-11-28:event:b784d6ca5e99fd5e:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 21,
+     "sha256": "b784d6ca5e99fd5e2a06c490d7a3499a589f38aa2739f6845d7dc908547b7fdc"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "18:36",
+    "end": "18:46",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:event:1f08d88a69ea64a1:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      21,
+      0
+     ],
+     "sha256": "1f08d88a69ea64a14f5d1b3c2f2751a7af472d2175dde02a5364a82d423b4fec"
+    },
+    "type": "observation",
+    "time": "18:36",
+    "place": "home",
+    "text": "Weather: 19 °C, a brown haze. Air quality index: 353."
+   },
+   {
+    "id": "2026-11-28:event:f0883d583a8f0cb4:4",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      21,
+      1
+     ],
+     "sha256": "f0883d583a8f0cb4f513e9e7918f61a4da92f5f5c5ffd125af87394140064d60"
+    },
+    "type": "observation",
+    "time": "18:36",
+    "place": "home",
+    "text": "Nothing in particular happens. The evening goes on."
+   },
+   {
+    "id": "2026-11-28:event:d90e386baf03afb2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "7fc8a30970286c283c3b2e7b278d2365685282eb44bd2adf8ddb2bdeef7e4b96"
+     "sha256": "d90e386baf03afb2a9246956ba4e101d407bfc9a30fef542451a2e2e31c3afec"
     },
     "type": "cash",
-    "time": "18:36",
+    "time": "18:46",
     "amount": 14856,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-28:event:413e9e2ed008b456:1",
+    "id": "2026-11-28:event:c124a178e7e0810d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "413e9e2ed008b456c3172bd8f212506e7ebf03a42c4d18a76eaadccad48216bb"
+     "sha256": "c124a178e7e0810dc97bc5bf0e85c6157e5e1241d6065fe022a01259ffe1f7c9"
     },
     "type": "location",
-    "time": "18:36",
+    "time": "18:46",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-28:event:98217d1d93b6b64d:1",
+    "id": "2026-11-28:event:2d75093a1a58443c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "98217d1d93b6b64d01434fe045ae40b02f8c5c187054d3984b0f03caa0b68faa"
+     "sha256": "2d75093a1a58443c06fea6ad53c6c69ef7d4490d89cffa8bd6539b67067a1460"
     },
     "type": "inventory",
-    "time": "18:36",
+    "time": "18:46",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-28:event:c2faccfe74b5f876:1",
+    "id": "2026-11-28:event:413fba4081240bc0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "c2faccfe74b5f876acf84b6ca280c4c164aa84816779527f26aa87681028218e"
+     "sha256": "413fba4081240bc0c251515254503854c2ef63d15ecdac6c335dfaeb6d1776d6"
     },
     "type": "inventory",
-    "time": "18:36",
+    "time": "18:46",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-28:event:790c8a5714e8eb82:1",
+    "id": "2026-11-28:event:5f166c162a6b0185:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "790c8a5714e8eb82b143f44be4044ef2d98717f199ba4cb6c050f03a8812ad3b"
+     "sha256": "5f166c162a6b0185d5ad0db7e881eb781faf1629540b11dd7dc1ef778837c0f4"
     },
     "type": "inventory",
-    "time": "18:36",
+    "time": "18:46",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
