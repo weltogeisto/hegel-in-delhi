@@ -355,6 +355,13 @@
    "mode": "walk",
    "a": "national_museum",
    "b": "home"
+  },
+  {
+   "from": "15:01",
+   "to": "15:31",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -726,6 +733,43 @@
    ],
    "t": "14:30",
    "place": "national_museum"
+  },
+  {
+   "k": "diary",
+   "text": "The afternoon stretches out in a brown blur, the haze making the distance to the Auditorium feel like a journey into a fog. My stomach growls, a reminder that the body has its own claims on the spirit, and I am too far from the venue to risk walking there on an empty tank. I will eat what Ramesh has prepared, and then we shall proceed to the music, where the order of the notes may provide the structure the air lacks.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269"
+    }
+   ],
+   "t": "15:01",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, a plate, please. Rice, the dal, and an egg. I have a concert to attend shortly, and I cannot walk on empty reserves.",
+   "to": "Ramesh",
+   "t": "15:01",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes, sir. The dal is still warm from the stove. I will have the plate ready in two minutes.",
+   "t": "15:01",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "Ramesh puts a plate together: rice, the day's dal and a fried egg.",
+   "t": "15:01",
+   "place": "home"
   }
  ],
  "steps": [
@@ -1548,6 +1592,70 @@
      "text": "But if the truly moral life is to be a sequel of religion, then perforce religion must have the genuine content; i.e. the idea of God it knows must be the true and real. The ethical life is the divine spirit as indwelling in self-consciousness, as it is actually present in a nation and its individual members."
     }
    ]
+  },
+  {
+   "t": "15:01",
+   "end": "15:31",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The afternoon stretches out in a brown blur, the haze making the distance to the Auditorium feel like a journey into a fog. My stomach growls, a reminder that the body has its own claims on the spirit, and I am too far from the venue to risk walking there on an empty tank. I will eat what Ramesh has prepared, and then we shall proceed to the music, where the order of the notes may provide the structure the air lacks.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": "Ramesh, a plate, please. Rice, the dal, and an egg. I have a concert to attend shortly, and I cannot walk on empty reserves.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 350.",
+    "Nothing in particular happens. The afternoon goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes, sir. The dal is still warm from the stove. I will have the plate ready in two minutes.",
+    "does": "He nods and turns to open the kitchen cabinet."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "id": "dyde-right:639"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "That which the public servant has to perform is as it stands of absolute value. Hence positive injury or non-performance, either being opposed to the essence of service, is a wrong to the universal content (§ 95, a negative-infinite judgment), and therefore a fault or crime."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§269",
+     "text": "Public worship consists in acts and doctrine; it needs possessions and property, and likewise individuals devoted to the service of the congregation. ■ Out of this arises between church and state a relation, which it is not difficult to define."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1570,7 +1678,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-28T15:01+05:30",
+  "until": "2026-11-28T15:31+05:30",
   "asleep": false,
   "imprest": 14856,
   "wearing": "kurta",
@@ -1993,7 +2101,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-28T09:24+05:30",
+  "last_meal": "2026-11-28T15:01+05:30",
   "snacks": 0,
   "works": [
    {
@@ -2121,7 +2229,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-28",
-  "source_sha256": "ad3b0f50e1e1d52b22821783cef70f30158f91d0649f697dcb2484e7bce27c85",
+  "source_sha256": "d2aa2e93a7cf09241a4941a51a4bb7a0d013de144e2b8ef959e23747a7bb2638",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2338,6 +2446,49 @@
     "payer": null,
     "time": "10:45",
     "place": "national_museum"
+   },
+   {
+    "id": "2026-11-28:statement:27030379ed4226a9:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 31,
+     "sha256": "27030379ed4226a913e5f51d682f28e2431b67e93648fc1ce4b6dcdaca31e4a1"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, a plate, please. Rice, the dal, and an egg. I have a concert to attend shortly, and I cannot walk on empty reserves.",
+    "verified": false,
+    "time": "15:01",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:statement:fc675ac3d2c1726d:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 32,
+     "sha256": "fc675ac3d2c1726d6dd40212d7498982a623091ac80e29d1293273704d92f815"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes, sir. The dal is still warm from the stove. I will have the plate ready in two minutes.",
+    "verified": false,
+    "time": "15:01",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:event:8397fab2cca69445:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 33,
+     "sha256": "8397fab2cca69445f91d62e090c449ec19bf09d09cabebbe0c521af99efb1c2a"
+    },
+    "type": "world",
+    "text": "Ramesh puts a plate together: rice, the day's dal and a fried egg.",
+    "time": "15:01",
+    "place": "home"
    },
    {
     "id": "2026-11-28:event:d4c7e7fccb80148c:1",
@@ -3049,68 +3200,114 @@
     "text": "You are hungry."
    },
    {
-    "id": "2026-11-28:event:cef24aa0faa04324:1",
+    "id": "2026-11-28:event:eef01abc3ada52d8:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 13,
+     "sha256": "eef01abc3ada52d8feb90b70851333b2bf36725d10bb04b511158b26f7fe0a23"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "15:01",
+    "end": "15:31",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-28:event:76fb522c373cb6dd:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      13,
+      0
+     ],
+     "sha256": "76fb522c373cb6dd1ba32890859a825d1defc303db738f9df8a4781e2fcb46db"
+    },
+    "type": "observation",
+    "time": "15:01",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 350."
+   },
+   {
+    "id": "2026-11-28:event:a77f13cd004dc58e:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      13,
+      1
+     ],
+     "sha256": "a77f13cd004dc58e92ee3fd09257ac61887e5229b3f41685577fbace3df64cce"
+    },
+    "type": "observation",
+    "time": "15:01",
+    "place": "home",
+    "text": "Nothing in particular happens. The afternoon goes on."
+   },
+   {
+    "id": "2026-11-28:event:9aebd8b31e8bb2f8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "cef24aa0faa04324fc13911b81cbb72f349ac9a071ef7e7e506e1905cfad4cbc"
+     "sha256": "9aebd8b31e8bb2f83eb1cc6077cebca0c1bc0f1de30ed3dac32f3077cd49e3cc"
     },
     "type": "cash",
-    "time": "15:01",
+    "time": "15:31",
     "amount": 14856,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-28:event:19099fcdb2bba013:1",
+    "id": "2026-11-28:event:cfc8ba96069f3038:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "19099fcdb2bba0130b1f1e70a5a144ab6625e8f2fb142bc3df813ff355704393"
+     "sha256": "cfc8ba96069f3038f78ea5e9bc35a12ee1d8b0027d47dd6ad747b92f658ac530"
     },
     "type": "location",
-    "time": "15:01",
+    "time": "15:31",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-28:event:d195a4c1fb5b415b:1",
+    "id": "2026-11-28:event:6eb64f1c8c985cd5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "d195a4c1fb5b415b13aae23dee974b8e6d287eaef3fcf7d8f0bd4b871f4623db"
+     "sha256": "6eb64f1c8c985cd571a6aea676bc74e85e3d47fed82c86c4c8fab10ebbf6a0aa"
     },
     "type": "inventory",
-    "time": "15:01",
+    "time": "15:31",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-28:event:35e65014252f969c:1",
+    "id": "2026-11-28:event:b3cf4ae2ab432cd8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "35e65014252f969cd2d10316eb9f393ccba554cf33317a319aabc185735f429f"
+     "sha256": "b3cf4ae2ab432cd8dbee31621c17c93c5caa9c5f8200374425e28c66ac471402"
     },
     "type": "inventory",
-    "time": "15:01",
+    "time": "15:31",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-28:event:1be117bf380cb4c0:1",
+    "id": "2026-11-28:event:2bc26d7f37838506:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "1be117bf380cb4c03e90eefa5cb9e45aad9e59c6a0a223acc2e97be4f4bddfd2"
+     "sha256": "2bc26d7f37838506548f30587bb9fb8f2fd0a73ee65409cf864a505ce7a1e7d5"
     },
     "type": "inventory",
-    "time": "15:01",
+    "time": "15:31",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
