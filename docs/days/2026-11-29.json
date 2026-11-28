@@ -453,6 +453,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "19:27",
+   "to": "19:57",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -2787,6 +2794,41 @@
      ]
     ]
    }
+  },
+  {
+   "t": "19:27",
+   "end": "19:57",
+   "event": "Nothing in particular happens. The evening goes on.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "rest",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, a brown haze. Air quality index: 339.",
+    "Nothing in particular happens. The evening goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "mind": {
+    "source": "away",
+    "attempts": 0,
+    "latency_s": 3.1,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "funnel": {
@@ -2809,7 +2851,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T19:27+05:30",
+  "until": "2026-11-29T19:57+05:30",
   "asleep": false,
   "imprest": 13356,
   "wearing": "kurta",
@@ -3357,7 +3399,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "514b0ef75da216a85f0f0e7092de98880c43a9f1b8a3ee5a2444907d64c23b62",
+  "source_sha256": "ec4948b7ee987226f387dbae933c682e882d68fc883ca9d59be83d1abea46932",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -5070,68 +5112,114 @@
     "text": "Nothing in particular happens. The evening goes on."
    },
    {
-    "id": "2026-11-29:event:acdbbe2eea1bbbc4:1",
+    "id": "2026-11-29:event:ff4c2fa203883efe:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 26,
+     "sha256": "ff4c2fa203883efe1f7a2893a1820d460ea34d69cc2e340d0e0226afe52f3080"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "19:27",
+    "end": "19:57",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:aaeece3f6a75cd69:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      26,
+      0
+     ],
+     "sha256": "aaeece3f6a75cd69488835daa57353e3e13dd02661405f2022792066d852eb46"
+    },
+    "type": "observation",
+    "time": "19:27",
+    "place": "home",
+    "text": "Weather: 18 °C, a brown haze. Air quality index: 339."
+   },
+   {
+    "id": "2026-11-29:event:f0883d583a8f0cb4:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      26,
+      1
+     ],
+     "sha256": "f0883d583a8f0cb4f513e9e7918f61a4da92f5f5c5ffd125af87394140064d60"
+    },
+    "type": "observation",
+    "time": "19:27",
+    "place": "home",
+    "text": "Nothing in particular happens. The evening goes on."
+   },
+   {
+    "id": "2026-11-29:event:e7b123d7058b1e35:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "acdbbe2eea1bbbc465653c824f641b73900a257a862bf57989f224508916b0fe"
+     "sha256": "e7b123d7058b1e357cb461f3d69491d180bf8f4261e5c641ca0a82b3a6b525c5"
     },
     "type": "cash",
-    "time": "19:27",
+    "time": "19:57",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:65349a4555856402:1",
+    "id": "2026-11-29:event:23519a2eac4feefb:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "65349a4555856402af8fc603e1cc578ba9391dab66109a0250f487fbe5cd60ae"
+     "sha256": "23519a2eac4feefba47c3b4ce693f8aeab84e44e7baab8a37faa994b8d763529"
     },
     "type": "location",
-    "time": "19:27",
+    "time": "19:57",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:5178bb67dba7cd48:1",
+    "id": "2026-11-29:event:7b91960480432cc0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "5178bb67dba7cd48c0f70f2feff244a94cf8927e43bbec3cf88826697adce2ec"
+     "sha256": "7b91960480432cc097bdb12418974c30d6ae6a2e212090cdd9ebe90b3e672349"
     },
     "type": "inventory",
-    "time": "19:27",
+    "time": "19:57",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:94b10d30f86984f1:1",
+    "id": "2026-11-29:event:20bf905528bdedd2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "94b10d30f86984f1557fae802d5e40c6015b031b5e902bd5d2414ebbfb5b3d1c"
+     "sha256": "20bf905528bdedd2a344b06666f34cc5170a59025956f8cc75babeca75d8ebc2"
     },
     "type": "inventory",
-    "time": "19:27",
+    "time": "19:57",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:cf9bd0a651e017e6:1",
+    "id": "2026-11-29:event:0624a3176e3679fe:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "cf9bd0a651e017e68d8fd4268e6357e92ec7b2518ffbc9a51836cdf6096ff7bb"
+     "sha256": "0624a3176e3679fe2e3286f39e89dcd8ad3461551ee1a01fd7fb78bffe3d6d34"
     },
     "type": "inventory",
-    "time": "19:27",
+    "time": "19:57",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
