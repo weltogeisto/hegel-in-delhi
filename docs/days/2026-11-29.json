@@ -348,6 +348,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "13:02",
+   "to": "13:32",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -690,6 +697,37 @@
    "to": "Hegel",
    "text": "Ji, bas paanch minute. Ghee garam hai, aap thoda baithiye.",
    "t": "12:57",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh asks me to wait five minutes for the ghee to heat. I sit. The chhole and rotis are ready, but the ghee is the final touch, the particular detail that makes the universal meal complete. I am not in a hurry; the heat outside is too thick for movement, and the file in the study can wait for the digestion of the morning's dust.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§163"
+    }
+   ],
+   "t": "13:02",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ji, no rush. The ghee takes its time.",
+   "to": "Ramesh",
+   "t": "13:02",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, the ghee is indeed ready. I just need to add the salt.",
+   "t": "13:02",
    "place": "home"
   }
  ],
@@ -1406,6 +1444,73 @@
      "text": "WITH the Empire of China History has to begin, for it is the oldest, as far as history gives us any information; and its principle has such substantiality, that for the empire in question it is at once the oldest and the newest."
     }
    ]
+  },
+  {
+   "t": "13:02",
+   "end": "13:32",
+   "event": "Ramesh says: “Ji, bas paanch minute. Ghee garam hai, aap thoda baithiye.” He turns toward the kitchen door, wiping his hands on his apron. Ramesh has laid out lunch: chhole, rotis and onions in lemon.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh asks me to wait five minutes for the ghee to heat. I sit. The chhole and rotis are ready, but the ghee is the final touch, the particular detail that makes the universal meal complete. I am not in a hurry; the heat outside is too thick for movement, and the file in the study can wait for the digestion of the morning's dust.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": "Ji, no rush. The ghee takes its time.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 343.",
+    "Ramesh has laid out lunch: chhole, rotis and onions in lemon."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply",
+    "meal"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, the ghee is indeed ready. I just need to add the salt.",
+    "does": "He turns back to the stove and adds a pinch of salt."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World",
+     "id": "baillie-2:47"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§163",
+     "id": "wallace-logic:753"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World",
+     "text": "The power which perpetrates on the conscious individual this wrong of making him into a mere thing, is \" nature \"; it is the universahty not of the community, but the abstract universahty of mere existence. And the particular individual, in wiping out the wrong suffered, turns not against the community — for he has not suffered at its hands — but against the latter."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§163",
+     "text": "Rousseau would have made a sounder contribution towards a theory of the state, if he had always keep this distinction in sight. The general will is the notion of the will: and the laws are the special clauses of this will and based upon the notion of it."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1428,7 +1533,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T13:02+05:30",
+  "until": "2026-11-29T13:32+05:30",
   "asleep": false,
   "imprest": 13356,
   "wearing": "kurta",
@@ -1520,7 +1625,8 @@
     ]
    },
    "breakfast": true,
-   "bad_air": true
+   "bad_air": true,
+   "lunch": true
   },
   "account": {
    "advance": 15000,
@@ -1844,7 +1950,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-29T09:27+05:30",
+  "last_meal": "2026-11-29T13:02+05:30",
   "snacks": 0,
   "works": [
    {
@@ -1973,7 +2079,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "01ba995103f2ab97e9ecc8cd1f368448fcf1c5a669a9f134bdf5c6c92b2e05ba",
+  "source_sha256": "9d6c81c706406a2f6599e4d026a8b310e40cd020a50c8b4eff5dde96bef30461",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2245,6 +2351,36 @@
     "words": "Ji, bas paanch minute. Ghee garam hai, aap thoda baithiye.",
     "verified": false,
     "time": "12:57",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:48552737ca3d9324:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 31,
+     "sha256": "48552737ca3d9324581da603b74f098b4bf56a5a50f61bde994854047db40f35"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ji, no rush. The ghee takes its time.",
+    "verified": false,
+    "time": "13:02",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:7ebf7f391e233b78:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 32,
+     "sha256": "7ebf7f391e233b7826ade78ca554c217d8e191945905e7c3ca4a25e3853ba46b"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Ji, the ghee is indeed ready. I just need to add the salt.",
+    "verified": false,
+    "time": "13:02",
     "place": "home"
    },
    {
@@ -2813,68 +2949,114 @@
     "text": "Nothing in particular happens. The afternoon goes on."
    },
    {
-    "id": "2026-11-29:event:7947e7bcf6ce68d1:1",
+    "id": "2026-11-29:event:24f654ddbd3b6ee0:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 11,
+     "sha256": "24f654ddbd3b6ee0eb790eb661a439d7c655a4c182db8affb7410b86aacb670e"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "13:02",
+    "end": "13:32",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:d6fa9d9f166faffd:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      11,
+      0
+     ],
+     "sha256": "d6fa9d9f166faffd2c69c4dda7aa27ad2d10a2d8409ca615179f2840c9f3a0f1"
+    },
+    "type": "observation",
+    "time": "13:02",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 343."
+   },
+   {
+    "id": "2026-11-29:event:b198d9aaf353665a:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      11,
+      1
+     ],
+     "sha256": "b198d9aaf353665ad8bbfed0e8dc924b8a982dc062ad20c30da596282dd3fae6"
+    },
+    "type": "observation",
+    "time": "13:02",
+    "place": "home",
+    "text": "Ramesh has laid out lunch: chhole, rotis and onions in lemon."
+   },
+   {
+    "id": "2026-11-29:event:833c6990484e91f2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "7947e7bcf6ce68d1b34c7bb16f08b7ef640d2df3a284be6f27bb6a603086d6db"
+     "sha256": "833c6990484e91f2ac52a16695392ce26432010ab2f2af6e3139024a416331db"
     },
     "type": "cash",
-    "time": "13:02",
+    "time": "13:32",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:b94fdf3768600d34:1",
+    "id": "2026-11-29:event:b42072b40fe56662:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "b94fdf3768600d34444cd5094d8cbb6a54294f9728a516b0781e375d56dc9d95"
+     "sha256": "b42072b40fe56662413151d1e672875b569fd8f5af4abc8991ca4c6a30d87535"
     },
     "type": "location",
-    "time": "13:02",
+    "time": "13:32",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:ff823a659b3d1e58:1",
+    "id": "2026-11-29:event:036141b5905dda98:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "ff823a659b3d1e58c0d58510f647f321c0f7d5278c2bec94553f93bcfeb6d7a7"
+     "sha256": "036141b5905dda98462b36c9e5c15f5fcb12d4a1d38f3ee86a854952675483b5"
     },
     "type": "inventory",
-    "time": "13:02",
+    "time": "13:32",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:6e88b72f92f08577:1",
+    "id": "2026-11-29:event:d48b8aa3bdf5ceb7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "6e88b72f92f08577607d52ae68d5b02cde4a201ccbd820b43f50d873c5812530"
+     "sha256": "d48b8aa3bdf5ceb72478b82a362028d54cd7cc4778d42c95555b141370315481"
     },
     "type": "inventory",
-    "time": "13:02",
+    "time": "13:32",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:43d514b9c7315319:1",
+    "id": "2026-11-29:event:fa2d123d3e2f4391:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "43d514b9c7315319a12d6294f170fe98c0d160decb7eaecdee7805510e1ea54f"
+     "sha256": "fa2d123d3e2f4391a4069b20b4aea881ad2341b08c619dc9f47896c100d041b9"
     },
     "type": "inventory",
-    "time": "13:02",
+    "time": "13:32",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
