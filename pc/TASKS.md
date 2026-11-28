@@ -122,7 +122,7 @@ Declared in `pc/TRAINING-4-INSTRUMENT.md` ("The blind pairs, as they are read").
 ### W20 · the second family, on Welt's word; the PC seat prepares · the instrument's pairs with the form evened out · OPEN from 26 November
 As W19 in every step, with `pc/exports/voice4-instrument-20261124/packet-even/r1` to `r6`, ballots named `<family>-even-rN.jsonl`, on `codex/voice4-even-20261126`. Declared in `pc/TRAINING-4-INSTRUMENT.md` ("The pairs again, with the form evened out").
 
-### W22 · PC seat · Inkling 2 Mini against Qwen · moved to the night of Saturday 28 November: Friday's night ran W21 (`DECISIONS.md` 73)
+### W22 · PC seat · Inkling 2 Mini against Qwen · DONE, run on the morning of 28 November; read in `pc/INKLING-BAKEOFF.md`: Inkling does not beat Qwen
 Declared in `pc/INKLING-BAKEOFF.md`. By day: a newer llama.cpp in a folder of its own, and `Inkling-2-Mini-UD-Q4_K_M.gguf`. At night, in a window with no call of his due: swap 8082 to Inkling, run `REQUESTS-inkling-A.jsonl` and `-D.jsonl` (88 calls), restore Qwen with the exact saved command and check the pin. Push to `codex/inkling-20261127` and post DONE on PR #1. Do not read the replies.
 
 ### W21 · PC seat · the fast lane, night 4: the paid work, waiting for the problem · DONE, run on the night of Friday 27 November; read in `pc/FAST-LANE-NIGHT4.md`: not clean, nothing switched on
