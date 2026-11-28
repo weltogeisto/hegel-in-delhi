@@ -65,3 +65,21 @@ How often each arm was flagged as resting a claim on a made-up premise, of its s
 - **The cloud arm beats Inkling at the bar,** 32 of 44, with a passed calibration: a declared result.
 - **So Qwen stays his mind.** The gap to the strongest models is real, and Inkling does not close it.
 
+## IA again, with room (28 November, by day, on Welt's word)
+
+Welt asked for the plain arm again. The PC sent every IA request byte for byte, `reasoning_effort` "none" kept, with `max_tokens` raised from 1,100 to 3,148, the room ID had (`make_ia2.py`, `REQUESTS-inkling-A2a/b.jsonl`). 44 of 44 ended by themselves. Inkling ran 15:05 to 15:18 Berlin; one step of his day, a rest at home, ran without a mind; Qwen restored at 15:20 with its pin checked.
+
+Read as declared for IA, under the amended question 1, in its own folder `ia2/`: Qwen's arm A against Inkling's IA2, 42 eligible briefs (A has no piece for b16 and b21), 50 rows a sheet with the 8 calibration pairs. Keys outside the repository; `ia2/PACKET.json` committed before any reading. The Claude family reads, four fresh sessions.
+
+**The result of IA2 (28 November).** The calibration passed, 8 of 8; the key matched its committed hash. `ia2/SCORE-claude.json`.
+
+| Comparison | eligible | Qwen A alone | Inkling IA2 alone | both | neither | mixed |
+|---|---:|---:|---:|---:|---:|---:|
+| Qwen A against Inkling IA2 | 42 | 0 | 0 | 0 | 31 | 11 |
+
+Invented premises flagged: Inkling 27% of its showings, Qwen 32%. Named as keeping his 1831 positions: Inkling 57%, Qwen 54%.
+
+- **On his plain, live writing call neither model argued anything new about its object,** in any brief, both ways round. The two cannot be told apart there.
+- With the bake-off's other result, Qwen stays: Inkling gains nothing on the plain call and invents more with time to think.
+- **What moves the plain call is not the model but how he is asked.** In the ceiling test, only the arms with time to think (C, D) won any briefs against A.
+

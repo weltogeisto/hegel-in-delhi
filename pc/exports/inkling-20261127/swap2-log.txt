@@ -1,0 +1,53 @@
+[2026-11-28T15:01:03] waiting for Hegel's next decision after 7d62b2f5
+[2026-11-28T15:02:24] his step: 163f85dd Day 59, 15:17: talk (home)
+[2026-11-28T15:02:44] swap armed (pid 182), window: no new call after 15:37, cut at 1547
+servers [('1944b782a1c3557851d1c3639e04e43072e6c2a6e8eff6e96978f96d6e48d6b0', '/home/ai/hegel-in-delhi', False)]
+ARGV-MATCH
+kill tmux hegel-server-auto-20261128-063939-380270
+live stopped 15:03:33; gpu 512 MiB
+[2026-11-28T15:03:33] live stopped
+inkling ready 15:05:15 ctx 32768; gpu 17894 MiB; log /home/ai/hegel-logs/inkling-20261128-150333.log
+[2026-11-28T15:05:16] probe qwen/none: 200 finish length content_chars 0 reasoning_chars 98 error None
+[2026-11-28T15:05:19] probe qwen/medium: 200 finish stop content_chars 9 reasoning_chars 431 error None
+SERVER-JSON {"llama_cpp_build": "b12816", "build_info": "b12816-7b74cb92d", "total_slots": 2, "model_alias": "inkling", "n_ctx": 16384}
+[2026-11-28T15:05:19] runs started (model name in the payload: qwen, ctx 32768)
+[2026-11-28T15:05:49] progress: 1 of 44 calls done
+[2026-11-28T15:06:19] progress: 2 of 44 calls done
+[2026-11-28T15:06:49] progress: 4 of 44 calls done
+[2026-11-28T15:07:20] progress: 6 of 44 calls done
+[2026-11-28T15:07:50] progress: 8 of 44 calls done
+[2026-11-28T15:08:20] progress: 10 of 44 calls done
+[2026-11-28T15:08:50] progress: 11 of 44 calls done
+[2026-11-28T15:09:21] progress: 13 of 44 calls done
+[2026-11-28T15:09:51] progress: 14 of 44 calls done
+[2026-11-28T15:10:21] progress: 16 of 44 calls done
+[2026-11-28T15:10:51] progress: 17 of 44 calls done
+[2026-11-28T15:11:22] progress: 19 of 44 calls done
+[2026-11-28T15:11:52] progress: 21 of 44 calls done
+[2026-11-28T15:12:22] progress: 23 of 44 calls done
+[2026-11-28T15:12:52] progress: 24 of 44 calls done
+[2026-11-28T15:13:22] progress: 26 of 44 calls done
+[2026-11-28T15:13:53] progress: 28 of 44 calls done
+[2026-11-28T15:14:23] progress: 30 of 44 calls done
+[2026-11-28T15:14:53] progress: 32 of 44 calls done
+[2026-11-28T15:15:23] progress: 34 of 44 calls done
+[2026-11-28T15:15:53] progress: 36 of 44 calls done
+[2026-11-28T15:16:24] progress: 37 of 44 calls done
+[2026-11-28T15:16:54] progress: 38 of 44 calls done
+[2026-11-28T15:17:24] progress: 40 of 44 calls done
+[2026-11-28T15:17:54] progress: 42 of 44 calls done
+[2026-11-28T15:18:25] progress: 44 of 44 calls done
+[2026-11-28T15:18:25] runs ended: A2b rc=0 A2a rc=0 
+kill tmux inkling-20261128-150333
+inkling stopped 15:18:28; gpu 512 MiB
+[2026-11-28T15:18:28] restore: the Windows starter (try 1)
+{"StartedUtc":"2026-11-28T14:18:28.6773191Z","Identity":"WELTOGEISTO\\hendr","AwakeFlag":"C:\\hegel\\awake.flag","Distro":"Ubuntu-24.04","LinuxUser":"ai","ExitCode":0,"Output":"{\"receipt\": \"/mnt/c/hegel/handover/codex-tasks-20261014/qwen-autostart-20261128-141828-797313.json\", \"sha256\": \"64fd1772b0ee344f8134fdca1ebddf8bb6fa766113e6c7afa408cbb5751acc07\", \"started_utc\": \"2026-11-28T14:18:28.797330+00:00\", \"launch_attempts\": 1, \"argv_nul_sha256\": \"1944b782a1c3557851d1c3639e04e43072e6c2a6e8eff6e96978f96d6e48d6b0\", \"cwd\": \"/home/ai/hegel-in-delhi\", \"LD_LIBRARY_PATH\": \"/home/ai/local-ai/llama/release-b11429/cudart-llama-b11429-bin-ubuntu-cuda-12.8-x64\", \"CUDA_dependency_check\": {\"exit\": 0, \"stdout\": \"\\tlinux-vdso.so.1 (0x0000770aeae67000)\\n\\tlibggml-base.so.0 =\u003e /home/ai/local-ai/llama/release-b11429/llama-b11429/libggml-base.so.0 (0x0000770ae0729000)\\n\\tlibcudart.so.12 =\u003e /home/ai/local-ai/llama/release-b11429/cudart-llama-b11429-bin-ubuntu-cuda-12.8-x64/libcudart.so.12 (0x0000770ae0400000)\\n\\tlibcublas.so.12 =\u003e /home/ai/local-ai/llama/release-b11429/cudart-llama-b11429-bin-ubuntu-cuda-12.8-x64/libcublas.so.12 (0x0000770ad9200000)\\n\\tlibcuda.so.1 =\u003e /usr/lib/wsl/lib/libcuda.so.1 (0x0000770ae06fa000)\\n\\tlibstdc++.so.6 =\u003e /lib/x86_64-linux-gnu/libstdc++.so.6 (0x0000770ad8e00000)\\n\\tlibm.so.6 =\u003e /lib/x86_64-linux-gnu/libm.so.6 (0x0000770ae0317000)\\n\\tlibgcc_s.so.1 =\u003e /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x0000770ae06cc000)\\n\\tlibc.so.6 =\u003e /lib/x86_64-linux-gnu/libc.so.6 (0x0000770ad8a00000)\\n\\tlibgomp.so.1 =\u003e /lib/x86_64-linux-gnu/libgomp.so.1 (0x0000770ad91aa000)\\n\\t/lib64/ld-linux-x86-64.so.2 (0x0000770aeae69000)\\n\\tlibdl.so.2 =\u003e /lib/x86_64-linux-gnu/libdl.so.2 (0x0000770aeae4f000)\\n\\tlibpthread.so.0 =\u003e /lib/x86_64-linux-gnu/libpthread.so.0 (0x0000770aeae48000)\\n\\tlibrt.so.1 =\u003e /lib/x86_64-linux-gnu/librt.so.1 (0x0000770aeae43000)\\n\\tlibcublasLt.so.12 =\u003e /home/ai/local-ai/llama/release-b11429/cudart-llama-b11429-bin-ubuntu-cuda-12.8-x64/libcublasLt.so.12 (0x0000770aa6600000)\\n\", \"stderr\": \"\"}, \"action\": \"STARTED_ONCE\", \"session\": \"hegel-server-auto-20261128-141828-797313\", \"log\": \"/home/ai/hegel-logs/qwen-autostart-20261128-141828-797313.log\", \"outcome\": \"GPU_READY\", \"pid\": 26556, \"health\": [200, {\"status\": \"ok\"}], \"GPU\": \"0, NVIDIA GeForce RTX 3090, 19174 MiB, 0 %\\n\", \"GPU_processes\": \"26556, [Not Found], [N/A]\\n\", \"slots\": [{\"id\": 0, \"n_ctx\": 16384, \"speculative\": false, \"is_processing\": false}, {\"id\": 1, \"n_ctx\": 16384, \"speculative\": false, \"is_processing\": false}, {\"id\": 2, \"n_ctx\": 16384, \"speculative\": false, \"is_processing\": false}], \"CUDA_backend_loaded\": true, \"finished_utc\": \"2026-11-28T14:20:08.044203+00:00\"}","FinishedUtc":"2026-11-28T14:20:08.0467655Z"}
+servers [('1944b782a1c3557851d1c3639e04e43072e6c2a6e8eff6e96978f96d6e48d6b0', '/home/ai/hegel-in-delhi', False)]
+ARGV-MATCH
+[2026-11-28T15:20:08] restore: Qwen answers on 8082, the pinned argv
+[2026-11-28T15:21:45] Qwen model sha256 322e194ff79741c7baa497c240f677f54b201b0efab44ca8e50f122b39123482
+[2026-11-28T15:21:50] pushed 4c741b72
+[2026-11-28T15:21:51] counts A: 22 calls; finish stop 22; with reasoning 22; errors 0; completion tokens mean 1325, max 2117; seconds mean 35, max 50 | D: 22 calls; finish stop 22; with reasoning 22; errors 0; completion tokens mean 1302, max 1974; seconds mean 35, max 52
+[2026-11-28T15:21:51] NOTE: **DONE, W22 Inkling 2 Mini against Qwen, the night part (PC seat, 15:21 Berlin), unread, on `codex/inkling-20261127` (`4c741b72`):** llama.cpp b12816 in its own folder, `Inkling-2-Mini-UD-Q4_K_M.gguf` sha256 `78fcedcf…`; on 8082 from 15:02, `-np 2`, ctx 32768, alias `inkling`, bound to 127.0.0.1; one short call answered, `reasoning_effort` accepted. **IA** (slot 0): 22/22 replied, 0 failed. **ID** (slot 1): 22/22 replied, 0 failed. Qwen restored by the pinned Windows starter: argv pin matches, model sha256 matches, /health 200. Layout: `pc/exports/inkling-20261127/{job-A2a,job-A2b}/` (receipts with each call's seconds, `LEDGER.json`), `replies-*.jsonl` where complete, `SERVER-inkling.json`, `RESTORE.json`, `swap.log`. Before the night, on the CPU and with a test question of my own: the template accepts `reasoning_effort` and turns it into a line "Thinking effort level: 0.0" for "none"; it is a hint, not an off switch, and Inkling still reasoned about 150 tokens at "none" as at "medium". IA's `max_tokens` of 1100 holds that reasoning too. From the receipts' metadata only, IA: 22 calls; finish stop 22; with reasoning 22; errors 0; completion tokens mean 1325, max 2117; seconds mean 35, max 50. ID: 22 calls; finish stop 22; with reasoning 22; errors 0; completion tokens mean 1302, max 1974; seconds mean 35, max 52. Replies not read.
+[2026-11-28T15:21:51] done
+[2026-11-28T15:21:51] IA2 swap ended rc=0
