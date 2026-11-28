@@ -460,6 +460,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "19:57",
+   "to": "20:27",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -2829,6 +2836,43 @@
      ]
     ]
    }
+  },
+  {
+   "t": "19:57",
+   "end": "20:27",
+   "event": "Ramesh serves dinner before he goes home: khichdi with ghee and papad.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, a brown haze. Air quality index: 339.",
+    "Ramesh serves dinner before he goes home: khichdi with ghee and papad."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "meal"
+   ],
+   "mind": {
+    "source": "away",
+    "attempts": 0,
+    "latency_s": 3.1,
+    "refused": [
+     [
+      "no answer from http://192.168.188.21:8082/health"
+     ]
+    ]
+   }
   }
  ],
  "funnel": {
@@ -2851,7 +2895,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T19:57+05:30",
+  "until": "2026-11-29T20:27+05:30",
   "asleep": false,
   "imprest": 13356,
   "wearing": "kurta",
@@ -2945,7 +2989,8 @@
    "breakfast": true,
    "bad_air": true,
    "lunch": true,
-   "tea": true
+   "tea": true,
+   "dinner": true
   },
   "account": {
    "advance": 15000,
@@ -3269,7 +3314,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-29T16:42+05:30",
+  "last_meal": "2026-11-29T19:57+05:30",
   "snacks": 0,
   "works": [
    {
@@ -3399,7 +3444,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "ec4948b7ee987226f387dbae933c682e882d68fc883ca9d59be83d1abea46932",
+  "source_sha256": "753d876063bdd6dd7c3ee2e49f37dcb165b5dc7646f9f7c211e459635bb46390",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -5158,68 +5203,114 @@
     "text": "Nothing in particular happens. The evening goes on."
    },
    {
-    "id": "2026-11-29:event:e7b123d7058b1e35:1",
+    "id": "2026-11-29:event:39940164456f5ca1:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 27,
+     "sha256": "39940164456f5ca101d2a5a1c20d6270e288ad46901d3f1048e8bdf352637bba"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "19:57",
+    "end": "20:27",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:aaeece3f6a75cd69:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      27,
+      0
+     ],
+     "sha256": "aaeece3f6a75cd69488835daa57353e3e13dd02661405f2022792066d852eb46"
+    },
+    "type": "observation",
+    "time": "19:57",
+    "place": "home",
+    "text": "Weather: 18 °C, a brown haze. Air quality index: 339."
+   },
+   {
+    "id": "2026-11-29:event:6679124e64f97f42:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      27,
+      1
+     ],
+     "sha256": "6679124e64f97f42164226326730e53b415d714b950266afbbd9cea08eb98056"
+    },
+    "type": "observation",
+    "time": "19:57",
+    "place": "home",
+    "text": "Ramesh serves dinner before he goes home: khichdi with ghee and papad."
+   },
+   {
+    "id": "2026-11-29:event:53bde65c9b547331:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "e7b123d7058b1e357cb461f3d69491d180bf8f4261e5c641ca0a82b3a6b525c5"
+     "sha256": "53bde65c9b5473312c7ba259184e2458933b4f673a42acd7a5b144079a5a59a4"
     },
     "type": "cash",
-    "time": "19:57",
+    "time": "20:27",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:23519a2eac4feefb:1",
+    "id": "2026-11-29:event:b6d054892e66113f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "23519a2eac4feefba47c3b4ce693f8aeab84e44e7baab8a37faa994b8d763529"
+     "sha256": "b6d054892e66113f2f4f66d9bcfa3edcecde88dd13e465caa7608536dc2431a0"
     },
     "type": "location",
-    "time": "19:57",
+    "time": "20:27",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:7b91960480432cc0:1",
+    "id": "2026-11-29:event:8ff49e6b2ce3c74b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "7b91960480432cc097bdb12418974c30d6ae6a2e212090cdd9ebe90b3e672349"
+     "sha256": "8ff49e6b2ce3c74b1d9138b9f795e48696ff4c16c9059a760648381a722512c8"
     },
     "type": "inventory",
-    "time": "19:57",
+    "time": "20:27",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:20bf905528bdedd2:1",
+    "id": "2026-11-29:event:087a0519742f5e67:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "20bf905528bdedd2a344b06666f34cc5170a59025956f8cc75babeca75d8ebc2"
+     "sha256": "087a0519742f5e678bb91b4b25a9cd4166a969b6b4e90f65ab756a61cc97c79c"
     },
     "type": "inventory",
-    "time": "19:57",
+    "time": "20:27",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:0624a3176e3679fe:1",
+    "id": "2026-11-29:event:6fd53f020d63f0ed:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "0624a3176e3679fe2e3286f39e89dcd8ad3461551ee1a01fd7fb78bffe3d6d34"
+     "sha256": "6fd53f020d63f0ede47c70fad0b811432041451c273c7e810a43974d76cf944d"
     },
     "type": "inventory",
-    "time": "19:57",
+    "time": "20:27",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
