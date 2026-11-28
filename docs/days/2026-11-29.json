@@ -285,6 +285,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "09:47",
+   "to": "09:57",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh and Shri G. Hegde at home."
   }
  ],
  "entries": [
@@ -385,6 +392,45 @@
     }
    ],
    "t": "09:27",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Sir, you're up early. I was just checking the back room; the air is still a bit dusty from the move, so I wanted to make sure the ventilation was working before you got stuck in there again.",
+   "t": "09:47",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Shri Hegde, the man whose name I wear, stands in my doorway checking the ventilation. It is a strange inversion: I am the intruder in my own life, and he is the caretaker of the identity I have stolen by accident. The air is indeed thick, a brown shroud that presses against the lungs, but his concern is practical, not philosophical. I must keep the mask on; a confrontation now would only complicate the file that already threatens to crush me.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The First Principles of Fichte’s Philosophy"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    }
+   ],
+   "t": "09:47",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Good morning, Shri Hegde. The air is indeed heavy today, but I find it preferable to the silence of the study. I trust the ventilation will do its work. I am just about to take my coffee on the verandah; perhaps you would care to join me?",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "09:47",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Good morning, Sir. No, thank you, I have to finish clearing the dust out of the back room before the haze gets worse. I'll be right here if you need me.",
+   "t": "09:47",
    "place": "home"
   }
  ],
@@ -524,6 +570,74 @@
      "text": "In the Quæstionibus theosophicis Boehme makes particular use of the form of Yes and No for the separator, for this opposition. He says: “The reader must know that in Yes and No all things consist, whether divine, devilish, earthly, or what they may be called. The One as the Yes is pure power and life, and it is the truth of God or God Himself."
     }
    ]
+  },
+  {
+   "t": "09:47",
+   "end": "09:57",
+   "event": "Shri G. Hegde is here. Shri G. Hegde says: “Sir, you're up early. I was just checking the back room; the air is still a bit dusty from the move, so I wanted to make sure the ventilation was working before you got stuck in there again.”",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Shri Hegde, the man whose name I wear, stands in my doorway checking the ventilation. It is a strange inversion: I am the intruder in my own life, and he is the caretaker of the identity I have stolen by accident. The air is indeed thick, a brown shroud that presses against the lungs, but his concern is practical, not philosophical. I must keep the mask on; a confrontation now would only complicate the file that already threatens to crush me.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Good morning, Shri Hegde. The air is indeed heavy today, but I find it preferable to the silence of the study. I trust the ventilation will do its work. I am just about to take my coffee on the verandah; perhaps you would care to join me?",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, a brown haze. Air quality index: 353.",
+    "Shri G. Hegde is here."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "here",
+    "greeting:hegde"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Good morning, Sir. No, thank you, I have to finish clearing the dust out of the back room before the haze gets worse. I'll be right here if you need me.",
+    "does": "He nods politely and turns back towards the back room."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 13.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The First Principles of Fichte’s Philosophy",
+     "id": "haldane-3:1213"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The First Principles of Fichte’s Philosophy",
+     "text": "Thus Fichte says: I can always continue to determine the non-ego, to make it my conception, i.e. to take from it its negation as regards me. I have to deal with my activity alone; but there is always an externality therein present which still remains, and which is not explained by my activity."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -546,7 +660,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T09:47+05:30",
+  "until": "2026-11-29T09:57+05:30",
   "asleep": false,
   "imprest": 13356,
   "wearing": "kurta",
@@ -633,6 +747,7 @@
    "woke": "09:17",
    "seen": {
     "home": [
+     "hegde",
      "ramesh"
     ]
    },
@@ -933,7 +1048,8 @@
     "2026-11-25",
     "2026-11-26",
     "2026-11-27",
-    "2026-11-28"
+    "2026-11-28",
+    "2026-11-29"
    ],
    "kapoor": [
     "2026-10-28",
@@ -1089,7 +1205,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "904987a0547a15d25894a54958077c775b79b674353869d5c43188237069ecb3",
+  "source_sha256": "cb17f3c3ce8827a5ea59ea56d1acc349998590074ac3ae96a8d553c89082a6c3",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1166,6 +1282,51 @@
     "words": "Yes sir. I will keep the ghee warm so they stay crisp for when you are ready. The tea is also on the stove, just in case the chill gets to you.",
     "verified": false,
     "time": "09:17",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:8445f7086ebef6e7:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 8,
+     "sha256": "8445f7086ebef6e7ff9e879400592b79ee798302bd6ade1d05aadccbd65efb01"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "Sir, you're up early. I was just checking the back room; the air is still a bit dusty from the move, so I wanted to make sure the ventilation was working before you got stuck in there again.",
+    "verified": false,
+    "time": "09:47",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:d42adbef28dd1e71:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 10,
+     "sha256": "d42adbef28dd1e7133028dd03fa9b993175a1c4b2ff40087080252da3521d42a"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh and Shri G. Hegde",
+    "words": "Good morning, Shri Hegde. The air is indeed heavy today, but I find it preferable to the silence of the study. I trust the ventilation will do its work. I am just about to take my coffee on the verandah; perhaps you would care to join me?",
+    "verified": false,
+    "time": "09:47",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:975c38375e5fe5d3:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 11,
+     "sha256": "975c38375e5fe5d309ef6d873a546019ab5a2fca6558f354785bb50a5add1eb1"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "Good morning, Sir. No, thank you, I have to finish clearing the dust out of the back room before the haze gets worse. I'll be right here if you need me.",
+    "verified": false,
+    "time": "09:47",
     "place": "home"
    },
    {
@@ -1400,68 +1561,114 @@
     "text": "The air is very poor today: the index stands at 353."
    },
    {
-    "id": "2026-11-29:event:445b4c15d9a8dcf0:1",
+    "id": "2026-11-29:event:ed392cfb072b35bd:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 2,
+     "sha256": "ed392cfb072b35bdfeead9505571c2740c90090687e9a785ae0450be78032288"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "09:47",
+    "end": "09:57",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:b10aa2269d08d8fa:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      2,
+      0
+     ],
+     "sha256": "b10aa2269d08d8fa75978f276b15476411a2425f85f818b795ccfae77da91002"
+    },
+    "type": "observation",
+    "time": "09:47",
+    "place": "home",
+    "text": "Weather: 18 °C, a brown haze. Air quality index: 353."
+   },
+   {
+    "id": "2026-11-29:event:62bb1c36d0c7c817:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      2,
+      1
+     ],
+     "sha256": "62bb1c36d0c7c81705f4b6b26667224595edeaced7771eb5f38e8f57651b3a25"
+    },
+    "type": "observation",
+    "time": "09:47",
+    "place": "home",
+    "text": "Shri G. Hegde is here."
+   },
+   {
+    "id": "2026-11-29:event:28d9d3c35d8918c1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "445b4c15d9a8dcf0fbd5cc05326f56099e67560283e8ed79a85d6108bb71e46a"
+     "sha256": "28d9d3c35d8918c1142a419991ec240975b7cf21187e3b550fb5756930d239fe"
     },
     "type": "cash",
-    "time": "09:47",
+    "time": "09:57",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:44cc4b2257356a4d:1",
+    "id": "2026-11-29:event:b3d2203df85464dc:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "44cc4b2257356a4dd0248f24173f6cf283b760987c4f3fbe1cde8ba1074c084c"
+     "sha256": "b3d2203df85464dc468e1b47ee3195587097a7905856ccafbfef7d64882b145a"
     },
     "type": "location",
-    "time": "09:47",
+    "time": "09:57",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:098ee5caf2d66ecc:1",
+    "id": "2026-11-29:event:30bf484e75902433:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "098ee5caf2d66ecc070b47cde7e5fe9147d2a39bd0182bb40e1a3d46486decef"
+     "sha256": "30bf484e759024335471e8d4a7b95d28b81b78c7cadb8cf7e7053a12e38dcaab"
     },
     "type": "inventory",
-    "time": "09:47",
+    "time": "09:57",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:95e52acf9ec9fa62:1",
+    "id": "2026-11-29:event:3f32656633cd8749:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "95e52acf9ec9fa62f0e50770210c10bbb296793b2cdec1c3d3f1a74dfb50e7e9"
+     "sha256": "3f32656633cd874964f4f9cacaa018009c8b14780e6c90c72fbe66805ed428ad"
     },
     "type": "inventory",
-    "time": "09:47",
+    "time": "09:57",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:a23563ea982bc289:1",
+    "id": "2026-11-29:event:137d2de34aec847b:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "a23563ea982bc289f02230f094c976537d2d56a593992ad93a4a30e23d04ab2c"
+     "sha256": "137d2de34aec847b2713135f5016ce0d4ffef3d976b56a22d6bb0796821d74e5"
     },
     "type": "inventory",
-    "time": "09:47",
+    "time": "09:57",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
