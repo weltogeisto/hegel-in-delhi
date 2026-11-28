@@ -1,0 +1,34 @@
+{
+ "servers": [
+  {
+   "pid": 20770,
+   "argv": [
+    "/home/ai/local-ai/llama/release-b12816/llama-b12816/llama-server",
+    "-m",
+    "/mnt/c/AI/models/Inkling-2-Mini/Inkling-2-Mini-UD-Q4_K_M.gguf",
+    "-ngl",
+    "99",
+    "-c",
+    "32768",
+    "-np",
+    "2",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8082",
+    "--alias",
+    "inkling"
+   ],
+   "argv_sha256": "fd08f4b375b0dbc327431cb56b1bdd4703a763d44d081e0dc2540c87f052e83a",
+   "cwd": "/home/ai"
+  }
+ ],
+ "model_file": "unsloth/Inkling-2-Mini-GGUF / Inkling-2-Mini-UD-Q4_K_M.gguf",
+ "model_sha256": "78fcedcf93c5d1bfe83e225513b71392bb52259be0eaa5f8899c856a2e5834ae",
+ "llama_cpp_build": "b12816",
+ "build_info": "b12816-7b74cb92d",
+ "total_slots": 2,
+ "model_alias": "inkling",
+ "n_ctx": 16384,
+ "host": "127.0.0.1 only: the Pi cannot reach it"
+}

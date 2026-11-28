@@ -1,0 +1,5 @@
+CPU check, 28 November 00:19 Berlin (llama.cpp b12816-7b74cb92d, --device none, port 18803, my own test question):
+the file loads; /props alias inkling, 1 slot; model name "qwen" in the payload accepted;
+reasoning_effort "none" and "medium" accepted (template: effort_map none 0.0 ... medium 0.7, a "Thinking effort level" line).
+00:23: "none" is a hint, not an off switch: 229 completion tokens, of them reasoning 772 chars, content 354 chars, finish stop;
+"medium": 206 tokens, reasoning 604 chars, content 329 chars. enable_thinking is ignored by this template.
