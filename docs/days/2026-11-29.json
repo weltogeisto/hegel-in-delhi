@@ -341,6 +341,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "12:57",
+   "to": "13:02",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -652,6 +659,37 @@
     }
    ],
    "t": "12:27",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "It is nearly one o'clock, and the plan calls for a return to the house for lunch, though I have not yet left the verandah. The haze remains a thick brown barrier, but the body requires its sustenance. I shall instruct Ramesh to prepare the khichdi; the heat and dust have made a light, warm meal the only sensible choice.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China"
+    }
+   ],
+   "t": "12:57",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, the time is approaching. Please prepare the khichdi with ghee. I am ready to eat.",
+   "to": "Ramesh",
+   "t": "12:57",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, bas paanch minute. Ghee garam hai, aap thoda baithiye.",
+   "t": "12:57",
    "place": "home"
   }
  ],
@@ -1304,6 +1342,70 @@
      "text": "Dies Bewußtsein ist somit negativ gegen das Verhältnis der Herrschaft und Knechtschaft; sein Tun ist, in der Herrschaft nicht seine Wahrheit an dem Knechte zu haben, noch als Knecht seine Wahrheit an dem Willen des Herrn und an seinem Dienen, sondern wie auf dem Throne so in den Fesseln, in aller Abhängigkeit seines einzelnen Daseins frei zu sein…"
     }
    ]
+  },
+  {
+   "t": "12:57",
+   "end": "13:02",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "It is nearly one o'clock, and the plan calls for a return to the house for lunch, though I have not yet left the verandah. The haze remains a thick brown barrier, but the body requires its sustenance. I shall instruct Ramesh to prepare the khichdi; the heat and dust have made a light, warm meal the only sensible choice.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 5,
+    "says": "Ramesh, the time is approaching. Please prepare the khichdi with ghee. I am ready to eat.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 344.",
+    "Nothing in particular happens. The afternoon goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, bas paanch minute. Ghee garam hai, aap thoda baithiye.",
+    "does": "He turns toward the kitchen door, wiping his hands on his apron."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "id": "dyde-right:23"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "id": "sibree-history:376"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "Preface",
+     "text": "Nor can it be taken ill, if honest men become impatient, when the subject is broached. Still less is it a surprise that the government has at last turned its attention to this false philosophizing. With us philosophy is not practised as a private art, as it was by the GTreeks, but has a public place, and should therefore be employed only in the service of the state."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "The Oriental World, China",
+     "text": "WITH the Empire of China History has to begin, for it is the oldest, as far as history gives us any information; and its principle has such substantiality, that for the empire in question it is at once the oldest and the newest."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1326,7 +1428,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T12:57+05:30",
+  "until": "2026-11-29T13:02+05:30",
   "asleep": false,
   "imprest": 13356,
   "wearing": "kurta",
@@ -1871,7 +1973,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "b8303928004b52e7660561830be49901ff1777556cac98f0e496c934a927274d",
+  "source_sha256": "01ba995103f2ab97e9ecc8cd1f368448fcf1c5a669a9f134bdf5c6c92b2e05ba",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2113,6 +2215,36 @@
     "words": "Ji, main dekh lunga. Dhool toh hamesha rehti hai, bas thoda sa saaf karta hoon.",
     "verified": false,
     "time": "12:12",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:cb31f76f4eb3bf15:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 28,
+     "sha256": "cb31f76f4eb3bf15b44e77615e94eca839fe132b1eb1ba20b0e934d285c31bd0"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, the time is approaching. Please prepare the khichdi with ghee. I am ready to eat.",
+    "verified": false,
+    "time": "12:57",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:5deaa3a65f2209ef:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 29,
+     "sha256": "5deaa3a65f2209efe7525ef10bfb6c82713b08680aa7f8d2a0ae335ab086d533"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Ji, bas paanch minute. Ghee garam hai, aap thoda baithiye.",
+    "verified": false,
+    "time": "12:57",
     "place": "home"
    },
    {
@@ -2635,68 +2767,114 @@
     "text": "Weather: 22 °C, a brown haze. Air quality index: 344."
    },
    {
-    "id": "2026-11-29:event:3d4c35004d2959c5:1",
+    "id": "2026-11-29:event:839682e4a6560813:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 10,
+     "sha256": "839682e4a6560813dab1d8a37b5d9837c3b24c32afdc2ab206838adbcc2c1462"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "12:57",
+    "end": "13:02",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:bd09f7c7406e48bd:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      10,
+      0
+     ],
+     "sha256": "bd09f7c7406e48bdf5ee25a181a72e601c90ab558f7e2d6d84f8aaef9ac4fbad"
+    },
+    "type": "observation",
+    "time": "12:57",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 344."
+   },
+   {
+    "id": "2026-11-29:event:a77f13cd004dc58e:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      10,
+      1
+     ],
+     "sha256": "a77f13cd004dc58e92ee3fd09257ac61887e5229b3f41685577fbace3df64cce"
+    },
+    "type": "observation",
+    "time": "12:57",
+    "place": "home",
+    "text": "Nothing in particular happens. The afternoon goes on."
+   },
+   {
+    "id": "2026-11-29:event:7947e7bcf6ce68d1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "3d4c35004d2959c5a686f6c4a0b247458b42f14144be34908c298861fd882aee"
+     "sha256": "7947e7bcf6ce68d1b34c7bb16f08b7ef640d2df3a284be6f27bb6a603086d6db"
     },
     "type": "cash",
-    "time": "12:57",
+    "time": "13:02",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:d388805a4b5c1cbe:1",
+    "id": "2026-11-29:event:b94fdf3768600d34:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "d388805a4b5c1cbe97831649370f45568d953d5c428facd7d4509fdec64876a6"
+     "sha256": "b94fdf3768600d34444cd5094d8cbb6a54294f9728a516b0781e375d56dc9d95"
     },
     "type": "location",
-    "time": "12:57",
+    "time": "13:02",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:8701768e4ccec57a:1",
+    "id": "2026-11-29:event:ff823a659b3d1e58:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "8701768e4ccec57ab5558ed7f2e160e04b8eee37fe26a5b0c0d4f33ddffebf7e"
+     "sha256": "ff823a659b3d1e58c0d58510f647f321c0f7d5278c2bec94553f93bcfeb6d7a7"
     },
     "type": "inventory",
-    "time": "12:57",
+    "time": "13:02",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:4322c5e2c42aee90:1",
+    "id": "2026-11-29:event:6e88b72f92f08577:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "4322c5e2c42aee906476fa91f753f5dbba87f47994f580faa4c22192245eee1e"
+     "sha256": "6e88b72f92f08577607d52ae68d5b02cde4a201ccbd820b43f50d873c5812530"
     },
     "type": "inventory",
-    "time": "12:57",
+    "time": "13:02",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:f148552f04ee7b6f:1",
+    "id": "2026-11-29:event:43d514b9c7315319:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "f148552f04ee7b6fadfa30c9a774a7a6541d099e348c3fb5670dfff154bd4ee4"
+     "sha256": "43d514b9c7315319a12d6294f170fe98c0d160decb7eaecdee7805510e1ea54f"
     },
     "type": "inventory",
-    "time": "12:57",
+    "time": "13:02",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
