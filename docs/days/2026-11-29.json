@@ -376,6 +376,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "15:17",
+   "to": "15:32",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -827,6 +834,37 @@
    "to": "Hegel",
    "text": "Ji, no rush. Tuesday is fine. Just don't let the dust get in the ink.",
    "t": "15:02",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s warning about the dust is practical, but it mirrors the philosophical obstruction I have been facing all week. The haze is not just outside; it is in the ink, in the paper, in the very medium of thought. I must work within this suffocation, not against it. The file review cannot wait for clearer air, for the identity query is a matter of state, and the state does not pause for the weather.",
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World"
+    }
+   ],
+   "t": "15:17",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "The dust is a constant, Ramesh. We must write through it, or not write at all. I will go to the study now.",
+   "to": "Ramesh",
+   "t": "15:17",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji. I’ll close the shutters before the sun sets.",
+   "t": "15:17",
    "place": "home"
   }
  ],
@@ -1799,6 +1837,71 @@
      "text": "Since Mind in it, as consciousness and will, is but desire, self-consciousness still stands upon its first stage in which the sphere of its idea and will is finite. As intelligence is thus finite too, its ends are not yet a universal for themselves; but if a people makes for what is moral, if laws and justice are possessed, the character of universality underlies its will."
     }
    ]
+  },
+  {
+   "t": "15:17",
+   "end": "15:32",
+   "event": "Ramesh says: “Ji, no rush. Tuesday is fine. Just don't let the dust get in the ink.” Nods once and steps back to let him continue working.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh’s warning about the dust is practical, but it mirrors the philosophical obstruction I have been facing all week. The haze is not just outside; it is in the ink, in the paper, in the very medium of thought. I must work within this suffocation, not against it. The file review cannot wait for clearer air, for the identity query is a matter of state, and the state does not pause for the weather.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 15,
+    "says": "The dust is a constant, Ramesh. We must write through it, or not write at all. I will go to the study now.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 342."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji. I’ll close the shutters before the sun sets.",
+    "does": "He gives a small nod and turns back to the study door."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "id": "wallace-logic:71"
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World",
+     "id": "baillie-2:31"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§19",
+     "text": "A slothful mind finds it natural to say: 'Don't let it be supposed that we mean to be in earnest with our philosophy. We shall be glad inter alia to study Logic: but Logic must be sure to leave us as we were before.' People have a feeling that, if thinking passes the ordinary range of our ideas and impressions, it cannot but be on the evil road."
+    },
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "The Ethical World",
+     "text": "In order not to let them get rooted and settled in this isolation and thus break up the whole into fragments and let the common spirit evaporate, government has from time to time to shake them to the very centre by War."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1821,7 +1924,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T15:17+05:30",
+  "until": "2026-11-29T15:32+05:30",
   "asleep": false,
   "imprest": 13356,
   "wearing": "kurta",
@@ -2367,7 +2470,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "0017fda9a7740ee8f908988811e4f1c24a917b6004d72bb27c1b6ad961246048",
+  "source_sha256": "464ba119f2d704cbd0d084f6ca5eddbab157c543305cd0fc2ba3181171af87d0",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2729,6 +2832,36 @@
     "words": "Ji, no rush. Tuesday is fine. Just don't let the dust get in the ink.",
     "verified": false,
     "time": "15:02",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:fabb7f44ec23ff98:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 41,
+     "sha256": "fabb7f44ec23ff98c6c74bc8c3747a19177934a2f7fd473ded48a355ff4f5b54"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "The dust is a constant, Ramesh. We must write through it, or not write at all. I will go to the study now.",
+    "verified": false,
+    "time": "15:17",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:c42f293dceba5177:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 42,
+     "sha256": "c42f293dceba5177d9d1d4dff354e324bf8ad797917c9ac6631153d9bfc760d5"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Ji. I’ll close the shutters before the sun sets.",
+    "verified": false,
+    "time": "15:17",
     "place": "home"
    },
    {
@@ -3449,68 +3582,98 @@
     "text": "Nothing in particular happens. The afternoon goes on."
    },
    {
-    "id": "2026-11-29:event:b27db4cee477e829:1",
+    "id": "2026-11-29:event:19a9aa8e1c38ced4:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 15,
+     "sha256": "19a9aa8e1c38ced4ad8dd0617977cbb6af05a943830a60ef136671f9b4e1a8d2"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "15:17",
+    "end": "15:32",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:dda29c834f9b8b4c:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      15,
+      0
+     ],
+     "sha256": "dda29c834f9b8b4c52d759c47cd488f6f6913f01eddd5a1151d194af8ea63aa2"
+    },
+    "type": "observation",
+    "time": "15:17",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 342."
+   },
+   {
+    "id": "2026-11-29:event:8d9c99495137ebd6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "b27db4cee477e8298587d374577f4fc27a5cf31922e0ecc4c271382a41056894"
+     "sha256": "8d9c99495137ebd6239dc720c1f19dc52a4639b62e4fcc9847c9826bdf2e3a09"
     },
     "type": "cash",
-    "time": "15:17",
+    "time": "15:32",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:e7f66e3be873a746:1",
+    "id": "2026-11-29:event:6d4225059dbc1756:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "e7f66e3be873a74633a41cb3972489f94e6b5a5e1131fa89afe68c3045222d14"
+     "sha256": "6d4225059dbc17562f0796b590f3330a10347cab616e9182772e255826b988d1"
     },
     "type": "location",
-    "time": "15:17",
+    "time": "15:32",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:05f11c8c19cb27e6:1",
+    "id": "2026-11-29:event:e57c48cd509f2d2a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "05f11c8c19cb27e6e3f21c21b1be2feb22aa8c8b1d7f1ba5184155933aed929f"
+     "sha256": "e57c48cd509f2d2a65f181fe5192a7683e9602cdae8102fee9078c47f7cc38b4"
     },
     "type": "inventory",
-    "time": "15:17",
+    "time": "15:32",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:cd2d9938458de1b2:1",
+    "id": "2026-11-29:event:a19a9aac5376c263:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "cd2d9938458de1b22ef4df9f3985b312f6ba8d1cadd2dccb2bfc54cad073594d"
+     "sha256": "a19a9aac5376c263ae0ab5fb0b9c906e08862d04832b54c517272d19be905126"
     },
     "type": "inventory",
-    "time": "15:17",
+    "time": "15:32",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:3689ea682e47dcfa:1",
+    "id": "2026-11-29:event:2d0d0186d1af85cb:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "3689ea682e47dcfa582e4bb8db71d379875d525915dc2f9a6ac8a8febafed870"
+     "sha256": "2d0d0186d1af85cb909f910e24fe6702676366c72d8953c6857bff46ac4cc425"
     },
     "type": "inventory",
-    "time": "15:17",
+    "time": "15:32",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
