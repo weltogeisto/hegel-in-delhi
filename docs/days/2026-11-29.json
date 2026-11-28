@@ -397,6 +397,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "16:17",
+   "to": "16:27",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
  "entries": [
@@ -901,6 +908,40 @@
     }
    ],
    "t": "16:02",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The haze outside is a brown curtain, thick enough to obscure the sun but not the street. I am dressed in white cotton, which seems an optimistic choice for such an atmosphere. Ramesh stands there, waiting for a command I do not yet have. The air is stagnant, a physical manifestation of the stagnation I feel in my own affairs.",
+   "sensitive": true,
+   "why": "stagnation",
+   "topic": "the ranking of peoples",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301 Addition"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…"
+    }
+   ],
+   "t": "16:17",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, the air is thick today. The dust will settle on everything. Go and check if the windows are sealed tight; I will not have my books turning into brown paste.",
+   "to": "Ramesh",
+   "t": "16:17",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, I did check the seals an hour back, but I’ll give them another wipe just to be sure. The haze is thicker today than I’ve seen in years.",
+   "t": "16:17",
    "place": "home"
   }
  ],
@@ -2034,6 +2075,70 @@
      "text": "Nicht der Unterschied, welcher sich als bestimmtes Ding, oder als Bewußtsein eines bestimmten natürlichen Daseins, als ein Gefühl, oder als Begierde und Zweck für dieselbe, ob er durch das eigene oder durch ein fremdes Bewußtsein gesetzt sei, hat mehr Wesenheit, sondern allein der Unterschied, der ein gedachter, oder unmittelbar nicht von Mir unterschieden ist."
     }
    ]
+  },
+  {
+   "t": "16:17",
+   "end": "16:27",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The haze outside is a brown curtain, thick enough to obscure the sun but not the street. I am dressed in white cotton, which seems an optimistic choice for such an atmosphere. Ramesh stands there, waiting for a command I do not yet have. The air is stagnant, a physical manifestation of the stagnation I feel in my own affairs.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Ramesh, the air is thick today. The dust will settle on everything. Go and check if the windows are sealed tight; I will not have my books turning into brown paste.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 341.",
+    "Nothing in particular happens. The afternoon goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, I did check the seals an hour back, but I’ll give them another wipe just to be sure. The haze is thicker today than I’ve seen in years.",
+    "does": "Ramesh turns and walks toward the corridor, checking the latch on the study door as he passes."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301 Addition",
+     "id": "dyde-right:763"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "id": "haldane-1:93"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301 Addition",
+     "text": "It requires but little reflection to see that the services performed by the classes in behalf of the general well-being and public liberty cannot be traced to an insight special to these classes."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Explanatory Remarks Upon the Definition of the…",
+     "text": "Their differences and their various qualities are only the expression of the Idea and the form contained within it. Thus the Idea is the central point, which is also the periphery, the source of light, which in all its expansion does not come without itself, but remains present and immanent within itself."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2056,7 +2161,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T16:17+05:30",
+  "until": "2026-11-29T16:27+05:30",
   "asleep": false,
   "imprest": 13356,
   "wearing": "kurta",
@@ -2603,7 +2708,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "53c0deab0593e8dea5ef662171a9f0c859450d0e3af8bb8c8b33b9ce57840909",
+  "source_sha256": "425f5590bd8bc72263b05835ffb40925561352593cd861d53f58b6d53dc25068",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3008,6 +3113,36 @@
     "type": "world",
     "text": "Boys from the servants' quarters bat a tennis ball against the end wall of a lane, and each time it cracks off the wall the crows lift from the nearest tree.",
     "time": "16:02",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:206442c56f01f787:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 46,
+     "sha256": "206442c56f01f7876359325d57f1a95788172257f83962e26af4d3e02879bf13"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, the air is thick today. The dust will settle on everything. Go and check if the windows are sealed tight; I will not have my books turning into brown paste.",
+    "verified": false,
+    "time": "16:17",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:7faeecfcd4211269:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 47,
+     "sha256": "7faeecfcd4211269de68221e2d63c2f9ca2af9e85dbf6c395f0e26d9761dd4e7"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Ji, I did check the seals an hour back, but I’ll give them another wipe just to be sure. The haze is thicker today than I’ve seen in years.",
+    "verified": false,
+    "time": "16:17",
     "place": "home"
    },
    {
@@ -3834,68 +3969,114 @@
     "text": "Boys from the servants' quarters bat a tennis ball against the end wall of a lane, and each time it cracks off the wall the crows lift from the nearest tree."
    },
    {
-    "id": "2026-11-29:event:c2599423f61f4ce7:1",
+    "id": "2026-11-29:event:f00a171dba879e53:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 18,
+     "sha256": "f00a171dba879e537fa017ec900d7385c4d2b7ccbc080dd9f97f3965d37ac29e"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "16:17",
+    "end": "16:27",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:64cd5bbcbf9c53cf:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      18,
+      0
+     ],
+     "sha256": "64cd5bbcbf9c53cf93d0767c190085aa4e7ba0051990488497a4df36db5a666c"
+    },
+    "type": "observation",
+    "time": "16:17",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 341."
+   },
+   {
+    "id": "2026-11-29:event:a77f13cd004dc58e:4",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      18,
+      1
+     ],
+     "sha256": "a77f13cd004dc58e92ee3fd09257ac61887e5229b3f41685577fbace3df64cce"
+    },
+    "type": "observation",
+    "time": "16:17",
+    "place": "home",
+    "text": "Nothing in particular happens. The afternoon goes on."
+   },
+   {
+    "id": "2026-11-29:event:6704bcfadb02f8c8:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "c2599423f61f4ce7c15dd82ac6269cacfb9f8a3d143c7d84f8892c4402b64240"
+     "sha256": "6704bcfadb02f8c81f538d244fd399326ee695ac336ba4c8a0669dd541c3c8e7"
     },
     "type": "cash",
-    "time": "16:17",
+    "time": "16:27",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:dcbc11af0ca5780a:1",
+    "id": "2026-11-29:event:c335949ad0b14a13:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "dcbc11af0ca5780aa7421f71e07f8c213e2ff56338b87bd05b8b429479b657db"
+     "sha256": "c335949ad0b14a13b62bc7216735b9cdccf6432583038c1005e00486e1878bf1"
     },
     "type": "location",
-    "time": "16:17",
+    "time": "16:27",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:560f9f0acf8ff0ba:1",
+    "id": "2026-11-29:event:5155859dc263a3c0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "560f9f0acf8ff0baa49a953929d39d54eb2d0fc01c8c5df872bc6ed5a73a9b90"
+     "sha256": "5155859dc263a3c0f6fb8ad37b6a6506ee5edc2a02a963a726bde68cd770788c"
     },
     "type": "inventory",
-    "time": "16:17",
+    "time": "16:27",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:2f2673af87b36a42:1",
+    "id": "2026-11-29:event:af1bafb0fc959fc5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "2f2673af87b36a422db275fe787e4a18202fc49edf1a833ae992e25a299dd66c"
+     "sha256": "af1bafb0fc959fc57b0db175f05995e8b736dd138bb4d2463a946f35876242f7"
     },
     "type": "inventory",
-    "time": "16:17",
+    "time": "16:27",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:bf8faafb738f384f:1",
+    "id": "2026-11-29:event:6e07d6babe151e2a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "bf8faafb738f384fbe9b349f12889afac67e01498e4b0ccb531ad0d687185160"
+     "sha256": "6e07d6babe151e2a8cd76c287a61d6be1d3c8974e2fdbcf561cbfc93e6b60253"
     },
     "type": "inventory",
-    "time": "16:17",
+    "time": "16:27",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
