@@ -481,6 +481,15 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "21:00",
+   "to": "24:00",
+   "mode": "inside",
+   "at": "home",
+   "now": "Asleep.",
+   "asleep": true,
+   "owl": true
   }
  ],
  "entries": [
@@ -2997,6 +3006,35 @@
      "text": "The Roman dominion was, on the whole, not yet very greatly extended: only a few colonies had settled on the other side of the Po, and on the south a considerable power confronted that of Home."
     }
    ]
+  },
+  {
+   "t": "21:00",
+   "end": "24:00",
+   "event": "Nothing in particular happens. The night goes on.",
+   "present": [
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": null,
+    "action": "sleep",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "revision": null,
+    "buys": []
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 17 °C, a brown haze. Air quality index: 339.",
+    "Nothing in particular happens. The night goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "mind": {
+    "source": "bedtime",
+    "attempts": 0,
+    "latency_s": 0.0
+   }
   }
  ],
  "funnel": {
@@ -3019,8 +3057,8 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T21:00+05:30",
-  "asleep": false,
+  "until": "2026-11-30T00:00+05:30",
+  "asleep": true,
   "imprest": 13356,
   "wearing": "kurta",
   "wardrobe": [
@@ -3568,7 +3606,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "52568aad124e25285f11c91285eb2bd915c838db989946e9318837ddcf7cc214",
+  "source_sha256": "5130ffe876abe21684784724e9a4155a0dbb024f12d756ea7810e262c8665dc3",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -5465,68 +5503,114 @@
     "text": "Nothing in particular happens. The evening goes on."
    },
    {
-    "id": "2026-11-29:event:9d9a2eb72c59de0b:1",
+    "id": "2026-11-29:event:e6732df2dfb46a98:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 30,
+     "sha256": "e6732df2dfb46a987b7b532b0c0954f2fbcaae0151094a439978973156d63737"
+    },
+    "type": "action",
+    "action": "sleep",
+    "time": "21:00",
+    "end": "24:00",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:e8bce336d5c9e722:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      30,
+      0
+     ],
+     "sha256": "e8bce336d5c9e722d2502487e8d28b3fdf7a952131f5ee3e615b695ed38dc82a"
+    },
+    "type": "observation",
+    "time": "21:00",
+    "place": "home",
+    "text": "Weather: 17 °C, a brown haze. Air quality index: 339."
+   },
+   {
+    "id": "2026-11-29:event:4346d60c7ea0b928:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      30,
+      1
+     ],
+     "sha256": "4346d60c7ea0b928d548362b7b4aab5c4b1e2d7ec7b66a89d032c4612c537e3c"
+    },
+    "type": "observation",
+    "time": "21:00",
+    "place": "home",
+    "text": "Nothing in particular happens. The night goes on."
+   },
+   {
+    "id": "2026-11-29:event:abb13e8a522daa64:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "9d9a2eb72c59de0ba5f61ebc7bd598a0797b57609dc4df8646470e17f6bb52e0"
+     "sha256": "abb13e8a522daa64e6d05fdcbe68fe18edd62f4c6af85347ff2d13cced45ffc6"
     },
     "type": "cash",
-    "time": "21:00",
+    "time": "00:00",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:f709e782a5d59911:1",
+    "id": "2026-11-29:event:71b13414b5da3d64:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "f709e782a5d599112c0d4b741e659d62ec0edd6f4f2872c737c5fc6b200e5c53"
+     "sha256": "71b13414b5da3d645a60ac78525631e2f3ef340c8977a8b06041a8e913a511c6"
     },
     "type": "location",
-    "time": "21:00",
+    "time": "00:00",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:09d4e8218a8e4f49:1",
+    "id": "2026-11-29:event:ce711ae994077f1e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "09d4e8218a8e4f49636b79f387a2f49c3f9293fcf1912cb00cfe641ac1158e75"
+     "sha256": "ce711ae994077f1e4daa7f1c4fa1d2dab38e67e0551ef0cffc5252b6a56d51cd"
     },
     "type": "inventory",
-    "time": "21:00",
+    "time": "00:00",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:37e5a668ba053d05:1",
+    "id": "2026-11-29:event:cc3cc87f64a22f50:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "37e5a668ba053d05c88b614fc61aee87c4f7ee3cd624eba86f5efdea1bd37283"
+     "sha256": "cc3cc87f64a22f50fc806ba5f56dc9455fd97c9785ea84aefaa69680ddd115b1"
     },
     "type": "inventory",
-    "time": "21:00",
+    "time": "00:00",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:cb855095fd84608e:1",
+    "id": "2026-11-29:event:d27fdee39894e4dc:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "cb855095fd84608e8d3c564d1586b38e425f777f1888af89ab0a244379313ce9"
+     "sha256": "d27fdee39894e4dc9f1e321739d0a82fbc521218165955a1bd83725e2a86bbcb"
     },
     "type": "inventory",
-    "time": "21:00",
+    "time": "00:00",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
