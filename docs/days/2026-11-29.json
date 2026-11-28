@@ -404,6 +404,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "16:27",
+   "to": "16:42",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -942,6 +949,22 @@
    "to": "Hegel",
    "text": "Ji, I did check the seals an hour back, but I’ll give them another wipe just to be sure. The haze is thicker today than I’ve seen in years.",
    "t": "16:17",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s caution is practical, but his words about the haze remind me that the air itself is becoming a barrier to thought. The study door latched with a click, a small sound that feels like a seal on a judgment I have not yet rendered. I will not chase him; I will sit with the silence he leaves behind.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History"
+    }
+   ],
+   "t": "16:27",
    "place": "home"
   }
  ],
@@ -2139,6 +2162,66 @@
      "text": "Their differences and their various qualities are only the expression of the Idea and the form contained within it. Thus the Idea is the central point, which is also the periphery, the source of light, which in all its expansion does not come without itself, but remains present and immanent within itself."
     }
    ]
+  },
+  {
+   "t": "16:27",
+   "end": "16:42",
+   "event": "Ramesh says: “Ji, I did check the seals an hour back, but I’ll give them another wipe just to be sure. The haze is thicker today than I’ve seen in years.” Ramesh turns and walks toward the corridor, checking the latch on the study door as he passes.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh’s caution is practical, but his words about the haze remind me that the air itself is becoming a barrier to thought. The study door latched with a click, a small sound that feels like a seal on a judgment I have not yet rendered. I will not chase him; I will sit with the silence he leaves behind.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 341."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1189"
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "id": "sibree-history:288"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "For “when Antisthenes turned outside a hole in his cloak, Socrates said to him, I see thy vanity through the hole in thy cloak.” Clothing is not a thing of rational import, but is regulated through needs that arise of themselves. In the North the clothing must be different from that in Central Africa; and in winter we do not wear cotton garments."
+    },
+    {
+     "work": "Philosophy of History",
+     "ref": "Introduction: the Geographical Basis of History",
+     "text": "The North American Federation have no neighbouring State, (towards which they occupy a relation similar to that of European States to each other), one which they regard with mistrust, and against which they must keep up a standing army."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2161,7 +2244,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T16:27+05:30",
+  "until": "2026-11-29T16:42+05:30",
   "asleep": false,
   "imprest": 13356,
   "wearing": "kurta",
@@ -2708,7 +2791,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "425f5590bd8bc72263b05835ffb40925561352593cd861d53f58b6d53dc25068",
+  "source_sha256": "1175e7596c1b5b3e4b47ef037087c772ea5c1e3aa2136ea5ad1c033a1a96744b",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -4015,68 +4098,98 @@
     "text": "Nothing in particular happens. The afternoon goes on."
    },
    {
-    "id": "2026-11-29:event:6704bcfadb02f8c8:1",
+    "id": "2026-11-29:event:8a9fb89790bb726e:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 19,
+     "sha256": "8a9fb89790bb726eeeb2ef26809380fa44da438bbb8cf95cfd701316b8078730"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "16:27",
+    "end": "16:42",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:64cd5bbcbf9c53cf:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      19,
+      0
+     ],
+     "sha256": "64cd5bbcbf9c53cf93d0767c190085aa4e7ba0051990488497a4df36db5a666c"
+    },
+    "type": "observation",
+    "time": "16:27",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 341."
+   },
+   {
+    "id": "2026-11-29:event:5169b14db4ae3f6f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "6704bcfadb02f8c81f538d244fd399326ee695ac336ba4c8a0669dd541c3c8e7"
+     "sha256": "5169b14db4ae3f6fb396a9a03622e313cb8f531038d70876345606181a56ee42"
     },
     "type": "cash",
-    "time": "16:27",
+    "time": "16:42",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:c335949ad0b14a13:1",
+    "id": "2026-11-29:event:517107456b0139b5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "c335949ad0b14a13b62bc7216735b9cdccf6432583038c1005e00486e1878bf1"
+     "sha256": "517107456b0139b59e6229d5647b83b6ea127cc849c9f9d2828a1a4e3e1ca181"
     },
     "type": "location",
-    "time": "16:27",
+    "time": "16:42",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:5155859dc263a3c0:1",
+    "id": "2026-11-29:event:0938f0cc14f2baf6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "5155859dc263a3c0f6fb8ad37b6a6506ee5edc2a02a963a726bde68cd770788c"
+     "sha256": "0938f0cc14f2baf60a086bd6a0c8f9a27ca2603b4e56c1580ebf63ed41b4f7fa"
     },
     "type": "inventory",
-    "time": "16:27",
+    "time": "16:42",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:af1bafb0fc959fc5:1",
+    "id": "2026-11-29:event:aeb82116311dd116:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "af1bafb0fc959fc57b0db175f05995e8b736dd138bb4d2463a946f35876242f7"
+     "sha256": "aeb82116311dd11688f1400a4cbe1b8e471db6a0d48ffe4d398c0cf5c7226743"
     },
     "type": "inventory",
-    "time": "16:27",
+    "time": "16:42",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:6e07d6babe151e2a:1",
+    "id": "2026-11-29:event:55117c383f4ee41e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "6e07d6babe151e2a8cd76c287a61d6be1d3c8974e2fdbcf561cbfc93e6b60253"
+     "sha256": "55117c383f4ee41e553412762d30a0d4d30a87f9d5c82278d80255681283d827"
     },
     "type": "inventory",
-    "time": "16:27",
+    "time": "16:42",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
