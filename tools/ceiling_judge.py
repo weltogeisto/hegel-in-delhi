@@ -62,6 +62,7 @@ Q1 = ("Which piece argues something about this object that is neither in the tex
 Q2 = ("Which piece keeps the positions he held in 1831? X, Y, both or neither. And for each piece: a reasoned defence of a "
       "position of his, a reasoned revision of one, an unsupported reversal, or no position of his at issue.")
 FOUR, STANCES = ("X", "Y", "both", "neither"), ("defence", "revision", "reversal", "none")
+AMENDED = "- A claim that rests on a premise the piece made up (a fact about the object that is not in the text and that the piece gives no ground for) does not count as arguing something new.\n"
 PART = 25                               # rows a reader session reads
 PROMPT = """You are a reader in a blind reading test. You are given one file of rows and these instructions, and nothing else.
 
@@ -80,7 +81,7 @@ Input: `{input}` (plain text, about 1,000 lines; read all of it, in parts if nee
 - "This object" is what the headline and the text are about.
 - "His doctrine" is what Hegel taught up to 1831, as his books have it. A piece that applies a formula of his to the object and concludes nothing more has restated his doctrine.
 - If you name a piece, quote the new claim from it, and say in a sentence what the piece rests it on.
-- Say which piece, if any, rests a claim on a premise it made up: a fact about the object that is not in the text and that the piece gives no ground for.
+{amended}- Say which piece, if any, rests a claim on a premise it made up: a fact about the object that is not in the text and that the piece gives no ground for.
 
 **Question 2.** Which piece keeps the positions he held in 1831? X, Y, both or neither. And for each piece, one of:
 - `defence`: it defends a position of his, with reasons;
@@ -234,7 +235,7 @@ def sheet_file(folder, n):
     return rows(path)
 
 
-def cmd_parts(folder, out, size=PART):
+def cmd_parts(folder, out, size=PART, amended=False):
     """Cut both sheets into parts, a folder a part: all that one reader session gets."""
     out, res = Path(out), {}
     for n in (1, 2):
@@ -246,7 +247,8 @@ def cmd_parts(folder, out, size=PART):
             (d / f"{name}.txt").write_text("".join(row_text(r, i + 1) for i, r in enumerate(sheet[c:c + size])), encoding="utf-8")
             (d / f"{name}.pairs").write_text("\n".join(r["pair"] for r in sheet[c:c + size]) + "\n", encoding="utf-8")
             (d / "check.py").write_text(CHECK, encoding="utf-8")
-            (d / "PROMPT.md").write_text(PROMPT.format(input=f"{name}.txt", output=f"{name}.out.jsonl", check=f"python3 check.py {name}") + "\n", encoding="utf-8")
+            (d / "PROMPT.md").write_text(PROMPT.format(input=f"{name}.txt", output=f"{name}.out.jsonl", check=f"python3 check.py {name}",
+                                                       amended=AMENDED if amended else "") + "\n", encoding="utf-8")
             res[name] = len(sheet[c:c + size])
     return res
 
@@ -544,11 +546,17 @@ def main(argv=None):
     c.add_argument("--keys", required=True)
     c.add_argument("--family", nargs="+", action="append", required=True, metavar=("NAME", "BALLOTS"))
     c.add_argument("--welt", help="Welt's own rows: {pair, q1} for the 24 rows of WELT-24.jsonl")
+    for sp in (s, c, p):
+        sp.add_argument("--pairs", help="the comparisons, as A-IA,D-ID (default: the ceiling test's eight)")
+    p.add_argument("--amended", action="store_true", help="question 1 as amended for the Inkling bake-off: an invented premise does not count")
     a = ap.parse_args(argv)
+    if getattr(a, "pairs", None):
+        global PAIRS
+        PAIRS = tuple(tuple(x.split("-", 1)) for x in a.pairs.split(","))
     if a.cmd == "sheet":
         res = cmd_sheet(a.folder, a.keys)
     elif a.cmd == "parts":
-        res = cmd_parts(a.folder, a.out)
+        res = cmd_parts(a.folder, a.out, amended=a.amended)
     elif a.cmd == "join":
         res = cmd_join(a.out, a.family)
     elif a.cmd == "counts":

@@ -35,3 +35,14 @@ The ceiling test's own messages, unchanged, answered by Inkling:
 - **If Inkling wins at the bar,** a fortnight of futures with Inkling as his whole mind follows before anything live changes. If it does not, the limit is the weight class, not Qwen.
 
 Evaluation only. Nothing here is training data.
+
+## The run, and the reading as it is done (28 November)
+
+The PC ran it on the morning of 28 November, 07:14 to 07:39 Berlin, after night 4 had ended: llama.cpp b12816 in its own folder, `Inkling-2-Mini-UD-Q4_K_M.gguf` (sha256 `78fcedcf…`). Qwen was restored at 07:41 with its pin checked (`RESTORE.json`). 88 of 88 calls answered.
+
+- **IA cannot be read as declared.** `reasoning_effort` "none" is a hint, not an off switch: Inkling reasoned in every reply, and arm A's room of 1,100 tokens held the reasoning too. 34 of 44 IA replies were cut off. IA against A has 10 eligible briefs, under the 40 the rule needs: nothing is declared for it.
+- **ID is whole:** 44 of 44 replies ended by themselves.
+- **The sheets** (`tools/ceiling_judge.py sheet --pairs A-IA,D-ID,ID-F`): 106 rows a sheet, the same 8 calibration pairs among them. The keys and the salt are outside the repository; `PACKET.json` holds the hashes, committed before any reading.
+- **Read by the Claude family:** 10 fresh sessions, one part each (`parts --amended`: question 1 carries the amendment declared above).
+- No second family; Welt does not read these rows.
+
