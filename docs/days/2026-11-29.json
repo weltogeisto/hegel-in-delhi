@@ -299,6 +299,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "10:27",
+   "to": "10:57",
+   "mode": "inside",
+   "at": "home",
+   "now": "Reading at home."
   }
  ],
  "entries": [
@@ -469,6 +476,37 @@
    "to": "Hegel",
    "text": "Yes Sir, I will be quick. Please, take the chair, but maybe keep the window closed if the haze starts stinging your eyes.",
    "t": "09:57",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Hegde’s caution is practical, but my plan is set. I will sit on the verandah and read the newspaper headlines while drinking coffee, as intended. The haze is thick, but the news is more important than the dust.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§406"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Bacon"
+    }
+   ],
+   "t": "10:27",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Shri Hegde. I shall keep the window closed.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "10:27",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Thank you, Sir. I'll be out in a few minutes.",
+   "t": "10:27",
    "place": "home"
   }
  ],
@@ -742,6 +780,72 @@
      "text": "For “when Antisthenes turned outside a hole in his cloak, Socrates said to him, I see thy vanity through the hole in thy cloak.” Clothing is not a thing of rational import, but is regulated through needs that arise of themselves. In the North the clothing must be different from that in Central Africa; and in winter we do not wear cotton garments."
     }
    ]
+  },
+  {
+   "t": "10:27",
+   "end": "10:57",
+   "event": "Shri G. Hegde says: “Yes Sir, I will be quick. Please, take the chair, but maybe keep the window closed if the haze starts stinging your eyes.” He turns back to the back room and picks up the broom.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Hegde’s caution is practical, but my plan is set. I will sit on the verandah and read the newspaper headlines while drinking coffee, as intended. The haze is thick, but the news is more important than the dust.",
+    "action": "read",
+    "place": "home",
+    "minutes": 30,
+    "says": "Thank you, Shri Hegde. I shall keep the window closed.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 353."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Thank you, Sir. I'll be out in a few minutes.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 12.2,
+    "draws": {
+     "n": 2,
+     "refused": 1,
+     "echo": 0,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§406",
+     "id": "wallace-mind:64"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Bacon",
+     "id": "haldane-3:456"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§406",
+     "text": "The a priori conceptions of these inquirers are so rooted that no testimony can avail against them, and they have even denied what they had seen with their own eyes. In order to believe in this department even what one sees with these eyes, and still more to understand it, the first requisite is not to be in bondage to the hard and fast categories of the practical intellect."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Bacon",
+     "text": "According to Bacon this has been worked out in innumerable different ways."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -764,7 +868,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T10:27+05:30",
+  "until": "2026-11-29T10:57+05:30",
   "asleep": false,
   "imprest": 13356,
   "wearing": "kurta",
@@ -1309,7 +1413,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "72f2fba71b3ac9d74f969063668cd565a723ec99cdddf747bbce66885b92fb81",
+  "source_sha256": "64053c96c73bc5e5962d15f9dbb5099e72d82a4670663ae225e838ce959fb952",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1461,6 +1565,36 @@
     "words": "Yes Sir, I will be quick. Please, take the chair, but maybe keep the window closed if the haze starts stinging your eyes.",
     "verified": false,
     "time": "09:57",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:a69c878bc48e7100:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 16,
+     "sha256": "a69c878bc48e71003e1ed36819f8bfed5c42253d56b4cd807b66638c88218bc3"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh and Shri G. Hegde",
+    "words": "Thank you, Shri Hegde. I shall keep the window closed.",
+    "verified": false,
+    "time": "10:27",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:b4beb64da9cf8630:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 17,
+     "sha256": "b4beb64da9cf8630af6484bc46e2f40248bc55bf84d246b8fceaedb6a8157b15"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "Thank you, Sir. I'll be out in a few minutes.",
+    "verified": false,
+    "time": "10:27",
     "place": "home"
    },
    {
@@ -1771,68 +1905,98 @@
     "text": "Weather: 18 °C, a brown haze. Air quality index: 353."
    },
    {
-    "id": "2026-11-29:event:370b3509d7fbbd67:1",
+    "id": "2026-11-29:event:a1ce3f55d637bf10:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 4,
+     "sha256": "a1ce3f55d637bf107d154887cff2c2e4ff19413acfafe0ab6fa362280b4b8159"
+    },
+    "type": "action",
+    "action": "read",
+    "time": "10:27",
+    "end": "10:57",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:b2dae5fc52c967c2:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      4,
+      0
+     ],
+     "sha256": "b2dae5fc52c967c29618b8add08dd74533b47d468cb4e6e913fa1214a20e7edc"
+    },
+    "type": "observation",
+    "time": "10:27",
+    "place": "home",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 353."
+   },
+   {
+    "id": "2026-11-29:event:fff15ce74b16efaa:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "370b3509d7fbbd676a9cd4e6fd9ec8cf2516b9dc696af7eab8f6110e5c7780d5"
+     "sha256": "fff15ce74b16efaa288658631d6287d32c581ec525e06a046f3adbb91639a0dc"
     },
     "type": "cash",
-    "time": "10:27",
+    "time": "10:57",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:a726e513afc7465c:1",
+    "id": "2026-11-29:event:77bd1271444528a0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "a726e513afc7465c678de0b8efe1df117881abed96f76fa1a04e98139f214e29"
+     "sha256": "77bd1271444528a0fcbc58f8e5b58409b2f5c99ea90471160cfef5902e744dbc"
     },
     "type": "location",
-    "time": "10:27",
+    "time": "10:57",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:ef0f148ba53ce4e5:1",
+    "id": "2026-11-29:event:ad0041458318eb37:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "ef0f148ba53ce4e5523d88a22fe89ec54b352e3c45f5bf0571c466318d8555d0"
+     "sha256": "ad0041458318eb371123e115ff9824de74f5b516314242ab4cfa1bb806118aa1"
     },
     "type": "inventory",
-    "time": "10:27",
+    "time": "10:57",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:11366dce432dc995:1",
+    "id": "2026-11-29:event:2f0be5ef42ea8dd9:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "11366dce432dc995bbc9af379fe7058c8e4dcba9ef84d4336178ac39ebb25e64"
+     "sha256": "2f0be5ef42ea8dd98d8deaa54a81746d717cf4fab1253e27927ad5cd3dc7eda4"
     },
     "type": "inventory",
-    "time": "10:27",
+    "time": "10:57",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:3c23b1598e84ec44:1",
+    "id": "2026-11-29:event:66ad1dbe6edf21da:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "3c23b1598e84ec44994fe2c5b35885d4d64546079ca8b1fddcd687590f572456"
+     "sha256": "66ad1dbe6edf21da12d6cbe680d888162e210293a7497d023cffddaabc5cb7ad"
     },
     "type": "inventory",
-    "time": "10:27",
+    "time": "10:57",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
