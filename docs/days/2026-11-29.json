@@ -390,6 +390,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Resting at home."
+  },
+  {
+   "from": "16:02",
+   "to": "16:17",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -872,6 +879,28 @@
    "to": "Hegel",
    "text": "Ji. I’ll close the shutters before the sun sets.",
    "t": "15:17",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "Boys from the servants' quarters bat a tennis ball against the end wall of a lane, and each time it cracks off the wall the crows lift from the nearest tree.",
+   "t": "16:02",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The sound of the ball striking the wall is a rhythmic interruption of the silence, a crude but effective percussion that keeps the crows in a state of perpetual agitation. It is a small, mechanical cycle of cause and effect that does not require my intervention, yet it breaks the stillness of the study. I will remain here for a few more minutes to let the noise settle before attempting to read the file again.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…"
+    }
+   ],
+   "t": "16:02",
    "place": "home"
   }
  ],
@@ -1944,6 +1973,67 @@
      ]
     ]
    }
+  },
+  {
+   "t": "16:02",
+   "end": "16:17",
+   "event": "Boys from the servants' quarters bat a tennis ball against the end wall of a lane, and each time it cracks off the wall the crows lift from the nearest tree.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The sound of the ball striking the wall is a rhythmic interruption of the silence, a crude but effective percussion that keeps the crows in a state of perpetual agitation. It is a small, mechanical cycle of cause and effect that does not require my intervention, yet it breaks the stillness of the study. I will remain here for a few more minutes to let the noise settle before attempting to read the file again.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 341.",
+    "Boys from the servants' quarters bat a tennis ball against the end wall of a lane, and each time it cracks off the wall the crows lift from the nearest tree."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "street:home_wall_ball"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 6.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "id": "baillie-1:223"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "id": "phaen:385"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "text": "Through work and labour, however, this consciousness of the bondsman comes to itself. In the moment which corresponds to desire in the case of the master's consciousness, the aspect of the non-essential relation to the thing seemed to fall to the lot of the servant, since the thing there retained its independence."
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "text": "Nicht der Unterschied, welcher sich als bestimmtes Ding, oder als Bewußtsein eines bestimmten natürlichen Daseins, als ein Gefühl, oder als Begierde und Zweck für dieselbe, ob er durch das eigene oder durch ein fremdes Bewußtsein gesetzt sei, hat mehr Wesenheit, sondern allein der Unterschied, der ein gedachter, oder unmittelbar nicht von Mir unterschieden ist."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1966,7 +2056,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T16:02+05:30",
+  "until": "2026-11-29T16:17+05:30",
   "asleep": false,
   "imprest": 13356,
   "wearing": "kurta",
@@ -2506,13 +2596,14 @@
    "iic_seminar_voice": "2026-11-22",
    "home_wedding_band": "2026-11-22",
    "home_parakeet_roost": "2026-11-26",
-   "home_smog_sunset": "2026-11-27"
+   "home_smog_sunset": "2026-11-27",
+   "home_wall_ball": "2026-11-29"
   }
  },
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "7c59e59236ac979d888a2c5a7ccf239fa1d9fbf5d74b50ff28ce702df4860e06",
+  "source_sha256": "53c0deab0593e8dea5ef662171a9f0c859450d0e3af8bb8c8b33b9ce57840909",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2904,6 +2995,19 @@
     "words": "Ji. I’ll close the shutters before the sun sets.",
     "verified": false,
     "time": "15:17",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:d1aecabb1a6f7230:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 43,
+     "sha256": "d1aecabb1a6f7230b7380b33e60b0e0a2ec3ea6a50be77562d4a31e9bc4362d9"
+    },
+    "type": "world",
+    "text": "Boys from the servants' quarters bat a tennis ball against the end wall of a lane, and each time it cracks off the wall the crows lift from the nearest tree.",
+    "time": "16:02",
     "place": "home"
    },
    {
@@ -3684,68 +3788,114 @@
     "text": "Weather: 23 °C, a brown haze. Air quality index: 342."
    },
    {
-    "id": "2026-11-29:event:f5b659851e285703:1",
+    "id": "2026-11-29:event:449652bc2c96b918:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 17,
+     "sha256": "449652bc2c96b918d2812ba66d801517a37c3b55d3bf1bcfc1e4fd96548ec2a2"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "16:02",
+    "end": "16:17",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:64cd5bbcbf9c53cf:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      17,
+      0
+     ],
+     "sha256": "64cd5bbcbf9c53cf93d0767c190085aa4e7ba0051990488497a4df36db5a666c"
+    },
+    "type": "observation",
+    "time": "16:02",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 341."
+   },
+   {
+    "id": "2026-11-29:event:b526f80a12490c2c:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      17,
+      1
+     ],
+     "sha256": "b526f80a12490c2c7a6ea21f3cc73a586e2d5184d220dc7e06c50e65b69ced07"
+    },
+    "type": "observation",
+    "time": "16:02",
+    "place": "home",
+    "text": "Boys from the servants' quarters bat a tennis ball against the end wall of a lane, and each time it cracks off the wall the crows lift from the nearest tree."
+   },
+   {
+    "id": "2026-11-29:event:c2599423f61f4ce7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "f5b659851e2857033176ef750bb326a33dccc65f4507776b198005ec56af7ac8"
+     "sha256": "c2599423f61f4ce7c15dd82ac6269cacfb9f8a3d143c7d84f8892c4402b64240"
     },
     "type": "cash",
-    "time": "16:02",
+    "time": "16:17",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:e5a2051ef1c39fad:1",
+    "id": "2026-11-29:event:dcbc11af0ca5780a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "e5a2051ef1c39fadf38a9d7c4a3884a31c20f59e11492361c494c568de2649b9"
+     "sha256": "dcbc11af0ca5780aa7421f71e07f8c213e2ff56338b87bd05b8b429479b657db"
     },
     "type": "location",
-    "time": "16:02",
+    "time": "16:17",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:b2431495396a349a:1",
+    "id": "2026-11-29:event:560f9f0acf8ff0ba:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "b2431495396a349a5bb34baac2ee525facd79086dd1d14cfdaf74c5d1681cfc4"
+     "sha256": "560f9f0acf8ff0baa49a953929d39d54eb2d0fc01c8c5df872bc6ed5a73a9b90"
     },
     "type": "inventory",
-    "time": "16:02",
+    "time": "16:17",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:af124d2b751d398f:1",
+    "id": "2026-11-29:event:2f2673af87b36a42:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "af124d2b751d398fd33148cf473948b46248360af8cd8f236d0ac472de21d7a5"
+     "sha256": "2f2673af87b36a422db275fe787e4a18202fc49edf1a833ae992e25a299dd66c"
     },
     "type": "inventory",
-    "time": "16:02",
+    "time": "16:17",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:19d4d03a9098d967:1",
+    "id": "2026-11-29:event:bf8faafb738f384f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "19d4d03a9098d967c2e2e80dfe7cae6a9753318098433f6c258f77fcf872981b"
+     "sha256": "bf8faafb738f384fbe9b349f12889afac67e01498e4b0ccb531ad0d687185160"
     },
     "type": "inventory",
-    "time": "16:02",
+    "time": "16:17",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
