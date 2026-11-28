@@ -418,6 +418,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "17:12",
+   "to": "17:27",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -1015,6 +1022,37 @@
    "k": "world",
    "text": "Ramesh puts a plate together: parathas kept from the morning, with curd and pickle.",
    "t": "16:42",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The tea is offered, a small warmth against the cold, brown air. I accept it, for the body must be sustained even when the spirit is clouded by dust. The shutters stay closed; I will sit in the dim light and let the day pass without further exertion.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates"
+    }
+   ],
+   "t": "17:12",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. The air is indeed thick today; better to keep the shutters tight until it clears.",
+   "to": "Ramesh",
+   "t": "17:12",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, I know. The tea is hot, so do drink before it cools.",
+   "t": "17:12",
    "place": "home"
   }
  ],
@@ -2338,6 +2376,71 @@
      "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
     }
    ]
+  },
+  {
+   "t": "17:12",
+   "end": "17:27",
+   "event": "Ramesh says: “Ji, you are right. I will keep the shutters closed until the air clears. Please, have some tea before it cools.”",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The tea is offered, a small warmth against the cold, brown air. I accept it, for the body must be sustained even when the spirit is clouded by dust. The shutters stay closed; I will sit in the dim light and let the day pass without further exertion.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": "Thank you, Ramesh. The air is indeed thick today; better to keep the shutters tight until it clears.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 340."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, I know. The tea is hot, so do drink before it cools.",
+    "does": "He sets the cup down on the side table and steps back."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 3,
+    "latency_s": 16.6,
+    "draws": {
+     "n": 3,
+     "refused": 1,
+     "echo": 1,
+     "picked": 2
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "id": "haldane-1:981"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Socrates",
+     "text": "It is when subjective consciousness maintains its independence of everything, that it says, “It is I who through my educated thoughts can annul all determinations of right, morality, good, &c., because I am clearly master of them, and I know that if anything seems good to me I can easily subvert it, because things are only true to me in so far as they please me now.”"
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2360,7 +2463,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T17:12+05:30",
+  "until": "2026-11-29T17:27+05:30",
   "asleep": false,
   "imprest": 13356,
   "wearing": "kurta",
@@ -2908,7 +3011,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "0ed06beb05192463da7606c394a80dd9654412327080baca06f4cc317287751b",
+  "source_sha256": "e07e09c2eebc2064ed69873475f09c5b47e912a9a5b6082c55073b6d4cb69fb8",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3399,6 +3502,36 @@
     "type": "world",
     "text": "Ramesh puts a plate together: parathas kept from the morning, with curd and pickle.",
     "time": "16:42",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:4464feaa3994905b:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 55,
+     "sha256": "4464feaa3994905bce28b53db6d243d75211bddfeaf12b0ba2a22450eb61febf"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Thank you, Ramesh. The air is indeed thick today; better to keep the shutters tight until it clears.",
+    "verified": false,
+    "time": "17:12",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:f0ad708c424855b6:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 56,
+     "sha256": "f0ad708c424855b628260a1155a8dbc552217280b6cade0f31e726e12ae04da1"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Ji, I know. The tea is hot, so do drink before it cools.",
+    "verified": false,
+    "time": "17:12",
     "place": "home"
    },
    {
@@ -4347,68 +4480,98 @@
     "text": "Ramesh brings tea: tea and a few samosas from the market."
    },
    {
-    "id": "2026-11-29:event:55f57b45504f0a27:1",
+    "id": "2026-11-29:event:16356788e70df5c5:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 21,
+     "sha256": "16356788e70df5c57d0b0dd4277718b812c312ad30b0082ea28939b46b0b2c02"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "17:12",
+    "end": "17:27",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:aa7f4ea0e654f7fa:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      21,
+      0
+     ],
+     "sha256": "aa7f4ea0e654f7fae6f5e903dcb6b0d357e25cd9a9502e3fdae4479990897c3b"
+    },
+    "type": "observation",
+    "time": "17:12",
+    "place": "home",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 340."
+   },
+   {
+    "id": "2026-11-29:event:f0698dbd91d701b2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "55f57b45504f0a27733f02773df136456a50b7324d0064f5cf72d842caa14fc0"
+     "sha256": "f0698dbd91d701b284be1be226c421a17938e861eedde7657e0d248908b7b70e"
     },
     "type": "cash",
-    "time": "17:12",
+    "time": "17:27",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:ebf5f8787b6493a3:1",
+    "id": "2026-11-29:event:240d2f15e79bc680:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "ebf5f8787b6493a35a9126e182c911c477091a3f0925427d52cef8e98b1ea140"
+     "sha256": "240d2f15e79bc6807d5948b16b38b3ae11942494f4419a647fe9dfc126814e1d"
     },
     "type": "location",
-    "time": "17:12",
+    "time": "17:27",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:f74fa709122c56d6:1",
+    "id": "2026-11-29:event:17fc1588a5f9e153:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "f74fa709122c56d65d5d8b1f8cac7d34752025de9bc50c6c6397f5047e158321"
+     "sha256": "17fc1588a5f9e1531ac0abccb3b89c8d41b3679cd10df7b01db37e9538c3db3c"
     },
     "type": "inventory",
-    "time": "17:12",
+    "time": "17:27",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:e8adad2acc54d425:1",
+    "id": "2026-11-29:event:def245a3c3aa3097:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "e8adad2acc54d4256734feb0ab8c71b4b8c6c95a03400566e0defda395878df8"
+     "sha256": "def245a3c3aa30973292c0ddd11d8fec90e669ca1c060261efa43550805457e6"
     },
     "type": "inventory",
-    "time": "17:12",
+    "time": "17:27",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:842f30a65c63fbd3:1",
+    "id": "2026-11-29:event:0abed7c10b498aab:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "842f30a65c63fbd3f04e105b342dc563753e6c831cd22c7d662dfcab7bcda320"
+     "sha256": "0abed7c10b498aab0905bf2cb006c8917f363dc73bf148c0fb18038b217f57c2"
     },
     "type": "inventory",
-    "time": "17:12",
+    "time": "17:27",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
