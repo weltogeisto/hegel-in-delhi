@@ -432,6 +432,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "17:42",
+   "to": "18:12",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -1091,6 +1098,37 @@
    "to": "Hegel",
    "text": "Ji, it is plain chai, but it does the job. You take your time; I have the evening free before dinner.",
    "t": "17:27",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh leaves me to my own devices, a courtesy that feels almost conspiratorial given the dust outside. The tea is cooling, a small, bitter anchor in this brown twilight. I shall sit and think, or perhaps write, before the dark fully settles in.",
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§541"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273"
+    }
+   ],
+   "t": "17:42",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. I shall be in the study.",
+   "to": "Ramesh",
+   "t": "17:42",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, the light is on. I will not disturb you until dinner.",
+   "t": "17:42",
    "place": "home"
   }
  ],
@@ -2544,6 +2582,71 @@
      "text": "To Plato, accordingly, Philosophy is really the science of this implicitly universal, to which, as contrasted with the particular, he always continues to return. “When Plato spoke of tableness and cupness, Diogenes the Cynic said: ‘I see a table and a cup, to be sure, but not tableness and cupness.’"
     }
    ]
+  },
+  {
+   "t": "17:42",
+   "end": "18:12",
+   "event": "Ramesh says: “Ji, it is plain chai, but it does the job. You take your time; I have the evening free before dinner.” Ramesh gives a small nod and turns to straighten a loose corner of the newspaper on the table.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh leaves me to my own devices, a courtesy that feels almost conspiratorial given the dust outside. The tea is cooling, a small, bitter anchor in this brown twilight. I shall sit and think, or perhaps write, before the dark fully settles in.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 30,
+    "says": "Thank you, Ramesh. I shall be in the study.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 340."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, the light is on. I will not disturb you until dinner.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§541",
+     "id": "wallace-mind:308"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273",
+     "id": "dyde-right:681"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Mind",
+     "ref": "§541",
+     "text": "The really living totality,—that which preserves, in other words continually produces the state in general and its constitution, is the government. The organisation which natural necessity gives is seen in the rise of the family and of the’estates’ of civil society."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§273",
+     "text": "This is the descent of the spirit of the world into itself, the free perfection by virtue of which the idea sets loose from itself its own elements, and nothing but its own elements, and makes them totalities; at the same time it holds them within the unity of the conception, in which is found their real rationality."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2566,7 +2669,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T17:42+05:30",
+  "until": "2026-11-29T18:12+05:30",
   "asleep": false,
   "imprest": 13356,
   "wearing": "kurta",
@@ -3114,7 +3217,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "d2522d7c9b7014308dc0b2c723c1e1e39b56fd9a0d1d11cd4454ab12706c749e",
+  "source_sha256": "0053d7ca7d5b4c272ab30b4d25864c009754f202eb3388fb9959d662194f0ebf",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3665,6 +3768,36 @@
     "words": "Ji, it is plain chai, but it does the job. You take your time; I have the evening free before dinner.",
     "verified": false,
     "time": "17:27",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:fbee9700b1b5de17:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 61,
+     "sha256": "fbee9700b1b5de17ff9bf68fb89aa4fc763885c17104d0411627be2f94ed9108"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Thank you, Ramesh. I shall be in the study.",
+    "verified": false,
+    "time": "17:42",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:f1b9787571d3be14:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 62,
+     "sha256": "f1b9787571d3be144eef835a39fcc0b83e789c6abede801f2ac23d023e4d291d"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Ji, the light is on. I will not disturb you until dinner.",
+    "verified": false,
+    "time": "17:42",
     "place": "home"
    },
    {
@@ -4673,68 +4806,98 @@
     "text": "Weather: 20 °C, a brown haze. Air quality index: 340."
    },
    {
-    "id": "2026-11-29:event:e0a4acaf568910cc:1",
+    "id": "2026-11-29:event:691217fb9f0b6e15:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 23,
+     "sha256": "691217fb9f0b6e15ac0a7ae2769e566a8ab2e40a1b55f50f5c27df98c1ce2352"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "17:42",
+    "end": "18:12",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:aa7f4ea0e654f7fa:3",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      23,
+      0
+     ],
+     "sha256": "aa7f4ea0e654f7fae6f5e903dcb6b0d357e25cd9a9502e3fdae4479990897c3b"
+    },
+    "type": "observation",
+    "time": "17:42",
+    "place": "home",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 340."
+   },
+   {
+    "id": "2026-11-29:event:743f2a3fb0f22d56:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "e0a4acaf568910cc2769b88c7b9a6952f804b39d8991f6ac0d0336d00c171a8f"
+     "sha256": "743f2a3fb0f22d56f02c15321c10cf0f9a8f5d45d80f5fdf44fd358a1ea62fd6"
     },
     "type": "cash",
-    "time": "17:42",
+    "time": "18:12",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:d76a9571f089dd3d:1",
+    "id": "2026-11-29:event:c59e30d98192d443:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "d76a9571f089dd3d9b313dd885ddd99250297ca5b2bc50827cd1c5a30231005b"
+     "sha256": "c59e30d98192d443b254cbae4550f400958dc2d7f50a6a16f48bd1af04428b73"
     },
     "type": "location",
-    "time": "17:42",
+    "time": "18:12",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:fe45e8b45bf646d1:1",
+    "id": "2026-11-29:event:22a5b8d4896337f5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "fe45e8b45bf646d1e1a4547c852a3c0c61098fae3da413c951392b6e9d3a03ec"
+     "sha256": "22a5b8d4896337f5f1768117b8f353e2502a076a051ad198f6cae6c97c5a3147"
     },
     "type": "inventory",
-    "time": "17:42",
+    "time": "18:12",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:6211445b81bbe90a:1",
+    "id": "2026-11-29:event:9157db424726b0b5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "6211445b81bbe90a6daf4ac4173559a5874420a821309581848ebfa012deef74"
+     "sha256": "9157db424726b0b5ce3d434e7e6ad345f074344b2c4df80cdd3e935ba5509088"
     },
     "type": "inventory",
-    "time": "17:42",
+    "time": "18:12",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:429de119a8086926:1",
+    "id": "2026-11-29:event:bbfab9555aac65cf:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "429de119a808692620c35dd5b43bdab3295ffc7ce9becd5970912aa971b6cde2"
+     "sha256": "bbfab9555aac65cf0ad9ec250f7480e42ffa02a8a472ab8e9692967148a87d7d"
     },
     "type": "inventory",
-    "time": "17:42",
+    "time": "18:12",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
