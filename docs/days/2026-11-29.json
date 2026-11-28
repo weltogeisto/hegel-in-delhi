@@ -15,7 +15,7 @@
     "temp": 15,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 348
+    "aqi": 349
    },
    {
     "temp": 15,
@@ -27,133 +27,133 @@
     "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 350
+    "aqi": 349
    },
    {
     "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 351
+    "aqi": 349
    },
    {
     "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 351
+    "aqi": 349
    },
    {
     "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 352
+    "aqi": 348
    },
    {
     "temp": 13,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 352
+    "aqi": 347
    },
    {
     "temp": 13,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 353
+    "aqi": 346
    },
    {
     "temp": 15,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 353
+    "aqi": 345
    },
    {
     "temp": 18,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 353
+    "aqi": 345
    },
    {
     "temp": 20,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 353
+    "aqi": 345
    },
    {
     "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 353
+    "aqi": 345
    },
    {
     "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 352
+    "aqi": 344
    },
    {
     "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 351
+    "aqi": 343
    },
    {
     "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 351
+    "aqi": 342
    },
    {
     "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 350
+    "aqi": 342
    },
    {
     "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 350
+    "aqi": 341
    },
    {
     "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 349
+    "aqi": 340
    },
    {
     "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 348
+    "aqi": 339
    },
    {
     "temp": 18,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 348
+    "aqi": 339
    },
    {
     "temp": 18,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 348
+    "aqi": 339
    },
    {
     "temp": 17,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 348
+    "aqi": 339
    },
    {
     "temp": 16,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 349
+    "aqi": 340
    },
    {
     "temp": 16,
     "sky": "a brown haze",
     "rain": 0,
-    "aqi": 349
+    "aqi": 341
    }
   ]
  },
@@ -331,6 +331,13 @@
   {
    "from": "12:12",
    "to": "12:27",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
+  },
+  {
+   "from": "12:27",
+   "to": "12:57",
    "mode": "inside",
    "at": "home",
    "now": "At home."
@@ -629,6 +636,22 @@
    "to": "Hegel",
    "text": "Ji, main dekh lunga. Dhool toh hamesha rehti hai, bas thoda sa saaf karta hoon.",
    "t": "12:12",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh’s nod is the practical answer to the dust; he does not philosophize about the haze, he merely wipes it. I am due for lunch in thirty minutes, and the air is too thick for the verandah. I shall sit in the study and wait for the plate, keeping my mind on the file rather than the sky.",
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…"
+    }
+   ],
+   "t": "12:27",
    "place": "home"
   }
  ],
@@ -1221,6 +1244,66 @@
      "text": "This divorce between idea and reality is especially dear to the analytic understanding which looks upon its own abstractions, dreams though they are, as something true and real, and prides itself on the imperative 'ought,' which it takes especial pleasure in prescribing even on the field of politics. As if the world had waited on it to learn how it ought to be, and was not!"
     }
    ]
+  },
+  {
+   "t": "12:27",
+   "end": "12:57",
+   "event": "Ramesh says: “Ji, main dekh lunga. Dhool toh hamesha rehti hai, bas thoda sa saaf karta hoon.” He nods briefly and turns away to fetch the duster from the cupboard.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh’s nod is the practical answer to the dust; he does not philosophize about the haze, he merely wipes it. I am due for lunch in thirty minutes, and the air is too thick for the verandah. I shall sit in the study and wait for the plate, keeping my mind on the file rather than the sky.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 344."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 6.0,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "id": "baillie-1:223"
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "id": "phaen:385"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Phenomenology of Mind",
+     "ref": "Independence of Self-consciousness",
+     "text": "The feeling of absolute power, however, reahsed both in general and in the particular form of service, is only dissolution implicitly, and albeit the fear of his lord is the beginning of wisdom, consciousness is not therein aware of being self-existent. Through work and labour, however, this consciousness of the bondsman comes to itself."
+    },
+    {
+     "work": "Phänomenologie des Geistes",
+     "ref": "Stoizismus, Skeptizismus und das unglückliche…",
+     "text": "Dies Bewußtsein ist somit negativ gegen das Verhältnis der Herrschaft und Knechtschaft; sein Tun ist, in der Herrschaft nicht seine Wahrheit an dem Knechte zu haben, noch als Knecht seine Wahrheit an dem Willen des Herrn und an seinem Dienen, sondern wie auf dem Throne so in den Fesseln, in aller Abhängigkeit seines einzelnen Daseins frei zu sein…"
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1243,7 +1326,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T12:27+05:30",
+  "until": "2026-11-29T12:57+05:30",
   "asleep": false,
   "imprest": 13356,
   "wearing": "kurta",
@@ -1788,7 +1871,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "73f1dced68711d3f29876ddeffa97247586fea0fa32b413a9eb3aacada0d9db2",
+  "source_sha256": "b8303928004b52e7660561830be49901ff1777556cac98f0e496c934a927274d",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2522,68 +2605,98 @@
     "text": "Nothing in particular happens. The afternoon goes on."
    },
    {
-    "id": "2026-11-29:event:de7c61c0d6d9e7c4:1",
+    "id": "2026-11-29:event:2e3270b9cb9fb251:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 9,
+     "sha256": "2e3270b9cb9fb25190463fefd6ffff7c20759a906b55f0979689895a007051cd"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "12:27",
+    "end": "12:57",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:bd09f7c7406e48bd:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      9,
+      0
+     ],
+     "sha256": "bd09f7c7406e48bdf5ee25a181a72e601c90ab558f7e2d6d84f8aaef9ac4fbad"
+    },
+    "type": "observation",
+    "time": "12:27",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 344."
+   },
+   {
+    "id": "2026-11-29:event:3d4c35004d2959c5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "de7c61c0d6d9e7c4eecf511ea328bb4864181e22ff205320ab64ae7b2168a6ba"
+     "sha256": "3d4c35004d2959c5a686f6c4a0b247458b42f14144be34908c298861fd882aee"
     },
     "type": "cash",
-    "time": "12:27",
+    "time": "12:57",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:7590bb7feeacf001:1",
+    "id": "2026-11-29:event:d388805a4b5c1cbe:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "7590bb7feeacf0014a06d0f2de25d92bee9b2039ae938a636097696ddafc7f58"
+     "sha256": "d388805a4b5c1cbe97831649370f45568d953d5c428facd7d4509fdec64876a6"
     },
     "type": "location",
-    "time": "12:27",
+    "time": "12:57",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:088f61a03f9c9042:1",
+    "id": "2026-11-29:event:8701768e4ccec57a:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "088f61a03f9c9042c58f8f16cc7be56ae16ce30c01e9bc76d1bea8518442ba3c"
+     "sha256": "8701768e4ccec57ab5558ed7f2e160e04b8eee37fe26a5b0c0d4f33ddffebf7e"
     },
     "type": "inventory",
-    "time": "12:27",
+    "time": "12:57",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:1f1fd87af91e3060:1",
+    "id": "2026-11-29:event:4322c5e2c42aee90:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "1f1fd87af91e306020d1fcf499ac4b68ee5df24d1a07aca24f43fe5daefc65e2"
+     "sha256": "4322c5e2c42aee906476fa91f753f5dbba87f47994f580faa4c22192245eee1e"
     },
     "type": "inventory",
-    "time": "12:27",
+    "time": "12:57",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:53b03280a4ccb2f1:1",
+    "id": "2026-11-29:event:f148552f04ee7b6f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "53b03280a4ccb2f18a4f3804ef7728b1c0834a048fe861e3b93fed4f407cde21"
+     "sha256": "f148552f04ee7b6fadfa30c9a774a7a6541d099e348c3fb5670dfff154bd4ee4"
     },
     "type": "inventory",
-    "time": "12:27",
+    "time": "12:57",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
