@@ -12,7 +12,7 @@
   "source": "open-meteo",
   "hours": [
    {
-    "temp": 16,
+    "temp": 15,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 348
@@ -24,13 +24,13 @@
     "aqi": 349
    },
    {
-    "temp": 15,
+    "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 350
    },
    {
-    "temp": 15,
+    "temp": 14,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 351
@@ -90,13 +90,13 @@
     "aqi": 352
    },
    {
-    "temp": 23,
+    "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 351
    },
    {
-    "temp": 23,
+    "temp": 22,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 351
@@ -108,13 +108,13 @@
     "aqi": 350
    },
    {
-    "temp": 22,
+    "temp": 21,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 350
    },
    {
-    "temp": 20,
+    "temp": 19,
     "sky": "a brown haze",
     "rain": 0,
     "aqi": 349
@@ -271,18 +271,197 @@
    "asleep": true,
    "owl": true,
    "now": "Asleep."
+  },
+  {
+   "from": "09:17",
+   "to": "09:27",
+   "mode": "stand",
+   "at": "home",
+   "now": "Talking with Ramesh at home."
   }
  ],
- "entries": [],
- "steps": [],
- "funnel": {},
+ "entries": [
+  {
+   "k": "world",
+   "text": "Morning papers: “Bhupen Hazarika: The voice that gave philosophy a song” · “Four days after the full moon, a second flame for a Madurai hill” · “Lok Sabha seat freeze is no longer linked to population stabilisation”",
+   "t": "09:17",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "Today's listings: 17:00 at Kamani Auditorium: Western classical music: Rossini overtures and Beethoven's Seventh Symphony, by a Delhi chamber orchestra, ₹300. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30.",
+   "t": "09:17",
+   "place": "home"
+  },
+  {
+   "k": "expense",
+   "item": "Groceries for Ramesh's kitchen",
+   "amount": 1500,
+   "to": "Ramesh",
+   "why": "groceries",
+   "settles": true,
+   "text": "Paid to Ramesh.",
+   "charge_id": "cost:groceries:2026-11-29",
+   "cost": "groceries",
+   "since": "2026-11-29",
+   "t": "09:17",
+   "place": "home"
+  },
+  {
+   "k": "plan",
+   "items": [
+    {
+     "time": "09:30",
+     "intention": "Sit on the verandah and read the newspaper headlines while drinking coffee."
+    },
+    {
+     "time": "10:30",
+     "intention": "Walk to Lodhi Gardens to observe the tombs despite the heavy haze."
+    },
+    {
+     "time": "13:00",
+     "intention": "Return home for lunch and a short rest to recover from the heat and dust."
+    },
+    {
+     "time": "15:00",
+     "intention": "Review the Directorate file in the study to prepare for the identity query."
+    },
+    {
+     "time": "17:00",
+     "intention": "Take a walk around the bungalow to clear my head before dinner."
+    }
+   ],
+   "t": "09:17"
+  },
+  {
+   "k": "diary",
+   "text": "The air is thick with the brown dust, a tangible weight that makes the morning feel like a dream one cannot wake from. I have settled the grocery bill for Ramesh, a small administrative act that anchors me to this household's reality. My plan is to sit on the verandah and read the headlines, but the haze makes the paper seem distant, as if the news itself is filtered through the same suffocating veil.",
+   "shelf": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Division of the Subject"
+    },
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Methods of Science"
+    }
+   ],
+   "t": "09:17",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, the air is heavy today. Leave the parathas for now; I shall sit on the verandah and read the paper before we eat. The light is poor, but the news must be known.",
+   "to": "Ramesh",
+   "t": "09:17",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Yes sir. I will keep the ghee warm so they stay crisp for when you are ready. The tea is also on the stove, just in case the chill gets to you.",
+   "t": "09:17",
+   "place": "home"
+  }
+ ],
+ "steps": [
+  {
+   "t": "09:17",
+   "end": "09:27",
+   "event": "You wake. A brown haze, 18 °C. Ramesh has left the papers on the verandah. Headlines: Bhupen Hazarika: The voice that gave philosophy a song; Four days after the full moon, a second flame for a Madurai hill; Lok Sabha seat freeze is no longer linked to population stabilisation. Today's listings: 17:00 at Kamani Auditorium: Western classical music: Rossini overtures and Beethoven's Seventh Symphony, by a Delhi chamber orchestra, ₹300. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30. You pay Ramesh ₹1,500 for groceries. Ramesh is here.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The air is thick with the brown dust, a tangible weight that makes the morning feel like a dream one cannot wake from. I have settled the grocery bill for Ramesh, a small administrative act that anchors me to this household's reality. My plan is to sit on the verandah and read the headlines, but the haze makes the paper seem distant, as if the news itself is filtered through the same suffocating veil.",
+    "action": "talk",
+    "place": "home",
+    "minutes": 10,
+    "says": "Ramesh, the air is heavy today. Leave the parathas for now; I shall sit on the verandah and read the paper before we eat. The light is poor, but the news must be known.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, a brown haze. Air quality index: 353.",
+    "You wake. A brown haze, 18 °C. Ramesh has left the papers on the verandah. Headlines: Bhupen Hazarika: The voice that gave philosophy a song; Four days after the full moon, a second flame for a Madurai hill; Lok Sabha seat freeze is no longer linked to population stabilisation.",
+    "Today's listings: 17:00 at Kamani Auditorium: Western classical music: Rossini overtures and Beethoven's Seventh Symphony, by a Delhi chamber orchestra, ₹300. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30.",
+    "You pay Ramesh ₹1,500 for groceries.",
+    "Ramesh is here."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "papers",
+    "listings",
+    "purse",
+    "here"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Yes sir. I will keep the ghee warm so they stay crisp for when you are ready. The tea is also on the stove, just in case the chill gets to you.",
+    "does": "He nods once and turns to check the tea kettle."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 16.6,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Division of the Subject",
+     "id": "bosanquet-art:308"
+    },
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Methods of Science",
+     "id": "bosanquet-art:73"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Division of the Subject",
+     "text": "The classical type of art, on the other hand, finds adequate realization in sculpture, while it treats architecture only as furnishing an enclosure in which it is to operate, and has not acquired the power of developing painting and music as absolute forms for its content."
+    },
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Methods of Science",
+     "text": "Thus it is, no doubt, the case that we, too, in modern times, must in our philosophy of art start from the idea of the beautiful, but we ought not to abide by the fashion of Platonic ideas, which was purely abstract, and was the mere beginning of the philosophic study of beauty."
+    }
+   ]
+  }
+ ],
+ "funnel": {
+  "malhotra_vouch": {
+   "live": 1,
+   "eligible": 0,
+   "shown": 0,
+   "yes": 0,
+   "no": 0
+  },
+  "bank_account": {
+   "live": 1,
+   "eligible": 0,
+   "shown": 0,
+   "yes": 0,
+   "no": 0
+  }
+ },
  "owl": null,
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T09:17+05:30",
-  "asleep": true,
-  "imprest": 14856,
+  "until": "2026-11-29T09:27+05:30",
+  "asleep": false,
+  "imprest": 13356,
   "wearing": "kurta",
   "wardrobe": [
    {
@@ -363,7 +542,14 @@
    }
   ],
   "depesche_n": 4,
-  "today": {},
+  "today": {
+   "woke": "09:17",
+   "seen": {
+    "home": [
+     "ramesh"
+    ]
+   }
+  },
   "account": {
    "advance": 15000,
    "vouchers": [
@@ -443,7 +629,8 @@
     "2026-11-25",
     "2026-11-26",
     "2026-11-27",
-    "2026-11-28"
+    "2026-11-28",
+    "2026-11-29"
    ],
    "lodhi": [
     "2026-10-02",
@@ -532,13 +719,13 @@
     "pay": 1000,
     "cancel_after": 2,
     "from": "2026-11-26",
-    "checked": "2026-11-28",
+    "checked": "2026-11-29",
     "missed": 0
    }
   ],
   "costs": {
    "wage": "2026-11-01",
-   "groceries": "2026-11-22",
+   "groceries": "2026-11-29",
    "dhobi": "2026-11-28",
    "electricity": "2026-11-10",
    "data": "2026-10-12"
@@ -577,7 +764,8 @@
     "2026-11-24",
     "2026-11-26",
     "2026-11-27",
-    "2026-11-28"
+    "2026-11-28",
+    "2026-11-29"
    ],
    "malhotra": [
     "2026-10-02",
@@ -790,7 +978,8 @@
    "charge:11",
    "charge:12",
    "cost:dhobi:2026-11-28",
-   "charge:14"
+   "charge:14",
+   "cost:groceries:2026-11-29"
   ],
   "charge_seq": 14,
   "street": {
@@ -811,75 +1000,344 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "edd586a06510775639572aa45180c02f8c20e42cd3f8d3f9d4293d48c35ff416",
+  "source_sha256": "5a8803a413cb594b8c07aa4e42df22d01ec95bc3393d0862c09dfaa8a20aa409",
   "complete": false,
   "steps_present": true,
   "records": [
    {
-    "id": "2026-11-29:event:aadc6ed435330919:1",
+    "id": "2026-11-29:event:01a410d16a7ac532:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 0,
+     "sha256": "01a410d16a7ac5325f79979f551131590237b74d702243c99093b57a55cf99a5"
+    },
+    "type": "world",
+    "text": "Morning papers: “Bhupen Hazarika: The voice that gave philosophy a song” · “Four days after the full moon, a second flame for a Madurai hill” · “Lok Sabha seat freeze is no longer linked to population stabilisation”",
+    "time": "09:17",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:f16a9adf9e71b54d:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 1,
+     "sha256": "f16a9adf9e71b54da6d0f1cdd237535b790c007f11adb4ee123b14d929ef60b1"
+    },
+    "type": "world",
+    "text": "Today's listings: 17:00 at Kamani Auditorium: Western classical music: Rossini overtures and Beethoven's Seventh Symphony, by a Delhi chamber orchestra, ₹300. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30.",
+    "time": "09:17",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:payment:3dbce4a39bd43e4e:1",
+    "kind": "payment",
+    "source": {
+     "collection": "entries",
+     "index": 2,
+     "sha256": "3dbce4a39bd43e4edea5448469acb0d6e8eba7612707996df4cc8898da149cf5"
+    },
+    "canonical_id": "cost:groceries:2026-11-29",
+    "item": "Groceries for Ramesh's kitchen",
+    "amount": 1500,
+    "direction": "out",
+    "settled": true,
+    "medium": "cash",
+    "creditor": "Ramesh",
+    "payer": null,
+    "time": "09:17",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:4988e01d1bf5d23b:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 5,
+     "sha256": "4988e01d1bf5d23b44bbe30dae543651bd44b8b67e4dcebd20bf6001b6221563"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, the air is heavy today. Leave the parathas for now; I shall sit on the verandah and read the paper before we eat. The light is poor, but the news must be known.",
+    "verified": false,
+    "time": "09:17",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:1129ba7843bd49aa:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 6,
+     "sha256": "1129ba7843bd49aa2c3944cf8610f3a22de745161764ddde395de979cc079a37"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Yes sir. I will keep the ghee warm so they stay crisp for when you are ready. The tea is also on the stove, just in case the chill gets to you.",
+    "verified": false,
+    "time": "09:17",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:0ee20ff9f4ebd681:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 0,
+     "sha256": "0ee20ff9f4ebd681cef6ff235793997ee640746c4a27a2f0cbfa6dd4cc9e14ac"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:17",
+    "intended_time": "09:30",
+    "place": null,
+    "text": "Sit on the verandah and read the newspaper headlines while drinking coffee."
+   },
+   {
+    "id": "2026-11-29:event:8c228e76677dd92b:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 1,
+     "sha256": "8c228e76677dd92b33333307bdf788269f64c0b1bf6918ba907715ad7388c83e"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:17",
+    "intended_time": "10:30",
+    "place": null,
+    "text": "Walk to Lodhi Gardens to observe the tombs despite the heavy haze."
+   },
+   {
+    "id": "2026-11-29:event:86b77d6d12ceb09c:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 2,
+     "sha256": "86b77d6d12ceb09c303b38f665d5c6b918fb6961cc58feba2709fd6bf7bb0af3"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:17",
+    "intended_time": "13:00",
+    "place": null,
+    "text": "Return home for lunch and a short rest to recover from the heat and dust."
+   },
+   {
+    "id": "2026-11-29:event:46adfcbe5eb6eb48:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 3,
+     "sha256": "46adfcbe5eb6eb48dddc8bdf0cc9097a3d2c1909bf529cc41b8217e932428c49"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:17",
+    "intended_time": "15:00",
+    "place": null,
+    "text": "Review the Directorate file in the study to prepare for the identity query."
+   },
+   {
+    "id": "2026-11-29:event:60ccaf60cc77de09:1",
+    "kind": "event",
+    "source": {
+     "collection": "plan.items",
+     "index": 4,
+     "sha256": "60ccaf60cc77de090cb96f5a53b8e9bd6355503f1071d6359867756da5bab893"
+    },
+    "type": "intention",
+    "status": "planned",
+    "time": "09:17",
+    "intended_time": "17:00",
+    "place": null,
+    "text": "Take a walk around the bungalow to clear my head before dinner."
+   },
+   {
+    "id": "2026-11-29:event:6eef1458a1421100:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 0,
+     "sha256": "6eef1458a142110025e806554f8edc7ac011a7c40dffeb6bc8ea97042e74e1d6"
+    },
+    "type": "action",
+    "action": "talk",
+    "time": "09:17",
+    "end": "09:27",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:b10aa2269d08d8fa:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      0
+     ],
+     "sha256": "b10aa2269d08d8fa75978f276b15476411a2425f85f818b795ccfae77da91002"
+    },
+    "type": "observation",
+    "time": "09:17",
+    "place": "home",
+    "text": "Weather: 18 °C, a brown haze. Air quality index: 353."
+   },
+   {
+    "id": "2026-11-29:event:4ac9da036c8bd4d7:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      1
+     ],
+     "sha256": "4ac9da036c8bd4d73ab70b5f3ffb8df342a4b44418c06bf0355ba62e21052e51"
+    },
+    "type": "observation",
+    "time": "09:17",
+    "place": "home",
+    "text": "You wake. A brown haze, 18 °C. Ramesh has left the papers on the verandah. Headlines: Bhupen Hazarika: The voice that gave philosophy a song; Four days after the full moon, a second flame for a Madurai hill; Lok Sabha seat freeze is no longer linked to population stabilisation."
+   },
+   {
+    "id": "2026-11-29:event:5fb7b852041c08d4:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      2
+     ],
+     "sha256": "5fb7b852041c08d42580a3e38fee14a84141b6c7613bbb0f7122eb7a2315f432"
+    },
+    "type": "observation",
+    "time": "09:17",
+    "place": "home",
+    "text": "Today's listings: 17:00 at Kamani Auditorium: Western classical music: Rossini overtures and Beethoven's Seventh Symphony, by a Delhi chamber orchestra, ₹300. Open today: the National Museum 10:00 to 18:00; the National Gallery of Modern Art 11:00 to 18:30."
+   },
+   {
+    "id": "2026-11-29:event:b1e2cfa8dc40a59b:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      3
+     ],
+     "sha256": "b1e2cfa8dc40a59b860ea7a7cef32d4c9e015076b14bc19fce5f48ad078cb31a"
+    },
+    "type": "observation",
+    "time": "09:17",
+    "place": "home",
+    "text": "You pay Ramesh ₹1,500 for groceries."
+   },
+   {
+    "id": "2026-11-29:event:7484978535b3016a:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      0,
+      4
+     ],
+     "sha256": "7484978535b3016a1b3d5eed5ad84ca87ae93f3f2d90914df6d3ff88b95c2cbd"
+    },
+    "type": "observation",
+    "time": "09:17",
+    "place": "home",
+    "text": "Ramesh is here."
+   },
+   {
+    "id": "2026-11-29:event:ac996cb8508f8828:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "aadc6ed43533091916a0a49a9046596fec4259484bc9d24f0dfd16676c0adb10"
+     "sha256": "ac996cb8508f882868d464b5544703e0877e9f74b805d39ac1a8609c83c7ed0a"
     },
     "type": "cash",
-    "time": "09:17",
-    "amount": 14856,
+    "time": "09:27",
+    "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:e090d3aa4f600661:1",
+    "id": "2026-11-29:event:a236145d83c223b6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "e090d3aa4f600661c467e6f03dfc1eae77e871d070dceb38ab33832e2395b051"
+     "sha256": "a236145d83c223b602a4b6e0fd610e6b7f444274471f6b4a5d184e991d061671"
     },
     "type": "location",
-    "time": "09:17",
+    "time": "09:27",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:9753846d39dc4d48:1",
+    "id": "2026-11-29:event:cf5f66d8b59b94f1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "9753846d39dc4d483c7de6194493f980554aec5c3f797d047c961ebbd6f396af"
+     "sha256": "cf5f66d8b59b94f112d134fe01f85d3e2cfdc117fb846e3818dba3628f5cfd86"
     },
     "type": "inventory",
-    "time": "09:17",
+    "time": "09:27",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:db8b5ff3d4814985:1",
+    "id": "2026-11-29:event:772d70305dcb3a43:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "db8b5ff3d481498549879cf20886802eaf447bd3d36bfd92b0a660af68a0013d"
+     "sha256": "772d70305dcb3a4311186011864f081bd90886cd4cbd0571031916f575432af8"
     },
     "type": "inventory",
-    "time": "09:17",
+    "time": "09:27",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:0901a9159bdbfa70:1",
+    "id": "2026-11-29:event:35751583f055ad8e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "0901a9159bdbfa70fcfcacb97e88cede515ca8a1001fcc15248b98e47db4cc3c"
+     "sha256": "35751583f055ad8e2a925e83d1858cda84531b6bcab51a5989b974ebba0a74fa"
     },
     "type": "inventory",
-    "time": "09:17",
+    "time": "09:27",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
+   }
+  ]
+ },
+ "plan": {
+  "written": "09:17",
+  "items": [
+   {
+    "time": "09:30",
+    "intention": "Sit on the verandah and read the newspaper headlines while drinking coffee."
+   },
+   {
+    "time": "10:30",
+    "intention": "Walk to Lodhi Gardens to observe the tombs despite the heavy haze."
+   },
+   {
+    "time": "13:00",
+    "intention": "Return home for lunch and a short rest to recover from the heat and dust."
+   },
+   {
+    "time": "15:00",
+    "intention": "Review the Directorate file in the study to prepare for the identity query."
+   },
+   {
+    "time": "17:00",
+    "intention": "Take a walk around the bungalow to clear my head before dinner."
    }
   ]
  }
