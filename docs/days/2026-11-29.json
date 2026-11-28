@@ -292,6 +292,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh and Shri G. Hegde at home."
+  },
+  {
+   "from": "09:57",
+   "to": "10:27",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -431,6 +438,37 @@
    "to": "Hegel",
    "text": "Good morning, Sir. No, thank you, I have to finish clearing the dust out of the back room before the haze gets worse. I'll be right here if you need me.",
    "t": "09:47",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Hegde retreats into the dust, leaving me with the morning. The plan is to sit and read, but the air at 353 is a physical weight, a brown shroud that makes the newspaper’s ink look like a lie. I will sit on the verandah, but I will not force the reading if the dust chokes the mind. First, I need to see if the day is bearable or if I must retreat into the study’s silence.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School"
+    }
+   ],
+   "t": "09:57",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Good morning, Shri Hegde. Take your time with the back room. I shall sit on the verandah for a while, provided the air permits it.",
+   "to": "Ramesh and Shri G. Hegde",
+   "t": "09:57",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Shri G. Hegde",
+   "to": "Hegel",
+   "text": "Yes Sir, I will be quick. Please, take the chair, but maybe keep the window closed if the haze starts stinging your eyes.",
+   "t": "09:57",
    "place": "home"
   }
  ],
@@ -638,6 +676,72 @@
      "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
     }
    ]
+  },
+  {
+   "t": "09:57",
+   "end": "10:27",
+   "event": "Shri G. Hegde says: “Good morning, Sir. No, thank you, I have to finish clearing the dust out of the back room before the haze gets worse. I'll be right here if you need me.” He nods politely and turns back towards the back room.",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Hegde retreats into the dust, leaving me with the morning. The plan is to sit and read, but the air at 353 is a physical weight, a brown shroud that makes the newspaper’s ink look like a lie. I will sit on the verandah, but I will not force the reading if the dust chokes the mind. First, I need to see if the day is bearable or if I must retreat into the study’s silence.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 30,
+    "says": "Good morning, Shri Hegde. Take your time with the back room. I shall sit on the verandah for a while, provided the air permits it.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, a brown haze. Air quality index: 353."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Shri G. Hegde",
+    "says": "Yes Sir, I will be quick. Please, take the chair, but maybe keep the window closed if the haze starts stinging your eyes.",
+    "does": "He turns back to the back room and picks up the broom."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 9.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "id": "dyde-right:127"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "id": "haldane-1:1189"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§33",
+     "text": "The thought idea of the good is realized both in the will turned back into itself, and also in the external world. Thus freedom exists as real substance, which is quite as much actuality and necessity as it is subjective will. The idea here is its absolutely universal existence, viz., ethical observance. This ethical substance is again, a. Natural spirit; the family, 6."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "The Socratics, The Cynic School",
+     "text": "For “when Antisthenes turned outside a hole in his cloak, Socrates said to him, I see thy vanity through the hole in thy cloak.” Clothing is not a thing of rational import, but is regulated through needs that arise of themselves. In the North the clothing must be different from that in Central Africa; and in winter we do not wear cotton garments."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -660,7 +764,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T09:57+05:30",
+  "until": "2026-11-29T10:27+05:30",
   "asleep": false,
   "imprest": 13356,
   "wearing": "kurta",
@@ -1205,7 +1309,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "cb17f3c3ce8827a5ea59ea56d1acc349998590074ac3ae96a8d553c89082a6c3",
+  "source_sha256": "72f2fba71b3ac9d74f969063668cd565a723ec99cdddf747bbce66885b92fb81",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1327,6 +1431,36 @@
     "words": "Good morning, Sir. No, thank you, I have to finish clearing the dust out of the back room before the haze gets worse. I'll be right here if you need me.",
     "verified": false,
     "time": "09:47",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:8e4cb988b0419b41:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 13,
+     "sha256": "8e4cb988b0419b4198c62a9f453529dd3ff296577a593e238334e5a4d1532018"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh and Shri G. Hegde",
+    "words": "Good morning, Shri Hegde. Take your time with the back room. I shall sit on the verandah for a while, provided the air permits it.",
+    "verified": false,
+    "time": "09:57",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:658ff1129260ed45:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 14,
+     "sha256": "658ff1129260ed45ab26c05c1767512851dad3aa8dd3674e22261fb0268600ff"
+    },
+    "speaker": "Shri G. Hegde",
+    "recipient": "Hegel",
+    "words": "Yes Sir, I will be quick. Please, take the chair, but maybe keep the window closed if the haze starts stinging your eyes.",
+    "verified": false,
+    "time": "09:57",
     "place": "home"
    },
    {
@@ -1607,68 +1741,98 @@
     "text": "Shri G. Hegde is here."
    },
    {
-    "id": "2026-11-29:event:28d9d3c35d8918c1:1",
+    "id": "2026-11-29:event:ee66ae1932eb10d7:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 3,
+     "sha256": "ee66ae1932eb10d76269a4be751a68d846eddb5112467a292aede100a56b08da"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "09:57",
+    "end": "10:27",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:b10aa2269d08d8fa:4",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      3,
+      0
+     ],
+     "sha256": "b10aa2269d08d8fa75978f276b15476411a2425f85f818b795ccfae77da91002"
+    },
+    "type": "observation",
+    "time": "09:57",
+    "place": "home",
+    "text": "Weather: 18 °C, a brown haze. Air quality index: 353."
+   },
+   {
+    "id": "2026-11-29:event:370b3509d7fbbd67:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "28d9d3c35d8918c1142a419991ec240975b7cf21187e3b550fb5756930d239fe"
+     "sha256": "370b3509d7fbbd676a9cd4e6fd9ec8cf2516b9dc696af7eab8f6110e5c7780d5"
     },
     "type": "cash",
-    "time": "09:57",
+    "time": "10:27",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:b3d2203df85464dc:1",
+    "id": "2026-11-29:event:a726e513afc7465c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "b3d2203df85464dc468e1b47ee3195587097a7905856ccafbfef7d64882b145a"
+     "sha256": "a726e513afc7465c678de0b8efe1df117881abed96f76fa1a04e98139f214e29"
     },
     "type": "location",
-    "time": "09:57",
+    "time": "10:27",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:30bf484e75902433:1",
+    "id": "2026-11-29:event:ef0f148ba53ce4e5:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "30bf484e759024335471e8d4a7b95d28b81b78c7cadb8cf7e7053a12e38dcaab"
+     "sha256": "ef0f148ba53ce4e5523d88a22fe89ec54b352e3c45f5bf0571c466318d8555d0"
     },
     "type": "inventory",
-    "time": "09:57",
+    "time": "10:27",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:3f32656633cd8749:1",
+    "id": "2026-11-29:event:11366dce432dc995:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "3f32656633cd874964f4f9cacaa018009c8b14780e6c90c72fbe66805ed428ad"
+     "sha256": "11366dce432dc995bbc9af379fe7058c8e4dcba9ef84d4336178ac39ebb25e64"
     },
     "type": "inventory",
-    "time": "09:57",
+    "time": "10:27",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:137d2de34aec847b:1",
+    "id": "2026-11-29:event:3c23b1598e84ec44:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "137d2de34aec847b2713135f5016ce0d4ffef3d976b56a22d6bb0796821d74e5"
+     "sha256": "3c23b1598e84ec44994fe2c5b35885d4d64546079ca8b1fddcd687590f572456"
     },
     "type": "inventory",
-    "time": "09:57",
+    "time": "10:27",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
