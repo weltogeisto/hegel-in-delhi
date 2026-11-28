@@ -46,3 +46,22 @@ The PC ran it on the morning of 28 November, 07:14 to 07:39 Berlin, after night 
 - **Read by the Claude family:** 10 fresh sessions, one part each (`parts --amended`: question 1 carries the amendment declared above).
 - No second family; Welt does not read these rows.
 
+## The result (28 November)
+
+The Claude family's 10 sessions, each kept to its own folder, sealed before the key; the key matched its committed hash. `SCORE-claude.json`.
+
+**The calibration passes this time: 7 of 8.** With question 1 amended, the readers no longer counted a claim on a made-up premise as new. So this reading counts.
+
+| Comparison | eligible | first alone | second alone | both | neither | mixed | bar |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Qwen D against Inkling ID | 44 | 7 | 4 | 1 | 15 | 17 | 30 |
+| Inkling ID against the cloud arm F | 44 | 0 | 32 | 3 | 0 | 8 | 30 |
+| Qwen A against Inkling IA | 10 | 0 | 0 | 0 | 7 | 3 | none: under 40 |
+
+How often each arm was flagged as resting a claim on a made-up premise, of its showings: Inkling ID 34%, Qwen D 15%, F 10%. How often it was named as keeping his 1831 positions: ID 52%, D 72%, F 68%.
+
+**What may be said:**
+- **Inkling does not beat Qwen.** On the same messages with time to think, Qwen's pieces were named alone a little more often (7 against 4), and Inkling's invented premises more than twice as often.
+- **The cloud arm beats Inkling at the bar,** 32 of 44, with a passed calibration: a declared result.
+- **So Qwen stays his mind.** The gap to the strongest models is real, and Inkling does not close it.
+
