@@ -411,6 +411,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "16:42",
+   "to": "17:12",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -965,6 +972,49 @@
     }
    ],
    "t": "16:27",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "Ramesh brings tea.",
+   "t": "16:42",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh returns with the tea and samosas, a small act of sustenance against the brown haze. The air quality index is 341; the state’s neglect of its citizens’ lungs is a failure of the ethical life, a reminder that the universal must protect the particular before it can elevate it. I will accept the hospitality and rest, for the body must be preserved to serve the mind.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt"
+    }
+   ],
+   "t": "16:42",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Dhanyavaad, Ramesh. The haze is thick today; perhaps it is better we stay within the walls for now.",
+   "to": "Ramesh",
+   "t": "16:42",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, you are right. I will keep the shutters closed until the air clears. Please, have some tea before it cools.",
+   "t": "16:42",
+   "place": "home"
+  },
+  {
+   "k": "world",
+   "text": "Ramesh puts a plate together: parathas kept from the morning, with curd and pickle.",
+   "t": "16:42",
    "place": "home"
   }
  ],
@@ -2222,6 +2272,72 @@
      "text": "The North American Federation have no neighbouring State, (towards which they occupy a relation similar to that of European States to each other), one which they regard with mistrust, and against which they must keep up a standing army."
     }
    ]
+  },
+  {
+   "t": "16:42",
+   "end": "17:12",
+   "event": "Ramesh brings tea: tea and a few samosas from the market.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh returns with the tea and samosas, a small act of sustenance against the brown haze. The air quality index is 341; the state’s neglect of its citizens’ lungs is a failure of the ethical life, a reminder that the universal must protect the particular before it can elevate it. I will accept the hospitality and rest, for the body must be preserved to serve the mind.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": "Dhanyavaad, Ramesh. The haze is thick today; perhaps it is better we stay within the walls for now.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 341.",
+    "Ramesh brings tea: tea and a few samosas from the market."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "tea"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, you are right. I will keep the shutters closed until the air clears. Please, have some tea before it cools.",
+    "does": null
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.2,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "id": "welt-1:528"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophie der Geschichte",
+     "ref": "Die Neue Welt",
+     "text": "Nordamerika ist noch auf dem Standpunkte, das Land anzubauen. Erst weil wie in Europa die bloße Vermehrung der Ackerbauer gehemmt ist, werden sich die Bewohner, statt hinaus nach Äckern zu drängen, zu städtischen Gewerben und Verkehr in sich hineindrängen, ein kompaktes System bürgerlicher Gesellschaft bilden und zu dem Bedürfnis eines organischen Staates kommen."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -2244,7 +2360,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T16:42+05:30",
+  "until": "2026-11-29T17:12+05:30",
   "asleep": false,
   "imprest": 13356,
   "wearing": "kurta",
@@ -2337,7 +2453,8 @@
    },
    "breakfast": true,
    "bad_air": true,
-   "lunch": true
+   "lunch": true,
+   "tea": true
   },
   "account": {
    "advance": 15000,
@@ -2661,7 +2778,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-29T13:32+05:30",
+  "last_meal": "2026-11-29T16:42+05:30",
   "snacks": 0,
   "works": [
    {
@@ -2791,7 +2908,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "1175e7596c1b5b3e4b47ef037087c772ea5c1e3aa2136ea5ad1c033a1a96744b",
+  "source_sha256": "0ed06beb05192463da7606c394a80dd9654412327080baca06f4cc317287751b",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3226,6 +3343,62 @@
     "words": "Ji, I did check the seals an hour back, but I’ll give them another wipe just to be sure. The haze is thicker today than I’ve seen in years.",
     "verified": false,
     "time": "16:17",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:c75a305270a40bff:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 49,
+     "sha256": "c75a305270a40bffdde95d2b27452d029e06937c16eb27841f9c59f6d40264c8"
+    },
+    "type": "world",
+    "text": "Ramesh brings tea.",
+    "time": "16:42",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:c3e19802952e2bf9:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 51,
+     "sha256": "c3e19802952e2bf9abfec5605f9069a980096d75e4c40c3d4c705887447f48f5"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Dhanyavaad, Ramesh. The haze is thick today; perhaps it is better we stay within the walls for now.",
+    "verified": false,
+    "time": "16:42",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:296714fa5eb72c4e:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 52,
+     "sha256": "296714fa5eb72c4e7e06552aac2f179348d7059b70a3d028cb642dba40b10374"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Ji, you are right. I will keep the shutters closed until the air clears. Please, have some tea before it cools.",
+    "verified": false,
+    "time": "16:42",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:104ca08f6eb5606b:1",
+    "kind": "event",
+    "source": {
+     "collection": "entries",
+     "index": 53,
+     "sha256": "104ca08f6eb5606b32b3c66f65f52da3dfe735d5624729050d2cacc2ad8c9ed5"
+    },
+    "type": "world",
+    "text": "Ramesh puts a plate together: parathas kept from the morning, with curd and pickle.",
+    "time": "16:42",
     "place": "home"
    },
    {
@@ -4128,68 +4301,114 @@
     "text": "Weather: 22 °C, a brown haze. Air quality index: 341."
    },
    {
-    "id": "2026-11-29:event:5169b14db4ae3f6f:1",
+    "id": "2026-11-29:event:2d4c09224e03462c:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 20,
+     "sha256": "2d4c09224e03462c7aba7c5e6d67474deea9df0a2b8f8a2b22ea9c42c05ddc41"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "16:42",
+    "end": "17:12",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:64cd5bbcbf9c53cf:4",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      20,
+      0
+     ],
+     "sha256": "64cd5bbcbf9c53cf93d0767c190085aa4e7ba0051990488497a4df36db5a666c"
+    },
+    "type": "observation",
+    "time": "16:42",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 341."
+   },
+   {
+    "id": "2026-11-29:event:95c273d0590b0679:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      20,
+      1
+     ],
+     "sha256": "95c273d0590b06798832dcbe36aa56e108d70e7d0b4bfbf7bbc39c2ac4d4cd2d"
+    },
+    "type": "observation",
+    "time": "16:42",
+    "place": "home",
+    "text": "Ramesh brings tea: tea and a few samosas from the market."
+   },
+   {
+    "id": "2026-11-29:event:55f57b45504f0a27:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "5169b14db4ae3f6fb396a9a03622e313cb8f531038d70876345606181a56ee42"
+     "sha256": "55f57b45504f0a27733f02773df136456a50b7324d0064f5cf72d842caa14fc0"
     },
     "type": "cash",
-    "time": "16:42",
+    "time": "17:12",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:517107456b0139b5:1",
+    "id": "2026-11-29:event:ebf5f8787b6493a3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "517107456b0139b59e6229d5647b83b6ea127cc849c9f9d2828a1a4e3e1ca181"
+     "sha256": "ebf5f8787b6493a35a9126e182c911c477091a3f0925427d52cef8e98b1ea140"
     },
     "type": "location",
-    "time": "16:42",
+    "time": "17:12",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:0938f0cc14f2baf6:1",
+    "id": "2026-11-29:event:f74fa709122c56d6:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "0938f0cc14f2baf60a086bd6a0c8f9a27ca2603b4e56c1580ebf63ed41b4f7fa"
+     "sha256": "f74fa709122c56d65d5d8b1f8cac7d34752025de9bc50c6c6397f5047e158321"
     },
     "type": "inventory",
-    "time": "16:42",
+    "time": "17:12",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:aeb82116311dd116:1",
+    "id": "2026-11-29:event:e8adad2acc54d425:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "aeb82116311dd11688f1400a4cbe1b8e471db6a0d48ffe4d398c0cf5c7226743"
+     "sha256": "e8adad2acc54d4256734feb0ab8c71b4b8c6c95a03400566e0defda395878df8"
     },
     "type": "inventory",
-    "time": "16:42",
+    "time": "17:12",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:55117c383f4ee41e:1",
+    "id": "2026-11-29:event:842f30a65c63fbd3:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "55117c383f4ee41e553412762d30a0d4d30a87f9d5c82278d80255681283d827"
+     "sha256": "842f30a65c63fbd3f04e105b342dc563753e6c831cd22c7d662dfcab7bcda320"
     },
     "type": "inventory",
-    "time": "16:42",
+    "time": "17:12",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
