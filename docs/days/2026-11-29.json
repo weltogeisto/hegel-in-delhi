@@ -320,6 +320,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh and Shri G. Hegde at home."
+  },
+  {
+   "from": "11:42",
+   "to": "12:12",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -568,6 +575,22 @@
    "to": "Hegel",
    "text": "Sir, I am not asking you to invent a past. I simply need the official transfer order and your identity card from the Directorate to clear the file and hand over the keys. Without those, I cannot legally confirm your identity or complete the handover.",
    "t": "11:27",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Hegde leaves with the blank forms, a gesture that feels more like a surrender to the absurdity of the situation than a solution. The haze outside is 353, a suffocating brown veil that makes the air taste of ash and dust. I am left with the pen, the silence, and the realization that I must forge my own identity in this bureaucracy, or simply wait for the dream to shift again.",
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§145"
+    },
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Range of Aesthetic"
+    }
+   ],
+   "t": "11:42",
    "place": "home"
   }
  ],
@@ -1033,6 +1056,66 @@
      "text": "Dieses muß sich an sich vernünftig sein, auch wenn er von der subjektiv Meinung nicht anerkannt würde; er muß an sich gerecht.gei ' auch mehr und weniger mit Einsicht, so daß sich der Begri darin befriedigen kann. Aus diesen wesentlichen Momenten folgt, daß, indem der Staat sich als diese Natur entwickel alle Momente der Idee selbst entwickelt und herausgeboren sind."
     }
    ]
+  },
+  {
+   "t": "11:42",
+   "end": "12:12",
+   "event": "Shri G. Hegde says: “Sir, I am not asking you to invent a past. I simply need the official transfer order and your identity card from the Directorate to clear the file and hand over the keys. Without those, I cannot legally confirm your identity or complete the handover.” You place a folder of blank forms and a pen on the table in front of him. Shri G. Hegde has gone.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Hegde leaves with the blank forms, a gesture that feels more like a surrender to the absurdity of the situation than a solution. The haze outside is 353, a suffocating brown veil that makes the air taste of ash and dust. I am left with the pen, the silence, and the realization that I must forge my own identity in this bureaucracy, or simply wait for the dream to shift again.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 21 °C, a brown haze. Air quality index: 353."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 2,
+    "latency_s": 8.5,
+    "draws": {
+     "n": 2,
+     "refused": 1,
+     "echo": 0,
+     "picked": 1
+    }
+   },
+   "shelf": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§145",
+     "id": "wallace-logic:677"
+    },
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Range of Aesthetic",
+     "id": "bosanquet-art:35"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§145",
+     "text": "This is, in the first place, seen in Nature. On the surface of Nature, so to speak, Chance ranges unchecked, and that contingency must simply be recognised, without the pretension sometimes erroneously ascribed to philosophy, of seeking to find in it a could-only-be-so-and-not-otherwise. Nor is contingency less visible in the world of Mind."
+    },
+    {
+     "work": "Philosophy of Fine Art",
+     "ref": "Range of Aesthetic",
+     "text": "In all these respects art is, and remains for us, on the side of its highest destiny, a thing of the past. Herein it has further lost for us its genuine truth and life, and rather is transferred into our ideas than asserts its former necessity, or assumes its former place, in reality."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1055,7 +1138,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T11:42+05:30",
+  "until": "2026-11-29T12:12+05:30",
   "asleep": false,
   "imprest": 13356,
   "wearing": "kurta",
@@ -1600,7 +1683,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "8379a80eb278f1b6c0b5391da9c5a197dd959ecbeb6d4abbb5b5a3a614c20f78",
+  "source_sha256": "e5ffaf515d459d253b4f3725a6a3196de418719f0d2f7048f1cc4a69c0c1f929",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2228,68 +2311,98 @@
     "text": "Nothing in particular happens. The morning goes on."
    },
    {
-    "id": "2026-11-29:event:86cb58b67ff15bd7:1",
+    "id": "2026-11-29:event:3edd0551623ec951:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 7,
+     "sha256": "3edd0551623ec9519a26e1a936e12f1f3fbb5dee5571953e1065681467569000"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "11:42",
+    "end": "12:12",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:5dacd5751bcdcfc1:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      7,
+      0
+     ],
+     "sha256": "5dacd5751bcdcfc1f1f872a8a38e081952e25d120b53039b60752bf91681af95"
+    },
+    "type": "observation",
+    "time": "11:42",
+    "place": "home",
+    "text": "Weather: 21 °C, a brown haze. Air quality index: 353."
+   },
+   {
+    "id": "2026-11-29:event:504c19652bd44d02:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "86cb58b67ff15bd73e7597a23fd567ca495205261ad66c3b7db53ea77cbf5280"
+     "sha256": "504c19652bd44d0243e52a8e57f3de3cc7362763af357a7b3b1559698781130e"
     },
     "type": "cash",
-    "time": "11:42",
+    "time": "12:12",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:1e3a6e98428ab222:1",
+    "id": "2026-11-29:event:3dd3ed7347b75239:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "1e3a6e98428ab222cd3b103c6cd709c8bce58eb55281d06196397b2d02891403"
+     "sha256": "3dd3ed7347b752396bf90021507061eeb3ab735c26a7d17dc606519628125154"
     },
     "type": "location",
-    "time": "11:42",
+    "time": "12:12",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:8f2662a1b48f0eef:1",
+    "id": "2026-11-29:event:06f746b990613e2e:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "8f2662a1b48f0eefef8aa9d4630bdc9e7d54ef5e53c3639973a2bde45cb49a7a"
+     "sha256": "06f746b990613e2e741ed46ba9887f81edc5016411ae871516ab836ebc50664c"
     },
     "type": "inventory",
-    "time": "11:42",
+    "time": "12:12",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:e7d4a6d1c70f587b:1",
+    "id": "2026-11-29:event:7aa4d04140fca2e2:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "e7d4a6d1c70f587b911b4f14f3e0db046e932df7da2086f55882ce4109ed2fa5"
+     "sha256": "7aa4d04140fca2e2ace8a3dec1d7bd702fd0845ca0e49a4c915dfaf901775ad4"
     },
     "type": "inventory",
-    "time": "11:42",
+    "time": "12:12",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:340a2de394839a75:1",
+    "id": "2026-11-29:event:fcee8729d23845a7:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "340a2de394839a7549e215018ff138c630880c24d7515dc0926aa9577565dfee"
+     "sha256": "fcee8729d23845a754f1b22d066a513b34c7074ad73289d819565980e778b307"
     },
     "type": "inventory",
-    "time": "11:42",
+    "time": "12:12",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
