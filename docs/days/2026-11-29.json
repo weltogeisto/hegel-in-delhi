@@ -327,6 +327,13 @@
    "mode": "inside",
    "at": "home",
    "now": "At home."
+  },
+  {
+   "from": "12:12",
+   "to": "12:27",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -591,6 +598,37 @@
     }
    ],
    "t": "11:42",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The haze is still thick, a brown shroud that blurs the boundary between the bungalow and the world outside. I am hungry, but the meal is not ready, and the file in the study is the only thing that will not wait. The identity query is a knot in the fabric of my existence here; I must untie it with the cold logic of documents.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70 Addition"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§6"
+    }
+   ],
+   "t": "12:12",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Ramesh, please see that the study is clear of dust. I intend to sit with the Directorate file.",
+   "to": "Ramesh",
+   "t": "12:12",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, main dekh lunga. Dhool toh hamesha rehti hai, bas thoda sa saaf karta hoon.",
+   "t": "12:12",
    "place": "home"
   }
  ],
@@ -1116,6 +1154,73 @@
      "text": "In all these respects art is, and remains for us, on the side of its highest destiny, a thing of the past. Herein it has further lost for us its genuine truth and life, and rather is transferred into our ideas than asserts its former necessity, or assumes its former place, in reality."
     }
    ]
+  },
+  {
+   "t": "12:12",
+   "end": "12:27",
+   "event": "Nothing in particular happens. The afternoon goes on.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The haze is still thick, a brown shroud that blurs the boundary between the bungalow and the world outside. I am hungry, but the meal is not ready, and the file in the study is the only thing that will not wait. The identity query is a knot in the fabric of my existence here; I must untie it with the cold logic of documents.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 15,
+    "says": "Ramesh, please see that the study is clear of dust. I intend to sit with the Directorate file.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 352.",
+    "Nothing in particular happens. The afternoon goes on."
+   ],
+   "observed_at": "home",
+   "opened": [],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, main dekh lunga. Dhool toh hamesha rehti hai, bas thoda sa saaf karta hoon.",
+    "does": "He nods briefly and turns away to fetch the duster from the cupboard."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 8.1,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    },
+    "warnings": [
+     "walks to where he already is; treated as stay"
+    ]
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70 Addition",
+     "id": "dyde-right:205"
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§6",
+     "id": "wallace-logic:20"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§70 Addition",
+     "text": "The particular person is really a subordinate, who must devote his life to the service of the ethical fabric; when the state demands his life, he must yield it up. But should the man take his own life? Suicide may at first glance be looked upon as bravery, although it be the poor bravery of tailors and maid-servants."
+    },
+    {
+     "work": "Encyclopaedia Logic",
+     "ref": "§6",
+     "text": "This divorce between idea and reality is especially dear to the analytic understanding which looks upon its own abstractions, dreams though they are, as something true and real, and prides itself on the imperative 'ought,' which it takes especial pleasure in prescribing even on the field of politics. As if the world had waited on it to learn how it ought to be, and was not!"
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1138,7 +1243,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T12:12+05:30",
+  "until": "2026-11-29T12:27+05:30",
   "asleep": false,
   "imprest": 13356,
   "wearing": "kurta",
@@ -1683,7 +1788,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "e5ffaf515d459d253b4f3725a6a3196de418719f0d2f7048f1cc4a69c0c1f929",
+  "source_sha256": "73f1dced68711d3f29876ddeffa97247586fea0fa32b413a9eb3aacada0d9db2",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1895,6 +2000,36 @@
     "words": "Sir, I am not asking you to invent a past. I simply need the official transfer order and your identity card from the Directorate to clear the file and hand over the keys. Without those, I cannot legally confirm your identity or complete the handover.",
     "verified": false,
     "time": "11:27",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:eda6b2b4653378c7:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 24,
+     "sha256": "eda6b2b4653378c78fd30c50dd44f2ffc4f066123664032d7d98b44e63b7741a"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Ramesh, please see that the study is clear of dust. I intend to sit with the Directorate file.",
+    "verified": false,
+    "time": "12:12",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:dd5203df31e0c3a6:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 25,
+     "sha256": "dd5203df31e0c3a6eafbc770c875860672fb9a42634efe1ff33b55fe481c6db1"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Ji, main dekh lunga. Dhool toh hamesha rehti hai, bas thoda sa saaf karta hoon.",
+    "verified": false,
+    "time": "12:12",
     "place": "home"
    },
    {
@@ -2341,68 +2476,114 @@
     "text": "Weather: 21 °C, a brown haze. Air quality index: 353."
    },
    {
-    "id": "2026-11-29:event:504c19652bd44d02:1",
+    "id": "2026-11-29:event:b062d2e3f7e77e1e:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 8,
+     "sha256": "b062d2e3f7e77e1ea32764d8e79ff6387f41181275f483200b38a6a0797893e7"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "12:12",
+    "end": "12:27",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:e7e6f9426faa9feb:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      8,
+      0
+     ],
+     "sha256": "e7e6f9426faa9feb263754e3d3f3d77bb42bc22e94e2e882da0df373b38a1ad7"
+    },
+    "type": "observation",
+    "time": "12:12",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 352."
+   },
+   {
+    "id": "2026-11-29:event:a77f13cd004dc58e:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      8,
+      1
+     ],
+     "sha256": "a77f13cd004dc58e92ee3fd09257ac61887e5229b3f41685577fbace3df64cce"
+    },
+    "type": "observation",
+    "time": "12:12",
+    "place": "home",
+    "text": "Nothing in particular happens. The afternoon goes on."
+   },
+   {
+    "id": "2026-11-29:event:de7c61c0d6d9e7c4:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "504c19652bd44d0243e52a8e57f3de3cc7362763af357a7b3b1559698781130e"
+     "sha256": "de7c61c0d6d9e7c4eecf511ea328bb4864181e22ff205320ab64ae7b2168a6ba"
     },
     "type": "cash",
-    "time": "12:12",
+    "time": "12:27",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:3dd3ed7347b75239:1",
+    "id": "2026-11-29:event:7590bb7feeacf001:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "3dd3ed7347b752396bf90021507061eeb3ab735c26a7d17dc606519628125154"
+     "sha256": "7590bb7feeacf0014a06d0f2de25d92bee9b2039ae938a636097696ddafc7f58"
     },
     "type": "location",
-    "time": "12:12",
+    "time": "12:27",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:06f746b990613e2e:1",
+    "id": "2026-11-29:event:088f61a03f9c9042:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "06f746b990613e2e741ed46ba9887f81edc5016411ae871516ab836ebc50664c"
+     "sha256": "088f61a03f9c9042c58f8f16cc7be56ae16ce30c01e9bc76d1bea8518442ba3c"
     },
     "type": "inventory",
-    "time": "12:12",
+    "time": "12:27",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:7aa4d04140fca2e2:1",
+    "id": "2026-11-29:event:1f1fd87af91e3060:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "7aa4d04140fca2e2ace8a3dec1d7bd702fd0845ca0e49a4c915dfaf901775ad4"
+     "sha256": "1f1fd87af91e306020d1fcf499ac4b68ee5df24d1a07aca24f43fe5daefc65e2"
     },
     "type": "inventory",
-    "time": "12:12",
+    "time": "12:27",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:fcee8729d23845a7:1",
+    "id": "2026-11-29:event:53b03280a4ccb2f1:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "fcee8729d23845a754f1b22d066a513b34c7074ad73289d819565980e778b307"
+     "sha256": "53b03280a4ccb2f18a4f3804ef7728b1c0834a048fe861e3b93fed4f407cde21"
     },
     "type": "inventory",
-    "time": "12:12",
+    "time": "12:27",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
