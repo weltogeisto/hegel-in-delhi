@@ -306,6 +306,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Reading at home."
+  },
+  {
+   "from": "10:57",
+   "to": "11:27",
+   "mode": "inside",
+   "at": "home",
+   "now": "At home."
   }
  ],
  "entries": [
@@ -507,6 +514,22 @@
    "to": "Hegel",
    "text": "Thank you, Sir. I'll be out in a few minutes.",
    "t": "10:27",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Hegde has gone, leaving me to the silence of the bungalow. The plan is to walk to Lodhi Gardens, but the air quality is terrible today, a brown haze that obscures the very history I seek to observe. I shall not expose myself to such a suffocating atmosphere; it is better to remain here and attend to the file, or at least wait for the heat to break.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301 Addition"
+    }
+   ],
+   "t": "10:57",
    "place": "home"
   }
  ],
@@ -846,6 +869,67 @@
      "text": "According to Bacon this has been worked out in innumerable different ways."
     }
    ]
+  },
+  {
+   "t": "10:57",
+   "end": "11:27",
+   "event": "Shri G. Hegde says: “Thank you, Sir. I'll be out in a few minutes.”",
+   "present": [
+    "Ramesh, the caretaker",
+    "Shri G. Hegde"
+   ],
+   "decision": {
+    "thought": "Hegde has gone, leaving me to the silence of the bungalow. The plan is to walk to Lodhi Gardens, but the air quality is terrible today, a brown haze that obscures the very history I seek to observe. I shall not expose myself to such a suffocating atmosphere; it is better to remain here and attend to the file, or at least wait for the heat to break.",
+    "action": "stay",
+    "place": "home",
+    "minutes": 30,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 20 °C, a brown haze. Air quality index: 353."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.4,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301 Addition",
+     "id": "dyde-right:763"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§301 Addition",
+     "text": "It requires but little reflection to see that the services performed by the classes in behalf of the general well-being and public liberty cannot be traced to an insight special to these classes. The highest state of&cials have necessarily deeper and more comprehensive insight into the workings and needs of the state, and also greater skill and wider practical experience."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -868,7 +952,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T10:57+05:30",
+  "until": "2026-11-29T11:27+05:30",
   "asleep": false,
   "imprest": 13356,
   "wearing": "kurta",
@@ -1413,7 +1497,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "64053c96c73bc5e5962d15f9dbb5099e72d82a4670663ae225e838ce959fb952",
+  "source_sha256": "438c2c4584705fc3d7d9ee4123792829a4451dee52d8c3d2aebc2e65aa33f835",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1935,68 +2019,98 @@
     "text": "Weather: 20 °C, a brown haze. Air quality index: 353."
    },
    {
-    "id": "2026-11-29:event:fff15ce74b16efaa:1",
+    "id": "2026-11-29:event:8bc30fd5ebc617be:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 5,
+     "sha256": "8bc30fd5ebc617be712d6d99e9ecf74fce3ce0ca2e6d7e83d1cecac2e7199e24"
+    },
+    "type": "action",
+    "action": "stay",
+    "time": "10:57",
+    "end": "11:27",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:b2dae5fc52c967c2:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      5,
+      0
+     ],
+     "sha256": "b2dae5fc52c967c29618b8add08dd74533b47d468cb4e6e913fa1214a20e7edc"
+    },
+    "type": "observation",
+    "time": "10:57",
+    "place": "home",
+    "text": "Weather: 20 °C, a brown haze. Air quality index: 353."
+   },
+   {
+    "id": "2026-11-29:event:efe06a4ecf186aac:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "fff15ce74b16efaa288658631d6287d32c581ec525e06a046f3adbb91639a0dc"
+     "sha256": "efe06a4ecf186aac3307a6ca19d06ba5196c9b06b8f8fca8ac57034524dd394d"
     },
     "type": "cash",
-    "time": "10:57",
+    "time": "11:27",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:77bd1271444528a0:1",
+    "id": "2026-11-29:event:cf88c25e8892a4bc:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "77bd1271444528a0fcbc58f8e5b58409b2f5c99ea90471160cfef5902e744dbc"
+     "sha256": "cf88c25e8892a4bc6957d61a894a3098ecb2e549f09c1211f5e003fe23f0e2a4"
     },
     "type": "location",
-    "time": "10:57",
+    "time": "11:27",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:ad0041458318eb37:1",
+    "id": "2026-11-29:event:a9d2f4d793d1ec69:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "ad0041458318eb371123e115ff9824de74f5b516314242ab4cfa1bb806118aa1"
+     "sha256": "a9d2f4d793d1ec699b209aa9a13bb684becfdfd6481b0630fabbe5fd126d9120"
     },
     "type": "inventory",
-    "time": "10:57",
+    "time": "11:27",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:2f0be5ef42ea8dd9:1",
+    "id": "2026-11-29:event:de2862dfc3847baf:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "2f0be5ef42ea8dd98d8deaa54a81746d717cf4fab1253e27927ad5cd3dc7eda4"
+     "sha256": "de2862dfc3847baf8512711d065ca1fd222447cb48d8ff13d24a777677cf2a0a"
     },
     "type": "inventory",
-    "time": "10:57",
+    "time": "11:27",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:66ad1dbe6edf21da:1",
+    "id": "2026-11-29:event:5b3e28db1ca6d901:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "66ad1dbe6edf21da12d6cbe680d888162e210293a7497d023cffddaabc5cb7ad"
+     "sha256": "5b3e28db1ca6d901c0b537cad5741d1102a0cf92d8c662c1e0bf018bda7c4f0f"
     },
     "type": "inventory",
-    "time": "10:57",
+    "time": "11:27",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
