@@ -355,6 +355,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "13:32",
+   "to": "14:02",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -728,6 +735,37 @@
    "to": "Hegel",
    "text": "Ji, the ghee is indeed ready. I just need to add the salt.",
    "t": "13:02",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "Ramesh is attending to the details of the meal with the quiet competence of a man who knows his place in the household hierarchy. I shall sit at the table and wait for the food to be served, observing how the domestic sphere functions as the first cell of the state. The haze outside remains a constant, suffocating presence, but here inside, order is maintained.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294"
+    }
+   ],
+   "t": "13:32",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "text": "Thank you, Ramesh. Please, take your time.",
+   "to": "Ramesh",
+   "t": "13:32",
+   "place": "home"
+  },
+  {
+   "k": "said",
+   "by": "Ramesh",
+   "to": "Hegel",
+   "text": "Ji, aapki kripa. Salt mil gaya, ab bas thanda hone do.",
+   "t": "13:32",
    "place": "home"
   }
  ],
@@ -1511,6 +1549,71 @@
      "text": "Rousseau would have made a sounder contribution towards a theory of the state, if he had always keep this distinction in sight. The general will is the notion of the will: and the laws are the special clauses of this will and based upon the notion of it."
     }
    ]
+  },
+  {
+   "t": "13:32",
+   "end": "14:02",
+   "event": "Ramesh says: “Ji, the ghee is indeed ready. I just need to add the salt.” He turns back to the stove and adds a pinch of salt.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "Ramesh is attending to the details of the meal with the quiet competence of a man who knows his place in the household hierarchy. I shall sit at the table and wait for the food to be served, observing how the domestic sphere functions as the first cell of the state. The haze outside remains a constant, suffocating presence, but here inside, order is maintained.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 30,
+    "says": "Thank you, Ramesh. Please, take your time.",
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 343."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "voice": {
+    "by": "Ramesh",
+    "says": "Ji, aapki kripa. Salt mil gaya, ab bas thanda hone do.",
+    "does": "He stirs the pot once more with a wooden spoon."
+   },
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 7.9,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "id": "dyde-right:396"
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "id": "dyde-right:747"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§157",
+     "text": "Such an association is occasioned by needs, and is preserved by the law, which secures one's person and property, and by an external system for private and common interests. O. This external state goes back to, and finds its central principle in, the end and actuality of the substantive universal, and of the public life dedicated to the maintenance of the universal."
+    },
+    {
+     "work": "Philosophy of Right",
+     "ref": "§294",
+     "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1533,7 +1636,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T13:32+05:30",
+  "until": "2026-11-29T14:02+05:30",
   "asleep": false,
   "imprest": 13356,
   "wearing": "kurta",
@@ -1950,7 +2053,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-29T13:02+05:30",
+  "last_meal": "2026-11-29T13:32+05:30",
   "snacks": 0,
   "works": [
    {
@@ -2079,7 +2182,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "9d6c81c706406a2f6599e4d026a8b310e40cd020a50c8b4eff5dde96bef30461",
+  "source_sha256": "b6542c17b4dff25742487023d852544aa4efe2394c4ee38295b8d2dc039bba1f",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -2381,6 +2484,36 @@
     "words": "Ji, the ghee is indeed ready. I just need to add the salt.",
     "verified": false,
     "time": "13:02",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:dbfc9ce8e0238132:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 34,
+     "sha256": "dbfc9ce8e023813258a2166720252111c62f7016206cfca51aaa384f708203ec"
+    },
+    "speaker": "Hegel",
+    "recipient": "Ramesh",
+    "words": "Thank you, Ramesh. Please, take your time.",
+    "verified": false,
+    "time": "13:32",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:statement:efccd1318775cce7:1",
+    "kind": "statement",
+    "source": {
+     "collection": "entries",
+     "index": 35,
+     "sha256": "efccd1318775cce768a87de178e5b2eb28ccbabab3f807e1947d3bc29b167c21"
+    },
+    "speaker": "Ramesh",
+    "recipient": "Hegel",
+    "words": "Ji, aapki kripa. Salt mil gaya, ab bas thanda hone do.",
+    "verified": false,
+    "time": "13:32",
     "place": "home"
    },
    {
@@ -2995,68 +3128,98 @@
     "text": "Ramesh has laid out lunch: chhole, rotis and onions in lemon."
    },
    {
-    "id": "2026-11-29:event:833c6990484e91f2:1",
+    "id": "2026-11-29:event:51b12d2d25b5f625:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 12,
+     "sha256": "51b12d2d25b5f625cca4fc588ca91d323f5ab1c13964ec8c0354bf6792a32dc2"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "13:32",
+    "end": "14:02",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:d6fa9d9f166faffd:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      12,
+      0
+     ],
+     "sha256": "d6fa9d9f166faffd2c69c4dda7aa27ad2d10a2d8409ca615179f2840c9f3a0f1"
+    },
+    "type": "observation",
+    "time": "13:32",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 343."
+   },
+   {
+    "id": "2026-11-29:event:5589f95c88020235:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "833c6990484e91f2ac52a16695392ce26432010ab2f2af6e3139024a416331db"
+     "sha256": "5589f95c880202352bc5a9a5c53ce385edb290327e96bd36395120053321fef0"
     },
     "type": "cash",
-    "time": "13:32",
+    "time": "14:02",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:b42072b40fe56662:1",
+    "id": "2026-11-29:event:e9add0b20e05421f:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "b42072b40fe56662413151d1e672875b569fd8f5af4abc8991ca4c6a30d87535"
+     "sha256": "e9add0b20e05421fb8eb6d7ccace9387a1f927df69601e13f367cea9b90d5602"
     },
     "type": "location",
-    "time": "13:32",
+    "time": "14:02",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:036141b5905dda98:1",
+    "id": "2026-11-29:event:deef9426d86a0120:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "036141b5905dda98462b36c9e5c15f5fcb12d4a1d38f3ee86a854952675483b5"
+     "sha256": "deef9426d86a0120e2467f092438feca7c28144ba38397035616efbaf1c41279"
     },
     "type": "inventory",
-    "time": "13:32",
+    "time": "14:02",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:d48b8aa3bdf5ceb7:1",
+    "id": "2026-11-29:event:cad8f8a7f918710d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "d48b8aa3bdf5ceb72478b82a362028d54cd7cc4778d42c95555b141370315481"
+     "sha256": "cad8f8a7f918710d9443b7a4be6ee771ba011389fbab7797d9769447a12c597a"
     },
     "type": "inventory",
-    "time": "13:32",
+    "time": "14:02",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:fa2d123d3e2f4391:1",
+    "id": "2026-11-29:event:c43c0628c15c7e09:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "fa2d123d3e2f4391a4069b20b4aea881ad2341b08c619dc9f47896c100d041b9"
+     "sha256": "c43c0628c15c7e0957ef0a8d315737a8c9393e93667b9957f36d7665ca90f26c"
     },
     "type": "inventory",
-    "time": "13:32",
+    "time": "14:02",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
