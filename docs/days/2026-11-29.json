@@ -278,6 +278,13 @@
    "mode": "stand",
    "at": "home",
    "now": "Talking with Ramesh at home."
+  },
+  {
+   "from": "09:27",
+   "to": "09:47",
+   "mode": "inside",
+   "at": "home",
+   "now": "Eating at home."
   }
  ],
  "entries": [
@@ -363,6 +370,22 @@
    "text": "Yes sir. I will keep the ghee warm so they stay crisp for when you are ready. The tea is also on the stove, just in case the chill gets to you.",
    "t": "09:17",
    "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The air is a brown shroud, thick with dust that tastes of ash and old fire. I will eat the papaya, its sweetness a small, sharp assertion of life against this heavy, suffocating stillness. The haze is not merely weather; it is a refusal of the spirit to see clearly, a physical manifestation of the obscurity that haunts this city. I shall sit on the verandah, as planned, and force the mind to work through the murk.",
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§245"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme"
+    }
+   ],
+   "t": "09:27",
+   "place": "home"
   }
  ],
  "steps": [
@@ -437,6 +460,70 @@
      "text": "Thus it is, no doubt, the case that we, too, in modern times, must in our philosophy of art start from the idea of the beautiful, but we ought not to abide by the fashion of Platonic ideas, which was purely abstract, and was the mere beginning of the philosophic study of beauty."
     }
    ]
+  },
+  {
+   "t": "09:27",
+   "end": "09:47",
+   "event": "Ramesh says: “Yes sir. I will keep the ghee warm so they stay crisp for when you are ready. The tea is also on the stove, just in case the chill gets to you.” He nods once and turns to check the tea kettle. Ramesh has laid out breakfast: toast, butter and a plate of cut papaya. The air is very poor today: the index stands at 353.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The air is a brown shroud, thick with dust that tastes of ash and old fire. I will eat the papaya, its sweetness a small, sharp assertion of life against this heavy, suffocating stillness. The haze is not merely weather; it is a refusal of the spirit to see clearly, a physical manifestation of the obscurity that haunts this city. I shall sit on the verandah, as planned, and force the mind to work through the murk.",
+    "action": "eat",
+    "place": "home",
+    "minutes": 20,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 18 °C, a brown haze. Air quality index: 353.",
+    "Ramesh has laid out breakfast: toast, butter and a plate of cut papaya.",
+    "The air is very poor today: the index stands at 353."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply",
+    "meal",
+    "air"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.7,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§245",
+     "id": "dyde-right:563"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "id": "haldane-3:507"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "Philosophy of Right",
+     "ref": "§245",
+     "text": "If upon the more wealthy classes the burden were directly laid of maintaining the poor at the level of their ordinary way of life, or if in public institutions, such as rich hospitals, foundations, or cloisters, the poor could receive direct support, they would be assured of subsistence without requiring to do any work."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Jacob Boehme",
+     "text": "In the Quæstionibus theosophicis Boehme makes particular use of the form of Yes and No for the separator, for this opposition. He says: “The reader must know that in Yes and No all things consist, whether divine, devilish, earthly, or what they may be called. The One as the Yes is pure power and life, and it is the truth of God or God Himself."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -459,7 +546,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T09:27+05:30",
+  "until": "2026-11-29T09:47+05:30",
   "asleep": false,
   "imprest": 13356,
   "wearing": "kurta",
@@ -548,7 +635,9 @@
     "home": [
      "ramesh"
     ]
-   }
+   },
+   "breakfast": true,
+   "bad_air": true
   },
   "account": {
    "advance": 15000,
@@ -871,7 +960,7 @@
    "phone": false,
    "sim": false
   },
-  "last_meal": "2026-11-28T19:31+05:30",
+  "last_meal": "2026-11-29T09:27+05:30",
   "snacks": 0,
   "works": [
    {
@@ -1000,7 +1089,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "5a8803a413cb594b8c07aa4e42df22d01ec95bc3393d0862c09dfaa8a20aa409",
+  "source_sha256": "904987a0547a15d25894a54958077c775b79b674353869d5c43188237069ecb3",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -1249,68 +1338,130 @@
     "text": "Ramesh is here."
    },
    {
-    "id": "2026-11-29:event:ac996cb8508f8828:1",
+    "id": "2026-11-29:event:b27b796fa67ae825:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 1,
+     "sha256": "b27b796fa67ae8253f8fa13ab0f0277a1aa6d977cdfffa84fb531a6549dd967a"
+    },
+    "type": "action",
+    "action": "eat",
+    "time": "09:27",
+    "end": "09:47",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:b10aa2269d08d8fa:2",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      1,
+      0
+     ],
+     "sha256": "b10aa2269d08d8fa75978f276b15476411a2425f85f818b795ccfae77da91002"
+    },
+    "type": "observation",
+    "time": "09:27",
+    "place": "home",
+    "text": "Weather: 18 °C, a brown haze. Air quality index: 353."
+   },
+   {
+    "id": "2026-11-29:event:7eaedd38faaa74a7:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      1,
+      1
+     ],
+     "sha256": "7eaedd38faaa74a7c979abf2985b97f699c1d5bef83f7ee27a8a8974b80f2936"
+    },
+    "type": "observation",
+    "time": "09:27",
+    "place": "home",
+    "text": "Ramesh has laid out breakfast: toast, butter and a plate of cut papaya."
+   },
+   {
+    "id": "2026-11-29:event:786480d092c1265d:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      1,
+      2
+     ],
+     "sha256": "786480d092c1265df1d5604b1dd0881075fa19c9a6d53336d07f09fb4f1392ef"
+    },
+    "type": "observation",
+    "time": "09:27",
+    "place": "home",
+    "text": "The air is very poor today: the index stands at 353."
+   },
+   {
+    "id": "2026-11-29:event:445b4c15d9a8dcf0:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "ac996cb8508f882868d464b5544703e0877e9f74b805d39ac1a8609c83c7ed0a"
+     "sha256": "445b4c15d9a8dcf0fbd5cc05326f56099e67560283e8ed79a85d6108bb71e46a"
     },
     "type": "cash",
-    "time": "09:27",
+    "time": "09:47",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:a236145d83c223b6:1",
+    "id": "2026-11-29:event:44cc4b2257356a4d:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "a236145d83c223b602a4b6e0fd610e6b7f444274471f6b4a5d184e991d061671"
+     "sha256": "44cc4b2257356a4dd0248f24173f6cf283b760987c4f3fbe1cde8ba1074c084c"
     },
     "type": "location",
-    "time": "09:27",
+    "time": "09:47",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:cf5f66d8b59b94f1:1",
+    "id": "2026-11-29:event:098ee5caf2d66ecc:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "cf5f66d8b59b94f112d134fe01f85d3e2cfdc117fb846e3818dba3628f5cfd86"
+     "sha256": "098ee5caf2d66ecc070b47cde7e5fe9147d2a39bd0182bb40e1a3d46486decef"
     },
     "type": "inventory",
-    "time": "09:27",
+    "time": "09:47",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:772d70305dcb3a43:1",
+    "id": "2026-11-29:event:95e52acf9ec9fa62:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "772d70305dcb3a4311186011864f081bd90886cd4cbd0571031916f575432af8"
+     "sha256": "95e52acf9ec9fa62f0e50770210c10bbb296793b2cdec1c3d3f1a74dfb50e7e9"
     },
     "type": "inventory",
-    "time": "09:27",
+    "time": "09:47",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:35751583f055ad8e:1",
+    "id": "2026-11-29:event:a23563ea982bc289:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "35751583f055ad8e2a925e83d1858cda84531b6bcab51a5989b974ebba0a74fa"
+     "sha256": "a23563ea982bc289f02230f094c976537d2d56a593992ad93a4a30e23d04ab2c"
     },
     "type": "inventory",
-    "time": "09:27",
+    "time": "09:47",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
