@@ -362,6 +362,13 @@
    "mode": "inside",
    "at": "home",
    "now": "Eating at home."
+  },
+  {
+   "from": "14:02",
+   "to": "15:02",
+   "mode": "inside",
+   "at": "home",
+   "now": "Resting at home."
   }
  ],
  "entries": [
@@ -766,6 +773,22 @@
    "to": "Hegel",
    "text": "Ji, aapki kripa. Salt mil gaya, ab bas thanda hone do.",
    "t": "13:32",
+   "place": "home"
+  },
+  {
+   "k": "diary",
+   "text": "The salt is in, and the pot is left to cool. The meal is concluded, and the household rhythm settles back into quiet. I have an hour before I must turn my attention to the Directorate file, so I will use it to rest. The haze outside is still thick, a brown veil that makes the light seem distant and filtered. It is a good time to sit still and let the mind gather itself.",
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Indian Philosophy"
+    }
+   ],
+   "t": "14:02",
    "place": "home"
   }
  ],
@@ -1614,6 +1637,66 @@
      "text": "Official position is not based upon contract (§ 75), although it involves the consent of the two sides and also a double performance. The public servant is not called to a single chance act of service, as is the attorney, but finds in his work the main interest of both his spiritual and his particular existence."
     }
    ]
+  },
+  {
+   "t": "14:02",
+   "end": "15:02",
+   "event": "Ramesh says: “Ji, aapki kripa. Salt mil gaya, ab bas thanda hone do.” He stirs the pot once more with a wooden spoon.",
+   "present": [
+    "Ramesh, the caretaker"
+   ],
+   "decision": {
+    "thought": "The salt is in, and the pot is left to cool. The meal is concluded, and the household rhythm settles back into quiet. I have an hour before I must turn my attention to the Directorate file, so I will use it to rest. The haze outside is still thick, a brown veil that makes the light seem distant and filtered. It is a good time to sit still and let the mind gather itself.",
+    "action": "rest",
+    "place": "home",
+    "minutes": 60,
+    "says": null,
+    "buys": [],
+    "revision": null
+   },
+   "arrived": null,
+   "observations": [
+    "Weather: 22 °C, a brown haze. Air quality index: 342."
+   ],
+   "observed_at": "home",
+   "opened": [
+    "reply"
+   ],
+   "mind": {
+    "source": "mind",
+    "attempts": 1,
+    "latency_s": 5.3,
+    "draws": {
+     "n": 1,
+     "refused": 0,
+     "echo": 0,
+     "picked": 0
+    }
+   },
+   "shelf": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "id": "haldane-1:27"
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Indian Philosophy",
+     "id": "haldane-1:371"
+    }
+   ],
+   "shelf_exposure": [
+    {
+     "work": "History of Philosophy",
+     "ref": "Introduction",
+     "text": "Moreover, in the third place, we must first take a general survey before we descend to particulars, else the whole is not seen for the mere details—the wood is not seen for the trees, nor Philosophy for mere philosophies. We require to have a general idea of the nature and aim of the whole in order to know what to look for."
+    },
+    {
+     "work": "History of Philosophy",
+     "ref": "Indian Philosophy",
+     "text": "These three qualities are represented as the essential being of nature. The Sanc’hya says, “We speak of them as we do of the trees in a wood.” Yet this is a bad simile, for the wood is but an abstract universal, in which the individuals are independent."
+    }
+   ]
   }
  ],
  "funnel": {
@@ -1636,7 +1719,7 @@
  "complete": false,
  "state": {
   "place": "home",
-  "until": "2026-11-29T14:02+05:30",
+  "until": "2026-11-29T15:02+05:30",
   "asleep": false,
   "imprest": 13356,
   "wearing": "kurta",
@@ -2182,7 +2265,7 @@
  "records": {
   "version": 2,
   "date": "2026-11-29",
-  "source_sha256": "b6542c17b4dff25742487023d852544aa4efe2394c4ee38295b8d2dc039bba1f",
+  "source_sha256": "63244ee3a141272c83c5f98e42a1d4009c6062459fda1a95c4c1a44c67711727",
   "complete": false,
   "steps_present": true,
   "records": [
@@ -3158,68 +3241,98 @@
     "text": "Weather: 22 °C, a brown haze. Air quality index: 343."
    },
    {
-    "id": "2026-11-29:event:5589f95c88020235:1",
+    "id": "2026-11-29:event:f4dc43d4d85ebc7b:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps",
+     "index": 13,
+     "sha256": "f4dc43d4d85ebc7b60bce2f1ad9bb9c824af0df58344bd10a75339bbe8c466dc"
+    },
+    "type": "action",
+    "action": "rest",
+    "time": "14:02",
+    "end": "15:02",
+    "place": "home"
+   },
+   {
+    "id": "2026-11-29:event:dda29c834f9b8b4c:1",
+    "kind": "event",
+    "source": {
+     "collection": "steps.observations",
+     "index": [
+      13,
+      0
+     ],
+     "sha256": "dda29c834f9b8b4c52d759c47cd488f6f6913f01eddd5a1151d194af8ea63aa2"
+    },
+    "type": "observation",
+    "time": "14:02",
+    "place": "home",
+    "text": "Weather: 22 °C, a brown haze. Air quality index: 342."
+   },
+   {
+    "id": "2026-11-29:event:4d7da1d01772cb22:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "imprest",
-     "sha256": "5589f95c880202352bc5a9a5c53ce385edb290327e96bd36395120053321fef0"
+     "sha256": "4d7da1d01772cb2258c768fd701785d87c82a9cac2d1a4fb73f1a8e137546eb0"
     },
     "type": "cash",
-    "time": "14:02",
+    "time": "15:02",
     "amount": 13356,
     "at_close": false,
     "place": null
    },
    {
-    "id": "2026-11-29:event:e9add0b20e05421f:1",
+    "id": "2026-11-29:event:5ff2ba09c97bac60:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "place",
-     "sha256": "e9add0b20e05421fb8eb6d7ccace9387a1f927df69601e13f367cea9b90d5602"
+     "sha256": "5ff2ba09c97bac6029a71d4e102b3d3f6bca7aea3a0448a191a2a03c004e8645"
     },
     "type": "location",
-    "time": "14:02",
+    "time": "15:02",
     "place": "home",
     "text": "Recorded location at this horizon only; not a past or planned location."
    },
    {
-    "id": "2026-11-29:event:deef9426d86a0120:1",
+    "id": "2026-11-29:event:6e65f6a866ddcdac:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wearing",
-     "sha256": "deef9426d86a0120e2467f092438feca7c28144ba38397035616efbaf1c41279"
+     "sha256": "6e65f6a866ddcdac16a2b7b35bd211d2c1cfda378b7cd475aa5fe93ded20ca35"
     },
     "type": "inventory",
-    "time": "14:02",
+    "time": "15:02",
     "place": null,
     "text": "Recorded wearing at this horizon only: \"kurta\""
    },
    {
-    "id": "2026-11-29:event:cad8f8a7f918710d:1",
+    "id": "2026-11-29:event:80c5c6de6e0c5766:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "wardrobe",
-     "sha256": "cad8f8a7f918710d9443b7a4be6ee771ba011389fbab7797d9769447a12c597a"
+     "sha256": "80c5c6de6e0c5766c6127cfd371af1fb9307a2307ce12b76e5a4f7c20a7c2b33"
     },
     "type": "inventory",
-    "time": "14:02",
+    "time": "15:02",
     "place": null,
     "text": "Recorded wardrobe at this horizon only: [{\"id\": \"frock\", \"item\": \"Black frock coat, Berlin tailoring\", \"status\": \"Retired until winter.\"}, {\"id\": \"neckcloth\", \"item\": \"White neck-cloth\", \"status\": \"Retired with the frock coat.\"}, {\"id\": \"shirt\", \"item\": \"Shirtsleeves and waistcoat\", \"status\": \"Folded into a paper bag.\"}, {\"id\": \"kurta\", \"item\": \"White cotton kurta\", \"status\": \"Worn from 09:10.\"}, {\"id\": \"bandhgala\", \"item\": \"Bandhgala, charcoal\", \"status\": \"Taken off at 09:10.\"}]"
    },
    {
-    "id": "2026-11-29:event:c43c0628c15c7e09:1",
+    "id": "2026-11-29:event:789691de2a14f45c:1",
     "kind": "event",
     "source": {
      "collection": "state",
      "index": "file",
-     "sha256": "c43c0628c15c7e0957ef0a8d315737a8c9393e93667b9957f36d7665ca90f26c"
+     "sha256": "789691de2a14f45cf8742a0028eabfbe442c75d4c35a006b483d29b15551f996"
     },
     "type": "inventory",
-    "time": "14:02",
+    "time": "15:02",
     "place": null,
     "text": "Recorded file at this horizon only: \"The query stands unanswered: proof of identity as Shri G. Hegde.\""
    }
